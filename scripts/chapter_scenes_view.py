@@ -25,6 +25,7 @@ main{width:100%;max-width:1760px;margin:0}
 @media(max-width:1000px){.app{grid-template-columns:168px 220px minmax(0,1fr)}}
 @media(max-width:650px){.primary,.app>aside{position:static;height:auto}.primary{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 16px}.primary .eyebrow{margin:0 6px 0 0}.primary button{padding:8px 12px}}
 .tile.has-scenes{position:relative;border-bottom:3px solid var(--gold)}
+.tile.selected:not(.draft):not(.approved):not(.has-scenes){border-bottom-color:#b4493c}
 #scenes-panel{padding:22px 24px}
 .writer-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}
 .writer-tabs button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:20px;padding:6px 13px;font-size:11px}
@@ -71,14 +72,13 @@ SCENES_TOP = (
     '<div id="scenes-top" hidden><div class="top"><div><div class="eyebrow">Scripture → Moment → Picture</div>'
     '<h1>Key scenes for every chapter.</h1><p class="intro">Choose the moments worth a picture and compose each one '
     'before any image is made.</p></div><span class="badge">WIDE FRAMES · 16:9</span></div>'
-    '<div class="stats"><div class="stat"><strong>1,189</strong><span>Chapters to illustrate</span></div>'
-    '<div class="stat"><strong id="scenes-chapters">0</strong><span>Chapters with scenes</span></div>'
-    '<div class="stat"><strong id="scenes-haiku">0</strong><span>Written by Claude Haiku</span></div>'
-    '<div class="stat"><strong id="scenes-qwen">0</strong><span>Written by local Qwen</span></div></div></div>')
+    '<div class="stats"><div class="stat"><strong>1,189</strong><span>Chapters</span></div>'
+    '<div class="stat"><strong id="scenes-finished">0</strong><span>Finished</span></div>'
+    '<div class="stat"><strong id="scenes-unfinished">1,189</strong><span>Unfinished</span></div></div></div>')
 
 LEGEND_END = '<span class="saving">Select a chapter to preview below</span></div>'
-SCENES_LEGEND = ('<div class="legend" id="scenes-legend" hidden><span><i></i>No scenes yet</span>'
-                 '<span><i class="gold"></i>Has scenes</span><span class="saving">Select a chapter to see its scenes</span></div>')
+SCENES_LEGEND = ('<div class="legend" id="scenes-legend" hidden><span><i class="gold"></i>Finished</span>'
+                 '<span><i class="red"></i>Unfinished</span><span class="saving">Select a chapter to see its scenes</span></div>')
 
 WORKSPACE_OLD = '<div class="workspace"><section class="card">'
 WORKSPACE_NEW = (
@@ -109,15 +109,15 @@ function sceneCard(s,i,writer){const card=el('article','scene');
  head.append(el('h4',null,'Image prompt · '+s.prompt.trim().split(/\s+/).length+' words'),copy);card.append(head,el('div','prompt-box',s.prompt));return card}
 function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();const data=cache[key()];$('scenes-status').textContent='—';$('scenes-foot').textContent='—';
  if(!data){panel.append(el('p','scenes-empty','Loading scenes…'));return}
- const writers=Object.keys(data).sort();if(!writers.length){$('scenes-status').textContent='No scenes yet';panel.append(el('p','scenes-empty','No scenes yet for this chapter. The pilot covers Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalms 23 and 117, Ezekiel 1, Mark 4, John 11, Romans 8 and Revelation 21; their chapter squares are marked in gold.'));return}
- $('scenes-status').textContent=writers.map(w=>WRITERS[w]||w).join(' · ');
+ const writers=Object.keys(data).sort();if(!writers.length){$('scenes-status').textContent='Unfinished';panel.append(el('p','scenes-empty','No scenes yet for this chapter. The pilot covers Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalms 23 and 117, Ezekiel 1, Mark 4, John 11, Romans 8 and Revelation 21; their chapter squares are underlined in gold.'));return}
+ $('scenes-status').textContent='Finished · '+writers.map(w=>WRITERS[w]||w).join(' · ');
  const tabs=el('div','writer-tabs');const choices=writers.length>1?['both',...writers]:writers;if(!choices.includes(pick))pick=choices[0];
  choices.forEach(w=>{const b=el('button',w===pick?'on':'',w==='both'?'Both, scene by scene':WRITERS[w]+' · '+data[w].scenes.length);b.onclick=()=>{pick=w;try{localStorage.setItem('studio-writer',w)}catch(e){}renderScenes()};tabs.append(b)});panel.append(tabs);
  const shown=pick==='both'?writers:[pick];shown.forEach(w=>{if(data[w].notes?.length)panel.append(el('div','scene-notes',WRITERS[w]+': '+data[w].notes.join('; ')))});
  const most=Math.max(...shown.map(w=>data[w].scenes.length));for(let i=0;i<most;i++)for(const w of shown){const s=data[w].scenes[i];if(s)panel.append(sceneCard(s,i,shown.length>1?w:null))}
  $('scenes-foot').textContent=shown.map(w=>data[w].scenes.length+' from '+(WRITERS[w]||w)).join(' · ')}
 async function loadScenes(){const k=key();if(!cache[k]){try{cache[k]=(await api('/api/scenes?key='+encodeURIComponent(k))).writers}catch(e){cache[k]={}}}if(k===key()&&mode==='scenes')renderScenes()}
-function counts(){const v=Object.values(sceneKeys);$('scenes-chapters').textContent=v.length;$('scenes-haiku').textContent=v.filter(w=>w.includes('haiku')).length;$('scenes-qwen').textContent=v.filter(w=>w.includes('qwen')).length}
+function counts(){const done=Object.keys(sceneKeys).length;$('scenes-finished').textContent=done.toLocaleString();$('scenes-unfinished').textContent=(BOOT.books.reduce((a,b)=>a+b.chapters,0)-done).toLocaleString()}
 function applyMode(){const scenes=mode==='scenes';
  document.querySelectorAll('.primary [data-pipeline]').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  $('summaries-side').hidden=scenes;$('scenes-side').hidden=!scenes;$('scenes-top').hidden=!scenes;

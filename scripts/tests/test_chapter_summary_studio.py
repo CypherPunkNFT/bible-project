@@ -88,7 +88,7 @@ class StudioTests(unittest.TestCase):
             reopened = studio.Store(directory)
             self.assertEqual(reopened.all()["GEN:1"]["summary"], record["summary"])
 
-    def test_pause_finishes_current_chapter_and_export_only_approved(self):
+    def test_pause_finishes_current_chapter_and_export_every_finished_summary(self):
         with tempfile.TemporaryDirectory() as directory:
             app = studio.Studio(directory)
             record = {**studio.EXAMPLE, "code": "GEN", "chapter": 1, "translation": "bsb", "status": "draft"}
@@ -99,12 +99,11 @@ class StudioTests(unittest.TestCase):
                 app.run([("GEN", 1), ("GEN", 2)], "bsb", studio.DEFAULT_MODEL)
             self.assertEqual(call.call_count, 1)
             self.assertEqual(app.job["done"], 1)
-            with self.assertRaises(ValueError):
-                app.store.export()
-            app.save({**record, "status": "approved"})
             app.store.put("GEN:2", {**record, "chapter": 2})
-            result = app.store.export()
-            self.assertEqual(set(json.loads(Path(result["path"]).read_text())["chapters"]), {"GEN:1"})
+            result = app.store.export()  # no review step: every saved summary is finished (owner, 2026-11-07)
+            self.assertEqual(set(json.loads(Path(result["path"]).read_text())["chapters"]), {"GEN:1", "GEN:2"})
+            with self.assertRaises(ValueError):
+                studio.Store(Path(directory) / "empty").export()
             app.save(record)
             self.assertIsNone(app.store.all()["GEN:1"]["reviewed_at"])
 
