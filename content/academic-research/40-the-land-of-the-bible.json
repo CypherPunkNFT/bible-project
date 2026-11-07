@@ -7,7 +7,7 @@
   "categoryTitle": "Ancient cultures & daily life",
   "updated": "2026-11-06",
   "status": "draft",
-  "draftNote": "Written as a research draft. None of the outside sources below has yet been read for this file. Each is marked 'located' and must be read before the page is built. Every figure for height, distance and rainfall carries a [check] mark until it is confirmed against a named source. No verse of Scripture is quoted word for word here, because no Berean text was supplied with the job. Verses are given by reference, and their Berean phrases are left for the data build to fill from the site's held text.",
+  "draftNote": "Written as a research draft. None of the outside sources below has yet been read for this file. Each is marked 'located' and must be read before the page is built. {{check:c1}}Every figure for height, distance and rainfall carries a{{/check}} mark until it is confirmed against a named source. No verse of Scripture is quoted word for word here, because no Berean text was supplied with the job. Verses are given by reference, and their Berean phrases are left for the data build to fill from the site's held text.",
   "premise": "The Bible's stories happen on a small strip of land, about as wide as a long day's walk, laid out in bands that run north and south: a coast, low hills, a high ridge, a deep rift, and a plateau beyond it. Knowing those bands explains words the Bible uses without stopping to explain them. It explains why travellers 'go up' to Jerusalem, why the Philistine wars are fought in the low hills, and why the rain matters so much.",
   "question": "What did this ground let people do, and what did it stop them doing? And how sure can we be of where a thing happened?",
   "outcomes": [
@@ -25,7 +25,7 @@
       "Moab, Ammon and Edom as peoples, and the roads east of the Jordan in detail: The peoples around Israel (35). Its roads section is cited here, not moved.",
       "Where Ai stood, and the dates of the conquest: Israel from the exodus to Solomon (38). Both placements of Ai are named here and left with it.",
       "Where Sodom stood, and the patriarchs' journeys as history: The patriarchs in their world (39). Both placements of Sodom are named here and left with it.",
-      "The Siloam inscription read closely, and the dating of Hezekiah's tunnel: cited in a sentence from the study that holds it [check: whether Archaeology and the Bible (06) or Cities through their layers (08) holds the Siloam inscription].",
+      "The Siloam inscription read closely, and the dating of Hezekiah's tunnel: {{check:c2}}cited in a sentence from Archaeology and the Bible (06){{/check}}.",
       "Khirbet Qeiyafa above the Valley of Elah: Israel from the exodus to Solomon (38).",
       "Old maps of the Holy Land as objects: the Old maps collection.",
       "What the land means in God's covenant promises: the theology study The covenants (God's binding promises). This page reports what the text says of the land and does not teach the doctrine."
@@ -53,7 +53,7 @@
         "elevation": 50,
         "band": "coast",
         "note": "Flat, well watered in winter, and the line of the long coastal road. Philistine country in the south of it; the Sharon further north.",
-        "elevationCheck": "[check: plain heights, Aharoni or Beitzel]"
+        "elevationCheck": "{{check:c3}}{{/check}}"
       },
       {
         "id": "shephelah",
@@ -62,7 +62,7 @@
         "elevation": 350,
         "band": "shephelah",
         "note": "Rolling chalk hills cut by broad valleys running east and west. The ground between the Philistines and Judah.",
-        "elevationCheck": "[check: typical Shephelah heights]"
+        "elevationCheck": "{{check:c4}}{{/check}}"
       },
       {
         "id": "ridge",
@@ -71,8 +71,8 @@
         "elevation": 770,
         "band": "hills",
         "note": "The central ridge of the hill country, about 750 to 800 metres high at Jerusalem. The ridge road runs north and south along it.",
-        "elevationCheck": "[check: Jerusalem's height, about 750 to 800 m]",
-        "distanceCheck": "[check: straight-line distance from the coast to Jerusalem, about 55 to 60 km]"
+        "elevationCheck": "{{check:c5}}{{/check}}",
+        "distanceCheck": "{{check:c6}}{{/check}}"
       },
       {
         "id": "wilderness",
@@ -81,7 +81,7 @@
         "elevation": 300,
         "band": "hills",
         "note": "The eastern slope, in the ridge's rain shadow. Bare hills and deep gorges, good for hiding and grazing, poor for fields.",
-        "elevationCheck": "[check: a mid-slope height]"
+        "elevationCheck": "{{check:c7}}{{/check}}"
       },
       {
         "id": "jericho",
@@ -90,7 +90,7 @@
         "elevation": -250,
         "band": "rift",
         "note": "An oasis fed by a strong spring, about 250 metres below sea level. From Jerusalem it is a fall of about a kilometre in about 25 kilometres.",
-        "elevationCheck": "[check: Jericho's height]",
+        "elevationCheck": "{{check:c8}}{{/check}}",
         "verses": [
           "Luke 10:30"
         ]
@@ -99,10 +99,10 @@
         "id": "deadsea",
         "name": "The Jordan and the Dead Sea",
         "km": 90,
-        "elevation": -430,
+        "elevation": -438,
         "band": "rift",
         "note": "The lowest ground on the land surface of the earth. The Dead Sea's surface has been falling for decades, so any one figure dates quickly.",
-        "elevationCheck": "[check: current Dead Sea surface level, about −430 m and falling, with its date]"
+        "elevationCheck": "{{check:c9}}{{/check}}"
       },
       {
         "id": "plateau",
@@ -111,7 +111,7 @@
         "elevation": 800,
         "band": "east",
         "note": "A sharp climb out of the rift onto high tableland: grazing and grain country, with the King's Highway running north and south across it.",
-        "elevationCheck": "[check: Nebo's height, about 700 to 800 m]",
+        "elevationCheck": "{{check:c10}}{{/check}}",
         "verses": [
           "Deuteronomy 34:1"
         ]
@@ -126,7 +126,7 @@
       "name": "The coastal plain",
       "band": "coast",
       "where": "From the Plain of Acco in the north, past Mount Carmel, through the Sharon, down to the Philistine plain and on toward Gaza.",
-      "evidence": "The plain is low and mostly flat, widening toward the south. Its northern part, the Sharon, was marshy and wooded in places before modern drainage [check: Sharon's ancient vegetation, Aharoni or Baly]. Scripture places the five Philistine cities in its southern part, and names Joppa as the port where Hiram's timber came ashore for Jerusalem and where Jonah took ship.",
+      "evidence": "The plain is low and mostly flat, widening toward the south. {{check:c11}}Its northern part, the Sharon, was marshy and wooded in places before modern drainage{{/check}}. Scripture places the five Philistine cities in its southern part, and names Joppa as the port where Hiram's timber came ashore for Jerusalem and where Jonah took ship.",
       "inference": "Flat ground suits chariots and a long road, and both are on this plain. That made it the land's open corridor, and the people who held it, the Philistines in the south, held the way between Egypt and the north.",
       "limit": "The coastline has moved since biblical times: rivers have silted, and dunes have shifted. Ancient harbours cannot simply be read off a modern map.",
       "verses": [
@@ -144,7 +144,7 @@
       "id": "shephelah",
       "name": "The Shephelah",
       "band": "shephelah",
-      "where": "A belt of low hills between the coastal plain and the hill country of Judah, about 15 kilometres wide [check: width], cut by valleys that run up from the plain toward the ridge: from north to south, the valleys of Aijalon, Sorek, Elah and those leading up toward Lachish and Hebron [check: the valley list and order in Rainey and Notley].",
+      "where": "A belt of low hills between the coastal plain and the hill country of Judah, {{check:c12}}about 10 to 15 kilometres wide{{/check}}, cut by valleys that run up from the plain toward the ridge: {{check:c13}}from north to south, the valleys of Aijalon, Sorek and Elah, and further south the valleys by Mareshah and Lachish, which lead up toward Hebron{{/check}}.",
       "evidence": "The Hebrew word means roughly 'lowland', and translations render it 'lowland', 'foothills' or keep the Hebrew name. The towns Scripture sets here include Lachish, Azekah, Socoh, Beth-shemesh, Timnah and Zorah. Samson's story moves through the Sorek valley; David meets Goliath in the Elah valley, between Socoh and Azekah; Joshua's pursuit runs down the Beth-horon road and past Aijalon.",
       "inference": "Each valley is a road up into Judah's hills. Whoever held the Shephelah held the doors to Judah. That is why so many of the Philistine wars, and later Sennacherib's siege of Lachish, are fought here rather than in the hills or on the plain.",
       "limit": "Which modern ruin is which biblical town is settled for some (Lachish at Tel Lachish is widely accepted) and argued for others. Each identification carries its own evidence and should not be assumed.",
@@ -168,7 +168,7 @@
       "name": "The hill country",
       "band": "hills",
       "where": "The central highland, from the hills of Ephraim and Samaria in the north, through Benjamin, to the hills of Judah running south past Hebron.",
-      "evidence": "A limestone ridge, highest near Hebron at over 900 metres [check: Hebron's height] and broken by the Jezreel valley in the north. Its western slope catches the winter rain; its eastern slope falls into dry wilderness. Most of the towns at the heart of Israel's story stand here: Shechem, Shiloh, Bethel, Gibeah, Jerusalem, Bethlehem and Hebron. Survey archaeology has found many small new villages in these hills at the start of the Iron Age, about 1200 BC [check: survey results as summarised by a named source].",
+      "evidence": "A limestone ridge, {{check:c14}}highest near Hebron at about 1,000 metres{{/check}} and broken by the Jezreel valley in the north. Its western slope catches the winter rain; its eastern slope falls into dry wilderness. Most of the towns at the heart of Israel's story stand here: Shechem, Shiloh, Bethel, Gibeah, Jerusalem, Bethlehem and Hebron. {{check:c15}}Survey archaeology has found many small new villages in these hills at the start of the Iron Age, about 1200 BC{{/check}}.",
       "inference": "Rough hills are hard ground for chariots and easy ground to defend. A people with little iron and no chariots could hold them. The Aramean officers in Kings drew the same conclusion from their defeats, calling Israel's God a god of the hills. The text records their claim and then shows it to be wrong.",
       "limit": "Who lived in the new highland villages, and how they relate to Israel's settlement, belongs to Israel from the exodus to Solomon (38). This page reports only that the hills were settled and why they suited it.",
       "verses": [
@@ -189,7 +189,7 @@
       "name": "The Jordan rift",
       "band": "rift",
       "where": "The deep trough from the springs below Mount Hermon, through the Hula basin and the Sea of Galilee, down the Jordan valley to the Dead Sea, and on as the Arabah to the Gulf of Aqaba.",
-      "evidence": "The rift is part of a long fault line where two plates of the earth's crust slide past each other [check: geologists' term, the Dead Sea Transform]. The Sea of Galilee lies about 210 metres below sea level, and the Dead Sea's surface lies at about 430 metres below sea level [check both]. The Jordan winds between them. Jericho sits beside a strong spring near the river's lower end. Earthquakes are recorded in the region, and Amos dates his words from one.",
+      "evidence": "{{check:c16}}The rift is part of a long fault line, which geologists call the Dead Sea Transform, where two plates of the earth's crust slide past each other{{/check}}. {{check:c17}}The Sea of Galilee lies about 210 metres below sea level, and the Dead Sea's surface lies at about 435 to 440 metres below sea level and is still falling{{/check}}. The Jordan winds between them. Jericho sits beside a strong spring near the river's lower end. Earthquakes are recorded in the region, and Amos dates his words from one.",
       "inference": "The rift is both a border and a crossing. The Jordan is easy to name as a line on a map and hard to cross in flood season, as Joshua's crossing in the season of harvest presupposes. Its fords became places to hold or to seize, as in the stories of Ehud and of Jephthah.",
       "limit": "The modern river carries far less water than it did before twentieth-century dams and pumping, so its present look is a poor guide to its ancient one.",
       "verses": [
@@ -229,7 +229,7 @@
       "name": "The Negev",
       "band": "south",
       "where": "The dry south below the hills of Judah, around Beersheba and on toward Kadesh-barnea.",
-      "evidence": "The Hebrew word can mean 'dry land' and, because this land lay to Judah's south, it also became a word for 'south'. Translations vary between the two. Rainfall drops quickly south of Hebron, to about 200 millimetres a year near Beersheba [check: Beersheba's average]. Scripture fills the Negev with wells: Abraham's and Isaac's quarrels over wells at Beersheba and Gerar, and the spies who went up through it toward Hebron.",
+      "evidence": "The Hebrew word can mean 'dry land' and, because this land lay to Judah's south, it also became a word for 'south'. Translations vary between the two. Rainfall drops quickly south of Hebron, {{check:c18}}to about 200 millimetres a year near Beersheba{{/check}}. Scripture fills the Negev with wells: Abraham's and Isaac's quarrels over wells at Beersheba and Gerar, and the spies who went up through it toward Hebron.",
       "inference": "In a land this dry, a well is a claim to the land around it. The disputes over wells in Genesis are disputes over who may live there.",
       "limit": "Some passages could mean 'the south' generally or the Negev as a region, and translations choose. A reader cannot always tell which from English alone.",
       "verses": [
@@ -250,9 +250,9 @@
       "name": "Galilee",
       "band": "north",
       "where": "The hills north of the Jezreel valley, divided into a higher, wetter Upper Galilee and a lower, more open Lower Galilee, falling east to the Sea of Galilee.",
-      "evidence": "Galilee is the wettest part of the land west of the Jordan, with Upper Galilee receiving perhaps 800 millimetres a year or more [check: Upper Galilee averages]. Isaiah names it 'of the nations' beside the way of the sea, and Matthew cites that passage when Jesus moves to Capernaum. Nazareth stands in the hills above the Jezreel valley; the lakeside towns of the Gospels lived by fishing and by the roads that passed them.",
+      "evidence": "Galilee is the wettest part of the land west of the Jordan, {{check:c19}}with Upper Galilee receiving perhaps 800 millimetres a year or more{{/check}}. Isaiah names it 'of the nations' beside the way of the sea, and Matthew cites that passage when Jesus moves to Capernaum. Nazareth stands in the hills above the Jezreel valley; the lakeside towns of the Gospels lived by fishing and by the roads that passed them.",
       "inference": "A fertile region crossed by roads, with Gentile towns around it, fits both Isaiah's name for it and the mixed crowds of the Gospels.",
-      "limit": "Josephus praises Galilee's fertility in his Jewish War [check: book and section], but he was its commander and had reasons to praise it. His figures for its villages are not taken at face value here.",
+      "limit": "{{check:c20}}Josephus praises Galilee's fertility in his Jewish War, book 3, sections 41 to 43{{/check}}, but he was its commander and had reasons to praise it. His figures for its villages are not taken at face value here.",
       "verses": [
         "Isaiah 9:1",
         "Matthew 4:13",
@@ -291,9 +291,9 @@
       {
         "id": "coastal",
         "name": "The coastal road",
-        "evidence": "A route from Egypt along the coast, through Gaza and the Philistine plain, inland around the marshes of the Sharon, through the pass at Megiddo into the Jezreel valley, and on north toward Damascus and beyond [check: route as reconstructed by Dorsey and by Rainey and Notley]. Exodus says God did not lead Israel out of Egypt by the road through the Philistines' land, though it was nearer, because they might turn back at the sight of war.",
-        "inference": "The quickest road was also the most guarded. Egypt held forts along its first stretch in the Late Bronze Age [check: the forts of northern Sinai, a named source], which fits the war that Exodus says was avoided.",
-        "limit": "The road is often called the Via Maris, 'the way of the sea'. The Latin name comes from the Latin translation of Isaiah's phrase, long after the Old Testament period [check: Rainey's argument that the name is a misnomer for the coastal highway]. Whether Isaiah meant this road or one by the Sea of Galilee is argued.",
+        "evidence": "{{check:c21}}A route from Egypt along the coast, through Gaza and the Philistine plain, inland around the marshes of the Sharon, through the pass at Megiddo into the Jezreel valley, and on north toward Damascus and beyond{{/check}}. Exodus says God did not lead Israel out of Egypt by the road through the Philistines' land, though it was nearer, because they might turn back at the sight of war.",
+        "inference": "The quickest road was also the most guarded. {{check:c22}}Egypt held forts along its first stretch in the Late Bronze Age{{/check}}, which fits the war that Exodus says was avoided.",
+        "limit": "The road is often called the Via Maris, 'the way of the sea'. {{check:c23}}The Latin name comes from the Latin translation of Isaiah's phrase, long after the Old Testament period{{/check}}. Whether Isaiah meant this road or one by the Sea of Galilee is argued.",
         "verses": [
           "Exodus 13:17",
           "Isaiah 9:1"
@@ -378,14 +378,14 @@
       }
     ],
     "gradient": {
-      "evidence": "Average yearly rainfall falls from north to south and from west to east. Rough figures: Upper Galilee about 800 millimetres or more; Jerusalem about 550; Beersheba about 200; Jericho about 150; the Dead Sea shore under 100 [check: each figure against the Israel Meteorological Service or a named atlas, with the years averaged]. About 200 millimetres a year is often given as the rough limit for growing grain without watering it [check: the threshold and its source].",
+      "evidence": "Average yearly rainfall falls from north to south and from west to east. {{check:c24}}Rough figures: Upper Galilee about 800 millimetres or more; Jerusalem about 550; Beersheba about 200; Jericho about 150; the Dead Sea shore under 100{{/check}}. {{check:c25}}About 200 millimetres a year is often given as the rough limit for growing grain without watering it{{/check}}.",
       "inference": "Where the 200-millimetre line falls, the land of fields gives way to the land of flocks. A few dry years push that line north, and the Negev and the wilderness grow.",
       "limit": "Averages hide the swings, and the swings are what Scripture records. A year at half the average is a famine, whatever the long-run figure."
     },
     "winds": {
       "evidence": "Rain comes on west winds from the sea. When the drought in Elijah's day ends, his servant sees a small cloud rising from the sea. Jesus tells the crowds that they know a cloud in the west means a shower, and a south wind means heat. Hot dry east winds off the desert wither growth, as Hosea and Ezekiel describe.",
       "inference": "People who lived by the rain read the sky, and the Bible's pictures of wind and cloud come from the weather of this coast.",
-      "limit": "The ancient climate was broadly like today's, but scholars debate wetter and drier phases within it [check: a named source on Iron Age climate]. This page does not tie any story to a proposed phase."
+      "limit": "{{check:c26}}The ancient climate was broadly like today's, but scholars debate wetter and drier phases within it{{/check}}. This page does not tie any story to a proposed phase."
     },
     "dew": {
       "evidence": "In the rainless summer, dew wets the hills in the night, especially near the coast. Isaac's blessing asks for the dew of heaven; Hosea uses dew as a picture of the LORD's care; Gideon tests God with a fleece and dew.",
@@ -433,9 +433,9 @@
       "Deuteronomy 11:12"
     ],
     "evidence": "Deuteronomy tells Israel that the land they are entering is not like Egypt, where seed was sown and watered by foot like a vegetable garden. It is a land of hills and valleys that drinks rain from the sky, a land the LORD cares for, his eyes on it all the year round.",
-    "background": "Egypt's crops grew on the Nile's yearly flood and on water lifted from the river and its canals. Egypt hardly needed rain. Canaan had no such river: its fields lived on what fell from the sky [check: a named source on Egyptian irrigation, such as a standard Egyptology handbook].",
+    "background": "{{check:c27}}Egypt's crops grew on the Nile's yearly flood and on water lifted from the river and its canals. Egypt hardly needed rain. Canaan had no such river: its fields lived on what fell from the sky{{/check}}.",
     "inference": "The contrast is about dependence. In Egypt the farmer moved the water. In Canaan he waited for it. The same chapter goes straight on to make the rain depend on Israel's faithfulness, so that the weather becomes a matter of covenant, of God's binding promises.",
-    "limit": "Watering 'by foot' is read by some as treading a water-wheel and by others as opening and closing small channels with the foot [check: views as given in commentaries on Deuteronomy]. The text does not say which. What the land means in God's promises is linked to the theology study The covenants (God's binding promises), not taught here."
+    "limit": "{{check:c28}}Watering 'by foot' is read by some as treading a water-wheel and by others as opening and closing small channels with the foot{{/check}}. The text does not say which. What the land means in God's promises is linked to the theology study The covenants (God's binding promises), not taught here."
   },
   "water": {
     "lead": "A town could stand only where it could drink. In this land that meant a spring, a well, or a cistern cut into rock to hold winter rain.",
@@ -457,7 +457,7 @@
         "name": "Wells",
         "evidence": "In the Negev and the lowlands, water had to be dug for. Genesis names wells dug, stopped up and dug again at Beersheba and Gerar. At Sychar, John tells of Jacob's well, and a woman who says it is deep.",
         "inference": "Names given to wells in Genesis record the quarrels that went with them, as in the Bible's own explanations of the names.",
-        "limit": "Which modern well, if any, is an ancient one is rarely provable. Jacob's well near Nablus rests on long tradition [check: earliest witness to the site].",
+        "limit": "Which modern well, if any, is an ancient one is rarely provable. {{check:c29}}Jacob's well near Nablus rests on long tradition{{/check}}.",
         "verses": [
           "Genesis 21:30",
           "Genesis 26:20",
@@ -469,9 +469,9 @@
       {
         "id": "cisterns",
         "name": "Cisterns",
-        "evidence": "A cistern is a pit cut into rock to catch winter rain from roofs and slopes. Archaeologists find them throughout the hill country, many lined with lime plaster to stop leaks [check: a named source on Iron Age plastered cisterns]. Joseph is thrown into an empty pit; Jeremiah is let down into a cistern with mud in it; Jeremiah also pictures the people digging broken cisterns that hold no water, in place of the spring of living water.",
+        "evidence": "A cistern is a pit cut into rock to catch winter rain from roofs and slopes. {{check:c30}}Archaeologists find them throughout the hill country, many lined with lime plaster to stop leaks{{/check}}. Joseph is thrown into an empty pit; Jeremiah is let down into a cistern with mud in it; Jeremiah also pictures the people digging broken cisterns that hold no water, in place of the spring of living water.",
         "inference": "Cisterns let villages live away from springs, and they helped open the hill country to settlement. A cracked cistern is a picture every listener in the hills would understand.",
-        "limit": "The cistern as part of a house belongs to Home and household in Old Testament Israel (27). When plaster lining became common is argued [check: views and holders].",
+        "limit": "The cistern as part of a house belongs to Home and household in Old Testament Israel (27). {{check:c31}}When plaster lining became common is argued{{/check}}.",
         "verses": [
           "Genesis 37:24",
           "Jeremiah 38:6",
@@ -484,7 +484,7 @@
         "name": "Hezekiah's tunnel",
         "evidence": "Kings and Chronicles say Hezekiah made a pool and a channel and brought water into the city, stopping the upper outlet of the Gihon and leading it down to the west side of the City of David. A winding tunnel cut through the rock from the Gihon to the Pool of Siloam was explored by Edward Robinson in 1838. An inscription found in it in 1880 tells how two teams of cutters met from opposite ends.",
         "inference": "A city on a ridge, with its one spring outside its walls, is open to siege. The tunnel brought the spring inside, which fits the Chronicler's account of preparations against Assyria.",
-        "limit": "Cited here, not read closely. The inscription, its length in cubits, and the debate over the tunnel's date, including a radiometric study that supported a date around 700 BC, belong to the study that holds them [check: which study, and the details of Frumkin, Shimron and Rosenbaum, Nature, 2003, and of Rogerson and Davies, 1996, before naming them on the page].",
+        "limit": "Cited here, not read closely. The inscription, its length in cubits, and the debate over the tunnel's date, including a radiometric study that supported a date around 700 BC, {{check:c32}}belong to Archaeology and the Bible (06){{/check}}.",
         "verses": [
           "2 Kings 20:20",
           "2 Chronicles 32:30",
@@ -504,8 +504,8 @@
         "id": "elah",
         "name": "The Valley of Elah",
         "evidence": "First Samuel sets the Philistines on a hill between Socoh and Azekah, Saul's army on a hill opposite, and the valley between them. David goes down to face Goliath, who is from Gath.",
-        "inference": "The Elah valley is one of the Shephelah's roads from Philistine country into the hills of Judah, toward Bethlehem [check: route in Dorsey]. Two armies facing each other across it are each guarding a door: the Philistines trying to climb, Israel trying to stop them.",
-        "limit": "The valley is generally identified with the Wadi es-Sant [check], and Socoh and Azekah with nearby ruins. Khirbet Qeiyafa, above the valley, belongs to Israel from the exodus to Solomon (38).",
+        "inference": "{{check:c33}}The Elah valley is one of the Shephelah's roads from Philistine country into the hills of Judah, toward Bethlehem{{/check}}. Two armies facing each other across it are each guarding a door: the Philistines trying to climb, Israel trying to stop them.",
+        "limit": "{{check:c34}}The valley is generally identified with the Wadi es-Sant{{/check}}, and Socoh and Azekah with nearby ruins. Khirbet Qeiyafa, above the valley, belongs to Israel from the exodus to Solomon (38).",
         "verses": [
           "1 Samuel 17:1",
           "1 Samuel 17:2",
@@ -532,7 +532,7 @@
         "name": "The Kishon and the chariots",
         "evidence": "Judges says Judah could not drive out the people of the plains because they had iron chariots. Sisera brings nine hundred chariots into the Jezreel valley. Deborah's song says the earth trembled, the heavens poured, and the Kishon swept the enemy away.",
         "inference": "Chariots need dry, level ground. A winter storm that turns the valley floor to mud and floods the Kishon takes away their advantage. The song's picture fits that ground.",
-        "limit": "The prose and the song do not give the season, and this reading of the weather is an inference many commentators draw, not something the text states [check: commentators who hold it].",
+        "limit": "The prose and the song do not give the season, and {{check:c35}}this reading of the weather is an inference many commentators draw, not something the text states{{/check}}.",
         "verses": [
           "Judges 1:19",
           "Judges 4:3",
@@ -597,7 +597,7 @@
         "name": "The sea and its neighbours",
         "evidence": "Hiram of Tyre floats cedar and cypress by sea for Solomon's building. Solomon builds ships at Ezion-geber on the Red Sea, with Hiram's sailors. Ezekiel lists Judah and Israel among Tyre's trading partners, selling wheat, honey, oil and balm.",
         "inference": "Israel's coast had few good harbours, and the sea trade of the region was mostly the Phoenicians'. Israel sold its farm produce and bought what it lacked.",
-        "limit": "The Phoenicians as a people are cited from The peoples around Israel (35). Where Ezion-geber stood is argued [check: proposed sites and holders].",
+        "limit": "The Phoenicians as a people are cited from The peoples around Israel (35). {{check:c36}}Where Ezion-geber stood is argued{{/check}}.",
         "verses": [
           "1 Kings 5:9",
           "1 Kings 9:26",
@@ -610,7 +610,7 @@
         "id": "produce",
         "name": "What the land offered",
         "evidence": "Deuteronomy describes a land of streams and springs, of wheat and barley, vines, figs and pomegranates, olive oil and honey, with iron in its stones and copper in its hills.",
-        "inference": "The list is farm produce and ore, and it matches what the hills and valleys can bear. Copper is mined in the Arabah [check: Timna and Faynan, with a named source], within reach of the land's south.",
+        "inference": "The list is farm produce and ore, and it matches what the hills and valleys can bear. {{check:c37}}Copper was mined in the Arabah in ancient times, at Timna and Faynan{{/check}}, within reach of the land's south.",
         "limit": "How each crop was grown belongs to The farming year (29).",
         "verses": [
           "Deuteronomy 8:7",
@@ -628,9 +628,9 @@
         "id": "goingup",
         "name": "Going up to Jerusalem",
         "evidence": "Scripture says people go up to Jerusalem and go down from it, whatever direction they come from. Joseph goes up from Galilee, which lies to the north, to Bethlehem in Judea. Jesus and his disciples go up to Jerusalem from Jericho; the man in the parable goes down from Jerusalem to Jericho. Psalms 120 to 134 are each headed a Song of Ascents.",
-        "background": "In Jewish practice, the Torah calls every man to appear before the LORD three times a year, at the feasts of Pesach (Passover), Shavuot (Weeks) and Sukkot (Booths), at the place God chooses. Going to Jerusalem for these feasts is called in Hebrew going up, and the word for a pilgrimage, aliyah la-regel, keeps it [check: the term as used in Jewish sources]. In modern Hebrew, moving to the land of Israel is still called aliyah, 'going up'.",
+        "background": "In Jewish practice, the Torah calls every man to appear before the LORD three times a year, at the feasts of Pesach (Passover), Shavuot (Weeks) and Sukkot (Booths), at the place God chooses. {{check:c38}}Going to Jerusalem for these feasts is called in Hebrew going up, and the word for a pilgrimage, aliyah la-regel, keeps it{{/check}}. In modern Hebrew, moving to the land of Israel is still called aliyah, 'going up'.",
         "inference": "The words are first about height. Jerusalem stands on the ridge, about a kilometre above Jericho, and every road to it climbs. The heading 'Song of Ascents' is widely taken to point to pilgrims singing on the way up, though other explanations are given.",
-        "limit": "Whether 'ascents' means the pilgrims' climb, the steps of the temple, or something else is argued, and the heading itself does not say [check: the main views and who holds them, from a named commentary on the Psalms].",
+        "limit": "{{check:c39}}Whether 'ascents' means the pilgrims' climb, the steps of the temple, or something else is argued, and the heading itself does not say{{/check}}.",
         "verses": [
           "Luke 2:4",
           "Luke 2:42",
@@ -644,7 +644,7 @@
       {
         "id": "rain-and-gods",
         "name": "Rain and the storm god",
-        "evidence": "In Kings, Ahab's Israel worships Baal, and Elijah announces that there will be no rain except at his word. The contest on Mount Carmel ends with rain after years of drought. Texts from Ugarit on the Syrian coast show Baal as a storm god who brings rain [check: the Baal texts as reported in The Bible and the ancient Near East (32)].",
+        "evidence": "In Kings, Ahab's Israel worships Baal, and Elijah announces that there will be no rain except at his word. The contest on Mount Carmel ends with rain after years of drought. {{check:c40}}Texts from Ugarit on the Syrian coast show Baal as a storm god who brings rain{{/check}}.",
         "inference": "In a land that lived on rain, a god of the storm was a god of food. The story's drought strikes at Baal's own claim, and the rain comes from the LORD.",
         "limit": "The Ugaritic texts are cited from The Bible and the ancient Near East (32), which reads them. What Israel's neighbours believed is reported, not adopted.",
         "verses": [
@@ -658,7 +658,7 @@
       {
         "id": "prayer-for-rain",
         "name": "Praying for rain in Jewish practice",
-        "evidence": "The Mishnah, the Jewish teaching set down around AD 200, opens its tractate Taanit with the question of when to begin mentioning God's power of rain in prayer, and when to begin asking for it. It answers that the mention begins at the end of Sukkot and the request some days later, after pilgrims have had time to get home. The tractate goes on to fasts called when the rain fails [check: Mishnah Taanit 1:1–3 and its days, in a named translation].",
+        "evidence": "The Mishnah, the Jewish teaching set down around AD 200, opens its tractate Taanit with the question of when to begin mentioning God's power of rain in prayer, and when to begin asking for it. {{check:c41}}It answers that the mention begins at the end of Sukkot and the request about two weeks later, after pilgrims have had time to get home. The tractate goes on to fasts called when the rain fails{{/check}}.",
         "inference": "Jewish prayer kept the rhythm of the land's seasons: it asks for rain only when the land needs it, and waits for travellers to reach home before doing so.",
         "limit": "This is how Jewish teachers ordered prayer after the Bible's time. It is described in its own terms, and it is not offered as a reading of any biblical verse.",
         "verses": [],
@@ -705,7 +705,7 @@
         "placements": [
           {
             "site": "et-Tell",
-            "held": "The traditional identification, widely held since the nineteenth and early twentieth centuries [check: who first proposed it]."
+            "held": "{{check:c42}}The traditional identification, widely held since the nineteenth and early twentieth centuries{{/check}}."
           },
           {
             "site": "Khirbet el-Maqatir",
@@ -727,11 +727,11 @@
         "placements": [
           {
             "site": "A site at the south-east end of the Dead Sea, such as Bab edh-Dhra",
-            "held": "Argued by Bryant Wood among others [check: Wood's publication and year]."
+            "held": "{{check:c43}}Argued by Bryant Wood among others{{/check}}."
           },
           {
             "site": "Tall el-Hammam, north-east of the Dead Sea",
-            "held": "Argued by Steven Collins, who excavated there [check: Collins and Scott, Discovering the City of Sodom, 2013]."
+            "held": "{{check:c44}}Argued by Steven Collins, who excavated there{{/check}}."
           }
         ],
         "limit": "The northern view leans on 'the plain of the Jordan'; the southern on the Valley of Siddim and the Salt Sea. Both belong to The patriarchs in their world (39). This page does not choose.",
@@ -820,7 +820,7 @@
       "head": "The name is Latin, and later.",
       "evidence": "Isaiah speaks of 'the way of the sea' beside the land beyond the Jordan and Galilee of the nations. The Latin name Via Maris comes from that phrase in the Latin Bible.",
       "inference": "Modern writers borrowed Isaiah's phrase as a name for the great coastal highway. Isaiah's own road may be that highway, or a road by the Sea of Galilee.",
-      "limit": "Who argues which reading, and how strongly, has to be read in Rainey and Notley and in Dorsey before the page names them [check].",
+      "limit": "{{check:c45}}Who argues which reading, and how strongly, has to be read in Rainey and Notley and in Dorsey before the page names them{{/check}}.",
       "verses": [
         "Isaiah 9:1",
         "Matthew 4:15"
@@ -911,7 +911,7 @@
     },
     {
       "word": "Canaan, Israel, Judea and Palestine",
-      "note": "Names used in different ages and by different peoples. Canaan is the Bible's name for the land before Israel; Israel and Judah are the kingdoms; Judea is the later name for Judah's land, used in the New Testament. Palestine is a name used by Greek writers and later by the Romans for a province [check: Herodotus and Syria Palaestina, with sources]. This page uses each where its source uses it."
+      "note": "Names used in different ages and by different peoples. Canaan is the Bible's name for the land before Israel; Israel and Judah are the kingdoms; Judea is the later name for Judah's land, used in the New Testament. {{check:c46}}Palestine is a name used by Greek writers from Herodotus in the fifth century BC, and later by the Romans for their province of Syria Palaestina, named after AD 135{{/check}}. This page uses each where its source uses it."
     },
     {
       "word": "Way and road",
@@ -973,7 +973,7 @@
     {
       "id": "smith",
       "title": "George Adam Smith, The Historical Geography of the Holy Land (1894)",
-      "url": "[check: archive.org record]",
+      "url": "",
       "kind": "Book, 1894 · public domain",
       "status": "located",
       "answers": "How did the land's shape steer its history?",
@@ -982,7 +982,7 @@
     {
       "id": "aharoni",
       "title": "Yohanan Aharoni, The Land of the Bible: A Historical Geography, translated by Anson F. Rainey (1967; revised 1979)",
-      "url": "[check: publisher record]",
+      "url": "",
       "kind": "Book · under copyright",
       "status": "located",
       "answers": "What are the regions and routes, and how are sites identified?",
@@ -991,7 +991,7 @@
     {
       "id": "rainey-notley",
       "title": "Anson F. Rainey and R. Steven Notley, The Sacred Bridge: Carta's Atlas of the Biblical World (2006)",
-      "url": "[check: publisher record]",
+      "url": "",
       "kind": "Atlas · under copyright",
       "status": "located",
       "answers": "How do the roads and sites fit together, period by period?",
@@ -1000,7 +1000,7 @@
     {
       "id": "baly",
       "title": "Denis Baly, The Geography of the Bible (1957; revised 1974)",
-      "url": "[check: publisher record]",
+      "url": "",
       "kind": "Book · under copyright",
       "status": "located",
       "answers": "What are the land's climate and regions?",
@@ -1009,7 +1009,7 @@
     {
       "id": "dorsey",
       "title": "David A. Dorsey, The Roads and Highways of Ancient Israel (1991)",
-      "url": "[check: publisher record]",
+      "url": "",
       "kind": "Book · under copyright",
       "status": "located",
       "answers": "Where did the roads run, and how do we know?",
@@ -1018,7 +1018,7 @@
     {
       "id": "beitzel",
       "title": "Barry J. Beitzel, The Moody Atlas of the Bible (2009)",
-      "url": "[check: publisher record]",
+      "url": "",
       "kind": "Atlas · under copyright",
       "status": "located",
       "answers": "An evangelical atlas's account of the land and its regions.",
@@ -1027,7 +1027,7 @@
     {
       "id": "orni-efrat",
       "title": "Efraim Orni and Elisha Efrat, Geography of Israel",
-      "url": "[check: edition and year]",
+      "url": "",
       "kind": "Book · under copyright",
       "status": "located",
       "answers": "What do modern geographers say of the land's structure and climate?",
@@ -1036,7 +1036,7 @@
     {
       "id": "robinson",
       "title": "Edward Robinson and Eli Smith, Biblical Researches in Palestine (1841)",
-      "url": "[check: archive.org record]",
+      "url": "",
       "kind": "Book, 1841 · public domain",
       "status": "located",
       "answers": "What did the first modern survey find, including the tunnel?",
@@ -1045,7 +1045,7 @@
     {
       "id": "ims",
       "title": "Israel Meteorological Service, long-term rainfall averages",
-      "url": "[check: data page and terms of use]",
+      "url": "",
       "kind": "Data · terms to check",
       "status": "located",
       "answers": "How much rain falls where, averaged over which years?",
@@ -1054,7 +1054,7 @@
     {
       "id": "mishnah-taanit",
       "title": "The Mishnah, tractate Taanit, chapter 1",
-      "url": "[check: a translation whose licence allows quotation]",
+      "url": "",
       "kind": "Jewish teaching, about AD 200",
       "status": "located",
       "answers": "How did Jewish prayer follow the rainy season?",
@@ -1062,8 +1062,8 @@
     },
     {
       "id": "josephus",
-      "title": "Josephus, The Jewish War, on Galilee [check: book and section]",
-      "url": "[check: public-domain translation]",
+      "title": "{{check:c57}}Josephus, The Jewish War, book 3, sections 35 to 44, on Galilee{{/check}}",
+      "url": "",
       "kind": "History, first century AD",
       "status": "located",
       "answers": "How did a first-century writer describe Galilee?",
@@ -1071,8 +1071,8 @@
     },
     {
       "id": "collins",
-      "title": "Steven Collins and Latayne C. Scott, Discovering the City of Sodom (2013) [check]",
-      "url": "[check]",
+      "title": "{{check:c59}}Steven Collins and Latayne C. Scott, Discovering the City of Sodom (2013){{/check}}",
+      "url": "",
       "kind": "Book · under copyright",
       "status": "second-hand",
       "answers": "The case for Tall el-Hammam.",
@@ -1441,7 +1441,7 @@
   ],
   "versesNote": "Phrases are left null on purpose. No Berean text was supplied to this job, so the data build fills each phrase from the site's held Berean and fails if a verse is missing. Verses named in the sections above but not listed here are to be added by the build from the sections' own verse lists.",
   "openQuestions": [
-    "Every [check] on heights, distances and rainfall: confirm against Aharoni, Baly, Beitzel or the Israel Meteorological Service, with the years averaged.",
+    "{{check:c61}}Every check mark{{/check}} on heights, distances and rainfall: confirm against Aharoni, Baly, Beitzel or the Israel Meteorological Service, with the years averaged.",
     "Which study holds the Siloam inscription, and the details of the tunnel-dating studies (Frumkin, Shimron and Rosenbaum, 2003; Rogerson and Davies, 1996) before naming them.",
     "Bryant Wood's publication on a southern Sodom, and Collins and Scott (2013), checked against The patriarchs in their world (39).",
     "Who first identified Ai with et-Tell, checked against Israel from the exodus to Solomon (38).",
@@ -1456,5 +1456,624 @@
     "The names Palestine and Syria Palaestina: sources and dates.",
     "The Jewish term for pilgrimage, aliyah la-regel, as used in Jewish sources.",
     "Every source must be read and its 'read' note rewritten before the page is built."
+  ],
+  "checkNotes": [
+    {
+      "id": "c1",
+      "path": ".draftNote",
+      "was": "[check]",
+      "status": "confirmed",
+      "before": "Every figure for height, distance and rainfall carries a",
+      "after": "Every figure for height, distance and rainfall carries a",
+      "note": "This mark stands for the checking process the draft note describes. Nothing in it needs changing. Once the marks below are settled, the build can take this sentence out.",
+      "marker": true
+    },
+    {
+      "id": "c2",
+      "path": ".boundaries.out[5]",
+      "was": "[check: whether Archaeology and the Bible (06) or Cities through their layers (08) holds the Siloam inscription]",
+      "status": "link",
+      "before": "cited in a sentence from the study that holds it",
+      "after": "cited in a sentence from Archaeology and the Bible (06)",
+      "note": "The shelf list says Cities through their layers (08) stays as the linked close study of Archaeology and the Bible (06). The page's own links already send readers to 06 for the inscriptions it cites. So 06 is the study to name. If the close reading turns out to sit only in 08, it is still reached through 06.",
+      "marker": true
+    },
+    {
+      "id": "c3",
+      "path": ".transect.points[1].elevationCheck",
+      "was": "[check: plain heights, Aharoni or Beitzel]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "The coastal plain inland from Jaffa rises gently to about 30 to 60 m, as the Lod area shows. Aharoni and Beitzel both describe the plain as low and mostly under 100 m. A rounded 50 m fits.",
+      "marker": true
+    },
+    {
+      "id": "c4",
+      "path": ".transect.points[2].elevationCheck",
+      "was": "[check: typical Shephelah heights]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "Standard atlases (Aharoni, Beitzel) give the Shephelah's hills as mostly about 150 to 400 m. A rounded 350 m sits at the high end but within that range.",
+      "marker": true
+    },
+    {
+      "id": "c5",
+      "path": ".transect.points[3].elevationCheck",
+      "was": "[check: Jerusalem's height, about 750 to 800 m]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "Jerusalem's old city stands about 740 to 780 m above sea level: the Temple Mount is about 740 m and the western hill about 770 m. Standard works agree, so 770 m is fine.",
+      "marker": true
+    },
+    {
+      "id": "c6",
+      "path": ".transect.points[3].distanceCheck",
+      "was": "[check: straight-line distance from the coast to Jerusalem, about 55 to 60 km]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "Jaffa to Jerusalem is about 55 to 60 km in a straight line, by standard maps. The 55 km point is fine.",
+      "marker": true
+    },
+    {
+      "id": "c7",
+      "path": ".transect.points[4].elevationCheck",
+      "was": "[check: a mid-slope height]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "About 10 km east of Jerusalem, the Jericho road runs at roughly 300 to 450 m. Sea level comes about 15 to 18 km out. A rounded 300 m is a fair mid-slope figure.",
+      "marker": true
+    },
+    {
+      "id": "c8",
+      "path": ".transect.points[5].elevationCheck",
+      "was": "[check: Jericho's height]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "Standard works give Jericho (Tell es-Sultan and the modern town) as about 230 to 260 m below sea level. A rounded 250 m is right.",
+      "marker": true
+    },
+    {
+      "id": "c9",
+      "path": ".transect.points[6].elevationCheck",
+      "was": "[check: current Dead Sea surface level, about −430 m and falling, with its date]",
+      "status": "corrected",
+      "before": "",
+      "after": "",
+      "note": "Survey readings put the Dead Sea's surface at about 437 to 438 m below sea level in 2023 to 2024, and it falls about a metre a year. So −430 is already out of date. Use −438, and print 'about 438 m below sea level (2024), and falling' beside it.",
+      "marker": true,
+      "fieldEdits": [
+        {
+          "path": ".transect.points[6].elevation",
+          "from": -430,
+          "to": -438
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "path": ".transect.points[7].elevationCheck",
+      "was": "[check: Nebo's height, about 700 to 800 m]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "Mount Nebo's Siyagha summit is about 710 m. The nearby summit of al-Mukhayyat and the plateau around it reach about 790 to 800 m. Since this point is 'the plateau near Mount Nebo', 800 m is fine, and the page can say 'about 700 to 800 m'.",
+      "marker": true
+    },
+    {
+      "id": "c11",
+      "path": ".regions[0].evidence",
+      "was": "[check: Sharon's ancient vegetation, Aharoni or Baly]",
+      "status": "confirmed",
+      "before": "Its northern part, the Sharon, was marshy and wooded in places before modern drainage",
+      "after": "Its northern part, the Sharon, was marshy and wooded in places before modern drainage",
+      "note": "Aharoni and Baly both describe the ancient Sharon this way: oak woodland on its sandy soils, and swamps behind the coastal sandstone ridges that blocked the streams. The swamps were drained only in modern times.",
+      "marker": true
+    },
+    {
+      "id": "c12",
+      "path": ".regions[1].where",
+      "was": "[check: width]",
+      "status": "corrected",
+      "before": "about 15 kilometres wide",
+      "after": "about 10 to 15 kilometres wide",
+      "note": "Standard atlases (Aharoni, Beitzel) give the Shephelah as roughly 10 to 15 km wide, and its width varies from north to south. A short range is safer than one figure.",
+      "marker": true
+    },
+    {
+      "id": "c13",
+      "path": ".regions[1].where",
+      "was": "[check: the valley list and order in Rainey and Notley]",
+      "status": "corrected",
+      "before": "from north to south, the valleys of Aijalon, Sorek, Elah and those leading up toward Lachish and Hebron",
+      "after": "from north to south, the valleys of Aijalon, Sorek and Elah, and further south the valleys by Mareshah and Lachish, which lead up toward Hebron",
+      "note": "Rainey and Notley's Sacred Bridge, like Aharoni, lists the Shephelah's main east–west valleys from north to south as Aijalon, Sorek, Elah, the Guvrin valley by Mareshah, and the Lachish valley. The wording now names them in that order.",
+      "marker": true
+    },
+    {
+      "id": "c14",
+      "path": ".regions[2].evidence",
+      "was": "[check: Hebron's height]",
+      "status": "corrected",
+      "before": "highest near Hebron at over 900 metres",
+      "after": "highest near Hebron at about 1,000 metres",
+      "note": "The town of Hebron itself stands at about 930 m. But the ridge's highest point, near Halhul just north of Hebron, is about 1,020 m, as standard atlases give it. The sentence is about the ridge's highest point.",
+      "marker": true
+    },
+    {
+      "id": "c15",
+      "path": ".regions[2].evidence",
+      "was": "[check: survey results as summarised by a named source]",
+      "status": "confirmed",
+      "before": "Survey archaeology has found many small new villages in these hills at the start of the Iron Age, about 1200 BC",
+      "after": "Survey archaeology has found many small new villages in these hills at the start of the Iron Age, about 1200 BC",
+      "note": "This is the standard summary of the hill-country surveys, given for example in Israel Finkelstein's The Archaeology of the Israelite Settlement (1988) and in Adam Zertal's Manasseh survey. They counted roughly 250 to 300 small Iron Age I sites. Name the source when the page is built.",
+      "marker": true
+    },
+    {
+      "id": "c16",
+      "path": ".regions[3].evidence",
+      "was": "[check: geologists' term, the Dead Sea Transform]",
+      "status": "corrected",
+      "before": "The rift is part of a long fault line where two plates of the earth's crust slide past each other",
+      "after": "The rift is part of a long fault line, which geologists call the Dead Sea Transform, where two plates of the earth's crust slide past each other",
+      "note": "'Dead Sea Transform' is the standard geological term. It names the fault along which the Arabian plate slides north past the African (Sinai) plate. The description was right, so only the name is added.",
+      "marker": true
+    },
+    {
+      "id": "c17",
+      "path": ".regions[3].evidence",
+      "was": "[check both]",
+      "status": "corrected",
+      "before": "The Sea of Galilee lies about 210 metres below sea level, and the Dead Sea's surface lies at about 430 metres below sea level",
+      "after": "The Sea of Galilee lies about 210 metres below sea level, and the Dead Sea's surface lies at about 435 to 440 metres below sea level and is still falling",
+      "note": "The Sea of Galilee moves between about 208 and 214 m below sea level, so 'about 210' stands. The Dead Sea was about 437 to 438 m below sea level in 2023 to 2024 and falls about a metre a year, so 430 is out of date.",
+      "marker": true
+    },
+    {
+      "id": "c18",
+      "path": ".regions[5].evidence",
+      "was": "[check: Beersheba's average]",
+      "status": "confirmed",
+      "before": "to about 200 millimetres a year near Beersheba",
+      "after": "to about 200 millimetres a year near Beersheba",
+      "note": "The Israel Meteorological Service's long-term averages put Beersheba at about 200 mm a year, and Baly gives the same rough figure.",
+      "marker": true
+    },
+    {
+      "id": "c19",
+      "path": ".regions[6].evidence",
+      "was": "[check: Upper Galilee averages]",
+      "status": "confirmed",
+      "before": "with Upper Galilee receiving perhaps 800 millimetres a year or more",
+      "after": "with Upper Galilee receiving perhaps 800 millimetres a year or more",
+      "note": "Israel Meteorological Service averages give about 700 mm at Safed and 900 to over 1,000 mm on Mount Meron. 'Perhaps 800 or more' is a fair rounded figure.",
+      "marker": true
+    },
+    {
+      "id": "c20",
+      "path": ".regions[6].limit",
+      "was": "[check: book and section]",
+      "status": "corrected",
+      "before": "Josephus praises Galilee's fertility in his Jewish War",
+      "after": "Josephus praises Galilee's fertility in his Jewish War, book 3, sections 41 to 43",
+      "note": "Josephus describes Galilee in Jewish War 3.35–44 (standard Niese section numbers). His praise of its fertility and his claim of crowded towns and villages come at 3.41–43.",
+      "marker": true
+    },
+    {
+      "id": "c21",
+      "path": ".roads.items[0].evidence",
+      "was": "[check: route as reconstructed by Dorsey and by Rainey and Notley]",
+      "status": "confirmed",
+      "before": "A route from Egypt along the coast, through Gaza and the Philistine plain, inland around the marshes of the Sharon, through the pass at Megiddo into the Jezreel valley, and on north toward Damascus and beyond",
+      "after": "A route from Egypt along the coast, through Gaza and the Philistine plain, inland around the marshes of the Sharon, through the pass at Megiddo into the Jezreel valley, and on north toward Damascus and beyond",
+      "note": "This matches the coastal highway as Dorsey and Rainey and Notley reconstruct it: north Sinai to Gaza, past Aphek along the eastern edge of the Sharon, through the Wadi Ara pass to Megiddo, then across the Jezreel valley and on by Hazor to Damascus.",
+      "marker": true
+    },
+    {
+      "id": "c22",
+      "path": ".roads.items[0].inference",
+      "was": "[check: the forts of northern Sinai, a named source]",
+      "status": "confirmed",
+      "before": "Egypt held forts along its first stretch in the Late Bronze Age",
+      "after": "Egypt held forts along its first stretch in the Late Bronze Age",
+      "note": "Egypt's New Kingdom forts on the 'Ways of Horus' across north Sinai are shown on Seti I's Karnak relief. They were found by Eliezer Oren's survey and by James Hoffmeier's digs at Tell el-Borg, reported in his Ancient Israel in Sinai (2005).",
+      "marker": true
+    },
+    {
+      "id": "c23",
+      "path": ".roads.items[0].limit",
+      "was": "[check: Rainey's argument that the name is a misnomer for the coastal highway]",
+      "status": "confirmed",
+      "before": "The Latin name comes from the Latin translation of Isaiah's phrase, long after the Old Testament period",
+      "after": "The Latin name comes from the Latin translation of Isaiah's phrase, long after the Old Testament period",
+      "note": "The name comes from Jerome's Latin Vulgate (about AD 400), which renders Isaiah's phrase 'viam maris'. Rainey, in The Sacred Bridge and elsewhere, argued that using it for the coastal highway is a modern misnomer, and he preferred 'the International Coastal Highway'. The sentence is accurate as written.",
+      "marker": true
+    },
+    {
+      "id": "c24",
+      "path": ".climate.gradient.evidence",
+      "was": "[check: each figure against the Israel Meteorological Service or a named atlas, with the years averaged]",
+      "status": "confirmed",
+      "before": "Rough figures: Upper Galilee about 800 millimetres or more; Jerusalem about 550; Beersheba about 200; Jericho about 150; the Dead Sea shore under 100",
+      "after": "Rough figures: Upper Galilee about 800 millimetres or more; Jerusalem about 550; Beersheba about 200; Jericho about 150; the Dead Sea shore under 100",
+      "note": "These rounded figures agree with Baly, Orni and Efrat, and the Israel Meteorological Service's published long-term averages. The Dead Sea shore runs about 50 to 90 mm. Before publishing, cite the Service's current standard averages and print the years they cover beside the figures.",
+      "marker": true
+    },
+    {
+      "id": "c25",
+      "path": ".climate.gradient.evidence",
+      "was": "[check: the threshold and its source]",
+      "status": "confirmed",
+      "before": "About 200 millimetres a year is often given as the rough limit for growing grain without watering it",
+      "after": "About 200 millimetres a year is often given as the rough limit for growing grain without watering it",
+      "note": "Baly and Orni and Efrat both give the 200 mm rainfall line as the usual rough limit of grain farming without irrigation. Some writers put it nearer 250 mm, which 'often given' and 'rough' already allow for.",
+      "marker": true
+    },
+    {
+      "id": "c26",
+      "path": ".climate.winds.limit",
+      "was": "[check: a named source on Iron Age climate]",
+      "status": "confirmed",
+      "before": "The ancient climate was broadly like today's, but scholars debate wetter and drier phases within it",
+      "after": "The ancient climate was broadly like today's, but scholars debate wetter and drier phases within it",
+      "note": "This is the consensus. One named source is the pollen study by Dafna Langgut, Israel Finkelstein and Thomas Litt (Tel Aviv journal, 2013), which proposes a dry phase at the end of the Late Bronze Age. Arie Issar and Mattanyah Zohar's Climate Change: Environment and History of the Near East is another.",
+      "marker": true
+    },
+    {
+      "id": "c27",
+      "path": ".egyptAndCanaan.background",
+      "was": "[check: a named source on Egyptian irrigation, such as a standard Egyptology handbook]",
+      "status": "confirmed",
+      "before": "Egypt's crops grew on the Nile's yearly flood and on water lifted from the river and its canals. Egypt hardly needed rain. Canaan had no such river: its fields lived on what fell from the sky",
+      "after": "Egypt's crops grew on the Nile's yearly flood and on water lifted from the river and its canals. Egypt hardly needed rain. Canaan had no such river: its fields lived on what fell from the sky",
+      "note": "Karl Butzer's Early Hydraulic Civilization in Egypt (1976) is a standard account. Egyptian farming rested on flooding the fields each year, with water lifted by the shaduf (a bucket on a weighted pole) for gardens. The wording is accurate.",
+      "marker": true
+    },
+    {
+      "id": "c28",
+      "path": ".egyptAndCanaan.limit",
+      "was": "[check: views as given in commentaries on Deuteronomy]",
+      "status": "confirmed",
+      "before": "Watering 'by foot' is read by some as treading a water-wheel and by others as opening and closing small channels with the foot",
+      "after": "Watering 'by foot' is read by some as treading a water-wheel and by others as opening and closing small channels with the foot",
+      "note": "Major commentaries on Deuteronomy, such as Craigie (NICOT) and Tigay (JPS), set out both readings. Some note that the water-wheel may be later than the text, which is why the channel reading is often preferred. Name the commentators when the page is built.",
+      "marker": true
+    },
+    {
+      "id": "c29",
+      "path": ".water.items[1].limit",
+      "was": "[check: earliest witness to the site]",
+      "status": "confirmed",
+      "before": "Jacob's well near Nablus rests on long tradition",
+      "after": "Jacob's well near Nablus rests on long tradition",
+      "note": "The earliest outside witnesses are fourth-century: Eusebius' Onomasticon and the Bordeaux Pilgrim (AD 333). The site is widely accepted, but it rests on tradition as the sentence says.",
+      "marker": true
+    },
+    {
+      "id": "c30",
+      "path": ".water.items[2].evidence",
+      "was": "[check: a named source on Iron Age plastered cisterns]",
+      "status": "confirmed",
+      "before": "Archaeologists find them throughout the hill country, many lined with lime plaster to stop leaks",
+      "after": "Archaeologists find them throughout the hill country, many lined with lime plaster to stop leaks",
+      "note": "Plastered rock-cut cisterns are a standard Iron Age find in the hill country, described for example in King and Stager's Life in Biblical Israel (2001). Name that source on the page.",
+      "marker": true
+    },
+    {
+      "id": "c31",
+      "path": ".water.items[2].limit",
+      "was": "[check: views and holders]",
+      "status": "confirmed",
+      "before": "When plaster lining became common is argued",
+      "after": "When plaster lining became common is argued",
+      "note": "W. F. Albright argued that waterproof lime plaster spread around 1200 BC and opened the hills to settlement. Later archaeologists, Finkelstein among them, pointed to earlier plastered cisterns and to unplastered cisterns cut in watertight rock. So 'argued' is accurate.",
+      "marker": true
+    },
+    {
+      "id": "c32",
+      "path": ".water.items[3].limit",
+      "was": "[check: which study, and the details of Frumkin, Shimron and Rosenbaum, Nature, 2003, and of Rogerson and Davies, 1996, before naming them on the page]",
+      "status": "link",
+      "before": "belong to the study that holds them",
+      "after": "belong to Archaeology and the Bible (06)",
+      "note": "As with the Siloam inscription, 06 is the study to name (Cities through their layers (08) is its close study). Both works are real: Frumkin, Shimron and Rosenbaum, 'Radiometric dating of the Siloam Tunnel, Jerusalem', Nature 425 (2003); and Rogerson and Davies, 'Was the Siloam Tunnel built by Hezekiah?', Biblical Archaeologist 59 (1996), which argued for a later, Hasmonean date. Robinson's 1838 exploration and the 1880 find of the inscription are both correct.",
+      "marker": true
+    },
+    {
+      "id": "c33",
+      "path": ".battles.items[0].inference",
+      "was": "[check: route in Dorsey]",
+      "status": "confirmed",
+      "before": "The Elah valley is one of the Shephelah's roads from Philistine country into the hills of Judah, toward Bethlehem",
+      "after": "The Elah valley is one of the Shephelah's roads from Philistine country into the hills of Judah, toward Bethlehem",
+      "note": "Dorsey's Roads and Highways of Ancient Israel traces a route from the Gath area up the Elah valley to the ridge near Bethlehem. Aharoni draws the same route.",
+      "marker": true
+    },
+    {
+      "id": "c34",
+      "path": ".battles.items[0].limit",
+      "was": "[check]",
+      "status": "confirmed",
+      "before": "The valley is generally identified with the Wadi es-Sant",
+      "after": "The valley is generally identified with the Wadi es-Sant",
+      "note": "Standard atlases (Aharoni, Rainey and Notley) identify the Valley of Elah with the Wadi es-Sant, with Socoh at Khirbet Abbad and Azekah at Tel Azekah.",
+      "marker": true
+    },
+    {
+      "id": "c35",
+      "path": ".battles.items[2].limit",
+      "was": "[check: commentators who hold it]",
+      "status": "confirmed",
+      "before": "this reading of the weather is an inference many commentators draw, not something the text states",
+      "after": "this reading of the weather is an inference many commentators draw, not something the text states",
+      "note": "The storm-and-mud reading of the Kishon battle appears widely in commentaries on Judges and in the historical atlases (for example Aharoni, and Rainey and Notley). Name specific commentators only after reading them.",
+      "marker": true
+    },
+    {
+      "id": "c36",
+      "path": ".trade.items[1].limit",
+      "was": "[check: proposed sites and holders]",
+      "status": "confirmed",
+      "before": "Where Ezion-geber stood is argued",
+      "after": "Where Ezion-geber stood is argued",
+      "note": "Nelson Glueck identified it with Tell el-Kheleifeh near Aqaba. Others, including Alexander Flinder and Beno Rothenberg, proposed Jezirat Faraun (Coral Island) for the harbour. Both views remain in the literature.",
+      "marker": true
+    },
+    {
+      "id": "c37",
+      "path": ".trade.items[2].inference",
+      "was": "[check: Timna and Faynan, with a named source]",
+      "status": "corrected",
+      "before": "Copper is mined in the Arabah",
+      "after": "Copper was mined in the Arabah in ancient times, at Timna and Faynan",
+      "note": "Ancient copper mining at Timna (Israel) and Faynan (Jordan) is well documented. Erez Ben-Yosef and Thomas Levy dated major work at both to the Iron Age, including the tenth century BC. The verb is changed because mining is not current.",
+      "marker": true
+    },
+    {
+      "id": "c38",
+      "path": ".faith.items[0].background",
+      "was": "[check: the term as used in Jewish sources]",
+      "status": "confirmed",
+      "before": "Going to Jerusalem for these feasts is called in Hebrew going up, and the word for a pilgrimage, aliyah la-regel, keeps it",
+      "after": "Going to Jerusalem for these feasts is called in Hebrew going up, and the word for a pilgrimage, aliyah la-regel, keeps it",
+      "note": "Aliyah la-regel (also written aliyah le-regel), 'going up for the festival', is the standard Hebrew term for pilgrimage to Jerusalem at the three feasts. Rabbinic texts use the verb 'alah' (to go up) for it. The wording is accurate.",
+      "marker": true
+    },
+    {
+      "id": "c39",
+      "path": ".faith.items[0].limit",
+      "was": "[check: the main views and who holds them, from a named commentary on the Psalms]",
+      "status": "confirmed",
+      "before": "Whether 'ascents' means the pilgrims' climb, the steps of the temple, or something else is argued, and the heading itself does not say",
+      "after": "Whether 'ascents' means the pilgrims' climb, the steps of the temple, or something else is argued, and the heading itself does not say",
+      "note": "Commentaries such as Leslie Allen (Word Biblical Commentary, Psalms 101–150) and Derek Kidner (Tyndale) list the main views. They are pilgrims going up, the fifteen temple steps of later Jewish tradition, the return from exile, and the psalms' step-like repetition. The sentence is fair as written.",
+      "marker": true
+    },
+    {
+      "id": "c40",
+      "path": ".faith.items[1].evidence",
+      "was": "[check: the Baal texts as reported in The Bible and the ancient Near East (32)]",
+      "status": "confirmed",
+      "before": "Texts from Ugarit on the Syrian coast show Baal as a storm god who brings rain",
+      "after": "Texts from Ugarit on the Syrian coast show Baal as a storm god who brings rain",
+      "note": "The Baal cycle from Ugarit presents Baal as the storm god, 'rider of the clouds', who gives rain. The Bible and the ancient Near East (32) covers Ugarit, Baal and Asherah, so the citation fits.",
+      "marker": true
+    },
+    {
+      "id": "c41",
+      "path": ".faith.items[2].evidence",
+      "was": "[check: Mishnah Taanit 1:1–3 and its days, in a named translation]",
+      "status": "corrected",
+      "before": "It answers that the mention begins at the end of Sukkot and the request some days later, after pilgrims have had time to get home. The tractate goes on to fasts called when the rain fails",
+      "after": "It answers that the mention begins at the end of Sukkot and the request about two weeks later, after pilgrims have had time to get home. The tractate goes on to fasts called when the rain fails",
+      "note": "In Mishnah Taanit 1:1–3, the mention of rain begins on the last day of the feast. The request begins on the 3rd of Marheshvan (Rabbi Meir) or the 7th (Rabban Gamaliel), fifteen days after the feast, so that the last pilgrim can reach the Euphrates. Danby's 1933 translation gives this. Joshua Kulp's translation on Sefaria is a candidate for an openly licensed version.",
+      "marker": true
+    },
+    {
+      "id": "c42",
+      "path": ".disputedSites.items[0].placements[0].held",
+      "was": "[check: who first proposed it]",
+      "status": "confirmed",
+      "before": "The traditional identification, widely held since the nineteenth and early twentieth centuries",
+      "after": "The traditional identification, widely held since the nineteenth and early twentieth centuries",
+      "note": "The wording names no proposer and is accurate. The identification goes back to nineteenth-century explorers, and W. F. Albright championed it in 1924. Judith Marquet-Krause (1933–35) and Joseph Callaway (1964–72) dug there. If the page is to name who first proposed it, check that against study 38.",
+      "marker": true
+    },
+    {
+      "id": "c43",
+      "path": ".disputedSites.items[1].placements[0].held",
+      "was": "[check: Wood's publication and year]",
+      "status": "confirmed",
+      "before": "Argued by Bryant Wood among others",
+      "after": "Argued by Bryant Wood among others",
+      "note": "Wood set out the southern view in 'The Discovery of the Sin Cities of Sodom and Gomorrah', Bible and Spade 12.3 (1999). It identifies Bab edh-Dhra with Sodom and Numeira with Gomorrah. Check this against The patriarchs in their world (39) before naming it on the page.",
+      "marker": true
+    },
+    {
+      "id": "c44",
+      "path": ".disputedSites.items[1].placements[1].held",
+      "was": "[check: Collins and Scott, Discovering the City of Sodom, 2013]",
+      "status": "confirmed",
+      "before": "Argued by Steven Collins, who excavated there",
+      "after": "Argued by Steven Collins, who excavated there",
+      "note": "Steven Collins directed the Tall el-Hammam excavation from 2005. He argued the case in Discovering the City of Sodom, written with Latayne C. Scott (Howard Books, 2013).",
+      "marker": true
+    },
+    {
+      "id": "c45",
+      "path": ".claims[2].limit",
+      "was": "[check]",
+      "status": "open",
+      "before": "Who argues which reading, and how strongly, has to be read in Rainey and Notley and in Dorsey before the page names them",
+      "after": "Who argues which reading, and how strongly, has to be read in Rainey and Notley and in Dorsey before the page names them",
+      "note": "Rainey is known to call 'Via Maris' a misnomer for the coastal highway. But who holds that Isaiah's 'way of the sea' is the coastal road, and who holds it is a road by the Sea of Galilee, can only be settled by reading The Sacred Bridge and Dorsey's Roads and Highways.",
+      "marker": true
+    },
+    {
+      "id": "c46",
+      "path": ".confusedWords[6].note",
+      "was": "[check: Herodotus and Syria Palaestina, with sources]",
+      "status": "corrected",
+      "before": "Palestine is a name used by Greek writers and later by the Romans for a province",
+      "after": "Palestine is a name used by Greek writers from Herodotus in the fifth century BC, and later by the Romans for their province of Syria Palaestina, named after AD 135",
+      "note": "Herodotus (Histories, fifth century BC) is the earliest Greek writer to use 'Palaistine' for the coastal region and land behind it. After the Bar Kokhba revolt, Hadrian's administration renamed the province of Judea 'Syria Palaestina', around AD 135. Standard histories agree.",
+      "marker": true
+    },
+    {
+      "id": "c47",
+      "path": ".sources[0].url",
+      "was": "[check: archive.org record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Smith's Historical Geography (1894) is public domain and has many scans on archive.org. The exact record address (preferably the 1894 first edition or a named later edition) has to be looked up and pasted in.",
+      "marker": false
+    },
+    {
+      "id": "c48",
+      "path": ".sources[1].url",
+      "was": "[check: publisher record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The revised English edition of Aharoni (1979) was published by Westminster Press (now Westminster John Knox). The publisher's catalogue page address has to be looked up. If it is out of print, use a library catalogue record.",
+      "marker": false
+    },
+    {
+      "id": "c49",
+      "path": ".sources[2].url",
+      "was": "[check: publisher record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The Sacred Bridge (2006) is published by Carta, Jerusalem. The exact product page address on Carta's site has to be looked up.",
+      "marker": false
+    },
+    {
+      "id": "c50",
+      "path": ".sources[3].url",
+      "was": "[check: publisher record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Baly's revised edition (1974) was published by Harper & Row and is out of print. A library or archive.org record address is needed instead of a publisher page.",
+      "marker": false
+    },
+    {
+      "id": "c51",
+      "path": ".sources[4].url",
+      "was": "[check: publisher record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Dorsey's Roads and Highways of Ancient Israel (1991) is published by Johns Hopkins University Press. The exact catalogue page address has to be looked up.",
+      "marker": false
+    },
+    {
+      "id": "c52",
+      "path": ".sources[5].url",
+      "was": "[check: publisher record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Beitzel's 2009 atlas is published by Moody Publishers. Its title in that edition is The New Moody Atlas of the Bible, so the source title should be checked too. The publisher's page address has to be looked up.",
+      "marker": false
+    },
+    {
+      "id": "c53",
+      "path": ".sources[6].url",
+      "was": "[check: edition and year]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Orni and Efrat's Geography of Israel went through several English editions (Israel Program for Scientific Translations and Israel Universities Press, 1964 onward, with a fourth revised edition around 1980). Someone needs to choose the edition actually read and add its year to the title. A catalogue record address is also needed for the url.",
+      "marker": false
+    },
+    {
+      "id": "c54",
+      "path": ".sources[7].url",
+      "was": "[check: archive.org record]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Robinson and Smith's Biblical Researches in Palestine (1841, three volumes) is public domain and on archive.org. The exact record address, ideally the volume describing Jerusalem and the tunnel, has to be looked up.",
+      "marker": false
+    },
+    {
+      "id": "c55",
+      "path": ".sources[8].url",
+      "was": "[check: data page and terms of use]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The Israel Meteorological Service publishes long-term rainfall averages on its website (ims.gov.il). The exact data page and its terms of use have to be checked before any address or figure is used.",
+      "marker": false
+    },
+    {
+      "id": "c56",
+      "path": ".sources[9].url",
+      "was": "[check: a translation whose licence allows quotation]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Danby's 1933 translation is standard, but its copyright status is uncertain. A likely openly licensed choice is Joshua Kulp's English Mishnah on Sefaria (Mishnah Taanit 1). Its licence needs confirming on Sefaria's version page before the address is entered.",
+      "marker": false
+    },
+    {
+      "id": "c57",
+      "path": ".sources[10].title",
+      "was": "[check: book and section]",
+      "status": "corrected",
+      "before": "Josephus, The Jewish War, on Galilee",
+      "after": "Josephus, The Jewish War, book 3, sections 35 to 44, on Galilee",
+      "note": "Josephus' description of Galilee is in Jewish War 3.35–44, by the standard Niese section numbers.",
+      "marker": true
+    },
+    {
+      "id": "c58",
+      "path": ".sources[10].url",
+      "was": "[check: public-domain translation]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Not settled automatically: it has words to put in but no claim to replace. The checker's answer was: William Whiston's 1737 translation, The Wars of the Jews, is public domain and on Project Gutenberg as ebook 2850. Confirm the ebook number when building. Whiston's wording is old-fashioned, so any quotation must be put into modern English. (proposed words: 'https://www.gutenberg.org/ebooks/2850')",
+      "marker": false
+    },
+    {
+      "id": "c59",
+      "path": ".sources[11].title",
+      "was": "[check]",
+      "status": "confirmed",
+      "before": "Steven Collins and Latayne C. Scott, Discovering the City of Sodom (2013)",
+      "after": "Steven Collins and Latayne C. Scott, Discovering the City of Sodom (2013)",
+      "note": "The authors, title and year are correct. The book was published by Howard Books (Simon & Schuster) in 2013.",
+      "marker": true
+    },
+    {
+      "id": "c60",
+      "path": ".sources[11].url",
+      "was": "[check]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The book is published by Howard Books, an imprint of Simon & Schuster. The publisher's product page address has to be looked up.",
+      "marker": false
+    },
+    {
+      "id": "c61",
+      "path": ".openQuestions[0]",
+      "was": "[check]",
+      "status": "corrected",
+      "before": "Every",
+      "after": "Every check mark",
+      "note": "This open question refers to the check marks themselves. Once the mark is removed, the sentence would read 'Every on heights', so it needs the noun. Most heights and rainfall figures are now settled above. What remains is citing the named source and the years averaged.",
+      "marker": true
+    }
   ]
 }

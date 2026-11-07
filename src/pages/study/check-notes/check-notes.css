@@ -1,0 +1,38 @@
+/* Check-note highlights: defaults only. A page may set --chk-settled / --chk-open on its root to match its own look. */
+.chk-mark {
+  display: inline; padding: 0 .12em; margin: 0; border: 0; border-bottom: 1.5px solid var(--chk-settled, var(--accent));
+  border-radius: 2px; background: color-mix(in srgb, var(--chk-settled, var(--accent)) 16%, transparent);
+  color: inherit; font: inherit; line-height: inherit; text-align: inherit; cursor: pointer; outline: none;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.chk-mark:focus, .chk-mark:focus-visible { outline: none; box-shadow: none; }
+.chk-mark:hover, .chk-mark.chk-on { background: color-mix(in srgb, var(--chk-settled, var(--accent)) 30%, transparent); }
+.chk-mark.chk-open { border-bottom-color: var(--chk-open, var(--red-letter)); background: color-mix(in srgb, var(--chk-open, var(--red-letter)) 14%, transparent); }
+.chk-mark.chk-open:hover, .chk-mark.chk-open.chk-on { background: color-mix(in srgb, var(--chk-open, var(--red-letter)) 26%, transparent); }
+.chk-dot { width: .6em; height: .6em; padding: 0; margin: 0 .15em; border-radius: 50%; border: 0; vertical-align: .1em; background: var(--chk-settled, var(--accent)); }
+.chk-dot.chk-open { background: var(--chk-open, var(--red-letter)); }
+
+.chk-sheet { padding: 1.5rem 1.4rem 2rem; color: var(--ink); }
+.chk-sheet h2 { margin: .2rem 0 1rem; font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; }
+.chk-sheet h3 { margin: 1.1rem 0 .3rem; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.chk-sheet p { margin: 0; line-height: 1.55; }
+.chk-status { display: inline-block; font-size: .78rem; font-weight: 600; color: var(--chk-settled, var(--accent)); }
+.chk-status.chk-open { color: var(--chk-open, var(--red-letter)); }
+.chk-before { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.chk-edit { margin-top: .8rem !important; font-size: .9rem; color: var(--muted); }
+
+/* The sheet's defaults, at zero specificity (:where), so any page's own .xx-root .ms-sheet look wins. */
+:where(.ms-sheet.chk-panel) {
+  position: fixed; z-index: 60; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); display: flex; flex-direction: column;
+  background: var(--surface); border-left: 1px solid var(--line); box-shadow: -14px 0 40px rgb(0 0 0 / .18);
+  transform: translateX(100%); visibility: hidden; transition: transform .38s cubic-bezier(.2, .8, .3, 1), visibility 0s .38s;
+}
+:where(.ms-sheet.chk-panel.open) { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.2, .8, .3, 1), visibility 0s; }
+:where(.chk-panel .ms-sheet-close) {
+  position: absolute; top: .8rem; right: .8rem; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; padding: 0;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); cursor: pointer; outline: none;
+}
+:where(.chk-panel .ms-sheet-close:focus-visible) { outline: none; border-color: var(--accent); }
+:where(.chk-panel .ms-sheet-body) { flex: 1; overflow-y: auto; padding-top: 2.4rem; }
+
+@media (prefers-reduced-motion: reduce) { .chk-mark, :where(.ms-sheet.chk-panel) { transition: none; } }

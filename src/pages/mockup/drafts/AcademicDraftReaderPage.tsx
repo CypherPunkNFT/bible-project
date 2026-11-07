@@ -6,6 +6,8 @@ import { STUDY_BRANCHES } from "@/pages/study/hub/collections";
 import { academicDraftBySlug, academicDraftsForArea, humanise, type AcademicDraft } from "./academic-drafts";
 import { ResearchFields, ResearchValue } from "./ResearchBlocks";
 import { inline } from "./draft-inline";
+import { CheckNotesProvider, Checked } from "@/pages/study/check-notes/CheckNotes";
+import { plainText } from "@/pages/study/check-notes/checked";
 import "@/components/study/study-trail.css";
 import "./drafts.css";
 import "./academic-drafts.css";
@@ -13,7 +15,7 @@ import "./academic-drafts.css";
 type Research = Record<string, unknown>;
 const FILES = import.meta.glob<Research>("/content/academic-research/[0-9][0-9]-*.json", { import: "default" });
 /** Shown in the heading, or record-keeping a reader has no use for. */
-const HEADING_KEYS = new Set(["schemaVersion", "order", "title", "slug", "category", "categoryTitle", "updated", "status", "draftNote", "premise", "question", "verses"]);
+const HEADING_KEYS = new Set(["schemaVersion", "order", "title", "slug", "category", "categoryTitle", "updated", "status", "draftNote", "premise", "question", "verses", "checkNotes"]);
 const SECTION_TITLES: Record<string, string> = {
   outcomes: "What this study sets out to show", boundaries: "What it covers, and what it leaves to others",
   links: "Studies it links rather than repeats", figures: "In figures", explanations: "Explanations weighed",
@@ -58,24 +60,24 @@ export default function AcademicDraftReaderPage() {
   if (!draft) return <div className="ds-page study-frame"><StudyBackLink fallback={{ path: "/study/academic_mockup", label: "Academic" }} /><p className="ds-missing">There is no Academic draft called “{slug}”.</p></div>;
   if (!research) return <div className="ds-page study-frame"><Heading draft={draft} /><p className="ds-missing">{failure ?? "Loading the research…"}</p></div>;
   const keys = sectionsOf(research);
-  return <div className="ds-page study-frame ar-page">
+  return <CheckNotesProvider notes={research.checkNotes}><div className="ds-page study-frame ar-page">
     <Heading draft={draft} research={research} />
     <div className="ds-layout">
       <nav className="ds-contents ds-contents-side" aria-label="In this study">
         <p className="ds-contents-title">In this study</p>
-        <ol>{keys.map((key, i) => <li key={key}><a href={`#${key}`}><span>{pad(i + 1)}</span>{inline(sectionTitle(key, research[key]))}</a></li>)}</ol>
+        <ol>{keys.map((key, i) => <li key={key}><a href={`#${key}`}><span>{pad(i + 1)}</span>{inline(plainText(sectionTitle(key, research[key])))}</a></li>)}</ol>
       </nav>
       <article className="ds-article">
-        {typeof research.draftNote === "string" && <aside className="ds-note ds-note-about"><span>Draft note</span><p>{research.draftNote}</p></aside>}
+        {typeof research.draftNote === "string" && <aside className="ds-note ds-note-about"><span>Draft note</span><p><Checked text={research.draftNote} render={inline} /></p></aside>}
         {keys.map((key, i) => <section key={key} className="ds-section ar-section" id={key} aria-labelledby={`${key}-title`}>
-          <header className="ds-section-head"><span className="ds-num" aria-hidden="true">{pad(i + 1)}</span><div><h2 id={`${key}-title`}>{inline(sectionTitle(key, research[key]))}</h2></div></header>
+          <header className="ds-section-head"><span className="ds-num" aria-hidden="true">{pad(i + 1)}</span><div><h2 id={`${key}-title`}><Checked text={sectionTitle(key, research[key])} render={inline} /></h2></div></header>
           <div className="ds-body">{isRecord(research[key]) ? <ResearchFields record={research[key] as Research} skip={["head"]} /> : <ResearchValue value={research[key]} field={key} />}</div>
         </section>)}
         <Verses research={research} />
         <Foot draft={draft} />
       </article>
     </div>
-  </div>;
+  </div></CheckNotesProvider>;
 }
 
 function Heading({ draft, research }: { draft: AcademicDraft; research?: Research }) {
@@ -90,8 +92,8 @@ function Heading({ draft, research }: { draft: AcademicDraft; research?: Researc
       </nav>
       <p>{text("categoryTitle") ?? subject}</p>
       <h1>{draft.title}</h1>
-      <p className="ds-lead">{inline(text("premise") ?? draft.premise ?? "")}</p>
-      {text("question") && <p className="ar-question"><span>The question</span>{inline(text("question")!)}</p>}
+      <p className="ds-lead"><Checked text={text("premise") ?? draft.premise ?? ""} render={inline} /></p>
+      {text("question") && <p className="ar-question"><span>The question</span><Checked text={text("question")!} render={inline} /></p>}
       <ul className="ds-facts">
         {research && <li>{sectionsOf(research).length} sections</li>}
         {text("updated") && <li>Updated {text("updated")}</li>}

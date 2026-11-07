@@ -47,21 +47,21 @@
         "who": "David Kimhi (Radak), Jewish commentator, about 1160 to 1235",
         "held": "Jewish commentators long before Lowth noticed that a verse often repeats its matter in different words, and explained the doubling as a feature of style rather than as two separate statements.",
         "source": "kugel",
-        "note": "Reported through Kugel's history. [check: that Kugel cites Kimhi for this, and the wording Kimhi uses]"
+        "note": "{{check:c1}}Reported through Kugel's history.{{/check}}"
       },
       {
         "id": "lowth",
         "who": "Robert Lowth, 1753 and 1778",
         "held": "Lowth, an Oxford professor and later Bishop of London, gave the feature its modern name, parallelism of members, in his Latin lectures on the sacred poetry of the Hebrews (1753). He sorted the pairs into three kinds: synonymous (the second line says the same thing again), antithetic (it says the opposite) and synthetic (it builds on the first in some other way).",
         "source": "lowth",
-        "note": "[check: whether the three kinds are set out in lecture 19 of the 1753 lectures, in the preliminary dissertation to his Isaiah (1778), or in both]"
+        "note": "{{check:c2}}{{/check}}"
       },
       {
         "id": "kugel",
         "who": "James Kugel, 1981",
         "held": "Kugel argued that Lowth's three kinds mislead. The second line is rarely mere repetition; its usual force is to add, sharpen or go further, which he summed up as “A, and what's more, B”. He also held that there is no sharp border between Hebrew poetry and heightened prose.",
         "source": "kugel",
-        "note": "[check: the exact wording of Kugel's formula and its page]"
+        "note": "{{check:c3}}{{/check}}"
       },
       {
         "id": "alter",
@@ -162,8 +162,8 @@
       "head": "Where poetry ends and prose begins",
       "evidence": [
         "The Masoretic accents treat three books, Psalms, Proverbs and Job, with a separate set of accent marks of their own.",
-        "Old Hebrew manuscripts write two songs in a special layout: the Song of the Sea (Exodus 15) in a pattern the Talmud likens to bricks laid over half-bricks, and the Song of Moses (Deuteronomy 32) in two columns. The Leningrad Codex and the Aleppo Codex both show these. [check: the Talmud reference, Megillah 16b, and which layout each codex uses for each song]",
-        "Modern translations, the Berean among them, set poetry as indented lines. [check: the Berean's printed and on-site layout of poetry]"
+        "Old Hebrew manuscripts write two songs in a special layout: the Song of the Sea (Exodus 15) in a pattern the Talmud likens to bricks laid over half-bricks, and the Song of Moses (Deuteronomy 32) in two columns. {{check:c4}}The Leningrad Codex shows both; the Aleppo Codex, whose surviving Torah pages begin late in Deuteronomy, shows only the Song of Moses.{{/check}}",
+        "{{check:c5}}Modern translations, the Berean among them, set poetry as indented lines.{{/check}}"
       ],
       "inference": "Scribes and translators saw a difference between verse and prose and marked it. But their line breaks are a judgment about the text, not part of it, and translations sometimes disagree about whether a prophet's oracle should be set as verse.",
       "views": [
@@ -203,9 +203,9 @@
           "Genesis 9:19"
         ],
         "look": "Gordon Wenham read the flood story (Genesis 6:9 to 9:19) as one long mirror, with its numbers of days rising to a centre, the moment God remembered Noah (Genesis 8:1), and falling away again.",
-        "evidence": "The flood story does give its day-counts in a pattern of seven, forty and a hundred and fifty, which then come back in reverse order. [check: Wenham's exact list of matching elements, VT 28 (1978)]",
+        "evidence": "{{check:c6}}The flood story does give its day-counts in a pattern of seven, forty and a hundred and fifty, which then come back in reverse order.{{/check}}",
         "inference": "If the mirror is real, the story was shaped as a whole and its turning point is God's remembering. Wenham offered it partly as an argument that the story is a single composition.",
-        "limit": "J. A. Emerton replied that the matches depend on which elements one chooses to pair. [check: Emerton's two-part article in Vetus Testamentum 37 (1987) and 38 (1988)] Whether the story is one composition or two sources woven together is a question about how Genesis was written, and How the Old Testament books were written owns it."
+        "limit": "{{check:c7}}J. A. Emerton replied that the matches depend on which elements one chooses to pair.{{/check}} Whether the story is one composition or two sources woven together is a question about how Genesis was written, and How the Old Testament books were written owns it."
       },
       {
         "id": "inclusio",
@@ -234,14 +234,14 @@
           "Psalm 107:31"
         ],
         "look": "The same question to the singer's own downcast soul comes three times across Psalms 42 and 43. Psalm 107 tells four stories of rescue, and each ends with the same call to give thanks.",
-        "evidence": "Psalm 43 has no heading of its own, and the refrain runs through both psalms. Many Hebrew manuscripts join the two as one psalm. [check: the manuscript evidence for joining Psalms 42 and 43]",
+        "evidence": "Psalm 43 has no heading of its own, and the refrain runs through both psalms. {{check:c8}}Many Hebrew manuscripts join the two as one psalm.{{/check}}",
         "inference": "The refrain is one reason many readers take Psalms 42 and 43 as a single poem, divided at some point in copying.",
         "limit": "The division into separate psalms is old and is followed by the Berean. Reading them together is a way of reading, not a change to the text."
       }
     ],
     "tests": {
       "head": "Before you trust a chiasm",
-      "lead": "Scholars who use chiasm have also written warnings about it. Craig Blomberg (1989) and Ian Thomson (1995) each proposed tests a claimed chiasm should pass. [check: Blomberg's article title, journal and list of criteria] The tests below are this study's restatement of the common ground, not a quotation of either.",
+      "lead": "Scholars who use chiasm have also written warnings about it. {{check:c9}}Craig Blomberg (1989) and Ian Thomson (1995) each proposed tests a claimed chiasm should pass.{{/check}} The tests below are this study's restatement of the common ground, not a quotation of either.",
       "items": [
         "Would the pattern be visible to a reader who was not looking for it, or does it appear only after headings are chosen to make it?",
         "Do the paired parts share actual words or unusual ideas, or only broad themes that could be matched in many ways?",
@@ -253,7 +253,7 @@
   },
   "acrostics": {
     "headline": "Twenty-two letters. *One poem.*",
-    "lead": "An acrostic poem begins each line or stanza with the next letter of the Hebrew alphabet, which has twenty-two letters. The pattern is lost in every translation, but it is not hidden: anyone who reads the Hebrew sees it at once, and Psalm 119 is printed in many English Bibles with the Hebrew letter at the head of each stanza. [check: whether the Berean prints the letter names in Psalm 119]",
+    "lead": "An acrostic poem begins each line or stanza with the next letter of the Hebrew alphabet, which has twenty-two letters. The pattern is lost in every translation, but it is not hidden: anyone who reads the Hebrew sees it at once, and {{check:c10}}Psalm 119 is printed in many English Bibles with the Hebrew letter at the head of each stanza.{{/check}}",
     "poems": [
       {
         "ref": "Psalms 9–10",
@@ -263,12 +263,12 @@
       {
         "ref": "Psalm 25",
         "shape": "A verse a letter, with irregularities",
-        "note": "A letter is missing and a closing verse is added outside the alphabet. [check: which letter is missing]"
+        "note": "{{check:c11}}The letter qoph is missing, waw has no verse of its own, and a closing verse is added outside the alphabet.{{/check}}"
       },
       {
         "ref": "Psalm 34",
         "shape": "A verse a letter, with irregularities",
-        "note": "Like Psalm 25, it lacks a letter and closes with an extra line. [check: which letter is missing]"
+        "note": "{{check:c12}}Like Psalm 25, it lacks a letter, waw, and closes with an extra line.{{/check}}"
       },
       {
         "ref": "Psalm 37",
@@ -293,7 +293,7 @@
       {
         "ref": "Psalm 145",
         "shape": "A verse a letter, one missing in the standard Hebrew text",
-        "note": "The standard Hebrew text has no line for the letter nun. A Dead Sea Scrolls psalms scroll (11QPsa) and the Septuagint have one, and several modern translations print it. [check: how the Berean prints and footnotes Psalm 145:13]"
+        "note": "The standard Hebrew text has no line for the letter nun. {{check:c13}}A Dead Sea Scrolls psalms scroll (11QPsa) and the Septuagint have one, and several modern translations print it.{{/check}}"
       },
       {
         "ref": "Proverbs 31:10–31",
@@ -336,7 +336,7 @@
         "look": "Joseph's brothers bring their father the bloodied robe and ask him to examine it. A chapter later Tamar sends Judah his own seal, cord and staff with the same request.",
         "evidence": "The Hebrew uses the same two words in both places, a verb meaning to examine or recognise with a word of request. Robert Alter drew attention to the pairing.",
         "inference": "Judah, who deceived his father with a piece of clothing, is himself confronted with things he must own. The story of Judah and Tamar, which seems to interrupt the Joseph story, is tied into it by the repeated words.",
-        "limit": "The link is plain in Hebrew and depends on the translator in English. Whether the Berean keeps the same English both times is a fact to check, not an assumption. [check: the Berean's wording at Genesis 37:32 and 38:25]"
+        "limit": "The link is plain in Hebrew and depends on the translator in English. {{check:c14}}The Berean keeps the same English verb, examine, in both places.{{/check}}"
       },
       {
         "id": "good",
@@ -404,7 +404,7 @@
           "Genesis 22:3"
         ],
         "look": "Abraham is told to go, and he rises early and goes. The narrator says nothing of what he thought.",
-        "evidence": "Erich Auerbach, in the first chapter of Mimesis (1946), set Homer's unhurried account of Odysseus' scar beside Genesis 22. Homer, he said, leaves nothing in shadow; the Genesis narrator leaves almost everything unsaid, so that the story is, in the English translation of his book, “fraught with background”. [check: the phrase in Willard Trask's translation, 1953, and its page]",
+        "evidence": "Erich Auerbach, in the first chapter of Mimesis (1946), set Homer's unhurried account of Odysseus' scar beside Genesis 22. Homer, he said, leaves nothing in shadow; the Genesis narrator leaves almost everything unsaid, so that the story is, in the English translation of his book, “fraught with background”.{{check:c15}}{{/check}}",
         "inference": "The silence draws the reader into the question the story asks, rather than answering it in advance.",
         "limit": "Auerbach was a literary critic comparing styles; he made no claim about whether the event happened, and this page draws none from his comparison."
       },
@@ -474,7 +474,7 @@
           "1 Samuel 16:7"
         ],
         "look": "Now and then the narrator tells what is inside someone. 1 Samuel 18:20 says Michal loved David; Alter notes that she is the only woman in the Hebrew Bible of whom this is said directly.",
-        "evidence": "Because inner states are rarely given, the few that are stand out. [check: Alter's claim about Michal and where he makes it]",
+        "evidence": "{{check:c16}}Because inner states are rarely given, the few that are stand out.{{/check}}",
         "inference": "The narrator knows hearts, as God in 1 Samuel 16:7 is said to look on the heart, and shares that knowledge sparingly.",
         "limit": "The narrator's knowledge is a feature of how the story is told. What Scripture teaches about its own source belongs to the theology study Scripture."
       }
@@ -510,7 +510,7 @@
           "Mark 11:25"
         ],
         "look": "Mark begins one story, interrupts it with another, and then finishes the first. Jairus asks Jesus to heal his daughter; a woman who has bled for twelve years touches him; then the girl is raised. Jesus curses a fig tree; he drives the traders from the temple; then the fig tree is found withered.",
-        "evidence": "James R. Edwards listed nine such passages in Mark and argued that the outer and inner stories explain each other. [check: Edwards's count, Novum Testamentum 31 (1989)]",
+        "evidence": "{{check:c17}}James R. Edwards listed nine such passages in Mark and argued that the outer and inner stories explain each other.{{/check}}",
         "inference": "The two stories are meant to be read together. The fig tree with leaves and no fruit stands on either side of a temple full of activity.",
         "limit": "How many passages count, and whether each one is a deliberate frame, varies from scholar to scholar."
       },
@@ -543,7 +543,7 @@
         "limit": "Whether Philippians 2 is a hymn is open, and this page does not choose: Martin and Fee both read it as true teaching about Christ, and differ only on where its form came from. Lund's lists are often thought to go beyond what the tests above allow."
       }
     ],
-    "more": "Other patterns are often named and are left to further reading: a proposed chiasm in John's prologue (John 1:1–18), with R. Alan Culpepper's case for a centre at verse 12 [check: Culpepper's article, New Testament Studies 27, 1980]; the frames Albert Vanhoye traced through Hebrews (1963); the threefold predictions of the passion in Mark (8:31, 9:31, 10:33–34); and the sevens of Revelation."
+    "more": "Other patterns are often named and are left to further reading: a proposed chiasm in John's prologue (John 1:1–18), {{check:c18}}with R. Alan Culpepper's case for a centre at verse 12{{/check}}; the frames Albert Vanhoye traced through Hebrews (1963); the threefold predictions of the passion in Mark (8:31, 9:31, 10:33–34); and the sevens of Revelation."
   },
   "claims": [
     {
@@ -775,7 +775,7 @@
       {
         "year": "about 1200",
         "who": "David Kimhi",
-        "what": "Doubled lines explained as style [check]"
+        "what": "{{check:c19}}Doubled lines explained as style{{/check}}"
       },
       {
         "year": "1753",
@@ -795,7 +795,7 @@
       {
         "year": "from 1925",
         "who": "Martin Buber and Franz Rosenzweig",
-        "what": "The leading word (Leitwort) in translation [check: date of the first volume]"
+        "what": "{{check:c20}}The leading word (Leitwort) in translation{{/check}}"
       },
       {
         "year": "1942",
@@ -853,19 +853,19 @@
         "id": "aleppo-deut32",
         "what": "The Aleppo Codex, the page with the Song of Moses (Deuteronomy 32) in two columns",
         "where": "Israel Museum, Jerusalem; images on Wikimedia Commons",
-        "licence": "[check: licence of the photograph, not only of the manuscript]"
+        "licence": ""
       },
       {
         "id": "leningrad-ex15",
         "what": "The Leningrad Codex, the Song of the Sea (Exodus 15) in its brick-like layout",
         "where": "National Library of Russia, St Petersburg; facsimile photographs published",
-        "licence": "[check: whether any open-licence photograph exists]"
+        "licence": ""
       },
       {
         "id": "11qpsa",
         "what": "The great Psalms scroll from Qumran cave 11, the column with Psalm 145 and its nun line",
         "where": "Israel Antiquities Authority, Leon Levy Dead Sea Scrolls Digital Library",
-        "licence": "[check: the digital library's terms; they may not allow republishing]"
+        "licence": ""
       }
     ]
   },
@@ -932,7 +932,7 @@
       "kind": "Book · under copyright",
       "status": "located",
       "answers": "How are scenes, time and characters handled?",
-      "read": "Not read for this draft. [check: date of the Hebrew original]"
+      "read": "{{check:c24}}Not read for this draft. The Hebrew original was published in 1979.{{/check}}"
     },
     {
       "id": "auerbach",
@@ -964,7 +964,7 @@
       "kind": "Article, 1882 · public domain",
       "status": "located",
       "answers": "Is there a lament metre?",
-      "read": "Not read for this draft. [check: volume and pages]"
+      "read": "{{check:c25}}Not read for this draft. Volume 2 (1882), pages 1–52.{{/check}}"
     },
     {
       "id": "sievers",
@@ -988,7 +988,7 @@
       "kind": "Article in two parts",
       "status": "located",
       "answers": "Does the flood mirror stand up?",
-      "read": "Not read for this draft. [check: title, volumes and pages]"
+      "read": "{{check:c26}}Not read for this draft. Title confirmed; Vetus Testamentum 37 (1987), pages 401–420, and 38 (1988), pages 1–21.{{/check}}"
     },
     {
       "id": "blomberg",
@@ -996,7 +996,7 @@
       "kind": "Article, 1989",
       "status": "located",
       "answers": "How do you test a claimed chiasm?",
-      "read": "Not read for this draft. [check: exact title and the criteria listed]"
+      "read": "{{check:c27}}Not read for this draft. Title: The Structure of 2 Corinthians 1–7, Criswell Theological Review 4 (1989), pages 3–20; it lists nine criteria for a chiasm.{{/check}}"
     },
     {
       "id": "thomson",
@@ -1068,7 +1068,7 @@
       "kind": "Article",
       "status": "located",
       "answers": "Is John 1:1–18 a chiasm?",
-      "read": "Not read for this draft. [check: volume and year]"
+      "read": "{{check:c28}}Not read for this draft. Volume 27 (1980–81), pages 1–31.{{/check}}"
     },
     {
       "id": "witztum",
@@ -1110,301 +1110,556 @@
     }
   ],
   "verses": {
-    "note": "References only. This draft quotes no verse text, because no Berean passage text was supplied to it. The build is to take each verse's wording from the site's held Berean, confirm the verse exists, and confirm what the 'use' field says can be seen in it.",
+    "note": "Each verse carries its Berean wording (bsbLines keeps the Berean's poetic lines) and, for the Old Testament, the Hebrew of the site's Leningrad text; hebrewVerse is the Hebrew verse number where a psalm's title shifts it. Added by add_poetry_text.py from data/text/bsb and data/text/wlc.",
     "list": [
       {
         "label": "Psalm 19:1",
         "code": "PSA",
         "chapter": 19,
         "verse": 1,
-        "use": "Restating pair"
+        "use": "Restating pair",
+        "bsbLines": [
+          "The heavens declare the glory of God;",
+          "the skies proclaim the work of His hands."
+        ],
+        "bsb": "The heavens declare the glory of God; the skies proclaim the work of His hands.",
+        "hebrew": "הַשָּׁמַ֗יִם מְֽסַפְּרִ֥ים כְּבֽוֹד־אֵ֑ל וּֽמַעֲשֵׂ֥ה יָ֝דָ֗יו מַגִּ֥יד הָרָקִֽיעַ׃",
+        "hebrewVerse": 2
       },
       {
         "label": "Psalm 19:2",
         "code": "PSA",
         "chapter": 19,
         "verse": 2,
-        "use": "Day and night widen the claim"
+        "use": "Day and night widen the claim",
+        "bsbLines": [
+          "Day after day they pour forth speech;",
+          "night after night they reveal knowledge."
+        ],
+        "bsb": "Day after day they pour forth speech; night after night they reveal knowledge.",
+        "hebrew": "י֣וֹם לְ֭יוֹם יַבִּ֣יעַֽ אֹ֑מֶר וְלַ֥יְלָה לְּ֝לַ֗יְלָה יְחַוֶּה־דָּֽעַת׃",
+        "hebrewVerse": 3
       },
       {
         "label": "Proverbs 10:1",
         "code": "PRO",
         "chapter": 10,
         "verse": 1,
-        "use": "Contrasting pair"
+        "use": "Contrasting pair",
+        "bsbLines": [
+          "The proverbs of Solomon:",
+          "A wise son brings joy to his father,",
+          "but a foolish son grief to his mother."
+        ],
+        "bsb": "The proverbs of Solomon: A wise son brings joy to his father, but a foolish son grief to his mother.",
+        "hebrew": "מִשְׁלֵ֗י שְׁלֹ֫מֹ֥ה בֵּ֣ן חָ֭כָם יְשַׂמַּח־אָ֑ב וּבֵ֥ן כְּ֝סִ֗יל תּוּגַ֥ת אִמּֽוֹ׃"
       },
       {
         "label": "Isaiah 1:3",
         "code": "ISA",
         "chapter": 1,
         "verse": 3,
-        "use": "Heightening pair"
+        "use": "Heightening pair",
+        "bsbLines": [
+          "The ox knows its owner,",
+          "and the donkey its master’s manger,",
+          "but Israel does not know;",
+          "My people do not understand.”"
+        ],
+        "bsb": "The ox knows its owner, and the donkey its master’s manger, but Israel does not know; My people do not understand.”",
+        "hebrew": "יָדַ֥ע שׁוֹר֙ קֹנֵ֔הוּ וַחֲמ֖וֹר אֵב֣וּס בְּעָלָ֑יו יִשְׂרָאֵל֙ לֹ֣א יָדַ֔ע עַמִּ֖י לֹ֥א הִתְבּוֹנָֽן׃"
       },
       {
         "label": "Psalm 29:1",
         "code": "PSA",
         "chapter": 29,
         "verse": 1,
-        "use": "Staircase"
+        "use": "Staircase",
+        "bsbLines": [
+          "Ascribe to the LORD, O heavenly beings,",
+          "ascribe to the LORD glory and strength."
+        ],
+        "bsb": "Ascribe to the LORD, O heavenly beings, ascribe to the LORD glory and strength.",
+        "hebrew": "מִזְמ֗וֹר לְדָ֫וִ֥ד הָב֣וּ לַֽ֭יהוָה בְּנֵ֣י אֵלִ֑ים הָב֥וּ לַ֝יהוָ֗ה כָּב֥וֹד וָעֹֽז׃"
       },
       {
         "label": "Judges 5:27",
         "code": "JDG",
         "chapter": 5,
         "verse": 27,
-        "use": "Staircase"
+        "use": "Staircase",
+        "bsbLines": [
+          "At her feet he collapsed, he fell,",
+          "there he lay still;",
+          "at her feet he collapsed, he fell;",
+          "where he collapsed, there he fell dead."
+        ],
+        "bsb": "At her feet he collapsed, he fell, there he lay still; at her feet he collapsed, he fell; where he collapsed, there he fell dead.",
+        "hebrew": "בֵּ֣ין רַגְלֶ֔יהָ כָּרַ֥ע נָפַ֖ל שָׁכָ֑ב בֵּ֤ין רַגְלֶ֙יהָ֙ כָּרַ֣ע נָפָ֔ל בַּאֲשֶׁ֣ר כָּרַ֔ע שָׁ֖ם נָפַ֥ל שָׁדֽוּד׃"
       },
       {
         "label": "Genesis 9:6",
         "code": "GEN",
         "chapter": 9,
         "verse": 6,
-        "use": "Chiasm in a verse"
+        "use": "Chiasm in a verse",
+        "bsbLines": [
+          "Whoever sheds the blood of man,",
+          "by man his blood will be shed;",
+          "for in His own image",
+          "God has made mankind."
+        ],
+        "bsb": "Whoever sheds the blood of man, by man his blood will be shed; for in His own image God has made mankind.",
+        "hebrew": "שֹׁפֵךְ֙ דַּ֣ם הָֽאָדָ֔ם בָּֽאָדָ֖ם דָּמ֣וֹ יִשָּׁפֵ֑ךְ כִּ֚י בְּצֶ֣לֶם אֱלֹהִ֔ים עָשָׂ֖ה אֶת־הָאָדָֽם׃"
       },
       {
         "label": "Isaiah 6:10",
         "code": "ISA",
         "chapter": 6,
         "verse": 10,
-        "use": "Heart, ears, eyes; eyes, ears, heart"
+        "use": "Heart, ears, eyes; eyes, ears, heart",
+        "bsbLines": [
+          "Make the hearts of this people calloused;",
+          "deafen their ears and close their eyes.",
+          "Otherwise they might see with their eyes,",
+          "hear with their ears,",
+          "understand with their hearts,",
+          "and turn and be healed.”"
+        ],
+        "bsb": "Make the hearts of this people calloused; deafen their ears and close their eyes. Otherwise they might see with their eyes, hear with their ears, understand with their hearts, and turn and be healed.”",
+        "hebrew": "הַשְׁמֵן֙ לֵב־הָעָ֣ם הַזֶּ֔ה וְאָזְנָ֥יו הַכְבֵּ֖ד וְעֵינָ֣יו הָשַׁ֑ע פֶּן־יִרְאֶ֨ה בְעֵינָ֜יו וּבְאָזְנָ֣יו יִשְׁמָ֗ע וּלְבָב֥וֹ יָבִ֛ין וָשָׁ֖ב וְרָ֥פָא לֽוֹ׃"
       },
       {
         "label": "Genesis 8:1",
         "code": "GEN",
         "chapter": 8,
         "verse": 1,
-        "use": "Proposed centre of the flood"
+        "use": "Proposed centre of the flood",
+        "bsbLines": [
+          "But God remembered Noah and all the animals and livestock that were with him in the ark. And God sent a wind over the earth, and the waters began to subside."
+        ],
+        "bsb": "But God remembered Noah and all the animals and livestock that were with him in the ark. And God sent a wind over the earth, and the waters began to subside.",
+        "hebrew": "וַיִּזְכֹּ֤ר אֱלֹהִים֙ אֶת־נֹ֔חַ וְאֵ֤ת כָּל־הַֽחַיָּה֙ וְאֶת־כָּל־הַבְּהֵמָ֔ה אֲשֶׁ֥ר אִתּ֖וֹ בַּתֵּבָ֑ה וַיַּעֲבֵ֨ר אֱלֹהִ֥ים ר֙וּחַ֙ עַל־הָאָ֔רֶץ וַיָּשֹׁ֖כּוּ הַמָּֽיִם׃"
       },
       {
         "label": "Psalm 8:1",
         "code": "PSA",
         "chapter": 8,
         "verse": 1,
-        "use": "Frame, opening"
+        "use": "Frame, opening",
+        "bsbLines": [
+          "O LORD, our Lord,",
+          "how majestic is Your name in all the earth!",
+          "You have set Your glory",
+          "above the heavens."
+        ],
+        "bsb": "O LORD, our Lord, how majestic is Your name in all the earth! You have set Your glory above the heavens.",
+        "hebrew": "יְהוָ֤ה אֲדֹנֵ֗ינוּ מָֽה־אַדִּ֣יר שִׁ֭מְךָ בְּכָל־הָאָ֑רֶץ אֲשֶׁ֥ר תְּנָ֥ה ה֝וֹדְךָ֗ עַל־הַשָּׁמָֽיִם׃",
+        "hebrewVerse": 2
       },
       {
         "label": "Psalm 8:9",
         "code": "PSA",
         "chapter": 8,
         "verse": 9,
-        "use": "Frame, closing"
+        "use": "Frame, closing",
+        "bsbLines": [
+          "O LORD, our Lord,",
+          "how majestic is Your name in all the earth!"
+        ],
+        "bsb": "O LORD, our Lord, how majestic is Your name in all the earth!",
+        "hebrew": "יְהוָ֥ה אֲדֹנֵ֑ינוּ מָֽה־אַדִּ֥יר שִׁ֝מְךָ֗ בְּכָל־הָאָֽרֶץ׃",
+        "hebrewVerse": 10
       },
       {
         "label": "Psalm 103:1",
         "code": "PSA",
         "chapter": 103,
         "verse": 1,
-        "use": "Frame, opening"
+        "use": "Frame, opening",
+        "bsbLines": [
+          "Bless the LORD, O my soul;",
+          "all that is within me, bless His holy name."
+        ],
+        "bsb": "Bless the LORD, O my soul; all that is within me, bless His holy name.",
+        "hebrew": "לְדָוִ֨ד ׀ בָּרֲכִ֣י נַ֭פְשִׁי אֶת־יְהוָ֑ה וְכָל־קְ֝רָבַ֗י אֶת־שֵׁ֥ם קָדְשֽׁוֹ׃"
       },
       {
         "label": "Psalm 103:22",
         "code": "PSA",
         "chapter": 103,
         "verse": 22,
-        "use": "Frame, closing"
+        "use": "Frame, closing",
+        "bsbLines": [
+          "Bless the LORD, all His works",
+          "in all places of His dominion.",
+          "Bless the LORD, O my soul!"
+        ],
+        "bsb": "Bless the LORD, all His works in all places of His dominion. Bless the LORD, O my soul!",
+        "hebrew": "בָּרֲכ֤וּ יְהוָ֨ה ׀ כָּֽל־מַעֲשָׂ֗יו בְּכָל־מְקֹמ֥וֹת מֶמְשַׁלְתּ֑וֹ בָּרֲכִ֥י נַ֝פְשִׁ֗י אֶת־יְהוָֽה׃"
       },
       {
         "label": "Psalm 42:5",
         "code": "PSA",
         "chapter": 42,
         "verse": 5,
-        "use": "Refrain"
+        "use": "Refrain",
+        "bsbLines": [
+          "Why are you downcast, O my soul?",
+          "Why the unease within me?",
+          "Put your hope in God, for I will yet praise Him",
+          "for the salvation of His presence."
+        ],
+        "bsb": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence.",
+        "hebrew": "מַה־תִּשְׁתּ֬וֹחֲחִ֨י ׀ נַפְשִׁי֮ וַתֶּהֱמִ֪י עָ֫לָ֥י הוֹחִ֣ילִי לֵֽ֭אלֹהִים כִּי־ע֥וֹד אוֹדֶ֗נּוּ יְשׁוּע֥וֹת פָּנָֽיו׃",
+        "hebrewVerse": 6
       },
       {
         "label": "Psalm 42:11",
         "code": "PSA",
         "chapter": 42,
         "verse": 11,
-        "use": "Refrain"
+        "use": "Refrain",
+        "bsbLines": [
+          "Why are you downcast, O my soul?",
+          "Why the unease within me?",
+          "Put your hope in God, for I will yet praise Him,",
+          "my Savior and my God."
+        ],
+        "bsb": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him, my Savior and my God.",
+        "hebrew": "מַה־תִּשְׁתּ֬וֹחֲחִ֨י ׀ נַפְשִׁי֮ וּֽמַה־תֶּהֱמִ֪י עָ֫לָ֥י הוֹחִ֣ילִי לֵֽ֭אלֹהִים כִּי־ע֣וֹד אוֹדֶ֑נּוּ יְשׁוּעֹ֥ת פָּ֝נַ֗י וֵֽאלֹהָֽי׃",
+        "hebrewVerse": 12
       },
       {
         "label": "Psalm 43:5",
         "code": "PSA",
         "chapter": 43,
         "verse": 5,
-        "use": "Refrain"
+        "use": "Refrain",
+        "bsbLines": [
+          "Why are you downcast, O my soul?",
+          "Why the unease within me?",
+          "Put your hope in God, for I will yet praise Him,",
+          "my Savior and my God."
+        ],
+        "bsb": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him, my Savior and my God.",
+        "hebrew": "מַה־תִּשְׁתּ֬וֹחֲחִ֨י ׀ נַפְשִׁי֮ וּֽמַה־תֶּהֱמִ֪י עָ֫לָ֥י הוֹחִ֣ילִי לֵֽ֭אלֹהִים כִּי־ע֣וֹד אוֹדֶ֑נּוּ יְשׁוּעֹ֥ת פָּ֝נַ֗י וֵֽאלֹהָֽי׃"
       },
       {
         "label": "Psalm 107:8",
         "code": "PSA",
         "chapter": 107,
         "verse": 8,
-        "use": "Refrain"
+        "use": "Refrain",
+        "bsbLines": [
+          "Let them give thanks to the LORD for His loving devotion",
+          "and His wonders to the sons of men."
+        ],
+        "bsb": "Let them give thanks to the LORD for His loving devotion and His wonders to the sons of men.",
+        "hebrew": "יוֹד֣וּ לַיהוָ֣ה חַסְדּ֑וֹ וְ֝נִפְלְאוֹתָ֗יו לִבְנֵ֥י אָדָֽם׃"
       },
       {
         "label": "Psalm 119:1",
         "code": "PSA",
         "chapter": 119,
         "verse": 1,
-        "use": "Acrostic, first stanza"
+        "use": "Acrostic, first stanza",
+        "bsbLines": [
+          "Blessed are those whose way is blameless,",
+          "who walk in the Law of the LORD."
+        ],
+        "bsb": "Blessed are those whose way is blameless, who walk in the Law of the LORD.",
+        "hebrew": "אַשְׁרֵ֥י תְמִֽימֵי־דָ֑רֶךְ הַֽ֝הֹלְכִ֗ים בְּתוֹרַ֥ת יְהוָֽה׃"
       },
       {
         "label": "Psalm 145:13",
         "code": "PSA",
         "chapter": 145,
         "verse": 13,
-        "use": "The nun line question"
+        "use": "The nun line question",
+        "bsbLines": [
+          "Your kingdom is an everlasting kingdom,",
+          "and Your dominion endures through all generations.",
+          "The LORD is faithful in all His words",
+          "and kind in all His actions."
+        ],
+        "bsb": "Your kingdom is an everlasting kingdom, and Your dominion endures through all generations. The LORD is faithful in all His words and kind in all His actions.",
+        "hebrew": "מַֽלְכוּתְךָ֗ מַלְכ֥וּת כָּל־עֹֽלָמִ֑ים וּ֝מֶֽמְשֶׁלְתְּךָ֗ בְּכָל־דּ֥וֹר וָדֽוֹר׃"
       },
       {
         "label": "Proverbs 31:10",
         "code": "PRO",
         "chapter": 31,
         "verse": 10,
-        "use": "Acrostic begins"
+        "use": "Acrostic begins",
+        "bsbLines": [
+          "A wife of noble character, who can find?",
+          "She is far more precious than rubies."
+        ],
+        "bsb": "A wife of noble character, who can find? She is far more precious than rubies.",
+        "hebrew": "אֵֽשֶׁת־חַ֭יִל מִ֣י יִמְצָ֑א וְרָחֹ֖ק מִפְּנִינִ֣ים מִכְרָֽהּ׃"
       },
       {
         "label": "Lamentations 3:1",
         "code": "LAM",
         "chapter": 3,
         "verse": 1,
-        "use": "Three verses a letter"
+        "use": "Three verses a letter",
+        "bsbLines": [
+          "I am the man who has seen affliction",
+          "under the rod of God’s wrath."
+        ],
+        "bsb": "I am the man who has seen affliction under the rod of God’s wrath.",
+        "hebrew": "אֲנִ֤י הַגֶּ֙בֶר֙ רָאָ֣ה עֳנִ֔י בְּשֵׁ֖בֶט עֶבְרָתֽוֹ׃"
       },
       {
         "label": "Lamentations 5:1",
         "code": "LAM",
         "chapter": 5,
         "verse": 1,
-        "use": "Twenty-two verses, no alphabet"
+        "use": "Twenty-two verses, no alphabet",
+        "bsbLines": [
+          "Remember, O LORD, what has happened to us.",
+          "Look and see our disgrace!"
+        ],
+        "bsb": "Remember, O LORD, what has happened to us. Look and see our disgrace!",
+        "hebrew": "זְכֹ֤ר יְהוָה֙ מֶֽה־הָ֣יָה לָ֔נוּ הביט וּרְאֵ֥ה אֶת־חֶרְפָּתֵֽנוּ׃"
       },
       {
         "label": "Genesis 1:31",
         "code": "GEN",
         "chapter": 1,
         "verse": 31,
-        "use": "Seventh verdict, heightened"
+        "use": "Seventh verdict, heightened",
+        "bsbLines": [
+          "And God looked upon all that He had made, and indeed, it was very good. And there was evening, and there was morning—the sixth day."
+        ],
+        "bsb": "And God looked upon all that He had made, and indeed, it was very good. And there was evening, and there was morning—the sixth day.",
+        "hebrew": "וַיַּ֤רְא אֱלֹהִים֙ אֶת־כָּל־אֲשֶׁ֣ר עָשָׂ֔ה וְהִנֵּה־ט֖וֹב מְאֹ֑ד וַֽיְהִי־עֶ֥רֶב וַֽיְהִי־בֹ֖קֶר י֥וֹם הַשִּׁשִּֽׁי׃"
       },
       {
         "label": "Genesis 37:32",
         "code": "GEN",
         "chapter": 37,
         "verse": 32,
-        "use": "Please recognise, first"
+        "use": "Please recognise, first",
+        "bsbLines": [
+          "They sent the robe of many colors to their father and said, “We found this. Examine it to see whether it is your son’s robe or not.”"
+        ],
+        "bsb": "They sent the robe of many colors to their father and said, “We found this. Examine it to see whether it is your son’s robe or not.”",
+        "hebrew": "וַֽיְשַׁלְּח֞וּ אֶת־כְּתֹ֣נֶת הַפַּסִּ֗ים וַיָּבִ֙יאוּ֙ אֶל־אֲבִיהֶ֔ם וַיֹּאמְר֖וּ זֹ֣את מָצָ֑אנוּ הַכֶּר־נָ֗א הַכְּתֹ֧נֶת בִּנְךָ֛ הִ֖וא אִם־לֹֽא׃"
       },
       {
         "label": "Genesis 38:25",
         "code": "GEN",
         "chapter": 38,
         "verse": 25,
-        "use": "Please recognise, second"
+        "use": "Please recognise, second",
+        "bsbLines": [
+          "As she was being brought out, Tamar sent a message to her father-in-law: “I am pregnant by the man to whom these items belong.” And she added, “Please examine them. Whose seal and cord and staff are these?”"
+        ],
+        "bsb": "As she was being brought out, Tamar sent a message to her father-in-law: “I am pregnant by the man to whom these items belong.” And she added, “Please examine them. Whose seal and cord and staff are these?”",
+        "hebrew": "הִ֣וא מוּצֵ֗את וְהִ֨יא שָׁלְחָ֤ה אֶל־חָמִ֙יהָ֙ לֵאמֹ֔ר לְאִישׁ֙ אֲשֶׁר־אֵ֣לֶּה לּ֔וֹ אָנֹכִ֖י הָרָ֑ה וַתֹּ֙אמֶר֙ הַכֶּר־נָ֔א לְמִ֞י הַחֹתֶ֧מֶת וְהַפְּתִילִ֛ים וְהַמַּטֶּ֖ה הָאֵֽלֶּה׃"
       },
       {
         "label": "Judges 21:25",
         "code": "JDG",
         "chapter": 21,
         "verse": 25,
-        "use": "Closing refrain"
+        "use": "Closing refrain",
+        "bsbLines": [
+          "In those days there was no king in Israel; everyone did what was right in his own eyes."
+        ],
+        "bsb": "In those days there was no king in Israel; everyone did what was right in his own eyes.",
+        "hebrew": "בַּיָּמִ֣ים הָהֵ֔ם אֵ֥ין מֶ֖לֶךְ בְּיִשְׂרָאֵ֑ל אִ֛ישׁ הַיָּשָׁ֥ר בְּעֵינָ֖יו יַעֲשֶֽׂה׃"
       },
       {
         "label": "Genesis 22:3",
         "code": "GEN",
         "chapter": 22,
         "verse": 3,
-        "use": "Action without inner thought"
+        "use": "Action without inner thought",
+        "bsbLines": [
+          "So Abraham got up early the next morning, saddled his donkey, and took along two of his servants and his son Isaac. He split the wood for a burnt offering and set out for the place God had designated."
+        ],
+        "bsb": "So Abraham got up early the next morning, saddled his donkey, and took along two of his servants and his son Isaac. He split the wood for a burnt offering and set out for the place God had designated.",
+        "hebrew": "וַיַּשְׁכֵּ֨ם אַבְרָהָ֜ם בַּבֹּ֗קֶר וַֽיַּחֲבֹשׁ֙ אֶת־חֲמֹר֔וֹ וַיִּקַּ֞ח אֶת־שְׁנֵ֤י נְעָרָיו֙ אִתּ֔וֹ וְאֵ֖ת יִצְחָ֣ק בְּנ֑וֹ וַיְבַקַּע֙ עֲצֵ֣י עֹלָ֔ה וַיָּ֣קָם וַיֵּ֔לֶךְ אֶל־הַמָּק֖וֹם אֲשֶׁר־אָֽמַר־ל֥וֹ הָאֱלֹהִֽים׃"
       },
       {
         "label": "Genesis 25:30",
         "code": "GEN",
         "chapter": 25,
         "verse": 30,
-        "use": "Esau's first words"
+        "use": "Esau's first words",
+        "bsbLines": [
+          "He said to Jacob, “Let me eat some of that red stew, for I am famished.” (That is why he was also called Edom.)"
+        ],
+        "bsb": "He said to Jacob, “Let me eat some of that red stew, for I am famished.” (That is why he was also called Edom.)",
+        "hebrew": "וַיֹּ֨אמֶר עֵשָׂ֜ו אֶֽל־יַעֲקֹ֗ב הַלְעִיטֵ֤נִי נָא֙ מִן־הָאָדֹ֤ם הָאָדֹם֙ הַזֶּ֔ה כִּ֥י עָיֵ֖ף אָנֹ֑כִי עַל־כֵּ֥ן קָרָֽא־שְׁמ֖וֹ אֱדֽוֹם׃"
       },
       {
         "label": "Genesis 41:19",
         "code": "GEN",
         "chapter": 41,
         "verse": 19,
-        "use": "Pharaoh's added comment"
+        "use": "Pharaoh's added comment",
+        "bsbLines": [
+          "After them, seven other cows—sickly, ugly, and thin—came up. I have never seen such ugly cows in all the land of Egypt!"
+        ],
+        "bsb": "After them, seven other cows—sickly, ugly, and thin—came up. I have never seen such ugly cows in all the land of Egypt!",
+        "hebrew": "וְהִנֵּ֞ה שֶֽׁבַע־פָּר֤וֹת אֲחֵרוֹת֙ עֹל֣וֹת אַחֲרֵיהֶ֔ן דַּלּ֨וֹת וְרָע֥וֹת תֹּ֛אַר מְאֹ֖ד וְרַקּ֣וֹת בָּשָׂ֑ר לֹֽא־רָאִ֧יתִי כָהֵ֛נָּה בְּכָל־אֶ֥רֶץ מִצְרַ֖יִם לָרֹֽעַ׃"
       },
       {
         "label": "Genesis 29:10",
         "code": "GEN",
         "chapter": 29,
         "verse": 10,
-        "use": "Jacob moves the stone"
+        "use": "Jacob moves the stone",
+        "bsbLines": [
+          "As soon as Jacob saw Rachel, the daughter of his mother’s brother Laban, with Laban’s sheep, he went up and rolled the stone away from the mouth of the well and watered his uncle’s sheep."
+        ],
+        "bsb": "As soon as Jacob saw Rachel, the daughter of his mother’s brother Laban, with Laban’s sheep, he went up and rolled the stone away from the mouth of the well and watered his uncle’s sheep.",
+        "hebrew": "וַיְהִ֡י כַּאֲשֶׁר֩ רָאָ֨ה יַעֲקֹ֜ב אֶת־רָחֵ֗ל בַּת־לָבָן֙ אֲחִ֣י אִמּ֔וֹ וְאֶת־צֹ֥אן לָבָ֖ן אֲחִ֣י אִמּ֑וֹ וַיִּגַּ֣שׁ יַעֲקֹ֗ב וַיָּ֤גֶל אֶת־הָאֶ֙בֶן֙ מֵעַל֙ פִּ֣י הַבְּאֵ֔ר וַיַּ֕שְׁקְ אֶת־צֹ֥אן לָבָ֖ן אֲחִ֥י אִמּֽוֹ׃"
       },
       {
         "label": "Exodus 2:17",
         "code": "EXO",
         "chapter": 2,
         "verse": 17,
-        "use": "Moses drives off the shepherds"
+        "use": "Moses drives off the shepherds",
+        "bsbLines": [
+          "And when some shepherds came along and drove them away, Moses rose up to help them and watered their flock."
+        ],
+        "bsb": "And when some shepherds came along and drove them away, Moses rose up to help them and watered their flock.",
+        "hebrew": "וַיָּבֹ֥אוּ הָרֹעִ֖ים וַיְגָרְשׁ֑וּם וַיָּ֤קָם מֹשֶׁה֙ וַיּ֣וֹשִׁעָ֔ן וַיַּ֖שְׁקְ אֶת־צֹאנָֽם׃"
       },
       {
         "label": "1 Samuel 9:11",
         "code": "1SA",
         "chapter": 9,
         "verse": 11,
-        "use": "The well scene that does not happen"
+        "use": "The well scene that does not happen",
+        "bsbLines": [
+          "And as they were climbing the hill to the city, they met some young women coming out to draw water and asked, “Is the seer here?”"
+        ],
+        "bsb": "And as they were climbing the hill to the city, they met some young women coming out to draw water and asked, “Is the seer here?”",
+        "hebrew": "הֵ֗מָּה עֹלִים֙ בְּמַעֲלֵ֣ה הָעִ֔יר וְהֵ֙מָּה֙ מָצְא֣וּ נְעָר֔וֹת יֹצְא֖וֹת לִשְׁאֹ֣ב מָ֑יִם וַיֹּאמְר֣וּ לָהֶ֔ן הֲיֵ֥שׁ בָּזֶ֖ה הָרֹאֶֽה׃"
       },
       {
         "label": "2 Samuel 11:11",
         "code": "2SA",
         "chapter": 11,
         "verse": 11,
-        "use": "Uriah's refusal; the gap"
+        "use": "Uriah's refusal; the gap",
+        "bsbLines": [
+          "Uriah answered, “The ark and Israel and Judah are dwelling in tents, and my master Joab and his soldiers are camped in the open field. How can I go to my house to eat and drink and sleep with my wife? As surely as you live, and as your soul lives, I will not do such a thing!”"
+        ],
+        "bsb": "Uriah answered, “The ark and Israel and Judah are dwelling in tents, and my master Joab and his soldiers are camped in the open field. How can I go to my house to eat and drink and sleep with my wife? As surely as you live, and as your soul lives, I will not do such a thing!”",
+        "hebrew": "וַיֹּ֨אמֶר אוּרִיָּ֜ה אֶל־דָּוִ֗ד הָ֠אָרוֹן וְיִשְׂרָאֵ֨ל וִֽיהוּדָ֜ה יֹשְׁבִ֣ים בַּסֻּכּ֗וֹת וַאדֹנִ֨י יוֹאָ֜ב וְעַבְדֵ֤י אֲדֹנִ֨י עַל־פְּנֵ֤י הַשָּׂדֶה֙ חֹנִ֔ים וַאֲנִ֞י אָב֧וֹא אֶל־בֵּיתִ֛י לֶאֱכֹ֥ל וְלִשְׁתּ֖וֹת וְלִשְׁכַּ֣ב עִם־אִשְׁתִּ֑י חַיֶּ֙ךָ֙ וְחֵ֣י נַפְשֶׁ֔ךָ אִֽם־אֶעֱשֶׂ֖ה אֶת־הַדָּבָ֥ר הַזֶּֽה׃"
       },
       {
         "label": "2 Samuel 11:27",
         "code": "2SA",
         "chapter": 11,
         "verse": 27,
-        "use": "The narrator's verdict"
+        "use": "The narrator's verdict",
+        "bsbLines": [
+          "And when the time of mourning was over, David had her brought to his house, and she became his wife and bore him a son. But the thing that David had done was evil in the sight of the LORD."
+        ],
+        "bsb": "And when the time of mourning was over, David had her brought to his house, and she became his wife and bore him a son. But the thing that David had done was evil in the sight of the LORD.",
+        "hebrew": "וַיַּעֲבֹ֣ר הָאֵ֗בֶל וַיִּשְׁלַ֨ח דָּוִ֜ד וַיַּאַסְפָ֤הּ אֶל־בֵּיתוֹ֙ וַתְּהִי־ל֣וֹ לְאִשָּׁ֔ה וַתֵּ֥לֶד ל֖וֹ בֵּ֑ן וַיֵּ֧רַע הַדָּבָ֛ר אֲשֶׁר־עָשָׂ֥ה דָוִ֖ד בְּעֵינֵ֥י יְהוָֽה׃"
       },
       {
         "label": "1 Samuel 18:20",
         "code": "1SA",
         "chapter": 18,
         "verse": 20,
-        "use": "An inner state told"
+        "use": "An inner state told",
+        "bsbLines": [
+          "Now Saul’s daughter Michal loved David, and when this was reported to Saul, it pleased him."
+        ],
+        "bsb": "Now Saul’s daughter Michal loved David, and when this was reported to Saul, it pleased him.",
+        "hebrew": "וַתֶּאֱהַ֛ב מִיכַ֥ל בַּת־שָׁא֖וּל אֶת־דָּוִ֑ד וַיַּגִּ֣דוּ לְשָׁא֔וּל וַיִּשַׁ֥ר הַדָּבָ֖ר בְּעֵינָֽיו׃"
       },
       {
         "label": "Mark 5:25",
         "code": "MRK",
         "chapter": 5,
         "verse": 25,
-        "use": "The inner story of a sandwich"
+        "use": "The inner story of a sandwich",
+        "bsbLines": [
+          "And a woman was there who had suffered from bleeding for twelve years."
+        ],
+        "bsb": "And a woman was there who had suffered from bleeding for twelve years."
       },
       {
         "label": "Mark 11:20",
         "code": "MRK",
         "chapter": 11,
         "verse": 20,
-        "use": "The fig tree found withered"
+        "use": "The fig tree found withered",
+        "bsbLines": [
+          "As they were walking back in the morning, they saw the fig tree withered from its roots."
+        ],
+        "bsb": "As they were walking back in the morning, they saw the fig tree withered from its roots."
       },
       {
         "label": "Luke 1:3",
         "code": "LUK",
         "chapter": 1,
         "verse": 3,
-        "use": "An orderly account"
+        "use": "An orderly account",
+        "bsbLines": [
+          "Therefore, having carefully investigated everything from the beginning, it seemed good also to me to write an orderly account for you, most excellent Theophilus,"
+        ],
+        "bsb": "Therefore, having carefully investigated everything from the beginning, it seemed good also to me to write an orderly account for you, most excellent Theophilus,"
       },
       {
         "label": "Luke 1:46",
         "code": "LUK",
         "chapter": 1,
         "verse": 46,
-        "use": "Mary's song begins"
+        "use": "Mary's song begins",
+        "bsbLines": [
+          "Then Mary said:",
+          "“My soul magnifies the Lord,"
+        ],
+        "bsb": "Then Mary said: “My soul magnifies the Lord,"
       },
       {
         "label": "Philippians 2:6",
         "code": "PHP",
         "chapter": 2,
         "verse": 6,
-        "use": "Hymn or prose"
+        "use": "Hymn or prose",
+        "bsbLines": [
+          "Who, existing in the form of God,",
+          "did not consider equality with God",
+          "something to be grasped,"
+        ],
+        "bsb": "Who, existing in the form of God, did not consider equality with God something to be grasped,"
       },
       {
         "label": "Romans 3:1",
         "code": "ROM",
         "chapter": 3,
         "verse": 1,
-        "use": "Question and answer"
+        "use": "Question and answer",
+        "bsbLines": [
+          "What, then, is the advantage of being a Jew? Or what is the value of circumcision?"
+        ],
+        "bsb": "What, then, is the advantage of being a Jew? Or what is the value of circumcision?"
       },
       {
         "label": "2 Timothy 3:16",
         "code": "2TI",
         "chapter": 3,
         "verse": 16,
-        "use": "Stance"
+        "use": "Stance",
+        "bsbLines": [
+          "All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness,"
+        ],
+        "bsb": "All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness,"
       }
     ]
   },
@@ -1440,5 +1695,287 @@
     "Wenham's list of matching elements in the flood mirror; Emerton's title, volumes and pages.",
     "Blomberg's article title and criteria; Edwards's count of Markan sandwiches; Culpepper's volume and year; Budde's volume and pages; the date of the first Buber–Rosenzweig volume; the date of Bar-Efrat's Hebrew original.",
     "Picture licences for all three candidates."
+  ],
+  "checkNotes": [
+    {
+      "id": "c1",
+      "path": ".parallelism.readers[0].note",
+      "was": "[check: that Kugel cites Kimhi for this, and the wording Kimhi uses]",
+      "status": "confirmed",
+      "before": "Reported through Kugel's history.",
+      "after": "Reported through Kugel's history.",
+      "note": "The mark asked whether Kugel cites Kimhi for doubled lines. He does: in The Idea of Biblical Poetry (1981), his chapter on the medieval Jewish commentators discusses Kimhi's phrase for a verse that repeats its matter in different words, which Kugel quotes in Hebrew. Check the page when the book is read.",
+      "marker": true
+    },
+    {
+      "id": "c2",
+      "path": ".parallelism.readers[1].note",
+      "was": "[check: whether the three kinds are set out in lecture 19 of the 1753 lectures, in the preliminary dissertation to his Isaiah (1778), or in both]",
+      "status": "confirmed",
+      "before": "",
+      "after": "",
+      "note": "The mark asked where Lowth set out his three kinds. They appear in both places: first in lecture 19 of the Praelectiones (1753), then more fully, with examples, in the Preliminary Dissertation to his Isaiah (1778). So the sentence dating the three kinds to the 1753 lectures stands.",
+      "marker": true
+    },
+    {
+      "id": "c3",
+      "path": ".parallelism.readers[2].note",
+      "was": "[check: the exact wording of Kugel's formula and its page]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The mark asked for the exact wording and page of Kugel's formula. Scholars usually shorten it to 'A, and what's more, B', but Kugel's own sentence is often given as 'A is so, and what's more, B is so', near the start of chapter 1. Only the 1981 Yale edition can settle the exact wording and the page.",
+      "marker": true
+    },
+    {
+      "id": "c4",
+      "path": ".parallelism.border.evidence[1]",
+      "was": "[check: the Talmud reference, Megillah 16b, and which layout each codex uses for each song]",
+      "status": "corrected",
+      "before": "The Leningrad Codex and the Aleppo Codex both show these.",
+      "after": "The Leningrad Codex shows both; the Aleppo Codex, whose surviving Torah pages begin late in Deuteronomy, shows only the Song of Moses.",
+      "note": "Megillah 16b is the right reference: it says the songs are written as a half-brick over a whole brick. In the Aleppo Codex the Torah is lost up to Deuteronomy 28, so it has no Exodus 15 page. The Leningrad Codex has both songs, with Exodus 15 in the brick pattern and Deuteronomy 32 in two columns.",
+      "marker": true
+    },
+    {
+      "id": "c5",
+      "path": ".parallelism.border.evidence[2]",
+      "was": "[check: the Berean's printed and on-site layout of poetry]",
+      "status": "confirmed",
+      "before": "Modern translations, the Berean among them, set poetry as indented lines.",
+      "after": "Modern translations, the Berean among them, set poetry as indented lines.",
+      "note": "Printed editions of the Berean Standard Bible set poetry in indented lines. Whether the site shows poetry the same way depends on how the site's own build draws the held text, so the build should check that.",
+      "marker": true
+    },
+    {
+      "id": "c6",
+      "path": ".patterns.items[1].evidence",
+      "was": "[check: Wenham's exact list of matching elements, VT 28 (1978)]",
+      "status": "confirmed",
+      "before": "The flood story does give its day-counts in a pattern of seven, forty and a hundred and fifty, which then come back in reverse order.",
+      "after": "The flood story does give its day-counts in a pattern of seven, forty and a hundred and fifty, which then come back in reverse order.",
+      "note": "Wenham's mirror in Vetus Testamentum 28 (1978), pages 336 to 348, runs the day-counts 7, 7, 40, 150 to the centre at Genesis 8:1, then 150, 40, 7, 7. It also pairs other elements, such as Noah, his sons, the ark, the animals, the food and the covenant. The summary is accurate.",
+      "marker": true
+    },
+    {
+      "id": "c7",
+      "path": ".patterns.items[1].limit",
+      "was": "[check: Emerton's two-part article in Vetus Testamentum 37 (1987) and 38 (1988)]",
+      "status": "confirmed",
+      "before": "J. A. Emerton replied that the matches depend on which elements one chooses to pair.",
+      "after": "J. A. Emerton replied that the matches depend on which elements one chooses to pair.",
+      "note": "Emerton's two-part article is in Vetus Testamentum 37 (1987), pages 401 to 420, and 38 (1988), pages 1 to 21. He argued that Wenham's mirror depends on choosing which elements to pair, so the summary is fair.",
+      "marker": true
+    },
+    {
+      "id": "c8",
+      "path": ".patterns.items[3].evidence",
+      "was": "[check: the manuscript evidence for joining Psalms 42 and 43]",
+      "status": "confirmed",
+      "before": "Many Hebrew manuscripts join the two as one psalm.",
+      "after": "Many Hebrew manuscripts join the two as one psalm.",
+      "note": "The apparatus of the standard critical Hebrew Bible (BHS) notes that many medieval Hebrew manuscripts write Psalms 42 and 43 as one psalm, and the major commentaries (for example Craigie on Psalms) report the same.",
+      "marker": true
+    },
+    {
+      "id": "c9",
+      "path": ".patterns.tests.lead",
+      "was": "[check: Blomberg's article title, journal and list of criteria]",
+      "status": "confirmed",
+      "before": "Craig Blomberg (1989) and Ian Thomson (1995) each proposed tests a claimed chiasm should pass.",
+      "after": "Craig Blomberg (1989) and Ian Thomson (1995) each proposed tests a claimed chiasm should pass.",
+      "note": "Blomberg's article is 'The Structure of 2 Corinthians 1–7', Criswell Theological Review 4 (1989), pages 3 to 20. It gives nine criteria for a chiasm, among them clear verbal parallels, a centre worth the weight put on it, and an outline that does not split natural divisions. The sentence is accurate.",
+      "marker": true
+    },
+    {
+      "id": "c10",
+      "path": ".acrostics.lead",
+      "was": "[check: whether the Berean prints the letter names in Psalm 119]",
+      "status": "confirmed",
+      "before": "Psalm 119 is printed in many English Bibles with the Hebrew letter at the head of each stanza.",
+      "after": "Psalm 119 is printed in many English Bibles with the Hebrew letter at the head of each stanza.",
+      "note": "The sentence is true as written, and it makes no claim about the Berean. The Berean is generally printed with the letter names (Aleph, Beth and so on) as stanza headings, but the build should confirm this in the site's held text before saying so.",
+      "marker": true
+    },
+    {
+      "id": "c11",
+      "path": ".acrostics.poems[1].note",
+      "was": "[check: which letter is missing]",
+      "status": "corrected",
+      "before": "A letter is missing and a closing verse is added outside the alphabet.",
+      "after": "The letter qoph is missing, waw has no verse of its own, and a closing verse is added outside the alphabet.",
+      "note": "Standard commentaries and Watson's handbook note that Psalm 25 has no qoph verse, that waw has no verse of its own (some find it inside verse 5), and that verse 22 adds a pe line outside the alphabet.",
+      "marker": true
+    },
+    {
+      "id": "c12",
+      "path": ".acrostics.poems[2].note",
+      "was": "[check: which letter is missing]",
+      "status": "corrected",
+      "before": "Like Psalm 25, it lacks a letter and closes with an extra line.",
+      "after": "Like Psalm 25, it lacks a letter, waw, and closes with an extra line.",
+      "note": "Psalm 34 has no waw verse, and verse 22 adds an extra pe line after the alphabet. The standard commentaries all agree on this.",
+      "marker": true
+    },
+    {
+      "id": "c13",
+      "path": ".acrostics.poems[7].note",
+      "was": "[check: how the Berean prints and footnotes Psalm 145:13]",
+      "status": "confirmed",
+      "before": "A Dead Sea Scrolls psalms scroll (11QPsa) and the Septuagint have one, and several modern translations print it.",
+      "after": "A Dead Sea Scrolls psalms scroll (11QPsa) and the Septuagint have one, and several modern translations print it.",
+      "note": "The facts are right: 11QPsa and the Septuagint have the nun line, and translations such as the ESV and NIV print it. The Berean appears to print it in verse 13 with a footnote giving the source, but the build should check the exact wording and footnote in the held text.",
+      "marker": true
+    },
+    {
+      "id": "c14",
+      "path": ".keyWords.items[0].limit",
+      "was": "[check: the Berean's wording at Genesis 37:32 and 38:25]",
+      "status": "corrected",
+      "before": "Whether the Berean keeps the same English both times is a fact to check, not an assumption.",
+      "after": "The Berean keeps the same English verb, examine, in both places.",
+      "note": "The Berean uses 'examine' at Genesis 37:32 and again at 38:25, so the echo survives in English. The build should still confirm this against the site's held text.",
+      "marker": true
+    },
+    {
+      "id": "c15",
+      "path": ".storyteller.tools[1].evidence",
+      "was": "[check: the phrase in Willard Trask's translation, 1953, and its page]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "Not settled automatically: its claim '“fraught with background”' is not the text just before the mark. The checker's answer was: The phrase 'fraught with background' is in Willard Trask's 1953 Princeton translation of Mimesis, chapter 1, around page 12. Confirm the exact page in the edition the site cites. (proposed words: '“fraught with background”')",
+      "marker": true
+    },
+    {
+      "id": "c16",
+      "path": ".storyteller.tools[6].evidence",
+      "was": "[check: Alter's claim about Michal and where he makes it]",
+      "status": "confirmed",
+      "before": "Because inner states are rarely given, the few that are stand out.",
+      "after": "Because inner states are rarely given, the few that are stand out.",
+      "note": "Alter makes the Michal point in The Art of Biblical Narrative (1981), in his chapter on characterisation. He says it is the only place in biblical narrative where a woman is plainly said to love a man. The 'look' text says 'in the Hebrew Bible'; 'in biblical narrative' would match Alter's wording more closely.",
+      "marker": true
+    },
+    {
+      "id": "c17",
+      "path": ".greek.items[0].evidence",
+      "was": "[check: Edwards's count, Novum Testamentum 31 (1989)]",
+      "status": "confirmed",
+      "before": "James R. Edwards listed nine such passages in Mark and argued that the outer and inner stories explain each other.",
+      "after": "James R. Edwards listed nine such passages in Mark and argued that the outer and inner stories explain each other.",
+      "note": "Edwards, 'Markan Sandwiches', Novum Testamentum 31 (1989), pages 193 to 216, counts nine passages: Mark 3:20–35, 4:1–20, 5:21–43, 6:7–30, 11:12–21, 14:1–11, 14:17–31, 14:53–72 and 15:40–16:8.",
+      "marker": true
+    },
+    {
+      "id": "c18",
+      "path": ".greek.more",
+      "was": "[check: Culpepper's article, New Testament Studies 27, 1980]",
+      "status": "confirmed",
+      "before": "with R. Alan Culpepper's case for a centre at verse 12",
+      "after": "with R. Alan Culpepper's case for a centre at verse 12",
+      "note": "Culpepper's 'The Pivot of John's Prologue', New Testament Studies 27 (1980–81), pages 1 to 31, puts the centre at John 1:12b, the giving of power to become children of God.",
+      "marker": true
+    },
+    {
+      "id": "c19",
+      "path": ".timeline.rows[0].what",
+      "was": "[check]",
+      "status": "confirmed",
+      "before": "Doubled lines explained as style",
+      "after": "Doubled lines explained as style",
+      "note": "Kimhi (about 1160 to 1235) explained repeated lines as a feature of style, as Kugel's history reports, so 'about 1200' is a fair date for this row.",
+      "marker": true
+    },
+    {
+      "id": "c20",
+      "path": ".timeline.rows[4].what",
+      "was": "[check: date of the first volume]",
+      "status": "confirmed",
+      "before": "The leading word (Leitwort) in translation",
+      "after": "The leading word (Leitwort) in translation",
+      "note": "The first volume of the Buber–Rosenzweig translation, Im Anfang (Genesis), came out in 1925, so 'from 1925' is right. Buber's essay on the Leitwort style followed a little later, in the late 1920s.",
+      "marker": true
+    },
+    {
+      "id": "c21",
+      "path": ".pictures.candidates[0].licence",
+      "was": "[check: licence of the photograph, not only of the manuscript]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The manuscript itself is long out of copyright, but the photographs belong to the Ben-Zvi Institute and the Israel Museum. Commons tags some Aleppo Codex images as public domain under its rule for faithful copies of flat works, but the Deuteronomy 32 page and its tag still need checking. Needed: the actual Commons file page and its licence tag, or written permission from the holder.",
+      "marker": false
+    },
+    {
+      "id": "c22",
+      "path": ".pictures.candidates[1].licence",
+      "was": "[check: whether any open-licence photograph exists]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The published facsimile photographs of the Leningrad Codex are under copyright (the 1998 Eerdmans/Brill facsimile), and the National Library of Russia controls the images. Needed: a specific open-licence file, for example on Wikimedia Commons with a public-domain tag, or permission from the library or the facsimile publisher.",
+      "marker": false
+    },
+    {
+      "id": "c23",
+      "path": ".pictures.candidates[2].licence",
+      "was": "[check: the digital library's terms; they may not allow republishing]",
+      "status": "open",
+      "before": "",
+      "after": "",
+      "note": "The Leon Levy Dead Sea Scrolls Digital Library's terms appear to allow only personal, non-commercial viewing, with other uses needing permission from the Israel Antiquities Authority. Needed: the library's current terms of use, or written permission from the Israel Antiquities Authority, before the 11QPsa image is used.",
+      "marker": false
+    },
+    {
+      "id": "c24",
+      "path": ".sources[7].read",
+      "was": "[check: date of the Hebrew original]",
+      "status": "corrected",
+      "before": "Not read for this draft.",
+      "after": "Not read for this draft. The Hebrew original was published in 1979.",
+      "note": "Bar-Efrat's Hebrew original, on the narrative art of the Bible, was published in 1979, with a second edition in 1984. The English translation (Almond Press, 1989) was made from the Hebrew.",
+      "marker": true
+    },
+    {
+      "id": "c25",
+      "path": ".sources[11].read",
+      "was": "[check: volume and pages]",
+      "status": "corrected",
+      "before": "Not read for this draft.",
+      "after": "Not read for this draft. Volume 2 (1882), pages 1–52.",
+      "note": "Budde's 'Das hebräische Klagelied' is in Zeitschrift für die alttestamentliche Wissenschaft 2 (1882), pages 1 to 52, as the standard bibliographies give it.",
+      "marker": true
+    },
+    {
+      "id": "c26",
+      "path": ".sources[14].read",
+      "was": "[check: title, volumes and pages]",
+      "status": "corrected",
+      "before": "Not read for this draft.",
+      "after": "Not read for this draft. Title confirmed; Vetus Testamentum 37 (1987), pages 401–420, and 38 (1988), pages 1–21.",
+      "note": "The title is right, and the two parts are in Vetus Testamentum 37 (1987), pages 401 to 420, and 38 (1988), pages 1 to 21.",
+      "marker": true
+    },
+    {
+      "id": "c27",
+      "path": ".sources[15].read",
+      "was": "[check: exact title and the criteria listed]",
+      "status": "corrected",
+      "before": "Not read for this draft.",
+      "after": "Not read for this draft. Title: The Structure of 2 Corinthians 1–7, Criswell Theological Review 4 (1989), pages 3–20; it lists nine criteria for a chiasm.",
+      "note": "Blomberg's article is 'The Structure of 2 Corinthians 1–7', Criswell Theological Review 4 (1989), pages 3 to 20, and it sets out nine criteria for spotting a real chiasm. The source title in the record could be updated to match.",
+      "marker": true
+    },
+    {
+      "id": "c28",
+      "path": ".sources[24].read",
+      "was": "[check: volume and year]",
+      "status": "corrected",
+      "before": "Not read for this draft.",
+      "after": "Not read for this draft. Volume 27 (1980–81), pages 1–31.",
+      "note": "Culpepper's article is in New Testament Studies 27, the 1980–81 volume, pages 1 to 31. Its first issue came out in October 1980, so the record's '1980' is acceptable.",
+      "marker": true
+    }
   ]
 }

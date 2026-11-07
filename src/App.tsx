@@ -3,6 +3,7 @@ import { Suspense, type ReactNode } from "react";
 import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { PageTransitions } from "@/components/PageTransitions";
+import { STUDY_PAGE_ROUTES } from "@/pages/study/study-page-routes";
 import { CorrectionButton } from "@/components/corrections/CorrectionButton";
 import { Layout } from "@/components/Layout";
 import { PageErrorBoundary } from "@/components/PageErrorBoundary";
@@ -185,6 +186,7 @@ export default function App() {
               <Route path="/study/how-the-church-has-read-the-bible" element={<ChurchReadingPage />} />
               <Route path="/study/the-medieval-church" element={<MedievalPage />} />
               <Route path="/study/the-good-news" element={<GoodNewsPage />} />
+              {STUDY_PAGE_ROUTES.map(({ path, Page }) => <Route key={path} path={path} element={<Page />} />)}
               <Route path="/study/how-hebrew-works" element={<HebrewPage />} />
               <Route path="/study/how-new-testament-greek-works" element={<GreekPage />} />
               <Route path="/study/dead-sea-scrolls" element={<DeadSeaScrollsPage />} />
