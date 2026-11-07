@@ -1,8 +1,9 @@
 // The study page's Atlas window map: the site's own coastline (atlas-map.json), a camera that glides to fit each category's
-// places, journey routes drawn after the glide, and labels placed so they do not overlap (a hidden label shows on hover).
+// places, journeys travelling their routes after the glide (RouteTrail), and labels placed so they do not overlap (a hidden label shows on hover).
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import world from "@/data/atlas-map.json";
 import type { AtlasCategory } from "./atlas-data";
+import { RouteTrail } from "./RouteTrail";
 
 interface Camera { scale: number; tx: number; ty: number }
 type Side = "right" | "left" | "above" | "below";
@@ -99,7 +100,7 @@ export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { categ
       <path className="map-grid" d={grid} />
       <g transform={`translate(${camera.tx} ${camera.ty}) scale(${camera.scale})`}><path className="map-land" d={world.land} fillRule="evenodd" vectorEffect="non-scaling-stroke" /></g>
       {camera.scale < 3.2 && REGIONS.map(([name, lon, lat]) => { const [x, y] = toScreen(project([lon, lat]), camera); return <text key={name} className="map-region" x={x} y={y} textAnchor="middle" style={{ fontSize: 10 * k, letterSpacing: 3 * k }}>{name}</text>; })}
-      {settled && category.routes?.map((route, i) => <path key={`${category.id}-${i}`} className="am-route" pathLength={1} style={{ strokeWidth: 2 * k }} d={`M${route.map(k => `${byKey[k].x.toFixed(1)} ${byKey[k].y.toFixed(1)}`).join("L")}`} />)}
+      {settled && category.routes?.map((route, i) => <RouteTrail key={`${category.id}-${i}`} k={k} d={`M${route.map(key => `${byKey[key].x.toFixed(1)} ${byKey[key].y.toFixed(1)}`).join("L")}`} />)}
       {points.map(p => {
         const side = labels[p.key]?.side ?? null, [dx, dy, anchor] = offset(side ?? "right", k);
         return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}${p.uncertain ? " am-unsure" : ""}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}
