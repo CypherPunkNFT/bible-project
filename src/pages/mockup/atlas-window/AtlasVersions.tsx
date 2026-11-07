@@ -8,6 +8,7 @@ import { ArrowRight, ArrowUpRight, Map as MapIcon } from "lucide-react";
 import { StudyLink } from "@/pages/study/hub/shared";
 import { CATEGORIES, GROUPS, placeHref, type AtlasCategory, type AtlasPlace } from "./atlas-mock-data";
 import { MockMap, type Inset } from "./MockMap";
+import { RefText } from "./RefText";
 import "./atlas-mock.css";
 
 const firstPlace = (c: AtlasCategory) => (c.places.find(p => p.key === "Jerusalem") ?? c.places[0]).key;
@@ -43,7 +44,7 @@ function GroupedCategories({ choice, count = false }: { choice: Choice; count?: 
 function PlaceNote({ choice, heading = "h3" }: { choice: Choice; heading?: "h3" | "h4" }) {
   const H = heading, { chosen, category } = choice;
   return <div className="am-note" aria-live="polite">
-    <H>{chosen.name}</H><p>{chosen.note}</p>
+    <H>{chosen.name}</H><p><RefText text={chosen.note} /></p>
     <div className="am-note-links"><StudyLink to={placeHref(chosen)}>Open in the Atlas<ArrowUpRight size={14} aria-hidden /></StudyLink><StudyLink to={category.href}>{category.title}<ArrowUpRight size={14} aria-hidden /></StudyLink></div>
   </div>;
 }
@@ -52,14 +53,13 @@ function EnterAtlas({ small = false }: { small?: boolean }) {
   return <StudyLink className={small ? "am-enter am-enter-small" : "am-enter"} to="/study/atlas"><MapIcon size={16} strokeWidth={1.5} aria-hidden /><span>Enter the full Atlas</span><ArrowRight size={16} aria-hidden /></StudyLink>;
 }
 
-const Kicker = ({ c }: { c: AtlasCategory }) => <div className="am-kicker"><span>{c.title.toUpperCase()}</span><span>{c.places.length} places</span></div>;
 const Caveat = ({ c }: { c: AtlasCategory }) => c.caveat ? <p className="am-caveat">{c.caveat}</p> : null;
 
 export function AtlasV1() {
   const choice = useAtlasChoice(), { category } = choice;
   return <Section version={1}><div className="am-window">
-    <div className="am-scene"><Kicker c={category} /><MockMap category={category} chosen={choice.chosen.key} choose={choice.choose} /><div className="am-strip"><PlaceNote choice={choice} /><Caveat c={category} /></div></div>
-    <div className="am-side"><p className="eyebrow">The Atlas</p><GroupedCategories choice={choice} count /><EnterAtlas /></div>
+    <div className="am-scene"><MockMap category={category} chosen={choice.chosen.key} choose={choice.choose} /><div className="am-strip"><PlaceNote choice={choice} /><Caveat c={category} /></div></div>
+    <div className="am-side"><GroupedCategories choice={choice} count /><EnterAtlas /></div>
   </div></Section>;
 }
 
@@ -70,7 +70,7 @@ export function AtlasV2() {
     <div className="am-body">
       <div className="am-scene"><MockMap category={category} chosen={chosen.key} choose={choice.choose} /></div>
       <div className="am-side">
-        <h3 className="am-title">{category.title}</h3><p className="am-intro">{category.intro}</p>
+        <h3 className="am-title">{category.title}</h3><p className="am-intro"><RefText text={category.intro} /></p>
         <ul className="am-names">{category.places.map(p => <li key={p.key}><button type="button" aria-pressed={p.key === chosen.key} onClick={() => choice.choose(p.key)}>{p.name}</button></li>)}</ul>
         <PlaceNote choice={choice} heading="h4" /><Caveat c={category} /><EnterAtlas small />
       </div>
@@ -83,8 +83,8 @@ export function AtlasV3() {
   const choice = useAtlasChoice(), { category } = choice;
   return <Section version={3}><div className="am-window">
     <div className="am-scene"><MockMap category={category} chosen={choice.chosen.key} choose={choice.choose} inset={V3_INSET} />
-      <div className="am-over-left"><p className="eyebrow">The Atlas</p><GroupedCategories choice={choice} /></div>
-      <div className="am-over-right"><p className="am-intro">{category.intro}</p><PlaceNote choice={choice} /><Caveat c={category} /></div>
+      <div className="am-over-left"><GroupedCategories choice={choice} /></div>
+      <div className="am-over-right"><p className="am-intro"><RefText text={category.intro} /></p><PlaceNote choice={choice} /><Caveat c={category} /></div>
       <div className="am-over-top"><EnterAtlas small /></div>
     </div>
   </div></Section>;
@@ -94,13 +94,13 @@ export function AtlasV4() {
   const choice = useAtlasChoice(), { category, chosen } = choice, list = useRef<HTMLDivElement>(null);
   useEffect(() => { const box = list.current, open = box?.querySelector<HTMLElement>("li.open"); if (box && open) box.scrollTop = Math.max(0, open.offsetTop - box.offsetTop - 60); }, [chosen.key, category.id]);
   return <Section version={4}><div className="am-window">
-    <div className="am-left"><p className="eyebrow">The Atlas</p><GroupedCategories choice={choice} /><EnterAtlas small /></div>
-    <div className="am-scene"><Kicker c={category} /><MockMap category={category} chosen={chosen.key} choose={choice.choose} /></div>
+    <div className="am-left"><GroupedCategories choice={choice} /><EnterAtlas small /></div>
+    <div className="am-scene"><MockMap category={category} chosen={chosen.key} choose={choice.choose} /></div>
     <div className="am-side" ref={list}>
-      <p className="am-intro">{category.intro}</p>
+      <p className="am-intro"><RefText text={category.intro} /></p>
       <ol className="am-stops">{category.places.map((p, i) => <li key={p.key} className={p.key === chosen.key ? "open" : undefined}>
         <button type="button" aria-expanded={p.key === chosen.key} onClick={() => choice.choose(p.key)}><span className="am-num">{String(i + 1).padStart(2, "0")}</span>{p.name}</button>
-        {p.key === chosen.key && <div className="am-stop-note"><p>{p.note}</p><StudyLink to={placeHref(p)}>Open in the Atlas<ArrowUpRight size={13} aria-hidden /></StudyLink></div>}
+        {p.key === chosen.key && <div className="am-stop-note"><p><RefText text={p.note} /></p><StudyLink to={placeHref(p)}>Open in the Atlas<ArrowUpRight size={13} aria-hidden /></StudyLink></div>}
       </li>)}</ol>
       <Caveat c={category} />
     </div>

@@ -10,7 +10,8 @@
 .study-experience .am-map .map-point{outline:none}
 .study-experience .am-route{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:am-draw 1.6s ease-in-out forwards;filter:drop-shadow(0 0 2px var(--accent));pointer-events:none}
 @keyframes am-draw{to{stroke-dashoffset:0}}
-.study-experience .am-kicker{display:flex;justify-content:space-between;gap:12px;padding:9px 18px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.15em;color:var(--muted)}
+.study-experience .am-ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--muted) 45%,transparent);text-underline-offset:3px;transition:color .2s}
+.study-experience .am-ref:hover{color:var(--accent);text-decoration-color:currentColor}
 .study-experience .am-group-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
 .study-experience .am-cat{display:flex;align-items:center;gap:10px;width:100%;padding:7px 0;color:var(--muted);font:450 15px/1.3 var(--serif);text-align:left;transition:color .2s}
 .study-experience .am-cat>svg{flex-shrink:0;opacity:.8}
@@ -30,16 +31,18 @@
 .study-experience .am-enter-small{min-height:38px;padding:9px 14px;font-size:11px}
 
 /* 1 Grouped index */
-.study-experience .am-v1 .am-window{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);height:470px}
-.study-experience .am-v1 .am-scene{display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+/* The list beside the map is a narrow 290px column, so the map takes the width (owner, 2026-11-06: "right side panel is too wide"). */
+.study-experience .am-v1 .am-window{display:grid;grid-template-columns:minmax(0,1fr) 290px;height:470px}
+.study-experience .am-v1 .am-scene{display:grid;grid-template-rows:minmax(0,1fr) auto}
 .study-experience .am-v1 .am-strip{padding:12px 18px 14px;border-top:1px solid var(--line);background:var(--surface)}
 .study-experience .am-v1 .am-strip .am-note{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 18px}
 .study-experience .am-v1 .am-strip .am-note h3{font-size:19px;margin:0}
 .study-experience .am-v1 .am-strip .am-note-links{margin:0;flex-direction:column;gap:4px}
 .study-experience .am-v1 .am-strip .am-caveat{margin-top:4px}
-.study-experience .am-v1 .am-side{display:flex;flex-direction:column;gap:10px;padding:18px 24px;border-left:1px solid var(--line)}
+.study-experience .am-v1 .am-side{display:flex;flex-direction:column;gap:10px;padding:18px 22px;border-left:1px solid var(--line)}
 .study-experience .am-v1 .am-groups{display:flex;flex-direction:column;gap:8px}
 .study-experience .am-v1 .am-group{border-top:1px solid var(--line);padding-top:7px}
+.study-experience .am-v1 .am-group:first-child{border-top:0;padding-top:0}
 .study-experience .am-v1 .am-cat{padding:5px 0;font-size:14.5px}
 .study-experience .am-v1 .am-enter{margin-top:auto}
 
@@ -62,7 +65,6 @@
 .study-experience .am-v3 .am-scene{height:470px}
 .study-experience .am-v3 .am-over-left,.study-experience .am-v3 .am-over-right{position:absolute;padding:14px 16px;border-radius:4px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(6px);border:1px solid var(--line)}
 .study-experience .am-v3 .am-over-left{left:16px;top:16px;bottom:16px;width:220px;overflow:auto}
-.study-experience .am-v3 .am-over-left .eyebrow{margin-bottom:8px}
 .study-experience .am-v3 .am-groups{display:flex;flex-direction:column;gap:8px}
 .study-experience .am-v3 .am-cat{font-size:14px;padding:4px 0}
 .study-experience .am-v3 .am-over-right{right:16px;bottom:16px;width:300px}
@@ -76,7 +78,7 @@
 .study-experience .am-v4 .am-groups{display:flex;flex-direction:column;gap:8px}
 .study-experience .am-v4 .am-cat{font-size:14px;padding:4px 0}
 .study-experience .am-v4 .am-enter{margin-top:auto}
-.study-experience .am-v4 .am-scene{display:grid;grid-template-rows:auto 1fr}
+.study-experience .am-v4 .am-scene{display:block}
 .study-experience .am-v4 .am-side{display:flex;flex-direction:column;padding:16px 20px;border-left:1px solid var(--line);overflow:auto}
 .study-experience .am-v4 .am-intro{padding-bottom:10px;border-bottom:1px solid var(--line)}
 .study-experience .am-stops li{border-bottom:1px solid var(--line)}
