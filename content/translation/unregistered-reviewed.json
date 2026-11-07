@@ -2746,7 +2746,7 @@
   "check": "files",
   "item": "content/academic-research/",
   "why": "read by another tool: SiteTranslation/studies/tools (scope.py, build.py) collect the study dossiers' prose into ui-study.json, which the /study pages that import them load",
-  "files": 66
+  "files": 70
  },
  {
   "check": "files",
@@ -5419,100 +5419,16 @@
  {
   "check": "waiting",
   "job": "27",
-  "finding": "baseline-data",
-  "item": "the build check's baseline: data the site reads untranslated",
-  "keys": {
-   "read in English: catalog.json": [
-    ""
-   ],
-   "read in English: manuscripts/collection": [
-    ""
-   ],
-   "read in English: manuscripts/collection.json": [
-    ""
-   ],
-   "read in English: places-by-book/": [
-    ""
-   ],
-   "read in English: places.json": [
-    ""
-   ],
-   "read in English: plain/": [
-    ""
-   ],
-   "read in English: stats.json": [
-    ""
-   ],
-   "read in English: study/harmony.json": [
-    ""
-   ],
-   "read in English: study/home.json": [
-    ""
-   ],
-   "read in English: study/index.json": [
-    ""
-   ],
-   "read in English: study/letters.json": [
-    ""
-   ],
-   "read in English: study/miracles.json": [
-    ""
-   ],
-   "read in English: study/names.json": [
-    ""
-   ],
-   "read in English: study/prophets.json": [
-    ""
-   ],
-   "read in English: text/": [
-    ""
-   ],
-   "read in English: xref-arcs.json": [
-    ""
-   ],
-   "read in English: xref-books.json": [
-    ""
-   ],
-   "read in English: xref-links/": [
-    ""
-   ],
-   "read in English: xref/": [
-    ""
-   ]
-  },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. Known since stage 4 (english-baseline.json, data net): data the page code fetches with no translated copy in the language list's folders; each needs a translated copy or a data ruling saying why it stays English"
- },
- {
-  "check": "waiting",
-  "job": "27",
   "finding": "translation-english",
   "item": "chunks with most sentences still in English",
   "keys": {
-   "0996": [
-    "pt"
-   ],
-   "1078": [
-    "ar"
-   ],
-   "1083": [
-    "es",
-    "pt",
-    "hi",
-    "id"
-   ],
    "1166": [
     "id"
    ],
    "1167": [
     "es"
    ],
-   "1333": [
-    "es",
-    "pt",
-    "id"
-   ],
    "1689": [
-    "pt",
     "id"
    ],
    "1690": [
@@ -5523,12 +5439,9 @@
    ],
    "1714": [
     "hi"
-   ],
-   "1719": [
-    "ar"
    ]
   },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds more than a quarter of these chunks' sentences unchanged from the English. They were translated before stage 6: some hold titles kept as published, some were never translated. Re-translating costs plan allowance, so it waits for a quote and the owner's yes"
+  "why": "Job 27 ruled the chunks whose English left is only titles and names. These remain, each with a real fault: 1167 (es) and 1166 (id) hold Spanish inside the English source ('Traducido por Arthur West Haddan', 'Rosh Hashanah con the Early Israelites'), strings the site no longer shows, from the studies batch S8, so the chunks need collecting again from today's English; 1690 (pt) leaves five words in English ('Printing Materials', 'Layer', 'visible', 'polyglot', 'Stop-Press Variants'); 1713 (pt) keeps 'Benedict XVI' (Bento XVI); 1714 (hi) keeps object names ('Babylonian Chronicle', 'Black Obelisk'); 1689 (id) keeps book abbreviations ('{n} Pet', Indonesian 'Ptr') and manuscript names. Correcting them costs plan allowance and waits for a quote"
  },
  {
   "check": "waiting",
@@ -5558,634 +5471,8 @@
   "check": "waiting",
   "job": "27",
   "finding": "copy-missing",
-  "item": "translated data files with nothing where the English has text",
+  "item": "topic dictionary paragraphs whose reference was never made a reference (two topics)",
   "keys": {
-   "data/topics/t/104.json|dictionary|Acts 2:13": [
-    "hi"
-   ],
-   "data/topics/t/104.json|dictionary|the word gleukos, rendered “new wine,” denotes properly “sweet wine.” It must have been intoxicating.": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|) he was recalled to life.": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|, plainly for the purpose of proving our Lord’s resurrection from the dead. David was left in the place of the dead, and his body saw corruption. Not so with Christ. According to ancient prophecy (": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|Acts 2:27-31": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|Luke 16:23": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|Peter quotes the LXX. version of": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|Ps. 16:8-11": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|Ps. 30:3": [
-    "hi"
-   ],
-   "data/topics/t/111.json|dictionary|it is most distinctly associated with the doom and misery of the lost.": [
-    "hi"
-   ],
-   "data/topics/t/112.json|dictionary|(A.V.), instead of the expression “or wings and feathers unto the ostrich” (marg., “the feathers of the stork and ostrich”), the Revised Version has “are her pinions and feathers kindly” (marg., instead of “kindly,” reads “like the stork’s”). The object of this somewhat obscure verse seems to be to point out a contrast between the stork, as distinguished for her affection for her young, and the ostrich, as distinguished for her indifference.": [
-    "hi"
-   ],
-   "data/topics/t/112.json|dictionary|Job 39:13": [
-    "hi"
-   ],
-   "data/topics/t/114.json|dictionary|Ex. 33:7": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/114.json|dictionary|The word thus rendered (‘ohel) in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/114.json|dictionary|denotes simply a tent, probably Moses’ own tent, for the tabernacle was not yet erected.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/117.json|dictionary|, was near the Pool of Siloam.": [
-    "zh"
-   ],
-   "data/topics/t/117.json|dictionary|2 Kings 25:4": [
-    "zh"
-   ],
-   "data/topics/t/117.json|dictionary|Neh. 3:15": [
-    "zh"
-   ],
-   "data/topics/t/117.json|dictionary|The “king’s garden” mentioned": [
-    "zh"
-   ],
-   "data/topics/t/118.json|dictionary|(2.) The only son and successor of Hezekiah on the throne of Judah. He was twelve years old when he began to reign (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|), and he reigned fifty-five years (B.C. 698-643). Though he reigned so long, yet comparatively little is known of this king. His reign was a continuation of that of Ahaz, both in religion and national polity. He early fell under the influence of the heathen court circle, and his reign was characterized by a sad relapse into idolatry with all its vices, showing that the reformation under his father had been to a large extent only superficial (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|), having been sawn asunder in the trunk of a tree.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|). A systematic and persistent attempt was made, and all too successfully, to banish the worship of Jehovah out of the land. Amid this wide-spread idolatry there were not wanting, however, faithful prophets (Isaiah, Micah) who lifted up their voice in reproof and in warning. But their fidelity only aroused bitter hatred, and a period of cruel persecution against all the friends of the old religion began. “The days of Alva in Holland, of Charles IX. in France, or of the Covenanters under Charles II. in Scotland, were anticipated in the Jewish capital. The streets were red with blood.” There is an old Jewish tradition that Isaiah was put to death at this time (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|, and 141 seem to express the feelings of the pious amid the fiery trials of this great persecution. Manasseh has been called the “Nero of Palestine.”": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|2 Kings 21:1": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|2 Kings 21:10-15": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|2 Kings 21:16": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|Isa. 7:10": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|Jer. 2:30": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|Judg. 18:30": [
-    "hi"
-   ],
-   "data/topics/t/118.json|dictionary|Psalms 49, 73, 77, 140": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/118.json|dictionary|the correct reading is “Moses,” and not “Manasseh.” The name “Manasseh” is supposed to have been introduced by some transcriber to avoid the scandal of naming the grandson of Moses the great lawgiver as the founder of an idolatrous religion.": [
-    "hi"
-   ],
-   "data/topics/t/121.json|dictionary|Hos. 10:1": [
-    "hi"
-   ],
-   "data/topics/t/121.json|dictionary|is rendered in the Revised Version, “Israel is a luxuriant vine, which putteth forth his fruit,” instead of “Israel is an empty vine, he bringeth forth fruit unto himself,” of the Authorized Version.": [
-    "hi"
-   ],
-   "data/topics/t/125.json|dictionary|, it would appear that the Roman vessels carried several anchors, which were attached to the stern as well as to the prow. The Roman anchor, like the modern one, had two teeth or flukes. In": [
-    "hi"
-   ],
-   "data/topics/t/125.json|dictionary|Acts 27:29": [
-    "hi"
-   ],
-   "data/topics/t/125.json|dictionary|From": [
-    "hi"
-   ],
-   "data/topics/t/125.json|dictionary|Heb. 6:19": [
-    "hi"
-   ],
-   "data/topics/t/125.json|dictionary|the word is used metaphorically for that which supports or keeps one steadfast in the time of trial or of doubt. It is an emblem of hope.": [
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|, the word “flood” (R.V., “river”) means the river Euphrates. In": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|, this word refers to the river Jordan.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|2 Cor. 3:17": [
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|An event recorded in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Gen. 7": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Josh. 24:2": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Pet. 3:18, it designates the divine nature.": [
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Ps. 66:6": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Rom. 1:4": [
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|Tim. 3:16,": [
-    "hi"
-   ],
-   "data/topics/t/127.json|dictionary|and 8. (See DELUGE.) In": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/13.json|dictionary|Hos. 10:1": [
-    "hi"
-   ],
-   "data/topics/t/13.json|dictionary|is rendered in the Revised Version, “Israel is a luxuriant vine, which putteth forth his fruit,” instead of “Israel is an empty vine, he bringeth forth fruit unto himself,” of the Authorized Version.": [
-    "hi"
-   ],
-   "data/topics/t/132.json|dictionary|Prov. 30:28": [
-    "hi"
-   ],
-   "data/topics/t/132.json|dictionary|a different Hebrew word (semamith) is used. It is rendered in the Vulgate by stellio, and in the Revised Version by “lizard.” It may, however, represent the spider, of which there are, it is said, about seven hundred species in Palestine.": [
-    "hi"
-   ],
-   "data/topics/t/137.json|dictionary|Gen. 10": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/137.json|dictionary|One of the most important facts recorded in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/137.json|dictionary|is the foundation of the earliest monarchy in Babylonia by Nimrod the grandson of Ham (6, 8, 10). The primitive Babylonian empire was thus Hamitic, and of a cognate race with the primitive inhabitants of Arabia and of Ethiopia. (See ACCAD.)": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/138.json|dictionary|). Without the Fall we should have known nothing of the Cross and the Gospel.”": [
-    "hi"
-   ],
-   "data/topics/t/138.json|dictionary|, Ryle well remarks: “A deep and instructive principle lies in these words. They surely throw some light on that great question, the origin of evil. God has thought fit to allow evil to exist in order that he may have a platform for showing his mercy, grace, and compassion. If man had never fallen there would have been no opportunity of showing divine mercy. But by permitting evil, mysterious as it seems, God’s works of grace, mercy, and wisdom in saving sinners have been wonderfully manifested to all his creatures. The redeeming of the church of elect sinners is the means of ‘showing to principalities and powers the manifold wisdom of God’ (": [
-    "hi"
-   ],
-   "data/topics/t/138.json|dictionary|Commenting on": [
-    "hi"
-   ],
-   "data/topics/t/138.json|dictionary|Eph. 3:10": [
-    "hi"
-   ],
-   "data/topics/t/138.json|dictionary|John 9:3": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|). In a fragment of the annuals of Nebuchadrezzar which records his invasion of Egypt, reference is made to “Phut of the Ionians.”": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|, and elsewhere we find the people of Phut described as mercenaries in the armies of Egypt and Tyre (": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|Ezek. 30:5": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|Gen. 10:6": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|Jer. 46:9": [
-    "hi"
-   ],
-   "data/topics/t/142.json|dictionary|Phut is placed between Egypt and Canaan in": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|1 Sam. 24:2": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|: 19 thus rendered (R.V., “doe”), is properly the “wild she-goat,” the mountain goat, the ibex. (See": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|Job 39:1": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|Prov. 5": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|Ps. 104:18": [
-    "hi"
-   ],
-   "data/topics/t/147.json|dictionary|The Hebrew word (‘ayyalah) in": [
-    "hi"
-   ],
-   "data/topics/t/154.json|dictionary|). It denotes some kind of sedge or reed which grows in marshy places. (See PAPER, REED.)": [
-    "hi"
-   ],
-   "data/topics/t/154.json|dictionary|, it is the rendering of the Hebrew suph_, a word which occurs frequently in connection with _yam; as yam suph, to denote the “Red Sea” (q.v.) or the sea of weeds (as this word is rendered,": [
-    "hi"
-   ],
-   "data/topics/t/154.json|dictionary|Ex. 2:3": [
-    "hi"
-   ],
-   "data/topics/t/154.json|dictionary|Isa. 19:6": [
-    "hi"
-   ],
-   "data/topics/t/154.json|dictionary|Jonah 2:5": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|(R.V., “governor”) it denotes a Persian prefect “on this side” i.e., in the region west of the Euphrates. It is the modern word pasha.": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|, etc.).": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|, means a prefect; one set over others. The same Hebrew word is rendered “officer;” i.e., chief of the commissariat appointed by Solomon (": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|1 Kings 22:47": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|1 Kings 4:5": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|; 18:12, it denotes a proconsul; i.e., the governor of a Roman province holding his appointment from the senate. The Roman provinces were of two kinds, (1) senatorial and (2) imperial. The appointment of a governor to the former was in the hands of the senate, and he bore the title of proconsul (Gr. anthupatos). The appointment of a governor to the latter was in the hands of the emperor, and he bore the title of propraetor (Gr. antistrategos).": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|Acts 13:7": [
-    "hi"
-   ],
-   "data/topics/t/159.json|dictionary|Esther 8:9": [
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|), but the coat or tunic (Gr. chiton) mentioned in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|). The cloak mentioned here and in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|Ex. 22:26": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|Luke 6:29": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|Matt. 17:2": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|Matt. 5:40": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|The word translated “cloke”, i.e., outer garment, in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|could not.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|is in its plural form used of garments in general (": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/16.json|dictionary|was the Greek himation, Latin pallium, and consisted of a large square piece of woollen cloth fastened round the shoulders, like the abba of the Arabs. This could be taken by a creditor (": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/163.json|dictionary|, this word is the rendering of two words _haphar peroth_, which are rendered by Gesenius “into the digging of rats”, i.e., rats’ holes. But these two Hebrew words ought probably to be combined into one (lahporperoth) and translated “to the moles”, i.e., the rat-moles. This animal “lives in underground communities, making large subterranean chambers for its young and for storehouses, with many runs connected with them, and is decidedly partial to the loose debris among ruins and stone-heaps, where it can form its chambers with least trouble.”": [
-    "hi"
-   ],
-   "data/topics/t/163.json|dictionary|Isa. 2:20": [
-    "hi"
-   ],
-   "data/topics/t/168.json|dictionary|). In these passages it is evident that females were then engaged in various Christian ministrations. Pliny makes mention of them also in his letter to Trajan (A.D. 110).": [
-    "zh"
-   ],
-   "data/topics/t/168.json|dictionary|. It is a conjecture having some probability that she was a British maiden, the daughter of king Cogidunus, who was an ally of Rome, and assumed the name of the emperor, his patron, Tiberius Claudius, and that she was the wife of Pudens.": [
-    "hi"
-   ],
-   "data/topics/t/168.json|dictionary|1 Tim. 3:11": [
-    "zh"
-   ],
-   "data/topics/t/168.json|dictionary|2 Tim. 4:21": [
-    "hi"
-   ],
-   "data/topics/t/168.json|dictionary|A female Christian mentioned in": [
-    "hi"
-   ],
-   "data/topics/t/168.json|dictionary|Phil. 4:2": [
-    "zh"
-   ],
-   "data/topics/t/168.json|dictionary|Rom. 16:1": [
-    "zh"
-   ],
-   "data/topics/t/168.json|dictionary|Titus 2:3": [
-    "zh"
-   ],
-   "data/topics/t/169.json|dictionary|, who came from the East to Jerusalem, were magi from Persia or Arabia.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|Dan. 2:12": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|Isa. 62:4": [
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|Married, is used in": [
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|Matt. 2:7": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|Mentioned in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|included three classes, (1) astrologers, (2) Chaldeans, and (3) soothsayers. The word in the original (hakamim) probably means “medicine men. In Chaldea medicine was only a branch of magic. The “wise men” of": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/169.json|dictionary|metaphorically as the name of Judea: “Thy land shall be married,” i.e., favoured and blessed of the Lord.": [
-    "hi"
-   ],
-   "data/topics/t/171.json|dictionary|(A.V.) ought to be “the song of the bow,” as in the Revised Version.": [
-    "zh"
-   ],
-   "data/topics/t/171.json|dictionary|2 Sam. 1:18": [
-    "zh"
-   ],
-   "data/topics/t/171.json|dictionary|“The use of the bow” in": [
-    "zh"
-   ],
-   "data/topics/t/174.json|dictionary|(Heb. tsiqlon) it means a “sack” for grain, as rendered in the Revised Version. In": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|(Heb. zag) it means the “skin” of a grape. In": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|, in the parable of the Prodigal Son, it designates the beans of the carob tree, or Ceratonia siliqua. From the supposition, mistaken, however, that it was on the husks of this tree that John the Baptist fed, it is called “St. John’s bread” and “locust tree.” This tree is in “February covered with innumerable purple-red pendent blossoms, which ripen in April and May into large crops of pods from 6 to 10 inches long, flat, brown, narrow, and bent like a horn (whence the Greek name keratia, meaning ‘little horns’), with a sweetish taste when still unripe. Enormous quantities of these are gathered for sale in various towns and for exportation.” “They were eaten as food, though only by the poorest of the poor, in the time of our Lord.” The bean is called a “gerah,” which is used as the name of the smallest Hebrew weight, twenty of these making a shekel.": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|2 Kings 4:42": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|Acts 11:20": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|Luke 15:16": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|Num. 6:4": [
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|The word “Grecians” in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/174.json|dictionary|should be “Greeks,” denoting the heathen Greeks of that city, as rendered in the Revised Version according to the reading of the best manuscripts (“Hellenes”).": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/175.json|dictionary|(1.) Synonymous or cognate parallelism, where the same idea is repeated in the same words (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|), or in different words (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|); or in a double parallelism, the first and second clauses corresponding to the third and fourth (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|); or where the same idea is expressed in three successive clauses (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|, etc.); or where it is expressed in a positive form in the one clause and in a negative in the other (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|, the birth of the Messiah would take place at Bethlehem, and nowhere else. Nathanael held the same opinion as his countrymen, and believed that the great “good” which they were all expecting could not come from Nazareth. This is probably what Nathanael meant. Moreover, there does not seem to be any evidence that the inhabitants of Galilee were in any respect inferior, or that a Galilean was held in contempt, in the time of our Lord. (See Dr. Merrill’s Galilee in the Time of Christ.)": [
-    "hi"
-   ],
-   "data/topics/t/175.json|dictionary|Hebrew poetry sometimes assumes other forms than these. (1.) An alphabetical arrangement is sometimes adopted for the purpose of connecting clauses or sentences. Thus in the following the initial words of the respective verses begin with the letters of the alphabet in regular succession:": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Isa. 9:1": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|It is supposed from the words of Nathanael in": [
-    "hi"
-   ],
-   "data/topics/t/175.json|dictionary|John 1:46": [
-    "hi"
-   ],
-   "data/topics/t/175.json|dictionary|Lam. 1, 2, 3, 4": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Micah 5:2": [
-    "hi"
-   ],
-   "data/topics/t/175.json|dictionary|Prov. 31:10-31": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Prov. 6:2": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Prov. 6:26": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 119": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 22, 23, 28, 114": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 25, 34, 37, 145": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 40:12": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 40:15": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|Ps. 93:3": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|has a letter of the alphabet in regular order beginning every eighth verse.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/175.json|dictionary|that the city of Nazareth was held in great disrepute, either because, it is said, the people of Galilee were a rude and less cultivated class, and were largely influenced by the Gentiles who mingled with them, or because of their lower type of moral and religious character. But there seems to be no sufficient reason for these suppositions. The Jews believed that, according to": [
-    "hi"
-   ],
    "data/topics/t/176.json|dictionary|1648 | Destruction of the | Temple 588 586": [
     "es",
     "pt",
@@ -6210,622 +5497,6 @@
     "hi",
     "id"
    ],
-   "data/topics/t/187.json|dictionary|(R.V., “fever”) of the Hebrew word kaddah’ath, meaning “kindling”, i.e., an inflammatory or burning fever. In": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/187.json|dictionary|Deut. 28:22": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/187.json|dictionary|Lev. 26:16": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/187.json|dictionary|The translation in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/187.json|dictionary|the word is rendered “fever.”": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/188.json|dictionary|-118, inclusive, constitute the “hallel” recited at the three great feasts, at the new moon, and on the eight days of the feast of dedication.": [
-    "ar"
-   ],
-   "data/topics/t/188.json|dictionary|Luke 24:44": [
-    "hi"
-   ],
-   "data/topics/t/188.json|dictionary|Ps. 113": [
-    "ar"
-   ],
-   "data/topics/t/188.json|dictionary|Ps. 120": [
-    "ar"
-   ],
-   "data/topics/t/188.json|dictionary|Ps. 136": [
-    "ar"
-   ],
-   "data/topics/t/188.json|dictionary|is generally called “the great hallel.” But the Talmud includes also": [
-    "ar"
-   ],
-   "data/topics/t/188.json|dictionary|the word “psalms” means the Hagiographa, i.e., the holy writings, one of the sections into which the Jews divided the Old Testament. (See BIBLE.)": [
-    "hi"
-   ],
-   "data/topics/t/196.json|dictionary|, “As he that bindeth a stone in a sling,” etc. (Authorized Version), should rather, as in the Revised Version, be “As a bag of gems in a heap of stones,” etc.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/196.json|dictionary|Prov. 26:8": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/196.json|dictionary|The words in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|(“victuals”), the word (sheber; i.e., “broken,” i.e., grist) denotes generally victuals, provisions, and corn as a principal article of food.": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|(“wheat”), the word thus translated (bar; i.e., “winnowed”) means corn purified from chaff. With this corresponds the use of the word in the New Testament (": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|). In": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Acts 7:12": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Gen. 41:35": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Gen. 42:1": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Joel 2:24": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Josh. 9:14": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Luke 3:17": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Matt. 3:12": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Neh. 10:31": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Prov. 11:26": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|Ps. 65:13": [
-    "hi"
-   ],
-   "data/topics/t/199.json|dictionary|it means “growing corn.”": [
-    "hi"
-   ],
-   "data/topics/t/20.json|dictionary|Ex. 2:14": [
-    "hi"
-   ],
-   "data/topics/t/20.json|dictionary|Moses is so styled. This fact may indicate that while for revenue purposes the “taskmasters” were over the people, they were yet, just as at a later time when under the Romans, governed by their own rulers.": [
-    "hi"
-   ],
-   "data/topics/t/206.json|dictionary|(but in R.V., “pelican”) the Hebrew word rendered by this name is ka’ath. It is translated “pelican” (q.v.) in": [
-    "hi"
-   ],
-   "data/topics/t/206.json|dictionary|), like most geographical names, was differently used at different periods of history. As the power of Rome advanced, nations were successively conquered and added to it till it came to designate the whole country to the south of the Alps. There was constant intercourse between Palestine and Italy in the time of the Romans.": [
-    "ar"
-   ],
-   "data/topics/t/206.json|dictionary|. The word literally means the “vomiter,” and the pelican is so called from its vomiting the shells and other things which it has voraciously swallowed. (See PELICAN.)": [
-    "hi"
-   ],
-   "data/topics/t/206.json|dictionary|Acts 18:2": [
-    "ar"
-   ],
-   "data/topics/t/206.json|dictionary|Heb. 13:24": [
-    "ar"
-   ],
-   "data/topics/t/206.json|dictionary|Isa. 34:11": [
-    "hi"
-   ],
-   "data/topics/t/206.json|dictionary|Ps. 102:6": [
-    "hi"
-   ],
-   "data/topics/t/206.json|dictionary|Zeph. 2:14": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|(A.V., “mercy-seat”) the Greek word hilasterion is used. It is the word employed by the LXX. translators in": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|). This Greek word (hilasterion) came to denote not only the mercy-seat or lid of the ark, but also propitiation or reconciliation by blood. On the great day of atonement the high priest carried the blood of the sacrifice he offered for all the people within the veil and sprinkled with it the “mercy-seat,” and so made propitiation.": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|, Christ is called the “propitiation for our sins.” Here a different Greek word is used (hilasmos). Christ is “the propitiation,” because by his becoming our substitute and assuming our obligations he expiated our guilt, covered it, by the vicarious punishment which he endured. (Comp.": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|, where the expression “make reconciliation” of the A.V. is more correctly in the R.V. “make propitiation.”)": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|1 John 2:2": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|Ex. 25:17": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|Ex. 25:21": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|Heb. 2:17": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|Heb. 9:5": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|Rom. 3:25": [
-    "hi"
-   ],
-   "data/topics/t/21.json|dictionary|and elsewhere as the equivalent for the Hebrew kapporeth, which means “covering,” and is used of the lid of the ark of the covenant (": [
-    "hi"
-   ],
-   "data/topics/t/212.json|dictionary|, we have the first recorded instance of the erection of buildings. The cities of the plain of Shinar were founded by the descendants of Shem (10:11, 12, 22).": [
-    "hi"
-   ],
-   "data/topics/t/212.json|dictionary|Gen. 11:3": [
-    "hi"
-   ],
-   "data/topics/t/213.json|dictionary|, notice is taken of players on the flute, here called “minstrels” (but in R.V. “flute-players”).": [
-    "hi"
-   ],
-   "data/topics/t/213.json|dictionary|Matt. 9:23": [
-    "hi"
-   ],
-   "data/topics/t/214.json|dictionary|Gal. 4:22-31": [
-    "hi"
-   ],
-   "data/topics/t/214.json|dictionary|Heb. 11:11": [
-    "hi"
-   ],
-   "data/topics/t/214.json|dictionary|In the allegory of": [
-    "hi"
-   ],
-   "data/topics/t/214.json|dictionary|among the Old Testament worthies, who “all died in faith.” (See ABRAHAM.)": [
-    "hi"
-   ],
-   "data/topics/t/214.json|dictionary|she is the type of the “Jerusalem which is above.” She is also mentioned as Sara in": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|). The “spirit” (Gr. pneuma) is the soul as rational; the “soul” (Gr. psuche) is the same, considered as the animating and vital principle of the body.": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|, are habitually used interchangeably (": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|1 Pet. 1:22": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|1 Thess. 5:23": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|Heb. 4:12": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|Matt. 10:28": [
-    "hi"
-   ],
-   "data/topics/t/216.json|dictionary|The words translated “spirit” and “soul,” in": [
-    "hi"
-   ],
-   "data/topics/t/217.json|dictionary|:9 mention is made of a contention between Michael and the devil about the body of Moses. This dispute is supposed to have had reference to the concealment of the body of Moses so as to prevent idolatry.": [
-    "hi"
-   ],
-   "data/topics/t/217.json|dictionary|Jude 1": [
-    "hi"
-   ],
-   "data/topics/t/22.json|dictionary|2 John 1": [
-    "hi"
-   ],
-   "data/topics/t/22.json|dictionary|:12 the word is used in its proper sense. The material so referred to was manufactured from the papyrus, and hence its name. The papyrus (Heb. gome) was a kind of bulrush (q.v.). It is mentioned by Job (8:11) and Isaiah (35:7). It was used for many purposes. This plant (Papyrus Nilotica) is now unknown in Egypt; no trace of it can be found. The unaccountable disappearance of this plant from Egypt was foretold by Isaiah (19:6, 7) as a part of the divine judgment on that land. The most extensive papyrus growths now known are in the marshes at the northern end of the lake of Merom.": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|), alluding to the wood-daemons, the objects of idolatrous worship among the heathen.": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|Deut. 32:17": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|Isa. 13:21": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|Lev. 17:7": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|Ps. 106:37": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|it is the translation of Hebrew shed, meaning lord, and idol, regarded by the Jews as a “demon,” as the word is rendered in the Revised Version.": [
-    "hi"
-   ],
-   "data/topics/t/222.json|dictionary|the word “devil” is the translation of the Hebrew sair, meaning a “goat” or “satyr” (": [
-    "hi"
-   ],
-   "data/topics/t/228.json|dictionary|-66 has been keenly opposed by able critics. They assert that it must be the production of a deutero-Isaiah, who lived toward the close of the Babylonian captivity. This theory was originated by Koppe, a German writer at the close of the last century. There are other portions of the book also (e.g., ch. 13; 24-27; and certain verses in ch. 14 and 21) which they attribute to some other prophet than Isaiah. Thus they say that some five or seven, or even more, unknown prophets had a hand in the production of this book. The considerations which have led to such a result are various: (1.) They cannot, as some say, conceive it possible that Isaiah, living in B.C. 700, could foretell the appearance and the exploits of a prince called Cyrus, who would set the Jews free from captivity one hundred and seventy years after. (2.) It is alleged that the prophet takes the time of the Captivity as his standpoint, and speaks of it as then present; and (3) that there is such a difference between the style and language of the closing section (40-66) and those of the preceding chapters as to necessitate a different authorship, and lead to the conclusion that there were at least two Isaiahs. But even granting the fact of a great diversity of style and language, this will not necessitate the conclusion attempted to be drawn from it. The diversity of subjects treated of and the peculiarities of the prophet’s position at the time the prophecies were uttered will sufficiently account for this.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/228.json|dictionary|Isa. 40": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/228.json|dictionary|The genuineness of the section": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/230.json|dictionary|, and in": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|, the reference is in all probability to the jackal. The Hebrew word shu’al_ through the Persian _schagal becomes our jackal (Canis aureus), so that the word may bear that signification here. The reasons for preferring the rendering “jackal” are (1) that it is more easily caught than the fox; (2) that the fox is shy and suspicious, and flies mankind, while the jackal does not; and (3) that foxes are difficult, jackals comparatively easy, to treat in the way here described. Jackals hunt in large numbers, and are still very numerous in Southern Palestine.": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|, where our Lord calls Herod “that fox.” In": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|1 Sam. 26:20": [
-    "hi"
-   ],
-   "data/topics/t/230.json|dictionary|Ezek. 13:4": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|Jer. 17:11": [
-    "hi"
-   ],
-   "data/topics/t/230.json|dictionary|Judg. 15:4": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|Luke 13:32": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|The proverbial cunning of the fox is alluded to in": [
-    "zh"
-   ],
-   "data/topics/t/230.json|dictionary|the prophet is illustrating the fact that riches unlawfully acquired are precarious and short-lived. The exact nature of the illustration cannot be precisely determined. Some interpret the words as meaning that the covetous man will be as surely disappointed as the partridge which gathers in eggs, not of her own laying, and is unable to hatch them; others (Tristram), with more probability, as denoting that the man who enriches himself by unjust means “will as surely be disappointed as the partridge which commences to sit, but is speedily robbed of her hopes of a brood” by her eggs being stolen away from her.": [
-    "hi"
-   ],
-   "data/topics/t/230.json|dictionary|“David alludes to the mode of chase practised now, as of old, when the partridge, continuously chased, was at length, when fatigued, knocked down by sticks thrown along the ground.” It endeavours to save itself “by running, in preference to flight, unless when suddenly started. It is not an inhabitant of the plain or the corn-field, but of rocky hill-sides” (Tristram’s Nat. Hist.).": [
-    "hi"
-   ],
-   "data/topics/t/240.json|dictionary|2 Cor. 8:23": [
-    "hi"
-   ],
-   "data/topics/t/240.json|dictionary|Phil. 2:25": [
-    "hi"
-   ],
-   "data/topics/t/240.json|dictionary|the word “messenger” is the rendering of the same Greek word, elsewhere rendered “apostle.”": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|(4.) Daniel (11:31), in that section of his prophecies which is generally interpreted as referring to the fearful calamities that were to fall on the Jews in the time of Antiochus Epiphanes, says, “And they shall place the abomination that maketh desolate.” Antiochus Epiphanes caused an altar to be erected on the altar of burnt-offering, on which sacrifices were offered to Jupiter Olympus. (Comp.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|(comp.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|), where the reference is probably to the image-crowned standards which the Romans set up at the east gate of the temple (A.D. 70), and to which they paid idolatrous honours. “Almost the entire religion of the Roman camp consisted in worshipping the ensign, swearing by the ensign, and in preferring the ensign before all other gods.” These ensigns were an “abomination” to the Jews, the “abomination of desolation.”": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|). This was the abomination of the desolation of Jerusalem. The same language is employed in": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|, are imaginary beings, symbols of the Divine attributes and operations.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|1 Macc. 1:57": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|; the whole human race in": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Col. 1:15": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Dan. 9:27": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|Denotes the whole creation in": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Ezek. 10:15": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Mark 16:15": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Matt. 24:15": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/244.json|dictionary|Rev. 5:13": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Rom. 8:19-22": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|Rom. 8:39": [
-    "hi"
-   ],
-   "data/topics/t/244.json|dictionary|The living creatures in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/245.json|dictionary|, “We found it in the fields of the wood,” refer to the sojourn of the ark at Kirjath-jearim. “Wood” is here the rendering of the Hebrew word jaar, which is the singular of jearim.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/245.json|dictionary|Ps. 132:6": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/245.json|dictionary|The words of": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|). Moses pronounces no blessing on this tribe. It is passed by in silence (": [
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|. They gradually dwindled in number, and sank into a position of insignificance among the other tribes. They decreased in the wilderness by about two-thirds (comp.": [
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|Deut. 33": [
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|Gen. 49:5-7": [
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|Num. 1:23": [
-    "hi"
-   ],
-   "data/topics/t/250.json|dictionary|Was “divided and scattered” according to the prediction in": [
-    "hi"
-   ],
-   "data/topics/t/28.json|dictionary|, a different Hebrew word is used, dorban, meaning something pointed. The expression (": [
-    "hi"
-   ],
-   "data/topics/t/28.json|dictionary|, omitted in the R.V.), “It is hard for thee to kick against the pricks”, i.e., against the goad, was proverbial for unavailing resistance to superior power.": [
-    "hi"
-   ],
-   "data/topics/t/28.json|dictionary|1 Sam. 13:21": [
-    "hi"
-   ],
-   "data/topics/t/28.json|dictionary|Acts 9:5": [
-    "hi"
-   ],
-   "data/topics/t/29.json|dictionary|1 Cor. 13": [
-    "hi"
-   ],
-   "data/topics/t/29.json|dictionary|the apostle sets forth the excellency of love, as the word “charity” there is rendered in the Revised Version.": [
-    "hi"
-   ],
-   "data/topics/t/33.json|dictionary|) on the same place where it had formerly stood. (Comp.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|). Among the trophies carried away by Titus on the destruction of Jerusalem the altar of incense is not found, nor is any mention made of it in": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|). It is the only altar which appears in the heavenly temple (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|. It was at this altar Zacharias ministered when an angel appeared to him (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|.) When Antiochus Epiphanes pillaged Jerusalem the altar of burnt offering was taken away.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|1 Macc. 1:23": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|1 Macc. 4:47": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|1 Sam. 2:13": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/33.json|dictionary|After the return from captivity it was re-erected (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|Ex. 27:3": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/33.json|dictionary|Ezra 3:3": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|Heb. 9": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|In the temple built after the Exile the altar was restored. Antiochus Epiphanes took it away, but it was afterwards restored by Judas Maccabaeus (": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|Isa. 6:6": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|Lev. 16:12": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/33.json|dictionary|Luke 1:11": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|Num. 16:6": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/33.json|dictionary|Rev. 8:3": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "data/topics/t/33.json|dictionary|the various utensils appertaining to the altar are enumerated. They were made of brass. (Comp.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/36.json|dictionary|, where alone it occurs in the New Testament, it is the same word as that rendered “synagogue” (q.v.) in ver. 42, and is so rendered in ver. 43 in R.V.": [
-    "hi"
-   ],
-   "data/topics/t/36.json|dictionary|Acts 13:43": [
-    "hi"
-   ],
-   "data/topics/t/45.json|dictionary|, an island in the Aegean Sea, about 5 miles distant from the mainland, having a roadstead, in the shelter of which Paul and his companions anchored for a night when on his third missionary return journey. It is now called Scio.": [
-    "hi"
-   ],
-   "data/topics/t/45.json|dictionary|Acts 20:15": [
-    "hi"
-   ],
-   "data/topics/t/45.json|dictionary|Mentioned in": [
-    "hi"
-   ],
-   "data/topics/t/5.json|dictionary|1 Pet. 5:13": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/5.json|dictionary|; and 18:2, “Babylon” is supposed to mean Rome, not considered as pagan, but as the prolongation of the ancient power in the papal form. Rome, pagan and papal, is regarded as one power. “The literal Babylon was the beginner and supporter of tyranny and idolatry...This city and its whole empire were taken by the Persians under Cyrus; the Persians were subdued by the Macedonians, and the Macedonians by the Romans; so that Rome succeeded to the power of old Babylon. And it was her method to adopt the worship of the false deities she had conquered; so that by her own act she became the heiress and successor of all the Babylonian idolatry, and of all that was introduced into it by the immediate successors of Babylon, and consequently of all the idolatry of the earth.” Rome, or “mystical Babylon,” is “that great city which reigneth over the kings of the earth” (17:18).": [
-    "hi"
-   ],
-   "data/topics/t/5.json|dictionary|Rev. 14:8": [
-    "hi"
-   ],
-   "data/topics/t/5.json|dictionary|The Babylon mentioned in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/5.json|dictionary|was not Rome, as some have thought, but the literal city of Babylon, which was inhabited by many Jews at the time Peter wrote.": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/51.json|dictionary|-118, inclusive, constitute the “hallel” recited at the three great feasts, at the new moon, and on the eight days of the feast of dedication.": [
-    "ar"
-   ],
-   "data/topics/t/51.json|dictionary|Luke 24:44": [
-    "hi"
-   ],
-   "data/topics/t/51.json|dictionary|Ps. 113": [
-    "ar"
-   ],
-   "data/topics/t/51.json|dictionary|Ps. 120": [
-    "ar"
-   ],
-   "data/topics/t/51.json|dictionary|Ps. 136": [
-    "ar"
-   ],
-   "data/topics/t/51.json|dictionary|is generally called “the great hallel.” But the Talmud includes also": [
-    "ar"
-   ],
-   "data/topics/t/51.json|dictionary|the word “psalms” means the Hagiographa, i.e., the holy writings, one of the sections into which the Jews divided the Old Testament. (See BIBLE.)": [
-    "hi"
-   ],
    "data/topics/t/54.json|dictionary|). Perhaps the ruin Kutlaneh, south of Gezer.": [
     "es",
     "pt",
@@ -6849,188 +5520,9 @@
     "ar",
     "hi",
     "id"
-   ],
-   "data/topics/t/55.json|dictionary|2 Kings 12:9": [
-    "hi"
-   ],
-   "data/topics/t/55.json|dictionary|Gen. 50:26": [
-    "hi"
-   ],
-   "data/topics/t/55.json|dictionary|Used in": [
-    "hi"
-   ],
-   "data/topics/t/55.json|dictionary|with reference to the burial of Joseph. Here, it means a mummy-chest. The same Hebrew word is rendered “chest” in": [
-    "hi"
-   ],
-   "data/topics/t/67.json|dictionary|Hag. 2:16": [
-    "hi"
-   ],
-   "data/topics/t/67.json|dictionary|Isa. 63:2": [
-    "hi"
-   ],
-   "data/topics/t/67.json|dictionary|Joel 2:24": [
-    "hi"
-   ],
-   "data/topics/t/67.json|dictionary|the word is equivalent to “vat,” a vessel. The hebrew word here thus rendered is elsewhere rendered “wine-fat” and “press-fat” (": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|(R.V., “they that are deceased;” marg., “the shades,” the “Rephaim”) and": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|, etc., where the word is similarly rendered “giant.”) It is rendered “dead” in (A.V.)": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|, where hagab is used. In all these instances the proper rendering is probably “locust” (q.v.).": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|, where the Authorized Version has “grasshopper,” the Revised Version more correctly renders the Hebrew word (‘arbeh) by “locust.” This is the case also in": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|, where the Hebrew word gob is used; and in": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|1 Chron. 20:5": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|: in all these places the Revised Version marg. has “the shades.” (See also": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Amos 7:1": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Deut. 2:11": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Eccl. 12:5": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Isa. 14:9": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Isa. 26:14": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Isa. 40:22": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Jer. 46:23": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Job 26:5": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Job 39:30": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Josh. 15:8": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Judg. 6:5": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Lev. 11:22": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Nah. 3:17": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Num. 13:33": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Prov. 2:18": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|Ps. 88:10": [
-    "hi"
-   ],
-   "data/topics/t/69.json|dictionary|this Hebrew word is rendered (A.V.) “dead.” It means here “the shades,” the departed spirits in Sheol. In Sam. 21:16, 18, 20, 33, “the giant” is (A.V.) the rendering of the singular form ha raphah, which may possibly be the name of the father of the four giants referred to here, or of the founder of the Rephaim. The Vulgate here reads “Arapha,” whence Milton (in Samson Agonistes) has borrowed the name “Harapha.” (See also": [
-    "hi"
-   ],
-   "data/topics/t/75.json|dictionary|), one of those high attributes essentially appertaining to him the full import of which we cannot comprehend. In the most absolute sense his knowledge is infinite (": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|1 Pet. 1:2": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|1 Sam. 23:9-13": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|Acts 15:18": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|Acts 2:23": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|Jer. 38:17-23": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|Lev. 2": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/75.json|dictionary|Matt. 11:21": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|Rom. 8:29": [
-    "zh"
-   ],
-   "data/topics/t/75.json|dictionary|there is an account of the different kinds of bread and cakes used by the Jews. (See BAKE.)": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/79.json|dictionary|, R.V., margin, rendered in the A.V. “slime”), a mineral pitch. With this the ark was pitched (6:14. See also": [
-    "zh"
-   ],
-   "data/topics/t/79.json|dictionary|.) (See SLIME.)": [
-    "zh"
-   ],
-   "data/topics/t/79.json|dictionary|Ex. 2:3": [
-    "zh"
-   ],
-   "data/topics/t/79.json|dictionary|Gen. 11:3": [
-    "zh"
-   ],
-   "data/topics/t/81.json|dictionary|, the Babylonian Empire is spoken of as a “head of gold” because of its great riches; and Babylon was called by Isaiah (14:4) the “golden city” (R.V. marg., “exactress,” adopting the reading marhebah, instead of the usual word madhebah).": [
-    "hi"
-   ],
-   "data/topics/t/81.json|dictionary|Dan. 2:38": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|) for any poisonous snake. The viper mentioned in": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|, the Heb. word eph’eh is thus rendered. The Hebrew word, however, probably denotes a species of poisonous serpents known by the Arabic name of ‘el ephah. Tristram has identified it with the sand viper, a species of small size common in sandy regions, and frequently found under stones by the shores of the Dead Sea. It is rapid in its movements, and highly poisonous. In the New Testament echidne is used (": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|Acts 28:3": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|Isa. 30:6": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|Job 20:16": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|Matt. 3:7": [
-    "hi"
-   ],
-   "data/topics/t/89.json|dictionary|was probably the vipera aspis, or the Mediterranean viper. (See ADDER.)": [
-    "hi"
-   ],
-   "data/topics/t/91.json|dictionary|Acts 28:16": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/91.json|dictionary|The “captain of the guard” mentioned in": [
-    "zh",
-    "hi"
-   ],
-   "data/topics/t/91.json|dictionary|was the Praetorian prefect, the commander of the Praetorian troops.": [
-    "zh",
-    "hi"
    ]
   },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. same_as_english.py finds the translated copy empty at these places, nearly all in the topic dictionaries (data/topics/t/), where the copy's pieces no longer line up with the English. Applying again (apply.py) or translating the missing pieces fixes it"
+  "why": "Since job 27 the checker (same_as_english.py) accepts a translated paragraph whose word order moved or merged a text piece, when its references are the same; job 27 checked all 141 such paragraphs and saw them translated on the preview. These two paragraphs (topics/t/176.json chronology, topics/t/54.json Joktheel) hold their reference or table as plain text, so the checker cannot tell them from a list of entries. Their translations are whole (the copy merged the pieces); the fix is to make the reference a reference in the English data (Easton's dictionary import), then apply again"
  },
  {
   "check": "waiting",
@@ -18747,5 +17239,1952 @@
   "check": "in-progress",
   "item": "check.py findings in chunk files not yet committed (another chat's unsaved work)",
   "why": "the translation chats keep a chunk or its translations saved but uncommitted for minutes to hours while they work on it; without this, one chat's half-done work would fail every other chat's quick check. Such findings are still listed (as in progress) and are counted as unexplained under --sign-off, and any other ruling that explains them is used first. Remove this entry to count them always"
+ },
+ {
+  "check": "kept-english",
+  "item": "GRIEFSHARE",
+  "languages": [
+   "es",
+   "pt",
+   "zh",
+   "ar",
+   "hi",
+   "id"
+  ],
+  "why": "the name of a grief-support programme (GriefShare), written in capitals on the home page's resource card; a programme's name is not translated"
+ },
+ {
+  "check": "kept-english",
+  "item": "Esc",
+  "languages": [
+   "es",
+   "pt",
+   "zh",
+   "ar",
+   "hi",
+   "id"
+  ],
+  "why": "the label of the Escape key, as printed on the keyboard the reader presses"
+ },
+ {
+  "check": "kept-english",
+  "item": "The God Delusion debate",
+  "languages": [
+   "es",
+   "pt",
+   "zh",
+   "ar",
+   "hi",
+   "id"
+  ],
+  "why": "shown translated ('El debate sobre The God Delusion'); the only English left is the title of Richard Dawkins's book, kept as published"
+ },
+ {
+  "check": "kept-english",
+  "item": ", and I build Bible Guide by myself.",
+  "languages": [
+   "es",
+   "pt",
+   "zh",
+   "ar",
+   "hi",
+   "id"
+  ],
+  "why": "shown translated; the only English left is the site's own name, Bible Guide (the audit's site_name class: a brand name is not translated)"
+ },
+ {
+  "check": "kept-english",
+  "item": ", Bible Guide",
+  "languages": [
+   "es",
+   "pt",
+   "zh",
+   "ar",
+   "hi",
+   "id"
+  ],
+  "why": "the site's own name after a comma on /contact (the audit's site_name class: a brand name is not translated)"
+ },
+ {
+  "check": "kept-english",
+  "item": "John Lennox · Richard Dawkins",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the two debaters' names on /apologetics/debates, kept in Latin letters as written in this Latin-script language"
+ },
+ {
+  "check": "kept-english",
+  "item": "William Lane Craig · Bart Ehrman",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the two debaters' names on /apologetics/debates, kept in Latin letters as written in this Latin-script language"
+ },
+ {
+  "check": "kept-english",
+  "item": "Greg Bahnsen · Gordon Stein",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the two debaters' names on /apologetics/debates, kept in Latin letters as written in this Latin-script language"
+ },
+ {
+  "check": "kept-english",
+  "item": "A. C. Grayling",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Bart Ehrman",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Christopher Hitchens",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Gordon Stein",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Lawrence Krauss",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Michael Shermer",
+  "languages": [
+   "pt"
+  ],
+  "why": "a debater's name on /apologetics/debates, kept in Latin letters as written in this Latin-script language (the same page writes the names this way throughout)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Samaria",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the Bible's place name, spelled the same in this language's own Bible (Reina-Valera 1909, BPM, AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Israel",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the Bible's name, spelled the same in this language's own Bible (Reina-Valera 1909, BPM, AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Derbe",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the Bible's place name (Acts 14), spelled the same in this language's own Bible (Reina-Valera 1909, BPM, AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Malta",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the island's name (Acts 28), spelled the same in this language"
+ },
+ {
+  "check": "kept-english",
+  "item": "Troas",
+  "languages": [
+   "es",
+   "id"
+  ],
+  "why": "the Bible's place name (Acts 16), spelled the same in this language's own Bible (Reina-Valera 1909, AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Jacob",
+  "languages": [
+   "es"
+  ],
+  "why": "the patriarch's name, spelled the same in the Reina-Valera 1909"
+ },
+ {
+  "check": "kept-english",
+  "item": "Aquila",
+  "languages": [
+   "es"
+  ],
+  "why": "Priscilla's husband (Acts 18), spelled Aquila in the Reina-Valera 1909"
+ },
+ {
+  "check": "kept-english",
+  "item": "Arabia",
+  "languages": [
+   "es"
+  ],
+  "why": "the place name (Galatians 1:17), spelled the same in Spanish"
+ },
+ {
+  "check": "kept-english",
+  "item": "Judea",
+  "languages": [
+   "es"
+  ],
+  "why": "the place name, spelled the same in the Reina-Valera 1909"
+ },
+ {
+  "check": "kept-english",
+  "item": "Alexandria",
+  "languages": [
+   "pt"
+  ],
+  "why": "the city's name, spelled Alexandria in Portuguese"
+ },
+ {
+  "check": "kept-english",
+  "item": "Levi",
+  "languages": [
+   "pt"
+  ],
+  "why": "the name, spelled Levi in Portuguese Bibles"
+ },
+ {
+  "check": "kept-english",
+  "item": "Adam",
+  "languages": [
+   "id"
+  ],
+  "why": "the name, spelled Adam in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Sodom",
+  "languages": [
+   "id"
+  ],
+  "why": "the place name, spelled Sodom in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Tarsus",
+  "languages": [
+   "id"
+  ],
+  "why": "Paul's city, spelled Tarsus in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Salamis",
+  "languages": [
+   "id"
+  ],
+  "why": "the place name (Acts 13:5), spelled Salamis in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Perga",
+  "languages": [
+   "id"
+  ],
+  "why": "the place name (Acts 13:13), spelled Perga in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Miletus",
+  "languages": [
+   "id"
+  ],
+  "why": "the place name (Acts 20:15), spelled Miletus in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Hagar",
+  "languages": [
+   "id"
+  ],
+  "why": "the name, spelled Hagar in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Esau",
+  "languages": [
+   "id"
+  ],
+  "why": "the name, spelled Esau in the Indonesian Bible (AYT)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Oxford",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "the city's name, written Oxford in this language"
+ },
+ {
+  "check": "kept-english",
+  "item": "London",
+  "languages": [
+   "id"
+  ],
+  "why": "the city's name, written London in Indonesian"
+ },
+ {
+  "check": "kept-english",
+  "item": "St. Paul the Traveller and the Roman Citizen",
+  "languages": [
+   "es",
+   "pt"
+  ],
+  "why": "the title of W. M. Ramsay's book in the sources list on /people/paul, kept as published like every bibliography title (brief and the rulings for citations)"
+ },
+ {
+  "check": "kept-english",
+  "item": "Europeana is not a museum. It gathers the catalogues of European institutions and publishes their descriptions under a single open licence, while each item keeps its own rights statement. The institutions behind these records…",
+  "languages": [
+   "zh",
+   "ar",
+   "hi"
+  ],
+  "why": "shown translated; the only Latin letters left are the name of the archive, Europeana, kept as written"
+ },
+ {
+  "check": "kept-english",
+  "item": "The Met publishes its whole collection catalogue as open data, and marks which objects are free of copyright. It is the largest single source here by a wide margin.",
+  "languages": [
+   "es"
+  ],
+  "why": "shown translated; the only English left is the museum's name, The Met, kept as written"
+ },
+ {
+  "check": "kept-english",
+  "item": ", given to the public domain in 2023. Matched quotations use the Berean wording in",
+  "languages": [
+   "zh",
+   "hi"
+  ],
+  "why": "shown translated; the only Latin letters left are the Bible edition's name, Berean (the audit's bible_version class: an edition's title is its name)"
+ },
+ {
+  "check": "kept-english",
+  "item": ", from this site's own Bible text. The verse printed above the hymn is the author's. The verses beside its lines were found in the King James wording the author read: by matching the words, or proposed by an AI model, and kept only when the verse's words were proved to be there and a separate check agreed. The words beside each verse are cut from the verse itself.",
+  "languages": [
+   "zh"
+  ],
+  "why": "shown translated; the only Latin letters left are 'AI', the abbreviation as written in this language's own technical prose"
+ },
+ {
+  "check": "kept-english",
+  "item": "The Art Institute's catalogue is open and names a findspot for almost every object. Its image server refuses a non-browser client, so the picture addresses and licences are recorded and no file was copied.",
+  "languages": [
+   "hi"
+  ],
+  "why": "shown translated; the only Latin letters left are the museum's name, The Art Institute, kept as written"
+ },
+ {
+  "check": "kept-english",
+  "item": "The Smithsonian's open-access search covers every one of its museums. Its holdings from the biblical world turned out to be thin: a documented demo key allows about thirty calls an hour, and of the records it returned only a…",
+  "languages": [
+   "hi"
+  ],
+  "why": "shown translated; the only Latin letters left are the institution's name, Smithsonian, kept as written"
+ },
+ {
+  "check": "kept-english",
+  "item": "Isa",
+  "languages": [
+   "es",
+   "pt"
+  ],
+  "why": "shown 'Is', this language's abbreviation of Isaiah (Isaías); the detector read it as the English word 'is'"
+ },
+ {
+  "check": "waiting",
+  "job": "27",
+  "finding": "reading",
+  "item": "the sample reading: English new since job 22",
+  "keys": {
+   ", from this site's own Bible text. The verse printed above the hymn is the author's. The verses beside its lines were found in the King James wording the author read: by matching the words, or proposed by an AI model, and kept only when the verse's words were proved to be there and a separate check agreed. The words beside each verse are cut from the verse itself.": [
+    "hi"
+   ],
+   ", no.": [
+    "pt"
+   ],
+   "A. C. Grayling": [
+    "zh"
+   ],
+   "Area": [
+    "id"
+   ],
+   "Bart Ehrman": [
+    "zh"
+   ],
+   "Calvin, Owen, Edwards, Spurgeon and more: the writers behind the arguments, linked to the questions they answer.": [
+    "zh",
+    "hi"
+   ],
+   "Christopher Hitchens": [
+    "zh"
+   ],
+   "Cleveland's open-access API let the museum itself filter by date, so every record here was returned as falling inside the biblical period. Most of its photographs are of objects from elsewhere in the ancient world, and the page…": [
+    "hi"
+   ],
+   "Col": [
+    "es"
+   ],
+   "Damascus, Aleppo, Der-ez-Zor and Raqqa": [
+    "id"
+   ],
+   "Dan": [
+    "es"
+   ],
+   "Dublin": [
+    "pt",
+    "id"
+   ],
+   "Email": [
+    "id"
+   ],
+   "Email · Family support": [
+    "id"
+   ],
+   "Email · Single moms": [
+    "id"
+   ],
+   "First Epistle to the Corinthians": [
+    "pt"
+   ],
+   "Gal": [
+    "id"
+   ],
+   "Gordon Stein": [
+    "zh"
+   ],
+   "Greg Bahnsen · Gordon Stein": [
+    "ar",
+    "hi"
+   ],
+   "Hab": [
+    "es",
+    "id"
+   ],
+   "Hag": [
+    "es",
+    "id"
+   ],
+   "Hos": [
+    "id"
+   ],
+   "Jer": [
+    "es"
+   ],
+   "John Lennox · Richard Dawkins": [
+    "ar",
+    "hi"
+   ],
+   "Lawrence Krauss": [
+    "zh"
+   ],
+   "Mal": [
+    "es",
+    "id"
+   ],
+   "Michael Shermer": [
+    "zh"
+   ],
+   "Michigan": [
+    "es",
+    "hi"
+   ],
+   "Nah": [
+    "es",
+    "id"
+   ],
+   "Neh": [
+    "es"
+   ],
+   "No. 15: God moves in a mysterious way": [
+    "pt",
+    "id"
+   ],
+   "Num": [
+    "pt"
+   ],
+   "On Modesty (De Pudicitia)": [
+    "pt"
+   ],
+   "Saint Paul's Epistle to the Philippians, 4th ed.": [
+    "id"
+   ],
+   "Saul": [
+    "pt",
+    "id"
+   ],
+   "Secular": [
+    "es",
+    "pt"
+   ],
+   "The Cuneiform Digital Library Initiative keeps the standard catalogue of cuneiform tablets wherever they are held. Its own pages ask not to be harvested, so only its published bulk dump was used, verified against the checksum it…": [
+    "es",
+    "zh",
+    "hi",
+    "id"
+   ],
+   "The Epistle of St. James": [
+    "pt"
+   ],
+   "The Open Richly Annotated Cuneiform Corpus publishes edited Assyrian and Babylonian texts project by project. Its records name the museum holding each tablet, which is where most of the institutions on this page come from. Its…": [
+    "es",
+    "zh",
+    "hi",
+    "id"
+   ],
+   "Ticker": [
+    "pt"
+   ],
+   "VS": [
+    "es",
+    "pt",
+    "hi",
+    "id"
+   ],
+   "We receive Scripture as our final authority. The site’s doctrinal standard is the Baptist Faith and Message 2000 of the Southern Baptist Convention. These guides also cite two historic Reformed confessions, the Presbyterian Westminster Confession and the Baptist confession of 1689, with exposition from Reformed theologians. Where Baptists hold more than one view, a guide says so. Read the passage and the cited section together.": [
+    "hi",
+    "id"
+   ],
+   "Westminster Confession of Faith": [
+    "id"
+   ],
+   "Wikidata holds no object. It is how the named objects were resolved: each one was looked up once, checked against its expected name, and rejected if it turned out to be a person or a modern paper. The photographs come from…": [
+    "zh",
+    "hi"
+   ],
+   "William Lane Craig · Bart Ehrman": [
+    "ar",
+    "hi"
+   ],
+   "c. AD 350": [
+    "pt"
+   ],
+   "versus": [
+    "es",
+    "pt"
+   ],
+   "· no.": [
+    "pt"
+   ]
+  },
+  "why": "Job 27 found this English on the sample pages after job 22's rulings, from other chats' new page text (debates, museum and archaeology, the Paul page, Bible questions, the Olney hymns, the Atlas). Each needs a translation in its context (Saul is Saulo in Portuguese and Saulus in Indonesian on /people/paul; a book abbreviation must follow that language's Bible), or registering first; listed by cause in the handoff's 'Job 27' section"
+ },
+ {
+  "check": "waiting",
+  "job": "29",
+  "finding": "untranslated",
+  "item": "the Atlas page's new texts (place notes, journeys, headings)",
+  "keys": {
+   "Atlas window: no place named \"{n}\" in PLACES": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Memphis": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Tarsus": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Dan": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Hazor": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Seleucia": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Iconium": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Derbe": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Marah": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Elim": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Rephidim": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Sinai": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Caesarea Philippi": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Nain": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Sychar": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Emmaus": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Patmos": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Riblah": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ecbatana": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Gozan": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ararat": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Hermon": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Tabor": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Carmel": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Gilboa": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Gerizim": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mount Moriah": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Thebes": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Cenchrea": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Peniel": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Fair Havens": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ebenezer": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ashdod": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Gath": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Mountains": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Seats of empire": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ports & the sea": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Abraham's journey": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The Exodus": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob's journey": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul's voyage to Rome": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The ark of the covenant": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The seven churches": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul reasoned in the marketplace and spoke before the Areopagus. Acts 17:16–34.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul taught here for more than two years, and all Asia heard the word. Acts 19:8–10.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Egypt's great harbour city, home of Apollos. Acts 18:24.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Assyria's great city, called to repent through Jonah. Jonah 3:1–10.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "On the road to this city the risen Jesus stopped Saul. Acts 9:1–19.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The Phoenician sea power whose king sent cedar for the temple. 1 Kings 5:1–12.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ur of the Chaldeans, where Abram's family set out. Genesis 11:31.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The chief Canaanite city of the north, taken by Joshua. Joshua 11:10–11.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "A fortress over the Jezreel Valley, built up by Solomon. 1 Kings 9:15.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Capital of the northern kingdom, built by Omri. 1 Kings 16:24.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Where Jacob saw the stairway reaching to heaven. Genesis 28:10–19.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The first city taken across the Jordan. Joshua 6:1–20.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The well town of Abraham and Isaac in the south. Genesis 21:31–33.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "A Philistine city, where Samson died. Judges 16:21–30.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Antioch's port, where Paul and Barnabas set sail for Cyprus. Acts 13:4.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "They proclaimed the word of God in the synagogues. Acts 13:5.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The proconsul Sergius Paulus believed. Acts 13:6–12.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "John Mark left them here and went back to Jerusalem. Acts 13:13.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul's sermon in the synagogue, then the turn to the Gentiles. Acts 13:14–48.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "A great number believed, until opposition drove them on. Acts 14:1–6.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Many disciples made before the road home. Acts 14:20–21.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The first camp on the way out of Egypt. Exodus 12:37.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Twelve springs and seventy palm trees. Exodus 15:27.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Water from the rock, and victory over Amalek. Exodus 17:1–13.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The LORD gave the law and made his covenant with Israel. Exodus 19–20.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Moses saw the land of promise, and died. Deuteronomy 34:1–5.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The first sign: water turned into wine. John 2:1–11.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Sight given to a blind man. Mark 8:22–26.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "A widow's only son raised. Luke 7:11–15.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The woman at the well. John 4:5–42.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Lazarus raised from the tomb. John 11:1–44.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The risen Lord made known in the breaking of the bread. Luke 24:13–35.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "John received the Revelation on this island. Revelation 1:9.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Held fast to Christ's name in the city of Satan's throne. Revelation 2:12–17.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Growing in love and service, yet tolerating Jezebel. Revelation 2:18–29.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "A reputation for being alive, yet dead. Revelation 3:1–6.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "An open door that no one can shut. Revelation 3:7–13.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Zedekiah brought before Nebuchadnezzar and judged. 2 Kings 25:6–7.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The scroll of Cyrus's decree to rebuild the temple was found in its fortress. Ezra 6:1–3.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Israelites from Samaria were settled in Gozan by the Habor River. 2 Kings 17:6.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The psalm likens brothers living in unity to the dew of Hermon. Psalm 133:1–3.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Barak came down from Mount Tabor with ten thousand men against Sisera. Judges 4:6–14.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Elijah faced the prophets of Baal, and the fire of the LORD fell. 1 Kings 18:19–39.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Saul and his sons fell in battle with the Philistines. 1 Samuel 31:1–4.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Egypt's great city on the Nile, whose fall Nahum held up as a warning to Nineveh. Nahum 3:8–10.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul's ship landed here, and Julius let him visit his friends. Acts 27:3.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Solomon assembled a fleet of ships here, on the shore of the Red Sea. 1 Kings 9:26.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Corinth's eastern port, home of the church Phoebe served. Romans 16:1.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul saw the man of Macedonia in a vision. Acts 16:8–10.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul landed in Italy and found brothers, who had him stay a week. Acts 28:13–14.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob wrestled until daybreak and was named Israel. Genesis 32:24–30.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The centurion moved them onto an Alexandrian ship sailing for Italy. Acts 27:5–6.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "They put in and stayed three days. Acts 28:12.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "From Syracuse they came to Rhegium, then sailed on to Puteoli. Acts 28:13.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Israel camped here and was defeated, and the ark of God was captured. 1 Samuel 4:1–11.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The ark was set in Dagon's temple, and Dagon fell on his face before it. 1 Samuel 5:1–5.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The ark was moved here, and the LORD struck the city with tumors. 1 Samuel 5:8–9.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The Ekronites cried out to send the ark away. 1 Samuel 5:10–12.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Two cows drew the ark home on a new cart. 1 Samuel 6:7–14.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The ark stayed in Abinadab's house for twenty years. 1 Samuel 7:1–2.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Fifteen places from Rome to Susa. Choose one to see why it matters, then open it in the Atlas.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Nine cities that shaped the biblical story, from imperial capitals to the ports of Paul's letters.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "From Dan to Beersheba": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The land of the promise, north to south: its fortresses, its altars and its towns.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "From Ararat to Sinai": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Nine mountains where the story turns, from the mountains of Ararat to Sinai.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Egypt to Rome": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The capitals of the powers around Israel, from Egypt to Rome.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Capital of the empire whose census sent Joseph to Bethlehem. Luke 2:1–4.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Ships and harbours": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Harbours of the Bible, from Solomon's fleet on the Red Sea to Paul's landing in Italy.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The first journey outward, from Antioch through Cyprus into Asia Minor. Acts 13–14.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "From Ur of the Chaldeans to the land of promise. Genesis 11–21.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Abram settled by the oaks of Mamre at Hebron. Genesis 13:18.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Out of Egypt, through the wilderness, to the edge of the land.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Israel crossed the Jordan and took Jericho. Joshua 3–6.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Bethel, Haran and home": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob flees to Haran and comes home twenty years later. Genesis 28–35.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob left Beersheba and set out for Haran. Genesis 28:10.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob bought the ground where he camped and set up an altar. Genesis 33:18–20.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Rachel died and was buried on the way to Ephrath, that is, Bethlehem. Genesis 35:16–20.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Jacob came home to his father Isaac at Mamre, near Hebron. Genesis 35:27.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Under guard from Caesarea, through storm and shipwreck, to Rome. Acts 27–28.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Paul stayed two full years in his own rented house, proclaiming the kingdom of God. Acts 28:16, 30–31.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Captured and brought home": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The elders sent to Shiloh for the ark, to take it into battle. 1 Samuel 4:3–4.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "David brought the ark up into the City of David with rejoicing. 2 Samuel 6:12–15.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Galilee to Jerusalem": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Twelve places in the Gospels, from his birth in Bethlehem to the road to Emmaus.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Born in the town of David. Luke 2:4–7.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Crucified, buried and risen on the third day. Luke 23–24.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Letters to Asia": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "From Patmos, the risen Christ's words to seven churches of Asia, in the order Revelation gives them. Revelation 2–3.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Hard-working and enduring, yet it had left its first love. Revelation 2:1–7.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Israel carried to Assyria, Judah to Babylon, and the decree that let the exiles rebuild.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "02 / Where it happened": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "The world of the Bible,": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Put a place to the passage, and follow the journeys across the map.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "01 / Two ways in": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "and its foundations.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ],
+   "Learn what Scripture teaches, and trace the history behind it.": [
+    "es",
+    "pt",
+    "zh",
+    "ar",
+    "hi",
+    "id"
+   ]
+  },
+  "why": "registered page text of the study chat's Atlas work (Website 837bfd19b, 554eb17d6), never collected into a chunk or translated: 144 texts, 1,210 words. Collecting is free; translating costs plan allowance, quoted on card D54 with the plural messages; job 29's 'translate new English' command collects, pilots and translates after the owner's yes"
+ },
+ {
+  "check": "waiting",
+  "job": "29",
+  "finding": "chunks",
+  "item": "chunk 1836: the plural messages ('1 book / 5 books')",
+  "chunks": {
+   "1836": "38004afc00b0da560b1c4bd4110ba6c22fb17c0e30689c8ef993a61432a4a607"
+  },
+  "why": "collected by job 20b; their trial priced them at $0.19, not the $0.05 quoted on card D50, so job 20b stopped and wrote card D52; still waiting for the owner's yes (quoted again on card D54)"
+ },
+ {
+  "check": "waiting",
+  "job": "29",
+  "finding": "translation-lines",
+  "item": "check.py: a creed passage with fewer lines than the English",
+  "keys": {
+   "a212a836ac37": [
+    "ar"
+   ]
+  },
+  "why": "job 20b's correction rounds left this Arabic creed passage (chunk 0619, the Formula of Concord on original sin) with 59 lines for the English 71; a correction round on this string costs plan allowance, quoted on card D54"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1083",
+  "languages": [
+   "es",
+   "pt",
+   "hi",
+   "id"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1333",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "0996",
+  "languages": [
+   "pt"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1689",
+  "languages": [
+   "pt"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1078",
+  "languages": [
+   "ar"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1719",
+  "languages": [
+   "ar"
+  ],
+  "why": "job 27 read every string check.py counts as unchanged in this chunk: each is the title of a book, article or edition, a library shelfmark or an author's name in a sources list, kept as published (the brief: titles stay as published; the fields rulings for citations). The rest of the chunk is translated"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: catalog.json",
+  "why": "the Bible catalogue: book codes, verse counts and version names kept as published; the book names are swapped on screen from ui.json, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: manuscripts/collection.json",
+  "why": "the manuscripts pages' records: their dates, languages, scripts and notes are collected into ui-study.json (page_data_specs.py) and swapped on screen, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: places-by-book/",
+  "why": "each chapter's places: ids, names and verse ids; place names stay as written (page_data_specs.py), and the kind of place is collected into ui.json"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: places.json",
+  "why": "places: ids, names, kinds and coordinates; names stay as written, and the kind of place is collected into ui.json (page_data_specs.py: all 36 kinds translated)"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: plain/",
+  "why": "Bible text per version: the reader's language chooses its own Bible (site-languages.ts, verses.ts), so there is nothing to translate"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: text/",
+  "why": "Bible text per version: the reader's language chooses its own Bible (site-languages.ts, verses.ts), so there is nothing to translate"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: stats.json",
+  "why": "verse and word counts per chapter; the book names in it are swapped on screen from ui.json"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: xref/",
+  "why": "cross-reference data: verse ids, book codes and counts only, no words"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: xref-arcs.json",
+  "why": "cross-reference data: verse ids, book codes and counts only, no words"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: xref-books.json",
+  "why": "cross-reference data: verse ids, book codes and counts only, no words"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: xref-links/",
+  "why": "cross-reference data: verse ids, book codes and counts only, no words"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/harmony.json",
+  "why": "read in English and swapped on screen: the fields a reader sees are collected into ui-study.json (and ui-people.json for the harmony) by page_data_specs.py, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/letters.json",
+  "why": "read in English and swapped on screen: the fields a reader sees are collected into ui-study.json (and ui-people.json for the harmony) by page_data_specs.py, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/miracles.json",
+  "why": "read in English and swapped on screen: the fields a reader sees are collected into ui-study.json (and ui-people.json for the harmony) by page_data_specs.py, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/names.json",
+  "why": "read in English and swapped on screen: the fields a reader sees are collected into ui-study.json (and ui-people.json for the harmony) by page_data_specs.py, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/prophets.json",
+  "why": "read in English and swapped on screen: the fields a reader sees are collected into ui-study.json (and ui-people.json for the harmony) by page_data_specs.py, so the file needs no translated copy"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/index.json",
+  "why": "the study data's stamp and pack count; the one correction note the Miracles page builds from it is in ui-study.json as one whole line, and its report field is never shown"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/study.ts",
+  "item": "read in English: study/home.json",
+  "why": "read only by loadHome in study.ts, which no page calls (only its tests), so nothing in it reaches a reader; collect .movements[].title and .line before anything calls it"
+ },
+ {
+  "check": "data",
+  "file": "src/pages/study/manuscripts/ManuscriptsPage.tsx",
+  "item": "read in English: manuscripts/collection",
+  "why": "the cache name useAsync is given on this page (useAsync(loadManuscripts, \"manuscripts/collection\")), not a data file: the net reads it as one because data/manuscripts/ exists"
+ },
+ {
+  "check": "data",
+  "file": "src/pages/study/passages/PassageManuscriptsPage.tsx",
+  "item": "read in English: manuscripts/collection",
+  "why": "the cache name useAsync is given on this page (useAsync(loadManuscripts, \"manuscripts/collection\")), not a data file: the net reads it as one because data/manuscripts/ exists"
+ },
+ {
+  "check": "data",
+  "file": "src/pages/study/witnesses/SurvivingWitnessesPage.tsx",
+  "item": "read in English: manuscripts/collection",
+  "why": "the cache name useAsync is given on this page (useAsync(loadManuscripts, \"manuscripts/collection\")), not a data file: the net reads it as one because data/manuscripts/ exists"
  }
 ]
