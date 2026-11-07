@@ -2162,6 +2162,66 @@
    "texts": [
     "{n} · Learning materials · Bible Guide"
    ]
+  },
+  {
+   "file": "src/pages/study/hub/atlas-stage/atlas-data.ts",
+   "why": "the study page's Atlas window: place names, notes, intros and a caveat the page rules read as code (a ';' between references, a hyphenated place name), so no language had them (sequence 27 step 3, card D54, 2026-11-07)",
+   "texts": [
+    "A Persian royal city: the setting of Esther and of Nehemiah's service. Esther 1:2; Nehemiah 1:1.",
+    "A lame man healed; Paul stoned and left for dead. Acts 14:8–20.",
+    "A port city where Paul stayed eighteen months; two of his letters answer its church. Acts 18:1–11.",
+    "Abraham was sent to the land of Moriah with Isaac; Solomon built the temple on Mount Moriah. Genesis 22:2; 2 Chronicles 3:1.",
+    "Abraham's home by the oaks of Mamre, and David's first capital. Genesis 13:18; 2 Samuel 2:1–4.",
+    "Abram built an altar between Bethel and Ai, and came back to it from Egypt. Genesis 12:8; 13:3.",
+    "Abram went down to Egypt in a famine; Genesis names no city, so the dot marks the land. Genesis 12:10.",
+    "After the shipwreck all 276 on board reached land, and Paul healed the sick of the island. Acts 27:37, 44; 28:1–9.",
+    "An ancient capital of Egypt, named by the prophets. Jeremiah 46:14; Hosea 9:6.",
+    "Beth-shemesh",
+    "Burned by Nebuchadnezzar's army; the people taken to Babylon. 2 Kings 25:8–11.",
+    "By the rivers of Babylon the exiles wept for Zion. Psalm 137:1; Daniel 1:1–6.",
+    "Capital of Aram, whose king Rezin waged war against Jerusalem. Isaiah 7:8; 2 Kings 16:5.",
+    "Capital of Assyria, whose judgment Nahum announced. Nahum 1:1; 3:7.",
+    "Capital of Assyria; Sennacherib returned here from Judah. 2 Kings 19:36.",
+    "Capital of the empire that carried Judah into exile. 2 Kings 25:8–11; Daniel 1:1–2.",
+    "Capital of the empire. Paul wrote to its church, then reached it under guard. Romans 1:7; Acts 28:14–16.",
+    "Cornelius heard the gospel here, and Paul was held two years. Acts 10:1, 24–48; 24:27.",
+    "Egypt's great harbour; an Alexandrian ship carried Paul toward Italy. Acts 27:6.",
+    "Ezion-geber",
+    "Faithful in suffering: “Be faithful even unto death.” Revelation 2:8–11.",
+    "Fell to Assyria; Israel was carried away and settled in Halah, in Gozan by the Habor River, and in the cities of the Medes. 2 Kings 17:5–6.",
+    "Israel set out from Rameses. Exodus 12:37; Numbers 33:3.",
+    "Jacob saw the stairway to heaven on the way out, and built an altar here on the way home. Genesis 28:10–19; 35:1–7.",
+    "Jacob served Laban twenty years: fourteen for his two daughters, six for the flocks. Genesis 29:4; 31:41.",
+    "Jesus' home by the Sea of Galilee. Matthew 4:13; Mark 2:1.",
+    "Jonah found a ship for Tarshish here; Peter saw the vision of the sheet on a rooftop. Jonah 1:3; Acts 10:9–16.",
+    "Kadesh-barnea",
+    "Kiriath-jearim",
+    "Many stations on this route are traditional locations; scholars place several of them differently.",
+    "Paul warned that the voyage would end in disaster; the centurion sailed on. Acts 27:8–11.",
+    "Paul's home city in Cilicia. Acts 21:39; 22:3.",
+    "Paul, who had appealed to Caesar, was handed to a centurion named Julius to sail for Italy. Acts 25:11–12; 27:1.",
+    "Peter's confession: “You are the Christ.” Matthew 16:13–16.",
+    "Taken from Shiloh into battle, captured by the Philistines, sent back, and brought up to Jerusalem by David. 1 Samuel 4–7; 2 Samuel 6.",
+    "Terah's family settled here; Abram left at the LORD's call. Genesis 11:31–12:4.",
+    "The ark came to rest on the mountains of Ararat; Genesis names the range, not a peak. Genesis 8:4.",
+    "The blessing was proclaimed on Mount Gerizim, the curse on Mount Ebal. Deuteronomy 11:29; Joshua 8:33.",
+    "The city of David and of the temple, where Jesus was crucified and rose. 2 Samuel 5:6–7; Luke 24:1–7.",
+    "The disciples were first called Christians here, and the church sent out Paul and Barnabas. Acts 11:26; 13:1–3.",
+    "The northern edge of the land, “from Dan to Beersheba”. Judges 20:1.",
+    "The spies returned here, and Israel refused to enter the land. Numbers 13:26; 14:1–35.",
+    "The tabernacle's home in the days of the judges and of Samuel. Joshua 18:1; 1 Samuel 1:3.",
+    "Town of Ruth and David, and the birthplace of Jesus. Ruth 1:19; Micah 5:2; Luke 2:4–7.",
+    "Where Jesus grew up, and where his own town rejected him. Luke 2:51; 4:16–30.",
+    "Where the LORD promised the land to Abram, and Joshua renewed the covenant. Genesis 12:6–7; Joshua 24:1–25.",
+    "Zacchaeus received him, and blind Bartimaeus saw. Luke 19:1–10; Mark 10:46–52."
+   ]
+  },
+  {
+   "file": "src/pages/study/hub/atlas-stage/AtlasStage.tsx",
+   "why": "the Atlas section's heading ends in an emphasised word, 'The world of the Bible, <em>mapped.</em>'; the page rules pass a lowercase JSX word by (sequence 27 step 3, card D54, 2026-11-07)",
+   "texts": [
+    "mapped."
+   ]
   }
  ]
 }

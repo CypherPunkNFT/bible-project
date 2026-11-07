@@ -1,7 +1,12 @@
 // Turns the Bible references inside an Atlas window line ("2 Samuel 5:6–7; Luke 24:1–7") into links that open the
 // Berean Standard Bible at that chapter, with the verses shaded (owner, 2026-11-06). A bare "13:1–3" after a
 // reference continues the same book; a bare ", 44" after a verse continues the same chapter ("Acts 27:37, 44; 28:1–9").
-import { Fragment, type ReactNode } from "react";
+// In another language the line is put into that language whole before it is cut (2026-11-07): the page translator swaps
+// a text only when it is a whole line it knows, and the links cut a line into pieces it does not. The references are
+// found in the English, and each one's numbers are then looked for, in order, in the translated line.
+import { Fragment, useSyncExternalStore, type ReactNode } from "react";
+import { languageDirection, useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { onPhrasesLearned, phrase, phraseListVersion } from "@/lib/phrase-memory";
 import { StudyLink } from "@/pages/study/hub/shared";
 
 /** Every book of the Bible, by the name a line uses, with the reader's code for it. */
@@ -33,21 +38,64 @@ function readerHref(code: string, span: string): string {
   return `/read/bsb/${code}/${chapter}?hl=${verse}-${end}`;
 }
 
-export function RefText({ text }: { text: string }) {
-  const parts: ReactNode[] = [];
-  let at = 0;
+/** One link: where it stands in the line drawn, and where it goes. */
+interface Placed { start: number; end: number; href: string }
+/** A reference of the English line: its book's name when it opens with one, else it continues the one before. */
+interface Reference extends Placed { book: string | null; span: string }
+
+function referencesIn(text: string): Reference[] {
+  const found: Reference[] = [];
   for (const match of text.matchAll(PATTERN)) {
-    const [whole, book, span, rest] = match, code = BOOKS[book], start = match.index;
-    parts.push(text.slice(at, start));
-    parts.push(<StudyLink key={start} className="am-ref" to={readerHref(code, span)}>{`${book} ${span}`}</StudyLink>);
+    const [, book, span, rest] = match, code = BOOKS[book], start = match.index, restStart = start + book.length + 1 + span.length;
+    found.push({ book, span, href: readerHref(code, span), start, end: restStart });
     let chapter = span.split(":")[0];
-    for (const [, separator, more] of rest.matchAll(PIECE)) {
+    for (const piece of rest.matchAll(PIECE)) {
+      const [, separator, more] = piece, pieceStart = restStart + piece.index + separator.length;
       const target = separator === ", " ? `${chapter}:${more}` : more;
       if (separator === "; ") chapter = more.split(":")[0];
-      parts.push(separator, <StudyLink key={`${start}-${separator}${more}`} className="am-ref" to={readerHref(code, target)}>{more}</StudyLink>);
+      found.push({ book: null, span: more, href: readerHref(code, target), start: pieceStart, end: pieceStart + more.length });
     }
-    at = start + whole.length;
   }
-  parts.push(text.slice(at));
+  return found;
+}
+
+/** Each reference's numbers found in the translated line, in order, never inside a longer number; the book's name in
+ *  the language joins the link when it stands just before them. A reference not found stays plain text, unlinked. */
+function placedIn(line: string, references: Reference[], language: LanguageCode): Placed[] {
+  const placed: Placed[] = [];
+  let cursor = 0;
+  for (const { book, span, href } of references) {
+    const numbers = new RegExp(`(?<![\\d:])${span.replace(/[–-]/g, "[–-]")}(?![\\d:])`, "g");
+    numbers.lastIndex = cursor;
+    const found = numbers.exec(line);
+    if (!found) continue;
+    const name = book ? phrase(book, language) || book : null, before = line.slice(cursor, found.index);
+    const widen = name ? [`${name} `, name].find(form => before.endsWith(form))?.length ?? 0 : 0;
+    placed.push({ start: found.index - widen, end: found.index + found[0].length, href });
+    cursor = found.index + found[0].length;
+  }
+  return placed;
+}
+
+// As the page translator holds them for a right-to-left language: Arabic reads "6:24–25" as "25–6:24" without the marks.
+const VERSE_RANGE = /\d+:\d+[–-]\d+(?::\d+)?/g;
+const asWritten = (value: string) => value;
+const heldTogether = (value: string) => value.replace(VERSE_RANGE, "\u2066$&\u2069");
+
+export function RefText({ text }: { text: string }) {
+  const language = useSiteLanguage();
+  useSyncExternalStore(onPhrasesLearned, () => phraseListVersion(language)); // drawn again when the language's phrases land
+  const own = phrase(text, language), references = referencesIn(text);
+  const line = own ?? text, links = own ? placedIn(own, references, language) : references;
+  // Held only after the line is cut: the marks inside a range would hide its numbers from the search above.
+  const hold = own && languageDirection(language) === "rtl" ? heldTogether : asWritten;
+  const parts: ReactNode[] = [];
+  let at = 0;
+  links.forEach((link, i) => {
+    parts.push(hold(line.slice(at, link.start)));
+    parts.push(<StudyLink key={`ref-${i}`} className="am-ref" to={link.href}>{hold(line.slice(link.start, link.end))}</StudyLink>);
+    at = link.end;
+  });
+  parts.push(hold(line.slice(at)));
   return <>{parts.map((part, i) => <Fragment key={i}>{part}</Fragment>)}</>;
 }
