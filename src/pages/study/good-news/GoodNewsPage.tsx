@@ -7,10 +7,10 @@ import { useCallback, useEffect, useRef } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
-import { D, hasPassage, passageText } from "./model";
+import { D, hasPassage } from "./model";
 import { CloseArt, HeroArt, PartArt } from "./art";
 import { OpenVerse } from "./open-verse";
-import { Blocks, Label, Ledger, Ref, Runs } from "./parts";
+import { BibleName, Blocks, Label, Ledger, PassageWords, Ref, Runs } from "./parts";
 import "@/components/study/study-trail.css";
 import "./good-news.css";
 
@@ -36,7 +36,7 @@ function Opening() {
         <h1>The good <em>news</em></h1>
         <p className="gn-subtitle">How a person is made right with God</p>
         <p className="gn-lede"><Runs runs={study.lead} /></p>
-        <figure className="gn-opening"><blockquote>{passageText(opening.r)}</blockquote><figcaption><Ref id={opening.r}>{opening.label}</Ref> · Berean Standard Bible</figcaption></figure>
+        <figure className="gn-opening"><blockquote><PassageWords id={opening.r} /></blockquote><figcaption><Ref id={opening.r}>{opening.label}</Ref> · <BibleName /></figcaption></figure>
       </div>
       <figure className="gn-hero-art">
         <HeroArt />
@@ -97,7 +97,6 @@ function Questions() {
 
 function Close() {
   const close = D.study.close;
-  const passage = D.passages[close.passage];
   return <section id="close" className="gn-sec">
     <Head num="→" title={`${close.title.replace(/\.$/, "")}.`} turn="Then go in." />
     <div className="gn-close-grid">
@@ -108,8 +107,8 @@ function Close() {
         <p className="gn-again"><Runs runs={close.again} /></p>
       </div>
       <figure className="gn-passage">
-        <figcaption><Label>The passage again</Label> <Ref id={close.passage} /> · BSB</figcaption>
-        <div className="gn-passage-text">{passage.verses.map(([cv, text]) => <span key={cv}><sup>{cv.split(":")[1]}</sup>{text} </span>)}</div>
+        <figcaption><Label>The passage again</Label> <Ref id={close.passage} /> · <BibleName short /></figcaption>
+        <div className="gn-passage-text"><PassageWords id={close.passage} numbered /></div>
       </figure>
     </div>
     <span className="gn-close-art" aria-hidden="true"><CloseArt /></span>
@@ -128,9 +127,9 @@ function VerseSheet({ id, onClose }: { id: string | null; onClose: () => void })
   const passage = id ? D.passages[id] : null;
   return <SlidePanel open={Boolean(passage)} onClose={onClose} label={passage?.label ?? "Verse"} closeLabel="Close this passage">
     {passage && <>
-      <p className="gn-label">Berean Standard Bible</p>
+      <p className="gn-label"><BibleName /></p>
       <h2>{passage.label}</h2>
-      <p className="gn-sheet-text">{passage.verses.map(([cv, text]) => <span key={cv}><sup>{passage.verses.length > 1 ? cv.split(":")[1] : cv}</sup> {text} </span>)}</p>
+      <p className="gn-sheet-text"><PassageWords key={passage.label} id={id ?? ""} numbered={passage.verses.length > 1 || "chapter"} /></p>
     </>}
   </SlidePanel>;
 }

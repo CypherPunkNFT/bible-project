@@ -3,8 +3,23 @@
 import { ArrowRight } from "lucide-react";
 import { useContext, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { D, passageText, type Block, type Run } from "./model";
+import { Verse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { bibleName, useCurrentBible } from "@/lib/verses";
+import { D, passageIds, type Block, type Run } from "./model";
 import { OpenVerse } from "./open-verse";
+
+/** A passage's words in the reader's Bible; `numbered` prints each verse's number ("chapter" adds the chapter). */
+export function PassageWords({ id, numbered }: { id: string; numbered?: boolean | "chapter" }) {
+  const catalog = useCatalog();
+  return <Verse ids={passageIds(catalog, id)} numbered={numbered} />;
+}
+
+/** The name of the Bible the words come from: its short form ("BSB") or its full name. */
+export function BibleName({ short = false }: { short?: boolean }) {
+  const bible = useCurrentBible();
+  return <>{short ? bible.abbr : bibleName(bible)}</>;
+}
 
 export function Ref({ id, children }: { id: string; children?: ReactNode }) {
   const open = useContext(OpenVerse);
@@ -29,7 +44,7 @@ export function Runs({ runs }: { runs: Run[] }) {
 export const Label = ({ children }: { children: ReactNode }) => <span className="gn-label">{children}</span>;
 
 export function Quote({ id, label }: { id: string; label: string }) {
-  return <figure className="gn-quote"><blockquote>{passageText(id)}</blockquote><figcaption><Ref id={id}>{label}</Ref> · BSB</figcaption></figure>;
+  return <figure className="gn-quote"><blockquote><PassageWords id={id} /></blockquote><figcaption><Ref id={id}>{label}</Ref> · <BibleName short /></figcaption></figure>;
 }
 
 export function BlockView({ block }: { block: Block }) {

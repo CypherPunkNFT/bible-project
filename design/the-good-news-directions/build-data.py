@@ -251,7 +251,10 @@ def build() -> str:
     data = {"study": study, "passages": builder.passages, "news": rows, "lost": lost, "numbers": numbers,
             "sources": SOURCES, "outside": OUTSIDE_QUOTES, "built_from": prints}
     mockup = "// Built by build-data.py from the study's content.md. Do not edit by hand.\nwindow.GN = " + json.dumps(data, ensure_ascii=False, indent=1) + ";\n"
-    site = json.dumps({key: data[key] for key in ("study", "passages", "news", "lost", "numbers", "sources")}, ensure_ascii=False, separators=(",", ":")) + "\n"
+    # The live page holds verse numbers only: no site file but the Bibles may hold a verse's wording
+    # (scripts/check-verse-wording.py); the page looks the words up in the reader's Bible (src/components/Verse.tsx).
+    site_passages = {key: {"label": p["label"], "verses": [cv for cv, _ in p["verses"]]} for key, p in builder.passages.items()}
+    site = json.dumps({**{key: data[key] for key in ("study", "news", "lost", "numbers", "sources")}, "passages": site_passages}, ensure_ascii=False, separators=(",", ":")) + "\n"
     return mockup, site
 
 
