@@ -105,3 +105,15 @@ A later prototype should show the closed page, Work and integrity open with its 
 Retain all six names and the existing Romans 13:10 opening quotation. The design adds short card questions, orientation summaries and interface labels; the content draft remains unchanged. Singleness, widowhood and fuller discussion of unpaid care remain possible editorial expansions, not silently added readings. No new contemporary historical, legal or financial claims are introduced by this design.
 
 This first design draft is ready for review. No routes, components, styles, generated data or publication change in this step. Next in the design pass is **06 Learning to discern**. Consult [progress](../../progress.json) and [the workflow](../../WORKFLOW.md).
+
+## Revision to the study standard, 2026-10-30
+
+A mock-up now exists: [faith-in-daily-life-directions](../../../../design/faith-in-daily-life-directions/README.md). [The study standard](../../../../../Pages/Study/STUDY-STANDARD.md) was written after this design and wins where they differ:
+
+- Berean, not King James, everywhere in this file's references to the translation.
+- Line drawings in the site's one hand, not the filled shapes described under Opening.
+- Cards follow the standard's anatomy (kind and number, miniature, title, one line, rule, parts, action verb), not closed cards with a question and a down arrow.
+- The panel opens on its own row straight after the chosen card's row, not beneath the whole group, so it stays in place at every width.
+- A bar of counts, a reasons figure and an older-Scripture figure are added, as rules 6, 13, 18, T3 and T4 require.
+- No "Next reading" gesture or "Read this section" action beyond a named Next link.
+- Everything else here (the three-part strip, what each difficult passage needs, no giving calculator, no government selector) was kept.

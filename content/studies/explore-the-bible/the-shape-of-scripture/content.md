@@ -1,175 +1,295 @@
 # The shape of Scripture
 
-Working content draft · Study 33 · Explore the Bible · Owner review pending
+Concepts: Its form · Its hearers · Its links · Its own words
 
-Scripture tells of God's works, gives commandments, remembers the past, teaches wisdom, records prayer and announces hope. Its books speak to one another: Joshua is charged to observe the law given through Moses; a psalm teaches children to remember God's works; Jesus speaks of what is written concerning him in the law, the prophets and the psalms.
+Motto: Command. Story. Song. Warning. Witness. Letter. / Read each as what it is.
 
-Seeing these connections helps us read the whole without making every book sound alike. An account of a journey asks for a different kind of attention from a lament, a proverb or a letter. Even within one book, narrative may give way to song, instruction, genealogy or prayer.
+Lead: A command, a lament and a letter do not ask the same thing of you, and the Bible holds all three. This study sets six passages in the shapes they were written in, so you can see the difference before you read a word of comment. It teaches one habit for the next passage you open: name its form, its hearers and one earlier word it names, and then ask what it says that nothing else says.
 
-The six divisions below are a reading guide: Law; History; Poetry and Wisdom; Prophets; Gospels and Acts; Letters and Revelation. They are not six sealed compartments. Follow the passages across their boundaries, noticing both the connection and the particular work each passage does.
+> Jesus said to them, “These are the words I spoke to you while I was still with you: Everything must be fulfilled that is written about Me in the Law of Moses, the Prophets, and the Psalms.”
 
-## 01 Law: a people delivered and instructed
+Luke 24:44 · BSB
 
-**Main readings:** Exodus 19:1–6; 20:1–3; Deuteronomy 6:4–12.
+Frame: The six divisions below are this site's reading guide, not a division Scripture gives itself. Jesus names three groups in Luke 24:44. The Hebrew Bible is arranged as Torah, Prophets and Writings, and it groups Samuel, Kings, Chronicles, Ezra, Nehemiah and the Twelve differently from most Christian editions; the study How the canon took shape tells that history. So hold the divisions loosely. Their use is to slow you down, and books cross them all the time.
 
-> I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage.
+Selection: This is a selection, not a survey. Six divisions, one or more passages each, chosen to show what each kind of writing asks of a reader. Not handled here: an introduction to each book, which belongs to Books in their settings; how the days of Genesis 1 are to be read, which needs a study of its own; and a full account of the law for Christians, which belongs to Freedom that serves. Other lists of the Bible's kinds of writing differ, because they cut the same books differently.
 
-Exodus 20:2 · KJV
+Mixed: Does a book stay one kind of writing? Choose a kind below and see where it turns up in books that are mainly something else. The list is this study's selection, chosen by reading and then checked word by word, so it shows that the kinds mix and does not measure how often. A book with no mark has not been shown to lack that kind. Calling a book mainly one kind is this study's judgment too.
 
-### Hear the commandments within the account
+Steps: Do the parts of the Bible know about each other? Read this staircase by rows: each row is a later part of the Bible, and each column an earlier one. Every step holds one place where the later part names, retells or shares words with the earlier. Law has no row of its own because nothing comes before it. The study reads Letters and Revelation together, and they stand apart here because they use different forms and the site gives them different colours.
 
-Israel reaches Sinai after leaving Egypt. Before the commandments in Exodus 20, the LORD reminds the people of what he has done: he has borne them on eagles' wings and brought them to himself. He speaks of keeping his covenant and being a kingdom of priests and a holy nation. The instruction belongs within this relationship and this remembered deliverance.
+Try: Here are three passages you have not been walked through. Before you look at the answer, name what kind of writing each one is.
 
-The opening of the commandments again identifies the LORD as the one who brought them out of bondage. Read that declaration with the command that follows. The people are not meeting an unnamed lawgiver in an account without a past. The speaker names himself through what he has done for them.
+## 01 Law: rescued, then taught
 
-The books grouped under Law therefore require more than looking for rules. Follow their accounts, promises and instructions together. Ask who is addressed, what has already happened and what life the instruction concerns. A command's setting is part of understanding it, including when considering how it relates to a later passage or to Christian life.
+Slug: law
+
+Short: Law
+
+Hook: They are already out of Egypt. Only then does the LORD give a command.
+
+Line: Commands spoken to people who have already been rescued.
+
+Read: Exodus 19:1–6; Exodus 20:1–3; Deuteronomy 6:4–12
+
+Name: Jesus speaks of "the Law of Moses" (Luke 24:44), and this study uses the name for Genesis to Deuteronomy. Much of those books is story, so the name says what they teach, and not the only form they take.
+
+Form: Commands set inside a story of rescue.
+
+Hearers: Israel at Sinai, addressed as the people brought out of Egypt.
+
+Link: Later books keep returning here: Joshua is charged to keep "all the law that My servant Moses commanded" (Joshua 1:7).
+
+Own: The speaker introduces Himself by what He has done before He asks for anything.
+
+### Hear the commands inside the story
+
+Israel reaches Sinai having already left Egypt. Before any commandment, the LORD reminds them: "I carried you on eagles' wings and brought you to Myself" (Exodus 19:4). Then He speaks of keeping His covenant, and of being "a kingdom of priests and a holy nation" (Exodus 19:6).
+
+So when the commandments begin, they do not begin with a command. They begin with a name and a rescue: "who brought you out of the land of Egypt" (Exodus 20:2). The people are not meeting an unnamed lawgiver. Ask of any command who is speaking, who is addressed and what has already happened.
+
+[source:maclaren] Alexander Maclaren puts the order in one line: "God gives before He asks us to give."
 
 ### Remember and teach
 
-Deuteronomy 6 joins love for the LORD with keeping his words in the heart and teaching them diligently to children. The instruction enters the house, the journey, lying down and rising up. It is meant to shape remembered and spoken life, not simply remain on a page.
+Deuteronomy 6 carries the words indoors. They are to be taught "diligently to your children", and spoken "when you sit at home and when you walk along the road" (Deuteronomy 6:7). The danger it names is not rebellion but comfort: cities "that you did not build", wells "that you did not dig", and then "be careful not to forget the LORD" (Deuteronomy 6:10–12).
 
-The warning that follows concerns forgetting. When the people receive cities, houses, wells and vineyards they did not make, they are to beware lest they forget the LORD who brought them out of Egypt. Gift, gratitude and obedience belong together in the passage. Later accounts of Israel can be read with this warning in view, while allowing those accounts to show their own particular circumstances and choices.
+[open] Do these commands bind Christians today, and which ones? Jesus and the letters speak to this, and it needs more room than this study has. It is named here so that you do not think a study of setting has settled it. The study Freedom that serves is the place for it.
 
-**Consider:** What does remembering deliverance contribute to these commandments and warnings?
+[source:london] One historic Baptist confession, the Second London Confession, sorts the law three ways: ceremonial laws "abrogated and taken away", judicial laws "not obliging any now by vertue of that institution", and a moral law that "doth for ever bind all". The Baptist Faith and Message does not set out that division. Baptists do not all map these things alike, as the study Covenants and promises shows. No other source on this one question was read for this page, so it reports that confession and does not choose.
 
-**Reflect:** What helps you remember God's gifts when their enjoyment becomes familiar?
+Look closely: What does the LORD say about Himself before the first command? What difference would it make if that sentence were missing?
 
-## 02 History: the account remembers and judges
+Your response: What gift of God has become so familiar that you have stopped thanking Him for it?
 
-**Main readings:** Joshua 1:1–9; 2 Kings 17:7–15; Ezra 1:1–4.
+## 02 History: the story comes with a verdict
 
-> Only be thou strong and very courageous, that thou mayest observe to do according to all the law, which Moses my servant commanded thee: turn not from it to the right hand or to the left, that thou mayest prosper whithersoever thou goest.
+Slug: history
 
-Joshua 1:7 · KJV
+Short: History
 
-### A new leader does not begin an unrelated story
+Hook: A new leader, a fallen kingdom, a foreign king's decree. Who is telling you what it means?
 
-Joshua opens after Moses' death. The LORD commands Joshua to lead the people across the Jordan, speaks of the land promised to their fathers, and charges him to observe what Moses commanded. The new situation is told through connections with what came before it.
+Line: The story is told by someone who also tells you what to make of it.
 
-Notice how the account joins action and instruction. Joshua is called to courage in leadership and to careful obedience. The reference to the book of the law is part of that charge. Reading Joshua after the preceding books allows us to recognize why Moses, the fathers and the promised land matter without making this opening a general guarantee of success for any undertaking we choose.
+Read: Joshua 1:1–9; 2 Kings 17:7–15; Ezra 1:1–4
 
-A narrative also contains different voices. It may report a person's claim, a decision, a speech from God or the narrator's explanation. Identify whose words you are hearing before treating an action or sentence as an example to follow.
+Name: This is the site's name for Joshua to Esther: books that tell what happened and also judge it. The Hebrew Bible groups many of them differently, as the note above says.
 
-### Explanation reaches beyond the event
+Form: A narrative, with several voices inside it.
 
-In 2 Kings 17 the account explains Israel's wrongdoing by recalling the LORD who brought the people out of Egypt. It names their service of other gods, their rejection of the covenant and their refusal to hear the prophets. The past is not merely listed; conduct is evaluated in relation to the LORD's commandments and warnings.
+Hearers: Readers being told what happened and why.
 
-Ezra opens by saying that the LORD stirred the spirit of Cyrus so that his word by Jeremiah might be fulfilled. The proclamation concerns going to Jerusalem and building the house of the LORD. Here a narrative explicitly directs the reader toward prophetic speech. That connection gives us a reason to read across books, while keeping the particular declaration and action in view.
+Link: Ezra names "the word of the LORD spoken through Jeremiah" (Ezra 1:1).
 
-These passages show why a history of Scripture cannot be reduced to a sequence of rulers. The writing asks what people remembered, whom they served, what they refused to hear and how the word of the LORD stood in relation to events.
+Own: The narrator says outright why a kingdom fell: "All this happened because" (2 Kings 17:7).
 
-**Consider:** How do these openings and explanations refer back to earlier words or works of God?
+### Whose words are these?
 
-**Reflect:** What difference is there between remembering that something happened and understanding how the account evaluates it?
+A story holds many voices: a narrator, a king, a prophet, the LORD. Ezra opens with two. The narrator tells you that the LORD "stirred the spirit of Cyrus" (Ezra 1:1). Then Cyrus speaks for himself, and says the LORD "has given me all the kingdoms of the earth" (Ezra 1:2).
 
-## 03 Poetry and wisdom: remember, pray and discern
+Before you take an action or a sentence as an example to follow, ask who is talking. A narrative can report a claim without endorsing it, and it can report a deed without recommending it.
 
-**Main readings:** Psalm 78:1–8; Psalm 13; Proverbs 26:4–5; Job 42:7–9.
+### The account judges
 
-> That they might set their hope in God, and not forget the works of God, but keep his commandments:
+In 2 Kings 17 the past is not merely listed. "All this happened because the people of Israel had sinned" (2 Kings 17:7). The narrator reaches back to the exodus, names the warning "through all His prophets and seers" (2 Kings 17:13), and gives the verdict: "they would not listen" (2 Kings 17:14). So a history of Scripture is more than a list of rulers. It asks whom they served and what they refused to hear.
 
-Psalm 78:7 · KJV
+### A charge, and what it does not say
 
-### A song carries the past into another generation
+The LORD tells Joshua to keep the law "so that you may prosper wherever you go" (Joshua 1:7). Read in its place, this is a word to one man, on the edge of the Jordan, about to lead Israel into the land, and it is tied to keeping what Moses commanded.
 
-Psalm 78 begins by calling people to listen to things heard and known, which their fathers told them. The opening states a purpose for passing them on: that another generation might set its hope in God, remember his works and keep his commandments. Remembered history becomes instruction addressed to those who will hear it next.
+[care] This is this site's reading: Joshua 1:7–9 is not a promise of wealth, or of success in whatever you happen to attempt. Lift it out of its setting and it says something the passage does not say.
 
-A psalm can therefore participate in the same story as the narrative books without becoming another account in the same form. Its address, repetitions and purpose shape the way the past is brought before the hearer. Ask what this retelling calls its audience to remember and to do.
+Look closely: In Ezra 1:1–3, where does the narrator's voice stop and Cyrus's begin? What does the narrator tell you that Cyrus does not?
 
-Other psalms bring grief directly before God. Psalm 13 moves from repeated questions about how long sorrow will continue, through petition, to trust and song. Its complaint and confidence both deserve to be heard. The collection gives room for prayer within the life of faith, including words spoken from distress.
+Your response: Is there a verse you have taken as a promise to you? Who was it first spoken to?
 
-### Wisdom requires attention to the saying and its speaker
+## 03 Poetry and wisdom: pray it, weigh it
 
-Proverbs 26 places two sayings about answering a fool together. One warns against answering according to his folly lest you become like him; the other calls for an answer lest he be wise in his own conceit. Read the reasons as carefully as the instructions. Together they direct attention to what an answer may do, rather than offering a mechanical response to every conversation.
+Slug: poetry
 
-Job gives another reason to attend to a work's complete form. At its close the LORD rebukes Eliphaz and his two friends for not speaking rightly of him as Job has. A reader cannot simply detach every speech from the dialogue and present it as God's own explanation. The identity of the speaker and the judgment at the end matter.
+Short: Poetry & Wisdom
 
-Prayer, proverb and dialogue offer different ways of attending to life before God. Let the writing teach you how to listen before drawing a rule from it.
+Hook: "How long, O LORD?" (Psalm 13:1). Scripture gives you the words, and does not hurry you past them.
 
-**Consider:** What does each of these passages ask you to notice beyond an isolated sentence?
+Line: Songs, prayers and sayings that teach by how they are made.
 
-**Reflect:** Where do you need patient discernment rather than a familiar saying applied too quickly?
+Read: Psalm 78:1–8; Psalm 13:1–6; Proverbs 26:4–5; Job 42:7–9
 
-## 04 Prophets: warning and hope in the LORD's name
+Name: Jesus names "the Psalms" (Luke 24:44). This site groups Job to Song of Songs under Poetry and Wisdom: poetry says how they are written, and wisdom says what several of them are after.
 
-**Main readings:** Isaiah 1:10–20; Jeremiah 31:31–34; 2 Kings 17:13–15.
+Form: Song, prayer, proverb and long dialogue.
 
-> But this shall be the covenant that I will make with the house of Israel; After those days, saith the LORD, I will put my law in their inward parts, and write it in their hearts; and will be their God, and they shall be my people.
+Hearers: In Psalm 13, God. In Psalm 78, the next generation. In Job, each speaker has someone else in view.
 
-Jeremiah 31:33 · KJV
+Link: Psalm 78 retells the exodus so that children will not forget it (Psalm 78:5–7).
 
-### Hear the accusation and the call to turn
+Own: A complaint to God stands inside Scripture and is not corrected on the spot.
 
-Isaiah 1 speaks against sacrifices, assemblies and prayers joined to wrongdoing. The rebuke leads to commands to cease doing evil, learn to do well, relieve the oppressed and plead for the widow. Reading the whole address makes its concern clearer than extracting either its criticism of worship or its invitation to reason together by itself.
+### A prayer that moves
 
-Prophetic speech therefore includes more than statements about what will happen later. Here it confronts present conduct and calls for a response. The warning and the invitation are both spoken to people whose deeds have been named. Ask who is addressed and what failure the passage exposes before asking how its language might apply elsewhere.
+Psalm 13 asks "How long" four times in two verses (Psalm 13:1–2). Then it asks for something: "Give light to my eyes" (Psalm 13:3). Then, with nothing yet said to have changed: "I will sing to the LORD" (Psalm 13:6). Read it whole. The complaint and the trust are both real, and neither cancels the other.
 
-The account in 2 Kings describes the prophets calling Israel and Judah to turn from evil ways and keep the commandments. This gives an explicit connection between prophetic warning and earlier instruction. The books speak across their customary reading divisions.
+[source:calvin-psalms] John Calvin says David's trust had not gone out, and yet under long trouble "this thought unavoidably forces itself upon us, that God has forgotten us".
 
-### Hope remembers the covenant that was broken
+### Two proverbs, side by side
 
-Jeremiah's promise of a new covenant names the house of Israel and the house of Judah. It recalls the covenant made when the LORD brought their fathers out of Egypt and says that they broke it. The promise then speaks of the law written within, belonging to God, knowing the LORD and forgiveness of iniquity.
+"Do not answer a fool according to his folly" and "Answer a fool according to his folly" sit one after the other (Proverbs 26:4–5). No reader could miss it. Read the reasons: the first answer would make you "like him", and the silence would leave him "wise in his own eyes". This is this site's reading: you are being taught to weigh what an answer will do, and no rule will do that for you. Jamieson, Fausset and Brown take the first as an answer that agrees with the folly and the second as a rebuke. The apologetics answer on apparent contradictions goes further into this kind of question.
 
-Read the promise with those named people and that remembered past in view. It is not a detached assurance that any desired future will come to pass. Its language answers the broken relationship described in the passage. Later uses of this promise should be read alongside Jeremiah rather than replacing his words with a summary of our own.
+### Who is speaking in Job?
 
-Warning and hope belong together without being made identical. A careful account of the prophets gives space to accusation, lament, calls to turn and promises of restoration, according to what each passage actually says.
+At the end of Job, the LORD says to Eliphaz, "you have not spoken about Me accurately, as My servant Job has" (Job 42:7). So you cannot lift a sentence from the friends' speeches and present it as God's own explanation. Scripture truly records what they said, and then records God's verdict on it.
 
-**Consider:** How does the remembered exodus contribute to Jeremiah's promise? What concrete response does Isaiah call for?
+Yet not every sentence they say is false. Paul quotes Eliphaz's words "He catches the wise in their craftiness" (Job 5:13) with "As it is written" (1 Corinthians 3:19). Read the speech, the speaker and the end of the book together.
 
-**Reflect:** What would it mean to hear a promise of renewal alongside a call to put away wrongdoing?
+[source:jfb] Jamieson, Fausset and Brown say the friends went wrong by arguing "that calamities always prove peculiar guilt". They also take Paul's use as evidence for the whole book: "That it is inspired appears from the fact that Paul" quotes it.
 
-## 05 Gospels and Acts: Jesus and his witnesses
+### Does a song mean it did not happen?
 
-**Main readings:** Luke 24:44–49; Acts 1:1–11.
+No. Scripture sometimes tells one event twice, once as an account and once as a song. "Not one of them survived" (Exodus 14:28), says the account of the sea. "they sank there like a stone" (Exodus 15:5), sings Moses. The account of Jael says she "drove the peg through his temple" (Judges 4:21), and the song says she "shattered and pierced his temple" (Judges 5:26).
 
-> And he said unto them, These are the words which I spake unto you, while I was yet with you, that all things must be fulfilled, which were written in the law of Moses, and in the prophets, and in the psalms, concerning me.
+[care] The form tells you how a passage is telling the truth. It does not give you leave to doubt what it presents as having happened. Baptists confess that Scripture has "truth, without any mixture of error" for its matter, and that holds for a song as it does for an account.
 
-Luke 24:44 · KJV
+Look closely: Where does Psalm 13 turn, and what word marks the turn? What has changed by then, as far as the psalm says?
 
-### Hear Jesus speaking of the Scriptures
+Your response: What would you say to God if you used Psalm 13's first two verses honestly today?
 
-At the close of Luke, the risen Jesus speaks of what is written concerning him in the law of Moses, the prophets and the psalms. The following words concern his suffering, rising from the dead, and the preaching of repentance and remission of sins among all nations. This is an explicit direction to read his life in relation to earlier Scripture.
+## 04 Prophets: stop, wash, come
 
-The direction calls for careful reading of actual passages. It does not relieve us of the task of hearing an earlier account, prayer or prophecy in its own setting. Where a Gospel identifies a connection, read both passages and attend to how the connection is made. Where you propose an additional connection, distinguish your interpretation from one the text explicitly states.
+Slug: prophets
 
-Begin with each Gospel's own course before gathering accounts together. A passage has a place within that Gospel's presentation as well as a relationship to other witnesses and earlier writings.
+Short: Prophets
 
-### Follow the commission into witness
+Hook: Bring no more sacrifices, God says. Wash. Then: come now.
 
-Acts addresses Theophilus and recalls the former account of what Jesus began to do and teach. Its opening speaks of the risen Jesus, the promise of the Father and the coming of the Holy Ghost. The witnesses are directed toward Jerusalem, Judaea, Samaria and the uttermost part of the earth.
+Line: Speech in the LORD's name, naming what is wrong now and what He will do.
 
-Read that opening alongside Luke's ending. The promised power and the commission provide a connection between the accounts. Acts continues with the witnesses' life and proclamation; it is not simply a fifth retelling of the same Gospel episodes.
+Read: Isaiah 1:10–20; Jeremiah 31:31–34; 2 Kings 17:13–15
 
-This movement also prepares us to encounter the letters as communications within the life of believers. It does not mean every letter can be assigned an exact place in Acts without further evidence. Recognizing a connection and reconstructing a complete chronology are different tasks.
+Name: Jesus names "the Prophets" (Luke 24:44). The narrator of Kings says the LORD warned His people "through all His prophets and seers" (2 Kings 17:13).
 
-**Consider:** Which connections between Luke's ending and Acts' beginning are stated in the passages themselves?
+Form: Speech: accusation, a call to turn, a promise.
 
-**Reflect:** How does the call to witness grow from what Jesus has done and what the witnesses have received?
+Hearers: Named people in a named time: Isaiah calls his hearers "rulers of Sodom" (Isaiah 1:10).
 
-## 06 Letters and Revelation: hear, keep and hope
+Link: Jeremiah remembers "the covenant I made with their fathers" at the exodus (Jeremiah 31:32).
 
-**Main readings:** Ephesians 4:1–6; Revelation 1:1–11; 21:1–5; 22:1–5; Genesis 2:8–10.
+Own: "I will forgive their iniquities and will remember their sins no more" (Jeremiah 31:34).
 
-> Blessed is he that readeth, and they that hear the words of this prophecy, and keep those things which are written therein: for the time is at hand.
+### More than the future
 
-Revelation 1:3 · KJV
+People often read the prophets for what comes later. Isaiah 1 is about now. It speaks against worship joined to wrongdoing: "I cannot endure iniquity in a solemn assembly" (Isaiah 1:13), for "Your hands are covered with blood" (Isaiah 1:15). And then come the verbs, one after another, down to the fatherless and the widow (Isaiah 1:16–17).
 
-### Instruction takes shape in a people's life
+Do not lift out only the criticism of worship, as if God rejected all worship, or only the invitation, as if nothing had been named. Read the whole address, and ask who is addressed and what failure it exposes before asking how it applies elsewhere.
 
-Ephesians 4 beseeches the readers to walk worthy of their calling, with lowliness, meekness, longsuffering and forbearance in love. The appeal to keep the unity of the Spirit is joined to the confession of one body, one Spirit, one Lord, one faith and one God and Father of all. Teaching and shared conduct belong together.
+[source:calvin-isaiah] John Calvin draws this from verse 16: "nothing can please God, unless it proceed from a pure conscience".
 
-Read letters through their arguments, prayers and appeals. Their place within Scripture includes the particular people they address and the responses they seek. A subject drawn from several letters is useful when each passage's own movement remains visible.
+[care] The order on the page is not a price list. Isaiah's hearers cannot wash away scarlet by trying harder. It is the LORD who says "they will be as white as snow" (Isaiah 1:18). Baptists confess that "There is no salvation apart from personal faith in Jesus Christ as Lord". This is the site's own word, not Isaiah's.
 
-Revelation also addresses hearers. John writes to seven churches, calls the work prophecy and records what he sees. He identifies himself as a brother and companion in tribulation and patience. These opening words belong to the book's meaning as surely as its visions do. Its call includes reading, hearing and keeping.
+### Hope remembers what was broken
 
-### The ending recalls the beginning without erasing the journey
+Jeremiah's promise names "the house of Israel" and "the house of Judah" (Jeremiah 31:31). It remembers a covenant "they broke" (Jeremiah 31:32). Then: "I will put My law in their minds and inscribe it on their hearts" (Jeremiah 31:33). The promise answers a failure the passage has already named. It is not a general assurance that things will turn out.
 
-Genesis 2 describes the garden, a river and the tree of life. Revelation 22 speaks of the river of water of life, the tree of life, the healing of the nations and the absence of the curse. Comparing these passages reveals a connection at the level of their actual words and images. It does not make every detail of the two scenes interchangeable.
+Hebrews quotes this promise at length (Hebrews 8:8–12). Read both. How it reaches the church is taken up in Covenants and promises, which shows the ways Baptists map it.
 
-Revelation 21 announces God's dwelling with his people, the wiping away of tears and the ending of death and pain. Read these promises within the book that addresses churches and calls its hearers to keep what is written. Hope is given to people who are asked to hear and respond.
+Look closely: Count the commands in Isaiah 1:16–17. Which of them could you carry out inside a place of worship?
 
-Return from the broad view to a whole passage. Name its form, its hearers and one connection to another book. Then ask what is distinctive about its own words. A sense of Scripture's shape should deepen that attention rather than replace it.
+Your response: Where has your worship and your treatment of people drifted apart?
 
-**Consider:** What do Revelation's opening and ending ask you to hold together? Which connections with Genesis can you demonstrate from the passages?
+## 05 Gospels and Acts: open the Scriptures, then go
 
-**Reflect:** How can the promise of God dwelling with his people inform the way you hear and keep his word now?
+Slug: gospels
+
+Short: Gospels & Acts
+
+Hook: The risen Jesus opens the Scriptures to them. Then He tells them to wait.
+
+Line: Accounts of Jesus, and of the people He sent to tell it.
+
+Read: Luke 24:44–49; Acts 1:1–11
+
+Name: Mark begins with "the gospel of Jesus Christ" (Mark 1:1), and four accounts carry that word. Acts calls Luke "my first book" (Acts 1:1) and goes on from there.
+
+Form: Accounts of what Jesus did and taught, and of what His witnesses did next.
+
+Hearers: One is named: "O Theophilus" (Acts 1:1).
+
+Link: Jesus names three groups of Scripture at once (Luke 24:44).
+
+Own: "all that Jesus began to do and to teach" (Acts 1:1), so Acts is the story of what He goes on doing.
+
+### Jesus reads His own Bible
+
+On the last page of Luke, Jesus says that everything "written about Me" must be fulfilled, and "Then He opened their minds to understand the Scriptures" (Luke 24:44–45). What is written, He says, is that "The Christ will suffer and rise from the dead" and that repentance and forgiveness will be proclaimed "to all nations" (Luke 24:46–47).
+
+Baptists confess that "All Scripture is a testimony to Christ". That does not excuse you from reading an earlier passage in its own setting. Where the New Testament draws a connection, read both passages and see how it is drawn. Where you think you see another one, say that it is yours.
+
+[source:jfb] Jamieson, Fausset and Brown say of this verse that the apostles' way of reading the Old Testament "has the direct sanction of Christ Himself".
+
+### Last page, first page
+
+Luke ends with "You are witnesses" and "remain in the city until you have been clothed with power" (Luke 24:48–49). Acts takes up the same words: "you will receive power", "you will be My witnesses" (Acts 1:8). Set side by side, the two books hand on to each other. Acts is not a fifth retelling of the same events.
+
+[care] This movement prepares you for the letters, but it does not give you a timetable for them. Seeing that two passages connect is one task. Working out when every letter was written is another, and the order of the books does not settle it.
+
+Look closely: Which words does Acts 1:8 share with Luke 24:48–49? Who promises what, and where do they have to wait?
+
+Your response: Who first explained Scripture to you? Who is waiting for you to do the same for them?
+
+## 06 Letters and Revelation: mail, and a vision sent as mail
+
+Slug: letters
+
+Short: Letters & Revelation
+
+Hook: A prisoner writes: walk worthy. An exile writes: read this aloud.
+
+Line: Real mail to real churches, and a vision that begins as a letter.
+
+Read: Ephesians 4:1–6; Revelation 1:1–11; Revelation 21:1–5; Revelation 22:1–5; Genesis 2:8–10
+
+Name: A letter is called that because it is one. Revelation calls itself "the revelation of Jesus Christ" (Revelation 1:1) and "this prophecy" (Revelation 1:3), then opens as a letter: "John, To the seven churches" (Revelation 1:4).
+
+Form: Letters with arguments and appeals; a prophecy of visions, addressed as a letter.
+
+Hearers: Churches, by name: seven of them in Revelation.
+
+Link: The river and "tree of life" of Revelation 22:2 look back to Genesis 2:9.
+
+Own: "the dwelling place of God is with man" (Revelation 21:3).
+
+### Instruction takes shape in a people
+
+"I urge you to walk in a manner worthy of the calling" (Ephesians 4:1), Paul writes as "a prisoner in the Lord". Humility and patience are joined to a confession: "one Lord, one faith, one baptism" (Ephesians 4:5). What they believe and how they treat each other belong in one sentence.
+
+So read a letter as a letter: who sent it, who received it, what it wants them to do. A topic gathered from several letters helps only while each letter's own argument stays visible. The Letters study does this at full length.
+
+### A vision addressed to churches
+
+John calls himself "your brother and partner in the tribulation" (Revelation 1:9). A blessing goes to "the one who reads aloud" and those who "hear and obey" (Revelation 1:3). Those opening words belong to the book's meaning as much as its visions do. Its first readers were asked to do something with it.
+
+### The ending recalls the beginning
+
+Genesis has "the tree of life" and "a river" (Genesis 2:9–10). Revelation has "a river of the water of life" and "a tree of life" (Revelation 22:1–2). Revelation does not say it is quoting Genesis, so this is a comparison of what the two passages say, and not a quotation. It does not make the two scenes the same. The first is a garden and the second a city, and "No longer will there be any curse" (Revelation 22:3).
+
+[source:henry-rev] Matthew Henry draws the line himself on Revelation 22: "Such a tree there was in the earthly paradise", and he adds, "This far excels it."
+
+The Hope to come study walks these chapters. This one asks only that you hear them as they are sent: to churches, to be read aloud and kept.
+
+Look closely: What does Revelation 1:4 have in common with the way a letter opens? What would you miss if you began at the first vision?
+
+Your response: What in Scripture have you read but not yet done?
+
+## Name it, then read it
+
+Close: You do not need to remember the six divisions. They were scaffolding. What you can keep is what you do when you open the next passage.
+
+Way: Before you read, name its form, its hearers, and one earlier word it names. After you read, ask what these words say that nothing else in Scripture says the same way.
+
+Invite: This is this site's own word to you, not a quotation. Jesus said the Scriptures speak of Him: that He would suffer and rise, and that repentance and forgiveness of sins would be proclaimed in His name to all nations (Luke 24:46–47). You are among those nations. If you have never turned to Him, you can do it today, in your own words.
+
+Question: Which kind of Scripture do you skip, and what would you have to face if you read it as what it is?
+
+Again: Read the passage again before you answer.
+
+Passage: Luke 24:44–49

@@ -1,173 +1,273 @@
 # Prophets in their times
 
-Working content draft · Study 38 · People of Scripture · Owner review pending
+Concepts: Named days · Named hearers · Named wrongs
 
-The prophets speak into particular circumstances. Jeremiah receives a commission; Haggai addresses named leaders and a people who have left the LORD's house waste; Amos confronts wrongdoing in the gate. Their words include warning, instruction, promise and a call to respond. Reading them requires attention to both the message and the people who hear it.
+Motto: Each spoke to someone. / Not every page says when.
 
-A name and an era help us begin. They do not explain a prophet's whole ministry, and a book bearing a prophet's name is not the same thing as a complete biography. Some accounts name a reign or a day; others leave much of the setting unstated. Let the passage establish what is known before adding a reconstruction.
+Lead: The prophets spoke to real people about real things: a bribe at the gate, a house left in ruins, a blind animal on the altar. Start with what a book's own opening says about its day, and you will find some name four kings and some name no one. This study walks six questions with eighteen prophets, and teaches you to keep what the text gives apart from what you were about to add.
 
-These six readings follow calling, setting, message, symbolic action, response and later remembrance. They introduce a way to study the prophets already represented in the existing collection, with each passage's own voice and limits kept visible.
+> This is the word of the LORD that came to Hosea son of Beeri in the days of Uzziah, Jotham, Ahaz, and Hezekiah, kings of Judah, and of Jeroboam son of Jehoash, king of Israel.
 
-## 01 Calling: sent with words to speak
+Hosea 1:1 · BSB
 
-**Main reading:** Jeremiah 1:1–10.
+Frame: Ask the same six things of any prophet: who sent him, when and to whom, what he said, what he was told to do, what his hearers did, and how later Scripture remembers him. Choose a question. Each one opens a main passage, and keeps apart what the text says, what this study reads in it, and what it asks of you.
 
-> Then the LORD put forth his hand, and touched my mouth. And the LORD said unto me, Behold, I have put my words in thy mouth.
+Selection: This is a selection, not a census. These are the sixteen prophets whose names head books, with Huldah and Elijah, who speak inside Kings. Samuel, Nathan, Elisha, Deborah and the rest of the 64 prophets on the site's timeline are there and not walked here. Every line of the record below is this study's choice of one passage, not every passage. Who compiled each book, and how, is not taken up. This page reads what the books say of their settings.
 
-Jeremiah 1:9 · KJV
+## 01 Sent with words to speak
+
+Slug: calling
+
+Word: Calling
+
+Ask: Who sent this prophet, and what was he told to say?
+
+Hook: Jeremiah's first answer to God is that he cannot do it. God does not argue about his ability.
+
+Read: Jeremiah 1:1–10; Amos 7:14–15; Micah 3:8
 
 ### Read the commission and the answer together
 
-The opening identifies Jeremiah, his father Hilkiah and his connection with the priests at Anathoth. It then introduces the word of the LORD coming to him. The call speaks of being known before birth and appointed a prophet to the nations. Jeremiah answers that he cannot speak because he is a child.
+> Then the LORD reached out His hand, touched my mouth, and said to me: "Behold, I have put My words in your mouth.
 
-The LORD's reply concerns going where he is sent and speaking what he is commanded. The promise of presence answers fear; the touching of his mouth is accompanied by the declaration that God's words have been put there. Read the exchange as a commission received, a difficulty expressed and an answer given.
+Jeremiah 1:9 · BSB
 
-This account is more particular than a general story of someone gaining confidence. Jeremiah's task is defined by the one who sends him and by the words he is to speak. His own estimate of his ability is part of the encounter, but it does not supply the authority for his message.
+The opening names Jeremiah, his father Hilkiah and "the priests in Anathoth" (Jeremiah 1:1). Then the word comes. God says, "I set you apart and appointed you as a prophet to the nations" (Jeremiah 1:5). Jeremiah answers, "I surely do not know how to speak, for I am only a child!" (Jeremiah 1:6).
 
-### Distinguish a call account from a complete life
+The reply does not build up his confidence. It tells him where the authority sits: "to everyone I send you, you must go, and all that I command you, you must speak" (Jeremiah 1:7). Fear gets a promise, "I am with you to deliver you" (Jeremiah 1:8). His mouth gets a touch and a declaration.
 
-The commission speaks of rooting out, pulling down, destroying and throwing down, and also of building and planting. Those words prepare the reader for both judgment and renewal. They do not, by themselves, explain every later episode in Jeremiah's life or every arrangement within the book.
+[read] So Jeremiah's estimate of himself is part of the story, but it never supplies the authority of his message. The word he carries is not his, which is why he can be told to say it to anyone.
 
-Begin a prophet's study by asking what kind of evidence the opening gives. Does it narrate a call, introduce a message or identify the person through another speaker? Do not supply a dramatic calling scene simply because another prophet has one. Nor should a particular prophetic commission be treated as an identical promise about every reader's vocation.
+The commission is "to uproot and tear down, to destroy and overthrow, to build and plant" (Jeremiah 1:10). Judgment and renewal are both there from the first day.
 
-**Consider:** What does Jeremiah's commission say about the source, responsibility and range of his speech?
+### Not every prophet has a call scene
 
-**Reflect:** How does hearing the commission in full change the way you understand Jeremiah's answer about his ability?
+Amos gives a few words, and only because a priest has told him to leave: "I was a herdsman and a tender of sycamore-fig trees. But the LORD took me from following the flock" (Amos 7:14–15). Hosea's book says only "When the LORD first spoke through Hosea" (Hosea 1:2), and goes straight to the command. Micah tells no scene. He says what he is filled with: "with justice and courage, to declare to Jacob his transgression" (Micah 3:8). Zephaniah, Nahum and Malachi tell of no calling at all.
 
-## 02 Setting: read the people and times named
+[read] Do not supply a dramatic scene because another prophet has one. An empty line in the record is an honest line.
 
-**Main readings:** Haggai 1; Amos 1:1; Jeremiah 1:1–3; Joel 1:1–3.
+[care] This is one man's commission. God's words to Jeremiah are not a promise about every reader's job or calling, though the God who sends him is the same God.
 
-> In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel the son of Shealtiel, governor of Judah, and to Joshua the son of Josedech, the high priest, saying,
+Look closely: What does God answer in Jeremiah's objection, and what does He leave unanswered?
 
-Haggai 1:1 · KJV
+Your response: When you are sure you cannot speak for God, is your reason about your ability or about the person you would have to speak to?
+
+## 02 The day and the hearers
+
+Slug: setting
+
+Word: Setting
+
+Ask: What days does the text name, and who is listening?
+
+Hook: Haggai gives the day, the month, the king, the governor and the high priest. Malachi gives none of them.
+
+Read: Haggai 1:1–11; Amos 1:1; Joel 1:1–3; Zephaniah 1:1; Zechariah 1:1; Malachi 1:1; Obadiah 1:1; Nahum 1:1
 
 ### A dated message has named hearers
 
-Haggai's opening supplies a king's regnal year, a month and a day. It also names Zerubbabel as governor and Joshua as high priest. These details establish a setting for the message that follows. The people say the time has not come to build the LORD's house, and the message challenges that claim alongside their attention to their own houses.
+> In the second year of the reign of Darius, on the first day of the sixth month, the word of the LORD came through Haggai the prophet to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak, the high priest, stating
 
-The date is therefore part of a communication to particular leaders and people. It should lead us into the dispute and the response, rather than become the whole substance of a timeline entry. Ask what situation the message addresses and what action its hearers are being called to take.
+Haggai 1:1 · BSB
 
-The chapter ends by reporting obedience, the stirring of the leaders and people, and work on the house. Its later date helps mark movement within the account. We can notice that sequence without first converting the dates into a modern calendar.
+The date is not a timeline entry. It leads into a dispute. The people say "The time has not yet come to rebuild the house of the LORD" (Haggai 1:2), and God asks "Is it a time for you yourselves to live in your paneled houses, while this house lies in ruins?" (Haggai 1:4).
 
-### Keep stated dates separate from proposed ones
+Zechariah's book opens with "In the eighth month of the second year of Darius" (Zechariah 1:1), the same king and the same year as Haggai. Ezra names the two together: "the prophets Haggai and Zechariah son of Iddo" (Ezra 5:1).
 
-Amos 1:1 names Uzziah king of Judah and Jeroboam son of Joash king of Israel, along with a reference to the earthquake. A one-king label would omit part of that opening. Jeremiah's opening also names more than one reign and reaches the carrying away of Jerusalem captive. A prophet's association with a ruler need not describe the whole span of his ministry.
+### What the opening names, and what it does not
 
-Joel's opening names the prophet and his father but supplies no reigning king there. It calls hearers to attend and to tell the next generation. That difference in evidence should remain visible. A proposed placement can be useful, but it requires its own explanation and should not acquire the certainty of a date explicitly written in a heading.
+Amos names two kings and an earthquake: "two years before the earthquake, in the days when Uzziah was king of Judah and Jeroboam son of Jehoash was king of Israel" (Amos 1:1). Zephaniah gives four generations of his family, back to one "Hezekiah" (Zephaniah 1:1), and one king, Josiah. Joel gives only his father: "the word of the LORD that came to Joel son of Pethuel" (Joel 1:1). Malachi gives the hearers and nothing else: "to Israel through Malachi" (Malachi 1:1). Obadiah gives no father, no king and no town: "This is the vision of Obadiah" (Obadiah 1:1). Nahum gives a target and a home: "the burden against Nineveh, the book of the vision of Nahum the Elkoshite" (Nahum 1:1).
 
-**Consider:** Which parts of these settings are stated directly, and which would require additional historical work?
+[read] A heading that says little is not hiding anything. Keep what a verse states apart from what someone has proposed, and let a proposed date carry its own reasons. The figure above places no one the opening does not place.
 
-**Reflect:** What becomes clearer when you identify the message's hearers before asking what it means for you?
+[open] When Joel spoke is a historical question, and open. His heading does not settle it, and this page does not choose. Two readers of him are given below. No Baptist writer on this question was read for this page.
 
-## 03 Message: hear the wrongdoing and the call
+[source:fausset-joel] A. R. Fausset placed him in the reign of Joash, from what the book leaves out: "His predictions were probably delivered in the early days of Joash".
 
-**Main readings:** Amos 1:1; 5:10–24.
+[source:calvin-joel] John Calvin weighed such guesses and stopped: "it is better to leave the time in which he taught undecided". He adds that this loses little, for "the import of his doctrine is evident, though his time be obscure and uncertain".
 
-> But let judgment run down as waters, and righteousness as a mighty stream.
+Look closely: Which details in Haggai 1:1 tell you who must act? Which book above gives you least, and what can you still say about it?
 
-Amos 5:24 · KJV
+Your response: Before you ask what a passage means for you, can you name who first heard it and what they had just done?
+
+## 03 The wrong and the call
+
+Slug: message
+
+Word: Message
+
+Ask: What wrong is named, what is announced, and what is asked?
+
+Hook: Everyone remembers the river of justice. Few remember the bribes that come just before it.
+
+Read: Amos 5:10–24; Micah 6:6–8; Malachi 1:6–8; Zephaniah 2:3
 
 ### The rebuke names particular conduct
 
-Amos speaks of hatred for the person who rebukes in the gate, oppression of the poor, taking bribes and turning the poor aside from their right. These are the surrounding concerns of a passage often remembered for its final image of waters and a mighty stream.
+> But let justice roll on like a river, and righteousness like an ever-flowing stream.
 
-Read the accusations before lifting that image into a general slogan. The commands to seek good, hate evil and establish judgment in the gate address conduct already named. The promised presence of the LORD is not to be assumed while those wrongs continue unexamined.
+Amos 5:24 · BSB
 
-The passage also speaks of wailing and challenges those who desire the day of the LORD. Its images of darkness and danger interrupt any expectation that the coming day must simply confirm the hearers' confidence in themselves. Warning belongs to the message alongside the call to seek good.
+Read back from that verse. "You oppress the righteous by taking bribes; you deprive the poor of justice in the gate" (Amos 5:12). "you trample on the poor and exact from him a tax of grain" (Amos 5:11). The gate is where a town settled its cases, and the people Amos charges "hate the one who reproves in the gate" (Amos 5:10).
 
-### Worship and righteousness are considered together
+The call answers the charge: "Hate evil and love good; establish justice in the gate" (Amos 5:15). And the hearers who long for God's day are told what it will be: there is warning here as well as call (Amos 5:18–20).
 
-The LORD rejects feast days, offerings and songs in this address. Read that rebuke with the surrounding accusations and the call for judgment and righteousness. The passage confronts people whose worship exists alongside the wrongs just described; it should not be reduced to a rule that songs or assemblies are themselves always rejected.
+[care] This passage is not a party platform. It names bribes, courts and the poor in Israel's towns. Keep those particulars in view when you ask what it requires of you, and do not soften them into being generally kind, or stretch them into a programme the text does not give.
 
-Likewise, its language should not be softened into a preference for being generally kind. The words concern the poor, the just, bribery and the administration of judgment. Keep those particulars visible when considering a response.
+### Worship and justice heard together
 
-For any prophetic message, identify the accusation, the announced consequence and the requested action where they occur. Some passages emphasize different elements, and not every address follows one formula. This exercise helps you hear what the prophet actually says before grouping it under a broad subject such as justice, judgment or hope.
+"I hate, I despise your feasts!" (Amos 5:21). "Take away from Me the noise of your songs!" (Amos 5:23).
 
-**Consider:** How do the wrongs named in verses 10–12 give substance to the appeal in verse 24?
+[read] God is not rejecting songs as such. He is rejecting these songs, from these people, with those verdicts still standing in the gate.
 
-**Reflect:** What would attention to those particulars require beyond agreeing with the final image?
+Micah puts the same matter as a question. A worshipper offers more and more, up to "my firstborn for my transgression" (Micah 6:7), and the answer is "to act justly, to love mercy, and to walk humbly with your God" (Micah 6:8).
 
-## 04 Symbolic actions: read the act with its explanation
+Malachi hears it from the priests. They ask how they have despised God's name, and He answers, "When you offer blind animals for sacrifice, is it not wrong?" (Malachi 1:8), and then, "Try offering them to your governor!" (Malachi 1:8). Zephaniah tells the humble what to do before the day comes: "Seek righteousness; seek humility. Perhaps you will be sheltered" (Zephaniah 2:3). Even there the word is "Perhaps".
 
-**Main reading:** Jeremiah 19:1–15.
+### Words about other nations
 
-> Then shalt thou break the bottle in the sight of the men that go with thee,
+Not every message is to Israel. Obadiah speaks against Edom, for standing by on Jerusalem's day: "you stood aloof while strangers carried off his wealth" (Obadiah 1:11). Nahum speaks against Nineveh, and ends on "who has not experienced your constant cruelty?" (Nahum 3:19), and he tells those who trust God that "The LORD is good, a stronghold in the day of distress" (Nahum 1:7).
 
-Jeremiah 19:10 · KJV
+[care] These are words about those peoples in those days. This page names no modern nation in them, and neither should you.
 
-### The object belongs to a commanded action
+Look closely: In Amos 5:10–12, list the wrongs. How does each one give weight to verse 24?
 
-Jeremiah is told to obtain a potter's earthen bottle and take elders of the people and priests with him. He is directed to a named place and given words to proclaim. The account joins an object, witnesses, a setting and a message before the command to break the vessel.
+Your response: What would it cost you to act on the particulars, and not only agree with the final image?
 
-The speech names forsaking the LORD, serving other gods and filling the place with innocent blood. The announced judgment is severe. These words explain why the act cannot be treated merely as an imaginative illustration of personal disappointment or a lesson about fragile things.
+## 04 The act and its explanation
 
-Read the whole account and note what is commanded, what is said and to whom the action is shown. Symbolic action is not a reason to set aside the passage's explicit explanation in favour of whatever association the object suggests to us.
+Slug: act
 
-### Let the stated comparison govern the reading
+Word: Acted sign
 
-The next verse explains the broken vessel through a comparison with what will happen to the people and city. Jeremiah later stands in the court of the LORD's house and speaks of judgment because the people have hardened their necks and refused to hear. The action belongs to an address about the named place and its conduct.
+Ask: What was he told to do, who saw it, and what is it said to mean?
 
-An interpretation should begin with that explanation. Further connections with other passages may be worth exploring, but they should remain distinguishable from the meaning supplied here. Do not treat the broken bottle as an instruction that readers must repeat the act or announce the same judgment over a place of their choosing.
+Hook: A clay jar, a marriage, a crown. Each comes with words that say what it means.
 
-A useful study note can be brief: object, action, audience, accompanying words and stated meaning. Where a passage leaves a detail unexplained, record the question. A careful account need not assign an independent significance to every physical feature of the scene.
+Read: Jeremiah 19:1–15; Hosea 1:2–9; Hosea 3:1–5; Zechariah 6:9–15
 
-**Consider:** Which verses explain the breaking of the vessel, and what wrongdoing do they place beside it?
+### The jar
 
-**Reflect:** How does listening to the explanation restrain the meanings you might otherwise attach to the image?
+> Then you are to shatter the jar in the presence of the men who accompany you,
 
-## 05 Response: hear what happens after the message
+Jeremiah 19:10 · BSB
 
-**Main readings:** 2 Kings 22:8–20; 23:1–3; Haggai 1:12–15.
+Jeremiah is told to buy a jar, take "some of the elders of the people and leaders of the priests" (Jeremiah 19:1), and go to a named place. The speech names what was done there: "They have filled this place with the blood of the innocent" (Jeremiah 19:4). The explanation follows the breaking: "I will shatter this nation and this city" (Jeremiah 19:11).
 
-> Because thine heart was tender, and thou hast humbled thyself before the LORD, when thou heardest what I spake against this place, and against the inhabitants thereof, that they should become a desolation and a curse, and hast rent thy clothes, and wept before me; I also have heard thee, saith the LORD.
+[read] So this is no picture of personal disappointment or of fragile things. Start from the meaning the text gives. Any further link to another passage should stay marked as your own.
 
-2 Kings 22:19 · KJV
+### A marriage and three names
 
-### Huldah answers an inquiry prompted by hearing
+God tells Hosea, "Go, take a prostitute as your wife" (Hosea 1:2), and gives the reason in the same breath: "this land is flagrantly prostituting itself by departing from the LORD" (Hosea 1:2). The children's names carry the message: Jezreel, Lo-ruhamah, Lo-ammi, the last with the words "you are not My people, and I am not your God" (Hosea 1:9). Yet the next verse turns: the same people will be called "sons of the living God" (Hosea 1:10). Later he is told, "Love her as the LORD loves the Israelites" (Hosea 3:1).
 
-When the book of the law is read before the king, he tears his clothes and sends people to inquire of the LORD. They go to Huldah, whom the narrative calls a prophetess. Her answer announces judgment on the place and its inhabitants, and then addresses the king's humbling himself when he heard the words.
+[read] This study reads these as things that happened. The text narrates them as events: "So Hosea went and married Gomer" (Hosea 1:3), she conceives, and later a price is counted out, "fifteen shekels of silver" (Hosea 3:2). Nothing in the chapters calls it a vision.
 
-Keep both parts of the answer. The acknowledgment of the king's tender heart does not erase the announced judgment. The passage distinguishes the message about the people and place from what is said specifically to the king.
+[source:calvin-hos] A real alternative comes from John Calvin, who held the command was shown to the people and not carried out: "that this was not actually done". His reason is that it would "render the Prophet contemptible".
 
-Huldah's place in this account also shows why a study of prophets needs more than books bearing prophetic names. Here a prophetess's words are recorded within Kings. The text identifies her role and preserves the answer without giving us a complete account of her life or a book named after her.
+[source:fausset-hos] A. R. Fausset, following Hengstenberg, also held it was "not externally acted, but internally and in vision". He reports an answer from Henderson, whom this page has not read: "Gomer fell into lewdness after her union with Hosea, not before". The text does not settle that last point, and this page leaves it open.
 
-### Read response as carefully as proclamation
+[care] God's word to Hosea is one command to one prophet, explained by Him. It is not a rule for choosing a husband or a wife, and it is no reason for anyone to stay in a home that is not safe. Getting to safety and asking for help does not disobey this passage.
 
-The following chapter describes the gathering of the people, the reading of the covenant book and the king's covenant to walk after the LORD and keep his commandments. The people stand to the covenant. Those actions belong to the account of how the words were received.
+### A crown
 
-Haggai offers another explicitly recorded response: leaders and people obey, fear before the LORD and come to work. Compare the responses the texts actually describe without assuming that every prophetic ministry receives the same reception or that a visible response proves every longer-term outcome.
+Zechariah is told to "make an ornate crown, and set it on the head of the high priest" (Zechariah 6:11), and to say, "Here is a man whose name is the Branch" (Zechariah 6:12). The crown is then kept "in the temple of the LORD as a memorial" (Zechariah 6:14). "He will be a priest on His throne" (Zechariah 6:13).
 
-For a prophet's study, record what hearers do after the message: ask, refuse, humble themselves, obey or respond in some other stated way. Where the account gives no response, leave that silence visible. The prophet's faithfulness and the hearers' reception are related questions, but neither should be invented to complete a satisfying story.
+[read] The New Testament does not quote this passage, so this is a reading and not its stated fulfilment. Christians have long heard Christ in it, because the New Testament calls Him a high priest seated at the right hand of the throne (Hebrews 8:1).
 
-**Consider:** What does Huldah's answer distinguish, and what response does the following chapter report?
+[source:calvin-zec] Calvin draws that line through it: "these crowns were those of Christ, but given to Joshua".
 
-**Reflect:** What is the difference between being moved by words and responding to their instruction?
+[care] These acts were commanded to these men. No reader is being told to repeat them, or to pronounce the same judgment over a place of their own choosing.
 
-## 06 Later remembrance: the prophet becomes an example
+Look closely: For each act, find five things: the object or act, who saw it, the words said, the stated meaning, and what is left unexplained.
 
-**Main readings:** James 5:7–18; 1 Kings 17:1; 18:41–46.
+Your response: When an image in Scripture moves you, do you go on to read the words that explain it?
 
-> Take, my brethren, the prophets, who have spoken in the name of the Lord, for an example of suffering affliction, and of patience.
+## 05 What the hearers did
 
-James 5:10 · KJV
+Slug: response
 
-### Attend to what the later writer emphasizes
+Word: Response
 
-James calls the brethren to patience and names the prophets as examples of suffering affliction and patience. Their remembrance serves the exhortation being given to these readers. It does not promise that faithful speech will always receive an immediate welcome or an easy outcome.
+Ask: What did the hearers do, and where is the text silent?
 
-Later in the chapter James speaks of Elias, the KJV form of Elijah's name, as a man subject to like passions as we are. He recalls prayer, withheld rain and rain returning. Read that remembrance within the passage's attention to prayer rather than treating it as a complete retelling of Elijah's ministry.
+Hook: One priest said go away. One king tore his clothes. Most books do not tell us.
 
-The selection directs attention to something the reader is being asked to learn. Ask what the later writer chooses to remember and how that choice contributes to the present argument. A prophet's life can be recalled for an example without every event in it being retold.
+Read: 2 Kings 22:8–20; 2 Kings 23:1–3; Haggai 1:12–15; Jeremiah 26:17–19; Amos 7:10–13; Ezekiel 33:31–32
 
-### Return to the narrative and keep the sources distinct
+### Huldah answers an inquiry
 
-First Kings 17 records Elijah's announcement to Ahab concerning dew and rain. Chapter 18 describes Elijah on Carmel, his repeated instruction to the servant to look toward the sea, the small cloud and the great rain that follows. James explicitly frames the recollection in terms of prayer.
+> because your heart was tender and you humbled yourself before the LORD when you heard what I spoke against this place and against its people, that they would become a desolation and a curse, and because you have torn your clothes and wept before Me, I have heard you,' declares the LORD.
 
-Use both passages, but attribute their contributions. Do not rewrite every sentence of the narrative as though it contained all the later explanation, or reduce James to a list of details added to a biography. Each passage has its own setting and purpose.
+2 Kings 22:19 · BSB
 
-Choose one prophet and make a reading record: the passages identifying the person, the setting actually named, a message, any accompanying action, the recorded response and a later remembrance where one exists. Keep unsupported dates, traditional attributions and unanswered questions in a separate note. This provides a grounded beginning for understanding both the prophet and the word carried into that time.
+The book of the law is read to King Josiah. He tears his clothes and sends men to inquire of the LORD, and they go to "Huldah the prophetess" (2 Kings 22:14). Her answer has two halves. "I am about to bring calamity on this place" (2 Kings 22:16). "But as for the king of Judah" (2 Kings 22:18), his tender heart has been heard. The second half does not cancel the first.
 
-**Consider:** What does James emphasize about the prophets and Elijah that serves his own readers?
+Then he gathers the people, reads, and "made a covenant before the LORD" (2 Kings 23:3). "And all the people entered into the covenant" (2 Kings 23:3).
 
-**Reflect:** How can their remembrance encourage patience and prayer without turning their experiences into a promised script for your own life?
+[read] Huldah also shows why a study of prophets needs more than the books with prophets' names on them. Her words are kept inside Kings, with no book of her own and no life story.
+
+[care] Scripture calls her a prophetess, and God's word through her was received as God's word. The Baptist Faith and Message says "the office of pastor/elder/overseer is limited to men as qualified by Scripture" (Article 6). A prophetess answering an inquiry in Kings is not a pastor of a New Testament church, and this page draws no rule about church office from her in either direction.
+
+### Read the response as carefully as the message
+
+Haggai's hearers "obeyed the voice of the LORD their God" (Haggai 1:12), "And they came and began the work" (Haggai 1:14). A priest at Bethel told Amos, "Go away, you seer!" (Amos 7:12). King Jehoiakim cut Jeremiah's scroll and threw it "into the firepot" (Jeremiah 36:23). Ezekiel's hearers enjoyed him: "They hear your words but do not put them into practice" (Ezekiel 33:32).
+
+The most surprising response comes generations later. Jeremiah is on trial for his life, and elders stand and quote Micah: "Micah the Moreshite prophesied in the days of Hezekiah" (Jeremiah 26:18). They ask, "Did Hezekiah not fear the LORD and seek His favor" (Jeremiah 26:19). Micah's own book tells none of this. A reception his book leaves out is remembered by people who needed it.
+
+[read] Write down what the hearers do: ask, refuse, humble themselves, obey. Where the account gives no response, as in Hosea, Micah's own book, Nahum and Obadiah, leave that line empty. A prophet's faithfulness and his hearers' reception are two questions, and neither should be invented to finish a story.
+
+Look closely: What does Huldah's answer keep apart? What do the elders in Jeremiah 26 use Micah's words for?
+
+Your response: What is the difference, for you, between being moved by God's word and doing it? Ezekiel 33:32 is worth reading slowly.
+
+## 06 How Scripture remembers them
+
+Slug: remembrance
+
+Word: Remembrance
+
+Ask: Where does later Scripture name or quote this prophet, and why?
+
+Hook: James could have used Elijah's fire. He chooses Elijah's knees.
+
+Read: James 5:7–18; 1 Kings 17:1; 1 Kings 18:41–46; 1 Peter 1:10–12
+
+### What the later writer chooses
+
+> Brothers, as an example of patience in affliction, take the prophets who spoke in the name of the Lord.
+
+James 5:10 · BSB
+
+James is telling his readers to wait for the Lord's coming. So he remembers the prophets for what his readers need, and he gives no promise that faithful speech is welcomed soon. Then he says, "Elijah was a man just like us" (James 5:17), and recalls prayer, a dry land, and rain.
+
+Go back to the narrative and keep the two apart. In Kings, Elijah speaks to Ahab: "there will be neither dew nor rain in these years except at my word!" (1 Kings 17:1). On Carmel he "bent down on the ground, and put his face between his knees" (1 Kings 18:42), and sends a servant seven times, until "a cloud as small as a man's hand" (1 Kings 18:44). Kings shows the posture. James names it prayer (James 5:18).
+
+[care] James is not promising to control the weather, and the sickness passage beside it (James 5:14–16) is not medical advice. Elijah was remembered to encourage prayer, not to give you a script for your own life.
+
+### Quoted and fulfilled
+
+The New Testament does more than remember them. Peter tells a Roman household that "All the prophets testify about Him" (Acts 10:43), and Jesus on the road explains "all the Scriptures about Himself" (Luke 24:27). Some of those places it names outright, and these are the ones this page lists, without limiting the claim to them. Micah's Bethlehem in Matthew 2:6. Hosea's "out of Egypt I called My son" (Hosea 11:1) in Matthew 2:15, where a verse about Israel's past is said to be fulfilled in Jesus. Zechariah's King "riding on a donkey" (Zechariah 9:9) in Matthew 21:5. Malachi's messenger in Matthew 11:10. Joel's Spirit in Acts 2:16. The Baptist Faith and Message says "All Scripture is a testimony to Christ" (Article 1).
+
+Peter says what this was like from the inside. The prophets "searched and investigated carefully, trying to determine the time and setting to which the Spirit of Christ in them was pointing" (1 Peter 1:10–11). "It was revealed to them that they were not serving themselves, but you" (1 Peter 1:12).
+
+[read] So a prophet belongs to two times. Each spoke real words to his own day, which is why this page keeps asking who heard them. And each served people he never met. Do not give up the first in order to reach the second. When you say a particular verse points to Christ, it stands firmest where the New Testament draws that line. Any other link should be labelled as your reading.
+
+Some are not named again at all. No other book gives the name of Ezekiel, Habakkuk or Malachi, and the only other Nahum is in a family list (Luke 3:25). Men named Obadiah and Zephaniah appear elsewhere, and nothing in those verses says one is the prophet. Being unnamed is not being forgotten: Paul quotes Habakkuk in Romans 1:17 and Malachi in Romans 9:13 without giving their names.
+
+Look closely: What does James leave out about Elijah? What does Peter say the prophets did not know?
+
+Your response: Who is waiting on your patience or your prayer right now? How can Elijah encourage you there, without turning his story into a promise of the same outcome?
+
+## Close: Read one prophet this way
+
+Close: A name and an era help you begin. They do not explain a ministry. The prophets were sent to people who had names, and they said things that could be checked against what those people had done that week.
+
+Way: Choose one prophet. Write six lines: who sent him, the days and hearers named, one message, any act he was told to do, what the hearers did, and how later Scripture remembers him. Leave a line empty when the text is silent. Keep your guesses on a separate sheet.
+
+Invite: Hebrews says God "spoke to our fathers through the prophets", and "in these last days He has spoken to us by His Son" (Hebrews 1:1–2). If you have not yet trusted the One they were pointing to, the record is not finished until you answer Him. Peter says these things were written for you (1 Peter 1:12).
+
+Question: The prophets named particular wrongs in particular gates. If one of them were sent to your street this week, what would he name, and what would you do the morning after?
+
+Again: Read the passage again before you answer.
+
+Passage: Micah 6:6–8

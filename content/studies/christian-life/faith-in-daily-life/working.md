@@ -1,5 +1,7 @@
 # Faith in daily life
 
+**Status, 2026-10-30:** rewritten to the study standard and built as a [mock-up](../../../../design/faith-in-daily-life-directions/README.md), awaiting the owner; no real page yet. See the revision section in [the passage notes](passage-notes.md).
+
 **Content pass status:** first full draft ready for review, 2026-10-13. Read [the content draft](content.md) and [passage and editorial notes](passage-notes.md). All six themes are developed. The outline below preserves the initial planning material.
 
 ## Central question

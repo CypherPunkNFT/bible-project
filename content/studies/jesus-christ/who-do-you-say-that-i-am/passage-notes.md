@@ -1,41 +1,47 @@
-# Who do you say that I am passage and editorial notes
+# Who do you say I am? passage notes
 
-Content pass, item 11. [Reader-facing draft](content.md); [working outline](working.md). First draft ready for review, not approved final copy.
+**Item 11 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here. The earlier text is in the project's history. [Text](content.md) · [working notes](working.md) · [design](design.md)
 
-## Scope and sources
+## Primary readings
 
-An introductory reading of Gospel claims about Jesus, organised by the six accepted themes. Distinguish narrator, Jesus, disciples, heavenly voice and opponents. The study describes the accounts' witness rather than claiming that quoting a narrative independently establishes every historical question.
+Read in the Berean, from the site's own copy: Matthew 16:13–28; Mark 8:27–38; Luke 9:18–27; Mark 14:53–65; John 5:16–47; Matthew 3:13–17; Matthew 17:1–9; John 20:24–31; John 1:1–18. Each line on the wall, each row in section 03 and each question has its own passage, which the page opens.
 
-Read in the repository KJV on 2026-10-13: [Matthew](../../../../data/plain/kjv/MAT.json), [Mark](../../../../data/plain/kjv/MRK.json), [Luke](../../../../data/plain/kjv/LUK.json), [John](../../../../data/plain/kjv/JHN.json). Six block quotations reproduce the local KJV. Other explanations are editorial prose. Additional passages considered during preparation but not developed here include Mark 2:1–12; 4:35–41; John 1:35–51; 10:22–39. Their fuller treatment can serve the later titles, encounters and works studies.
+## Sources, and how far each was read
 
-## Passage map
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Who do you say I am? mock-up", and at the foot of the page.
 
-| Unit | Readings | Context preserved |
-| --- | --- | --- |
-| The question | Matthew 16:13–20; Mark 8:27–30; Luke 9:18–22 | Differing reports of opinion, question directed to disciples, distinct wording and settings |
-| Peter's confession | Matthew 16:13–28; Mark 8:27–38; Luke 9:18–27 | Confession, Matthew's blessing and keys, restricted announcement, suffering and discipleship |
-| Opponents | Mark 14:53–65; John 5:16–47 | Unreliable witnesses, high priest's question, Jesus' answer, accusation; Sabbath dispute, Son's works and testimony |
-| Father's testimony | Matthew 3:13–17; 17:1–9; John 5:31–40 | Voice in each scene, Spirit at baptism, command to hear, resurrection horizon; John read without forced harmonisation |
-| Thomas | John 20:24–29 | Absence, refusal of testimony, invitation, confession addressed to Jesus, later believers |
-| John's purpose | John 20:30–31; 1:1–18 | Selective signs and belief for life, read with the prologue's claims |
+- **Read directly and quoted (public domain):** Alexander Maclaren, a Baptist, on Matthew 16:13–28 and on Thomas in John 20; James P. Boyce, a Baptist, one passage on the person of Christ; Albert Barnes, a Presbyterian, on Matthew 16:18, Matthew 16:20 and John 20:28; Jamieson, Fausset and Brown on Matthew 16:18 and John 8:58; the First Vatican Council on the primacy of Peter.
+- **Short phrases, with a link:** the Baptist Faith and Message 2000, as amended 2023, Articles 1, 2, 3, 4, 6 and 17.
+- **Not consulted:** the Greek. Every phrase is of the Berean's English.
+
+## Sorting a line on the wall
+
+The script proves the words are in the verse and in the speech credited to that speaker. It does not prove the sorting. These are the closest calls, and they need a person's eye.
+
+- **Writers and angels share a group.** Mark 1:1 and John 1:1 are the writers' own words. Luke 1:32 and Luke 2:11 are angels. They are together because each tells the reader what the people in the scene do not yet know.
+- **"One of the prophets" (Matthew 16:14)** is marked as reported, since it is the disciples' report of others.
+- **"A friend of tax collectors and sinners" (Matthew 11:19)** is Jesus reporting what others say, so its speaker is given as "others, as Jesus reports", and it is sorted under His accusers.
+- **Nicodemus (John 3:2)** is under people who met Him, and not under His accusers, though he was a ruler.
+- **The tempter's line (Matthew 4:3)** is marked as a dare, and it is not counted among those who state it. It is printed as a dare, in small capitals.
+- **The charge over the cross (Mark 15:26)** is marked as a charge. Mark calls it the inscription of the charge. No speaker is named.
+- **The way a line was said is judged from the scene.** The disciples in the boat ask "Who is this" in Mark 4:41, overwhelmed with fear, and it is simply marked as asked.
+- **"Lord" can be polite.** The man in John 9 says "Sir" in John 9:36 and "Lord, I believe" in John 9:38. The word's note on the page says so, and sends the reader to the line beside it.
+- **Pairs.** Each pair holds the same words, and shows what the record has around them. It does not say the speakers meant the same thing.
 
 ## Interpretive boundaries
 
-- **Comparison:** do not manufacture a single verbatim confession from the three Synoptic versions. Luke's prayer setting and Matthew's unique words to Peter remain distinguishable. Do not claim the public opinions exhaust everything anyone thought about Jesus.
-- **Peter and authority:** the rock, keys and binding/loosing are acknowledged without silently selecting a denominational interpretation. They require a fuller sourced comparison if expanded.
-- **Secrecy and suffering:** the restriction on announcement is retained without claiming one exhaustive motive. Peter's rebuke is explicitly limited to Matthew and Mark, not imported into Luke.
-- **Mark 14:** distinguish Jesus' words from accusations and false witness. The wording “I am” answers the high priest's question here; no additional claim about a divine-name formula is inferred merely from the English phrase. Old Testament connections to the clouds and right hand are reserved for item 12, where supporting passages should be read directly.
-- **John 5:** authority and filial dependence are retained together. The narrative's explanation of hostility and Jesus' own discourse are not conflated. No technical conciliar formulation is attributed directly to the passage.
-- **Opponents:** identify particular interlocutors and authorities; do not generalise hostility to Jewish people. Jesus and his first followers belong within the Jewish setting of these narratives.
-- **Father's witness:** John 5 does not explicitly identify its reference with Matthew's baptism or transfiguration scenes. Comparison must not become an unsupported identification.
-- **Thomas:** John 20:28 directs the confession to Jesus. The narrative supplies an invitation to touch but does not report Thomas doing so. Later belief is linked to written witness rather than described as belief without grounds.
-- **John's prologue:** retain both “with God” and “was God,” and the incarnation statement. Do not reduce either half to evade theological complexity. A fuller doctrinal synthesis belongs in item 22.
-- **Translation:** this is a KJV-based draft. It does not adjudicate textual variants in John 1:18 or 20:31 or pretend to do original-language analysis.
+- **Three accounts stay three.** Only the second question is the same in all three, and the script checks it. Peter's answer is not merged. Jeremiah is Matthew's alone, and "daily" is Luke's alone.
+- **The rebuke** is in Matthew and Mark. The page says Luke does not record it.
+- **Why not tell anyone?** The Gospels give no full reason, and the page says so. Barnes' reason is shown as his.
+- **Mark 14:62.** The page draws nothing from "I am" there beyond an answer to the question put to Him. The link from John 8:58 to Exodus 3:14 is said to be one some readers hear, and it is said that the Gospel does not draw it in words.
+- **Daniel 7:13 beside Mark 14:62.** Jesus uses the words and Mark does not name Daniel, so the page says the link is this study's.
+- **John 5 and the voice.** John 5:37 is not identified with the baptism or the mountain.
+- **Thomas.** The record does not say he touched anything. The script checks that the verses after the invitation hold no such word.
+- **"The Jews" in John 5:16** means the particular opponents in that dispute. The page says so, and cites John 11:45 and Article 3.
+- **The rock.** Four readings are named as their holders'. The statement of faith does not decide who the rock is, and the page says so. What the page holds is that a New Testament church is an autonomous local congregation, and that none of these readings gives Peter a successor.
+- **The James of the letter** does not call himself the Lord's brother there. The page reads him as the James of Galatians 1:19 and says that is a reading.
+- **Silence is not a verdict.** The man who went away sad and Nicodemus are not said to have refused or believed.
 
-## Connections and remaining decisions
+## Connections
 
-**12 Names and titles of Jesus** will explain the titles in fuller textual context. **13 The life of Jesus across the Gospels** will develop sequence and Gospel comparison. **16 Following Jesus**, **18 The signs and works of Jesus** and **19 The cross and resurrection** will expand material deliberately kept focused here. **22 Father Son and Holy Spirit** will address doctrinal synthesis.
-
-No new catalogue of Gospel events or miracles is created. This study uses local Scripture readings and the accepted content outline; existing site collections remain untouched. A later content revision may add direct cross-links once the companion drafts exist.
-
-All six units include readings, explanation, questions and reflection. No artwork, layout, navigation or site implementation is included.
+*Names and titles of Jesus* will explain the titles in fuller context. *The life of Jesus across the Gospels*, *Following Jesus*, *The signs and works of Jesus* and *The cross and resurrection* hold what is kept short here. *Father, Son and Holy Spirit* will hold the doctrinal synthesis. The site's own answer on whether Jesus was simply a great teacher is linked from the first hard question, and the Surviving witnesses study from the fourth.

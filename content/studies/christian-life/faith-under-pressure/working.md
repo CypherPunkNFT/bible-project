@@ -1,5 +1,7 @@
 # Faith under pressure
 
+**Status, 2026-10-30:** rewritten to the study standard and built as a [mock-up](../../../../design/faith-under-pressure-directions/README.md) (overnight job 8a0127309051400bac63556932eddcd5). Owner review and the real page remain. The notes below are the earlier record.
+
 **Content pass status:** first full draft ready for review, 2026-10-13. Read [the content draft](content.md) and [passage and editorial notes](passage-notes.md). The outline below preserves the initial planning material. All six sections are now developed.
 
 ## Central question

@@ -1,179 +1,327 @@
 # The hope to come
 
-**Study 30 · God and Christian Faith · First content draft · 2026-10-13**
+Concepts: What is promised · What it asks now · What it leaves open
 
-The New Testament directs hope toward the return of Christ, the resurrection of the dead, God's judgment, and a creation delivered from corruption. It addresses people who grieve, suffer, work, and wait. Its promises are meant to shape that present life.
+Motto: A tomb. A throne. A tree. A city. / Hope that goes to work.
 
-The readings distinguish what they announce from questions readers ask about their sequence and imagery. Christ's resurrection grounds Paul's hope for those who have died. Revelation portrays evil judged and God dwelling with his people. Christian interpretations differ over how some of these events fit together, but those differences should not obscure the comfort, accountability, and faithful service the passages call for.
+Lead: Christ is coming back, the dead will be raised, every person will answer to Him, and God will live with His people in a world made new. This study walks six readings of that hope, most of them written to people who were tired or burying their dead, and teaches you three questions for any passage about the end: what is promised, what does it ask of you now, and what does it leave open.
 
-## 01 Ever be with the Lord
+> And the One seated on the throne said, “Behold, I make all things new.” Then He said, “Write this down, for these words are faithful and true.”
 
-**Main reading:** 1 Thessalonians 4:13–5:11.
+Revelation 21:5 · BSB
 
-### Concerning them which are asleep
+Frame: Arguments about the end usually start with the order of events. The New Testament usually starts somewhere else: a funeral, a doubter, a tired church. So read each passage for what it plainly says before you ask how it fits a chart. The questions about order are real, and section 04 lays them out. You do not have to settle them before you can be comforted or called.
 
-Paul addresses grief over believers who have died. His purpose is that the readers should not sorrow as those without hope. He does not tell them that sorrow itself is faithless; he gives their grief a different horizon through Jesus' death and resurrection.
+Selection: This is a selection, not a census. These six readings carry the return, the resurrection, the judgment and the new creation. Named and not walked here: Jesus' teaching on the Mount of Olives (Matthew 24:1–51), the man of lawlessness (2 Thessalonians 2:1–12), the seals, trumpets and bowls (Revelation 6:1–19:21), and the angels and spiritual powers, which need a study of their own. Other lists of the last things differ because they count different events or arrange them differently.
 
-The dead in Christ will not be left behind when the Lord comes. Paul describes the Lord descending, the dead rising, and the living being gathered together with them:
+## 01 The return: always with the Lord
 
-> Then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord.
+Slug: return
 
-1 Thessalonians 4:17 · KJV
+Hook: They have buried people they love. Will the dead miss it when He comes?
 
-The gathering answers the concern about those who have died. The conclusion is enduring fellowship with the Lord, followed by the instruction to comfort one another with these words. The passage's pastoral purpose belongs to its meaning.
+Line: Christ comes down, the dead rise first, and the sentence comes to rest on being with Him.
 
-### Let us watch and be sober
+Read: 1 Thessalonians 4:13–5:11; Acts 1:9–11
 
-The next chapter turns to times and seasons and describes the day of the Lord as coming like a thief. The response urged is watchfulness and sobriety, with faith, love, and the hope of salvation pictured as armour.
+Setting: Paul writes to a young church grieving "those who sleep in death" (1 Thessalonians 4:13).
 
-The readers are directed toward life together with Christ and toward building one another up. Expectation of his coming is therefore connected with the way the community cares for its members now.
+Promised: "the Lord Himself will descend from heaven", the dead will rise, and "we will always be with the Lord" (1 Thessalonians 4:16–17).
 
-This account describes a real sequence within the gathering: the dead in Christ rise before the living are caught up with them. It does not, by itself, specify the event's relation to every vision in Revelation or settle the duration of every interval in a complete end-times scheme. Those further arrangements require an argument across passages.
+Asks: "encourage one another with these words", and "remain awake and sober" (1 Thessalonians 4:18; 1 Thessalonians 5:6).
 
-**Consider:** What concern does Paul answer before discussing times and seasons? Which commands follow his explanation?
+Leaves open: The date, for it comes "like a thief in the night" (1 Thessalonians 5:2). And how this meeting in the air fits with other events, which section 04 lays out.
 
-**Reflect:** Consider how you could offer hope to someone grieving without requiring them to stop grieving.
+### This same Jesus
 
-## 02 Raised in incorruption
+As Jesus is taken up, two men in white tell the disciples: "This same Jesus" "will come back in the same way you have seen Him go into heaven" (Acts 1:11). What is coming is not an idea or a mood in history. It is a person. Baptists confess that He "will return personally and visibly in glory to the earth".
 
-**Main reading:** 1 Corinthians 15:1–58.
+Paul's readers have a narrower worry: what about those who have already died? He answers that the living "will by no means precede" them (1 Thessalonians 4:15).
 
-### Christ the firstfruits
+> After that, we who are alive and remain will be caught up together with them in the clouds to meet the Lord in the air. And so we will always be with the Lord.
 
-Paul recalls the gospel he preached: Christ died for sins, was buried, rose, and appeared to witnesses. He then challenges the claim that there is no resurrection of the dead. If that were true, he argues, Christ would not have risen and the believers' faith would be empty.
+1 Thessalonians 4:17 · BSB
 
-The argument turns on the resurrection he proclaims as accomplished:
+Notice where the sentence stops. It does not end on the clouds. It ends on being with the Lord. The study Faith under pressure stays longer with this passage for those who are grieving; this one follows it forward.
 
-> But now is Christ risen from the dead, and become the firstfruits of them that slept.
+[care] Asleep is Paul's gentle word for believers who have died. It does not mean they know nothing until the last day: he also calls death being "at home with the Lord" and being "with Christ" (2 Corinthians 5:8; Philippians 1:23). They are with Him now, and the raising of the body is still ahead.
 
-1 Corinthians 15:20 · KJV
+### Like a thief
 
-Firstfruits connects Christ's resurrection with those who belong to him. Paul names Christ first and those who are his at his coming. The discussion proceeds toward the defeat of every enemy, including death itself.
+Paul says about times and seasons that "we do not need to write to you" (1 Thessalonians 5:1). Jesus says it more sharply: "No one knows about that day or hour" (Matthew 24:36), and "It is not for you to know times or seasons" (Acts 1:7). So this study names no date and reads no headline into any verse. Anyone who does is claiming what Jesus said is not ours to have.
 
-Resurrection is thus central to the hope being preached. Paul does not present death as finally harmless or the body as something salvation simply leaves behind. Death is an enemy whose defeat belongs to Christ's reign.
+A thief frightens people who are asleep in the dark, and Paul says "you, brothers, are not in the darkness" (1 Thessalonians 5:4). His reason is not fear: "God has not appointed us to suffer wrath, but to obtain salvation" (1 Thessalonians 5:9).
 
-### We shall all be changed
+Look closely: What worry does Paul answer first? What does he tell them to do with the answer?
 
-Paul answers a question about the resurrection body with illustrations from seed, differing kinds of bodies, and differing glory. He contrasts corruption with incorruption, dishonour with glory, and weakness with power.
+Your response: Who do you know that is grieving? What could you say to them from this passage without asking them to stop?
 
-The phrase spiritual body remains language about a body. In the movement of this argument, resurrection involves transformation rather than merely continuing the present condition indefinitely. Paul says the mortal must put on immortality and describes the dead raised incorruptible.
+## 02 The body: sown and raised
 
-The chapter ends in thanksgiving for victory through Jesus Christ and a call to steadfast work. Future resurrection gives present labour significance. The conclusion does not ask the readers to abandon ordinary faithfulness while waiting for an extraordinary event.
+Slug: raised
 
-**Consider:** Why does denying resurrection undermine the gospel Paul has preached? What changes does he name when describing the raised body?
+Hook: Some in Corinth say the dead do not rise. Paul says: then you are still in your sins.
 
-**Reflect:** Consider a faithful task that seems fruitless. How does Paul's final appeal connect its value with the resurrection hope?
+Line: Christ raised first, then those who are His, and the last enemy destroyed.
 
-## 03 The books were opened
+Read: 1 Corinthians 15:1–58
 
-**Main reading:** Revelation 20:1–15. **Compare:** 2 Peter 3:7–14.
+Setting: Some in the church say "there is no resurrection of the dead" (1 Corinthians 15:12).
 
-### The dead small and great
+Promised: "we will all be changed", and "The last enemy to be destroyed is death" (1 Corinthians 15:51; 1 Corinthians 15:26).
 
-Revelation's vision moves through Satan's binding, the reign with Christ, a final outbreak of deception, and the defeat of the gathered enemies. John then sees a great white throne and the dead standing before God:
+Asks: "be steadfast and immovable", and "Always excel in the work of the Lord" (1 Corinthians 15:58).
 
-> And I saw the dead, small and great, stand before God; and the books were opened: and another book was opened, which is the book of life: and the dead were judged out of those things which were written in the books, according to their works.
+Leaves open: "With what kind of body will they come?" Paul answers with a seed, not an anatomy (1 Corinthians 15:35–37).
 
-Revelation 20:12 · KJV
+### If Christ has not been raised
 
-The vision includes people without distinction of worldly importance. Neither prominence nor obscurity places them beyond judgment. The sea, death, and hell yield the dead, and each is judged according to works.
+Paul follows the denial to its end. Without the resurrection, "your faith is futile; you are still in your sins" (1 Corinthians 15:17). And "If our hope in Christ is for this life alone, we are to be pitied more than all men" (1 Corinthians 15:19). Then he turns.
 
-The book of life is also present, and the passage names the lake of fire as the second death. The scene treats evil and final accountability seriously. Its warning should not be removed to make the promise of renewal more comfortable.
+> But Christ has indeed been raised from the dead, the firstfruits of those who have fallen asleep.
 
-### Judgment and the order of events
+1 Corinthians 15:20 · BSB
 
-Christian accounts differ over the sequence connecting resurrection, Christ's coming, and the thousand years. Dallas Theological Seminary describes the church being received by Christ before the tribulation, followed by his return to establish the millennial age and later final judgment. See [articles XVIII–XXI](https://www.dts.edu/why-dts/doctrinal-statement).
+The first of the harvest is the promise of the rest. So there is an order: "Christ the firstfruits; then at His coming, those who belong to Him" (1 Corinthians 15:23). Paul sets Christ beside Adam, and calls Him "the last Adam" (1 Corinthians 15:45). The New Testament draws that link itself, so this study says it plainly.
 
-Westminster describes the resurrection of all the dead at the last day and an appointed day when all people appear before Christ for judgment. See [chapters 32–33](https://opc.org/wcf.html). That formulation differs from the staged sequence just described; it is not itself a verse-by-verse interpretation of Revelation 20.
+[care] "in Christ all will be made alive" (1 Corinthians 15:22) can sound as if everyone is saved. The next verse says who: "those who belong to Him" (1 Corinthians 15:23). And Paul mentions those "baptized for the dead" (1 Corinthians 15:29) without commending it or explaining it. This study builds nothing on that verse.
 
-These examples do not exhaust the readings of the millennium or its imagery. A careful comparison must explain how each account connects the relevant passages. The vision's immediate claims remain visible throughout that comparison: deception is defeated, the dead are judged, and death itself is cast into the lake of fire.
+### What you sow
 
-**Consider:** What does the vision emphasise about those who stand before the throne? Which chronological questions require comparing this chapter with other passages?
+"What you sow does not come to life unless it dies" (1 Corinthians 15:36). Then four pairs: "perishable" and "imperishable", "dishonor" and "glory", "weakness" and "power", "a natural body" and "a spiritual body" (1 Corinthians 15:42–44). Spiritual here does not mean ghostly. Paul still says body, and he says elsewhere that Christ "will transform our lowly bodies to be like His glorious body" (Philippians 3:21). Salvation does not leave your body behind.
 
-**Reflect:** Consider how accountability before God challenges both indifference to wrongdoing and confidence that worldly position provides immunity.
+Paul reaches for the prophets to shout at death. "Death has been swallowed up in victory" (1 Corinthians 15:54) takes up Isaiah's "He will swallow up death forever" (Isaiah 25:8). "Where, O Death" comes from Hosea, and the Berean's words differ between the two, because the letters often follow a Greek translation (1 Corinthians 15:55; Hosea 13:14).
 
-## 04 Delivered from the bondage of corruption
+Then the chapter on the end of death ends on ordinary work.
 
-**Main reading:** Romans 8:18–25.
+> Therefore, my beloved brothers, be steadfast and immovable. Always excel in the work of the Lord, because you know that your labor in the Lord is not in vain.
 
-### The whole creation groaneth
+1 Corinthians 15:58 · BSB
 
-Romans places present suffering alongside the glory to be revealed. Paul describes creation waiting, subjected to frustration, and groaning as in labour. The image acknowledges distress while pointing beyond it.
+Look closely: What falls if the resurrection falls? What four pairs describe the raised body?
 
-> Because the creature itself also shall be delivered from the bondage of corruption into the glorious liberty of the children of God.
+Your response: What faithful work looks wasted to you right now? Bring it to 1 Corinthians 15:58 and ask whether you believe the last line.
 
-Romans 8:21 · KJV
+## 03 The judgment: the books were opened
 
-The promise reaches beyond individual relief. Creation's deliverance is connected with the revealing of God's children. The passage portrays a future in which corruption does not retain the final word over what God has made.
+Slug: judgment
 
-This expectation also preserves a distinction between the world as presently experienced and its promised future. Groaning is real in the argument; it does not have to be redescribed as enjoyment before hope can be confessed.
+Hook: The dead, great and small, are standing. Nobody is too important, and nobody is too small to be seen.
 
-### Waiting for the redemption of our body
+Line: Every person answers to Christ, some books are opened, and one book decides.
 
-Believers also groan, even though they have the firstfruits of the Spirit. Paul identifies what they await as adoption, the redemption of the body. The presence of the Spirit and the experience of unfinished suffering coexist in the passage.
+Read: Revelation 20:1–15; Matthew 25:31–46; John 5:24–29
 
-Hope concerns what is not yet seen and is accompanied by patience. The passage does not make immediate relief from every illness or loss the test of whether someone belongs to Christ. It gives believers words for waiting within need.
+Setting: John writes to churches that have already buried a faithful witness (Revelation 1:9; Revelation 2:13).
 
-Creation's future and bodily redemption belong together here. The hope is wider than private escape from material existence. For present life, this invites care for people in their embodied weakness and attention to the created world, without pretending our efforts can themselves accomplish the redemption Paul promises.
+Promised: The devil who deceived is "thrown into the lake of fire", and wrong is answered when "the dead, great and small" stand before the throne (Revelation 20:10; Revelation 20:12).
 
-**Consider:** Who is described as groaning? How does Paul relate the Spirit's present gift to redemption still awaited?
+Asks: Revelation 20 gives no command. Elsewhere the same truth drives Paul: "we try to persuade men" (2 Corinthians 5:11).
 
-**Reflect:** Consider how to practise patient care without treating another person's continuing suffering as a failure of hope.
+Leaves open: What the thousand years are and when they fall (Revelation 20:4–6). Section 04 shows how Baptists differ.
 
-## 05 Behold I make all things new
+### Great and small
 
-**Main readings:** Revelation 21:1–22:5; 2 Peter 3:10–13.
+> And I saw the dead, great and small, standing before the throne. And there were open books, and one of them was the Book of Life. And the dead were judged according to their deeds, as recorded in the books.
 
-### God shall dwell with them
+Revelation 20:12 · BSB
 
-John sees a new heaven and a new earth, and the holy city descending from God. The announcement centres on God's dwelling with his people. The promise then addresses the conditions that have marked their sorrow:
+No rank gets anyone out of this, and no obscurity hides anyone. That is a warning to the comfortable, and it is good news to anyone wronged where no court would ever hear it. The Baptist Faith and Message says "Christ will judge all men in righteousness". The Judge is fair, and nothing is hidden from Him.
 
-> And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.
+### The books and the Book
 
-Revelation 21:4 · KJV
+How can people be judged "according to their deeds" when salvation is a gift? The vision holds two things, books and a Book: "if anyone was found whose name was not written in the Book of Life, he was thrown into the lake of fire" (Revelation 20:12; Revelation 20:15). Jesus says the one who believes "has eternal life and will not come under judgment" (John 5:24).
 
-The speaker on the throne declares that he makes all things new. John is told to write because the words are true and faithful. The vision's reassurance rests on God's action and presence.
+This site's reading, from those verses: no one buys a place in that Book with deeds. Deeds show what was true of a life. And believers are not excused from giving an account: "we must all appear before the judgment seat of Christ" (2 Corinthians 5:10). Being held to account is not the same as being condemned.
 
-Its description of the city includes the tribes of Israel and the apostles of the Lamb, while its light comes from God's glory and the Lamb. The names and images connect the promise with the people and witness already encountered in Scripture.
+### Hell
 
-### The water of life
+Scripture says this plainly, and so does this site. Jesus puts the two ends in one sentence.
 
-Revelation 22 describes the river of life proceeding from the throne and the tree of life with leaves for the healing of the nations. The curse is no more. God's servants serve him, see his face, and live in his light.
+> And they will go away into eternal punishment, but the righteous into eternal life.
 
-The imagery portrays life, healing, worship, and access to God. The promise of no more curse stands alongside the continuing activity of service. The future is not described only as the absence of pain, but also as life in God's presence.
+Matthew 25:46 · BSB
 
-Second Peter likewise looks for new heavens and a new earth where righteousness dwells. Its language of fire and dissolution raises questions about continuity and transformation, but neither passage supplies a technical account of future physics. Their stated concern is God's judgment, renewal, and the righteousness of the promised dwelling.
+Paul speaks of "eternal destruction, separated from the presence of the Lord" (2 Thessalonians 1:9). The Baptist Faith and Message says "The unrighteous will be consigned to Hell, the place of everlasting punishment".
 
-**Consider:** What is at the centre of the city's life and light? What positive activities accompany the removal of suffering and curse?
+[source:abstract] The founding confession of the Southern Baptist seminary said the same in 1858: "the wicked shall go into everlasting punishment; the righteous, into everlasting life".
 
-**Reflect:** Consider which part of the promised life most changes the way you understand what salvation is for.
+[source:boyce] James P. Boyce, that seminary's first president, grants that "the language of Scripture, as to fire and brimstone, is figurative", and warns that this is no comfort, since the statements are "evidently falling far short" of the reality.
 
-## 06 What manner of persons ought ye to be
+[own:pinnock] A real alternative, and not this site's: Clark Pinnock, who taught at McMaster Divinity College, argued in a 1990 article that the Bible's language of death, destruction and consuming fire points to the wicked being destroyed, not tormented without end, and that eternal punishment means a judgment whose result cannot be reversed. He cites Revelation 20:14–15 among others.
 
-**Main readings:** 2 Peter 3:1–18; 1 Thessalonians 5:1–11; 1 Corinthians 15:58; Revelation 22:6–21.
+This site follows the confession, for a reason in the text: Jesus sets "eternal punishment" beside "eternal life" in one sentence, with one word for how long (Matthew 25:46). Of the devil, the beast and the false prophet, John says "they will be tormented day and night forever and ever" (Revelation 20:10), and then sends others to that same lake (Revelation 20:15). That verse does name those three. Pinnock's reading turns on that, and readers should know it.
 
-### The Lord is not slack
+[care] This passage is not for naming who is lost. If you are afraid for someone who has died, you were not shown the Book, and neither was anyone who tells you what it says about them. Abraham's question stands: "Will not the Judge of all the earth do what is right?" (Genesis 18:25). If you are afraid for yourself, Jesus' words are for you today: "whoever hears My word and believes Him who sent Me has eternal life" (John 5:24). A warning given while there is still time is a mercy.
 
-Second Peter addresses scoffers who question the promise of Christ's coming. The reply recalls God's acts and distinguishes his patience from failure to keep his word. The Lord's longsuffering is directed toward repentance.
+Look closely: Who stands before the throne, and who is left out? What are the two kinds of book?
 
-The comparison of a day with a thousand years and a thousand years with a day speaks to that objection. It is not presented as a formula for calculating a calendar date. The passage goes on to describe the day arriving like a thief.
+Your response: Is there a wrong you have been carrying because no one will ever answer for it? And is there a wrong of your own you have not brought to Christ? Do that first.
 
-Its central question for the reader concerns holy conduct and godliness. Those looking for the promised future are urged to be found in peace and to grow in grace and knowledge. Expectation creates responsibility in the present.
+## 04 The creation: set free
 
-### Your labour is not in vain
+Slug: creation
 
-Paul draws a similar practical conclusion from the resurrection:
+Hook: The whole creation is groaning. So are you. Paul says those are labor pains.
 
-> Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.
+Line: Hope that takes in the ground under your feet and the body you are living in.
 
-1 Corinthians 15:58 · KJV
+Read: Romans 8:18–25
 
-First Thessalonians adds mutual comfort, faith, love, and building one another up. These are ordinary communal practices shaped by an extraordinary promise. A study of future things that continually displaces them has lost touch with the instructions surrounding the promises.
+Setting: Paul writes to believers in Rome who know "present sufferings" (Romans 8:18).
 
-Revelation closes with warnings, invitation to the water of life, and the prayer for the Lord Jesus to come. Hope includes longing as well as vigilance. Readers are called to keep the words, worship God, and respond to the invitation.
+Promised: "the creation itself will be set free from its bondage to decay", and "the redemption of our bodies" (Romans 8:21; Romans 8:23).
 
-The passages leave some questions of sequence open to further study, but they do not leave the present calling empty. Comfort the grieving, persevere in good work, turn from sin, and wait in faith. Those responses belong to the hope being announced.
+Asks: "we wait for it patiently" (Romans 8:25).
 
-**Consider:** What does each reading ask its hearers to do while waiting? How does that differ from trying to calculate the date?
+Leaves open: What this freedom will look like, and how much of what we see now carries over. Paul gives no details.
 
-**Reflect:** Choose one present responsibility that hope should strengthen rather than postpone.
+### Groaning together
+
+Creation "was subjected to futility, not by its own will" (Romans 8:20), which reaches back to "cursed is the ground because of you" (Genesis 3:17). It is "groaning together in the pains of childbirth" (Romans 8:22). Pain is still pain, and Paul does not ask you to call it something else. But labor pains are going somewhere.
+
+> that the creation itself will be set free from its bondage to decay and brought into the glorious freedom of the children of God.
+
+Romans 8:21 · BSB
+
+The hope is wider than getting out of here. God is not abandoning what He made.
+
+### We groan too
+
+Those "who have the firstfruits of the Spirit, groan inwardly" (Romans 8:23). So having the Spirit and hurting are not opposites. "hope that is seen is no hope at all" (Romans 8:24).
+
+[care] This passage promises no healing by next week, and an illness or loss that continues is not evidence of weak faith. Bodies are redeemed at the end Paul is describing. A reader might also take from this that the body and the world matter, and care for both. That is this site's application, and it does not mean our work brings in what only God can do.
+
+Look closely: Who is groaning in this passage, and how many kinds are there? What does Paul say we already have, and what do we not have yet?
+
+Your response: Who do you know whose suffering has gone on a long time? How can you stay beside them without needing them to be better?
+
+## 05 The new creation: God with them
+
+Slug: new
+
+Hook: At the center of the city there is no temple. John says why.
+
+Line: Death gone, curse gone, and God's face seen.
+
+Read: Revelation 21:1–22:5; 2 Peter 3:10–13; Isaiah 65:17–19
+
+Setting: After the throne and the books, John sees what comes next (Revelation 21:1).
+
+Promised: "the dwelling place of God is with man", and "no more death or mourning or crying or pain" (Revelation 21:3–4).
+
+Asks: Come thirsty: "To the thirsty I will give freely" (Revelation 21:6).
+
+Leaves open: What fire ends and what is set free (2 Peter 3:10; Romans 8:21), and which details of the city are pictures. No technical account is given.
+
+### God with them
+
+The voice from the throne starts with where God will be: "He will dwell with them" (Revelation 21:3). Only then does it speak of what ends.
+
+> ‘He will wipe away every tear from their eyes,’ and there will be no more death or mourning or crying or pain, for the former things have passed away.
+
+Revelation 21:4 · BSB
+
+"I saw no temple in the city, because the Lord God Almighty and the Lamb are its temple" (Revelation 21:22). The whole place is where God is. The gates carry "the names of the twelve tribes of Israel", and the foundations "the names of the twelve apostles of the Lamb" (Revelation 21:12; Revelation 21:14). The people you have been reading about are not forgotten there.
+
+[care] The Baptist Faith and Message speaks of the righteous living forever in Heaven with the Lord, and Revelation shows the city "coming down out of heaven from God" (Revelation 21:2). This study keeps both and draws no map of where. The confession and the vision agree on the point that matters: God's people will be with Him.
+
+### The river and the tree
+
+The future is not only pain removed. "His servants will worship Him. They will see His face" (Revelation 22:3–4). There is a river, "a tree of life", and "the healing of the nations" (Revelation 22:1–2). "No longer will there be any curse" (Revelation 22:3). Section 03 sets these beside the first pages of the Bible.
+
+### Fire and freedom
+
+[open] Peter says "the elements will be destroyed by fire, and the earth and its works will be laid bare" (2 Peter 3:10). Paul says creation "will be set free" (Romans 8:21). Is the world replaced or renewed? Christians read this both ways, and this study does not choose. No named source was read for it, so it reports none. Older English Bibles have burned up in that verse in place of laid bare, because Greek copies differ. Peter's own concern is what comes next: "where righteousness dwells" (2 Peter 3:13).
+
+Look closely: What does the voice say first, before it lists what ends? What do God's servants do there?
+
+Your response: What do you most want from the life to come? Would you still want it if God were not there?
+
+## 06 The waiting: what kind of people
+
+Slug: waiting
+
+Hook: "Where is the promise of His coming?" (2 Peter 3:4). Peter says you are reading patience as failure.
+
+Line: A delay with a reason, a question for the reader, and the Bible's last prayer.
+
+Read: 2 Peter 3:1–18; Revelation 22:6–21
+
+Setting: Scoffers are asking "Where is the promise of His coming?" (2 Peter 3:3–4).
+
+Promised: "Yes, I am coming soon" (Revelation 22:20).
+
+Asks: "what kind of people ought you to be?" and "make every effort to be found at peace" (2 Peter 3:11; 2 Peter 3:14).
+
+Leaves open: How long soon is. "With the Lord a day is like a thousand years" (2 Peter 3:8) is an answer to scoffers, and not a way to compute a calendar.
+
+### Not slow, but patient
+
+> The Lord is not slow in keeping His promise as some understand slowness, but is patient with you, not wanting anyone to perish but everyone to come to repentance.
+
+2 Peter 3:9 · BSB
+
+[source:calvin-peter] Calvin reads the delay the same way: "the Lord defers his coming that he might invite all mankind to repentance". How that verse bears on who God saves is a question Baptists themselves differ on, and it belongs to the study of grace.
+
+Peter then asks his question: "Since everything will be destroyed in this way, what kind of people ought you to be?" (2 Peter 3:11). He does not ask you to draw a chart. He ends with "grow in the grace and knowledge of our Lord" (2 Peter 3:18).
+
+### Come
+
+Almost two thousand years have gone by since Jesus said soon. Peter answered that objection in his own day. This site's reading is that the Lord's soon is measured from His side, and that it has kept every generation ready, as it was meant to.
+
+Revelation closes with an invitation before it closes with a prayer.
+
+> The Spirit and the bride say, “Come!” Let the one who hears say, “Come!” And let the one who is thirsty come, and the one who desires the water of life drink freely.
+
+Revelation 22:17 · BSB
+
+Then a warning against adding or subtracting (Revelation 22:18–19), and then the last prayer: "Amen. Come, Lord Jesus!" (Revelation 22:20).
+
+Look closely: What does Peter say the delay is for? Who is invited in Revelation 22:17, and on what terms?
+
+Your response: Can you pray Revelation 22:20 and mean it? If something in you hesitates, what is it?
+
+## Maps: One hope. Several maps.
+
+Lead: When does Christ return in relation to the thousand years of Revelation 20? The Baptist Faith and Message does not say. It says God will end the world "in His own time and in His own way", and names no timetable. So this study shows the maps Baptists have used, with who holds each, and does not choose. The steps show order, not length. The modern sources keep their rights, so they are told in this site's words; check them against the originals named below.
+
+### Taken up first, then the thousand years
+
+[own:criswell] W. A. Criswell, long pastor of First Baptist Dallas, held this and preached it hard. Believers are taken up at Revelation 4; the tribulation falls on the earth; the saints come back with Christ at Revelation 19; then He reigns on earth for a thousand years. He read the thousand years as literal, tied to God keeping His promises to Israel. His sermon's account of the other two views comes from a man arguing against them.
+
+### One coming, then the thousand years
+
+[own:piper] John Piper, for 33 years a Baptist pastor in Minneapolis, holds that the taking up and the glorious return are one event: the saints rise to meet the Lord in the air and come back with Him as king, so the church goes through the tribulation. He argues from how the word for meeting is used elsewhere. He also says this disagreement should not divide believers.
+
+[own:akin] Daniel Akin, longtime president of a Southern Baptist seminary, holds that Christ returns before the thousand years and reigns on earth. His survey lists Criswell, Albert Mohler and Piper among those who hold a return before the thousand years, and he is the source for the names under the last map below.
+
+### The thousand years are now
+
+[own:waldron] Sam Waldron, who leads a Reformed Baptist seminary, reads the thousand-year reign as brought about by Christ's first coming and above all His resurrection, so it matches the present gospel age. Christ's return then brings the judgment and the final state at once. He argues that an earthly reign after the return would mix the raised with those who still die, which he finds against Luke 20:34–36. This site consulted him through a tool that returned a summary, and only one article, so check it against the original.
+
+### A golden age, then the return
+
+[own:akin] Akin's survey names A. H. Strong, B. H. Carroll and George W. Truett among those who held that the gospel would so spread that a long age of peace would come before Christ returned. Criswell names Carroll and Truett too, and recalls being taught this view as a boy. No advocate of this view was read for this page: it is told here only by two men who reject it, so it may be told less well than its holders would tell it.
+
+### Where one founder stood
+
+[source:boyce] Boyce does not use any of these names. He argues that at Christ's coming there is "a general resurrection of the just and unjust", with the judgment at the same time, and that the first resurrection of Revelation 20 is the soul's. He reads the thousand years as "of unknown, perhaps of indefinite length", possibly beginning with Christ's conquest of Satan or at "a later epoch", and ending before the coming. That places him beside the last two maps without settling between them.
+
+### Where Baptists do not differ
+
+Every one of these maps has Christ returning in person, the dead raised, every person judged, and God's people with Him forever. Those are not open, and this site holds them in its own voice: the Baptist Faith and Message says "the dead will be raised". And no map offers a second way to God: "There is no salvation apart from personal faith in Jesus Christ as Lord".
+
+## Before you go
+
+Close: Six readings, one habit. Do not start with the chart. Start with what is promised, ask what it wants from you today, and let what it leaves open stay open.
+
+Way: Ask of any passage about the end: what is promised, what does it ask of me now, and what does it leave open? Then ask how that promise rests on Christ's own resurrection (1 Corinthians 15:20).
+
+Invite: If you have not yet trusted Christ, none of this is about a chart. The invitation in the last chapter of the Bible is open: "let the one who is thirsty come" (Revelation 22:17). Talk to Him today, and talk to someone who knows Him.
+
+Question: If Christ's coming is as sure as His resurrection, what would you do differently this week, and who needs to hear about it from you?
+
+Again: Read the passage again before you answer.
+
+Passage: Revelation 22:20

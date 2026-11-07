@@ -1,165 +1,321 @@
 # Bearing witness
 
-Ready to answer. Speaking with grace. Walking in wisdom.
+Concepts: A door · A question · An answer
 
-> For we preach not ourselves, but Christ Jesus the Lord; and ourselves your servants for Jesus’ sake.
+Motto: A door God opens. / An answer you give.
 
-2 Corinthians 4:5 · KJV
+Lead: The letters join what a believer says about Christ to how it is said and how that person lives. In them a man in chains asks for prayer about a door, and exiles under slander are told to be ready when someone asks. This study walks six readings and teaches one habit: in any passage about witness, ask whose part is whose.
 
-The letters connect speaking about Christ with conduct toward other people. They ask believers to explain their hope, answer graciously, do good and remain faithful under opposition. They also speak of prayer and dependence on God. The message, the manner of speaking and the life of the speaker belong together.
+> For we do not proclaim ourselves, but Jesus Christ as Lord, and ourselves as your servants for Jesus' sake.
 
-These passages address different people and circumstances. Some concern believers living among those outside the church; others concern Paul's ministry or Timothy's responsibility to teach. Read those settings first, then consider how their instructions can shape a conversation, a relationship or an opportunity to speak.
+2 Corinthians 4:5 · BSB
 
-## 01 Ready to answer
+Selection: This is a selection, not a full account of witness. It reads passages from eight letters, with Acts 16:14 in the figure, a short list of doors, and three passages for you to try. It is not a method for securing conversions, and not an outline of the gospel. The cross and resurrection have studies of their own. Every sort of a phrase on this page is this study's judgment; a script proves the words are in the verse, not that they sit in the right place.
 
-**Read:** 1 Peter 3:13–17; 2 Corinthians 4:1–7.
+WallLead: Colossians 4:2–6 is five verses, and most of this study is in them, in this order. Choose a phrase, or a door in the wall beneath. Two things need saying plainly. Paul is asking for his own door in these verses, so taking them for yours is an application. And the sixth door is built on: this paragraph does not use the word gentle, and the courage in the second reading is only named here as chains. Those words come from the other letters.
 
-### A reason for hope
+ThresholdLead: In these passages, whose part is whose? Ten passages, each sorted by who acts or who is spoken of: the one who speaks on the near side, the one before them beyond the door, and God above it. Point at a passage to see it; choose it to keep it. Choose any phrase to read its verse.
 
-First Peter speaks to believers who may suffer for doing what is right. It tells them not to be governed by fear, but to honour the Lord in their hearts and be ready to answer someone asking about their hope. The answer is part of faithfulness under pressure. — 1 Peter 3:13–15
+ThresholdReads: God opens, grants and gives growth. The one before you hears, asks, and is called to repent and believe (Acts 17:30; Acts 16:31). You are told to prepare, pray, live honestly and speak, and you can do neither God's part nor theirs.
 
-> But sanctify the Lord God in your hearts: and be ready always to give an answer to every man that asketh you a reason of the hope that is in you with meekness and fear:
+ThresholdLimit: This sorts these passages and is not a rule for all of Scripture. Paul can say "that by all possible means I might save some" (1 Corinthians 9:22), and James can say "Whoever turns a sinner from the error of his way will save his soul from death" (James 5:20; see also 1 Timothy 4:16). Those verses speak of the one God uses. Two of the ten also name another hand: "The god of this age" (2 Corinthians 4:4) and "the snare of the devil" (2 Timothy 2:26). Marked "asked" means the text is a request, and "hoped" means it is a hope. Neither one says what God will do in a given case.
 
-1 Peter 3:15 · KJV
+DoorsLead: Where else does Scripture speak of a door like this? Five places. No text says the one going through opened it: God opened one, Christ placed one, two name no opener, and one is only asked for. Read what stands beside each door before you take an open door to mean an easy road.
 
-The instruction gives the answer a subject: the hope within them. Readiness involves being able to explain that hope, rather than merely displaying confidence or collecting replies to every possible objection. The verse does not require pretending to know what has not yet been understood.
+DoorsReads: This study reads them together for one thing only: an open door was never the end of the difficulty, nor an order that settled every decision. They are not one door. Acts 14:27 speaks of faith for those who hear, and Revelation 3:8 does not mention witness at all. This is a selection: the word door in other senses, such as John 10:9 or Revelation 3:20, is left out.
 
-A present way to prepare is to put into plain words what you believe about Christ and why it gives you hope. A question can reveal where further reading is needed. Acknowledging that need is more truthful than supplying an answer whose grounds you cannot explain.
+QuestionsLead: Five questions a careful reader brings to these passages. Each opens with the reading this study follows and why, then what else has been said.
+
+SortLead: Now try it. Read each passage and sort it yourself: what is given to the one who speaks, what belongs to the one before them, what is God's. Then compare. Where a passage names no act of God, it says so; that is not a gap to fill.
+
+## 01 Prayer for a door
+
+Slug: prayer
+
+Word: Prayer
+
+Ask: What does Paul ask others to pray for?
+
+Hook: A man in chains asks his friends to pray about a door. It is a door for the word.
+
+Read: Colossians 4:2–4; Ephesians 6:18–20; 1 Corinthians 3:5–9
+
+### Three things to ask for
+
+> Devote yourselves to prayer, being watchful and thankful, as you pray also for us, that God may open to us a door for the word, so that we may proclaim the mystery of Christ, for which I am in chains. Pray that I may declare it clearly, as I should.
+
+Colossians 4:2–4 · BSB
+
+Paul asks for "a door for the word" and then, separately, that he "may declare it clearly" (Colossians 4:3–4). To the Ephesians he asks "that whenever I open my mouth, words may be given me" and that he may speak "fearlessly, as I should" (Ephesians 6:19–20). He calls himself "an ambassador in chains" (Ephesians 6:20).
+
+[read] So the requests are concrete: an opening, clear words, courage. The man who has taught these churches still asks them for help. Nobody here is too experienced to need it.
+
+### God made it grow
+
+The Corinthians were dividing over their teachers, and Paul answers: "I planted the seed and Apollos watered it, but God made it grow" (1 Corinthians 3:6). His first point is against rivalry: "neither he who plants nor he who waters is anything" (1 Corinthians 3:7). He does not say the work is pointless, because "each will be rewarded according to his own labor" (1 Corinthians 3:8).
+
+[read] Taken to witness, this is an application and not his first point. Planting and watering are yours to do. The growth was never yours, so someone's answer is not a score of what you are worth, and pressure cannot do what only God does.
+
+Look closely: Paul asks that God may open the door, and then asks for clear words for himself. What does that tell you about what he does not expect to do on his own?
+
+Your response: Pray for one particular person by name, and for your own clarity and courage. Ask someone to pray the same for you.
+
+## 02 Courage in chains
+
+Slug: courage
+
+Word: Courage
+
+Ask: What did Paul's chains do, and what do they not promise?
+
+Hook: His chains became the news. The whole palace guard knows why he wears them.
+
+Read: Philippians 1:12–30
+
+### What the chains did
+
+> As a result, it has become clear throughout the whole palace guard and to everyone else that I am in chains for Christ.
+
+Philippians 1:13 · BSB
+
+Paul says his circumstances "have actually served to advance the gospel" (Philippians 1:12), and that "most of the brothers" now "dare more greatly to speak the word without fear" (Philippians 1:14).
+
+[care] This is what happened in his case. It is no promise about your hardship, and enduring opposition does not mean staying in danger you could leave. Paul himself looks forward to coming to them again (Philippians 1:26).
+
+### Mixed motives
+
+"It is true that some preach Christ out of envy and rivalry" (Philippians 1:15), and they do it "supposing that they can add to the distress of my chains" (Philippians 1:17). His answer is that "whether by false motives or true, Christ is preached. And in this I rejoice" (Philippians 1:18).
+
+[read] He rejoices that Christ is preached. He does not approve the motive, which he has just called envy. Nor is this a welcome for any message: the same apostle writes that one who preaches "a gospel contrary to the one we preached to you" should be "under a curse" (Galatians 1:8).
+
+[source:calvin-php] Calvin read it the same way: "Paul assuredly would have felt no pleasure in seeing the gospel corrupted". He adds that God "sometimes accomplishes an admirable work by means of wicked and depraved instruments", yet "he would never have ordained such persons as ministers".
+
+### Together
+
+Paul's hope is that "Christ will be exalted in my body, whether by life or by death" (Philippians 1:20). Then the letter turns to them: "stand firm in one spirit, contending side by side for the faith of the gospel" (Philippians 1:27), and "without being frightened in any way by those who oppose you" (Philippians 1:28).
+
+[read] Courage here is not a lone hero. It is shaped by Christ and the good of others, and nothing here tells anyone to go looking for danger. Paul calls it "the same struggle you saw I had" (Philippians 1:30), and Acts records him beaten and jailed in their city (Acts 16:22–24).
+
+Look closely: What does Paul rejoice in, and what does he still call wrong?
+
+Your response: Name one place where fear has kept you quiet. Find the next truthful step you can take, and someone to stand beside you as you take it.
+
+## 03 Conduct toward outsiders
+
+Slug: conduct
+
+Word: Conduct
+
+Ask: What can people outside the church see?
+
+Hook: They are being called evildoers. Peter's answer is to give them something to watch.
+
+Read: 1 Peter 2:11–17; 1 Thessalonians 4:9–12
+
+### Good deeds that can be seen
+
+> Conduct yourselves with such honor among the Gentiles that, though they slander you as evildoers, they may see your good deeds and glorify God on the day He visits us.
+
+1 Peter 2:12 · BSB
+
+Peter writes to "foreigners and exiles" (1 Peter 2:11). He does not promise the slander will stop. He says that good deeds may in the end lead the slanderers to glorify God. He goes on to doing good, to using freedom without making it "a cover-up for evil", and to "Treat everyone with high regard" (1 Peter 2:15–17).
+
+[source:calvin-1pe] On "the day He visits" (1 Peter 2:12), Calvin reports: "I know that some refer this to the last coming of Christ". His own reading is a day of grace, "the time when he invites us to himself".
+
+[source:jfb] The commentary of Jamieson, Fausset and Brown also says "when God shall visit them in mercy".
+
+[read] This study follows the day of grace because the verse has them glorifying God, and it does not press the point.
+
+[care] What this letter says about authorities is taken up in Faith in daily life, and nothing here says that every authority is to be obeyed in everything.
+
+### Ordinary reliability
+
+Paul urges the Thessalonians "to aspire to live quietly, to attend to your own matters, and to work with your own hands" so that "you will behave properly toward outsiders, without being dependent on anyone" (1 Thessalonians 4:11–12).
+
+[read] So a day's honest work belongs to this study as much as a conversation. It gives a hearer reason to take your words seriously. It does not take their place. The Baptist Faith and Message puts the two in that order: "by verbal witness undergirded by a Christian lifestyle" (Article 11).
+
+Look closely: What do outsiders see in these two passages, and what does each passage say could come of it?
+
+Your response: Would someone who knows you only through work or the street find your life consistent with what you say you believe? Name one thing to put right.
+
+## 04 Speech with grace
+
+Slug: speech
+
+Word: Speech
+
+Ask: What does it take to answer each person?
+
+Hook: Salt on every sentence, and no two people answered alike.
+
+Read: Colossians 4:5–6
+
+### To each one
+
+> Let your speech always be gracious, seasoned with salt, so that you may know how to answer everyone.
+
+Colossians 4:6 · BSB
+
+The sentence just before says, "Act wisely toward outsiders, redeeming the time" (Colossians 4:5). The speech is "always" gracious, and the aim is to know "how to answer everyone" (Colossians 4:6).
+
+[read] An answer is given to someone. It cannot be recited at them. So listen long enough to learn what is being asked. A person may want to understand a belief, may be testing a claim, or may be telling you what has made trust hard. Those are this study's examples; the verse does not sort people into kinds.
+
+### The salt
+
+[source:calvin-col] Calvin says the phrase rules out the worthless as well as the wicked: "he reckons as tasteless everything that does not edify". For him, grace here stands against "talkativeness, taunts, and all sorts of trifles".
+
+[source:jfb] The commentary of Jamieson, Fausset and Brown says the salt is "the savor of fresh and lively spiritual wisdom and earnestness", which shuts out corrupt talk "and also tasteless insipidity".
+
+[read] Neither reads it as licence for a cutting remark, and the verse puts grace first. Nor does gracious mean vague. The paragraph has just asked for the mystery of Christ to be declared "clearly" (Colossians 4:4).
+
+### Redeeming the time
+
+[read] An opening may be a careful question, a plain word in place of a churchy one, or an offer to come back after you have read further. Redeeming the time is not forcing every meeting into one conversation. It is not letting every meeting go by either. The confession calls it a duty "to seek constantly to win the lost to Christ" (Article 11), and it also says "God alone is Lord of the conscience" (Article 17), so a person may tell you they have heard enough.
+
+Look closely: How do prayer, wise conduct and gracious speech fit together in these five verses?
+
+Your response: Explain one Christian word in ordinary language to someone who has not heard it. Then ask whether that answered what they were asking.
+
+## 05 Ready to answer
+
+Slug: ready
+
+Word: Readiness
+
+Ask: What is the answer about?
+
+Hook: Peter assumes someone will ask, and that you will have a reason to give.
+
+Read: 1 Peter 3:13–17; 1 Peter 1:3–4; 2 Corinthians 4:1–7
+
+### A reason for the hope
+
+> But in your hearts sanctify Christ as Lord. Always be prepared to give a defense to everyone who asks you the reason for the hope that is in you. But respond with gentleness and respect,
+
+1 Peter 3:15 · BSB
+
+The setting is suffering: "even if you should suffer for what is right, you are blessed" (1 Peter 3:14). The answer goes to "everyone who asks you", and it is about "the hope that is in you" (1 Peter 3:15). The letter has already said what that hope is: "a living hope through the resurrection of Jesus Christ from the dead" (1 Peter 1:3).
+
+[read] So being ready starts with knowing the reason for your own hope, and it has a name in it. It is not a collection of replies to every objection. Saying that you need to go and read is more truthful than giving an answer whose grounds you cannot explain.
 
 ### Christ at the centre
 
-In Second Corinthians, Paul describes a ministry received through mercy. He renounces dishonesty, craftiness and deceitful handling of God's word, then identifies Christ Jesus as Lord as the one proclaimed. The speakers are servants for Jesus' sake. — 2 Corinthians 4:1–5
+Paul has "renounced secret and shameful ways" and will not "distort the word of God" (2 Corinthians 4:2). The verse at the top of this study comes next: "we do not proclaim ourselves" (2 Corinthians 4:5). The reason follows: "this surpassingly great power is from God and not from us" (2 Corinthians 4:7).
 
-The passage goes on to speak of God's illuminating work and treasure carried in earthen vessels. Its account directs attention to God's power rather than the messenger's distinction. Bearing witness need not turn the speaker's personality, achievement or story into the centre of the message. — 2 Corinthians 4:6–7
+[read] Your story may serve an answer, and it is not the message. Honest means belong to the message too: no pressure and no pretending, because Paul has refused those ways.
 
-**Consider:** What prompts the answer in First Peter? How does Paul's description of his ministry clarify both its message and its manner?
+Look closely: What prompts the answer in 1 Peter? What does Paul refuse to do in 2 Corinthians?
 
-**Reflect:** Write a short explanation of the hope you have in Christ. Identify one point you can explain clearly and one question you should study before attempting an answer.
+Your response: Write down in plain words the hope you have in Christ and why. Mark one point you can explain, and one question to study before you try.
 
-## 02 Meekness and fear
+## 06 Gentleness and respect
 
-**Read:** 1 Peter 3:13–17; 2 Timothy 2:22–26.
+Slug: gentleness
 
-### The manner belongs to the instruction
+Word: Gentleness
 
-First Peter joins readiness to answer with meekness and fear. The answer is to be given with gentleness and a reverent seriousness, alongside a good conscience and good conduct in Christ. The setting includes accusation and possible suffering, yet the instruction does not set aside the manner of speech when the speaker is opposed. — 1 Peter 3:15–17
+Ask: What separates correction from a quarrel?
 
-This calls for more than a calm surface. A gentle answer seeks to explain rather than humiliate. It can be direct about disagreement without making contempt part of the reply. Those are applications of the passage's manner, not a requirement to act as though every claim is equally true.
+Hook: Timothy is told to correct his opponents, and told exactly how.
 
-### Patient instruction
+Read: 1 Peter 3:15–17; 2 Timothy 2:22–26
 
-Second Timothy tells the Lord's servant to avoid foolish controversies that breed quarrels. The passage still calls for teaching and correction, but joins them to gentleness and patience:
+### The manner is part of the command
 
-> And the servant of the Lord must not strive; but be gentle unto all men, apt to teach, patient,
+Peter's "gentleness and respect" comes in the same breath as "keeping a clear conscience" (1 Peter 3:15–16). The people in view may be slandering them, and the manner does not change.
 
-2 Timothy 2:24 · KJV
+[read] A gentle answer means to explain and not to humiliate. It can say plainly that you disagree, and leave contempt out. It does not treat every claim as equally true.
 
-The following verses direct instruction toward repentance and the acknowledgment of truth, while locating the granting of repentance with God. The teacher has a responsibility to teach faithfully; the passage does not place another person's inward change under the teacher's control. — 2 Timothy 2:25–26
+### Patient correction
 
-The immediate instruction is to Timothy in his work among people who oppose the teaching. Applying it to wider conversations calls for the same care about truth and manner, without assuming that every questioner is hostile or every disagreement is a foolish controversy.
+> And a servant of the Lord must not be quarrelsome, but must be kind to everyone, able to teach, and forbearing.
 
-**Consider:** What distinguishes correction from quarrelling in these passages? What is the teacher responsible for, and what is attributed to God?
+2 Timothy 2:24 · BSB
 
-**Reflect:** Recall a disagreement in which your manner made listening harder. Consider how you could state the issue clearly while removing an insult, assumption or attempt to embarrass the other person.
+Timothy must "reject foolish and ignorant speculation" (2 Timothy 2:23) and still "gently reprove those who oppose him, in the hope that God may grant them repentance leading to a knowledge of the truth" (2 Timothy 2:25).
 
-## 03 Speech with grace
+[read] These words are to Timothy, in his work as a teacher among opponents. Taking them to your own conversations is an application. Most people who ask you a question are not opponents, and most disagreements are not foolish controversies.
 
-**Read:** Colossians 4:2–6.
+[source:calvin-2ti] Calvin draws courage from the phrase: whoever remembers that "repentance is the gift and work of God" will "bestow more toil and exertion". Calvin was not a Baptist. On this point, section 04 of this page shows what Baptists hold in common and where they differ.
 
-### Answering the person before you
+Look closely: What is the teacher responsible for, and what does the passage leave with God?
 
-Colossians connects wise conduct toward outsiders with speech that is always gracious. Its instruction concerns how to answer each person:
+Your response: Think of a disagreement where your manner made listening harder. Say the issue again, plainly, without the insult, the assumption or the attempt to embarrass.
 
-> Let your speech be alway with grace, seasoned with salt, that ye may know how ye ought to answer every man.
+## Question door: What is the door?
 
-Colossians 4:6 · KJV
+Text: Colossians 4:3
 
-An answer is directed to someone, not simply delivered in their presence. A practical application is to listen long enough to understand the question being asked. Someone may want to understand a belief, examine a claim or describe an experience that has made trust difficult. These examples require attention; they are not categories imposed by the verse.
+[read] This study reads it as an opening to speak, and leaves its form with God. The verse says "a door for the word, so that we may proclaim" (Colossians 4:3), and the next verse asks for clear speech as a further request (Colossians 4:4). So the door looks like something other than the words themselves. The text does not say what shape it would take.
 
-The image of seasoning does not make cutting remarks a virtue. It belongs beside the explicit requirement of grace. The passage does not offer a fixed script, but calls for fitting speech toward the particular person.
+[source:jfb] The commentary of Jamieson, Fausset and Brown agrees that "it is an opportunity for preaching the word", and adds that this "would be best afforded by his release from prison".
 
-### Wisdom with opportunity
+[read] The verse does not ask for release, though it does mention the chains.
 
-The preceding verse calls for walking in wisdom toward those outside and making good use of the time. In the same paragraph Paul asks for prayer that he may speak clearly about Christ. Opportunity, clarity and the manner of answering are connected. — Colossians 4:2–5
+[source:calvin-col] Calvin reads it differently, as the power to speak boldly: speaking of the gospel, he says, is no easier "than to break through a door that is barred and bolted". He ties it to the opened mouth of Ephesians 6:19.
 
-Making use of an opportunity can include asking a careful question, explaining an unfamiliar word or offering to return to an issue after further reading. It need not mean forcing every encounter into the same conversation. A respectful response also gives the other person room to say what they mean and whether they wish to continue.
+[open] Either way the opening is asked of God.
 
-**Consider:** How do prayer, wise conduct and gracious speech fit together in the paragraph? What does answering each person ask of a speaker's attention?
+## Question respect: Respect toward whom?
 
-**Reflect:** Practise explaining one Christian term in ordinary language. Consider what you would ask to find out whether your explanation addressed the other person's actual question.
+Text: 1 Peter 3:15–17
 
-## 04 Conduct that commends
+[read] This study reads it as toward both, with reverence for Christ underneath. The same verse opens with "in your hearts sanctify Christ as Lord" (1 Peter 3:15), and the one before says "Do not fear what they fear" (1 Peter 3:14). So the person is treated with respect, and the fear of people is what Peter removes.
 
-**Read:** 1 Peter 2:11–17; 1 Thessalonians 4:9–12.
+[source:jfb] The commentary of Jamieson, Fausset and Brown reads the word as both: "due respect towards man, and reverence towards God".
 
-### Good works that can be seen
+[source:calvin-1pe] Calvin puts the weight on God: "where reverence for God prevails, it tames all the ferocity of our minds".
 
-First Peter calls its readers strangers and pilgrims and warns against desires that war against the soul. It then asks for honourable conduct among the Gentiles, so that those making accusations may see their good works and glorify God. The passage gives outward conduct a place within witness. — 1 Peter 2:11–12
+[open] These readings were compared in the Berean's English and in these two commentaries only. No Baptist commentator on this verse was read, and no Greek was compared.
 
-The following instructions concern public responsibilities, doing good, service to God and honour toward others. Liberty is not to become a cover for wrongdoing. What is professed is to be accompanied by conduct that can withstand examination. — 1 Peter 2:13–17
+## Question everything: Must I be able to answer everything?
 
-This does not guarantee that good conduct will immediately remove every accusation. The letter elsewhere acknowledges suffering for righteousness. It calls readers to attend to what they do, even when they cannot control what others say about them. — 1 Peter 3:13–17
+Text: 1 Peter 3:15
 
-### Ordinary faithfulness
+[read] No, and silence is not the alternative. The verse asks for "the reason for the hope that is in you" (1 Peter 3:15). That is what you are asked to give. It is not a reply to every objection.
 
-First Thessalonians connects increasing brotherly love with quiet work and attention to one's own responsibilities. A stated purpose is honourable conduct toward outsiders and provision for need. Witness includes ordinary reliability, not only occasions when someone speaks about belief. — 1 Thessalonians 4:9–12
+[source:calvin-1pe] Calvin: "Peter here does not command us to be prepared to solve any question that may be mooted". But he also warns against keeping quiet "by their sloth and the cowardly fear of the flesh".
 
-The KJV's “conversation” in First Peter concerns conduct, not only spoken conversation. Keeping that meaning in view helps us hear the breadth of the instruction. Honesty, care and responsibility can give a hearer reason to take words seriously; they do not make spoken explanation unnecessary when an answer is sought.
+[source:jfb] The commentary of Jamieson, Fausset and Brown: "This verse does not impose an obligation to bring forward a learned proof".
 
-**Consider:** What can outsiders observe in these passages? How does First Thessalonians connect love within the community with life before others?
+[read] Baptists hold more than readiness for when someone asks. The Baptist Faith and Message calls it the duty of every child of God "to seek constantly to win the lost to Christ" (Article 11). So not knowing everything excuses no one from saying what they do know.
 
-**Reflect:** Consider whether someone who knows you through an ordinary responsibility would find your conduct consistent with what you say you believe. Identify one repair or act of faithfulness that is yours to undertake.
+## Question means: If God grants repentance, why speak?
 
-## 05 Courage
+Text: 2 Timothy 2:25
 
-**Read:** Philippians 1:12–30.
+[read] Because the same passages that give the growth to God tell you to plant. Paul asks for prayer so that he may proclaim (Colossians 4:3), and he still calls himself and Apollos "servants through whom you believed" (1 Corinthians 3:5). The hearer is told to believe (Acts 16:31), and God "commands all people everywhere to repent" (Acts 17:30).
 
-### Speaking amid difficulty
+[read] The Baptist Faith and Message holds these together: election "comprehends all the means in connection with the end" (Article 5).
 
-Paul tells the Philippians that his circumstances have advanced the gospel. His imprisonment has become known in connection with Christ, and other believers have become bolder to speak. The account describes a particular result of his suffering; it does not promise that every hardship will produce the same visible result. — Philippians 1:12–14
+[open] Baptists differ on the details of election, and this page does not choose. The Abstract of Principles and the New Hampshire Confession are shown first, then a 2012 statement that disagrees with the first. All of them keep the call to preach.
 
-He also acknowledges mixed motives among those proclaiming Christ, including envy and rivalry. He rejoices that Christ is proclaimed. That rejoicing should not be converted into approval of the motives he has just exposed, or permission to use a false message if it attracts attention. — Philippians 1:15–18
+[source:abstract] The Abstract of Principles (1858), the founding confession of the Southern Baptist seminary, says election is "God's eternal choice of some persons unto everlasting life".
 
-Paul looks for Christ to be magnified in his body, whether by life or death. His desire to continue serving the believers appears beside his hope of being with Christ. Courage is shaped by Christ and the good of others, not by a wish to create danger. — Philippians 1:19–26
+[source:nh] The New Hampshire Confession (1833) says election "encourages the use of means in the highest degree".
 
-### Standing together
+[open] A Statement of the Traditional Southern Baptist Understanding of God's Plan of Salvation (2012) denies that God chose certain people for salvation from eternity, and speaks of election as God's plan to have a people through repentance and faith. It also calls proclaiming the gospel God's means of bringing any person to salvation. This is told in this site's words. Only its Articles 5, 6 and 10 were seen, in a reprint read through a web tool, so check them against the original.
 
-The appeal then turns to the community: live in a manner worthy of the gospel, stand firm in one spirit and strive together for the faith. The readers face opposition and suffering, and Paul asks them to remain steadfast together. — Philippians 1:27–30
+## Question words: Can a life witness without words?
 
-This is more than a picture of an unusually fearless individual. Shared purpose and support belong to the instruction. Courage can include asking others to pray, receiving encouragement and continuing a faithful responsibility even when confidence is small.
+Text: 1 Peter 3:1–2
 
-**Consider:** What does Paul rejoice in, and what does he still describe as wrong? How does his call to the Philippians make steadfastness a shared responsibility?
+[read] Yes, and it does not replace the word. Peter says husbands who "refuse to believe the word" may be "won over without words" (1 Peter 3:1). The husbands have already heard. The verse is about a particular home and how to live in it, and it is no general rule that speaking is optional.
 
-**Reflect:** Name an opportunity to speak or act faithfully that fear has made difficult. Identify a truthful, proportionate next step and someone who could pray for you as you take it.
+[read] The Baptist Faith and Message keeps the order: "by verbal witness undergirded by a Christian lifestyle" (Article 11).
 
-## 06 Prayer for open doors
+[care] Peter is not telling anyone to stay where they are being harmed. Getting to safety and asking for help does not disobey this verse.
 
-**Read:** Colossians 4:2–6; Ephesians 6:18–20. Compare 1 Corinthians 3:1–9.
+## Close: Faithful words, faithful life
 
-### Opportunity, clarity and boldness
+Close: These readings call for Christ to be made known in clear words, joined to gentleness, honest conduct and courage. Ask God for the door. Be ready when someone asks, and go looking for the chance to speak. Leave with God what your words cannot do.
 
-Colossians calls for continued, watchful prayer with thanksgiving. Paul asks the readers to pray for an open door to speak about Christ and that he may make the message clear. His imprisonment remains part of the request. — Colossians 4:2–4
+Way: Take this to the next passage on witness. Who is speaking, and to whom? What is given to the one who speaks? What belongs to the one before them? What belongs to God?
 
-Ephesians similarly places his request within prayer for all the saints. He asks for words and boldness while describing himself as an ambassador in bonds. The one who teaches others also asks for their help through prayer. — Ephesians 6:18–20
+Invite: If you are the one asking, the reason is short. "By His great mercy He has given us new birth into a living hope through the resurrection of Jesus Christ from the dead" (1 Peter 1:3). A jailer once asked, "Sirs, what must I do to be saved?" and was told, "Believe in the Lord Jesus and you will be saved, you and your household". Then they "spoke the word of the Lord to him and to everyone in his house" (Acts 16:30–32), so each heard, and the whole household came to believe (Acts 16:34). This site holds with the Baptist Faith and Message that "There is no salvation apart from personal faith in Jesus Christ as Lord" (Article 4).
 
-These requests give concrete subjects for prayer: an opportunity to speak, clarity about Christ and courage to speak as one ought. They also resist the assumption that an experienced speaker has no further need of help.
+Question: Who might ask you, this week, the reason for your hope? And what would you say?
 
-### God gives the increase
+Again: Read the passage again before you answer.
 
-First Corinthians addresses divisions around Paul and Apollos. Paul describes them as servants through whom the Corinthians believed, with different parts in the work:
-
-> I have planted, Apollos watered; but God gave the increase.
-
-1 Corinthians 3:6 · KJV
-
-The immediate point rebukes rivalry around leaders and directs attention to God. As an application to witness, it also reminds us that faithful labour does not make the listener's response our possession. Speaking clearly, answering honestly and continuing to care remain responsibilities; manipulating an answer is not a substitute for God's work.
-
-Prayer can therefore accompany patient labour without becoming a technique for guaranteeing agreement. Someone else's response is not a simple score of the speaker's worth, and a conversation that leaves questions unresolved need not be forced to a conclusion.
-
-**Consider:** What does Paul ask others to pray for? Why does he distinguish planting and watering from giving the increase?
-
-**Reflect:** Pray for a particular person and for your own clarity, courage and patience. Decide how you can remain attentive to their good without measuring the relationship only by whether they agree with you.
-
-## Faithful words and a faithful life
-
-These readings call for Christ to be made known through clear speech joined to gentleness, good conduct and courage. Prepare to answer, listen carefully and ask for help. Continue to care for the person before you, while entrusting to God what your words cannot command.
+Passage: Colossians 4:2–6

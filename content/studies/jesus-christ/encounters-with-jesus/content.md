@@ -1,163 +1,303 @@
 # Encounters with Jesus
 
-An invitation. A question. A response.
+Concepts: An invitation · A question · A response
+Motto: {{Meetings}} meetings. / No one script.
+Lead: The Gospels let us meet people one at a time: at work, at a table, beside a well, at a grave. Jesus does not meet them with one script. This study reads {{meetings}} of those meetings through to their recorded end, and asks three things of each: who moved first, what was at stake, and where does the record stop?
 
-The Gospels let us meet people in particular circumstances: at work, at a table, beside a well, in illness or in dispute. Jesus does not speak to them through one repeated script. Some encounters begin with his initiative; others with a request, a question or an attempt to accuse him.
+> For the Son of Man came to seek and to save the lost.
 
-Read each scene through to its end. Notice who approaches, what is asked, what Jesus says and does, and what response the narrator records. Where the account leaves a person's motives or later life unstated, resist filling the gap with a familiar retelling.
+Luke 19:10 · BSB
+
+Selection: This is a selection of {{meetings}} meetings, not a census. A meeting here is one scene with one person or party: the four fishermen count as one, and Mark 5 counts as two. {{Drafted}} grew from the draft's groups. Bartimaeus, Martha, Mary and Thomas were added, because the same road needed its other ending, and grief and doubt had almost no place. Left out are many others, among them the widow at Nain, the woman from Syrophoenicia and Mary Magdalene at the tomb. The miracles have their own page, and those healed here are read for the meeting, not the miracle.
+
+GridLead: Each small drawing is a meeting, set by two things: who moved first, and the last thing the record says of that person. Under each is the line it rests on. Choose one to open the whole record.
+GridReads: The start does not settle the end. Bartimaeus and the wealthy man both came to Him on the same road in the same chapter, and one followed while the other went away in sorrow. Levi was called and got up, and the man with the withered hand was called and never says a word.
+GridCare: Which row and which column a meeting belongs in is this study's reading, and each record shows the words it rests on. The column called no further word says only that the record gives none. It holds a healed woman and a teacher who asked "How can this be?" (John 3:9), so silence by itself tells us nothing about either one.
+CarryLead: What are you carrying? Choose one, and the meetings where someone brought the same thing to Jesus will stand out. Nothing else goes away.
+
+ReadingsLead: The same {{meetings}} meetings in {{groups}} groups, read slowly. Each opens in a form its own passage gives, then keeps what the passage says, how this study reads it, and what it may ask of you apart.
+
+AfterLead: The record of a meeting ends, and sometimes Scripture sees the person again. {{Back}} of the {{meetings}} come back by name or by the meeting itself. The other {{gone}} are not seen again, as far as the record lets us tell, and several of them have no name to look for.
+AfterReads: John remembers Nicodemus by the meeting itself: he is the man "who had previously come to Jesus at night" (John 19:39). John does not say what Nicodemus had come to believe, and this page does not either. Someone who is never seen again has not thereby turned back. The record simply has no more to say.
+OlderLead: These meetings already had older Scripture in the room. Each line says who draws the link: Jesus, the Gospel writer, or this study.
+
+TestLead: Most of us met these people first in a retelling. Here are {{sayings}} things often said of them. Decide how far the passage goes, then open the answer. There is no score, and being surprised is the point.
+
+QuestionsLead: {{Questions}} questions a careful reader will ask. Each opens on its passage, then this study's reading, then what others have written, labelled as theirs. The commentators are older writers held in the site's library, read only at these notes. Alexander Maclaren was a Baptist. Albert Barnes was a Presbyterian. Jamieson, Fausset and Brown were not Baptists.
 
 ## 01 Called to follow
 
-**Read:** Mark 1:16–20; 2:13–17.
+Slug: called
+Read: Mark 1:16–20; Mark 2:13–17
+Ask: Who began it, and what was left behind?
+Hook: A net in the water, a father in the boat, a seat at the tax booth. Jesus calls, and each is left.
 
 ### At their work
 
-Mark describes Jesus seeing Simon and Andrew casting a net. He calls them to come after him and speaks of what he will make them become. Their response is immediate: they leave the nets and follow. The next scene names James and John, who leave their father with the hired servants and go after Jesus. — Mark 1:16–20
+Mark begins with what Jesus sees: Simon and Andrew casting a net, then James and John in a boat mending theirs. He calls, and they go. The nets stay behind, and Zebedee stays in the boat with the hired men. Mark 1:16–20
 
-> And Jesus said unto them, Come ye after me, and I will make you to become fishers of men.
+> "Come, follow Me," Jesus said, "and I will make you fishers of men."
 
-Mark 1:17 · KJV
+Mark 1:17 · BSB
 
-The initiative is Jesus'. The narrative names the work interrupted and the response made, but it does not supply a complete history of what each person knew before that moment. Read the call as Mark tells it without making silence about earlier acquaintance into a claim that there could have been none.
+[read] The first move is Jesus'. Mark names the work that was interrupted and the response that was made, and he leaves out what these men already knew of Him. John 1:40–42 tells of Andrew and Simon meeting Jesus at another time, so Mark's silence is no claim that there had been nothing before.
 
-### From the place of work to the table
+### From the booth to the table
 
-Jesus later sees Levi at the receipt of custom and tells him to follow. Levi rises and does so. The account then moves to a meal where many tax collectors and sinners sit with Jesus and his disciples. Scribes and Pharisees question his eating with them, and Jesus replies through the image of a physician and the purpose of calling sinners. — Mark 2:13–17
+Later Jesus sees Levi at the tax booth and tells him to follow, and Levi gets up and does. The next thing we see is a meal at Levi's house, where "many tax collectors and sinners were eating with Him and His disciples" (Mark 2:15). The scribes who were Pharisees put their question to the disciples. Jesus answers it: "It is not the healthy who need a doctor, but the sick." Mark 2:17
 
-The call and the meal belong to the same passage. Following is not presented only as a private decision; the scene raises a question about the people with whom Jesus associates. His answer explains the association through his mission.
+[read] The call and the meal belong to one passage, so following is more than a private decision here. The next thing it raises is who is at the table, and Jesus explains the company He keeps by what He came to do.
 
-**Consider:** Who initiates each call, and what response does Mark report? How does the meal develop the significance of Levi's call?
+[read] Mark and Luke 5:27 call the man at the booth Levi. Matthew 9:9 tells the same call and names him Matthew. This study keeps Mark's wording.
 
-**Reflect:** Identify what the story explicitly says about following and what you tend to assume. Let the recorded invitation and response guide your reading before drawing an application to your own circumstances.
+Consider: Who starts each call, and what response does Mark report? How does the meal add to what Levi's call means?
+Reflect: Say what the passage says about following, then what you tend to add to it. What would it mean for your own work, and your own table?
 
 ## 02 Those called sinners
 
-**Read:** Luke 19:1–10; compare Mark 2:13–17.
+Slug: sinners
+Read: Luke 19:1–10
+Ask: Whose word for him do you pick up first?
+Hook: The crowd has a word for him. Jesus uses his name.
 
 ### Seen in the tree
 
-Luke identifies Zacchaeus as a chief tax collector and a rich man. He wants to see who Jesus is, cannot see over the crowd and climbs a tree. Jesus looks up, calls him by name and announces that he must stay at his house. Zacchaeus receives him joyfully. — Luke 19:1–6
+Luke gives us a chief tax collector, very wealthy, and small in stature. He is trying to see who Jesus is, so he runs ahead and climbs a tree. Jesus comes to that place, looks up and calls him by name: "Zacchaeus, hurry down, for I must stay at your house today." Luke 19:5
 
-The crowd's response is complaint: Jesus has gone to be the guest of someone they call a sinner. The narrative allows us to hear that judgment, but it does not leave the crowd's description as its only word about Zacchaeus. — Luke 19:7
+Zacchaeus hurries down and welcomes Him joyfully. All who see it begin to grumble: "He has gone to be the guest of a sinful man!" Luke 19:7
 
-### Salvation and a response concerning possessions
+### What he says about his money
 
-Zacchaeus speaks of giving half his goods to the poor and restoring fourfold if he has taken anything by false accusation. Jesus declares salvation to the house and calls him a son of Abraham. The account ends with a statement of purpose:
+> But Zacchaeus stood up and said to the Lord, "Look, Lord, half of my possessions I give to the poor, and if I have cheated anyone, I will repay it fourfold."
 
-> For the Son of man is come to seek and to save that which was lost.
+Luke 19:8 · BSB
 
-Luke 19:10 · KJV
+Jesus answers about the whole house, and calls him "a son of Abraham" (Luke 19:9). Then comes the sentence that opens this study, about seeking and saving the lost.
 
-Keep these movements together: the desire to see, Jesus' initiative, joyful reception, public complaint, Zacchaeus's words and Jesus' declaration. The story is not simply a lesson about being polite to someone unpopular. It concerns salvation and a response involving possessions and wrong done to others.
+[read] The crowd's word is not the last word about him. Keep the movements together: the wish to see, Jesus' call, the joyful welcome, the public complaint, what Zacchaeus says and what Jesus says. This concerns salvation, and a response that reaches money and wrong done to others. It is far more than a lesson in being polite to someone unpopular.
 
-The account does not give a full audit of Zacchaeus's past or narrate the later distribution. We can attend to what he says without inventing details of his career or treating everyone with his occupation as having an identical history.
-
-**Consider:** How does Jesus' address differ from the crowd's response? What does Zacchaeus say about his possessions, and what does Jesus say about him?
-
-**Reflect:** Notice whose description of a person you adopt first. Consider how reading the whole encounter challenges a judgment formed from status or reputation alone.
+Consider: How does Jesus' address differ from the crowd's? What does Zacchaeus say about his possessions, and what does Jesus say about him?
+Reflect: Whose description of a person do you adopt first? Is there someone you have only ever known by the crowd's word?
 
 ## 03 The sick
 
-**Read:** Mark 5:21–43.
+Slug: sick
+Read: Mark 5:21–43
+Ask: What happens to one need while another is met?
+Hook: A father pleads for his dying daughter. On the way, Jesus stops to ask who touched Him.
 
 ### A request interrupted
 
-Jairus, a synagogue ruler, falls at Jesus' feet and urgently asks him to come to his dying daughter. Jesus goes with him. On the way, a woman who has suffered bleeding for twelve years approaches from behind and touches his garment, believing she will be made well. Mark describes her long suffering and exhausted resources before reporting her healing. — Mark 5:21–29
+Jairus, a synagogue leader, falls at Jesus' feet and pleads for his little daughter, and Jesus goes with him. On the way a woman comes up behind Him in the crowd. She has suffered from bleeding for twelve years. She has "spent all she had" on many physicians and only grown worse (Mark 5:26). She touches His cloak and is healed.
 
-Jesus stops and asks who touched his clothes. The woman comes forward in fear, falls before him and tells him the truth. He addresses her as daughter, speaks of her faith and sends her in peace. The interruption becomes an encounter in which she is heard and addressed. — Mark 5:30–34
+Jesus stops and keeps looking around. She comes trembling, falls down before Him and tells "the whole truth" (Mark 5:33). He calls her "Daughter" and sends her in peace. Mark 5:34
 
 ### News from the house
 
-While Jesus is speaking, messengers tell Jairus that his daughter has died. Jesus tells him not to fear, but to believe. At the house, he encounters mourning and then ridicule at his words. He enters with the child's parents and selected disciples, takes her hand and tells her to rise. Mark reports that she gets up and walks. Jesus also tells them to give her food. — Mark 5:35–43
+While He is still speaking, messengers arrive to say the girl is dead. Jesus overhears and says to Jairus, "Do not be afraid; just believe." Mark 5:36
 
-The joined stories make the delay part of Jairus's encounter while giving the woman's need its own attention. They include fear, faith, public confusion and a small act of practical care at the end. Reading only the moment of healing would miss much of the scene.
+At the house they weep, and then they laugh at Him. He takes the child's parents and His companions in, takes her by the hand and tells her to get up. She gets up and walks around, and they are "utterly astounded" (Mark 5:42). The last thing He says is that she should be given something to eat. Mark 5:43
 
-These are accounts of particular acts of Jesus. They do not establish that every person still ill has failed to believe sufficiently. The story's words to these people should not become a measure for judging someone else's illness or loss.
+[read] Mark folds one story inside the other, so the delay that gives the woman her hearing is also the time in which Jairus's daughter dies. Reading only the moments of healing misses the fear, the waiting and the practical care at the end.
 
-**Consider:** What happens to Jairus's situation during the interruption? How does Jesus attend to the woman and to the child beyond the physical change reported?
+[read] Mark gives the woman twelve years of bleeding (Mark 5:25) and the girl twelve years of life (Mark 5:42). He explains neither, and this study does not make them mean more than he says. Notice them and read on.
 
-**Reflect:** Read slowly through the interruption and the return to Jairus. Notice the different forms of distress present without reducing either person to an illustration of a single lesson.
+[care] These are accounts of particular acts of Jesus. His words to these people must not become a measure for someone else's illness or loss. Mark says what the physicians cost this woman, and he warns no one away from doctors. See the first of the {{questions}} questions.
+
+Consider: What happens to Jairus's situation during the interruption? How does Jesus attend to the woman and to the child beyond the healing itself?
+Reflect: Read slowly through the interruption and back to Jairus. When have you been the one kept waiting while someone else was helped?
 
 ## 04 Seekers and questioners
 
-**Read:** John 3:1–21; 4:4–30, 39–42.
+Slug: seekers
+Read: John 3:1–21; John 4:4–30; John 4:39–42
+Ask: Who starts the conversation, and what is its last line?
+Hook: One comes at night to say what he knows. One comes for water, and is asked for a drink.
 
-### Nicodemus by night
+### Nicodemus at night
 
-Nicodemus comes to Jesus and speaks of the signs as grounds for recognising a teacher from God. Jesus answers concerning the birth needed to see God's kingdom. Nicodemus asks how this can be, and Jesus speaks of birth through the Spirit, testimony and the Son of Man being lifted up. The passage continues into belief, life, judgment and light. — John 3:1–21
+Nicodemus comes to Jesus and says what the signs have told him: "we know that You are a teacher who has come from God" (John 3:2). Jesus answers about the birth needed to see God's kingdom. Nicodemus asks how that can be, and Jesus speaks of the Spirit, of what He has seen, and of the Son of Man being lifted up. John 3:3–15
 
-The exchange moves beyond Nicodemus's opening assessment. His position as a teacher does not mean he already understands what Jesus says. The scene does not finish with an explicit declaration of conversion by Nicodemus; do not supply one to give this encounter a tidier ending.
+His last line in the scene is a question, and the passage goes on into belief, life, judgment and light without giving him another word. John 3:16–21
 
 ### A woman at the well
 
-In John 4, Jesus initiates a conversation by asking a Samaritan woman for water. She questions why he would ask her, and he speaks of God's gift and living water. The conversation moves through her household circumstances, worship and the expected Messiah. Jesus identifies himself in response to her words about the Christ. — John 4:4–26
+In John 4 Jesus starts it by asking a Samaritan woman for a drink. She asks why He would ask her. He speaks of God's gift and of living water, and the talk moves through her household, through where to worship, and on to the coming Messiah. John 4:7–25
 
-> Jesus saith unto her, I that speak unto thee am he.
+> Jesus answered, "I who speak to you am He."
 
-John 4:26 · KJV
+John 4:26 · BSB
 
-She returns to the city and invites others to come and see. The account later distinguishes those who believe because of her testimony from those who hear Jesus themselves. The encounter expands into a response from the town. — John 4:27–30, 39–42
+She leaves her water jar, goes back into the town and asks the people a question of her own: "Could this be the Christ?" (John 4:29). Many believe because of her words, and many more because they then hear Him for themselves. John 4:39–42
 
-Jesus names her history of five husbands and her present relationship, but the narrator does not explain how those marriages ended or state that she is a prostitute. Nor does the time of her visit, by itself, establish that the town had expelled her from ordinary social life. Her questions and testimony deserve attention without an invented biography.
+[read] Both last lines are questions. His is "How can this be?" (John 3:9), and the record goes silent on him. Hers is "Could this be the Christ?" (John 4:29), and a town comes out. His standing as Israel's teacher did not mean he already understood. Give Nicodemus no tidier an ending than John gives him here. Later scenes come back to him, under After the last line.
 
-**Consider:** Who starts each conversation? What does each person initially understand, and how does the exchange develop beyond that point?
+[care] Her story has often been told with a good deal added. The test further down this page takes those claims one at a time. Her questions and her testimony deserve attention on what John actually says.
 
-**Reflect:** Compare the endings actually supplied. What remains open in Nicodemus's scene, and what response does John explicitly narrate in the Samaritan town?
+Consider: Who starts each conversation? What does each person understand at first, and how far does the exchange take them?
+Reflect: Compare the two endings John actually gives. What question of yours have you been waiting to have tidied up before you bring it to Him?
 
 ## 05 Opponents
 
-**Read:** Mark 3:1–6; 12:13–17.
+Slug: opponents
+Read: Mark 3:1–6; Mark 12:13–17
+Ask: Who tells you why they did it?
+Hook: They are watching Jesus. He calls to the man they are not looking at.
 
-### A person in the midst of a dispute
+### A man in the middle of a dispute
 
-In the synagogue, a man has a withered hand. Others watch to see whether Jesus will heal on the Sabbath so that they may accuse him. Jesus calls the man forward and asks whether it is lawful to do good or evil, to save life or kill. They remain silent. — Mark 3:1–4
+A man with a withered hand is in the synagogue, and "in order to accuse Jesus, they were watching to see if He would heal on the Sabbath" (Mark 3:2). The man asks for nothing. Jesus tells him to stand up among them and asks them, "Which is lawful on the Sabbath: to do good or to do evil, to save life or to destroy it?" They are silent. Mark 3:4
 
-Mark describes Jesus looking around with anger and grief at their hardness of heart, then restoring the man's hand. The scene ends with opponents consulting about destroying Jesus. The narrative places the act of restoration beside a response directed toward destruction. — Mark 3:5–6
+Mark says Jesus looked around "with anger and sorrow at their hardness of heart" (Mark 3:5). Then the hand is restored, and the scene ends with Pharisees and Herodians plotting how they might kill Him.
 
-The man must not disappear from our reading as though he were only an object in a debate. His hand is restored, and that act is central to the question Jesus places before those watching.
+### A question built as a trap
 
-### A question intended as a trap
+Mark says plainly why the later question comes: they were sent "to catch Jesus in His words" (Mark 12:13). Jesus sees through it, asks for a denarius and asks whose image is on it. Then He answers about what is Caesar's and what is God's, and "they marveled at Him" (Mark 12:17).
 
-Mark later explicitly identifies the purpose of a question about tribute to Caesar: to catch Jesus in his words. Jesus recognises the hypocrisy, asks for a coin and questions them about its image and inscription. He then answers concerning what belongs to Caesar and what belongs to God. The questioners marvel. — Mark 12:13–17
+[read] The man is more than an item in a debate. His restored hand is what the question was about. In both scenes the hostile motive is something the narrator tells us, and that gives no licence to assume it of everyone who asks Jesus a hard question. John gives no such line for Nicodemus, and Martha's blunt words are never called an attack.
 
-In these scenes, hostile intent is something the narrator supplies. That does not authorise assuming the same motive in every person who asks a difficult question. Nicodemus's questions and the woman's conversation in John deserve their own readings.
+[care] These are particular people in particular scenes. They do not stand for all Jewish people or for everyone in a named group, and Jesus Himself was a Jew (John 4:9). The Baptist Faith and Message holds that "every person of every race possesses full dignity and is worthy of respect and Christian love" (Article 3). Keep these disputes from becoming collective blame.
 
-Nor should the opponents in particular scenes stand for all Jewish people or every member of a named group. Read the people and actions described without converting the dispute into collective blame.
+Consider: How does Mark identify the purpose of each challenge? What do Jesus' actions and questions bring into view that the attempted accusation overlooks?
+Reflect: Separate a motive the narrator states from one you have inferred. When you last retold a disagreement, which did you use?
 
-**Consider:** How does Mark identify the purpose of the questioning? What do Jesus' actions and questions bring into view that the attempted accusation overlooks?
+## 06 Two men on one road
 
-**Reflect:** Distinguish a motive stated by a narrator from one you have inferred. How might that distinction change the way you retell an encounter?
+Slug: away
+Read: Mark 10:17–31; Mark 10:46–52
+Ask: What comes before the demand, and what goes on after he leaves?
+Hook: One man runs up and kneels. Jesus loves him, and he goes away in sorrow. One man shouts from the roadside, and he follows.
 
-## 06 Those who turn away
+### A real question and a demanding answer
 
-**Read:** Mark 10:17–31.
+A man runs up, kneels and asks what he must do to inherit eternal life. Jesus asks why he calls Him good, and names commandments, and the man says he has kept them from his youth. Then Mark records something before the demand:
 
-### A serious question and a demanding invitation
+> Jesus looked at him, loved him, and said to him, "There is one thing you lack: Go, sell everything you own and give to the poor, and you will have treasure in heaven. Then come, follow Me."
 
-A man runs to Jesus, kneels and asks about inheriting eternal life. Jesus questions his use of good and names commandments; the man says he has observed them from his youth. Mark then records Jesus' love for him before the instruction to sell what he has, give to the poor and follow. — Mark 10:17–21
+Mark 10:21 · BSB
 
-The demand and the love are both in the account. The man's question is not dismissed, and the answer does not leave his possessions untouched. Mark describes his response plainly:
+Mark tells the rest plainly: he "went away in sorrow, because he had great wealth" (Mark 10:22).
 
-> And he was sad at that saying, and went away grieved: for he had great possessions.
+[read] The love and the demand are both in the verse. His question is taken seriously, and the answer does not leave his possessions alone. Mark does not call him young or a ruler. "Young man" is Matthew 19:20, and "a certain ruler" is Luke 18:18, so the familiar name for him takes a word from each.
 
-Mark 10:22 · KJV
+### The disciples need an answer too
 
-Mark does not name him, call him young or describe him as a ruler in this passage. Those details from parallel accounts should be identified when brought into a comparison. This scene also does not narrate his later life, so we should not claim to know that he never returned.
+Jesus turns to His disciples and speaks of how hard it is for the rich to enter the kingdom. They are astonished and say to one another, "Who then can be saved?" (Mark 10:26). He answers that with man it is impossible, "but not with God" (Mark 10:27). Peter says what they have left, and Jesus' reply holds a hundredfold, persecutions, and eternal life. Mark 10:29–30
 
-### The disciples also need an answer
+[read] The meeting goes on after the wealthy man leaves, and it presses on the disciples about wealth, salvation and following. So the challenge cannot be aimed only at someone who has left the room.
 
-Jesus turns to the disciples and speaks of the difficulty riches pose for entering the kingdom. They are astonished and ask who can be saved. Jesus answers concerning human impossibility and what is possible with God. Peter then speaks of what the disciples have left, and Jesus' reply includes both provision and persecution, with eternal life in the world to come. — Mark 10:23–30
+### Further along the same road
 
-> But many that are first shall be last; and the last first.
+Bartimaeus, a blind beggar, hears who is passing and calls out, and many tell him to be quiet. Jesus stops and has him called. He throws aside his cloak and comes. Jesus asks him, "What do you want Me to do for you?" Mark 10:51
 
-Mark 10:31 · KJV
+He receives his sight, and Mark's last word on him is that he "followed Jesus along the road" (Mark 10:52). Mark gives us his name, and gives the man who went away none.
 
-The encounter does not end when the wealthy man leaves. It continues to question the disciples' understanding of wealth, salvation and following. Reading the whole unit keeps the challenge from being directed only at an absent person.
+Consider: What does Mark say about Jesus' attitude to the man who left? What do the two men on this road each leave behind, or fail to?
+Reflect: Do you read this story only as a judgment on someone else? What question about possessions, security or following remains for you in it?
 
-**Consider:** What does Mark say about Jesus' attitude toward the man? How do the disciples' questions show that they too need instruction?
+## 07 In grief and in doubt
 
-**Reflect:** Notice whether you read this story only as a judgment on someone else. What question about possessions, security or following remains for you within the passage?
+Slug: grief
+Read: John 11:17–44; John 20:24–29
+Ask: What does He do with the same words, and with hard terms?
+Hook: Two sisters say the same sentence, and He answers them differently. Thomas names his terms, and hears them back.
 
-## Attend to the person and the whole scene
+### The same sentence twice
 
-These encounters contain invitation, welcome, healing, teaching, conflict and grief. They reveal Jesus through what he says and does, and through responses that are not all alike. Keep the people in view, follow the conversation to its recorded end and allow what remains unstated to remain a question.
+Lazarus has been four days in the tomb when Jesus arrives. Martha goes out to meet Him, and Mary stays at home until she is told He is asking for her. Each says to Him, "Lord, if You had been here, my brother would not have died." John 11:32
+
+To Martha, who goes on to say what she still knows, He says, "I am the resurrection and the life" (John 11:25). He asks whether she believes it, and she says she does. Mary falls at His feet weeping, and John records no teaching in reply. He is deeply moved, and He asks where they have put him. Then:
+
+> Jesus wept.
+
+John 11:35 · BSB
+
+Those standing by read His tears two ways: "See how He loved him!" and "Could not this man who opened the eyes of the blind also have kept Lazarus from dying?" John 11:36–37
+
+[read] John does not say why He wept, though He was about to call Lazarus out. Jesus tells neither sister she was wrong to say it. Martha still has an objection at the tomb, "Lord, by now he stinks" (John 11:39), so her confession did not end her grief.
+
+[care] What this passage gives the grieving is who Jesus is, and that He wept. Lazarus came out, and many graves have not opened in our time. The passage does not promise that they will before the last day, the day Martha herself names (John 11:24). Paul writes to people mourning their dead that they need not "grieve like the rest, who are without hope" (1 Thessalonians 4:13), and he does not call grief a failure of faith.
+
+### His terms given back
+
+Thomas was not with the others, and when they tell him, he sets terms: "Unless I see the nail marks in His hands, and put my finger where the nails have been, and put my hand into His side, I will never believe." John 20:25
+
+Eight days later Jesus comes and stands among them, and He says "Peace be with you" (John 20:26). Then He speaks to Thomas.
+
+> Then Jesus said to Thomas, "Put your finger here and look at My hands. Reach out your hand and put it into My side. Stop doubting and believe."
+
+John 20:27 · BSB
+
+Thomas answers, "My Lord and my God!" John 20:28
+
+[read] Jesus gives Thomas back his own terms, nearly word for word. He does not call the doubt fine, because He says, "Stop doubting" (John 20:27), and He does not send Thomas away for it. His last word to Thomas reaches past the room to people like us: "blessed are those who have not seen and yet have believed" (John 20:29). Peter later writes to such people, "Though you have not seen Him, you love Him" (1 Peter 1:8).
+
+Consider: What does Martha go on to say that Mary does not? What in Jesus' words to Thomas comes from Thomas himself?
+Reflect: Which do you need today: to be taught, or to be wept with? Have you told Him your terms, or only told other people?
+
+## Question faith: Does illness mean I have not believed enough?
+
+Text: Mark 5:34
+
+[read] Jesus says to this woman that her faith has healed her. He does not say that everyone with faith will be healed, or that everyone not healed lacked it. Paul himself left a man behind ill: "Trophimus I left sick in Miletus" (2 Timothy 4:20). Paul pleaded three times about his own thorn, whatever it was, for he does not say, and was told "My grace is sufficient for you" (2 Corinthians 12:9). And the sisters' message about their brother was "the one You love is sick" (John 11:3).
+
+[source:maclaren] Maclaren makes his point from the woman's weakness rather than her strength: "very imperfect faith may be genuine faith". He says Christ answered it anyway.
+
+[source:barnes] Barnes, in a note on blind men healed by Jesus, writes: "Faith had no power to open the eyes, but it led them to Jesus". That note is on Matthew 20:34.
+
+[care] James 5:14 tells the sick to call the elders to pray. Nothing in these passages tells you to stop seeing your doctor. If someone has told you that your illness, or the death of someone you love, proves too little faith, these passages do not say so.
+
+## Question sell: Must every Christian sell everything?
+
+Text: Mark 10:21
+
+[read] Jesus said this to this man, and Mark does not make it a rule for all. Zacchaeus spoke of half his possessions, and Jesus still said that salvation had come to his house (Luke 19:8–9). Paul tells Timothy to instruct the rich "to be generous and ready to share" (1 Timothy 6:18). But the demand must not shrink either. Straight after, Jesus says, "How hard it is for the rich to enter the kingdom of God!" (Mark 10:23), and that is said of more than one man.
+
+[source:barnes] Barnes reads the command as a test of what the man had claimed: Jesus told him this "to test his character, and to show him that he had not kept the law as he pretended". That note is on Matthew 19:21.
+
+[source:maclaren] Maclaren looks at the man's own question: "He is too sure of himself; for he thinks that he is ready and able to do all good deeds, if only they are pointed out to him."
+
+[read] The Baptist Faith and Message says in its article on stewardship, "all that we have and are we owe to Him" (Article 13). So the question for any of us is whose it all is, and what stands between us and following Him. Mark's word to this man does not settle how much each of us should give.
+
+## Question water: What does "born of water and the Spirit" mean?
+
+Text: John 3:5
+
+[read] The writers read here agree on the plain point: the new birth comes from the Spirit, and Nicodemus could not reach it by knowledge or standing. The hard word is water, and sincere readers differ on it. You do not need to settle it to see the point of the passage.
+
+[source:barnes] Barnes takes it of the ordinance: "By water, here, is evidently signified baptism". He adds that this does not mean no one unbaptized can be saved.
+
+[source:jfb] They read it first as a picture Nicodemus should have known, pointing to "a thorough spiritual purification by the operation of the Holy Ghost". They cite Ezekiel 36:25–27, where God promises clean water and His Spirit together, and they connect it with baptism as well.
+
+[read] This study does not choose between them on water. On what is at stake it follows the Baptist Faith and Message: "Regeneration, or the new birth, is a work of God's grace" (Article 4), and baptism is "an act of obedience symbolizing the believer's faith" (Article 7). So however water is read here, baptism does not cause the new birth.
+
+## Question wait: Why did He wait two days after hearing Lazarus was sick?
+
+Text: John 11:5–6
+
+[read] John puts the two things side by side: Jesus loved them, and so He stayed. Jesus gives a reason, "for the glory of God" (John 11:4), and tells His disciples, "for your sake I am glad I was not there, so that you may believe" (John 11:15). John does not say what the waiting was like for the sisters, except that each of them told Him.
+
+[source:barnes] Barnes reads the delay as making the sign beyond dispute: He stayed "that there might not be the possibility of doubt that he was dead".
+
+[source:maclaren] Maclaren reckons the days and argues that Lazarus had probably died already when the message came, so that Christ "stayed—strange as it would appear—for reasons closely connected with the highest well-being of all the beloved three, and because He loved them." That reckoning is his, and John does not state it.
+
+[care] This passage tells why He waited that once, as far as John tells it. It does not hand us the reason for your wait. Both sisters said to His face, "if You had been here" (John 11:32), and He did not rebuke them for it. You may say it too.
+
+## Question half: Did Zacchaeus buy his salvation?
+
+Text: Luke 19:8–9
+
+[read] No. Jesus names him and invites Himself in before Zacchaeus says a word about money, and He gives His own reason: "this man too is a son of Abraham" (Luke 19:9). Then He says why He came, to seek and to save (Luke 19:10). What Zacchaeus says about his money follows his welcome, and it is a response. The Baptist Faith and Message states it plainly: "There is no salvation apart from personal faith in Jesus Christ as Lord" (Article 4). It calls repentance "a genuine turning from sin toward God" (Article 4).
+
+[source:barnes] Barnes says of Zacchaeus's words: "This was not a proclamation of his own righteousness, nor the ground of his righteousness, but it was the evidence of the sincerity of his repentance". He reads "half of my possessions I give" as a purpose formed there and then (Luke 19:8). The words might also describe a habit. No writer holding that was read for this page, and Luke does not settle it.
+
+[source:maclaren] Maclaren draws the line from faith to deed: "Let us see your faith by your works". He sets Zacchaeus beside the man who "could not make up his mind to part with wealth in order to follow Christ", and he calls that man a young ruler, as many do. Those two words come from Matthew and Luke, not Mark.
+
+## Close: Read to the recorded end
+
+Close: These meetings hold invitation, welcome, healing, teaching, conflict and grief, and the responses are not alike. Who Jesus is shows in what He says and does with each person.
+Way: Ask this of any meeting in the Gospels. Who moved first? What was at stake? Where does the record stop? Say what is written before you say what you have heard, and let what is unstated stay a question.
+Invite: You do not meet Him by a well, but you do meet Him in the Gospels. John says he wrote so that "you may believe that Jesus is the Christ, the Son of God" (John 20:31). Some came with a question, a sickness or a grief, and the record does not show Him waiting for them to settle it. The Baptist Faith and Message describes faith as "the acceptance of Jesus Christ and commitment of the entire personality to Him as Lord and Saviour" (Article 4). Bring Him what you are carrying.
+Question: What are you carrying today that you have not yet brought to Him?
+Again: Read the passage again before you answer.
+Passage: Luke 19:10

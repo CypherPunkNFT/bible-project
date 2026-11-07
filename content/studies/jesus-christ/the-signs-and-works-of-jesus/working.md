@@ -1,22 +1,22 @@
-# The signs and works of Jesus
+# The signs and works of Jesus working notes
 
-**Content pass status:** item 18, first full draft ready for review, 2026-10-13. [Content draft](content.md); [passage and editorial notes](passage-notes.md).
+**Item 18 · Jesus Christ · Rewritten to the study standard · 2026-10-30.** The first draft of 2026-10-13, in the King James, is replaced here. [Text](content.md) · [passage notes](passage-notes.md) · [design](design.md).
 
-## Purpose and scope
+## Purpose and central question
 
-Study Jesus’ works within their Gospel narratives and the responses they evoke. The existing miracles collection remains the catalogue; this study offers six sustained thematic readings rather than another inventory.
+Read Jesus' works inside the accounts that tell them. Where does the deed fall, and how much stands around it? The habit to take to the next account: what did He do, what did He say, what does the writer say it shows, who believed, and who turned away? Then read on past the deed. The Miracles page remains the catalogue, so this study is a set of whole readings and not another list.
 
 ## Content divisions
 
-1. Go in peace — healing the woman within the journey to Jairus’s daughter.
-2. Tell them how great things the Lord hath done — the man delivered and sent to testify.
-3. They did all eat, and were filled — compassionate provision in Mark and manifested glory at Cana.
-4. Even the wind and the sea obey him — two sea accounts and Mark’s connection to the loaves.
-5. I am the resurrection, and the life — Lazarus, grief, belief, and the raising of Jairus’s daughter.
-6. That believing ye might have life — the man born blind, responses to Lazarus, and John’s stated purpose.
+1. Go in peace: the woman healed on the way to Jairus' daughter.
+2. How much the Lord has done: the man among the tombs, sent home to tell.
+3. They all ate and were satisfied: the five thousand in Mark, and the wine at Cana.
+4. Even the wind and the sea obey Him: two crossings, and what Mark says they had not understood.
+5. I am the resurrection and the life: Lazarus, and Jairus' daughter.
+6. So that you may believe: the man born blind, and why John wrote.
 
-Each division has two subsections. These are content boundaries, not design specifications. The original accepted outline remains in `../ideas.md`.
+Five hard questions follow: whether faith was too small, what "could not" means at Nazareth, demon or illness and the pigs, whether Jesus still does this, and whether these things happened.
 
-## LLM handoff
+## State
 
-The first content draft is complete. The queue has since advanced; consult `../../progress.json` for the current item and next step. Design has not started.
+The text, notes and mock-up are written. The mock-up is in [the-signs-and-works-of-jesus-directions/](../../../../design/the-signs-and-works-of-jesus-directions/README.md). Owner review and the real page under src/ remain. The open items are in [STUDY_MOCKUPS_LOG.md](../../../../../Pages/Topics/STUDY_MOCKUPS_LOG.md), under Study 14.

@@ -1,0 +1,251 @@
+/* The shape of Scripture mock-up. Frame from the Authors mock-ups, hero and sheet from the Manuscripts mock-up. The look is type:
+   each passage is set in the shape of its own kind of writing, large, with fine rules and no boxes around everything.
+   Colour follows the site's six section colours; words always carry the same meaning. Law shares History's colour, as the site's bands do. */
+.ss-page { --tone: var(--accent); }
+.ss-page button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.ss-page, .ss-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.ss-page, .ss-sheet) a { color: inherit; }
+.ss-page :is(a, button, summary):focus-visible { text-decoration: underline; text-underline-offset: 3px; color: var(--accent); }
+.ss-t-law, .ss-t-history { --tone: var(--history); }
+.ss-t-poetry { --tone: var(--poetry); }
+.ss-t-prophets { --tone: var(--prophets); }
+.ss-t-gospels { --tone: var(--gospels); }
+.ss-t-letters { --tone: var(--epistles); }
+.ss-tone { stroke: var(--tone); }
+.ss-faint { opacity: .5; }
+.ss-wash { fill: color-mix(in srgb, var(--tone, var(--ink)) 9%, transparent); stroke: none; }
+
+.ss-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; }
+.ss-ref:hover, .ss-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+.ss-note { margin-top: .9rem; max-width: 80ch; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+.ss-note b { color: var(--ink); font-weight: 600; }
+.ss-reads { margin-bottom: 1.2rem; max-width: 62ch; font: 400 1.2rem/1.5 var(--serif); }
+.ss-kind, .ss-small { font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ss-kind b { color: var(--tone); font-weight: 600; }
+.ss-action { display: inline-block; min-height: 44px; padding-block: .6rem; font-size: 1rem; font-weight: 600; color: var(--accent) !important; }
+.ss-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Heading ── */
+.ss-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.ss-intro h1 { margin-block: .55rem .8rem; font-size: clamp(3rem, 7vw, 5.4rem); }
+.ss-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.ss-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.ss-trail a:hover, .ss-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.ss-here { color: var(--ink); }
+.ss-concepts { margin-top: 1rem; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.ss-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); max-width: 58ch; }
+.ss-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.ss-opening figcaption { margin-top: .35rem; font-size: .78rem; color: var(--muted); }
+.ss-hero-art { color: var(--muted); }
+.ss-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.ss-hero-art .ms-art-note { position: static; display: block; margin-top: .6rem; }
+.ss-river { stroke: var(--poetry); stroke-dasharray: 2 8; animation: ss-flow 24s linear infinite; }
+.ss-river-2 { opacity: .55; animation-duration: 34s; }
+.ss-spark { animation: ss-twinkle 8s ease-in-out infinite; }
+@keyframes ss-flow { to { stroke-dashoffset: -100; } }
+@keyframes ss-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+.ss-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.ss-figures > div { padding: .9rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
+.ss-figures > div:first-child { border-left: 0; padding-left: 0; }
+.ss-figures dt { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ss-figures dd { margin: .2rem 0 0; font: 500 2.2rem/1.15 var(--serif); }
+.ss-figures small { display: block; margin-top: .1rem; font-size: .84rem; line-height: 1.45; color: var(--muted); }
+
+/* ── 01 The six names, always visible ── */
+.ss-switch { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 .4rem; border-block: 1px solid var(--line); }
+.ss-switch button { display: flex; flex-direction: column; align-items: flex-start; gap: .25rem; min-height: 44px; padding: .7rem .4rem .8rem; border-bottom: 3px solid transparent !important; font: 500 1.02rem/1.25 var(--serif); color: var(--muted); }
+.ss-switch button:hover { color: var(--ink); }
+.ss-switch button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--tone) !important; }
+.ss-switch-art { display: block; color: currentColor; }
+.ss-mini { display: block; width: 76px; height: 50px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+
+.ss-stage { padding-top: 1.6rem; }
+.ss-stage-head h3 { margin-top: .25rem; font: 500 clamp(1.9rem, 4vw, 3rem)/1.12 var(--serif); letter-spacing: -.02em; }
+.ss-hook { margin-top: .4rem; max-width: 60ch; font: italic 400 1.3rem/1.45 var(--serif); color: var(--tone); }
+.ss-line-what { margin-top: .3rem; max-width: 60ch; font-size: 1rem; color: var(--muted); }
+
+/* ── The forms. One renderer, six shapes ── */
+.ss-form { margin: 1.8rem 0 0; }
+.ss-form figcaption { margin-top: .8rem; max-width: 72ch; font-size: .86rem; line-height: 1.55; color: var(--muted); }
+.ss-form blockquote { margin: 0; font: 400 clamp(1.25rem, 2.3vw, 1.75rem)/1.45 var(--serif); }
+.ss-line { display: block; }
+.ss-page mark { background: none; color: var(--tone); font-weight: 600; border-bottom: 1px solid color-mix(in srgb, var(--tone) 55%, transparent); }
+.ss-zone-label { display: block; margin-bottom: .45rem; font-size: .68rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--tone); }
+.ss-zone-ref { display: inline-block; margin-top: .55rem; font-size: .84rem; }
+
+/* Law: one arched stone; the words are cut in it */
+.ss-form-stone .ss-zones { max-width: 760px; margin-inline: auto; padding: clamp(3rem, 8vw, 5.5rem) clamp(1.2rem, 6vw, 4.5rem) 2.2rem; border: 1.5px solid color-mix(in srgb, var(--tone) 60%, var(--line)); border-radius: 50% 50% 6px 6px / 150px 150px 6px 6px; background: color-mix(in srgb, var(--tone) 5%, transparent); text-align: center; }
+.ss-form-stone .ss-zone + .ss-zone { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--tone) 35%, var(--line)); }
+.ss-form-stone blockquote { font-size: clamp(1.35rem, 3vw, 2.15rem); letter-spacing: .01em; }
+.ss-form-stone figcaption { margin-inline: auto; text-align: center; }
+
+/* History: a margin that says whose words these are */
+.ss-form-voices .ss-zone { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 1.6rem; padding-block: 1.1rem; border-top: 1px solid var(--line); }
+.ss-form-voices .ss-zone-label { grid-row: 1 / span 2; margin: .45rem 0 0; }
+.ss-form-voices .ss-zone-ref { grid-column: 2; justify-self: start; }
+.ss-form-voices .ss-zone + .ss-zone blockquote { padding-left: 1.2rem; border-left: 2px solid var(--line); font-style: italic; }
+
+/* Poetry: the prayer climbs */
+.ss-form-steps .ss-zones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2rem; align-items: start; }
+.ss-form-steps .ss-zone:nth-child(1) { margin-top: 10rem; }
+.ss-form-steps .ss-zone:nth-child(2) { margin-top: 5rem; }
+.ss-form-steps .ss-zone { padding-top: .7rem; border-top: 1.5px solid color-mix(in srgb, var(--tone) 55%, var(--line)); }
+.ss-form-steps blockquote { font-size: clamp(1.15rem, 1.8vw, 1.45rem); }
+
+/* Two passages facing, across one fine rule */
+.ss-form-facing .ss-zones, .ss-form-pages .ss-zones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ss-form-facing .ss-zone { padding: .6rem 2.2rem 1rem 0; }
+.ss-form-facing .ss-zone + .ss-zone { padding: .6rem 0 1rem 2.2rem; border-left: 1px solid var(--tone); }
+
+/* Prophets: a run of commands, then the offer */
+.ss-form-verbs .ss-zones { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2.6rem; align-items: end; }
+.ss-form-verbs .ss-zone:first-child blockquote { font-size: clamp(1.45rem, 3vw, 2.2rem); line-height: 1.3; }
+.ss-form-verbs .ss-zone + .ss-zone { padding-left: 1.3rem; border-left: 2px solid var(--tone); }
+
+/* Gospels and Acts: an open book, last page and first */
+.ss-form-pages .ss-zones { border: 1px solid var(--line); background: var(--surface); }
+.ss-form-pages .ss-zone { padding: 1.6rem clamp(1.1rem, 3vw, 2.6rem) 1.4rem; }
+.ss-form-pages .ss-zone + .ss-zone { border-left: 1px solid var(--line); box-shadow: inset 14px 0 14px -14px color-mix(in srgb, var(--ink) 30%, transparent); }
+
+/* Letters: set as a letter */
+.ss-form-letter .ss-zones { max-width: 800px; }
+.ss-form-letter .ss-zone { padding: 1.1rem 0 1.3rem; border-top: 1px solid var(--line); }
+.ss-form-letter .ss-line:first-child { margin-bottom: .35rem; }
+.ss-form-letter .ss-line + .ss-line { padding-left: clamp(0rem, 3vw, 2rem); }
+
+/* ── Under the form: the four questions, one above another ── */
+.ss-ledger { margin: 2rem 0 0; border-top: 1px solid var(--line); max-width: 920px; }
+.ss-ledger > div { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.6rem; padding-block: .75rem; border-bottom: 1px solid var(--line); }
+.ss-ledger dt { font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tone); padding-top: .3rem; }
+.ss-ledger dd { margin: 0; font-size: 1.08rem; line-height: 1.55; }
+.ss-name, .ss-parts { margin-top: 1rem; max-width: 72ch; line-height: 1.6; }
+.ss-name b { font-weight: 600; }
+.ss-parts { font-size: .92rem; color: var(--muted); }
+
+/* ── The reading, in one column ── */
+.ss-walk { margin-top: .4rem; max-width: 70ch; padding-top: .6rem; border-top: 1px solid var(--tone); }
+.ss-part { margin-top: 1.4rem; }
+.ss-part h4, .ss-prompt h4 { font: 500 1.35rem/1.3 var(--serif); }
+.ss-part > p, .ss-flag p, .ss-prompt p { margin-top: .6rem; font-size: 1.04rem; line-height: 1.7; }
+.ss-flag { margin-top: 1rem; padding-top: .55rem; border-top: 1px solid var(--line); }
+.ss-flag-label { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ss-flag-care .ss-flag-label { color: var(--accent); }
+.ss-flag-open .ss-flag-label { color: var(--prophets); }
+.ss-flag p { margin-top: .3rem; }
+.ss-flag small { display: block; margin-top: .3rem; font-size: .82rem; line-height: 1.5; color: var(--muted); }
+.ss-prompt { margin-top: 1.4rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+
+/* ── 02 ── */
+.ss-kinds { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; padding-block: .5rem; margin-bottom: 1.1rem; border-block: 1px solid var(--line); }
+.ss-kinds button { min-height: 44px; font: 500 1.14rem/1.3 var(--serif); color: var(--muted); border-bottom: 2px solid transparent !important; }
+.ss-kinds button:hover { color: var(--ink); }
+.ss-kinds button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent) !important; }
+.ss-rail { display: flex; gap: .55rem; margin-top: .4rem; }
+.ss-rail-part { flex: 1 1 0; min-width: 0; }
+.ss-rail-name { display: block; padding-bottom: .35rem; font-size: .68rem; font-weight: 600; letter-spacing: .06em; color: var(--tone); white-space: nowrap; }
+.ss-rail-books { display: flex; gap: 2px; height: 72px; align-items: flex-end; border-top: 2px solid var(--tone); padding-top: 4px; }
+.ss-rail-books i { position: relative; flex: 1 1 0; height: 22%; background: color-mix(in srgb, var(--ink) 12%, transparent); }
+.ss-rail-books i.is-on { height: 100%; background: var(--tone); }
+.ss-rail-books a { position: absolute; inset: 0; }
+.ss-rail-said { min-height: 3.2em; margin-top: .6rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.ss-marks { list-style: none; margin: 1rem 0 0; padding: 0; max-width: 920px; }
+.ss-marks li { display: grid; grid-template-columns: 12rem minmax(0, 1fr) 9rem; column-gap: 1.4rem; align-items: baseline; padding-block: .55rem; border-top: 1px solid var(--line); }
+.ss-marks li > span { font: 400 1.14rem/1.4 var(--serif); }
+.ss-marks small { font-size: .78rem; color: var(--tone); font-weight: 600; text-align: right; }
+
+/* ── 03 The staircase ── */
+.ss-stair { display: grid; gap: 4px; }
+.ss-stair-row { display: grid; grid-template-columns: 8.5rem repeat(6, minmax(0, 1fr)); gap: 4px; align-items: stretch; }
+.ss-stair-top span { align-self: end; padding: 0 .3rem .25rem; font-size: .7rem; font-weight: 600; color: var(--tone); }
+.ss-stair-later { align-self: center; font: 500 1rem/1.25 var(--serif); color: var(--tone); }
+.ss-cell { display: flex; flex-direction: column; gap: .15rem; min-height: 64px; padding: .5rem .55rem !important; border-bottom: 2px solid color-mix(in srgb, var(--tone) 45%, transparent) !important; background: color-mix(in srgb, var(--tone) 7%, transparent) !important; }
+.ss-cell:hover { background: color-mix(in srgb, var(--tone) 15%, transparent) !important; }
+.ss-cell[aria-pressed="true"] { background: color-mix(in srgb, var(--tone) 24%, transparent) !important; border-bottom-color: var(--tone) !important; }
+.ss-cell b { font: 500 .96rem/1.2 var(--serif); }
+.ss-cell small { display: flex; align-items: center; gap: .3rem; font-size: .74rem; color: var(--muted); }
+.ss-cell i { display: inline-block; width: .6rem; height: .6rem; border: 1.5px solid var(--tone); flex-shrink: 0; }
+.ss-cell-names i { background: var(--tone); }
+.ss-cell-retells i { background: linear-gradient(90deg, var(--tone) 50%, transparent 50%); }
+.ss-cell-shares i { border-radius: 50%; }
+.ss-cell-on { display: none; font-size: .72rem; color: var(--muted); }
+.ss-readout { margin-top: 1.4rem; padding-top: 1rem; border-top: 1.5px solid var(--tone); }
+.ss-readout-line { max-width: 60ch; font: italic 400 1.3rem/1.4 var(--serif); }
+.ss-readout-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; margin-top: 1rem; }
+.ss-readout-pair blockquote { margin: 0 0 .4rem; font: 400 1.2rem/1.5 var(--serif); }
+
+/* ── 04 ── */
+.ss-try { max-width: 780px; }
+.ss-try-text { margin: .7rem 0 1.1rem; font: 400 1.2rem/1.6 var(--serif); }
+.ss-options { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .4rem; }
+.ss-options button { min-height: 44px; padding: .45rem .9rem !important; border: 1px solid var(--line) !important; border-radius: 999px !important; font-size: .98rem; }
+.ss-options button:hover { border-color: var(--accent) !important; }
+.ss-options .is-chosen { border-color: var(--accent) !important; color: var(--accent); }
+.ss-answer { margin-top: 1rem; line-height: 1.68; }
+.ss-answer p + p { margin-top: .5rem; }
+.ss-answer-head { font: 500 1.3rem/1.35 var(--serif); }
+.ss-try-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.6rem; }
+
+/* ── Close ── */
+.ss-closing { padding-bottom: 0; }
+.ss-close-text { max-width: 66ch; }
+.ss-close-text > p:not(.ss-concepts) { margin-top: .8rem; font-size: 1.04rem; line-height: 1.68; }
+.ss-close-text .ss-way { font: 400 1.35rem/1.45 var(--serif); }
+.ss-close-text .ss-question { font: 500 clamp(1.5rem, 3vw, 2.1rem)/1.3 var(--serif); letter-spacing: -.01em; }
+.ss-close-text .ss-again { font-style: italic; color: var(--muted); }
+.ss-links { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.1rem; font-size: .92rem; font-weight: 600; color: var(--accent); }
+.ss-links a { text-decoration: none; min-height: 28px; }
+.ss-links a:hover, .ss-links a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.ss-land { display: block; margin-top: 1.2rem; color: var(--muted); }
+.ss-land svg { display: block; width: 100%; height: clamp(90px, 13vw, 150px); fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.ss-sources { margin-block: 1rem 1.6rem; font-size: .9rem; }
+.ss-sources summary { min-height: 44px; padding-block: .6rem; cursor: pointer; font-weight: 600; }
+.ss-sources ul { margin: .4rem 0 0; padding: 0; list-style: none; }
+.ss-sources li { padding-block: .5rem; border-top: 1px solid var(--line); line-height: 1.55; }
+.ss-sources li span { color: var(--muted); }
+
+/* ── Sheet ── */
+.ss-sheet-body h3 { margin-top: .3rem; font: 500 1.6rem/1.2 var(--serif); }
+.ss-sheet-text { margin-top: .8rem; font: 400 1.1rem/1.7 var(--serif); }
+.ss-sheet-text sup { margin-right: .15rem; font-size: .66em; color: var(--muted); }
+.ss-sheet-ch { display: block; margin-top: .8rem; font: 600 .7rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ss-sheet-links { display: flex; flex-direction: column; gap: .3rem; margin-top: 1rem; font-weight: 600; color: var(--accent); }
+.ss-sheet-links a { min-height: 28px; }
+
+/* ── Narrow screens: everything runs down the page ── */
+@media (max-width: 900px) {
+  .ss-rail { display: none; }
+  .ss-rail-said { display: none; }
+  .ss-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ss-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .ss-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .ss-switch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ss-form-steps .ss-zones { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .ss-form-steps .ss-zone:nth-child(n) { margin-top: 0; }
+  .ss-form-steps .ss-zone:nth-child(2) { margin-left: 1rem; }
+  .ss-form-steps .ss-zone:nth-child(3) { margin-left: 2rem; }
+  .ss-form-verbs .ss-zones { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 700px) {
+  .ss-form-facing .ss-zones, .ss-form-pages .ss-zones, .ss-readout-pair { grid-template-columns: minmax(0, 1fr); }
+  .ss-form-facing .ss-zone, .ss-form-facing .ss-zone + .ss-zone { padding: .8rem 0; border-left: 0; border-top: 1px solid var(--tone); }
+  .ss-form-pages .ss-zone + .ss-zone { border-left: 0; border-top: 1px solid var(--line); box-shadow: none; }
+  .ss-form-voices .ss-zone, .ss-ledger > div { grid-template-columns: minmax(0, 1fr); }
+  .ss-form-voices .ss-zone-label { grid-row: auto; margin: 0 0 .4rem; }
+  .ss-form-voices .ss-zone-ref { grid-column: 1; }
+  .ss-marks li { grid-template-columns: minmax(0, 1fr); row-gap: .1rem; }
+  .ss-marks small { text-align: left; }
+  .ss-stair-top { display: none; }
+  .ss-stair-row { grid-template-columns: minmax(0, 1fr); margin-top: .8rem; }
+  .ss-stair-empty { display: none; }
+  .ss-cell-on { display: block; }
+  .ss-cell { min-height: 44px; }
+}
+@media (max-width: 360px) {
+  .ss-switch { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ss-figures { grid-template-columns: minmax(0, 1fr); }
+  .ss-figures > div { border-left: 0; padding-left: 0; }
+  .ss-figures > div + div { border-top: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ss-river, .ss-spark { animation: none; }
+}

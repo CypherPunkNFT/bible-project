@@ -1,43 +1,48 @@
 # Bearing witness passage and editorial notes
 
-Content pass, item 09. [Reader-facing draft](content.md); [working outline](working.md). First draft ready for review, not approved final copy.
+Study 09, rewritten in the Berean with the mock-up on 2026-10-30. [Reader-facing text](content.md); [working outline](working.md); [design](design.md). For the owner's review, not approved final copy.
 
 ## Scope and sources
 
-For general readers considering speech and conduct toward those outside the church. This is not a comprehensive gospel outline, apologetics course or set of techniques for securing conversion. It follows the letters' instructions and distinguishes general exhortations from Paul's ministry description and Timothy's teaching responsibility.
+For general readers considering speech and conduct toward those outside the church. This is not a full outline of the gospel, an apologetics course or a set of techniques for securing conversion. It follows the letters' instructions and keeps apart a general command, Paul's account of his own work, and Timothy's duty as a teacher.
 
-Read in the repository KJV on 2026-10-13: [1 Peter](../../../../data/plain/kjv/1PE.json), [2 Timothy](../../../../data/plain/kjv/2TI.json), [Colossians](../../../../data/plain/kjv/COL.json), [1 Thessalonians](../../../../data/plain/kjv/1TH.json), [Philippians](../../../../data/plain/kjv/PHP.json), [Ephesians](../../../../data/plain/kjv/EPH.json), [1 Corinthians](../../../../data/plain/kjv/1CO.json), [2 Corinthians](../../../../data/plain/kjv/2CO.json). Five full block quotations reproduce the local KJV; exposition and reflections are editorial prose.
+Read in the site's [Berean text](../../../../data/plain/bsb/) on 2026-10-30, with the verses checked by script: Colossians, 1 Peter, 2 Timothy, 1 Thessalonians, Philippians, Ephesians, 1 Corinthians, 2 Corinthians and the verses cited from Acts, Revelation, Galatians, Matthew, Titus, James, 1 Timothy and John. Every block quotation is the whole Berean text of its reference. The 2026-10-13 draft quoted the King James; that wording is gone, and "Meekness and fear" became "Gentleness and respect" because the first was King James wording.
+
+Commentators read, these comments only: Calvin on Colossians 4:3 and 4:6, Philippians 1:15–18, 1 Peter 2:12 and 3:15–16, and 2 Timothy 2:25; Jamieson, Fausset and Brown on Colossians 4:3 and 4:6, 1 Peter 2:12 and 3:15, and Revelation 3:8. Both are public domain. Calvin is labelled as not a Baptist where he bears on election. No Baptist commentator on these verses was read, and the page says so where it matters.
 
 ## Passage map
 
-| Unit | Readings | Context preserved |
+The readings follow the order of Colossians 4:2–6, so the map of the page is the paragraph itself.
+
+| Reading | Passages | Context preserved |
 | --- | --- | --- |
-| Ready to answer | 1 Peter 3:13–17; 2 Corinthians 4:1–7 | Hope under possible suffering, conscience and conduct; honest ministry, Christ proclaimed, divine power |
-| Meekness and fear | 1 Peter 3:13–17; 2 Timothy 2:22–26 | Manner of response, patient teaching, avoiding quarrels, repentance attributed to God |
-| Speech with grace | Colossians 4:2–6 | Prayer, clear proclamation, wise conduct toward outsiders and fitting answers |
-| Conduct that commends | 1 Peter 2:11–17; 1 Thessalonians 4:9–12 | Accusations and good works, public honour, brotherly love, quiet responsibility |
-| Courage | Philippians 1:12–30 | Imprisonment and gospel advance, mixed motives, Christ magnified, service, communal steadfastness |
-| Prayer for open doors | Colossians 4:2–6; Ephesians 6:18–20; 1 Corinthians 3:1–9 | Opportunity and clarity, boldness while in bonds, servants' work and God's increase |
+| 01 Prayer for a door | Colossians 4:2–4; Ephesians 6:18–20; 1 Corinthians 3:5–9 | Opening and clarity asked for separately; a man in chains asking help; Corinthian rivalry as Paul's first point |
+| 02 Courage in chains | Philippians 1:12–30 | What happened in his case; mixed motives not approved; courage shared, not lone |
+| 03 Conduct toward outsiders | 1 Peter 2:11–17; 1 Thessalonians 4:9–12 | Slander not promised to stop; work as part of witness and no replacement for words |
+| 04 Speech with grace | Colossians 4:5–6 | Answering each person; salt read with grace first; redeeming the time without forcing |
+| 05 Ready to answer | 1 Peter 3:13–17; 1 Peter 1:3–4; 2 Corinthians 4:1–7 | Hope under suffering; the hope has a name; honest means |
+| 06 Gentleness and respect | 1 Peter 3:15–17; 2 Timothy 2:22–26 | Manner as part of the command; Timothy's teaching duty kept as his |
 
 ## Interpretive boundaries
 
-- **Answering hope:** 1 Peter 3:15 is read in its suffering-and-conduct setting. It is not reduced to a command to win debates or possess an immediate answer to every objection.
-- **KJV wording:** the full quotation retains “sanctify the Lord God.” No unannounced substitution from another translation occurs. “Meekness and fear” is explained as gentleness and reverent seriousness without claiming to resolve every question about the reference of fear.
-- **Timothy's setting:** the passage concerns a teacher's responsibility toward opposition. Application to ordinary conversations is identified; a sincere questioner is not automatically placed in the category of an opponent or labelled spiritually captive.
-- **Salt:** the draft avoids choosing one exhaustive meaning for the metaphor or turning it into permission for sarcasm. Grace and answering each person remain the explicit anchors.
-- **Conduct:** “conversation” in the KJV passages concerns manner of life. Good conduct is not a guarantee of approval or a substitute for speaking when an explanation is asked for. The timing and meaning of 1 Peter 2:12's visitation are not settled.
-- **Public obligations:** the fuller discussion of authority remains in item 05. This study does not infer unconditional approval of every authority from the assigned reading.
-- **Courage:** Paul's reported gospel advance in imprisonment is not made a universal forecast about suffering. His rejoicing that Christ is proclaimed does not endorse envy, manipulation or false teaching. Hope in death is kept within his account of Christ and continued service, not presented as an invitation to seek death or danger.
-- **Growth:** 1 Corinthians 3 addresses factional loyalty around leaders. Its application to the limits of persuasion is stated as an application, not substituted for the immediate argument.
-- **Divine agency:** the draft retains repentance as God's gift in 2 Timothy and God giving growth in 1 Corinthians without resolving denominational accounts of conversion or freedom. It neither guarantees a response nor treats patient labour as pointless.
-- **Honest means:** 2 Corinthians 4 explicitly rejects deceit. Modern applications about acknowledging uncertainty, listening and avoiding pressure follow that concern without being presented as direct quotations.
+- **Whose part is whose.** Every sort of a phrase is this study's judgment, and the page says so. It sorts ten passages and is no rule for all of Scripture: 1 Corinthians 9:22, 1 Timothy 4:16 and James 5:20 speak of a person saving someone, and 2 Corinthians 4:4 and 2 Timothy 2:26 name another hand. "Asked" and "hoped" are marked so that a request is not read as what God will do in a given case.
+- **Article 11 governs the tone.** The Baptist Faith and Message calls witness in words the duty of every child of God. The draft's softer lines stayed only as manner, never as permission for silence. Conduct does not replace speech, and 1 Peter 3:1–2 is kept to the home it describes.
+- **Colossians 4 is Paul's request.** Taking it for the reader's own door is labelled as application. The paragraph does not contain the word gentle, and courage appears in it only as chains. The build confirms both.
+- **The doors are not one door.** Acts 14:27 is faith for those who hear; 1 Corinthians 16:9 and 2 Corinthians 2:12 name no opener; Colossians 4:3 is only asked for; Revelation 3:8 does not mention witness. The prison doors of Acts 16:26 are tied to an earthquake, and the page does not call them a door for the word.
+- **Respect and the door.** On what the door is, Calvin and Jamieson-Fausset-Brown differ; the page follows an opening to speak and leaves the form with God. On respect toward whom, it reads both, with reverence for Christ beneath.
+- **The day He visits.** Calvin reports the last-coming reading and takes a day of grace. The page follows the day of grace and does not press it.
+- **Mixed motives.** Paul rejoices that Christ is preached. He does not approve envy, and Galatians 1:8 stands against any idea that any message is welcome.
+- **Election.** Baptists differ on the details and the site does not choose. The Abstract of Principles (1858), the New Hampshire Confession (1833) and a 2012 statement are shown, all keeping the call to preach. Article 5's phrase on means is the common ground stated.
+- **Safety.** Courage is no call to stay in danger one could leave. 1 Peter 3:1–2 does not tell anyone to stay where they are being harmed. These are the site's own sentences and need the owner's reading.
+- **Authorities.** 1 Peter 2:13–17 is passed to [Faith in daily life](../faith-in-daily-life/content.md), with a note that nothing here says every authority is to be obeyed in everything.
+- **Timothy.** Most people who ask a question are not opponents. The page says so.
 
-## Connections and review decisions
+## Connections
 
-**03 Faith under pressure** develops suffering and persecution more broadly. **04 Prayer in the letters** develops whole prayers and intercession. **05 Faith in daily life** addresses public and ordinary conduct. **06 Learning to discern** addresses examining a claim, while this study addresses explaining belief and responding to someone else. **08 Freedom that serves** develops restraint for the gospel's sake.
+**03 Faith under pressure** develops suffering. **04 Prayer in the letters** develops whole prayers. **05 Faith in daily life** carries ordinary conduct and authorities. **06 Learning to discern** examines a claim, while this study answers a person. **10 Returning and restoring** takes correction inside the church. **19 The cross and resurrection**, **20 Jesus in the letters** and **24 Grace, faith and salvation** carry the message itself.
 
-**10 Returning and restoring** will develop patient correction within the community. **19 The cross and resurrection**, **20 Jesus in the letters** and **24 Grace faith and salvation** will provide fuller treatment of the message itself. Those doctrinal studies should not be replaced by communication advice here.
+## Checked and not checked
 
-Possible later addition: an example answer about Christian hope linked to the completed Christ studies. Avoid a mandatory script or an invented exchange with a caricatured unbeliever. All six present content units are complete, each with readings, explanation, questions and reflection.
+The build refuses the page if a block quotation differs from the Berean, a reference does not resolve, or a quotation is not in a reference of its paragraph, one paragraph of its named source, or the named confession list. The commentary files are checked whole, so a quotation from another comment in the same file would pass; the wording was compared against the comments named above when it was chosen.
 
-No artwork, layout, navigation or website implementation is included.
+Three phrases from the Baptist Faith and Message, from Articles 5 and 11, are not in a file the build reads. They were compared on 2026-10-30 through a web tool that returns extracts, and someone should compare them by eye before release. The 2012 statement was seen only in a reprint through the same tool, Articles 5, 6 and 10; it is told in this site's words, its authors hold the rights, and its full text and its critics were not read.

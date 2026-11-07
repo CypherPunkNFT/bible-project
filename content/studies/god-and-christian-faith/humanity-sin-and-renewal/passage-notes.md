@@ -1,48 +1,34 @@
-# Humanity sin and renewal passage notes
+# Humanity, sin and renewal passage notes
 
-**Item 29 · First-draft notes · 2026-10-13**
+**Item 29 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings
 
-Read local KJV: Genesis 1:26–31; Genesis 3:1–24; James 3:8–12; Romans 3:9–26; Romans 5:12–21; Colossians 3:1–17; 1 Corinthians 6:12–20; Romans 8:18–25.
+Read in the Berean, from the site's own copy: Genesis 1:26–31; James 3:8–12; Genesis 3:1–24; Romans 3:9–26; Romans 5:12–21; 1 Corinthians 15:22; Colossians 3:1–17; 1 Corinthians 6:12–20; Romans 8:18–25. Each block quotation and quoted phrase is checked against this text by [build-data.py](../../../../design/humanity-sin-and-renewal-directions/build-data.py).
 
-Six full-verse quotations: Genesis 1:27; Genesis 3:10; Romans 3:23; Romans 5:19; Colossians 3:10; Romans 8:23. Explanation and application are editorial writing.
+## Sources, and how far each was read
 
-| Division | Context retained |
-| --- | --- |
-| Image | Male and female, blessing, responsibility and good creation; James's rejection of cursing image-bearing people. |
-| Fall | Serpent's challenge, eating, shame, hiding, explanations, judgment, clothing and guarded access to life. |
-| Accountability | Jews and Gentiles under sin, speech and conduct, law's exposure of sin, justification by grace. |
-| Adam and Christ | Entry of sin and death, offence/gift, condemnation/justification, disobedience/obedience, abounding grace. |
-| Renewal | Life with risen Christ, old deeds put away, new humanity, mercy and forgiveness in one body. |
-| Embodied hope | Body belongs to the Lord, resurrection, Spirit's presence, present groaning and patient expectation. |
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Humanity, sin and renewal mock-up", and at the foot of the page.
 
-## Attributed doctrinal sources
-
-Consulted 2026-10-13:
-
-- [Westminster Confession, OPC edition](https://opc.org/wcf.html), 6.2–5 and 9.3–4: imputed guilt, conveyed corruption, inability to self-convert and renewal through grace. The draft describes this specified Reformed account rather than all Protestant readings.
-- [Catholic Catechism, The Fall](https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_one/article_1/paragraph_7_the_fall.index.html), 404–406: original sin as inherited deprivation, distinguished from personally committed wrongdoing, wounded nature, and necessary divine grace. Do not portray this as denial of original sin or unaided self-salvation.
-
-These are examples, not an exhaustive Catholic, Orthodox, Reformed, Wesleyan and other comparison. The differences are genuine; terms must be explained within their own doctrinal accounts. Detailed conclusions about freedom require broader arguments than these summaries.
+- **Read directly and quoted (public domain):** Boyce, his chapters on the image and on the imputation of Adam's sin, in part; the Second London Confession 6.3; the Abstract of Principles, its article on the fall; Calvin on Genesis 1:26 and 9:6; Henry on Genesis 3:15; Westminster 6.3; Trent's decree on original sin; the Longer Catechism, question 168.
+- **Told in this site's words, not quoted (rights restricted):** the 2012 Traditional Statement, Article 2, seen only as an extract returned by a search tool. Its full text should be read before release.
+- **Short phrases only:** the Baptist Faith and Message 2000, Articles 3, 4 and 15, compared through a web tool that returns extracts and in the site's doctrinal foundation file.
+- **Not read:** any writer who argues that the image is the charge to rule, so the page reports only the join in Genesis 1:26 and says so. Critics of the 2012 statement, whose objection the first plan mentioned, were not read and the sentence was removed. No modern Baptist theologian beyond these.
 
 ## Interpretive limits
 
-1. **Image:** the draft identifies dignity from the text's application to humanity without claiming a single exhaustive definition of image or likeness. It does not make mental ability, independence, achievement or strength the condition of dignity.
-2. **Creation:** Genesis 1's male/female and responsibility language is retained. Scientific chronology, human origins and a full ecological or political ethic are outside this reading.
-3. **James:** the ongoing appeal to God's likeness supports the rejection of contempt after the garden narrative. It does not erase accountability or imply that all conduct is good.
-4. **Genesis 3:** the text's serpent is named as the serpent; no unsourced animal identification is given. Fruit is not called an apple. The chapter's consequences are not treated as a command to inflict domination or pain on others.
-5. **Clothing:** the provision is reported without asserting an unmentioned sacrifice or a fully specified atonement typology. Genesis 3:15's reception is not developed here; a later expansion should distinguish narrative wording from subsequent Christian readings.
-6. **Romans 3:** universal accountability must not become ethnic disparagement or a claim that every person commits every listed wrong to the same degree. Paul's turn toward grace remains part of the reading.
-7. **Romans 5:** do not infer a biological transmission mechanism or settle the disputed syntax of 5:12. Preserve receiving grace in verse 17 alongside the paragraph's all/many language; the draft does not use the comparison alone to settle universal salvation.
-8. **Original sin:** distinguish Adam's act, personal acts, inherited condition, guilt and corruption when comparing sources. No claim about a particular infant's destiny is made.
-9. **Colossians:** mortifying sinful practices is not physical self-injury. The renewal commands are grounded in life with Christ; bodily existence itself is not equated with evil. The statement of unity is not used to deny every cultural or social distinction in lived experience.
-10. **Embodiment:** 1 Corinthians 6 concerns sexual conduct and belonging to Christ. Broader health, disability or appearance judgments should not be read into the argument. Its exact textual variants are not at issue because no disputed verse is quoted or used as the sole basis of a claim.
-11. **Suffering:** Romans 8 names believers with the Spirit as still groaning. Do not infer that illness or disability reveals personal moral failure. Detailed medical advice is outside the study.
-12. **Hope:** resurrection and creation's renewal are introduced from these passages; item 30 supplies the fuller account of final hope and differing eschatological readings.
-
-## Connections and review
-
-[A new creation](../../christian-life/a-new-creation/content.md) develops changed practices. [Grace faith and salvation](../grace-faith-and-salvation/content.md) develops justification and faith. [The Holy Spirit](../the-holy-spirit/content.md) develops new life and indwelling. [What the cross accomplishes](../what-the-cross-accomplishes/content.md) develops saving death and renewal's basis.
-
-The draft has six sections, twelve subdivisions and six quotations for verification. See [working notes](working.md). First content draft for review, not final-copy approval. No design or site work is included.
+1. **Coverage:** a selection. The making of the woman, the flood, Romans 7 and 1 Corinthians 11:7 are named and not walked. How long ago and by what steps God made the world is not handled, because the confession does not fix a timeline and Baptists differ.
+2. **Image:** no verse defines it. Boyce and Calvin are reported, not chosen between. Genesis names who bears it first.
+3. **Honouring and approving:** kept apart. James calls cursing wrong in the same breath, and Genesis 9:6 is a verse about murder.
+4. **Genesis 3:** no apple, and nothing built on why God used skin. The order of questions and the order of words spoken are a layout of what the text says. It is not a ranking, and the figure says so.
+5. **Genesis 3:15:** reported as a reading, with Henry named, and said not to be spelled out in the verse. Romans 16:20 uses the same picture and does not quote it.
+6. **Genesis 3:16:** what the fall brought. No licence for cruelty and no picture of what a marriage is for. Sent on to Article 18 and Faith in daily life.
+7. **Romans 3:** "worthless" describes what people have made of their lives, and is not God's estimate of what they are worth to Him. The verdict falls on all, and the gift reaches "all who believe" (Romans 3:22). Paul's quotations are not always word for word, and Romans 3:10 is close to Ecclesiastes 7:20. Not every person commits every wrong to the same degree.
+8. **Romans 5:** Paul traces sin and death to one man. The page reads Adam as one man with a place in history. It does not say he was our representative in the site's voice, because the confession does not. The disputed wording at the end of Romans 5:12 carries nothing. "All men" is not universal salvation (Romans 5:17 and Article 4).
+9. **How sin reaches us:** Article 3 is the site's voice. Whether Adam's own guilt is counted as ours is left open between Boyce and the 1677 confession, the 1858 Abstract, and the 2012 statement. The fate of those who die before moral action is left open, as the confession leaves it.
+10. **Other traditions:** labelled as theirs. The Baptist disagreement with Trent on baptism is stated, under Article 7's teaching, with Romans 6:4.
+11. **Colossians:** "Put to death" is no call to harm the body, and the page says what to do if someone is thinking of it. Clothes linking Genesis 3 and Colossians is this study's picture, in English, and Paul does not cite Genesis.
+12. **1 Corinthians 6:** about what a person chooses. What was done to someone against their will is not their sin, and the passage does not call them defiled.
+13. **Illness and disability:** no evidence of greater sin (John 9:3). Having the Spirit does not mean the suffering has stopped.
+14. **The figures:** the line's height is what a passage is mostly about, and is not anyone's worth. The Romans 5 step is one fixed size and no ratio. The image drawings show no amount of anything. Only Romans 6:13 joins the two uses of the body, and every other pairing is this study's, in English only. No check was made in Hebrew or Greek.
+15. **God and Christ are not drawn.** The human outline is plain with no face, and the Christ stage on the image thread draws light alone.

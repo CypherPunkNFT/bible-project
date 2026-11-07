@@ -1,55 +1,47 @@
 # Prayer in the letters passage and editorial notes
 
-Content pass, item 04. [Reader-facing draft](content.md); [original outline](working.md). All six proposed themes are developed. This is a first draft for review, not approved final copy.
-
-## Purpose and reader scope
-
-Help a general reader understand what the letters request for believers and how prayer connects to the argument and relationships in each letter. Central question: what do the writers ask God to give their readers, and why? This is a focused introduction, not a comprehensive inventory of New Testament prayer or an account of every question about unanswered prayer.
+Working notes for [the reader-facing text](content.md). Rewritten 2026-10-30 from the Berean Standard Bible for the mock-up (the King James draft of 2026-10-13 is in git history). Built page: [the mock-up and its record](../../../../design/prayer-in-the-letters-directions/README.md).
 
 ## Source basis
 
-Read and checked against the repository KJV on 2026-10-13: [Ephesians](../../../../data/plain/kjv/EPH.json), [Philippians](../../../../data/plain/kjv/PHP.json), [Colossians](../../../../data/plain/kjv/COL.json), [1 Thessalonians](../../../../data/plain/kjv/1TH.json), [2 Thessalonians](../../../../data/plain/kjv/2TH.json), [1 Timothy](../../../../data/plain/kjv/1TI.json).
+Every passage was read in the site's Berean files, [data/plain/bsb/](../../../../data/plain/bsb/). The build checks every block quotation and every quoted phrase against the reference that belongs to it. That proves the words are there. It does not prove a reading is right. Attribution to Paul follows the letters' own words; questions of authorship are outside this study.
 
-Block quotations reproduce KJV verses. Explanations and applications are editorial prose. Attribution to Paul follows the letters' self-presentation; questions about authorship are outside this study's scope.
+## Passage map
 
-## Passage map and content boundaries
+| Reading | Passage | What it contributes | Where it arrives, in this study's cut |
+|---|---|---|---|
+| Wisdom and understanding | Ephesians 1:15–23 | Knowing God; hope, inheritance, power | "the fullness of Him who fills all in all" (1:23) |
+| Strength within | Ephesians 3:14–21 | Inner strength, Christ dwelling, love, fullness. No thanks in these verses | "to Him be the glory" (3:21) |
+| Growing in love | Philippians 1:3–11 | Love with insight | "to the glory and praise of God" (1:11) |
+| Growing in love | 1 Thessalonians 3:9–13 | A road to them, love overflowing, hearts established | "at the coming of our Lord Jesus" (3:13) |
+| A worthy walk | Colossians 1:3–14 | Knowledge of His will, a worthy walk, endurance | "giving thanks to the Father" (1:12); the passage runs on into what the Father has done |
+| A worthy walk | 2 Thessalonians 1:3–12 | Prayer under persecution | "the grace of our God" (1:12) |
+| Thanksgiving | Philippians 1:3–11; Colossians 1:3–14 | The same two passages again, with only the thanks picked out | |
+| Prayer for others | 1 Timothy 2:1–6; Ephesians 6:18–20; Colossians 4:2–6 | Instructions to pray and requests for prayer, kept apart from reported prayers | |
 
-| Theme | Whole reading | Context and emphasis |
-| --- | --- | --- |
-| Wisdom and understanding | Ephesians 1:15–23 | Thanksgiving for faith and love; knowing God, hope, inheritance and power; Christ's resurrection and exaltation |
-| Strength within | Ephesians 3:14–21 | Prayer to the Father for strength through the Spirit, Christ dwelling through faith, love and fullness; concluding praise |
-| Growing in love | Philippians 1:3–11; 1 Thessalonians 3:9–13 | Affection and thanksgiving frame requests for discerning love, righteousness and holiness at Christ's coming |
-| A worthy walk | Colossians 1:3–14; 2 Thessalonians 1:3–12 | Knowledge directed toward conduct, patience and gratitude; grace and divine action; persecution and future judgment in the Thessalonian setting |
-| Thanksgiving | Philippians 1:3–11; Colossians 1:3–14 revisited | A deliberate second reading of complete prayers, comparing grounds of gratitude rather than repeating their full exposition |
-| Prayer for others | 1 Timothy 2:1–6; Ephesians 6:18–20; Colossians 4:2–6 | Instructions and requests for prayer, distinguished from reported prayers; wide concern, gospel speech and associated conduct |
+To try unaided: Romans 15:5–6, Romans 15:13 and Hebrews 13:20–21, which never says "so that" in the Berean.
 
-The initial outline raised whether complete prayers should replace themes as the organization. This draft retains the six accepted working themes but assigns whole readings to each. Colossians 1 receives its main treatment under A worthy walk; Thanksgiving revisits existing readings explicitly. This is a content decision only, with no navigation or presentation implied.
+## The new shape
+
+The draft's design kept the prayer whole with adjacent notes. That stays. Its added habit, following a request to its "so that", is what the page now teaches. Five of the draft's kinds of mark were first planned and then dropped in review, because Faith under pressure already marks passages that way. Each passage is instead broken into lines at phrase boundaries, with labels Thanks, Asks, So that and Arrives at. "For whom" and "What gives confidence" are written beside the passage.
 
 ## Interpretive boundaries
 
-- Ephesians 1:17: preserve the KJV wording “the spirit of wisdom and revelation.” The draft does not resolve whether the phrase should be rendered with a capital S or reduce revelation to private guidance about decisions.
-- Ephesians 1:18: keep the language of God's inheritance in the saints without settling every interpretation of the phrase.
-- Ephesians 3:18–19: do not invent separate meanings for each dimension or claim believers can exhaust Christ's love. The communal phrase “with all saints” remains important. Fullness is not explained as becoming God.
-- Ephesians 3:20 is read with the prayer before it; divine ability is not converted into a guarantee that any particular ambition will succeed.
-- Philippians 1:9: “judgment” is explained as discernment in the context of approving what is excellent. The wording is retained in the quotation.
-- The future horizon of Philippians and Thessalonians remains explicit without selecting an end-times chronology.
-- A worthy walk is related to grace and God's saving action, not presented as purchasing acceptance. Colossians 1:12 “made us meet” means made fit or qualified; its explanation is a paraphrase, not a substituted quotation.
-- Second Thessalonians 1:3–12 is included as a whole reading so the prayer's setting in persecution, judgment and promised rest is visible. The short exposition does not settle the chapter's debated eschatological details.
-- First Timothy 2:1–6 retains the breadth of prayer and the passage's stated saving concern. It does not resolve debates over the scope of “all,” election or the atonement, or infer that all are ultimately saved.
-- Prayer for rulers does not establish endorsement of their conduct. This application is distinguished from the text's stated aims.
-- The samples concentrate on growth and intercession. This selection does not imply that material needs, healing, lament or other scriptural prayer subjects are illegitimate.
+- **Requests about circumstances.** The page says plainly that they are not lesser prayers, with Philippians 4:6, James 5:14, Matthew 6:11 and 3 John 1:2. Its claim is smaller: even a road or a door has a purpose named.
+- **Prosperity.** Ephesians 3:20 is not read as a promise of whatever is named. 3 John 1:2 is a greeting to one friend. The site teaches no promise of health, wealth or success in return for faith.
+- **Unanswered prayer.** 2 Corinthians 12:7–10 is read as a no the letters report. It is not used to explain any reader's case, and the thorn is not identified. A care note tells the reader to keep praying and keep seeing a doctor.
+- **"A spirit of wisdom".** Read of the Holy Spirit's own work, with Calvin, Barnes and Jamieson-Fausset-Brown. No Greek was compared, and no writer holding another view was looked for. The page says so.
+- **"Everyone" in 1 Timothy 2:4.** Articles 4 and 5 set the limits: not all saved regardless, and no narrowing of who is invited. Past that the page does not choose. Boyce, the 2012 statement, Calvin and Wesley are shown.
+- **The one mediator.** Asking the living to pray does not put them between anyone and God. Trent is shown as Catholic teaching. The site's voice says Baptists do not ask the dead to pray for them.
+- **Rulers.** Praying is not approving. No party or policy is chosen. Article 17 gives the limit on obedience.
+- **"All the fullness of God".** Not explained as becoming God. The four dimensions in Ephesians 3:18 are given no separate meanings.
+- **Vengeance and persecution.** 2 Thessalonians 1:6 is God's to do, with Romans 12:19. A care note says enduring does not mean staying where you can get to safety.
+- **Coming of Christ.** No order of end-time events is selected.
 
-## Connections to the queue
+## The lists
 
-- **02 Life together:** communal care and mutual responsibility; here the focus is prayer for a community.
-- **03 Faith under pressure:** anxiety and prayer already receive their own treatment; do not repeat that section here.
-- **06 Learning to discern** and **07 Growing in maturity:** develop the conduct for which these prayers ask.
-- **09 Bearing witness:** develops gracious speech and proclamation; this study retains the requests for prayer.
-- **22 Father, Son and Holy Spirit** and **23 The Holy Spirit:** can examine doctrinal implications more fully. Here the prayers' language about Father, Son and Spirit remains visible.
-- **32 Letters and their message:** supplies fuller book context when developed.
+[study_lists.py](../../../../design/prayer-in-the-letters-directions/study_lists.py) holds the 12 passages and their labelled phrases, the 6 columns, the 3 circumstances, the 6 older lines and the sources. Each phrase is checked against its verse by the build. Which label goes on which phrase is this study's judgment.
 
-## Review questions and completion
+## Boundaries with later studies
 
-All six content units include whole-passage readings, explanation, questions and a labelled reflection. No original theme was discarded. A future revision could add a separate passage inventory covering Romans 15:5–6, 13, Hebrews 13:20–21 and other prayers, but those are not claimed as developed here. The present draft is intentionally selective.
-
-Owner review may refine the thematic titles or choose complete-prayer titles instead. That is an editorial choice, not a blocker to this first draft. No site design, artwork, routes or implementation is included.
+Praying through the Psalms: Praying the Psalms. The Spirit's work more widely: The Holy Spirit. Discernment: Learning to discern. Sustained growth: Growing in maturity. Enduring: [Faith under pressure](../faith-under-pressure/content.md). Speaking of Christ: [Bearing witness](../bearing-witness/content.md). Philippians 4:6–7 and anxious prayer belong to a study of their own.

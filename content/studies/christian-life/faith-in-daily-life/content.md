@@ -1,169 +1,261 @@
 # Faith in daily life
 
-At home. In our work. With what we have.
+Concepts: Home · Work · Money · Table · Street · Conscience
 
-> Love worketh no ill to his neighbour: therefore love is the fulfilling of the law.
+Motto: A door. A bench. A bowl. / Each one before the Lord.
 
-Romans 13:10 · KJV
+Lead: The letters were written to people with spouses, children, masters, debts, guests and neighbours. They do not only say what to do. Read closely, and the sentence often tells you why: because of the Lord, or for the good of the person in front of you. This study walks six everyday places and teaches you to ask each instruction that one question.
 
-The letters connect faith with familiar responsibilities: caring for a household, working honestly, sharing possessions, welcoming others and living among neighbours. Their instructions often include a reason. Believers belong to the Lord, have received grace, and are called to seek another person's good.
+> Love does no wrong to its neighbor. Therefore love is the fulfillment of the law.
 
-These passages address actual communities and relationships. Some settings are familiar; others, including slavery, must not be treated as though they were the same as our own. Begin with what the passage says to its first recipients, then consider what faithfulness calls for in the responsibility before you.
+Romans 13:10 · BSB
+
+Frame: These passages were sent to real communities. Some of their settings are like yours; others, above all slavery, are not, and must not be quietly treated as if they were. So begin with what the passage said to the people who first heard it. Only then ask what faithfulness looks like in the responsibility before you.
+
+Selection: This is a selection, not a census. These six places were chosen because the letters return to each of them and because together they cover home, work, possessions, guests, public life and disputes between believers. Other lists differ: the household instructions also appear in Titus 2:1–10 and 1 Peter 2:18–3:7, which this study does not walk, and illness, old age, widowhood and unpaid care have no reading of their own here.
 
 ## 01 Marriage and family
 
-**Read:** Ephesians 5:21–6:4; Colossians 3:18–21.
+Slug: home
+
+Hook: Everyone in the house is spoken to. Nobody is only spoken about.
+
+Line: Husband, wife, child and parent each hear their own instruction, and each hears the reason.
+
+Read: Ephesians 5:21–6:4; Colossians 3:18–21
+
+Says: Wives are to submit to their husbands; husbands are to love their wives as Christ loved the church; children are to obey; fathers are not to provoke.
+
+Setting: Letters written to be read out in the churches (Colossians 4:16), so each person could hear the instruction given to the others. The marriage paragraph is shaped throughout by Christ and the church.
+
+Respond: Look at one responsibility that is yours at home, and begin with your own conduct rather than a demand on someone else.
 
 ### Love and responsibility
 
-Ephesians places its household instructions after the call to submit to one another in the fear of God. It addresses wives concerning submission to their husbands and addresses husbands concerning love, taking Christ's self-giving love for the church as its pattern. It speaks of nourishing and cherishing, of marriage as one flesh, and of love and respect. The comparison with Christ and the church is central to the paragraph. — Ephesians 5:21–33
+Notice who is addressed. Paul does not tell husbands to make their wives submit, or wives to make their husbands love. Each person is handed their own instruction, and it is given in front of the others. Paul opens with submission to one another out of reverence for Christ (Ephesians 5:21), then speaks to wives and husbands in turn: wives are to submit as to the Lord, because the husband is the head of the wife as Christ is the head of the church; husbands are to love as Christ loved the church and gave himself up for her (Ephesians 5:22–33).
 
-> Husbands, love your wives, even as Christ also loved the church, and gave himself for it;
+> Husbands, love your wives, just as Christ loved the church and gave Himself up for her
 
-Ephesians 5:25 · KJV
+Ephesians 5:25 · BSB
 
-Christians differ over how the language of headship and submission applies to the roles of husbands and wives today. Some understand it to establish distinct responsibilities of leadership and submission; others understand the paragraph through mutual submission and shared responsibility. Those differences deserve fuller discussion than a short application can provide. The commands to love, cherish and respect must remain visible in either reading.
+Paul's reason for this reaches back to the beginning. He quotes Genesis 2:24 on the two becoming one flesh, and says the mystery concerns Christ and the church (Ephesians 5:31–32). Marriage, on this reading, is not an arrangement people invented. The Baptist Faith and Message, the confession this site writes under, calls it "the uniting of one man and one woman in covenant commitment for a lifetime", and holds husband and wife of equal worth before God, the husband to love and lead his family and the wife graciously to submit to his servant leadership (Article 18).
 
-Colossians explicitly tells husbands to love their wives and not be bitter toward them. These instructions should not become tools for demanding another person's compliance while overlooking one's own conduct. Neither love nor respect provides a justification for cruelty or coercion. — Colossians 3:18–19
+[care] How does verse 21 fit with what follows? This is the hard question in the passage, and this is the reading this site follows, with its reason from the text. Verse 21 calls all believers to submit to one another; verses 22 to 33 then speak to wives and husbands differently, and the two instructions are not exchanged. Colossians 3:18–19 gives the same two instructions without the sentence about one another, which suggests they are not simply a restatement of it.
+
+[source:calvin-eph] Calvin reads verse 21 as a real and universal duty, "mutual subjection", then says Paul "comes now to the various conditions of life", beginning with the "yoke of marriage". So the general call and the particular callings stand together.
+
+[source:gill] John Gill, an eighteenth-century Baptist pastor, keeps the limit and the tone in view. A wife's submission is "not in anything that is contrary to the laws of God and Christ; for God is to be obeyed rather than men", and it "is not a servile one".
+
+[other] Some Christians read this differently. They take verse 21 to govern everything after it, so that husband and wife lead and submit alike and headship carries no distinct responsibility of leading. That view is theirs, and it is not the view of the confession this site writes under. This draft has not yet read a named source arguing it, so it quotes none.
+
+Colossians adds one plain command: husbands are not to be harsh with their wives (Colossians 3:19). This passage can never be a licence for cruelty. Gill says that "bitter language, threatening words, sour looks, and especially bitter blows" are "cruel, churlish, barbarous, and brutish, unbecoming the man and the Christian". If someone at home is hurting you or you are afraid, getting to safety and asking for help does not disobey these verses; if you are in danger now, contact your local emergency services. Those last words are this site's application, not a quotation from Paul, and this study is not professional guidance.
 
 ### Children and those bringing them up
 
-Ephesians instructs children to obey their parents in the Lord and recalls the command to honour father and mother. It also addresses fathers: they must not provoke their children to wrath, but bring them up in the Lord's instruction. Colossians names discouragement as a consequence fathers are to avoid. The child's responsibility does not remove the adult's responsibility for how authority is exercised. — Ephesians 6:1–4; Colossians 3:20–21
+Children are told to obey their parents in the Lord, and Paul quotes the commandment to honour father and mother with its promise (Ephesians 6:1–3, quoting Exodus 20:12). Then he turns straight to the adult: fathers are not to provoke their children to wrath, but to bring them up in the discipline and instruction of the Lord (Ephesians 6:4). Colossians gives a reason a parent can feel: so that they will not become discouraged (Colossians 3:20–21).
 
-These are instructions about particular relationships, not a statement that everyone must marry or have children to live faithfully. For those entrusted with children, a present application is to consider whether correction teaches patiently or merely expresses the adult's anger. The command to nurture calls for attention to the person being formed.
+The child's duty does not cancel the adult's. If children are in your care, you might ask whether your correction teaches patiently or only lets out your anger. That question is an application, not a command from Paul.
 
-**Consider:** What does each person receive as an instruction? What does the comparison with Christ contribute to the account of a husband's love?
+These instructions speak to people who are married or who have children. They do not say that everyone must marry or have children to live faithfully; Paul himself calls his unmarried life a gift (1 Corinthians 7:7–8).
 
-**Reflect:** Examine a responsibility that belongs to you within your household. Identify one concrete act of care, respect or patient instruction, beginning with your own conduct rather than a demand upon someone else.
+Look closely: What is each person told, and what reason is each one given? What does the comparison with Christ add to what a husband's love means?
+
+Your response: Name one act of care, respect or patient instruction that belongs to you at home. Begin with your own conduct.
 
 ## 02 Work and integrity
 
-**Read:** Ephesians 4:28; 1 Thessalonians 4:9–12; 2 Thessalonians 3:6–15. Read Ephesians 6:5–9 and Colossians 3:22–4:1 with their distinct setting in view.
+Slug: work
+
+Hook: A thief puts down what he stole, and picks up something to give.
+
+Line: Honest work is given a purpose beyond the worker: having something to share.
+
+Read: Ephesians 4:28; 1 Thessalonians 4:9–12; 2 Thessalonians 3:6–15; Ephesians 6:5–9; Colossians 3:22–4:1
+
+Says: Stop stealing and work, so as to have something to share; live quietly and earn your own living; slaves are to serve sincerely, and masters are to give up threats and do what is right and fair.
+
+Setting: Two different things. Some passages are about ordinary labour and provision. Others address slaves and masters in a world where people were owned, which is not the same as being employed.
+
+Respond: Take one task you can do with more honesty or care. If you direct other people's work, examine your own fairness first.
 
 ### Working so that we can share
 
-> Let him that stole steal no more: but rather let him labour, working with his hands the thing which is good, that he may have to give to him that needeth.
+> He who has been stealing must steal no longer, but must work, doing good with his own hands, that he may have something to share with the one in need.
 
-Ephesians 4:28 · KJV
+Ephesians 4:28 · BSB
 
-The change described here moves from taking another person's possessions to honest labour and the ability to give. Work is related to the good of someone in need. It is more than a measure of personal advancement.
+Follow the movement in that one sentence: from taking what is another person's, to honest work, to giving. The reason for the work is someone else's need.
 
-First Thessalonians places quiet work and attending to one's own affairs beside the call to increase in brotherly love. It connects these practices with conduct toward outsiders and provision for need. Second Thessalonians addresses people who will not work and instead become busybodies. Its wording concerns unwillingness; it does not identify every person without paid work as disobedient. — 1 Thessalonians 4:9–12; 2 Thessalonians 3:6–12
+First Thessalonians sets quiet work beside brotherly love, and gives its reason in how outsiders see believers (1 Thessalonians 4:9–12). Second Thessalonians speaks to people who will not work and have become busybodies. Paul's wording is "unwilling": "If anyone is unwilling to work, he shall not eat." It does not call every person without paid work disobedient, and it says nothing against those who cannot work (2 Thessalonians 3:6–12).
 
-The latter passage also tells the community not to grow weary in doing good, and to admonish a disobedient member as a brother rather than count him an enemy. Responsibility and the manner of correction both matter. — 2 Thessalonians 3:13–15
+Then the same passage guards the manner of correction. Do not grow weary in doing good. Do not associate with the one who will not obey, so that he may be ashamed, and yet warn him as a brother, not as an enemy (2 Thessalonians 3:13–15).
 
-### Reading the servant passages honestly
+### Reading the slavery passages honestly
 
-Ephesians and Colossians address servants and masters in a setting that includes bondage, not simply freely negotiated employment. Ephesians itself distinguishes bond and free. Replacing those relationships with employee and employer would hide a material difference in the passage. — Ephesians 6:5–9
+Ephesians and Colossians speak to slaves and masters. Do not read "employee" and "employer" here. Ephesians itself says "whether he is slave or free" (Ephesians 6:8), and swapping the words would hide what the passage is dealing with.
 
-The instructions call for sincere service rather than service performed only under observation. They also address masters: stop threatening, give what is just and equal, and remember that they too have a Master in heaven who shows no partiality. The passages regulate conduct within those relationships; they should not be used to endorse ownership of people. — Ephesians 6:6–9; Colossians 3:22–4:1
+[source:calvin-eph-slaves] Calvin saw this difference in the sixteenth century. Those addressed "were not hired servants, like those of the present day, but slaves".
 
-A present application to work can draw on honesty, fairness and accountability while acknowledging that it is an application across different circumstances. Authority does not exempt someone from moral responsibility, and the value of a person is not measured by earnings or status.
+The instructions ask for sincere service, not service only while being watched. They speak just as directly to masters: give up threats, supply what is right and fair, and remember that the same Master is over you both, with no favouritism (Ephesians 6:5–9; Colossians 3:22–4:1). These passages govern conduct inside an existing relationship; they must not be used to defend owning people. The same New Testament condemns slave traders (1 Timothy 1:10), and Paul sends Onesimus back to Philemon "no longer as a slave, but better than a slave, as a beloved brother" (Philemon 1:16).
 
-**Consider:** What purpose for labour appears in Ephesians 4:28? What obligations are placed on masters, and what would be lost by reading the passage only as advice to employees?
+Southern Baptists have reason to read this carefully. In 1995 the Convention named "the role that slavery played in the formation of the Southern Baptist Convention", acknowledged that many early Southern Baptists defended slave ownership, rejected slavery as a historic evil, and said "we genuinely repent of racism of which we have been guilty".
 
-**Reflect:** Consider one task or responsibility you can carry out with greater honesty or care. If you direct others' work, examine your own fairness and use of authority as well.
+Some of this does carry across to your work: honesty when no one is watching, fairness, and answering to God for how you use authority. That is this site's application across very different circumstances, and it is marked as one. So is this: your worth is not measured by your wage or your rank.
+
+Look closely: What purpose for work does Ephesians 4:28 give? What is demanded of masters, and what is lost if the passage is read only as advice to employees?
+
+Your response: Choose one task you can carry out with more honesty or care. If you direct others, examine how you use that authority.
 
 ## 03 Money and generosity
 
-**Read:** 2 Corinthians 8:1–15; 9:6–15; 1 Timothy 6:6–19.
+Slug: money
+
+Hook: The poorest churches begged for the privilege of giving.
+
+Line: Giving is measured by what you have, and aimed at someone's real need.
+
+Read: 2 Corinthians 8:1–15; 2 Corinthians 9:6–15; 1 Timothy 6:6–19
+
+Says: Give willingly, according to what you have; be content; if you are rich, do not trust in riches, and be generous and ready to share.
+
+Setting: A collection for needy believers, with the Macedonian churches giving out of deep poverty. First Timothy addresses both people who want to be rich and people who already are.
+
+Respond: Find one real need and decide what you can responsibly share.
 
 ### Giving from what we have
 
-Second Corinthians describes a collection to meet the needs of the saints. Paul commends the Macedonians' willing generosity amid poverty and urges the Corinthians to complete what they had begun. He places the appeal beside the grace of Christ, who became poor for their sake. — 2 Corinthians 8:1–11
+Paul tells of churches in "deep poverty" who pleaded for the privilege of sharing (2 Corinthians 8:1–5). He does not order the Corinthians to match them. He sets their gift beside the grace of Christ, who "though He was rich, yet for your sakes He became poor" (2 Corinthians 8:8–11).
 
-Willingness is accepted according to what a person has, not what they do not have. Paul says his purpose is not to relieve others by burdening the Corinthians; their present abundance can supply another community's lack, with the possibility of help flowing the other way. Giving concerns actual needs and available resources. — 2 Corinthians 8:12–15
+The measure is what a person has, not what they lack, and the aim is not to relieve some by burdening others (2 Corinthians 8:12–14). Then Paul quotes the story of the manna, where he who gathered much had no excess and he who gathered little had no shortfall (2 Corinthians 8:15, quoting Exodus 16:18).
 
-> Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.
+> Each one should give what he has decided in his heart to give, not out of regret or compulsion. For God loves a cheerful giver.
 
-2 Corinthians 9:7 · KJV
+2 Corinthians 9:7 · BSB
 
-The sowing and reaping language around this verse leads toward good works, generosity, needs being supplied and thanksgiving to God. It is not a quoted rate of financial return. The passage's purpose is obscured if giving becomes a transaction for getting rich. — 2 Corinthians 9:6–15
+[care] Paul's language of sowing and reaping is sometimes taught as a rate of financial return. Follow the sentences to where they actually go: God will "increase the harvest of your righteousness", you will be enriched "to be generous on every occasion", and the result is "thanksgiving to God" (2 Corinthians 9:10–12). Along the way he quotes Psalm 112:9 on the one who has "scattered abroad His gifts to the poor" (2 Corinthians 9:9). The harvest here is more generosity and more thanks, not private wealth. The confession speaks of stewardship: giving "cheerfully, regularly, systematically, proportionately, and liberally" (Article 13). It does not promise riches as a reward for faith, and neither does this passage.
 
 ### Where confidence rests
 
-First Timothy joins godliness with contentment and warns about the desire to be rich and the love of money. It then addresses people who already have wealth: do not be proud or place hope in uncertain riches, but in God; do good and be ready to share. The text challenges both the pursuit of wealth as security and the failure to use existing resources generously. — 1 Timothy 6:6–19
+First Timothy joins godliness with contentment and warns of what the desire to be rich does to people (1 Timothy 6:6–10). It then turns to those who already have wealth: do not be conceited, do not hope in uncertain riches but in God, do good, and be "generous and ready to share" (1 Timothy 6:17–19). Put in this site's words: contentment asks what you truly need, and generosity asks what you could give. The two belong together.
 
-The KJV's “willing to communicate” in verse 18 concerns sharing. In this setting, generosity is a practical use of possessions for another person's good. Contentment and generosity belong together: one questions what we must possess, and the other asks what we can give.
+Look closely: How does Paul connect willingness with a person's means? What results of giving does he name beyond the gift itself?
 
-**Consider:** How does Paul relate willingness to a person's means? What results of giving does he name beyond the gift itself?
-
-**Reflect:** Identify a real need and consider what you can responsibly share. Keep the recipient's good in view rather than using generosity as a display or a bargain for future wealth.
+Your response: Identify a real need and what you can responsibly share. Keep that person's good in view, not your own display or any bargain for later gain.
 
 ## 04 Hospitality
 
-**Read:** Romans 12:9–13; Hebrews 13:1–3; 1 Peter 4:8–11.
+Slug: table
+
+Hook: Some guests were more than they seemed.
+
+Line: Making room for people who might otherwise be overlooked, and doing it without complaint.
+
+Read: Romans 12:9–13; Hebrews 13:1–3; 1 Peter 4:8–11
+
+Says: Practise hospitality, do not neglect strangers, remember prisoners and the mistreated, and serve one another without complaining.
+
+Setting: Sincere love among believers; strangers and sufferers; each person's gifts used as a steward of God's grace.
+
+Respond: Think of one person who needs a welcome, and offer something modest that you can give willingly.
 
 ### Making room for others
 
-Romans connects hospitality with sincere love and meeting the needs of the saints. Hebrews places entertaining strangers beside continuing brotherly love and remembering prisoners and those who suffer. Hospitality is part of attention to people who may otherwise be overlooked. — Romans 12:9–13; Hebrews 13:1–3
+Romans sets hospitality among the marks of sincere love and meeting the needs of the saints (Romans 12:9–13). Hebrews puts welcoming strangers beside brotherly love and remembering prisoners "as if you were bound with them" (Hebrews 13:1–3). It adds that some "have entertained angels without knowing it" and does not say who; a reader may think of Abraham's visitors in Genesis 18:1–8, though Hebrews does not name them.
 
-The instruction does not describe an impressive household or elaborate entertainment. Its concern is welcoming and caring for people. A simple meal, a place in a conversation or practical help can express that concern; these are present applications rather than a list prescribed by the passage.
+None of these passages describes an impressive house or an elaborate meal. Their concern is the person welcomed. A simple meal, a place in the conversation or some practical help can all express it. Those examples are this site's, not a list from the text.
 
-### Without grudging
+### Without complaining
 
-> Use hospitality one to another without grudging.
+> Show hospitality to one another without complaining.
 
-1 Peter 4:9 · KJV
+1 Peter 4:9 · BSB
 
-First Peter places hospitality among love and service. What someone has received is to be used for others as a stewardship of God's grace, and service is to depend on the ability God supplies. Attention moves from the host's display to the good done and the glory given to God. — 1 Peter 4:8–11
+First Peter sets hospitality among love and service. Whatever you have received is for serving others, as a steward of God's grace, in the strength God provides, so that in all things God may be glorified (1 Peter 4:8–11). So attention moves away from the host. This site's application: a welcome that humiliates the guest, or keeps reminding them what it cost, has missed the point.
 
-The phrase “without grudging” invites examination of the spirit in which a welcome is offered. Hospitality that humiliates a guest or continually rehearses the host's sacrifice misses that concern. A thoughtful welcome considers what is helpful and what the host can genuinely offer.
+Look closely: Who receives particular attention in Hebrews? How does First Peter connect hospitality with other kinds of service?
 
-**Consider:** Which people receive particular attention in Hebrews? How does First Peter connect hospitality with other forms of service?
-
-**Reflect:** Think of someone who could benefit from welcome or practical care. Choose something modest and specific that you can offer willingly.
+Your response: Think of someone who could use a welcome or practical care. Choose something modest and specific that you can offer willingly.
 
 ## 05 Neighbours and authorities
 
-**Read:** Romans 12:14–13:10; 1 Peter 2:11–17. Compare Acts 5:27–29 for a specific conflict of commands.
+Slug: street
+
+Hook: Your enemy is hungry. What do you owe him?
+
+Line: Peace, taxes, honour and love for your neighbour, all under a God who is greater than any ruler.
+
+Read: Romans 12:14–13:10; 1 Peter 2:11–17; Acts 5:27–29
+
+Says: Bless persecutors; do not take revenge; submit to the governing authorities and pay what you owe; love your neighbour.
+
+Setting: Believers living under Roman rule, some of them slandered. Acts, a narrative rather than a letter, records one particular clash between a human order and God's command.
+
+Respond: Take one public responsibility and one person affected by how you carry it out, and ask what honesty and honour require.
 
 ### Peace and the good of a neighbour
 
-Romans calls believers to bless persecutors, share in others' joy and sorrow, avoid repaying evil with evil, and seek peace as far as it depends on them. It forbids personal vengeance and describes practical care even for an enemy in need. — Romans 12:14–21
+Romans tells you to bless those who persecute you, to weep with those who weep, and never to repay evil for evil. "If it is possible on your part, live at peace with everyone" (Romans 12:14–18). That qualification matters: you answer for your own conduct, and you cannot control every response. Revenge is ruled out because it is God's, and Paul quotes Deuteronomy 32:35 to say so. Then he quotes Proverbs 25:21–22: feed your enemy if he is hungry (Romans 12:19–21).
 
-The qualification concerning peace matters. A person is responsible for their own conduct but cannot control every response. Seeking peace involves truthfulness and doing good; it is not a claim that every conflict can be resolved by one person's effort.
-
-After addressing public authorities, Paul returns to love of neighbour. He names prohibitions against adultery, killing, theft, false witness and coveting, then explains that love does no harm to a neighbour. Love therefore has moral substance, not merely a friendly manner. — Romans 13:8–10
+After speaking of public authorities, Paul comes back to the neighbour. He lists commandments from Exodus 20:13–17 and gathers them under Leviticus 19:18: "Love your neighbor as yourself" (Romans 13:8–10). Love here has moral content. It is more than a friendly manner.
 
 ### Authority under God
 
-Romans 13 instructs submission to governing authorities, describes their responsibility in relation to good and evil, and calls for payment of what is due, including taxes and honour. First Peter similarly connects public conduct with doing good and service to God. — Romans 13:1–7; 1 Peter 2:11–17
+Romans 13 tells everyone to submit to the governing authorities, says they are appointed by God, and calls for paying taxes and giving honour where they are due (Romans 13:1–7). First Peter says the same "for the Lord's sake" (1 Peter 2:13–17).
 
-> Honour all men. Love the brotherhood. Fear God. Honour the king.
+> Treat everyone with high regard: Love the brotherhood of believers, fear God, honor the king.
 
-1 Peter 2:17 · KJV
+1 Peter 2:17 · BSB
 
-These passages should be read alongside the wider witness of Scripture. In Acts, the apostles refuse a command to stop teaching in Jesus' name because they must obey God rather than human authorities. That is a particular conflict concerning their witness, not a general permission to disregard obligations whenever they are unwelcome. — Acts 5:27–29
+Notice the two verbs in that verse: God is feared, and the king is honoured. In Acts, ordered to stop teaching in Jesus' name, the apostles answer, "We must obey God rather than men" (Acts 5:27–29). That is one particular clash over their witness, not a general permission to ignore duties we dislike. The confession says the same in brief: Christians owe the state obedience in what is not "contrary to the revealed will of God", and "God alone is Lord of the conscience" (Article 17).
 
-Christians differ about how to apply these passages to resistance and unjust government. This study does not settle those questions or identify any government with God's approval of all its actions. It keeps public responsibility and ultimate accountability to God in view together.
+[open] A further question stays open. When a government commands nothing against God but rules unjustly, how far may a Christian resist? Calvin, the Reformed commentator, on Romans 13, says that rulers often fall short of their duty, "yet the obedience due to princes ought to be rendered to them". Gill, the Baptist, in his Body of Practical Divinity, says rulers are obeyed in what is "not contrary to the laws of God, and the fundamental laws of the kingdom". The confession sets one limit, God's revealed will, and is silent beyond it. This study does not choose, and it names no present government.
 
-**Consider:** How does love of neighbour frame the discussion of public obligations? What distinction appears between fearing God and honouring a ruler?
+Look closely: How does love of neighbour frame what Paul says about public duties? What is the difference between fearing God and honouring a ruler?
 
-**Reflect:** Consider one public responsibility and one nearby person affected by your conduct. What would honesty, honour and attention to their good require of you?
+Your response: Take one public responsibility and one nearby person affected by your conduct. What would honesty, honour and care for their good ask of you?
 
 ## 06 Conscience and disputed matters
 
-**Read:** Romans 14:1–15:7; 1 Corinthians 8.
+Slug: conscience
+
+Hook: One plate of meat. One brother for whom Christ died.
+
+Line: Where believers differ over food and days, welcome each other and watch what your freedom does to someone else.
+
+Read: Romans 14:1–15:7; 1 Corinthians 8:1–13
+
+Says: Accept one another without contempt or judgment; do not put a stumbling block in a brother's way; the strong are to bear with the weak.
+
+Setting: Disputes over food and special days in Rome, and over food offered to idols in Corinth. These are the matters named, not every possible disagreement.
+
+Respond: In a disputed practice, separate your preference, your conviction and the effect on someone else.
 
 ### Receiving without contempt
 
-Romans describes differences over food and the observance of days. Paul tells those who eat not to despise those who abstain, and those who abstain not to judge those who eat. Both are addressed as people accountable to the Lord. Welcome is not made dependent on everyone adopting the same practice. — Romans 14:1–12
+Romans describes believers who differ over food and over special days. Those who eat must not belittle those who abstain, and those who abstain must not judge those who eat, because each answers to the Lord (Romans 14:1–12). Paul quotes Isaiah 45:23 to make the point: every knee will bow, and each of us will give an account (Romans 14:11–12).
 
-This passage concerns the disputed practices it identifies. It does not make every action morally neutral. Paul himself has just named conduct that harms a neighbour. Reading the chapters together prevents the call to welcome from becoming a refusal to distinguish good from evil. — Romans 13:8–10; 14:1–6
+This is about the practices it names. It does not make every action a matter of taste. Paul has just named conduct that wrongs a neighbour (Romans 13:8–10), so the call to welcome is no refusal to tell good from evil.
 
 ### Freedom attentive to another person
 
-The question becomes more than whether an action is permissible to me. Paul asks whether its use puts a stumbling block in another person's way, and whether it serves peace and their growth. He warns against acting against one's conviction before God and calls the strong to bear with the weak rather than please themselves. — Romans 14:13–15:7
+The question becomes bigger than "may I?" Does what you do put a stumbling block in someone's way? Does it serve peace and build them up (Romans 14:13–23)? The strong are to bear with the weak and not please themselves, because even Christ did not please himself. Paul quotes Psalm 69:9 there, and ends with a reason to carry away: accept one another "just as Christ accepted you" (Romans 15:1–7).
 
-First Corinthians gives a specific example involving food offered to idols. Someone else's example may encourage a believer to eat in a way that wounds their conscience. The concern is deeper than a difference in taste or a moment of annoyance: another person is being drawn toward conduct they understand as unfaithful. — 1 Corinthians 8:1–13
+First Corinthians gives a sharp example. Someone with a weak conscience sees you eating in an idol's temple and is encouraged to do what he believes is wrong. Paul calls him "this weak brother, for whom Christ died" (1 Corinthians 8:9–13). This is more serious than annoying someone. Another person is being drawn into what they believe is unfaithful.
 
-These instructions invite both restraint and learning. A conscience should not be bullied into an action, but an existing conviction need not be treated as incapable of correction. Return to the passage, listen carefully and pursue another person's good without contempt.
+A conscience should not be bullied into acting, and yet a conviction can be taught. The confession's line "God alone is Lord of the conscience" (Article 17) is written about church and state, but its point holds here too. Go back to the passage, listen carefully, and seek the other person's good without contempt.
 
-**Consider:** What differences does Romans actually discuss? In First Corinthians, how could one person's exercise of freedom harm another?
+Look closely: What differences does Romans actually discuss? In First Corinthians, how could one person's freedom harm another?
 
-**Reflect:** In a disputed practice, distinguish your preference, your conviction and the possible effect on someone else. Consider whether restraint, a patient conversation or further study would better serve their good.
+Your response: In a disputed practice, separate your preference, your conviction and the possible effect on someone else. Would restraint, a patient conversation or further study serve them better?
 
 ## Faithfulness in what is before us
 
-These settings share a concern for conduct shaped by belonging to the Lord. Love takes form in patient care, honest work, generosity, welcome and attention to a neighbour. Begin with one responsibility already before you. Read the passage in context, identify the good it calls for, and consider one faithful response.
+Way: Ask the sentence why. In any instruction you read: who is being spoken to, what are they asked to do, what reason does the sentence give, and what carries over to you and what does not?
+
+Close: Love takes form in patient care, honest work, generosity, welcome and attention to a neighbour. You do not have to begin with all six. Begin with the one already in front of you.
+
+Question: Which one responsibility in front of you this week would change, if you did it as to the Lord and for the good of the person beside you?
+
+Again: Read the passage again before you answer.
+
+Passage: Colossians 3:23–24

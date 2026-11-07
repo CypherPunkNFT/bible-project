@@ -1,27 +1,36 @@
-# Passage notes — Rulers and their choices
+# Rulers and their choices passage notes
 
-2026-10-13. Source: local KJV JSON in `data/plain/kjv/`. All main readings inspected directly. Explanations are editorial readings, not new Scripture or an account of modern politics.
+**Item 39 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here.
 
-## Full-verse quotation register
+## Primary readings
 
-| Section | Verse | Record |
-| --- | --- | --- |
-| 01 | 1 Kings 3:9 | 1KI.json, 3:9 |
-| 02 | 1 Kings 12:13 | 1KI.json, 12:13 |
-| 03 | 1 Kings 12:26 | 1KI.json, 12:26 |
-| 04 | 1 Kings 21:3 | 1KI.json, 21:3 |
-| 05 | 2 Samuel 12:13 | 2SA.json, 12:13 |
-| 06 | 2 Chronicles 33:13 | 2CH.json, 33:13 |
+Read in the Berean, from the site's own copy: Deuteronomy 17:14–20; 1 Kings 3 and 11; 1 Kings 12:1–33; 1 Kings 13:33–34; 1 Kings 21:1–29; 2 Kings 9:26; 2 Samuel 11:1–12:25; 2 Kings 21:1–18; 2 Chronicles 33:1–20. For the beams, the account of every ruler of Israel and Judah in 1 Kings 12 to 2 Kings 25. For Kings beside Chronicles, the passages at each stop for David, Solomon, Abijah, Asa, Joash and Uzziah. For the letters, 2 Samuel 11:14–27, 1 Kings 21:8–16, Esther 3:8–15 and Esther 8:8–11. No Hebrew or Greek was compared, so every count is of this English text.
 
-## Context and interpretive limits
+## Sources, and how far each was read
 
-1. **1 Kings 3:3–15; 11:1–13.** The scene is Solomon's early royal request, not a complete narration of the disputed succession in chapters 1–2. “Little child” is not used to calculate an age. Retain the high-place qualification and obedience condition. Later wrongdoing is stated in 11, without shifting all responsibility to his wives or making a generalized claim about women.
-2. **1 Kings 12:1–16.** Preserve the people's request, two sets of counsel, chosen answer and narrator's reference to the LORD's word through Ahijah. No general age hierarchy or doctrine of causation is derived from this one scene.
-3. **1 Kings 12:26–33.** The narrative explicitly provides Jeroboam's inward concern, actions and evaluation. Do not extrapolate from the passage into speculative cult history or a blanket condemnation of every contemporary worship practice.
-4. **1 Kings 21:1–29.** Follow Naboth's refusal, Jezebel's letters, false testimony, the elders' compliance, death, possession, Elijah's word and Ahab's humbling. The narrator distinguishes agents while the prophetic word addresses Ahab's accountability. No modern property-law advice or claim to reconstruct the complete ancient legal system is offered.
-5. **2 Samuel 12:1–14.** Nathan's story, accusation, announced consequences, David's confession and reply belong together. The draft does not excuse the wrongs against Uriah and his wife or generalize the passage's announced consequences to every bereavement. It does not add details about the following events beyond the reading.
-6. **2 Kings 21:1–16; 2 Chronicles 33:1–17.** Both condemn Manasseh's wrongdoing; Chronicles narrates capture, humbling, return and reforms. Kings' selected passage does not narrate that sequence. The additional material is described without asserting an external reason for either writer's selection. No identification of the unnamed Assyrian king or absolute dates is introduced.
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Rulers and their choices mock-up", and at the foot of the page.
+
+- **Read directly and quoted (public domain):** Jamieson, Fausset and Brown on 1 Kings 12:15, 1 Kings 21:27–29, 2 Samuel 24:1–4 and 2 Chronicles 33:12–13; Matthew Henry's Concise Commentary on 1 Kings 12, 1 Kings 21 and 2 Samuel 24. Neither is a Baptist work, and the page says so.
+- **Read and briefly quoted, with a link:** the Baptist Faith and Message 2000, as amended 2023, Articles 1, 2, 4, 15 and 17, from the printable PDF linked from the confession's page.
+- **Not read:** any Baptist commentary on these hard questions. The page says that where it bears.
+
+## Context and limits
+
+1. **The verdicts are the writer's, in his words.** "Did evil" is not said of every king in the same sentence. 1 Kings 14:22 says Judah did evil in Rehoboam's reign, and Chronicles says it of him. 1 Kings 15:3 says Abijam "walked in all the sins". 1 Kings 16:13 comes at Elah's death and names his father with him. Each record gives the real words.
+2. **Stated lengths are not a chronology.** 2 Kings 15:5 shows Azariah and Jotham overlapping. Athaliah's six years are read from the years Joash stayed hidden, in 2 Kings 11:3. Neither gives this page a timeline, and it draws none.
+3. **David and Solomon are not on a beam.** They reigned before the kingdoms parted. Tibni, in 1 Kings 16:21, is left out as a rival with no stated reign, and the page says so.
+4. **Rehoboam.** 1 Kings 12:15 says both that the king did not listen and that this was from the LORD. The page does not choose between them or explain how they fit. It holds him responsible from the verse's own words.
+5. **The census.** 2 Samuel 24:1 and 1 Chronicles 21:1 name different movers. Two commentaries are shown by name, and neither is said to settle it.
+6. **Ahab's humbling.** 1 Kings 21:27–29 gives the humbling and the delay. Whether it was real repentance is not stated in so many words. Two readings are shown by name. The delay gave Naboth nothing back.
+7. **David, Bathsheba and the child.** Bathsheba is among those who paid. The text says she mourned and that the child died. It does not tell us what she wanted or whether she could refuse. Nathan's word is about this child and this sin, and it tells no parent why another child has died.
+8. **Manasseh.** Kings does not narrate the capture and prayer that Chronicles tells. The page reads each in its own order and treats a stop told once as an addition, never as a correction, following Article 1 of the Baptist Faith and Message. His humbling does not undo the harm in 2 Kings 21:16.
+9. **Esther.** The book names no verdict on Xerxes and does not name God, and the build checks the second claim. The second decree, in Esther 8:11, permits killing "including women and children", and the page states this without explaining it away.
+10. **Today.** The verdicts are not a scoring system for present leaders. The page gives the New Testament's words on rulers, and no legal or political advice.
+
+## Selection
+
+All 39 rulers are drawn. Six reigns are read closely, six kings are followed through Chronicles, and three letters are set side by side. These are worked examples and not a complete account of any reign. Setting the letters together is this study's own, and none of those passages cites another.
 
 ## Reuse and evidence
 
-See [existing-material.md](existing-material.md). Existing per-book record structures and verdict notes provided reading leads. Their scholarly chronology entries and external identifications remain outside this draft. No Josephus material is used. The content is ready for owner review, not final publication approval.
+See [existing-material.md](existing-material.md). The checks on these readings are recorded in [the mock-up's README](../../../../design/rulers-and-their-choices-directions/README.md).

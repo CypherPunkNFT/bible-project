@@ -44,3 +44,15 @@ Six block quotations are verbatim KJV. Exposition and applications are editorial
 Possible later additions include singleness, widowhood and unpaid caregiving. The present household unit is explicitly limited to marriage and parent–child instructions; it does not present marriage as required for Christian maturity. A fuller comparison of household interpretations remains a separate editorial decision.
 
 All six units contain readings, exposition, questions and reflections. No design, routes, artwork or implementation is included.
+
+## Revision to the study standard, 2026-10-30
+
+[content.md](content.md) was rewritten for the mock-up (overnight job 8e060d9c739c48f58f9f2bbb2330deff). The King James draft is in git history. This section overrides the notes above where they differ.
+
+- **Text:** every quotation is now the Berean Standard Bible, read from the site's own copy of it. The vocabulary notes on the King James above no longer apply. The Berean says "slaves" outright, which makes the slavery reading plainer.
+- **Households:** the draft set out two broad applications and chose neither. The Baptist Faith and Message speaks to this in Article 18, so the site's own voice now follows it, gives the reason from the text (verses 22 to 33 do not exchange the two instructions; Colossians 3:18-19 gives them without the "one another" sentence), and labels the other reading as other Christians'. Sources read directly: Calvin on Ephesians 5:21-25, Gill's *Body of Practical Divinity* Book IV chapter 1. **No named source for the other reading has been read yet.** Katharine Bushnell's *God's Word to Women* is the likely place to start; the copies found could not be read.
+- **Harm:** one sentence added telling a reader in danger that seeking safety does not disobey these verses. It is marked as the site's application. The owner has not seen it.
+- **Slavery:** added 1 Timothy 1:10, Philemon 1:16 and the Convention's 1995 repentance, and Calvin's remark that those addressed were slaves rather than hired servants.
+- **Giving:** the prosperity reading of 2 Corinthians 9 is now answered from verses 10 to 12 and Article 13.
+- **Authorities:** Article 17 added. Whether and how far to resist an unjust government is shown as open, with Calvin on Romans 13 and Gill Book IV chapter 4 quoted for what each says, and no choice made.
+- **New structure:** hooks, the three-part strip's wording, the reasons list and the older-Scripture pairs. Psalm 112:9 was missing from the draft's account and is now in.

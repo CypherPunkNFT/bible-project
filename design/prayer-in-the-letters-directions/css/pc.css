@@ -1,0 +1,234 @@
+/* Prayer in the letters mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. Six threads read upward, then each passage on a leaf, its lines stepping in.
+   One colour, the letters' gold: every kind of line differs by its word and its shape. */
+:root { --pc: var(--epistles); --leaf: color-mix(in srgb, var(--pc) 7%, var(--page)); }
+.pc-page button, .pc-sheet button.pc-back { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.pc-page, .pc-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.pc-page, .pc-sheet) a { color: inherit; }
+:where(.pc-page, .pc-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
+.pc-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; white-space: nowrap; }
+.pc-ref:hover, .pc-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+.pc-small { font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.pc-small .pc-ref { letter-spacing: .04em; text-transform: none; font-size: .84rem; }
+.pc-note { margin-top: .9rem; max-width: 80ch; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+.pc-reads { margin-top: 1.1rem; max-width: 72ch; font: 400 clamp(1.1rem, 2vw, 1.28rem)/1.55 var(--serif); }
+.pc-action { display: inline-block; min-height: 44px; margin-top: 1rem; padding-block: .6rem !important; font-size: .96rem !important; font-weight: 600; color: var(--accent) !important; }
+.pc-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pc-page .t-head p { max-width: 74ch; }
+
+/* ── Heading ── */
+.pc-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.pc-intro h1 { margin-block: .55rem .8rem; font-size: clamp(3.1rem, 7.4vw, 5.9rem); line-height: .98; }
+.pc-intro h1 em { display: block; font-weight: 400; color: var(--accent); }
+.pc-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.pc-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.pc-trail a:hover, .pc-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.pc-here { color: var(--ink); }
+.pc-concepts { margin-top: 1rem; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.pc-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); max-width: 58ch; }
+.pc-opening blockquote { margin: 0; font: 400 1.2rem/1.5 var(--serif); }
+.pc-opening figcaption { margin-top: .35rem; font-size: .78rem; line-height: 1.7; color: var(--muted); }
+.pc-hero-art { margin: 0; color: var(--muted); min-width: 0; }
+.pc-stage { max-width: 480px; margin-inline: auto; }
+.pc-stage > span { display: block; }
+.pc-scene { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; overflow: hidden; }
+.pc-faint { opacity: .42; }
+.pc-orbit { opacity: .3; stroke-dasharray: 1 7; }
+.pc-wash { fill: color-mix(in srgb, var(--pc) 22%, transparent); stroke: none; }
+.pc-accent { stroke: var(--pc); }
+.pc-spark { fill: var(--pc); stroke: none; animation: pc-glimmer 9s ease-in-out infinite; }
+.pc-spark-2 { animation-delay: -3s; } .pc-spark-3 { animation-delay: -6s; }
+.pc-thread { stroke: var(--pc); stroke-width: 1.6; stroke-dasharray: 3 7; animation: pc-thread 22s linear infinite; }
+.is-still .pc-thread, .is-still .pc-spark { animation-play-state: paused; }
+@keyframes pc-thread { to { stroke-dashoffset: 200; } }
+@keyframes pc-glimmer { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+.pc-hero-art figcaption { max-width: 480px; margin: .4rem auto 0; }
+.pc-motto { display: block; font: 500 1.3rem/1.3 var(--serif); color: var(--ink); }
+.pc-motto span { color: var(--accent); }
+.pc-art-note { display: block; margin-top: .35rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.pc-pause { min-height: 44px; font-size: .84rem !important; font-weight: 600; color: var(--accent) !important; }
+.pc-pause[hidden] { display: none; }
+.pc-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.pc-figures > div { padding: .9rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
+.pc-figures > div:first-child { border-left: 0; padding-left: 0; }
+.pc-figures dt { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pc-figures dd { margin: .2rem 0 0; font: 500 2.2rem/1.15 var(--serif); }
+.pc-figures small { display: block; margin-top: .1rem; font-size: .84rem; line-height: 1.45; color: var(--muted); }
+.pc-selection { margin-top: 1rem; max-width: 80ch; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+
+/* ── 01 Six threads, read upward. The list is in reading order and drawn from the bottom. ── */
+.pc-cols { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 1.1rem; margin: 1.4rem 0 0; padding: 0; }
+.pc-col { display: flex; flex-direction: column; min-width: 0; }
+.pc-col-name { order: 0; padding-bottom: .5rem; border-bottom: 1.5px solid var(--ink); font: 500 1.04rem/1.25 var(--serif); }
+.pc-thread-list { order: 1; flex: 1; list-style: none; display: flex; flex-direction: column-reverse; justify-content: space-between; gap: .9rem; margin: 0; padding: .9rem 0 .9rem; position: relative; }
+.pc-thread-list::before { content: ""; position: absolute; top: 0; bottom: 0; left: 5px; border-left: 1.4px dotted var(--pc); }
+.pc-st { position: relative; padding-left: 1.2rem; }
+.pc-st::before { content: ""; position: absolute; top: .3rem; left: 0; width: 11px; height: 11px; box-sizing: border-box; border-radius: 50%; background: var(--page); border: 1.4px solid var(--ink); }
+.pc-st-asks::before { background: var(--ink); }
+.pc-st-so::before { border-radius: 0; border: 0; height: 12px; background: var(--pc); clip-path: polygon(50% 0, 100% 100%, 50% 72%, 0 100%); }
+.pc-st-ends::before { top: .1rem; left: -2px; width: 15px; height: 15px; border: 0; border-radius: 0; background: var(--pc); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.pc-st-none::before { border-style: dashed; border-color: var(--muted); }
+.pc-st-go { display: block; min-height: 44px; text-decoration: none; }
+.pc-st-kind { display: block; font-size: .6rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.pc-st-words { display: block; font: 400 .98rem/1.3 var(--serif); }
+.pc-st-ref { display: block; margin-top: .1rem; font-size: .7rem; color: var(--muted); }
+.pc-st-ends .pc-st-words { font-style: italic; font-weight: 500; color: var(--accent); }
+.pc-st-go:hover .pc-st-words { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.pc-st-none .pc-st-words { color: var(--muted); font-style: italic; }
+.pc-col-go { order: 2; display: flex; align-items: center; min-height: 44px; border-top: 1px solid var(--line); font-size: .84rem; font-weight: 600; color: var(--accent) !important; text-decoration: none; }
+.pc-col-go:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pc-swipe { display: none; margin-top: .4rem; font-size: .8rem; color: var(--muted); }
+.pc-readline { margin-top: .8rem; padding: .6rem 0 .6rem 1rem; min-height: 6.4rem; max-width: 78ch; border-left: 2px solid var(--pc); font: 400 1.04rem/1.5 var(--serif); }
+.pc-readline b { font: 600 .84rem var(--sans); color: var(--accent); }
+
+/* ── 02 The rail and the leaf ── */
+.pc-desk { display: grid; grid-template-columns: 14.5rem minmax(0, 1fr); gap: 2.2rem; margin-top: 1.4rem; align-items: start; }
+.pc-rail { position: sticky; top: 5rem; display: flex; flex-direction: column; border-top: 1.5px solid var(--ink); }
+.pc-page .pc-rail-item { display: block; width: 100%; min-height: 44px; padding: .7rem .4rem .7rem .7rem; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; }
+.pc-rail-n { display: block; font-size: .64rem; font-weight: 600; letter-spacing: .12em; color: var(--muted); }
+.pc-rail-title { display: block; font: 500 1.08rem/1.25 var(--serif); }
+.pc-rail-ask { display: block; margin-top: .15rem; font-size: .82rem; line-height: 1.35; color: var(--muted); }
+.pc-rail-item:hover .pc-rail-title { text-decoration: underline; text-underline-offset: 3px; }
+.pc-page .pc-rail-item[aria-pressed="true"] { border-left-color: var(--pc); }
+.pc-rail-item[aria-pressed="true"] .pc-rail-title { color: var(--accent); font-style: italic; }
+.pc-panels { min-width: 0; }
+.pc-reading[hidden] { display: none; }
+.pc-reading > h3 { font: 500 clamp(1.5rem, 3vw, 2rem)/1.15 var(--serif); }
+.pc-reading > h3:focus { outline: none; }
+.pc-hook { margin-top: .3rem; font: italic 400 clamp(1.14rem, 2.1vw, 1.36rem)/1.4 var(--serif); color: var(--accent); }
+.pc-leaf { margin-top: 1rem; padding: 1.1rem 1.3rem 1.3rem; background: var(--leaf); border: 1px solid color-mix(in srgb, var(--pc) 28%, var(--line)); border-radius: 3px 14px 3px 3px; }
+.pc-leaf-head h4 { margin-top: .1rem; font: 500 1.16rem var(--serif); }
+.pc-leaf-head h4 .pc-ref { font: inherit; }
+.pc-leaf-body { display: grid; grid-template-columns: minmax(0, 1fr) 12.5rem; gap: 1.4rem; margin-top: .7rem; }
+.pc-leaf-lines { min-width: 0; }
+.pc-line { position: relative; margin: 0; padding: .28rem 0; font: 400 1.09rem/1.5 var(--serif); }
+.pc-line sup { margin-right: .2rem; font: 500 .62em/1 var(--sans); color: var(--muted); }
+.pc-line-kind { display: block; font: 600 .6rem/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pc-l0 { margin-left: 0; } .pc-l1 { margin-left: .9rem; } .pc-l2 { margin-left: 1.9rem; } .pc-l3 { margin-left: 2.9rem; } .pc-l4 { margin-left: 3.9rem; }
+.pc-k-thanks .pc-line-text { border-bottom: 1px dotted var(--muted); }
+.pc-k-asks .pc-line-text { font-weight: 600; }
+.pc-k-so { padding-left: .7rem; border-left: 2px solid var(--pc); }
+.pc-k-so .pc-line-kind { color: var(--accent); }
+.pc-k-ends .pc-line-kind { color: var(--accent); }
+.pc-k-ends .pc-line-text { font-style: italic; font-weight: 500; color: var(--accent); }
+.pc-pick-thanks .pc-line:not(.pc-k-thanks) { color: var(--muted); }
+.pc-pick-thanks .pc-line:not(.pc-k-thanks) .pc-line-text { color: inherit; font-weight: 400; font-style: normal; }
+.pc-pick-thanks .pc-k-thanks { padding-left: .7rem; border-left: 2px solid var(--pc); }
+.pc-margin { margin: 0; padding-left: 1rem; border-left: 1px solid color-mix(in srgb, var(--pc) 34%, var(--line)); font-size: .86rem; line-height: 1.45; }
+.pc-margin > div + div { margin-top: .8rem; }
+.pc-margin dt { font-size: .62rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.pc-margin dd { margin: .15rem 0 0; }
+.pc-margin .pc-ref { white-space: normal; }
+.pc-more { margin-top: .9rem; }
+.pc-more > summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; font-size: .94rem; color: var(--accent); cursor: pointer; }
+.pc-more > .pc-leaf { margin-top: .2rem; }
+.pc-parts { margin-top: 1.3rem; max-width: 74ch; }
+.pc-part { margin-bottom: 1.3rem; }
+.pc-part h4 { font: 500 1.3rem/1.3 var(--serif); }
+.pc-part > p, .pc-flag p, .pc-after p:not(.pc-small) { margin-top: .6rem; font-size: 1.03rem; line-height: 1.7; }
+.pc-quote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--accent); }
+.pc-quote blockquote { margin: 0; font: 400 1.22rem/1.5 var(--serif); }
+.pc-quote figcaption { margin-top: .3rem; font-size: .78rem; color: var(--muted); }
+.pc-flag { margin-top: 1rem; max-width: 74ch; padding-top: .55rem; border-top: 1px solid var(--line); }
+.pc-flag-label { font-size: .64rem !important; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pc-flag-care .pc-flag-label, .pc-flag-read .pc-flag-label { color: var(--accent); }
+.pc-flag p:not(.pc-flag-label) { margin-top: .3rem; }
+.pc-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1.4rem; padding-top: .7rem; border-top: 1.5px solid var(--ink); }
+
+/* ── 03 Three requests ── */
+.pc-aims { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1.2rem 0 0; padding: 0; }
+.pc-aim { min-width: 0; padding-top: .6rem; border-top: 1.5px solid var(--ink); }
+.pc-aim h3 { font: italic 500 1.5rem/1.2 var(--serif); color: var(--accent); }
+.pc-aim-ask, .pc-aim-to { margin-top: .6rem; font: 400 1.08rem/1.38 var(--serif); }
+.pc-aim-to { margin-left: 1rem; padding-left: .7rem; border-left: 2px solid var(--pc); }
+.pc-aim .pc-small { display: block; font-family: var(--sans); }
+.pc-aim-ref { margin-top: .6rem; font-size: .84rem; }
+
+/* ── 04 Older words ── */
+.pc-olds { list-style: none; margin: 1.1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.pc-old { display: grid; grid-template-columns: minmax(0, 1fr) 11rem minmax(0, 1fr); gap: 1rem; align-items: baseline; padding-block: .75rem; border-bottom: 1px solid var(--line); }
+.pc-old p { margin: 0; }
+.pc-old-then { font: 400 1.04rem/1.4 var(--serif); color: var(--muted); }
+.pc-old-now { font: 500 1.04rem/1.4 var(--serif); }
+.pc-old .pc-ref { font: 500 .8rem var(--sans); white-space: normal; }
+.pc-old-how { font-size: .76rem; line-height: 1.35; text-align: center; color: var(--accent); font-weight: 600; }
+
+/* ── 05 Try ── */
+.pc-tries { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1.2rem 0 0; padding: 0; }
+.pc-try { min-width: 0; padding-top: .6rem; border-top: 1.5px solid var(--ink); }
+.pc-try h3 { font: 500 1.1rem var(--serif); }
+.pc-try h3 .pc-ref { font: inherit; }
+.pc-try .pc-passage-text { margin-top: .4rem; font-size: 1.04rem; }
+.pc-try details { margin-top: .4rem; }
+.pc-try summary { display: flex; align-items: center; min-height: 44px; font-size: .9rem; font-weight: 600; color: var(--accent); cursor: pointer; }
+.pc-try .pc-line { font-size: 1rem; }
+.pc-try .pc-l2 { margin-left: 1.2rem; } .pc-try .pc-l3 { margin-left: 1.6rem; }
+
+/* ── 06 Questions ── */
+.pc-q-list { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.pc-q-list li { border-bottom: 1px solid var(--line); }
+.pc-page .pc-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; min-height: 44px; padding-block: .85rem; font: 400 clamp(1.1rem, 2vw, 1.34rem)/1.32 var(--serif); }
+.pc-q::after { content: "→"; color: var(--accent); }
+.pc-q:hover { color: var(--accent); }
+
+/* ── Close ── */
+.pc-close-text { max-width: 72ch; }
+.pc-close-text > p:not(.pc-concepts, .pc-note) { margin-top: .9rem; font-size: 1.06rem; line-height: 1.7; }
+.pc-close-text .pc-question { font: 500 clamp(1.4rem, 3vw, 1.9rem)/1.3 var(--serif); color: var(--accent); }
+.pc-links { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: 1.2rem; font-size: .92rem; }
+.pc-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
+.pc-land { display: block; margin-top: 1.4rem; color: var(--muted); }
+.pc-land svg { display: block; width: 100%; height: 110px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
+.pc-sources { margin-top: 1.4rem; font-size: .9rem; }
+.pc-sources summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
+.pc-sources ul { list-style: none; margin: .4rem 0 0; padding: 0; }
+.pc-sources li { padding-block: .55rem; border-top: 1px solid var(--line); line-height: 1.55; }
+.pc-sources li a { font-weight: 600; }
+.pc-sources li span { display: block; color: var(--muted); }
+
+/* ── Sheet ── */
+.pc-sheet h3 { margin: .35rem 2.6rem .7rem 0; font: 500 1.5rem/1.18 var(--serif); letter-spacing: -.02em; }
+.pc-sheet h3:focus { outline: none; }
+.pc-sheet-ref { margin-bottom: .4rem; }
+.pc-passage-text { font: 400 1.1rem/1.65 var(--serif); }
+.pc-passage-text sup { margin-right: .15rem; font: 500 .62em/1 var(--sans); color: var(--muted); }
+.pc-chapter { display: block; margin-top: .7rem; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pc-sheet-links { margin-top: .9rem; font-size: .9rem; }
+.pc-sheet-links a { display: flex; align-items: center; min-height: 44px; color: var(--accent); }
+.pc-sheet button.pc-back { display: flex; align-items: center; min-height: 44px; margin-right: 2.6rem; font-size: .88rem; font-weight: 600; color: var(--accent); }
+.pc-sheet .pc-flag p { font-size: .98rem; line-height: 1.62; }
+
+/* Six columns stop fitting well before a phone: they scroll sideways, with the next one showing. */
+@media (max-width: 1100px) {
+  .pc-cols { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(13rem, 1fr); overflow-x: auto; scroll-snap-type: x proximity; padding: 2px 2px .6rem; }
+  .pc-col { scroll-snap-align: start; }
+  .pc-swipe { display: block; }
+  .pc-desk { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .pc-rail { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1rem; }
+  .pc-page .pc-rail-item { padding-left: .5rem; }
+  .pc-leaf-body { grid-template-columns: minmax(0, 1fr) 11rem; }
+}
+@media (max-width: 860px) {
+  .pc-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pc-figures > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .pc-figures > div:nth-child(-n+2) { border-top: 0; }
+  .pc-aims, .pc-tries { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .pc-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pc-leaf-body { grid-template-columns: minmax(0, 1fr); }
+  .pc-margin { padding-left: 0; padding-top: .7rem; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--pc) 34%, var(--line)); }
+  .pc-old { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+  .pc-old-how { text-align: left; }
+}
+@media (max-width: 620px) {
+  .pc-after { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .pc-rail { grid-template-columns: minmax(0, 1fr); }
+  .pc-rail-ask { display: none; }
+  .pc-leaf { padding: .9rem .9rem 1rem; }
+  .pc-l1 { margin-left: .4rem; } .pc-l2 { margin-left: .8rem; } .pc-l3 { margin-left: 1.2rem; } .pc-l4 { margin-left: 1.6rem; }
+}
+/* A touch screen has no pointing, and tapping opens the sheet at once, so the line beneath would only ever show its prompt. */
+@media (hover: none) { .pc-readline { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .pc-thread, .pc-spark { animation: none; }
+  .pc-spark { opacity: .8; }
+  .ms-sheet { transition: none; }
+}

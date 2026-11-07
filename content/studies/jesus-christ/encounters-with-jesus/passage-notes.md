@@ -1,38 +1,36 @@
-# Encounters with Jesus passage and editorial notes
+# Encounters with Jesus passage notes
 
-Content pass, item 14. [Reader-facing draft](content.md); [working outline](working.md). First draft ready for review, not approved final copy.
+**Item 14 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here.
 
-## Source basis and scope
+## Primary readings
 
-Read in the repository KJV on 2026-10-13: [Mark](../../../../data/plain/kjv/MRK.json), [Luke](../../../../data/plain/kjv/LUK.json), [John](../../../../data/plain/kjv/JHN.json). Five block quotations reproduce the local KJV. Exposition and applications are editorial prose. The study develops selected complete encounters, not an exhaustive people or miracle catalogue.
+Read in the Berean, from the site's own copy: Mark 1:16–20; Mark 2:13–17; Luke 19:1–10; Mark 5:21–43; John 3:1–21; John 4:4–42; Mark 3:1–6; Mark 12:13–17; Mark 10:17–31; Mark 10:46–52; John 11:1–44; John 20:24–29. For later Scripture, John 7:50, John 12:2–3, John 19:38–39, John 21:2, Acts 1:13 and Acts 12:2, with Matthew 9:9 and Matthew 10:3. For older Scripture, Numbers 21:9, Exodus 20:16, Exodus 22:1, Genesis 33:19 and Ezekiel 34:16. No Greek was compared, so every phrase is of this English text.
 
-## Passage map
+## Sources, and how far each was read
 
-| Unit | Readings | Narrative attention |
-| --- | --- | --- |
-| Called to follow | Mark 1:16–20; 2:13–17 | Jesus' initiative, work interrupted, response, meal and objection |
-| Those called sinners | Luke 19:1–10; Mark 2:13–17 | Desire to see, welcome, crowd's judgment, words about possessions and salvation |
-| The sick | Mark 5:21–43 | Jairus's request interrupted by the woman's approach, healing, death report, raising and practical care |
-| Seekers | John 3:1–21; 4:4–30, 39–42 | Differing initiators, questions, developing understanding, distinct endings |
-| Opponents | Mark 3:1–6; 12:13–17 | Narrated intent, Jesus' response, the person healed, later reactions |
-| Turning away | Mark 10:17–31 | Request, love, demand, departure and continued instruction to disciples |
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Encounters with Jesus mock-up", and at the foot of the page.
 
-## Interpretive boundaries
+- **Read directly and quoted (public domain):** Alexander Maclaren, a Baptist, on the bleeding woman in Mark 5, on Mark 10:17–27, on Luke 19 and on John 11:5–6; Albert Barnes, a Presbyterian, on Matthew 19:21, Matthew 20:34, Luke 19:8, John 3:5 and John 11:6; Jamieson, Fausset and Brown on John 3:5. The page says who is not a Baptist.
+- **Read and briefly quoted, with a link:** the Baptist Faith and Message 2000, as amended 2023, Articles 3, 4, 7 and 13, from the confession's page.
+- **Not read:** any modern Baptist commentary on these questions.
 
-- **Call stories:** Mark's brevity does not establish the absence of all prior contact. No harmonised biography of the fishermen is invented. Levi remains Levi in Mark's scene; the draft does not silently substitute Matthew's name.
-- **Excluded:** the reader-facing heading uses the narrated judgment about sinners rather than claiming formal exclusion in every case. Zacchaeus's wealth and occupation do not supply every detail of his earlier conduct.
-- **Zacchaeus's declaration:** the draft reports his words without adjudicating whether Luke 19:8 describes an existing practice or a new pledge. The later execution of restitution is not narrated here. Salvation is not reduced to purchasing acceptance by giving money.
-- **Illness:** these are particular narrated acts, not a universal healing formula or a diagnosis of deficient faith in someone still ill. Mark's account of the woman's suffering under physicians is not converted into medical advice or a general condemnation of treatment.
-- **Nicodemus:** the initial scene does not end with an explicit conversion statement. A later study may follow John 7 and 19, but those later scenes are not imported into the initial dialogue. The draft does not settle the meaning of water and Spirit or the exact point where Jesus' speech gives way to the narrator's reflection in John 3.
-- **Samaritan woman:** five husbands do not establish prostitution, the causes of ended marriages or exclusion by the town. The time at the well alone cannot prove those claims. Her question about worship is not labelled an evasive tactic without textual support. John 4:31–38 is an intervening conversation with the disciples; the reading selections openly resume at the town's response in 39–42.
-- **Opponents:** hostility is identified where Mark explicitly supplies it. No collective blame is assigned to Jewish people, and not every questioner is treated as an opponent. The tribute scene is not expanded into a complete theory of church and state.
-- **Wealthy man:** Mark's details are kept distinct from Matthew and Luke. The demand to this person is neither generalised without argument nor diluted into a harmless metaphor. The chapter's broader warning about riches remains. No later fate is invented.
-- **Applications:** reflections invite attentive reading rather than requiring the reader to identify themselves with every character. Jesus' particular knowledge or actions do not authorise readers to assume knowledge of strangers' hidden lives.
+## Context and limits
 
-## Reuse, connections and completion
+1. **Calls.** Mark's brevity does not rule out earlier contact, and John 1:40–42 tells of Andrew and Simon meeting Him at another time. No biography of the fishermen is invented.
+2. **Levi and Matthew.** Mark and Luke 5:27 say Levi. Matthew 9:9 says Matthew. The page keeps Mark's wording in the scene and marks the link as this study's reading.
+3. **Zacchaeus.** Luke gives his own words, "if I have cheated anyone" (Luke 19:8), and no audit. Whether the verse describes a practice or a new pledge is not settled here. Exodus 22:1 and Ezekiel 34:16 are linked by this study, and Luke cites neither. Salvation is not presented as bought by giving.
+4. **Illness.** These are particular acts of Jesus, not a formula, and not a diagnosis of someone still ill. Mark says what physicians cost this woman, and he warns no one away from doctors. The twelve years in Mark 5:25 and Mark 5:42 are noticed and not explained.
+5. **Nicodemus.** The first scene gives no conversion. John 7:50 and John 19:39 come back to him, and John does not say what he came to believe. John does not give fear as his reason for coming at night. John 19:38 says that of Joseph of Arimathea.
+6. **The woman at the well.** "You have had five husbands" (John 4:18) does not say how those marriages ended. The word prostitute is not in the passage, and the build checks that. The hour is in John 4:6, and the town coming out in John 4:30 does not fit the shunned woman of many retellings.
+7. **Opponents.** Hostility is named only where Mark gives it. They are particular people in particular scenes, and the page says they do not stand for all Jewish people, citing John 4:9 and Article 3. Not every hard question is an attack, and John gives no such line for Nicodemus or Martha.
+8. **The man who went away.** Mark's details are kept apart from Matthew 19:20 and Luke 18:18. The demand to him is neither made a rule for all nor softened, and the chapter's warning on riches stays. His later life is not known, so "he never came back" is marked as not in the passage.
+9. **Martha and Mary.** They say the same sentence, in John 11:21 and John 11:32, and the build checks it. Their differences are in what comes after. John does not say why He wept. The page says many graves have not opened in our time, and that the passage promises no such thing before the last day.
+10. **Thomas.** He is invited to touch, in John 20:27. John does not say he did, and the build checks that the next verses have no such word. Jesus does not call the doubt fine, and does not send him away.
 
-Item **13 The life of Jesus across the Gospels** introduced Zacchaeus briefly as part of Luke's journey; this study develops that scene without creating a competing chronology. Items **11** and **12** already treat confessions and titles, so the present focus is the movement of encounters rather than another title list. The existing Gospel comparison observations inventoried in item 13 remain applicable; no new harmony, people record or event catalogue is created.
+## Selection
 
-**15 The kingdom he announced** will develop the kingdom statements in John 3 and Mark 10. **16 Following Jesus** will develop the cost of response; **18 The signs and works of Jesus** will develop the function of works and inventory the existing miracles collection. The story in Mark 5 is retained whole here instead of splitting it into isolated miracle entries.
+Fifteen meetings are read closely. This is a selection, and the page names some left out: the widow at Nain, the woman from Syrophoenicia and Mary Magdalene at the tomb. Eleven grew from the first draft's groups. Rows, columns and chips are this study's reading of each scene.
 
-Possible later extension: additional encounters with excluded or marginalised people, with each claim about social position sourced rather than assumed. The current six units are complete, each with readings, exposition, questions and reflection. No site design or implementation is included.
+## Reuse and evidence
+
+Item 13, The life of Jesus across the Gospels, introduced Zacchaeus briefly. Item 15, The kingdom he announced, takes up the kingdom sayings in John 3 and Mark 10. Item 16, Following Jesus, takes up the cost of response. Item 18, The signs and works of Jesus, takes up works and the miracles collection, so Mark 5 is read here for the meeting. The checks on these readings are recorded in [the mock-up's README](../../../../design/encounters-with-jesus-directions/README.md).

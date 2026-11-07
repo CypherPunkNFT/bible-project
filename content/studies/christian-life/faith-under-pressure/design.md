@@ -111,3 +111,17 @@ A later prototype must show the closed page; Anxiety and prayer open; Grief and 
 Retain 1 Peter 5:7 as the opening quotation. Keep receiving help within the existing introduction, Contentment and conclusion instead of introducing a seventh card. Preserve the six names and all reader-facing content. New proposals are the card questions, artwork, interface labels and passage-summary strips; they require editorial review before implementation.
 
 This design draft is ready for review. No website routes, components, styles, generated data or publication change in this step. The design queue has since advanced. Consult [progress](../../progress.json) and [the workflow](../../WORKFLOW.md).
+
+## Revision to the study standard, 2026-10-30
+
+A mock-up now exists: [faith-under-pressure-directions](../../../../design/faith-under-pressure-directions/README.md). [The study standard](../../../../../Pages/Study/STUDY-STANDARD.md) was written after this design and wins where they differ:
+
+- Berean, not King James, everywhere in this file's references to the translation.
+- Line drawings in the site's one hand, not filled silhouettes. The sheltered light stays, now as a small lamp between two hands, and its glow breathes slowly (off under reduced motion); this design had asked for no pulse, and the standard's art rule took precedence.
+- Epistles gold as the study's colour, not one muted blue accent.
+- Cards follow the standard's anatomy, not closed cards with a question and a down arrow.
+- The panel opens on its own row straight after the chosen card's row, not beneath the whole group, so it stays in place at every width.
+- The three-part strip gains a fourth part, what the passage does not promise, as the study's fourth question.
+- A bar of counts, a verse field (one mark to a phrase, the study's own figure) and an older-Scripture figure are added, as the standard's rules on figures, depth, graphics and reading Scripture by Scripture require.
+- Previous and next study links are replaced for now by a link back to Living the Christian Life and to the Faith in daily life mock-up: Life together and Prayer in the letters have no pages to link to.
+- Everything else here was kept: six independent readings of equal weight, 1 Peter 5:7 at the opening, no trackers, timers or meters, no future-events chart, and the qualifications listed for each reading.

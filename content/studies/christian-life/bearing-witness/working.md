@@ -1,22 +1,24 @@
 # Bearing witness
 
-**Content pass status:** item 09, first full draft ready for review, 2026-10-13. [Content draft](content.md); [passage and editorial notes](passage-notes.md).
+**Status:** study 09, rewritten in the Berean with a mock-up for the owner's review, 2026-10-30. [Study text](content.md); [passage and editorial notes](passage-notes.md); [design](design.md); [the mock-up and its record](../../../../design/bearing-witness-directions/README.md).
 
 ## Purpose and central question
 
-Explore how believers speak and live before those outside the church. How do readiness, gracious speech, conduct, courage and prayer belong together, and what can a speaker responsibly do without claiming control over another person's response?
+Explore how believers speak and live before those outside the church. How do readiness, gracious speech, conduct, courage and prayer belong together, and what is given to the one who speaks, what belongs to the one before them, and what belongs to God?
 
 ## Content divisions
 
-1. Ready to answer — explaining hope, with Christ at the centre.
-2. Meekness and fear — the outline's gentleness and respect theme, retaining the KJV phrase while explaining the manner.
-3. Speech with grace — fitting answers and wise attention to the person.
-4. Conduct that commends — public and ordinary responsibilities.
-5. Courage — faithful speech and shared steadfastness under difficulty.
-6. Prayer for open doors — opportunity, clarity, boldness and dependence on God.
+The six themes of the 2026-10-13 draft stay, reordered to follow Colossians 4:2–6.
 
-All six category themes are developed. Limits of persuasion are integrated into the teaching and prayer units. Reflections are applications; no conversion formula or prescribed conversation script is introduced.
+1. Prayer for a door: an opening, clear words, courage; God made it grow.
+2. Courage in chains: what the chains did, mixed motives, standing together.
+3. Conduct toward outsiders: good deeds that can be seen, ordinary reliability.
+4. Speech with grace: answering each one, the salt, redeeming the time.
+5. Ready to answer: a reason for the hope, Christ at the centre.
+6. Gentleness and respect: manner as part of the command, patient correction.
+
+Added around them: a threshold figure sorting ten passages, five doors in the New Testament, five hard questions, three passages for the reader to sort, and a close with the way of reading, an invitation and the passage again. A section on one night in Philippi and two further questions were cut in review to keep the page to its habit.
 
 ## LLM handoff
 
-The first content draft is complete. The queue has since advanced; consult `../../progress.json` for the current item and next step. Design has not started.
+The mock-up is built. The real page under src/, its route and its hub card are not. It replaces the "Service & witness" link, which opens a list of church office-holders. Consult `../../progress.json` for the queue.

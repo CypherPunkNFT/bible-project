@@ -1,0 +1,228 @@
+/* A new creation mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. One vertical fold down the page, already on its left and now on its right.
+   The wash and the marks are the letters' colour; every meaning is also said in words. */
+:root { --nc: var(--epistles); }
+.nc-page { overflow-anchor: none; }
+.nc-page button, .nc-sheet button.nc-back { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.nc-page, .nc-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.nc-page, .nc-sheet) a { color: inherit; }
+:where(.nc-page, .nc-sheet) :is(a, button, summary):focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
+.nc-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; white-space: nowrap; }
+.nc-ref:hover, .nc-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+.nc-small { font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.nc-small .nc-ref { letter-spacing: .04em; text-transform: none; font-size: .84rem; }
+.nc-note { margin-top: .9rem; max-width: 80ch; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+.nc-reads { margin-top: 1.1rem; max-width: 72ch; font: 400 clamp(1.1rem, 2vw, 1.3rem)/1.55 var(--serif); }
+.nc-action { display: inline-block; min-height: 44px; margin-top: 1rem; padding-block: .6rem !important; font-size: .96rem !important; font-weight: 600; color: var(--accent) !important; }
+.nc-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nc-readline { margin-top: 1rem; padding: .7rem 0 .7rem 1rem; min-height: 5.4rem; max-width: 78ch; border-left: 2px solid var(--nc); font: 400 1.06rem/1.55 var(--serif); }
+.nc-readline b { font: 600 .84rem var(--sans); color: var(--accent); }
+
+/* ── Heading ── */
+.nc-page .t-head p { max-width: 74ch; }
+.nc-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.nc-intro h1 { margin-block: .55rem .8rem; font-size: clamp(3.1rem, 7.4vw, 5.9rem); line-height: .98; }
+.nc-intro h1 em { display: block; font-weight: 400; color: var(--accent); }
+.nc-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.nc-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.nc-trail a:hover, .nc-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.nc-here { color: var(--ink); }
+.nc-concepts { margin-top: 1rem; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.nc-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); max-width: 58ch; }
+.nc-opening blockquote { margin: 0; font: 400 1.2rem/1.5 var(--serif); }
+.nc-opening figcaption { margin-top: .35rem; font-size: .78rem; line-height: 1.7; color: var(--muted); }
+.nc-hero-art { margin: 0; color: var(--muted); min-width: 0; }
+.nc-stage { max-width: 480px; margin-inline: auto; }
+.nc-stage > span { display: block; }
+.nc-scene { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; overflow: hidden; }
+.nc-faint { opacity: .42; }
+.nc-orbit { opacity: .3; stroke-dasharray: 1 7; }
+.nc-old { opacity: .62; stroke-dasharray: 2 5; }
+.nc-wash { fill: color-mix(in srgb, var(--nc) 26%, transparent); stroke: none; }
+.nc-accent { stroke: var(--nc); }
+.nc-spark { fill: var(--nc); stroke: none; animation: nc-glimmer 9s ease-in-out infinite; }
+.nc-spark-2 { animation-delay: -3s; } .nc-spark-3 { animation-delay: -6s; }
+.nc-thread { stroke: var(--nc); stroke-width: 1.6; stroke-dasharray: 3 7; animation: nc-thread 20s linear infinite; }
+.is-still .nc-thread, .is-still .nc-spark { animation-play-state: paused; }
+@keyframes nc-thread { to { stroke-dashoffset: -200; } }
+@keyframes nc-glimmer { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+.nc-hero-art figcaption { max-width: 480px; margin: .4rem auto 0; }
+.nc-motto { display: block; font: 500 1.3rem/1.3 var(--serif); color: var(--ink); }
+.nc-motto span { color: var(--accent); }
+.nc-art-note { display: block; margin-top: .35rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.nc-pause { min-height: 44px; font-size: .84rem !important; font-weight: 600; color: var(--accent) !important; }
+.nc-pause[hidden] { display: none; }
+.nc-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.nc-figures > div { padding: .9rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
+.nc-figures > div:first-child { border-left: 0; padding-left: 0; }
+.nc-figures dt { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nc-figures dd { margin: .2rem 0 0; font: 500 2.2rem/1.15 var(--serif); }
+.nc-figures small { display: block; margin-top: .1rem; font-size: .84rem; line-height: 1.45; color: var(--muted); }
+.nc-selection { margin-top: 1rem; max-width: 80ch; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+
+/* ── The fold: the page's one idea, used by sections 01 and 02 ── */
+.nc-heads, .nc-cross { display: grid; grid-template-columns: minmax(0, 1fr) 6.2rem minmax(0, 1fr); }
+.nc-heads { margin-top: 1.2rem; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.nc-heads span:first-child { text-align: right; }
+.nc-heads span:last-child { color: var(--accent); }
+.nc-folds { list-style: none; margin: .4rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.nc-folds > li { border-bottom: 1px solid var(--line); }
+.nc-page .nc-fold { display: block; width: 100%; padding: 1rem 0 .8rem; }
+.nc-fold-title { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; gap: .1rem .7rem; margin-bottom: .7rem; }
+.nc-fold-n { font: 500 .95rem var(--serif); color: var(--accent); }
+.nc-fold-name { font: 500 1.05rem/1.3 var(--serif); }
+.nc-fold-ask { grid-column: 2; grid-row: 2; font-size: .86rem; line-height: 1.45; color: var(--muted); }
+.nc-fold-title::after { content: "Open reading +"; grid-column: 3; grid-row: 1; font-size: .76rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
+.nc-fold[aria-expanded="true"] .nc-fold-title::after { content: "Close reading −"; }
+.nc-fold[aria-expanded="true"] .nc-fold-name { color: var(--accent); }
+.nc-fold:hover .nc-fold-name { text-decoration: underline; text-underline-offset: 3px; }
+.nc-cross { position: relative; isolation: isolate; align-items: center; min-height: 4.6rem; }
+.nc-cross::before { content: ""; position: absolute; z-index: -1; inset: 0 0 0 50%; background: linear-gradient(90deg, color-mix(in srgb, var(--nc) 20%, transparent), color-mix(in srgb, var(--nc) 4%, transparent) 45%, transparent 85%); }
+.nc-cross::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; border-left: 1.4px solid var(--nc); }
+.nc-done, .nc-now { font: 400 clamp(1.06rem, 2vw, 1.42rem)/1.32 var(--serif); padding-block: .35rem; min-width: 0; }
+.nc-done { text-align: right; color: var(--muted); }
+.nc-now { color: var(--ink); font-weight: 500; }
+.nc-done small, .nc-now small { display: block; margin-top: .2rem; font: 500 .72rem/1.35 var(--sans); color: var(--muted); }
+.nc-crease { display: grid; place-items: center; min-width: 0; }
+.nc-crease em { padding: .1rem .3rem; background: var(--page); font: italic 500 1.02rem/1.2 var(--serif); color: var(--accent); }
+.nc-fold-ref { display: block; margin-top: .45rem; font-size: .76rem; text-align: center; color: var(--muted); }
+.nc-fold-small .nc-cross { min-height: 3.6rem; }
+.nc-fold-small .nc-done, .nc-fold-small .nc-now { font-size: clamp(1rem, 1.7vw, 1.18rem); }
+.nc-fold-small:hover .nc-now, .nc-fold-small:focus-visible .nc-now { color: var(--accent); }
+
+/* ── A reading, open beneath its line ── */
+.nc-reading { padding: .6rem 0 1.8rem; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; }
+.nc-reading[hidden] { display: none; }
+.nc-reading > * { width: 100%; max-width: 74ch; margin-inline: auto; }
+.nc-reading > .nc-action { width: auto; margin-inline: auto; }
+.nc-hook { font: italic 400 clamp(1.2rem, 2.2vw, 1.46rem)/1.42 var(--serif); color: var(--accent); }
+.nc-also { margin-top: .6rem; padding-top: .5rem; border-top: 1px solid var(--line); font-size: .88rem; line-height: 1.9; color: var(--muted); }
+.nc-also b { font-weight: 600; color: var(--ink); }
+.nc-parts { margin-top: 1.2rem; }
+.nc-part { margin-bottom: 1.3rem; }
+.nc-part h4 { font: 500 1.35rem/1.3 var(--serif); }
+.nc-part > p, .nc-flag p, .nc-after p:not(.nc-small) { margin-top: .6rem; font-size: 1.04rem; line-height: 1.7; }
+.nc-quote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--accent); }
+.nc-quote blockquote { margin: 0; font: 400 1.26rem/1.5 var(--serif); }
+.nc-quote figcaption { margin-top: .3rem; font-size: .78rem; color: var(--muted); }
+.nc-flag { margin-top: 1rem; padding-top: .55rem; border-top: 1px solid var(--line); }
+.nc-flag-label { font-size: .64rem !important; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nc-flag-care .nc-flag-label, .nc-flag-read .nc-flag-label { color: var(--accent); }
+.nc-flag p:not(.nc-flag-label) { margin-top: .3rem; }
+.nc-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1.4rem; padding-top: .7rem; border-top: 1.5px solid var(--ink); }
+
+/* The figures inside readings */
+.nc-beholds, .nc-rails, .nc-lines { margin-top: 1rem; padding-top: .9rem; border-top: 1.5px solid var(--ink); }
+.nc-beholds figcaption, .nc-rails figcaption, .nc-lines figcaption { font-size: .92rem; line-height: 1.6; color: var(--muted); }
+.nc-beholds ol { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 1.1rem 0 0; padding: 0; border-top: 1.4px solid var(--nc); }
+.nc-beholds li { position: relative; padding: .8rem .8rem 0 0; }
+.nc-beholds li::before { content: ""; position: absolute; top: -5px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--page); border: 1.4px solid var(--nc); }
+.nc-beholds li:nth-child(3)::before { background: var(--nc); }
+.nc-tense { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.nc-beholds li p { margin-block: .25rem; font: 400 1.04rem/1.35 var(--serif); }
+.nc-rail-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1rem; }
+.nc-rail { min-width: 0; padding-top: .55rem; border-top: 3px solid var(--ink); }
+.nc-rail-off { border-top-style: dotted; border-top-color: var(--muted); }
+.nc-rail-on { border-top-color: var(--nc); }
+.nc-rail ol, .nc-hung { list-style: none; margin: 0; padding: 0; }
+.nc-rail ol > li { padding-block: .5rem; border-bottom: 1px solid var(--line); font-size: .86rem; }
+.nc-hung { font: 400 1.06rem/1.4 var(--serif); }
+.nc-rail-off .nc-hung { color: var(--muted); }
+.nc-over { margin-bottom: .7rem; padding: .55rem .7rem; background: color-mix(in srgb, var(--nc) 20%, transparent); font: italic 500 1.1rem/1.35 var(--serif); }
+.nc-over .nc-ref { font: 500 .84rem var(--sans); }
+.nc-lines table { width: 100%; margin-top: .8rem; border-collapse: collapse; font-size: .96rem; line-height: 1.42; }
+.nc-lines th { padding: .3rem .8rem .3rem 0; text-align: left; font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--ink); }
+.nc-lines td { padding: .6rem .8rem .6rem 0; vertical-align: top; border-bottom: 1px solid var(--line); }
+.nc-stop { color: var(--muted); }
+.nc-why { font-family: var(--serif); font-style: italic; color: var(--accent); }
+
+/* ── 03 Five letters as lines ── */
+.nc-letters { list-style: none; margin: 1.4rem 0 0; padding: 0; }
+.nc-letter { padding-block: .9rem; border-top: 1px solid var(--line); }
+.nc-letter-name { font-size: .92rem; color: var(--muted); }
+.nc-letter-name b { font: 500 1.1rem var(--serif); color: var(--ink); }
+.nc-line { position: relative; height: 2px; margin-block: .85rem .8rem; background: var(--muted); }
+.nc-line-after { position: absolute; top: -1px; right: 0; height: 4px; background: var(--nc); }
+.nc-mark, .nc-mark-turn { position: absolute; top: 1px; border-radius: 50%; transform: translate(-50%, -50%); transition: transform .15s; }
+.nc-mark { width: 8px; height: 8px; background: var(--page); border: 1.4px solid var(--ink); }
+.nc-mark-turn { width: 15px; height: 15px; background: var(--nc); border: 1.5px solid var(--ink); }
+.nc-mark.is-on, .nc-mark-turn.is-on { transform: translate(-50%, -50%) scale(1.7); box-shadow: 0 0 0 2px var(--accent); }
+.nc-letter-line { margin-top: .25rem; max-width: 80ch; font-size: .94rem; line-height: 1.65; }
+.nc-muted { color: var(--muted); }
+
+/* ── 04 Look back ── */
+.nc-back-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1rem 0 0; padding: 0; }
+.nc-back-item { padding-top: .7rem; border-top: 1.5px solid var(--ink); min-width: 0; }
+.nc-back-command { font: 500 1.24rem/1.35 var(--serif); }
+.nc-back-command .nc-ref { font: 500 .84rem var(--sans); }
+.nc-back-item details { margin-top: .5rem; }
+.nc-back-item summary { display: flex; align-items: center; min-height: 44px; font-size: .92rem; font-weight: 600; color: var(--accent); cursor: pointer; }
+.nc-back-done { font: italic 400 1.24rem/1.35 var(--serif); }
+.nc-back-done .nc-ref { font: 500 .84rem var(--sans); }
+
+/* ── 05 Questions ── */
+.nc-q-list { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.nc-q-list li { border-bottom: 1px solid var(--line); }
+.nc-page .nc-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; min-height: 44px; padding-block: .85rem; font: 400 clamp(1.1rem, 2vw, 1.34rem)/1.32 var(--serif); }
+.nc-q::after { content: "→"; color: var(--accent); }
+.nc-q:hover { color: var(--accent); }
+
+/* ── Close ── */
+.nc-close-text { max-width: 72ch; }
+.nc-close-text > p:not(.nc-concepts, .nc-note) { margin-top: .9rem; font-size: 1.06rem; line-height: 1.7; }
+.nc-close-text .nc-question { font: 500 clamp(1.4rem, 3vw, 1.9rem)/1.3 var(--serif); color: var(--accent); }
+.nc-links { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: 1.2rem; font-size: .92rem; }
+.nc-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
+.nc-land { display: block; margin-top: 1.4rem; color: var(--muted); }
+.nc-land svg { display: block; width: 100%; height: 110px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
+.nc-sources { margin-top: 1.4rem; font-size: .9rem; }
+.nc-sources summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
+.nc-sources ul { list-style: none; margin: .4rem 0 0; padding: 0; }
+.nc-sources li { padding-block: .55rem; border-top: 1px solid var(--line); line-height: 1.55; }
+.nc-sources li a { font-weight: 600; }
+.nc-sources li span { display: block; color: var(--muted); }
+
+/* ── Sheet ── */
+.nc-sheet h3 { margin: .35rem 2.6rem .7rem 0; font: 500 1.5rem/1.18 var(--serif); letter-spacing: -.02em; }
+.nc-sheet h3:focus { outline: none; }
+.nc-sheet-ref { margin-bottom: .4rem; }
+.nc-passage-text { font: 400 1.1rem/1.65 var(--serif); }
+.nc-passage-text sup { margin-right: .15rem; font: 500 .62em/1 var(--sans); color: var(--muted); }
+.nc-chapter { display: block; margin-top: .7rem; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nc-sheet-links { margin-top: .9rem; font-size: .9rem; }
+.nc-sheet-links a { display: flex; align-items: center; min-height: 44px; color: var(--accent); }
+.nc-sheet button.nc-back { display: flex; align-items: center; min-height: 44px; margin-right: 2.6rem; font-size: .88rem; font-weight: 600; color: var(--accent); }
+.nc-sheet .nc-flag p { font-size: .98rem; line-height: 1.62; }
+
+@media (max-width: 860px) {
+  .nc-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nc-figures > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .nc-figures > div:nth-child(-n+2) { border-top: 0; }
+  .nc-back-list { grid-template-columns: minmax(0, 1fr); }
+  .nc-beholds ol { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1rem; border-top: 0; }
+  .nc-beholds li { border-top: 1.4px solid var(--nc); }
+}
+/* A phone keeps the fold: the two halves stay side by side and the joining word sits on the fold above them. */
+@media (max-width: 620px) {
+  .nc-heads { grid-template-columns: minmax(0, 1fr) 1.4rem minmax(0, 1fr); }
+  .nc-cross { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "join join" "done now"; column-gap: 1.4rem; }
+  .nc-crease { grid-area: join; padding-bottom: .25rem; }
+  .nc-crease:empty { display: none; }
+  .nc-done { grid-area: done; }
+  .nc-now { grid-area: now; }
+  .nc-done, .nc-now { font-size: 1rem; }
+  .nc-fold-title::after { content: "Open +"; }
+  .nc-fold[aria-expanded="true"] .nc-fold-title::after { content: "Close −"; }
+  .nc-after, .nc-rail-set { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .nc-lines thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .nc-lines table, .nc-lines tbody, .nc-lines tr, .nc-lines td { display: block; }
+  .nc-lines tr { padding-block: .6rem; border-bottom: 1px solid var(--line); }
+  .nc-lines td { padding: .15rem 0; border: 0; }
+  .nc-lines td::before { content: attr(data-label) " · "; font: 600 .66rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+}
+/* A touch screen has no pointing and tapping opens the sheet at once, so the line beneath would only ever show its prompt. */
+@media (hover: none) { .nc-readline { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .nc-thread, .nc-spark { animation: none; }
+  .nc-spark { opacity: .8; }
+  .nc-mark, .nc-mark-turn { transition: none; }
+}

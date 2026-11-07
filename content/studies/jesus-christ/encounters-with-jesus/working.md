@@ -1,22 +1,30 @@
-# Encounters with Jesus
+# Encounters with Jesus working notes
 
-**Content pass status:** item 14, first full draft ready for review, 2026-10-13. [Content draft](content.md); [passage and editorial notes](passage-notes.md).
+**Item 14 · Jesus Christ · Rewritten to the study standard · 2026-10-30.** The first draft of 2026-10-13, in the King James, is replaced here. [Text](content.md) · [passage notes](passage-notes.md) · [design](design.md).
 
 ## Purpose and central question
 
-Read individual encounters as complete stories. Who approaches whom, what is said and done, what changes, and what does the narrator leave unresolved?
+Read individual encounters as complete stories. Who moved first, what was at stake, and where does the record stop? Ask those three things of any meeting in the Gospels, and let what is unstated stay a question.
 
 ## Content divisions
 
-1. Called to follow — fishermen and Levi.
-2. Those called sinners — develops the outline's excluded theme through Zacchaeus and the crowd's response, without asserting universal exclusion.
-3. The sick — the intertwined encounters with Jairus and the woman in Mark 5.
-4. Seekers and questioners — Nicodemus and the Samaritan woman.
-5. Opponents — the withered hand and the question about tribute.
-6. Those who turn away — the wealthy man and the ensuing instruction to disciples.
+1. Called to follow: four fishermen, and Levi.
+2. Those called sinners: Zacchaeus and what he is called.
+3. The sick: Jairus and the woman, folded together in Mark 5.
+4. Seekers and questioners: Nicodemus and the woman at the well.
+5. Opponents: the man with the withered hand, those watching him, and the tax question.
+6. Two men on one road: the man who went away and Bartimaeus.
+7. In grief and in doubt: Martha, Mary and Thomas.
 
-All six themes are developed through identifiable scenes. These are reading groupings, not permanent labels for every person's character or an exhaustive catalogue of encounters.
+## Decisions
 
-## LLM handoff
+- **Widened as [the to-do list](../../../../../Pages/Topics/TODO.md) asked:** illness, grief, money and doubt met in single stories. Grief and doubt had almost no place, so Martha, Mary and Thomas were added as a seventh group. Bartimaeus was added, because the road in Mark 10 has another ending.
+- **Fifteen meetings.** A meeting is one scene with one person or party. The four fishermen count as one, Mark 5 as two, and Mark 3 as two.
+- **The sixth group's name changed** from "Those who turn away" to "Two men on one road". The old heading would make a label of one sad scene.
+- **Levi stays Levi in Mark's scene.** Matthew 9:9 names the man Matthew, and the record says this study reads Matthew 10:3 as his coming back. Mark does not say so.
+- **The man who went away is not called young or a ruler,** because Mark does not. The note says where each word comes from.
+- **Five hard questions:** illness and faith, selling everything, water and the Spirit, why He waited, and whether Zacchaeus bought his salvation.
 
-The first content draft is complete. The queue has since advanced; consult `../../progress.json` for the current item and next step. Design has not started.
+## Handoff
+
+The mock-up is built and awaits the owner's review. The real page, its route, the row in [STUDIES.md](../../../../../Pages/Topics/STUDIES.md) moving to Built, and the matrix regeneration are still to do.

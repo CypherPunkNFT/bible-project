@@ -1,48 +1,35 @@
 # Covenants and promises passage notes
 
-**Item 26 · First-draft notes · 2026-10-13**
+**Item 26 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings
 
-Read local KJV: Genesis 9:1–17; 12:1–7; 15:1–21; 17:1–22; Exodus 19:1–8; 20:1–21; 24:1–11; 2 Samuel 7:1–29; Psalm 89:3–4, 19–37; Luke 1:30–33; Jeremiah 31:27–37; Luke 22:14–20; Hebrews 8:1–13; Galatians 3:6–29; 2 Corinthians 3:3–18; Romans 11:17–32. Exodus 19–24 is supplied as the wider setting; the focused exposition uses the specified selections.
+Read in the Berean, from the site's own copy: Genesis 9:1–17; 12:1–7; 15:1–21; 17:1–22; Exodus 19:1–8; 20:1–21; 24:1–11; 2 Samuel 7:1–29; Psalm 89:3–4, 19–39; Luke 1:30–33; Jeremiah 31:27–37; Luke 22:14–20; Hebrews 8:1–13; Galatians 3:6–29; 2 Corinthians 3:3–18; Romans 11:17–32. Each block quotation and quoted phrase is checked against this text by [build-data.py](../../../../design/covenants-and-promises-directions/build-data.py).
 
-Full-verse quotations to verify: Genesis 9:11; Genesis 17:7; Exodus 24:8; 2 Samuel 7:16; Jeremiah 31:33; Galatians 3:29. Paraphrase and application are editorial writing.
+## Sources, and how far each was read
 
-| Division | Context preserved |
-| --- | --- |
-| Noah | Post-flood life, human dignity, recipients including living creatures, specified promise and sign. |
-| Abraham | Call and blessing before explicit covenant language; heir and land; delay; circumcision and obligations; Isaac distinguished from Ishmael's blessing. |
-| Sinai | Deliverance precedes commands; holy nation, words and judgments, public assent, blood and covenant meal. |
-| David | Proposed temple becomes promise of a royal house; discipline and mercy; Psalm 89's explicit covenant language; Luke's Davidic throne. |
-| New covenant | Israel and Judah named, broken exodus covenant, law within, knowledge and forgiveness; Jesus' cup and Hebrews' quotation. |
-| Letters | Law does not annul promise; Christ and heirs; Spirit's ministry; warning against Gentile boasting. |
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Covenants and promises mock-up", and at the foot of the page.
 
-## Attributed theological sources
-
-Consulted 2026-10-13:
-
-- [Westminster Confession, chapter 7, published by the Orthodox Presbyterian Church](https://opc.org/wcf.html): works and grace as theological covenants; different administrations under law and gospel; one covenant of grace in substance. The draft summarises this formulation rather than presenting its terminology as a direct quotation from Genesis.
-- [Dallas Theological Seminary doctrinal statement](https://www.dts.edu/why-dts/doctrinal-statement), articles V and XIII: distinct dispensational responsibilities, salvation always by grace through faith on the basis of Christ's blood, and distinction of church from Israel. This is a specified institutional account, not every dispensational view.
-
-These summaries demonstrate differing ways of organising the passages. Do not caricature dispensationalism as teaching salvation by works in earlier ages or describe all covenant theology as identical to this confession. Further comparison with Catholic, Orthodox, Baptist or other accounts requires representative primary sources.
+- **Read directly and quoted (public domain):** Calvin on Genesis 15:17, Jeremiah 31:31–32, Romans 11:26, Galatians 3:16 and Hebrews 1:5, each that comment only; Maclaren on Genesis 15, one paragraph; the Second London Confession 7.3; the Westminster Confession 7.5, 7.6 and 28.4.
+- **Told in this site's words, not quoted (rights restricted):** Scheiderer, whole article, and he is a critic of progressive covenantalism; Semrad, most of the article; Criswell, only the passages on Romans 11 and the dispensations; Wellum, through a tool that returned a summary, so check against the original.
+- **Short phrases only:** the Baptist Faith and Message 2000, Articles 1, 4, 6 and 7, consulted through a tool that returned extracts and in the site's doctrinal foundation file.
+- **Not read:** other Baptist accounts, such as New Covenant Theology. The page says so.
 
 ## Interpretive limits
 
-1. **Coverage:** six accepted themes are an introductory selection, not an exhaustive count of biblical covenants. Priestly covenants and other covenant passages are not denied by their omission.
-2. **Noah:** the stated promise concerns another flood destroying all flesh/the earth. Avoid converting it into protection from every disaster. The bow is a token; no claim about the first physical occurrence of a rainbow is made.
-3. **Abraham:** Genesis 12 announces promises; Genesis 15 and 17 explicitly name the covenant. Retain land, descendants, blessing and obligations rather than reducing everything to one abstract category. Do not assign a modern territorial or political programme from this introduction.
-4. **Conditional language:** read the actual obligations and divine commitments before applying the labels conditional or unconditional. Genesis 17 and the Davidic promises include obligations or discipline alongside enduring promises.
-5. **Sinai:** Exodus remembers divine deliverance before the commands. Its covenant responsibilities are real. Do not imply that all Israelites or contemporary Jews believe they can earn salvation through unaided works.
-6. **David:** 2 Samuel 7 gives the promise; Psalm 89 explicitly calls it a covenant. The royal-line wording includes discipline for iniquity. Luke's use of the throne does not transfer that iniquity to Jesus. Psalm 89 also continues into lament beyond the excerpts; do not represent its complete argument as uninterrupted celebration.
-7. **New covenant:** preserve Israel and Judah as Jeremiah's named recipients. Hebrews quotes this promise to explain Christ's ministry; do not erase either fact. Fulfilment, the church's participation and Israel's future are interpretive questions requiring fuller treatment.
-8. **Testament:** retain the KJV wording in Luke and 2 Corinthians while explaining the covenant connection in context. Do not equate every use with the title of a collection of biblical books or make an unsourced lexical claim about every occurrence.
-9. **Galatians:** report Paul's identification of the seed with Christ without inventing a grammatical rule that seed cannot be collective; verse 29 itself applies seed language to those belonging to Christ. Chronological harmonisation of the 430 years is not attempted.
-10. **Spirit and letter:** 2 Corinthians 3 concerns covenant ministry and transformation; it is not a warrant to ignore written Scripture or a simple opposition of literal and figurative reading.
-11. **Romans 11:** retain the warning against boasting and God's mercy. The disputed meaning of all Israel and its eschatological timing are not settled here. Future expansion should read Romans 9–11 as a whole and attribute competing interpretations.
-12. **Application:** distinguish a promise's recipients, stated content and later scriptural use before addressing the reader. Reflections are invitations to apply the readings, not new divine promises.
+1. **Coverage:** an introductory selection. Priestly covenants, Moab and the question of Adam are named and not walked.
+2. **Noah:** the promise is no flood to destroy the earth, not protection from every disaster. No claim about the first rainbow.
+3. **Abraham:** Genesis 12 gives the promises without the word covenant; Genesis 15 and 17 use it. Keep land, descendants, blessing and demands together. No modern territorial or political programme.
+4. **Genesis 15:** that only the LORD binds Himself is this site's reading, resting on Jeremiah 34:18. Calvin and Maclaren read the fire otherwise, and the page says so. The owner should look at this.
+5. **Conditional language:** read the commitments and the demands before using those labels, which are not in the text.
+6. **Sinai:** deliverance comes first, and the demands are real. Do not say Jews believe they earn salvation.
+7. **David:** 2 Samuel 7 gives the promise and names no sign; Psalm 89 calls it a covenant. Hebrews 1:5 and 1 Chronicles 17:13 stop before "When he does wrong", so that sentence is no claim about Jesus.
+8. **New covenant:** Jeremiah names Israel and Judah, and Hebrews applies his words to Christ's ministry. Keep both. Jeremiah 31:35–37 is not dropped.
+9. **Galatians:** report Paul on the seed and Calvin's account of the collective noun; offer no rule of Hebrew grammar of the site's own.
+10. **Spirit and letter:** 2 Corinthians 3 is about a covenant's ministry, and is no licence to set written Scripture aside.
+11. **Romans 11:** the warning against boasting and the irrevocable call stay. What "all Israel" means is left open.
+12. **Application:** the reflections are invitations to apply the readings, not new promises.
 
-## Connections and review status
+## Later Scripture
 
-[What the cross accomplishes](../what-the-cross-accomplishes/content.md) develops the blood, sacrifice and reconciliation language. [Grace faith and salvation](../grace-faith-and-salvation/content.md) develops Abraham in Romans and justification. [Names and titles of Jesus](../../jesus-christ/names-and-titles-of-jesus/content.md) and [The kingdom he announced](../../jesus-christ/the-kingdom-he-announced/content.md) provide related Christological readings.
-
-Item 27 follows Scripture's witness and use of earlier texts; item 28 develops the church; item 30 develops hope and disputed fulfilment questions. Six sections, twelve subdivisions and six quotations are ready for review after validation. No design or site implementation. See [working notes](working.md).
+The 48 lines on the page are this study's matching of later verses to their origin, listed in [study_lists.py](../../../../design/covenants-and-promises-directions/study_lists.py). They are a selection. The kinds are tested: a quotation has marks and shared words, the others contain a named word. Which promise a verse goes back to is judgment, and some could join more than one.

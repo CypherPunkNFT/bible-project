@@ -1,48 +1,34 @@
 # The hope to come passage notes
 
-**Item 30 · First-draft notes · 2026-10-13**
+**Item 30 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings
 
-Read local KJV in full: 1 Thessalonians 4:13–5:11; 1 Corinthians 15:1–58; Romans 8:18–25; 2 Peter 3:1–18; Revelation 20:1–22:21.
+Read in the Berean, from the site's own copy: 1 Thessalonians 4:13–5:11; Acts 1:9–11; 1 Corinthians 15:1–58; Revelation 20:1–15; Matthew 25:31–46; John 5:24–29; Romans 8:18–25; Revelation 21:1–22:5; 2 Peter 3:1–18; Isaiah 65:17–19; Revelation 22:6–21. Each block quotation and quoted phrase is checked against this text by [build-data.py](../../../../design/the-hope-to-come-directions/build-data.py).
 
-Six full-verse quotations: 1 Thessalonians 4:17; 1 Corinthians 15:20; Revelation 20:12; Romans 8:21; Revelation 21:4; 1 Corinthians 15:58. Exposition and reflection are editorial writing.
+## Sources, and how far each was read
 
-| Division | Argument retained |
-| --- | --- |
-| Return | Grief over deceased believers, Jesus' death/resurrection, sequence within gathering, enduring fellowship, comfort and sobriety. |
-| Resurrection | Gospel and witnesses, consequences of denial, Christ firstfruits, transformation, defeat of death, steadfast work. |
-| Judgment | Binding and reign, final deception defeated, throne and books, works, book of life, second death. |
-| Creation | Present suffering, creation's groaning, Spirit's firstfruits, bodily redemption, hope and patience. |
-| New dwelling | New heaven/earth, city descending, God and Lamb, no death or curse, life and service; righteousness in 2 Peter. |
-| Present response | Patience not failed promise, repentance, holiness, growth, comfort, work and prayer for Christ's coming. |
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "The hope to come mock-up", and at the foot of the page.
 
-## Sources for sequence comparison
-
-Consulted 2026-10-13:
-
-- [Dallas Theological Seminary doctrinal statement](https://www.dts.edu/why-dts/doctrinal-statement), XVIII–XXI: reception of the church before the tribulation, Christ's return introducing the millennial age, and final great-white-throne judgment at its close. This is a specified dispensational account, not every premillennial reading.
-- [Westminster Confession, OPC edition](https://opc.org/wcf.html), 32.2–3 and 33.1–3: resurrection of all the dead at the last day, judgment of all persons, and watchfulness with the day unknown. This supports the contrast stated, not a claim that the confession itself supplies a complete interpretation of the millennium.
-
-Do not treat these two examples as exhaustive. A fuller comparison of historic premillennial, dispensational, amillennial and postmillennial readings would need primary advocates for each and explicit treatment of the first resurrection, binding of Satan, thousand years and the relation between visions. No such complete taxonomy is claimed here.
+- **Read directly and quoted (public domain):** the Abstract of Principles, article 20; Boyce, chapter 40 on Revelation 20 and part of chapter 42 on the final states; Calvin on 2 Peter 3:9, part of that comment.
+- **Told in this site's words, not quoted (rights restricted):** Criswell, parts of three sermons; Piper, the definitions and first two arguments of one article and one passage of another; Akin, the table and first section of one manuscript; Pinnock, two passages of a reprint; Waldron, one article through a tool that returned a summary, so check against the original.
+- **Short phrases only:** the Baptist Faith and Message 2000, Articles 4 and 10, consulted through a tool that returned extracts and in the site's doctrinal foundation file.
+- **Not read:** any advocate of the golden-age view, which is told only by Akin and Criswell, who reject it, and the page says so. Herschel Hobbs, a Baptist reported to hold that the thousand years are now, was left out because the pages could not be opened. No named source on whether 2 Peter 3:10 means replaced or renewed.
 
 ## Interpretive limits
 
-1. **Grief:** 1 Thessalonians contrasts grief with and without hope; it does not prohibit sorrow. Do not promise a particular emotional response to bereavement.
-2. **Sleep and gathering:** sleep names the dead in the immediate context. It is not used here to settle the intermediate state's consciousness. KJV prevent in 4:15 must not be misread as obstruct; the exposition follows the order made explicit in 4:16–17.
-3. **Sequence:** distinguish the text's dead-first/living-together sequence from broader chronology. The catching up is not denied because its placement relative to tribulation is disputed. No return date is inferred.
-4. **Resurrection body:** Paul's spiritual body remains bodily language. The draft follows incorruption and transformation without a speculative anatomy or denial of embodiment. Baptism for the dead in 15:29 is read but not made a foundation for an unexamined practice.
-5. **Universal language:** 1 Corinthians 15 is not used alone to settle universal salvation. The paragraph's identification of those belonging to Christ remains visible.
-6. **Judgment:** Revelation names works and the book of life. Do not reduce judgment to a score by which someone independently purchases salvation. Final accountability is not removed from the vision.
-7. **Final punishment:** the lake of fire and second death are retained. The draft does not claim to resolve debates over everlasting conscious punishment, conditional immortality or universal restoration. A dedicated comparison would require additional passages and representative sources, not inference from imagery alone.
-8. **Creation:** Romans 8 connects creation's deliverance with bodily redemption. An application to present care is editorial, not a claim that human activity brings the promised final redemption.
-9. **Fire and new earth:** do not derive future physics or a full annihilation-versus-transformation theory from 2 Peter's language. The textual variant in 3:10 requires dedicated investigation if made central; the draft quotes neither that verse nor a disputed form as proof of a physical mechanism.
-10. **City imagery:** names, light, river and tree are reported from the vision. No modern geographic identification, literal travel specification, or speculative explanation of no more sea is supplied.
-11. **Revelation 22:** the invitation and final warnings belong to this book's closing context. They are not converted into an unsupported history of canon closure. Variants in 22:14 and 22:19 are not used to carry the study's argument.
-12. **Timing and conduct:** a day/thousand years comparison is not a numerical timetable. Moral exhortation, patience and mutual comfort are part of the passages' explicit purpose.
-
-## Connections and review
-
-[The cross and resurrection](../../jesus-christ/the-cross-and-resurrection/content.md) develops events and witness. [Humanity sin and renewal](../humanity-sin-and-renewal/content.md) develops dignity and embodied life. [Faith under pressure](../../christian-life/faith-under-pressure/content.md) addresses enduring hardship. [Covenants and promises](../covenants-and-promises/content.md) provides related promise and fulfilment context.
-
-This completes first content drafts for items 21–30, not the full forty-item content pass. The next study is 31 Books in their settings. Six sections, twelve subdivisions and six quotations require validation; this remains a first draft for review. See [working notes](working.md). Design has not started.
+1. **Coverage:** a selection. Matthew 24, 2 Thessalonians 2, the seals, trumpets and bowls of Revelation, and the angels and spiritual powers are named and not walked.
+2. **Grief:** 1 Thessalonians sets grief with hope against grief without it, and does not forbid sorrow. The longer pastoral walk through this passage is in Faith under pressure.
+3. **Sleep:** Paul's word for believers who have died. It is not taken to mean they know nothing until the last day (2 Corinthians 5:8; Philippians 1:23).
+4. **Dates:** none, and no current events read into any verse (Matthew 24:36; Acts 1:7). 2 Peter 3:8 answers scoffers and is no calendar.
+5. **Sequence:** the Baptist Faith and Message does not settle the thousand years. Four maps are shown and none chosen. The strips show order, not length. The counted claim is narrow: Revelation 20 is the only place the words thousand years stand with a reign, and the script tests that in English only.
+6. **Resurrection body:** Paul's spiritual body is still a body. A seed is offered, not an anatomy.
+7. **1 Corinthians 15:22 and 15:29:** the first is not universal salvation, because 15:23 says who. The second is not commended or explained, and nothing is built on it.
+8. **Judged by deeds:** no one buys a place in the Book of Life. That deeds show what was true of a life is this site's reading, and it is labelled so. Believers still answer to Christ (2 Corinthians 5:10), which is not the same as being condemned.
+9. **Hell:** stated plainly in the site's voice under Article 10, with Matthew 25:46, Revelation 20:10 and 20:15 and 2 Thessalonians 1:9. The first draft left this undecided and the foundation file does not allow that. Pinnock's destruction view is shown as a real alternative, labelled as not the site's, and the page admits Revelation 20:10 names only the devil, the beast and the false prophet.
+10. **Pastoral care:** the judgment passage is not for naming who is lost. Readers afraid for someone who has died are given Genesis 18:25, and readers afraid for themselves John 5:24.
+11. **Suffering:** Romans 8 promises no healing by next week, and continuing illness is not weak faith. Caring for the body and the world is called this site's application, and is not said to bring in what only God can do.
+12. **Heaven and the city:** the confession's Heaven and Revelation's city coming down are both kept, with no map of where.
+13. **Fire:** whether the world is replaced or renewed is left open. The variant in 2 Peter 3:10 is mentioned only to explain why older English Bibles differ.
+14. **Echoes:** only the serpent (Revelation 12:9; 20:2) and the last Adam (1 Corinthians 15:45) are the New Testament's own links. The rest of section 03 is called this study's matching or a shared English word. No check was made in Hebrew or Greek.
+15. **2 Peter 3:9:** how it bears on who God saves is named as a question Baptists differ on, and sent to the study of grace.

@@ -1,32 +1,35 @@
-# 33 — The shape of Scripture
+# The shape of Scripture working notes
 
-First content draft ready for owner review · 2026-10-13 · Not final-copy approval.
+**Item 33 · Explore the Bible · Rewritten to the study standard · 2026-10-30.** The first draft of 2026-10-13, in the King James, is in git history.
 
-## Purpose
+## Purpose and central question
 
-Explore connections across books without losing their differences. The [draft](content.md) develops the six accepted content divisions with two subdivisions each. The [passage notes](passage-notes.md) distinguish textual links from editorial comparison. The [reuse inventory](existing-material.md) records the existing structure study that informs this work.
+What kind of writing is this, who is it spoken to, what earlier word does it name, and what does it say that nothing else says? Read connections across the books without losing their differences. The [reader-facing text](content.md) is the source of the [mock-up](../../../../design/the-shape-of-scripture-directions/README.md); its [design](design.md) and [passage notes](passage-notes.md) sit beside it, and the [reuse inventory](existing-material.md) still stands.
 
-## Section plan developed
+## Content divisions
 
-1. Law: deliverance, covenant instruction, remembering and teaching.
-2. History: Joshua's charge, evaluation in Kings, prophetic speech recalled in Ezra.
-3. Poetry and Wisdom: Psalm 78's remembrance, lament, paired proverbs and the voices in Job.
-4. Prophets: accusation, turning, covenant and promised renewal.
-5. Gospels and Acts: Luke's closing witness to Scripture and the commission continued in Acts.
-6. Letters and Revelation: communal response, hearing and keeping, creation imagery and hope.
+1. Law: rescued, then taught.
+2. History: the story comes with a verdict.
+3. Poetry and wisdom: pray it, weigh it.
+4. Prophets: stop, wash, come.
+5. Gospels and Acts: open the Scriptures, then go.
+6. Letters and Revelation: mail, and a vision sent as mail.
 
-## Editorial decisions
+Then "One book. Many kinds of writing." (a kind of writing across the books), "Every later part. Looks back." (the staircase), "Name it yourself." (three passages to try) and a close with the gospel invitation.
 
-- These six content divisions are not a proposal to replace the existing chart groups. The chart groups Law within History and separates Revelation from Epistles; the accepted outline does otherwise for teaching purposes.
-- No book-count, word-count or chart size establishes theological importance. No new statistical claims are introduced.
-- Individual books mix forms. Law includes narrative; psalms remember history; prophetic books include more than predictions; Revelation includes address, prophecy and visions.
-- Six worked studies are an orientation, not a comprehensive account of every book, genre, canon or historical arrangement.
-- Canon formation, differing collections and textual transmission need separately sourced work; this draft does not settle them through the site's book registry.
-- Compare named passages rather than asserting that every similar image is an explicit quotation or fulfilled prediction.
-- No site changes, routes, visuals, layout, build or deployment.
+## What changed from the first draft
 
-## Connections and next step
+- King James to Berean, every verse.
+- The six divisions now state that they are this site's reading guide. Jesus's three groups in Luke 24:44 and the Hebrew Bible's arrangement are named beside them.
+- One habit runs through the page: form, hearers, one earlier word it names, and then what is its own.
+- Added named-source notes: Maclaren, Calvin on Psalm 13 and on Isaiah 1, Matthew Henry, Jamieson-Fausset-Brown, and the Second London Confession.
+- Added the hard questions: whether a song means it did not happen, Job's friends, Proverbs 26:4–5, whether the law binds Christians, and Joshua 1:7–9 as no promise of wealth.
+- Added a direct gospel invitation at the close, from Luke 24:46–47.
 
-Study 31 introduces whole books; 32 develops letters; 34 follows with detailed context practice. Studies 26 and 27 provide fuller covenant and scriptural-witness discussions, while 30 develops Christian hope. Keep this draft's purpose as orientation across collections.
+## Boundaries and reuse
 
-The first content draft is complete and the queue has since advanced. Consult [progress](../../progress.json) for the current item and next step. Design has not started.
+The six divisions do not replace the site's chart groups, which keep Law inside History and Revelation apart from the letters. Book introductions stay with Books in their settings, and letters at length with Letters and their message. The law for Christians goes to Freedom that serves, the mapping of the covenants to Covenants and promises, Revelation's chapters to The hope to come, and how the canon formed to How the canon took shape. How to read the days of Genesis 1 needs a study of its own and takes no position here. The site's existing charts of the Bible's structure are linked, not rebuilt.
+
+## Review and next step
+
+Not reviewed by the owner. The open items are in [the mock-ups log](../../../../../Pages/Topics/STUDY_MOCKUPS_LOG.md), under Study 5. A real page under `src/` has not been started.

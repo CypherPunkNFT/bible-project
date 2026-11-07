@@ -1,0 +1,219 @@
+/* The hope to come mock-up. Frame from the Authors mock-ups, hero and sheet from the Manuscripts mock-up. The study's colour
+   is the site's gold, because it runs from Genesis to Revelation.
+   No focus ring on a click: a keyboard user gets a colour and an underline or border from :focus-visible instead. */
+.hp-page { --tone: var(--accent); --gold-ink: var(--accent); }
+.hp-page button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.hp-page, .hp-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.hp-page, .hp-sheet) a { color: inherit; }
+
+/* ── Reference links ── */
+.hp-ref { color: var(--gold-ink) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; }
+.hp-ref:hover, .hp-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+
+/* ── Hero ── */
+.hp-hero { padding-bottom: .4rem; }
+.hp-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.hp-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.hp-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.hp-trail a:hover, .hp-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.hp-here { color: var(--ink); }
+.hp-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.hp-intro h1 { margin-block: .55rem .8rem; }
+.hp-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.hp-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.hp-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.hp-hero-art { color: var(--muted); }
+.hp-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.hp-hero-art .ms-art-note { bottom: -2%; }
+.hp-gold { stroke: var(--tone); }
+.hp-faint { opacity: .5; }
+.hp-wash { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.hp-wash.hp-gold { fill: color-mix(in srgb, var(--tone) 12%, transparent); stroke: none; }
+.hp-halo { stroke-width: 1; opacity: .16; }
+.hp-wine { fill: color-mix(in srgb, var(--tone) 22%, transparent); }
+.hp-thread { animation: hp-thread 22s linear infinite; }
+.hp-glow { fill: color-mix(in srgb, var(--tone) 14%, transparent); stroke: none; animation: hp-light 9s ease-in-out infinite; }
+.hp-flame { fill: color-mix(in srgb, var(--tone) 18%, transparent); }
+.hp-gold-line { stroke: var(--tone); }
+.hp-spark { animation: hp-twinkle 8s ease-in-out infinite; }
+@keyframes hp-light { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes hp-thread { to { stroke-dashoffset: -70; } }
+@keyframes hp-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+
+.hp-figures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.hp-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.hp-figures > div:first-child { border-left: 0; padding-left: 0; }
+.hp-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.hp-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.hp-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+
+/* ── Small shared text ── */
+.hp-note { margin-top: .9rem; max-width: 92ch; font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.hp-key { max-width: 92ch; margin-bottom: 1.1rem; font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.hp-key b { color: var(--ink); font-weight: 600; }
+.hp-reads { margin-bottom: 1rem; max-width: 70ch; font: 400 1.08rem/1.5 var(--serif); }
+.hp-kind { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.hp-kind b { color: var(--accent); font-weight: 600; }
+
+/* ── The six cards: one anatomy, a rule above and below rather than a box ── */
+.hp-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem 1.8rem; }
+.hp-card { display: flex; flex-direction: column; gap: .3rem; padding-top: .8rem; border-top: 1px solid var(--line); color: inherit; text-decoration: none; transition: border-color .25s; }
+.hp-card:hover, .hp-card:focus-visible, .hp-card.is-on { border-top-color: var(--tone); }
+.hp-mini-wrap { display: block; color: var(--muted); margin-block: .35rem .2rem; }
+.hp-mini { display: block; width: 96px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.hp-card-title { font: 500 1.28rem/1.25 var(--serif); }
+.hp-card-hook { font-size: .88rem; line-height: 1.5; color: var(--muted); }
+.hp-card-parts { margin-top: .45rem; padding-top: .45rem; border-top: 1px solid var(--line); font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.hp-action { margin-top: .3rem; font-size: .8rem; font-weight: 600; color: var(--accent); }
+.hp-card:hover .hp-action-text, .hp-card:focus-visible .hp-action-text { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── The open reading: fine rules and labels, no boxes ── */
+.hp-panel { grid-column: 1 / -1; padding: 1.2rem 0 1.4rem; border-block: 1px solid var(--tone); scroll-margin-top: 84px; animation: hp-fade .28s ease-out; }
+@keyframes hp-fade { from { opacity: 0; } to { opacity: 1; } }
+.hp-panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+.hp-panel h3 { margin-top: .2rem; font: 500 clamp(1.6rem, 3vw, 2.1rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.hp-panel h3:focus { outline: none; }
+.hp-hook { margin-top: .25rem; font: italic 400 1.1rem/1.45 var(--serif); color: var(--accent); }
+.hp-read { margin-top: .5rem; font-size: .84rem; line-height: 1.7; }
+.hp-read > span { color: var(--muted); }
+.hp-close { flex-shrink: 0; display: grid !important; place-items: center; width: 44px; height: 44px; border-radius: 50% !important; border: 1px solid var(--line) !important; }
+.hp-close:hover, .hp-close:focus-visible { border-color: var(--accent) !important; color: var(--accent); }
+.hp-close span { display: grid; }
+.hp-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.hp-strip > div { padding: .75rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.hp-strip > div:first-child { padding-left: 0; border-left: 0; }
+.hp-strip dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hp-strip dd { margin: .3rem 0 0; font-size: .88rem; line-height: 1.55; }
+.hp-parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 2.6rem; margin-top: 1.2rem; align-items: start; }
+.hp-part { min-width: 0; }
+.hp-part h4, .hp-prompts h4 { font: 500 1.14rem/1.3 var(--serif); }
+.hp-part > p, .hp-flag p { margin-top: .6rem; max-width: 66ch; font-size: .92rem; line-height: 1.68; }
+.hp-quote { margin: .8rem 0; padding-left: .9rem; border-left: 2px solid var(--tone); }
+.hp-quote blockquote { margin: 0; font: 400 1.04rem/1.55 var(--serif); }
+.hp-quote figcaption { margin-top: .25rem; font-size: .74rem; color: var(--muted); }
+.hp-flag { margin-top: .9rem; padding-top: .55rem; border-top: 1px solid var(--line); }
+.hp-flag-label { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hp-flag-care .hp-flag-label { color: var(--accent); }
+.hp-flag-open .hp-flag-label { color: var(--prophets); }
+.hp-flag p { margin-top: .3rem; }
+.hp-flag small { display: block; margin-top: .3rem; font-size: .72rem; line-height: 1.5; color: var(--muted); }
+.hp-prompts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.6rem; margin-top: 1.2rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.hp-prompts p { margin-top: .35rem; max-width: 66ch; font-size: .92rem; line-height: 1.65; }
+.hp-panel-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 1.4rem; margin-top: 1.1rem; }
+.hp-next { min-height: 44px; font-size: .84rem; font-weight: 600; color: var(--accent) !important; }
+.hp-next:hover, .hp-next:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.hp-setting { margin-top: .3rem; max-width: 80ch; font-size: .84rem; line-height: 1.6; }
+.hp-setting > span { color: var(--muted); }
+/* ── The close ── */
+.hp-closing { padding-bottom: 0; }
+.hp-close-text { max-width: 66ch; }
+.hp-close-text > p:not(.hp-concepts) { margin-top: .7rem; line-height: 1.68; }
+.hp-question { font: 500 clamp(1.3rem, 2.8vw, 1.8rem)/1.3 var(--serif) !important; letter-spacing: -.01em; }
+.hp-again { font-style: italic; color: var(--muted); }
+.hp-links { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.1rem; font-size: .86rem; font-weight: 600; color: var(--accent); }
+.hp-links a { text-decoration: none; min-height: 28px; }
+.hp-links a:hover, .hp-links a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.hp-land { display: block; margin-top: 1.2rem; color: var(--muted); }
+.hp-land svg { display: block; width: 100%; height: clamp(90px, 14vw, 170px); fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.hp-road { animation: hp-thread 18s linear infinite; }
+.hp-sky { fill: currentColor; stroke: none; opacity: .4; }
+.hp-sources { margin-top: 1rem; padding-block: .7rem; border-top: 1px solid var(--line); font-size: .84rem; }
+.hp-sources summary { cursor: pointer; font-weight: 600; min-height: 28px; }
+.hp-sources summary:focus-visible { color: var(--accent); }
+.hp-sources ul { margin: .6rem 0 0; padding: 0; list-style: none; }
+.hp-sources li { padding-block: .45rem; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.hp-sources a { color: var(--accent); }
+.hp-sources li span { display: block; margin-top: .1rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+
+/* ── The record sheet ── */
+.hp-sheet .hp-kind { margin-right: 2.6rem; }
+.hp-sheet .ms-sheet-close { width: 44px; height: 44px; }
+.hp-sheet h3 { margin-top: .9rem; font: 500 1.35rem/1.25 var(--serif); }
+.hp-sheet-text { margin-top: .5rem; font: 400 1rem/1.7 var(--serif); }
+.hp-sheet-text sup { margin-right: .15em; font: 600 .62rem var(--sans); color: var(--accent); }
+.hp-sheet-ch { display: block; margin-block: .5rem .1rem; font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hp-sheet-links { display: grid; gap: .3rem; margin-top: .6rem; font-size: .84rem; font-weight: 600; }
+.hp-sheet-links a { color: var(--accent); }
+.hp-sheet-links a:focus-visible, .ms-sheet-close:focus-visible { text-decoration: underline; color: var(--accent); }
+
+/* ── Widths ── */
+@media (max-width: 1100px) {
+  .hp-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hp-figures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hp-figures > div { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 860px) {
+  .hp-parts, .hp-prompts { grid-template-columns: minmax(0, 1fr); }
+  .hp-strip { grid-template-columns: minmax(0, 1fr); }
+  .hp-strip > div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .hp-strip > div:first-child { border-top: 0; }
+}
+@media (max-width: 640px) {
+  .hp-cards { grid-template-columns: minmax(0, 1fr); }
+  .hp-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-thread, .hp-spark, .hp-road, .hp-panel { animation: none; }
+  .hp-card, .ms-sheet { transition: none !important; }
+}
+
+/* ── 02 The table: fine rules, no boxes. On a phone each row stacks and each cell says its column ── */
+.hp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hp-table-wrap { margin-top: .4rem; }
+.hp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.hp-table th, .hp-table td { padding: .55rem 1rem .55rem 0; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
+.hp-table thead th { border-top: 0; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hp-table thead th:nth-child(2) { width: 18%; }
+.hp-phrase { display: block; font: 400 1rem/1.45 var(--serif); }
+.hp-page .hp-row-ref { display: inline-flex; align-items: center; min-height: 28px; font-size: .76rem; border-bottom: 0 !important; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 3px; }
+.hp-link-word b { font-size: .86rem; font-weight: 600; color: var(--accent); }
+.hp-link-word span { color: var(--muted); }
+
+/* ── 03 First pages to last pages. The line's style says what kind of link it is, so colour is not alone ── */
+.hp-ends { margin: 0; padding: 0; list-style: none; }
+.hp-end-row { padding-block: .8rem .5rem; border-top: 1px solid var(--line); }
+.hp-end-row h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .8rem; font: 500 1.14rem/1.3 var(--serif); }
+.hp-end-row h3 small { font: 400 .72rem/1.4 var(--sans); color: var(--muted); }
+.hp-end-cols { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem 2rem; margin-top: .55rem; padding-top: .7rem; }
+.hp-end-cols::before { content: ""; position: absolute; inset: 0 0 auto 0; border-top: 2px solid var(--tone); }
+.hp-end-echo .hp-end-cols::before { border-top-style: dotted; opacity: .85; }
+.hp-end { min-width: 0; }
+.hp-end-head { display: block; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hp-mid { display: block; }
+.hp-mid + .hp-mid { margin-top: .3rem; }
+.hp-none { display: block; font-size: .84rem; color: var(--muted); }
+
+/* ── 04 The maps: each strip is an ordered list on a grid, so the return falls in one column for all of them ── */
+.hp-map-part { padding-block: .9rem 1.1rem; border-top: 1px solid var(--line); }
+.hp-map-title { font: 500 1.14rem/1.3 var(--serif); }
+.hp-map-reads { margin-top: .2rem; font-size: .88rem; line-height: 1.5; color: var(--muted); }
+.hp-map { display: grid; grid-template-columns: repeat(calc(var(--before) + var(--after) + 1), minmax(0, 1fr)); gap: 0 .5rem; margin: .7rem 0 0; padding: 0; list-style: none; }
+.hp-step { position: relative; grid-row: 1; padding-top: 1.1rem; min-width: 0; font-size: .82rem; line-height: 1.35; }
+.hp-step::before { content: ""; position: absolute; top: .36rem; left: 0; right: -.5rem; border-top: 1px solid var(--line); }
+.hp-step:last-child::before { right: 0; }
+.hp-step i { position: absolute; top: 0; left: 0; width: .75rem; height: .75rem; border-radius: 50%; border: 1.5px solid var(--muted); background: var(--page); }
+.hp-step small { display: block; margin-top: .15rem; font-size: .6rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.hp-step-return i { width: .95rem; height: .95rem; top: -.1rem; border-color: var(--tone); background: var(--tone); }
+.hp-step-return span, .hp-step-return small { color: var(--accent); font-weight: 600; }
+.hp-step-reign i { border-radius: 2px; border-color: var(--ink); border-style: dashed; }
+.hp-step-reign small { color: var(--ink); }
+.hp-map-text { max-width: 80ch; margin-top: .4rem; }
+
+@media (max-width: 860px) {
+  .hp-table, .hp-table tbody, .hp-table tr, .hp-table td { display: block; width: auto; }
+  .hp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .hp-table tr { padding-block: .6rem; border-top: 1px solid var(--line); }
+  .hp-table td { padding: .25rem 0; border: 0; }
+  .hp-table td::before { content: attr(data-label); display: block; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .hp-page .hp-row-ref { min-height: 44px; }
+  .hp-link-word span { display: none; }
+  .hp-end-cols { grid-template-columns: minmax(0, 1fr); }
+  /* On a phone the order runs down the page: an ordered list, each step on its own line, its place in the grid dropped. */
+  .hp-map { display: block; margin-left: .3rem; border-left: 1px solid var(--line); }
+  .hp-step { padding: .3rem 0 .3rem 1rem; }
+  .hp-step::before { display: none; }
+  .hp-step i { top: .5rem; left: -.42rem; }
+  .hp-step-return i { top: .45rem; left: -.52rem; }
+}

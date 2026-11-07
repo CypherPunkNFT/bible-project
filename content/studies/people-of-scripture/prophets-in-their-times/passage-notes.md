@@ -1,27 +1,27 @@
-# Passage notes — Prophets in their times
+# Prophets in their times passage notes
 
-2026-10-13. Scripture source: local KJV JSON in `data/plain/kjv/`. Main readings checked directly. No external chronological or historical claim is introduced.
+**Item 38 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here.
 
-## Full-verse quotation register
+## Primary readings
 
-| Section | Verse | Record |
-| --- | --- | --- |
-| 01 | Jeremiah 1:9 | JER.json, 1:9 |
-| 02 | Haggai 1:1 | HAG.json, 1:1 |
-| 03 | Amos 5:24 | AMO.json, 5:24 |
-| 04 | Jeremiah 19:10 | JER.json, 19:10 |
-| 05 | 2 Kings 22:19 | 2KI.json, 22:19 |
-| 06 | James 5:10 | JAS.json, 5:10 |
+Read in the Berean, from the site's own copy: Jeremiah 1:1–10; Amos 7:14–15; Micah 3:8; Haggai 1:1–11; Amos 1:1; Joel 1:1–3; Zephaniah 1:1; Zechariah 1:1; Malachi 1:1; Obadiah 1:1; Nahum 1:1; Amos 5:10–24; Micah 6:6–8; Malachi 1:6–8; Zephaniah 2:3; Jeremiah 19:1–15; Hosea 1:2–9; Hosea 3:1–5; Zechariah 6:9–15; 2 Kings 22:8–20; 2 Kings 23:1–3; Haggai 1:12–15; Jeremiah 26:17–19; Amos 7:10–13; Ezekiel 33:31–32; James 5:7–18; 1 Kings 17:1; 1 Kings 18:41–46; 1 Peter 1:10–12. Each block quotation, quoted phrase and record line is checked against this text by [build-data.py](../../../../design/prophets-in-their-times-directions/build-data.py).
 
-## Context and interpretive limits
+## Sources, and how far each was read
 
-1. **Jeremiah 1:1–10.** The narrated call supplies commission, objection, answer and sign. No exact age is inferred from “child.” The opening's identity and reign references do not by themselves settle the composition history of the entire book.
-2. **Haggai 1; Amos 1:1; Jeremiah 1:1–3; Joel 1:1–3.** Use the regnal/date language as printed without conversion to modern calendar dates. Amos names both Uzziah and Jeroboam; Jeremiah includes Josiah, Jehoiakim and Zedekiah. Joel's opening does not name a king; a proposed date must not be attributed to that heading.
-3. **Amos 5:10–24.** The poverty, bribery, judgment-in-the-gate and rejected-worship language is read as one address. Do not use 5:24 as a contextless political endorsement, or 5:21–23 as a universal rejection of every assembly or song. The draft describes the text's concrete accusations.
-4. **Jeremiah 19:1–15.** Preserve object, setting, witnesses, command and explanation. The passage identifies severe wrongdoing and severe judgment, including killing children; no graphic expansion is needed. Do not confuse this broken-vessel action with the different potter scene in Jeremiah 18 or import its explanation without reading that chapter separately.
-5. **2 Kings 22:8–20; 23:1–3; Haggai 1:12–15.** Huldah's speech differentiates announced judgment and the king's humbled response. The draft does not narrate Josiah's eventual death or claim that 22:20 resolves every question about it. The following covenant ceremony is reported without treating it as proof that every subsequent act was faithful. Huldah's role is explicitly named; no full biography is inferred.
-6. **James 5:7–18; 1 Kings 17:1; 18:41–46.** James recalls the prophets' affliction/patience and Elijah's prayer. KJV Elias is identified as Elijah. The draft does not turn this into a promise of weather control or a diagnosis of illness, and it does not offer medical guidance on the surrounding sickness passage. Attribute prayer language and narrative detail to their respective sources.
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "Prophets in their times mock-up", and at the foot of the page.
 
-## Reuse
+- **Read directly and quoted (public domain):** Calvin on Hosea 1:2–3, on the preface to Joel, and on Zechariah 6:12; Fausset, in Jamieson-Fausset-Brown, on Hosea 1:2 and at the opening of Joel.
+- **Read and not quoted:** Fausset's introduction to Malachi, for the old view that the name was not a proper name. He himself holds that it is.
+- **Reported, not read:** Hengstenberg and Henderson, only as Fausset gives them. The page says so.
+- **Short phrases:** the Baptist Faith and Message 2000, Articles 1 and 6.
+- **Not read:** any Baptist writer on Joel's date, or on Hosea's marriage. The page says so for Joel. Matthew Henry on the Minor Prophets is not held here, so he is not used.
 
-[Existing-material.md](existing-material.md) records the selected prophet records and guide implementation read for this task. These provide finding aids, not a substitute for the text. No Josephus material or later biographical tradition is used. Any future expansion into disputed authorship or dating needs explicit attribution and primary sources.
+## Limits
+
+- The site's [prophets timeline](/study/prophets) gives prophets reigns. This page did not use them and did not audit them. It goes by what the text names.
+- The list of who is on the page is a selection: sixteen book names, with Huldah and Elijah. The other 46 of the site's 64 records are not walked.
+- An empty line in the record means this study found no such account in the prophet's book or the narrative naming him. Each filled line is one chosen passage, not every passage.
+- Daniel's book names him at Daniel 1:6, not at its opening. Cyrus is at Daniel 1:21.
+- Ezekiel's "thirtieth year" is left unexplained, because the text does not say of what.
+- Who compiled each book, and how, is not taken up.
+- Names said to stand alone were scanned in the Berean's English only. No Hebrew or Greek was compared. A man with the same name is not asserted to be another man, or the same one.

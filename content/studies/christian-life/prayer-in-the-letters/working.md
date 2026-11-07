@@ -1,30 +1,24 @@
 # Prayer in the letters
 
-**Content pass status:** first full draft ready for review, 2026-10-13. Read [the content draft](content.md) and [passage and editorial notes](passage-notes.md). All six themes are developed using whole-passage readings. The outline below preserves the initial planning material.
+**Status:** study 04, rewritten in the Berean with a mock-up for the owner's review, 2026-10-30. [Study text](content.md); [passage and editorial notes](passage-notes.md); [design](design.md); [the mock-up and its record](../../../../design/prayer-in-the-letters-directions/README.md).
 
-## Central question
+## Purpose and central question
 
-What do the writers ask God to give their readers, and how do those requests relate to the rest of each letter?
+Help a general reader see what the letters ask God to give their readers, and why. What do the writers ask, and where does each request go?
 
-## Proposed subcards
+## Content divisions
 
-| Subcard | Starting passages | Focus |
-| --- | --- | --- |
-| Wisdom and understanding | Ephesians 1:15–23; Colossians 1:9–14 | Knowing God and understanding his will |
-| Strength within | Ephesians 3:14–21 | Strength, Christ's love and fullness |
-| Growing in love | Philippians 1:9–11; 1 Thessalonians 3:11–13 | Love joined with discernment and holiness |
-| A worthy walk | Colossians 1:9–14; 2 Thessalonians 1:11–12 | Prayer for conduct that honours the calling |
-| Thanksgiving | Philippians 1:3–8; Colossians 1:3–8 | What prompts gratitude for a community |
-| Prayer for others | 1 Timothy 2:1–6; Ephesians 6:18–20 | Intercession and requests for gospel proclamation |
+The six readings of the 2026-10-13 draft stay, in the draft's order.
 
-## Experience to explore
+1. Wisdom and understanding: knowing Him; the power shown in Christ. Ephesians 1:15–23.
+2. Strength within: strengthened by His Spirit; prayer becoming praise. Ephesians 3:14–21.
+3. Growing in love: love with knowledge and insight; for one another and for everyone else. Philippians 1:3–11; 1 Thessalonians 3:9–13.
+4. A worthy walk: knowledge bearing fruit; conduct and grace. Colossians 1:3–14; 2 Thessalonians 1:3–12.
+5. Thanksgiving: naming what has been received; gratitude and further requests. Philippians 1:3–11; Colossians 1:3–14.
+6. Prayer for others: beyond our immediate circle; those who ask for our prayers. 1 Timothy 2:1–6; Ephesians 6:18–20; Colossians 4:2–6.
 
-Read each prayer as a whole, then identify the recipients, requests, reasons and connection to the letter. Compare prayers through those shared questions. Distinguish a recorded prayer from an instruction to pray.
-
-## Open questions
-
-Should the primary organization be by complete prayer, with these themes as another way to explore? That may preserve context better than dividing one prayer among several cards.
+Added around them: six prayers read from the bottom up, three requests about circumstances, six older lines, three more prayers to follow unaided, six hard questions, and a close with the way of reading, an invitation and the passage again.
 
 ## LLM handoff
 
-The first content draft is complete. [The first design draft](design.md) retains six themes as entries into complete readings, with adjacent notes about recipients, requests, purposes and grounds for confidence. Thanksgiving revisits existing passages; instructions and requests for prayer remain distinct from reported prayers. The design queue has since advanced; consult [progress](../../progress.json) for the current position. No site implementation or publication is included.
+The mock-up is built. The real page under src/, its route and its hub card are not. The Letters passage list of the same name, in the "Prayer" card at src/components/letters/browse/pages-ways.tsx line 53, must be renamed when the real page goes in; that is live code, so it was not touched. Consult `../../progress.json` for the queue.

@@ -1,0 +1,266 @@
+/* The church and its calling mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. Four rings of light for one word, then a cabinet of small drawings, one line of water, six old names.
+   One page colour, the colour Acts has on this site. On the rings alone, the points carry their section's fixed colour. */
+:root { --cc: var(--acts); --tint: color-mix(in srgb, var(--cc) 7%, var(--page)); }
+.cc-page button, .cc-sheet button.cc-back { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.cc-page, .cc-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.cc-page, .cc-sheet) a { color: inherit; }
+:where(.cc-page, .cc-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
+.cc-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; white-space: nowrap; }
+.cc-ref:hover, .cc-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+.cc-small { font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cc-small .cc-ref { letter-spacing: .04em; text-transform: none; font-size: .84rem; }
+.cc-note { margin-top: .9rem; max-width: 80ch; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+.cc-reads { margin-top: 1.2rem; max-width: 72ch; font: 400 clamp(1.1rem, 2vw, 1.28rem)/1.55 var(--serif); }
+.cc-action { display: inline-block; min-height: 44px; margin-top: 1rem; padding-block: .6rem !important; font-size: .96rem !important; font-weight: 600; color: var(--accent) !important; }
+.cc-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cc-page .t-head p { max-width: 74ch; }
+
+/* ── Heading ── */
+.cc-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.cc-intro h1 { margin-block: .55rem .8rem; font-size: clamp(2.9rem, 7vw, 5.6rem); line-height: .98; }
+.cc-intro h1 em { display: block; font-weight: 400; color: var(--accent); }
+.cc-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.cc-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.cc-trail a:hover, .cc-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.cc-here { color: var(--ink); }
+.cc-concepts { margin-top: 1rem; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.cc-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); max-width: 58ch; }
+.cc-opening blockquote { margin: 0; font: 400 1.2rem/1.5 var(--serif); }
+.cc-opening figcaption { margin-top: .35rem; font-size: .78rem; line-height: 1.7; color: var(--muted); }
+.cc-hero-art { margin: 0; color: var(--muted); min-width: 0; }
+.cc-stage { max-width: 500px; margin-inline: auto; }
+.cc-stage > span { display: block; }
+.cc-scene { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.cc-faint { opacity: .42; }
+.cc-orbit { opacity: .3; stroke-dasharray: 1 7; }
+.cc-wash { fill: color-mix(in srgb, var(--cc) 22%, transparent); stroke: none; }
+.cc-corner { fill: color-mix(in srgb, var(--cc) 34%, transparent); stroke: var(--cc); stroke-width: 1.8; }
+.cc-open { stroke-dasharray: 3 6; opacity: .75; }
+.cc-coming { stroke: var(--cc); fill: color-mix(in srgb, var(--cc) 14%, transparent); }
+.cc-path { stroke: var(--cc); stroke-dasharray: 2 6; }
+.cc-lit { fill: color-mix(in srgb, var(--cc) 26%, transparent); animation: cc-glimmer 11s ease-in-out infinite; }
+.cc-lit:nth-of-type(3n) { animation-delay: -4s; } .cc-lit:nth-of-type(3n + 1) { animation-delay: -8s; }
+.is-still .cc-lit { animation-play-state: paused; }
+@keyframes cc-glimmer { 0%, 100% { fill-opacity: .25; } 50% { fill-opacity: 1; } }
+.cc-hero-art figcaption { max-width: 500px; margin: .4rem auto 0; }
+.cc-motto { display: block; font: 500 1.3rem/1.3 var(--serif); color: var(--ink); }
+.cc-motto span { color: var(--accent); }
+.cc-art-note { display: block; margin-top: .35rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.cc-pause { min-height: 44px; font-size: .84rem !important; font-weight: 600; color: var(--accent) !important; }
+.cc-pause[hidden] { display: none; }
+.cc-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.cc-figures > div { padding: .9rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
+.cc-figures > div:first-child { border-left: 0; padding-left: 0; }
+.cc-figures dt { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cc-figures dd { margin: .2rem 0 0; font: 500 2.2rem/1.15 var(--serif); }
+.cc-figures small { display: block; margin-top: .1rem; font-size: .84rem; line-height: 1.45; color: var(--muted); }
+.cc-selection { margin-top: 1rem; margin-bottom: 2.4rem; max-width: 80ch; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+
+/* ── 01 The rings ── */
+.cc-word-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2.4rem; margin-top: 1.4rem; align-items: start; }
+.cc-word-art { min-width: 0; }
+.cc-rings { display: block; width: 100%; height: auto; max-width: 640px; margin-inline: auto; overflow: visible; }
+.cc-ring { fill: none; stroke: var(--line); stroke-width: 1.2; transition: stroke .15s; }
+.cc-ring.is-on { stroke: var(--cc); stroke-width: 2; }
+.cc-ring-label { font: 500 13px var(--sans); fill: var(--muted); }
+.cc-point { cursor: pointer; }
+.cc-hit { fill: transparent; }
+.cc-dot { fill: var(--dot); stroke: var(--dot); stroke-width: 1.5; transition: opacity .15s; }
+.cc-point.is-close .cc-dot { fill: var(--page); stroke-width: 2; }
+.cc-point:hover .cc-dot { stroke: var(--ink); }
+.cc-point:focus { outline: none; }
+.cc-point:focus-visible .cc-hit { stroke: var(--accent); stroke-width: 2; }
+.cc-rings[data-on="house"] .cc-point:not([data-ring="house"]) .cc-dot, .cc-rings[data-on="place"] .cc-point:not([data-ring="place"]) .cc-dot,
+.cc-rings[data-on="many"] .cc-point:not([data-ring="many"]) .cc-dot, .cc-rings[data-on="all"] .cc-point:not([data-ring="all"]) .cc-dot { opacity: .45; }
+.cc-sec-gospels { --dot: var(--gospels); } .cc-sec-acts { --dot: var(--acts); } .cc-sec-epistles { --dot: var(--epistles); } .cc-sec-revelation { --dot: var(--revelation); }
+.cc-legend { list-style: none; display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin: .8rem 0 0; padding: 0; font-size: .8rem; color: var(--muted); }
+.cc-legend li { display: flex; align-items: center; gap: .4rem; }
+.cc-key { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--dot); }
+.cc-key-close { background: none; border: 2px solid var(--muted); }
+.cc-word-side { min-width: 0; }
+.cc-ring-buttons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1.5px solid var(--ink); }
+.cc-page .cc-ring-button { display: block; min-width: 0; min-height: 44px; padding: .5rem .55rem; border-left: 1px solid var(--line); }
+.cc-page .cc-ring-button:first-child { border-left: 0; }
+.cc-ring-button b { display: block; font: 500 1.5rem/1.1 var(--serif); }
+.cc-ring-button span { display: block; font-size: .78rem; line-height: 1.25; color: var(--muted); }
+.cc-page .cc-ring-button[aria-pressed="true"] { background: var(--tint); box-shadow: inset 0 -3px 0 var(--cc); }
+.cc-ring-button[aria-pressed="true"] b { color: var(--accent); }
+.cc-ring-button:hover span { color: var(--ink); }
+.cc-ring-list { margin-top: .9rem; }
+.cc-ring-list h3 { font: 500 1.34rem/1.2 var(--serif); }
+.cc-ring-list > p { margin-top: .3rem; font-size: .96rem; line-height: 1.55; }
+.cc-refs { list-style: none; display: flex; flex-wrap: wrap; gap: .1rem .95rem; margin: .7rem 0 0; padding: 0; font-size: .9rem; }
+.cc-refs li { display: inline-flex; align-items: center; gap: .3rem; min-height: 30px; color: var(--muted); }
+.cc-refs li.is-close::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--muted); }
+.cc-closes, .cc-others { margin-top: .7rem; font-size: .9rem; }
+.cc-closes summary, .cc-others summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--accent); cursor: pointer; }
+.cc-closes ul { list-style: none; margin: 0; padding: 0; }
+.cc-closes li { padding-block: .4rem; border-top: 1px solid var(--line); line-height: 1.5; }
+.cc-others > p { line-height: 1.55; color: var(--muted); }
+.cc-readline { margin-top: 1rem; padding: .6rem 0 .6rem 1rem; min-height: 6.4rem; max-width: 78ch; border-left: 2px solid var(--cc); font: 400 1.04rem/1.5 var(--serif); }
+.cc-readline b { font: 600 .84rem var(--sans); color: var(--accent); }
+.cc-close-call { display: block; margin-top: .2rem; font: 400 .86rem/1.4 var(--sans); color: var(--muted); }
+
+/* ── 02 The cabinet ── */
+.cc-cabinet { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin-top: 1.4rem; border-block: 1.5px solid var(--ink); }
+.cc-page .cc-drawer { display: flex; flex-direction: column; min-width: 0; min-height: 44px; padding: .7rem .75rem .9rem; border-left: 1px solid var(--line); }
+.cc-page .cc-drawer:first-child { border-left: 0; }
+.cc-drawer-art { display: block; color: var(--muted); }
+.cc-drawer-art svg { display: block; width: 100%; max-width: 120px; height: auto; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cc-drawer-title { display: block; margin-top: .45rem; font: 500 1.02rem/1.22 var(--serif); }
+.cc-drawer-ask { display: block; margin-top: .2rem; font-size: .8rem; line-height: 1.32; color: var(--muted); }
+.cc-page .cc-drawer[aria-pressed="true"] { background: var(--tint); box-shadow: inset 0 -3px 0 var(--cc); }
+.cc-drawer[aria-pressed="true"] .cc-drawer-art { color: var(--ink); }
+.cc-drawer[aria-pressed="true"] .cc-drawer-title { color: var(--accent); font-style: italic; }
+.cc-drawer:hover .cc-drawer-title { text-decoration: underline; text-underline-offset: 3px; }
+.cc-panels { margin-top: 1.5rem; }
+.cc-reading[hidden] { display: none; }
+.cc-reading { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; column-gap: 2.6rem; }
+.cc-reading > * { grid-column: 1; min-width: 0; }
+.cc-reading > .cc-room { grid-column: 2; grid-row: 1 / span 5; align-self: start; position: sticky; top: 5rem; }
+.cc-reading > h3 { font: 500 clamp(1.5rem, 3vw, 2rem)/1.15 var(--serif); }
+.cc-reading > h3:focus { outline: none; }
+.cc-hook { margin-top: .3rem; font: italic 400 clamp(1.14rem, 2.1vw, 1.36rem)/1.4 var(--serif); color: var(--accent); }
+.cc-read-these { margin-top: .5rem; font-size: .9rem; color: var(--muted); }
+.cc-room { padding: .9rem 1.1rem 1.1rem; background: var(--tint); border: 1px solid color-mix(in srgb, var(--cc) 28%, var(--line)); border-radius: 14px; }
+.cc-room ul { list-style: none; margin: .4rem 0 0; padding: 0; }
+.cc-room li + li { margin-top: .8rem; padding-top: .7rem; border-top: 1px solid color-mix(in srgb, var(--cc) 22%, var(--line)); }
+.cc-room-words { font: 500 1.14rem/1.32 var(--serif); }
+.cc-room-note { margin-top: .25rem; font-size: .88rem; line-height: 1.5; }
+.cc-parts { margin-top: 1.1rem; max-width: 74ch; }
+.cc-part { margin-bottom: 1.3rem; }
+.cc-part h4 { font: 500 1.3rem/1.3 var(--serif); }
+.cc-part > p, .cc-flag p, .cc-after p:not(.cc-small) { margin-top: .6rem; font-size: 1.03rem; line-height: 1.7; }
+.cc-quote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--accent); }
+.cc-quote blockquote { margin: 0; font: 400 1.22rem/1.5 var(--serif); }
+.cc-quote figcaption { margin-top: .3rem; font-size: .78rem; color: var(--muted); }
+.cc-flag { margin-top: 1rem; max-width: 74ch; padding-top: .55rem; border-top: 1px solid var(--line); }
+.cc-flag-label { font-size: .64rem !important; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cc-flag-care .cc-flag-label, .cc-flag-read .cc-flag-label { color: var(--accent); }
+.cc-flag p:not(.cc-flag-label) { margin-top: .3rem; }
+.cc-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1.4rem; padding-top: .7rem; border-top: 1.5px solid var(--ink); }
+
+/* ── 03 One line of water ── */
+.cc-baps { list-style: none; position: relative; margin: 1.4rem 0 0; padding: 0; }
+.cc-baps::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 9px; margin-left: -4.5px; border-radius: 5px; background: color-mix(in srgb, var(--cc) 26%, transparent); }
+.cc-bap { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr); padding-block: .6rem .85rem; }
+.cc-bap h3 { grid-column: 1 / -1; padding-right: calc(50% + 1.5rem); text-align: right; font: 500 1.1rem/1.25 var(--serif); }
+.cc-side { min-width: 0; }
+.cc-side-before { text-align: right; }
+.cc-words { font: 400 1.06rem/1.4 var(--serif); }
+.cc-side-water .cc-words { font-weight: 500; }
+.cc-side-ref { margin-top: .1rem; font-size: .84rem; }
+.cc-side-ref .cc-ref { white-space: normal; }
+.cc-drop { justify-self: center; align-self: start; margin-top: .3rem; width: 15px; height: 15px; border-radius: 50%; background: var(--cc); border: 3px solid var(--page); box-sizing: content-box; }
+.cc-bap.is-open .cc-drop { background: var(--page); border: 2px solid var(--cc); }
+.cc-bap-open { grid-column: 3; margin-top: .35rem; font-size: .88rem; line-height: 1.5; color: var(--muted); }
+.cc-bap-open b { font-weight: 600; color: var(--accent); }
+
+/* ── 04 Six names ── */
+.cc-name-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 1.2rem; border-block: 1.5px solid var(--ink); }
+.cc-page .cc-name { min-width: 0; min-height: 44px; padding: .65rem .7rem; border-left: 1px solid var(--line); font: 500 1rem/1.25 var(--serif); }
+.cc-page .cc-name:first-child { border-left: 0; }
+.cc-page .cc-name[aria-pressed="true"] { background: var(--tint); box-shadow: inset 0 -3px 0 var(--cc); color: var(--accent); font-style: italic; }
+.cc-name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cc-name-panel { display: grid; grid-template-columns: minmax(0, 1fr) 9rem minmax(0, 1.5fr); gap: 1.4rem; align-items: start; min-height: 12.5rem; padding-block: 1.2rem; border-bottom: 1px solid var(--line); }
+.cc-name-now { margin-top: .25rem; font: 500 clamp(1.3rem, 2.6vw, 1.7rem)/1.25 var(--serif); }
+.cc-name-then { margin-top: .25rem; font: 400 1.1rem/1.5 var(--serif); }
+.cc-name-said { margin-top: .5rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.cc-how { padding-top: 1.1rem; font-size: .82rem; font-weight: 600; line-height: 1.35; text-align: center; color: var(--accent); }
+
+/* ── 05 Three lines ── */
+.cc-line-cards { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1.2rem 0 0; padding: 0; }
+.cc-line-card { min-width: 0; padding-top: .6rem; border-top: 1.5px solid var(--ink); }
+.cc-line-card h3 { font: 500 1.1rem var(--serif); }
+.cc-line-card h3 .cc-ref { font: inherit; }
+.cc-line-words { margin-top: .4rem; font: 400 1.14rem/1.5 var(--serif); }
+.cc-line-alone { margin-top: .6rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.cc-line-alone b { font-weight: 600; color: var(--ink); }
+.cc-line-card details { margin-top: .4rem; }
+.cc-line-card summary { display: flex; align-items: center; min-height: 44px; font-size: .94rem; font-weight: 600; color: var(--accent); cursor: pointer; }
+.cc-line-card details p { margin-top: .4rem; font-size: 1rem; line-height: 1.62; }
+.cc-line-card details .cc-line-room { font: 500 1.08rem/1.4 var(--serif); }
+.cc-line-room .cc-ref { font: 500 .84rem var(--sans); white-space: normal; }
+
+/* ── 06 Questions ── */
+.cc-q-list { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.cc-q-list li { border-bottom: 1px solid var(--line); }
+.cc-page .cc-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; min-height: 44px; padding-block: .85rem; font: 400 clamp(1.1rem, 2vw, 1.34rem)/1.32 var(--serif); }
+.cc-q::after { content: "→"; color: var(--accent); }
+.cc-q:hover { color: var(--accent); }
+
+/* ── Close ── */
+.cc-close-text { max-width: 72ch; }
+.cc-close-text > p:not(.cc-concepts, .cc-note) { margin-top: .9rem; font-size: 1.06rem; line-height: 1.7; }
+.cc-close-text .cc-question { font: 500 clamp(1.4rem, 3vw, 1.9rem)/1.3 var(--serif); color: var(--accent); }
+.cc-links { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: 1.2rem; font-size: .92rem; }
+.cc-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
+.cc-land { display: block; margin-top: 1.4rem; color: var(--muted); }
+.cc-land svg { display: block; width: 100%; height: 110px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.cc-sources { margin-top: 1.4rem; font-size: .9rem; }
+.cc-sources summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
+.cc-sources ul { list-style: none; margin: .4rem 0 0; padding: 0; }
+.cc-sources li { padding-block: .55rem; border-top: 1px solid var(--line); line-height: 1.55; }
+.cc-sources li a { font-weight: 600; }
+.cc-sources li span { display: block; color: var(--muted); }
+
+/* ── Sheet ── */
+.cc-sheet h3 { margin: .35rem 2.6rem .7rem 0; font: 500 1.5rem/1.18 var(--serif); letter-spacing: -.02em; }
+.cc-sheet h3:focus { outline: none; }
+.cc-sheet-ref { margin-bottom: .4rem; }
+.cc-passage-text { font: 400 1.1rem/1.65 var(--serif); }
+.cc-passage-text sup { margin-right: .15rem; font: 500 .62em/1 var(--sans); color: var(--muted); }
+.cc-chapter { display: block; margin-top: .7rem; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cc-sheet-links { margin-top: .9rem; font-size: .9rem; }
+.cc-sheet-links a { display: flex; align-items: center; min-height: 44px; color: var(--accent); }
+.cc-sheet button.cc-back { display: flex; align-items: center; min-height: 44px; margin-right: 2.6rem; font-size: .88rem; font-weight: 600; color: var(--accent); }
+.cc-sheet .cc-flag p { font-size: .98rem; line-height: 1.62; }
+.cc-sheet .cc-ref { white-space: normal; }
+
+@media (max-width: 1100px) {
+  .cc-cabinet { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cc-page .cc-drawer:nth-child(4) { border-left: 0; }
+  .cc-page .cc-drawer:nth-child(n + 4) { border-top: 1px solid var(--line); }
+  .cc-name-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cc-page .cc-name:nth-child(4) { border-left: 0; }
+  .cc-page .cc-name:nth-child(n + 4) { border-top: 1px solid var(--line); }
+  .cc-reading { grid-template-columns: minmax(0, 1fr) 16rem; column-gap: 1.6rem; }
+}
+@media (max-width: 860px) {
+  .cc-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cc-figures > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .cc-figures > div:nth-child(-n+2) { border-top: 0; }
+  .cc-word-grid { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .cc-rings { max-width: 30rem; }
+  .cc-reading { grid-template-columns: minmax(0, 1fr); }
+  .cc-reading > .cc-room { grid-column: 1; grid-row: auto; position: static; margin-top: 1rem; }
+  .cc-line-cards { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .cc-name-panel { grid-template-columns: minmax(0, 1fr); gap: .7rem; min-height: 0; }
+  .cc-how { padding-top: 0; text-align: left; }
+  /* The water runs down the left edge. Each baptism's two sides stack beside it, still in reading order. */
+  .cc-baps::before { left: 7px; margin-left: 0; }
+  .cc-bap { grid-template-columns: minmax(0, 1fr); padding-left: 2.1rem; }
+  .cc-bap h3 { padding-right: 0; text-align: left; }
+  .cc-side-before { text-align: left; }
+  .cc-side-water { margin-top: .5rem; }
+  .cc-drop { position: absolute; left: 0; top: .6rem; margin: 0; width: 13px; height: 13px; }
+  .cc-bap-open { grid-column: 1; }
+}
+@media (max-width: 620px) {
+  .cc-after { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .cc-cabinet, .cc-name-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cc-page .cc-drawer:nth-child(n), .cc-page .cc-name:nth-child(n) { border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .cc-page .cc-drawer:nth-child(odd), .cc-page .cc-name:nth-child(odd) { border-left: 0; }
+  .cc-page .cc-drawer:nth-child(-n + 2), .cc-page .cc-name:nth-child(-n + 2) { border-top: 0; }
+  .cc-ring-label { display: none; }
+  .cc-ring-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cc-page .cc-ring-button:nth-child(3) { border-left: 0; }
+  .cc-page .cc-ring-button:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+/* A touch screen has no pointing, and tapping opens the sheet at once, so the line beneath would only ever show its prompt. */
+@media (hover: none) { .cc-readline { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cc-lit { animation: none; }
+  .cc-ring, .cc-dot { transition: none; }
+  .ms-sheet { transition: none; }
+}

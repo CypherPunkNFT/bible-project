@@ -1,45 +1,44 @@
-# The signs and works of Jesus — passage and editorial notes
+# The signs and works of Jesus passage notes
 
-**Item 18 · First-draft notes · 2026-10-13**
+**Item 18 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here. The earlier text is in the project's history.
 
 ## Primary readings
 
-Read Mark 4:35–41; 5:1–43; 6:30–52; John 2:1–12; 9:1–41; 11:1–57; 20:30–31 from the local KJV files in `data/plain/kjv/`. All exposition and reflection are editorial writing.
+Read in the Berean, from the site's own copy: Mark 4:35–41; Mark 5:1–43; Mark 6:30–52; John 2:1–12; John 9:1–41; John 11:1–53; John 20:30–31. For the reader's own try: Luke 7:11–17; Luke 13:10–17; Luke 17:11–19. For Scripture on these works: Matthew 8:17; Matthew 11:5; Matthew 12:39; John 6:26–32; John 10:38; John 12:37–38; John 14:11; Acts 2:22; Acts 10:38; Hebrews 2:3–4; Isaiah 35:5; Isaiah 53:1; Isaiah 53:4; Exodus 16:4; Psalm 107:29; Numbers 27:17; 2 Kings 4:43.
 
-| Division | Main passages | Narrative connection |
-| --- | --- | --- |
-| Healing | Mark 5:21–43 | Woman’s healing interrupts the journey to Jairus’s daughter; Jesus speaks to her before the death report arrives. |
-| Deliverance | Mark 5:1–20 | Explicit unclean spirit, transformed condition, fear and opposing requests, compassion and testimony. |
-| Provision | Mark 6:30–44; John 2:1–12 | Teaching and feeding follow compassion; Cana’s narrator identifies glory and belief. |
-| Creation | Mark 4:35–41; 6:45–52 | Identity question after calming; Mark links later amazement to failure to understand the loaves. |
-| Raising the dead | John 11:1–44; Mark 5:35–43 | Love, delay, death, confession, tears, prayer, command, and practical care. |
-| Belief and opposition | John 9; 11:45–53; 20:30–31 | Testimony and inquiry; divided responses; council and narrator’s interpretation; purpose of written signs. |
+## Sources, and how far each was read
 
-## Exact full-verse quotations
+The full list, with what was read and on what terms, is in [SOURCES.md](../../../../SOURCES.md), section "The signs and works of Jesus mock-up", and at the foot of the page.
 
-Mark 5:34; Mark 5:19; John 2:11; Mark 4:41; John 20:31. Check these five block quotations against the local KJV. Short phrases elsewhere are excerpts from the named readings, not additional full-verse quotations.
+- **Read directly and quoted (public domain):** Alexander Maclaren, a Baptist, on Mark 5:1–20 and Mark 6:5–6; Albert Barnes, a Presbyterian, on Matthew 8:28, Matthew 13:58, Mark 5:43 and Mark 6:52. Each quotation is matched by script to one paragraph of the held text, near its own verse.
+- **Read and retold, with no words quoted, because rights are reserved:** Thomas Schreiner's article on why he is a cessationist, from the Gospel Coalition's page; John Piper's 1990 sermon on signs and wonders, read in a copy held by a third party, because the publisher's page refused the fetch.
+- **Read and briefly quoted, with a link:** the Baptist Faith and Message 2000, as amended 2023, Articles 1, 2, 3, 4 and 10. The publisher's page refused a direct download, so the phrases were compared against what a web tool returned from it. Compare them by eye before release.
+- **Not read:** any Greek text. Every phrase is the Berean's English. Any commentary beyond the notes above.
 
-## Existing collection and reuse
+## How verses were sorted
 
-The [miracle categories source](../../../../src/data/miracle-categories.ts) identifies five existing groupings: healing, casting out demons, raising the dead, wonders over nature, and provision. It maps the site's Robertson-derived event titles, including the woman, Jairus’s daughter, Lazarus, Cana, the five thousand, and both sea events. These editorial groupings are not a canonical count of all Jesus’ works.
+Each verse has one kind, by one rule, applied in this order: if the work happens in the verse, the deed; if the writer steps out to explain, the writer; if Jesus speaks, moves or His heart is shown, Jesus; if anyone else speaks or acts, others; anything left, the setting. The lists are in [study_lists.py](../../../../design/the-signs-and-works-of-jesus-directions/study_lists.py). The closest calls:
 
-The [existing miracles page](../../../../src/pages/study/MiraclesPage.tsx) uses these categories with `loadMiracles` and `loadHarmony`. Retain that collection and its passage references. Later design should connect to its existing entries rather than introduce a competing catalogue. No site file is changed by this draft.
+- **Mark 6:41–44** are all deed, from the blessing to the count of those who ate, so the account ends on it. Mark 6:44 could be read as the setting.
+- **Mark 6:48 and 6:51** are both deed: the walking and the wind dying down. Mark 6:51 also holds the disciples' amazement.
+- **Mark 5:41–42** is the deed, with the woman's healing at Mark 5:29 in the same account, so that account has three deed verses.
+- **John 2:9** is the deed, though the change itself is not narrated. It is the only verse that says the water had been turned.
+- **John 11:51–52** are the writer, though they report what Caiaphas said.
 
-## Interpretation and attribution safeguards
+These are this study's judgment, and the page says so. A reader can open any account and judge.
 
-- **Faith and healing:** Mark names the woman’s faith. The account is not converted into a guarantee of healing for readers or a judgment that continued illness proves deficient faith. The physicians detail describes her history, not a universal instruction concerning medical care.
-- **Deliverance:** Mark explicitly names an unclean spirit. No present-day diagnosis is inferred from the man’s behaviour; no detailed demon taxonomy is supplied. Retain KJV location wording without attempting a geography or manuscript harmonisation here.
-- **Permission to speak:** the delivered man is sent to tell, while Jairus’s household is charged to keep quiet. Do not invent a single publicity instruction applied to every miracle or pretend the accounts give all reasons for these differences.
-- **Provision:** Mark reports five loaves, two fishes, satisfaction, and leftovers. A hidden-lunch explanation is not supplied by his text. Cana’s purification vessels and hour saying remain narrative details; detailed replacement symbolism or a reconstructed chronology of the hour would require fuller argument.
-- **Sea accounts:** keep them distinct. Mark himself connects the second with the loaves. Possible Old Testament echoes and interpretations of passing by are not asserted without additional reading.
-- **Lazarus:** John explicitly states death and four days in the grave. Sleep language is clarified by the narrator, not used to explain away the death. Love, delay, tears, and authority remain together. Do not present raising Lazarus as identical in every respect to Jesus’ resurrection or a general promise of immediate reversal for bereaved readers.
-- **John 9:** Jesus rejects the proposed sin explanation for this blindness; do not expand it into a statement that no action can ever have physical consequences. The man's argument in 9:31 is his speech in the dispute, not a freestanding narrator rule that God never hears a sinner’s prayer.
-- **John’s named groups:** the narrative contains Jewish believers, divided Pharisees, fearful parents, mourners, and particular authorities. Do not recast narrated opposition as collective blame against Jews.
-- **Caiaphas:** distinguish his political calculation from John’s statement about the prophetic significance of his words. Do not assert the motives of every person who reported the raising of Lazarus.
-- **Signs and miracles:** retain the KJV’s respective wording in John 2:11 and 20:30–31. This overview does not require a fixed seven-sign count, exhaustive miracle total, or a lexical study.
+## Interpretation and care
 
-## Related studies and review status
+- **Faith and healing:** Mark names the woman's faith. The account is not a guarantee of healing, and continued illness is not a sign of too little faith. Her physicians are her history, not a rule against doctors.
+- **Spirits:** Mark names an unclean spirit in this man. Scripture can list the demon-possessed apart from the sick (Matthew 4:24) and can name a spirit behind a bodily trouble (Luke 13:11). Only the text can say which. No reader is given a way to name a spirit in someone else. The page says plainly to seek medical help for self-harm.
+- **Tell, or do not tell:** the freed man is sent to tell, and Jairus' house is told that no one should know. No single rule is invented to cover both.
+- **Provision:** the text gives no hint of hidden lunches, and the script searches the passage to check that it does not. Cana's jars are not made into a code.
+- **The crossings:** they show who Jesus is, and they do not promise that every danger stops tonight.
+- **Lazarus and Jairus' daughter:** particular people raised at His command, who would die again. No grieving family is promised the same reversal now.
+- **John 9:** Jesus says neither this man's sin nor his parents' caused it. That is not a statement that no act ever has a bodily consequence. The man's words in John 9:31 are his argument in a dispute.
+- **"The Jews" in John:** the care note on the responses says who is meant. Many Jews believed (John 11:45), and the parents who feared "the Jews" (John 9:22) were Jews themselves.
+- **Whether these gifts continue:** the page does not choose. Schreiner and Piper are each told in this study's words, and the Baptist Faith and Message does not settle it.
 
-[Encounters with Jesus](../encounters-with-jesus/content.md) develops the personal encounters in Mark 5. This study revisits them for the works, their narrative connections, and contrasting responses. [The kingdom he announced](../the-kingdom-he-announced/content.md) treats the disputed meaning of deliverance in Luke 11. Item 19 continues into the death and resurrection narratives; item 30 will develop the wider resurrection hope.
+## Related
 
-First content draft for owner review, not final approval. The six divisions each have two subsections, readings, questions, and labelled applications. See [working notes](working.md). Design remains unstarted.
+[Encounters with Jesus](../encounters-with-jesus/content.md) reads the Mark 5 fold for the people in it, and this study reads it for the deed. The [Miracles page](../../../../src/pages/study/MiraclesPage.tsx) keeps the catalogue, under the [site's own grouping](../../../../src/data/miracle-categories.ts). This study adds no catalogue of its own.
