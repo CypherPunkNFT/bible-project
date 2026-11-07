@@ -3,7 +3,7 @@
 // fifteen, and every point carries a line and its passages. Ids and coordinates are the site's own places.json entries,
 // so each point opens its real place in the Atlas. Not used by any live page.
 import type { LucideIcon } from "lucide-react";
-import { Castle, Church, Crown, Footprints, Landmark, Map, Mountain, Ship, Tent } from "lucide-react";
+import { Anchor, Box, Castle, Church, Crown, Footprints, Landmark, LifeBuoy, Map, Mountain, MountainSnow, Pyramid, Ship, Sunrise, Tent } from "lucide-react";
 
 export interface AtlasPlace { key: string; id: string; name: string; lon: number; lat: number; note: string; uncertain: boolean }
 export interface AtlasCategory {
@@ -15,7 +15,7 @@ export interface AtlasCategory {
 
 type Base = [id: string, lon: number, lat: number, note: string];
 /** Places whose location places.json rates below 0.5 confidence: the page marks them "Location uncertain". */
-const UNCERTAIN = new Set(["Emmaus", "Succoth", "Marah", "Rephidim", "Bethsaida", "Sychar", "Mount Nebo", "Elim", "Mount Sinai"]);
+const UNCERTAIN = new Set(["Emmaus", "Succoth", "Marah", "Rephidim", "Bethsaida", "Sychar", "Mount Nebo", "Elim", "Mount Sinai", "Ebenezer", "Ezion-geber"]);
 const PLACES: Record<string, Base> = {
   Rome: ["afc8e7a", 12.49, 41.89, "Capital of the empire. Paul wrote to its church, then reached it under guard. Romans 1:7; Acts 28:14–16."],
   Corinth: ["a6f437a", 22.88, 37.91, "A port city where Paul stayed eighteen months; two of his letters answer its church. Acts 18:1–11."],
@@ -81,6 +81,34 @@ const PLACES: Record<string, Base> = {
   Riblah: ["ab2bde8", 36.57, 34.46, "Zedekiah brought before Nebuchadnezzar and judged. 2 Kings 25:6–7."],
   Ecbatana: ["a212ef7", 48.52, 34.81, "The scroll of Cyrus's decree to rebuild the temple was found in its fortress. Ezra 6:1–3."],
   Gozan: ["a924b16", 40.04, 36.83, "Israelites from Samaria were settled in Gozan by the Habor River. 2 Kings 17:6."],
+  // Added 2026-11-06 for the mountains, seats of empire, ports, Jacob, the voyage to Rome and the ark.
+  Ararat: ["ab89be9", 44.3, 39.7, "The ark came to rest on the mountains of Ararat; Genesis names the range, not a peak. Genesis 8:4."],
+  "Mount Hermon": ["a341fe8", 35.85, 33.4, "The psalm likens brothers living in unity to the dew of Hermon. Psalm 133:1–3."],
+  "Mount Tabor": ["acd63ee", 35.39, 32.69, "Barak came down from Mount Tabor with ten thousand men against Sisera. Judges 4:6–14."],
+  "Mount Carmel": ["a3e21c6", 35.02, 32.67, "Elijah faced the prophets of Baal, and the fire of the LORD fell. 1 Kings 18:19–39."],
+  "Mount Gilboa": ["acf57c5", 35.41, 32.43, "Saul and his sons fell in battle with the Philistines. 1 Samuel 31:1–4."],
+  "Mount Gerizim": ["a30e967", 35.27, 32.2, "The blessing was proclaimed on Mount Gerizim, the curse on Mount Ebal. Deuteronomy 11:29; Joshua 8:33."],
+  "Mount Moriah": ["aac1fcf", 35.24, 31.78, "Abraham was sent to the land of Moriah with Isaac; Solomon built the temple on Mount Moriah. Genesis 22:2; 2 Chronicles 3:1."],
+  Thebes: ["a9674fc", 32.61, 25.72, "Egypt's great city on the Nile, whose fall Nahum held up as a warning to Nineveh. Nahum 3:8–10."],
+  Joppa: ["ae023a9", 34.75, 32.05, "Jonah found a ship for Tarshish here; Peter saw the vision of the sheet on a rooftop. Jonah 1:3; Acts 10:9–16."],
+  Caesarea: ["a58735e", 34.89, 32.5, "Cornelius heard the gospel here, and Paul was held two years. Acts 10:1, 24–48; 24:27."],
+  Sidon: ["a98e4d7", 35.37, 33.56, "Paul's ship landed here, and Julius let him visit his friends. Acts 27:3."],
+  "Ezion-geber": ["a8e53d5", 34.86, 29.46, "Solomon assembled a fleet of ships here, on the shore of the Red Sea. 1 Kings 9:26."],
+  Cenchrea: ["aa31dd3", 23.0, 37.88, "Corinth's eastern port, home of the church Phoebe served. Romans 16:1."],
+  Troas: ["a91c509", 26.16, 39.75, "Paul saw the man of Macedonia in a vision. Acts 16:8–10."],
+  Puteoli: ["a4488e9", 14.12, 40.83, "Paul landed in Italy and found brothers, who had him stay a week. Acts 28:13–14."],
+  Peniel: ["a8a9ff9", 35.69, 32.19, "Jacob wrestled until daybreak and was named Israel. Genesis 32:24–30."],
+  Myra: ["aa4b3e2", 29.99, 36.26, "The centurion moved them onto an Alexandrian ship sailing for Italy. Acts 27:5–6."],
+  "Fair Havens": ["aae626a", 24.8, 34.93, "Paul warned that the voyage would end in disaster; the centurion sailed on. Acts 27:8–11."],
+  Malta: ["a57835d", 14.41, 35.93, "After the shipwreck all 276 on board reached land, and Paul healed the sick of the island. Acts 27:37, 44; 28:1–9."],
+  Syracuse: ["a1e3697", 15.29, 37.06, "They put in and stayed three days. Acts 28:12."],
+  Rhegium: ["a63bb26", 15.64, 38.11, "From Syracuse they came to Rhegium, then sailed on to Puteoli. Acts 28:13."],
+  Ebenezer: ["abfdefc", 34.96, 32.1, "Israel camped here and was defeated, and the ark of God was captured. 1 Samuel 4:1–11."],
+  Ashdod: ["a30c937", 34.66, 31.76, "The ark was set in Dagon's temple, and Dagon fell on his face before it. 1 Samuel 5:1–5."],
+  Gath: ["a18873f", 34.85, 31.7, "The ark was moved here, and the LORD struck the city with tumors. 1 Samuel 5:8–9."],
+  Ekron: ["a3fc47a", 34.85, 31.78, "The Ekronites cried out to send the ark away. 1 Samuel 5:10–12."],
+  "Beth-shemesh": ["a3b5b53", 34.97, 31.75, "Two cows drew the ark home on a new cart. 1 Samuel 6:7–14."],
+  "Kiriath-jearim": ["a9bba61", 35.1, 31.81, "The ark stayed in Abinadab's house for twenty years. 1 Samuel 7:1–2."],
 };
 
 /** One place in a category; `note` replaces the place's own line when the category tells a different part of its story. */
@@ -101,6 +129,15 @@ export const CATEGORIES: AtlasCategory[] = [
   { id: "land", group: "Places", title: "The Holy Land", small: "From Dan to Beersheba", icon: Mountain, href: "/study/atlas/map",
     intro: "The land of the promise, north to south: its fortresses, its altars and its towns.",
     places: ["Dan", "Hazor", "Capernaum", "Nazareth", "Megiddo", "Samaria", "Shechem", "Shiloh", "Bethel", "Jericho", "Jerusalem", "Bethlehem", "Hebron", "Gaza", "Beersheba"].map(n => at(n)) },
+  { id: "mountains", group: "Places", title: "Mountains", small: "From Ararat to Sinai", icon: MountainSnow, href: "/study/atlas/map",
+    intro: "Nine mountains where the story turns, from the mountains of Ararat to Sinai.",
+    places: ["Ararat", "Mount Hermon", "Mount Tabor", "Mount Carmel", "Mount Gilboa", "Mount Gerizim", "Mount Moriah", "Mount Nebo", "Mount Sinai"].map(n => at(n)) },
+  { id: "empires", group: "Places", title: "Seats of empire", small: "Egypt to Rome", icon: Pyramid, href: "/study/atlas/cities",
+    intro: "The capitals of the powers around Israel, from Egypt to Rome.",
+    places: [at("Memphis"), at("Thebes"), at("Damascus", "Capital of Aram, whose king Rezin waged war against Jerusalem. Isaiah 7:8; 2 Kings 16:5."), at("Nineveh", "Capital of Assyria; Sennacherib returned here from Judah. 2 Kings 19:36."), at("Babylon"), at("Susa"), at("Ecbatana"), at("Rome", "Capital of the empire whose census sent Joseph to Bethlehem. Luke 2:1–4.")] },
+  { id: "ports", group: "Places", title: "Ports & the sea", small: "Ships and harbours", icon: Anchor, href: "/study/atlas/map",
+    intro: "Harbours of the Bible, from Solomon's fleet on the Red Sea to Paul's landing in Italy.",
+    places: [at("Ezion-geber"), at("Alexandria", "Egypt's great harbour; an Alexandrian ship carried Paul toward Italy. Acts 27:6."), at("Joppa"), at("Caesarea"), at("Tyre"), at("Sidon"), at("Cenchrea"), at("Troas"), at("Puteoli")] },
   { id: "paul", group: "Journeys", title: "Follow Paul", small: "The road, the churches, the letters", icon: Ship, href: "/study/atlas/journeys?focus=paul&lens=story",
     intro: "The first journey outward, from Antioch through Cyprus into Asia Minor. Acts 13–14.",
     places: ["Antioch", "Seleucia", "Salamis", "Paphos", "Perga", "Antioch in Pisidia", "Iconium", "Lystra", "Derbe"].map(n => at(n)),
@@ -114,6 +151,18 @@ export const CATEGORIES: AtlasCategory[] = [
     caveat: "Many stations on this route are traditional locations; scholars place several of them differently.",
     places: ["Rameses", "Succoth", "Marah", "Elim", "Rephidim", "Mount Sinai", "Kadesh-barnea", "Mount Nebo", "Jericho"].map(n => at(n)).map(p => p.key === "Jericho" ? { ...p, note: "Israel crossed the Jordan and took Jericho. Joshua 3–6." } : p),
     routes: [["Rameses", "Succoth", "Marah", "Elim", "Rephidim", "Mount Sinai", "Kadesh-barnea", "Mount Nebo", "Jericho"]] },
+  { id: "jacob", group: "Journeys", title: "Jacob's journey", small: "Bethel, Haran and home", icon: Sunrise, href: "/study/atlas/map",
+    intro: "Jacob flees to Haran and comes home twenty years later. Genesis 28–35.",
+    places: [at("Beersheba", "Jacob left Beersheba and set out for Haran. Genesis 28:10."), at("Bethel", "Jacob saw the stairway to heaven on the way out, and built an altar here on the way home. Genesis 28:10–19; 35:1–7."), at("Haran", "Jacob served Laban twenty years: fourteen for his two daughters, six for the flocks. Genesis 29:4; 31:41."), at("Peniel"), at("Shechem", "Jacob bought the ground where he camped and set up an altar. Genesis 33:18–20."), at("Bethlehem", "Rachel died and was buried on the way to Ephrath, that is, Bethlehem. Genesis 35:16–20."), at("Hebron", "Jacob came home to his father Isaac at Mamre, near Hebron. Genesis 35:27.")],
+    routes: [["Beersheba", "Bethel", "Haran", "Peniel", "Shechem", "Bethel", "Bethlehem", "Hebron"]] },
+  { id: "voyage", group: "Journeys", title: "Paul's voyage to Rome", small: "Storm, shipwreck, Rome", icon: LifeBuoy, href: "/study/atlas/journeys?focus=paul&lens=story",
+    intro: "Under guard from Caesarea, through storm and shipwreck, to Rome. Acts 27–28.",
+    places: [at("Caesarea", "Paul, who had appealed to Caesar, was handed to a centurion named Julius to sail for Italy. Acts 25:11–12; 27:1."), at("Sidon"), at("Myra"), at("Fair Havens"), at("Malta"), at("Syracuse"), at("Rhegium"), at("Puteoli"), at("Rome", "Paul stayed two full years in his own rented house, proclaiming the kingdom of God. Acts 28:16, 30–31.")],
+    routes: [["Caesarea", "Sidon", "Myra", "Fair Havens", "Malta", "Syracuse", "Rhegium", "Puteoli", "Rome"]] },
+  { id: "ark", group: "Journeys", title: "The ark of the covenant", small: "Captured and brought home", icon: Box, href: "/study/atlas/map",
+    intro: "Taken from Shiloh into battle, captured by the Philistines, sent back, and brought up to Jerusalem by David. 1 Samuel 4–7; 2 Samuel 6.",
+    places: [at("Shiloh", "The elders sent to Shiloh for the ark, to take it into battle. 1 Samuel 4:3–4."), at("Ebenezer"), at("Ashdod"), at("Gath"), at("Ekron"), at("Beth-shemesh"), at("Kiriath-jearim"), at("Jerusalem", "David brought the ark up into the City of David with rejoicing. 2 Samuel 6:12–15.")],
+    routes: [["Shiloh", "Ebenezer", "Ashdod", "Gath", "Ekron", "Beth-shemesh", "Kiriath-jearim", "Jerusalem"]] },
   { id: "jesus", group: "Stories", title: "The life of Jesus", small: "Galilee to Jerusalem", icon: Crown, href: "/study/atlas/gospels",
     intro: "Twelve places in the Gospels, from his birth in Bethlehem to the road to Emmaus.",
     places: [at("Bethlehem", "Born in the town of David. Luke 2:4–7."), at("Nazareth"), at("Cana"), at("Capernaum"), at("Bethsaida"), at("Caesarea Philippi"), at("Nain"), at("Sychar"), at("Jericho", "Zacchaeus received him, and blind Bartimaeus saw. Luke 19:1–10; Mark 10:46–52."), at("Bethany"), at("Jerusalem", "Crucified, buried and risen on the third day. Luke 23–24."), at("Emmaus")] },
