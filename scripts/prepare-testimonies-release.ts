@@ -10,6 +10,8 @@ import { packPersonFiles } from "./pack-person-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
 import { LIST_FOLDER, phraseFolders, preparePhraseLists } from "./phrase-lists.mjs";
 import { assertOnlyReleasedTranslations, assertTranslationsComplete, packTranslatedPeople, unreleasedTranslationEntries } from "./release-translations.ts";
+import { assertFullCheckPassed } from "./full-check-gate.mjs";
+import { releasedFolders } from "../src/lib/site-languages.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const started = Date.now();
@@ -21,6 +23,9 @@ if (databaseId && (!/^[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}$/i.test(databaseId)
 // BUILT_SITE: a finished build when dist/ could not be swapped (the preview server holds it open).
 const built = process.env.BUILT_SITE ?? "dist";
 await stat(path.join(built, "index.html")); await stat("data/catalog.json"); await stat("data/topics/chapters/GEN.json"); // chapters: scripts/build-chapter-topics.py
+// The translation full check must have read exactly this build and data and judge it clean, before anything is written.
+const fullCheck = assertFullCheckPassed(built, { data: path.resolve("data"), languages: releasedFolders() });
+stage("Translation full check passed");
 const apologeticsContentHash = verifyBuiltContent();
 await mkdir(".release", { recursive: true });
 // Each copy is ~5.7 GB and nothing removes them: 62 had built up by 2026-10-21. Say so; deleting is the owner's call.
@@ -115,7 +120,7 @@ if (databaseId) {
   };
   await writeFile(path.join(directory, "wrangler.jsonc"), JSON.stringify(config, null, 2) + "\n");
 }
-await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, files: files.filter((entry) => entry.isFile()).length, routes }, null, 2) + "\n");
+await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, fullCheck, files: files.filter((entry) => entry.isFile()).length, routes }, null, 2) + "\n");
 console.log("Release prepared at " + directory);
 stage("Finished");
 console.log(databaseId ? "Database configured. Apply migrations and deploy this directory using the README launch steps." : "No cloud database is configured. Set TESTIMONY_D1_ID and prepare again before deployment; this package is for local verification only.");

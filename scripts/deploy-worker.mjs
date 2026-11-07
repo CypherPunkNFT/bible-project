@@ -2,14 +2,17 @@
 // node <Website>/scripts/deploy-worker.mjs
 // A rerun after a dropped connection uploads only the files Cloudflare does not already hold.
 import { spawnSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { archiveOlderPackages } from './archive-older-packages.mjs';
+import { assertFullCheckPassed, onlyDryRun } from './full-check-gate.mjs';
 import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-guard.mjs';
 import { prefillAssetHashes } from './prefill-asset-hashes.mjs';
 
 if (!existsSync('wrangler.jsonc') || !existsSync('site/index.html')) throw new Error(`Run this from a prepared release directory (wrangler.jsonc and site/index.html); got ${process.cwd()}`);
 if (sitePacksPeople('site')) assertFrontEndReadsPersonPacks('site');
+// The translation full check must pass on the folder wrangler uploads (scripts/full-check-gate.mjs); a dry run uploads nothing.
+if (!onlyDryRun(process.argv.slice(2))) assertFullCheckPassed(JSON.parse(readFileSync('wrangler.jsonc', 'utf8')).assets?.directory ?? 'site', { package: true });
 const wrangler = fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js', import.meta.url));
 // Only a head start: if it fails, wrangler reads the files itself, as it always could.
 try {
