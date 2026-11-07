@@ -25,6 +25,8 @@
 .study-experience .am-note-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px}
 .study-experience .am-note-links a,.study-experience .am-stop-note a{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--accent)}
 .study-experience .am-intro{font:12px/1.7 var(--sans);color:var(--muted)}
+.study-experience .am-uncertain{font:italic 10.5px/1.6 var(--sans);color:var(--muted);opacity:.85;margin-top:4px}
+.study-experience .am-map .am-unsure .halo{stroke-dasharray:2 2.5}
 .study-experience .am-caveat{font:italic 10.5px/1.6 var(--sans);color:var(--muted);opacity:.85;margin-top:8px}
 .study-experience .am-enter{display:flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:12px 16px;border-radius:3px;background:var(--accent);color:var(--page);font-size:12px;font-weight:600;transition:background .2s}
 .study-experience .am-enter:hover{background:var(--ink)}
@@ -67,9 +69,9 @@
 .study-experience .am-v3 .am-over-left{left:16px;top:16px;bottom:16px;width:220px;overflow:auto}
 .study-experience .am-v3 .am-groups{display:flex;flex-direction:column;gap:8px}
 .study-experience .am-v3 .am-cat{font-size:14px;padding:4px 0}
-.study-experience .am-v3 .am-over-right{right:16px;bottom:16px;width:300px}
+.study-experience .am-v3 .am-over-right{right:16px;top:16px;width:300px;max-height:calc(100% - 92px);overflow:auto}
 .study-experience .am-v3 .am-over-right .am-intro{padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.study-experience .am-v3 .am-over-top{position:absolute;right:16px;top:16px}
+.study-experience .am-v3 .am-over-top{position:absolute;right:16px;bottom:16px}
 
 /* 4 Three columns */
 .study-experience .am-v4 .am-window{display:grid;grid-template-columns:230px minmax(0,1fr) 280px;height:450px}

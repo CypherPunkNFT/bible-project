@@ -5,13 +5,15 @@
 import type { LucideIcon } from "lucide-react";
 import { Castle, Church, Crown, Footprints, Landmark, Map, Mountain, Ship, Tent } from "lucide-react";
 
-export interface AtlasPlace { key: string; id: string; name: string; lon: number; lat: number; note: string }
+export interface AtlasPlace { key: string; id: string; name: string; lon: number; lat: number; note: string; uncertain: boolean }
 export interface AtlasCategory {
   id: string; group: "Places" | "Journeys" | "Stories"; title: string; small: string; intro: string; icon: LucideIcon;
   href: string; places: AtlasPlace[]; routes?: string[][]; caveat?: string;
 }
 
 type Base = [id: string, lon: number, lat: number, note: string];
+/** Places whose location places.json rates below 0.5 confidence: the page marks them "Location uncertain". */
+const UNCERTAIN = new Set(["Emmaus", "Succoth", "Marah", "Rephidim", "Bethsaida", "Sychar", "Mount Nebo", "Elim", "Mount Sinai"]);
 const PLACES: Record<string, Base> = {
   Rome: ["afc8e7a", 12.49, 41.89, "Capital of the empire. Paul wrote to its church, then reached it under guard. Romans 1:7; Acts 28:14–16."],
   Corinth: ["a6f437a", 22.88, 37.91, "A port city where Paul stayed eighteen months; two of his letters answer its church. Acts 18:1–11."],
@@ -51,7 +53,7 @@ const PLACES: Record<string, Base> = {
   Lystra: ["af0719d", 32.34, 37.6, "A lame man healed; Paul stoned and left for dead. Acts 14:8–20."],
   Derbe: ["aa401a9", 33.36, 37.35, "Many disciples made before the road home. Acts 14:20–21."],
   Haran: ["a6d9af3", 39.03, 36.86, "Terah's family settled here; Abram left at the LORD's call. Genesis 11:31–12:4."],
-  Egypt: ["af301ca", 31.31, 30.13, "Abram went down to Egypt in a famine. Genesis 12:10."],
+  Egypt: ["af301ca", 31.31, 30.13, "Abram went down to Egypt in a famine; Genesis names no city, so the dot marks the land. Genesis 12:10."],
   Rameses: ["a079b21", 31.83, 30.8, "Israel set out from Rameses. Exodus 12:37; Numbers 33:3."],
   Succoth: ["aa28709", 32.1, 30.55, "The first camp on the way out of Egypt. Exodus 12:37."],
   Marah: ["ad3970d", 32.94, 29.35, "Bitter water made sweet. Exodus 15:23–25."],
@@ -75,7 +77,8 @@ const PLACES: Record<string, Base> = {
   Philadelphia: ["a1c7cc1", 28.52, 38.35, "An open door that no one can shut. Revelation 3:7–13."],
   Laodicea: ["a83fb1e", 29.11, 37.84, "Neither cold nor hot. Revelation 3:14–22."],
   Riblah: ["ab2bde8", 36.57, 34.46, "Zedekiah brought before Nebuchadnezzar and judged. 2 Kings 25:6–7."],
-  Ecbatana: ["a212ef7", 48.52, 34.81, "Cyrus's decree to rebuild the temple found in the archives. Ezra 6:1–3."],
+  Ecbatana: ["a212ef7", 48.52, 34.81, "The scroll of Cyrus's decree to rebuild the temple was found in its fortress. Ezra 6:1–3."],
+  Gozan: ["a924b16", 40.04, 36.83, "Israelites from Samaria were settled in Gozan by the Habor River. 2 Kings 17:6."],
 };
 
 /** One place in a category; `note` replaces the place's own line when the category tells a different part of its story. */
@@ -83,7 +86,7 @@ function at(name: string, note?: string): AtlasPlace {
   const base = PLACES[name];
   if (!base) throw new Error(`Atlas mock-up: no place named "${name}" in PLACES`);
   const [id, lon, lat, own] = base;
-  return { key: name, id, name, lon, lat, note: note ?? own };
+  return { key: name, id, name, lon, lat, note: note ?? own, uncertain: UNCERTAIN.has(name) };
 }
 
 export const CATEGORIES: AtlasCategory[] = [
@@ -102,8 +105,8 @@ export const CATEGORIES: AtlasCategory[] = [
     routes: [["Antioch", "Seleucia", "Salamis", "Paphos", "Perga", "Antioch in Pisidia", "Iconium", "Lystra", "Derbe"]] },
   { id: "abraham", group: "Journeys", title: "Abraham's journey", small: "Called to go", icon: Tent, href: "/study/atlas/journeys?focus=abraham&lens=story",
     intro: "From Ur of the Chaldeans to the land of promise. Genesis 11–21.",
-    places: [at("Ur"), at("Haran"), at("Shechem"), at("Bethel", "Abram built an altar between Bethel and Ai. Genesis 12:8."), at("Egypt"), at("Hebron", "Abram settled by the oaks of Mamre at Hebron. Genesis 13:18."), at("Beersheba")],
-    routes: [["Ur", "Haran", "Shechem", "Bethel", "Egypt", "Hebron", "Beersheba"]] },
+    places: [at("Ur"), at("Haran"), at("Shechem"), at("Bethel", "Abram built an altar between Bethel and Ai, and came back to it from Egypt. Genesis 12:8; 13:3."), at("Egypt"), at("Hebron", "Abram settled by the oaks of Mamre at Hebron. Genesis 13:18."), at("Beersheba")],
+    routes: [["Ur", "Haran", "Shechem", "Bethel", "Egypt", "Bethel", "Hebron", "Beersheba"]] },
   { id: "exodus", group: "Journeys", title: "The Exodus", small: "Egypt & the wilderness", icon: Footprints, href: "/study/atlas/journeys?focus=moses&lens=story",
     intro: "Out of Egypt, through the wilderness, to the edge of the land.",
     caveat: "Many stations on this route are traditional locations; scholars place several of them differently.",
@@ -113,13 +116,13 @@ export const CATEGORIES: AtlasCategory[] = [
     intro: "Twelve places in the Gospels, from his birth in Bethlehem to the road to Emmaus.",
     places: [at("Bethlehem", "Born in the town of David. Luke 2:4–7."), at("Nazareth"), at("Cana"), at("Capernaum"), at("Bethsaida"), at("Caesarea Philippi"), at("Nain"), at("Sychar"), at("Jericho", "Zacchaeus received him, and blind Bartimaeus saw. Luke 19:1–10; Mark 10:46–52."), at("Bethany"), at("Jerusalem", "Crucified, buried and risen on the third day. Luke 23–24."), at("Emmaus")] },
   { id: "churches", group: "Stories", title: "The seven churches", small: "Letters to Asia", icon: Church, href: "/study/atlas/map",
-    intro: "From Patmos, the risen Christ's words to seven churches, in the order a messenger would carry them. Revelation 2–3.",
+    intro: "From Patmos, the risen Christ's words to seven churches of Asia, in the order Revelation gives them. Revelation 2–3.",
     places: [at("Patmos"), at("Ephesus", "Hard-working and enduring, yet it had left its first love. Revelation 2:1–7."), at("Smyrna"), at("Pergamum"), at("Thyatira"), at("Sardis"), at("Philadelphia"), at("Laodicea")],
     routes: [["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]] },
   { id: "exile", group: "Stories", title: "Exile & return", small: "Assyria, Babylon, Persia", icon: Castle, href: "/study/atlas/map",
-    intro: "Israel carried to Assyria, Judah to Babylon, and the decree that sent the exiles home.",
-    places: [at("Samaria", "Fell to Assyria; Israel was carried away. 2 Kings 17:5–6."), at("Nineveh", "Capital of Assyria, whose judgment Nahum announced. Nahum 1:1; 3:7."), at("Jerusalem", "Burned by Nebuchadnezzar's army; the people taken to Babylon. 2 Kings 25:8–11."), at("Riblah"), at("Babylon", "By the rivers of Babylon the exiles wept for Zion. Psalm 137:1; Daniel 1:1–6."), at("Susa"), at("Ecbatana")],
-    routes: [["Samaria", "Nineveh"], ["Jerusalem", "Riblah", "Babylon"]] },
+    intro: "Israel carried to Assyria, Judah to Babylon, and the decree that let the exiles rebuild.",
+    places: [at("Samaria", "Fell to Assyria; Israel was carried away and settled in Halah, in Gozan by the Habor River, and in the cities of the Medes. 2 Kings 17:5–6."), at("Gozan"), at("Nineveh", "Capital of Assyria, whose judgment Nahum announced. Nahum 1:1; 3:7."), at("Jerusalem", "Burned by Nebuchadnezzar's army; the people taken to Babylon. 2 Kings 25:8–11."), at("Riblah"), at("Babylon", "By the rivers of Babylon the exiles wept for Zion. Psalm 137:1; Daniel 1:1–6."), at("Susa"), at("Ecbatana")],
+    routes: [["Samaria", "Gozan"], ["Jerusalem", "Riblah", "Babylon"]] },
 ];
 
 export const GROUPS = ["Places", "Journeys", "Stories"] as const;

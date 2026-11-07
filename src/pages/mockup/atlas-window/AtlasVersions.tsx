@@ -44,7 +44,7 @@ function GroupedCategories({ choice, count = false }: { choice: Choice; count?: 
 function PlaceNote({ choice, heading = "h3" }: { choice: Choice; heading?: "h3" | "h4" }) {
   const H = heading, { chosen, category } = choice;
   return <div className="am-note" aria-live="polite">
-    <H>{chosen.name}</H><p><RefText text={chosen.note} /></p>
+    <H>{chosen.name}</H><p><RefText text={chosen.note} /></p>{chosen.uncertain && <p className="am-uncertain">Location uncertain: scholars propose more than one site.</p>}
     <div className="am-note-links"><StudyLink to={placeHref(chosen)}>Open in the Atlas<ArrowUpRight size={14} aria-hidden /></StudyLink><StudyLink to={category.href}>{category.title}<ArrowUpRight size={14} aria-hidden /></StudyLink></div>
   </div>;
 }
@@ -100,7 +100,7 @@ export function AtlasV4() {
       <p className="am-intro"><RefText text={category.intro} /></p>
       <ol className="am-stops">{category.places.map((p, i) => <li key={p.key} className={p.key === chosen.key ? "open" : undefined}>
         <button type="button" aria-expanded={p.key === chosen.key} onClick={() => choice.choose(p.key)}><span className="am-num">{String(i + 1).padStart(2, "0")}</span>{p.name}</button>
-        {p.key === chosen.key && <div className="am-stop-note"><p><RefText text={p.note} /></p><StudyLink to={placeHref(p)}>Open in the Atlas<ArrowUpRight size={13} aria-hidden /></StudyLink></div>}
+        {p.key === chosen.key && <div className="am-stop-note"><p><RefText text={p.note} /></p>{p.uncertain && <p className="am-uncertain">Location uncertain: scholars propose more than one site.</p>}<StudyLink to={placeHref(p)}>Open in the Atlas<ArrowUpRight size={13} aria-hidden /></StudyLink></div>}
       </li>)}</ol>
       <Caveat c={category} />
     </div>

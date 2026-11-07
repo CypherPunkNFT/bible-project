@@ -102,7 +102,7 @@ export function MockMap({ category, chosen, choose, inset = NO_INSET }: { catego
       {settled && category.routes?.map((route, i) => <path key={`${category.id}-${i}`} className="am-route" pathLength={1} style={{ strokeWidth: 2 * k }} d={`M${route.map(k => `${byKey[k].x.toFixed(1)} ${byKey[k].y.toFixed(1)}`).join("L")}`} />)}
       {points.map(p => {
         const side = labels[p.key]?.side ?? null, [dx, dy, anchor] = offset(side ?? "right", k);
-        return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}
+        return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}${p.uncertain ? " am-unsure" : ""}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}
           onClick={() => choose(p.key)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(p.key); } }}>
           <circle className="halo" r={(chosen === p.key ? 15 : 11) * k} /><circle className="dot" r={(chosen === p.key ? 4.5 : 3.5) * k} />
           <text x={dx} y={dy} textAnchor={anchor} style={{ fontSize: 13 * k, strokeWidth: 3 * k }}>{p.name}</text>

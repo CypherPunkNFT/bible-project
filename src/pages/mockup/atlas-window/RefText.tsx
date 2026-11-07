@@ -11,7 +11,7 @@ const BOOKS: Record<string, string> = {
   Matthew: "MAT", Mark: "MRK", Luke: "LUK", John: "JHN", Acts: "ACT", Romans: "ROM", Revelation: "REV",
 };
 const SPAN = String.raw`\d+(?::\d+)?(?:–\d+(?::\d+)?)?`;
-const PATTERN = new RegExp(`(${Object.keys(BOOKS).sort((a, b) => b.length - a.length).join("|")}) (${SPAN})((?:; ${SPAN})*)`, "g");
+const PATTERN = new RegExp(`(${Object.keys(BOOKS).sort((a, b) => b.length - a.length).join("|")}) (${SPAN})((?:; ${SPAN}(?! [A-Z]))*)`, "g");
 
 /** "5:6–7" in a book → /read/bsb/2SA/5?hl=6-7; a chapter range ("13–14") opens its first chapter. */
 function readerHref(code: string, span: string): string {
