@@ -12,13 +12,18 @@ import chapter_scenes
 
 CSS = r"""
 [hidden]{display:none!important}
-.app{grid-template-columns:200px 252px 1fr}
-.primary{background:var(--green);color:#fff;padding:28px 14px;display:flex;flex-direction:column;gap:6px}
-.primary .eyebrow{color:#b9cbbf;margin:0 9px 10px}
-.primary button{border:0;background:transparent;color:#dfe8e1;text-align:left;font:inherit;font-size:13px;padding:11px 12px;border-radius:7px;display:flex;gap:11px;align-items:center}
-.primary button:hover{background:#33604f}.primary button.on{background:#fff;color:var(--green);font-weight:600}
-@media(max-width:1000px){.app{grid-template-columns:160px 210px 1fr}}
-@media(max-width:650px){.primary{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 16px}.primary .eyebrow{margin:0 6px 0 0}.primary button{padding:8px 12px}}
+.app{max-width:none;margin:0;grid-template-columns:212px 292px minmax(0,1fr)}
+.primary,.app>aside{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto}
+.primary{background:var(--green);color:#fff;padding:30px 16px;display:flex;flex-direction:column;gap:4px}
+.primary .eyebrow{color:#a9c0b2;margin:0 12px 12px}
+.primary button{border:0;background:transparent;color:#dfe8e1;text-align:left;font:inherit;font-size:13.5px;padding:12px 14px;border-radius:8px;display:flex;gap:12px;align-items:center;transition:background .15s}
+.primary button:hover{background:#33604f}.primary button.on{background:#fff;color:var(--green);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.app>aside{padding:30px 26px}
+aside .nav{background:transparent;color:var(--gold);padding:0;margin:8px 0 30px;font:21px/1.2 Georgia;white-space:nowrap;gap:10px;align-items:center;border-radius:0}
+aside .nav span{color:var(--ink)}
+main{width:100%;max-width:1760px;margin:0}
+@media(max-width:1000px){.app{grid-template-columns:168px 220px minmax(0,1fr)}}
+@media(max-width:650px){.primary,.app>aside{position:static;height:auto}.primary{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 16px}.primary .eyebrow{margin:0 6px 0 0}.primary button{padding:8px 12px}}
 .tile.has-scenes{position:relative;border-bottom:3px solid var(--gold)}
 #scenes-panel{padding:22px 24px}
 .writer-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}
