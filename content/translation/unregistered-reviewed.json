@@ -17789,46 +17789,13 @@
   "why": "Job 27 found this English on the sample pages after job 22's rulings, from other chats' new page text (debates, museum and archaeology, the Paul page, Bible questions, the Olney hymns, the Atlas). Each needs a translation in its context (Saul is Saulo in Portuguese and Saulus in Indonesian on /people/paul; a book abbreviation must follow that language's Bible), or registering first; listed by cause in the handoff's 'Job 27' section"
  },
  {
-  "check": "waiting",
-  "job": "29",
-  "finding": "translation-plural",
-  "item": "chunk 1836: plural forms ('1 book / 5 books') check.py still fails after card D55",
-  "keys": {
-   "6c65597c7547": [
-    "es",
-    "pt",
-    "hi"
-   ],
-   "754074a869c3": [
-    "pt",
-    "id"
-   ],
-   "e408e195ab04": [
-    "pt",
-    "hi"
-   ],
-   "6552568a8e5e": [
-    "pt",
-    "hi"
-   ],
-   "7baf979a5c3b": [
-    "pt",
-    "hi"
-   ],
-   "dc603d69a3a5": [
-    "pt",
-    "hi"
-   ],
-   "7ce00baf4d1c": [
-    "pt",
-    "hi"
-   ],
-   "4016bacc290c": [
-    "pt",
-    "hi"
-   ]
-  },
-  "why": "card D55's run (2026-11-07, Fortress sequence 27 step 1) translated chunk 1836, the plural messages, in all six languages; check.py still fails these forms: in pt and hi the 'one' form has no {n}, which both need because their 'one' also covers 0, and a few forms are still English. The correction round on Sonnet was stopped at that step's $0.60 cap; the plural-counts step (card D52, sequence 27 step 2) corrects them"
+  "check": "translation",
+  "finding": "plural",
+  "item": "6c65597c7547",
+  "languages": [
+   "es"
+  ],
+  "why": "card D52's correction (2026-11-07, Fortress sequence 27 step 2): the Spanish 'other' form of plural:[\"a series\",\"{n} series\"] is \"{n} series\", which check.py counts as still English only because Spanish spells the plural of 'serie' the same way ('una serie', '{n} series'); Haiku answered it again the same way, and it is the correct Spanish. The other 16 forms this entry once waited for (pt and hi 'one' without {n}, pt and id 'item') are corrected and pass check.py"
  },
  {
   "check": "translation",
