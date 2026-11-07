@@ -1,5 +1,10 @@
 # The shape of Scripture passage notes
 
+## Change, 2026-11-06 (writing run job 21)
+
+The pointer for "the law for Christians" in part 01 now names Leviticus: holiness and sacrifice (47) instead of Freedom that serves (08), which is merging away; the Deuteronomy 6 sample (re-told without quotation, as Deuteronomy 6 was not supplied) and a new short Psalm 78 subsection now link Children and the home (60).
+The opening Selection line, which sits under the title outside any part heading, still names Freedom that serves; the editor should change its clause to: "and a full account of the law for Christians, which belongs to Leviticus: holiness and sacrifice."
+
 **Item 33 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings

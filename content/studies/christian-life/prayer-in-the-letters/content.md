@@ -1,305 +1,345 @@
-# Prayer in the letters
+# Prayer across Scripture: learning to pray
 
-Concepts: Thanks · Request · So that
+Concepts: Father · Name · Bread · Forgiveness · So that
 
-Motto: Don't stop at the request. / So that what?
+Motto: Teach us to pray. / Then ask: so that what?
 
-Lead: What do the writers of the letters ask God to give their readers, and why? Read whole, most of their prayers have a shape: thanks for what is already there, a request, and then a "so that" (Philippians 1:10) that carries the request further. This study keeps nine passages whole, sets out how each one runs, and teaches one habit: when you pray for someone, follow your request one step on and ask, so that what?
+Lead: Prayer is talking to God: praising Him, thanking Him, telling Him what is wrong, and asking Him for things. The first followers of Jesus had to learn it too. One of them asked, "Lord, teach us to pray", and Jesus gave them a short prayer that Christians have prayed ever since, known as the Lord's Prayer. This study follows that prayer line by line. Beside each line it sets the prayers the apostles (the first messengers Jesus sent out) wrote into their letters. It teaches one reading habit: when you read a prayer, or pray one, do not stop at the request. Follow it one step further and ask, *so that what?*
 
-> Devote yourselves to prayer, being watchful and thankful,
+> One day in a place where Jesus had just finished praying, one of His disciples requested, “Lord, teach us to pray, just as John taught his disciples.”
 
-Colossians 4:2 · BSB
+Luke 11:1 · BSB
 
-Selection: This is a selection, not a full account of prayer in the New Testament. It keeps nine passages: six where a writer reports what he prays for his readers, and three where he tells them to pray or asks for their prayers. Three more are left for you to try. Others, such as Philippians 4:6–7, belong to studies of their own. These prayers ask mostly for growth, and that does not make illness, need or grief the wrong things to pray about, and this page says so. Every label on this page is this study's judgment. A script proves the words are in the verse. It does not prove that a label is right, and all comparing was done in the Berean's English, with no Greek.
+Frame: Most of the prayers in the apostles' letters have a shape. They give thanks for what God has already done, they make a request, and then they say what the request is for. Paul asks that the Philippians' love will grow, "so that you may be able to test and prove what is best" (Philippians 1:10). The Lord's Prayer has a shape too. It begins with God's name, God's rule and God's will, and only then asks for bread, forgiveness and rescue. Both shapes teach the same thing. A prayer is aimed somewhere beyond the thing asked for.
 
-ClimbLead: Where does a prayer go? Here are the six reported prayers, one column each, read from the bottom up: what the writer gives thanks for, what he asks, what that is for, and where it arrives. Point at a line to read its verse here; choose it to open the verse.
+Selection: This is a selection, not a census. It reads the Lord's Prayer in Matthew and Luke, and ten passages from the letters: six where a writer reports what he prays for his readers, and four where he tells them to pray or asks for their prayers. Scripture is full of prayer this study does not walk. The Psalms are Israel's prayer book, and they have a study of their own. Daniel, Nehemiah, Hannah and Jesus Himself in the garden of Gethsemane all pray in passages that other studies read. Philippians 4:6–7, on bringing your worries to God, belongs to *Faith under pressure*. The labels on this page, such as which line of a prayer is its "so that", are this study's judgment, and all comparing was done in the Berean's English.
 
-ClimbReads: All six say so that in the Berean, and none stops at the request. Look along the top: Christ's fullness over the church, God's glory, God's glory and praise, Christ's coming, thanks to the Father, and grace. That top row is this study's reading, and where a passage stops is where this study cut it: Colossians runs on from the thanks into what the Father has done. Ephesians 3 gives no thanks in these verses, and its column leaves the space empty.
+SpineLead: The Lord's Prayer in Matthew, one line at a time. Beside each line, the part of this study that reads it and the letters' prayers that share its concern. Choose a line to go to its part.
 
-LeafLead: Now one at a time, and whole. Every word stays in its order, and nothing is lifted out. Each passage is only broken into lines, stepping in at each so that, so you can see where it goes. Ask this of any prayer in a letter: whom is it for, what is asked, why, and what gives the writer confidence?
+SpineReads: Matthew's prayer has six requests. The first three are about God: His name, His kingdom, His will. The last three are about us: bread, forgiveness, rescue. The letters' prayers lean the same way. They ask mostly for knowing God, for love and for endurance, and they ask for roads and doors as well.
 
-AimedLead: Do these prayers ever ask about circumstances? Yes, three times in these nine passages: a road, a door and a quiet life. Each is asked for, plainly. And each goes somewhere.
+SpineCare: The pairings of a line of the Lord's Prayer with a letter are this study's, made to help you read. No apostle says he is explaining the Lord's Prayer, and none of the letters quotes it.
 
-AimedReads: The letters do not teach that a prayer about your circumstances is a lesser prayer. Paul tells the Philippians "in everything, by prayer and petition, with thanksgiving, present your requests to God" (Philippians 4:6). James tells the sick to "call the elders of the church to pray over him" (James 5:14). Jesus taught "Give us this day our daily bread" (Matthew 6:11). John writes to a friend "that in every way you may prosper and enjoy good health" (3 John 1:2). What these three show is smaller: even when the writers ask for a road or a door, they can say what it is for.
+ClimbLead: Where does a prayer go? Here are the six reported prayers from the letters, one column each, read from the bottom up: what the writer gives thanks for, what he asks, the "so that", and where it finally arrives. Point at a line to read its verse here; choose it to open the verse.
 
-AimedCare: The line in 3 John 1:2 is a greeting to one friend, not a promise that faith brings health or money. This site does not teach that it does. Asking God for healing or for work is right. Not receiving it is no proof of weak faith: see the last of the six questions below.
+ClimbReads: All six say "so that" in the Berean, and none stops at the request. Look along the top: Christ head over everything for the church; glory to God in the church; the glory and praise of God; hearts made firm at Christ's coming; thanks to the Father; the name of Jesus glorified. That top row is this study's reading. Where a column stops is where this study cut the passage. Ephesians 3 gives no thanks in these verses, so its first space is left empty.
 
-OlderLead: Are these prayers new? They stand in older words. Six lines from earlier Scripture sit beside lines in these passages, and each says how close the two are. Choose a reference to read it.
+QuestionsLead: Six questions a careful reader brings. Each opens with the passage, then the reading this site follows and why, then what others have taught, labelled as theirs.
 
-OlderReads: Only the first two share words that can be shown in the Berean, and even those two are not marked here as quotations. The others are pairings: two come from named commentators, and two are this study's. A pairing does not prove that a writer had the older line in mind. Later Scripture keeps the thought too: "May my prayer be set before You like incense" (Psalm 141:2), and in Revelation the incense is "the prayers of the saints" (Revelation 5:8).
+## 01 Teach us to pray
 
-TryLead: Now on your own. Here are three more prayers, each whole and unbroken. Before you open the answer, find what is asked, and then what it is for. Hebrews 13:20–21 never says so that, and it still goes somewhere.
+**Main readings:** Luke 11:1–13; Matthew 6:5–8
 
-TryReads: The lines are this study's, so yours may differ. What matters is the habit: not stopping at the request.
+Hook: A disciple watches Jesus pray, and asks to learn how.
 
-QuestionsLead: Six questions a careful reader brings. Each opens with the reading this study follows and why, then what else has been said.
+### Prayer in Jesus' world
 
-## 01 Wisdom and understanding
+Jesus' first followers were Jews, and they already knew how to pray. Devout Jews prayed at set times of the day. They said the Shema, Israel's confession that the LORD is one (Deuteronomy 6:4–9), morning and evening. They prayed the Amidah, the "standing prayer", which blesses God and asks Him for knowledge, forgiveness, healing and provision; Jewish people pray it three times a day still. Another old Jewish prayer, the Kaddish, praises God's great name as holy and asks Him to establish His kingdom in the lifetime of those praying. Jewish prayer often calls God "our Father", as in the prayer Avinu Malkeinu, "Our Father, our King". [check: which forms of the Amidah and the Kaddish can be dated to the first century, and how to word that]
 
-Slug: wisdom
+So when a disciple asks Jesus to teach them "just as John taught his disciples" (Luke 11:1), he is asking for something teachers in Israel did: give their followers a prayer of their own. The prayer Jesus gives is in that family. It calls God Father, hallows His name and asks for His kingdom. Christians read it as the prayer of people who come to the Father through Jesus, the Son, and pray it in His name.
 
-Ask: What does Paul ask believers to know?
+[read] Matthew 6 warns against praying "in the synagogues and on the street corners to be seen by men" (Matthew 6:5). Jesus was a Jew who prayed in synagogues, and the warning is not aimed at Jewish prayer. It is aimed at praying for an audience, which is a danger in any church today as much as in any synagogue then. The word "hypocrite" first meant an actor on a stage.
 
-Hook: They already believe. He prays that they will know God.
+### Two warnings, and the reason under them
 
-Read: Ephesians 1:15–23
+Jesus names two wrong ways to pray. The first is praying to be seen. Instead, "go into your inner room, shut your door, and pray to your Father, who is unseen" (Matthew 6:6). The second is piling up words: "do not babble on like pagans, for they think that by their many words they will be heard" (Matthew 6:7). "Pagans" here means those who did not know Israel's God and tried to get their gods' attention.
 
-### Knowing Him
+Then comes the reason that sits under both: "your Father knows what you need before you ask Him" (Matthew 6:8). Prayer is not giving God information He lacks, and it is not putting on a show. It is a child speaking to a Father who already knows.
 
-Paul begins with what he has heard: "your faith in the Lord Jesus and your love for all the saints" (Ephesians 1:15). He says "I have not stopped giving thanks for you" (Ephesians 1:16), and his request grows out of that. People who already believe are prayed for as people who still need to know God.
+[read] This does not forbid praying with others or praying at length. Jesus prays all night in Luke 6:12, and the church prays together all through Acts. The warning is about the motive and the method: praying for people's eyes, or to wear God down.
+
+### The friend at midnight, and the good Father
+
+In Luke, after the prayer, Jesus tells a short story. A man knocks on his friend's door at midnight to borrow three loaves for a guest. The friend inside does not want to get up, "yet because of the man’s persistence, he will get up and give him as much as he needs" (Luke 11:8). Then:
+
+> So I tell you: Ask, and it will be given to you; seek, and you will find; knock, and the door will be opened to you.
+
+Luke 11:9 · BSB
+
+The story turns on "how much more". A sleepy neighbour gives in the end. A human father, who is far from perfect, does not hand his son a snake when he asks for a fish. "How much more will your Father in heaven give the Holy Spirit to those who ask Him!" (Luke 11:13).
+
+[read] God is not the reluctant neighbour in this story; He is the contrast to him. Keeping on asking is not a way of wearing God down. It is how a child keeps coming to a Father who is glad to give. And look at the gift Luke names at the end: the Holy Spirit, God Himself present with His people. Whether "ask, and it will be given" means you will get exactly what you ask for is taken up in the questions below. Read more in *The Holy Spirit*.
+
+**Consider:** What two wrong ways of praying does Jesus name in Matthew 6:5–8, and what reason does He give against both? In Luke 11, what is the "how much more" comparing?
+
+**Reflect:** Do you pray more easily when others can hear you, or only when you are alone? What would change if you prayed today as someone speaking to a Father who already knows?
+
+## 02 Hallowed be Your name: putting God first
+
+**Main readings:** Matthew 6:9–10; Ephesians 1:15–23; Ephesians 3:14–21
+
+Hook: The first thing Jesus teaches us to ask for is not for us at all.
+
+### Name, kingdom, will
+
+> So then, this is how you should pray: ‘Our Father in heaven, hallowed be Your name. Your kingdom come, Your will be done, on earth as it is in heaven. Give us this day our daily bread. And forgive us our debts, as we also have forgiven our debtors. And lead us not into temptation, but deliver us from the evil one.’
+
+Matthew 6:9–13 · BSB
+
+"Hallowed" means treated as holy, set apart above everything else. To ask that God's name be hallowed is to ask that people everywhere know Him for who He is and honour Him. "Your kingdom come" asks for God's rule, His kingship, to arrive in full. "Your will be done, on earth as it is in heaven" asks that what God wants should happen here as it already does where He is fully obeyed. Luke's shorter form keeps the first two: "Father, hallowed be Your name. Your kingdom come" (Luke 11:2).
+
+[read] Jesus says "this is how you should pray" (Matthew 6:9). Christians have taken that both ways: as words to say, and as a pattern to follow in their own words. Both fit. The order matters either way. Before you ask for your needs, you ask that God be honoured, that He rule and that His will be done. The rest of the prayer lives inside those first three requests.
+
+[open] Many churches end the Lord's Prayer with praise to God for His kingdom, power and glory. The Berean does not print that ending in Matthew 6:13, following the oldest Greek copies of Matthew [check: the BSB footnote on Matthew 6:13]. A closing praise was used by Christians very early; a form of it appears in the Didache, an early Christian church manual [check: Didache 8.2 wording and date]. Praying it is fitting praise. Whether it was part of what Matthew wrote is a question about the copies, not about whether God deserves the praise.
+
+### That you may know Him
+
+Paul's prayers in Ephesians begin in the same place. He has heard of the readers' faith and love, and says, "I have not stopped giving thanks for you, remembering you in my prayers" (Ephesians 1:16). Then he asks:
 
 > that the God of our Lord Jesus Christ, the glorious Father, may give you a spirit of wisdom and revelation in your knowledge of Him.
 
 Ephesians 1:17 · BSB
 
-The request concerns knowing God. The next verses name what the readers are to know: "the hope of His calling", "the riches of His glorious inheritance in the saints" and "the surpassing greatness of His power to us who believe" (Ephesians 1:18–19).
+Here is the habit. The request is for wisdom. So that what? "So that you may know the hope of His calling" (Ephesians 1:18), the riches of what God has given His people, and the greatness of His power, the power He showed when He raised Christ and "made Him head over everything for the church" (Ephesians 1:22). These readers already believe, and Paul still prays that they will know God better.
 
-[read] These three give the prayer its substance. It is not a request for more information, or for advance knowledge of every personal decision. What "a spirit of wisdom" means is one of the six questions below (Ephesians 1:17).
+[source:calvin-eph] On "a spirit of wisdom", Calvin calls it "the grace which the Lord bestows upon us by his own Spirit". [source:barnes] Albert Barnes, a Presbyterian, also takes it of the Holy Spirit. This study follows them: the Spirit teaching believers to know God. It is not a promise of private guidance on every decision, which the first question below takes up.
 
-### The power shown in Christ
+### Strength within, and glory in the church
 
-Paul describes God's power by speaking of Christ: "He raised Him from the dead and seated Him at His right hand" (Ephesians 1:20). God "made Him head over everything for the church" (Ephesians 1:22). The prayer opens into an account of who Christ is and what God has done in Him.
+In Ephesians 3 Paul bows his knees before the Father. He asks God to "strengthen you with power through His Spirit in your inner being" (Ephesians 3:16). So that what? "So that Christ may dwell in your hearts through faith" (Ephesians 3:17), and so that they may grasp, together with all God's people, the love of Christ, "to know this love that surpasses knowledge, that you may be filled with all the fullness of God" (Ephesians 3:19). Then the prayer breaks into praise:
 
-[read] Read the request and this account together. The prayer's confidence rests in God, whose power has been shown in Christ, not in how hard anyone prays.
+> Now to Him who is able to do so much more than all we ask or imagine, according to His power that is at work within us, to Him be the glory in the church and in Christ Jesus throughout all generations, forever and ever. Amen.
 
-Consider: What does Paul already give thanks for? What three things does he ask the readers to know, and how does the account of Christ support the request?
+Ephesians 3:20–21 · BSB
 
-Reflect: Pray for someone who already believes. Alongside a request about their circumstances, ask that they may know God better and know the hope of His calling.
+[read] "Glory" means God's greatness shown and seen. Both prayers end where the Lord's Prayer begins: with God honoured. "Filled with all the fullness of God" does not mean becoming God; Scripture keeps God and His people distinct, and the verse speaks of God filling His people. "Amen" is a Hebrew word meaning "so it is" or "let it be". The praise that God can do more than we ask is taken up in the questions below. The blessings Paul gives thanks for just before this prayer, in Ephesians 1:3–14, are read in *Chosen and kept: can I be sure?*
 
-## 02 Strength within
+**Consider:** What are the first three requests of the Lord's Prayer about? In Ephesians 1:17–18, what is the request, and what is its "so that"?
 
-Slug: strength
+**Reflect:** Read back over what you asked God for this week. How much of it could you set under "hallowed be Your name"? Pray one request for someone you love that ends in their knowing God better.
 
-Ask: What strength is asked for?
+## 03 Give us this day our daily bread: asking for what you need
 
-Hook: He bows his knees and asks for a strength nobody else can see.
+**Main readings:** Matthew 6:11; 1 Thessalonians 3:9–13; Colossians 4:2–4
 
-Read: Ephesians 3:14–21
+Hook: Bread, a road, a door. The apostles asked for ordinary things, and they knew what they were for.
 
-### Strengthened by His Spirit
+### Bread for today
 
-Paul says "I bow my knees before the Father" (Ephesians 3:14). He asks that God may "strengthen you with power through His Spirit in your inner being" (Ephesians 3:16), and the request runs on: "so that Christ may dwell in your hearts through faith" (Ephesians 3:17). Father, Spirit and Son are all named in one request, and strength, faith and love belong together in it.
+"Give us this day our daily bread" (Matthew 6:11). Luke has "Give us each day our daily bread" (Luke 11:3). A Jewish listener would remember the manna, the bread God gave Israel in the wilderness, enough for one day at a time (Exodus 16). The request is small and honest: what we need, for now, from God's hand.
 
-[read] This is more than a request to appear strong before others. The prayer concerns the inner life and the readers' relationship to Christ. Its measure is "the riches of His glory" (Ephesians 3:16), not what they can produce by themselves.
+[read] Jesus teaches His followers to ask God for food. So asking God about money, work, health, a home or a journey is not a lesser kind of prayer. The same prayer that begins with God's name has room for bread. But it asks for bread, not riches, and for today, not for a guarantee about every tomorrow. The Baptist Faith and Message, the statement of faith this site is written under, teaches stewardship, giving "cheerfully, regularly, systematically, proportionately, and liberally" (article XIII, stewardship); it does not teach that faith earns wealth, and neither does this prayer. Jesus' words against worry a few verses later are read in *Fear, anxiety and despair*.
 
-Paul then asks that they "will have power, together with all the saints, to comprehend" Christ's love (Ephesians 3:18), and "know this love that surpasses knowledge" (Ephesians 3:19). The prayer holds together real knowing and a love greater than anyone can exhaust. Its language is shared: the request concerns these readers together with other believers.
+### A road
 
-[read] "Filled with all the fullness of God" (Ephesians 3:19) is not explained here as becoming God. Scripture keeps God and His people distinct, and this page reads it only as far as the verse goes: God filling His people. The four words length, width, height and depth are not given separate meanings.
+Paul writes to the Thessalonians after being forced out of their city. "Night and day we pray most earnestly that we may see you face to face" (1 Thessalonians 3:10). He asks plainly for a way to travel:
 
-### Prayer becoming praise
+> Now may our God and Father Himself, and our Lord Jesus, direct our way to you.
 
-The prayer ends in praise "to Him who is able to do so much more than all we ask or imagine" (Ephesians 3:20), and its final concern is "to Him be the glory in the church and in Christ Jesus" (Ephesians 3:21).
+1 Thessalonians 3:11 · BSB
 
-[read] That ending belongs to the requests before it: strength by the Spirit, Christ dwelling through faith, love and fullness. Read it with those requests before applying it to your own ambitions. God's ability is celebrated. The passage does not promise that every ambition will be granted, as the first of the six questions below sets out.
+So that what? He goes on to ask that the Lord make them "increase and overflow with love for one another and for everyone else" (1 Thessalonians 3:12), "so that He may establish your hearts in blamelessness and holiness" (1 Thessalonians 3:13) when Jesus comes. The road is asked for because of the people at the end of it.
 
-Consider: What kind of strength is requested? Why does it matter that understanding Christ's love is described as something shared with all the saints?
+[read] Notice whom Paul asks: "our God and Father Himself, and our Lord Jesus" together, as one. Prayer in the letters goes to the Father and to the Lord Jesus. Christians confess one God, Father, Son and Holy Spirit (article II, God).
 
-Reflect: Think of a community whose outward difficulties are easy to name. Pray also for its inner life: strength, faith and a deeper knowledge of Christ's love.
+### A door
 
-## 03 Growing in love
+> Devote yourselves to prayer, being watchful and thankful,
 
-Slug: love
+Colossians 4:2 · BSB
 
-Ask: How does love grow with discernment?
+Paul asks the Colossians to pray "that God may open to us a door for the word, so that we may proclaim the mystery of Christ, for which I am in chains" (Colossians 4:3). A "mystery" in Paul's letters is not a puzzle; it is God's plan, once hidden and now made known in Christ. Paul is in prison, and he does not ask first for release. He asks for an opening to speak, and to speak clearly.
 
-Hook: He has them in his heart, and he still prays that their love will grow.
+[read] Here the habit shows what it is for. A request about circumstances is right, and it is better still when you can say what it serves. "Watchful and thankful" sets the tone: eyes open for what God is doing, and thanks for what He has already done. Prayer for the sick, which James 5:13–18 teaches, is read in *What Scripture promises the sick*.
 
-Read: Philippians 1:3–11; 1 Thessalonians 3:9–13
+**Consider:** What three ordinary things are asked for in these passages? What is each one for?
 
-### Love with knowledge and insight
+**Reflect:** Name one practical need you are praying about. Then ask: so that what? Pray for the need, and for the purpose behind it.
 
-In Philippians, thanksgiving comes before the request. Paul remembers "your partnership in the gospel from the first day until now" (Philippians 1:5). He says "I have you in my heart" (Philippians 1:7), and "I long for all of you with the affection of Christ Jesus" (Philippians 1:8). His confidence is in God: "He who began a good work in you will carry it on to completion" (Philippians 1:6). The prayer is spoken within a relationship, not as an assessment delivered from a distance.
+## 04 Forgive us our debts: love that grows
 
-> And this is my prayer: that your love may abound more and more in knowledge and depth of insight,
+**Main readings:** Matthew 6:12, 14–15; Philippians 1:3–11
 
-Philippians 1:9 · BSB
+Hook: The only line Jesus comments on afterwards is the one about forgiving.
 
-Growing love is joined to knowledge and insight. Paul asks that they "may be able to test and prove what is best" and "may be pure and blameless for the day of Christ" (Philippians 1:10). He looks for "the fruit of righteousness that comes through Jesus Christ, to the glory and praise of God" (Philippians 1:11). Love is to grow in how it recognises and pursues what is good.
+### Debts and debtors
 
-### For one another and for everyone else
+"And forgive us our debts, as we also have forgiven our debtors" (Matthew 6:12). Sin is pictured as a debt: something owed to God that we cannot pay. Luke says it directly: "And forgive us our sins, for we also forgive everyone who sins against us" (Luke 11:4). Some churches say "trespasses", a word Jesus uses in the next verse. Matthew records Jesus coming straight back to it:
 
-First Thessalonians also joins affection, thanksgiving and prayer. Paul prays "that we may see you face to face and supply what is lacking from your faith" (1 Thessalonians 3:10). He asks God to "direct our way to you" (1 Thessalonians 3:11), then asks the Lord to make them "increase and overflow with love for one another and for everyone else" (1 Thessalonians 3:12). The prayer looks toward "the coming of our Lord Jesus with all His saints" (1 Thessalonians 3:13).
+> For if you forgive men their trespasses, your heavenly Father will also forgive you. But if you do not forgive men their trespasses, neither will your Father forgive yours.
 
-[read] Here Paul addresses a request to "our God and Father Himself, and our Lord Jesus" together (1 Thessalonians 3:11), and the next verse asks "the Lord" (1 Thessalonians 3:12). Neither prayer treats love as already finished. There is more to learn, more room to grow, and a wider circle to love. Both look ahead to Christ's coming, and this page selects no order of end-time events.
+Matthew 6:14–15 · BSB
 
-Consider: How does Philippians connect love with discernment? How far does the request for love extend in 1 Thessalonians?
+[read] Forgiveness means God cancelling the debt and no longer holding our sin against us. Elsewhere Paul says believers have it as a gift: in Christ "we have redemption, the forgiveness of sins" (Colossians 1:14). So how can Jesus say God will not forgive the unforgiving? This is one of the questions below. In short: the person who has been forgiven a great debt is the person who learns to forgive. Jesus ties the two together so tightly that we cannot pray the one line honestly while refusing the other.
 
-Reflect: Pray for love to increase in a particular relationship. Ask also for insight into what would actually serve that person's good, rather than assuming every agreeable response is loving.
+[care] Forgiving someone does not mean saying the harm was small, pretending it did not happen, trusting them again at once, or staying where you are not safe. Where a crime has been done, reporting it is not a failure to forgive. Forgiving is giving up the right to pay them back, and leaving justice with God and with those He has given to carry it out.
 
-## 04 A worthy walk
+### Love that abounds
 
-Slug: walk
+Paul's prayer for the Philippians is full of warmth. "I thank my God every time I remember you" (Philippians 1:3). His confidence is not in them but in God: "He who began a good work in you will carry it on to completion until the day of Christ Jesus" (Philippians 1:6). Then the request:
 
-Ask: How does understanding become a way of life?
+> And this is my prayer: that your love may abound more and more in knowledge and depth of insight, so that you may be able to test and prove what is best and may be pure and blameless for the day of Christ, filled with the fruit of righteousness that comes through Jesus Christ, to the glory and praise of God.
 
-Hook: The strength he asks for is not for great deeds. It is for patience.
+Philippians 1:9–11 · BSB
 
-Read: Colossians 1:3–14; 2 Thessalonians 1:3–12
+Follow it. Love, growing in knowledge and insight. So that what? So that they can tell what is best and live blamelessly. So that what? To the glory and praise of God.
 
-### Knowledge bearing fruit
+[read] This love is not soft or blind. It sees clearly and chooses what is good. That is the kind of love forgiveness needs: one that does not call evil good, and still lets go of revenge. The prayer sits inside a friendship. Paul prays for people he has "in my heart" (Philippians 1:7). Paul's account of his chains in the rest of the chapter is read in *Witness and the nations: telling others about Jesus*.
 
-Colossians begins with thanks for "your faith in Christ Jesus and your love for all the saints" (Colossians 1:4). Paul speaks of the gospel "bearing fruit and growing" (Colossians 1:6), and of Epaphras, who "informed us of your love in the Spirit" (Colossians 1:8). The request continues this concern for a life shaped by the gospel.
+**Consider:** Why does Jesus come back to forgiveness after the prayer? In Philippians 1:9–11, what is love to grow in, and where does the prayer end?
 
-Paul asks God "to fill you with the knowledge of His will" (Colossians 1:9), "so that you may walk in a manner worthy of the Lord" (Colossians 1:10). He describes that walk through good work, growing knowledge of God, endurance and thanks. Knowledge is directed toward life.
+**Reflect:** Is there a name you find hard to say in the same breath as "as we also have forgiven"? Pray the line honestly today, even if all you can pray is that God will make you able.
 
-[read] The strength requested is strength "so that you may have full endurance and patience" (Colossians 1:11). It is not measured only by striking achievements. Remaining faithful through difficulty also belongs to this prayer.
+## 05 Deliver us from the evil one: strength to endure
 
-### Conduct and grace
+**Main readings:** Matthew 6:13; Colossians 1:3–14; 2 Thessalonians 1:3–12
 
-The thanks at the end names what the Father has done. He "has qualified you to share in the inheritance of the saints" (Colossians 1:12). "He has rescued us from the dominion of darkness" (Colossians 1:13). In His Son "we have redemption, the forgiveness of sins" (Colossians 1:14). The call to a worthy walk appears inside this account of God's saving action.
+Hook: The strength Paul asks for is not for great deeds. It is for patience.
 
-[read] A worthy walk does not buy acceptance. The Father has already "qualified" these readers (Colossians 1:12), and salvation "is offered freely to all who accept Jesus Christ as Lord and Saviour" (Baptist Faith and Message, Article 4). "Growth in grace should continue throughout the regenerate person's life" (Article 4): that growth is what this prayer asks for.
+### Lead us not into temptation
 
-Second Thessalonians addresses believers enduring "all the persecution and affliction" (2 Thessalonians 1:4). After thanksgiving and an account of coming judgment and rest, Paul prays "that our God will count you worthy of His calling" (2 Thessalonians 1:11). The stated purpose is "so that the name of our Lord Jesus will be glorified in you" (2 Thessalonians 1:12), and the last words are "according to the grace of our God and of the Lord Jesus Christ" (2 Thessalonians 1:12).
+"And lead us not into temptation, but deliver us from the evil one" (Matthew 6:13). Temptation is the pull toward doing wrong; the same family of words in the New Testament can also mean a trial or test. "The evil one" is the devil, the enemy of God and His people. The request is to be kept from the testing that would overwhelm us, and rescued from the one who wants us to fall.
 
-[care] The verses before that prayer speak of God repaying those who afflict His people (2 Thessalonians 1:6). That is God's to do, and it does not license anyone to repay: "Do not avenge yourselves" (Romans 12:19). Enduring persecution here does not mean you must stay where you can get to safety.
+[read] Does God lead people into temptation? James 1:13 says plainly that God tempts no one. The prayer asks God, who is good, to keep us away from danger and to bring us out of it. It admits that we are weak and that there is a real enemy. Read more in *Faith under pressure*. The devil and the powers of evil are read in *Angels, demons and spiritual powers*.
 
-Consider: What does Colossians name as the fruit of understanding God's will? What actions of God surround the request for the readers' conduct?
+### Strength for patience
 
-Reflect: Name an ordinary responsibility in which faithfulness is needed. Pray for understanding that becomes action, and for endurance where the good work is slow or unnoticed.
+Colossians begins with thanks for the readers' faith and love, and for "this gospel", the good news about Jesus, which "is bearing fruit and growing" (Colossians 1:6). Paul's request is "to fill you with the knowledge of His will in all spiritual wisdom and understanding" (Colossians 1:9). So that what? "So that you may walk in a manner worthy of the Lord" (Colossians 1:10): good work, growing knowledge of God, and strength from God's might "so that you may have full endurance and patience" (Colossians 1:11).
 
-## 05 Thanksgiving
+Then comes thanks to the Father, "who has qualified you to share in the inheritance of the saints in the light" (Colossians 1:12). "Saints" in the New Testament means all God's people, not a few special ones. And:
 
-Slug: thanks
+> He has rescued us from the dominion of darkness and brought us into the kingdom of His beloved Son, in whom we have redemption, the forgiveness of sins.
 
-Ask: What already prompts thanks?
+Colossians 1:13–14 · BSB
 
-Hook: He can name what he is thankful for. Can you, for the person you pray for?
+[read] "Deliver us from the evil one" has already begun to be answered. "Redemption" means being bought back and set free. A walk "worthy of the Lord" does not earn God's acceptance; the Father "has qualified" them already. The Baptist Faith and Message says salvation is "offered freely to all who accept Jesus Christ as Lord and Savior", and that "Growth in grace should continue throughout the regenerate person's life" (article IV, salvation). Grace is God's kindness given to those who do not deserve it. That growth is what this prayer asks for.
 
-Read: Philippians 1:3–11; Colossians 1:3–14
+### Counted worthy, under pressure
 
-Mark: thanks
+The Thessalonians are suffering "all the persecution and affliction you are enduring" (2 Thessalonians 1:4). Paul gives thanks that their faith and love are growing anyway, and he speaks of the day when the Lord Jesus is revealed and puts things right. Then he prays "that our God will count you worthy of His calling" (2 Thessalonians 1:11) and fulfil every good desire and work of faith. So that what?
 
-### Naming what has been received
+> so that the name of our Lord Jesus will be glorified in you, and you in Him, according to the grace of our God and of the Lord Jesus Christ.
 
-> I thank my God every time I remember you.
+2 Thessalonians 1:12 · BSB
 
-Philippians 1:3 · BSB
+[read] The prayer comes back to the first line of the Lord's Prayer: the name. And the last words are "according to the grace of our God": even worthiness is His gift.
 
-Paul's thanks in Philippians names "your partnership in the gospel" (Philippians 1:5). In Colossians it names faith, love, hope and "this gospel" that "is bearing fruit" (Colossians 1:6). Gratitude is particular: the readers can hear what prompted it.
+[care] The verses before this prayer say "it is only right for God to repay with affliction those who afflict you" (2 Thessalonians 1:6). That is God's to do, and it gives no one leave to take revenge; Romans 12:19 says so. Enduring persecution for Christ does not mean staying where you are being harmed when you can get to safety. The judgement Paul describes is read in *The hope to come*.
 
-[read] This offers a way to pray for others that includes more than their problems. You can notice faithfulness, love shown to someone else, generosity, endurance or growth, and thank God for those things. It makes no claim that a community has no faults.
+**Consider:** What is the strength in Colossians 1:11 for? What has the Father already done, according to Colossians 1:12–14?
 
-### Gratitude and further requests
+**Reflect:** Where do you need patience more than a breakthrough? Pray for strength to keep going in that place, and thank God for one thing He has already rescued you from.
 
-Both passages move from thanks into prayer for growth. Paul can be grateful for the Philippians' partnership and still ask "that your love may abound more and more" (Philippians 1:9). He can thank God for the Colossians' faith and still pray "to fill you with the knowledge of His will" (Colossians 1:9). Thanksgiving and the recognition of need do not cancel one another.
+## 06 Our Father: praying for everyone
 
-These are the same two passages as in Growing in love and A worthy walk, word for word and in the same order. Only the thanks is now picked out. Read the whole prayers again rather than lifting out their openings. The movement from gratitude to request helps you speak truthfully about the good already received and the good still sought.
-
-Consider: What specifically prompts thanksgiving in each passage? How do the later requests build on what the writer has already recognised?
-
-Reflect: Name a person or community, identify something concrete for which to thank God, and make one request for their continuing growth.
-
-## 06 Prayer for others
-
-Slug: others
-
-Ask: Whose good are we asked to seek?
+**Main readings:** 1 Timothy 2:1–6; Ephesians 6:18–20
 
 Hook: The man who prays for everyone else says: pray also for me.
 
-Read: 1 Timothy 2:1–6; Ephesians 6:18–20; Colossians 4:2–6
+### Us, not only me
 
-### Beyond our immediate circle
+There is no "I" or "my" in the Lord's Prayer. It is "Our Father", "give us", "forgive us", "deliver us". Even alone behind a shut door, the one praying speaks as one of a family. The letters widen the circle further.
 
-First Timothy urges that "petitions, prayers, intercessions, and thanksgiving be offered for everyone" (1 Timothy 2:1), and names "kings and all those in authority" (1 Timothy 2:2). It gives a purpose, "so that we may lead tranquil and quiet lives in all godliness and dignity" (1 Timothy 2:2). Then it speaks of God "who wants everyone to be saved" (1 Timothy 2:4), of "one mediator between God and men, the man Christ Jesus" (1 Timothy 2:5), and of His giving Himself "as a ransom for all" (1 Timothy 2:6).
+> First of all, then, I urge that petitions, prayers, intercessions, and thanksgiving be offered for everyone— for kings and all those in authority—so that we may lead tranquil and quiet lives in all godliness and dignity.
 
-[read] The breadth of the instruction challenges a prayer life limited to people we already favour. Who "everyone" is, and whether praying for a ruler means approving of them, are among the six questions below (1 Timothy 2:4).
+1 Timothy 2:1–2 · BSB
 
-### Those who ask for our prayers
+"Intercessions" means prayers for other people. Paul names rulers without any test of their goodness. The "so that" is a quiet life lived for God. And there is a reason beyond that: God "wants everyone to be saved and to come to the knowledge of the truth" (1 Timothy 2:4). "There is one mediator between God and men, the man Christ Jesus" (1 Timothy 2:5), "who gave Himself as a ransom for all" (1 Timothy 2:6). A mediator is one who stands between two sides to bring them together. A ransom is a price paid to set someone free.
 
-Ephesians calls for "all perseverance in your prayers for all the saints" (Ephesians 6:18). Paul includes himself: "Pray also for me" (Ephesians 6:19). He asks for words, so that he will "boldly make known the mystery of the gospel" as "an ambassador in chains" (Ephesians 6:19–20). The one praying for others also asks others to pray for him.
+[read] Praying for a ruler does not mean approving of them, and the verse takes no side between parties or policies, nor does this page. Praying for one you oppose may be the hardest line in this study. [source:calvin-tim] Calvin says Paul names rulers "because, more than all others, they might be hated by Christians". The Baptist Faith and Message asks Christians to "render loyal obedience" to government in all things not contrary to God's revealed will, and holds that "A free church in a free state is the Christian ideal" (article XVII, religious liberty). Read more in *The Christian and the state*.
 
-Colossians asks "that God may open to us a door for the word" (Colossians 4:3), and "that I may declare it clearly" (Colossians 4:4). The next lines concern conduct: "Act wisely toward outsiders" (Colossians 4:5), and "Let your speech always be gracious" (Colossians 4:6). Prayer for an opportunity sits beside responsibility for how people speak and live.
+### Pray also for me
 
-[read] These are instructions and requests for prayer, whereas the earlier passages report what Paul prays for his readers. Keeping that distinction lets you hear both sides: receiving someone's prayers and joining in prayer for them.
+> Pray in the Spirit at all times, with every kind of prayer and petition. To this end, stay alert with all perseverance in your prayers for all the saints.
 
-Consider: Who is included in these instructions? What does Paul request in Ephesians and Colossians, and what responsibilities go with the requests?
+Ephesians 6:18 · BSB
 
-Reflect: Pray beyond your familiar circle. Include someone in public responsibility and someone speaking about Christ; ask for the good named in these passages, including wisdom, boldness and gracious speech.
+Then Paul asks for himself: "Pray also for me, that whenever I open my mouth, words may be given me so that I will boldly make known the mystery of the gospel, for which I am an ambassador in chains" (Ephesians 6:19–20). An ambassador speaks for a king in a foreign place. This one is in chains, and his request is for words and courage.
 
-## Question promise: Does Ephesians 3:20 promise me what I ask?
+[read] The one who prays for others also asks others to pray for him. Receiving prayer and giving it belong together in the church. "Pray in the Spirit" means prayer led and helped by the Holy Spirit. Whether it also includes praying in tongues is a question on which Christians, Baptists among them, differ, because the confession does not settle whether such gifts continue; this page does not choose. Read more in *The Holy Spirit*. Telling others the gospel is read in *Witness and the nations: telling others about Jesus*.
 
-Text: Ephesians 3:20–21
+**Consider:** Whom does 1 Timothy 2 name, and what reasons does it give? What does Paul ask for himself in Ephesians 6:19–20?
 
-[read] No. The verse praises God as able to do more than we ask, and it says so at the end of a prayer for strength, Christ dwelling in the heart, love and fullness. It does not say He will grant whatever we name. This site teaches no promise of health, wealth or success in return for faith.
+**Reflect:** Name one person in public life and one person speaking about Christ, and pray for both today. Then ask someone to pray for you, and tell them what for.
 
-[read] The letters give the limit themselves: "If we ask anything according to His will, He hears us" (1 John 5:14).
+## Question will: How do I know God's will for my life?
 
-[source:calvin-eph] Calvin ties God's ability to His promises: "Whatever God can do, he unquestionably will do, if he has promised it." That is his comment on this verse. It is Reformed, not Baptist, and it agrees with the reading here.
+Text: Colossians 1:9–10
 
-## Question spirit: What is "a spirit of wisdom"?
+[read] People usually mean: which job, which city, whom to marry. Scripture speaks of God's will in more than one sense. There is God's plan, by which He rules all things, much of it hidden from us. There is God's will that He has made plain in Scripture: what He commands and what He loves. The Lord's Prayer asks for both: "Your will be done" (Matthew 6:10). And when Paul prays for "the knowledge of His will", the "so that" is not a map of the future. It is a way of life: "so that you may walk in a manner worthy of the Lord" (Colossians 1:9–10).
 
-Text: Ephesians 1:17–18
+So begin with what God has made plain. Paul tells the Thessalonians outright that God's will is their holiness, and that they give thanks in every circumstance (1 Thessalonians 4:3; 5:18). Then three verses this study quotes from other studies speak to the decisions themselves:
 
-[read] The Berean prints a small letter: "a spirit of wisdom and revelation" (Ephesians 1:17). This study follows the writers below, who take it as the Holy Spirit's own work in the reader. The next verse says what it is for: "so that you may know the hope of His calling" (Ephesians 1:18). So it is about knowing God, and it is not a promise of private guidance on every decision.
+> Do not be conformed to this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what is the good, pleasing, and perfect will of God.
 
-[source:calvin-eph] Calvin calls it "the grace which the Lord bestows upon us by his own Spirit".
+Romans 12:2 · BSB
 
-[source:barnes] Albert Barnes, a Presbyterian, says "It is probable here that by the word" Spirit "the apostle refers to the Holy Spirit". Jamieson, Fausset and Brown also read it of the Spirit, "whose attribute is infinite wisdom".
+Read more in *A new creation: what changes when you believe*.
 
-[read] All three writers read here take it this way, so this page shows no second view. No Greek was compared, and no writer who reads it otherwise was looked for.
+> Now if any of you lacks wisdom, he should ask God, who gives generously to all without finding fault, and it will be given to him.
 
-## Question everyone: Does "everyone" in 1 Timothy 2:4 mean every person?
+James 1:5 · BSB
 
-Text: 1 Timothy 2:1–6
+Read more in *Faith under pressure*.
 
-[read] The Baptist Faith and Message, the confession this site is written under, says salvation "is offered freely to all who accept Jesus Christ as Lord and Saviour" (Article 4), that "There is no salvation apart from personal faith in Jesus Christ as Lord" (Article 4), and that election is "consistent with the free agency of man" (Article 5). So the verse cannot mean all will be saved whether they believe or not, and it must not be used to narrow who is invited. Past that, Baptists differ on how it fits with election, and this page does not choose.
+> Trust in the LORD with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He will make your paths straight.
 
-[source:boyce] James P. Boyce, first president of the Southern Baptist seminary, held that God gives effectual grace to some. He cites this verse to show God's sincerity in calling all, describing God as one "who willeth that all men should be saved". That is from his section on effectual calling.
+Proverbs 3:5–6 · BSB
 
-[about:traditional] A 2012 statement by some Southern Baptists denies that God chose certain people for salvation from eternity, and speaks of election as God's plan to have a people through repentance and faith. It is told here in this site's words, as on Bearing witness. Its text was seen only in part, in a reprint read through a web tool, and it may be narrower than this sentence: check it against the original.
+Read more in *The wisdom books*.
 
-[source:calvin-tim] Calvin, who was not a Baptist, narrows the word: "the present discourse relates to classes of men" and not to individuals.
+[read] Put together: obey what God has said; ask Him for wisdom; let His word reshape how you think; trust Him with the outcome. Within those lines, wise choices made in faith are not outside God's will, and you need not be frozen waiting for a sign. Philippians 1:9–10 even prays that love will grow "so that you may be able to test and prove what is best".
 
-[source:wesley] John Wesley, a Methodist, widens it: "Not a part only, much less the smallest part."
+[open] The Baptist Faith and Message does not say how a believer should make personal decisions, and Christians who hold it teach this in different ways. This page does not choose. Henry Blackaby, a Southern Baptist, in *Experiencing God* (with Claude King, [check: year of first edition]), teaches believers to watch for where God is already at work and join Him, through prayer, Scripture, circumstances and the church. Garry Friesen, in *Decision Making and the Will of God* ([check: year and co-author]), argues that within God's moral will believers are free to choose by wisdom, without looking for a hidden individual plan [check: Friesen's church tradition]. Kevin DeYoung, a Presbyterian, makes a similar case in *Just Do Something* ([check: year]). All of them send the reader first to Scripture and prayer.
 
-[read] Whichever you hold, the instruction stands: pray for everyone, kings included.
+## Question forgive: Does God's forgiveness depend on whether I forgive?
+
+Text: Matthew 6:14–15
+
+[read] Jesus says it as plainly as it can be said: "But if you do not forgive men their trespasses, neither will your Father forgive yours" (Matthew 6:15). It is not a price paid to earn forgiveness; forgiveness comes "according to the grace of our God" (2 Thessalonians 1:12), and "There is no salvation apart from personal faith in Jesus Christ as Lord" (Baptist Faith and Message, article IV). This site reads the verse with Jesus' story of the servant forgiven a huge debt who would not forgive a small one (Matthew 18:21–35). A heart that knowingly refuses all forgiveness to others shows it has not taken hold of God's forgiveness for itself. A heart that has received mercy learns to give it.
+
+[care] If you want to forgive and cannot yet feel it, that is not the refusal Jesus warns about. Forgiving is often a long road, walked again each time the memory returns. Pray the line as you are able, and ask God to make you able. Forgiving someone who has abused you does not mean going back to them, keeping silent or protecting them from the law. A pastor or a counsellor you trust can walk with you.
+
+## Question ask: Does "Ask, and it will be given" promise me what I ask?
+
+Text: Luke 11:9–13; Ephesians 3:20–21
+
+[read] Read it in its paragraph. Jesus' point is the Father's goodness: He gives good gifts, not snakes, and the gift Luke names is the Holy Spirit (Luke 11:13). Ephesians 3:20 praises God as able to do more than we ask, at the end of a prayer for strength, faith and love; it does not say He will grant whatever we name. The same Lord's Prayer that says "ask" first says "Your will be done". First John 5:14 gives the limit: God hears what we ask according to His will. This site teaches no promise of health, wealth or success in return for faith.
+
+[source:calvin-eph] Calvin ties God's ability to His promises: "Whatever God can do, he unquestionably will do, if he has promised it." That is his comment on Ephesians 3:20. Calvin was Reformed, not Baptist, and this agrees with the reading here.
+
+## Question no: What if the answer is no?
+
+Text: Matthew 6:10
+
+[care] If an unanswered prayer has left you in despair, or if you are thinking of harming yourself, please reach out today. In the United States, call or text 988, the Suicide & Crisis Lifeline [check before publishing]. In Spain, call 024 [check before publishing]. In Mexico, call the Línea de la Vida, 800 911 2000 [check before publishing]. In other Spanish-speaking countries, call your local emergency number or national crisis line [check before publishing: national lines for each country the site serves]. In Brazil, call the CVV on 188 [check before publishing]. Tell someone near you as well. Feelings this heavy do pass, and people do come through them.
+
+[read] Scripture reports prayers answered with no. Paul pleaded three times for his "thorn in the flesh" to be taken away, and the Lord answered that His grace was enough, and that His power is made perfect in weakness (2 Corinthians 12:7–10). The thorn stayed, and Paul does not say he lacked faith. In Gethsemane Jesus Himself asked that the cup of suffering pass from Him, and then prayed for His Father's will above His own (Luke 22:42). "Your will be done" is not a prayer of giving up. It is trust in a Father who knows what we need before we ask.
+
+[source:calvin-cor] On Paul's thorn, Calvin answers the objection that Paul did not pray in faith: "as there are different ways of asking, so there are different ways of obtaining".
+
+[care] If you are ill, or grieving someone you prayed for, an unanswered prayer is not proof that you failed. This page will not explain your case, because Scripture does not explain every case. Keep praying, keep seeing your doctor, and keep company with people who will pray with you. Asking God for healing and getting medical help belong together. Read more in *What Scripture promises the sick* and *Grief and dying*.
 
 ## Question mediator: If there is one mediator, why ask anyone else to pray?
 
 Text: 1 Timothy 2:1–6
 
-[read] Because the same passage does both. It urges prayers "for everyone" (1 Timothy 2:1) and names "one mediator between God and men" (1 Timothy 2:5). Paul asks living believers "Pray also for me" (Ephesians 6:19). Asking a brother or sister to pray with you does not put them between you and God. Christ "always lives to intercede" (Hebrews 7:25), and He is, in the words of the Baptist Faith and Message, "the One Mediator" (Article 2).
+[read] Because the same passage does both. It urges prayers "for everyone" (1 Timothy 2:1) and names "one mediator between God and men, the man Christ Jesus" (1 Timothy 2:5). Paul asks living believers, "Pray also for me" (Ephesians 6:19). Asking a brother or sister to pray with you does not put them between you and God; you are both coming through Christ. Hebrews 7:25 says Christ always lives to intercede for His people, and the Baptist Faith and Message calls Him "the One Mediator" (article II, God).
 
-[source:trent] Catholic teaching goes further. The Council of Trent taught "that it is good and useful suppliantly to invoke" the saints who have died, while calling Christ "our alone Redeemer and Saviour". That is shown here as their teaching.
+[source:trent] Roman Catholic teaching goes further. The Council of Trent taught "that it is good and useful suppliantly to invoke" the saints who have died, while calling Christ "our alone Redeemer and Saviour". That is shown here as their teaching.
 
-[read] Baptists do not ask the dead to pray for them. The letters' requests for prayer are made to the living, and no passage in this study directs prayer to anyone but God: to the Father, to the Lord Jesus (2 Corinthians 12:8), or to both together (1 Thessalonians 3:11).
+[read] Baptists do not ask the dead to pray for them. The letters' requests for prayer are made to the living, and every prayer in this study goes to God: to the Father, and to the Lord Jesus. [source:lbc] The Second London Baptist Confession, an older Baptist confession, says worship is to be given "to him alone; not to Angels, Saints, or any other Creatures".
 
-[source:lbc] The Second London Baptist Confession says worship is to be given "to him alone; not to Angels, Saints, or any other Creatures". It is an older Baptist confession, not the one this site is written under.
+## Question everyone: Does "everyone" in 1 Timothy 2:4 mean every person?
 
-## Question rulers: Does praying for a ruler mean approving of them?
+Text: 1 Timothy 2:4–6
 
-Text: 1 Timothy 2:1–4
+[read] The Baptist Faith and Message says salvation is "offered freely to all who accept Jesus Christ as Lord and Savior" (article IV) and that election, God's choosing of His people, is "consistent with the free agency of man" (article V, God's purpose of grace). So the verse cannot mean all will be saved whether they believe or not, and it must never be used to narrow who is invited. How it fits with election is a question on which Baptists differ, and this page does not choose.
 
-[read] No. The verse names "kings and all those in authority" (1 Timothy 2:2) without any test of their conduct, and says this praying is "good and pleasing in the sight of God our Savior" (1 Timothy 2:3). It takes no side between parties or policies, and neither does this page. Praying for a ruler you oppose is one of the hardest things in this study, and it is what the verse says.
+[source:boyce] James P. Boyce, first president of the Southern Baptist Theological Seminary, held that God gives effectual grace to some, and cites this verse to show God's sincerity in calling all, as one "who willeth that all men should be saved". [source:calvin-tim] Calvin, who was not a Baptist, reads it of "classes of men" rather than every individual. [source:wesley] John Wesley, a Methodist, reads it widely: "Not a part only, much less the smallest part." Read more in *Chosen and kept: can I be sure?*
 
-[source:calvin-tim] Calvin says Paul names rulers "because, more than all others, they might be hated by Christians". He also sets Jeremiah 29:7 beside it, where the exiles are told to pray for Babylon's city.
-
-[read] The Baptist Faith and Message, the confession this site is written under, says Christians are to "render loyal obedience" to government, except where it goes against God's revealed will (Article 17). It also holds that "A free church in a free state is the Christian ideal" (Article 17). Prayer for rulers and that limit stand together.
-
-## Question no: What if the answer is no?
-
-Text: 2 Corinthians 12:7–10
-
-[read] The letters report it happening. Paul says "Three times I pleaded with the Lord to take it away from me" (2 Corinthians 12:8). The answer was "My grace is sufficient for you" (2 Corinthians 12:9). The thorn stayed, and Paul does not say he lacked faith. His "so that" comes after the no: "so that the power of Christ may rest on me" (2 Corinthians 12:9).
-
-[source:calvin-cor] Calvin faces the objection that Paul did not pray in faith, and answers "that as there are different ways of asking, so there are different ways of obtaining". He adds that what is promised outright can be asked outright, but when we name the means "there is always a condition implied".
-
-[care] If you are ill, or grieving a prayer that was not answered as you asked, this passage does not say you failed. It also does not explain your case. What the thorn was is not stated, and this page does not guess. Keep praying, and keep seeing your doctor. Asking for healing and getting help belong together.
-
-[open] Scripture does not explain every unanswered prayer, and this study does not try to. It is a focused introduction to what the letters ask for.
+[read] Whichever you hold, the instruction stands: pray for everyone, kings included.
 
 ## Close: Learning to ask
 
-Close: Choose one complete prayer and read it slowly. Notice its thanks, its requests and its reasons. Then pray for an actual person or community, in words attentive to both the passage and their circumstances.
+Close: You have read the prayer Jesus taught, line by line, and ten passages where His apostles prayed and asked for prayer. They ask for bread, roads, doors and words. Above all they ask that people would know God, love well, endure, and give Him glory.
 
-Way: The way of reading to take with you: keep the prayer whole, find what is asked, and follow it to its "so that" (Ephesians 3:17). The letters give words for knowing God, strength by the Spirit, growing love, faithful conduct, gratitude and concern for others. This study takes one thing from them for your own prayers: ask for more than a change of circumstances, and ask also for the people living within them to know God and grow in what is good.
+Way: Here is the way of reading to carry to the next prayer you meet in Scripture, and the next one you pray. Keep the prayer whole. Notice what it gives thanks for. Find what it asks. Then follow the request one step further: so that what? Most of the time you will arrive where the Lord's Prayer starts, at "hallowed be Your name".
 
-Invite: These prayers are written to people who already believe. If that is not yet you, they still show where it starts: Christ "gave Himself as a ransom for all" (1 Timothy 2:6), and in Him is "the forgiveness of sins" (Colossians 1:14). Turn from your sin and trust Him as Lord: "There is no salvation apart from personal faith in Jesus Christ as Lord" (Baptist Faith and Message, Article 4). You can tell God so in your own words today.
+Invite: These prayers were written for people who already belong to Christ. If that is not yet you, you can still begin with the first two words: "Our Father". The way to the Father is through His Son, "who gave Himself as a ransom for all" (1 Timothy 2:6), and in whom "we have redemption, the forgiveness of sins" (Colossians 1:14). Repent, which means turn from your sin, and trust Him as Lord: "There is no salvation apart from personal faith in Jesus Christ as Lord" (Baptist Faith and Message, article IV). You can tell God so in your own words today. Read more in *The good news: how a person is made right with God*.
 
 Question: Think of one person you are praying for. What are you asking for them, and so that what?
 
 Again: Read the passage again before you answer.
 
-Passage: Ephesians 3:14–21
+Passage: Matthew 6:9–13

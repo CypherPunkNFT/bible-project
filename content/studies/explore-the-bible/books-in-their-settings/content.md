@@ -1,165 +1,287 @@
-# Books in their settings
+# Reading the Bible well: where to start and how to keep going
 
-Working content draft · Study 31 · Explore the Bible · Owner review pending
+Concepts: A first book · A daily habit · A whole book · A verse in its place
 
-A book of Scripture has a beginning, a course and an ending. Its words come to us through accounts of God's works, commandments, prayers, songs, prophecies and letters. To read a verse well, we need to hear what the book around it is saying.
+Motto: One lamp. One step. / Then the next.
 
-An introduction should help us begin that reading. Who speaks, and to whom? What circumstances does the writing name? How does it unfold? Some answers are stated plainly; others must remain questions. We can learn much from a book without supplying an author, a date or an occasion that its words do not give.
+Lead: Many people decide to read the Bible, open it at page one, and stop somewhere in the middle of the laws about sacrifices. This study begins where a beginner begins: which book to read first, how to make a small habit that lasts, and how to use this site's reader. Then it teaches one habit for every passage after that. **Read a verse inside the book it belongs to.**
 
-These six studies begin with examples from Luke, Ruth, Psalms, Philippians, Jonah and Hebrews. Keep the books open as you read. The aim is to return to Scripture with better questions and a clearer sense of the whole.
+> Your word is a lamp to my feet and a light to my path.
 
-## 01 Writer and audience
+Psalm 119:105 · BSB
 
-**Main readings:** Luke 1:1–4; Philippians 1:1–11; Hebrews 1:1–4; 13:22–25.
+A lamp in the ancient world lit the next few steps, not the whole road. You do not need to understand the whole Bible before you start reading it. You need enough light for today's passage, and a way of reading that you can take to the next one.
 
-> That thou mightest know the certainty of those things, wherein thou hast been instructed.
+The Bible is not one book written in one sitting. It is a library of sixty-six books, written over many centuries. It has two main parts. The **Old Testament** comes from before Jesus and was written mostly in Hebrew. The **New Testament** was written in Greek by His first followers in the generation after Him. (A *testament* here means a covenant, a binding agreement God makes with His people.) Each book has its own writer, first readers, setting and purpose. A verse means what it means inside its own book, the way a sentence in a letter means what it means inside that letter.
 
-Luke 1:4 · KJV
+Selection: This is a selection, not a census. The study suggests one first book, one simple habit and two worked examples. The whole-book example is Jonah, because it is short enough to read in one sitting. The passage example is Jeremiah 29:11, because it is one of the verses most often read on its own. Other good starting points exist. Some readers begin with Mark, the shortest Gospel, and some follow a plan through the whole Bible. Neither is wrong. The different kinds of writing in the Bible (stories, laws, poems, prophecy, letters, visions) and how each is read belong to *The shape of Scripture*. The Bible's one storyline, from creation to the new creation, belongs to *The story of the Bible: from the garden to the city*. Every verse quoted here is from the Berean Standard Bible, the translation used across this site.
 
-### What the opening tells us
+## 01 Where to start: the Gospel of John
 
-Luke's opening addresses Theophilus. It speaks of things delivered by eyewitnesses and ministers of the word, explains the decision to write in order, and gives a purpose: that the reader might know the certainty of the things in which he has been instructed. Those statements already provide a substantial introduction. They tell us how the writing presents its work and what it seeks for its reader.
+**Main readings:** John 20:30–31; John 1–21 as a first book.
 
-Philippians opens differently. Paul and Timotheus are named in the greeting, and the saints at Philippi are addressed with the bishops and deacons. Thanksgiving and prayer follow. Before we reach a command, we hear of fellowship in the gospel, affection, and a desire for their love to abound in knowledge and judgment. The relationship matters to the instruction that follows.
+Hook: Most books tell you their purpose in the preface. John tells you near the end.
 
-Begin an introduction with these particulars. A greeting, dedication or opening prayer may tell us more about the writing's purpose than a general description of the period. Keep the actual address visible rather than replacing the first hearers with an undefined audience of everyone.
+The word **Gospel** means "good news". The four Gospels are Matthew, Mark, Luke and John, four accounts of the life, death and rising of Jesus. This site's home page suggests John as a first book, and there is a plain reason for that. John tells the reader in so many words why he wrote:
 
-### What the writing leaves unnamed
+> Jesus performed many other signs in the presence of His disciples, which are not written in this book. But these are written so that you may believe that Jesus is the Christ, the Son of God, and that by believing you may have life in His name.
 
-Hebrews begins with God speaking by the prophets and by his Son. It does not begin by naming its human writer. At its close the writer calls the work a word of exhortation, mentions Timothy, sends greetings and hopes to see the readers. These details are worth recording without making them identify someone they do not name.
+John 20:30–31 · BSB
 
-The difference between a named writer and an unnamed one should remain clear. A later attribution belongs in a separately sourced account of how a book has been received. It should not silently become something the opening verse says. Likewise, a book can address definite people without giving us their full history or location.
+Notice three things in those two sentences.
 
-**Consider:** What do these openings explicitly tell you about their readers and purposes? Which questions remain unanswered?
+- **John chose.** He says Jesus did "many other signs" that he left out. A *sign* in John's Gospel is a miracle that points past itself to who Jesus is. So the book is not a complete diary. It is a selection made for a purpose.
+- **John names the purpose.** He wrote so that you may believe that Jesus is "the Christ" (the Greek form of *Messiah*, the anointed King God promised Israel) and "the Son of God".
+- **John names the result.** Believing leads to "life in His name".
 
-**Reflect:** How does hearing the first audience help you receive the instruction with greater care?
+That makes John a good first book for someone who is not sure what they believe, and for someone who does believe and wants to know Jesus better. You know what the writer wants before you begin, and you can test every chapter against it. Read more in *The signs and works of Jesus*.
 
-## 02 The setting the book gives
+### How to read it the first time
 
-**Main readings:** Ruth 1; 4:13–22; Philippians 1:7–30.
+John has twenty-one chapters. Read one chapter a day and you finish in three weeks. Do not stop at every hard sentence. John's opening (John 1:1–18) is among the deepest passages in the Bible, and you will not understand all of it the first time. Nobody does. Read on, and come back to it when you have finished the book. It will read differently then. Read more about that opening in *Who do you say that I am? Who Jesus really is*.
 
-> Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Beth-lehem-judah went to sojourn in the country of Moab, he, and his wife, and his two sons.
+As you go, keep one question beside you, taken from John's own purpose: *What does this chapter show me about who Jesus is?* Write down a phrase or two each day. By the end you will have a short list in your own handwriting of what John wanted you to see.
 
-Ruth 1:1 · KJV
+[limit] Starting with John is advice, not a rule of Scripture. The Bible does not tell anyone which book to read first. After John, many readers go on to Acts (what Jesus' followers did next), then to a short letter such as Philippians, then back to Genesis. Others follow a plan. The habit matters more than the order.
 
-### Place, time and need
+**Consider:** What does John say he left out, and why does he say he wrote what he kept?
 
-Ruth gives a setting before it gives a conversation: the days of the judges, a famine, a family leaving Bethlehem for Moab. Death then changes the household. Naomi hears that the LORD has visited his people in giving them bread, and she returns with Ruth at the beginning of barley harvest.
+**Reflect:** If John is right about why he wrote, what question will you bring to his book each day?
 
-These circumstances are part of the story's meaning. Food, land, kindred, marriage and the future of a household become urgent concerns for people whose losses the opening has already described. Ruth's commitment to Naomi is spoken within that history. It should not be detached from the deaths, the journey and the decision about people and God.
+## 02 A simple daily habit
 
-The opening gives no particular judge's name. The closing genealogy reaches David, but that does not identify the writer or give an exact year of composition. The time of the events and the time of writing are different questions. A useful introduction keeps them separate.
+**Main readings:** Acts 17:11; Psalm 119:105.
 
-### Circumstances within a letter
+Hook: The Bereans did two things every day: they listened eagerly and they checked.
 
-Paul speaks of his bonds in Philippians. He tells the readers that what happened to him has furthered the gospel, and that others have become bolder to speak. His joy is expressed amid imprisonment, rival motives and the prospect of life or death. The setting helps us hear the weight of his words.
+When Paul preached in the town of Berea, Luke records how the people there received him:
 
-We do not need to settle the place of imprisonment before noticing those things. A proposed location would require evidence beyond the statement that he is in bonds. Start with what the letter gives, then mark any additional reconstruction as such. Historical detail serves reading when it explains the passage; a confident but unsupported setting can make us hear a story of our own making.
+> Now the Bereans were more noble-minded than the Thessalonians, for they received the message with great eagerness and examined the Scriptures every day to see if these teachings were true.
 
-**Consider:** Which circumstances are stated in Ruth and Philippians? Which dates or locations would you have to establish separately?
+Acts 17:11 · BSB
 
-**Reflect:** What changes when you hear words of loyalty or rejoicing within the difficulty that surrounds them?
+Luke puts the eagerness and the checking side by side and praises both. The Bereans did not believe everything they heard, and they did not refuse to listen either. They opened the Scriptures, which for them meant what we call the Old Testament, and they did it "every day". (This site's translation, the Berean Standard Bible, takes its name from them.) Read more in *Learning to discern*.
 
-## 03 Hear the form of the writing
+### Five small steps
 
-**Main readings:** Psalm 13; Jonah 1–2; Hebrews 13:22.
+What follows is this site's advice, drawn from long Christian practice. It is not a command found in Scripture.
 
-> But I have trusted in thy mercy; my heart shall rejoice in thy salvation.
+1. **Same time, same place.** A habit grows more easily when it is tied to something you already do: the first coffee, the bus ride, the end of the day.
+2. **A passage, not a page count.** One chapter of John, or one paragraph of a letter, is enough. Read it right through once without stopping.
+3. **Three questions.** Read it again and ask: *What does it say?* (Put it in your own words.) *What does it show about God?* *What is one way I will respond today?* Keep the three answers apart. The first is about the text, the second is what you understand it to mean, and the third is your own choice.
+4. **Pray it back.** To *pray* is simply to speak to God. Tell Him what you read, thank Him for something in it, and ask Him for help with the thing you chose.
+5. **Write one line.** A notebook or a note on your phone is enough. Over months, those lines become a record of what you have learned.
 
-Psalm 13:5 · KJV
+Ten or fifteen minutes is a good start. Most people who keep reading the Bible for years began small.
 
-### A prayer has a movement
+### When you miss a day
 
-Psalm 13 begins with repeated questions: how long? The speaker brings sorrow and the enemy's apparent advantage before the LORD. He then asks God to consider and hear him, and closes with trust, rejoicing and song. Reading only the opening would leave out the trust; reading only the ending would leave out the sorrow brought before God.
+You will miss days. Everyone does. Do not try to catch up on all of them at once, and do not treat the missed days as proof that you cannot do it. Start again with tomorrow's chapter. A habit is not a streak; it is coming back. The Bereans examined the Scriptures every day, and Luke records their eagerness as a good example. He does not make a missed day a failure that God holds against anyone.
 
-The psalm gives us prayer to hear and words to weigh. It does not narrate every event that led to the distress, nor does it describe a change in outward circumstances between every line. We should not invent those events to make the prayer intelligible. Its movement from complaint through petition to trust can be followed in the words themselves.
+[care] If a time of illness, grief or depression has made reading hard, that is not a spiritual failure. Read less: a single psalm, or a verse someone sends you. Let others read to you. Talk to a pastor or a trusted friend.
 
-A short poem also needs its setting within its own beginning and ending. This example teaches a way to read a psalm; it does not provide an outline of the entire book of Psalms or imply that every psalm follows the same course.
+**Consider:** What two things did the Bereans do, and why does Luke praise them for both?
 
-### A book may contain several forms
+**Reflect:** What time and place in your day could hold ten minutes with one passage?
 
-Jonah tells of a prophet receiving the word of the LORD, fleeing, being cast into the sea and praying from the fish. The prayer in chapter 2 belongs within the surrounding account. We hear both what Jonah says to God and what the narrative reports about him.
+## 03 Using the site's reader
 
-Hebrews calls itself a word of exhortation and includes a letter's closing communications. Its teaching and appeals belong together. Calling a work a narrative, song or letter is a beginning, not a substitute for attending to what each passage does. A command, a character's speech, a prayer and the narrator's report do not all function in the same way. Ask who is speaking and what kind of speech you are hearing before turning a sentence into a general instruction.
+**Main readings:** Any passage you are reading.
 
-**Consider:** What would be lost if Psalm 13 became a collection of separate sayings, or Jonah's prayer were read without its surrounding account?
+Hook: Every reference on this site is a door. Behind each one is the whole chapter.
 
-**Reflect:** How can you give both sorrow and trust their proper place when praying this psalm?
+Every verse reference on Bible Guide opens the site's Bible reader in the Berean Standard Bible. That matters for the habit this study teaches. When a study quotes one verse, you can always open the chapter around it and read the paragraph the verse came from. Do that often. It is the fastest way to catch a verse that has been lifted out of its place.
 
-## 04 Follow the unfolding argument
+Here are a few ways to use the reader well. [check: confirm each feature named below exists in the current reader, and how it is reached, before publishing]
 
-**Main readings:** Philippians 1:12–2:11; 4:1–9.
+- **Read the chapter, not the verse.** When a link opens a single verse, scroll up to where the paragraph begins and read down to where it ends.
+- **Notice the headings, then look past them.** The small headings in a Bible are added by editors to help you find your way. They are not part of the text. Chapter numbers were added in the early 1200s and verse numbers for the New Testament in 1551. They are useful addresses, but a sentence sometimes runs across them, so read across them too.
+- **Follow the cross-references.** Where the reader shows other passages that share words or ideas with the verse you are reading, open one or two. The *Connections in Scripture* study draws every cross-reference the site holds. A cross-reference shows that two passages are linked. It does not tell you how they are linked. Read both in their places before you decide.
+- **Know the word LORD.** In the Old Testament, the Berean prints LORD in capital letters where the Hebrew has God's personal name, the name He gave Moses at the burning bush (Exodus 3). "Lord" in ordinary letters translates a different word that means "master".
 
-> Let this mind be in you, which was also in Christ Jesus:
+[limit] A reader can show you every verse, but it cannot read the verse for you. The next two parts practise what to do once the passage is open.
 
-Philippians 2:5 · KJV
+**Consider:** What do you gain by opening the whole chapter behind a quoted verse?
 
-### Notice what joins one passage to another
+**Reflect:** Think of one verse you know by heart. Have you read the paragraph it comes from?
 
-In Philippians 1 Paul moves from his circumstances to the believers' conduct. Whether he comes or remains absent, he wants to hear that they stand fast in one spirit, striving together for the faith of the gospel. The appeal continues into chapter 2: be of one accord and one mind, put away strife and vainglory, and look to the things of others.
+## 04 One whole book in its setting: Jonah
 
-The passage concerning Christ's humiliation and exaltation follows that appeal. Its place matters. Paul speaks of the mind of Christ to people being called to lowliness of mind. Reading the passage in sequence lets its confession of Christ and its instruction to the church remain joined.
+**Main readings:** Jonah 1–4, read straight through.
 
-An outline should show these connections. A heading such as “Christ humbled and exalted” may identify the subject, but a note explaining its relation to the preceding appeal helps us understand why we meet it here. Chapter numbers make passages easy to find; the flow of thought must still be read across them.
+Hook: Everyone remembers the fish. Hardly anyone remembers the last question.
 
-### Let later appeals sharpen earlier ones
+Jonah is four short chapters, about the length of a magazine article. Read it in one sitting before going on. Most people know one scene from it. Reading the whole book shows what that scene is for.
 
-In chapter 4 Paul beseeches Euodias and Syntyche to be of the same mind in the Lord. The language recalls the earlier appeal to the congregation. Here it is addressed to named people, whom he also describes as women who laboured with him in the gospel.
+### Who, where and when
 
-That connection does not prove every part of the letter was written solely to resolve their disagreement. It does show that fellowship and shared purpose are more than abstract subjects. An outline can trace a recurring concern without making it the only concern. Keep Paul's thanksgiving, circumstances, instruction and personal appeals in view, allowing each to contribute to the letter's message.
+The book names its prophet, "Jonah son of Amittai" (Jonah 1:1 · BSB). A *prophet* is someone God sends to speak His word to people. Another book, 2 Kings 14:25, names the same prophet and places him in the reign of Jeroboam II, king of the northern kingdom of Israel, in the 700s BC. Nineveh was a great city of the Assyrian Empire, the power that later conquered that same northern kingdom (2 Kings 17). Jonah is sent to preach to the enemy of his own people.
 
-**Consider:** How does Philippians 1:27–2:4 prepare you to read 2:5–11? What does 4:2–3 add to the appeal for one mind?
+The book does not name the king of Nineveh or give a year, and it does not say who wrote it down. A careful reader leaves those things unnamed rather than guessing. What the book does give is enough: a prophet of Israel, a feared foreign city, and the word of the LORD to both.
 
-**Reflect:** Where does the call to lowliness of mind become particular in your relationships?
+Before the Christian reading, it helps to know how the Jewish people read this book. In synagogues, Jonah is read aloud each year in the afternoon service of Yom Kippur, the Day of Atonement, the most solemn day of the Jewish year, given to repentance and prayer for forgiveness. The book is heard on the day Israel itself turns back to God, as a story of a whole city turning from evil and of God's mercy, which reaches further than His own prophet wanted. [check: the Yom Kippur afternoon reading and its source, Babylonian Talmud, Megillah 31a]
 
-## 05 Ask the questions the book raises
+### Follow the book's own movement
 
-**Main readings:** Jonah 1–4, especially 3:10–4:11.
+The book is built in two halves that mirror each other. Both open with the same command.
 
-> And should not I spare Nineveh, that great city, wherein are more than sixscore thousand persons that cannot discern between their right hand and their left hand; and also much cattle?
+**Chapters 1–2: Jonah runs.** God says, "Get up! Go to the great city of Nineveh" (Jonah 1:2 · BSB). Jonah gets up, but in the other direction:
 
-Jonah 4:11 · KJV
+> Jonah, however, got up to flee to Tarshish, away from the presence of the LORD. He went down to Joppa and found a ship bound for Tarshish. So he paid the fare and went aboard to sail for Tarshish, away from the presence of the LORD.
 
-### Read beyond the familiar event
+Jonah 1:3 · BSB
 
-The fish is a memorable part of Jonah, but the book continues after Jonah reaches dry land. The word of the LORD comes a second time. Jonah goes to Nineveh; the people believe God and turn from their evil way; God does not bring the destruction he had spoken of. Jonah is exceedingly displeased and angry.
+Watch the direction of travel. Jonah goes *down* to Joppa, *down* into the ship, *down* to "the lowest part of the vessel" (Jonah 1:5 · BSB), and at last *down* into the sea. In his prayer he says, "To the roots of the mountains I descended" (Jonah 2:6 · BSB). The story draws running from God as going down.
 
-In his prayer Jonah says why he fled: he knew that God was gracious and merciful, slow to anger and of great kindness. The book itself supplies this explanation. A retelling that makes his flight only a fear of danger would miss what Jonah says about his own response to God's mercy.
+Meanwhile the pagan sailors behave better than the prophet. They pray, they try to row back to land to save his life, and at the end they "feared the LORD greatly" (Jonah 1:16 · BSB). Jonah's prayer from inside the fish ends, "Salvation is from the LORD!" (Jonah 2:9 · BSB). (In that prayer, *Sheol* in 2:2 is a Hebrew word for the place of the dead. Jonah means he was as good as dead.)
 
-The last chapter therefore belongs at the heart of an introduction. What does the prophet desire for Nineveh? How does he respond to mercy received by others? What does the LORD ask him? Those questions arise from the account's own course.
+**Chapters 3–4: Jonah obeys, and is angry.** "Then the word of the LORD came to Jonah a second time" (Jonah 3:1 · BSB). This time he goes. His message is eight words in the Berean: "Forty more days and Nineveh will be overturned!" (Jonah 3:4 · BSB). The city believes God, from the king down, and everyone is told to "turn from his evil ways and from the violence in his hands" (Jonah 3:8 · BSB). That turning is what the Bible means by *repentance*: turning from wrong back to God.
 
-### Allow the ending to remain an ending
+> When God saw their actions—that they had turned from their evil ways—He relented from the disaster He had threatened to bring upon them.
 
-Jonah has pity for the gourd, and the LORD asks about sparing the city. The final question includes its many people and its cattle. The book gives no recorded answer from Jonah after this question. We should not supply a final speech of repentance or continued refusal as though it stood in the text.
+Jonah 3:10 · BSB
 
-An introduction can bring a reader to this unanswered question without explaining it away. It can also distinguish observation from application: the narrative reports Jonah's anger; the reader then considers how the LORD's question searches his or her own response to mercy. The application grows from the encounter rather than replacing it with a moral attached only to the fish.
+A reader who stopped at the fish would expect the book to end here, happily. It does not. The next verse says Jonah "was greatly displeased, and he became angry" (Jonah 4:1 · BSB). And now, for the first time, he tells us why he ran:
 
-**Consider:** How does the final chapter change the account you would give of what Jonah is about?
+> So he prayed to the LORD, saying, “O LORD, is this not what I said while I was still in my own country? This is why I was so quick to flee toward Tarshish. I knew that You are a gracious and compassionate God, slow to anger, abounding in loving devotion—One who relents from sending disaster.
 
-**Reflect:** Whose receiving mercy is difficult for you to welcome?
+Jonah 4:2 · BSB
 
-## 06 Read the whole book, then return
+Jonah did not run because he was afraid of Nineveh. He ran because he knew God would be *gracious*, giving kindness to people who have not earned it, and he did not want Nineveh to have it. The words he uses are older than he is. They echo what God said about Himself to Moses on Mount Sinai (Exodus 34:6–7), and the prophet Joel uses them too (Joel 2:13). Jonah knows his Bible well. He quotes God's own description of Himself as a complaint.
 
-**Main readings:** Ruth 1–4; compare Ruth 1:1–5, 1:19–22 and 4:13–22.
+[care] **If you are in danger right now, please stop reading and call for help.** In the United States, call or text 988 (Suicide & Crisis Lifeline) [check before publishing]. In Spain, call 024 [check before publishing]; in Mexico, Línea de la Vida, 800 911 2000 [check before publishing]; in other Spanish-speaking countries, call your local emergency number or national crisis line [check before publishing: add each country's line]. In Brazil, call CVV on 188 [check before publishing]. In the next verses Jonah says he would rather die. If you have felt that way, you are not the only one, and you are not beyond help. Feelings like these do pass, and people do recover, often with the help of others: a doctor, a counsellor, a pastor or a friend you tell today. Read more in *Fear, anxiety and despair*.
 
-> And Obed begat Jesse, and Jesse begat David.
+Jonah asks God to take his life (Jonah 4:3), and says it again in the heat (Jonah 4:8). Look at how God answers. He does not agree with Jonah, and He does not grant the request. He asks a question, "Have you any right to be angry?" (Jonah 4:4 · BSB), and He cares for Jonah's body, appointing a vine to give him shade. The book treats Jonah's despair seriously, and it shows God staying with him in it.
 
-Ruth 4:22 · KJV
+Then God teaches with the vine. He makes it grow, then sends a worm to wither it, and Jonah is angry about the plant. The book ends with God's words:
 
-### Follow the course from loss to a household's future
+> But the LORD said, “You cared about the plant, which you neither tended nor made grow. It sprang up in a night and perished in a night. So should I not care about the great city of Nineveh, which has more than 120,000 people who cannot tell their right hand from their left, and many cattle as well?”
 
-Read Ruth through before reducing it to a favourite conversation. Begin with famine and death, follow Naomi and Ruth to Bethlehem, then attend to the field, the threshingfloor and the gate. Notice how the people speak about kindness, rest, kindred and the name of the dead. The conclusion brings a child into Naomi's life and places the household within the genealogy that reaches David.
+Jonah 4:10–11 · BSB
 
-The ending does not make the earlier grief unreal. It shows how much has happened since Naomi described herself as returning empty. It also widens the reader's view beyond the household without making its ordinary needs unimportant. The food, labour, decisions and public witnesses remain part of the account that reaches that ending.
+And there the book stops. We are not told what Jonah answered.
 
-### Make an introduction you can test against the text
+### What the whole book shows
 
-After reading, write a short account of the book: its stated setting, its main people or audience, its form, its principal movements and the question or need carried through it. Give passages for those observations. Include an honest sentence about what you have not established, such as the writer's identity or an exact date.
+Reading the whole book changes what it is about. It is not mainly a story about a fish. The fish is one of four things God "appointed" (the fish in 1:17, the vine in 4:6, the worm in 4:7, the east wind in 4:8). The book is about a God whose mercy reaches the sailors, the Ninevites, their cattle and His own sulking prophet, and about a man who believed the right things about God and still did not want God to be like that toward his enemies.
 
-Then return to the book and test your summary. Does it leave room for the ending? Does it explain how the main passages belong together? Has a familiar detail displaced a larger concern? Revise the introduction where the writing corrects it. The introduction is useful when it helps another reader enter the book and continue reading with understanding.
+The unanswered question is part of the book's design. Do not supply an answer for Jonah. The question is left open so that every reader has to answer it.
 
-For a longer book, read connected portions and keep a running account of the movement. At the end, return to the beginning. Let the complete reading deepen the first impression before you settle on a description of the whole.
+### How later Scripture remembers Jonah
 
-**Consider:** Which details in Ruth's ending would your first impression of its opening have missed?
+Jesus speaks of "the sign of Jonah" (Matthew 12:39–41; Luke 11:29–32). He compares Jonah's three days and nights in the fish with His own coming death and rising, and He says the people of Nineveh, who repented at Jonah's preaching, will stand in judgement on a generation that will not repent at His. Christians therefore read Jonah as pointing beyond itself: to Jesus' death and rising, and to a mercy meant for every nation. Read more in *Christ in the Old Testament*.
 
-**Reflect:** Choose one book to read through. What will you look for before relying on someone else's summary?
+[limit] Some modern scholars read Jonah as a teaching story told about a real prophet rather than as a record of events. That is their reconstruction, and it is labelled as theirs. This site reads Scripture as "truth, without any mixture of error", as the Baptist Faith and Message 2000 says in article I (the Scriptures). It reads Jonah as Jesus spoke of him, alongside other real events and people. Whichever view a reader holds, the book's last question is the same.
+
+**Consider:** What reason does Jonah give in 4:2 for running away? How does that change what the first chapter was about?
+
+**Reflect:** Is there anyone whose receiving God's mercy you would find hard to welcome?
+
+## 05 One passage in its context: Jeremiah 29:11 in its letter
+
+**Main readings:** Jeremiah 29:1–14 (and the chapter before it, Jeremiah 28).
+
+Hook: It is printed on mugs and graduation cards. It was first written to refugees who would never see home.
+
+Few verses are quoted alone more often than this one:
+
+> For I know the plans I have for you, declares the LORD, plans to prosper you and not to harm you, to give you a future and a hope.
+
+Jeremiah 29:11 · BSB
+
+Before asking what it means for you, ask the questions this study has been practising. Who wrote it? To whom? What do the sentences around it say?
+
+### Who was in the room
+
+The chapter answers in its first verse:
+
+> This is the text of the letter that Jeremiah the prophet sent from Jerusalem to the surviving elders among the exiles and to the priests, the prophets, and all the others Nebuchadnezzar had carried into exile from Jerusalem to Babylon.
+
+Jeremiah 29:1 · BSB
+
+So verse 11 is part of a letter. The readers are *exiles*, people forced from their homeland. About 597 BC, Nebuchadnezzar, king of Babylon, had taken King Jeconiah, the royal household, officials and skilled workers away to Babylon (Jeremiah 29:2; 2 Kings 24:10–17). The temple in Jerusalem was still standing, and many of the exiles hoped they would be home soon.
+
+The chapter just before explains why that hope mattered. A prophet called Hananiah had announced that God would break Babylon's power and bring the exiles back "within two years" (Jeremiah 28:3, 11). Jeremiah said Hananiah had not been sent by God (Jeremiah 28:15). Chapter 29 is Jeremiah's letter to the people who had been told that comforting story.
+
+### What the letter tells them to do first
+
+The promise does not come first. A set of instructions does:
+
+> This is what the LORD of Hosts, the God of Israel, says to all the exiles who were carried away from Jerusalem to Babylon: “Build houses and settle down. Plant gardens and eat their produce. Take wives and have sons and daughters. Take wives for your sons and give your daughters in marriage, so that they too may have sons and daughters. Multiply there; do not decrease. Seek the prosperity of the city to which I have sent you as exiles. Pray to the LORD on its behalf, for if it prospers, you too will prosper.”
+
+Jeremiah 29:4–7 · BSB
+
+That is a surprising letter to people who wanted to go home. Do not pack. Build houses. Plant gardens, which take years to bear fruit. Let your children marry and have children. Pray for the city of the people who conquered you. Then comes the warning: "Do not be deceived by the prophets and diviners among you" (Jeremiah 29:8 · BSB).
+
+Jewish communities living far from the land of Israel have long heard in verse 7 a word for their own lives. The Mishnah, an early collection of Jewish teaching, records Rabbi Hanina, deputy of the priests, saying that one should pray for the welfare of the government (Mishnah, Avot 3:2). Many synagogues still pray for the country they live in. How Christians relate to the governments over them is read in *The Christian and the state*.
+
+### How long the wait is
+
+Now read the verse straight before the famous one:
+
+> For this is what the LORD says: “When Babylon’s seventy years are complete, I will attend to you and confirm My promise to restore you to this place.
+
+Jeremiah 29:10 · BSB
+
+Seventy years. Hananiah had said two. Most of the adults who first heard this letter read aloud would die in Babylon. The promise of "a future and a hope" in verse 11 was true for them, but much of what it promised would come to their children and grandchildren. God's "plans" here are plans for a whole people, over generations. In Hebrew, the "you" in verse 11 is plural: it means "all of you". It is a promise to the community of exiles, not first a promise to one person about one life. (Later Scripture remembers this seventy years: Daniel 9:2, 2 Chronicles 36:21 and Ezra 1:1. Read more in *Reading Daniel and Revelation*.)
+
+The letter then turns from where they will live to how they will relate to God:
+
+> You will seek Me and find Me when you search for Me with all your heart.
+
+Jeremiah 29:13 · BSB
+
+The "future and a hope" is not only a return to land. It is a people calling on God, praying, being heard and finding Him (Jeremiah 29:12–14).
+
+### What the verse does and does not say to you
+
+Here are the three kinds of statement this study keeps apart.
+
+- **What the passage says.** God promised the exiles in Babylon that after seventy years He would bring their people home, and that they would seek Him and find Him. Until then, they were to settle, build, raise families and pray for Babylon.
+- **What it shows about God.** He keeps His promises, even across generations. He has purposes for His people that are good even when the present is hard. He hears those who seek Him. He cares about the cities His people live in, even foreign and hostile ones.
+- **What a reader today might take from it.** This is a response, not a promise. A Christian can trust that God's purposes for His people are good, can seek Him wholeheartedly, and can serve and pray for the place they live while they wait. The New Testament says that God's promises find their "Yes" in Christ (2 Corinthians 1:20), so Christians read promises like this one through Him.
+
+What the verse does not do is promise any one reader a particular job, recovery, relationship or date when things will improve. The first hearers were told the opposite of a quick rescue. Reading the verse inside its letter does not take the hope away. It makes the hope stronger, because it shows a God whose good purposes hold through seventy years of exile, not only through good times.
+
+[care] If you were given this verse in a hard time and the hard time did not end, you have not misread God's faithfulness, and you have not failed. The people this letter was written to waited a lifetime, and the letter told them to keep building, keep praying and keep seeking God while they waited. God does not promise in this verse that your situation will change by a certain day. He does promise His people that He will be found by those who seek Him.
+
+**Consider:** What did the exiles have to do before the promise of verse 11 came true, and how long would they wait?
+
+**Reflect:** Where are you waiting right now, and what would it look like to "build houses" and "seek the prosperity" of the place you are in?
+
+## 06 How to keep going
+
+**Main readings:** Jonah 4:10–11; Jeremiah 29:4–14; your next passage.
+
+Hook: The two examples teach the same thing from two directions.
+
+Jonah taught you to read a whole book before deciding what it is about. Jeremiah 29 taught you to read the paragraph before deciding what a verse means. Both come down to one habit: **read a verse inside the book it belongs to.**
+
+For your next passage, try these questions in order. They work on almost any part of the Bible.
+
+1. **Where am I in the book?** What came just before? Read back to where the paragraph begins.
+2. **Who is speaking, and to whom?** A prophet to exiles, Jesus to a crowd, Paul to a church, a poet to God. Find the "you".
+3. **What is happening around them?** Use what the book itself says first. Then check one good introduction for the rest, and keep its guesses marked as guesses.
+4. **What does the book do next?** Read on to where the thought ends. Jonah's story did not end with the fish.
+5. **What does it show about God?**
+6. **What will I do?** Choose one response, and check it against the passage before you rely on it.
+
+When the Bible feels hard, three things help. Read with other people, because a church that reads together catches what one reader misses. Read more in *Life together: belonging to a church*. Ask questions out loud, and keep them open until the text answers them. And come back to familiar books. Many Christians read John, or the Psalms, dozens of times over a life, and still find new things.
+
+**Consider:** Which of the six questions did Jonah need most? Which did Jeremiah 29:11 need most?
+
+**Reflect:** Which book will you read next, and which question will you bring to its first chapter?
+
+## Close: A lamp for the next step
+
+Way: Start with John, because John tells you why he wrote. Keep a small daily habit, and start again when you miss a day. Open the whole chapter behind every quoted verse. Read a whole book before deciding what it is about, and a whole paragraph before deciding what a verse means.
+
+Close: Jonah knew the right words about God and still ran from Him. The exiles in Babylon were tempted by a short, comforting promise and needed the true, longer one. Both show that reading the Bible well is more than finding a verse. It means letting the whole book, and the God who speaks in it, have the last word, even when that word is a question.
+
+Invite: If you are reading the Bible for the first time and are not sure what you believe, John wrote for you: "so that you may believe that Jesus is the Christ, the Son of God, and that by believing you may have life in His name" (John 20:31 · BSB). The Baptist Faith and Message 2000 says in article IV (salvation), "There is no salvation apart from personal faith in Jesus Christ as Lord." Read John through. Ask God to show you who Jesus is. Then talk to a pastor or a Christian you trust. Read more in *The good news: how a person is made right with God*.
+
+Question: Which verse have you been reading alone, and what does the book around it ask of you?
+
+Again: Read the passage again before you answer.
+
+Passage: Jonah 4:1–11

@@ -42,6 +42,8 @@ The word covers male and female, and the blessing and the charge that follow are
 
 To rule the creatures is a charge given inside a world God calls good. It is no licence to despise what He made (Genesis 1:26–31). The Baptist Faith and Message adds that "The gift of gender is thus part of the goodness of God's creation".
 
+This study reads these verses for the image. What "male and female" means for marriage, singleness and sexual conduct is read from the same verses in another study. Read more in *Sexuality, singleness and divorce*.
+
 ### Made in God's likeness
 
 James is not writing about the garden. He is writing about ordinary speech. "With the tongue we bless our Lord and Father, and with it we curse men, who have been made in God's likeness" (James 3:9). The people being cursed are fallen people, and James still calls them made in God's likeness. Genesis does the same after the flood: "for in His own image God has made mankind" (Genesis 9:6).
@@ -108,37 +110,43 @@ Slug: under-sin
 
 Hook: Paul's readers are ready to agree about someone else. Then he reads them a list that starts at the throat.
 
-Line: Jews and Greeks alike, every mouth silenced, and then the first words of the answer: But now.
+Line: Jews and Greeks alike, every mouth silenced, and the next paragraph begins God's answer.
 
-Read: Romans 3:9–26
+Read: Romans 3:9–20
 
 Setting: Paul has been working through Gentile and Jew and asks, "Are we any better?" (Romans 3:9).
 
-Honours: The sinner, as someone God is willing to justify: "justified freely by His grace" (Romans 3:24).
+Honours: The sinner, as someone God goes on, in the very next paragraph, to put right with Himself as a gift (Romans 3:21–24).
 
 Refuses: Any standing outside the accusation: "Not at all" (Romans 3:9), and "there is no one who does good, not even one" (Romans 3:12).
 
-Points to: Christ: "this righteousness from God comes through faith in Jesus Christ to all who believe" (Romans 3:22).
+Points to: The answer Paul gives next: God's own way of putting people right, received by trusting Jesus Christ (Romans 3:21–22).
 
 ### Every mouth silenced
 
-Paul answers his own question by quoting Scripture, mostly the Psalms and Isaiah, one line after another (not always word for word). Near the end the lines name parts of the body, and the figure called One body, two uses sets them out. The point of the chain comes in the next sentence: "so that every mouth may be silenced and the whole world held accountable to God" (Romans 3:19). The law "merely brings awareness of sin" (Romans 3:20).
+Paul answers his own question by quoting Scripture, mostly the Psalms and Isaiah, one line after another (not always word for word). Near the end the lines name parts of the body, and the figure called One body, two uses sets them out. The point of the chain comes in the next sentence: "so that every mouth may be silenced and the whole world held accountable to God" (Romans 3:19). The law here means the commands God gave Israel, and Paul says what it can and cannot do:
 
-> for all have sinned and fall short of the glory of God,
+> Therefore no one will be justified in His sight by works of the law. For the law merely brings awareness of sin.
 
-Romans 3:23 · BSB
+Romans 3:20 · BSB
+
+Justified is a courtroom word: declared in the right before God. The law can show a person where they stand. It cannot put them right.
 
 [read] So this passage is a poor foundation for feeling better than some other group. You are inside the sentence.
 
 [care] Paul does write "they have together become worthless" (Romans 3:12), which can sound as if a person has no worth. Psalm 14 says "corrupt" at that point (Psalm 14:3). The line describes what people turned away from God have made of their lives. It does not give God's estimate of what they are worth to Him: "While we were still sinners, Christ died for us" (Romans 5:8). Nor does the list say every person commits every wrong to the same degree. It says no one stands clear.
 
-### But now
+### The answer comes next
 
-Next comes "But now, apart from the law, the righteousness of God has been revealed" (Romans 3:21). The verdict and the rescue are in one paragraph. The verdict falls on all, and the gift reaches "all who believe" (Romans 3:22). They "are justified freely by His grace through the redemption that is in Christ Jesus" (Romans 3:24). How that works belongs to the studies Grace, faith and salvation and What the cross accomplishes. Here, notice only that Paul does not stop at the diagnosis.
+Paul does not stop at the verdict. His next paragraph turns from the charge laid on all to the gift offered to all who believe (Romans 3:21–26). How God puts sinners right with Himself by grace, His kindness to people who have not earned it, is walked in its own study, and what Christ's death accomplished in another. Here, notice only that the diagnosis is not the last word.
+
+Read more in *Saved by grace: how God forgives and changes us*.
+
+Read more in *The cross, the empty tomb and the throne: what Jesus' death and rising did*.
 
 [read] So hold the passages together. Genesis gives the ground for dignity. James rules out contempt. Romans confronts the whole world with sin. You do not have to pretend someone has done no wrong in order to honour them, and you do not have to deny their dignity in order to name the wrong.
 
-Look closely: What does Paul's opening question do to the way you hear the quotations? Where does the argument go once every mouth is silenced?
+Look closely: What does Paul's opening question do to the way you hear the quotations? What does verse 20 say the law can do, and what can it not do?
 
 Your response: When you read Romans 3, do you hear a verdict on other people first, or a reason you need grace yourself?
 
@@ -186,41 +194,39 @@ Slug: renewed
 
 Hook: Take off, put on. Paul describes the new life the way you would describe getting dressed.
 
-Line: Raised with Christ, so take off the old and put on the new, in ordinary rooms with ordinary people.
+Line: The image spoiled in the garden is being renewed, and Paul says it in the language of clothes.
 
-Read: Colossians 3:1–17
+Read: Colossians 3:9–10 (quoted); Genesis 3:7, 21
 
-Setting: A letter to believers who are told, "you died, and your life is now hidden with Christ in God" (Colossians 3:3).
+Setting: A letter to believers Paul has just told they have been raised with Christ (Colossians 3:1–4). The whole passage, Colossians 3:1–17, is walked in another study.
 
-Honours: The renewed person, in terms taken from creation: "being renewed in knowledge in the image of its Creator" (Colossians 3:10).
+Honours: The renewed person, in words taken from creation: "being renewed in knowledge in the image of its Creator" (Colossians 3:10).
 
-Refuses: Calling the old ways small: "Because of these, the wrath of God is coming" (Colossians 3:6).
+Refuses: Keeping the old ways on: "Do not lie to one another, since you have taken off the old self with its practices" (Colossians 3:9).
 
-Points to: Christ as the whole of it: "Christ is all and is in all" (Colossians 3:11).
+Points to: The Creator whose image it is. The same letter calls Christ the image of God (Colossians 1:15).
 
-### Take it off
+### Taken off, put on
 
-The commands come after the identity. "Therefore, since you have been raised with Christ" (Colossians 3:1) comes first, and "Put to death" comes after (Colossians 3:5). Paul lists "sexual immorality, impurity, lust, evil desires, and greed" (Colossians 3:5), then "anger, rage, malice, slander, and filthy language" (Colossians 3:8). And he adds one reason in the language of clothes: "you have taken off the old self" (Colossians 3:9).
+> Do not lie to one another, since you have taken off the old self with its practices, and have put on the new self, which is being renewed in knowledge in the image of its Creator.
 
-> and have put on the new self, which is being renewed in knowledge in the image of its Creator.
+Colossians 3:9–10 · BSB
 
-Colossians 3:10 · BSB
+Look at the order. The command, do not lie, rests on something that has already happened: "you have taken off the old self". The full list of what to take off and what to put on, and how the new life is lived day by day, belongs to the study that walks this chapter.
 
-[care] "Put to death" (Colossians 3:5) means an end to these practices. It is not a call to hurt your body, and your body is not the enemy, as the next passage says. If you are thinking of harming yourself, tell someone today, and contact emergency services or a crisis line.
+Read more in *A new creation: what changes when you believe*.
 
-### Put it on
+[read] For this study, notice two words: image and Creator. Paul describes the change in the language of Genesis 1. Grace does not invent a new kind of person from nothing. It renews the image God gave at the start, and the renewal is still going on: "is being renewed".
 
-Paul's next word is "clothe yourselves with hearts of compassion, kindness, humility, gentleness, and patience" (Colossians 3:12), and elsewhere "clothe yourselves with the Lord Jesus Christ" (Romans 13:14).
+### Clothes from God
 
 [read] This study's picture: the first clothes in the Bible were home-made, "they sewed together fig leaves" (Genesis 3:7), and the next were God's, "He clothed them" (Genesis 3:21). The likeness is in the Berean's English only, a similar English word, and Paul does not cite Genesis here.
 
-"Forgive as the Lord forgave you" (Colossians 3:13). "And over all these virtues put on love" (Colossians 3:14). Paul writes "there is no Greek or Jew" (Colossians 3:11), and asks this of whatever you do next, "in word or deed" (Colossians 3:17).
+[read] So the new self is not something you sew together. It is received. And it is lived among other people: the first thing taken off in these verses is a lie told "to one another".
 
-[read] So renewal happens among other people. Paul does not pair each thing off with one thing on. That is a reader's work, and the response below asks you to do it.
+Look closely: What has already happened, according to verse 9, before the command is given? Which words in verse 10 take you back to Genesis 1?
 
-Look closely: What comes first in the passage, the commands or the identity? What are the readers told to wear?
-
-Your response: Choose one thing Paul says to take off, and one thing he says to put on in its place. Where, this week, is the room you would do that in?
+Your response: Choose one old practice, as plain as a lie, and name what you would put on in its place. Where, this week, is the room you would do that in?
 
 ## 06 The redemption of our bodies
 
@@ -230,9 +236,9 @@ Hook: You have the Spirit, and you still groan. Paul says that is what it looks 
 
 Line: Your body belongs to the Lord now, and it is promised a future.
 
-Read: 1 Corinthians 6:12–20; Romans 8:18–25
+Read: 1 Corinthians 6:19–20; Romans 8:19–23 (quoted)
 
-Setting: A church saying "Everything is permissible for me" (1 Corinthians 6:12), and a letter written to believers under "present sufferings" (Romans 8:18).
+Setting: A church where some treated what they did with their bodies as if it did not matter (1 Corinthians 6:12–18), and a letter written to believers in present suffering (Romans 8:18).
 
 Honours: The body itself: "your body is a temple of the Holy Spirit" (1 Corinthians 6:19).
 
@@ -242,15 +248,19 @@ Points to: The hope ahead: "we wait eagerly for our adoption as sons, the redemp
 
 ### Glorify God with your body
 
-Corinth had a slogan, and Paul answers it from the resurrection: "By His power God raised the Lord from the dead, and He will raise us also" (1 Corinthians 6:14). His argument against sexual immorality rests on belonging: "your bodies are members of Christ" (1 Corinthians 6:15). "Therefore glorify God with your body" (1 Corinthians 6:20).
+> Do you not know that your body is a temple of the Holy Spirit who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore glorify God with your body.
 
-[read] So since the body has a future, what you do with it now matters. Paul does not treat the body as a bad container to be got rid of, and nothing here makes looks or ability the measure of anyone's worth.
+1 Corinthians 6:19–20 · BSB
 
-[care] This passage is about what a person chooses to do. If someone has done something to your body against your will, that is their sin against you, not yours, and this passage does not call you defiled. Getting to safety and telling someone you trust does not go against anything here.
+[care] This passage is about what a person chooses to do. If someone has done something to your body against your will, that is their sin against you, not yours, and this passage does not call you defiled. Getting to safety and telling someone you trust does not go against anything here. If you are in danger now, call your local emergency number. In the United States, the National Domestic Violence Hotline is 1-800-799-7233, and RAINN's sexual assault hotline is 1-800-656-4673 [check before publishing]. In the Spanish-speaking countries, each country has its own helpline for violence against women and families [check before publishing: the number for each country the site serves]. In Brazil, call Ligue 180, or 190 for the police [check before publishing].
+
+Paul's whole argument about sexual conduct, from the Corinthian slogan to these verses, is walked in another study. Read more in *Sexuality, singleness and divorce*.
+
+[read] For this study, notice what these two verses honour. The body is where the Holy Spirit lives, and it has been bought. A few verses earlier Paul grounds this in the resurrection: God raised the Lord, and He will raise us (1 Corinthians 6:14). So since the body has a future, what you do with it now matters. Paul does not treat the body as a bad container to be got rid of, and nothing here makes looks or ability the measure of anyone's worth.
 
 ### Waiting in hope
 
-"The creation waits in eager expectation" (Romans 8:19). It is "groaning together", but in the "pains of childbirth" (Romans 8:22), so the groaning is going somewhere. And it is not only the creation.
+"The creation waits in eager expectation for the revelation of the sons of God" (Romans 8:19). It was "subjected to futility", but "in hope" that it "will be set free from its bondage to decay" (Romans 8:20–21). It is "groaning together in the pains of childbirth" (Romans 8:22), so the groaning is going somewhere. And it is not only the creation.
 
 > Not only that, but we ourselves, who have the firstfruits of the Spirit, groan inwardly as we wait eagerly for our adoption as sons, the redemption of our bodies.
 
@@ -258,11 +268,13 @@ Romans 8:23 · BSB
 
 [read] Having the Spirit does not mean the suffering has stopped. Hope and grief, weakness and unfinished change, can live in one person.
 
-Paul's word for the meantime is "we wait for it patiently" (Romans 8:25). Then he names where it ends: those God foreknew He "predestined to be conformed to the image of His Son" (Romans 8:29). And to the Corinthians: "so also shall we bear the likeness of the heavenly man" (1 Corinthians 15:49).
+Paul goes on to say where this ends: those God foreknew are to be made like His Son (Romans 8:29), and believers will bear the likeness of the risen Christ (1 Corinthians 15:49). The image that began in Genesis 1 ends there. The fuller account of the resurrection and the new creation, and of this whole passage, is in another study.
 
-[care] An illness or a disability is no evidence that someone has sinned more, or has less of God's grace. Asked about a man born blind, Jesus says "Neither this man nor his parents sinned" (John 9:3). The fuller account of the resurrection and the new creation is in the study The hope to come.
+Read more in *The hope to come*.
 
-Look closely: Why does Paul bring the resurrection into an argument about conduct? What do believers who have the Spirit still wait for?
+[care] An illness or a disability is no evidence that someone has sinned more, or has less of God's grace. Asked about a man born blind, Jesus says "Neither this man nor his parents sinned" (John 9:3). For Scripture's words to the sick, read more in *What Scripture promises the sick*.
+
+Look closely: Why does Paul say "You are not your own" in an argument about conduct? What do believers who have the Spirit still wait for?
 
 Your response: Who is weak or in pain near you, or is it you? How would hope for the body change the way you care for that person this week?
 

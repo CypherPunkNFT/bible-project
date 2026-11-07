@@ -1,5 +1,10 @@
 # Passage notes — Leviticus: holiness and sacrifice
 
+## Change, 2026-11-06 (writing run job 12e)
+
+Part 08 now sets out three families of answers to the law question (three kinds of law; dispensational; progressive covenantal and new covenant theology), each with named Baptist holders: the 1689 confession, the Baptist Catechism and Barcellos; Strickland and the Scofield notes; Gentry and Wellum's *Kingdom through Covenant* (2012), Schreiner, and Wells and Zaspel. The part now links *The Ten Commandments* and *Covenants and promises*.
+Romans 13:9 is quoted from the supplied text. Romans 7:12, Hebrews 8:13 and 1 Corinthians 9:20–21 were not supplied, so they are now referred to rather than quoted. The section adds [check] notes on Strickland's affiliation, the Baptist Catechism question, the Barcellos and Wells–Zaspel publication details, and the Scheiderer article.
+
 Study 47 · God and Christian Faith · 2026-11-06 · First content draft. Written as step 10 of the
 [next-20 sequence](../../../../../Pages/Topics/NEXT_20_DRAFTS.md). The folder keeps its planned name,
 `the-law-of-moses-and-the-christian`, on the owner's instruction; the title and scope were reshaped on 2026-11-05 after

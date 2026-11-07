@@ -1,5 +1,11 @@
 # Passage notes — What Scripture promises the sick
 
+## Change, 2026-11-06 (writing run job 12c)
+
+Part 07 now separates classical Pentecostal teaching (healing "provided for in the atonement", Assemblies of God Fundamental Truth 12, with Holiness churches and the Christian and Missionary Alliance, healing now left to God's will) from the Word of Faith guarantee of health now, notes the Assemblies of God's 1980 rejection of positive confession, and answers each from the text; dates and wordings are marked [check].
+Isaiah 53:4–5 is now quoted in full with the Jewish reading (the servant as Israel, from Rashi; the Targum's messianic reading) named fairly first, with no blame laid on the Jewish people, and links to studies 41 and 25.
+Part 05 now links study 18 for Mark 5, and the Romans 8 note names study 30 as the owner of 8:18–25.
+
 Study 45 · Christian Life · 2026-11-05 · First content draft. Written as step 8 of the
 [next-20 sequence](../../../../../Pages/Topics/NEXT_20_DRAFTS.md).
 

@@ -1,5 +1,10 @@
 # The church and its calling passage and editorial notes
 
+## Change, 2026-11-06 (writing run job 11b)
+
+The baptism job's trim: the water panel, the full reading of Matthew 28:16–20 and 1 Corinthians 11:23–34, and the three ordinance questions (who is baptized, does baptism save, the Lord's table) move to Baptism and the Lord's Supper (59). Part 05 is now a short summary that explains "ordinance", quotes only Matthew 28:19 and links 59 and 09. The divided meal (1 Corinthians 11:17–22) is read more fully in part 03, re-quoted from the BSB. Part 06 narrows to 1 Peter 2:9–10, with 2:11–12 quoted and linked to Faith in daily life (05).
+The whole file is returned as one block because the frame panels sit under the top heading. The concept line, selection note, questions lead and close are updated to match, unquoted verses (1 Cor 11:26, Romans 6:4) are now only referred to, and the old "Bearing witness" link uses 09's new title.
+
 Working notes for [the reader-facing text](content.md). Rewritten 2026-10-30 from the Berean Standard Bible for the mock-up (the King James draft of 2026-10-13 is in git history). Built page: [the mock-up and its record](../../../../design/the-church-and-its-calling-directions/README.md).
 
 ## Source basis

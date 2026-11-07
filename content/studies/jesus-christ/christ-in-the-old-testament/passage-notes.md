@@ -1,5 +1,10 @@
 # Passage notes — Christ in the Old Testament
 
+## Change, 2026-11-06 (writing run job 12a)
+
+Part 05 now names the Jewish reading of Isaiah 53 (the servant as Israel, after Rashi, with Kimchi and the Targum flagged [check]) fairly before Philip's Christian reading, gives the textual reasons for each, guards against blaming the Jewish people, and re-quotes only supplied BSB text. Part 01 describes Passover in Jewish terms first; parts 03, 04 and 05 add link lines to the cross study (25), Covenants and promises (26) for 2 Samuel 7, Leviticus (47) for Hebrews 10, and What Scripture promises the sick (45).
+Stale study names fixed in edited parts (12 → Who do you say that I am?; Long Memory → The book of Psalms, owner of Acts 2:29–36). Not changed: the opening still says "Study 27, Scripture and its witness"; the editor should rename it *What the Bible says about itself*. That fix needs an edit of the whole H1 section, which is outside this job.
+
 Study 41 · Jesus Christ · 2026-11-05 · First content draft. Written as step 4 of the
 [next-20 sequence](../../../../../Pages/Topics/NEXT_20_DRAFTS.md).
 

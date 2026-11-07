@@ -192,7 +192,7 @@ Ask: What did the hearers do, and where is the text silent?
 
 Hook: One priest said go away. One king tore his clothes. Most books do not tell us.
 
-Read: 2 Kings 22:8–20; 2 Kings 23:1–3; Haggai 1:12–15; Jeremiah 26:17–19; Amos 7:10–13; Ezekiel 33:31–32
+Read: 2 Kings 22:8–13; 2 Kings 23:1–3; Haggai 1:12–15; Jeremiah 26:17–19; Amos 7:10–13; Ezekiel 33:31–32
 
 ### Huldah answers an inquiry
 
@@ -200,11 +200,15 @@ Read: 2 Kings 22:8–20; 2 Kings 23:1–3; Haggai 1:12–15; Jeremiah 26:17–19
 
 2 Kings 22:19 · BSB
 
-The book of the law is read to King Josiah. He tears his clothes and sends men to inquire of the LORD, and they go to "Huldah the prophetess" (2 Kings 22:14). Her answer has two halves. "I am about to bring calamity on this place" (2 Kings 22:16). "But as for the king of Judah" (2 Kings 22:18), his tender heart has been heard. The second half does not cancel the first.
+The story starts with a find in the temple. The high priest says, "I have found the Book of the Law in the house of the LORD!" (2 Kings 22:8). The Book of the Law is God's written instruction to Israel. Shaphan the scribe reads it to King Josiah, and "When the king heard the words of the Book of the Law, he tore his clothes" (2 Kings 22:11). Tearing your clothes was how people in Israel showed grief and alarm.
 
-Then he gathers the people, reads, and "made a covenant before the LORD" (2 Kings 23:3). "And all the people entered into the covenant" (2 Kings 23:3).
+Josiah does not decide alone what the book means for him. He sends five men: "Go and inquire of the LORD for me, for the people, and for all Judah concerning the words in this book that has been found" (2 Kings 22:13). He gives his reason in the same breath: "great is the wrath of the LORD that burns against us because our fathers have not obeyed the words of this book" (2 Kings 22:13).
 
-[read] Huldah also shows why a study of prophets needs more than the books with prophets' names on them. Her words are kept inside Kings, with no book of her own and no life story.
+The men go to "Huldah the prophetess" (2 Kings 22:14), and her answer is the word quoted above. It has another half, which comes first: "I am about to bring calamity on this place and on its people" (2 Kings 22:16). The king's tender heart is heard, and that does not cancel the warning to the city. Read more in *Women of the Bible*.
+
+Then Josiah acts on what he has heard. He gathers "all the elders of Judah and Jerusalem" (2 Kings 23:1), and before "all the people small and great" he reads "all the words of the Book of the Covenant" (2 Kings 23:2). A covenant is a solemn, binding agreement made before God. The king "made a covenant before the LORD" (2 Kings 23:3). "And all the people entered into the covenant" (2 Kings 23:3).
+
+[read] Look at the order. The king hears, he grieves, he asks God what this means, he receives an answer, and then he leads the people into a promise. Huldah also shows why a study of prophets needs more than the books with prophets' names on them. Her words are kept inside Kings, with no book of her own and no life story.
 
 [care] Scripture calls her a prophetess, and God's word through her was received as God's word. The Baptist Faith and Message says "the office of pastor/elder/overseer is limited to men as qualified by Scripture" (Article 6). A prophetess answering an inquiry in Kings is not a pastor of a New Testament church, and this page draws no rule about church office from her in either direction.
 
@@ -216,7 +220,7 @@ The most surprising response comes generations later. Jeremiah is on trial for h
 
 [read] Write down what the hearers do: ask, refuse, humble themselves, obey. Where the account gives no response, as in Hosea, Micah's own book, Nahum and Obadiah, leave that line empty. A prophet's faithfulness and his hearers' reception are two questions, and neither should be invented to finish a story.
 
-Look closely: What does Huldah's answer keep apart? What do the elders in Jeremiah 26 use Micah's words for?
+Look closely: What does Josiah do before Huldah answers, and what does he do after? What do the elders in Jeremiah 26 use Micah's words for?
 
 Your response: What is the difference, for you, between being moved by God's word and doing it? Ezekiel 33:32 is worth reading slowly.
 
@@ -230,7 +234,7 @@ Ask: Where does later Scripture name or quote this prophet, and why?
 
 Hook: James could have used Elijah's fire. He chooses Elijah's knees.
 
-Read: James 5:7–18; 1 Kings 17:1; 1 Kings 18:41–46; 1 Peter 1:10–12
+Read: James 5:7–11; 1 Kings 17:1; 1 Kings 18:41–46; 1 Peter 1:10–12
 
 ### What the later writer chooses
 
@@ -238,11 +242,21 @@ Read: James 5:7–18; 1 Kings 17:1; 1 Kings 18:41–46; 1 Peter 1:10–12
 
 James 5:10 · BSB
 
-James is telling his readers to wait for the Lord's coming. So he remembers the prophets for what his readers need, and he gives no promise that faithful speech is welcomed soon. Then he says, "Elijah was a man just like us" (James 5:17), and recalls prayer, a dry land, and rain.
+James is telling his readers to wait for the Lord's coming. "Be patient, then, brothers, until the Lord's coming" (James 5:7). He gives them a farmer to watch, who "awaits the precious fruit of the soil—how patient he is for the fall and spring rains" (James 5:7). He tells them, "strengthen your hearts, because the Lord's coming is near" (James 5:8), and not to "complain about one another" (James 5:9).
+
+So he remembers the prophets for what his readers need, and he gives no promise that faithful speech is welcomed soon. He adds Job: "You have heard of Job's perseverance and have seen the outcome from the Lord" (James 5:11). And he ends the thought on God, not on the people who endured: "The Lord is full of compassion and mercy" (James 5:11).
+
+A few verses later James comes back to one prophet by name:
+
+> Elijah was a man just like us. He prayed earnestly that it would not rain, and it did not rain on the land for three and a half years. Again he prayed, and the heavens gave rain, and the earth yielded its crops.
+
+James 5:17–18 · BSB
 
 Go back to the narrative and keep the two apart. In Kings, Elijah speaks to Ahab: "there will be neither dew nor rain in these years except at my word!" (1 Kings 17:1). On Carmel he "bent down on the ground, and put his face between his knees" (1 Kings 18:42), and sends a servant seven times, until "a cloud as small as a man's hand" (1 Kings 18:44). Kings shows the posture. James names it prayer (James 5:18).
 
-[care] James is not promising to control the weather, and the sickness passage beside it (James 5:14–16) is not medical advice. Elijah was remembered to encourage prayer, not to give you a script for your own life.
+[read] James chose the man "just like us", not the fire from heaven. The farmer waiting for rain and the prophet praying for it sit in the same chapter; that echo is this study's observation, and James does not draw it out.
+
+[care] James is not promising to control the weather, and the sickness passage between these verses (James 5:13–16) is not medical advice. Elijah was remembered to encourage prayer, not to give you a script for your own life. What James promises the sick, and what he does not, is read in its own study. Read more in *What Scripture promises the sick*.
 
 ### Quoted and fulfilled
 

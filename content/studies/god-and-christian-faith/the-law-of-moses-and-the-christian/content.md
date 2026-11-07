@@ -210,29 +210,53 @@ Scripture never records a Jubilee being kept. It records release broken: in Jere
 
 ## 08 Leviticus today: how Christians sort the commands
 
-**Main readings:** Leviticus 19:18–19; Matthew 5:17–18; Hebrews 8:13; 1 Corinthians 9:20–21.
+**Main readings:** Leviticus 19:18–19; Matthew 5:17–18; Romans 13:8–10; Hebrews 8:13; 1 Corinthians 9:20–21.
 
 Leviticus 19 puts "love your neighbor" and the rule about mixed cloth one verse apart. Christians keep the first and wear blended fabric without guilt. On what grounds?
 
 ### Where Christians agree
 
-No one is made right with God by keeping Leviticus, and the sacrifices have ended: "by a single offering He has made perfect for all time those who are being sanctified" (Hebrews 10:14 · BSB). Jesus came not "to abolish the Law or the Prophets... but to fulfill them" (Matthew 5:17 · BSB), and Paul still calls the law "holy, righteous, and good" (Romans 7:12 · BSB). The Baptist Faith and Message says Christ "honored the divine law by His personal obedience" (Article II). The question is how to get from there to the rest of the book.
+No one is made right with God by keeping Leviticus, and the sacrifices have ended: "by a single offering He has made perfect for all time those who are being sanctified" (Hebrews 10:14 · BSB). Jesus came not "to abolish the Law or the Prophets... but to fulfill them" (Matthew 5:17 · BSB). Paul still speaks of the law as holy and good (Romans 7:12). The Baptist Faith and Message says Christ "honored the divine law by His personal obedience" (Article II). The question is how to get from there to the rest of the book.
+
+Baptists answer in three families. Each is set out below with Baptists who hold it, so you can see that all three are at home in Baptist churches.
 
 ### Three kinds of law
 
 The best-known answer divides the law into three. John Calvin called it "the well-known division which distributes the whole law of God, as promulgated by Moses, into the moral, the ceremonial, and the judicial law" (*Institutes* 4.20.14). The Second London Baptist Confession (1677, reissued 1689) holds it: the **ceremonial** laws, "prefiguring Christ", are "abrogated and taken away"; the **judicial** laws "expired together with the state of that people", "their general equity onely, being of moral use"; the **moral** law, given at Sinai in the Ten Commandments, "doth for ever bind all" (chapter 19). On this reading 19:18 is moral and binds today, 19:19 is ceremonial and fulfilled, and Israel's penalties ended with Israel's state, though the justice in them still teaches.
 
-### The whole law fulfilled in Christ
+**Baptists who hold it.** This is the older Baptist confessional line. The Baptist Catechism (approved 1693, printed 1695) teaches that the moral law is summed up in the Ten Commandments [check: the question number and exact wording in the Baptist Catechism]. Today it is held by Baptists who keep the 1689 confession, often called confessional or Reformed Baptists. Richard Barcellos defends it against the other readings in *In Defense of the Decalogue* [check: publisher and year, believed to be 2001].
 
-Other Christians, Baptists among them, read the law of Moses as one covenant that Christ has fulfilled as a whole: "By speaking of a new covenant, He has made the first one obsolete" (Hebrews 8:13 · BSB). Paul is "not under the law" yet "under the law of Christ" (1 Corinthians 9:20–21 · BSB). On this reading a command from Leviticus binds Christians as the New Testament takes it up, as it does 19:18 and does not do with the food laws. Dispensational interpreters also read the Mosaic law as a unit that has ended (Study 26 maps their view). Among Baptists, the confessional heirs of 1689 and those called progressive covenantalists differ here; a 2023 article by the confessional Baptist Daniel Scheiderer notes that progressive covenantalists do not treat the Ten Commandments as the summary of the moral law, and that the two part most visibly over the Sabbath.
+### The law of Moses ended as a whole: the dispensational reading
 
-A further question is whether nations should adopt Israel's civil penalties. Calvin rejected those who "deny that any commonwealth is rightly framed which neglects the law of Moses" (*Institutes* 4.20.14). A modern Reformed movement called theonomy argues that they should; it is named here so you will recognise it.
+A **dispensational** reading sees the Bible's story as a series of stages ("dispensations") in God's dealings with people, and keeps God's promises to Israel distinct from His purposes for the church. On this reading the law of Moses was given to Israel as one unit, and it ended as one unit when Christ came. Christians are not under Moses at all. The commandments that appear again in the New Testament bind Christians because Christ and His apostles give them, not because Moses did. Paul is the example they point to:
+
+> The commandments "Do not commit adultery," "Do not murder," "Do not steal," "Do not covet," and any other commandments, are summed up in this one decree: "Love your neighbor as yourself."
+
+Romans 13:9 · BSB
+
+So 19:18 binds a Christian because Jesus and Paul repeat it; 19:19 does not, because no one in the New Testament takes it up. The Sabbath command is the one of the Ten that the New Testament does not repeat as a command, and this reading does not bind it on Christians.
+
+**Baptists who hold it.** This view is widely held in independent and fundamentalist Baptist churches, and it reached many Southern Baptist congregations through the notes of the Scofield Reference Bible (1909). A dispensational statement of the law question is Wayne G. Strickland's essay in *Five Views on Law and Gospel* (Zondervan, 1996) [check: Strickland's church affiliation; if he is not a Baptist, replace with a named Baptist dispensational writer and the book where he states this view]. Read more in *Covenants and promises*, which maps the dispensational view of the covenants (a **covenant** is a binding agreement God makes with His people).
+
+### Fulfilled in Christ: progressive covenantalism and new covenant theology
+
+Other Baptists also read the law of Moses as one covenant that has ended, but they read the Bible's covenants as one storyline that reaches its goal in Christ, rather than keeping Israel and the church on separate tracks. Hebrews says that in speaking of a new covenant God has made the first one obsolete (Hebrews 8:13). Paul says he is not under the law, yet he is under the law of Christ (1 Corinthians 9:20–21). On this reading a command from Leviticus binds Christians as the New Testament takes it up through Christ, as it does 19:18 and does not do with the food laws.
+
+**Baptists who hold it.** The name **progressive covenantalism** (each covenant unfolding in turn until all are fulfilled in the new covenant) comes from Peter Gentry and Stephen Wellum, both teachers at the Southern Baptist Theological Seminary, in *Kingdom through Covenant* (Crossway, 2012). Thomas Schreiner, of the same seminary, works the law question through in *40 Questions About Christians and Biblical Law* (Kregel, 2010). A close relative is **new covenant theology**, set out by the Baptists Tom Wells and Fred Zaspel in *New Covenant Theology* (2002) [check: publisher].
+
+Among Baptists, the confessional heirs of 1689 and the progressive covenantalists differ here; a 2023 article by the confessional Baptist Daniel Scheiderer notes that progressive covenantalists do not treat the Ten Commandments as the summary of the moral law, and that the two part most visibly over the Sabbath [check: title and place of publication of Scheiderer's 2023 article, and that it says this].
+
+### A further question: Israel's penalties
+
+A further question is whether nations should adopt Israel's civil penalties. Calvin rejected those who "deny that any commonwealth is rightly framed which neglects the law of Moses" (*Institutes* 4.20.14). A modern Reformed movement called theonomy argues that they should; it is named here so you will recognise it. None of the three Baptist families above holds it.
 
 ### Where this study stands
 
-The Baptist Faith and Message does not choose between the three-kinds reading and the fulfilled-as-a-whole reading, and neither does this study; Baptists hold both. They differ more in how they reach a command than in where they arrive, though the Sabbath is one place they arrive differently. All keep 19:18, none offers a sacrifice, and all read Leviticus as God's word, pointing to Christ.
+The Baptist Faith and Message does not choose among these readings, and neither does this study; Baptists hold all three. They differ more in how they reach a command than in where they arrive, though the Sabbath is one place they arrive differently. The confession does settle that the first day of the week is the Lord's Day, for worship, commemorating the resurrection (Article VIII). All three keep 19:18, none offers a sacrifice, and all read Leviticus as God's word, pointing to Christ.
 
-**Consider:** Take Leviticus 19:18 and 19:19. How would each view explain why a Christian keeps one and not the other?
+How each family reads the Ten Commandments themselves, one by one, belongs to another study. Read more in *The Ten Commandments*.
+
+**Consider:** Take Leviticus 19:18 and 19:19. How would each of the three views explain why a Christian keeps one and not the other?
 
 **Reflect:** It is easy to argue about mixed cloth and forget the neighbour. Which takes more of your energy?
 

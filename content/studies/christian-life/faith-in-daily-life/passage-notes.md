@@ -1,5 +1,9 @@
 # Faith in daily life passage and editorial notes
 
+## Change, 2026-11-06 (writing run job 30b)
+
+Part 03 now links the new study *Money, possessions and generosity* (63), with a short note that the tithe question, which the confession leaves open, is shown there; "grace" is glossed at its first use under the plain-words rule. Part 05 now links *The Christian and the state* (64), naming Acts 4:1–22 as that study's passage. All other wording and every BSB quotation are unchanged.
+
 Content pass, item 05. [Reader-facing draft](content.md); [original outline](working.md). All six proposed units are developed; first draft ready for review, not approved final copy.
 
 ## Purpose and scope

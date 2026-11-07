@@ -52,11 +52,11 @@ Mark 5:34 · BSB
 
 [read] He names her faith, and He calls her "Daughter" (Mark 5:34). Mark gives her no other name, and nowhere else in Mark does Jesus call anyone that. This study reads the extra verses as the point: Jesus wanted more for her than a secret cure, and gave it to her in public, where she could hear it.
 
-[care] A cloak is not a method, and faith here is not a quantity. Mark records twelve years of suffering and does not call them proof of weak faith. Her physicians are part of her history, not a rule against doctors. If you are ill, see the first hard question below.
+[care] A cloak is not a method, and faith here is not a quantity. Mark records twelve years of suffering and does not call them proof of weak faith. Her physicians are part of her history, not a rule against doctors. If you are ill and have been made to wonder whether your faith was too small, that question has its home in a study written for the sick. Read more in *What Scripture promises the sick*.
 
 ### Someone else was waiting
 
-Mark tells this while Jesus is on the way to a dying child, and "while He was still speaking" (Mark 5:35) the news comes that she is dead. Keep that sequence. Mark puts the news here and does not say the pause changed anything. [Encounters] reads this fold for the people in it. Here it is read for the deed and what follows it.
+Mark tells this while Jesus is on the way to a dying child, and "while He was still speaking" (Mark 5:35) the news comes that she is dead. Keep that sequence. Mark puts the news here and does not say the pause changed anything. What Jesus does at that house is read in part 05 below. Here the woman's account is read for the deed and what follows it.
 
 Consider: What does the woman have at Mark 5:29, and what does she have by Mark 5:34? What does Jesus add?
 Reflect: When Jesus has helped you, have you stopped at the help? Is there something you have not yet told Him, the whole truth of it?
@@ -166,7 +166,7 @@ Hook: He stays away two days. He weeps at the tomb. He thanks the Father aloud. 
 
 ### Before the stone is moved
 
-John tells us that Jesus loved Martha, Mary and Lazarus, and in the next breath that "He stayed where He was for two days" (John 11:6). Both stand, and John does not soften either. [Encounters] takes up the delay and the sentence the two sisters share. Here we follow what Jesus says, because He says a great deal before the deed.
+John tells us that Jesus loved Martha, Mary and Lazarus, and in the next breath that "He stayed where He was for two days" (John 11:6). Both stand, and John does not soften either. When He comes, both sisters meet Him with the same words of grief, that their brother would not have died if He had been there (John 11:21, 32). This study does not try to explain the delay away. Here we follow what Jesus says, because He says a great deal before the deed.
 
 To Martha, who believes in the resurrection "at the last day" (John 11:24), He says this:
 
@@ -226,13 +226,11 @@ Reflect: What have these accounts brought you to ask about Jesus Himself, beyond
 
 Text: Mark 5:34
 
-Jesus says to her, "your faith has healed you" (Mark 5:34). He says it to her, of her. He gives no amount, and He does not make it a rule for everyone who is ill.
+Jesus says to her, "your faith has healed you" (Mark 5:34). He says it to her, of her. He gives no amount, and He does not make it a rule for everyone who is ill. This question deserves a full answer, and it has its home in a study written for the sick, which reads this same account for it.
 
-[read] Scripture will not let this verse become a measure. A father cries, "I do believe; help my unbelief!" (Mark 9:24), and his son is healed. Paul pleads three times to have his thorn taken away, and the answer is, "My grace is sufficient for you" (2 Corinthians 12:9). Paul, who worked signs, left Trophimus "sick in Miletus" (2 Timothy 4:20), and he told Timothy to take something for his "frequent ailments" (1 Timothy 5:23). Nobody in those passages is told that illness remained because faith fell short.
+[care] If someone has told you that you are still ill because you did not believe enough, the Gospels do not say that. Keep praying, and keep seeing your doctor: nothing in these accounts stands against that.
 
-[read] So this site does not teach that healing is owed to enough faith, or that continued illness shows too little. Prayer for healing is right and commanded (James 5:14–15). James says the prayer offered in faith "will restore the one who is sick" (James 5:15), and Trophimus shows this cannot mean that every illness ends now. We still wait, with Paul, for "the redemption of our bodies" (Romans 8:23).
-
-[care] Being told that you are still sick because you did not believe enough is a cruelty, and the Gospels do not say it. If someone has said this to you, read 2 Corinthians 12:9 again. And see your doctor: nothing here stands against that.
+Read more in *What Scripture promises the sick*.
 
 ## Question could: "He could not perform any miracles there." Could He not?
 

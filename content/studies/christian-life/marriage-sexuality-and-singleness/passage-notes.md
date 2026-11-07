@@ -1,5 +1,9 @@
 # Passage notes — Sexuality, singleness and divorce
 
+## Change, 2026-11-06 (writing run job 12b)
+
+Added the three link lines the plan's work-list names: Study 29 (*Humanity, sin and renewal*) from Genesis 1:27–31 in part 01, *The wisdom books* from the Song of Songs in part 02, and *Following Jesus and the Sermon on the Mount* (16) from Matthew 5 in part 03. Each says which verses this study keeps for its own question (the pairs in the passage table); "image of God" is glossed at first use. No other wording or quotation was changed. For the editor: part 03's existing aside says Study 29 "walks" 1 Corinthians 6, but the passage table gives that passage to this study (29 only quotes 6:19–20); that line was left untouched as outside this job, and Song of Songs 2:7 and 2:16, quoted in part 02, were not in the supplied text and should be checked against the BSB.
+
 Study 43 · Christian Life · 2026-11-05 · First content draft. Written as step 6 of the
 [next-20 sequence](../../../../../Pages/Topics/NEXT_20_DRAFTS.md).
 

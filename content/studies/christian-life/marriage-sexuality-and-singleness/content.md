@@ -30,6 +30,8 @@ Before any law or any divorce, there was a garden and a God who called it good.
 
 Genesis 1 gives the wide view: "in the image of God He created him; male and female He created them" (Genesis 1:27 · BSB). God blesses them together, tells them to "be fruitful and multiply" (Genesis 1:28 · BSB), and looks at it all: "indeed, it was very good" (Genesis 1:31 · BSB).
 
+The same verses are also read for a larger question: what it means for every person to be made "in the image of God", that is, made to reflect God and to belong to Him. This study keeps Genesis 1:27–31 for one phrase, "male and female". Read more in *Humanity, sin and renewal*.
+
 Genesis 2 comes close. One thing is not yet good: "It is not good for the man to be alone. I will make for him a suitable helper" (Genesis 2:18 · BSB). God makes the woman and brings her to the man, and the first human words in the Bible are a cry of recognition: "This is now bone of my bones and flesh of my flesh" (Genesis 2:23 · BSB).
 
 > For this reason a man will leave his father and mother and be united to his wife, and they will become one flesh.
@@ -76,11 +78,9 @@ Song of Songs 8:6 · BSB
 
 [care] How should the Song be read? Matthew Henry's Concise Commentary, an abridgement of the Puritan's commentary, calls it "a Divine allegory, which represents the love between Christ and his church". John Piper, for many years pastor of Bethlehem Baptist Church in Minneapolis, reads it as "a lavish, celebration of God's gift of sexual pleasure in marriage". This study follows the second as the poems' first sense, because a bride and groom are what the poems describe. The first is a long Christian tradition, and Paul gives it some ground: marriage itself points to Christ and the church (Ephesians 5:32).
 
+Proverbs and the Song of Songs are read as whole books, beside Job and Ecclesiastes, in another study. This one keeps Proverbs 5:15–23 and a few lines of the Song for one question, marriage. Read more in *The wisdom books*.
+
 Hebrews puts it in one line: "Marriage should be honored by all and the marriage bed kept undefiled" (Hebrews 13:4 · BSB).
-
-**Consider:** Proverbs 5 gives both a warning and a blessing. How might the blessing protect as well as the warning?
-
-**Reflect:** Do you think of God's design for sex mainly as limits? What changes if you hear Proverbs 5:18 as a blessing?
 
 ## 03 Your body belongs to the Lord
 
@@ -95,6 +95,8 @@ Paul takes Genesis 2:24 and applies it to a visit to a prostitute: "For it is sa
 ### Holiness that protects other people
 
 "For it is God's will that you should be holy: You must abstain from sexual immorality" (1 Thessalonians 4:3 · BSB). Then Paul adds what is often missed: "no one should ever violate or exploit his brother in this regard" (1 Thessalonians 4:6 · BSB). Sexual sin is never private; it wrongs someone. Jesus takes it back to the heart: "anyone who looks at a woman to lust after her has already committed adultery with her in his heart" (Matthew 5:28 · BSB).
+
+That saying, and the one on divorce read in part 06, come from the Sermon on the Mount (Matthew 5–7), Jesus' longest recorded teaching on what it means to follow Him. This study keeps Matthew 5:27–32 for its own questions; the sermon is walked as a whole elsewhere. Read more in *Following Jesus and the Sermon on the Mount*.
 
 ### What Scripture names, and what it offers
 

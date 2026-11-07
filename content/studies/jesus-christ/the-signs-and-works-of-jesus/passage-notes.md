@@ -1,5 +1,10 @@
 # The signs and works of Jesus passage notes
 
+## Change, 2026-11-06 (writing run job 29)
+
+The Mark 5:34 question ("was my faith too small?") is cut to a pointer that quotes the verse and links *What Scripture promises the sick* (45), its home under the plan; part 01's care note now links there instead of to the removed answer. If the editor prefers, the pointer section can be deleted outright.
+The two lines sending readers to *Encounters with Jesus* for Mark 5 and John 11 are rewritten, since that study drops both passages; John 11's sisters are now referred to here without quotation (11:21, 32 not supplied). The Miracles catalogue link in the Selection paragraph was already present and is unchanged.
+
 **Item 18 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here. The earlier text is in the project's history.
 
 ## Primary readings

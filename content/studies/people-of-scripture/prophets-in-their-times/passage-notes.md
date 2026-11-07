@@ -1,5 +1,10 @@
 # Prophets in their times passage notes
 
+## Change, 2026-11-06 (writing run job 30d)
+
+Part 05 now walks only 2 Kings 22:8–13 and 23:1–3 (the find, Josiah's grief and inquiry, the covenant); Huldah's answer is quoted (22:19, with 22:16 for its other half) and linked to *Women of the Bible* (46), which owns 22:14–20. "Book of the Law", torn clothes and "covenant" are now explained in plain words.
+Part 06 now walks only James 5:7–11 and quotes 5:17–18 in full; the sickness verses (5:13–16) are referred to without quotation and linked to *What Scripture promises the sick* (45), which owns them. Both Read lines are narrowed to match, and part 05's "Look closely" question now asks about Josiah instead of the walk through Huldah's answer.
+
 **Item 38 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here.
 
 ## Primary readings

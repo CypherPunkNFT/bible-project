@@ -147,7 +147,9 @@
       "category": "history",
       "categoryTitle": "History & archaeology",
       "title": "Dating the biblical world",
-      "status": "queued"
+      "status": "draft",
+      "file": "10-dating-the-biblical-world.json",
+      "designProposal": "10-dating-the-biblical-world/design.md"
     },
     {
       "order": 11,
@@ -252,7 +254,9 @@
       "category": "church-history",
       "categoryTitle": "The church through history",
       "title": "Reform, renewal & revival",
-      "status": "queued"
+      "status": "draft",
+      "file": "24-reform-renewal-and-revival.json",
+      "designProposal": "24-reform-renewal-and-revival/design.md"
     },
     {
       "order": 25,
@@ -351,6 +355,15 @@
       "status": "draft",
       "file": "34-between-the-testaments.json",
       "designProposal": "34-between-the-testaments/design.md"
+    },
+    {
+      "order": 39,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "The patriarchs in their world",
+      "status": "draft",
+      "file": "39-the-patriarchs-in-their-world.json",
+      "designProposal": "39-the-patriarchs-in-their-world/design.md"
     }
   ],
   "activeDesign": {

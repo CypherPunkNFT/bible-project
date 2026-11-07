@@ -124,7 +124,7 @@ Respond: Find one real need and decide what you can responsibly share.
 
 ### Giving from what we have
 
-Paul tells of churches in "deep poverty" who pleaded for the privilege of sharing (2 Corinthians 8:1–5). He does not order the Corinthians to match them. He sets their gift beside the grace of Christ, who "though He was rich, yet for your sakes He became poor" (2 Corinthians 8:8–11).
+Paul tells of churches in "deep poverty" who pleaded for the privilege of sharing (2 Corinthians 8:1–5). He does not order the Corinthians to match them. He sets their gift beside the grace of Christ, that is, his kindness given to people who had not earned it: "though He was rich, yet for your sakes He became poor" (2 Corinthians 8:8–11).
 
 The measure is what a person has, not what they lack, and the aim is not to relieve some by burdening others (2 Corinthians 8:12–14). Then Paul quotes the story of the manna, where he who gathered much had no excess and he who gathered little had no shortfall (2 Corinthians 8:15, quoting Exodus 16:18).
 
@@ -133,6 +133,10 @@ The measure is what a person has, not what they lack, and the aim is not to reli
 2 Corinthians 9:7 · BSB
 
 [care] Paul's language of sowing and reaping is sometimes taught as a rate of financial return. Follow the sentences to where they actually go: God will "increase the harvest of your righteousness", you will be enriched "to be generous on every occasion", and the result is "thanksgiving to God" (2 Corinthians 9:10–12). Along the way he quotes Psalm 112:9 on the one who has "scattered abroad His gifts to the poor" (2 Corinthians 9:9). The harvest here is more generosity and more thanks, not private wealth. The confession speaks of stewardship: giving "cheerfully, regularly, systematically, proportionately, and liberally" (Article 13). It does not promise riches as a reward for faith, and neither does this passage.
+
+[open] Whether Christians are bound to give a tithe, a tenth of their income, is a question the confession does not settle, and Baptists answer it in more than one way. This study does not choose. Both Baptist readings, and much more on work, wealth, debt and giving, are set out in the study of money.
+
+Read more in *Money, possessions and generosity*.
 
 ### Where confidence rests
 
@@ -209,6 +213,10 @@ Romans 13 tells everyone to submit to the governing authorities, says they are a
 Notice the two verbs in that verse: God is feared, and the king is honoured. In Acts, ordered to stop teaching in Jesus' name, the apostles answer, "We must obey God rather than men" (Acts 5:27–29). That is one particular clash over their witness, not a general permission to ignore duties we dislike. The confession says the same in brief: Christians owe the state obedience in what is not "contrary to the revealed will of God", and "God alone is Lord of the conscience" (Article 17).
 
 [open] A further question stays open. When a government commands nothing against God but rules unjustly, how far may a Christian resist? Calvin, the Reformed commentator, on Romans 13, says that rulers often fall short of their duty, "yet the obedience due to princes ought to be rendered to them". Gill, the Baptist, in his Body of Practical Divinity, says rulers are obeyed in what is "not contrary to the laws of God, and the fundamental laws of the kingdom". The confession sets one limit, God's revealed will, and is silent beyond it. This study does not choose, and it names no present government.
+
+The apostles' first arrest and trial before the council (Acts 4:1–22), the separation of church and state, religious liberty and the Christian's public duties are walked in the study of the state.
+
+Read more in *The Christian and the state*.
 
 Look closely: How does love of neighbour frame what Paul says about public duties? What is the difference between fearing God and honouring a ruler?
 

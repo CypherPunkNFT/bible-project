@@ -64,9 +64,9 @@ Hook: Some in Corinth say the dead do not rise. Paul says: then you are still in
 
 Line: Christ raised first, then those who are His, and the last enemy destroyed.
 
-Read: 1 Corinthians 15:1–58
+Read: 1 Corinthians 15:12–58
 
-Setting: Some in the church say "there is no resurrection of the dead" (1 Corinthians 15:12).
+Setting: Some in the church say "there is no resurrection of the dead" (1 Corinthians 15:12). The gospel Paul first handed on and the witnesses of the risen Christ (1 Corinthians 15:1–11) are read in *The cross, the empty tomb and the throne*.
 
 Promised: "we will all be changed", and "The last enemy to be destroyed is death" (1 Corinthians 15:51; 1 Corinthians 15:26).
 

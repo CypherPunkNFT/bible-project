@@ -52,9 +52,9 @@ So when the commandments begin, they do not begin with a command. They begin wit
 
 ### Remember and teach
 
-Deuteronomy 6 carries the words indoors. They are to be taught "diligently to your children", and spoken "when you sit at home and when you walk along the road" (Deuteronomy 6:7). The danger it names is not rebellion but comfort: cities "that you did not build", wells "that you did not dig", and then "be careful not to forget the LORD" (Deuteronomy 6:10–12).
+Deuteronomy 6 carries the words indoors. Moses tells Israel to teach them to their children, and to talk of them at home and on the road (Deuteronomy 6:7). The danger the chapter names is not rebellion but comfort: cities Israel did not build and wells it did not dig, and with them the warning not to forget the LORD (Deuteronomy 6:10–12). Here the form is a command, and the hearers include children not yet old enough to ask. Read more in *Children and the home*.
 
-[open] Do these commands bind Christians today, and which ones? Jesus and the letters speak to this, and it needs more room than this study has. It is named here so that you do not think a study of setting has settled it. The study Freedom that serves is the place for it.
+[open] Do these commands bind Christians today, and which ones? Jesus and the letters speak to this, and it needs more room than this study has. It is named here so that you do not think a study of setting has settled it. The study *Leviticus: holiness and sacrifice* is the place for it, and it shows the ways Baptists answer. The ten words themselves are walked in *The Ten Commandments*.
 
 [source:london] One historic Baptist confession, the Second London Confession, sorts the law three ways: ceremonial laws "abrogated and taken away", judicial laws "not obliging any now by vertue of that institution", and a moral law that "doth for ever bind all". The Baptist Faith and Message does not set out that division. Baptists do not all map these things alike, as the study Covenants and promises shows. No other source on this one question was read for this page, so it reports that confession and does not choose.
 
@@ -131,6 +131,10 @@ Own: A complaint to God stands inside Scripture and is not corrected on the spot
 Psalm 13 asks "How long" four times in two verses (Psalm 13:1–2). Then it asks for something: "Give light to my eyes" (Psalm 13:3). Then, with nothing yet said to have changed: "I will sing to the LORD" (Psalm 13:6). Read it whole. The complaint and the trust are both real, and neither cancels the other.
 
 [source:calvin-psalms] John Calvin says David's trust had not gone out, and yet under long trouble "this thought unavoidably forces itself upon us, that God has forgotten us".
+
+### Telling the next generation
+
+Psalm 78 opens like a teacher calling a class to listen. It retells what the LORD did when He brought Israel out of Egypt, so that children not yet born would learn it, set their hope in God and not forget His works (Psalm 78:1–8). Its form is a song made to be passed down, and its hearers are the next generation. Ask of it what you ask of any psalm: who is singing, and to whom? Read more in *Children and the home*.
 
 ### Two proverbs, side by side
 

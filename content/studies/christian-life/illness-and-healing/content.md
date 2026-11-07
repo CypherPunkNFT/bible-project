@@ -142,6 +142,8 @@ Mark 5:34 · BSB
 
 He says it to her, of her. He gives no amount of faith, and makes no rule for everyone who is ill. The power was His: He "was aware that power had gone out from Him" (Mark 5:30 · BSB). Her faith was what brought a frightened woman to Him.
 
+Study 18 reads the whole of Mark 5, where her story sits inside the story of Jairus and his daughter, as one of Jesus' signs. This study keeps her verses for one question only: what her healing says to someone who is still ill. Read more in *The signs and works of Jesus*.
+
 ### Scripture will not let this verse become a measure
 
 Faith matters; at Nazareth Jesus "was amazed at their unbelief" (Mark 6:6 · BSB), as Study 18 shows. But a father cried, "I do believe; help my unbelief!" (Mark 9:24 · BSB), and his son was healed. Paul, whose faith no one doubts, kept his thorn. And Jesus Himself, in the garden, prayed the most faithful prayer ever prayed: "Take this cup from Me. Yet not what I will, but what You will" (Mark 14:36 · BSB). The cup was not taken.
@@ -195,7 +197,19 @@ Some teach that healing was bought at the cross, so every believer may claim it 
 
 ### The claim, stated fairly
 
-The atonement is what Christ's death accomplished: our sins borne and paid for, and sinners brought back to God. The Word of Faith movement, which teaches that believers can claim health and wealth by faith, and some Pentecostal teaching say physical healing is guaranteed in the atonement. They begin with real texts. Isaiah says of the servant, "by His stripes we are healed" (Isaiah 53:5 · BSB). Matthew says Jesus healed the sick "to fulfill what was spoken through the prophet Isaiah: 'He took on our infirmities and carried our diseases'" (Matthew 8:17 · BSB). So, the claim runs, healing is the believer's now as surely as forgiveness, and sickness that remains shows faith or obedience lacking. A tract Criswell read to his church in 1966 put it bluntly: "When you make up your mind to obey God, you will be healed." Prosperity teaching widens the promise to money, reading a greeting as a promise: "I pray that in every way you may prosper and enjoy good health" (3 John 1:2 · BSB). That is a prayer in a letter's opening (the first question).
+Start with the song these texts come from. Isaiah 52:13–53:12 is a song about the LORD's servant, who suffers for others.
+
+> Surely He took on our infirmities and carried our sorrows; yet we considered Him stricken by God, struck down and afflicted. But He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed.
+
+Isaiah 53:4–5 · BSB
+
+Jewish readers have most often understood the servant as the people of Israel, suffering among the nations, with the "we" of these verses spoken by the nations who once despised them. This has been the leading Jewish reading since the medieval commentator Rashi (1040–1105), and it starts from the book itself, which earlier calls the servant Israel (Isaiah 41:8; 49:3). Some older Jewish sources read the song of the Messiah: the Targum Jonathan, an ancient Aramaic paraphrase of the prophets, applies its opening verse, 52:13, to the Messiah [check: confirm the Targum's wording on Isaiah 52:13 from a published translation]. Christians read the servant as Jesus because the New Testament does (Matthew 8:17; Acts 8:30–35; 1 Peter 2:24). That is a claim about who the servant is. It lays no blame for Christ's death on the Jewish people: the song's "we" confesses the guilt of those who speak it, and the Christian reading hears in "our transgressions" the sins of every reader. Read more in *Christ in the Old Testament*, which owns this song, and in *The cross, the empty tomb and the throne: what Jesus' death and rising did*, which reads 53:4–6 for Christ in our place.
+
+The atonement is what Christ's death accomplished: our sins borne and paid for, and sinners brought back to God. Two different claims about healing are built on these verses, and they should not be confused.
+
+**"Deliverance from sickness is provided for in the atonement."** This is classical Pentecostal teaching. The Assemblies of God, the largest Pentecostal fellowship, says in number 12 of its Statement of Fundamental Truths: "Divine healing is an integral part of the gospel. Deliverance from sickness is provided for in the atonement, and is the privilege of all believers" [check: current wording on the Assemblies of God site]. Holiness churches and the Christian and Missionary Alliance hold a similar view; the Alliance's statement of faith says, "Provision is made in the redemption of Jesus Christ for the healing of the mortal body" [check: exact current wording and article number in the Alliance's statement of faith]. These churches pray for the sick and expect God to heal, but they do not teach that every believer will be healed in this life; whether and when He heals now, they leave to His will [check: confirm this from the Assemblies of God position paper on divine healing and from Alliance and Holiness documents in their own words]. They begin with real texts: "by His stripes we are healed" (Isaiah 53:5 · BSB), and Matthew's report that Jesus healed the sick "to fulfill what was spoken through the prophet Isaiah: 'He took on our infirmities and carried our diseases'" (Matthew 8:17 · BSB).
+
+**"Health is guaranteed now."** This is a different claim, made by the Word of Faith movement, which teaches that believers can claim health and wealth by faith. On this view, because healing was bought at the cross it is the believer's now as surely as forgiveness, received by believing it and saying so (it calls this "positive confession"), and sickness that remains shows faith or obedience lacking. No Word of Faith source has been read for this draft, so none is quoted [check: add a short quotation from a Word of Faith teacher's own book, labelled as theirs]. This is not classical Pentecostal teaching: the Assemblies of God rejected it in a position paper, "The Believer and Positive Confession", adopted in 1980 [check: title and date of adoption], and most Pentecostal bodies reject it too. A tract Criswell read to his church in 1966 put the conditional claim bluntly: "When you make up your mind to obey God, you will be healed." Prosperity teaching widens the promise to money, reading a greeting as a promise: "I pray that in every way you may prosper and enjoy good health" (3 John 1:2 · BSB). That is a prayer in a letter's opening (the first question).
 
 ### What the texts say
 
@@ -205,7 +219,11 @@ Matthew applies Isaiah 53:4 to an evening in Capernaum, before the cross, when J
 
 1 Peter 2:24 · BSB
 
-Both are true readings of one song. And the claim is right about this much: Christ's death does win the healing of the body. The Baptist Faith and Message says salvation "involves the redemption of the whole man" and that "Glorification is the culmination of salvation" (Article IV): glorification is the last stage, when believers are raised with new bodies. Criswell said "A part of the atonement of Christ is for the healing of our bodies", and in the same sermon, "God does not always heal." The question is not whether the cross heals the body, but when.
+Both are true readings of one song. Now take the two claims in turn.
+
+The first claim is right about this much: Christ's death does win the healing of the body. The Baptist Faith and Message says salvation "involves the redemption of the whole man" and that "Glorification is the culmination of salvation" (Article IV): glorification is the last stage, when believers are raised with new bodies. Criswell said "A part of the atonement of Christ is for the healing of our bodies", and in the same sermon, "God does not always heal." So Baptists and classical Pentecostals agree that the cross is where the body's healing is won, and that God may heal now. They differ on how much of it a believer should expect in this life: the Pentecostal statement calls healing now "the privilege of all believers"; this site, with the confession, places the body's full healing at glorification and receives healing now as a mercy God gives as He wills, as Paul did over Epaphroditus (Philippians 2:27). The question is not whether the cross heals the body, but when.
+
+The second claim does not survive the texts this study has already read. Paul pleaded three times and kept his thorn (2 Corinthians 12:8–9). Trophimus was left sick in Miletus (2 Timothy 4:20). And, as the next section shows, those who already have the Spirit still groan as they wait for the redemption of their bodies (Romans 8:23). None of them is said to lack faith.
 
 ### Not yet: the body's groaning
 
@@ -213,7 +231,7 @@ Both are true readings of one song. And the claim is right about this much: Chri
 
 Romans 8:23 · BSB
 
-"Firstfruits" are the first part of a harvest, the pledge of the rest; "redemption" means being bought back and set free. Those who groan are the ones who have the Spirit. Groaning in a failing body is not faith failing. "Though our outer self is wasting away, yet our inner self is being renewed day by day" (2 Corinthians 4:16 · BSB), and God "has given us the Spirit as a pledge of what is to come" (2 Corinthians 5:5 · BSB). (Studies 29 and 30 walk Romans 8 at length.)
+"Firstfruits" are the first part of a harvest, the pledge of the rest; "redemption" means being bought back and set free. Those who groan are the ones who have the Spirit. Groaning in a failing body is not faith failing. "Though our outer self is wasting away, yet our inner self is being renewed day by day" (2 Corinthians 4:16 · BSB), and God "has given us the Spirit as a pledge of what is to come" (2 Corinthians 5:5 · BSB). (This study keeps Romans 8:18–26 for groaning in sickness; the whole creation's hope in 8:18–25 belongs to study 30. Read more in *The hope to come*.)
 
 Piper puts it in three sentences: God "will heal them in the age to come. He heals them often now. And when he doesn't, they will get healing that is even better" ("God Heals All Our Diseases, Really?", 2014).
 

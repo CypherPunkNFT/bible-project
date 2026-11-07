@@ -1,5 +1,10 @@
 # Covenants and promises passage notes
 
+## Change, 2026-11-06 (writing run job 21)
+
+Part 03 now reads only the frame of Sinai (Exodus 19:1–8, 20:1–2, 24:1–11): the paragraph walking the commandments is removed and the part links The Ten Commandments (61), which owns Exodus 20:1–17.
+Two quotations from verses not in the supplied text (Exodus 31:17, Matthew 26:28) are now referred to without quoting; Exodus 19:8 is added from the supplied text to show the people's answer.
+
 **Item 26 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings

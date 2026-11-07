@@ -114,7 +114,7 @@ Hook: Rescue first, commands second. They are already out of Egypt before God te
 
 Line: A rescued people is given a calling and a real responsibility, sealed with blood.
 
-Read: Exodus 19:1–8; Exodus 20:1–21; Exodus 24:1–11
+Read: Exodus 19:1–8; Exodus 20:1–2; Exodus 24:1–11
 
 Setting: The third month after leaving Egypt, camped in front of the mountain (Exodus 19:1–2).
 
@@ -126,11 +126,13 @@ Promised: "My treasured possession" and "a kingdom of priests and a holy nation"
 
 Asked: "obey My voice and keep My covenant" (Exodus 19:5).
 
-Sign: The Sabbath, "a sign between Me and the Israelites" (Exodus 31:17).
+Sign: The Sabbath, which the LORD calls a sign between Himself and the Israelites (Exodus 31:16–17).
 
 ### Brought to Myself
 
-God starts with what He has done: "how I carried you on eagles' wings and brought you to Myself" (Exodus 19:4). The commandments start the same way, with "who brought you out of the land of Egypt" (Exodus 20:2). Only then come worship, God's name, the Sabbath, parents, life, marriage, property, truth and desire. Covenant life reaches the kitchen table as well as the altar.
+God starts with what He has done: "how I carried you on eagles’ wings and brought you to Myself" (Exodus 19:4). Only then does He speak of a covenant, and the people answer together, "We will do everything that the LORD has spoken" (Exodus 19:8). The commandments begin the same way, with a name and a rescue before any command: "I am the LORD your God, who brought you out of the land of Egypt, out of the house of slavery" (Exodus 20:2).
+
+This study reads the frame around the commandments: the offer, the people's answer, the blood and the meal. The ten words themselves, how they are counted and how Jesus reads them, are walked in another study. Read more in *The Ten Commandments*.
 
 [care] So do not read Sinai as people earning their rescue: they are already free. The obedience is still real, and so is the failure that follows, or Jeremiah's complaint would mean nothing (Jeremiah 11:10). And do not put the claim of earning salvation in the mouths of Jewish readers of this passage. This study has not tested it, and the passage does not say it.
 
@@ -142,7 +144,7 @@ Moses tells the people the words, writes them down and reads them aloud, and twi
 
 Exodus 24:8 · BSB
 
-Then a meal. The elders go up and "they saw Him, and they ate and drank" (Exodus 24:11). Keep that scene in mind. Hebrews quotes these words (Hebrews 9:20), and at another meal Jesus takes them up: "This is My blood of the covenant" (Matthew 26:28).
+Then a meal. The elders go up and "they saw Him, and they ate and drank" (Exodus 24:11). Keep that scene in mind. Hebrews quotes Moses' words (Hebrews 9:20), and at another meal Jesus takes them up, calling the cup His blood of the covenant (Matthew 26:28).
 
 Look closely: What has God already done before the first commandment? What happens between the people's first answer and the meal?
 

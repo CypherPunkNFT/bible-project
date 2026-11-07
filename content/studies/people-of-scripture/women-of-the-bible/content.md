@@ -194,17 +194,18 @@ The Gospels show her rarely after that, and each time well. She "treasured up al
 
 ### How Christians have honoured her
 
-The Council of Chalcedon in 451, whose statement about Christ Baptists share in substance, called her "Mary the Virgin, the God-bearer". The title was a claim about her Son: the child she bore was God the Son made man, one person. Baptists gladly call her blessed, as she said all generations would.
+The Council of Chalcedon in 451, whose statement about Christ Baptists share in substance, called her "Mary the Virgin, the God-bearer". A council was a gathering of church leaders called to settle a disputed teaching. The title was a claim about her Son: the child she bore was God the Son made man, one person. Baptists gladly call her blessed, as she said all generations would: "From now on all generations will call me blessed" (Luke 1:48 · BSB).
 
-The Roman Catholic and Orthodox churches go further, with teachings about Mary's own sinlessness and prayers asking her to pray for them. Those are their teachings. This site holds that Mary was a believer who needed a Saviour, as she herself sang ("God my Savior"), and that "there is one God, and there is one mediator between God and men, the man Christ Jesus" (1 Timothy 2:5 · BSB).
+The Roman Catholic and Orthodox churches go further than Baptists. They do not go further in the same way, and their teachings should not be run together.
 
-**Consider:** What do Mary's words in Luke 1:38 and John 2:5 have in common?
+- **The Roman Catholic Church** teaches the Immaculate Conception as a dogma, a teaching every Catholic is bound to believe. The name is often mistaken for the virgin birth of Jesus, but it is about Mary's own conception in her mother's womb. Pope Pius IX defined it in 1854, in the document *Ineffabilis Deus*. It says that Mary, "in the first instance of her conception, by a singular grace and privilege granted by Almighty God, in view of the merits of Jesus Christ, the Savior of the human race, was preserved free from all stain of original sin". Original sin is the sin and its guilt that pass from Adam to every human being. This is the Catholic Church's teaching, in its own words.
+- **The Orthodox churches** do not accept that dogma. They honour Mary as the Theotokos, the Greek for "God-bearer", and call her the Panagia, "the all-holy". Their liturgy, the set form of their worship, praises her as "more honourable than the cherubim" [check: the wording of this hymn in a standard English translation of the Liturgy of St John Chrysostom]. Orthodox teachers commonly explain their rejection of the Immaculate Conception by a different account of what every person inherits from Adam. They hold that Mary was made holy by God's grace and by her own free response to it, and was not preserved from original sin at her conception [check: a named Orthodox source that states this, quoted in its own words]. So "all-holy" is the Orthodox way of honouring her. It is not the Catholic dogma under another name.
 
-**Reflect:** "May it happen to me according to your word." Is there something God's word is asking of you that you have not yet said yes to?
+Both churches also ask Mary to pray for them. Those are their teachings. This site holds that Mary was a believer who needed a Saviour, as she herself sang: "my spirit rejoices in God my Savior!" (Luke 1:47 · BSB). It also holds that "there is one God, and there is one mediator between God and men, the man Christ Jesus" (1 Timothy 2:5 · BSB). A mediator is one who stands between two parties to bring them together.
 
 ## 07 Mary Magdalene, Martha and Mary: women who followed Jesus
 
-**Main readings:** Luke 8:1–3; 10:38–42; John 11:17–27; 12:1–8; 19:25; 20:1–18.
+**Main readings:** Luke 8:1–3; 10:38–42; John 11:25–27; 12:1–8; 19:25; 20:1–18.
 
 The men had fled. The women stood at the cross, and came first to the tomb.
 
@@ -216,13 +217,15 @@ Luke tells us who travelled with Jesus: the Twelve, "as well as some women who h
 
 When Jesus came to their house, Mary "sat at the Lord's feet listening to His message" while Martha "was distracted by all the preparations" (Luke 10:39–40 · BSB). Jesus said, "Mary has chosen the good portion, and it will not be taken away from her" (Luke 10:42 · BSB). To sit at a teacher's feet was the place of a disciple, and Jesus defended her place there.
 
-Martha is not only the busy sister. When Lazarus died, she made one of the great confessions of the Gospels:
+Martha is not only the busy sister. When her brother Lazarus died, she went out to meet Jesus, and He spoke to her and she answered with one of the great confessions of the Gospels:
 
-> "Yes, Lord," she answered, "I believe that You are the Christ, the Son of God, who was to come into the world."
+> Jesus said to her, "I am the resurrection and the life. Whoever believes in Me will live, even though he dies. And everyone who lives and believes in Me will never die. Do you believe this?" "Yes, Lord," she answered, "I believe that You are the Christ, the Son of God, who was to come into the world."
 
-John 11:27 · BSB
+John 11:25–27 · BSB
 
-At a dinner in Bethany later, "Martha served", and Mary anointed Jesus' feet (John 12:2–3 · BSB): the act this study began with. (Study 14, Encounters with Jesus, reads the meeting at Lazarus's tomb in full.)
+"The Christ" is the Greek form of "Messiah", the King God had promised to send. Read more in *The signs and works of Jesus*.
+
+At a dinner in Bethany later, "Martha served", and Mary anointed Jesus' feet (John 12:2–3 · BSB): the act this study began with.
 
 ### The first witness of the risen Lord
 
@@ -240,7 +243,7 @@ He sent her: "go and tell My brothers" (John 20:17 · BSB). "Mary Magdalene went
 
 ## 08 Lydia, Priscilla and Phoebe: women in the first churches
 
-**Main readings:** Acts 16:11–15, 40; 18:1–3, 18–28; Romans 16:1–5; 1 Corinthians 16:19.
+**Main readings:** Acts 16:11–15, 40; 18:1–3, 18–28; Romans 16:1–7; 1 Corinthians 16:19.
 
 The first convert Luke records in Europe was a businesswoman at a riverside place of prayer.
 
@@ -270,6 +273,29 @@ Romans 16:1–2 · BSB
 
 John Calvin took her to be the one who carried this letter to Rome, and said she "performed a most honorable and a most holy function in the Church" (on Romans 16:1). The Greek word for "servant" here is the word from which "deacon" comes, and the Berean's own note gives the other rendering: "Or deaconess".
 
+### Junia: in Christ before Paul
+
+A few lines further down the same chapter, Paul greets another woman. She has one verse, not a story, so she is not counted among the sixteen; but the verse is worth reading slowly.
+
+> Greet Andronicus and Junia, my fellow countrymen and fellow prisoners. They are outstanding among the apostles, and they were in Christ before I was.
+
+Romans 16:7 · BSB
+
+What the text says: Andronicus and Junia were Jews, as Paul was. They had been prisoners for the gospel, as he had; the verse does not say whether in the same prison. And they believed in Christ before Paul did, which puts their faith in the first years of the church. Many readers take them to be husband and wife, as Priscilla and Aquila were, but the verse does not say how they were related.
+
+Readers bring two questions to the verse.
+
+**Is Junia a woman?** The Berean prints the woman's name Junia, and most scholars today read it that way. Some later Bibles printed a man's name, Junias. John Chrysostom, a Greek preacher of the late 300s, took her as a woman and marvelled that she was counted worthy to be called an apostle [check: the wording and date of Chrysostom's Homily 31 on Romans in a standard English translation, before quoting it].
+
+**What does "outstanding among the apostles" mean?** "Apostle" means "one who is sent". In its narrow sense the word names the Twelve and Paul, sent by the risen Christ Himself. The New Testament also uses it more widely: Luke calls Barnabas an apostle beside Paul (Acts 14:14), and Paul uses the same Greek word for messengers sent by the churches (2 Corinthians 8:23). Readers take the phrase in two ways:
+
+- **Well known to the apostles.** The apostles held them in high regard; the phrase does not count them among the apostles. Some English versions translate it this way; the English Standard Version has "well known to the apostles".
+- **Outstanding as apostles.** They were themselves apostles in the wider sense: missionaries sent out to carry the gospel, as the Berean's wording suggests.
+
+### Where the passage stops
+
+Neither reading makes Junia one of the Twelve, and the verse says nothing about her teaching or leading a congregation. With the Baptist Faith and Message, this site holds that "the office of pastor is limited to men as qualified by Scripture" (Article VI) [check: whether article VI now reads "pastor" or "pastor/elder/overseer", against bfm.sbc.net]. A woman whom Paul honours as a believer older in the faith than he was, who went to prison for Christ, stands well within that line, whichever reading of the phrase is right. Churches that ordain women as pastors often point to this verse as a woman holding an apostle's authority. That is their reading, not this site's.
+
 ### Where Baptists differ: may women serve as deacons?
 
 The Baptist Faith and Message names two offices, "pastors and deacons" (Article VI). It limits the first to men and says nothing more about the second. A deacon serves the church in its practical care, and is not one of its pastors. Paul's list for deacons includes a verse the Berean renders "the women must be dignified" (1 Timothy 3:11 · BSB), with the note "Or their wives". Baptists read these verses in two ways:
@@ -279,19 +305,38 @@ The Baptist Faith and Message names two offices, "pastors and deacons" (Article 
 
 Both hold that the office of pastor is for men. This study does not choose between them.
 
-**Consider:** Lydia gave her home, Priscilla her teaching and her safety, Phoebe her help. What did each give, and to whom?
+**Consider:** Lydia gave her home, Priscilla her teaching and her safety, Phoebe her help, Junia her freedom in prison. What did each give, and to whom?
 
 **Reflect:** Which of these women's gifts do you see in someone in your church? Have you thanked them, as Paul did?
 
 ## A question: do these women show that women may be pastors?
 
-**Main readings:** 1 Timothy 2:11–15; 3:1–7; Titus 1:5–9; Acts 2:17–18; Galatians 3:28.
+**Main readings:** 1 Timothy 2:11–15; 3:1–7; Titus 1:5–9; Acts 2:17–18; Galatians 3:28; 1 Corinthians 11:3–5; 14:29–35.
 
-Readers bring this question to Deborah, Huldah, Priscilla and Phoebe. Here is the site's answer, and where others differ.
+Readers bring this question to Deborah, Huldah, Priscilla, Phoebe and Junia. Here is the site's answer, and where others differ.
 
-**This site's view.** With the Baptist Faith and Message, this site holds that "the office of pastor is limited to men as qualified by Scripture" (Article VI). The grounds are in Paul's letters: "I do not permit a woman to teach or to exercise authority over a man" (1 Timothy 2:12 · BSB), a rule he grounds in creation, "For Adam was formed first, and then Eve" (1 Timothy 2:13 · BSB); and an overseer is to be "the husband of but one wife" (1 Timothy 3:2 · BSB). The same New Testament honours women who prophesied, as Joel foretold, "Your sons and daughters will prophesy" (Acts 2:17 · BSB), and women who taught, gave, hosted and served. These stories do not overturn that rule; they show the many ways women served within it. Deborah and Huldah were prophets under the old covenant, not elders of a church. Priscilla taught with her husband in their home. Phoebe served. John Calvin, who was not a Baptist, answered the appeal to Deborah: "Extraordinary acts done by God do not overturn the ordinary rules of government, by which he intended that we should be bound" (on 1 Timothy 2:12).
+**This site's view.** With the Baptist Faith and Message, this site holds that "the office of pastor is limited to men as qualified by Scripture" (Article VI). The grounds are in Paul's letters: "I do not permit a woman to teach or to exercise authority over a man" (1 Timothy 2:12 · BSB), a rule he grounds in creation, "For Adam was formed first, and then Eve" (1 Timothy 2:13 · BSB); and an overseer is to be "the husband of but one wife" (1 Timothy 3:2 · BSB). The same New Testament honours women who prophesied, as Joel foretold, "Your sons and daughters will prophesy" (Acts 2:17 · BSB), and women who taught, gave, hosted and served. These stories do not overturn that rule; they show the many ways women served within it. Deborah and Huldah were prophets under the old covenant, not elders of a church. Priscilla taught with her husband in their home. Phoebe served. Junia was honoured for her faith and her suffering. John Calvin, who was not a Baptist, answered the appeal to Deborah: "Extraordinary acts done by God do not overturn the ordinary rules of government, by which he intended that we should be bound" (on 1 Timothy 2:12).
 
-**Other traditions' view.** Many Protestant churches, among them most Methodist churches, many Pentecostal and Anglican churches, and some churches that call themselves Baptist, ordain women as pastors. They point to these same women, and to "neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus" (Galatians 3:28 · BSB), and read 1 Timothy 2:12 as a rule for one church's situation in Ephesus rather than for every church. That is their reading, not this site's. (Study 28, The church and its calling, takes up the question at more length.)
+**Praying, prophesying and silence.** In one letter Paul writes two things readers find hard to fit together. In chapter 11 he assumes that women pray and prophesy aloud in the gathering, and he tells them how:
+
+> But I want you to understand that the head of every man is Christ, and the head of the woman is man, and the head of Christ is God. Every man who prays or prophesies with his head covered dishonors his head. And every woman who prays or prophesies with her head uncovered dishonors her head, for it is just as if her head were shaved.
+
+1 Corinthians 11:3–5 · BSB
+
+Three chapters later he writes:
+
+> Women are to be silent in the churches. They are not permitted to speak, but must be in submission, as the law says. If they wish to inquire about something, they are to ask their own husbands at home; for it is dishonorable for a woman to speak in the church.
+
+1 Corinthians 14:34–35 · BSB
+
+Careful readers fit the two in more than one way:
+
+- **Silent in the weighing of prophecy.** Some take 14:34–35 with the verses just before it, where prophets speak in turn and the others weigh carefully what is said (1 Corinthians 14:29). Women may pray and prophesy, as chapter 11 assumes, but are not to take part in the public judging of prophecy, which carries the authority to teach and correct. The question about asking husbands at home (14:35) suggests questioning in the meeting, not every word.
+- **The strict reading.** Albert Barnes, a Presbyterian commentator, takes 14:34 as it stands: "This rule is positive: explicit and universal". He answers chapter 11 by saying that the women who prophesied at Corinth were inspired, so "their example is no warrant now" for public teaching without inspiration (on 1 Corinthians 14:34 and 11:5) [check: both quotations against the text of Barnes' Notes].
+
+This page, like *The church and its calling*, does not settle how exactly the two fit. Both readings keep chapter 11 and chapter 14 as Scripture without setting either aside, and both keep the office of pastor for men. Read more in *The church and its calling*.
+
+**Other traditions' view.** Many Protestant churches, among them most Methodist churches, many Pentecostal and Anglican churches, and some churches that call themselves Baptist, ordain women as pastors. They point to these same women, and to "neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus" (Galatians 3:28 · BSB), and read 1 Timothy 2:12 as a rule for one church's situation in Ephesus rather than for every church. That is their reading, not this site's.
 
 **In the home.** The same confession says husband and wife are "of equal worth before God, since both are created in God's image". It asks the husband to love his wife "as Christ loved the church", and the wife to submit "graciously to the servant leadership of her husband" (Article XVIII). Peter calls husband and wife "fellow heirs of the gracious gift of life" (1 Peter 3:7 · BSB). Equal worth and different callings are held together in the same texts.
 

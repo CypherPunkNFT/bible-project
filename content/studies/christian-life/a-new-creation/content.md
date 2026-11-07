@@ -1,329 +1,385 @@
-# A new creation
+# A new creation: what changes when you believe
 
-Concepts: Already · Therefore · Now
+Concepts: Already · Therefore · Growing
 
-Motto: Made new. / Now put it on.
+Motto: Made new. / Now grow into it.
 
-Lead: What changes when someone belongs to Christ? The letters often say it twice, once as already so and again as something to do. God "reconciled us to Himself" (2 Corinthians 5:18), and Paul pleads, "Be reconciled to God" (2 Corinthians 5:20). This study walks six readings and teaches one habit: before you obey a line in a letter, look back for what is already so in Christ.
+Lead: When someone puts their trust in Jesus Christ, the New Testament says something has changed at the root. Paul calls it being "a new creation", and he describes it as being "in Christ": belonging to Him and sharing in His life, death and rising. This study walks the letters' main passages on that change and on the growing that follows. It teaches one reading habit: before you obey a command in a letter, look back for what the letter says is already true of you in Christ.
 
 > Therefore if anyone is in Christ, he is a new creation. The old has passed away. Behold, the new has come!
 
 2 Corinthians 5:17 · BSB
 
-Selection: This is a selection, not a full account of the Christian life. Its readings come from six letters. It also sets fourteen places side by side, measures five letters, and draws four verses that say Behold. Sustained growth, restoring someone who has fallen and life inside the church have studies of their own. Every pairing on this page is this study's judgment. A script proves the words are in the verse. It does not prove that the pairing is right, and all comparing was done in the Berean's English, with no Greek or Hebrew.
+Frame: The letters seldom tell their readers to become something. Usually they say what God has already done, and then they say "therefore". Colossians tells its readers not to lie, "since you have taken off the old self with its practices" (Colossians 3:9). Romans tells them to count themselves dead to sin because they have died with Christ (Romans 6:8–11). The command is real, and it is not how anyone gets in. It is how a person who is already in learns to live.
 
-FoldLead: Each of the six readings turns on one place where a letter says a thing is already so and tells you to live by it. Sometimes God is the one who acted. Sometimes it is what the readers have already done or now are. Read across the fold. The small word on the fold is the letter's own. Choose a line to open its reading.
+Selection: This is a selection, not a census. It walks nine passages from six letters: the ones the letters give to the new start and to growing up in it. It quotes a few more verses from passages that other studies walk, and links to them. Belonging to a church, the work of the Holy Spirit, daily ethics and the assurance of salvation each have a study of their own. Every pairing of a command with its ground is this study's reading, made in the Berean's English, with no Greek compared. This study reads Scripture; it is not medical or professional guidance.
 
-MoreLead: Is the pattern only in these six? Here are eight more, from these letters and two others. Seven have a joining word and one has none. Where the command comes first, the line says so. Point at a line to read its verses here; choose it to open them.
+FoldLead: Each part turns on one place where a letter says a thing is already so, and then tells you to live by it. The small joining word, "therefore", "since" or "for this very reason", is the letter's own. Read across the fold: on one side what is already true, on the other what to do.
 
-MoreReads: The pattern is not a rule for every sentence. Plenty of commands stand on their own in the verse, and sometimes the done thing comes after the command. This study reads the pairs for one thing only: the letters do not ask you to become new by trying. They tell you what is already so in Christ, and then call you to live by it.
+FoldReads: Colossians 3:1 ("since you have been raised with Christ") before "strive for the things above". Romans 6:11 ("So you too must count yourselves dead to sin") after "the death He died, He died to sin once for all" (Romans 6:10). Romans 12:1 ("on account of God’s mercy") before "offer your bodies". Ephesians 4:25 ("Therefore") after the new self of Ephesians 4:24. Colossians 3:12 ("as the elect of God, holy and beloved") before "clothe yourselves". 2 Peter 1:5 ("For this very reason") after "His divine power has given us everything" (2 Peter 1:3). Not every command in these letters has a ground beside it, and sometimes the ground comes after the command. The pattern is common, not a rule for every sentence.
 
-TurnLead: How far into a letter does it turn to telling you how to live? Each line below is one letter, its length set by its verses, all to one scale. The gold mark is where this study reads the turn. The verses before it are not all about what God has done: the opening of Romans is largely about sin, and the opening of Galatians is largely Paul's own defence. Point at a reference to find it on its line; choose it to read the verse.
+LinesLead: Four lines in Ephesians 4 have three parts: what to stop, what to do instead, and why. Truth (4:25), work (4:28), words (4:29) and forgiveness (4:32). Other lines in the same paragraph have fewer parts, and this page does not make up the missing ones.
 
-TurnReads: The turn is this study's reading, in these four letters, and it is not a wall. Each has commands before it, and a few are named, not all. James is drawn beside them because it does not work this way: its first command is in its second verse. Yet even James says "He chose to give us birth" (James 1:18) one verse before "Everyone should be quick to listen" (James 1:19). Other letters, such as 1 Corinthians, have no one place to mark.
+## 01 In Christ: a new starting point
 
-TurnCalvin: Calvin says of the turn at Romans 12:1 that "until men really apprehend how much they owe to the mercy of God" they will not rightly obey. He was writing of that one verse.
+**Main readings:** 2 Corinthians 5:14–17
 
-BackLead: Now try it. Each of these is a command. Before you open it, read the lines around it in your Bible: what does the letter say is already so? Then compare.
-
-BeholdLead: Is the new thing only Paul's idea? Scripture was saying Behold before him, and says it after. Four verses, one word, and the tense moves. Choose a verse to read it.
-
-BeholdReads: The Berean has ten verses with both Behold and new. Four are drawn here. Isaiah 42:9, Jeremiah 31:31 and Hebrews 8:8 speak of new things from God as well, and the rest are about other things. Paul does not cite Isaiah in 2 Corinthians 5, so this line is this study's picture, in English. Revelation 21 still lies ahead. It has its own study, The hope to come.
-
-RailsReads: Colossians' own lists, in its order, set on two rails. Put to death and put aside on one, clothe yourselves on the other. Love does not hang with the rest: the verse lays it over them. They are not opposites word for word, and this page does not pair them.
-
-LinesLead: Four lines in Ephesians 4 have all three parts: what to stop, what to do, and why. These are the verses' own words. Other lines in the same paragraph have fewer parts, such as anger (Ephesians 4:26–27) and grieving the Spirit (Ephesians 4:30), and this page does not make up the missing ones. Faith in daily life asks this kind of question of more passages.
-
-QuestionsLead: Six questions a careful reader brings. Each opens with the reading this study follows and why, then what else has been said.
-
-## 01 In Christ
-
-Slug: in-christ
-
-Ask: What has God made new?
-
-Hook: God has done the reconciling. Two verses later Paul begs you to be reconciled.
-
-Read: 2 Corinthians 5:14–21; Ephesians 2:1–10
+Hook: Paul does not say "try to be new". He says "he is".
 
 ### A different centre for life
 
-The new-creation sentence comes inside an argument. "One died for all" (2 Corinthians 5:14), and He died "that those who live should no longer live for themselves" (2 Corinthians 5:15). Then Paul says "we regard no one according to the flesh" (2 Corinthians 5:16), and only then "he is a new creation" (2 Corinthians 5:17).
+The famous sentence about a new creation comes at the end of an argument, and the argument starts with Christ, not with you. "For Christ’s love compels us, because we are convinced that One died for all, therefore all died" (2 Corinthians 5:14). His death was for a purpose: "that those who live should no longer live for themselves, but for Him who died for them and was raised again" (2 Corinthians 5:15).
 
-The next sentence names the source: "All this is from God, who reconciled us to Himself through Christ" (2 Corinthians 5:18). Paul carries a message, "as though God were making His appeal through us" (2 Corinthians 5:20), and the appeal is "Be reconciled to God".
+Then Paul says how this changes the way he sees people. "So from now on we regard no one according to the flesh" (2 Corinthians 5:16). Here "the flesh" means human standards: looks, rank, background, usefulness. Paul admits he once judged Jesus that way too: "Although we once regarded Christ in this way, we do so no longer." Only after that does the sentence come: "he is a new creation."
 
-[read] So the new creation belongs inside a restored relationship, and God moves first. It is not a new resolve on your part.
+[read] So the new creation is first a change of centre. Life that used to curve back on itself is turned toward Christ, and other people are seen differently because of Him. It is not a new resolution on your part. Paul writes it as a fact about anyone who is in Christ.
 
-[open] Whom Paul is pleading with in "Be reconciled to God" (2 Corinthians 5:20) is read two ways: his Corinthian readers, or anyone he carries the message to. This study does not need to settle it to see the pattern: what God has done in verse 18 does not stop the plea in verse 20. No source on this point was read here.
+The very next verses say where it comes from: all of it is God's work, who reconciled us to Himself through Christ, that is, made peace between Himself and people who were against Him. Read more in *The cross, the empty tomb and the throne: what Jesus' death and rising did*.
 
-### Grace and the life that follows
+### Made for good works, not by them
 
-Ephesians starts lower than a bad habit: "you were dead in your trespasses and sins" (Ephesians 2:1). The turn is God's: "because of His great love for us, God, who is rich in mercy, made us alive with Christ" (Ephesians 2:4–5). Salvation is "the gift of God, not by works, so that no one can boast" (Ephesians 2:8–9).
+Ephesians says the same from another side. It explains grace, God's kindness given to people who have not earned it and could not:
 
-> For we are God's workmanship, created in Christ Jesus to do good works, which God prepared in advance as our way of life.
+> For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God, not by works, so that no one can boast. For we are God’s workmanship, created in Christ Jesus to do good works, which God prepared in advance as our way of life.
 
-Ephesians 2:10 · BSB
+Ephesians 2:8–10 · BSB
 
-[read] Good works do not buy the new life. They are what it was made for. Read verses 8 to 10 together: grace, faith and a changed life are in one argument. The Baptist Faith and Message calls regeneration "a work of God's grace whereby believers become new creatures in Christ Jesus" (Article 4).
+Read more in *Saved by grace: how God forgives and changes us*.
 
-Consider: What does each passage say God has done? How does living for Christ in 2 Corinthians 5:15 give direction to the good works of Ephesians 2:10?
+[read] Good works do not buy the new life; they are what it was made for. The word "created" in Ephesians 2:10 is the same idea as "new creation": God is the maker. The Baptist Faith and Message, the statement of faith this site writes under, calls this regeneration, the new birth, "a work of God's grace whereby believers become new creatures in Christ Jesus" (article IV, salvation).
 
-Reflect: Think of one ordinary responsibility. What might approaching it as someone who belongs to Christ change about your purpose, and not only your outward performance?
+**Consider:** What does 2 Corinthians 5:14–15 say Christ did, and what does it say the purpose was? What changes in verse 16 about how Paul sees people?
 
-## 02 The old and the new
+**Reflect:** Think of one person you have been sizing up by human standards. What would it mean to see them as someone Christ died for?
 
-Slug: old-and-new
+## 02 Dead to sin, alive to God
 
-Ask: What do the letters tell us to put off and put on?
+**Main readings:** Romans 6:1–14; Romans 12:1–2
+
+Hook: Shall we keep sinning so grace can grow? Paul answers by reminding you of your funeral.
+
+### The question grace raises
+
+Sin, in the Bible, is any failure to love and obey God: what we do, what we leave undone, and the pull inside us toward both. Romans 5 has just said that God's grace is greater than all of it. So a reader might ask: "Shall we continue in sin so that grace may increase?" (Romans 6:1). Paul's answer is "Certainly not! How can we who died to sin live in it any longer?" (Romans 6:2).
+
+His reason is something that has already happened. He points to baptism, the dipping of a new believer in water, which every one of his readers remembered:
+
+> We were therefore buried with Him through baptism into death, in order that, just as Christ was raised from the dead through the glory of the Father, we too may walk in newness of life.
+
+Romans 6:4 · BSB
+
+"We know that our old self was crucified with Him so that the body of sin might be rendered powerless, that we should no longer be slaves to sin" (Romans 6:6). The "old self" is the person you were apart from Christ. Sin is pictured as a master, and the believer as a slave who has been set free by death, because "anyone who has died has been freed from sin" (Romans 6:7).
+
+### Count it, then present yourself
+
+Only now come the commands, and the first one is about how you think: "So you too must count yourselves dead to sin, but alive to God in Christ Jesus" (Romans 6:11). Then: "Therefore do not let sin reign in your mortal body so that you obey its desires" (Romans 6:12).
+
+> Do not present the parts of your body to sin as instruments of wickedness, but present yourselves to God as those who have been brought from death to life; and present the parts of your body to Him as instruments of righteousness.
+
+Romans 6:13 · BSB
+
+Righteousness here means what is right in God's eyes. The section ends on a promise: "For sin shall not be your master, because you are not under law, but under grace" (Romans 6:14). Being "under law" means trying to stand before God on your own keeping of His commands; being "under grace" means standing on what Christ has done.
+
+[read] Habits become questions of service: whom do your hands, your eyes and your hours serve? Paul does not tell believers to defeat sin so that they can be free. He tells them they have been freed, and so they can say no.
+
+[open] How the law of Moses applies to Christians today is a question on which Baptists hold more than one view, and the confession does not settle it. This page does not choose. Read more in *The Ten Commandments*.
+
+### A living sacrifice
+
+Six chapters later Paul uses the same word, "offer" or "present", for the whole of life. In Israel's worship at the temple in Jerusalem, a sacrifice was an animal or gift brought to God and given up to Him. Paul turns that picture:
+
+> Therefore I urge you, brothers, on account of God’s mercy, to offer your bodies as living sacrifices, holy and pleasing to God, which is your spiritual service of worship. Do not be conformed to this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what is the good, pleasing, and perfect will of God.
+
+Romans 12:1–2 · BSB
+
+"Brothers" is the letter's word for the whole church, women and men. "Holy" means set apart for God. The appeal is made "on account of God’s mercy", the eleven chapters before it.
+
+[source:calvin-rom12] John Calvin, the sixteenth-century Reformer, commenting on this verse, argues that people will not obey God with a willing heart until they understand how much they owe to His mercy. [check: exact wording and location of Calvin's comment on Romans 12:1, carried from draft 01]
+
+[read] The renewed mind is not a method for knowing every personal decision in advance. It is a mind that stops taking its shape from whatever is normal or rewarded around it, and learns, over time, to recognise what pleases God.
+
+**Consider:** What does Paul say has already happened before he gives any command in Romans 6? What is offered to God in Romans 12:1, and on what ground?
+
+**Reflect:** Name one part of your daily life (your phone, your tongue, your evenings) and ask whom it is serving. What would presenting it to God look like this week?
+
+## 03 Taking off and putting on
+
+**Main readings:** Ephesians 4:17–24; Colossians 3:1–11
 
 Hook: You have taken it off, Paul says, in the same breath as telling you to take it off.
 
-Read: Ephesians 4:17–24; Colossians 3:1–17
-
 ### Learning Christ
 
-Ephesians describes a life "darkened in their understanding and alienated from the life of God" (Ephesians 4:18), and then says, "But this is not the way you came to know Christ" (Ephesians 4:20). They were taught "to put off your former way of life" and "to put on the new self, created to be like God in true righteousness and holiness" (Ephesians 4:22–24). Between those two stands one more line.
+Ephesians was written mainly to Gentiles, people who were not Jewish, and Paul describes the life they had come out of. "You must no longer walk as the Gentiles do, in the futility of their thinking" (Ephesians 4:17). "Walk" is the letters' word for a way of life. He means the way of life his readers once shared, not every non-Jewish person's character. That life is "darkened in their understanding and alienated from the life of God" (Ephesians 4:18), and it ends "with a craving for more" (Ephesians 4:19).
 
-> to be renewed in the spirit of your minds;
+Then the turn: "But this is not the way you came to know Christ" (Ephesians 4:20). They were taught three things:
 
-Ephesians 4:23 · BSB
+> to put off your former way of life, your old self, which is being corrupted by its deceitful desires; to be renewed in the spirit of your minds; and to put on the new self, created to be like God in true righteousness and holiness.
 
-[read] This reaches past any single habit. The passage joins what you understand, what you want and what you do.
+Ephesians 4:22–24 · BSB
 
-Colossians begins from their life in Christ: "you have been raised with Christ" (Colossians 3:1), and "your life is now hidden with Christ in God" (Colossians 3:3). Only then come the things to put to death and put aside (Colossians 3:5–9).
+[read] It is a picture of clothes. The old self is worn out and rotting; the new self is "created", God's work again. Between the two stands the mind being renewed. The change reaches what you understand, what you want and what you do.
 
-[care] "Put to death" names the practices the verse lists (Colossians 3:5). It is not about harming your body, which Scripture tells you to present to God (Romans 6:13). If you are thinking of harming yourself, tell someone today, and contact emergency services or a crisis line.
+### Raised with Christ
 
-### Putting on a shared life
+Colossians starts higher still. "Therefore, since you have been raised with Christ, strive for the things above, where Christ is seated at the right hand of God" (Colossians 3:1). "For you died, and your life is now hidden with Christ in God" (Colossians 3:3). The believer's real life is kept safe with Christ, and it will be seen "When Christ, who is your life, appears" (Colossians 3:4).
 
-The clothes in Colossians are worn among other people: compassion, kindness, humility, gentleness and patience, bearing with one another, forgiving, and "over all these virtues put on love, which is the bond of perfect unity" (Colossians 3:12–14). The paragraph goes on to one body, shared teaching and thanks (Colossians 3:15–17).
+Only then come the lists. "Put to death, therefore, the components of your earthly nature: sexual immorality, impurity, lust, evil desires, and greed, which is idolatry" (Colossians 3:5). "But now you must put aside all such things as these: anger, rage, malice, slander, and filthy language from your lips" (Colossians 3:8).
 
-[read] Paul says "have put on the new self" (Colossians 3:10), and four verses on he says "put on love" (Colossians 3:14). A changed identity and continuing instruction stand together. The new self "is being renewed" (Colossians 3:10), so it is real and it is not finished.
+[care] If you are thinking of harming yourself, please tell someone today. In the United States, call or text 988, the Suicide and Crisis Lifeline [check before publishing]. In Spain, call 024 [check before publishing]; in Mexico, the Línea de la Vida, 800 911 2000 [check before publishing]; in other Spanish-speaking countries, your national crisis line or emergency number [check before publishing]. In Brazil, call the CVV on 188 [check before publishing]. These feelings do pass, and people do recover. "Put to death" in Colossians 3:5 names the habits the verse lists. It never means harming your body, which Romans tells you to offer to God as something holy (Romans 12:1). Read more in *Fear, anxiety and despair*.
 
-[open] Ephesians says they were taught "to put off" (Ephesians 4:22), and Colossians says they "have taken off" (Colossians 3:9). This study compared them in the Berean's English only. It does not turn the clothing into fixed stages that every believer passes through in order.
+### Since you have taken it off
 
-Consider: Which parts of these passages address understanding, which address desires, and which address relationships? What is lost if we read only the lists of things to stop doing?
+> Do not lie to one another, since you have taken off the old self with its practices, and have put on the new self, which is being renewed in knowledge in the image of its Creator.
 
-Reflect: Name a pattern to leave behind and a practice to take up. Use a connection the passage actually makes, and do not invent an opposite for every word.
+Colossians 3:9–10 · BSB
 
-## 03 Words that build up
+[read] Here is the fold at its clearest. The command (do not lie) stands on a fact (you have taken off the old self). And the fact is real but not finished: the new self "is being renewed". God made people in His image at the beginning, and the new self is being restored to that likeness. Read more in *Every life in God's image*.
 
-Slug: words
+The next verse says who wears these clothes: "Here there is no Greek or Jew, circumcised or uncircumcised, barbarian, Scythian, slave, or free, but Christ is all and is in all" (Colossians 3:11). The new self is not a private makeover. It is a new people, where the old ranks do not count.
 
-Ask: What do our words give the hearer?
+[open] Ephesians says they were taught "to put off" (Ephesians 4:22), and Colossians says they "have taken off" (Colossians 3:9). This study takes both as true together: done in Christ, and to be lived out. It does not turn the clothing into fixed stages every believer passes through in order.
 
-Hook: The question is not only what you must not say. It is what your words hand to the one listening.
+**Consider:** What do Colossians 3:1–4 say before any command is given? Which parts of Ephesians 4:17–24 concern understanding, which desire, and which conduct?
 
-Read: Ephesians 4:25–30; Colossians 4:5–6
+**Reflect:** Name one habit to leave behind and one practice to take up, using a connection the passage itself makes. Then remind yourself what Colossians 3:3 says is already true.
 
-### Truth because we belong to one another
+## 04 Truth, anger, forgiveness and love
 
-Ephesians gives a reason for truthful speech: "we are all members of one another" (Ephesians 4:25). A lie harms the body that both speaker and hearer belong to.
+**Main readings:** Ephesians 4:25–5:2; James 1:19–20; Colossians 3:12–17
+
+Hook: Be angry, yet do not sin, says Paul, and then he mentions the sunset.
+
+### Words that build up
+
+The new self shows first in how people speak. "Therefore each of you must put off falsehood and speak truthfully to his neighbor, for we are all members of one another" (Ephesians 4:25). A lie harms a body that both the speaker and the hearer belong to.
 
 > Let no unwholesome talk come out of your mouths, but only what is helpful for building up the one in need and bringing grace to those who listen.
 
 Ephesians 4:29 · BSB
 
-[read] This asks more than whether a sentence avoids a forbidden word. It asks what the sentence does for the person who receives it.
+[read] This asks more than whether a sentence avoids a forbidden word. It asks what the sentence gives the person who hears it.
 
-### A change that reaches the hearer
+Work changes too. "He who has been stealing must steal no longer, but must work, doing good with his own hands, that he may have something to share with the one in need" (Ephesians 4:28). The thief's new reason to work is his neighbour.
 
-Building someone up can include hard words: "as you teach and admonish one another" (Colossians 3:16). Toward those outside, "Let your speech always be gracious" so that "you may know how to answer everyone" (Colossians 4:6).
+Then a tender line: "And do not grieve the Holy Spirit of God, in whom you were sealed for the day of redemption" (Ephesians 4:30). The Holy Spirit is God Himself living in the believer; "sealed" means marked as His and kept safe; "redemption" means being bought back and set free, here the final day of it. Read more in *The Holy Spirit*.
 
-[read] Gracious speech need not mean agreeing with everything. It concerns how you address a real person, and what your words are trying to do.
+### Anger
 
-Consider: What changes when the question becomes what these words will give the hearer? How can truth and care guide the same difficult conversation?
+> “Be angry, yet do not sin.” Do not let the sun set upon your anger,
 
-Reflect: Before a conversation or message, weigh its truthfulness, its purpose and its likely effect. If correction is needed, work out what would help the other person understand and respond.
+Ephesians 4:26 · BSB
 
-## 04 Anger and forgiveness
+The next verse adds "and do not give the devil a foothold" (Ephesians 4:27), and five verses on: "Get rid of all bitterness, rage and anger, outcry and slander, along with every form of malice" (Ephesians 4:31). James says the same in a different way:
 
-Slug: forgiveness
+> My beloved brothers, understand this: Everyone should be quick to listen, slow to speak, and slow to anger, for man’s anger does not bring about the righteousness that God desires.
 
-Ask: What response does forgiveness received call for?
+James 1:19–20 · BSB
 
-Hook: Be angry, yet do not sin. And the same sentence mentions the sunset.
+[read] Nothing here lets you nurse hostility because the grievance feels justified. The force of a reaction does not make it right. What "Be angry" does and does not allow is one of the questions below.
 
-Read: Ephesians 4:26–32; Colossians 3:12–15; James 1:19–20
-
-### Anger that must be addressed
-
-"Be angry, yet do not sin. Do not let the sun set upon your anger" (Ephesians 4:26), and "do not give the devil a foothold" (Ephesians 4:27). A few verses on: "Get rid of all bitterness, rage and anger" (Ephesians 4:31). James adds "slow to anger", because "man's anger does not bring about the righteousness that God desires" (James 1:19–20).
-
-[read] Nothing here lets you nurse hostility because the grievance feels justified. The force of a reaction does not make it right. What the verse does and does not allow is one of the questions below.
-
-### Forgiveness with a stated reason
+### Forgiven people forgive
 
 > Be kind and tenderhearted to one another, forgiving each other just as in Christ God forgave you.
 
 Ephesians 4:32 · BSB
 
-Colossians says the same: "Forgive as the Lord forgave you" (Colossians 3:13). Romans adds a limit: "If it is possible on your part, live at peace with everyone" (Romans 12:18).
+Colossians gives the same reason: "Bear with one another and forgive any complaint you may have against someone else. Forgive as the Lord forgave you" (Colossians 3:13). Romans sets a limit and a direction:
 
-[read] The forgiveness you are asked to give stands on the forgiveness you have received. And "on your part" matters (Romans 12:18): one person cannot settle every response in a relationship.
+> If it is possible on your part, live at peace with everyone. Do not avenge yourselves, beloved, but leave room for God’s wrath.
 
-[care] Forgiveness does not make wrongdoing good. It does not mean trust comes back at once, and it does not mean staying where you are being harmed. Getting to safety and asking for help does not disobey these verses.
+Romans 12:18–19 · BSB
 
-Consider: Which responses does the passage tell you to put away, and which does it tell you to practise? How does the stated reason for forgiveness affect the way you understand the command?
+Read more in *Faith in daily life*.
 
-Reflect: Identify a response that is yours to change: listening before answering, stopping retaliation, speaking honestly, or seeking help with a conflict.
+[read] The forgiveness you are asked to give stands on the forgiveness you have received. "On your part" matters: one person cannot settle every response in a relationship. And the wrong is still called wrong. It is left to God to answer, not ignored.
 
-## 05 Desires and habits
+[care] If you or a child are in danger, get to safety first and call your local emergency number (911 in the United States [check before publishing]). In the United States the National Domestic Violence Hotline is 1-800-799-7233 [check before publishing]; in Brazil, the women's line is 180 [check before publishing]; in Spain, 016 [check before publishing]; elsewhere, your national emergency number. Forgiveness does not make wrongdoing good, it does not mean trust comes back at once, and it does not mean staying where you are being harmed. Getting to safety and asking for help does not disobey these verses.
 
-Slug: desires
+### Clothed in love
 
-Ask: What does it mean to walk in the Spirit?
+Colossians lays out new clothes for "the elect of God, holy and beloved" (Colossians 3:12). "Elect" means chosen: God chose these people before they chose anything. Then: "clothe yourselves with hearts of compassion, kindness, humility, gentleness, and patience" (Colossians 3:12), "And over all these virtues put on love, which is the bond of perfect unity" (Colossians 3:14).
 
-Hook: Shall we keep on sinning, so grace can grow? Paul answers with a question about your death.
+Ephesians names the pattern for that love:
 
-Read: Galatians 5:13–26; Romans 6:1–14
+> Be imitators of God, therefore, as beloved children, and walk in love, just as Christ loved us and gave Himself up for us as a fragrant sacrificial offering to God.
 
-### Freedom expressed in service
+Ephesians 5:1–2 · BSB
 
-"you, brothers, were called to freedom", and the use of it is to "serve one another in love" (Galatians 5:13). The warning against "biting and devouring one another" follows at once (Galatians 5:15), so flesh and Spirit is about a community as well as private choices.
+[read] The ones asked to imitate God are called "beloved children" first. The command stands on being loved, and its measure is Christ's giving of Himself. Colossians closes the picture in worship and thanks: the peace of Christ ruling, the word of Christ dwelling richly, and "whatever you do, in word or deed, do it all in the name of the Lord Jesus, giving thanks to God the Father through Him" (Colossians 3:15–17). Read more in *Life together: belonging to a church*.
 
-The list of "The acts of the flesh" runs from "sexual immorality" through "hatred, discord, jealousy, and rage" to "drunkenness" (Galatians 5:19–21). The fruit of the Spirit is "love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control" (Galatians 5:22–23).
+**Consider:** Which of Ephesians' four three-part lines (4:25, 28, 29, 32) gives the most surprising reason? What do Colossians 3:12 and Ephesians 5:1 call the readers before telling them what to do?
 
-> Since we live by the Spirit, let us walk in step with the Spirit.
+**Reflect:** Before your next hard conversation, ask three things: is it true, what is it for, and what will it give the listener? Is there someone you need to forgive, or a response of yours to change, starting with listening first?
 
-Galatians 5:25 · BSB
+## 05 Growing up: from milk to solid food
 
-[read] Paul speaks openly of conflict: "the flesh craves what is contrary to the Spirit" (Galatians 5:17). The flesh here is not the body, and having a body is not the trouble, because the next passage asks you to give your body to God.
+**Main readings:** Hebrews 5:11–6:3; 2 Peter 1:3–11
 
-### Giving oneself to God
+Hook: They had been Christians long enough to teach. They still needed the alphabet.
 
-"Shall we continue in sin so that grace may increase? Certainly not!" (Romans 6:1–2). Paul's reason is what has already happened: "we who died to sin" (Romans 6:2), "buried with Him through baptism into death" so that "we too may walk in newness of life" (Romans 6:4). So "count yourselves dead to sin, but alive to God in Christ Jesus" (Romans 6:11), and "present yourselves to God" (Romans 6:13).
+### Rooted, then built
 
-[read] So habits come down to questions of service: what you serve, what you obey, and how you use your body. There is a positive commitment too: giving yourself to God.
+Growth in the letters does not mean leaving Christ behind for something more advanced. It means going further into Him:
 
-[read] None of this claims that believers have stopped struggling. "If we say we have no sin, we deceive ourselves", and "If we confess our sins, He is faithful and just to forgive us" (1 John 1:8–9).
+> Therefore, just as you have received Christ Jesus as Lord, continue to walk in Him, rooted and built up in Him, established in the faith as you were taught, and overflowing with thankfulness.
 
-Consider: Which acts of the flesh damage life together? How do the positive instructions in Galatians 5 and Romans 6 go beyond simply holding a behaviour down?
+Colossians 2:6–7 · BSB
 
-Reflect: Consider one repeated choice. What does it train you to serve, and what different practice would express love, faithfulness or self-control? Begin with one specific action. No one has mastered the whole struggle.
+Read more in *The cross, the empty tomb and the throne: what Jesus' death and rising did*. The Baptist Faith and Message calls this growing sanctification, God's work of making a believer holy, by which the believer "is enabled to progress toward moral and spiritual maturity through the presence and power of the Holy Spirit dwelling in him" (article IV, salvation).
 
-## 06 Walking in love
+### Milk and solid food
 
-Slug: love
+Hebrews is blunt. "We have much to say about this, but it is hard to explain, because you are dull of hearing" (Hebrews 5:11).
 
-Ask: How does Christ's love take shape in our lives?
+> Although by this time you ought to be teachers, you need someone to reteach you the basic principles of God’s word. You need milk, not solid food!
 
-Hook: The command has a measure, and the measure gave Himself up.
+Hebrews 5:12 · BSB
 
-Read: Ephesians 4:32–5:2; Colossians 3:12–17; Romans 12:9–21
+The picture explains itself: "everyone who lives on milk is still an infant", but "solid food is for the mature, who by constant use have trained their senses to distinguish good from evil" (Hebrews 5:13–14). Maturity here is not knowing more facts. It is judgement trained by practice. Read more in *Learning to discern*.
 
-### The pattern is Christ
+So: "let us leave the elementary teachings about Christ and go on to maturity, not laying again the foundation" (Hebrews 6:1). The foundation is listed: "repentance from dead works", meaning a turning away from sin and from trying to earn God's favour; "faith in God"; teaching about washings and "the laying on of hands"; "the resurrection of the dead, and eternal judgment" (Hebrews 6:1–2). Then a humble line: "And this we will do, if God permits" (Hebrews 6:3).
 
-> and walk in love, just as Christ loved us and gave Himself up for us as a fragrant sacrificial offering to God.
+[read] The foundation is not unimportant; you build on it, you do not keep pouring it again. The rebuke is for people who have stopped growing. It is no licence to look down on a beginner who truly needs the basics, and the passage ends with growth as something God must allow.
 
-Ephesians 5:2 · BSB
+The verses straight after this contain one of the New Testament's sternest warnings, about those who fall away. Read more in *Chosen and kept: can I be sure?*
 
-This follows straight on from forgiving as God forgave: "Be imitators of God, therefore, as beloved children" (Ephesians 5:1). Colossians calls love "the bond of perfect unity" (Colossians 3:14), with peace, thanks, the word of Christ and shared worship in the same paragraph (Colossians 3:15–17).
+### Everything you need, so make every effort
 
-[read] Christ's giving of Himself is the pattern for the love asked of you, and beloved children are the ones asked.
+Second Peter puts the gift before the effort. "His divine power has given us everything we need for life and godliness through the knowledge of Him who called us by His own glory and excellence" (2 Peter 1:3). Godliness is a life shaped by reverence for God. Through God's promises, believers "may become partakers of the divine nature, now that you have escaped the corruption in the world caused by evil desires" (2 Peter 1:4).
 
-### Love with concrete responsibilities
+[read] This study reads "partakers of the divine nature" as sharing in God's moral character, His holiness and love, by His gift. The creature never becomes the Creator.
 
-Romans will not leave love as a feeling. "Love must be sincere. Detest what is evil; cling to what is good" (Romans 12:9). It goes on to honouring others, sharing with those in need, hospitality, joy and sorrow shared (Romans 12:10–16).
+[other] Eastern Orthodox Christians build their teaching on theosis, a believer's union with God, partly on this verse. No Orthodox document was read for this page, so none is quoted.
 
-It reaches even an enemy in need: "If your enemy is hungry, feed him" (Romans 12:20). "Do not avenge yourselves" (Romans 12:19), and "overcome evil with good" (Romans 12:21). The passage goes on calling evil what it is, and directs a different response to it.
+Then the fold:
 
-Generosity belongs here as well. The one who has been stealing "must work, doing good with his own hands, that he may have something to share with the one in need" (Ephesians 4:28).
+> For this very reason, make every effort to add to your faith virtue; and to virtue, knowledge; and to knowledge, self-control; and to self-control, perseverance; and to perseverance, godliness; and to godliness, brotherly kindness; and to brotherly kindness, love.
 
-[read] Changed conduct becomes a source of good for someone else. The thief's new reason to work is the neighbour.
+2 Peter 1:5–7 · BSB
 
-Consider: Which actions make love visible in these passages? How do rejecting evil and doing good to an enemy appear in the same account of love?
+"For if you possess these qualities and continue to grow in them, they will keep you from being ineffective and unproductive in your knowledge of our Lord Jesus Christ" (2 Peter 1:8).
 
-Reflect: Choose one concrete act of care: meeting a need, offering hospitality, sharing someone's sorrow, giving honour or refusing retaliation. Let the passage supply the reason as well as the action.
+[read] The list is not a ladder where one rung must be finished before the next begins. Verse 8 treats the qualities together, present and growing. They are close kin to what Paul calls the Spirit's fruit:
+
+> But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control. Against such things there is no law.
+
+Galatians 5:22–23 · BSB
+
+Paul's command beside that list is short: "walk by the Spirit, and you will not gratify the desires of the flesh" (Galatians 5:16). Read more in *The Holy Spirit*.
+
+### Forgetting you were cleansed
+
+Peter names what stalls growth: "whoever lacks these traits is nearsighted to the point of blindness, having forgotten that he has been cleansed from his past sins" (2 Peter 1:9). Then: "Therefore, brothers, strive to make your calling and election sure" (2 Peter 1:10). Calling is God's summons to come to Him; election is His choosing.
+
+[read] Peter does not tell people to earn their election. He tells them to live in a way that confirms it, and to remember what they have been given. Forgetting the cleansing comes before the stalling.
+
+[open] How God's choosing fits with human choice in detail is a question on which Southern Baptists themselves differ: some hold the Calvinist view, others do not, and both affirm the confession's article V (God's purpose of grace). This page does not choose. Read more in *Chosen and kept: can I be sure?*
+
+**Consider:** What does Hebrews 5:14 say trains a believer's judgement? What comes before "make every effort" in 2 Peter 1?
+
+**Reflect:** What have you heard many times but never put into practice? Choose one quality from 2 Peter 1:5–7 and one concrete way to practise it, without measuring yourself against someone else.
+
+## 06 Pressing on
+
+**Main readings:** Philippians 3:7–14
+
+Hook: The man who wrote half the New Testament's letters says he has not arrived.
+
+### Everything else as loss
+
+Paul has just listed everything he once trusted: his birth, his religious zeal, his strict keeping of the law. Then he turns the ledger over. "But whatever was gain to me I count as loss for the sake of Christ" (Philippians 3:7). "I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord" (Philippians 3:8).
+
+> and be found in Him, not having my own righteousness from the law, but that which is through faith in Christ, the righteousness from God on the basis of faith.
+
+Philippians 3:9 · BSB
+
+[read] This is the heart of the gospel, the good news of Jesus: being right with God is a gift received by trusting Christ, not a record built up by keeping rules. Read more in *The good news: how a person is made right with God*.
+
+What Paul wants now is personal: "I want to know Christ and the power of His resurrection and the fellowship of His sufferings, being conformed to Him in His death" (Philippians 3:10).
+
+### Not yet, so press on
+
+> Not that I have already obtained all this, or have already been made perfect, but I press on to take hold of that for which Christ Jesus took hold of me.
+
+Philippians 3:12 · BSB
+
+"But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus" (Philippians 3:13–14).
+
+[read] Paul presses on because Christ has already taken hold of him. The effort starts inside a relationship that is secure. This is not a blessing on any ambition you choose; its goal is Christ, and its horizon is "the resurrection from the dead" (Philippians 3:11).
+
+[care] "Forgetting what is behind" does not mean pretending past harm never happened, or refusing to own past wrongs. Paul has just recalled his own past in detail. It means not letting the past, good or bad, hold you in place.
+
+**Consider:** What does Paul count as gain now? How does his admission in verse 12 shape the way he presses on?
+
+**Reflect:** Are you tempted to rest on how far you have come, or to give up because you are not further on? What would one step toward Christ look like this week?
 
 ## Question new: Is it me that is new, or everything?
 
 Text: 2 Corinthians 5:17
 
-[read] This study reads the sentence first of the person: "if anyone is in Christ, he is a new creation" (2 Corinthians 5:17). The Baptist Faith and Message speaks the same way, of "believers" who "become new creatures" (Article 4). The whole creation is promised its renewal elsewhere: "Behold, I make all things new" (Revelation 21:5). So the person is new now, and the rest is still to come.
+[read] The Berean reads the sentence of the person: "if anyone is in Christ, he is a new creation." The Baptist Faith and Message speaks the same way, of believers who "become new creatures in Christ Jesus" (article IV). The whole created world is promised its own renewal when Christ returns, in passages such as Revelation 21. So the person is new now, and the rest is still to come.
 
-[source:jfb] The commentary of Jamieson, Fausset and Brown takes it of everyone "united to Him by faith".
-
-[source:calvin-2co] Calvin hears a requirement in it, and supplies the missing words differently: "If any one is desirous to hold some place in Christ" then "let him be a new creature". His point is that gifts count for nothing "if renovation of heart is wanting".
-
-[open] Some modern translations word it as a statement that there is a new creation, where the Berean says he is one. No writer who argues for that wording was read here, and no Greek was compared. Whichever is taken, God is the one who acts (2 Corinthians 5:18).
+[open] Some translations word this verse as "there is a new creation", a wider statement. No Greek was compared and no writer arguing for that wording was read for this page. Either way, God is the one who makes it new. Read more in *The hope to come*.
 
 ## Question still: If I am new, why do I still sin?
 
-Text: Galatians 5:17
+Text: Colossians 3:10
 
-[read] Because the new self "is being renewed" (Colossians 3:10), and the struggle Paul describes is a struggle in people who "live by the Spirit" (Galatians 5:25). John writes the same to believers: "If we say we have no sin, we deceive ourselves" (1 John 1:8). The Baptist Faith and Message says sanctification begins at regeneration, and that "Growth in grace should continue throughout the regenerate person's life" (Article 4).
+[read] Because the new self "is being renewed" (Colossians 3:10); it is real and not finished. Paul himself says he has not "already been made perfect" (Philippians 3:12). Galatians 5:17 describes the flesh and the Spirit pulling against each other in believers. The confession says that "Growth in grace should continue throughout the regenerate person's life" (article IV).
 
-[source:lbc] An older Baptist confession, the Second London Confession, calls it "yet imperfect in this life", with "a continual, and irreconcilable war".
+[source:lbc] The Second London Baptist Confession (1677, reissued 1689), chapter 13, calls sanctification "yet imperfect in this life", and describes a lasting war inside the believer between the flesh and the Spirit.
 
-[read] Romans 7 is the passage most people turn to, and readers divide over who is speaking: "For what I want to do, I do not do" (Romans 7:15). This study does not rest its answer on that chapter.
+[read] Romans 7:15–25 is the passage many turn to, and careful readers divide over whether Paul describes a believer or someone not yet in Christ. Calvin, in his commentary on Romans, takes it of a believer; John Wesley, in his *Explanatory Notes upon the New Testament*, takes it of someone not yet living in the freedom of the gospel. [check: Calvin's and Wesley's comments on Romans 7, carried from draft 01] The confession does not rule on the chapter, and this page does not choose. Its answer rests on the passages above.
 
-[source:calvin-rom] Calvin takes it of "a man already regenerated".
+## Question lose: Can a new creation lose it?
 
-[source:wesley] John Wesley takes it of someone moving "from the legal to the evangelical state", so not a picture of the settled Christian life.
+Text: Romans 6:14
 
-[source:boyce] James P. Boyce, first president of the Southern Baptist seminary, says some "have been inclined to confine its application to a time prior to acceptance of the gospel". He then rests the point on Galatians 5:17, where he says "there can be no question of the applicability to Christians".
+[read] This site holds with the Baptist Faith and Message that "All true believers endure to the end", and that those God has accepted in Christ "will never fall away from the state of grace" (article V, God's purpose of grace). The same article says "Believers may fall into sin through neglect and temptation, whereby they grieve the Spirit". So security is not permission, and Paul's own answer to that idea is "Certainly not!" (Romans 6:2). The letters' warnings, such as Galatians 5:21, are real, and they are one of the ways God keeps His people.
 
-[open] Calvin and Wesley were read on these verses only, and Boyce in that one passage. The confession does not rule on the chapter, and this page does not choose. Other Baptist writers were not read.
+[other] Christians in the Wesleyan and Arminian tradition read those warnings as showing that a true believer can finally fall away. That is their teaching, not this site's.
 
-## Question warn: Can a new creation lose it?
-
-Text: Galatians 5:21
-
-[read] Paul's warning stands: "those who practice such things will not inherit the kingdom of God" (Galatians 5:21). This study reads it as he wrote it, to people he calls "brothers" (Galatians 5:13). A life given over to these things, with no turning from them, puts anyone's profession of faith in question. It is not a score to keep on yourself after one failure, and it does not say a true believer is lost.
-
-[read] This site holds with the Baptist Faith and Message that "All true believers endure to the end", and that those God has accepted "will never fall away from the state of grace" (Article 5). The same article is plain that "Believers may fall into sin through neglect and temptation", and that they "grieve the Spirit". So security is no permission, and "Certainly not!" is Paul's own word on that (Romans 6:1–2).
-
-[source:calvin-gal] Calvin notes the word inherit: "by no right but that of adoption" is eternal life obtained.
-
-[source:methodist] Other Christians read it differently. The Methodist Articles of Religion say "we may depart from grace given, and fall into sin, and, by the grace of God, rise again". That is their teaching and not this site's.
-
-[care] If this verse frightens you, the same letters point you to confession and to the One who is "faithful and just to forgive" (1 John 1:9). A pastor or a trusted believer can walk through it with you. No page can tell you the state of your soul or someone else's.
+[care] If this question frightens you, no page can tell you the state of your soul. A pastor or a trusted believer can walk through it with you. Read more in *Chosen and kept: can I be sure?*
 
 ## Question baptism: Does baptism make the change?
 
 Text: Romans 6:3–4
 
-[read] No. This site holds with the Baptist Faith and Message: baptism is "an act of obedience" that pictures "the believer's death to sin, the burial of the old life, and the resurrection to walk in newness of life" (Article 7). The change itself is "by grace" and "through faith" (Ephesians 2:8). So Paul can appeal to baptism as a thing his readers all remember, and Colossians joins it to "your faith in the power of God" (Colossians 2:12).
+[read] No. This site holds with the Baptist Faith and Message that baptism is the immersion of a believer in water, "an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour, the believer's death to sin, the burial of the old life, and the resurrection to walk in newness of life in Christ Jesus" (article VII, baptism and the Lord's Supper). The change itself is "by grace" and "through faith" (Ephesians 2:8). Paul appeals to baptism in Romans 6 because every reader remembered it as the public picture of what had happened.
 
-[source:lbc] The Second London Confession calls it "a sign of his fellowship with him, in his death, and resurrection".
+[source:lbc] The Second London Baptist Confession, chapter 29, calls baptism "a sign of his fellowship with him, in his death and resurrection".
 
-[source:luther] Other Christians teach more of baptism. Luther's Small Catechism says "It worketh forgiveness of sins, delivers from death and the devil, and gives everlasting salvation to all who believe". That is the Lutheran teaching, shown as theirs. Other traditions differ again, and only this one was read for this page.
+[source:luther] Luther's Small Catechism, a Lutheran teaching, says baptism "worketh forgiveness of sins, delivers from death and the devil, and gives everlasting salvation to all who believe". That is shown as theirs. Read more in *Baptism and the Lord's Supper: the two things Jesus told His church to do*.
 
 ## Question sun: Does "Be angry" allow anger, and is sunset a deadline?
 
 Text: Ephesians 4:26–27
 
-[read] This study reads it as a limit and not an instruction to get angry. The verse has "yet do not sin" and a warning about "a foothold" (Ephesians 4:26–27), and five verses later anger is to go (Ephesians 4:31). It does not say every feeling of anger is itself sin.
+[read] This study reads it as a limit, not an instruction to get angry. The verse joins "yet do not sin" and a warning about giving the devil "a foothold", and five verses later anger is to go (Ephesians 4:31). It does not say every feeling of anger is itself sin; anger at real wrong can be right, and the danger is in what it becomes.
 
-[source:jfb] The commentary of Jamieson, Fausset and Brown says "Our natural feelings are not wrong when directed to their legitimate object".
+[source:calvin-eph] Calvin, in his commentary on Ephesians, names ways anger goes wrong: being stirred by slight causes, going beyond measure, and turning it against our brothers. [check: Calvin's comment on Ephesians 4:26, carried from draft 01]
 
-[source:calvin-eph] Calvin names "three faults by which we offend God in being angry": slight causes, going too far, and turning it on our brothers. On the sunset he says that "we shall quickly suppress our anger".
-
-[read] Sunset is a call to deal with anger soon, before it settles. This study does not read it as a rule that every conflict must be resolved by nightfall. That is not always yours to do: "If it is possible on your part" (Romans 12:18). Whether Psalm 4 stands behind the words is left aside here.
+[read] Sunset is a call to deal with anger soon, before it settles into bitterness. It is not a rule that every conflict must be solved by nightfall, because that is not always yours to do: "If it is possible on your part" (Romans 12:18).
 
 ## Question trust: If I forgive, must I trust them again?
 
-Text: Romans 12:18–19
+Text: Romans 12:19
 
-[read] No passage in this study says so. You are told not to avenge yourself, and to "leave room for God's wrath" (Romans 12:19), so the wrong is still called wrong and it is still answered, by someone other than you.
+[read] No passage in this study says so. You are told not to avenge yourself and to "leave room for God’s wrath" (Romans 12:19), so the wrong is still wrong, and it is answered by someone other than you. Restored trust needs time and a real change in the other person. That is this site's application, not a command of Paul's.
 
-[read] Scripture can also tie a forgiveness to a turning: "if he repents, forgive him" (Luke 17:3). Whether you forgive before anyone repents, and what restored trust takes, the passages here do not set out as a procedure. What follows is this site's application, and it is not a command of Paul's.
-
-[care] Forgiving someone can go with reporting a crime, keeping your distance and refusing to be alone with them. If you or a child are in danger, get to safety and tell someone who can help.
-
-[open] No writer on forgiveness and trust was read for this page. Returning and restoring is the study meant to take this further, and it has no page yet.
+[care] Forgiving someone can go with reporting a crime, keeping your distance and refusing to be alone with them. If you or a child are in danger, get to safety and tell someone who can help; the numbers are in part 04. Read more in *Life together: belonging to a church*.
 
 ## Close: Return to the beginning
 
-Close: Read 2 Corinthians 5:14–21 and Ephesians 2:1–10 again, and name one connection between what God has done and the life this study describes. The letters keep them close. Forgiven people are called to forgive. Members of one body are called to speak truth. Those alive in Christ are called to walk in newness of life.
+Close: Read 2 Corinthians 5:14–17 again. Every command in this study stood on something God had already done: you died with Christ, so count yourself dead to sin; you were raised with Him, so set your mind above; you were forgiven, so forgive; you have been given everything you need, so make every effort; Christ took hold of you, so press on.
 
-Way: Take this to the next command you read in a letter. What does this letter say has already been done? Find the word that joins them, if there is one. Then ask what it means to live in that.
+Way: Take this to the next command you read in a letter. Look back for what the letter says is already true of you in Christ. Find the joining word, if there is one: "therefore", "since", "for this very reason". Then ask what it means to live in that.
 
-Invite: If you are not sure you are in Christ, this study reads Paul's appeal as held out to you too: "Be reconciled to God" (2 Corinthians 5:20). Its ground is that God made "Him who knew no sin to be sin on our behalf" (2 Corinthians 5:21). This site holds with the Baptist Faith and Message that "There is no salvation apart from personal faith in Jesus Christ as Lord" (Article 4).
+Invite: If you are not sure you are in Christ, this is where to begin. The new creation is not something you build. It is "the gift of God, not by works" (Ephesians 2:8–9). Repent, which means turning from your sin to God, and trust Jesus Christ as Lord, who died and was raised. This site holds with the Baptist Faith and Message that "There is no salvation apart from personal faith in Jesus Christ as Lord" (article IV). Read more in *The good news: how a person is made right with God*.
 
 Question: Which command are you straining to keep this week, and what has God already done that it stands on?
 
 Again: Read the passage again before you answer.
 
-Passage: 2 Corinthians 5:14–21
+Passage: 2 Corinthians 5:14–17

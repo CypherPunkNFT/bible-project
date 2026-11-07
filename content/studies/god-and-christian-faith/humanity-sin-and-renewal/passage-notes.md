@@ -1,5 +1,10 @@
 # Humanity, sin and renewal passage notes
 
+## Change, 2026-11-06 (writing run job 30c)
+
+Part 03 narrows from Romans 3:9–26 to 3:9–20 (its owned passage), drops the quotations of 3:21–24 and links Saved by grace (24) and the cross study (25). Part 05 narrows Colossians 3:1–17 to a quote of 3:9–10, linking A new creation (01). Part 06 narrows to quotes of 1 Corinthians 6:19–20 and Romans 8:19–23, linking Sexuality (43) and The hope to come (30), and adds crisis lines to its abuse note; part 01 now links 43 for "male and female", as the pair requires.
+Editor: the opening lead and selection paragraph still say the study walks "six passages"; it now walks four and quotes three. Those lines sit in the top section, which this edit does not replace. The crisis numbers need checking before publishing, as marked.
+
 **Item 29 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
 ## Primary readings

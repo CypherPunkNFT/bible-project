@@ -142,6 +142,8 @@ Limit: It gives no date on which the feeling will stop, and it does not say that
 
 ### Bringing the real concern
 
+[care] If worry has become so heavy that you are thinking of harming yourself or of not wanting to live, please reach out now. Tell someone you trust today. In the United States, call or text 988, the Suicide and Crisis Lifeline [check before publishing]. In Brazil, call the CVV on 188 [check before publishing]. In Spain, call 024 [check before publishing]. In Mexico, call the Línea de la Vida on 800 911 2000 [check before publishing]. In other Spanish-speaking countries, call your local emergency number or your national crisis line [check: the crisis line for each other Spanish-speaking country the site serves]. Feelings this heavy do pass, and people do recover, often with help they did not expect to find.
+
 > Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God.
 
 Philippians 4:6 · BSB
@@ -150,7 +152,11 @@ Notice the two words that face each other: nothing and everything. The command d
 
 Then Paul goes on: think on what is true, honourable, right and pure, and practise what you have learned (Philippians 4:8–9). Prayer, thought and conduct all belong to the same paragraph.
 
-[care] Paul was no stranger to this himself. He writes that he would have had "sorrow upon sorrow" if Epaphroditus had died (Philippians 2:27), and that he despaired even of life (2 Corinthians 1:8). So these verses do not make a heavy heart proof of weak faith. What follows is this site's own word to you, not a quotation from Paul, and it is not professional guidance. Anxiety can also be an illness, and seeing a doctor or a counsellor does not contradict this passage. If you are thinking of harming yourself, tell someone today, and contact your local emergency services or a crisis line.
+[care] Paul was no stranger to this himself. He writes that he would have had "sorrow upon sorrow" if Epaphroditus had died (Philippians 2:27), and that he despaired even of life (2 Corinthians 1:8). So these verses do not make a heavy heart proof of weak faith. What follows is this site's own word to you, not a quotation from Paul, and it is not professional guidance. Anxiety can also be an illness, and seeing a doctor or a counsellor does not contradict this passage.
+
+This part reads anxiety as one pressure among six. Fear that will not lift, long anxiety and despair have a study of their own, with the Psalms that give them words.
+
+Read more in *Fear, anxiety and despair*.
 
 ### Care inside a larger passage
 
@@ -214,21 +220,27 @@ Hook: A young church has buried its dead, and it has questions.
 
 Line: Paul does not say do not grieve. He says do not grieve like those without hope, and he tells you why.
 
-Read: 1 Thessalonians 4:13–18
+Read: 1 Thessalonians 4:13–14
 
-Setting: Believers worried about those who had died before the Lord's coming. Verse 15 suggests they feared the dead would miss it; that is an inference from Paul's answer.
+Setting: Believers worried about those who had died before the Lord's coming. The verses that follow suggest they feared the dead would miss it; that is an inference from Paul's answer.
 
 Pressure: Grief for "those who sleep in death" (1 Thessalonians 4:13).
 
-Call: "encourage one another with these words" (1 Thessalonians 4:18).
+Call: Grieve, but not "like the rest, who are without hope" (1 Thessalonians 4:13).
 
-Ground: "Jesus died and rose again", and "we will always be with the Lord" (1 Thessalonians 4:14–17).
+Ground: "Jesus died and rose again", and God "will bring with Jesus those who have fallen asleep in Him" (1 Thessalonians 4:14).
 
 Limit: It does not say how long mourning should last, and it does not give a chart of future events.
 
 ### Not without hope
 
-"so that you will not grieve like the rest, who are without hope" (1 Thessalonians 4:13). The contrast is with grief that has no hope. It is not a ban on grief. Jesus wept at a friend's tomb (John 11:35); devout men "mourned deeply" over Stephen (Acts 8:2); and believers are told to "weep with those who weep" (Romans 12:15).
+[care] If you have lost someone and the grief has brought thoughts of not wanting to go on, please tell someone today. The crisis lines in part 03 are there for you: in the United States, call or text 988 [check before publishing]; in Brazil, call the CVV on 188 [check before publishing]; in Spain, call 024 [check before publishing]; in Mexico, call 800 911 2000 [check before publishing]; elsewhere, your local emergency number [check: the crisis line for each other Spanish-speaking country the site serves]. Grief this sharp does ease with time and company, even when that is hard to believe.
+
+> Brothers, we do not want you to be uninformed about those who sleep in death, so that you will not grieve like the rest, who are without hope. For since we believe that Jesus died and rose again, we also believe that God will bring with Jesus those who have fallen asleep in Him.
+
+1 Thessalonians 4:13–14 · BSB
+
+The contrast is with grief that has no hope. It is not a ban on grief. Jesus wept at a friend's tomb (John 11:35); devout men "mourned deeply" over Stephen (Acts 8:2); and believers are told to "weep with those who weep" (Romans 12:15).
 
 [source:calvin-thess] Calvin allows grief, but says it does not become believers "to mourn otherwise than in moderation", and so reads the verse as setting a limit. This site lays no measure on anyone's mourning, because of the mourning Scripture itself records, and because this verse names none.
 
@@ -236,19 +248,17 @@ The ground is not that death is small. It is "since we believe that Jesus died a
 
 [care] Asleep is the gentle word Paul uses for believers who have died. It does not mean they are unconscious: Paul also calls death being "at home with the Lord" and being "with Christ" (2 Corinthians 5:8; Philippians 1:23). And this paragraph speaks of those who have fallen asleep "in Him" (1 Thessalonians 4:14). It does not say how to grieve someone whose faith you did not know, and this page will not say more than it does. Your grief for them is real. Abraham's question stands: "Will not the Judge of all the earth do what is right?" (Genesis 18:25). A pastor can walk through that question with you.
 
-### Together with the Lord
+### Where the paragraph goes next
 
-The Lord himself will descend, the dead in Christ will rise first, and those still alive will be "caught up together with them" (1 Thessalonians 4:16–17). Then the sentence comes to rest on the point: "And so we will always be with the Lord" (1 Thessalonians 4:17). Paul was not writing a timetable for people who were curious. He was writing to people who were burying someone.
+Paul goes on to describe the Lord's coming and the meeting of the living and the dead with him, and he ends by telling the church to encourage one another with these words (1 Thessalonians 4:15–18). He was not writing a timetable for people who were curious. He was writing to people who were burying someone. That passage, and the questions Baptists answer in more than one way about when this meeting happens, are read in full in another study.
 
-> Therefore encourage one another with these words.
+Read more in *The hope to come*.
 
-1 Thessalonians 4:18 · BSB
+Hope does not make the person who died unimportant, and it does not hurry the one who misses them. You can speak this promise and still listen to what they remember. That is this site's application, not a timetable for someone else's sorrow. Mourning, dying and how to stay beside someone through both have a study of their own.
 
-Hope does not make the person who died unimportant, and it does not hurry the one who misses them. You can speak this promise and still listen to what they remember. That is this site's application, not a timetable for someone else's sorrow.
+Read more in *Grief and dying*.
 
-[open] When does this meeting in the air happen? Baptists differ. The confession affirms Christ's personal, visible return, and on timing says only that God will bring the world to its end "in His own time and in His own way" (Article 10). W. A. Criswell, the Southern Baptist pastor of First Baptist Dallas, preached in 1983 that believers are taken up before a time of tribulation. John Piper, a Baptist pastor, holds that this meeting and Christ's glorious return are one event, the saints rising to meet him and accompany him back. Baptists hold other views of the last things too; no named source for them has been read for this page, so none is reported here. This study does not choose, and the passage's own conclusion needs neither view: encourage one another.
-
-Look closely: What concern does Paul address, and what does he give as the basis of hope? Why does he end by asking the readers to comfort one another?
+Look closely: What concern does Paul address, and what does he give as the basis of hope in verse 14? Why does he set grief with hope against grief without it, rather than telling the church not to grieve?
 
 Your response: If you are beside someone who is grieving, ask whether they need you to listen before you speak. Offer this hope with care, and do not use it to close a conversation about their loss.
 

@@ -1,5 +1,11 @@
 # Passage notes — Women of the Bible
 
+## Change, 2026-11-06 (writing run job 12d)
+
+Added Junia (Romans 16:7) to part 08, with both readings of "outstanding among the apostles" and the confession's line on the pastoral office; added how 1 Corinthians 11:5 fits 14:34 to the pastors question, following the church study (28) and not settling it.
+Trimmed John 11:17–27 to a quotation of 11:25–27 linking *The signs and works of Jesus* (18), the passage's owner, and dropped the old pointer to study 14.
+In the Mary part, set the Catholic dogma of the Immaculate Conception (1854) apart from the Orthodox honour of Mary as all-holy, which rejects that dogma; open [check] items cover Chrysostom, Barnes, the Orthodox sources and the article VI wording.
+
 Study 46 · People of Scripture · 2026-11-05 · First content draft. Written as step 9 of the
 [next-20 sequence](../../../../../Pages/Topics/NEXT_20_DRAFTS.md).
 

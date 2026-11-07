@@ -2,9 +2,13 @@
 
 **Item 30 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13 are in git history.
 
+**Change, 2026-11-06 (writing run, the cross study's job):** part 02 now reads 1 Corinthians 15:12–58. Verses 1–11 (the
+gospel handed on and the witnesses) belong to *The cross, the empty tomb and the throne* (study 25), which part 02 now
+links. No quotation changed: every verse this study quotes from the chapter is 15:12 or later.
+
 ## Primary readings
 
-Read in the Berean, from the site's own copy: 1 Thessalonians 4:13–5:11; Acts 1:9–11; 1 Corinthians 15:1–58; Revelation 20:1–15; Matthew 25:31–46; John 5:24–29; Romans 8:18–25; Revelation 21:1–22:5; 2 Peter 3:1–18; Isaiah 65:17–19; Revelation 22:6–21. Each block quotation and quoted phrase is checked against this text by [build-data.py](../../../../design/the-hope-to-come-directions/build-data.py).
+Read in the Berean, from the site's own copy: 1 Thessalonians 4:13–5:11; Acts 1:9–11; 1 Corinthians 15:12–58; Revelation 20:1–15; Matthew 25:31–46; John 5:24–29; Romans 8:18–25; Revelation 21:1–22:5; 2 Peter 3:1–18; Isaiah 65:17–19; Revelation 22:6–21. Each block quotation and quoted phrase is checked against this text by [build-data.py](../../../../design/the-hope-to-come-directions/build-data.py).
 
 ## Sources, and how far each was read
 

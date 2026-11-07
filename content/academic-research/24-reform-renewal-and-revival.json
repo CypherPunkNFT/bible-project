@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 1,
+  "order": 24,
+  "slug": "reform-renewal-and-revival",
+  "title": "Reform, renewal & revival",
+  "category": "church-history",
+  "categoryTitle": "Church history",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "Between 1517 and 1845 the church in the West was reformed, divided, renewed and sent out to the world. Out of that story came the Baptists, in two streams that rose apart in England. Each movement left documents behind: theses, confessions, letters, charters, sermons. This study reads what those documents attest, and keeps it apart from the family trees later drawn over them.",
+  "question": "Which links between these movements does a document actually show, and which were drawn afterwards?",
+  "outcomes": [
+    "Name the five main reforms of the sixteenth century, Lutheran, Swiss Reformed, Anabaptist, Calvinist and English, and say what each was reforming.",
+    "Tell the General Baptists from the Particular Baptists by date, place, confession and view of the atonement, and say which stream the Calvinist strand in today's Southern Baptist debate over election descends from.",
+    "Say which links between the English Baptists and the continental Anabaptists are attested, which are argued, and who argues them.",
+    "Name the claim of an unbroken Baptist line back to the apostles for what it is, Landmark successionism, and say why Baptist historians, including those at Southern Baptist seminaries, do not hold it.",
+    "Follow the Baptist case for liberty of conscience from Thomas Helwys in 1612 to the First Amendment through the documents that made it.",
+    "Tell a revival from revivalism, and an awakening from a mission, and say what each source actually claims."
+  ],
+  "boundaries": {
+    "in": "The Reformation in five of its streams; the two Baptist beginnings in England and the confessions they wrote; the Landmark claim of succession and the Whitsitt controversy; the Baptist case for religious liberty from Helwys to Leland; the eighteenth-century awakenings and the missions movement, up to the founding of the Southern Baptist Convention in 1845.",
+    "out": [
+      "How the church has read the Bible, including the Reformers' reading of Scripture: How the church has read the Bible (30) has it, and this page links to it.",
+      "The doctrines the Reformers argued over, grace, faith, justification and the Supper, taught from Scripture: the teaching studies own them (Saved by grace, and the baptism study). Here they are named only as the questions each movement asked.",
+      "The Catholic Reformation and the Council of Trent, named only where they meet a Protestant movement. The Eastern churches are not in this story.",
+      "The Holy Spirit movements from 1901 onward, including the classical Pentecostal movement that grew from Azusa Street in 1906: the Holy Spirit study (23) has the teaching, and a later church-history study may have the history. This page does not group them with any other movement.",
+      "Southern Baptist life after 1925, beyond naming the three editions of the Baptist Faith and Message and the present debate over election."
+    ]
+  },
+  "confusedWords": [
+    { "word": "Reform, renewal, revival, awakening", "note": "Reform changes a church's teaching and order, often by law or council. Renewal is new life inside a church whose order stays, as among the German Pietists. Revival and awakening are the words the eighteenth century used for a sudden spread of conversion and earnest faith in a place. This page uses each word in that sense only." },
+    { "word": "Revival and revivalism", "note": "Revival, as Jonathan Edwards described it, is something God does, which people witness and report. Revivalism is a set of methods meant to bring revival about. The difference is the subject of Iain Murray's book, and of the claim tested in section 06." },
+    { "word": "Anabaptist and Baptist", "note": "Anabaptist means “rebaptizer”, a name given by opponents. Those so called denied that they rebaptized anyone, because they did not count infant baptism as baptism. The word names sixteenth-century continental movements. Baptist names English-speaking churches from 1609 on. Whether the second came from the first is the question of section 03." },
+    { "word": "General and Particular", "note": "Two Baptist streams, named for the atonement. General Baptists held that Christ died for all people generally, an Arminian view. Particular Baptists held that Christ died for a particular people, the elect, a Calvinist view. Both baptized believers only." },
+    { "word": "Puritan and Separatist", "note": "A Puritan stayed inside the Church of England to purify it. A Separatist judged it no true church and left. Both Baptist streams came out of Separatist circles." },
+    { "word": "Believer's baptism and immersion", "note": "Baptizing only those who profess faith is one question. Baptizing by putting the whole body under water is another. The first Baptists of 1609 baptized believers, most likely by pouring. Immersion is first attested among the Particular Baptists about 1641. Whitsitt lost his post for saying so." },
+    { "word": "A succession of churches and a succession of teaching", "note": "Landmark writers claimed a chain of true churches, each founding the next, back to the apostles. Other Baptists speak of a kinship of teaching: believers in many centuries who held what Baptists hold, with no chain claimed between them. Only the second can be tested against sources." },
+    { "word": "Toleration and liberty", "note": "Toleration is the state allowing a dissenting church to exist, as England's Act of Toleration did in 1689. Liberty, in the Baptist sense, is the claim that the state has no rule over the conscience at all. Helwys asked for the second, and so did Backus and Leland." },
+    { "word": "Confession and creed", "note": "Baptists call their statements confessions and hold them under Scripture, as guides, not as authorities over the conscience. The preamble of the Baptist Faith and Message 2000 says so in its own words." }
+  ],
+  "reformation": [
+    {
+      "id": "luther",
+      "name": "Wittenberg: Martin Luther",
+      "dates": "1517 to 1546",
+      "place": "Electoral Saxony",
+      "question": "How is a sinner made right with God?",
+      "evidence": "Luther, an Augustinian friar and professor at Wittenberg, sent ninety-five theses on indulgences to Archbishop Albrecht of Mainz with a letter dated 31 October 1517. He refused to recant at the Diet of Worms in 1521. His Small Catechism appeared in 1529, and the Augsburg Confession, written chiefly by Philip Melanchthon, was presented to the emperor in 1530.",
+      "inference": "Luther meant to reform the church he was in, not to found a new one. The break came when the theses' question became a question about authority: whether popes and councils could err, and whether Scripture stood over them.",
+      "limit": "The famous scenes, the hammer at the church door and the words “Here I stand”, rest on later or edited accounts. Section 07 tests both. His late writings against the Jews, above all On the Jews and Their Lies (1543), are part of the record and are named here plainly; nothing in them is this site's view.",
+      "sources": ["bainton", "macculloch", "george", "small-catechism"]
+    },
+    {
+      "id": "zwingli",
+      "name": "Zurich: Huldrych Zwingli",
+      "dates": "1519 to 1531",
+      "place": "Zurich, and the Swiss cities",
+      "question": "What may the church keep that Scripture does not command?",
+      "evidence": "Zwingli began preaching through Matthew's Gospel in Zurich on 1 January 1519. The city council held public disputations in 1523 and reformed worship under his lead. He and Luther met at Marburg in 1529 and agreed on most points, but not on the Lord's Supper. Zwingli was killed at the battle of Kappel in 1531.",
+      "inference": "Zurich's reform ran through the city council. That joining of church and city is what the first Anabaptists, Zwingli's own students, would refuse.",
+      "limit": "How far Zwingli's memorial view of the Supper matches the Baptist view is often said and seldom shown. Article VII of the Baptist Faith and Message calls the Supper a symbolic act of remembrance; this page does not claim Zwingli as its source.",
+      "sources": ["macculloch", "george"]
+    },
+    {
+      "id": "anabaptists",
+      "name": "Zurich, Schleitheim, Friesland: the Anabaptists",
+      "dates": "1525 to the 1560s",
+      "place": "Switzerland, South Germany, the Netherlands",
+      "question": "Who belongs to the church, and who decides?",
+      "evidence": "On 21 January 1525, in Zurich, Conrad Grebel baptized George Blaurock, who then baptized others: the first known baptisms of believers in the Reformation. Felix Manz was drowned by the Zurich authorities in January 1527. The Schleitheim articles of 1527, associated with Michael Sattler, set out believer's baptism and separation from the sword and the state; Sattler was executed that May. In the Netherlands, Menno Simons left the Catholic priesthood in 1536 and gathered the peaceable communities later called Mennonites.",
+      "inference": "Anabaptists were persecuted by Catholic and Protestant authorities alike. Their first claim for a church free of the state was made by people the state was killing.",
+      "limit": "The movement was not one thing. The violent kingdom at Münster in 1534 and 1535 was condemned by Menno and the Swiss Brethren alike; to judge the Anabaptists by Münster is to judge them by their worst. Whether the Schleitheim text is in the site's collection is not yet known [check: is the Schleitheim Confession held in the creeds collection?].",
+      "sources": ["estep", "macculloch"]
+    },
+    {
+      "id": "calvin",
+      "name": "Geneva: John Calvin",
+      "dates": "1536 to 1564",
+      "place": "Geneva",
+      "question": "How should a reformed church be ordered and taught?",
+      "evidence": "Calvin published the first edition of the Institutes of the Christian Religion at Basel in 1536 and the last Latin edition in 1559. He worked in Geneva from 1536, was expelled in 1538, returned in 1541 and stayed until his death in 1564.",
+      "inference": "Calvin's teaching on election and his order of pastors, elders and deacons reached England and Scotland through exiles and books. The Particular Baptists would take the first and reject his infant baptism.",
+      "limit": "Calvinist is a later label, and the Particular Baptists drew on the English Puritan confessions more than on Calvin directly. The 1677 Confession follows the Westminster Confession of 1646 and the Savoy Declaration of 1658 closely.",
+      "sources": ["george", "macculloch"]
+    },
+    {
+      "id": "england",
+      "name": "London and Canterbury: the English Reformation",
+      "dates": "1526 to 1571",
+      "place": "England",
+      "question": "Who is head of the church in England?",
+      "evidence": "William Tyndale's English New Testament was printed at Worms in 1526; he was executed near Brussels in 1536. Parliament named Henry VIII supreme head of the Church of England in the Act of Supremacy of 1534. The Book of Common Prayer followed in 1549 and 1552, the Elizabethan settlement in 1559, and the Thirty-Nine Articles in their final English form in 1571.",
+      "inference": "England's reform began as a question of royal authority and became a question of teaching. A national church left those who wanted a church of believers only one road: out. That road was Separatism.",
+      "limit": "The Church of England's own documents are its teaching and are labelled as its own, from its own texts.",
+      "sources": ["macculloch", "white-separatist"]
+    }
+  ],
+  "baptistStreams": [
+    {
+      "id": "general",
+      "name": "The General Baptists",
+      "tag": "Arminian · Amsterdam 1609 · London 1612",
+      "people": "John Smyth (died 1612), Thomas Helwys (died by 1616 [check: year of Helwys's death])",
+      "evidence": "Smyth, a Church of England clergyman who turned Separatist, led a congregation from Gainsborough to Amsterdam in about 1607 or 1608. In 1609 he baptized himself and then the others, on profession of faith. Smyth soon doubted his own baptism and sought to join the Waterlander Mennonites. Helwys and a few others refused, returned to England in 1612, and formed a church at Spitalfields, outside the walls of London: the first Baptist church on English soil. Helwys published A Short Declaration of the Mystery of Iniquity that year and died in Newgate prison.",
+      "inference": "This stream came out of English Separatism, by its leaders' own path and words. Its teaching on the atonement was Arminian: Christ died for all.",
+      "limit": "The 1609 baptism was most likely by pouring, not immersion; historians infer this from the sources' silence and later reports [check: McBeth's and Wright's wording on the mode in 1609]. Smyth's last writings and his followers' merger with the Waterlanders in 1615 are the core of the Anabaptist question.",
+      "confession": "Helwys's church issued a confession in 1611, printed in Lumpkin's collection [check: title and exact year as Lumpkin gives it]. The Standard Confession of 1660 is the General Baptists' later statement.",
+      "sources": ["mcbeth", "white-baptists", "wright", "lumpkin"]
+    },
+    {
+      "id": "particular",
+      "name": "The Particular Baptists",
+      "tag": "Calvinist · London, late 1630s",
+      "people": "John Spilsbury, William Kiffin, Hanserd Knollys; later Benjamin Keach",
+      "evidence": "A Southwark congregation gathered in 1616 under Henry Jacob, often called the Jacob-Lathrop-Jessey church after its pastors, saw members leave in the 1630s over baptism. By about 1638 one group under John Spilsbury baptized believers only. A manuscript ascribed to William Kiffin says that in 1641 Richard Blunt went to the Netherlands to learn immersion and that the London churches began to immerse on his return. Seven London churches signed the First London Confession in 1644, calling baptism dipping or plunging the whole body under water [check: wording of article XL in the 1644 text]. The Second London Confession was written in 1677 and reissued in 1689, after the Act of Toleration, by an assembly of churches [check: number of churches at the 1689 assembly].",
+      "inference": "This stream rose separately from the General Baptists, out of a different Separatist church, with a Calvinist view of election and the atonement. No document shows it descending from Smyth or Helwys.",
+      "limit": "The Kiffin Manuscript survives only in a later copy, and its reliability is argued [check: who holds the copy and how historians weigh it]. Whether the 1644 Confession drew on Menno Simons is argued in section 03.",
+      "confession": "First London Confession (1644, revised 1646); Second London Confession (1677, 1689), held in the site's creeds collection, as is the Baptist Catechism printed in 1695.",
+      "sources": ["mcbeth", "white-baptists", "wright", "lumpkin", "lbc-1689", "baptist-catechism"]
+    }
+  ],
+  "toTheSBC": {
+    "head": "From London to Augusta",
+    "evidence": "The Second London Confession crossed the Atlantic as the Philadelphia Confession, adopted by the Philadelphia Baptist Association in 1742 with two added articles, and by the Charleston Association later in the century [check: Charleston adoption year, usually given as 1767]. The New Hampshire Confession of 1833, milder on election, became the basis of the Baptist Faith and Message of 1925. The Abstract of Principles of 1858, still signed by the faculty of the Southern Baptist Theological Seminary, stands in the Calvinist line.",
+    "inference": "Both readings of election in today's Southern Baptist Convention have a documented ancestry. The Calvinist strand runs back through the Abstract and Philadelphia to the Particular Baptists' confession of 1677. The other strand draws on the New Hampshire text and on revival preaching. Article V of the Baptist Faith and Message 2000 is affirmed by both.",
+    "limit": "The General Baptists are not the simple ancestors of non-Calvinist Southern Baptists. Most General Baptist churches in America became Free Will or other bodies, and Southern Baptists who are not Calvinists usually trace their view through the Separate Baptists and the New Hampshire Confession instead [check: wording against Kidd and Hankins].",
+    "present": "In the present debate, Founders Ministries speaks for the Calvinist reading [check: founding year, usually given as 1982], and “A Statement of the Traditional Southern Baptist Understanding of God's Plan of Salvation” (2012) speaks for many who reject it. This page reports both and does not choose, as the doctrinal foundation asks.",
+    "sources": ["kidd-hankins", "nh-1833", "abstract-1858", "lumpkin"]
+  },
+  "joins": [
+    {
+      "id": "separatist-general",
+      "from": "English Separatism", "to": "General Baptists",
+      "status": "attested",
+      "evidence": "Smyth was a Separatist pastor before he baptized anyone, and his congregation went to Amsterdam as Separatists. His and Helwys's writings argue with other English Separatists in Separatist terms.",
+      "inference": "The line is drawn solid. This is the historians' consensus on where the first English Baptists came from.",
+      "limit": "A Separatist start does not rule out later influence from elsewhere.",
+      "sources": ["white-separatist", "mcbeth", "wright"]
+    },
+    {
+      "id": "mennonite-general",
+      "from": "Waterlander Mennonites", "to": "General Baptists",
+      "status": "contact attested, influence argued",
+      "evidence": "Smyth's group lived in Amsterdam beside the Waterlanders, applied to join them, and most of his followers did so in 1615. Helwys wrote against joining them, and on the oath and the magistrate he parted from them.",
+      "inference": "Contact is certain. Whether the Mennonites shaped the decision to baptize believers in 1609 is argued. Smyth's own writings reason toward it from Scripture and Separatist logic, which most historians take as the main cause.",
+      "limit": "William Estep and others gave Anabaptist influence more weight; B. R. White and Stephen Wright give it less [check: each author's precise position, from the books]. The line is drawn dashed, with both readings named.",
+      "sources": ["estep", "white-separatist", "wright", "mcbeth"]
+    },
+    {
+      "id": "separatist-particular",
+      "from": "The Jacob-Lathrop-Jessey church", "to": "Particular Baptists",
+      "status": "attested",
+      "evidence": "The secessions of the 1630s from Henry Jacob's Southwark church are recorded, and the early Particular Baptist leaders came out of it.",
+      "inference": "The line is drawn solid, from a different Separatist church than Smyth's.",
+      "limit": "Much of the detail comes from the Kiffin Manuscript and other later copies.",
+      "sources": ["white-baptists", "wright"]
+    },
+    {
+      "id": "collegiant-particular",
+      "from": "The Collegiants at Rijnsburg", "to": "Particular Baptists",
+      "status": "reported",
+      "evidence": "The Kiffin Manuscript reports Richard Blunt's journey in 1641 to learn immersion from a group in the Netherlands.",
+      "inference": "If the report stands, the London churches learned a practice from Dutch believers, not a succession.",
+      "limit": "One later copy carries the report. Drawn dashed.",
+      "sources": ["white-baptists", "mcbeth"]
+    },
+    {
+      "id": "menno-1644",
+      "from": "Menno Simons's writings", "to": "First London Confession",
+      "status": "argued",
+      "evidence": "Glen Stassen argued in 1962 that the 1644 Confession's articles on baptism and the church follow Menno's Foundation Book closely [check: title, journal and year, Mennonite Quarterly Review 36 (1962)].",
+      "inference": "A likeness of wording on a few articles. Whether it shows borrowing or a shared conclusion from the same Scriptures is the same kind of question the Egypt study asks of Proverbs.",
+      "limit": "Stassen's thesis has been answered by others, and this page has not read the exchange [check: which historians replied]. Drawn dashed.",
+      "sources": ["stassen", "mcbeth"]
+    },
+    {
+      "id": "general-particular",
+      "from": "General Baptists", "to": "Particular Baptists",
+      "status": "no join",
+      "evidence": "Different churches, different decades, different confessions, different views of the atonement.",
+      "inference": "Two streams, not one river forking. They met in later centuries, and in England many of their churches united in 1891 [check: the New Connexion merger year].",
+      "limit": "Members moved between them; no document makes one the parent of the other.",
+      "sources": ["mcbeth", "bebbington-baptists"]
+    },
+    {
+      "id": "apostles-baptists",
+      "from": "The apostolic churches", "to": "Baptist churches",
+      "status": "claimed, not attested",
+      "evidence": "No document traces a chain of churches, each founding the next, from the first century to 1609. The chain was drawn in the nineteenth century from groups whose own writings are mostly lost and whose views are often known only from their opponents.",
+      "inference": "The line is not drawn at all. It is shown where the page names the claim, as a dotted line labelled with who drew it.",
+      "limit": "The absence of a chain says nothing against the faith of any believer in those centuries, and nothing against the truth of what Baptists believe. It says only that the chain is not in the record.",
+      "sources": ["mcbeth", "wills", "patterson"]
+    }
+  ],
+  "succession": {
+    "head": "The claimed line",
+    "lead": "In the 1850s a group of Southern Baptist writers in Tennessee and Kentucky taught that only Baptist churches are true churches, and that they have existed in an unbroken line since Christ. The movement took its name from J. M. Pendleton's tract An Old Landmark Re-Set (1854), whose title drew on Proverbs 22:28, the command not to move an ancient boundary stone.",
+    "records": [
+      {
+        "id": "graves",
+        "who": "J. R. Graves (1820–1893)",
+        "evidence": "Editor of the Tennessee Baptist. In 1851 a meeting at Cotton Grove, Tennessee, adopted his resolutions that churches of other denominations are not true churches and their ministers should not be recognized. He republished G. H. Orchard's Concise History of Foreign Baptists [check: Orchard's date, usually 1838, and Graves's edition].",
+        "inference": "Graves's case was first about the church, a local congregation of immersed believers, and only then about history. Succession was the history his view of the church seemed to require.",
+        "limit": "Patterson's biography is the fullest modern study; it was located, not read.",
+        "sources": ["patterson", "mcbeth"]
+      },
+      {
+        "id": "pendleton",
+        "who": "J. M. Pendleton (1811–1891)",
+        "evidence": "His 1854 tract argued against recognizing ministers not immersed as believers. With Graves and A. C. Dayton he is often called one of the three founders of Landmarkism.",
+        "inference": "The tract named the movement and its emphasis on keeping old boundaries.",
+        "limit": "Pendleton later opposed the Confederacy and left the South; his views on succession were milder than Graves's [check: against Patterson or McBeth].",
+        "sources": ["mcbeth"]
+      },
+      {
+        "id": "carroll",
+        "who": "J. M. Carroll (1858–1931), The Trail of Blood",
+        "evidence": "A Texas Baptist pastor whose lectures were published in 1931, the year of his death, as a booklet with a chart. The chart runs a line of persecuted groups from the apostles to the Baptists: among them Montanists, Novatians, Donatists, Paulicians, Albigenses, Waldenses and Anabaptists.",
+        "inference": "The booklet has been reprinted many times and is still how many readers meet the claim.",
+        "limit": "Several of the groups on the chart held views Baptists reject, as far as their sources show, and most are known chiefly from those who condemned them. Being persecuted is not the same as holding Baptist teaching, and a list of the persecuted is not a chain of churches founding churches.",
+        "sources": ["carroll", "mcbeth"]
+      },
+      {
+        "id": "whitsitt",
+        "who": "William H. Whitsitt (1841–1911), president of Southern Seminary",
+        "evidence": "In 1896 he wrote in Johnson's Universal Cyclopaedia, and in his book A Question in Baptist History, that English Baptists first practised immersion in 1641, so that no unbroken line of immersing churches ran back before it. Landmark editors and churches attacked him and called for his removal. He resigned in 1898, and left office in 1899 [check: resignation and departure dates against Wills].",
+        "inference": "The controversy is part of Southern Baptist history. A Southern Baptist seminary president read the sources, said what they showed, and paid for it.",
+        "limit": "Later Baptist historians largely confirmed his conclusion on 1641; that is the consensus reported by McBeth and Wills [check: their wording].",
+        "sources": ["wills", "mcbeth"]
+      }
+    ],
+    "verdict": "Baptist historians do not support the claim of an unbroken succession, including those teaching at Southern Baptist seminaries. Where Baptists speak of continuity they mean a kinship of teaching across the centuries, or Christ's promise to keep his church, which no chain of named congregations is needed to prove."
+  },
+  "liberty": {
+    "head": "Liberty of conscience",
+    "lead": "The Baptists' best-known gift to public life was made by people in prison or in exile. Each step below is a document, read in order.",
+    "records": [
+      {
+        "id": "helwys", "year": "1612", "who": "Thomas Helwys", "document": "A Short Declaration of the Mystery of Iniquity",
+        "evidence": "The book argues that the king has no power over his subjects' souls, and asks liberty not only for Baptists but for others, including Catholics, Jews and Muslims [check: the groups as Helwys names them]. Helwys sent a copy to James I with a handwritten note saying that the king is a mortal man and not God, and so has no power over the immortal souls of his subjects [check: exact wording and spelling of the inscription, and the library holding the copy, said to be the Bodleian].",
+        "inference": "This is among the first books in English to ask full religious liberty for all.",
+        "limit": "Helwys was imprisoned soon after and died in Newgate. The book's reach in its own day was small.",
+        "sources": ["helwys", "mcbeth"]
+      },
+      {
+        "id": "williams", "year": "1636–1644", "who": "Roger Williams", "document": "Providence; The Bloudy Tenent of Persecution",
+        "evidence": "Banished from Massachusetts Bay in 1635, Williams founded Providence in 1636 on liberty of conscience. In March 1639 he was baptized by Ezekiel Holliman and then baptized others, forming what is now called the First Baptist Church in America. Within months he left it, doubting that any true church or ordinance could be had without a new apostolic calling, and lived as a “seeker”. In 1644 he published The Bloudy Tenent of Persecution, reading the parable of the wheat and the weeds (Matthew 13:24–30) against using the state's sword in matters of faith.",
+        "inference": "Williams was a Baptist for months, not years. His place in this story is for liberty, not for founding a denomination.",
+        "limit": "Seeker is his contemporaries' word and his own; it does not mean he stopped believing.",
+        "sources": ["gaustad", "mcbeth"]
+      },
+      {
+        "id": "charter", "year": "1663", "who": "John Clarke", "document": "The Rhode Island royal charter",
+        "evidence": "Clarke, Baptist pastor at Newport, obtained a royal charter that granted full liberty in matters of religion as “a lively experiment” [check: exact wording of the charter phrase].",
+        "inference": "A Baptist, not Williams, carried the claim into a colony's legal charter.",
+        "limit": "The Newport church's founding date is argued [check: 1638 or 1644].",
+        "sources": ["gaustad", "kidd-hankins"]
+      },
+      {
+        "id": "confession-1689", "year": "1677, 1689", "who": "Particular Baptists", "document": "Second London Confession, chapter 21",
+        "evidence": "The confession states that “God alone is Lord of the Conscience”, wording taken over from the Westminster Confession.",
+        "inference": "Baptists shared the sentence with the Presbyterians. What differed was how far they took it: Baptists would not have the magistrate enforce true religion either.",
+        "limit": "Quoted from the site's held text; spelling as held [check against the held copy].",
+        "sources": ["lbc-1689"]
+      },
+      {
+        "id": "backus", "year": "1773", "who": "Isaac Backus", "document": "An Appeal to the Public for Religious Liberty",
+        "evidence": "A Massachusetts Baptist pastor, Backus argued against taxes levied for the established Congregational churches and against making dissenters apply for exemption.",
+        "inference": "In New England the fight was against a Protestant establishment, not a Catholic one.",
+        "limit": "Massachusetts kept a church establishment until 1833.",
+        "sources": ["mcloughlin"]
+      },
+      {
+        "id": "leland", "year": "1791", "who": "John Leland", "document": "The Rights of Conscience Inalienable",
+        "evidence": "Leland campaigned in Virginia, where Baptist preachers had been jailed before the Revolution, then returned to New England. The tract was published in the year the First Amendment was ratified.",
+        "inference": "Leland argued for liberty for every belief, not only for Christians.",
+        "limit": "The story that Leland's support for James Madison was bargained for an amendment on religious liberty rests on later tradition [check: how Kidd and Hankins weigh it].",
+        "sources": ["kidd-hankins", "mcbeth"]
+      },
+      {
+        "id": "danbury", "year": "1802", "who": "Thomas Jefferson to the Danbury Baptist Association", "document": "Letter of 1 January 1802",
+        "evidence": "Replying to Connecticut Baptists who had asked his support, Jefferson wrote of the First Amendment as building “a wall of separation between Church & State”.",
+        "inference": "The phrase now argued over in courts was written to Baptists, in answer to Baptists.",
+        "limit": "What the phrase should mean today is a legal and political argument this page does not settle.",
+        "sources": ["kidd-hankins"]
+      }
+    ],
+    "today": "Article XVII of the Baptist Faith and Message 2000 begins “God alone is Lord of the conscience” and calls a free church in a free state the Christian ideal. That is this site's own view, and the line of documents above is where it came from."
+  },
+  "awakenings": [
+    {
+      "id": "pietism", "name": "Renewal in Germany", "dates": "1675 to 1730s",
+      "evidence": "Philipp Jakob Spener's Pia Desideria (1675) called the Lutheran churches to Bible study in small groups and to a lived faith. Count Zinzendorf's estate at Herrnhut sheltered Moravian refugees, renewed in 1727, who sent their first missionaries to the Caribbean in 1732.",
+      "inference": "Renewal inside an established church, and the first Protestant missions sent as a settled practice. The Wesleys met Moravians on their way to Georgia.",
+      "limit": "Named here only as the background to the English and American awakenings.",
+      "sources": ["macculloch", "bebbington-evangelicalism"]
+    },
+    {
+      "id": "edwards", "name": "Northampton and the Great Awakening", "dates": "1734 to the mid-1740s",
+      "evidence": "Jonathan Edwards described the revival in his Massachusetts town in A Faithful Narrative of the Surprising Work of God (1737). George Whitefield preached through the colonies from 1739. John Wesley's heart was “strangely warmed” at Aldersgate Street in London on 24 May 1738.",
+      "inference": "Edwards's title is the point: he reports a work of God that surprised him, and he did not schedule it.",
+      "limit": "“Great Awakening” is a label historians gave later, and some historians question whether it was one connected event [check: Jon Butler's argument, as reported in Kidd and Hankins].",
+      "sources": ["marsden", "kidd-hankins"]
+    },
+    {
+      "id": "separate", "name": "The Separate Baptists", "dates": "1755 onward",
+      "evidence": "Shubal Stearns, converted in the New England revival, settled at Sandy Creek, North Carolina, in 1755 with Daniel Marshall. Their preaching spread Baptist churches through the Carolinas, Virginia and Georgia.",
+      "inference": "The South's Baptists came from two traditions: the ordered Calvinism of Charleston and the fervent preaching of Sandy Creek. Walter Shurden named them, with others, in describing the Southern Baptist synthesis [check: Shurden's article and year, usually given as 1981].",
+      "limit": "The two traditions are historians' types, not churches with walls between them.",
+      "sources": ["kidd-hankins", "mcbeth"]
+    },
+    {
+      "id": "frontier", "name": "Cane Ridge and the frontier", "dates": "1790s to 1840s",
+      "evidence": "A communion season at Cane Ridge, Kentucky, in August 1801, led by Presbyterians, drew thousands. Baptist and Methodist churches grew fastest in the decades that followed. Charles Finney's Lectures on Revivals of Religion (1835) argued that revival is the result of rightly using means [check: Finney's exact sentence in lecture 1].",
+      "inference": "Between Edwards and Finney the question moved from what God had done to what preachers should do. That is the line between revival and revivalism.",
+      "limit": "Iain Murray's Revival and Revivalism (1994) argues the change was a loss; others value Finney's methods [check: which historians defend them]. This page reports the difference and does not rank the men's faith.",
+      "sources": ["murray", "kidd-hankins"]
+    }
+  ],
+  "missions": [
+    {
+      "id": "fuller", "year": "1785", "who": "Andrew Fuller", "document": "The Gospel Worthy of All Acceptation",
+      "evidence": "A Particular Baptist pastor at Kettering, Fuller argued that a Calvinist may and must call all people to repent and believe.",
+      "inference": "Fuller answered the hesitation among some Particular Baptists of his day to offer the gospel to all. The missions movement depended on that answer.",
+      "limit": "How widespread that hesitation was is argued by historians.",
+      "sources": ["mcbeth"]
+    },
+    {
+      "id": "carey", "year": "1792", "who": "William Carey", "document": "An Enquiry into the Obligations of Christians to Use Means for the Conversion of the Heathens",
+      "evidence": "Carey, a shoemaker and pastor, published the Enquiry, preached at Nottingham on Isaiah 54:2–3, and saw the Particular Baptist missionary society formed at Kettering on 2 October 1792 [check: the society's original name]. He reached India in 1793 and translated Scripture there for forty years.",
+      "inference": "The modern Protestant missions movement is often dated from here. The Moravians had gone sixty years before.",
+      "limit": "The famous motto drawn from the sermon survives in more than one wording [check: the earliest attested form].",
+      "sources": ["mcbeth", "bebbington-baptists"]
+    },
+    {
+      "id": "judson", "year": "1812–1814", "who": "Adoniram and Ann Judson, Luther Rice", "document": "The Triennial Convention",
+      "evidence": "Sent to Asia by Congregationalists, the Judsons became Baptists on the voyage and were baptized in India [check: date and who baptized them]. Rice returned to rally American Baptists, who formed a national missionary convention in Philadelphia in 1814, meeting every three years.",
+      "inference": "American Baptists first organized nationally for missions.",
+      "limit": "The convention's full name is long; it is called the Triennial Convention here.",
+      "sources": ["kidd-hankins"]
+    },
+    {
+      "id": "sbc", "year": "1845", "who": "Baptists of the Southern states", "document": "The Southern Baptist Convention, Augusta, Georgia",
+      "evidence": "Southern Baptists left the national bodies after the home and foreign mission boards declined to appoint slaveholders as missionaries, and formed their own convention in May 1845.",
+      "inference": "The Convention was formed for missions, and the issue that divided it was slavery. In 1995, at its 150th anniversary, the Convention adopted a resolution on racial reconciliation repenting of its defence of slavery and of racism.",
+      "limit": "This page states both facts plainly and does not reduce the Convention's history to either. Article III of the confession holds that every person of every race has full dignity.",
+      "sources": ["kidd-hankins", "sbc-1995"]
+    }
+  ],
+  "claims": [
+    {
+      "id": "door",
+      "claim": "“Luther nailed his theses to the church door to start a new church.”",
+      "head": "The letter is certain. The hammer is not.",
+      "evidence": "Luther's letter to Archbishop Albrecht with the theses is dated 31 October 1517. The posting on the Castle Church door is first described by Melanchthon after Luther's death. A note by Luther's secretary Georg Rörer, reported in 2006 or 2007, also mentions posting [check: date and reporting of the Rörer note].",
+      "inference": "Posting theses for debate on a church door was ordinary university practice. If he did it, it was an invitation to argue, not a declaration of a new church.",
+      "limit": "Erwin Iserloh argued in 1961 that the posting never happened; others defend it [check: Iserloh's book title and year]. The page does not choose.",
+      "test": {
+        "question": "Which statement does the evidence support best?",
+        "options": [
+          { "text": "Luther founded the Lutheran church on 31 October 1517.", "right": false, "why": "No document from that day speaks of a new church. He wrote to an archbishop, as a priest of the church." },
+          { "text": "Luther sent ninety-five theses to his archbishop on 31 October 1517.", "right": true, "why": "The dated letter attests this." },
+          { "text": "Luther never posted his theses.", "right": false, "why": "That is argued, not shown. Melanchthon and Rörer say he did." }
+        ]
+      },
+      "sources": ["bainton", "macculloch"]
+    },
+    {
+      "id": "stand",
+      "claim": "“At Worms Luther said, ‘Here I stand, I can do no other.’”",
+      "head": "The refusal is recorded. The famous words may be the printer's.",
+      "evidence": "Luther's refusal to recant unless convinced by Scripture and plain reason is in the reports of the Diet. The words “Here I stand” appear in an early printed account but not in the official record [check: against Bainton and MacCulloch].",
+      "inference": "What he refused is certain; his exact last sentence is not.",
+      "limit": "Neither side of the question can be settled from what survives.",
+      "test": null,
+      "sources": ["bainton", "macculloch"]
+    },
+    {
+      "id": "trail",
+      "claim": "“Baptist churches go back in an unbroken line to John the Baptist and the apostles.”",
+      "head": "An unbroken line. No unbroken record.",
+      "evidence": "The chain was drawn in the nineteenth century by Landmark writers and in Carroll's Trail of Blood (1931). No document links the groups on the chart by one church founding the next. When William Whitsitt said in 1896 that English Baptists began immersing in 1641, the controversy forced him out of Southern Seminary.",
+      "inference": "Baptist historians, including those at Southern Baptist seminaries, do not support the claim.",
+      "limit": "Believers in every century held truths Baptists hold. That kinship is real and can be studied, group by group, from sources. It is a different claim from succession.",
+      "test": {
+        "question": "A booklet lists the Waldenses as Baptists before the Reformation. What should you ask first?",
+        "options": [
+          { "text": "What the Waldenses' own writings say they taught about baptism and the church.", "right": true, "why": "A group on a chart must be tested by its own documents, where they survive." },
+          { "text": "Whether they were persecuted.", "right": false, "why": "They were, but persecution does not show what a group believed." },
+          { "text": "Nothing; the list is old.", "right": false, "why": "Carroll's chart dates from 1931. Its sources are older, but many came from opponents of the groups named." }
+        ]
+      },
+      "sources": ["carroll", "wills", "mcbeth"]
+    },
+    {
+      "id": "anabaptist",
+      "claim": "“The Baptists are the Anabaptists under another name.”",
+      "head": "Contact, attested. Descent, argued.",
+      "evidence": "Both Baptist streams came out of English Separatism. Smyth's group lived beside and partly merged with Dutch Mennonites; the Particular Baptists may have learned immersion from Dutch believers. Helwys disagreed with the Mennonites on the oath and the magistrate.",
+      "inference": "The majority of historians hold to an English Separatist beginning with some contact and possible influence. A minority give Anabaptist influence a larger part.",
+      "limit": "Influence on ideas is hard to prove or disprove from documents. Both readings are shown.",
+      "test": {
+        "question": "Which line can be drawn solid from the documents?",
+        "options": [
+          { "text": "Menno Simons to Thomas Helwys.", "right": false, "why": "Helwys argued against the Mennonites. Contact with Smyth's group is attested; descent is not." },
+          { "text": "Smyth's Separatist congregation to the first General Baptists.", "right": true, "why": "The same people, the same pastor, recorded in their own writings." },
+          { "text": "Zurich in 1525 to London in 1612.", "right": false, "why": "No document links the two directly." }
+        ]
+      },
+      "sources": ["estep", "white-separatist", "wright", "stassen"]
+    },
+    {
+      "id": "williams",
+      "claim": "“Roger Williams founded the Baptists in America.”",
+      "head": "A Baptist for months. A founder of liberty for life.",
+      "evidence": "Williams was baptized in March 1639, helped form the Providence church, and left it within months to become a seeker. John Clarke's church at Newport and later Baptist churches did not descend from Williams's leadership.",
+      "inference": "Williams's lasting gift was Rhode Island's liberty of conscience, not a denomination.",
+      "limit": "The Providence church rightly counts him among its founders.",
+      "test": null,
+      "sources": ["gaustad"]
+    },
+    {
+      "id": "revival",
+      "claim": "“A revival is something a church can plan for next week.”",
+      "head": "One writer reported a surprise. Another wrote a method.",
+      "evidence": "Edwards called the Northampton revival a “surprising work of God”. Finney argued that revival follows the right use of means. Churches today often use revival for a series of planned meetings.",
+      "inference": "The word has moved from the first sense toward the second. Both senses are found in Baptist churches.",
+      "limit": "Planned meetings are not wrong because the word has changed; the page asks only that a reader know which sense a speaker means.",
+      "test": null,
+      "sources": ["marsden", "murray"]
+    },
+    {
+      "id": "calvinist",
+      "claim": "“Southern Baptists have always been Calvinists” or “never were”.",
+      "head": "Two streams. Both on record.",
+      "evidence": "The Particular Baptist confessions, the Philadelphia Confession and the Abstract of Principles stand in the Calvinist line. The New Hampshire Confession, the Separate Baptist preaching tradition and the 2012 Traditional Statement stand elsewhere.",
+      "inference": "Both claims are false as stated. Each reading has a documented ancestry, and Article V is affirmed by both.",
+      "limit": "Which was the majority at a given date is argued by historians [check: Kidd and Hankins on the nineteenth century].",
+      "test": {
+        "question": "A friend says the Southern Baptist Convention has no Calvinist roots. Which document answers best?",
+        "options": [
+          { "text": "The Abstract of Principles of 1858.", "right": true, "why": "Southern Seminary's founding confession, still signed by its faculty, stands in the Calvinist line." },
+          { "text": "The New Hampshire Confession of 1833.", "right": false, "why": "It is milder on election and was the basis of the 1925 Baptist Faith and Message." },
+          { "text": "The Act of Toleration of 1689.", "right": false, "why": "It is an English law, silent on election." }
+        ]
+      },
+      "sources": ["abstract-1858", "nh-1833", "kidd-hankins"]
+    }
+  ],
+  "timeline": {
+    "from": 1500,
+    "to": 1935,
+    "rows": [
+      { "id": "theses", "name": "Luther's theses", "start": 1517, "end": 1517, "stream": "reform" },
+      { "id": "zurich", "name": "First believers' baptisms, Zurich", "start": 1525, "end": 1525, "stream": "anabaptist" },
+      { "id": "supremacy", "name": "Act of Supremacy", "start": 1534, "end": 1534, "stream": "reform" },
+      { "id": "institutes", "name": "Calvin's Institutes, first to last edition", "start": 1536, "end": 1559, "stream": "reform" },
+      { "id": "smyth", "name": "Smyth's baptism, Amsterdam", "start": 1609, "end": 1609, "stream": "general" },
+      { "id": "helwys", "name": "Helwys in London; Short Declaration", "start": 1612, "end": 1612, "stream": "general" },
+      { "id": "particular", "name": "Particular Baptist beginnings", "start": 1633, "end": 1641, "stream": "particular", "note": "A range: the secessions of the 1630s to the immersion reported for 1641." },
+      { "id": "williams", "name": "Williams baptized; leaves within months", "start": 1639, "end": 1639, "stream": "liberty" },
+      { "id": "flc", "name": "First London Confession", "start": 1644, "end": 1644, "stream": "particular" },
+      { "id": "slc", "name": "Second London Confession", "start": 1677, "end": 1689, "stream": "particular" },
+      { "id": "awakening", "name": "The Great Awakening", "start": 1734, "end": 1745, "stream": "revival", "note": "A label given later; the ends are not exact." },
+      { "id": "philadelphia", "name": "Philadelphia Confession", "start": 1742, "end": 1742, "stream": "particular" },
+      { "id": "sandy", "name": "Sandy Creek", "start": 1755, "end": 1755, "stream": "revival" },
+      { "id": "backus", "name": "Backus, Appeal", "start": 1773, "end": 1773, "stream": "liberty" },
+      { "id": "leland", "name": "Leland; First Amendment", "start": 1791, "end": 1791, "stream": "liberty" },
+      { "id": "bms", "name": "Carey; the missionary society", "start": 1792, "end": 1792, "stream": "missions" },
+      { "id": "triennial", "name": "Triennial Convention", "start": 1814, "end": 1814, "stream": "missions" },
+      { "id": "sbc", "name": "Southern Baptist Convention", "start": 1845, "end": 1845, "stream": "missions" },
+      { "id": "landmark", "name": "Cotton Grove to An Old Landmark Re-Set", "start": 1851, "end": 1854, "stream": "landmark" },
+      { "id": "whitsitt", "name": "Whitsitt controversy", "start": 1896, "end": 1899, "stream": "landmark" },
+      { "id": "trail", "name": "The Trail of Blood", "start": 1931, "end": 1931, "stream": "landmark" }
+    ],
+    "gap": "Nothing is drawn between AD 30 and 1500. The chart begins where this study's documents begin. That is the selection's edge, not a claim that the church was absent."
+  },
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“The sole authority for faith and practice among Baptists is the Scriptures of the Old and New Testaments.”",
+    "confessionSource": "Baptist Faith and Message 2000, preamble",
+    "body": "Baptists rest their teaching on Scripture, not on a line of churches. So nothing this site believes about baptism, the church or the gospel depends on a chain of congregations back to the apostles, and nothing is lost when the record shows no such chain. The site reads Christ's promise about his church (Matthew 16:18) as a promise that he will keep it, not as a list of its addresses. It holds believer's baptism by immersion (article VII) because of what Scripture commands and describes, which the Particular Baptists argued in 1644 from the same texts.",
+    "others": "The Lutheran, Reformed, Anglican and Anabaptist traditions are reported in their own documents and labelled as theirs. Where they differ from Baptists on baptism or the church, the teaching studies say what Baptists believe and why.",
+    "verses": ["Matthew 16:18", "Matthew 28:19", "Romans 6:4", "Acts 5:29", "Matthew 13:24", "2 Timothy 3:16"]
+  },
+  "reach": [
+    "Five sixteenth-century reforms, two Baptist streams, seven joins, four Landmark records, seven liberty documents, four awakenings and four missions records are here. That is a selection, chosen because each record leaves a dated document and touches the Baptist story. It is not a history of the Reformation.",
+    "The Catholic Reformation, the Eastern churches, Methodism after Wesley, Black Baptist churches and the conventions they formed, and Baptist life outside Britain and America have little or no place here. Each deserves its own record; the Black Baptist story especially should not be left as a footnote to 1845 [check: whether another planned study takes it].",
+    "Every source on this draft was located for the research, and none has yet been read through for it. Each claim must be checked against the book or document named before the page is built.",
+    "Dates are given to the year where the documents do, and as ranges where movements spread over time."
+  ],
+  "sources": [
+    { "id": "mcbeth", "title": "H. Leon McBeth, The Baptist Heritage: Four Centuries of Baptist Witness (Broadman, 1987)", "kind": "History", "status": "located", "answers": "Where did the two streams come from, and how do historians weigh the three theories of origins?", "read": "Located, not read for this draft. The standard Southern Baptist survey; most claims on this page should be checked against it first." },
+    { "id": "lumpkin", "title": "William L. Lumpkin, Baptist Confessions of Faith (Judson, 1959; revised edition with Bill J. Leonard, 2011)", "kind": "Collection of documents", "status": "located", "answers": "What do the early confessions say, in their own words?", "read": "Located, not read for this draft." },
+    { "id": "white-baptists", "title": "B. R. White, The English Baptists of the Seventeenth Century (Baptist Historical Society, 1983)", "kind": "History", "status": "located", "answers": "How did the Particular Baptists arise in London?", "read": "Located, not read for this draft." },
+    { "id": "white-separatist", "title": "B. R. White, The English Separatist Tradition (Oxford, 1971)", "kind": "History", "status": "located", "answers": "What was Separatism, and how did Smyth come out of it?", "read": "Located, not read for this draft." },
+    { "id": "wright", "title": "Stephen Wright, The Early English Baptists, 1603–1649 (Boydell, 2006)", "kind": "History", "status": "located", "answers": "What do the earliest records show, read afresh?", "read": "Located, not read for this draft." },
+    { "id": "estep", "title": "William R. Estep, The Anabaptist Story (Eerdmans, 1963; third edition 1996)", "kind": "History", "status": "located", "answers": "Who were the Anabaptists, and how did a Southern Baptist historian weigh their influence?", "read": "Located, not read for this draft." },
+    { "id": "stassen", "title": "Glen H. Stassen, “Anabaptist Influence in the Origin of the Particular Baptists” [check: title, Mennonite Quarterly Review 36 (1962)]", "kind": "Article", "status": "located", "answers": "Did Menno shape the 1644 Confession?", "read": "Located, not read." },
+    { "id": "kidd-hankins", "title": "Thomas S. Kidd and Barry Hankins, Baptists in America: A History (Oxford, 2015)", "kind": "History", "status": "located", "answers": "How did Baptists grow in America, through awakening, liberty, missions and division?", "read": "Located, not read for this draft." },
+    { "id": "bebbington-baptists", "title": "David W. Bebbington, Baptists through the Centuries (Baylor, 2010)", "kind": "History", "status": "located", "answers": "How do the British and American Baptist stories fit together?", "read": "Located, not read for this draft." },
+    { "id": "bebbington-evangelicalism", "title": "David W. Bebbington, Evangelicalism in Modern Britain (Unwin Hyman, 1989)", "kind": "History", "status": "located", "answers": "What marks the evangelical movement that grew from the awakenings?", "read": "Located, not read. Known for its four marks: conversion, activism, the Bible and the cross." },
+    { "id": "wills", "title": "Gregory A. Wills, Southern Baptist Theological Seminary, 1859–2009 (Oxford, 2009)", "kind": "History", "status": "located", "answers": "What happened to Whitsitt, and why?", "read": "Located, not read for this draft." },
+    { "id": "patterson", "title": "James A. Patterson, James Robinson Graves: Staking the Boundaries of Baptist Identity (B&H Academic, 2012) [check: publisher and year]", "kind": "Biography", "status": "located", "answers": "What did Graves teach, and why?", "read": "Located, not read." },
+    { "id": "carroll", "title": "J. M. Carroll, The Trail of Blood (1931)", "kind": "Primary booklet", "status": "located", "answers": "What does the succession claim actually say?", "read": "Located, not read for this draft. Reported as a claim, never as a source of history." },
+    { "id": "helwys", "title": "Thomas Helwys, A Short Declaration of the Mystery of Iniquity (1612)", "kind": "Primary book", "status": "located", "answers": "What liberty did Helwys ask, and for whom?", "read": "Located, not read. A modern edition exists [check: Richard Groves's edition, Mercer, 1998]." },
+    { "id": "gaustad", "title": "Edwin S. Gaustad, Liberty of Conscience: Roger Williams in America (Eerdmans, 1991)", "kind": "Biography", "status": "located", "answers": "How long was Williams a Baptist, and what did he found?", "read": "Located, not read for this draft." },
+    { "id": "mcloughlin", "title": "William G. McLoughlin, New England Dissent, 1630–1833 (Harvard, 1971)", "kind": "History", "status": "located", "answers": "What did Backus and the New England Baptists fight?", "read": "Located, not read." },
+    { "id": "murray", "title": "Iain H. Murray, Revival and Revivalism: The Making and Marring of American Evangelicalism, 1750–1858 (Banner of Truth, 1994)", "kind": "History", "status": "located", "answers": "Is there a difference between revival and revivalism?", "read": "Located, not read. Reported as one historian's argument." },
+    { "id": "marsden", "title": "George M. Marsden, Jonathan Edwards: A Life (Yale, 2003)", "kind": "Biography", "status": "located", "answers": "What did Edwards report at Northampton?", "read": "Located, not read." },
+    { "id": "bainton", "title": "Roland H. Bainton, Here I Stand: A Life of Martin Luther (Abingdon, 1950)", "kind": "Biography", "status": "located", "answers": "What happened in 1517 and at Worms?", "read": "Located, not read. Older; check its claims against MacCulloch." },
+    { "id": "macculloch", "title": "Diarmaid MacCulloch, Reformation: Europe's House Divided, 1490–1700 (Allen Lane, 2003; US title The Reformation: A History)", "kind": "History", "status": "located", "answers": "How do the five reforms fit together?", "read": "Located, not read for this draft." },
+    { "id": "george", "title": "Timothy George, Theology of the Reformers (Broadman, 1988)", "kind": "History", "status": "located", "answers": "What did Luther, Zwingli, Calvin and Menno each teach?", "read": "Located, not read. Written by a Southern Baptist historian, with a chapter on Menno Simons." },
+    { "id": "small-catechism", "title": "Martin Luther, Small Catechism (1529)", "kind": "Primary · held in the site's collection [check]", "status": "located", "answers": "What did Luther teach the households of his church?", "read": "To be checked against the held text." },
+    { "id": "lbc-1689", "title": "The Second London Baptist Confession (1677/1689)", "kind": "Primary · held in the site's collection", "status": "held", "answers": "What did the Particular Baptists confess?", "read": "Held; the one quotation on this page to be checked against the held text." },
+    { "id": "baptist-catechism", "title": "The Baptist Catechism (1695)", "kind": "Primary · held in the site's collection", "status": "held", "answers": "How did Particular Baptists teach the faith to new believers?", "read": "Held; named only." },
+    { "id": "nh-1833", "title": "The New Hampshire Baptist Confession (1833)", "kind": "Primary · held in the site's collection", "status": "held", "answers": "What did the 1925 Baptist Faith and Message build on?", "read": "Held; named only." },
+    { "id": "abstract-1858", "title": "The Abstract of Principles (1858)", "kind": "Primary · held in the site's collection", "status": "held", "answers": "What confession was Southern Seminary founded on?", "read": "Held; named only." },
+    { "id": "sbc-1995", "title": "Southern Baptist Convention, Resolution on Racial Reconciliation on the 150th Anniversary of the Southern Baptist Convention (1995)", "kind": "Primary · resolution", "status": "located", "answers": "How has the Convention spoken of its founding?", "read": "Located, not read for this draft. To be read on the Convention's own site before the page quotes it." },
+    { "id": "bfm-2000", "title": "The Baptist Faith and Message 2000 and its preamble, Southern Baptist Convention", "kind": "Primary · confession", "status": "read", "answers": "What does this site hold?", "read": "Short phrases quoted as recorded in the site's doctrinal foundation, checked there on 2026-10-29. Check the current text at bfm.sbc.net before publishing, since the convention may now amend it." }
+  ],
+  "pictures": [
+    { "id": "helwys-inscription", "status": "candidate", "what": "The inscribed page of Helwys's copy for James I", "note": "[check: holding library, likely the Bodleian, its shelfmark, and whether an openly licensed image exists]" },
+    { "id": "flc-1644", "status": "candidate", "what": "Title page of the First London Confession, 1644", "note": "[check: a public-domain scan with a clear source]" },
+    { "id": "providence", "status": "candidate", "what": "The meeting house of the First Baptist Church in America, Providence (1775)", "note": "[check: an openly licensed photograph]" }
+  ],
+  "verses": [
+    { "label": "Matthew 16:18", "code": "MAT", "chapter": 16, "verse": 18, "about": "Christ's promise to build his church; read by Landmark writers as proof of succession." },
+    { "label": "Matthew 28:19", "code": "MAT", "chapter": 28, "verse": 19, "about": "The command to make disciples and baptize; Carey's text in argument, and the ground of believer's baptism." },
+    { "label": "Romans 6:4", "code": "ROM", "chapter": 6, "verse": 4, "about": "Buried with Christ in baptism; one reason Baptists immerse." },
+    { "label": "Romans 1:17", "code": "ROM", "chapter": 1, "verse": 17, "about": "The righteous live by faith; the verse Luther later said opened the gospel to him." },
+    { "label": "Acts 5:29", "code": "ACT", "chapter": 5, "verse": 29, "about": "Obeying God rather than men; cited by dissenters before magistrates." },
+    { "label": "Matthew 13:24", "code": "MAT", "chapter": 13, "verse": 24, "about": "The wheat and the weeds; Williams's text against persecution." },
+    { "label": "Proverbs 22:28", "code": "PRO", "chapter": 22, "verse": 28, "about": "The ancient boundary stone; the source of the name Landmark." },
+    { "label": "Isaiah 54:2", "code": "ISA", "chapter": 54, "verse": 2, "about": "Enlarge the place of your tent; the text of Carey's Nottingham sermon." },
+    { "label": "2 Timothy 3:16", "code": "2TI", "chapter": 3, "verse": 16, "about": "All Scripture God-breathed; the site's ground for holding confessions under Scripture." }
+  ],
+  "versesNote": "This draft quotes no verse. Each verse is referred to only; any phrase the page shows must be filled by the build from the held Berean Standard Bible.",
+  "openQuestions": [
+    "Helwys's year of death, and the exact wording, spelling and holding library of his inscription to James I.",
+    "The mode of Smyth's 1609 baptism as McBeth and Wright word it.",
+    "Title and year of the 1611 Helwys confession as Lumpkin prints it.",
+    "Wording of article XL of the First London Confession (1644) on dipping or plunging.",
+    "Number of churches at the 1689 Particular Baptist assembly.",
+    "Holder and reliability of the Kiffin Manuscript.",
+    "Charleston Association's adoption year of the Philadelphia Confession.",
+    "Founders Ministries' founding year.",
+    "Whether non-Calvinist Southern Baptists' ancestry is better traced through the Separate Baptists and New Hampshire than through the General Baptists, against Kidd and Hankins.",
+    "Estep, White and Wright's exact positions on Anabaptist influence.",
+    "Stassen's article title, journal and year, and who answered him.",
+    "The New Connexion and Particular Baptist union year in England.",
+    "Orchard's date and Graves's edition; Pendleton's view of succession; Whitsitt's resignation and departure dates; McBeth's and Wills's wording on 1641.",
+    "The groups Helwys names in asking liberty; the Rhode Island charter's exact phrase; the Newport church's founding date; the 1689 chapter 21 wording as held.",
+    "How Kidd and Hankins weigh the Leland–Madison story.",
+    "Jon Butler's argument on the Great Awakening; Shurden's article and year; Finney's exact sentence; historians who defend Finney's methods.",
+    "The missionary society's original name; the earliest form of Carey's motto; the Judsons' baptism date and minister.",
+    "The Rörer note's date; Iserloh's book and year; the textual history of “Here I stand”.",
+    "Whether the Schleitheim Confession and Luther's Small Catechism are held in the creeds collection.",
+    "Patterson's publisher and year; the Groves edition of Helwys.",
+    "Whether another planned study takes the history of Black Baptist churches.",
+    "The current text of the Baptist Faith and Message at bfm.sbc.net, since the convention can now amend it.",
+    "Every source on this draft is located, not read; each attributed claim must be read in the source before building.",
+    "Openly licensed pictures for the three candidates."
+  ]
+}

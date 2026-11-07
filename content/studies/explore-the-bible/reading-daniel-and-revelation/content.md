@@ -198,7 +198,7 @@ The first readers of these books did not need a chart. They needed courage for t
 
 ### What the text shows
 
-Daniel's friends answered the king before the furnace: "If the God whom we serve exists, then He is able to deliver us… But even if He does not, let it be known to you, O king, that we will not serve your gods" (Daniel 3:17–18 · BSB). Daniel heard the law against prayer and "got down on his knees, prayed, and gave thanks to his God, just as he had done before" (6:10 · BSB).
+Daniel's friends answered the king before the furnace: "If the God whom we serve exists, then He is able to deliver us… But even if He does not, let it be known to you, O king, that we will not serve your gods" (Daniel 3:17–18 · BSB). Daniel heard the law against prayer and "got down on his knees, prayed, and gave thanks to his God, just as he had done before" (6:10 · BSB). What a believer owes a ruler, and where that duty stops, is read in *The Christian and the state*.
 
 To the church in Smyrna the risen Christ wrote:
 

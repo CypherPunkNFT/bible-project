@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "order": 10,
+  "slug": "dating-the-biblical-world",
+  "title": "Dating the biblical world",
+  "category": "history",
+  "categoryTitle": "History & archaeology",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "The Bible counts time by kings: in such a year of one king, another began to reign. Turning those years into years on our calendar takes other kingdoms' lists of kings and officials, one eclipse of the sun in June 763 BC, and what the ground holds. Each method is sharp in some places and blurred in others. This study shows where.",
+  "question": "How does a year in Kings become a year BC, and how much of that number is record and how much is reckoning?",
+  "outcomes": [
+    "Tell a relative date (this came after that) from an absolute one (this happened in 853 BC), and say which kind each method gives.",
+    "Follow the chain from the eclipse of 15 June 763 BC to the year Ahab's soldiers fought at Qarqar, and name each link in it.",
+    "Explain how the same regnal numbers in Kings have given 975, 931 or 922 BC for the division of the kingdom, and name the rule each reckoning chose.",
+    "Read a radiocarbon date as a range with a probability, not as a year, and say why the eighth to fifth centuries BC are hard for it.",
+    "Ask of any date you hear for a biblical event: what fixes it, and how wide is it really?"
+  ],
+  "boundaries": {
+    "in": "How dates BC are reached for the world of the Old Testament from about 1000 to 560 BC: the Bible's own regnal numbers; the king lists and eponym lists of Assyria and Babylon; the eclipse of 763 BC; the records that name a king of Israel or Judah beside a foreign king; pottery sequences; and radiocarbon. Egypt and older Mesopotamia appear only to show how far the same methods reach.",
+    "out": [
+      "When the exodus happened, and the 480 years of 1 Kings 6:1. The planned exodus and settlement study argues that; here the verse is named as a number every chronology must place, and no date is chosen.",
+      "Jericho and its radiocarbon samples: From discovery to history keeps them.",
+      "The empires' dealings with Israel and Judah as history: Israel among the empires keeps the story. This page keeps only how its years are fixed.",
+      "The ages in Genesis 1–11 and the age of the earth: Genesis 1–11: the questions readers bring (50) keeps those questions. Ussher's date is named here only as an example of a reckoning.",
+      "The dates of Daniel's visions and of Daniel as a book: Reading Daniel and Revelation (49) keeps them.",
+      "New Testament dates, from Herod to the procurators: The world of Jesus & the apostles keeps them.",
+      "The dating of manuscripts by their handwriting: Manuscripts and The surviving witnesses keep that."
+    ]
+  },
+  "methods": [
+    {
+      "id": "regnal",
+      "name": "The Bible's own regnal numbers",
+      "kind": "relative, with internal ties",
+      "gives": "How long each king of Israel and Judah reigned, and in which year of the other kingdom's king he began.",
+      "sharpest": "Within one kingdom across a few reigns, where the lengths and the cross-references agree.",
+      "reach": "From Saul and David to the release of Jehoiachin in Babylon, recorded in 2 Kings 25:27.",
+      "evidence": "Kings and Chronicles give, for most kings, an age at accession, a length of reign, and a synchronism with the king of the other kingdom, as in 1 Kings 15:1. These are numbers kept by people who lived by them.",
+      "inference": "Together they make a lattice: two ladders of reigns tied to each other at many rungs. A lattice can be checked against itself, which a single list cannot.",
+      "limit": "The text does not say which day a regnal year began, whether the year a king came to the throne counted as his first, or when a son reigned alongside his father. Every modern chronology has to supply those rules, and the rules are reconstructions. None of the numbers is tied to our calendar until another kingdom's record is brought beside it.",
+      "sources": ["thiele", "galil", "finegan"]
+    },
+    {
+      "id": "kinglists",
+      "name": "King lists",
+      "kind": "relative",
+      "gives": "The order of kings and, in the better lists, the length of each reign.",
+      "sharpest": "Where a list was kept close to the reigns it records, and where several copies agree.",
+      "reach": "The Assyrian King List runs back into the second millennium BC; the Babylonian king lists and the Canon of Ptolemy cover the first.",
+      "evidence": "The Assyrian King List survives in several copies, among them the Khorsabad list, giving a line of kings with reign lengths. The Canon of Ptolemy, preserved with Ptolemy's astronomical work, lists the kings of Babylon and their successors in years from the accession of Nabonassar in 747 BC.",
+      "inference": "Added up, reign lengths give the distance between two kings. That distance becomes a date only when one king in the line is fixed in our calendar by something else.",
+      "limit": "A list can drop a king, merge two reigns, or round. Its oldest parts were written long after the reigns they record. A list orders time; by itself it does not fix it.",
+      "sources": ["grayson", "finegan"]
+    },
+    {
+      "id": "eponyms",
+      "name": "The Assyrian eponym lists",
+      "kind": "relative, year by year",
+      "gives": "Every year named after one official, in order, with no gaps across the period it covers.",
+      "sharpest": "From about 910 to 649 BC, where the lists run unbroken and the eclipse fixes one year.",
+      "reach": "The canonical run ends about 649 BC. The order of the officials who held the post after that is argued, and scholars call them the post-canonical eponyms.",
+      "evidence": "Assyria named each year after an official called the limmu, the eponym. Scribes kept lists of these names, one per year; some copies, called the eponym chronicle, add a word on what happened that year: a campaign, a revolt, a plague. Alan Millard's edition sets the copies side by side.",
+      "inference": "Because each year has a name, and the lists overlap and agree, the distance between any two years in the run is known exactly. Fix one year and every other year in the run is fixed with it.",
+      "limit": "The lists are a chain of names. Without the eclipse they would float. Where the copies are broken or disagree, a year can be disputed; the edition records where. [check: Millard 1994 on the places where copies differ in the 9th and 8th centuries]",
+      "sources": ["millard", "grayson"]
+    },
+    {
+      "id": "astronomy",
+      "name": "Astronomy",
+      "kind": "absolute",
+      "gives": "A day or a year in our calendar, wherever an ancient text records something in the sky that can be calculated backwards.",
+      "sharpest": "A total or near-total eclipse of the sun named in a dated record: it happens rarely in one place, so the match is strong.",
+      "reach": "In this period: the eclipse of 763 BC in the eponym chronicle; the Babylonian astronomical diaries and dated observations, such as the tablet VAT 4956 for Nebuchadnezzar's thirty-seventh year. Older and more disputed: the Venus observations of Ammisaduqa for Babylon and the rising of Sirius for Egypt.",
+      "evidence": "The motions of sun and moon can be calculated backwards for thousands of years. Where a record says an eclipse came in a certain month of a certain named year, the calculation can find which eclipses fit.",
+      "inference": "One matched eclipse turns a floating chain of years into dates. Several matches check each other.",
+      "limit": "The match depends on reading the record rightly (is it an eclipse, and of the sun?), on where it was seen from, and on the slowing of the earth's spin, which shifts where an ancient eclipse was visible. F. Richard Stephenson's work turns the argument round and uses dated eclipses to measure that slowing. Older sky records, such as the Venus tablet, fit several possible dates, which is why Babylon's Hammurabi has a high, a middle and a low chronology.",
+      "sources": ["stephenson", "finegan"]
+    },
+    {
+      "id": "pottery",
+      "name": "Pottery sequences",
+      "kind": "relative",
+      "gives": "Which layer of a site is older or younger than another, and which layers at different sites belong to the same phase.",
+      "sharpest": "Within one site, where layers lie undisturbed, and across a region where the same forms are traded and copied.",
+      "reach": "The whole of the period, wherever there is a dig. The names archaeologists use, such as Iron Age I and Iron Age IIA, are pottery phases before they are dates.",
+      "evidence": "Shapes, clays and decoration change over time. Flinders Petrie, digging at Tell el-Hesi in 1890, showed that the pottery of a mound changes layer by layer and can be used to put layers in order.",
+      "inference": "A layer's pottery places it in a sequence. A sequence becomes a date only where some layer in it is tied to a dated event: a destruction named in a dated text, an inscribed object, or a radiocarbon series.",
+      "limit": "Pots were used for generations, and old forms lingered. A phase has no sharp edges, and the same phase may begin earlier in one region than another. Most arguments about dating a layer are arguments about which dated event its pottery should be tied to.",
+      "sources": ["petrie", "mazar1990"]
+    },
+    {
+      "id": "radiocarbon",
+      "name": "Radiocarbon",
+      "kind": "absolute, as a range",
+      "gives": "A range of calendar years, with a probability, for when a plant or animal died.",
+      "sharpest": "Short-lived samples such as seeds and olive pits from a sealed layer, measured many times and modelled together.",
+      "reach": "The whole of the period, but with a flat stretch in the calibration curve from about 800 to 400 BC that widens every result inside it.",
+      "evidence": "Living things take in carbon-14, which decays at a known rate after death. Willard Libby developed the method in the late 1940s. A laboratory measures what is left and reports radiocarbon years before present; a calibration curve, built from tree rings of known age, turns that into calendar years. The current curve for the northern hemisphere is IntCal20.",
+      "inference": "A single sample gives a range, often a century or more wide at the usual probability. Many samples in a known order of layers, modelled together (the method usually called Bayesian modelling), can narrow the range a good deal.",
+      "limit": "Old wood can be centuries older than the layer it is found in. A sample can be disturbed. Where the curve is flat, quite different calendar years give the same measurement: the flat stretch from about 800 to 400 BC is called the Hallstatt plateau. Radiocarbon can tell 950 from 850 BC only with care, and cannot by itself tell 700 from 500 BC.",
+      "sources": ["intcal20", "levyhigham"]
+    }
+  ],
+  "anchor": {
+    "head": "One eclipse. Two and a half centuries.",
+    "record": "The eponym chronicle, in the year named after Bur-Saggile, governor of Guzana. [check: spelling Bur-Saggile or Bur-Sagale, as in Millard 1994]",
+    "evidence": "The entry for that year records a revolt in the city of Ashur and, in the month Simanu, an eclipse of the sun. Simanu falls in late spring and early summer. Calculation finds a large eclipse of the sun over northern Mesopotamia on 15 June 763 BC in the Julian calendar. [check: whether the path of totality crossed Ashur itself or passed just north, per Stephenson 1997]",
+    "inference": "That year is 763 BC. Counting the eponyms back and forward from it fixes every year of the unbroken run, from about 910 to 649 BC, and so every Assyrian event dated by an eponym in that run.",
+    "limit": "The identification rests on one line and one calculation. It has been tested by other dated observations, by the Canon of Ptolemy where they overlap from 747 BC, and by the fit of the Babylonian records, and it holds. It fixes Assyria's years. It does not fix Israel's: that takes a record naming both.",
+    "history": "The eclipse was identified with 763 BC in the nineteenth century, soon after the eponym lists were read. [check: that Henry Rawlinson first proposed it, and the year, usually given as 1867]",
+    "astronomicalYear": "Astronomers write this year as −762, because their count has a year 0 and the historians' count does not. Both mean the same summer.",
+    "sources": ["millard", "stephenson", "grayson"]
+  },
+  "chain": [
+    {
+      "step": 1,
+      "head": "The nail",
+      "year": "763 BC",
+      "width": "one day",
+      "evidence": "The eclipse in the eponym year of Bur-Saggile.",
+      "inference": "This year is fixed by calculation, not by counting.",
+      "limit": "Everything below is only as fixed as this identification."
+    },
+    {
+      "step": 2,
+      "head": "Count the names back",
+      "year": "853 BC",
+      "width": "one year",
+      "evidence": "Shalmaneser III's annals date his battle at Qarqar on the Orontes to his sixth year, and the eponym lists place that year ninety years before the eclipse.",
+      "inference": "Qarqar was fought in 853 BC.",
+      "limit": "The count is exact if the lists are complete across those ninety names, and the copies agree that they are."
+    },
+    {
+      "step": 3,
+      "head": "A name crosses over",
+      "year": "853 BC",
+      "width": "one year",
+      "evidence": "Shalmaneser's monolith from Kurkh lists among his enemies at Qarqar Ahab the Israelite, with two thousand chariots and ten thousand foot soldiers.",
+      "inference": "Ahab was alive and reigning in 853 BC.",
+      "limit": "Kings does not mention Qarqar. The monolith does not say which year of Ahab's reign this was. It fixes a moment within his reign, not its end."
+    },
+    {
+      "step": 4,
+      "head": "A second name, twelve years on",
+      "year": "841 BC",
+      "width": "one year",
+      "evidence": "In Shalmaneser's eighteenth year, which the eponyms fix as 841 BC, he received tribute from Jehu; the Black Obelisk shows a man bowing, captioned as Jehu's tribute.",
+      "inference": "Jehu was reigning in 841 BC.",
+      "limit": "The obelisk calls Jehu son of Omri, the Assyrian way of naming the kingdom of Israel by its founder; he was not Omri's son by birth. It does not say Jehu's first year was 841. That is an inference."
+    },
+    {
+      "step": 5,
+      "head": "Kings fills the gap",
+      "year": "853–841 BC",
+      "width": "a reckoning",
+      "evidence": "Between Ahab and Jehu, Kings gives Ahaziah of Israel two years (1 Kings 22:51) and Joram twelve (2 Kings 3:1): fourteen years as written.",
+      "inference": "Edwin Thiele argued that Israel then counted a king's part-year of accession as his first year, so fourteen counted years equal twelve calendar years. On that rule Ahab died in 853, soon after Qarqar, and Jehu came to the throne in 841, the year of his tribute.",
+      "limit": "The fit depends on the counting rule, which the text does not state. It is a strong fit, and it is a reconstruction. Others place Ahab's death and Jehu's accession slightly differently while keeping both outside records."
+    },
+    {
+      "step": 6,
+      "head": "Count the Bible's years back",
+      "year": "931/930 BC",
+      "width": "a reckoning, a year or so",
+      "evidence": "From Ahab back to the division of the kingdom under Rehoboam and Jeroboam, Kings gives the reigns and the cross-references.",
+      "inference": "Thiele's reckoning reaches 931/930 BC for the division. Kenneth Kitchen reaches the same within a year.",
+      "limit": "Each step back adds the judgement of how the next reign was counted. William F. Albright, using other rules and some changes to the numbers, reached 922 BC. The site's own voice does not adopt changes to the numbers; it reports that Albright made them."
+    }
+  ],
+  "synchronisms": [
+    {
+      "id": "qarqar",
+      "title": "Ahab at Qarqar",
+      "bible": ["1 Kings 16:29", "1 Kings 22:51"],
+      "outside": "Kurkh Monolith of Shalmaneser III",
+      "object": "British Museum [check: registration number, usually given as 118884]",
+      "year": "853 BC",
+      "fixedBy": "Eponym count from 763 BC",
+      "evidence": "Ahab the Israelite is named among the allied kings, with the largest chariot force in the list.",
+      "inference": "Ahab's reign included 853 BC. The size of his force shows a kingdom of weight in Assyrian eyes, a picture Kings does not contradict.",
+      "limit": "Kings is silent about the battle. The numbers on the monolith are Assyrian figures for an enemy and are reported, not tested, here.",
+      "sources": ["millard", "kitchen2003"]
+    },
+    {
+      "id": "jehu",
+      "title": "Jehu's tribute",
+      "bible": ["2 Kings 9:1", "2 Kings 10:36"],
+      "outside": "Black Obelisk of Shalmaneser III",
+      "object": "British Museum 118885, found at Nimrud by Austen Henry Layard in 1846",
+      "year": "841 BC",
+      "fixedBy": "Eponym count from 763 BC",
+      "evidence": "A relief caption names the tribute of Jehu; Shalmaneser's annals place it in his eighteenth year.",
+      "inference": "Jehu reigned in 841 BC. With Qarqar, it gives two outside points twelve years apart, and Kings must fit between them.",
+      "limit": "Kings does not record a tribute to Assyria by Jehu. The picture is the only surviving image of a named king of Israel, and whether the bowing figure is Jehu himself or his envoy is argued. [check: current reading of the figure]",
+      "sources": ["millard", "kitchen2003"]
+    },
+    {
+      "id": "pul",
+      "title": "Menahem and Pul",
+      "bible": ["2 Kings 15:19", "1 Chronicles 5:26"],
+      "outside": "Annals of Tiglath-pileser III; Babylonian king list and Canon of Ptolemy",
+      "object": "Inscriptions from Nimrud and Babylonian lists",
+      "year": "740 or 738 BC [check: which year current editions give for Menahem's tribute]",
+      "fixedBy": "Eponym count from 763 BC",
+      "evidence": "Tiglath-pileser lists tribute from Menahem of Samaria. Kings calls the king who took Menahem's tribute Pul. Babylonian records give Tiglath-pileser, as king of Babylon, a name read Pulu, and the Canon of Ptolemy lists a Poros at the same place.",
+      "inference": "Pul and Tiglath-pileser are one man under two names, and Menahem reigned at the year of the tribute.",
+      "limit": "The date of the tribute has been argued; it sits awkwardly with some reckonings of Menahem's reign, and Thiele's own dates for Menahem were revised by others on this point. [check: the specific debate, as set out in Galil 1996]",
+      "sources": ["thiele", "galil", "grayson"]
+    },
+    {
+      "id": "sargon",
+      "title": "Samaria falls",
+      "bible": ["2 Kings 17:6", "2 Kings 18:9", "2 Kings 18:10", "Isaiah 20:1"],
+      "outside": "Babylonian Chronicle (Grayson's chronicle 1); inscriptions of Sargon II",
+      "object": "British Museum tablet and Khorsabad palace inscriptions",
+      "year": "722 or 720 BC",
+      "fixedBy": "Babylonian Chronicle regnal years and eponym count",
+      "evidence": "The chronicle says Shalmaneser V ravaged a city whose name is usually read as Samaria. Sargon II, his successor, later claims to have taken Samaria and carried off its people.",
+      "inference": "Samaria fell at the end of Shalmaneser's reign or at the start of Sargon's, about 722 BC, and Sargon's claim may refer to finishing the work or to a later campaign.",
+      "limit": "Kings names the king of Assyria as Shalmaneser for the siege and does not name the king at the capture. Scholars differ on whether Sargon's claim is to the same event. This page reports both readings and does not choose.",
+      "sources": ["grayson", "galil"]
+    },
+    {
+      "id": "sennacherib",
+      "title": "Hezekiah in Sennacherib's third campaign",
+      "bible": ["2 Kings 18:13", "Isaiah 36:1"],
+      "outside": "Sennacherib's annals on prisms",
+      "object": "Taylor Prism, British Museum 91032; other copies in Chicago and Jerusalem",
+      "year": "701 BC",
+      "fixedBy": "Eponym count from 763 BC",
+      "evidence": "Sennacherib's annals describe his third campaign, against the west, and say he shut Hezekiah up in Jerusalem. Kings dates the invasion to Hezekiah's fourteenth year.",
+      "inference": "Hezekiah's fourteenth year included 701 BC, so his reign as counted in 2 Kings 18:13 began about 715 BC.",
+      "limit": "That starting point sits awkwardly with 2 Kings 18:1 and 18:10, which tie Hezekiah's first and sixth years to Hoshea of Israel and the fall of Samaria about 722 BC. See the reckoning section: the tension is in the modern reconstruction of how the numbers were counted.",
+      "sources": ["thiele", "kitchen2003"]
+    },
+    {
+      "id": "carchemish",
+      "title": "Jehoiakim's fourth year, Nebuchadnezzar's first",
+      "bible": ["Jeremiah 25:1", "Jeremiah 46:2"],
+      "outside": "Babylonian Chronicle for Nebuchadnezzar's early years (Grayson's chronicle 5; British Museum 21946)",
+      "object": "British Museum 21946, published by D. J. Wiseman in 1956",
+      "year": "605 BC",
+      "fixedBy": "Babylonian regnal years, tied to the Canon of Ptolemy and to dated astronomical texts",
+      "evidence": "The chronicle records the battle of Carchemish and Nebuchadnezzar's accession in 605 BC. Jeremiah ties the fourth year of Jehoiakim to the first year of Nebuchadnezzar and to Carchemish.",
+      "inference": "Jehoiakim's fourth year falls in 605 BC, give or take the difference between Judah's and Babylon's new years.",
+      "limit": "Babylon counted a king's accession year separately from his first year; Jeremiah's reckoning may not. A year's difference in such texts often comes from the counting, not from a disagreement.",
+      "sources": ["wiseman", "grayson"]
+    },
+    {
+      "id": "jerusalem597",
+      "title": "Jerusalem taken, Jehoiachin carried off",
+      "bible": ["2 Kings 24:10", "2 Kings 24:12"],
+      "outside": "Babylonian Chronicle, British Museum 21946",
+      "object": "British Museum 21946",
+      "year": "597 BC, on a day in March",
+      "fixedBy": "Babylonian calendar, convertible to the day",
+      "evidence": "The chronicle says that in his seventh year Nebuchadnezzar besieged the city of Judah, took it on the second day of the month Adar, seized its king and appointed a king of his own choice.",
+      "inference": "Jerusalem fell in March 597 BC. It is the most exactly dated event in the Old Testament, and Kings' eighth year of Nebuchadnezzar (2 Kings 24:12) is the same event counted another way. [check: 15 or 16 March 597 BC in the usual conversion]",
+      "limit": "The chronicle does not name Jehoiachin or Zedekiah; it says the king and a king of his choice. The names come from Kings.",
+      "sources": ["wiseman", "grayson"]
+    },
+    {
+      "id": "jehoiachin",
+      "title": "Rations for the king of Judah",
+      "bible": ["2 Kings 25:27", "2 Kings 25:30"],
+      "outside": "Ration tablets from Babylon; Babylonian king lists for Amel-Marduk",
+      "object": "Tablets in Berlin, published by Ernst Weidner in 1939",
+      "year": "about 592 BC for the tablets [check: date of the tablet naming Jehoiachin]; 562/561 BC for Amel-Marduk's accession",
+      "fixedBy": "Babylonian regnal years",
+      "evidence": "Tablets listing oil rations name a Ya'ukin, king of the land of Judah, and his sons. Kings says Evil-merodach released Jehoiachin in his accession year, in the thirty-seventh year of the exile; Babylonian records give Amel-Marduk's accession in 562 BC.",
+      "inference": "Jehoiachin was alive and fed at the Babylonian court; his release fits the first year of Amel-Marduk.",
+      "limit": "The tablets record rations, not release. They show a captive king provided for, which Kings says came later in fuller form.",
+      "sources": ["finegan", "kitchen2003"]
+    },
+    {
+      "id": "shishak",
+      "title": "Shishak and Rehoboam's fifth year",
+      "bible": ["1 Kings 14:25", "2 Chronicles 12:2"],
+      "outside": "Shoshenq I's list of places on the Bubastite Portal at Karnak",
+      "object": "Temple wall, Karnak, Egypt",
+      "year": "about 926/925 BC in Thiele's reckoning",
+      "fixedBy": "Partly the Bible's own reckoning",
+      "evidence": "Shoshenq I, founder of Egypt's twenty-second dynasty, carved a list of places he claimed in the land, and Kings names Shishak's invasion in Rehoboam's fifth year.",
+      "inference": "Most scholars identify Shishak with Shoshenq I.",
+      "limit": "This tie runs both ways and is partly circular. Egypt's dates for Shoshenq are themselves set in part from the biblical date of Rehoboam; Kitchen says so. So the tie checks that the two chronologies fit; it does not fix either one independently.",
+      "sources": ["kitchen1973", "kitchen2003"]
+    }
+  ],
+  "reckoning": {
+    "head": "Same numbers. Different rules.",
+    "lead": "The regnal numbers in Kings are given; how they were counted is not. Every chronology of the kings supplies four rules, and the dates follow the rules.",
+    "rules": [
+      { "id": "accession", "name": "When a king's first year began", "note": "Under accession-year counting, the months between a king's accession and the next new year are his accession year, and his first year starts at the new year. Under non-accession counting, that part-year is his first year, and it is also counted as the last year of his predecessor. Babylon used the first system; Thiele held that Israel used the second at first and that both kingdoms changed over time." },
+      { "id": "newyear", "name": "Which month began the year", "note": "A year counted from the spring month Nisan, or from the autumn month Tishri. Thiele held that Judah counted from Tishri and Israel from Nisan. A year's difference in a synchronism can come from this alone." },
+      { "id": "coregency", "name": "When reigns overlapped", "note": "A son made king beside his father, as with Jotham and the stricken Uzziah in 2 Kings 15:5. If a reign's years are counted from the start of the co-reign, totals added end to end run too long." },
+      { "id": "rival", "name": "When two kings claimed one throne", "note": "Some reckonings propose rival reigns in Israel, as with Pekah and Menahem. This is the most disputed of the four rules." }
+    ],
+    "schemes": [
+      { "id": "ussher", "who": "James Ussher, Annales Veteris Testamenti (1650), as printed in the margins of many English Bibles", "date": "975 BC [check: Ussher's year for the division, as printed in Bible margins]", "how": "Added the reigns of Judah end to end, before the Assyrian records were read.", "note": "A careful reckoning from the text with the evidence of its day. The Assyrian records later pulled the date down by about forty years." },
+      { "id": "thiele", "who": "Edwin R. Thiele, The Mysterious Numbers of the Hebrew Kings (1951; 3rd ed. 1983)", "date": "931/930 BC", "how": "Accession and non-accession counting, different new years, coregencies; tied to Qarqar and Jehu.", "note": "The most widely used reckoning among evangelical scholars. Thiele himself judged some synchronisms in 2 Kings 17–18 to be later editorial errors; others who follow his method do not." },
+      { "id": "kitchen", "who": "Kenneth A. Kitchen, On the Reliability of the Old Testament (2003)", "date": "931/930 BC", "how": "Close to Thiele, with his own handling of the details.", "note": "Agrees with Thiele within a year at the division." },
+      { "id": "albright", "who": "William F. Albright, in articles from 1945 [check: Albright's 1945 article in BASOR 100]", "date": "922 BC", "how": "Fewer coregencies; amended several reign lengths.", "note": "Long standard in critical scholarship. This page reports the amendments as his, and does not adopt them." }
+    ],
+    "hezekiah": {
+      "head": "The hardest case: Hezekiah",
+      "evidence": "2 Kings 18:13 puts Sennacherib's invasion, fixed at 701 BC, in Hezekiah's fourteenth year, so his reign began about 715. 2 Kings 18:1 and 18:10 tie his first and sixth years to Hoshea's third and ninth, and his sixth to the fall of Samaria about 722, so his reign began about 727.",
+      "views": [
+        { "who": "Edwin Thiele", "held": "The 715 start is right; the ties to Hoshea came from a later editor who misunderstood an overlap of reigns. This treats part of the text as mistaken, and the site does not adopt it." },
+        { "who": "Leslie McFall and Rodger C. Young", "held": "Hezekiah reigned beside his father Ahaz from about 729, and the two sets of numbers count from two different starting points: the ties to Hoshea from the co-reign, the fourteenth year from his sole reign. [check: Young's articles in JETS, and McFall in Bibliotheca Sacra 1991]" },
+        { "who": "Other scholars", "held": "Some move the invasion of 2 Kings 18:13 to an earlier campaign, or read the fourteenth year as belonging to the illness story that follows. [check: who holds this, before naming]" }
+      ],
+      "inference": "Both numbers are in the text, and both can be honoured if Hezekiah's reign was counted from two starting points. That is a reconstruction that keeps the text whole; it is not proved.",
+      "limit": "The text does not state a co-reign for Hezekiah. Nothing outside the Bible yet settles when his reign began."
+    }
+  },
+  "ground": {
+    "head": "Potsherds give order. Carbon gives range.",
+    "pottery": {
+      "evidence": "At Tell el-Hesi in 1890 Flinders Petrie cut through a mound and showed that its pottery changed from layer to layer. Since then the pottery of the land has been arranged into phases named Middle Bronze, Late Bronze and Iron Age, each divided again.",
+      "inference": "A layer's pottery places it in the sequence. A destruction layer at one site can be matched with a destruction at another by their pottery.",
+      "limit": "The sequence is relative. It is hung on our calendar by tying chosen layers to dated events, and the same layer can be tied to different events by different archaeologists."
+    },
+    "debate": {
+      "head": "One gate. Two centuries offered.",
+      "evidence": "1 Kings 9:15 says Solomon built Hazor, Megiddo and Gezer. Yigael Yadin, in the 1950s and 1960s, linked similar gates at the three sites with that verse. In 1996 Israel Finkelstein proposed lowering the dates of the pottery phase called Iron Age IIA by about a century, which would move such buildings from Solomon's time to that of Omri and Ahab.",
+      "views": [
+        { "who": "Israel Finkelstein", "held": "A low chronology: Iron Age IIA begins in the ninth century, so the monumental layers are later than Solomon." },
+        { "who": "Amihai Mazar", "held": "A modified conventional chronology: Iron Age IIA runs across the tenth and ninth centuries, so tenth-century building remains possible." },
+        { "who": "Radiocarbon studies at Tel Rehov, Megiddo, Khirbet Qeiyafa and elsewhere", "held": "Have narrowed the gap between these views without closing it. Results from the Tel Rehov series were published by Hendrik Bruins, Johannes van der Plicht and Amihai Mazar in 2003. [check: Science 300 (2003), and the current state of the debate]" }
+      ],
+      "inference": "This is a dispute about how to date layers, not about what 1 Kings 9:15 says. The verse says Solomon built at those cities; it does not say which surviving gate is his.",
+      "limit": "This page reports the views and does not choose. Which layer belongs to Solomon is an archaeological question that the verse does not answer."
+    },
+    "radiocarbon": {
+      "evidence": "Laboratories report radiocarbon ages using Libby's half-life of 5,568 years by convention, although the better measured value is about 5,730; calibration takes care of the difference. The calibration curve wiggles and flattens. Between about 800 and 400 BC it is so flat that radiocarbon cannot separate those centuries well.",
+      "inference": "Radiocarbon is strongest in this period for the tenth and ninth centuries, where the curve is steeper, and weakest for the Assyrian and Babylonian centuries, where the written records are strongest. The methods are strong in different centuries.",
+      "limit": "Every radiocarbon date on this page is a range. A date reported as a single year has had its range removed."
+    }
+  },
+  "precision": {
+    "head": "How wide is a date?",
+    "lead": "Each record drawn as wide as its evidence allows, so the reader can see which dates are sharp and which are blurred.",
+    "rows": [
+      { "id": "eclipse", "label": "The eclipse", "width": "1 day", "method": "astronomy" },
+      { "id": "jerusalem597", "label": "Jerusalem taken", "width": "1 day", "method": "chronicle" },
+      { "id": "qarqar", "label": "Qarqar", "width": "1 year", "method": "eponyms" },
+      { "id": "jehu", "label": "Jehu's tribute", "width": "1 year", "method": "eponyms" },
+      { "id": "sennacherib", "label": "Sennacherib's campaign", "width": "1 year", "method": "eponyms" },
+      { "id": "division", "label": "The division of the kingdom", "width": "975, 931/930 or 922 BC, by scheme", "method": "reckoning" },
+      { "id": "shishak", "label": "Shishak's invasion", "width": "a few years, and partly tied to the Bible's own reckoning", "method": "synchronism" },
+      { "id": "iron2a", "label": "The start of Iron Age IIA", "width": "about a century in dispute", "method": "pottery and radiocarbon" },
+      { "id": "hallstatt", "label": "A single radiocarbon sample from 700 BC", "width": "up to three or four centuries", "method": "radiocarbon" }
+    ],
+    "note": "These widths are this study's summaries of what each record allows, not measurements. [check: each width against the cited source before drawing]"
+  },
+  "claims": [
+    {
+      "id": "nodates",
+      "claim": "“The numbers in Kings contradict each other, so they cannot be dated.”",
+      "head": "Hard numbers. Not hopeless ones.",
+      "evidence": "Added end to end, the reigns of Israel and of Judah do not give the same total between two fixed points. The same numbers, read with accession and non-accession counting, different new years and overlapping reigns, fit the outside records at Qarqar, Jehu, 701 and 597.",
+      "inference": "The differences mostly come from how the years were counted, which the text does not explain because its first readers did not need it explained.",
+      "limit": "Not every number has an agreed solution. Hezekiah's reign is still argued. A fit is not a proof, but it is not a contradiction either.",
+      "verses": ["1 Kings 15:1", "2 Kings 18:1", "2 Kings 18:13"],
+      "sources": ["thiele", "galil"],
+      "test": {
+        "question": "Israel's Ahaziah and Joram reign two and twelve years, fourteen in all, but Qarqar and Jehu's tribute are twelve years apart. What is the first thing to check?",
+        "options": [
+          { "text": "Whether a king's first part-year was also counted as his predecessor's last.", "right": true, "why": "Under non-accession counting, each change of king counts one year twice. Two changes take fourteen counted years to twelve." },
+          { "text": "Whether Kings got Joram's reign wrong.", "right": false, "why": "That jumps to a correction before the counting rules have been tried." },
+          { "text": "Whether the Assyrian lists dropped two years.", "right": false, "why": "The eponym lists name every year, and the copies agree across this stretch." }
+        ]
+      }
+    },
+    {
+      "id": "proved",
+      "claim": "“Archaeology has proved the Bible's dates.” Or: “Archaeology has disproved them.”",
+      "head": "Archaeology ties some years. It leaves many open.",
+      "evidence": "Outside records name kings of Israel and Judah at fixed Assyrian and Babylonian years from 853 to 562 BC. Before about 900 BC no outside record names a king of Israel or Judah with a date.",
+      "inference": "For the divided kingdom, the Bible's chronology and Assyria's fit closely where they touch. For David and Solomon, dates rest on counting the Bible's years back, and on pottery and radiocarbon whose meaning is argued.",
+      "limit": "Agreement at a fixed point shows the records fit there. Silence before 900 BC shows only that no dated record has been found. Neither proves or disproves what lies between.",
+      "verses": ["1 Kings 6:1", "1 Kings 9:15"],
+      "sources": ["kitchen2003", "finkelstein1996", "mazar1990"],
+      "test": {
+        "question": "No inscription found so far names Solomon. What can you say from that?",
+        "options": [
+          { "text": "That Solomon did not exist.", "right": false, "why": "An absence of records from that stretch is common for many kings of many lands. Silence is not denial." },
+          { "text": "That his dates must be reckoned from the Bible's years and from the ground, not read off an outside record.", "right": true, "why": "That is what the absence carries: a change in method, not a verdict." },
+          { "text": "That the Bible's dates for him are proved, since nothing contradicts them.", "right": false, "why": "Nothing outside confirms them either. Lack of contradiction is not proof." }
+        ]
+      }
+    },
+    {
+      "id": "carbonyear",
+      "claim": "“Radiocarbon gives the exact year.”",
+      "head": "A range. With a probability.",
+      "evidence": "A radiocarbon result is a measurement with an error, turned by a calibration curve into a range of calendar years. Around 800 to 400 BC the curve is flat.",
+      "inference": "A single result often spans a century or more. Many results, modelled in the order of their layers, narrow it.",
+      "limit": "The quality of a date depends on the sample (seed or old timber), its layer, and the model. A date printed as one year has hidden its width.",
+      "verses": [],
+      "sources": ["intcal20", "levyhigham"],
+      "test": {
+        "question": "A report says a burnt seed from a destruction layer dates to 701 BC. What should you ask first?",
+        "options": [
+          { "text": "What is the range, at what probability, and was this one seed or a modelled series?", "right": true, "why": "In the eighth century the curve is flat. A single seed cannot pick out one year there; the 701 probably comes from tying the layer to Sennacherib." },
+          { "text": "Nothing: seeds are short-lived, so the date is exact.", "right": false, "why": "A short-lived sample avoids the old-wood problem. It does not remove the calibration curve's flat stretch." },
+          { "text": "Whether radiocarbon works at all.", "right": false, "why": "It does. The question is how wide its answer is." }
+        ]
+      }
+    },
+    {
+      "id": "amos",
+      "claim": "“Amos foretold the eclipse of 763 BC.”",
+      "head": "Possible. Not stated.",
+      "evidence": "Amos 8:9 speaks of the sun going down at noon and the earth darkened in daylight. Amos 1:1 dates his words to the reigns of Uzziah and Jeroboam II, two years before the earthquake, and the eclipse of 763 falls in those reigns on the usual reckonings.",
+      "inference": "Some readers hear the eclipse in Amos 8:9, either remembered or used as a picture of judgement. It is an interpretation.",
+      "limit": "Amos does not name an eclipse or a year, and the verse sits among pictures of a coming day of the LORD. Nothing in the eponym chronicle mentions Israel. The link is offered here as a reading some hold, not as a finding.",
+      "verses": ["Amos 1:1", "Amos 8:9", "Zechariah 14:5"],
+      "sources": ["stephenson"],
+      "test": {
+        "question": "What would it take to show Amos had the 763 eclipse in mind?",
+        "options": [
+          { "text": "A line in the text naming the event, or a dated record joining the two.", "right": true, "why": "Without that, a fit in time is a possibility, not a link." },
+          { "text": "That both are in the eighth century.", "right": false, "why": "Many things happened in the eighth century. Being near in time is where the question starts." },
+          { "text": "That eclipses frightened people in the ancient world.", "right": false, "why": "True, and it explains why the picture would be powerful. It does not tie this verse to that day." }
+        ]
+      }
+    },
+    {
+      "id": "sargon",
+      "claim": "“Sargon was known only from Isaiah until his palace was found, so the critics were refuted.”",
+      "head": "A real discovery. An overstated story.",
+      "evidence": "Isaiah 20:1 names Sargon king of Assyria. Paul-Émile Botta began digging at Khorsabad in 1843 and found Sargon II's palace and inscriptions.",
+      "inference": "The discovery gave Sargon a full outside record and confirmed Isaiah's name for him.",
+      "limit": "How far scholars before 1843 had doubted him is often overstated. Classical and Babylonian king lists already held a king of Babylon in his place under another name. [check: the Canon of Ptolemy's name for Sargon (Arkeanos) and what 19th-century scholars actually said before Botta]",
+      "verses": ["Isaiah 20:1"],
+      "sources": ["finegan"],
+      "test": {
+        "question": "Before checking the story, what should you ask of a claim that “critics” denied a king?",
+        "options": [
+          { "text": "Which critics, in what writings, and what the other king lists already held.", "right": true, "why": "A refutation story is only as strong as its evidence that someone held the view refuted." },
+          { "text": "Whether the palace is really Sargon's.", "right": false, "why": "That is well established by its inscriptions." },
+          { "text": "Whether Isaiah wrote chapter 20.", "right": false, "why": "That is another question, and not the one this claim makes." }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    { "word": "Relative and absolute date", "note": "A relative date says before or after: this layer is older than that one. An absolute date puts something in our calendar: 853 BC. King lists and pottery give the first; astronomy and radiocarbon give the second." },
+    { "word": "BC and BCE", "note": "The same years under two names. This site writes BC." },
+    { "word": "Historical and astronomical years", "note": "Historians go from 1 BC to AD 1 with no year 0. Astronomers include a year 0, so their −762 is the historians' 763 BC." },
+    { "word": "Regnal year and calendar year", "note": "A regnal year is a year of a king's reign, starting at a new year. It rarely matches a January-to-December year, which is why many dates are written as two years, 931/930 BC." },
+    { "word": "Accession year", "note": "In some systems, the part-year after a king took the throne, counted before his first year. In others that part-year is his first year." },
+    { "word": "Coregency", "note": "Two kings, usually father and son, reigning at once. Kings records at least one (2 Kings 15:5); others are proposed by modern reckonings." },
+    { "word": "Eponym and king", "note": "An eponym is the official a year was named after. Assyrian kings also held the post in their early years, so a king's name can stand as an eponym too." },
+    { "word": "Synchronism and coincidence of names", "note": "A synchronism is a record that puts two kingdoms' kings in one year. A similar name in two records is not a synchronism until the identification is shown." },
+    { "word": "Radiocarbon years and calendar years", "note": "Radiocarbon years before present (BP, counted from AD 1950) are a measurement; calendar years BC come after calibration and are written cal BC." },
+    { "word": "Dated and datable", "note": "A record is dated when it carries its own date, as the Babylonian Chronicle does. It is datable when a date is reached for it by argument, as for most pottery layers." }
+  ],
+  "timeline": {
+    "from": 1000,
+    "to": 550,
+    "rows": [
+      { "id": "eponyms", "name": "Assyrian eponyms in unbroken order", "start": 910, "end": 649, "note": "Fixed by the eclipse. The order after about 649 is argued.", "kind": "anchor" },
+      { "id": "eclipse", "name": "Eclipse of the sun", "start": 763, "end": 763, "note": "15 June 763 BC, Julian calendar.", "kind": "anchor" },
+      { "id": "canon", "name": "Canon of Ptolemy begins", "start": 747, "end": 747, "note": "Accession of Nabonassar. Runs on into the Roman period.", "kind": "outside" },
+      { "id": "division", "name": "Division of the kingdom", "ranges": [[975, 975], [931, 930], [922, 922]], "start": 975, "end": 922, "note": "Three schemes, drawn as three marks, not one bar.", "kind": "reckoning" },
+      { "id": "qarqar", "name": "Ahab at Qarqar", "start": 853, "end": 853, "note": "Shalmaneser III's sixth year.", "kind": "synchronism" },
+      { "id": "jehu", "name": "Jehu's tribute", "start": 841, "end": 841, "note": "Shalmaneser III's eighteenth year.", "kind": "synchronism" },
+      { "id": "samaria", "name": "Samaria falls", "start": 722, "end": 720, "note": "Shalmaneser V or Sargon II; argued.", "kind": "synchronism" },
+      { "id": "sennacherib", "name": "Sennacherib against Judah", "start": 701, "end": 701, "note": "Hezekiah's fourteenth year in 2 Kings 18:13.", "kind": "synchronism" },
+      { "id": "carchemish", "name": "Carchemish", "start": 605, "end": 605, "note": "Jehoiakim's fourth year in Jeremiah 46:2.", "kind": "synchronism" },
+      { "id": "jerusalem597", "name": "Jerusalem taken", "start": 597, "end": 597, "note": "Second day of Adar, Nebuchadnezzar's seventh year.", "kind": "synchronism" },
+      { "id": "amelmarduk", "name": "Jehoiachin released", "start": 562, "end": 561, "note": "Amel-Marduk's accession year.", "kind": "synchronism" },
+      { "id": "hallstatt", "name": "Radiocarbon's flat stretch", "start": 800, "end": 400, "open": true, "note": "Runs past the right edge of this chart.", "kind": "limit" }
+    ],
+    "undated": "Several events have no bar. The exodus, the conquest and the judges are handed to the planned exodus study. David and Solomon have no outside date and are shown only as the reach of the reckoning back from Ahab, with the division's three marks."
+  },
+  "stance": {
+    "head": "What this site holds",
+    "scripture": "2 Timothy 3:16",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, article I (the Scriptures)",
+    "body": "The confession speaks of the Bible's truth; it does not fix a chronology. A date BC is never the Bible's own number: it is a modern reckoning built from the Bible's numbers, foreign records and rules of counting. Where a reckoning fails to fit a number in the text, this site treats the reckoning as unfinished, not the text as wrong. It reports, without adopting them, the places where scholars have amended a reign length or judged a synchronism to be an editor's error.",
+    "names": "The kings of Kings were real men in a real world, and that world's own records name some of them in the years Kings would lead us to expect. That is a finding about fit. What the writer of Kings meant by recording those reigns is a question for reading Kings, not for dating it.",
+    "verses": ["2 Timothy 3:16", "1 Kings 15:1", "2 Kings 18:13"]
+  },
+  "reach": [
+    "This record covers about 1000 to 560 BC. Earlier dates for Israel are handed to other studies, and Egypt and older Mesopotamia appear only to show the methods.",
+    "Nine synchronisms are read here. Others exist, among them the Mesha Stele's Omri and the Tel Dan inscription; they are named, not read, because they carry no fixed year of their own.",
+    "Four schemes for the division of the kingdom are reported. There are more, and some differ from these by only a year or two.",
+    "No ancient text was read in its own language for this record. Every outside record is reported from editions and studies named below, and none of those has yet been read in full for this file.",
+    "Every width on this page is a summary of what a record allows. None is a new measurement."
+  ],
+  "checks": [
+    "Spelling of the eponym of 763 BC (Bur-Saggile or Bur-Sagale) as in Millard 1994.",
+    "Path of totality of 15 June 763 BC relative to Ashur, per Stephenson 1997.",
+    "Who first identified the eclipse with 763 BC (usually Henry Rawlinson, 1867).",
+    "Places where eponym copies differ, per Millard 1994.",
+    "British Museum number for the Kurkh Monolith (usually 118884).",
+    "Current reading of the bowing figure on the Black Obelisk.",
+    "The year of Menahem's tribute (740 or 738 BC) and the debate around it, per Galil 1996.",
+    "15 or 16 March 597 BC for the second of Adar in Nebuchadnezzar's seventh year.",
+    "Date of the Weidner tablet naming Jehoiachin.",
+    "Ussher's year for the division of the kingdom as printed in Bible margins (975 BC).",
+    "Albright's 1945 article (BASOR 100) and his figure of 922 BC.",
+    "McFall (Bibliotheca Sacra 1991) and Young (JETS) on Hezekiah's coregency.",
+    "Who holds the earlier-campaign reading of 2 Kings 18:13, before naming anyone.",
+    "Bruins, van der Plicht and Mazar, Science 300 (2003), and the current state of the Iron Age IIA debate.",
+    "The Canon of Ptolemy's name for Sargon and what was said of Sargon before 1843.",
+    "Each width in the precision rows, against its source.",
+    "The DOI and full citation of IntCal20.",
+    "The licence of every picture listed below."
+  ],
+  "sources": [
+    { "id": "millard", "title": "Alan Millard, The Eponyms of the Assyrian Empire 910–612 BC, State Archives of Assyria Studies 2 (Helsinki, 1994)", "url": "https://www.google.com/search?tbm=bks&q=Millard+Eponyms+of+the+Assyrian+Empire+910-612", "kind": "Edition, 1994 · under copyright", "status": "located", "answers": "What do the eponym lists say, year by year, and where do the copies differ?", "read": "Located, not yet read for this record. Every detail credited to it must be checked against it before the page is built." },
+    { "id": "grayson", "title": "A. Kirk Grayson, Assyrian and Babylonian Chronicles, Texts from Cuneiform Sources 5 (1975)", "url": "https://www.google.com/search?tbm=bks&q=Grayson+Assyrian+and+Babylonian+Chronicles+1975", "kind": "Edition, 1975 · under copyright", "status": "located", "answers": "What do the Babylonian chronicles say of Samaria, Carchemish and Jerusalem?", "read": "Located, not yet read for this record." },
+    { "id": "wiseman", "title": "D. J. Wiseman, Chronicles of Chaldaean Kings (626–556 B.C.) in the British Museum (1956)", "url": "https://www.google.com/search?tbm=bks&q=Wiseman+Chronicles+of+Chaldaean+Kings", "kind": "Edition, 1956", "status": "located", "answers": "What is the first publication of the chronicle for 605 and 597 BC?", "read": "Located, not yet read for this record." },
+    { "id": "thiele", "title": "Edwin R. Thiele, The Mysterious Numbers of the Hebrew Kings, 3rd ed. (Grand Rapids: Zondervan, 1983)", "url": "https://www.google.com/search?tbm=bks&q=Thiele+Mysterious+Numbers+of+the+Hebrew+Kings", "kind": "Book, 1951; 3rd ed. 1983 · under copyright", "status": "located", "answers": "How can the regnal numbers in Kings be fitted together and to Assyria?", "read": "Located, not yet read for this record. His dates are given here as widely reported; check each against the third edition." },
+    { "id": "galil", "title": "Gershon Galil, The Chronology of the Kings of Israel and Judah (Leiden: Brill, 1996)", "url": "https://www.google.com/search?tbm=bks&q=Galil+Chronology+of+the+Kings+of+Israel+and+Judah", "kind": "Book, 1996 · under copyright", "status": "located", "answers": "Where do later reckonings depart from Thiele, and why?", "read": "Located, not yet read for this record." },
+    { "id": "finegan", "title": "Jack Finegan, Handbook of Biblical Chronology, rev. ed. (Peabody: Hendrickson, 1998)", "url": "https://www.google.com/search?tbm=bks&q=Finegan+Handbook+of+Biblical+Chronology", "kind": "Handbook, 1998 · under copyright", "status": "located", "answers": "How do ancient calendars, king lists and the Canon of Ptolemy work?", "read": "Located, not yet read for this record." },
+    { "id": "kitchen2003", "title": "K. A. Kitchen, On the Reliability of the Old Testament (Grand Rapids: Eerdmans, 2003)", "url": "https://www.google.com/search?tbm=bks&q=Kitchen+On+the+Reliability+of+the+Old+Testament", "kind": "Book, 2003 · under copyright", "status": "located", "answers": "Where do the outside records touch the kings, and how well do they fit?", "read": "Located, not yet read for this record." },
+    { "id": "kitchen1973", "title": "K. A. Kitchen, The Third Intermediate Period in Egypt (1100–650 BC) (Warminster: Aris & Phillips, 1973; later editions)", "url": "https://www.google.com/search?tbm=bks&q=Kitchen+Third+Intermediate+Period+in+Egypt", "kind": "Book · under copyright", "status": "located", "answers": "How is Shoshenq I dated, and how far does that lean on the Bible?", "read": "Located, not yet read for this record." },
+    { "id": "stephenson", "title": "F. Richard Stephenson, Historical Eclipses and Earth's Rotation (Cambridge University Press, 1997)", "url": "https://www.google.com/search?tbm=bks&q=Stephenson+Historical+Eclipses+and+Earth%27s+Rotation", "kind": "Book, 1997 · under copyright", "status": "located", "answers": "How is an ancient eclipse matched to a day, and what does the earth's slowing change?", "read": "Located, not yet read for this record." },
+    { "id": "intcal20", "title": "Paula J. Reimer and others, “The IntCal20 Northern Hemisphere radiocarbon age calibration curve (0–55 cal kBP)”, Radiocarbon 62 (2020)", "url": "https://doi.org/10.1017/RDC.2020.41", "kind": "Article, 2020 · open access [check: licence]", "status": "located", "answers": "How is a radiocarbon age turned into calendar years?", "read": "Located, not yet read for this record. [check: DOI]" },
+    { "id": "levyhigham", "title": "Thomas E. Levy and Thomas Higham (eds.), The Bible and Radiocarbon Dating: Archaeology, Text and Science (London: Equinox, 2005)", "url": "https://www.google.com/search?tbm=bks&q=Levy+Higham+The+Bible+and+Radiocarbon+Dating", "kind": "Collected essays, 2005 · under copyright", "status": "located", "answers": "What can radiocarbon settle about the Iron Age, and what can it not?", "read": "Located, not yet read for this record." },
+    { "id": "finkelstein1996", "title": "Israel Finkelstein, “The Archaeology of the United Monarchy: An Alternative View”, Levant 28 (1996)", "url": "https://www.google.com/search?q=Finkelstein+1996+Levant+Archaeology+of+the+United+Monarchy", "kind": "Article, 1996 · under copyright", "status": "located", "answers": "What is the low chronology, in its first statement?", "read": "Located, not yet read for this record." },
+    { "id": "mazar1990", "title": "Amihai Mazar, Archaeology of the Land of the Bible, 10,000–586 B.C.E. (New York: Doubleday, 1990)", "url": "https://www.google.com/search?tbm=bks&q=Mazar+Archaeology+of+the+Land+of+the+Bible", "kind": "Book, 1990 · under copyright", "status": "located", "answers": "How are the pottery phases named and dated?", "read": "Located, not yet read for this record. His later modified conventional chronology is in later articles. [check: which]" },
+    { "id": "petrie", "title": "W. M. Flinders Petrie, Tell el Hesy (Lachish) (London, 1891)", "url": "https://archive.org/search?query=Petrie+Tell+el+Hesy", "kind": "Excavation report, 1891 · public domain", "status": "located", "answers": "Where did dating by layer and pottery begin in this land?", "read": "Located, not yet read for this record." },
+    { "id": "bm-obelisk", "title": "Black Obelisk of Shalmaneser III, British Museum 118885", "url": "https://www.britishmuseum.org/collection/object/W_1848-1104-1", "kind": "Museum record [check: URL and licence of images]", "status": "located", "answers": "What does the record of Jehu's tribute look like?", "read": "Located, not yet read for this record." },
+    { "id": "bm-prism", "title": "Taylor Prism of Sennacherib, British Museum 91032", "url": "https://www.google.com/search?q=British+Museum+91032+Taylor+Prism", "kind": "Museum record [check: URL and licence]", "status": "located", "answers": "What does the record of 701 BC look like?", "read": "Located, not yet read for this record." }
+  ],
+  "pictures": [
+    { "id": "obelisk", "src": "/images/studies/dating-the-biblical-world/black-obelisk-jehu.jpg", "alt": "A panel of carved stone relief: a man bows to the ground before a standing king, with attendants behind.", "credit": "Black Obelisk of Shalmaneser III, British Museum 118885 [check: photographer and source]", "licence": "[check: licence]", "licenceUrl": null, "href": null, "retrieved": null },
+    { "id": "prism", "src": "/images/studies/dating-the-biblical-world/sennacherib-prism.jpg", "alt": "A six-sided clay prism, taller than it is wide, covered on each face with columns of wedge-shaped writing.", "credit": "Sennacherib's annals on a clay prism [check: which copy, photographer and source]", "licence": "[check: licence]", "licenceUrl": null, "href": null, "retrieved": null },
+    { "id": "chronicle", "src": "/images/studies/dating-the-biblical-world/babylonian-chronicle-597.jpg", "alt": "A small clay tablet with close rows of wedge-shaped writing, damaged at one edge.", "credit": "Babylonian Chronicle for Nebuchadnezzar's early years, British Museum 21946 [check: photographer and source]", "licence": "[check: licence]", "licenceUrl": null, "href": null, "retrieved": null }
+  ],
+  "verses": [
+    { "label": "1 Kings 6:1", "code": "1KI", "chapter": 6, "verse": 1, "phrase": null },
+    { "label": "1 Kings 9:15", "code": "1KI", "chapter": 9, "verse": 15, "phrase": null },
+    { "label": "1 Kings 14:25", "code": "1KI", "chapter": 14, "verse": 25, "phrase": null },
+    { "label": "1 Kings 15:1", "code": "1KI", "chapter": 15, "verse": 1, "phrase": null },
+    { "label": "1 Kings 16:29", "code": "1KI", "chapter": 16, "verse": 29, "phrase": null },
+    { "label": "1 Kings 22:51", "code": "1KI", "chapter": 22, "verse": 51, "phrase": null },
+    { "label": "2 Kings 3:1", "code": "2KI", "chapter": 3, "verse": 1, "phrase": null },
+    { "label": "2 Kings 9:1", "code": "2KI", "chapter": 9, "verse": 1, "phrase": null },
+    { "label": "2 Kings 10:36", "code": "2KI", "chapter": 10, "verse": 36, "phrase": null },
+    { "label": "2 Kings 15:5", "code": "2KI", "chapter": 15, "verse": 5, "phrase": null },
+    { "label": "2 Kings 15:19", "code": "2KI", "chapter": 15, "verse": 19, "phrase": null },
+    { "label": "2 Kings 17:6", "code": "2KI", "chapter": 17, "verse": 6, "phrase": null },
+    { "label": "2 Kings 18:1", "code": "2KI", "chapter": 18, "verse": 1, "phrase": null },
+    { "label": "2 Kings 18:9", "code": "2KI", "chapter": 18, "verse": 9, "phrase": null },
+    { "label": "2 Kings 18:10", "code": "2KI", "chapter": 18, "verse": 10, "phrase": null },
+    { "label": "2 Kings 18:13", "code": "2KI", "chapter": 18, "verse": 13, "phrase": null },
+    { "label": "2 Kings 24:10", "code": "2KI", "chapter": 24, "verse": 10, "phrase": null },
+    { "label": "2 Kings 24:12", "code": "2KI", "chapter": 24, "verse": 12, "phrase": null },
+    { "label": "2 Kings 25:27", "code": "2KI", "chapter": 25, "verse": 27, "phrase": null },
+    { "label": "2 Kings 25:30", "code": "2KI", "chapter": 25, "verse": 30, "phrase": null },
+    { "label": "1 Chronicles 5:26", "code": "1CH", "chapter": 5, "verse": 26, "phrase": null },
+    { "label": "2 Chronicles 12:2", "code": "2CH", "chapter": 12, "verse": 2, "phrase": null },
+    { "label": "Isaiah 20:1", "code": "ISA", "chapter": 20, "verse": 1, "phrase": null },
+    { "label": "Isaiah 36:1", "code": "ISA", "chapter": 36, "verse": 1, "phrase": null },
+    { "label": "Jeremiah 25:1", "code": "JER", "chapter": 25, "verse": 1, "phrase": null },
+    { "label": "Jeremiah 46:2", "code": "JER", "chapter": 46, "verse": 2, "phrase": null },
+    { "label": "Amos 1:1", "code": "AMO", "chapter": 1, "verse": 1, "phrase": null },
+    { "label": "Amos 8:9", "code": "AMO", "chapter": 8, "verse": 9, "phrase": null },
+    { "label": "Zechariah 14:5", "code": "ZEC", "chapter": 14, "verse": 5, "phrase": null },
+    { "label": "2 Timothy 3:16", "code": "2TI", "chapter": 3, "verse": 16, "phrase": null }
+  ],
+  "versesNote": "No Berean text was supplied to this job, so no verse is quoted and every phrase is left empty. The data build should fill each phrase from the site's held Berean text and check it, before any verse is shown on the page."
+}

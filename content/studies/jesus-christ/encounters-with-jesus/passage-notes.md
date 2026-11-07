@@ -1,5 +1,11 @@
 # Encounters with Jesus passage notes
 
+## Change, 2026-11-06 (writing run job 28)
+
+The study no longer reads Mark 5 and John 11, which go to 18, or John 20:24–29, which goes to 11; each is now a link. Part 07 is retitled and reslugged ("feet") and reads Mark 7:24–30 and Luke 7:36–50. The Mark 5:34 and John 11:5–6 questions are replaced by questions on Mark 7:27 and Luke 7:47. The Martha line in 05 and the front matter's Lead, Selection and GridCare are updated, and the Close is adjusted to match.
+The "# Encounters with Jesus" block replaces only the front matter above "## 01", not the parts below it. Part 03 is kept as a short part that gathers the sick from parts 05–07 and reads no passage of its own, because no delete operation exists; the editor may prefer to delete it and renumber.
+The grid, carry, after, older and test data must drop the five departed meetings and add the two new ones, and the three [check: …] notes in the two new questions need resolving before publishing.
+
 **Item 14 · Rewritten to the study standard · 2026-10-30.** The notes of 2026-10-13, on the King James, are replaced here.
 
 ## Primary readings

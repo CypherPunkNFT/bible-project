@@ -1,5 +1,10 @@
 # Faith under pressure passage and editorial notes
 
+## Change, 2026-11-06 (writing run job 30a)
+
+Part 05 now quotes only 1 Thessalonians 4:13–14 (re-quoted from the BSB) and links *The hope to come* (30), which owns 4:13–5:11, and *Grief and dying* (57); its walk of 4:15–18, the quotations from 4:16–18 and the open question on the timing of the meeting (with Criswell and Piper) move to 30's ownership.
+Part 03 links *Fear, anxiety and despair* (56). Both parts gain crisis-line care notes for the US, Brazil and Spanish-speaking countries, each marked for checking before publishing, as the pastoral rule requires.
+
 Content pass, item 03. [Reader-facing draft](content.md). All six proposed sections have been developed; the original outline remains in [working.md](working.md).
 
 ## Source basis
