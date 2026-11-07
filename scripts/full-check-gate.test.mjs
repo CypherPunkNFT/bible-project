@@ -5,28 +5,60 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
-import { assertFullCheckPassed, assertPagesUploadArguments, assertWorkerUploadArguments, findChecker, onlyDryRun } from './full-check-gate.mjs';
+import { RELEASES_WAIT_FOR_FULL_CHECK, assertFullCheckPassed, assertPagesUploadArguments, assertWorkerUploadArguments, findChecker, onlyDryRun } from './full-check-gate.mjs';
 
 const STAMP = { copy: '2026-11-07T02:46:41Z', bundle: '/assets/index-a.js', languages: ['es'] };
 const runner = (status, stdout = '', error) => () => ({ status, stdout, stderr: '', error });
 const checker = 'X:/BibleProject/SiteTranslation/system/quick_check/quick_check.py';
 
+const stamped = `0 unexplained\nFULL-CHECK-STAMP ${JSON.stringify(STAMP)}\n`;
+const quiet = (fn) => { const warn = console.warn; console.warn = () => {}; try { return fn(); } finally { console.warn = warn; } };
+const noPython = Object.assign(new Error('spawn py ENOENT'), { code: 'ENOENT' });
+
 test('only exit 0 with a stamp lets a release go on', () => {
-  assert.deepEqual(assertFullCheckPassed('site', { package: true, checker, runner: runner(0, `0 unexplained\nFULL-CHECK-STAMP ${JSON.stringify(STAMP)}\n`) }), STAMP);
-  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, runner: runner(0, 'passed\n') }), /no stamp/);
+  assert.deepEqual(assertFullCheckPassed('site', { package: true, checker, stops: true, runner: runner(0, stamped) }), { passed: true, ...STAMP });
+  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, stops: true, runner: runner(0, 'passed\n') }), /no stamp/);
+  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, stops: true, runner: runner(0, 'FULL-CHECK-STAMP {broken\n') }), /stamp is unreadable/);
 });
 
-test('every other answer refuses the release', () => {
+test('when it stops releases, every other answer refuses the release', () => {
   for (const status of [1, 2, 3, 4, null]) {
-    assert.throws(() => assertFullCheckPassed('site', { package: true, checker, runner: runner(status) }), /Release refused/);
+    assert.throws(() => assertFullCheckPassed('site', { package: true, checker, stops: true, runner: runner(status) }), /Release refused/);
   }
-  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, runner: runner(null, '', Object.assign(new Error('spawn py ENOENT'), { code: 'ENOENT' })) }), /could not run \(ENOENT\)/);
+  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, stops: true, runner: runner(null, '', noPython) }), /could not run \(ENOENT\)/);
+});
+
+test('warn-only since 2026-11-07: the switch stays off until the full check can pass (set it back in full-check-gate.mjs)', () => {
+  assert.equal(RELEASES_WAIT_FOR_FULL_CHECK, false);
+});
+
+test('while it only warns, any failure warns loudly and the release goes on', () => {
+  const missingChecker = () => { throw new Error('Release refused: the translation full check (quick_check.py) was not found above C:/.'); };
+  for (const failing of [runner(1), runner(4), runner(null), runner(0, 'passed\n'), runner(0, 'FULL-CHECK-STAMP {broken\n'), runner(null, '', noPython), missingChecker]) {
+    const result = quiet(() => assertFullCheckPassed('site', { package: true, checker, runner: failing }));
+    assert.equal(result.passed, false);
+    assert.match(result.warning, /RELEASES_WAIT_FOR_FULL_CHECK is false/);
+    assert.doesNotMatch(result.warning, /^Release refused/);
+  }
+  let printed = '';
+  const warn = console.warn; console.warn = (text) => { printed += text; };
+  try { assertFullCheckPassed('site', { package: true, checker, runner: runner(1) }); } finally { console.warn = warn; }
+  assert.match(printed, /WARNING: the translation full check did NOT pass/);
+  assert.deepEqual(assertFullCheckPassed('site', { package: true, checker, runner: runner(0, stamped) }), { passed: true, ...STAMP });
+});
+
+test('while it only warns, a release waits at most 3 minutes for the check, not 30', () => {
+  const limits = [];
+  const capture = (command, args, options) => { limits.push(options.timeout); return { status: 1, stdout: '', stderr: '' }; };
+  quiet(() => assertFullCheckPassed('site', { package: true, checker, runner: capture }));
+  assert.throws(() => assertFullCheckPassed('site', { package: true, checker, stops: true, runner: capture }));
+  assert.deepEqual(limits, [3 * 60 * 1000, 30 * 60 * 1000]);
 });
 
 test('the source gate names the build, the data and the released languages', () => {
   let seen;
   const capture = (command, args, options) => { seen = { command, args, options }; return { status: 1, stdout: '', stderr: '' }; };
-  assert.throws(() => assertFullCheckPassed('dist', { data: 'data', languages: ['es', 'pt'], checker, runner: capture }));
+  assert.throws(() => assertFullCheckPassed('dist', { data: 'data', languages: ['es', 'pt'], checker, stops: true, runner: capture }));
   assert.equal(seen.command, 'py');
   assert.deepEqual([seen.args[0], seen.args[1], seen.args[2], seen.args[4], seen.args.at(-1)], ['-3.12', checker, '--release-gate', '--data', 'es,pt']);
   assert.match(seen.options.cwd.replaceAll('\\', '/'), /SiteTranslation$/);

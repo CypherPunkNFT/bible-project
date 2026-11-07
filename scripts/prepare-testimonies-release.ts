@@ -30,7 +30,7 @@ await stat(path.join(built, "index.html")); await stat("data/catalog.json"); awa
 assertPreReleaseCheckPassed();
 stage("Translation pre-release check passed");
 const fullCheck = assertFullCheckPassed(built, { data: path.resolve("data"), languages: releasedFolders() });
-stage("Translation full check passed");
+stage(fullCheck.passed === false ? "Translation full check FAILED (warn-only, release goes on)" : "Translation full check passed");
 const apologeticsContentHash = verifyBuiltContent();
 await mkdir(".release", { recursive: true });
 // Each copy is ~5.7 GB and nothing removes them: 62 had built up by 2026-10-21. Say so; deleting is the owner's call.
@@ -133,5 +133,6 @@ if (databaseId) {
 }
 await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, fullCheck, files: files.filter((entry) => entry.isFile()).length, routes }, null, 2) + "\n");
 console.log("Release prepared at " + directory);
+if (fullCheck.passed === false) console.warn("\nWARNING (repeated): the translation full check did NOT pass. " + fullCheck.warning + "\n");
 stage("Finished");
 console.log(databaseId ? "Database configured. Apply migrations and deploy this directory using the README launch steps." : "No cloud database is configured. Set TESTIMONY_D1_ID and prepare again before deployment; this package is for local verification only.");
