@@ -27,7 +27,7 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(count, 1189)
 
     def test_preview_cannot_call_model_or_create_database(self):
-        with patch.object(studio, "ollama", side_effect=AssertionError("Model called")), patch.object(studio, "Store", side_effect=AssertionError("Store created")):
+        with patch.object(studio, "chat", side_effect=AssertionError("Model called")), patch.object(studio, "Store", side_effect=AssertionError("Store created")):
             page = studio.page(preview=True)
         self.assertIn('"preview": true', page)
         self.assertIn("Illustrative example", page)
@@ -36,14 +36,14 @@ class StudioTests(unittest.TestCase):
     @patch.object(studio, "review_draft", return_value=([], {}))
     def test_structured_generation_and_provenance(self, _review):
         fake = {"message": {"content": json.dumps(studio.EXAMPLE)}, "done_reason": "stop", "total_duration": 2e9}
-        with patch.object(studio, "ollama", return_value=fake) as call:
+        with patch.object(studio, "chat", return_value=fake) as call:
             record = studio.generate("GEN", 1, "bsb", studio.DEFAULT_MODEL)
         self.assertEqual(record["status"], "draft")
         self.assertEqual(record["source_sha256"], studio.source("GEN", 1)["hash"])
-        payload = call.call_args.args[1]
+        payload = call.call_args.args[0]
         self.assertFalse(payload["stream"])
         self.assertIn("31.", payload["messages"][1]["content"])
-        with patch.object(studio, "ollama", return_value={**fake, "done_reason": "length"}):
+        with patch.object(studio, "chat", return_value={**fake, "done_reason": "length"}):
             with self.assertRaisesRegex(ValueError, "output limit"):
                 studio.generate("GEN", 1, "bsb", studio.DEFAULT_MODEL)
 
@@ -60,12 +60,12 @@ class StudioTests(unittest.TestCase):
     def test_invalid_length_gets_a_bounded_correction_retry(self, _review):
         short = {"message": {"content": json.dumps({**studio.EXAMPLE, "summary": "Too short."})}, "done_reason": "stop"}
         good = {"message": {"content": json.dumps(studio.EXAMPLE)}, "done_reason": "stop"}
-        with patch.object(studio, "ollama", side_effect=[short, good]) as call:
+        with patch.object(studio, "chat", side_effect=[short, good]) as call:
             record = studio.generate("GEN", 1, "bsb", studio.DEFAULT_MODEL)
         self.assertEqual(record["attempts"], 2)
         self.assertEqual(record["summary"], studio.EXAMPLE["summary"])
-        self.assertIn("Validation failed", call.call_args.args[1]["messages"][-1]["content"])
-        with patch.object(studio, "ollama", return_value=short) as call:
+        self.assertIn("Validation failed", call.call_args.args[0]["messages"][-1]["content"])
+        with patch.object(studio, "chat", return_value=short) as call:
             with self.assertRaisesRegex(ValueError, "after 3 attempts"):
                 studio.generate("GEN", 1, "bsb", studio.DEFAULT_MODEL)
         self.assertEqual(call.call_count, 3)
@@ -178,10 +178,10 @@ class StudioTests(unittest.TestCase):
 
     def test_grounding_issues_trigger_correction_and_remain_drafts(self):
         fake = {"message": {"content": json.dumps(studio.EXAMPLE)}, "done_reason": "stop"}
-        with patch.object(studio, "ollama", return_value=fake) as generation, patch.object(studio, "review_draft", side_effect=[(["Context reference misses the relevant verse"], {}), ([], {})]):
+        with patch.object(studio, "chat", return_value=fake) as generation, patch.object(studio, "review_draft", side_effect=[(["Context reference misses the relevant verse"], {}), ([], {})]):
             record = studio.generate("GEN", 1, "bsb", studio.DEFAULT_MODEL)
         self.assertEqual(record["attempts"], 2)
-        self.assertIn("Context reference misses", generation.call_args.args[1]["messages"][-1]["content"])
+        self.assertIn("Context reference misses", generation.call_args.args[0]["messages"][-1]["content"])
         self.assertEqual(record["status"], "draft")
         self.assertTrue(record["automated_review"]["human_review_required"])
 
@@ -191,9 +191,9 @@ class StudioTests(unittest.TestCase):
         self.assertNotIn("Nod", studio.cited_text(scripture, 17, 24))
         scripture = studio.source("GEN", 1)
         response = {"message": {"content": '{"verdict":"pass","issues":[]}'}, "done_reason": "stop"}
-        with patch.object(studio, "ollama", return_value=response) as call:
+        with patch.object(studio, "chat", return_value=response) as call:
             studio.review_draft("", studio.EXAMPLE, studio.DEFAULT_MODEL, scripture, {1: scripture, **studio.context_sources("GEN", 1)})
-        content = call.call_args.args[1]["messages"][1]["content"]
+        content = call.call_args.args[0]["messages"][1]["content"]
         checks = json.loads(content.split("\n", 1)[1])
         outline = next(c for c in checks if c["field"] == "outline")
         self.assertIn("13.", outline["evidence"])

@@ -27,11 +27,11 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parents[1]
 DATA = SITE / "data"
 OUTPUT = SITE / ".local" / "chapter-summary-studio"
-DEFAULT_MODEL = "qwen3.6:27b-q4_K_M"
+DEFAULT_MODEL = "qwen3.8-27b"
 BOOK_REFS = dict(zip(
     "GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SNG ISA JER LAM EZK DAN HOS JOL AMO OBA JON MIC NAM HAB ZEP HAG ZEC MAL MAT MRK LUK JHN ACT ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD REV".split(),
     "Gen Ex Lev Nu Dt Jos Jdg Ru 1Sa 2Sa 1Ki 2Ki 1Ch 2Ch Ezr Neh Est Job Ps Pr Ec Sng Is Jer Lam Ezk Da Hos Jl Am Ob Jon Mic Na Hab Zep Hag Zec Mal Mt Mk Lk Jn Ac Ro 1Co 2Co Gal Eph Php Col 1Th 2Th 1Ti 2Ti Tit Phm Heb Jas 1Pe 2Pe 1Jn 2Jn 3Jn Jude Rev".split(), strict=True))
-OLLAMA = "http://127.0.0.1:11434"
+LOCAL_MODEL_URL = "http://127.0.0.1:18020/v1"  # HyperQwen: Qwen 3.8 27B, uncensored build
 FORMAT_VERSION = 3
 PROMPT_VERSION = "chapter-summary-v3-context-summary-outline"
 METHOD_SOURCES = [
@@ -322,19 +322,33 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
-def ollama(path, payload=None):
+def local_request(path, payload=None):
     data = json.dumps(payload).encode() if payload is not None else None
-    request = urllib.request.Request(OLLAMA + path, data=data, headers={"Content-Type": "application/json"})
+    request = urllib.request.Request(LOCAL_MODEL_URL + path, data=data, headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(request, timeout=300 if data else 5) as response:
             return json.load(response)
     except (urllib.error.URLError, TimeoutError) as exc:
-        raise ValueError(f"Ollama request failed: {exc}. No model is started automatically by this studio.") from exc
+        raise ValueError(f"Local Qwen 3.8 (HyperQwen at {LOCAL_MODEL_URL}) request failed: {exc}. "
+                         "No model is started automatically by this studio.") from exc
+
+
+def chat(payload):
+    """Send one chat request to HyperQwen and answer in the shape the callers read (message, done_reason, counts)."""
+    options = payload.get("options", {})
+    body = {"model": payload["model"], "messages": payload["messages"], "stream": False,
+            "temperature": options.get("temperature", 0), "max_tokens": options.get("num_predict", 2400),
+            "chat_template_kwargs": {"enable_thinking": False}}
+    if payload.get("format"):
+        body["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": payload["format"]}}
+    reply = local_request("/chat/completions", body)
+    choice, usage = reply["choices"][0], reply.get("usage") or {}
+    return {"message": {"content": choice["message"]["content"]}, "done_reason": choice.get("finish_reason", ""),
+            "prompt_eval_count": usage.get("prompt_tokens", 0), "eval_count": usage.get("completion_tokens", 0)}
 
 
 def models():
-    return [m["name"] for m in ollama("/api/tags")["models"]
-            if m["name"].lower().startswith("qwen") and "embed" not in m["name"].lower()]
+    return [m["id"] for m in local_request("/models")["data"]]
 
 
 class DraftValidationError(ValueError):
@@ -400,7 +414,7 @@ def review_draft(prompt, draft, model, scripture=None, supplied=None):
             "Report the single most important concrete error, otherwise pass.\n" + json.dumps(checks, ensure_ascii=False))
     else:
         review_input = prompt + "\n<DRAFT>\n" + json.dumps(draft, ensure_ascii=False) + "\n</DRAFT>"
-    response = ollama("/api/chat", {"model": model, "stream": False, "think": False,
+    response = chat({"model": model, "stream": False, "think": False,
         "format": REVIEW_SCHEMA, "keep_alive": "5m",
         "options": {"temperature": 0, "num_ctx": 32768, "num_predict": 800},
         "messages": [{"role": "system", "content": REVIEW_SYSTEM},
@@ -431,7 +445,7 @@ def generate(code, chapter, translation, model):
     total_input, total_output = 0, 0
     corrections = []
     for attempt in range(1, 4):
-        response = ollama("/api/chat", {"model": model, "stream": False, "think": False,
+        response = chat({"model": model, "stream": False, "think": False,
             "format": SCHEMA, "keep_alive": "5m", "options": {"temperature": 0.1, "num_ctx": 32768, "num_predict": 2400},
             "messages": messages})
         total_input += response.get("prompt_eval_count", 0)
@@ -496,7 +510,7 @@ class Studio:
     def start(self, body):
         model = body.get("model", DEFAULT_MODEL)
         if model not in models():
-            raise ValueError("Qwen 3.6 Q4 is not installed in Ollama. The studio does not download models.")
+            raise ValueError("Qwen 3.8 is not running. Start HyperQwen first; the studio does not start models.")
         translation = body.get("translation", "bsb")
         if translation not in ("bsb", "kjv", "web"):
             raise ValueError("Unsupported source translation.")
@@ -596,7 +610,7 @@ HTML = r'''<!doctype html>
 </style></head><body>
 <header><div class="brand"><div class="mark">✧</div><div><div class="eyebrow">The Bible Project</div><strong>Chapter Summary Studio</strong></div></div><button class="outline" id="settings-toggle" aria-expanded="false">Settings</button><span class="pill"><span class="dot"></span><span id="mode">Local workspace</span></span></header>
 <div class="app"><aside><div class="eyebrow">Your workspace</div><div class="nav">▦ <span>Chapter summaries</span></div><div class="eyebrow">Generation settings</div><div class="side-title">Faithful to the text.</div><p class="help">Original introductions that help people take their next step into Scripture.</p>
-<label>Local Qwen model</label><p class="model-line" id="model">Qwen 3.6 · Q4</p><button class="outline wide" id="connect">Check connection</button><p class="help" id="connection">Connection not checked.</p>
+<label>Local Qwen model</label><p class="model-line" id="model">Qwen 3.8 · Q4</p><button class="outline wide" id="connect">Check connection</button><p class="help" id="connection">Connection not checked.</p>
 <label for="translation">Scripture source</label><select id="translation"><option value="bsb">Berean Standard Bible</option><option value="kjv">King James Version</option><option value="web">World English Bible</option></select>
 <div class="side-foot"><b>Chapter summary · v3</b><p class="help">Title and sourced context<br>Readable chapter summary<br>Expandable chapter outline<br>Specific reading invitation</p></div><div class="side-foot"><b>Built for a thoughtful pace</b><p class="help">One chapter at a time. Every completed draft is saved. Resume a batch whenever you’re ready.</p></div><button class="outline wide" id="export">Export finished summaries ↗</button><p class="help">Exports a local JSON file for the website. Publishing is a separate step.</p><p class="help" id="archive-note"></p></aside>
 <main><div class="preview-note" id="preview-note" hidden>DESIGN PREVIEW · The summary below is an illustrative example. Qwen has not been run.</div><div class="top"><div><div class="eyebrow">Scripture → Summary → Invitation</div><h1>A doorway into every chapter.</h1><p class="intro">Create, read, and refine chapter introductions before they reach the reader.</p></div><span class="badge">66 BOOKS · ONE STORY</span></div>
@@ -645,7 +659,7 @@ function showSource(s){$('scripture').replaceChildren();for(const v of s.verses)
 async function loadSource(){const request=++sourceRequest;const translation=records[key()]?.translation||$('translation').value;$('source-label').textContent=translation.toUpperCase()+' · LOCAL TEXT';if(BOOT.preview){if(code==='GEN'&&chapter===1)showSource(BOOT.source);else $('scripture').textContent='In the live studio, the complete selected chapter appears here.';return}$('scripture').textContent='Loading chapter…';try{const s=await api('/api/chapter?code='+code+'&chapter='+chapter+'&translation='+translation);if(request===sourceRequest)showSource(s)}catch(e){if(request===sourceRequest)$('scripture').textContent=e.message}}
 function state(s){const before=JSON.stringify(records[key()]);records=s.records;job=s.job;if(!dirty&&before!==JSON.stringify(records[key()])){render();loadSource()}else{renderTiles();controls();const v=Object.values(records);$('draft-count').textContent=v.length.toLocaleString();$('remaining').textContent=(BOOT.books.reduce((a,b)=>a+b.chapters,0)-v.length).toLocaleString()}$('job-message').textContent=(job.current?job.current+' · ':'')+job.message;$('job-count').textContent=job.done+' saved / '+job.total+' in this batch'+(job.failed?' · '+job.failed+' need retry':'');$('progress-bar').style.width=(job.total?100*(job.done+(job.failed||0))/job.total:0)+'%';const eta=job.eta_seconds;$('run-eta').textContent=job.running?(eta!=null?'Estimated remaining: '+Math.floor(eta/3600)+'h '+Math.ceil(eta%3600/60)+'m · updates as chapters finish':'Estimating from completed chapters…'):'';const failures=Object.keys(s.failures||{});$('failure-note').textContent=failures.length?'Needs retry: '+failures.join(', ')+'. Start the same scope again to retry unfinished chapters.':'';if(job.error)notify(job.error)}
 $('translation').onchange=handle(async()=>{render();await loadSource()});$('scope').onchange=controls;
-$('connect').onclick=handle(async()=>{const d=await api('/api/models');$('connection').textContent=d.models.includes(BOOT.model)?'Qwen 3.6 Q4 is installed. No model loaded by this check.':'Qwen 3.6 Q4 is not installed in Ollama.'});
+$('connect').onclick=handle(async()=>{const d=await api('/api/models');$('connection').textContent=d.models.includes(BOOT.model)?'Qwen 3.8 Q4 is running and ready.':'Qwen 3.8 is not running. Start HyperQwen first.'});
 $('generate').onclick=handle(async()=>{if(dirty)throw Error('Save your edits first.');$('generate').disabled=true;try{state(await api('/api/start',{code,chapter,scope:$('scope').value,translation:$('translation').value,model:BOOT.model}))}finally{controls()}});
 $('pause').onclick=handle(async()=>{state(await api('/api/pause',{}))});
 for(const k of ['title','context','summary','invitation'])$(k).oninput=changed;
