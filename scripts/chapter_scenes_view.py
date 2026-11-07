@@ -1,5 +1,5 @@
-"""The Scenes pipeline in the Chapter Summary Studio. The side panel's primary tab lists the pipelines (Summaries,
-Scenes); each pipeline has its own settings, heading, counts and preview card, and both share the book and chapter
+"""The Scenes pipeline in the Chapter Summary Studio. A primary panel on the far left lists the pipelines (Summaries,
+Scenes); beside it, a secondary panel holds the chosen pipeline's workspace and settings. Each pipeline has its own heading, counts and preview card, and both share the book and chapter
 explorer and the Scripture panel. Scenes is read-only: each writer's key scenes for the chapter (picture frame, moment,
 composition, what is from the text, the image prompt), from chapter_scenes.py's store.
 Docs: initiatives/chapter-scenes/README.md.
@@ -12,9 +12,13 @@ import chapter_scenes
 
 CSS = r"""
 [hidden]{display:none!important}
-.pipelines{display:flex;flex-direction:column;gap:6px;margin:16px 0 30px}
-.pipelines .nav{margin:0;border:0;width:100%;text-align:left;font:inherit;background:transparent;color:var(--ink);align-items:center}
-.pipelines .nav:hover{background:#e3e6dc}.pipelines .nav.on{background:var(--green);color:#fff}
+.app{grid-template-columns:200px 252px 1fr}
+.primary{background:var(--green);color:#fff;padding:28px 14px;display:flex;flex-direction:column;gap:6px}
+.primary .eyebrow{color:#b9cbbf;margin:0 9px 10px}
+.primary button{border:0;background:transparent;color:#dfe8e1;text-align:left;font:inherit;font-size:13px;padding:11px 12px;border-radius:7px;display:flex;gap:11px;align-items:center}
+.primary button:hover{background:#33604f}.primary button.on{background:#fff;color:var(--green);font-weight:600}
+@media(max-width:1000px){.app{grid-template-columns:160px 210px 1fr}}
+@media(max-width:650px){.primary{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 16px}.primary .eyebrow{margin:0 6px 0 0}.primary button{padding:8px 12px}}
 .tile.has-scenes{position:relative;border-bottom:3px solid var(--gold)}
 #scenes-panel{padding:22px 24px}
 .writer-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}
@@ -42,13 +46,14 @@ CSS = r"""
 @media(max-width:650px){#scenes-panel{padding:18px 16px}.comp{grid-template-columns:1fr}.comp dt{margin-top:6px}}
 """
 
-NAV_OLD = '<div class="eyebrow">Your workspace</div><div class="nav">▦ <span>Chapter summaries</span></div>'
-NAV_NEW = ('<div class="eyebrow">Pipelines</div><nav class="pipelines" aria-label="Pipelines">'
-           '<button class="nav on" data-pipeline="summaries" aria-current="page">▦ <span>Summaries</span></button>'
-           '<button class="nav" data-pipeline="scenes">◩ <span>Scenes</span></button></nav><div id="summaries-side">')
+APP_OLD = '<div class="app"><aside>'
+APP_NEW = ('<div class="app"><nav class="primary" aria-label="Pipelines"><div class="eyebrow">Pipelines</div>'
+           '<button class="on" data-pipeline="summaries" aria-current="page">▦ <span>Summaries</span></button>'
+           '<button data-pipeline="scenes">◩ <span>Scenes</span></button></nav><aside><div id="summaries-side">')
 
 SCENES_SIDE = (
-    '</div><div id="scenes-side" hidden><div class="eyebrow">Scene settings</div>'
+    '</div><div id="scenes-side" hidden><div class="eyebrow">Your workspace</div><div class="nav">◩ <span>Scenes</span></div>'
+    '<div class="eyebrow">Scene settings</div>'
     '<div class="side-title">One moment, one frame.</div>'
     '<p class="help">The key scenes of each chapter, each composed as a picture before any image is made.</p>'
     '<div class="side-foot"><b>Scenes · pilot</b><p class="help">Up to 3 per chapter, fewer when short<br>'
@@ -109,7 +114,7 @@ function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();co
 async function loadScenes(){const k=key();if(!cache[k]){try{cache[k]=(await api('/api/scenes?key='+encodeURIComponent(k))).writers}catch(e){cache[k]={}}}if(k===key()&&mode==='scenes')renderScenes()}
 function counts(){const v=Object.values(sceneKeys);$('scenes-chapters').textContent=v.length;$('scenes-haiku').textContent=v.filter(w=>w.includes('haiku')).length;$('scenes-qwen').textContent=v.filter(w=>w.includes('qwen')).length}
 function applyMode(){const scenes=mode==='scenes';
- document.querySelectorAll('.pipelines .nav').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+ document.querySelectorAll('.primary [data-pipeline]').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  $('summaries-side').hidden=scenes;$('scenes-side').hidden=!scenes;$('scenes-top').hidden=!scenes;
  for(const n of [document.querySelector('main > .top'),document.querySelector('main > .stats'),$('summary-card'),document.querySelector('.toolbar'),$('edit-panel'),document.querySelector('.statusbox'),document.querySelector('.legend:not(#scenes-legend)')])n.hidden=scenes;
  $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes;$('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
@@ -118,11 +123,11 @@ function setMode(m){mode=m;try{localStorage.setItem('studio-pipeline',m)}catch(e
 const baseRender=render,baseTiles=renderTiles;
 render=function(){baseRender();if(mode==='scenes')loadScenes()};
 renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
-document.querySelectorAll('.pipelines .nav').forEach(b=>b.onclick=()=>setMode(b.dataset.pipeline));
+document.querySelectorAll('.primary [data-pipeline]').forEach(b=>b.onclick=()=>setMode(b.dataset.pipeline));
 api('/api/scenes').then(d=>{sceneKeys=d.keys;counts();renderTiles()}).catch(()=>{});applyMode();renderTiles()})();
 """
 
-REPLACEMENTS = [("</style>", CSS + "</style>"), (NAV_OLD, NAV_NEW), ("</aside>", SCENES_SIDE),
+REPLACEMENTS = [("</style>", CSS + "</style>"), (APP_OLD, APP_NEW), ("</aside>", SCENES_SIDE),
                 ('<section class="atlas book-explorer"', SCENES_TOP + '<section class="atlas book-explorer"'),
                 (LEGEND_END, LEGEND_END + SCENES_LEGEND), (WORKSPACE_OLD, WORKSPACE_NEW), ("</script>", JS + "</script>")]
 
