@@ -1,6 +1,6 @@
 # Countdowns — design
 
-**Status:** research & design, written in step 7 of sequence 33 ("Bible Guide chain D: life moments"), 2026-11-07. The next step reviews it once and corrects it in place; the step after that implements it.
+**Status:** research & design, written in step 7 of sequence 33 ("Bible Guide chain D: life moments"), 2026-11-07; reviewed once and corrected in place in step 8 the same day (see section 12, Review). The next step implements it.
 **Spec:** [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) entry 8: "Daily reading plus a card leading up to an occasion. Advent and Lent to start, with countdowns for many different occasions; churches can share them with their congregations." This step's brief adds: build it to support many occasions (Easter week, Pentecost, a wedding, a baby's due date, custom dates), and cover the content for each day (stored ahead of time), the date logic including moveable feasts, progress kept in the browser, and sharing with a congregation.
 **Rules:** [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) · [AGENTS.md](../../../AGENTS.md) · [DOCTRINAL-FOUNDATION.md](../../../../DOCTRINAL-FOUNDATION.md) · [SEO.md](../../../../SEO.md)
 **Siblings it builds on:** [life-event-packs/design.md](../life-event-packs/design.md) (passage helpers, home printing, QR codes) and [sympathy/design.md](../sympathy/design.md) (the share-a-message pattern, permanent link keys, no visitor text in links). Where this document says "as in the life-event packs" or "as in sympathy", the rule there applies unchanged.
@@ -103,7 +103,7 @@ The date rules were checked by a script in this job's folder, using the standard
 | Page titles, descriptions, sitemap, not-found page | As in the life-event packs: the `h1`, the first `<p>` of 60+ characters, `ROUTE_TITLES`, one page type in the design-review inventory | [page-head.ts](../../../src/lib/page-head.ts), [site-map-rest.ts](../../../scripts/design-review/site-map-rest.ts), [NotFoundPage.tsx](../../../src/pages/NotFoundPage.tsx) |
 
 **What does not exist yet:**
-- **No calendar or Easter code anywhere on the site.** Nothing under `src/` computes a church date. This feature writes one small module with no imports (6.1).
+- **No church-calendar module.** The only church-date code on the site is Bible Wordle's `easterDate(year)` in [daily-rules.ts](../../../src/pages/games/wordle/daily-rules.ts) (the same Gregorian calculation, returning `"YYYY-MM-DD"`), which the game uses for its own schedule. Nothing computes Advent, Ash Wednesday or the other dates. This feature writes one small module with no imports (6.1) rather than importing from a game, and a test checks that its Easter agrees with Wordle's for every year 1900–2200 (8.3), so the two can never drift apart.
 - **No reading-plan feature.** The site has reading *progress* by chapter ([progress.ts](../../../src/lib/progress.ts)) but no plan.
 - **No shared verse-card generator.** Chain C's generator (approved idea 4; its design is to live at [docs/features/verse-cards/design.md](../verse-cards/design.md)) had not been written on 2026-11-07: `docs/features/` holds bible-wordle, games-hub, life-event-packs, live-quiz, map-quest, memory-match, odd-one-out, sympathy and whos-older. Section 8.4 describes how the day card switches to it later. The implementation step checks again before it starts.
 
@@ -134,10 +134,12 @@ Launching only these three keeps the writing to what the approved spec names (Ad
 | Occasion | Target | First day | Days | Date rule kind |
 |---|---|---|---|---|
 | **Pentecost: ten days of waiting** | Pentecost (Easter + 49) | Ascension Day (Easter + 39) | 11 | Easter-relative (Acts 1:4–14: the disciples waited and prayed between the Ascension and Pentecost) |
-| **A wedding** | The visitor's date | 30 days before | 30 | Chosen |
-| **A baby on the way** | The visitor's due date | 30 days before | 30, plus up to 14 "still waiting" days after the due date | Chosen, with days after the target |
-| **Any date** ("Waiting well") | The visitor's date | 21 days before | 21 | Chosen |
+| **A wedding** | The visitor's date | 30 days before | 31 | Chosen |
+| **A baby on the way** | The visitor's due date | 30 days before | 31, plus up to 14 "still waiting" days after the due date | Chosen, with days after the target |
+| **Any date** ("Waiting well") | The visitor's date | 20 days before | 21 | Chosen |
 | Later ideas: Thanksgiving (21 days of gratitude, fourth Thursday of November), a baptism, a mission trip, a move to a new home, a church anniversary | — | — | — | Fixed, nth weekday, or chosen |
+
+A personal countdown's "Days" count includes the day itself: the wedding runs from `d-30` ("30 days to go") through `d-1` to `the-day`, 31 entries in all.
 
 The engine supports all four date-rule kinds from the first release (6.2), and its tests include a chosen-date occasion and an occasion with days after the target, built from test data (8.3). That way the later occasions really are just data.
 
@@ -178,15 +180,15 @@ The arc runs from longing, through God's promises from Genesis to Malachi, to th
 
 | Key | Theme | Reading | Card verse |
 |---|---|---|---|
-| `dec-01` | The first promise | Genesis 3:8–15 | Genesis 3:15 [140] |
-| `dec-02` | A blessing for every family on earth | Genesis 12:1–3 | Genesis 12:3 [127] |
+| `dec-01` | The first promise | Genesis 3:8–15 | Genesis 3:15 [139] |
+| `dec-02` | A blessing for every family on earth | Genesis 12:1–3 | Genesis 12:3 [126] |
 | `dec-03` | God will provide the lamb | Genesis 22:6–14 | Genesis 22:8 [117] |
 | `dec-04` | The scepter of Judah | Genesis 49:8–10 | Genesis 49:10 [137] |
 | `dec-05` | The Passover lamb | Exodus 12:21–27 | Exodus 12:13 [187] |
 | `dec-06` | A prophet like Moses | Deuteronomy 18:15–19 | Deuteronomy 18:15 [107] |
-| `dec-07` | Ruth, Boaz and a redeemer | Ruth 4:13–17 | Ruth 4:14 [147] |
-| `dec-08` | David's throne forever | 2 Samuel 7:8–16 | 2 Samuel 7:16 [99] |
-| `dec-09` | The Son, the King | Psalm 2:6–12 | Psalm 2:7 [102] |
+| `dec-07` | Ruth, Boaz and a redeemer | Ruth 4:13–17 | Ruth 4:14 [146] |
+| `dec-08` | David's throne forever | 2 Samuel 7:8–16 | 2 Samuel 7:16 [98] |
+| `dec-09` | The Son, the King | Psalm 2:6–12 | Psalm 2:7 [101] |
 | `dec-10` | Immanuel | Isaiah 7:10–14 | Isaiah 7:14 [144] |
 | `dec-11` | A child is born | Isaiah 9:2–7 | Isaiah 9:6 [191] |
 | `dec-12` | The shoot from Jesse's stump | Isaiah 11:1–10 | Isaiah 11:1 [97] |
@@ -200,11 +202,11 @@ The arc runs from longing, through God's promises from Genesis to Malachi, to th
 
 | Key | Theme | Reading | Card verse |
 |---|---|---|---|
-| `dec-18` | An angel in the temple | Luke 1:5–17 | Luke 1:17 [218] |
+| `dec-18` | An angel in the temple | Luke 1:5–17 | Luke 1:17 [217] |
 | `dec-19` | Zechariah's silence, Elizabeth's joy | Luke 1:18–25 | Luke 1:25 [113] |
 | `dec-20` | "I am the Lord's servant" | Luke 1:26–38 | Luke 1:38 [112] |
-| `dec-21` | Mary visits Elizabeth; Mary's song | Luke 1:39–56 | Luke 1:46–47 [85] |
-| `dec-22` | Zechariah's song: the sunrise from on high | Luke 1:67–79 | Luke 1:78–79 [195] |
+| `dec-21` | Mary visits Elizabeth; Mary's song | Luke 1:39–56 | Luke 1:46–47 [84] |
+| `dec-22` | Zechariah's song: the sunrise from on high | Luke 1:67–79 | Luke 1:78–79 [194] |
 | `dec-23` | Joseph | Matthew 1:18–25 | Matthew 1:23 [131] |
 | `dec-24` (Christmas Eve) | No room | Luke 2:1–7 | Luke 2:7 [152] |
 | `dec-25` (Christmas Day) | Good news of great joy; the Word became flesh | Luke 2:8–20 and John 1:1–14 | Luke 2:11 [80] |
@@ -215,7 +217,7 @@ The arc runs from longing, through God's promises from Genesis to Malachi, to th
 |---|---|---|---|
 | `candle-1` | Hope · the prophecy candle | Isaiah 9:2 [127] | `gutenberg-watts-psalms-121-2-to-heaven-i-lift-my-waiting-eyes` |
 | `candle-2` | Peace · the Bethlehem candle | Luke 2:14 [81] | `gutenberg-watts-hymns-2-136-the-king-of-glory-sends-his-son` |
-| `candle-3` | Joy · the shepherds' candle | Luke 2:10 [126] | `ccel-watts-psalms-hymns-i-4-1-shepherds-rejoice-lift-up-your-eyes` |
+| `candle-3` | Joy · the shepherds' candle | Luke 2:10 [125] | `ccel-watts-psalms-hymns-i-4-1-shepherds-rejoice-lift-up-your-eyes` |
 | `candle-4` | Love · the angels' candle | John 3:16 [135] | `gutenberg-watts-hymns-1-3-behold-the-grace-appears` |
 | `candle-christ` | The Christ candle | John 8:12 [163] | `gutenberg-watts-psalms-98-2-joy-to-the-world-the-lord-is-come` |
 
@@ -240,20 +242,20 @@ The arc: return to God (Ash Wednesday to Saturday); in the wilderness (week 1); 
 | `day-10` | Day 10 | Show me your ways | Psalm 25:1–10 | Psalm 25:4–5 [150] |
 | `sunday-2` | A Sunday in Lent | "Destroy this temple" | John 2:18–22 | John 2:19 [82] |
 | `day-11` | Day 11 | "Who do you say I am?" | Mark 8:27–33 | Mark 8:29 [95] |
-| `day-12` | Day 12 | Take up your cross | Mark 8:34–38 | Mark 8:34 [171] |
+| `day-12` | Day 12 | Take up your cross | Mark 8:34–38 | Mark 8:34 [170] |
 | `day-13` | Day 13 | "Listen to him" | Mark 9:2–8 | Mark 9:7 [115] |
 | `day-14` | Day 14 | He humbled himself | Philippians 2:5–11 | Philippians 2:8 [111] |
 | `day-15` | Day 15 | Not to condemn, but to save | John 3:14–21 | John 3:17 [100] |
 | `day-16` | Day 16 | Set toward Jerusalem | Luke 9:51–62 | Luke 9:62 [110] |
 | `sunday-3` | A Sunday in Lent | On the third day | Hosea 6:1–3 | Hosea 6:2 [105] |
-| `day-17` | Day 17 | Living water | John 4:7–15 | John 4:14 [154] |
+| `day-17` | Day 17 | Living water | John 4:7–15 | John 4:14 [153] |
 | `day-18` | Day 18 | Come to the waters | Isaiah 55:1–7 | Isaiah 55:7 [180] |
 | `day-19` | Day 19 | The lost sheep and the lost coin | Luke 15:1–10 | Luke 15:7 [157] |
 | `day-20` | Day 20 | The father runs | Luke 15:11–24 | Luke 15:20 [176] |
 | `day-21` | Day 21 | The joy of being forgiven | Psalm 32:1–7 | Psalm 32:5 [162] |
 | `day-22` | Day 22 | "God, have mercy on me, a sinner" | Luke 18:9–14 | Luke 18:13 [161] |
-| `sunday-4` | A Sunday in Lent | "After three days he will rise" | Mark 10:32–34 | Mark 10:34 [102] |
-| `day-23` | Day 23 | The light of the world | John 9:1–7 | John 9:5 [54] |
+| `sunday-4` | A Sunday in Lent | "After three days he will rise" | Mark 10:32–34 | Mark 10:34 [101] |
+| `day-23` | Day 23 | The light of the world | John 9:1–7 | John 9:5 [53] |
 | `day-24` | Day 24 | Live as children of light | Ephesians 5:8–14 | Ephesians 5:8 [89] |
 | `day-25` | Day 25 | The Lord is my light | Psalm 27:1–5 | Psalm 27:1 [116] |
 | `day-26` | Day 26 | Treasure in jars of clay | 2 Corinthians 4:5–10 | 2 Corinthians 4:6 [175] |
@@ -262,7 +264,7 @@ The arc: return to God (Ash Wednesday to Saturday); in the wilderness (week 1); 
 | `sunday-5` | A Sunday in Lent | Laid down, and taken up again | John 10:14–18 | John 10:17 [87] |
 | `day-29` | Day 29 | "I am the resurrection" | John 11:17–27 | John 11:25–26 [190] |
 | `day-30` | Day 30 | Jesus wept, then called Lazarus out | John 11:32–44 | John 11:35 [11] |
-| `day-31` | Day 31 | Can these bones live? | Ezekiel 37:1–14 | Ezekiel 37:14 [175] |
+| `day-31` | Day 31 | Can these bones live? | Ezekiel 37:1–14 | Ezekiel 37:14 [174] |
 | `day-32` | Day 32 | Buried with him, raised with him | Romans 6:3–11 | Romans 6:4 [185] |
 | `day-33` | Day 33 | Unless a grain of wheat falls | John 12:20–26 | John 12:24 [141] |
 | `day-34` | Day 34 | A face set like flint | Isaiah 50:4–9 | Isaiah 50:7 [142] |
@@ -294,7 +296,7 @@ Each occasion page has an introduction of 60 to 160 words. Its first sentence st
 
 **How much:** 76 reflections (29 Advent, 47 Lent), 76 prayers, about 50 questions (the implementer may leave out a question where none is natural), 76 titles (planned above), 5 candle sentences and 4 introductions. At most about 8,500 words of reflection, plus about 2,500 words of prayers and questions.
 
-**Who writes them, and how:** the implementation step writes them by hand, straight into the data files, as the life-event and sympathy steps wrote their notes. That is ordinary authoring of a few files, not a batch of model calls, so it adds no cost beyond the job itself and needs no batch tooling. If the step judges that this will not fit in one sitting, it ships the engine with Advent's 29 days complete and says so in its report, leaving Lent's text for a follow-up step. It must not ship days with placeholder text. A test rejects empty or placeholder text such as "TODO" or "lorem" (8.3). Drafting with a cheap model through the workspace's batch runner is possible later, especially for the occasions in section 5, but only after the owner has seen a cost estimate and said yes. The house rule on batch work requires that, and an unattended step cannot ask.
+**Who writes them, and how:** the implementation step writes them by hand, straight into the data files, as the life-event and sympathy steps wrote their notes. That is ordinary authoring of a few files, not a batch of model calls, so it adds no cost beyond the job itself and needs no batch tooling. Advent and Lent are both in scope: the step after it is judged on both countdowns working. The words come to about 11,000, which fits one implementation job if it writes them straight into the data files (Advent first, then Lent, file by file as in 8.1, saving each file as it goes). If it still runs out of room, it says so plainly in its report, naming the Lent days still unwritten, so a follow-up can finish them before release; it does not present a half-written Lent as done. It must never ship days with placeholder text, and it must not drop Lent from the hub to make the build pass. A test rejects empty or placeholder text such as "TODO" or "lorem" (8.3). Drafting with a cheap model through the workspace's batch runner is possible later, especially for the occasions in section 5, but only after the owner has seen a cost estimate and said yes. The house rule on batch work requires that, and an unattended step cannot ask.
 
 **Rules for every word the site writes** (the review step checks the plan against them; some are tested):
 
@@ -314,17 +316,17 @@ These are not built in the launch step. They are planned here so the engine is b
 
 Ascension Day (Acts 1:1–11) · waiting and prayer in the upper room (Acts 1:12–14) · "I will not leave you as orphans" (John 14:15–18) · "Peace I leave with you" (John 14:25–27) · the Spirit of truth (John 16:7–15) · the promise in Joel (Joel 2:28–32) · a new heart and a new spirit (Ezekiel 36:25–27) · children of God by the Spirit (Romans 8:14–17) · the fruit of the Spirit (Galatians 5:22–25) · sealed with the promised Spirit (Ephesians 1:13–14) · Pentecost Day (Acts 2:1–13 and 2:36–41). Hymn: `gutenberg-watts-hymns-2-34-come-holy-spirit-heavenly-dove`. The introduction says, in agreement with the confession's article 2 (on the Holy Spirit), that the Spirit indwells every believer from conversion. It does not present Pentecost as a second experience to seek.
 
-### 5.2 A wedding (chosen date, 30 days)
+### 5.2 A wedding (chosen date, 31 days: 30 days to go, then the day)
 
 The arc: God's design (Genesis 2:18–24), covenant love (Ruth 1:16–17; Song of Songs 8:6–7), what love is (1 Corinthians 13:4–7), the household (Ephesians 5:21–33 split over three days; Colossians 3:12–17; 1 Peter 3:7), building on the Lord (Psalm 127:1; Ecclesiastes 4:9–12; Matthew 19:4–6), the first sign at a wedding (John 2:1–11), and on the day itself, the marriage supper of the Lamb (Revelation 19:6–9). The reflections agree with the confession's article 18, on the family: marriage is the covenant union of one man and one woman for life. Its last day links to `/life-events/wedding`, and the wedding pack links back through its `elsewhere` field.
 
-### 5.3 A baby on the way (chosen due date, 30 days plus up to 14 after)
+### 5.3 A baby on the way (chosen due date, 31 days plus up to 14 after)
 
 Knit together in the womb (Psalm 139:13–16), a gift from the Lord (Psalm 127:3), known before birth (Jeremiah 1:5; Luke 1:41–44), "For this child I prayed" (1 Samuel 1:27–28), he gently leads those with young (Isaiah 40:11), anguish turned to joy (John 16:21), do not be anxious (Philippians 4:6–7; Isaiah 41:10), teaching the next generation (Deuteronomy 6:4–7; Psalm 78:4). The 14 **"still waiting"** days after the due date (keys `after-1` to `after-14`) are on patience and God's timing (Psalm 27:14; Psalm 31:15; Lamentations 3:25–26; Habakkuk 2:3). After the fourteenth, the page keeps showing `after-14` with "Still waiting? This last reading is here for every day until your baby comes". It does not count up indefinitely. Every page of this occasion carries, at the foot and in small type, "If your pregnancy has ended in loss", linking to `/sympathy/loss-of-baby`, and the "Stop this countdown" control is one tap with no cheerful wording (9). Its last day links to `/life-events/new-baby`, and the expecting pack links here through its `elsewhere` field.
 
-### 5.4 Any date: "Waiting well" (chosen date, 21 days)
+### 5.4 Any date: "Waiting well" (chosen date, 21 days: 20 to go, then the day)
 
-For a move, a surgery date, a homecoming or a church's big Sunday. On waiting on God and his timing: Psalm 27:14; Isaiah 40:31; Lamentations 3:25–26; Habakkuk 2:3; James 5:7–8; Romans 8:24–25; Psalm 37:7; Psalm 130:5–6; Micah 7:7; Galatians 6:9; Philippians 4:6–7; Proverbs 16:9; James 4:13–15; Psalm 31:14–15; Ecclesiastes 3:1–8; Psalm 90:12; Matthew 6:34; Isaiah 26:3–4; Psalm 62:5–8; Hebrews 10:23; and on the day, Psalm 118:24. Written so that it fits a joyful day and a hard one alike.
+For a move, a surgery date, a homecoming or a church's big Sunday. On waiting on God and his timing: Psalm 27:14; Isaiah 40:31; Lamentations 3:25–26; Habakkuk 2:3; James 5:7–8; Romans 8:24–25; Psalm 37:7; Psalm 130:5–6; Micah 7:7; Galatians 6:9; Philippians 4:6–7; Proverbs 16:9; James 4:13–15; Psalm 31:14–15; Ecclesiastes 3:1–8; Psalm 90:12; Matthew 6:34; Isaiah 26:3–4; Psalm 62:5–8; Hebrews 10:23; and on the day, Psalm 118:24 (21 passages, one per day). Written so that it fits a joyful day and a hard one alike.
 
 ### 5.5 Personal occasions and names
 
@@ -371,7 +373,7 @@ export interface CountdownDay {
   at: DayAt;
   label?: string;                 // "Good Friday", "Christmas Eve"
   title: string;                  // 50 characters at most
-  readings: LifeEventPassage[];   // role "reading"; one or two, each within one chapter
+  readings: LifeEventPassage[];   // role "reading"; one or two, each within one chapter; p() needs a one-line note for each
   card: LifeEventPassage;         // role "card"; 240 characters or fewer after tidying
   reflection: string;             // 60–110 words
   prayer: string;                 // 45 words at most, ends "Amen."
@@ -379,7 +381,9 @@ export interface CountdownDay {
   hymn?: string;                  // id in data/hymns/collection.json
 }
 
-/** An extra panel on a day, such as an Advent candle. `week` n means the start date + 7n days (Advent Sundays). */
+/** An extra panel on a day, such as an Advent candle. `week` n means the date given by the occasion's `start` rule
+ *  (Advent Sunday itself, never the earlier `alwaysFrom` date) + 7n days, counting from 0: candle-1 is week 0,
+ *  candle-4 is week 3. `before` counts back from the target, as in DayAt (the Christ candle is before 0). */
 export interface DayPanel {
   key: string;
   on: { week: number } | { before: number };
@@ -416,6 +420,10 @@ export interface Occasion {
 
 Panels are added on top of the day's entry and never replace it. In years like 2028, when the fourth Sunday of Advent is Christmas Eve, 24 December shows Luke 2:1–7 *and* the candle of love.
 
+**Days after the target** (only the baby occasion has them): the window runs on past the target for `maxAfter` days, one `after-n` entry each. These days replace that occasion's "afterwards" state (6.3): a baby countdown does not finish three days after the due date. From the day after the last `after` entry, the page keeps showing that last entry with its "for every day until your baby comes" line, and the countdown ends only when the visitor presses "Our baby is here" or "Stop this countdown" (5.3). The exactly-one-entry rule covers the window up to `maxAfter`; the open-ended tail after it is the one stated exception.
+
+**Holy Week borrows Lent's days but has its own window**, from its own `start` (Palm Sunday, Easter − 7) to Easter. Its states (6.3) come from that window, so during the first five weeks of Lent the Holy Week page shows "coming up" with a link to today's Lent reading. It shares Lent's run id (`lent:<Easter date>`), so its read marks are Lent's, and its `afterDays` equals Lent's.
+
 ### 6.3 Which year's countdown a page shows
 
 Given today's local date and an occasion with a calendar rule, the page works out the **run** (one year's dates) to show. It takes the first of the runs for last year, this year and next year whose last shown day (the target, plus `afterDays`) is today or later. It then shows that run in one of these states:
@@ -425,7 +433,7 @@ Given today's local date and an occasion with a calendar rule, the page works ou
 | **Coming up** | Before the window opens | "Advent 2026 begins on Sunday 29 November, in 22 days." The first day's entry as a preview, the calendar with every door closed, and the church panel at the top, because churches plan weeks ahead |
 | **Counting down** | Inside the window, before the target | Today's entry, "13 days until Christmas", the calendar with today marked |
 | **The day** | The target day | The target's entry (Christmas Day, Easter Day) with its panel |
-| **Afterwards** | Up to `afterDays` after the target: Advent 11 days (to 5 January, the end of the twelve days of Christmas), Lent 7 days (Easter week), personal occasions 3 days | The target's entry, a short closing line, the full plan for anyone catching up, and a pointer onward (after Lent, to Pentecost once it exists; after Advent, to next year's date) |
+| **Afterwards** | Up to `afterDays` after the target: Advent 11 days (to 5 January, the end of the twelve days of Christmas), Lent 7 days (Easter week), personal occasions 3 days (except the baby occasion, whose "still waiting" days take the place of this state, 6.2) | The target's entry, a short closing line, the full plan for anyone catching up, and a pointer onward (after Lent, to Pentecost once it exists; after Advent, to next year's date) |
 | Then | — | The next year's run, in the "coming up" state |
 
 **Personal occasions** take the target from the visitor's saved countdown or from `?date=` in the address, read with `parseDateKey`. If the date is further away than the countdown is long, the page says "Your countdown starts on 13 May (30 days before)" and shows the first day as a preview. Dates more than two years ahead are refused, with a plain message saying why. If the target is closer than the countdown's length, the visitor starts partway through. "You started with 10 days to go. The earlier days are here if you'd like them." This is the same "late start" Advent and Lent give anyone who finds them partway through.
@@ -463,7 +471,7 @@ Given today's local date and an occasion with a calendar rule, the page works ou
 
 - **Day keys are permanent**, because they sit in people's messages, church newsletters and calendar files for years. Advent uses dates (`dec-12`); Lent uses days and Sundays (`day-12`, `sunday-3`, `easter`); personal occasions use days to go (`d-30` … `d-1`, `the-day`, `after-1` … `after-14`). A committed list of every released key (`KEPT_KEYS`) is checked by a test. A key retired on purpose moves to an alias list that points at its replacement, as sympathy's card keys do.
 - **Addresses:** `/countdowns` (hub) · `/countdowns/<occasion>` · `/countdowns/<occasion>/<key>` (a day). Holy Week has no day pages of its own; it links to `/countdowns/lent/<key>`. Personal occasions add `?date=YYYY-MM-DD` and nothing else.
-- **An unknown day key** (a mistyped or cut-off link from a newsletter) opens the occasion page with a gentle line, "We couldn't find that day; here is today's reading", not the site's not-found page. A congregation member who mistypes a link should still land on the plan. **An unknown occasion** gets the site's own not-found page.
+- **An unknown day key** (a mistyped or cut-off link from a newsletter) is replaced in the address bar by the occasion page (a client-side redirect with `replace`, the gentle line passed in the router's state), which then shows "We couldn't find that day; here is today's reading", not the site's not-found page. Redirecting matters because the site derives each page's canonical link from its path ([page-head.ts](../../../src/lib/page-head.ts)): rendering the plan at the mistyped address would give search engines a second copy of it. A retired key in the alias list redirects the same way to its replacement day. A congregation member who mistypes a link should still land on the plan. **An unknown occasion** gets the site's own not-found page.
 
 ## 7. Pages and sharing
 
@@ -485,7 +493,7 @@ One route in [App.tsx](../../../src/App.tsx), `<Route path="/countdowns/*">`, lo
 
 ### 7.3 A day page
 
-1. **`h1`**: "Advent, 12 December: The Shoot from Jesse's Stump" · "Lent, Day 12: Take Up Your Cross" · "Good Friday: 'It Is Finished'".
+1. **`h1`**: "Advent, December 12: The shoot from Jesse's stump" · "Lent, Day 12: Take up your cross" · "Good Friday: “It is finished”". The day's stored title is used exactly as written (no automatic title-casing), and fixed text such as headings, shared messages and calendar titles puts the month first ("December 12"), as the site's mostly American readers expect. Dates drawn in the browser (status lines, "This year: …", door labels) are formatted with `Intl` for the visitor's region, so the day-month examples elsewhere in this document are only illustrations.
 2. **The date this year**, drawn in the browser: "This year: Saturday 12 December 2026 · 13 days until Christmas". When the page is opened on another day: "This reading is for Sunday 20 December". Day pages are never locked (7.4).
 3. **The reading(s)**: full Berean text as real page text inside `.scripture` with `lang="en"`, each reference linked to the reader.
 4. **Reflection**, then **Prayer**, then **"Talk about it"** (the question, when there is one), then **"Sing"** (the hymn link, when there is one).
@@ -505,14 +513,14 @@ The first `<p>` of 60+ characters is the reflection's first sentence, so each da
 
 ### 7.5 The day card, and sharing a day
 
-**The card** is drawn on the page in HTML and CSS: the occasion's small line ornament, the day line, the card verse, its reference, and "bibleguide.io/countdowns/advent". The day line comes from the entry, not from today's date, so it is always true for that day: "13 days until Christmas" (a fixed date), "Day 12 of 40 · 30 days until Easter" (a fixed distance from Easter), "Christmas Day", "Easter Day". The look follows the occasion: Advent a deep blue-violet accent and a star (Numbers 24:17; Matthew 2:2), Christmas Day white and gold, Lent a muted purple with a plain line, Palm Sunday a palm branch, Easter Day a sunrise. Colours are fixed values in the feature's own stylesheet, readable in light and dark mode.
+**The card** is drawn on the page in HTML and CSS: the occasion's small line ornament, the day line, the card verse, its reference, and "bibleguide.io/countdowns/advent". The day line comes from the entry, not from today's date, so it is always true for that day: "13 days until Christmas" (a fixed date), "Day 12 of 40 · 33 days until Easter" (a fixed distance from Easter), "Christmas Day", "Easter Day". The look follows the occasion: Advent a deep blue-violet accent and a star (Numbers 24:17; Matthew 2:2), Christmas Day white and gold, Lent a muted purple with a plain line, Palm Sunday a palm branch, Easter Day a sunrise. Colours are fixed values in the feature's own stylesheet, readable in light and dark mode.
 
 **Sharing a day** follows the sympathy pattern (share sheet, then copy, then a box to copy by hand; `mailto:` and `sms:?&body=` links built by the feature's own small message builder):
 
 ```
 "Then a shoot will spring up from the stump of Jesse, and a Branch from his roots will bear fruit." — Isaiah 11:1 (BSB)
 
-Advent, 12 December: The shoot from Jesse's stump
+Advent, December 12: The shoot from Jesse's stump
 https://bibleguide.io/countdowns/advent/dec-12
 ```
 
@@ -529,7 +537,7 @@ A panel on each seasonal occasion page, headed "For your church". This is the ma
 | **Print the reading plan** | One sheet, Letter or A4: the title, this year's dates, and every day in two columns (date, weekday, label, reference, a box to tick), with the QR code and address at the foot. It uses the life-event print module with a real page margin; its own sheet component copies the life-event measurements, as sympathy's does. |
 | **Bulletin insert** | Two half-sheets per page with a cut line: this year's dates and references in compact form, plus the QR code. |
 | **Candle readings for the service** (Advent) | The five candle panels on one large-type sheet for whoever lights the wreath in a service. |
-| **Add to calendar** | Downloads `bible-guide-advent-2026.ics`: one **all-day** event per day of this year's run, titled for example "Advent · 12 Dec: Isaiah 11:1–10", with the day's link. All-day dates have no time zone, so the events land on the right day wherever the phone is. No alarms, because calendar apps treat alarms on all-day events inconsistently. The file is built in the browser (a Blob download), with CRLF line ends, lines folded at 75 bytes, commas, semicolons and backslashes escaped, and unique ids (`advent-2026-dec-12@bibleguide.io`). |
+| **Add to calendar** | Downloads `bible-guide-advent-2026.ics`: one **all-day** event per day of this year's run, titled for example "Advent · Dec 12: Isaiah 11:1–10", with the day's link. Each event carries `DTSTART;VALUE=DATE` and `DTEND;VALUE=DATE` (the next day, because the end is exclusive), a `DTSTAMP` (required by the calendar standard, RFC 5545), a `UID`, a `SUMMARY` and a `URL`, inside a `VCALENDAR` with `VERSION:2.0` and `PRODID:-//Bible Guide//Countdowns//EN`. All-day dates have no time zone, so the events land on the right day wherever the phone is. No alarms, because calendar apps treat alarms on all-day events inconsistently. The file is built in the browser (a Blob download), with CRLF line ends, lines folded at 75 bytes, commas, semicolons and backslashes escaped, and unique ids (`advent-2026-dec-12@bibleguide.io`). |
 | **Announcement to copy** | An editable paragraph with this year's dates: "This Advent, read along with us: one short Bible reading a day from Sunday 29 November to Christmas Day, free at bibleguide.io/countdowns/advent. Open the link each day and it shows the right reading." The church edits it in the box and copies it. Nothing is sent. |
 | **Look ahead** | One line: every day page can be opened early to prepare a sermon or a small-group plan. |
 
@@ -561,16 +569,16 @@ New, in `src/pages/countdowns/`: the router page, hub, occasion page, day page, 
 
 ### 8.3 Tests (added in the implementation step, run with the site's `test` and `build`)
 
-- **Calendar:** Easter for 2008, 2019, 2024–2030, 2038 and 2285 matches 2.6; Advent Sunday for 2022 (27 Nov), 2025–2028; Ash Wednesday 2096 is 29 February; Thanksgiving 2026 is 26 November; `parseDateKey` rejects `2027-02-30`, `2027-2-3`, `2201-01-01` and text; adding days crosses month ends, year ends and 29 February correctly.
+- **Calendar:** Easter for 2008, 2019, 2024–2030, 2038 and 2285 matches 2.6; Advent Sunday for 2022 (27 Nov), 2025–2028; Ash Wednesday 2096 is 29 February; Thanksgiving 2026 is 26 November; `easterSunday` agrees with Bible Wordle's `easterDate` for every year 1900–2200 (the test imports the game's function; the page never does); `parseDateKey` rejects `2027-02-30`, `2027-2-3`, `2201-01-01` and text; adding days crosses month ends, year ends and 29 February correctly.
 - **Time zones** (a file of its own, like Wordle's `daily-dst.test.ts`, because it sets the zone for its process): in `America/New_York`, `Europe/London`, `Australia/Sydney` and `Pacific/Auckland`, `today()` changes exactly at local midnight, and day numbers rise by exactly 1 across both daylight-saving changes.
-- **Coverage, every year 1900–2200:** each seasonal occasion's window has exactly one entry per date, with no gaps; the target has an entry; Advent's window is 25 to 29 days and never starts after 1 December; Lent's is 47; Holy Week's borrow gives 8 entries in order; every candle panel falls on a Sunday inside the window, or on Christmas Day.
+- **Coverage, every year 1900–2200:** each seasonal occasion's window has exactly one entry per date, with no gaps; the target has an entry; Advent's window is 25 to 29 days and never starts after 1 December; Lent's is 47; Holy Week's borrow gives 8 entries in order, and its page is "coming up" until Palm Sunday even while Lent is counting down; every candle panel falls on a Sunday inside the window, or on Christmas Day.
 - **The engine on test data:** a chosen-date occasion with `after` days (written in the test file, not the site's data). It checks: a start partway through; the 14-day clamp after the target; a target in the past; a date too far ahead refused; a moved date keeping its ticks.
 - **Which run is shown:** with a fixed clock (`vi.setSystemTime`): 1 November shows Advent "coming up"; 12 December "counting down"; 25 December "the day"; 5 January "afterwards"; 6 January next year's "coming up"; Easter + 7 still Lent "afterwards" and Easter + 8 next year's Lent; a page open across midnight moves its "today" mark.
 - **Data:** every verse id exists in the Berean files and every range runs forward within one chapter; every card verse is 240 characters or fewer after tidying; every assembled passage has paired double quotation marks and ends on ".", "!", "?" or "…" (as the life-event tests check); keys are unique, URL-safe and in `KEPT_KEYS`, and every kept key still resolves directly or through an alias; titles are 50 characters or fewer; reflections are 60–110 words; prayers are 45 words or fewer and end "Amen."; questions are 120 characters or fewer; nothing is empty and nothing contains "TODO", "TBD" or "lorem"; no "!" appears in the site's own words; every hymn id exists in the collection and every topic slug in the topics index; every occasion intro is 60–160 words and contains no year.
 - **Storage:** damaged JSON gives an empty record with a warning; the record is rebuilt field by field; the caps hold; old runs are tidied away; a `setItem` that throws sets the "won't be kept" state; a change in another tab is picked up.
-- **Calendar file:** CRLF line ends; no line over 75 bytes; escaping; all-day `VALUE=DATE` dates matching the run; one event per day; unique ids.
+- **Calendar file:** CRLF line ends; no line over 75 bytes; escaping; all-day `VALUE=DATE` start dates matching the run, each with an end date one day later; a `DTSTAMP`, `VERSION:2.0` and `PRODID` present; one event per day; unique ids.
 - **Message:** the link starts `https://bibleguide.io/countdowns/` whatever address the test page is at; the text holds the tidied verse and "(BSB)"; a personal link carries only `?date=`; Share is hidden when `navigator.share` is missing; Email and Text links carry the encoded body.
-- **Pages** (Testing Library, fixed clock): the hub lists the three occasions; an occasion page lists every day of the run with dates, marks today and shows the candle panel on an Advent Sunday; tapping a door still to come shows its opening date and a "Read it now" link; a day page shows reading text inside `.scripture` with `lang="en"`, the reflection, the prayer and the question; "Mark as read" sets and clears the mark in storage; an unknown day key shows the occasion page with the gentle line; an unknown occasion shows the not-found page; an invalid `?date=` shows the date form with the reason.
+- **Pages** (Testing Library, fixed clock): the hub lists the three occasions; an occasion page lists every day of the run with dates, marks today and shows the candle panel on an Advent Sunday; tapping a door still to come shows its opening date and a "Read it now" link; a day page shows reading text inside `.scripture` with `lang="en"`, the reflection, the prayer and the question; "Mark as read" sets and clears the mark in storage; an unknown day key redirects to the occasion page (the address changes) and shows the gentle line; an unknown occasion shows the not-found page; an invalid `?date=` shows the date form with the reason.
 - **Print, in a browser** (Playwright, the e2e folder, run by hand as sympathy's was): the reading plan, the bulletin insert and the candle sheet each print as exactly one page on Letter and on A4.
 - **Sitemap inventory:** 80 addresses, and none carries a `?date=`.
 
@@ -600,11 +608,11 @@ When chain C's generator exists, the day card component already builds a plain *
 | Damaged or hand-edited storage | Rebuilt field by field; never breaks the page |
 | Two tabs open | Ticks kept in step through the `storage` event |
 | Holy Week page and Lent page | One run and one set of ticks; Holy Week links to Lent's day pages |
-| Mistyped day key in a newsletter link | Occasion page with a gentle line, never "page not found" |
+| Mistyped day key in a newsletter link | Redirected to the occasion page with a gentle line, never "page not found"; the address changes, so search engines never see a duplicate plan |
 | A day key retired | The alias list points to its replacement; `KEPT_KEYS` test fails if a key disappears |
 | Shared links and visitor words | Links carry only the occasion, a day key and (for personal occasions) a checked date; names stay on the device |
 | Invalid, impossible or far-off `?date=` | Date form with a plain reason ("That date doesn't exist" / "Choose a date within the next two years") |
-| Personal date already passed | "This day has come", with the last day's entry for 3 days; then "This countdown has finished", with a Remove button |
+| Personal date already passed | "This day has come", with the last day's entry for 3 days; then "This countdown has finished", with a Remove button. The baby occasion is the exception: it moves on to its "still waiting" days (6.2) |
 | Wedding moved to a new date | The visitor edits the date; ticks kept (by local id) |
 | Baby arrives early | "Our baby is here" ends the countdown: the last day's entry, the new-baby pack link, then Remove |
 | Baby is overdue | Up to 14 "still waiting" days; after that `after-14` stays, with a line for every day until the baby comes |
@@ -632,3 +640,35 @@ The design has a working default for each of these, so none blocks the next step
 3. **Lent on a Southern Baptist site.** Default: included, as the spec asks, framed as voluntary and earning nothing (2.4). The owner may prefer the page to lead with "40 days to Easter" over the word "Lent".
 4. **Candle theme order.** Default: hope, peace, joy, love, then the Christ candle (the most common order). Churches that differ are told the order varies.
 5. **Which personal occasion comes first** after launch: the wedding, the baby or "any date". Default: the wedding, which is the most searched of the three.
+
+## 12. Review
+
+**Reviewed** in step 8 of sequence 33, 2026-11-07, once and critically, against the approved spec (entry 8 of [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md)), [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) and the real codebase. The corrections below are already written into the body above; this section records what changed and why.
+
+### What was checked and found sound
+
+- **Every helper the design reuses exists with the name and role it gives:** `p()`, `BOOK_NUMBERS` and the `elsewhere` field in [types.ts](../../../src/data/life-events/types.ts); `assemblePassage`, `tidyPassageText`, `passageReference`, `readHref`, `CARD_FULL` (240) and `CARD_MAX` (320) in [passage.ts](../../../src/pages/life-events/passage.ts); the print, QR, verse-loading and message modules; `SITE_ORIGIN` (`https://bibleguide.io`) and `ROUTE_TITLES` in [page-head.ts](../../../src/lib/page-head.ts); Wordle's `calendarDay`, `parseDateKey` and `msUntilMidnight`; the sitemap inventory's per-feature page types; and `bun run seo:capture --only <prefix>`.
+- **Every planned passage exists in the Berean files**, and every card verse is 240 characters or fewer after tidying. **Every hymn id** exists in the hymn collection and **every topic slug** in the topics index.
+- **Every date fact in 2.6** was recomputed independently: the Easter dates, Ash Wednesday on 29 February 2096, Ascension and Pentecost 2027, the Advent Sundays (27 November in 2022, 2033, 2039), the fourth Sunday of Advent on Christmas Eve in 2023, 2028 and 2034, and the spread of Advent lengths (22 to 28 days, 42 to 44 years each over 1900–2200). All correct.
+- **Counts:** Lent has exactly 47 entries in the right weekday order (40 numbered days, 6 Sundays, Easter Day); Holy Week's borrow gives 8; the sitemap's 80 addresses add up (hub, 3 occasion pages, 29 + 47 day pages). The example dates for 2026 (Advent Sunday 29 November, 12 December a Saturday, Christmas a Friday) are right.
+- **Scripture wording** quoted in the body (Isaiah 11:1, Isaiah 53:5, Romans 14:5) matches the Berean text.
+- **The rules:** no runtime model cost; existing data reused (passages, hymns, topics, life-event packs, sympathy); Berean only; lists under the long-list threshold; only the feature's own files plus four one-line shared entries; no deployment. The shared verse-card generator from chain C still has no design on 2026-11-07 (`docs/features/` has no `verse-cards` folder), so the day card's plan to switch to it later (8.4) stands.
+
+### What changed, and why
+
+1. **Existing Easter code acknowledged (2.7, 8.3).** The design said nothing on the site computes a church date. In fact Bible Wordle's [daily-rules.ts](../../../src/pages/games/wordle/daily-rules.ts) already has `easterDate(year)`. The design keeps its own import-free module (so a page never depends on a game), and a test now checks the two agree for every year 1900–2200.
+2. **Wrong countdown figure (7.5).** "Day 12 of 40 · 30 days until Easter" was wrong: Day 12 of Lent is 33 days before Easter. Corrected.
+3. **Personal countdown lengths (3.2, 5.2–5.4).** A countdown that starts "30 days before" and includes the day itself has 31 entries (`d-30` to `d-1`, then `the-day`), not 30. The wedding and baby rows now say 31. "Any date" listed 21 passages but would have needed 22 days; it now starts 20 days before, giving 21 days to match its 21 passages. A sentence in 3.2 states the counting rule.
+4. **The baby countdown's ending (6.2, 6.3, 9).** The general rule that personal countdowns finish three days after their date contradicted the baby occasion's "still waiting" days. The body now says the after-days replace that state, the last one stays until the visitor says the baby has come or stops the countdown, and the coverage rule names this open-ended tail as its one exception.
+5. **Which date the candle weeks count from (6.2).** "Start date + 7n days" could have been read as the window's first day, which is 1 December in late years, putting every candle on a weekday. It now says the `start` rule's date (Advent Sunday itself), counting weeks from 0.
+6. **Holy Week's own window (6.2, 8.3).** The design shared Lent's run with Holy Week but never said which dates drive the Holy Week page's states. It now has its own window (Palm Sunday to Easter) and shows "coming up" during the first five weeks of Lent, while sharing Lent's read marks. A test covers it.
+7. **A complete calendar file (7.6, 8.3).** The plan left out fields the calendar standard requires or that apps rely on: `DTSTAMP`, an exclusive `DTEND` for all-day events, `VERSION` and `PRODID`. They are now specified and tested. Without them some calendar apps reject or mis-date the file.
+8. **Mistyped day links (6.5, 8.3, 9).** Showing the plan at a mistyped address would give search engines a duplicate page, because the site builds each page's canonical link from its address. A mistyped or retired key now redirects to the occasion page (or the replacement day) with the same gentle line.
+9. **Lent must not be dropped (4.5).** The design let the implementation ship Advent alone if the writing would not fit. The next step is judged on Advent *and* Lent working, so the fallback now is to write both (about 11,000 words, Advent first) and, if that truly cannot be finished, to name the unwritten Lent days in the report, never to remove Lent from the hub or fill it with placeholders.
+10. **Fixed text in American date order, stored titles as written (7.3, 7.5, 7.6).** The design's own edge cases expect American readers (Letter paper, Thanksgiving, "Sunday, November 29"), but its headings, shared messages and calendar titles used "12 December". Fixed text now reads "December 12"; browser-drawn dates still follow the visitor's region through `Intl`. Day-page headings had been shown in title case while the stored titles are in sentence case, which would have needed an automatic title-caser that gets small words wrong. Headings now use the stored title as written.
+11. **Card verse lengths (4.2, 4.3).** Fourteen bracketed lengths were one character too high, because the tidying step drops an unpaired closing quotation mark. They now match the tidied text. No card was near the 240-character limit because of this, and the data test remains the authority.
+12. **A small authoring note (6.2).** `p()` takes a required one-line note for every passage, so the data files must give one. Noted in the type.
+
+### Not changed
+
+The open questions for the owner (section 11) stay as written, each with a working default, so none blocks the implementation. The doctrinal framing (2.4), the Advent and Lent reading plans, the privacy rules for personal names (5.5) and the church panel were checked and are kept as designed.
