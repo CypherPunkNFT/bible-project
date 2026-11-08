@@ -8,6 +8,9 @@ import { GenealogyExplorer } from "@/components/study/GenealogyExplorer";
 
 vi.mock("@/components/study/StudyParts",()=>({RefLink:()=>null}));
 
+// Laying out 430 people can take several seconds on a busy machine; the 1s waitFor and 5s test defaults made these tests flaky.
+const layoutWait={timeout:10000},layoutTest=30000;
+
 afterEach(()=>{cleanup();localStorage.clear();vi.restoreAllMocks();vi.unstubAllGlobals();});
 
 it("opens Jesus first and preserves the full Luke account across expand and minimize",async()=>{
@@ -60,7 +63,7 @@ it("expands the real genealogy and minimizes back with its updated family view",
   expect(screen.getByRole("button",{name:"Jacob / Israel"})).toHaveAttribute("aria-pressed","true");
   expect(document.body.style.overflow).not.toBe("hidden");
   expect(expand).toHaveFocus();
-},15000);
+},layoutTest);
 
 it("shows two view icons without the editor and opens the same branch as a conventional tree",async()=>{
   const worker={postMessage:vi.fn(),terminate:vi.fn(),onmessage:null,onerror:null};
@@ -70,8 +73,8 @@ it("shows two view icons without the editor and opens the same branch as a conve
   Object.defineProperty(SVGSVGElement.prototype,"width",{configurable:true,get:()=>({baseVal:{value:1200}})});
   Object.defineProperty(SVGSVGElement.prototype,"height",{configurable:true,get:()=>({baseVal:{value:900}})});
   const screen=render(<MemoryRouter><CircularGenealogyPage familyBands /></MemoryRouter>);
-  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430));
-  await waitFor(()=>expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2") ?? "{}")["abraham-gen-11-26:descendants:9"]?.trackLayout).toBe("single-v1"));
+  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430),layoutWait);
+  await waitFor(()=>expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2") ?? "{}")["abraham-gen-11-26:descendants:9"]?.trackLayout).toBe("single-v1"),layoutWait);
   expect(screen.container.querySelector(".circle-editbar")).toBeNull();
   const positions=[...screen.container.querySelectorAll(".circle-person")].map(n=>n.getAttribute("transform"));
   const scene=screen.container.querySelector(".circle-canvas > g")!;
@@ -104,7 +107,7 @@ it("shows two view icons without the editor and opens the same branch as a conve
   expect(worker.terminate).not.toHaveBeenCalled();
   expect([...screen.container.querySelectorAll(".circle-person")].map(n=>n.getAttribute("transform"))).toEqual(positions);
   expect(scene.getAttribute("transform")).toBe(camera);
-});
+},layoutTest);
 
 it("restores pre-spacing offsets at original size, compresses rings and restores their spacing",async()=>{
   const corpus=JSON.parse(readFileSync("public/content/study/genealogy.json","utf8"));
@@ -113,14 +116,14 @@ it("restores pre-spacing offsets at original size, compresses rings and restores
   Object.defineProperty(SVGSVGElement.prototype,"height",{configurable:true,get:()=>({baseVal:{value:900}})});
   const key="abraham-gen-11-26:descendants:9",storage="bible-family-bands-arrangements-v2";
   const initial=render(<MemoryRouter><CircularGenealogyPage editing familyBands /></MemoryRouter>);
-  await waitFor(()=>expect(JSON.parse(localStorage.getItem(storage) ?? "{}")[key]?.trackLayout).toBe("single-v1"));
+  await waitFor(()=>expect(JSON.parse(localStorage.getItem(storage) ?? "{}")[key]?.trackLayout).toBe("single-v1"),layoutWait);
   const previous=JSON.parse(localStorage.getItem(storage)!)[key];
   initial.unmount();
   const enlarged={...previous,spacingPass:"2x-v1",offsets:{"isaac-gen-17-19":.2}};
   localStorage.setItem(storage,JSON.stringify({[key]:enlarged}));
   localStorage.setItem("bible-family-bands-smooth-2x-checkpoints-v1",JSON.stringify({[key]:{at:"test",arrangement:previous}}));
   const screen=render(<MemoryRouter><CircularGenealogyPage editing familyBands /></MemoryRouter>);
-  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430));
+  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430),layoutWait);
   const current=()=>JSON.parse(localStorage.getItem(storage)!)[key];
   expect(current().offsets).toEqual(previous.offsets);
   expect(JSON.parse(localStorage.getItem(storage+"-before-ring-compression")!)[key]).toEqual(enlarged);
@@ -153,9 +156,9 @@ it("restores pre-spacing offsets at original size, compresses rings and restores
   expect(current().offsets).toEqual(previous.offsets);
   screen.unmount();
   const reloaded=render(<MemoryRouter><CircularGenealogyPage editing familyBands /></MemoryRouter>);
-  await waitFor(()=>expect(reloaded.getByLabelText("Bring rings closer")).toHaveValue("0"));
+  await waitFor(()=>expect(reloaded.getByLabelText("Bring rings closer")).toHaveValue("0"),layoutWait);
   expect(current().offsets).toEqual(previous.offsets);
-});
+},layoutTest);
 
 it("converts saved tracks once, keeps ring radii and size, and allows Undo without reconversion",async()=> {
   const corpus=JSON.parse(readFileSync("public/content/study/genealogy.json","utf8"));
@@ -167,8 +170,8 @@ it("converts saved tracks once, keeps ring radii and size, and allows Undo witho
   const previous={scale:3,offsets:{},spacingPass:"2x-v1",ringTracks:{3:3,4:3,5:3,6:3,7:3,8:3,9:3}};
   localStorage.setItem("bible-family-bands-arrangements-v2",JSON.stringify({[key]:previous}));
   const screen=render(<MemoryRouter><CircularGenealogyPage editing familyBands sizeScale={2} /></MemoryRouter>);
-  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430));
-  await waitFor(()=>expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2")!)[key].trackLayout).toBe("single-v1"));
+  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430),layoutWait);
+  await waitFor(()=>expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2")!)[key].trackLayout).toBe("single-v1"),layoutWait);
   const saved=JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2")!)[key];
   expect(saved.scale).toBe(previous.scale);
   expect(saved.ringScales).toBeUndefined();
@@ -180,7 +183,7 @@ it("converts saved tracks once, keeps ring radii and size, and allows Undo witho
   expect(restored).toEqual({...previous,trackLayout:"single-v1",originalSizeRestored:true});
   expect(screen.getByRole("button",{name:"Undo"})).toBeDisabled();
   expect(arrange).not.toHaveBeenCalled();
-});
+},layoutTest);
 
 it("doubles visible sizes without changing saved coordinates, ring radii or viewport",async()=>{
   const corpus=JSON.parse(readFileSync("public/content/study/genealogy.json","utf8"));
@@ -193,7 +196,7 @@ it("doubles visible sizes without changing saved coordinates, ring radii or view
   localStorage.setItem("bible-family-bands-layout-study-v2",JSON.stringify({baselines:{},notes:"",discardedEvents:0,events:[{view:"abraham-gen-11-26:descendants:9",before:original,after:saved}]}));
   localStorage.setItem("bible-family-bands-arrangements-v2",JSON.stringify({"abraham-gen-11-26:descendants:9":saved}));
   const screen=render(<MemoryRouter><CircularGenealogyPage editing familyBands sizeScale={1} /></MemoryRouter>);
-  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430));
+  await waitFor(()=>expect(screen.container.querySelectorAll(".circle-person").length).toBe(430),layoutWait);
   const person=screen.container.querySelector('[data-person-id="isaac-gen-17-19"]')!;
   const scene=screen.container.querySelector(".circle-canvas > g")!;
   const positions=[...screen.container.querySelectorAll(".circle-person")].map(n=>n.getAttribute("transform"));
@@ -222,4 +225,4 @@ it("doubles visible sizes without changing saved coordinates, ring radii or view
   expect(person.querySelector("circle")).toHaveAttribute("r","54");
   expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2")!)["abraham-gen-11-26:descendants:9"]).toEqual(original);
   expect(JSON.parse(localStorage.getItem("bible-family-bands-arrangements-v2-before-size-rollback")!)["abraham-gen-11-26:descendants:9"]).toEqual(saved);
-});
+},layoutTest);
