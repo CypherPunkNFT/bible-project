@@ -52,6 +52,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/teachers/preachers-and-authors": "Preachers and Christian Authors",
   "/teachers/scholars": "Bible Scholars",
   "/resources": "Free Bible Study Resources",
+  "/life-events": "Bible Verses for Weddings, Babies, Baptisms and Graduations",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",

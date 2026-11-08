@@ -1,6 +1,6 @@
 # Life-event verse packs — design
 
-**Status:** reviewed, ready to implement. Written in the research & design step (job 718, sequence 33 "Bible Guide chain D: life moments", step 1, 2026-11-07); reviewed once and corrected in place in step 2 (2026-11-07, see the Review section at the end). Implementation (step 3) follows as a separate job.
+**Status:** reviewed, ready to implement. Written in the research & design step (job 718, sequence 33 "Bible Guide chain D: life moments", step 1, 2026-11-07); reviewed once and corrected in place in step 2 (2026-11-07, see the Review section at the end). Implemented in step 3 (2026-11-07, not deployed); see section 11 for what differs from the plan.
 **Spec:** [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) entry 6 — "Weddings, baptisms, new babies, graduations and similar: chosen passages plus a printable card for each."
 **Rules:** [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) · [AGENTS.md](../../../AGENTS.md) · [DOCTRINAL-FOUNDATION.md](../../../../DOCTRINAL-FOUNDATION.md) · [SEO.md](../../../../SEO.md)
 
@@ -467,3 +467,22 @@ Pre-built PDF downloads; more than one card style per pack; translated packs; en
 ### Left for the implementation step
 - Print a real folded card, or fold a PDF of one, before calling the step done (6.2).
 - Write the 182 notes, the context notes, 15 introductions and 3 explainers into the data files, checking each against the doctrinal foundation (4.1, 4.4).
+
+## 11. Implementation notes (step 3, 2026-11-07)
+
+Built as designed, with these differences, each small and made for a reason:
+
+1. **The Acts 2:38–41 context note quoted the Berean wrongly.** The Berean says "Those who embraced his message were baptized" (2:41), not "accepted". The data quotes it exactly.
+2. **Partial verses carry their "a"/"b" mark in the data** (`part.mark`), so the hub can show "Ecclesiastes 4:12b" without loading any Bible text. A test checks every mark against where the excerpt really sits in its verse.
+3. **Passages are written in the pack files as short references** (`p("SNG 2:10-13", …)`), turned into verse ids by a 66-book table that a test checks against the site's catalogue. The data still holds ids, never wording.
+4. **Topic links store the topic's title with its slug** (`{ slug, title }`), so the page needs no 5,603-topic index to label them; a test checks both against the index. Two titles differ from their slugs: "The New Birth" and "Christian Minister".
+5. **`shortName` became `short`**: the site's translation build check only collects one-word labels under keys it knows, and "Wedding" under `shortName` would have stopped the build.
+6. **Name fields where 6.3 named none:** expecting a baby, new believer, first day of school and new job each have one name (the recipient's). The six dated packs are exactly those of 6.3.
+7. **Every assembled passage starts with a capital letter**, not only "b" excerpts (Ephesians 4:2 begins "with all humility"). No word changes.
+8. **A single psalm is referenced "Psalm 139:13–14"**, not the catalogue's book name "Psalms".
+9. **The print module is two files**, [print-sheet.ts](../../../src/pages/life-events/print-sheet.ts) (paper sizes, the @page rule and marker, the font wait, the in-app browser check) and [PrintPortal.tsx](../../../src/pages/life-events/PrintPortal.tsx) (the container on `<body>`), with [print-sheet.css](../../../src/pages/life-events/print-sheet.css). The site's lint rule keeps components and plain functions in separate files. Neither knows anything about life events, so the sympathy cards and home blessings can import them.
+10. **The QR code is drawn as SVG squares** from the `qrcode` package's own matrix (no image, no raw HTML, which the site's lint rule bans), from `SITE_ORIGIN`.
+
+**Checked by printing:** the browser check [life-events-print.spec.ts](../../../e2e/life-events-print.spec.ts) prints each format on Letter and A4 to PDF: every single-sheet format is exactly one page of the right size, and the readings sheet runs on. The folded card's PDF was rendered and looked at: front bottom right, back (QR and address) bottom left, the top half turned 180° with the names and message top left. Folded as 6.2 describes, that gives a front, an inside and a back reading the right way up.
+
+**Not done here:** no sympathy, birthday or home-blessing links yet (those pages do not exist); no "Share as image" button (chain C's verse-card generator still does not exist, 7.4).

@@ -1,0 +1,75 @@
+/* The printed sheet (CardSheet.tsx, design 6). True size in inches or millimetres, ink only: lines, type and line-art
+   ornaments, never a background the browser would drop. Fixed light colours, not the theme's variables, so dark mode
+   cannot reach the paper. Every printed element stays at least 0.3in (8mm) inside each cut or fold. */
+.les-sheet {
+  --ink-fixed: #1f1b16; --muted-fixed: #5b5246; --guide: #b9ae9c;
+  position: relative; box-sizing: border-box; width: var(--sheet-width); height: calc(var(--sheet-height) - 1px); overflow: hidden;
+  display: grid; grid-template: 1fr 1fr / 1fr 1fr;
+  background: #fff; color: var(--ink-fixed); font-family: "Archivo Variable", system-ui, sans-serif; font-size: 10pt; line-height: 1.4;
+  color-scheme: light; text-align: center;
+}
+.les-sheet *, .les-sheet *::before, .les-sheet *::after { box-sizing: border-box; }
+.les-sheet p { margin: 0; }
+.les-sheet .scripture { font-family: "Literata Variable", Georgia, serif; color: var(--ink-fixed); }
+
+.les-quarter { position: relative; min-width: 0; min-height: 0; overflow: hidden; padding: 0.35in; display: flex; }
+.les-paper-a4 .les-quarter { padding: 9mm; }
+.les-turned { transform: rotate(180deg); }
+.les-panel { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.12in; overflow-wrap: anywhere; }
+
+/* Fold and cut guides: faint dashed borders (borders print; backgrounds may not). */
+.les-guides.les-folded::before, .les-guides.les-small::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 0.6pt dashed var(--guide); }
+.les-guides.les-folded::after, .les-guides.les-small::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 0.6pt dashed var(--guide); }
+
+.les-heading { color: var(--family); font-size: 9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.les-verse { margin: 0; max-width: 100%; }
+.les-verse p { font-style: italic; }
+.les-verse-card.les-full p { font-size: 14pt; line-height: 1.45; }
+.les-verse-card.les-small p { font-size: 12pt; line-height: 1.4; }
+.les-ref { margin-top: 0.1in; color: var(--family); font-size: 9pt; font-weight: 600; letter-spacing: .06em; }
+.les-ref::before { content: ""; display: block; width: 0.5in; margin: 0 auto 0.08in; border-top: 0.6pt solid var(--family); }
+
+.les-back { justify-content: flex-end; gap: 0.08in; }
+.les-sheet .le-qr { width: 0.9in; height: 0.9in; flex: none; }
+.les-address { font-size: 8.5pt; font-weight: 600; }
+.les-small { color: var(--muted-fixed); font-size: 7.5pt; }
+
+.les-inside { justify-content: flex-start; padding-top: 0.2in; }
+.les-names { font-family: "Literata Variable", Georgia, serif; font-size: 18pt; line-height: 1.2; }
+.les-names-long { font-size: 14pt; }
+.les-names-small { font-size: 12pt; }
+.les-names-small.les-names-long { font-size: 10pt; }
+.les-date { color: var(--muted-fixed); font-size: 9.5pt; letter-spacing: .04em; }
+.les-message { font-family: "Literata Variable", Georgia, serif; font-size: 11pt; line-height: 1.5; }
+.les-write { width: 80%; flex: 1; max-height: 1.6in; border-bottom: 0.6pt solid var(--guide); }
+
+.les-small-card { gap: 0.08in; }
+
+/* Display print: Letter keeps everything inside a centred 8 x 10in area; A4 fills the sheet with a margin. */
+.les-sheet.les-display { display: block; }
+.les-display-area { position: absolute; inset: 0.5in 0.25in; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25in; padding: 0.7in; }
+.les-paper-a4 .les-display-area { inset: 0; padding: 22mm; }
+.les-guides.les-paper-letter .les-display-area { border: 0.6pt dashed var(--guide); }
+.les-heading-display { font-size: 12pt; }
+.les-verse-display p { line-height: 1.45; }
+.les-verse-display.les-full p { font-size: 26pt; }
+.les-verse-display.les-medium p { font-size: 19pt; }
+.les-verse-display.les-small p { font-size: 14.5pt; }
+.les-verse-display .les-ref { font-size: 12pt; }
+.les-names-display { font-size: 22pt; }
+
+/* Readings sheet: normal page flow, a passage never split across pages unless it is longer than one. */
+.les-sheet.les-readings { display: block; height: auto; overflow: visible; padding: 0.75in; text-align: left; }
+.les-paper-a4.les-readings { padding: 19mm; }
+.les-readings h1 { margin: 0 0 0.15in; font: 600 20pt/1.2 "Literata Variable", Georgia, serif; }
+.les-readings h2 { margin: 0.25in 0 0.05in; color: var(--family); font-size: 9pt; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; break-after: avoid; }
+.les-reading { padding: 0.1in 0; border-bottom: 0.6pt solid #e4ddd0; break-inside: avoid; }
+.les-reading h3 { margin: 0 0 0.04in; font-size: 10.5pt; font-weight: 650; }
+.les-reading .scripture { font-size: 11.5pt; line-height: 1.55; }
+.les-note { margin-top: 0.05in !important; color: var(--muted-fixed); font-size: 9pt; }
+.les-context { font-style: italic; }
+.les-readings-foot { margin-top: 0.2in !important; }
+
+@media print {
+  .print-sheet-portal .les-sheet.les-readings { width: auto; padding: 0; }
+}

@@ -2,6 +2,7 @@
 import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { PARABLES, PARABLE_GUIDE_URL } from "../../src/data/parables";
+import { lifeEventPaths } from "../../src/data/life-events";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
 import { WEBSITE } from "./sources.ts";
@@ -253,6 +254,8 @@ function studyAndSiteTemplates(): TemplateDef[] {
       single("access", "Open with a key", "Without a key.", "/testimonies/access"),
     ]),
     one("home", "site", "Home", "/", "The front page.", ["src/pages/HomePage.tsx"], ["src/pages/HomePage.tsx", "src/components/home/"]),
+    one("life-event", "site", "Life-event verse packs", "/life-events/<pack>", "Chosen passages for weddings, babies, baptisms and other big days, each with a printable card.", ["src/pages/life-events/LifeEventsPage.tsx"], ["src/pages/life-events/", "src/data/life-events/"],
+      lifeEventPaths().map((address) => single(address === "/life-events" ? "hub" : address.split("/")[2], address, "A life-event page.", address))),
     one("search", "site", "Search", "/search?q=<words>", "Keyword search across the Bible.", ["src/pages/SearchPage.tsx"], ["src/pages/SearchPage.tsx", "src/components/search/"], [
       single("results", "With results", "A common word.", "/search?q=grace"),
       single("none", "No results", "A word that is not in the Bible.", "/search?q=zzzzqx"),

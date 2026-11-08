@@ -1,0 +1,79 @@
+/* Life-event verse packs on screen (LifeEventsPage.tsx, PackPage.tsx, CardMaker.tsx). Hairlines rather than boxes, the
+   family's category colour for small accents (--family, set per page or family). The printed sheet: life-events-sheet.css. */
+.le-page { --family: var(--accent); padding-block: 2.5rem 4rem; }
+.le-page h1 { margin-top: .8rem; font: 450 clamp(2.1rem, 4.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.le-intro { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: 1.02rem; line-height: 1.75; }
+.le-crumbs { color: var(--muted); font-size: .78rem; letter-spacing: .04em; }
+.le-crumbs a { color: var(--family); }
+.le-source { margin-top: 3rem; color: var(--muted); font-size: .78rem; }
+
+/* Hub */
+.le-family { margin-top: 2.6rem; }
+.le-family h2 { padding-bottom: .6rem; border-bottom: 1px solid var(--line); color: var(--family); font: 650 .7rem/1.2 var(--font-sans); letter-spacing: .18em; text-transform: uppercase; }
+.le-hub-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.le-hub-grid > li { display: flex; border-bottom: 1px solid var(--line); }
+.le-hub-grid > li:not(:nth-child(4n + 1)) { border-left: 1px solid var(--line); }
+.le-hub-card { position: relative; display: flex; flex: 1; flex-direction: column; gap: .35rem; padding: 1.2rem 1.2rem 1rem; color: inherit; }
+.le-hub-card .le-ornament { color: var(--family); }
+.le-hub-card::before { content: ""; position: absolute; left: 0; top: -1px; width: 2rem; height: 2px; background: var(--family); transition: width .4s cubic-bezier(.16, 1, .3, 1); }
+.le-hub-card:is(:hover, :focus-visible)::before { width: 100%; }
+.le-hub-card h3 { margin-top: .4rem; font: 500 1.25rem/1.25 var(--font-serif); }
+.le-hub-ref { color: var(--muted); font-size: .82rem; }
+.le-hub-foot { margin-top: auto; padding-top: .6rem; color: var(--family); font-size: .74rem; }
+
+/* Pack page */
+.le-explainer { max-width: 46rem; margin-top: 1.8rem; padding: 1rem 1.2rem; border-left: 2px solid var(--family); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.le-explainer h2 { font: 600 1.05rem/1.3 var(--font-serif); }
+.le-explainer p { margin-top: .5rem; font-size: .92rem; line-height: 1.7; }
+.le-role { margin-top: 2.6rem; }
+.le-role > h2, .le-maker > h2, .le-more > h2 { padding-bottom: .6rem; border-bottom: 1px solid var(--line); font: 500 1.5rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.le-group { margin-top: 1.4rem; color: var(--family); font: 650 .68rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.le-passage { padding: 1.2rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.le-passage-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
+.le-reference { color: var(--family); font-weight: 600; font-size: .9rem; }
+.le-reference:hover { text-decoration: underline; }
+.le-passage-actions { display: flex; gap: .4rem; }
+.le-small-button { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .74rem; line-height: 1.4; transition: border-color .2s, color .2s; }
+.le-small-button:hover { border-color: var(--family); color: var(--ink); }
+.le-text { margin: .6rem 0 0; font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.75; }
+.le-note { margin-top: .45rem; color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.le-context { padding-left: .7rem; border-left: 2px solid color-mix(in srgb, var(--family) 45%, var(--line)); }
+.le-context strong { font-weight: 600; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.le-status { margin-top: 2rem; color: var(--muted); }
+.le-failed { color: var(--red-letter); }
+.le-more { margin-top: 3rem; }
+.le-more ul { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.le-more a { display: inline-block; padding: .35rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .82rem; }
+.le-more a:hover { border-color: var(--family); }
+
+/* Card maker */
+.le-maker { margin-top: 3.2rem; scroll-margin-top: 5rem; }
+.le-maker-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; margin-top: 1.4rem; align-items: start; }
+.le-maker-controls { display: flex; flex-direction: column; gap: 1rem; }
+.le-choice { display: grid; gap: .4rem; border: 0; padding: 0; margin: 0; }
+.le-choice legend, .le-field > span, .le-field > label { margin-bottom: .35rem; color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.le-choice label { display: flex; gap: .6rem; align-items: flex-start; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: .4rem; cursor: pointer; }
+.le-choice label.le-chosen { border-color: var(--family); }
+.le-choice input { margin-top: .25rem; accent-color: var(--family); }
+.le-choice strong { display: block; font-size: .9rem; font-weight: 600; }
+.le-choice small { display: block; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.le-choice-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.le-field { display: flex; flex-direction: column; }
+.le-field input, .le-field select { padding: .5rem .65rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); font-size: .92rem; }
+.le-field input:focus, .le-field select:focus { outline: 2px solid color-mix(in srgb, var(--family) 60%, transparent); outline-offset: 1px; }
+.le-field small { margin-top: .25rem; color: var(--muted); font-size: .72rem; }
+.le-field small.le-field-full { color: var(--red-letter); }
+.le-check { display: flex; gap: .5rem; align-items: center; font-size: .86rem; }
+.le-notice { padding: .5rem .7rem; border-left: 2px solid var(--family); font-size: .84rem; overflow-wrap: anywhere; }
+.le-instructions { color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.le-print { align-self: flex-start; padding: .65rem 1.6rem; border-radius: 999px; background: var(--family); color: #fff; font-weight: 600; font-size: .92rem; }
+.le-print:disabled { opacity: .55; cursor: wait; }
+.le-small-print { color: var(--muted); font-size: .74rem; }
+.le-preview { position: sticky; top: 5.5rem; overflow: hidden; border: 1px solid var(--line); border-radius: .3rem; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, .45); background: #fff; }
+.le-preview-sheet { transform-origin: top left; }
+.le-preview .les-sheet.les-readings { min-height: calc(var(--sheet-height) - 1px); }
+
+@media (max-width: 1023px) { .le-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .le-hub-grid > li:not(:nth-child(4n + 1)) { border-left: 0; } .le-hub-grid > li:nth-child(2n) { border-left: 1px solid var(--line); } }
+@media (max-width: 767px) { .le-maker-grid { grid-template-columns: 1fr; } }
+@media (max-width: 539px) { .le-hub-grid { grid-template-columns: 1fr; } .le-hub-grid > li:nth-child(2n) { border-left: 0; } }
+@media (prefers-reduced-motion: reduce) { .le-hub-card::before { transition: none; } }

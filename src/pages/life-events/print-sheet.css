@@ -1,0 +1,14 @@
+/* Printing one sheet (print-sheet.tsx, design 6.5). The sheet lives in .print-sheet-portal on <body>, hidden on screen.
+   Every print rule sits under html.print-sheet-active, which only a page that pressed Print adds, so every other page on
+   the site prints exactly as before. */
+.print-sheet-portal { display: none; }
+
+@media print {
+  html.print-sheet-active,
+  html.print-sheet-active body { margin: 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; background: #fff !important; }
+  html.print-sheet-active body > :not(.print-sheet-portal) { display: none !important; }
+  html.print-sheet-active .print-sheet-portal { display: block !important; }
+  html.print-sheet-active .print-sheet-portal * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* Where a browser ignores @page size, the sheet is still one page and centred. */
+  html.print-sheet-active .print-sheet-portal > * { margin-inline: auto; break-after: avoid; }
+}
