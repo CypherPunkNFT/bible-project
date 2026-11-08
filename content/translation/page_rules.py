@@ -96,7 +96,10 @@ def template_text(literal: str) -> str | None:
     if "$" in rest or "{" in rest or not re.search(r"[A-Za-z]{3}", rest) or EDGE_CODE.search(text.replace("{n}", "0")):
         return None
     one_word = re.fullmatch(r"[A-Za-z]{3,}", rest) and " " in text  # "{n} scholars", not "{n}px"
-    return None if (CODE_LIKE.search(rest) and not one_word) or class_like(rest) else text
+    # A sentence label ending in ':' is not a Tailwind variant. Keep the exception
+    # narrow: multiple plain words, capitalized, with no internal colon or class syntax.
+    colon_label = bool(re.fullmatch(r"[A-Z][A-Za-z]*(?: [A-Za-z]+)+:", rest))
+    return None if (CODE_LIKE.search(rest) and not one_word) or (class_like(rest) and not colon_label) else text
 
 
 def first_rules(source: str, suffix: str) -> list[str]:
