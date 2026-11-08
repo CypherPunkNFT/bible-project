@@ -34,6 +34,7 @@ const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const LiveQuizPlayPage = lazy(() => import("@/pages/games/live-quiz/PlayPage"));
 const LifeEventsPage = lazy(() => import("@/pages/life-events/LifeEventsPage"));
+const SympathyPage = lazy(() => import("@/pages/sympathy/SympathyPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const EmblemMockupsPage = lazy(() => import("@/pages/EmblemMockupsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
@@ -105,7 +106,9 @@ function PageFallback() {
 function AppFrame({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const page = <PageErrorBoundary resetKey={pathname}>{children}</PageErrorBoundary>;
-  return pathname === "/mock/genealogy-circle-2" || pathname === "/mock/genealogy-circle" || pathname === "/mock/genealogy-curves" ? page : <Layout>{page}</Layout>;
+  // A sympathy card link opens a quiet page for someone grieving, without the site header and footer (design 5.5).
+  const bare = pathname === "/mock/genealogy-circle-2" || pathname === "/mock/genealogy-circle" || pathname === "/mock/genealogy-curves" || /^\/sympathy\/card(\/|$)/.test(pathname);
+  return bare ? page : <Layout>{page}</Layout>;
 }
 
 function Apologetics2Redirect() {
@@ -159,6 +162,7 @@ export default function App() {
               <Route path="/play" element={<LiveQuizPlayPage />} />
               <Route path="/play/:code" element={<LiveQuizPlayPage />} />
               <Route path="/life-events/*" element={<LifeEventsPage />} />
+              <Route path="/sympathy/*" element={<SympathyPage />} />
               <Route path="/banner-emblems" element={<EmblemMockupsPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />

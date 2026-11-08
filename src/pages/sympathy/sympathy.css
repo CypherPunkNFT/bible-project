@@ -1,0 +1,155 @@
+/* Sympathy pages on screen (design 6.6): quiet. Hairlines rather than boxes, generous space, one muted slate accent and no
+   bright category colour. The help strip borrows the help directory's green (src/pages/resources/life/life.css), never
+   red. The printed sheets: sympathy-sheet.css. */
+.sy-page, .sy-recipient { --sy-accent: #4f6378; --sy-help: #3d6b58; }
+:root[data-theme="dark"] :is(.sy-page, .sy-recipient) { --sy-accent: #9fb2c6; --sy-help: #80c498; }
+.sy-page { padding-block: 2.5rem 4rem; }
+.sy-page h1 { margin-top: .8rem; font: 450 clamp(2rem, 4.4vw, 3.2rem)/1.12 var(--font-serif); letter-spacing: -.03em; }
+.sy-intro { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: 1.02rem; line-height: 1.75; }
+.sy-crumbs { color: var(--muted); font-size: .78rem; letter-spacing: .04em; }
+.sy-crumbs a { color: var(--sy-accent); }
+.sy-source { margin-top: 3rem; color: var(--muted); font-size: .78rem; }
+.sy-status { margin-top: 2rem; color: var(--muted); }
+.sy-failed { color: var(--red-letter); }
+
+/* Section headings */
+.sy-role, .sy-maker, .sy-more, .sy-guide, .sy-losses, .sy-write-link, .sy-particular { margin-top: 3rem; }
+:is(.sy-role, .sy-maker, .sy-more, .sy-guide, .sy-losses, .sy-write-link, .sy-particular) > h2,
+.sy-our-readings > h2 { padding-bottom: .6rem; border-bottom: 1px solid var(--line); font: 500 1.45rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.sy-write-link p { margin-top: .8rem; font-size: .95rem; }
+.sy-write-link a, .sy-particular a, .sy-hymns a { color: var(--sy-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Hub: choose the loss */
+.sy-loss-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sy-loss-grid > li { display: flex; border-bottom: 1px solid var(--line); }
+.sy-loss-card { display: flex; flex: 1; flex-direction: column; gap: .3rem; padding: 1rem 1.1rem; color: inherit; transition: background-color .2s; }
+.sy-loss-card:is(:hover, :focus-visible) { background: color-mix(in srgb, var(--sy-accent) 7%, transparent); }
+.sy-loss-card h3 { font: 500 1.15rem/1.3 var(--font-serif); }
+.sy-loss-ref { color: var(--muted); font-size: .8rem; }
+.sy-loss-funeral { margin-top: 1rem; border-left: 2px solid var(--sy-accent); }
+.sy-loss-foot { color: var(--muted); font-size: .85rem; }
+
+/* Passages */
+.sy-passage { padding: 1.2rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); scroll-margin-top: 5rem; }
+.sy-passage-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
+.sy-reference-line { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: .55rem; }
+.sy-reference { color: var(--sy-accent); font-weight: 600; font-size: .9rem; }
+.sy-reference:hover { text-decoration: underline; }
+.sy-label { padding: .05rem .5rem; border: 1px solid color-mix(in srgb, var(--sy-accent) 50%, var(--line)); border-radius: 999px; color: var(--sy-accent); font-size: .68rem; letter-spacing: .04em; }
+.sy-passage-actions, .sy-our-actions { display: inline-flex; gap: .4rem; }
+.sy-small-button, .sy-icon-button { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .74rem; line-height: 1.4; }
+.sy-icon-button { padding: .3rem; }
+.sy-small-button:hover, .sy-icon-button:hover:not(:disabled) { border-color: var(--sy-accent); color: var(--ink); }
+.sy-icon-button:disabled { opacity: .35; }
+.sy-text { margin: .6rem 0 0; font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.75; }
+.sy-text.sy-folded { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; }
+.sy-link-button { margin-top: .3rem; color: var(--sy-accent); font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; }
+.sy-note { margin-top: .45rem; color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.sy-context { padding-left: .7rem; border-left: 2px solid color-mix(in srgb, var(--sy-accent) 45%, var(--line)); }
+.sy-context strong { font-weight: 600; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+
+/* Explainer and help strip */
+.sy-explainer { max-width: 46rem; margin-top: 2.4rem; padding: 1rem 1.2rem; border-left: 2px solid var(--sy-accent); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.sy-explainer h2 { font: 600 1.1rem/1.3 var(--font-serif); }
+.sy-explainer p { margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+.sy-help { display: flex; flex-direction: column; gap: .35rem; max-width: 46rem; margin-top: 1.4rem; padding: .7rem 0 .7rem 1rem; border-left: 3px solid var(--sy-help); border-bottom: 1px solid var(--line); font-size: .95rem; }
+.sy-help-links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; }
+.sy-help a { display: inline-flex; align-items: center; gap: .4rem; color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--sy-help); }
+.sy-help a svg { color: var(--sy-help); }
+
+/* Writing guide */
+.sy-guide h3 { margin-top: 1.6rem; color: var(--sy-accent); font: 650 .7rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.sy-lines { display: grid; gap: .45rem; margin-top: .7rem; padding-left: 1.1rem; list-style: disc; font-family: var(--font-serif); font-size: 1rem; }
+.sy-leave-out { display: grid; gap: .8rem; margin-top: .7rem; }
+.sy-leave-out dt { font-family: var(--font-serif); font-size: 1rem; font-style: italic; }
+.sy-leave-out dd { margin: .15rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.sy-guide > p { max-width: 46rem; margin-top: .7rem; font-size: .95rem; line-height: 1.7; }
+
+/* Card maker */
+.sy-maker { scroll-margin-top: 5rem; }
+.sy-maker-choices { display: grid; gap: 1rem; margin-top: 1.4rem; max-width: 46rem; }
+.sy-chosen-verse { padding: .8rem 1rem; border-left: 2px solid var(--sy-accent); }
+.sy-chosen-verse .scripture { font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; line-height: 1.7; }
+.sy-chosen-ref { display: flex; gap: .6rem; align-items: baseline; margin-top: .3rem; color: var(--sy-accent); font-size: .85rem; font-weight: 600; }
+.sy-hint { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
+.sy-choice { display: grid; gap: .4rem; border: 0; padding: 0; margin: 0; }
+.sy-choice legend, .sy-field > label, .sy-field-label { margin-bottom: .35rem; color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.sy-choice label { display: flex; gap: .6rem; align-items: center; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .4rem; cursor: pointer; font-size: .9rem; }
+.sy-choice label.sy-chosen { border-color: var(--sy-accent); }
+.sy-choice input { accent-color: var(--sy-accent); }
+.sy-choice-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sy-styles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sy-styles label { flex-direction: column; text-align: center; color: var(--sy-accent); }
+.sy-styles label span { color: var(--ink); font-size: .8rem; }
+.sy-styles input { position: absolute; opacity: 0; pointer-events: none; }
+.sy-styles label:has(input:focus-visible) { outline: 2px solid var(--sy-accent); outline-offset: 2px; }
+.sy-tabs { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: 1.6rem; border-bottom: 1px solid var(--line); }
+.sy-tab { padding: .55rem .9rem; border-bottom: 2px solid transparent; color: var(--muted); font-size: .9rem; }
+.sy-tab-on { border-bottom-color: var(--sy-accent); color: var(--ink); font-weight: 600; }
+.sy-tab-panel { margin-top: 1rem; }
+.sy-tab-what { color: var(--muted); font-size: .86rem; }
+.sy-tab-body { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+.sy-print-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; }
+.sy-print-controls { display: flex; flex-direction: column; gap: 1rem; }
+.sy-field { display: flex; flex-direction: column; }
+.sy-field input, .sy-field select, .sy-field textarea { padding: .5rem .65rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); font-size: .92rem; }
+.sy-field textarea { resize: vertical; font-family: inherit; line-height: 1.5; }
+.sy-field :is(input, select, textarea):focus { outline: 2px solid color-mix(in srgb, var(--sy-accent) 60%, transparent); outline-offset: 1px; }
+.sy-field small { margin-top: .25rem; color: var(--muted); font-size: .72rem; }
+.sy-field small.sy-field-full { color: var(--red-letter); }
+.sy-message-preview { min-height: 9rem; white-space: pre-wrap; }
+.sy-check { display: flex; gap: .5rem; align-items: center; font-size: .86rem; }
+.sy-notice { padding: .5rem .7rem; border-left: 2px solid var(--sy-accent); font-size: .84rem; overflow-wrap: anywhere; }
+.sy-instructions, .sy-part-what { color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.sy-send-row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.sy-button { display: inline-flex; align-items: center; padding: .5rem 1rem; border: 1px solid var(--sy-accent); border-radius: 999px; color: var(--ink); font-size: .88rem; }
+.sy-button:hover { background: color-mix(in srgb, var(--sy-accent) 10%, transparent); }
+.sy-button-quiet { border-color: var(--line); }
+.sy-print { align-self: flex-start; padding: .6rem 1.4rem; border-radius: 999px; background: var(--sy-accent); color: var(--page, #fff); font-weight: 600; font-size: .9rem; }
+.sy-print:disabled { opacity: .55; cursor: wait; }
+.sy-small-print { color: var(--muted); font-size: .74rem; }
+.sy-preview { position: sticky; top: 5.5rem; overflow: hidden; border: 1px solid var(--line); border-radius: .3rem; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, .45); background: #fff; }
+.sy-preview-sheet { transform-origin: top left; }
+
+/* Funeral readings */
+.sy-funeral-grid { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; gap: 2.5rem; align-items: start; }
+.sy-reading-time { color: var(--muted); font-size: .75rem; }
+.sy-add { font-size: .8rem; }
+.sy-our-readings { position: sticky; top: 5.5rem; display: flex; flex-direction: column; gap: .9rem; margin-top: 3rem; padding: 1rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--page, var(--surface)); }
+.sy-our-list { display: grid; gap: .5rem; counter-reset: reading; }
+.sy-our-list li { display: flex; justify-content: space-between; gap: .5rem; align-items: center; font-size: .86rem; }
+.sy-our-ref { display: flex; flex-direction: column; }
+.sy-our-ref small { color: var(--muted); font-size: .72rem; }
+.sy-particular dl { display: grid; gap: .8rem; margin-top: 1rem; }
+.sy-particular dt { font-weight: 600; font-size: .9rem; }
+.sy-particular dd { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: .2rem 0 0; font-size: .9rem; }
+.sy-particular > h2 + * { margin-top: 1rem; }
+.sy-particular #sy-hymns-title { margin-top: 2.2rem; }
+.sy-hymns { display: grid; gap: .35rem; font-size: .92rem; }
+
+.sy-more ul { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.sy-more a { display: inline-block; padding: .35rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .82rem; }
+.sy-more a:hover { border-color: var(--sy-accent); }
+
+/* The recipient card page: a single quiet card, no site header or footer; follows the visitor's dark mode on screen. */
+.sy-recipient { display: flex; min-height: 100vh; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem; padding: 3rem 1.25rem 2rem; background: var(--page); color: var(--ink); }
+.sy-recipient-card { display: flex; width: min(34rem, 100%); flex-direction: column; align-items: center; gap: 1.2rem; padding: clamp(2rem, 6vw, 3.5rem) clamp(1.4rem, 5vw, 3rem); border: 1px solid var(--line); border-radius: .4rem; text-align: center; color: var(--sy-accent); }
+.sy-recipient-verse { margin: 0; color: var(--ink); font-family: var(--font-serif); font-size: clamp(1.35rem, 3.6vw, 1.9rem); font-style: italic; line-height: 1.55; }
+.sy-recipient-ref { color: var(--sy-accent); font: 600 .95rem/1.3 var(--font-sans); letter-spacing: .08em; }
+.sy-recipient-sent { color: var(--muted); font-size: .9rem; }
+.sy-recipient-missing { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.sy-recipient-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; font-size: .85rem; }
+.sy-recipient-links a { color: var(--sy-accent); text-decoration: underline; text-underline-offset: 3px; }
+.sy-recipient-site { color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+
+@media (max-width: 1023px) {
+  .sy-funeral-grid { grid-template-columns: 1fr; }
+  .sy-our-readings { position: sticky; top: auto; bottom: 0; z-index: 5; max-height: 60vh; overflow-y: auto; margin-top: 1.5rem; box-shadow: 0 -10px 24px -18px rgba(0, 0, 0, .5); }
+}
+@media (max-width: 767px) {
+  .sy-print-grid { grid-template-columns: 1fr; }
+  .sy-loss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sy-styles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 479px) { .sy-loss-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .sy-loss-card { transition: none; } }

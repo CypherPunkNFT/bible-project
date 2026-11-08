@@ -44,3 +44,6 @@ https://:alias.bible-project-4af.pages.dev/*
   X-Robots-Tag: noindex
 https://bible-project.cypherpunknft.workers.dev/*
   X-Robots-Tag: noindex
+# A sympathy card link is a personal page sent to someone grieving: never in search results (docs/features/sympathy/design.md 5.5).
+/sympathy/card/*
+  X-Robots-Tag: noindex

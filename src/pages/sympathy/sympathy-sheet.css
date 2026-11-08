@@ -1,0 +1,78 @@
+/* The printed sympathy sheets (SympathySheet.tsx, design 6.3, 6.4, 6.6). Panel sizes, safe margins and fold positions are
+   copied from the life-event sheet (src/pages/life-events/life-events-sheet.css), not imported, so neither feature can
+   change the other. True size, ink only: lines, type and line-art ornaments, never a background the browser would drop.
+   Fixed light colours, not the theme's variables, so dark mode cannot reach the paper. Every printed element stays at
+   least 0.3in (8mm) inside each cut or fold. One muted slate accent; no category colour. */
+.sys-sheet {
+  --ink-fixed: #1f1b16; --muted-fixed: #5b5246; --guide: #b9ae9c; --accent-fixed: #4f6378;
+  position: relative; box-sizing: border-box; width: var(--sheet-width); height: calc(var(--sheet-height) - 1px); overflow: hidden;
+  display: grid; grid-template: 1fr 1fr / 1fr 1fr;
+  background: #fff; color: var(--ink-fixed); font-family: "Archivo Variable", system-ui, sans-serif; font-size: 10pt; line-height: 1.4;
+  color-scheme: light; text-align: center;
+}
+.sys-sheet *, .sys-sheet *::before, .sys-sheet *::after { box-sizing: border-box; }
+.sys-sheet p { margin: 0; }
+.sys-sheet .scripture { font-family: "Literata Variable", Georgia, serif; color: var(--ink-fixed); }
+.sys-sheet .sy-ornament { flex: none; height: auto; }
+
+.sys-quarter { position: relative; min-width: 0; min-height: 0; overflow: hidden; padding: 0.35in; display: flex; }
+.sys-paper-a4 .sys-quarter { padding: 9mm; }
+.sys-turned { transform: rotate(180deg); }
+.sys-panel { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.12in; overflow-wrap: anywhere; }
+
+/* Fold and cut guides: faint dashed borders (borders print; backgrounds may not). */
+.sys-guides.sys-folded::before, .sys-guides.sys-memorial::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 0.6pt dashed var(--guide); }
+.sys-guides.sys-folded::after, .sys-guides.sys-memorial::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 0.6pt dashed var(--guide); }
+
+.sys-heading { color: var(--accent-fixed); font-size: 9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.sys-verse { margin: 0; max-width: 100%; }
+.sys-verse p { font-style: italic; }
+.sys-verse-card.sys-full p { font-size: 14pt; line-height: 1.45; }
+.sys-verse-card.sys-small p { font-size: 12pt; line-height: 1.4; }
+.sys-ref { margin-top: 0.1in; color: var(--accent-fixed); font-size: 9pt; font-weight: 600; letter-spacing: .06em; }
+
+.sys-back { justify-content: flex-end; gap: 0.08in; }
+.sys-sheet .le-qr { width: 0.9in; height: 0.9in; flex: none; }
+.sys-address { font-size: 8.5pt; font-weight: 600; }
+.sys-small { color: var(--muted-fixed); font-size: 7.5pt; }
+
+.sys-inside { justify-content: flex-start; padding-top: 0.2in; }
+.sys-names { font-family: "Literata Variable", Georgia, serif; font-size: 18pt; line-height: 1.2; }
+.sys-names.sys-long { font-size: 14pt; }
+.sys-names-small { font-size: 13pt; }
+.sys-names-small.sys-long { font-size: 10.5pt; }
+.sys-dates { color: var(--muted-fixed); font-size: 9.5pt; letter-spacing: .04em; }
+.sys-message { font-family: "Literata Variable", Georgia, serif; font-size: 11pt; line-height: 1.5; }
+.sys-sender { font-family: "Literata Variable", Georgia, serif; font-size: 12pt; font-style: italic; }
+.sys-write { width: 80%; flex: 1; max-height: 1.4in; border-bottom: 0.6pt solid var(--guide); }
+
+.sys-memorial-card { gap: 0.07in; }
+.sys-memorial-card .sys-verse-card.sys-full p { font-size: 12.5pt; }
+.sys-memorial-card .sys-verse-card.sys-small p { font-size: 11pt; }
+
+/* Display print: Letter keeps everything inside a centred 8 x 10in area; A4 fills the sheet with a margin. */
+.sys-sheet.sys-display { display: block; }
+.sys-display-area { position: absolute; inset: 0.5in 0.25in; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25in; padding: 0.7in; }
+.sys-paper-a4 .sys-display-area { inset: 0; padding: 22mm; }
+.sys-guides.sys-paper-letter .sys-display-area { border: 0.6pt dashed var(--guide); }
+.sys-verse-display p { line-height: 1.45; }
+.sys-verse-display.sys-full p { font-size: 26pt; }
+.sys-verse-display.sys-medium p { font-size: 19pt; }
+.sys-verse-display.sys-small p { font-size: 14.5pt; }
+.sys-verse-display .sys-ref { font-size: 12pt; }
+.sys-names-display { font-size: 22pt; }
+
+/* Readers' sheet: large type for reading aloud at a lectern, normal page flow; each reading on its own page by default. */
+.sys-sheet.sys-readers-sheet { display: block; height: auto; overflow: visible; padding: 0.75in; text-align: left; }
+.sys-paper-a4.sys-readers-sheet { padding: 19mm; }
+.sys-readers h1 { margin: 0 0 0.2in; font: 600 20pt/1.2 "Literata Variable", Georgia, serif; }
+.sys-reading { padding: 0.15in 0 0.25in; break-inside: avoid; }
+.sys-new-page .sys-reading + .sys-reading { break-before: page; }
+.sys-reading h2 { margin: 0; color: var(--accent-fixed); font: 650 9.5pt/1.3 "Archivo Variable", system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.sys-reading h3 { margin: 0.04in 0 0.12in; font: 650 13pt/1.3 "Archivo Variable", system-ui, sans-serif; }
+.sys-reading .scripture { font-size: 16pt; line-height: 1.5; }
+.sys-readers-foot { margin-top: 0.3in !important; }
+
+@media print {
+  .print-sheet-portal .sys-sheet.sys-readers-sheet { width: auto; padding: 0; }
+}

@@ -28,6 +28,7 @@ export const NEW_LIFE_EVENTS: LifeEvent[] = [
     card: { heading: "Waiting with you", inside: "Praying for you and your little one in these months of waiting.", names: 1, date: false, ornament: "seed" },
     topics: [{ slug: "children", title: "Children" }, { slug: "parents", title: "Parents" }, { slug: "prayer", title: "Prayer" }],
     related: ["new-baby", "baby-dedication", "adoption"],
+    elsewhere: [{ href: "/sympathy/loss-of-baby", title: "If you have lost a baby" }],
   },
   {
     slug: "new-baby",

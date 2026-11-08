@@ -101,6 +101,7 @@ export function PackPage({ event }: { event: LifeEvent }) {
         <ul>
           {event.topics.map((topic) => <li key={topic.slug}><Link to={`/topics/${topic.slug}`}>{`Topic: ${topic.title}`}</Link></li>)}
           {related.map((item) => <li key={item.slug}><Link to={lifeEventPath(item)}>{item.heading}</Link></li>)}
+          {event.elsewhere?.map((item) => <li key={item.href}><Link to={item.href}>{item.title}</Link></li>)}
           <li><Link to={LIFE_EVENTS_PATH}>All life events</Link></li>
         </ul>
       </section>

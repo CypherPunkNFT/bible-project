@@ -50,6 +50,8 @@ export interface LifeEvent {
   topics: { slug: string; title: string }[];
   /** Sibling pack slugs. */
   related: string[];
+  /** Links to other features' pages for "Explore more" (the expecting pack's link to the sympathy page, sympathy design 5.8). */
+  elsewhere?: { href: string; title: string }[];
 }
 
 /** Book code -> book number, as in data/catalog.json (a test checks the two agree). */
