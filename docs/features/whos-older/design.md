@@ -528,3 +528,43 @@ Its central idea is sound: ask a pair only when its order is certain on every da
 - Whether leaving Jesus out of the cards is right.
 
 None of these blocks step 6. The design's defaults are buildable as written: Streak first, no daily mode, Jesus excluded.
+
+---
+
+## 16. Implementation notes (step 6, 2026-11-07)
+
+The game is built as this design describes and is live on the games hub (`/games/whos-older`), in the local preview
+only; nothing was deployed. Where the build differs from the text above, or the text left a choice open, this is what
+was done and why.
+
+- **Pool:** 160 people, not about 180. With 38 hand-kept facts and 86 facts taken from the family links they give
+  10,789 askable pairs: 1,003 Easy, 4,777 Medium and 5,009 Hard, far above the 300-per-band floor. Every person has at
+  least 8 partners.
+- **The late Exodus date reaches 1210 BC, not 1250 BC.** Moses' own people-page gives Driver's late date as
+  1234–1214 BC (under Merneptah), so every window counted from the Exodus was widened to cover it. The early dates
+  (1491 and about 1446 BC) are unchanged.
+- **Two new optional fields in `characters.source.json`:** `pageAge` (the person's age range at the first date on
+  their people-page, so the people-page check of §4.6 can use Moses' "eighty" of Exodus 7:7) and `pageSkip` (a written
+  reason to skip that check, for John the Baptist and Anna, whose page's first king is the king they were born under).
+- **Labels:** "Joseph of Egypt" and "Joseph of Nazareth", "Jeroboam I" and "Jeroboam II", as §5.3 requires.
+- **Facts taken out or blocked:**
+  - Two hand facts were removed because no verse states them: Lois before Eunice, and Herod the Great before Herod
+    Antipas. Herod and Antipas are still asked, ordered by their windows.
+  - Two family links are blocked, making nine blocked pairs in all. Daniel 5:2 calls Nebuchadnezzar Belshazzar's
+    "father", which many historians read as "predecessor", since Belshazzar was the son of Nabonidus. And 2 Timothy 1:5 does not say Lois was Eunice's mother.
+- **The second dataset (Theographic):** 10 of its birth years fall outside a window. That is expected, since it follows
+  one Ussher-style system. Two of them contradicted a certain order, and each has a one-line note under `resolutions`.
+  The review sheet lists all ten.
+- **The label check comes first.** `orderOf` refuses two labels that could be misread as one person (§5.3) before it
+  looks at blocked pairs. §5.1's list did not place that check.
+- **Timeline with an early-Genesis person:** the two bars are labelled "earlier" and "later" instead of era words such
+  as "before the Flood". Each person's `when` line is a full sentence and appears right below the timeline, so an
+  invented era label would only repeat it less exactly.
+- **Milestones** (5, 10, 15, 25 and 50 in a row) appear as a highlighted line in the reveal, announced to screen
+  readers, not as a floating toast that could cover the cards on a phone.
+- **When dealing runs short:** the person who stays gets a partner from the current band or an easier one. If none is
+  left, a fresh pair starts, as §6.1 says. The tests check that the person stays in most rounds. If a small pool runs
+  dry, the eight-round person gap gives way before the no-repeat rule. If every pair has been used, a repeat is dealt
+  rather than stopping the game.
+- **Process:** the owner's sequence brief set one design review, step 5, then this build. The workspace's general rule
+  of three review rounds before any code was not run again for this step.

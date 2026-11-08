@@ -1,0 +1,23 @@
+{
+  "about": "Who's older? blocked pairs, hand-kept (design §4.5): never asked, whatever the windows or facts say. People need not be in the pool; ids must exist in data/study/people.json. To strike a fact derived from the family links, add its pair here.",
+  "blocked": [
+    { "a": "perez-gen-38-29", "b": "zerah-gen-38-30",
+      "reason": "Twins. Zerah's hand came out first and was marked with a scarlet thread, but Perez was born first (Genesis 38:27–30). Either answer can be defended." },
+    { "a": "shem-gen-5-32", "b": "ham-gen-5-32",
+      "reason": "The order of Noah's sons is unclear: Genesis 10:21 can call either Shem or Japheth the elder, and Genesis 9:24's \"youngest son\" can be read as \"younger\"." },
+    { "a": "shem-gen-5-32", "b": "japheth-gen-5-32",
+      "reason": "The order of Noah's sons is unclear: Genesis 10:21 can call either Shem or Japheth the elder." },
+    { "a": "ham-gen-5-32", "b": "japheth-gen-5-32",
+      "reason": "The order of Noah's sons is unclear: Genesis 9:24's \"youngest son\" can be read as \"younger\"." },
+    { "a": "abraham-gen-11-26", "b": "lot-gen-11-27",
+      "reason": "Lot was Abraham's nephew, but nothing says Abraham was born before Lot." },
+    { "a": "abraham-gen-11-26", "b": "nahor-gen-11-26",
+      "reason": "Genesis 11:26 lists Terah's sons, but 11:32 with 12:4 suggests the list need not be in birth order." },
+    { "a": "abraham-gen-11-26", "b": "haran-gen-11-26",
+      "reason": "Genesis 11:26 lists Terah's sons, but 11:32 with 12:4 suggests the list need not be in birth order." },
+    { "a": "nebuchadnezzar-2ki-24-1", "b": "belshazzar-dan-5-1",
+      "reason": "The family links make Nebuchadnezzar Belshazzar's father, from Daniel 5:2, where \"father\" can mean forefather or predecessor; outside records make Nabonidus his father. The game would state a disputed relationship as fact." },
+    { "a": "lois-2ti-1-5", "b": "eunice-2ti-1-5",
+      "reason": "The family links make Lois Eunice's mother, but 2 Timothy 1:5 says only that Lois was Timothy's grandmother; she may have been his father's mother." }
+  ]
+}
