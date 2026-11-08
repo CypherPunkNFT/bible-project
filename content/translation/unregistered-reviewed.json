@@ -5420,21 +5420,6 @@
  {
   "check": "waiting",
   "job": "27",
-  "finding": "translation-lines",
-  "item": "check.py: a different number of line breaks from the English",
-  "keys": {
-   "563fff0bff53": [
-    "id"
-   ],
-   "b42ee4b76c72": [
-    "id"
-   ]
-  },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds a different number of line breaks from the English in translations made before stage 6. A correction round on only these strings costs plan allowance, so it waits for a quote and the owner's yes; a finding that is wrong gets a translation ruling instead"
- },
- {
-  "check": "waiting",
-  "job": "27",
   "finding": "copy-missing",
   "item": "topic dictionary paragraphs whose reference was never made a reference (two topics)",
   "keys": {
