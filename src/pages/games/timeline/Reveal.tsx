@@ -4,6 +4,7 @@
 import { ArrowDown } from "lucide-react";
 import { forwardRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { Verse } from "@/components/Verse";
 import { formatNumber } from "@/lib/site-format";
 import { joinsOf } from "./order";
 import { barOf, reasonOf, verseLink, yearAxis, type Loaded } from "./text";
@@ -46,7 +47,7 @@ export const Reveal = forwardRef<HTMLHeadingElement, Props>(function Reveal({ lo
               <span className={bar.open ? "is-open" : undefined} style={{ left: `${bar.left}%`, width: `${bar.width}%` }} />
             </div>}
             <blockquote className="tl-quote">
-              <p>{event.quote}</p>
+              <p><Verse bible="bsb" from={event.refs[0][0]} to={event.refs[0][1]} max={3} /></p>
               <footer><Link to={verse.href}>{verse.label}</Link> (BSB)
                 {event.people.map((person) => <span key={person.href}> · <Link to={person.href}>{person.name}</Link></span>)}</footer>
             </blockquote>

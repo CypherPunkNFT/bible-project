@@ -59,9 +59,19 @@ describe("timeline sort data", () => {
     }
   });
 
-  it("quotes the Berean Standard Bible for every event", () => {
-    for (const event of events) expect(event.quote.trim(), event.id).not.toBe("");
-    expect(byId.get("exodus")!.quote).not.toMatch(/\bthee\b|\bthou\b/i);
+  it("stores valid short BSB references, with no embedded verse wording", () => {
+    const books = new Map<string, Record<string, string>>();
+    for (const event of events) {
+      expect(event, event.id).not.toHaveProperty("quote");
+      const [from, to] = event.refs[0];
+      expect(Math.floor(from / 1000), event.id).toBe(Math.floor(to / 1000));
+      expect(to - from, event.id).toBeLessThan(3);
+      const [code] = data.books[String(Math.floor(from / 1_000_000))];
+      if (!books.has(code)) books.set(code, JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../../../data/plain/bsb/${code}.json`), "utf8")));
+      for (let id = from; id <= to; id++) {
+        expect(books.get(code)![`${Math.floor(id / 1000) % 1000}:${id % 1000}`]?.trim(), event.id).toBeTruthy();
+      }
+    }
   });
 
   it("matches the stamp of its source files", () => {

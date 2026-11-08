@@ -4,6 +4,8 @@
 //   node --experimental-strip-types scripts/build-timeline.ts [--epoch YYYY-MM-DD] [--freeze-days N]
 // It writes nothing and exits 1 on any contradiction, naming the events involved. It never changes a Daily puzzle up to
 // --freeze-days (14) ahead of the build date, nor any past one.
+// --refresh-data-only refreshes the runtime representation of unchanged sources,
+// preserving the existing Daily schedule and review sheet byte for byte.
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -249,7 +251,7 @@ const usedBooks = [...new Set([...eventsSource.events.flatMap((e) => e.refs), ..
 const sources = crypto.createHash("sha256").update(sourceText.join("\u0000")).digest("hex").slice(0, 12);
 const outEvents = events.map((event) => {
   const source = known.get(event.id)!;
-  return { ...event, dating: source.dating, refs: source.refs, quote: quoteOf(event.id, source.refs[0]),
+  return { ...event, dating: source.dating, refs: source.refs,
     people: (source.people ?? []).map((id) => ({ name: people.get(id)!.n, href: href(id) })) };
 });
 const keptIds = new Set(events.map((e) => e.id));
@@ -266,17 +268,25 @@ const { about, ...rest } = body;
 const lines = (items: unknown[]) => items.map((item) => `  ${JSON.stringify(item)}`).join(",\n");
 const text = `{\n${Object.entries({ about, stamp, ...rest }).map(([key, value]) => (Array.isArray(value)
   ? `"${key}": [\n${lines(value)}\n]` : `"${key}": ${JSON.stringify(value)}`)).join(",\n")}\n}\n`;
+const refreshDataOnly = process.argv.includes("--refresh-data-only");
+if (refreshDataOnly && (!fs.existsSync(OUT) || readJson<{ stamp: string }>(OUT).stamp !== stamp)) {
+  fail("--refresh-data-only requires unchanged source files; run the full builder for source changes");
+}
 fs.writeFileSync(OUT, text);
-fs.writeFileSync(DAILY, `{"epoch":${JSON.stringify(epoch)},"builtOn":${JSON.stringify(localToday())},"frozenThrough":${frozenThrough},"days":[\n${days.map((day) => JSON.stringify(day)).join(",\n")}\n]}\n`);
-fs.writeFileSync(SHEET, reviewSheet({
+if (!refreshDataOnly) {
+  fs.writeFileSync(DAILY, `{"epoch":${JSON.stringify(epoch)},"builtOn":${JSON.stringify(localToday())},"frozenThrough":${frozenThrough},"days":[\n${days.map((day) => JSON.stringify(day)).join(",\n")}\n]}\n`);
+  fs.writeFileSync(SHEET, reviewSheet({
   events: eventsSource.events.map((e) => ({ id: e.id, label: e.label, era: e.era, tier: e.tier, lo: e.when.lo, hi: e.when.hi, shown: e.shown !== false,
     dating: e.dating, anchor: anchorText.get(e.id) ?? "", theographic: theo?.get(e.id) ? `${theo.get(e.id)!.year} ("${theo.get(e.id)!.title}")` : "",
     retired: e.retired, dropped: dropped.has(e.id) })),
   facts: facts.map((f) => ({ first: f.first, second: f.second, why: f.why, refs: f.refs.map(refText).join("; "), close: f.close })),
   contested: contestedSource.contested, warnings, resolutions, notices, stamp, dailyDays: days.length, frozenThrough,
-}));
+  }));
+}
 
 const unresolved = warnings.filter((w) => !resolutions[w.id]).length;
 console.log(`timeline sort: ${events.length} events (${dropped.size} left out), ${body.facts.length} facts, ${body.contested.length} contested pairs; ` +
-  `${days.length} Daily puzzles from ${epoch} (frozen through #${frozenThrough}); stamp ${stamp}.`);
-console.log(`  ${warnings.length} warning(s), ${unresolved} needing a note; ${notices.length} notice(s). Review sheet: ${path.relative(SITE, SHEET)}`);
+  (refreshDataOnly ? `runtime data refreshed; existing Daily schedule preserved; stamp ${stamp}.`
+    : `${days.length} Daily puzzles from ${epoch} (frozen through #${frozenThrough}); stamp ${stamp}.`));
+console.log(`  ${warnings.length} warning(s), ${unresolved} needing a note; ${notices.length} notice(s). ` +
+  (refreshDataOnly ? "Existing review sheet preserved." : `Review sheet: ${path.relative(SITE, SHEET)}`));

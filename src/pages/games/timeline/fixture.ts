@@ -51,7 +51,7 @@ export const CONTESTED: [string, string][] = [["ezra-arrives", "nehemiah-walls"]
 
 export const EVENTS: EventEntry[] = ROWS.map(([id, label, era, tier, lo, hi, shown = true], rank) => ({
   id, label, era, tier, lo, hi, shown, rank, dating: shown ? `About ${lo}–${hi}.` : "In the Bible's early chapters.", refs: [[1001001, 1001001]],
-  quote: "In the beginning God created the heavens and the earth.", people: [],
+  people: [],
 }));
 
 export const DATA: TimelineData = { stamp: "fixture", books: { "1": ["GEN", "Genesis"], "41": ["MRK", "Mark"] }, events: EVENTS, facts: FACTS, contested: CONTESTED };

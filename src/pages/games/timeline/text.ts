@@ -6,8 +6,6 @@ import { buildOrderIndex, type Explanation, type OrderFact, type OrderIndex, typ
 export interface EventEntry extends TimelineEvent {
   dating: string;
   refs: Span[];
-  /** The first span's Berean Standard Bible words, filled in by the build. */
-  quote: string;
   people: { name: string; href: string }[];
 }
 

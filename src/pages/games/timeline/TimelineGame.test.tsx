@@ -1,13 +1,23 @@
 // The page itself (design §13): a Daily played with the keyboard to the reveal, the tap-to-move route, Practice, a
 // reload mid-round, and sharing that falls back to the copy box.
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import fs from "node:fs";
+import path from "node:path";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import scheduleFile from "@/data/timeline/daily.json";
 import timelineFile from "@/data/timeline/timeline.json";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import type { TimelineSchedule } from "./daily-rules";
 import { trueOrder } from "./order";
 import { prepare, type TimelineData } from "./text";
 import TimelineGame from "./TimelineGame";
+
+const catalog = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../../../data/catalog.json"), "utf8")) as Catalog;
+vi.mock("@/lib/data", async (importOriginal) => ({
+  ...await importOriginal<typeof import("@/lib/data")>(),
+  loadPlain: async (slug: string, code: string) => JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../../../data/plain/${slug}/${code}.json`), "utf8")),
+}));
 
 const schedule = scheduleFile as unknown as TimelineSchedule;
 const loaded = prepare(timelineFile as unknown as TimelineData);
@@ -17,7 +27,7 @@ const idOf = new Map(loaded.data.events.map((event) => [event.label, event.id]))
 const [year, month, day] = schedule.epoch.split("-").map(Number);
 
 const renderAt = (path = "/games/timeline") => render(
-  <MemoryRouter initialEntries={[path]}><Routes><Route path="/games/timeline" element={<TimelineGame />} /></Routes></MemoryRouter>,
+  <CatalogContext.Provider value={catalog}><MemoryRouter initialEntries={[path]}><Routes><Route path="/games/timeline" element={<TimelineGame />} /></Routes></MemoryRouter></CatalogContext.Provider>,
 );
 const cards = () => screen.getAllByRole("button", { name: /, position \d of \d/ });
 const order = () => cards().map((card) => idOf.get(card.getAttribute("aria-label")!.replace(/, position.*$/, ""))!);
@@ -60,6 +70,8 @@ describe("timeline sort page", () => {
     fireEvent.click(check());
 
     const reveal = screen.getByRole("region", { name: /Solved in 2!/ });
+    await waitFor(() => expect(reveal.querySelector(".tl-quote [translate='no']")).toHaveAttribute("lang", "en"));
+    expect(reveal.querySelector(".tl-quote [translate='no']")!.textContent!.length).toBeGreaterThan(10);
     expect(within(reveal).getAllByRole("link").some((link) => link.getAttribute("href")!.startsWith("/read/bsb/"))).toBe(true);
     expect(within(reveal).getByRole("link", { name: "Tell us" })).toHaveAttribute("href", "/contact");
     fireEvent.click(within(reveal).getByRole("button", { name: "Share" }));
