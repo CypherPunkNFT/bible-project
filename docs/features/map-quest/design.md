@@ -1,6 +1,6 @@
 # Map quest — design
 
-**Status:** draft (research & design step, job 716, sequence 31 step 1, 2026-11-07). One review and the implementation follow as separate steps.
+**Status:** reviewed (research & design step, job 716, 2026-11-07; one critical review applied the same day, see §12). Implementation is the next step.
 **Spec:** [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) entry 17 — "Player is given a place (Jericho, Corinth...) and drops a pin on a blank map; closer pin = more points." Open points listed there: place data, disputed locations, map style, difficulty and era modes, distance scoring, daily five-place shareable challenge.
 **Rules:** [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) — reuse site data, no runtime LLM cost, BSB quotations, register on the /games hub, touch only this feature's files plus its registry entry, never deploy.
 
@@ -13,10 +13,10 @@
 | Place data | Build the game's place list from the **same OpenBible.info geocoding data the atlas already uses**, read from the raw file so alternative sites survive; keep atlas place ids. | The atlas places *are* OpenBible data (best site only); the raw file adds the alternative sites and verse references the game needs. CC BY 4.0, already recorded in the site's sources list. |
 | Disputed locations | **Both options, each where it fits.** Sites disputed only locally (all serious candidates within 25 km, e.g. Emmaus, Bethsaida) stay in play and the pin scores against the **nearest** candidate. Sites disputed across long distances (Mount Sinai, Sodom, Tarshish, Ophir) are **excluded from normal and daily play** and appear only in an optional "Disputed sites" mode that accepts any credible candidate. | Excluding Emmaus would throw away good expert material over a 17 km quarrel; scoring Mount Sinai against one mountain would teach something scholars do not agree on. |
 | Map style | **Blank physical map**: the site's own earth-toned atlas basemap (land, vegetation, seas, lakes, rivers) with **every label, modern border and place dot removed**. Beginner level adds sea, lake and river names. **No modern borders at any level, no period region overlays in this version.** | Coastlines, the Jordan, the Dead Sea and the Sea of Galilee are the same as in Bible times; modern borders are anachronistic and politically loaded; period regions shift by era, exist only roughly for a few areas, and would give answers away. |
-| Difficulty | Three levels by how well-known the place is: **Beginner** (a hand-checked list of ~60 famous places), **Standard** (mentioned in 5+ verses), **Expert** (every playable place). | Verse count tracks fame well (Jerusalem 955, Bethel 69, Jericho 63), but misses Sunday-school names such as Capernaum and Corinth, so the beginner list is curated. |
+| Difficulty | Three levels by how well-known the place is: **Beginner** (a hand-checked list of ~60 famous places), **Standard** (adds places mentioned in 5+ verses, ~150), **Expert** (every playable place, ~420). | Verse count tracks fame well (Jerusalem 955, Bethel 69, Jericho 63), but misses Sunday-school names such as Capernaum and Corinth, so the beginner list is curated. |
 | Era modes | **All eras** plus five eras: **Abraham's world**, **Exodus & conquest**, **Kings & the divided kingdom**, **Life of Jesus**, **Paul's journeys**. A place belongs to an era if a verse in that era's books names it. Paul's journeys also uses the site's existing journey stops. Each era opens on a map view that frames its whole area. | No era tags exist in any data, but verse references give a reliable, testable mapping. |
-| Scoring | **0–1,000 points per place, 5,000 per game**, on a logarithmic distance curve with a 3 km full-marks circle: `score = 1000 × (1 − ln(1 + max(0, d − 3)/10) / ln(1 + 2497/10))`, zero at 2,500 km or more. | One curve that still tells Bethel from Jerusalem (17 km) yet gives fair credit for Babylon from 200 km. Each doubling of the miss costs roughly 120 points. |
-| Daily challenge | **"Daily Five"**: the same five places for everyone on the same calendar date (local midnight, as Wordle does), ordered easy to hard, one attempt per day, a streak, and a spoiler-free shareable result of five coloured squares. | This copies the proven Wordle and Worldle pattern. Using the local date means everyone's "today" starts at their own midnight. |
+| Scoring | **0–1,000 points per place, 5,000 per game**, on a logarithmic distance curve with a 3 km full-marks circle: `score = 1000 × (1 − ln(1 + max(0, d − 3)/10) / ln(1 + 2497/10))`, zero at 2,500 km or more. | One curve that still tells Bethel from Jerusalem (17 km) yet gives fair credit for Babylon from 200 km. Beyond about 50 km, each doubling of the miss costs roughly 120 points. |
+| Daily challenge | **"Daily Five"**: the same five places for everyone on the same calendar date (local midnight, as Wordle does), ordered easy to hard, one attempt per day, a streak, and a spoiler-free shareable result of five coloured squares. All of it lives on the one game page, `/games/map-quest`. | This copies the proven Wordle and Worldle pattern. Using the local date means everyone's "today" starts at their own midnight. |
 | Map/tile cost | **$0 new cost, no new dependency.** It reuses the site's self-hosted map tiles and the MapLibre packages already bundled for the atlas. | The tiles are already published under bibleguide.io/atlas-tiles/. |
 
 ---
@@ -49,9 +49,11 @@
   - Licence: **CC BY 4.0** (credit "OpenBible.info"). Parts derived from OpenStreetMap are **ODbL 1.0**.
   - The author warns: "There are almost certainly errors."
   - The site already holds a checksummed copy at `BibleProject/sources/openbible-geo/` and records it in [SOURCES.md:1384](../../../SOURCES.md#L1384) and [NOTICE.md](../../../NOTICE.md).
-- **The raw file** `ancient.jsonl` has 1,341 places.
+- **The raw file** `ancient.jsonl` has 1,342 records in the copy on disk (SOURCES.md says 1,341).
   - Each place lists `identifications[]`: candidate sites, each with `resolutions[].lonlat` and a crowd/scholar score `score.vote_total`.
-  - It also has `verses[]` (OSIS references) and `types`.
+  - **The list is in OpenBible's own order, not vote order.** For 104 places the first candidate does not have the highest `vote_total` (Emmaus: first candidate 204 votes, second 219). The atlas shows the first candidate, so the game must too (§3).
+  - It also has `verses[]` (objects with `osis` and a `sort` key that is the site's BBCCCVVV verse id as text, e.g. `"04022001"`) and `types`.
+  - Numbered names mark different places with one name ("Jericho 1" is the Old Testament tell; "Jericho 2", about 2 km away, is the New Testament town and carries the Gospel verses). The atlas strips the number for display.
   - **748 places have more than one candidate** (up to 14).
 - **The atlas's own file** [data/places.json](../../../data/places.json) has 1,252 records and is built by [opendata.py:60-94](../../../scripts/bible/opendata.py#L60-L94).
   - It keeps **only the first candidate**, with `confidence = vote_total/1000` and verse ids. It has **no alternatives and no era tags**.
@@ -78,10 +80,13 @@
   - The style already limits itself to an "ancient look" layer set ([street-style.ts:95-99](../../../src/components/atlas/street-style.ts#L95-L99)) with earth-toned light and dark palettes (`EARTH`, lines 24-39).
   - A first view loads about 0.8 MB.
 - **SVG maps:** the site also has a pre-projected land outline, [atlas-map.json](../../../src/data/atlas-map.json) (137 KB, Natural Earth), with the projection helper [projection.ts](../../../src/components/atlas/projection.ts). It is coastline only: no lakes, rivers or Dead Sea. Other pages hand-drew those.
-- **No games hub yet:** `src/pages/games/registry.ts` does not exist at the time of writing. The /games hub is job 714, in another chain.
+- **Games hub (exists since this was first drafted):** [registry.ts](../../../src/pages/games/registry.ts) already lists `map-quest` as `status: "coming-soon"`, and the [README](../../../src/pages/games/README.md) explains how a game goes live. [GamesPage.tsx](../../../src/pages/games/GamesPage.tsx) gives each live game exactly one route, `/games/<slug>` (`<Route path={slug}>`, no `/*`), and sends any deeper address back to `/games`. So the game cannot have sub-routes such as `/games/map-quest/daily`: every screen is state inside one page. The registry's `load: () => import(...)` already loads the page (and with it MapLibre) only when it is opened.
+- **Atlas links:** the atlas opens a place with `/study/atlas/map?place=<id>`, as [ChapterPlaces.tsx:27](../../../src/components/reader/ChapterPlaces.tsx#L27) and the site search do.
+- **What the atlas map code does not export:** the PMTiles registration (`addPmtilesProtocol`, which also calls MapLibre's `setWorkerUrl` with the bundled worker from `maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url`) is private to [StreetAtlasMap.tsx:17-26](../../../src/components/atlas/StreetAtlasMap.tsx#L17-L26); `EARTH` and `englishLabels` (which switches label text to `name:en`) are private to [street-style.ts](../../../src/components/atlas/street-style.ts).
 - **No daily, seeded or share-score code** exists. The only clipboard code is "Copy link" at [TestimoniesPage.tsx:207](../../../src/pages/TestimoniesPage.tsx#L207). It falls back to "select and copy" when copying fails.
 - **localStorage pattern:** a constant key, try/catch on read and write, a warning in the console, and the page keeps working without storage. Example: [record.ts](../../../src/pages/questions/test/record.ts).
-- **Verse text:** [verses.ts](../../../src/lib/verses.ts) `useVerses({ids})` resolves BBCCCVVV verse ids into the current Bible text (BSB by default). Place verse ids plug straight in.
+- **Verse text:** [verses.ts](../../../src/lib/verses.ts) `useVerses({ids})` resolves BBCCCVVV verse ids into the site language's Bible (the BSB in English). Place verse ids plug straight in.
+- **Tests:** `npm test` runs `test:content`, `test:release` and Vitest. The Python tests (`npm run test:data`, pytest over `scripts/tests`) are **not** part of `npm test`, so any check that must gate the build has to be a Vitest test.
 
 ---
 
@@ -89,37 +94,39 @@
 
 **Use:** `BibleProject/sources/openbible-geo/Bible-Geocoding-Data-main/data/ancient.jsonl`. This is the same checksummed source and path that [build-data.py:241-242](../../../scripts/build-data.py#L241-L242) already reads.
 
-**Build:** a new script, `scripts/build-map-quest.py`, run by hand when the data or curation changes. It writes a committed `src/data/map-quest/places.json` (estimated 60–80 KB, ~530 records). The output is committed because the atlas's `data/places.json` is not in git, and tests must read the game data from disk.
+**Build:** a new script, `scripts/build-map-quest.py`, run by hand when the data or curation changes (not part of `prebuild`). It reuses `osis_to_id` and `read_places` from [opendata.py](../../../scripts/bible/opendata.py) rather than re-parsing references its own way. It writes a committed `src/data/map-quest/places.json` (estimated 50–65 KB, ~420 records). The output is committed because the atlas's `data/places.json` is not in git, and tests must read the game data from disk.
 
 **Record shape:**
 ```json
-{ "id": "a1b2c3d", "name": "Jericho", "lon": 35.4446, "lat": 31.8717,
+{ "id": "a231f80", "name": "Jericho", "lon": 35.4446, "lat": 31.8717,
   "alts": [], "tier": 1, "scope": "holy", "eras": ["exodus", "kingdoms", "jesus"],
-  "verseCount": 63, "verse": 4002063 }
+  "verseCount": 63, "verse": 4022001, "atlas": true }
 ```
 - `id` = the OpenBible/atlas id, so "Open in atlas" works.
-- `lon`/`lat` = the top candidate.
+- `lon`/`lat` = the **first** candidate in OpenBible's list, the same point the atlas shows (§2.3). Vote thresholds below are measured against the candidate with the most votes, wherever it sits in the list.
 - `alts` = other credible candidates for local disputes (§4).
+- `atlas` = true when the id is among the atlas's places (the script runs `read_places` on the same file to find out). Only then does the reveal card link to the atlas.
 - `tier` 1/2/3 = Beginner/Standard/Expert.
 - `scope` = `holy` inside the box 33.8–36.9°E, 29.4–33.6°N, otherwise `wider`. It is used only for daily mixing.
 - `eras` = §5.2.
 - `verse` = the verse shown on the reveal card: hand-picked for Beginner places, otherwise the first verse in Bible order that names the place.
 
 **Filters (applied in this order; counts from probing the real file):**
-1. **Point-like places only.** Keep these types: settlement, mountain, hill, island, spring, well, fortress, campsite, cave. Drop regions, rivers, seas, peoples, gates, towers, pools and "special". This removes about 454. Regions and rivers have no single point to aim at; gates and pools sit inside Jerusalem.
-2. **A credible location must exist.** Candidates are credible if `vote_total ≥ max(50, 20% of the best)`; otherwise only the best candidate counts. Drop the place if its credible votes total under 300. This removes about 247 places that are too uncertain to score fairly.
-3. **Dispute width** (§4): credible candidates more than 25 km apart are removed from normal play. That is about 75 places.
-4. **One place per name:** where several places share a name (Aphek ×4, Bethlehem 1/2/3, Ai 1/2/3), keep only the one named in the most verses. A player shown "Bethlehem" must never be marked wrong for choosing the famous one.
-5. **No near-duplicates:** drop a place within 2 km of a better-known playable place (Zion, City of David and Mount Zion all sit on Jerusalem).
+1. **Point-like places only.** Keep these types: settlement, mountain, hill, island, spring, well, campsite. (The data has no "fortress" or "cave" type.) Drop regions, rivers, valleys, seas, peoples, gates, structures, pools and "special". This removes about 314. Regions and rivers have no single point to aim at; gates and pools sit inside Jerusalem.
+2. **A credible location must exist.** Candidates are credible if `vote_total ≥ max(50, 20% of the best)`; otherwise only the best candidate counts. Drop the place if its credible votes total under 300. This removes about 390 places that are too uncertain to score fairly.
+3. **Dispute width** (§4): credible candidates more than 25 km apart are removed from normal play. That is about 60 places.
+4. **One place per name** (name = `friendly_id` without its trailing number, as the atlas shows it): where several places share a name (Aphek ×4, Bethlehem 1/2/3, Ai 1/2/3), keep only the one named in the most verses. A player shown "Bethlehem" must never be marked wrong for choosing the famous one. **A same-name record within 25 km of the kept one is the same place in another period, so its verses are merged into the kept record before it is dropped.** Without this, "Jericho 2" (the New Testament town) would take every Gospel verse with it and Jericho would vanish from the Life of Jesus era. About 13 records merge this way.
+5. **No aliases:** drop a place whose point lies within 0.5 km of a better-known playable place. These are other names for the same spot (Zion, Jebus and Millo on Jerusalem; Luz on Bethel; Mount Horeb on Mount Sinai) or places OpenBible only pinned to a nearby city as a stand-in (Put on Cyrene, Caphtor on Crete). About 100 go. Distinct sites a little farther apart stay: Ai (2 km from Bethel), Gilgal (1.8 km from Jericho), the Mount of Olives and Machpelah are good questions, and an answer at the bigger neighbour still scores full marks inside the 3 km circle.
 6. **Curation file** `src/data/map-quest/curation.json`, hand-maintained:
    - `beginner`: about 60 ids with hand-picked verses;
    - `forceDisputed`: places treated as widely disputed whatever the votes say;
    - `exclude`: places to drop;
+   - `disputed`: the Disputed sites mode's places and candidates (§4.3);
    - `disputedNotes`: the short text for the Disputed sites mode.
 
-**Expected pool** (probed): about **530 playable places** — about 400 in the Holy Land and 125 in the wider world. Of those, 78 are named in 10+ verses and about 140 in 5+.
+**Expected pool** (re-probed in review with exactly these rules): about **420 playable places** — about 300 in the Holy Land and 120 in the wider world. Of those, about 75 are named in 10+ verses and about 145 in 5+; about 77 have more than one credible candidate. The script prints these counts on every run, and fails if the pool drops below 300 or any tier is empty.
 
-**Credit:** the game screen footer reads "Place locations: OpenBible.info (CC BY 4.0) · Map: © OpenStreetMap contributors, Protomaps". The map attribution already carries the OpenStreetMap line. Add a row to [SOURCES.md](../../../SOURCES.md) naming the derived file and saying it is available under its sources' terms (CC BY 4.0 / ODbL 1.0) — the ODbL share-alike condition.
+**Credit:** the game screen footer reads "Place locations: OpenBible.info (CC BY 4.0) · Map: © OpenStreetMap contributors, Protomaps". The map attribution already carries the OpenStreetMap line. Add a row to [SOURCES.md](../../../SOURCES.md) naming the derived file and saying it is available under its sources' terms (CC BY 4.0 / ODbL 1.0) — the ODbL share-alike condition. [NOTICE.md](../../../NOTICE.md) already credits OpenBible.info (line 10); change it only if that row lacks the ODbL note.
 
 ---
 
@@ -129,7 +136,7 @@
 - **Rule:** a place whose credible candidates all lie within 25 km of each other is playable.
 - The pin is scored against the **nearest credible candidate**.
 - The reveal shows every candidate as a hollow ring, the scored one filled, with one line of text: "Scholars propose 2 sites; you were scored against the nearest."
-- About 90 playable places have more than one candidate (Emmaus 17 km apart, Bethsaida ~2 km, Ai/et-Tell against Khirbet el-Maqatir ~1 km).
+- About 77 playable places have more than one credible candidate (Emmaus 17 km apart, Bethsaida ~2 km, Ai/et-Tell against Khirbet el-Maqatir ~1 km).
 - **Why:** the spec offered "exclude" or "accept any candidate". For a short-distance dispute, accepting any candidate costs nothing in fairness and keeps good questions.
 
 ### 4.2 Wide disputes leave normal play
@@ -141,8 +148,9 @@
   - Mount Sinai / Horeb (Jebel Musa, Jebel Sin Bishar, Har Karkom, Jebel Serbal, Jebel al-Lawz);
   - Sodom and Gomorrah (Bab edh-Dhra, Tall el-Hammam);
   - Kadesh-barnea, Tarshish, Ophir, Emmaus, Golgotha, Bethsaida, Cana, Gath.
-- **Scoring:** any credible candidate counts (nearest one scored).
-- **Reveal:** every candidate is labelled, with a two-line note from `disputedNotes` on who proposes which and why.
+- **Where its places come from:** the curation file's `disputed` list, not the filters in §3, so a place the filters drop (Golgotha is not a point-like type; Mount Sinai is forced out of normal play) can still appear here. Each entry lists its candidates: OpenBible's credible ones, plus any well-known proposal OpenBible lacks (for example Jebel al-Lawz or Tall el-Hammam, if absent), each hand-added with coordinates and a cited source. The build script refuses a hand-added candidate without a source.
+- **Scoring:** any listed candidate counts (nearest one scored).
+- **Reveal:** every candidate is labelled as a *proposed* site, never as "the" site, with a two-line note from `disputedNotes` on who proposes which and why.
 - **Who writes the notes:** a person, at implementation time, from the OpenBible candidate descriptions and the Land study. No LLM is needed for ~15 short notes.
 - **`forceDisputed` starts as:** Mount Sinai, Mount Horeb, Sodom, Gomorrah. These look settled in the vote data but are not settled in scholarship (§2.3).
 
@@ -155,25 +163,27 @@
 | Level | Pool | Approx. size | Map help |
 |---|---|---|---|
 | Beginner | `curation.beginner`: famous places a churchgoer has heard of — Jerusalem, Bethlehem, Nazareth, Jericho, Babylon, Nineveh, Rome, Corinth, Ephesus, Athens, Capernaum, Damascus, Hebron, Bethel, Tyre, Ur, Haran, Patmos… Seeded from places in 25+ verses, then edited by hand. | ~60 | Sea, lake and river names shown (Mediterranean Sea, Dead Sea, Sea of Galilee, Jordan, Nile, Euphrates) |
-| Standard | Tier 1 + places in 5+ verses | ~160 | No labels |
-| Expert | Every playable place | ~530 | No labels |
+| Standard | Tier 1 + places in 5+ verses | ~150 | No labels |
+| Expert | Every playable place | ~420 | No labels |
 
-Levels decide **which places** come up, not how they are scored, so scores stay comparable.
+Levels decide **which places** come up, not how they are scored, so scores stay comparable. The tiers in the data are disjoint: tier 1 = the Beginner list, tier 2 = places in 5+ verses that are not tier 1 (~95), tier 3 = everything else (~265). A level's pool is its own tier plus all easier tiers; the daily mix (§7) picks by single tier.
 
 ### 5.2 Eras (which part of the story)
 A place is in an era if at least one of its verses falls in that era's chapters. Each era opens on a map view framing its whole area, so opening the map gives nothing away.
 
-| Era | Chapters | Opening view (W, S, E, N) | Playable places (probe) |
+| Era | Chapters | Opening view (W, S, E, N) | Playable places (re-probed in review) |
 |---|---|---|---|
-| All eras | — | 10°E, 24°N, 50°E, 42°N | ~530 |
-| Abraham's world | Genesis 11–50 | 28°E, 24°N, 50°E, 39°N | ~36 |
-| Exodus & conquest | Exodus, Numbers, Deuteronomy, Joshua, Judges | 30°E, 26°N, 38°E, 34°N | ~270 |
-| Kings & the divided kingdom | 1 Samuel – 2 Kings, 1–2 Chronicles | 31°E, 28°N, 46°E, 37°N | ~200 |
-| Life of Jesus | Matthew, Mark, Luke, John | 34°E, 30.5°N, 36.5°E, 33.5°N | ~33 |
-| Paul's journeys | Acts 13–28, plus every stop in the site's journey maps | 11°E, 30°N, 37°E, 42°N | ~40–70 |
+| All eras | — | 10°E, 24°N, 50°E, 42°N | ~420 |
+| Abraham's world | Genesis 11–50 | 28°E, 24°N, 50°E, 39°N | ~30 |
+| Exodus & conquest | Exodus, Numbers, Deuteronomy, Joshua, Judges | 30°E, 26°N, 38°E, 34°N | ~235 |
+| Kings & the divided kingdom | 1 Samuel – 2 Kings, 1–2 Chronicles | 31°E, 28°N, 46°E, 37°N | ~160 |
+| Life of Jesus | Matthew, Mark, Luke, John | 34°E, 30.5°N, 36.5°E, 33.5°N | ~27 (Jericho included only because of the verse merge in §3 filter 4) |
+| Paul's journeys | Acts 13–28, plus every stop in the site's journey maps | 11°E, 30°N, 37°E, 42°N | ~57 from Acts alone |
+
+Opening views only frame the start; panning is limited by `BOUNDS` (§8), not by the era box, so a player can still reach Babylon from the Life of Jesus view.
 
 - **"Divided kingdom" widened:** the spec's "divided kingdom" became "Kings & the divided kingdom" (Saul to the exile). The divided-kingdom chapters alone (1 Kings 12 onward) give a thinner, mostly repeated pool, and Saul's and David's places belong to the same map.
-- **Small pools:** if an era and level together leave fewer than 15 places (e.g. Abraham's world on Beginner), the game widens to the next level automatically and says so in one line.
+- **Small pools:** if an era and level together leave fewer than 15 places (e.g. Abraham's world or Life of Jesus on Beginner), the game widens to the next level automatically and says so in one line. Expert is never widened; every era has well over 15 places at Expert.
 
 ---
 
@@ -199,7 +209,7 @@ rounded to the nearest whole point
 **Why this curve rather than GeoGuessr's exponential:**
 - An exponential tuned for the Holy Land (decay of 75 km) gives a 200 km miss on Babylon only about 70 points.
 - One tuned for the wider world (400 km) gives Bethel-for-Jerusalem 958 points, so nearly no difference from a perfect pin.
-- The log curve treats a *proportional* error the same everywhere: each doubling of the miss costs about 120 points. That matches how hard the question feels at every scale, with one formula and no per-place scale to explain.
+- The log curve treats a *proportional* error nearly the same everywhere: beyond about 50 km each doubling of the miss costs about 120 points (closer in it costs less, e.g. 84 points from 10 to 20 km, which is kind to near misses). That matches how hard the question feels at every scale, with one formula and no per-place scale to explain.
 - The **3 km full-marks circle** absorbs finger imprecision on a phone and the size of a town mound.
 
 ### 6.3 Game total and colour bands
@@ -222,23 +232,24 @@ rounded to the nearest whole point
 
 - **What it is:** five places, the same for everyone on the same calendar date.
 - **Date:** the player's **local date**, changing at their own midnight. A game started before midnight finishes as that day's game.
-- **Number:** puzzle `#1` is the launch date (constant `DAILY_EPOCH`, set by the implementer). `#N = days since epoch + 1`.
-- **The mix**, in order, easy to hard:
-  - slot 1 Beginner;
-  - slot 2 Beginner or Standard;
-  - slots 3–4 Standard;
-  - slot 5 Expert.
+- **Number:** puzzle `#1` is the launch date. That date is stored once, as `epoch` at the top of `daily.json`, and both the build script and the game read it from there, so the two can never disagree. `#N = days since epoch + 1`, counted in whole local calendar days (not by dividing milliseconds, which breaks on daylight-saving days).
+- **The mix**, in order, easy to hard (tiers as defined in §5.1):
+  - slot 1 tier 1 (Beginner);
+  - slot 2 tier 1 or tier 2;
+  - slots 3–4 tier 2 (Standard);
+  - slot 5 tier 3 (Expert only, so it is never Jerusalem).
   - At least one wider-world place and one Holy Land place.
   - No two places within 15 km of each other.
-  - No place repeats within 90 days.
+  - **No repeats:** a tier 1 or tier 2 place does not return within 30 days; a tier 3 place not within 90 days. *(Review change: the first draft said 90 days for every place, which cannot be met — five places a day for 90 days needs 450 different places, and slot 1 alone would need 90 different Beginner places from a list of about 60.)*
   - Disputed-only places are never used.
-- **How a day's places are chosen:** a schedule file, `src/data/map-quest/daily.json`, generated by the build script for 3 years ahead (~1,100 days × 5 ids, about 45 KB, loaded only on the daily screen).
-  - The script **only appends**: it refuses to change any date already in the file. So a later data or curation change can never alter a past puzzle, or today's puzzle in the middle of the day.
-  - Past the end of the file, the game falls back to the same rules driven by a seeded random generator (mulberry32 seeded with the date number). The game therefore never breaks if nobody extends the file.
+  - If the rules cannot be met for a day, the build script stops with an error naming the day and the rule; it never quietly relaxes a rule. (Tier 2 is the tight one: about 95 places for up to three slots a day. If it fails, the implementer shortens the tier 1–2 window to 21 days in the script's constants and notes it here.)
+- **How a day's places are chosen:** a schedule file, `src/data/map-quest/daily.json`, generated by the build script for 3 years ahead (~1,100 days × 5 ids, stored as a list indexed by puzzle number, about 45 KB, loaded only when the Daily Five is opened).
+  - **Frozen days:** every day up to two days after the build date is frozen; the script copies those entries unchanged and refuses to alter them. So a later data or curation change can never alter a past puzzle, or today's puzzle anywhere in the world. Days after that are regenerated from the current data on each build, so dropping a place in curation cannot leave a future day pointing at a place that no longer exists.
+  - Past the end of the file, the game falls back to the same rules driven by a seeded random generator (mulberry32 seeded with the puzzle number), replaying forward from the file's last 90 days so the no-repeat windows still hold. The game therefore never breaks if nobody extends the file.
   - The answers are readable in the site's files, as Wordle's were. That is acceptable for a casual game.
 - **One attempt:** each confirmed pin is saved straight away. Reloading resumes at the next place; a confirmed place cannot be redone. Once finished, the daily card shows the result, the share button and a countdown to the next puzzle.
 - **Stats** (localStorage key `bp-map-quest`):
-  - games played, current streak, best streak, best score;
+  - games played, current streak (consecutive local dates on which the Daily Five was finished; a missed day resets it to 0, and today does not break it until today is over), best streak, best score;
   - the last 30 daily totals;
   - today's in-progress picks.
   - Wrapped in try/catch like [record.ts](../../../src/pages/questions/test/record.ts). Without storage the game still plays; streaks simply are not kept.
@@ -255,14 +266,16 @@ rounded to the nearest whole point
 ## 8. Map and tile approach — decision and cost
 
 **Approach:** a new game map component, `QuestMap.tsx`, built on **MapLibre with the site's existing PMTiles file**, and its own style builder, `quest-style.ts`.
-- **Layers:** only background, earth, landcover, park, beach, water, streams and rivers. No `places_country`, no `boundaries*`, no label layers, no place dots.
-- **Beginner** adds back only `water_label_ocean`, `water_label_lakes` and `water_waterway_label`.
+- **Layers** (Protomaps layer ids, as in the atlas's `ANCIENT_LAYERS`): only `background`, `earth`, `landcover`, `landuse_park`, `landuse_beach`, `water`, `water_stream` and `water_river`. No `places_country`, no `boundaries*`, no `earth_label_islands` (island names would answer Patmos and Cyprus), no other label layers, no place dots. Modern built-up areas are drawn as open land, as the atlas does (`urban_area` set to the `earth` colour).
+- **Beginner** adds back only `water_label_ocean`, `water_label_lakes` and `water_waterway_label`, passed through `englishLabels` so they read "Dead Sea", not the local-language name.
 - **Only the "world" source is used** (zoom 0–8), allowed to stretch to **maxZoom 10**. The "detail" source is never loaded, for two reasons:
   - Detail exists only within 50 km of a Bible place. In sparse areas (Arabia, Anatolia, Persia) sharp patches would reveal where the places are.
   - At zoom 8, one pixel is about 0.5 km. That is finer than the 3 km full-marks circle.
 - **Pan limit:** `maxBounds` = the atlas's `BOUNDS`. Opening views are per era (§5.2). `renderWorldCopies: false`.
-- **What it reuses** from [street-style.ts](../../../src/components/atlas/street-style.ts): `tilesBase()`, `MAP_KEY` and `BOUNDS`, which are already exported. It needs the `EARTH` palette exported, a one-word change that adds an export without altering anything. It registers the PMTiles protocol the same way [StreetAtlasMap.tsx:21-23](../../../src/components/atlas/StreetAtlasMap.tsx#L21-L23) does; MapLibre's `addProtocol` simply replaces an existing handler with the same key, so moving between atlas and game is safe.
-- **Loading:** MapLibre is loaded lazily (`React.lazy`) so it adds nothing to other pages.
+- **What it reuses** from [street-style.ts](../../../src/components/atlas/street-style.ts): `tilesBase()`, `MAP_KEY` and `BOUNDS`, which are already exported, and `ChunkedSource` from [chunked-source.ts](../../../src/components/atlas/chunked-source.ts). It needs `EARTH` and `englishLabels` exported: the word `export` added in front of each, altering nothing else.
+- **Registering the map file reader:** the atlas's registration in [StreetAtlasMap.tsx:17-26](../../../src/components/atlas/StreetAtlasMap.tsx#L17-L26) is private, and importing that file would pull the whole atlas component into the game. So `QuestMap.tsx` repeats those few lines with its own once-only guard: `setWorkerUrl` with the bundled worker (`maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url` — without it MapLibre cannot find its worker after bundling), then `addProtocol("pmtiles", …)` over `new PMTiles(new ChunkedSource(tilesBase()))`. Both readers point at the same file, so whichever registered last serves the other page correctly when the player moves between atlas and game.
+- **Theme:** the style is rebuilt when the site theme changes, using `useThemeVersion` from [theme.ts](../../../src/lib/theme.ts) as the atlas does.
+- **Loading:** nothing extra to do. The registry's `load` import already keeps the game page, and MapLibre with it, out of every other page's bundle.
 
 **Rejected alternative:** an SVG map from [atlas-map.json](../../../src/data/atlas-map.json) with d3-zoom. It is lighter, but has no Sea of Galilee, Dead Sea, Jordan or Nile. Those are exactly the landmarks players aim by, and the site would have to hand-draw them, as the Teachers pages did.
 
@@ -272,13 +285,13 @@ rounded to the nearest whole point
 - No paid API, no new external service, no new npm package, no runtime LLM.
 - The place data is built once, locally, from a file already on disk.
 - **Dependency:** the game needs the site's own `/atlas-tiles/`, which already backs the atlas. If those fail, the game shows an error state (§10).
-- **Not in this version** (would need its own cost gate): one-sentence "why this place matters" blurbs for ~530 places. Rule-compliant only as a one-off pre-generated batch through BatchRunner (pilot, budget, owner approval). This version shows a BSB verse instead.
+- **Not in this version** (would need its own cost gate): one-sentence "why this place matters" blurbs for ~420 places. Rule-compliant only as a one-off pre-generated batch through BatchRunner (pilot, budget, owner approval). This version shows a BSB verse instead.
 
 ---
 
 ## 9. Screens
 
-All routes sit under `/games/map-quest`. The registry entry is in `src/pages/games/registry.ts` (slug `map-quest`), flipped from "coming soon" to live.
+Everything is one page at `/games/map-quest`; the hub gives a game no deeper addresses (§2.4). The four screens below are state inside that page. The chosen mode may be mirrored in the address as a search parameter (`?play=daily`, `?play=practice&level=standard&era=jesus`, `?play=disputed`) so a refresh or a shared link reopens it; unknown values fall back to the game home. The existing `map-quest` entry in [registry.ts](../../../src/pages/games/registry.ts) is switched to `status: "live"` with `load: () => import("./map-quest/MapQuestGame")`, keeping its title and description.
 
 1. **Game home**
    - Title, a one-line "how to play", and three cards:
@@ -292,15 +305,15 @@ All routes sit under `/games/map-quest`. The registry entry is in `src/pages/gam
    - A top bar shows "Place 2 of 5", the place name large, and the running total.
    - Tap or click drops a pin. Tapping elsewhere moves it; it can also be dragged.
    - A bottom **Confirm** button is disabled until a pin exists, so panning never commits a guess by accident.
-   - **Keyboard:** arrow keys and +/− pan and zoom (MapLibre's built-in keyboard handler). A visible centre crosshair and **Enter** place the pin at the centre of the map. This makes the game playable without a pointer.
+   - **Keyboard:** arrow keys and +/− pan and zoom (MapLibre's built-in keyboard handler) while the map has focus. A visible centre crosshair shows where **Enter** will put the pin; pressing Enter again after panning moves it. Enter never confirms. **Confirm** is an ordinary button reached with Tab. This makes the game playable without a pointer, and a stray Enter can never commit a guess.
 3. **Reveal**
    - The map fits both points (instant jump if reduced motion is on).
    - It draws a dashed line pin→site, the true site marker, and alternative candidates as rings.
    - The card shows:
      - name; distance in km (mi); points and colour band;
-     - the reveal verse in BSB with its reference linking to the reader;
+     - the reveal verse in the site language's Bible (the BSB in English) with its reference linking to the reader;
      - "Mentioned in N verses";
-     - "Open in atlas" (`/study/atlas/map?find=<name>` — the implementer should use a place-id parameter if the atlas has one);
+     - "Open in atlas" (`/study/atlas/map?place=<id>`, shown only when the record's `atlas` flag is true; it opens in a new tab so the game stays where it was);
      - the candidate note for disputed places.
    - **Next.**
 4. **Summary**
@@ -316,7 +329,7 @@ Light and dark themes come from the site theme (the `EARTH` palettes). Layout mu
 
 | Case | Behaviour |
 |---|---|
-| Confirm without a pin | Button disabled; Enter with no pin places it at the crosshair first. |
+| Confirm without a pin | Button disabled until a pin exists; keyboard players place one with Enter at the crosshair (§9). |
 | Pin in the sea or at the map's edge | Allowed and scored normally; the map can't pan outside `BOUNDS`. |
 | Miss over 2,500 km | 0 points, never negative. |
 | Place with several credible candidates | Scored against the nearest; all shown on reveal (§4.1). |
@@ -333,7 +346,9 @@ Light and dark themes come from the site theme (the `EARTH` palettes). Layout mu
 | Reduced motion | No fly-to animation; instant jumps. |
 | Small phones | Pinch zoom; Confirm stays within thumb reach; the name bar never covers more than 20% of the map. |
 | Clipboard blocked | Select-and-copy box (§7). |
-| Data rebuilt after launch | `daily.json` past dates are frozen by the script; a test checks every scheduled id still exists in `places.json`. |
+| Data rebuilt after launch | Days up to two days after the build are frozen by the script; later days are regenerated (§7). A Vitest test checks that every id scheduled from today onward exists in `places.json`. |
+| Same name, two periods (Jericho 1 and 2) | One record, with both records' verses merged (§3 filter 4). |
+| Puzzle number across a daylight-saving change | Counted in calendar days, so it still moves up by exactly one each midnight (§7). |
 | Shared result spoils answers | The share text never names places. |
 
 ---
@@ -341,10 +356,10 @@ Light and dark themes come from the site theme (the `EARTH` palettes). Layout mu
 ## 11. Implementation plan (for step 3)
 
 New files (this feature's own):
-- `scripts/build-map-quest.py`: filters §3, eras §5.2, appends to the daily schedule §7. Plus `scripts/tests/test_build_map_quest.py`.
-- `src/data/map-quest/places.json`, `daily.json` (generated); `curation.json` (hand-written).
+- `scripts/build-map-quest.py`: filters §3, eras §5.2, the Disputed sites list §4.3, and the daily schedule §7 (frozen days kept, later days regenerated). Plus `scripts/tests/test_build_map_quest.py` for the filters (run by `npm run test:data`, which `npm test` does not include).
+- `src/data/map-quest/places.json`, `disputed.json`, `daily.json` (generated); `curation.json` (hand-written).
 - `src/pages/games/map-quest/`:
-  - `MapQuestPage.tsx`, `QuestMap.tsx`, `quest-style.ts`;
+  - `MapQuestGame.tsx` (the default export the registry loads, per the games README), `QuestMap.tsx`, `quest-style.ts`;
   - `scoring.ts` (haversine, score, band);
   - `pools.ts` (level and era filters, widening, picker rules);
   - `daily.ts` (date → number → places, with fallback);
@@ -352,21 +367,69 @@ New files (this feature's own):
   - a `*.test.ts` beside each logic file.
 
 Shared files touched (minimal):
-- the games registry entry;
-- `export` added to `EARTH` in [street-style.ts](../../../src/components/atlas/street-style.ts);
-- one row each in [SOURCES.md](../../../SOURCES.md) and [NOTICE.md](../../../NOTICE.md).
+- the existing `map-quest` entry in [registry.ts](../../../src/pages/games/registry.ts): `status` to `"live"` and a `load` line, nothing else;
+- `export` added in front of `EARTH` and `englishLabels` in [street-style.ts](../../../src/components/atlas/street-style.ts);
+- one row in [SOURCES.md](../../../SOURCES.md); [NOTICE.md](../../../NOTICE.md) only if its OpenBible row lacks the ODbL note.
+- [GamesPage.tsx](../../../src/pages/games/GamesPage.tsx) and `src/App.tsx` are **not** touched.
 
-Tests to include:
+Tests to include — all as Vitest tests beside the code, so `npm test` runs them:
 - the score table in §6.2;
 - band thresholds;
-- haversine against a known pair (Jerusalem–Jericho ≈ 23 km);
+- haversine against a known pair (Jerusalem–Jericho ≈ 22.5 km);
 - nearest-candidate scoring;
 - pool sizes and widening;
-- the daily picker obeys every mixing rule over 365 days;
-- no repeats within 90 days;
-- every scheduled id exists;
-- the fallback beyond the schedule;
+- the generated data: `places.json` has at least 300 places, every tier non-empty, coordinates inside `BOUNDS`, no duplicate names, Jericho tagged `jesus`;
+- the daily schedule obeys every mixing rule over the whole file and the 30/90-day no-repeat windows;
+- every id scheduled from today onward exists in `places.json`;
+- puzzle numbers step by exactly one across a daylight-saving change;
+- the fallback beyond the schedule obeys the same rules;
 - share text contains no place names;
-- storage failure does not throw.
+- storage failure does not throw;
+- the hub's existing [games.test.tsx](../../../src/pages/games/games.test.tsx) still passes with the entry live (it needs no change).
 
-**Dependency:** the /games hub and registry (job 714, another chain) did not exist when this was written. If it still does not exist at implementation time, the implement step must check its status rather than build a hub of its own.
+**Dependency:** the /games hub and registry (job 714) now exist, with `map-quest` already listed as coming soon, so the implement step builds no hub of its own.
+
+---
+
+## 12. Review
+
+**Reviewed 2026-11-07 (sequence 31, step 2), once, against the approved spec (APPROVED-IDEAS.md entry 17), [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) and the real codebase and data.** Every place count above was re-probed by running the design's own filters on the raw OpenBible file; every code reference was opened. All corrections are already made in the body; this list says what changed and why.
+
+**Verdict:** the design's decisions stand — OpenBible data, nearest-candidate scoring for local disputes with a separate Disputed sites mode, a blank physical map, three levels, five eras, the log scoring curve and the Daily Five. The spec's six open points are each settled, and nothing costs money. But five problems would have broken the build or the game, and several smaller facts were wrong.
+
+### Would have broken the game or the build
+1. **The daily no-repeat rule could not be met.** "No place repeats within 90 days" needs 450 different places every 90 days, and slot 1 alone needed 90 different Beginner places from a list of about 60. Now: 30 days for Beginner and Standard places, 90 for Expert ones, and the build script stops with an error rather than quietly bending a rule (§7).
+2. **The game cannot have its own sub-pages.** The games hub (now built) gives each game exactly one address, `/games/map-quest`, and sends anything deeper back to the hub. The first draft assumed several routes and planned its own lazy loading. Now all screens are state inside one page, optionally mirrored in a `?play=` search parameter; the hub's existing lazy `load` covers loading; the hub page and the app's router are not touched (§2.4, §8, §9, §11).
+3. **The checks would not have run.** The site's `npm test` runs Vitest but not the Python tests. The draft put its data checks only in a Python test file. Now every check that must pass — the generated data, the daily schedule, the no-repeat windows — is a Vitest test; the Python test covers only the filters (§2.4, §11).
+4. **Jericho would have vanished from the Life of Jesus era.** OpenBible keeps the Old Testament tell ("Jericho 1") and the New Testament town ("Jericho 2", about 2 km away) as two records. The "one place per name" filter kept the first and threw away the second with all its Gospel verses. Now same-name records within 25 km merge their verses before the duplicate is dropped (§3 filter 4).
+5. **Freezing every scheduled day clashed with the "every scheduled place exists" test.** Removing a place in curation would have left future days pointing at it, with no way to fix them. Now only days up to two days after the build are frozen, and later days are regenerated on each build. The launch date lives once, in `daily.json`, so the script and the game cannot disagree about puzzle numbers. Puzzle numbers count calendar days, so they still go up by one on daylight-saving days (§7).
+
+### Wrong facts, now corrected
+6. **Which point is "the" site.** For 104 places OpenBible lists first a candidate that does not have the most votes (Emmaus: 204 votes first, 219 second). The atlas shows the first one, so the game now does too, and measures its vote thresholds against the highest-voted candidate (§2.3, §3).
+7. **The near-duplicate filter threw away good questions.** At 2 km it dropped Ai (32 verses), Gilgal (33), the Mount of Olives and Machpelah. Of its 147 drops, 100 were other names for exactly the same point (Zion, Jebus, Luz) or stand-ins pinned on a nearby city (Put on Cyrene, Caphtor on Crete). The cut-off is now 0.5 km (§3 filter 5).
+8. **Pool sizes.** Run exactly as written, the filters give about 420 playable places, not 530: about 300 in the Holy Land, 120 elsewhere, 145 in 5+ verses. The era counts are now Abraham ~30, Exodus & conquest ~235, Kings ~160, Life of Jesus ~27 and Paul ~57. Per-filter removals were also restated (314 / 390 / 60), and the non-existent types "fortress" and "cave" were removed from the list (§3, §5).
+9. **The record example used an impossible verse id** (4002063, "Numbers 2:63"). Jericho is first named at Numbers 22:1, which is 4022001; its real id is `a231f80` (§3).
+10. **The atlas link.** The atlas opens a place with `/study/atlas/map?place=<id>`, not `?find=<name>`. Records now carry an `atlas` flag so the link appears only for places the atlas has (§3, §9).
+11. **Map code details.** The atlas's tile-reader setup is private and also points MapLibre at its bundled worker. The game now repeats that, including the worker step, which was missing and without which the map does not load once bundled. The Beginner water labels need the atlas's `englishLabels`, or they would show local-language names; it is exported alongside `EARTH`. The layer ids are now named exactly (`landuse_park`, `landuse_beach`), island names stay hidden because they would give away Patmos and Cyprus, and the style follows theme changes (§8).
+12. **Smaller clarifications.**
+    - The Enter key places or moves the pin and never confirms; the draft contradicted itself here.
+    - The daily slots name exact tiers, so slot 5 is never Jerusalem; tiers are now defined as separate groups.
+    - The streak is defined.
+    - "Each doubling of the miss costs ~120 points" holds only beyond about 50 km.
+    - Jerusalem–Jericho is 22.5 km.
+    - The verse is shown in the site language's Bible (the BSB in English).
+    - The Disputed sites mode draws from its own curated list. Candidates OpenBible lacks are added by hand, each with a cited source, and are always labelled as *proposed*.
+    - The record count on disk is 1,342.
+    - NOTICE.md already credits OpenBible, so it changes only if the ODbL note is missing.
+
+### Checked and found right
+- The score table, recomputed exactly, from 1,000 at 3 km to 40 at 2,000 km.
+- The colour-band distances (6 / 23 / 84 / 356 km).
+- The exponential comparisons (about 70 points and 958 points).
+- `tilesBase`, `MAP_KEY` and `BOUNDS` are exported, and `BOUNDS` covers every opening view.
+- The build-data.py and SOURCES.md references.
+- The paul-letters journey ids.
+- The `useVerses` interface.
+- The localStorage pattern in record.ts.
+- The Testimonies copy fallback.
+- The $0 cost: no new service, package, API or runtime model.
