@@ -1,8 +1,8 @@
 # Two truths and a lie — design
 
-**Feature:** approved idea 20 in [APPROVED-IDEAS.md](Jarvis/Projects/BibleProject/APPROVED-IDEAS.md): *"Three statements about a Bible character; spot the made-up one."*
-**Slug:** `two-truths` (already in [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) as "coming soon": audiences Solo and Youth group, on the "Youth group and church night" shelf, with its own drawing).
-**Rules followed:** [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md), the site's [AGENTS.md](Jarvis/Projects/BibleProject/Website/AGENTS.md), and the workspace rule that any batch of model calls runs through [BatchRunner](Jarvis/Tools/BatchRunner/README.md) with a pilot, a budget and the owner's yes.
+**Feature:** approved idea 20 in [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md): *"Three statements about a Bible character; spot the made-up one."*
+**Slug:** `two-truths` (already in [registry.ts](../../../src/pages/games/registry.ts) as "coming soon": audiences Solo and Youth group, on the "Youth group and church night" shelf, with its own drawing).
+**Rules followed:** [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md), the site's [AGENTS.md](../../../AGENTS.md), and the workspace rule that any batch of model calls runs through [BatchRunner](../../../../../../Tools/BatchRunner/README.md) with a pilot, a budget and the owner's yes.
 **Written:** 2026-11-07, sequence 31 step 10 (research and design). Step 11 reviews this document once; step 12 builds the game.
 
 ---
@@ -12,7 +12,7 @@
 - The game shows one Bible person and three short statements about them. Two are true, one was made up. The player picks the made-up one. The reveal then marks every statement, shows the Bible verse behind each true one, and for the made-up one shows **the truth it twisted**, with the verse that says so.
 - **Nothing is written at play time.** Every statement is written once, ahead of time, checked, and stored in a JSON file the game loads. There is no running cost and no model call from the site.
 - **Two sources of statements:**
-  1. **A starter deck written and checked in this design** (Appendix A): 30 well-known people, 3 true statements and 2 made-up ones each, 150 statements in all. Every true statement and every correction was checked word by word against the site's own Berean Standard Bible text. The game can go live on this deck in step 12 with no model call and no spend.
+  1. **A starter deck written and checked in this design** (Appendix A): 30 well-known people, 3 true statements and 2 made-up ones each, 150 statements in all. The earlier design reports reference and check-phrase validation against the site's BSB. Such matching is not a semantic fact check; step 12 must explicitly review each fact and every valid triple before setting reviewed=true. The game can go live on this deck in step 12 with no model call and no spend.
   2. **A one-time generation run for the rest of the Who's older pool** (up to 130 more people, §5). A cheap model writes candidate statements from the site's own people data and the verses that data cites. A second, different model checks each one blind against the verses. A build script then runs mechanical checks, and a person reads the review sheet. This run costs plan usage, so it **waits for the owner's yes** (§13) and is a follow-up job, not part of step 12.
 - **Truths must be stated by a verse; lies must be contradicted by one.** "The Bible never says so" is not enough to call something false. Every lie carries its correction sentence and the verse that contradicts it (§4).
 - **Two ways to play** (§6): *Ten rounds* on your own, scored out of ten with a no-spoiler share line; and *Lead a group*, a big-type screen for a youth group, where the leader reads out the three statements, the room votes, and the leader taps *Show the answer*. Optional team tallies.
@@ -55,12 +55,12 @@
 
 | Source | What it gives | Trust for this game |
 |---|---|---|
-| [people.json](Jarvis/Projects/BibleProject/Website/data/study/people.json) | 3,133 people: id, name, other names, a one-line brief, mention count, period | Labels and briefs only. |
-| [data/study/people/](Jarvis/Projects/BibleProject/Website/data/study/people/) (one file per person, from STEP Bible's names data, CC BY 4.0) | Family links, tribe, sex, era, and a short **article** about each person; all 3,133 have one (median 642 characters) | **A lead, never proof.** Articles mix sentences with references, in several formats (`(Exo.2.1-2)`, `(Gen. 25:24-26)`, `(Exodus 3-4)`), with sentences that have none. On the 160-person Who's older pool, the median person has 5 article sentences carrying a reference. One error was found in this job: Aaron's article calls him "the older brother of Moses and Miriam", but Scripture never says which of Aaron and Miriam was older (Exodus 7:7 makes Aaron three years older than Moses; the sister who watches over baby Moses in Exodus 2:4 is not named). **Release builds pack these files** ([AGENTS.md](Jarvis/Projects/BibleProject/Website/AGENTS.md), "Person packs"), so the game itself must never read them; only the build and the generation items do. |
-| [src/data/people-pages/](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) | 199 prophets, rulers, apostles and church figures with **4,036 claims marked as Scripture**, each with exact verse-id references | **The best leads.** Hand-curated with references. Their quotations use the King James wording, so only the facts and references are reused, never the wording. |
-| [data/questions/bank.json](Jarvis/Projects/BibleProject/Website/data/questions/bank.json) | 14,916 questions, 6,021 of them Bible trivia naming a person, each with its answer, three wrong options (audited), a reference and a "matched" passage check. 141 of the 160 pool people have at least 3 trivia questions | **Good leads for both kinds of statement.** A question plus its answer is a true fact with a reference. Its wrong options were written to be plausible, so they are natural **lie candidates**, and the question's own passage is the verse that contradicts them. People are named, not given ids, so leads are matched by name and checked (Joseph, John, Mary, James and others share names). |
-| [src/data/whos-older/characters.source.json](Jarvis/Projects/BibleProject/Website/src/data/whos-older/characters.source.json) | 160 hand-chosen people with readable, unambiguous labels ("Joseph of Egypt", "Jeroboam I"), a one-line tag and a fame tier | **The pool.** It already solves the namesake problem for labels and is the list players will know. |
-| [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/) | The Berean Standard Bible text, one file per book, `"chapter:verse": text` | **The final judge.** Every check word must be found in its cited verses here. |
+| [people.json](../../../data/study/people.json) | 3,133 people: id, name, other names, a one-line brief, mention count, period | Labels and briefs only. |
+| [data/study/people/](../../../data/study/people/) (one file per person, from STEP Bible's names data, CC BY 4.0) | Family links, tribe, sex, era, and a short **article** about each person; all 3,133 have one (median 642 characters) | **A lead, never proof.** Articles mix sentences with references, in several formats (`(Exo.2.1-2)`, `(Gen. 25:24-26)`, `(Exodus 3-4)`), with sentences that have none. On the 160-person Who's older pool, the median person has 5 article sentences carrying a reference. One error was found in this job: Aaron's article calls him "the older brother of Moses and Miriam", but Scripture never says which of Aaron and Miriam was older (Exodus 7:7 makes Aaron three years older than Moses; the sister who watches over baby Moses in Exodus 2:4 is not named). **Release builds pack these files** ([AGENTS.md](../../../AGENTS.md), "Person packs"), so the game itself must never read them; only the build and the generation items do. |
+| [src/data/people-pages/](../../../src/data/people-pages/) | 199 prophets, rulers, apostles and church figures with **4,036 claims marked as Scripture**, each with exact verse-id references | **The best leads.** Hand-curated with references. Their quotations use the King James wording, so only the facts and references are reused, never the wording. |
+| [data/questions/bank.json](../../../data/questions/bank.json) | 14,916 questions, 6,021 of them Bible trivia naming a person, each with its answer, three wrong options (audited), a reference and a "matched" passage check. 141 of the 160 pool people have at least 3 trivia questions | **Good leads for both kinds of statement.** A question plus its answer is a true fact with a reference. Its wrong options were written to be plausible, so they are natural **lie candidates**, and the question's own passage is the verse that contradicts them. People are named, not given ids, so leads are matched by name and checked (Joseph, John, Mary, James and others share names). |
+| [src/data/whos-older/characters.source.json](../../../src/data/whos-older/characters.source.json) | 160 hand-chosen people with readable, unambiguous labels ("Joseph of Egypt", "Jeroboam I"), a one-line tag and a fame tier | **The pool.** It already solves the namesake problem for labels and is the list players will know. |
+| [data/plain/bsb/](../../../data/plain/bsb/) | The Berean Standard Bible text, one file per book, `"chapter:verse": text` | **The final judge.** Every check word must be found in its cited verses here. |
 
 **What the prototype check in this job showed.** Writing Appendix A against the real text caught eight mismatches before anything shipped, all of the same kind: the statement used a common English word where the Berean Standard Bible uses another. Jacob's dream is of a **ladder**, not a stairway (Genesis 28:12); David played the **harp**, not a lyre (1 Samuel 16:23); Zacchaeus repays **fourfold**; Gideon keeps **three hundred** men, written out; Moses dies at **a hundred and twenty**. A reveal that shows a verse disagreeing with the "true" statement above it would look like an error, so statements follow the Berean Standard Bible's own words for the key noun or number (§4.2). Two of the drafted lies were also replaced because they were only "not mentioned" rather than contradicted (Daniel thrown into the furnace; Samson naming a belt to Delilah, when he really did tell her three false secrets). That is exactly the failure §4.3 rules out.
 
@@ -68,9 +68,9 @@
 
 ## 3. Who appears
 
-- **The pool is the Who's older list of 160 people** ([characters.source.json](Jarvis/Projects/BibleProject/Website/src/data/whos-older/characters.source.json)), reusing its ids, labels and tags. A person is playable once they have at least **3 truths and 2 lies** that pass every check.
+- **The pool is the Who's older list of 160 people** ([characters.source.json](../../../src/data/whos-older/characters.source.json)), reusing its ids, labels and tags. A person is playable once they have at least **3 truths and 2 lies** that pass every check.
 - **Jesus and God never appear as the subject** (Jesus is not in the Who's older pool either). A made-up statement about Jesus or God would put a false claim about them in front of players, and the reveal's correction cannot always undo that. This is listed for the owner (§15).
-- **Launch deck:** the 30 people of Appendix A, 24 from the Old Testament and 6 from the New, 9 of them women. A ten-round game draws 10 different people, so the launch deck gives three games before a person repeats.
+- **Launch deck:** the 30 people of Appendix A, 24 from the Old Testament and 6 from the New, 9 of them women. A ten-round game draws 10 different people, so three games without a repeated person are possible; the recent-person preference seeks this while storage is available.
 - **After the generation run:** every pool person who passes, up to 160. The start screen's Old Testament / New Testament choice is offered only when each side has at least 10 playable people.
 
 ---
@@ -92,6 +92,8 @@
 | `swapIn` | Lies only: the exact words in `text` that carry the made-up detail ("Babylon", "seven stones", "Gehazi"). The build checks they are in the lie and **not** in the lie's own verses. |
 | `topic` | Short key ("age-at-death", "birthplace"). Two statements with the same topic are never dealt together. |
 | `clash` | Optional list of statement ids never dealt with this one, for cases the topic key misses (Appendix A, Zacchaeus). |
+| `reviewed` | Boolean; only explicitly reviewed statements may ship, including hand-written ones. |
+| `retired` | Boolean, default false; retired statements remain in the source but never ship. |
 | `origin` | `"hand"` (Appendix A or later hand edits) or `"generated:<run id>"`. |
 
 ### 4.2 Rules for every statement
@@ -113,7 +115,7 @@
 
 | Swap | Example from Appendix A | Why it is plausible | What contradicts it |
 |---|---|---|---|
-| person | *Elisha was taken up to heaven in a chariot of fire.* | It was his master Elijah. | 2 Kings 13:20, "Elisha died and was buried". |
+| person | *Elisha was the son of Amoz.* | Amoz was the father of another prophet, Isaiah. | 1 Kings 19:16, Elisha son of Shaphat. |
 | place | *Sarah was buried near Bethlehem.* | That is where Rachel was buried. | Genesis 23:19, the cave of Machpelah. |
 | number | *David picked seven stones for his sling.* | Seven is a "Bible number". | 1 Samuel 17:40, five smooth stones. |
 | object | *Rahab hung a blue cloth from her window.* | A sign in a window is right; the colour and thing are not. | Joshua 2:21, a scarlet cord. |
@@ -147,7 +149,7 @@ Both routes end in the same source file and pass the same build checks, so the g
 ### 5.2 The generation items (one text file per person)
 
 A script (`scripts/two-truths/make-items.ts`, written by the follow-up job) writes one UTF-8 file per person who is not yet playable. Because a BatchRunner call cannot open files, each item carries everything:
-1. The person's label, tag and id, and the names of namesakes in [people.json](Jarvis/Projects/BibleProject/Website/data/study/people.json) (same first name) so the model knows whom **not** to describe.
+1. The person's label, tag and id, and the names of namesakes in [people.json](../../../data/study/people.json) (same first name) so the model knows whom **not** to describe.
 2. **Leads:** the person's people-pages claims marked as Scripture (fact text + references), their article sentences, and their question-bank trivia items (question, answer, wrong options, reference), each lead numbered.
 3. **The verses:** the Berean Standard Bible text of every verse any lead cites, keyed by reference, capped at about 60 verses (most-cited first). A statement may only cite verses that appear in its item.
 4. The statements already in the source file for that person, so the model adds new ones and avoids their topics.
@@ -163,12 +165,12 @@ A script (`scripts/two-truths/make-items.ts`, written by the follow-up job) writ
 1. **Sources with references.** Every lead comes from the site's own data and arrives with its verses; the model never works from memory alone.
 2. **Mechanical build checks** (`scripts/build-two-truths.ts`, fatal unless marked; they run on the starter deck too):
    - every `refs` range exists in the site's Berean Standard Bible, and every `check` phrase occurs in it (case and curly quotes ignored);
-   - for a lie, its `swapIn` words occur in `text` and do **not** occur, as whole words, in its own cited verses. (A looser rule, "no word of the lie that is missing from the correction may appear in the verse", was tried on Appendix A in this job and raised 10 false alarms out of 60 lies, on ordinary words like "son", "angel" and "prophet"; naming the swapped detail explicitly raised none.);
+   - for a lie, its complete normalized `swapIn` phrase must occur in `text`. Its presence in the cited verses produces a review warning, not an automatic rejection: a contrasting verse can mention both alternatives. Neither presence nor absence proves contradiction; the semantic review must do so. (A looser rule, "no word of the lie that is missing from the correction may appear in the verse", was tried on Appendix A in this job and raised 10 false alarms out of 60 lies, on ordinary words like "son", "angel" and "prophet"; naming the swapped detail explicitly raised none.);
    - lengths 20–110 characters (correction sentences up to 140); no giveaway words in lies (§4.2 rule 4); no block-listed topic (§4.4 items 2–3);
-   - every person has at least 3 truths and 2 lies, ids are unique, topics and clashes point at real statements;
+   - ids are unique, every person id exists in the pool, and every clash points at a real statement; topics are nonempty grouping keys (not statement ids). Validate schema and references for all source records; after veto, retirement and reviewed filters, exclude people below 3 truths and 2 lies and report them as not playable. Fail publication if fewer than ten eligible people remain;
    - warning only: a person whose lies differ in average length from their truths by more than 25%.
 3. **Blind second check by a different model** (a second BatchRunner run; Sonnet if generation used Haiku). One call per person. The verifier sees the statements **unlabelled and shuffled**, each with its cited verses, and answers for each: `stated` (the verses say it), `contradicted` (the verses say otherwise), or `not-stated`; plus "could this be true of another Bible person with this name?" and, for the correction sentences, `stated` or not. A truth must come back `stated`; a lie `contradicted`; its correction `stated`; and no namesake flag. Anything else is dropped into the review sheet's "flagged" list, never auto-fixed.
-4. **A person reads it.** Each build writes [review-sheet.md](Jarvis/Projects/BibleProject/Website/docs/features/two-truths/review-sheet.md): per person, every statement with its verse text, kind, swap and verifier verdict. Anything that reads wrong goes in `veto.json` by id, with a reason; the next build drops it. Generated statements start as `"reviewed": false` and the game only deals reviewed ones, so nothing generated reaches players until someone has read it. The owner may delegate the reading to a reviewing job; the sheet says who reviewed what.
+4. **A person reads it.** Each build writes [review-sheet.md](../../../docs/features/two-truths/review-sheet.md): per person, every statement with its verse text, kind, swap and verifier verdict. Anything that reads wrong goes in `veto.json` by id, with a reason; the next build drops it. Generated statements start as `"reviewed": false` and the game only deals reviewed ones, so nothing generated reaches players until someone has read it. The owner may delegate the reading to a reviewing job; the sheet says who reviewed what.
 5. **The test suite re-checks the shipped file** independently of the build (§11): every reference and check phrase against the Bible text, every person's minimum counts, and the dealing rules.
 
 ### 5.5 Merging
@@ -189,7 +191,7 @@ An import script (follow-up job) reads the BatchRunner output folder, keeps only
 
 ### 6.2 Lead a group (youth group, church night)
 
-- For one screen in a room (a projector, a TV, or the leader's phone). Big type, high contrast, statements labelled A, B and C.
+- For one screen in a room (a projector, a TV, or the leader's phone). Big type, high contrast, statements labelled A, B and C. Each team award is a toggle worth at most one point per round, available only after reveal; toggling it off reverses the award. Finish before reveal omits the current unanswered round from the recap.
 - No picking on the device. The leader reads the person and statements aloud; the room votes (hands, sides of the room, or cards). The leader taps **Show the answer**, which opens the same reveal in large type, then *Next*.
 - **Optional teams** (2 to 4, named "Team 1" … or renamed): after the reveal, the leader taps each team that got it right; a running tally shows at the top. Without teams there is no score.
 - Rounds go on until the leader stops or the deck runs out; *Finish* shows the tally and the recap.
@@ -209,11 +211,11 @@ An import script (follow-up job) reads the BatchRunner output folder, keeps only
 
 1. **Person:** one not yet used in this game, preferring people not in the device's last 40 people played; within that, at random.
 2. **Lie:** one of the person's lies, preferring any not in the last 300 statements seen.
-3. **Truths:** two of the person's truths that share no `topic` with each other or with the lie and are not in the lie's `clash` list, again preferring unseen ones.
-4. **Order:** the three shuffled, so the lie is equally likely to be A, B or C. A test deals 3,000 rounds and requires each position to hold the lie 30–37% of the time.
+3. **Truths:** enumerate every pair of reviewed active truths for that lie. All three topics must differ, and no pair may have a clash in either direction, including truth-to-truth clashes. Prefer unseen valid combinations. If this lie has none, try another lie; if this person has none, skip that person. Precompute valid triples at build time; counts alone do not make a person playable.
+4. **Order:** the three shuffled, so the lie is equally likely to be A, B or C. A fixed-seed test deals 3,000 rounds and requires each position to hold the lie 30–37% of the time; it must not use unseeded randomness.
 5. If preferences cannot all be met (a small deck, a long-time player), they give way in this order: unseen statements, then recent people. A round is never dealt with clashing statements, and never with fewer than two truths.
 
-With 3 truths and 2 lies, each launch person has 6 possible rounds (4 for Zacchaeus, whose second lie may only be dealt with his first two truths).
+With 3 truths and 2 lies there are at most six combinations before answer-order permutations. Topics and clashes reduce this; the build reports actual valid combinations per person. Zacchaeus's second lie may only accompany his first two truths, and Lydia's home-city lie cannot accompany her home-city truth.
 
 ---
 
@@ -221,22 +223,22 @@ With 3 truths and 2 lies, each launch person has 6 possible rounds (4 for Zaccha
 
 ### 8.1 Start
 
-Title, one-line explanation, the two mode buttons, the testament choice when offered, best score, and the "How it works" paragraph. Link back to the games hub.
+Title, one-line explanation, the two mode buttons, the testament choice when offered, best score, and the "How it works" paragraph. Link back to the games hub. If data is missing or fewer than ten eligible people remain, disable solo Start with a clear explanation and a retry/back action; group mode needs at least one valid person.
 
 ### 8.2 Round
 
 - Top: "Round 3 of 10" (solo) or the team tally (group).
-- The person: label in large type, the tag below ("Moses' brother, first high priest of Israel" style, from the pool), and nothing else about them, so the page does not hint at an answer.
+- The person: label in large type, no biographical tag before the reveal. Pool tags can directly answer family, tribe or occupation statements. Show the tag and person-page link only after the answer.
 - Three full-width statement buttons, A, B and C, each with the whole sentence. On a phone they stack; on a wide screen they stay stacked (reading three sentences side by side is harder).
 - Solo: tapping a statement selects it and asks "Is this the made-up one?" with *Yes, that's the lie* / *Pick again*, so a mis-tap on a phone does not cost a point.
 
 ### 8.3 Reveal
 
 - A result line, announced to screen readers: "You spotted it" or "Not quite: that one is true."
-- **Each statement, marked in words and colour** (never colour alone): **True** with the verse reference, the verse text in the reader's current Bible (looked up through [verses.ts](Jarvis/Projects/BibleProject/Website/src/lib/verses.ts) from the stored verse ids, as other games do) and a *Read in context* link (`/read/<Bible>/<BOOK>/<chapter>?hl=<verse>`).
+- **Each statement, marked in words and colour** (never colour alone): **True** with the verse reference, the verse text in the Berean Standard Bible (explicit `bible: "bsb"` in `useVerses`; looked up through [verses.ts](../../../src/lib/verses.ts) from the stored verse ids, as other games do) and a *Read in context* link (`/read/bsb/<BOOK>/<chapter>?hl=<verse>`).
 - **The lie**: struck through, labelled **Made up**, followed immediately by **"The truth:"**, the correction sentence, the contradicting verse's text and its *Read in context* link.
 - The player's pick is outlined so they can see what they chose.
-- A link to the person's page (`/people/<readable address>`, from [people-slugs.json](Jarvis/Projects/BibleProject/Website/src/data/people-slugs.json), falling back to `/people/<id>` as Wordle does).
+- A link to the person's page (`/people/<readable address>`, from [people-slugs.json](../../../src/data/people-slugs.json), falling back to `/people/<id>` as Wordle does).
 - *Next* (or *See your score* after round ten). Focus moves to the result line when the reveal opens.
 
 ### 8.4 End (solo) and Finish (group)
@@ -245,8 +247,8 @@ Score or tally, band line, share button (solo), the recap list (each round: pers
 
 ### 8.5 Accessibility and look
 
-- Built in the site's existing game style (see [games.css](Jarvis/Projects/BibleProject/Website/src/pages/games/games.css) and the sibling games), light and dark themes, no new fonts or images.
-- Real buttons; keyboard A/B/C or 1/2/3 to pick, Enter to confirm, Space or Enter for *Next*. Result and team tallies in a polite live region.
+- Built in the site's existing game style (see [games.css](../../../src/pages/games/games.css) and the sibling games), light and dark themes, no new fonts or images.
+- Real buttons; keyboard A/B/C or 1/2/3 to pick, Enter to confirm, Space or Enter for *Next*. Result and team tallies in a polite live region. Keyboard handlers ignore text inputs, selects, contenteditable targets, modifiers and repeated keydown events; they operate only in the current mode and phase. Native button Enter/Space must not also trigger a global action or advance twice.
 - Group mode text at least 1.75rem for statements on wide screens; nothing depends on hover.
 - Reduced-motion users get no card flip; the reveal simply appears.
 
@@ -266,11 +268,11 @@ Score or tally, band line, share button (solo), the recap list (each round: pers
 | `…/two-truths/deal.ts`, `game.ts`, `storage.ts`, `share.ts` | Pure dealing, the run's state (round, picks, score), device storage, share text. The share helper follows Who's older: reuse Map quest's generic share function, never edit it. |
 | `…/two-truths/Round.tsx`, `Reveal.tsx`, `Screens.tsx`, `two-truths.css` | The screens of §8. |
 | `…/two-truths/*.test.ts(x)` | §11. |
-| [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) | Only the `two-truths` entry changes: `status: "live"` and its `load`. The shelf and drawing line stay as they are. |
-| [README.md](Jarvis/Projects/BibleProject/Website/src/pages/games/README.md) (games) | A "Two truths and a lie" section like the siblings'. |
-| `content/translation/extract.py` | One line added to `GAME_DATA` for `src/data/two-truths/two-truths.json` (`.people[].label`, `.people[].tag`, `.statements[].text`, `.statements[].truth`), as Who's older and Odd one out did, so translated sites can show translated statements. Until a translation exists the game shows English, and the "How it works" panel says so on a translated site. |
+| [registry.ts](../../../src/pages/games/registry.ts) | Only the `two-truths` entry changes: `status: "live"` and its `load`. The shelf and drawing line stay as they are. |
+| `docs/features/two-truths/implementation.md` | Feature-owned implementation notes and commands. Do not edit the shared games README in this step. |
+| Translation scope | Step 12 ships English statements and UI with an honest language note. Shared translation infrastructure is outside the permitted feature files plus registry entry; integration can be separately authorized later. |
 
-**Device storage.** `localStorage["bp-two-truths"]`: best score, games played, total score, last 300 statement ids seen, last 40 people, group team names. `sessionStorage["bp-two-truths-run"]`: the game in progress, saved **when a round is dealt** (so reloading cannot re-deal a hard round), with the data `stamp`; a saved game whose stamp no longer matches is dropped.
+**Device storage.** `localStorage["bp-two-truths"]`: best score, games played, total score, last 300 statement ids seen, last 40 people, group team names. `sessionStorage["bp-two-truths-run"]`: the game in progress, saved when a round is dealt and after each selection, confirmation, reveal, team toggle and advance, with the data `stamp`. Validate parsed storage, allowed phases, score bounds and all stored ids; drop corrupt or stale runs. Count completed solo games and update totals once using a persisted completion marker. Bound team names and render them as text. History is updated on dealing; a restored round retains its order. Storage failures leave an in-memory playable session.
 
 ---
 
@@ -288,12 +290,13 @@ Not part of step 12. When the owner says yes (§13), one job does this, in order
 
 ## 11. Tests (for step 12)
 
-- **Data** (`statements.test.ts`): every statement in the shipped file has refs that exist in [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/) and check words found in them, written independently of the build script; every lie has a correction and a swap; no lie's swapped-in word appears in its own verses; every person has at least 3 truths and 2 lies; the generated file matches its sources (the build's `--check` mode).
+- **Data** (`statements.test.ts`): every statement in the shipped file has refs that exist in [data/plain/bsb/](../../../data/plain/bsb/) and check words found in them, written independently of the build script; every lie has a correction and a swap; swap phrases occur in the lie text and every lie has a recorded semantic review; every person has at least 3 truths and 2 lies; the generated file matches its sources (the build's `--check` mode).
 - **Dealing** (`deal.test.ts`): 3,000 seeded rounds: never a topic or clash pair, always two truths and one lie of the same person, lie position 30–37% each, no person twice in one game; preferences give way in the stated order on a tiny deck; Zacchaeus's clash is honoured.
 - **Game state and storage:** scoring, the confirm step, a reload restoring the same round, a stale stamp dropping the saved game, storage that cannot be read or written (private mode) leaving the game playable.
 - **Share text:** score and squares only; contains no statement text.
 - **Page** (`TwoTruthsGame.test.tsx`): a full solo game with picks by click and keyboard; the reveal shows "Made up" and "The truth:" for the lie and verse links for all three; group mode with two teams awarding points; the hub lists the game as live (the hub's own tests count from the registry).
-- Then the site's full `npm test` and build, as the build rules require.
+- Add tests for zero valid triples, veto-induced exclusion, symmetric truth clashes, hidden answer-bearing tags, failed verse loads, corrupt storage, completion idempotency and team-toggle reloads.
+- Run the feature generator and its `--check` mode explicitly without modifying shared package scripts; then the site's full `npm test` and build, as the build rules require. Record actual results and pre-existing failures separately.
 
 ---
 
@@ -301,8 +304,8 @@ Not part of step 12. When the owner says yes (§13), one job does this, in order
 
 | Case | What happens |
 |---|---|
-| A verse the reader's Bible does not number (some translations merge or split verses) | The reveal shows the reference with the site's usual short note, as other pages do; the Berean Standard Bible check at build time still guarantees the statement is right. |
-| Translated site | Statements in English until the translation copy matches the data stamp; verses in the language's Bible. Names in statements follow the translator's Bible forms. |
+| A verse the reader's Bible does not number (some translations merge or split verses) | Evidence always uses BSB. A failed network request shows a retry action and the reference; the round remains revealed and its score unchanged. Build-time phrase checks establish a matching phrase, not factual correctness. |
+| Translated site | Statements and game UI in English at launch; evidence verses explicitly in BSB, labelled with the translation name. Names in statements follow the translator's Bible forms. |
 | Two truths that are each fine but together give the lie away | Prevented by `topic` and `clash` (§7); the review sheet lists each person's possible rounds count so a reader can spot a pair the keys missed and add a clash. |
 | A statement true of a namesake | Blocked by the verifier's namesake question and the review; labels always qualify namesakes. |
 | A statement the reviewer doubts after launch | Add its id to `veto.json` and rebuild; it disappears, and a saved game containing it is dropped because the stamp changes. |
@@ -311,7 +314,7 @@ Not part of step 12. When the owner says yes (§13), one job does this, in order
 | Mis-tap on a phone | Solo asks to confirm before scoring (§8.2). |
 | Reload mid-round | Same round, same order; the pick, if confirmed, stands. |
 | Private browsing / storage blocked | The game plays; nothing is remembered; no error is shown beyond the console. |
-| Very long label or statement on a narrow phone (320px) | Statements wrap; buttons grow in height; nothing is cut off. Checked in the page test at 320px width. |
+| Very long label or statement on a narrow phone (320px) | Statements wrap; buttons grow in height; nothing is cut off. Verify in a real browser at 320px, plus desktop and both themes; DOM tests alone cannot establish layout. |
 | Someone plays the same game every day | With 30 people they will see repeats within a week; the "recent" lists keep the same lie from coming back soon. The generation run is what fixes this for good. |
 
 ---
@@ -325,10 +328,10 @@ Not part of step 12. When the owner says yes (§13), one job does this, in order
 ```
 COST/DEPENDENCY GATE:
 - Action: one-time generation of statements for up to 130 more people, then a blind check of each statement, through BatchRunner on the Max plan
-- Cost: estimated about 130 generation calls of ~5,000 tokens in and ~1,500 out, plus 130 check calls of ~3,000 in and ~500 out: about 1.4 million tokens in total. For scale, the Bible chapter-summary run read about 994 million tokens and used about 23% of a week's plan, so this is of the order of a few hundredths of one percent. One-time; nothing recurs. The BatchRunner pilot measures the real figure before the full run, and the full run is capped with --budget-usd.
+- Cost: estimated about 130 generation calls of ~5,000 tokens in and ~1,500 out, plus 130 check calls of ~3,000 in and ~500 out: about 1.4 million tokens in total. For scale, the Bible chapter-summary run read about 994 million tokens and used about 23% of a week's plan, but those historical usage figures do not establish a reliable quota conversion for a future run; the pilot must measure current usage. One-time; nothing recurs. The BatchRunner pilot measures the real figure before the full run, and the full run is capped with --budget-usd.
 - Cloud dependency: only during the run (Anthropic, via the owner's existing plan). The game never calls anything; if the service vanished, the game would keep working.
 - Local alternative: write more statements by hand, as Appendix A was, at no plan cost but a few hours of careful work per 30 people; or stay on the 30-person starter deck.
-- Reversible: yes. Generated statements are ordinary rows in the source file and can be vetoed or removed; nothing locks the site to a vendor.
+- Reversible: yes. Generated statements are ordinary rows in the source file and can be vetoed or retired; nothing locks the site to a vendor.
 
 Proceed?
 ```
@@ -361,16 +364,16 @@ None of these blocks step 12.
 - Hattie, J., and Timperley, H. (2007). The power of feedback. *Review of Educational Research*, 77(1), 81–112.
 - Hasher, L., Goldstein, D., and Toppino, T. (1977). Frequency and the conference of referential validity. *Journal of Verbal Learning and Verbal Behavior*, 16(1), 107–112.
 - Butterfield, B., and Metcalfe, J. (2001). Errors committed with high confidence are hypercorrected. *JEP: LMC*, 27(6), 1491–1494.
-- Site data: STEP Bible's names data (TIPNR, CC BY 4.0) via [study_people.py](Jarvis/Projects/BibleProject/Website/scripts/bible/study_people.py); the people-pages; the question bank; the Berean Standard Bible text in [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/).
-- Sibling designs reused for conventions: [Who's older](Jarvis/Projects/BibleProject/Website/docs/features/whos-older/design.md) (pool, build script, saved-round rule, share helper) and [Odd one out](Jarvis/Projects/BibleProject/Website/docs/features/odd-one-out/design.md) (review sheet, veto file, optional model check through BatchRunner).
+- Site data: STEP Bible's names data (TIPNR, CC BY 4.0) via [study_people.py](../../../scripts/bible/study_people.py); the people-pages; the question bank; the Berean Standard Bible text in [data/plain/bsb/](../../../data/plain/bsb/).
+- Sibling designs reused for conventions: [Who's older](../../../docs/features/whos-older/design.md) (pool, build script, saved-round rule, share helper) and [Odd one out](../../../docs/features/odd-one-out/design.md) (review sheet, veto file, optional model check through BatchRunner).
 
 ---
 
 ## Appendix A. Starter deck (30 people, 150 statements)
 
-Every true statement and every correction below was checked by script against the site's Berean Standard Bible text ([data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/)): the reference exists and the check words (in brackets) occur in it. Each lie was then read against its verse to confirm the verse contradicts it, not merely leaves it out, and its swapped-in words (in italics after the swap kind) were checked to be absent from that verse. Swap kinds are as in §4.3. Person ids are the Who's older pool ids.
+The earlier design reports that every true statement and every correction below was checked by script against the site's Berean Standard Bible text ([data/plain/bsb/](../../../data/plain/bsb/)): the reference exists and the check words (in brackets) occur in it. Each lie was then read against its verse to confirm the verse contradicts it, not merely leaves it out, Check-phrase matching and swapped-word absence are not proof; the corrected rows still require the explicit semantic review recorded by step 12. Swap kinds are as in §4.3. Person ids are the Who's older pool ids.
 
-**For step 12:** turn each row into a statement of §4.1. Give every statement of a person its own `topic` (no two statements of one person in this deck share a topic), and copy the one `clash` (Zacchaeus). Check words go into `check` as written; references become verse-id ranges.
+**For step 12:** turn each row into a statement of §4.1. Give every statement of a person its own `topic` (different facts have different topics; competing statements about the same fact share a topic), and record the explicit clashes (Zacchaeus and Lydia). Review every possible triple for indirect clues; use matching topics for the same fact and add symmetric clashes where needed. Check words go into `check` as written; references become verse-id ranges.
 
 ### Noah (`noah-gen-5-29`)
 
@@ -388,7 +391,7 @@ Every true statement and every correction below was checked by script against th
 |---|---|---|
 | True | Abraham was a hundred years old when his son Isaac was born. | Genesis 21:5 [hundred years old] |
 | True | Abraham's family set out from Ur of the Chaldeans. | Genesis 11:31 [Ur of the Chaldeans] |
-| True | Abraham bought a cave at Machpelah to bury Sarah. | Genesis 23:19 [Machpelah] |
+| True | Abraham buried Sarah in the cave of Machpelah. | Genesis 23:19 [Machpelah] |
 | Made up (person: *his wife Sarah*) | ~~Abraham's son Ishmael was born to his wife Sarah.~~ **The truth:** Ishmael's mother was Hagar, Sarah's Egyptian servant. | Genesis 16:15 [Hagar] |
 | Made up (number: *50*) | ~~Abraham was 50 years old when he left Haran.~~ **The truth:** Abram was seventy-five years old when he left Haran. | Genesis 12:4 [seventy-five years old] |
 
@@ -400,7 +403,7 @@ Every true statement and every correction below was checked by script against th
 | True | Sarah lived to be 127 years old. | Genesis 23:1 [127] |
 | True | Sarah's name was first Sarai. | Genesis 17:15 [Sarai] |
 | Made up (place: *Bethlehem*) | ~~Sarah was buried near Bethlehem.~~ **The truth:** Sarah was buried in the cave of Machpelah, near Mamre at Hebron. | Genesis 23:19 [Machpelah] |
-| Made up (number: *60*) | ~~Sarah was 60 years old when God promised her a son.~~ **The truth:** Sarah was ninety when God promised her a son. | Genesis 17:17 [ninety] |
+| Made up (number: *60*) | ~~Abraham spoke of Sarah as a woman of 60 when God promised her a son.~~ **The truth:** Sarah was ninety when God promised her a son. | Genesis 17:17 [ninety] |
 
 ### Jacob (`israel-gen-25-26`)
 
@@ -408,7 +411,7 @@ Every true statement and every correction below was checked by script against th
 |---|---|---|
 | True | Jacob worked seven years for Laban to marry Rachel. | Genesis 29:20 [seven years] |
 | True | Jacob dreamed of a ladder reaching up to heaven. | Genesis 28:12 [ladder] |
-| True | Jacob was renamed Israel after he wrestled through the night. | Genesis 32:28 [Israel] |
+| True | Jacob was given the name Israel. | Genesis 32:28 [Israel] |
 | Made up (order: *born first*) | ~~Jacob was born first, just before his twin brother Esau.~~ **The truth:** Esau was born first; Jacob came out grasping his heel. | Genesis 25:25–26 [heel] |
 | Made up (person: *Leah more than Rachel*) | ~~Jacob loved his wife Leah more than Rachel.~~ **The truth:** Jacob loved Rachel more than Leah. | Genesis 29:30 [loved Rachel more than Leah] |
 
@@ -418,9 +421,9 @@ Every true statement and every correction below was checked by script against th
 |---|---|---|
 | True | Joseph's brothers sold him for twenty shekels of silver. | Genesis 37:28 [twenty shekels] |
 | True | Joseph was thirty years old when he entered Pharaoh's service. | Genesis 41:46 [thirty years old] |
-| True | In prison, Joseph explained the dreams of a cupbearer and a baker. | Genesis 40:5–8 [cupbearer] |
+| True | In prison, Joseph explained the dreams of a cupbearer and a baker. | Genesis 40:5–22 [cupbearer] |
 | Made up (order: *firstborn of Jacob*) | ~~Joseph was the firstborn of Jacob's twelve sons.~~ **The truth:** Reuben was Jacob's firstborn son. | Genesis 49:3 [firstborn] |
-| Made up (place: *Babylon*) | ~~Joseph was sold to traders heading for Babylon.~~ **The truth:** Joseph was taken down to Egypt and sold to Potiphar. | Genesis 39:1 [Potiphar] |
+| Made up (place: *Babylon*) | ~~The traders took Joseph to Babylon after buying him from his brothers.~~ **The truth:** The traders took Joseph to Egypt. | Genesis 37:28 [Egypt] |
 
 ### Moses (`moses-exo-2-10`)
 
@@ -449,7 +452,7 @@ Every true statement and every correction below was checked by script against th
 | True | Miriam was called a prophetess. | Exodus 15:20 [prophetess] |
 | True | Miriam took a tambourine and led the women in dancing after the sea crossing. | Exodus 15:20 [tambourine] |
 | True | Miriam and Aaron spoke against Moses because of his Cushite wife. | Numbers 12:1 [Cushite] |
-| Made up (person: *aunt*) | ~~Miriam was Moses' aunt.~~ **The truth:** Miriam was Aaron's sister. | Exodus 15:20 [sister] |
+| Made up (person: *aunt*) | ~~Miriam was Moses' aunt.~~ **The truth:** Miriam, Aaron and Moses were children of Amram and Jochebed. | Numbers 26:59 [Miriam] |
 | Made up (place: *Egypt*) | ~~Miriam died in Egypt before the Exodus.~~ **The truth:** Miriam died and was buried at Kadesh, in the wilderness. | Numbers 20:1 [Kadesh] |
 
 ### Joshua (`joshua-exo-17-9`)
@@ -520,7 +523,7 @@ Every true statement and every correction below was checked by script against th
 | True | Hannah brought her son Samuel to Eli the priest. | 1 Samuel 1:25 [Eli] |
 | True | Each year Hannah made Samuel a little robe. | 1 Samuel 2:19 [robe] |
 | Made up (person: *Jesse*) | ~~Hannah's husband was named Jesse.~~ **The truth:** Hannah's husband was Elkanah. | 1 Samuel 1:8 [Elkanah] |
-| Made up (number: *no more children*) | ~~Hannah had no more children after Samuel.~~ **The truth:** Hannah later had three more sons and two daughters. | 1 Samuel 2:21 [three sons and two daughters] |
+| Made up (number: *three daughters*) | ~~Hannah later had three more sons and three daughters.~~ **The truth:** Hannah later had three more sons and two daughters. | 1 Samuel 2:21 [three sons and two daughters] |
 
 ### Samuel (`samuel-1sa-1-20`)
 
@@ -569,7 +572,7 @@ Every true statement and every correction below was checked by script against th
 | True | Elisha asked Elijah for a double portion of his spirit. | 2 Kings 2:9 [double portion] |
 | True | Elisha made an iron axe head float. | 2 Kings 6:5–6 [float] |
 | True | Elisha told Naaman to wash seven times in the Jordan. | 2 Kings 5:10 [seven times] |
-| Made up (person: *chariot of fire*) | ~~Elisha was taken up to heaven in a chariot of fire.~~ **The truth:** Elisha died and was buried; it was Elijah who went up in the whirlwind. | 2 Kings 13:20 [Elisha died] |
+| Made up (person: *Amoz*) | ~~Elisha was the son of Amoz.~~ **The truth:** Elisha was the son of Shaphat. | 1 Kings 19:16 [Shaphat] |
 | Made up (object: *fishing nets*) | ~~Elisha was mending fishing nets when Elijah called him.~~ **The truth:** Elisha was plowing with twelve pairs of oxen when Elijah called him. | 1 Kings 19:19 [oxen] |
 
 ### Jonah (`jonah-2ki-14-25`)
@@ -610,14 +613,14 @@ Every true statement and every correction below was checked by script against th
 | True | Nehemiah's builders worked with a weapon in one hand. | Nehemiah 4:17 [weapon] |
 | True | Jerusalem's wall was finished in fifty-two days. | Nehemiah 6:15 [fifty-two days] |
 | Made up (person: *Nebuchadnezzar*) | ~~Nehemiah served King Nebuchadnezzar.~~ **The truth:** Nehemiah served King Artaxerxes. | Nehemiah 2:1 [Artaxerxes] |
-| Made up (person: *the priest who read*) | ~~Nehemiah was the priest who read the Law aloud to the people.~~ **The truth:** Ezra the priest read the Law to the people; Nehemiah was the governor. | Nehemiah 8:2 [Ezra the priest] |
+| Made up (person: *the priest who read*) | ~~Nehemiah was the priest who read the Law aloud to the people.~~ **The truth:** Ezra the priest read the Law to the people; Nehemiah was the governor. | Nehemiah 8:2–9 [Ezra the priest] |
 
 ### Mary (mother of Jesus) (`mary-mat-1-16`)
 
 | Kind | Statement | Verse [check words] |
 |---|---|---|
 | True | The angel Gabriel told Mary she would have a son. | Luke 1:26–31 [Gabriel] |
-| True | Mary went to visit her relative Elizabeth. | Luke 1:39–40 [Elizabeth] |
+| True | Mary went to visit her relative Elizabeth. | Luke 1:36–40 [Elizabeth] |
 | True | Mary stood near the cross when Jesus was crucified. | John 19:25 [His mother] |
 | Made up (place: *Bethlehem*) | ~~Mary was living in Bethlehem when the angel came to her.~~ **The truth:** Gabriel was sent to Mary in Nazareth, a town in Galilee. | Luke 1:26–27 [Nazareth] |
 | Made up (person: *Zechariah*) | ~~Mary was engaged to a man named Zechariah.~~ **The truth:** Mary was pledged in marriage to Joseph, of the house of David. | Luke 1:27 [Joseph] |
@@ -627,10 +630,10 @@ Every true statement and every correction below was checked by script against th
 | Kind | Statement | Verse [check words] |
 |---|---|---|
 | True | John the Baptist ate locusts and wild honey. | Matthew 3:4 [locusts] |
-| True | John's father Zechariah was a priest. | Luke 1:5 [priest] |
+| True | John's father Zechariah was a priest. | Luke 1:5–13 [priest] |
 | True | John the Baptist was beheaded on Herod's orders. | Matthew 14:10 [beheaded] |
 | Made up (object: *linen*) | ~~John the Baptist wore fine robes of linen.~~ **The truth:** John wore clothing of camel's hair with a leather belt. | Matthew 3:4 [camel's hair] |
-| Made up (place: *Sea of Galilee*) | ~~John baptized people in the Sea of Galilee.~~ **The truth:** John baptized people in the Jordan River. | Matthew 3:6 [Jordan] |
+| Made up (place: *Sea of Galilee*) | ~~The crowds from Jerusalem were baptized by John in the Sea of Galilee.~~ **The truth:** John baptized those crowds in the Jordan River. | Matthew 3:5–6 [Jordan] |
 
 ### Peter (`peter-mat-4-18`)
 
@@ -639,8 +642,8 @@ Every true statement and every correction below was checked by script against th
 | True | Peter walked on the water toward Jesus. | Matthew 14:29 [walked on the water] |
 | True | Peter denied knowing Jesus three times. | Matthew 26:75 [three times] |
 | True | Peter's brother was Andrew. | Matthew 4:18 [Andrew] |
-| Made up (object: *tax collector*) | ~~Peter was a tax collector before he followed Jesus.~~ **The truth:** Peter was a fisherman, casting a net into the sea. | Matthew 4:18 [fishermen] |
-| Made up (person: *Matthew*) | ~~Peter's name before he met Jesus was Matthew.~~ **The truth:** Peter's name was Simon; Jesus named him Peter. | Matthew 10:2 [Simon] |
+| Made up (object: *tax collector*) | ~~Peter was collecting taxes when Jesus called him by the Sea of Galilee.~~ **The truth:** Peter was a fisherman, casting a net into the sea. | Matthew 4:18 [fishermen] |
+| Made up (person: *Matthew*) | ~~Peter's name before he met Jesus was Matthew.~~ **The truth:** Peter was also called Simon. | Matthew 10:2 [Simon] |
 
 ### Zacchaeus (`zacchaeus-luk-19-2`)
 
@@ -659,7 +662,7 @@ Every true statement and every correction below was checked by script against th
 | True | Paul was born in Tarsus. | Acts 22:3 [Tarsus] |
 | True | Paul was blinded by a light on the road to Damascus. | Acts 9:3–9 [Damascus] |
 | True | Paul was shipwrecked on the island of Malta. | Acts 28:1 [Malta] |
-| Made up (object: *fisherman*) | ~~Paul was a fisherman before he met Jesus.~~ **The truth:** Paul was a tentmaker by trade. | Acts 18:3 [tentmakers] |
+| Made up (object: *fisherman*) | ~~Paul worked with Aquila and Priscilla as a fisherman.~~ **The truth:** Paul worked with them as a tentmaker. | Acts 18:3 [tentmakers] |
 | Made up (group: *Judah*) | ~~Paul was from the tribe of Judah.~~ **The truth:** Paul was from the tribe of Benjamin. | Philippians 3:5 [Benjamin] |
 
 ### Lydia (`lydia-act-16-14`)
@@ -670,7 +673,7 @@ Every true statement and every correction below was checked by script against th
 | True | Lydia came from the city of Thyatira. | Acts 16:14 [Thyatira] |
 | True | Lydia met Paul at a place of prayer by a river. | Acts 16:13 [river] |
 | Made up (place: *Corinth*) | ~~Lydia met Paul in Corinth.~~ **The truth:** Paul met Lydia at Philippi. | Acts 16:12–14 [Philippi] |
-| Made up (outcome: *refused*) | ~~Lydia refused to be baptized.~~ **The truth:** Lydia and her household were baptized. | Acts 16:15 [baptized] |
+| Made up (place: *Athens*) | ~~Lydia came from the city of Athens.~~ **The truth:** Lydia came from Thyatira. Never dealt with true statement 2. | Acts 16:14 [Thyatira] |
 
 ---
 
@@ -699,3 +702,24 @@ Return JSON matching the schema. If the leads cannot support 3 truths and 2 lies
 ```
 
 The two worked examples given with it are Appendix A's Moses and Ruth entries, in the output schema's form.
+
+
+## Review
+
+One critical review, 2026-11-08, sequence 31 step 11. Reviewed against approved idea 20, FEATURE-BUILD-RULES.md, the project AGENTS.md, the current games registry/README, package scripts and verse helper. This review changes the design only; implementation and publication remain later work.
+
+- Distinguish a preference from a guaranteed cross-session schedule.
+- Make review and retirement flags part of the schema.
+- Resolve fatal minimum-count checks versus veto-driven exclusion.
+- Replace the unsound swapped-word absence gate with a semantic review requirement.
+- Keep distribution checks deterministic.
+- Enumerate valid triples and check symmetric clashes so the dealer cannot dead-end.
+- Replace the unsupported six-round guarantee with enumerated combination counts.
+- Remove biographical answer leaks from the question screen.
+- Use BSB evidence explicitly, consistent with the shared Scripture wording rule.
+- Keep implementation within feature-owned files and its registry entry.
+- Narrow the Abraham statement to what its cited verse actually states.
+- Repair incomplete evidence ranges and replace ambiguous or prohibited starter lies; occupations at different times and death versus ascension did not establish the claimed contradictions.
+- Repair repository-relative Markdown links from the actual design folder.
+
+Validation: the accompanying review script checks all 150 Appendix A reference ranges and check phrases against local BSB data. Phrase matches do not prove a fact or contradiction. Step 12 must record semantic approval of all launch statements and valid triples; no model run is needed for the starter deck. Runtime tests and the site build were not run for this documentation review. The feature-specific scope and never-deploy rules govern this step despite general project publication guidance.
