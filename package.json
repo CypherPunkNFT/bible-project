@@ -11,6 +11,7 @@
     "scholars:sources:check": "node scripts/collect-scholar-site-sources.mjs --check && python scripts/build-scholar-usage.py --check",
     "build": "vite build",
     "build:portable": "node scripts/build-portable.mjs",
+    "prebuild:portable": "npm run prebuild",
     "people-pages": "py -3.12 scripts/build-people-pages-index.py && py -3.12 scripts/build-reader-rulers.py && py -3.12 scripts/build-apostle-pages.py && py -3.12 scripts/build-people-slugs.py",
     "people-pages:check": "py -3.12 scripts/check-people-pages.py && py -3.12 scripts/build-people-pages-index.py --check && py -3.12 scripts/build-reader-rulers.py --check && py -3.12 scripts/build-apostle-pages.py --check && py -3.12 scripts/build-people-slugs.py --check",
     "preview": "vite preview",
@@ -53,6 +54,8 @@
     "lint": "eslint . --max-warnings 0",
     "pretest": "npm run content:build",
     "test": "npm run test:content && npm run test:release && vitest run",
+    "pretest:portable": "npm run content:build",
+    "test:portable": "npm run test:content && npm run test:release && node scripts/test-portable.mjs",
     "test:e2e": "playwright test",
     "test:release": "node --experimental-strip-types --test scripts/release-translations.test.ts scripts/full-check-gate.test.mjs scripts/pack-language-files.test.ts scripts/prerelease-gate.test.mjs"
   },
