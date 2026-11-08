@@ -196,12 +196,16 @@ const dataPlugin: Plugin = {
   },
 };
 
+// The live quiz's room server (npm run live-quiz:dev, wrangler on 8928; docs/features/live-quiz/design.md 6.4), behind both
+// the dev server and the preview, since the owner's one preview address (8931) is vite preview from this config.
+const liveQuizProxy = { "/api/live-quiz": { target: "http://127.0.0.1:8928", ws: true } };
+
 export default defineConfig({
   // The scratch folders hold millions of snapshot files (.local alone 2.46M, 2026-10-21); watching them grew each dev
   // server to ~10 GB and it never served a page. Vite adds these to its own defaults (.git, node_modules). The
   // question sources' downloads (content/questions/sources/, 1.5 GB) are never read by the site, so not watched either.
-  server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/dist/**", "**/.dist-*/**", "**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**", "**/content/questions/sources/**"] } },
-  preview: { host: "127.0.0.1", port: 8931, strictPort: true },
+  server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/dist/**", "**/.dist-*/**", "**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**", "**/content/questions/sources/**"] }, proxy: liveQuizProxy },
+  preview: { host: "127.0.0.1", port: 8931, strictPort: true, proxy: liveQuizProxy },
   plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), dataGrantsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), siteLanguagesPlugin(__dirname), phraseListsPlugin(), dropUnusedOrtEngine, preloadPageFonts, swapInBuild],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

@@ -14,6 +14,7 @@
     "people-pages": "py -3.12 scripts/build-people-pages-index.py && py -3.12 scripts/build-reader-rulers.py && py -3.12 scripts/build-apostle-pages.py && py -3.12 scripts/build-people-slugs.py",
     "people-pages:check": "py -3.12 scripts/check-people-pages.py && py -3.12 scripts/build-people-pages-index.py --check && py -3.12 scripts/build-reader-rulers.py --check && py -3.12 scripts/build-apostle-pages.py --check && py -3.12 scripts/build-people-slugs.py --check",
     "preview": "vite preview",
+    "live-quiz:dev": "wrangler dev -c wrangler.live-quiz.jsonc --ip 127.0.0.1 --port 8928",
     "teachers": "node --experimental-strip-types scripts/build-teachers.ts",
     "teachers:check": "node --experimental-strip-types scripts/build-teachers.ts --check",
     "test:teachers": "node --experimental-strip-types --test scripts/build-teachers.test.ts",

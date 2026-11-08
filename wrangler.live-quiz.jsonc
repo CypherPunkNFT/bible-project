@@ -1,0 +1,10 @@
+{
+  // Local development of the live quiz's room server only (docs/features/live-quiz/design.md 6.4):
+  // `npm run live-quiz:dev` serves /api/live-quiz/* on 127.0.0.1:8928 for Vite's proxy. Never deployed.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bible-project-live-quiz-dev",
+  "main": "server/live-quiz/dev-worker.ts",
+  "compatibility_date": "2026-10-04",
+  "durable_objects": { "bindings": [{ "name": "LIVE_QUIZ", "class_name": "LiveQuizRoom" }] },
+  "migrations": [{ "tag": "live-quiz-v1", "new_sqlite_classes": ["LiveQuizRoom"] }]
+}

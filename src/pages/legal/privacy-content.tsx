@@ -21,6 +21,7 @@ export const SECTIONS: { title: string; body: ReactNode[] }[] = [
   { title: "Visiting the website", body: [
     "The site is delivered by Cloudflare, our hosting provider. Like any web host, Cloudflare handles your internet (IP) address and basic details of each request in order to deliver pages and protect the site from attacks. We add no analytics, advertising or tracking of our own.",
     "Maps, map images and fonts come from our own files.",
+    "Live quiz rooms keep players' chosen names only for the game, and delete them within a few hours.",
   ] },
   { title: "What is saved in your own browser", body: [
     "To remember your place, the site keeps a few things in your browser: your theme and reader settings, your reading progress and last chapter, where you stopped in the audio Bible, your results on the Bible questions, notes you keep in the apologetics notebook, a few display preferences, and the files meaning search downloads from our site.",
