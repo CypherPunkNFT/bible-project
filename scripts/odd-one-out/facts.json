@@ -1,0 +1,141 @@
+{
+  "about": "Hand-curated facts for the Odd one out build (scripts/build-odd-one-out.py) that the site data does not hold. Every person fact carries the verse id (BBCCCVVV) that shows it. See docs/features/odd-one-out/design.md.",
+  "people": {
+    "labels": {
+      "about": "Display names. 'name' is the bare name a player knows the person by; 'label' adds what tells same-named people apart.",
+      "israel-gen-25-26": { "name": "Jacob", "label": "Jacob" },
+      "john-mat-3-1": { "name": "John", "label": "John the Baptist" },
+      "john-mat-4-21": { "name": "John", "label": "John son of Zebedee" },
+      "james-mat-4-21": { "name": "James", "label": "James son of Zebedee" },
+      "james-mat-10-3": { "name": "James", "label": "James son of Alphaeus" },
+      "james-mat-13-55": { "name": "James", "label": "James brother of Jesus" },
+      "jude-mat-13-55": { "name": "Jude", "label": "Jude brother of Jesus" },
+      "mary-mat-1-16": { "name": "Mary", "label": "Mary mother of Jesus" },
+      "mary-luk-10-39": { "name": "Mary", "label": "Mary of Bethany" },
+      "joseph-gen-30-24": { "name": "Joseph", "label": "Joseph son of Jacob" },
+      "joseph-mat-1-16": { "name": "Joseph", "label": "Joseph of Nazareth" },
+      "joseph-mat-27-57": { "name": "Joseph", "label": "Joseph of Arimathea" },
+      "judas-mat-10-4": { "name": "Judas", "label": "Judas Iscariot" },
+      "judas-mat-10-3": { "name": "Thaddaeus", "label": "Thaddaeus" },
+      "philip-mat-10-3": { "name": "Philip", "label": "Philip the apostle" },
+      "philip-act-6-5": { "name": "Philip", "label": "Philip the evangelist" },
+      "simon-mat-10-4": { "name": "Simon", "label": "Simon the Zealot" },
+      "herod-mat-2-1": { "name": "Herod", "label": "Herod the Great" },
+      "herod-mat-14-1": { "name": "Herod", "label": "Herod Antipas" },
+      "herod-act-12-1": { "name": "Herod", "label": "Herod Agrippa I" },
+      "joshua-exo-17-9": { "name": "Joshua", "label": "Joshua" },
+      "lazarus-jhn-11-1": { "name": "Lazarus", "label": "Lazarus of Bethany" },
+      "zechariah-luk-1-5": { "name": "Zechariah", "label": "Zechariah father of John the Baptist" },
+      "nathan-2sa-7-2": { "name": "Nathan", "label": "Nathan the prophet" },
+      "eleazar-exo-6-23": { "name": "Eleazar", "label": "Eleazar son of Aaron" },
+      "zadok-2sa-8-17": { "name": "Zadok", "label": "Zadok the priest" },
+      "jeroboam-1ki-11-26": { "name": "Jeroboam", "label": "Jeroboam I" },
+      "jehu-1ki-19-16": { "name": "Jehu", "label": "Jehu king of Israel" },
+      "pharaoh-exo-3-10": { "name": "Pharaoh", "label": "Pharaoh of the Exodus" },
+      "pharaoh-gen-37-36": { "name": "Pharaoh", "label": "Pharaoh of Joseph's day" }
+    },
+    "exclude": {
+      "about": "Never shown: two people under one entry, or a name that reads as a place or people.",
+      "priscilla-act-18-2": "the entry is Priscilla and Aquila together",
+      "eldad-num-11-26": "the entry is Eldad and Medad together",
+      "judah-gen-29-35": "the entry mixes Judah the man with the tribe and kingdom",
+      "pharaoh-exo-1-11": "an unnamed Pharaoh the player cannot tell from the others"
+    },
+    "followedJesus": {
+      "about": "Followed Jesus during his ministry. true: named as a follower or disciple; false: shown not to have been one. Anyone else in New Testament times stays unknown; Old Testament people are false.",
+      "true": {
+        "peter-mat-4-18": 40004018, "andrew-mat-4-18": 40004018, "james-mat-4-21": 40004021, "john-mat-4-21": 40004021,
+        "philip-mat-10-3": 43001043, "bartholomew-mat-10-3": 40010003, "thomas-mat-10-3": 40010003, "matthew-mat-9-9": 40009009,
+        "james-mat-10-3": 40010003, "judas-mat-10-3": 40010003, "simon-mat-10-4": 40010004, "judas-mat-10-4": 40010004,
+        "matthias-act-1-23": 44001021, "nathanael-jhn-1-45": 43001045, "mary-magdalene-mat-27-56": 42008002,
+        "joanna-luk-8-3": 42008003, "salome-mat-20-20": 41015040, "mary-mat-27-56": 40027055, "joseph-mat-27-57": 40027057,
+        "martha-luk-10-38": 42010038, "mary-luk-10-39": 42010039
+      },
+      "false": {
+        "paul-act-7-58": 46015008, "james-mat-13-55": 43007005, "jude-mat-13-55": 43007005, "simon-mat-13-55": 43007005,
+        "joses-mat-13-55": 43007005, "pilate-mat-27-2": 40027002, "caiaphas-mat-26-3": 40026003, "annas-luk-3-2": 43018013,
+        "herod-mat-14-1": 42023008, "herod-mat-2-1": 40002019, "herod-act-12-1": 44012001, "agrippa-act-25-13": 44026028,
+        "barabbas-mat-27-16": 40027016
+      }
+    },
+    "unknownRoles": {
+      "about": "People the site data does not tag with a role but whom Scripture gives it in passing, so the role is never used against them.",
+      "prophet": { "paul-act-7-58": 44013001, "barnabas-act-4-36": 44013001, "abraham-gen-11-26": 1020007 },
+      "judge": { "joshua-exo-17-9": 6024001 },
+      "apostle": { "barnabas-act-4-36": 44014014, "james-mat-13-55": 48001019, "silas-act-15-22": 52002006 }
+    },
+    "priests": {
+      "about": "Served as a priest, beside everyone the people data already calls Priest or High Priest.",
+      "aaron-exo-4-14": 2028001, "eli-1sa-1-3": 9001009, "zadok-2sa-8-17": 10008017, "abiathar-1sa-22-20": 10008017,
+      "ahimelech-1sa-14-3": 9021001, "eleazar-exo-6-23": 4020028, "phinehas-exo-6-25": 4025011, "hilkiah-2ki-22-4": 12022004,
+      "jehoiada-2ki-11-4": 12011009, "ezra-ezr-7-1": 15007011, "zechariah-luk-1-5": 42001005, "melchizedek-gen-14-18": 1014018,
+      "jethro-exo-2-18": 2003001, "ezekiel-ezk-1-3": 26001003, "caiaphas-mat-26-3": 40026003, "annas-luk-3-2": 42003002, "ananias-act-23-2": 44023002
+    },
+    "otBookNamed": {
+      "about": "An Old Testament book plainly bears this person's name, beside the writing prophets in prophets.json. 'unknown' are people a player could argue for (Song of Solomon; the Psalms of David; the books of Moses).",
+      "true": {
+        "joshua-exo-17-9": 6001001, "ruth-rut-1-4": 8001004, "samuel-1sa-1-20": 9001020, "ezra-ezr-7-1": 15007001,
+        "nehemiah-neh-1-1": 16001001, "esther-est-2-7": 17002007, "job-job-1-1": 18001001
+      },
+      "unknown": ["solomon-2sa-5-14", "david-rut-4-17", "moses-exo-2-10"]
+    },
+    "nation": {
+      "about": "Jew or Gentile where the people data leaves the tribe blank, so 'the only Israelite' and 'the only one who was not an Israelite' see them. true: not an Israelite.",
+      "cornelius-act-10-1": true, "apollos-act-18-24": false, "aquila-act-18-2": false
+    },
+    "unsure": {
+      "about": "Facts the data gives one way that a reader could argue the other way; the build treats them as unknown for these people.",
+      "era": ["eli-1sa-1-3", "samuel-1sa-1-20"],
+      "the-twelve": ["nathanael-jhn-1-45"],
+      "apostle": ["nathanael-jhn-1-45"],
+      "roman": ["cornelius-act-10-1"],
+      "babylonian-king": ["cyrus-2ch-36-22", "artaxerxes-ezr-4-7"]
+    },
+    "paulsCompanions": {
+      "about": "Worked alongside Paul. New Testament people seen only in the Gospels are false; others not listed stay unknown.",
+      "silas-act-15-22": 44015040, "timothy-act-16-1": 44016003, "titus-2co-2-13": 48002001, "luke-2co-13-13": 55004011,
+      "barnabas-act-4-36": 44013002, "mark-act-12-12": 44012025, "aquila-act-18-2": 44018002, "tychicus-act-20-4": 44020004,
+      "epaphras-col-1-7": 51001007, "apollos-act-18-24": 46003006
+    }
+  },
+  "places": {
+    "labels": {
+      "ae41ab4": { "name": "Antioch", "label": "Antioch in Syria" },
+      "a6c704a": { "name": "Antioch", "label": "Antioch in Pisidia" },
+      "a053f15": { "name": "Carmel", "label": "Carmel in Judah" }
+    },
+    "types": {
+      "about": "Corrections to the place type in places.json.",
+      "a51df0e": "settlement"
+    },
+    "exclude": {
+      "ab0b2dd": "'East' is a direction, not a place a player would know",
+      "a88310a": "'Beyond the River' is a description, not a name",
+      "a1c0469": "'South' is a direction",
+      "a84f426": "the City of David is part of Jerusalem",
+      "ad3970d": "Marah is a spring, not a sea or lake"
+    },
+    "sevenChurches": {
+      "a5feb15": 66002001, "a2e65fb": 66002008, "a75d2c1": 66002012, "a94b661": 66002018,
+      "aab4a5f": 66003001, "a1c7cc1": 66003007, "a83fb1e": 66003014
+    },
+    "philistineCities": {
+      "aa8edd2": 9006017, "a30c937": 9006017, "ac87d4c": 9006017, "a18873f": 9006017, "a3fc47a": 9006017
+    }
+  },
+  "books": {
+    "law": ["GEN", "EXO", "LEV", "NUM", "DEU"],
+    "history": ["JOS", "JDG", "RUT", "1SA", "2SA", "1KI", "2KI", "1CH", "2CH", "EZR", "NEH", "EST"],
+    "gospels": ["MAT", "MRK", "LUK", "JHN"],
+    "namedAfterPerson": {
+      "true": ["JOS", "RUT", "1SA", "2SA", "EZR", "NEH", "EST", "JOB", "ISA", "JER", "EZK", "DAN", "HOS", "JOL", "AMO", "OBA",
+               "JON", "MIC", "NAM", "HAB", "ZEP", "HAG", "ZEC", "MAL", "MAT", "MRK", "LUK", "JHN", "1TI", "2TI", "TIT", "PHM",
+               "JAS", "1PE", "2PE", "1JN", "2JN", "3JN", "JUD"],
+      "unknown": ["SNG"]
+    },
+    "toOnePerson": {
+      "true": ["1TI", "2TI", "TIT", "3JN"],
+      "unknown": ["PHM", "2JN", "LUK", "ACT"]
+    }
+  }
+}

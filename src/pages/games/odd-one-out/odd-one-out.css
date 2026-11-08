@@ -1,0 +1,76 @@
+/* /games/odd-one-out (OddOneOutGame.tsx): mobile first, the site's colour tokens in both themes. Four large choices in
+   a 2×2 grid (one column below 360px); long names wrap, never truncate. Right and wrong always carry a mark and a word
+   as well as a colour. */
+.oo-page { padding-top: 2rem; padding-bottom: 4rem; }
+.oo-loading { margin-top: 2rem; color: var(--muted); }
+
+.oo-start h1, .oo-prompt { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
+.oo-prompt { font-size: clamp(1.4rem, 4vw, 1.9rem); margin-top: .9rem; }
+.oo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.oo-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.4rem; border: 0; padding: 0; }
+.oo-chips legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.oo-chips button { padding: .45rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .2s, background-color .2s; }
+.oo-chips button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--ink); font-weight: 600; }
+.oo-chips button:disabled { cursor: not-allowed; opacity: .45; }
+.oo-note { margin-top: .9rem; color: var(--muted); font-size: .85rem; }
+.oo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.8rem; }
+.oo-primary, .oo-secondary { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
+.oo-primary { background: var(--accent); color: var(--page); }
+.oo-primary:disabled { cursor: not-allowed; opacity: .5; }
+.oo-secondary { border: 1px solid var(--line); }
+.oo-best { color: var(--muted); font-size: .85rem; }
+
+.oo-progress { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: 1.4rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+.oo-kind { padding: 0 .55rem; border: 1px solid var(--line); border-radius: 999px; }
+.oo-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; margin-top: 1.2rem; }
+.oo-choice { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; min-height: 5.2rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); color: var(--ink); text-align: left; transition: border-color .2s, transform .2s; }
+.oo-choice:not([aria-disabled="true"]):hover { border-color: var(--accent); }
+.oo-choice:not([aria-disabled="true"]):active { transform: scale(.98); }
+.oo-choice[aria-disabled="true"] { cursor: default; }
+.oo-choice-key { color: var(--muted); font: 600 .7rem/1 var(--font-sans); }
+.oo-choice-name { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.25; overflow-wrap: anywhere; }
+.oo-choice-mark { font-size: .78rem; font-weight: 600; }
+.oo-choice.is-odd { border: 2px solid var(--gospels); }
+.oo-choice.is-odd .oo-choice-mark { color: var(--gospels); }
+.oo-choice.is-wrong { border: 2px dashed var(--red-letter); }
+.oo-choice.is-wrong .oo-choice-mark { color: var(--red-letter); }
+.oo-choice.is-dim { opacity: .65; }
+
+.oo-reveal { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.oo-result { display: flex; align-items: center; gap: .5rem; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.3; outline: none; }
+.oo-result.is-right svg { color: var(--gospels); }
+.oo-result.is-wrong svg { color: var(--red-letter); }
+.oo-headline { margin-top: .7rem; font-size: 1rem; line-height: 1.65; }
+.oo-lines { display: grid; gap: .55rem; margin-top: 1rem; }
+.oo-lines li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; padding: .55rem .75rem; border-left: 2px solid var(--line); font-size: .9rem; line-height: 1.5; }
+.oo-lines li.is-odd { border-left-color: var(--gospels); background: color-mix(in srgb, var(--gospels) 7%, transparent); }
+.oo-line-name { font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.oo-line-brief { flex-basis: 100%; color: var(--muted); }
+.oo-line-ref { color: var(--accent); font-size: .82rem; }
+.oo-tag { padding: 0 .5rem; border-radius: 999px; background: var(--gospels); color: var(--page); font-size: .7rem; font-weight: 600; }
+.oo-key { margin-top: 1.1rem; padding: .8rem 1rem; border-radius: .7rem; background: var(--surface-2); }
+.oo-key p { font-family: var(--font-serif); font-size: .98rem; line-height: 1.65; }
+.oo-key footer { margin-top: .4rem; font-size: .8rem; color: var(--muted); }
+.oo-key footer a { color: var(--accent); }
+.oo-also { margin-top: .9rem; font-size: .9rem; line-height: 1.6; }
+.oo-also span { color: var(--muted); font-weight: 600; }
+.oo-next { margin-top: 1.4rem; }
+
+.oo-summary h2 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.6rem, 5vw, 2.2rem); outline: none; }
+.oo-summary-stats { margin-top: .4rem; color: var(--muted); font-size: .9rem; }
+.oo-summary-list { display: grid; gap: .5rem; margin-top: 1.3rem; }
+.oo-summary-list details { border: 1px solid var(--line); border-radius: .8rem; padding: .7rem .9rem; }
+.oo-summary-list summary { display: grid; grid-template-columns: auto 1fr; gap: .2rem .6rem; cursor: pointer; list-style: none; }
+.oo-summary-list summary::-webkit-details-marker { display: none; }
+.oo-summary-list summary svg { margin-top: .2rem; }
+.oo-summary-four { font-weight: 600; font-size: .9rem; }
+.oo-summary-list summary .oo-headline { grid-column: 2; margin-top: 0; color: var(--muted); font-size: .85rem; }
+.oo-summary-list .oo-reveal { margin-top: .8rem; padding-top: .8rem; }
+
+@media (max-width: 359px) {
+  .oo-choices { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oo-chips button, .oo-choice { transition: none; }
+  .oo-choice:not([aria-disabled="true"]):active { transform: none; }
+}

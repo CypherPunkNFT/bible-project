@@ -1,0 +1,8 @@
+{
+  "about": "Hand-written sets that must ship. Each still passes every check; a failing one stops the build. labels: what the buttons say, where the three others make a bare name clear. The first is the owner's own example (APPROVED-IDEAS.md entry 23) and opens a new player's first Easy People round.",
+  "sets": [
+    { "kind": "person", "difficulty": "easy", "rule": "followed-jesus", "polarity": "members-share",
+      "items": ["peter-mat-4-18", "john-mat-4-21", "paul-act-7-58", "james-mat-4-21"], "odd": "paul-act-7-58",
+      "labels": { "john-mat-4-21": "John", "james-mat-4-21": "James" } }
+  ]
+}
