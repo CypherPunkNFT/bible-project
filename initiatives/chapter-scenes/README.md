@@ -77,20 +77,68 @@ The best model overall is closed and paid (OpenAI's GPT Image 2.6 Sunburst, abou
 |---|---|
 | Model, 20 GB: the image model (bf16), its Qwen3-VL-4B text reader, the decoder | `F:\intelligence models\FLUX.3-image-klein`, from the ungated Unsloth copy `unsloth/flux-3-image-klein` (all 41 files byte-identical to Black Forest Labs' gated repo except the readme; `modular_model_index.json` points at the local folder, the original is kept as `modular_model_index.official.json`) |
 | Python environment: torch 2.14.1 + CUDA 13.0, diffusers 0.42.1, transformers 5.22.2 | `Website/.local/flux3-venv` (git-ignored) |
-| Picture maker | [chapter_pictures.py](../../scripts/chapter_pictures.py), run with the venv's Python |
-| Pictures: WebP, 1344 × 768 (16:9), 16 steps, a fixed seed per scene | `.local/chapter-scene-studio/pictures/<writer>/<CODE>-<chapter>-<scene index>.webp`, plus a `pictures` table in `scenes.sqlite3` |
-| Shown in the Studio | the scene's frame; click opens it full size ([chapter_scenes_view.py](../../scripts/chapter_scenes_view.py), route `/pictures/...`) |
+| Picture maker | [chapter_pictures.py](../../scripts/chapter_pictures.py), run with the venv's Python (or the Studio's Make pictures button); store and themes: [scene_pictures.py](../../scripts/scene_pictures.py) |
+| Pictures: WebP, 1344 × 768 (16:9), 16 steps, a fixed seed per scene | `.local/chapter-scene-studio/pictures/<theme>/<writer>/<CODE>-<chapter>-<scene index>.webp` and a 480 × 270 copy under `thumbs/`, plus a `pictures` table in `scenes.sqlite3` |
+| Shown in the Studio | the scene's frame and the Gallery; click opens it large ([chapter_scenes_view.py](../../scripts/chapter_scenes_view.py), [chapter_scenes_themes.py](../../scripts/chapter_scenes_themes.py), route `/pictures/...`) |
 
 How it works. The prompt goes to the model exactly as the writer wrote it; FLUX.3's own prompt rewriter, a separate
-19 GB model, is left off because the scene prompts are already detailed. No art-style line is added yet. To keep the
+19 GB model, is left off because the scene prompts are already detailed. Each theme puts its style text in front of the prompt (none for Photographic). To keep the
 card free, the text reader and the image model are never loaded at the same time. For each batch of 100 scenes, the
 text reader reads all the prompts, then the image model draws them all. That takes 6.3 seconds a picture and at most
 14.4 GiB of the card's memory. Loading both together, as the standard pipeline does, takes 36 seconds a picture. The
 pictures come out identical, checked pixel by pixel on a test scene. All 3,100 or so pictures for every chapter would
 take about 6 hours.
 
-A picture counts as made only while its stored hash still matches the scene's current prompt plus the recipe (model,
+A picture counts as made only while its stored hash still matches the scene's current prompt plus its theme's style and the recipe (model,
 size, steps) and its file exists. A rewritten scene or a changed recipe therefore gets a new picture on the next run,
 and a stopped run carries on where it left off. The run stops itself in three cases: the card has less than 16 GiB
 free (HyperQwen running, for example); three pictures in a row fail (out of memory, or a blank frame); or another run
 already holds the lock.
+
+## Themes and the gallery (owner 2026-11-07: "make it work to the best of your ability")
+
+The owner wants the same scenes drawn in different art styles ("themes"), picked in the side panel beside Pipelines,
+and a gallery of only the pictures in each theme. The first two cartoon themes come from two example pictures the
+owner sent; the 63 photographic pictures become the theme "Photographic".
+
+**A theme** is an id, a name, a one-line plain description and a style text placed in front of every scene prompt
+(`<style>\n\nScene: <prompt>`; Photographic has no style text, so its 63 pictures stay valid). Themes are listed in
+[themes.json](themes.json), in panel order; the assistant writes a new theme from the owner's examples in chat. The
+example pictures are kept in `.local/chapter-scene-studio/themes/<id>/` (one is a watermarked stock image, so they are
+not committed).
+
+**Pictures per theme.** The pictures table gains a `theme` column (key, writer, scene, theme). Files move to
+`pictures/<theme>/<writer>/<CODE>-<N>-<i>.webp`. The hash covers recipe + style + prompt, so editing a theme's style
+redraws that theme only. `chapter_pictures.py --theme ID` draws one theme (default: every theme in order).
+
+**The side panel (Scenes).** "Your workspace · Scenes" stays. Below it the Themes list replaces Scene settings: each
+theme is a row with a small sample picture, its name and "made / total" pictures, and the chosen one is highlighted.
+Under the list come the chosen theme's description and a **Make pictures** button. While a run is going, the button
+reads **Stop**, with "Drawing 12 of 63" beside it, refreshed every 2 seconds. When the theme is complete the button
+reads "All 63 made". The Writers note stays at the bottom. The chosen theme is remembered in the browser.
+
+**Runs from the page.** `POST /api/pictures/start {theme}` starts `chapter_pictures.py --theme ID` with the image
+venv's Python as a child of the Studio (one at a time; the maker's own lock also guards it), logging to
+`.local/chapter-scene-studio/pictures-<theme>.log`. `POST /api/pictures/stop` ends it; finished pictures are kept.
+`GET /api/pictures/state` gives running, theme, the last log line and the exit message. Code:
+`chapter_pictures_runner.py` (standard library only).
+
+**Scenes | Gallery tabs** at the top of the Scenes page.
+- Scenes: the scene cards as now, with each frame showing the chosen theme's picture. Under the frame a strip of
+  small thumbnails, one per theme that has this scene drawn; clicking one switches the chosen theme for the page.
+- Gallery: the chapter explorer, Scripture panel and scene card are hidden. All pictures of the chosen theme fill the
+  page as a grid, grouped by chapter in Bible order ("1 Samuel 17"), with writer chips (Both / Claude Haiku / Local
+  Qwen) and a count. Clicking a picture opens it large over the page with its title, chapter and verses, and writer;
+  the arrow keys and on-screen arrows step through, and Esc or a click outside closes it.
+  `GET /api/gallery?theme=ID` returns the list.
+
+**Not now:** a "New theme" form on the page, thumbnails at a smaller size (the WebP files are about 300 KB and load
+lazily), publishing anything.
+
+**Built 2026-11-07.** After review, the run state lives in `pictures/.run.json`, which the maker writes while it holds
+the lock. A restarted Studio therefore still sees and can stop a run, and Stop ends the whole process tree. The
+63 photographic pictures were moved by a one-off migration into `pictures/photographic/`, and their rows got
+`theme='photographic'`. A database backup was taken first:
+`F:\Backups\BibleProject\chapter-scene-studio\scenes-2026-11-07-before-themes.sqlite3`. Their hashes still match,
+which a test checks. Gallery copies (480 × 270) are made with each picture and backfilled at the start of every run.
+The gallery adds chapters 30 at a time as you scroll.

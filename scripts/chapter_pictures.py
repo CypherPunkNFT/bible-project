@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Pictures for the key scenes: FLUX.3 Image Klein on this PC's graphics card, one wide picture per scene, stored beside
-the scenes (pictures table + .local/chapter-scene-studio/pictures/<writer>/<CODE>-<N>-<index>.webp).
-Docs: initiatives/chapter-scenes/README.md.
+"""Pictures for the key scenes, per theme (art style): FLUX.3 Image Klein on this PC's graphics card, one wide picture
+per scene and theme, plus a small copy for the gallery. Store and themes: scene_pictures.py.
+Docs: initiatives/chapter-scenes/README.md (sections Pictures; Themes and the gallery).
 
-Run with the image environment, not the system Python:
-  .local/flux3-venv/Scripts/python.exe scripts/chapter_pictures.py [--keys GEN:22,1SA:17] [--writer haiku] [--limit N]
-A scene whose picture matches its current prompt is skipped, so a stopped run resumes. One run at a time (lock file).
+Run with the image environment, not the system Python (the Studio's Make pictures button does this):
+  .local/flux3-venv/Scripts/python.exe scripts/chapter_pictures.py [--theme=ID] [--keys GEN:22,1SA:17] [--limit N]
+Without --theme every theme is drawn, in themes.json order. A fresh picture is skipped, so a stopped run resumes.
+One run at a time (lock file). While it holds the lock it keeps pictures/.run.json current for the Studio.
 
 Speed: the text reader and the image model never share the card. Per chunk of 100 scenes the text reader reads every
 prompt, steps off the card, then the image model draws them all: 6.3 s a picture, 14.4 GiB at most (2026-11-07).
@@ -13,16 +14,16 @@ prompt, steps off the card, then the image model draws them all: 6.3 s a picture
 from __future__ import annotations
 
 import argparse
-import hashlib
+import json
 import msvcrt
 import os
 import sys
 import time
-from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
 import chapter_scenes
+import scene_pictures
 
 MODEL = Path("F:/intelligence models/FLUX.3-image-klein")
 CHUNK = 100
@@ -30,22 +31,26 @@ MIN_FREE_GIB = 16  # the image model peaks at 14.4 GiB; the local language model
 MAX_FAILURES_IN_A_ROW = 3
 
 
-@dataclass(frozen=True)
-class Job:
-    key: str
-    writer: str
-    scene: int
-    prompt: str
-    sha: str
-
-    @property
-    def seed(self) -> int:
-        return seed_for(self.key, self.writer, self.scene)
+def now() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def seed_for(key: str, writer: str, scene: int) -> int:
-    """The same scene always gets the same seed, so a remade picture changes only when its prompt or recipe does."""
-    return int.from_bytes(hashlib.sha256(f"{key}|{writer}|{scene}".encode("utf-8")).digest()[:4], "big")
+class Status:
+    """pictures/.run.json, rewritten whole (temp file + rename) on every change, so the Studio never reads half."""
+
+    def __init__(self, pictures: scene_pictures.Pictures, themes: list[str], total: int):
+        self.path = pictures.dir / ".run.json"
+        names = {t["id"]: t["name"] for t in pictures.themes}
+        self.data = {"pid": os.getpid(), "themes": themes, "theme_names": [names[t] for t in themes], "total": total,
+                     "done": 0, "failed": 0, "state": "running", "message": "Reading the prompts…",
+                     "started_at": now(), "updated_at": now()}
+        self.write()
+
+    def write(self, **changes) -> None:
+        self.data.update(changes, updated_at=now())
+        temp = self.path.with_name(f".run.{os.getpid()}.tmp")
+        temp.write_text(json.dumps(self.data, ensure_ascii=False), encoding="utf-8")
+        os.replace(temp, self.path)
 
 
 def looks_blank(image) -> bool:
@@ -54,39 +59,63 @@ def looks_blank(image) -> bool:
     return max(ImageStat.Stat(image.convert("RGB")).stddev) < 4
 
 
-def take_lock(store: chapter_scenes.Store):
-    """Holds a byte lock on pictures/.lock for the life of the process; Windows releases it if the process dies."""
-    store.pictures_dir.mkdir(parents=True, exist_ok=True)
-    handle = open(store.pictures_dir / ".lock", "a+", encoding="utf-8")
-    handle.seek(0)
-    try:
-        msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
-    except OSError:
-        sys.exit(f"Another chapter_pictures run holds {store.pictures_dir / '.lock'}; wait for it to finish.")
-    return handle
+def take_lock(pictures: scene_pictures.Pictures):
+    """Holds a byte lock on pictures/.lock for the life of the process; Windows releases it if the process dies. The
+    Studio probes the same byte for a moment to see whether a run is going, so a few retries cover that."""
+    pictures.dir.mkdir(parents=True, exist_ok=True)
+    handle = open(pictures.dir / ".lock", "a+", encoding="utf-8")
+    for _ in range(10):
+        handle.seek(0)
+        try:
+            msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            return handle
+        except OSError:
+            time.sleep(0.2)
+    sys.exit(f"Another picture run holds {pictures.dir / '.lock'}; wait for it to finish.")
 
 
-def jobs_to_do(store: chapter_scenes.Store, keys: set[str], writers: set[str], limit: int) -> list[Job]:
-    jobs = [Job(*row) for row in store.pending_pictures()
-            if (not keys or row[0] in keys) and (not writers or row[1] in writers)]
-    return jobs[:limit] if limit else jobs
+def write_thumb(image, path: Path) -> None:
+    from PIL import Image
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_name(f".{path.stem}.{os.getpid()}.tmp")
+    image.convert("RGB").resize(scene_pictures.THUMB_SIZE, Image.LANCZOS).save(temp, "WEBP", quality=82)
+    os.replace(temp, path)
 
 
-def save(image, store: chapter_scenes.Store, job: Job, seconds: float) -> None:
-    """File first (temp name in the same folder, then a rename), then the row: a crash in between only costs a redo."""
-    path = store.pictures_dir / chapter_scenes.picture_name(job.key, job.writer, job.scene)
+def backfill_thumbs(pictures: scene_pictures.Pictures) -> int:
+    """Small copies for fresh pictures that have none (pictures made before the gallery existed)."""
+    from PIL import Image
+    made = 0
+    for state in pictures.states():
+        args = (state["theme"], state["key"], state["writer"], state["scene"])
+        thumb = pictures.dir / scene_pictures.picture_name(*args, thumb=True)
+        if state["fresh"] and not thumb.is_file():
+            with Image.open(pictures.dir / scene_pictures.picture_name(*args)) as image:
+                write_thumb(image, thumb)
+            made += 1
+    return made
+
+
+def save(image, pictures: scene_pictures.Pictures, job: dict, seconds: float) -> None:
+    """Files first (temp name in the same folder, then a rename), then the row: a crash in between only costs a redo."""
+    args = (job["theme"], job["key"], job["writer"], job["scene"])
+    path = pictures.dir / scene_pictures.picture_name(*args)
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_name(f".{path.stem}.{os.getpid()}.tmp")
     image.save(temp, "WEBP", quality=90)
     os.replace(temp, path)
-    store.save_picture(job.key, job.writer, job.scene, job.sha, job.seed, round(seconds, 1),
-                       datetime.now(timezone.utc).isoformat(timespec="seconds"))
+    write_thumb(image, pictures.dir / scene_pictures.picture_name(*args, thumb=True))
+    pictures.save(theme=job["theme"], key=job["key"], writer=job["writer"], scene=job["scene"], sha=job["sha"],
+                  seed=scene_pictures.seed_for(job["key"], job["writer"], job["scene"]), seconds=round(seconds, 1),
+                  made_at=now())
 
 
 def load_pipelines(torch):
     """The text reader and the image model as two pipelines (FLUX.3's own blocks, without its prompt rewriter), both
     parked in system memory. Same output as the one-piece pipeline: pixel-identical on a test scene."""
     from diffusers.modular_pipelines import Flux3DistilledAutoBlocks
+    from diffusers.utils import logging as diffusers_logging
+    diffusers_logging.disable_progress_bar()  # one log line per picture; the Studio shows the last one
     text = Flux3DistilledAutoBlocks().sub_blocks["text_encoder"].init_pipeline(str(MODEL))
     text.load_components(dtype={"default": torch.bfloat16})
     draw_blocks = Flux3DistilledAutoBlocks()
@@ -94,86 +123,106 @@ def load_pipelines(torch):
         draw_blocks.sub_blocks.pop(name)
     draw = draw_blocks.init_pipeline(str(MODEL))
     draw.load_components(dtype={"vae": torch.float32, "default": torch.bfloat16})
+    draw.set_progress_bar_config(disable=True)
     return text, draw
 
 
 def need_card(torch) -> None:
     free = torch.cuda.mem_get_info()[0] / 2**30
     if free < MIN_FREE_GIB:
-        sys.exit(f"The graphics card has {free:.1f} GiB free; {MIN_FREE_GIB} GiB needed. Stop HyperQwen or other "
-                 "model servers and run again (finished pictures are kept).")
+        sys.exit(f"The graphics card has {free:.1f} GiB free and {MIN_FREE_GIB} GiB is needed. Stop HyperQwen or other "
+                 "model servers, then press Make pictures again (finished pictures are kept).")
 
 
-def read_prompts(torch, text, chunk: list[Job]) -> list:
+def read_prompts(torch, text, chunk: list[dict]) -> list:
     need_card(torch)
     text.to("cuda")
     try:
-        return [text(prompt=job.prompt, output="prompt_embeds").to("cpu") for job in chunk]
+        return [text(prompt=job["text"], output="prompt_embeds").to("cpu") for job in chunk]
     finally:
         text.to("cpu")
         torch.cuda.empty_cache()
 
 
-def draw_one(torch, draw, embeds, job: Job):
-    return draw(prompt_embeds=embeds.to("cuda"), width=chapter_scenes.PICTURE_WIDTH,
-                height=chapter_scenes.PICTURE_HEIGHT, num_inference_steps=chapter_scenes.PICTURE_STEPS,
-                generator=torch.Generator().manual_seed(job.seed), output="images")[0]
+def draw_one(torch, draw, embeds, job: dict):
+    seed = scene_pictures.seed_for(job["key"], job["writer"], job["scene"])
+    return draw(prompt_embeds=embeds.to("cuda"), width=scene_pictures.WIDTH, height=scene_pictures.HEIGHT,
+                num_inference_steps=scene_pictures.STEPS, generator=torch.Generator().manual_seed(seed),
+                output="images")[0]
 
 
-def run(jobs: list[Job], store: chapter_scenes.Store) -> None:
+def draw_chunk(torch, draw, chunk, embeds, start, pictures, status) -> None:
+    for number, (job, embed) in enumerate(zip(chunk, embeds), start + 1):
+        where = f"[{number}/{status.data['total']}] {job['theme']} {job['key']} {job['writer']} scene {job['scene'] + 1}"
+        began = time.time()
+        try:
+            image = draw_one(torch, draw, embed, job)
+            problem = "came out blank" if looks_blank(image) else None
+        except torch.OutOfMemoryError as exc:
+            torch.cuda.empty_cache()
+            problem = f"ran out of graphics memory ({exc})"
+        if problem:
+            status.write(failed=status.data["failed"] + 1, failures_in_a_row=status.data.get("failures_in_a_row", 0) + 1)
+            print(f"{where}: {problem}; not saved", flush=True)
+            if status.data["failures_in_a_row"] >= MAX_FAILURES_IN_A_ROW:
+                sys.exit(f"Stopped after {MAX_FAILURES_IN_A_ROW} failures in a row ({problem}).")
+            continue
+        save(image, pictures, job, time.time() - began)
+        status.write(done=status.data["done"] + 1, failures_in_a_row=0,
+                     message=f"Drew {job['key']} ({job['writer']}), scene {job['scene'] + 1}")
+        print(f"{where}: {time.time() - began:.1f}s", flush=True)
+
+
+def run(jobs: list[dict], pictures: scene_pictures.Pictures, status: Status) -> None:
     import torch
     text, draw = load_pipelines(torch)
-    failures = made = 0
     for start in range(0, len(jobs), CHUNK):
         chunk = jobs[start:start + CHUNK]
+        status.write(message=f"Reading prompts {start + 1}–{start + len(chunk)}…")
         embeds = read_prompts(torch, text, chunk)
         need_card(torch)
         draw.to("cuda")
         try:
-            for number, (job, embed) in enumerate(zip(chunk, embeds), start + 1):
-                where = f"[{number}/{len(jobs)}] {job.key} {job.writer} scene {job.scene + 1}"
-                began = time.time()
-                try:
-                    image = draw_one(torch, draw, embed, job)
-                    problem = "came out blank" if looks_blank(image) else None
-                except torch.OutOfMemoryError as exc:
-                    torch.cuda.empty_cache()
-                    problem = f"ran out of graphics memory ({exc})"
-                if problem:
-                    failures += 1
-                    print(f"{where}: {problem}; not saved", flush=True)
-                    if failures >= MAX_FAILURES_IN_A_ROW:
-                        sys.exit(f"Stopped after {failures} failures in a row; {made} pictures made this run.")
-                    continue
-                failures = 0
-                save(image, store, job, time.time() - began)
-                made += 1
-                print(f"{where}: {time.time() - began:.1f}s", flush=True)
+            draw_chunk(torch, draw, chunk, embeds, start, pictures, status)
         finally:
             draw.to("cpu")
             torch.cuda.empty_cache()
-    print(f"Done: {made} pictures made.", flush=True)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--theme", help="only this theme (an id from themes.json; default: every theme)")
     parser.add_argument("--keys", default="", help="comma-separated chapters such as GEN:22,1SA:17 (default: all)")
-    parser.add_argument("--writer", choices=["haiku", "qwen"], help="only this writer's scenes (default: both)")
     parser.add_argument("--limit", type=int, default=0, help="make at most this many pictures")
     args = parser.parse_args()
-    store = chapter_scenes.Store()
+    pictures = scene_pictures.Pictures()
+    themes = [pictures.theme(args.theme)["id"]] if args.theme else pictures.ids
     keys = {k.strip() for k in args.keys.split(",") if k.strip()}
     unknown = keys - set(chapter_scenes.all_keys())
     if unknown:
         sys.exit(f"Unknown chapters {sorted(unknown)}; expected keys such as GEN:22")
-    lock = take_lock(store)
-    for stale in store.pictures_dir.rglob("*.tmp"):
+    lock = take_lock(pictures)
+    for stale in pictures.dir.rglob("*.tmp"):
         stale.unlink()
-    jobs = jobs_to_do(store, keys, {args.writer} if args.writer else set(), args.limit)
-    print(f"{len(jobs)} pictures to make ({chapter_scenes.RECIPE}).", flush=True)
-    if jobs:
-        run(jobs, store)
-    lock.close()
+    print(f"Small copies made for {backfill_thumbs(pictures)} earlier pictures.", flush=True)
+    jobs = [j for j in pictures.pending(themes) if not keys or j["key"] in keys]
+    jobs = jobs[:args.limit] if args.limit else jobs
+    status = Status(pictures, themes, len(jobs))
+    print(f"{len(jobs)} pictures to make for {', '.join(themes)} ({scene_pictures.RECIPE}).", flush=True)
+    try:
+        if jobs:
+            run(jobs, pictures, status)
+        status.write(state="finished", message=f"Finished: {status.data['done']} pictures made"
+                     + (f", {status.data['failed']} failed." if status.data["failed"] else "."))
+    except SystemExit as exc:
+        status.write(state="stopped", message=str(exc.code))
+        raise
+    except BaseException as exc:
+        status.write(state="stopped", message=f"Stopped by an error: {type(exc).__name__}: {exc}")
+        raise
+    finally:
+        print(status.data["message"], flush=True)
+        lock.close()
 
 
 if __name__ == "__main__":

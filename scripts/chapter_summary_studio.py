@@ -708,6 +708,9 @@ def handler(studio, token, port):
                 if path.path == "/api/scenes":
                     import chapter_scenes_view
                     return self.reply(chapter_scenes_view.answer(path.query))
+                if path.path.startswith("/api/pictures/") or path.path == "/api/gallery":
+                    import chapter_pictures_runner
+                    return self.reply(chapter_pictures_runner.handle_get(path.path, path.query))
                 if path.path.startswith("/pictures/"):
                     import chapter_scenes_view
                     return chapter_scenes_view.send_picture(self, path.path)
@@ -730,6 +733,9 @@ def handler(studio, token, port):
                 body = json.loads(self.rfile.read(size))
                 if not isinstance(body, dict):
                     raise ValueError("Expected a JSON object.")
+                if self.path.startswith("/api/pictures/"):
+                    import chapter_pictures_runner
+                    return self.reply(chapter_pictures_runner.handle_post(self.path, body))
                 if self.path == "/api/start":
                     return self.reply(studio.start(body))
                 if self.path == "/api/pause":

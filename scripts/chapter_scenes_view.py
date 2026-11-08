@@ -2,7 +2,8 @@
 Scenes); beside it, a secondary panel holds the chosen pipeline's workspace and settings. Each pipeline has its own heading, counts and preview card, and both share the book and chapter
 explorer and the Scripture panel. Scenes is read-only: each writer's key scenes for the chapter (picture frame, moment,
 composition, what is from the text, the image prompt), from chapter_scenes.py's store, with the scene's picture
-(made by chapter_pictures.py) in the frame once it exists. GET /pictures/<writer>/<file>.webp serves those files.
+in the chosen theme (art style) in the frame once it exists. Themes, the gallery and the large-picture view:
+chapter_scenes_themes.py. GET /pictures/<theme>/<writer>/[thumbs/]<file>.webp serves the files.
 Docs: initiatives/chapter-scenes/README.md.
 """
 from __future__ import annotations
@@ -12,6 +13,8 @@ import urllib.parse
 from pathlib import Path
 
 import chapter_scenes
+import chapter_scenes_themes as themes_ui
+import scene_pictures
 
 CSS = r"""
 [hidden]{display:none!important}
@@ -63,12 +66,7 @@ APP_NEW = ('<div class="app"><nav class="primary" aria-label="Pipelines"><div cl
 
 SCENES_SIDE = (
     '</div><div id="scenes-side" hidden><div class="eyebrow">Your workspace</div><div class="nav">◩ <span>Scenes</span></div>'
-    '<div class="eyebrow">Scene settings</div>'
-    '<div class="side-title">One moment, one frame.</div>'
-    '<p class="help">The key scenes of each chapter, each composed as a picture, then drawn on this PC.</p>'
-    '<div class="side-foot"><b>Scenes · pilot</b><p class="help">Up to 3 per chapter, fewer when short<br>'
-    'The moment and why it matters<br>Viewpoint, layers, light, mood<br>From the text, added, kept out<br>'
-    'A ready image prompt · wide 16:9</p></div>'
+    + themes_ui.SIDE +
     '<div class="side-foot"><b>Writers</b><p class="help">Claude Haiku and the local Qwen model wrote the same 12 '
     'pilot chapters. Compare them, then pick one for all 1,189.</p></div></div></aside>')
 
@@ -78,7 +76,8 @@ SCENES_TOP = (
     'then draw it.</p></div><span class="badge">WIDE FRAMES · 16:9</span></div>'
     '<div class="stats"><div class="stat"><strong>1,189</strong><span>Chapters</span></div>'
     '<div class="stat"><strong id="scenes-finished">0</strong><span>Finished</span></div>'
-    '<div class="stat"><strong id="scenes-unfinished">1,189</strong><span>Unfinished</span></div></div></div>')
+    '<div class="stat"><strong id="scenes-unfinished">1,189</strong><span>Unfinished</span></div></div>'
+    + themes_ui.TOP + '</div>')
 
 LEGEND_END = '<span class="saving">Select a chapter to preview below</span></div>'
 SCENES_LEGEND = ('<div class="legend" id="scenes-legend" hidden><span><i class="gold"></i>Finished</span>'
@@ -99,9 +98,10 @@ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className
 function showVerses(a,b){let first=null;document.querySelectorAll('#scripture p').forEach(p=>{const nums=p.dataset.verse.split(/[-–]/).map(Number);const hit=nums[0]<=b&&nums.at(-1)>=a;p.classList.toggle('evidence',hit);if(hit&&!first)first=p});first?.scrollIntoView({block:'nearest'})}
 function chip(a,b){const c=el('button','verse-link',a===b?'v. '+a:'vv. '+a+'–'+b);c.title='Show these verses in the chapter';c.onclick=()=>showVerses(a,b);return c}
 function list(items,cls,fill){const ul=el('ul',cls);items.forEach(x=>{const li=el('li');fill(li,x);ul.append(li)});return ul}
-function sceneCard(s,i,writer){const card=el('article','scene');
- const frame=el('div','scene-frame');if(s.picture){const img=new Image();img.loading='lazy';img.alt=s.title;img.src=s.picture;img.title='Open full size';img.onclick=()=>window.open(s.picture,'_blank','noopener');img.onerror=()=>{frame.classList.remove('has-picture');img.remove()};frame.classList.add('has-picture');frame.append(img)}
+""" + themes_ui.JS + r"""function sceneCard(s,i,writer){const card=el('article','scene');
+ const frame=el('div','scene-frame');framePicture(frame,s);
  frame.append(el('b',null,s.shot+' shot · 16:9'),el('span',null,'Picture not made yet · focal point: '+s.focal_point));card.append(frame);
+ const strip=themeStrip(s);if(strip)card.append(strip);
  const eye=el('div','scene-eyebrow',i===0?'Main scene':'Scene '+(i+1));if(writer)eye.append(el('span','by',WRITERS[writer]||writer));card.append(eye);
  card.append(el('h3',null,s.title));const meta=el('div');meta.append(chip(s.verse_start,s.verse_end),el('span','kind',s.kind));card.append(meta);
  card.append(el('p','moment',s.moment),el('p','why',s.why));
@@ -123,21 +123,24 @@ function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();co
  $('scenes-foot').textContent=shown.map(w=>data[w].scenes.length+' from '+(WRITERS[w]||w)).join(' · ')}
 async function loadScenes(){const k=key();if(!cache[k]){try{cache[k]=(await api('/api/scenes?key='+encodeURIComponent(k))).writers}catch(e){cache[k]={}}}if(k===key()&&mode==='scenes')renderScenes()}
 function counts(){const done=Object.keys(sceneKeys).length;$('scenes-finished').textContent=done.toLocaleString();$('scenes-unfinished').textContent=(BOOT.books.reduce((a,b)=>a+b.chapters,0)-done).toLocaleString()}
-function applyMode(){const scenes=mode==='scenes';
+function applyMode(){const scenes=mode==='scenes',gal=scenes&&view==='gallery';
  document.querySelectorAll('.primary [data-pipeline]').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  $('summaries-side').hidden=scenes;$('scenes-side').hidden=!scenes;$('scenes-top').hidden=!scenes;
  for(const n of [document.querySelector('main > .top'),document.querySelector('main > .stats'),$('summary-card'),document.querySelector('.toolbar'),$('edit-panel'),document.querySelector('.statusbox'),document.querySelector('.legend:not(#scenes-legend)')])n.hidden=scenes;
- $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes;$('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
- document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(scenes)loadScenes()}
-function setMode(m){mode=m;if(m==='scenes')cache={};try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
+ $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes||gal;$('gallery').hidden=!gal;
+ document.querySelector('section.atlas.book-explorer').hidden=gal;document.querySelector('.workspace').hidden=gal;
+ document.querySelectorAll('.view-tabs [data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===view));
+$('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
+ document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(gal)loadGallery();else if(scenes)loadScenes();if(scenes)poll()}
+function setMode(m){mode=m;if(m!=='scenes')closeLightbox();if(m==='scenes')cache={};try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
 const baseRender=render,baseTiles=renderTiles;
 render=function(){baseRender();if(mode==='scenes')loadScenes()};
 renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
 document.querySelectorAll('.primary [data-pipeline]').forEach(b=>b.onclick=()=>setMode(b.dataset.pipeline));
-api('/api/scenes').then(d=>{sceneKeys=d.keys;counts();renderTiles()}).catch(()=>{});applyMode();renderTiles()})();
+refreshSummary().catch(()=>{});applyMode();renderTiles()})();
 """
 
-REPLACEMENTS = [("</style>", CSS + "</style>"), (APP_OLD, APP_NEW), ("</aside>", SCENES_SIDE),
+REPLACEMENTS = [("</style>", CSS + themes_ui.CSS + "</style>"), (APP_OLD, APP_NEW), ("</aside>", SCENES_SIDE),
                 ('<section class="atlas book-explorer"', SCENES_TOP + '<section class="atlas book-explorer"'),
                 (LEGEND_END, LEGEND_END + SCENES_LEGEND), (WORKSPACE_OLD, WORKSPACE_NEW), ("</script>", JS + "</script>")]
 
@@ -158,27 +161,27 @@ def answer(query: str) -> dict:
     key = urllib.parse.parse_qs(query).get("key", [""])[0]
     store = chapter_scenes.Store()
     if not key:
-        return {"keys": store.keys()}
+        return {"keys": store.keys(), "themes": scene_pictures.Pictures(store).summary()}
     if key not in set(chapter_scenes.all_keys()):
         raise ValueError(f"Unknown chapter {key!r}; expected a key such as GEN:1")
-    writers, urls = store.chapter(key), store.picture_urls(key)
+    writers, pictures = store.chapter(key), scene_pictures.Pictures(store).chapter(key)
     for writer, payload in writers.items():
         for index, scene in enumerate(payload["scenes"]):
-            if index in urls.get(writer, {}):
-                scene["picture"] = urls[writer][index]
+            scene["pictures"] = pictures.get(writer, {}).get(index, {})
     return {"key": key, "writers": writers}
 
 
-# Only names chapter_scenes.picture_name makes; [0-9] not \d (which also accepts other scripts' digits).
-PICTURE_PATH = re.compile(r"/pictures/(haiku|qwen)/[1-3A-Z]{3}-[0-9]{1,3}-[0-9]\.webp")
+# Only names scene_pictures.picture_name makes; [0-9] not \d (which also accepts other scripts' digits).
+PICTURE_PATH = re.compile(r"/pictures/([a-z0-9][a-z0-9-]{0,30})/(haiku|qwen)/(thumbs/)?[1-3A-Z]{3}-[0-9]{1,3}-[0-9]\.webp")
 
 
 def picture_file(raw_path: str, root: Path | None = None) -> Path | None:
     """The picture file a raw (undecoded) request path names, or None when the name is not one we make, points
     outside the pictures folder, or the file does not exist."""
-    if not PICTURE_PATH.fullmatch(raw_path):
+    match = PICTURE_PATH.fullmatch(raw_path)
+    if not match or match.group(1) not in {t["id"] for t in scene_pictures.load_themes()}:
         return None
-    root = (root or chapter_scenes.Store().pictures_dir).resolve()
+    root = (root or chapter_scenes.STORE.parent / "pictures").resolve()
     path = (root / raw_path.removeprefix("/pictures/")).resolve()
     return path if path.is_relative_to(root) and path.is_file() else None
 

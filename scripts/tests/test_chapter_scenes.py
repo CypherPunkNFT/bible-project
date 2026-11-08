@@ -1,4 +1,8 @@
 """Checks for chapter_scenes.py (the script checks on a writer's answer) and chapter_scenes_view.py (the page wiring)."""
+import hashlib
+import json
+import msvcrt
+import sqlite3
 import sys
 from pathlib import Path
 
@@ -6,8 +10,10 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import chapter_scenes  # noqa: E402
+import chapter_pictures_runner  # noqa: E402
 import chapter_scenes_view  # noqa: E402
 import chapter_summary_studio  # noqa: E402
+import scene_pictures  # noqa: E402
 
 GOOD = {"title": "t", "kind": "event", "verse_start": 1, "verse_end": 2, "moment": "m", "why": "w", "shot": "wide",
         "viewpoint": "v", "focal_point": "f", "foreground": "a", "midground": "b", "background": "c", "people": [],
@@ -49,7 +55,7 @@ def test_bad_answers_are_rejected(answer, message):
 
 def test_view_installs_once_into_the_studio_page():
     html = chapter_scenes_view.install(chapter_summary_studio.HTML)
-    for part in ('id="scenes-panel"', 'data-pipeline="scenes"', 'id="summaries-side"', 'id="scenes-top"', "renderScenes"):
+    for part in ('id="scenes-panel"', 'data-pipeline="scenes"', 'id="summaries-side"', 'id="scenes-top"', "renderScenes", 'id="theme-list"', 'id="gallery"', 'id="lightbox"'):
         assert html.count(part) >= 1
     with pytest.raises(ValueError, match="Studio page changed"):
         chapter_scenes_view.install(html)
@@ -60,51 +66,113 @@ def test_scenes_route_rejects_unknown_chapter():
         chapter_scenes_view.answer("key=XYZ:1")
 
 
-def make_store(tmp_path, prompt=GOOD["prompt"]):
+THEMES = [{"id": "photographic", "name": "Photo", "description": "d", "style": ""},
+          {"id": "toon", "name": "Toon", "description": "d", "style": "A cartoon."}]
+
+
+def make_pictures(tmp_path, prompt=GOOD["prompt"]):
     store = chapter_scenes.Store(tmp_path / "scenes.sqlite3")
     store.put("PSA:117", "haiku", {"scenes": [dict(GOOD, prompt=prompt)]})
-    return store
+    return scene_pictures.Pictures(store, THEMES)
 
 
-def add_picture(store, prompt=GOOD["prompt"], scene=0):
-    path = store.pictures_dir / chapter_scenes.picture_name("PSA:117", "haiku", scene)
+def add_picture(pictures, theme="photographic", prompt=GOOD["prompt"], scene=0):
+    style = next(t["style"] for t in THEMES if t["id"] == theme)
+    path = pictures.dir / scene_pictures.picture_name(theme, "PSA:117", "haiku", scene)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(b"webp")
-    store.save_picture("PSA:117", "haiku", scene, chapter_scenes.picture_hash(prompt), 1, 6.3, "2026-11-07T00:00:00+00:00")
+    pictures.save(theme=theme, key="PSA:117", writer="haiku", scene=scene, seed=1, seconds=6.3,
+                  sha=scene_pictures.picture_hash(scene_pictures.picture_text(style, prompt)), made_at="2026-11-07")
 
 
-def test_picture_counts_only_for_the_current_prompt_and_an_existing_file(tmp_path):
-    store = make_store(tmp_path)
-    assert [p[:3] for p in store.pending_pictures()] == [("PSA:117", "haiku", 0)]
-    add_picture(store)
-    add_picture(store, scene=4)  # an orphan row (index past the scenes) is ignored
-    assert store.pending_pictures() == []
-    assert store.picture_urls("PSA:117") == {"haiku": {0: "/pictures/haiku/PSA-117-0.webp?v="
-                                                       + chapter_scenes.picture_hash(GOOD["prompt"])[:8]}}
-    store.put("PSA:117", "haiku", {"scenes": [dict(GOOD, prompt=GOOD["prompt"] + " again")]})  # scene rewritten
-    assert len(store.pending_pictures()) == 1 and store.picture_urls("PSA:117") == {}
-    store.put("PSA:117", "haiku", {"scenes": [GOOD]})
-    (store.pictures_dir / "haiku" / "PSA-117-0.webp").unlink()  # file gone, row still there
-    assert len(store.pending_pictures()) == 1 and store.picture_urls("PSA:117") == {}
+def test_photographic_hash_is_unchanged_from_before_themes():
+    old = hashlib.sha256(f"{scene_pictures.RECIPE}\n{GOOD['prompt']}".encode("utf-8")).hexdigest()
+    assert scene_pictures.RECIPE == "FLUX.3 Image Klein bf16 (unsloth mirror) | 1344x768 | 16 steps"
+    assert scene_pictures.picture_hash(scene_pictures.picture_text("", GOOD["prompt"])) == old
+    assert scene_pictures.picture_text("A cartoon.", "x") == "A cartoon.\n\nScene: x"
+
+
+def test_a_picture_counts_only_in_its_theme_for_the_current_prompt_and_an_existing_file(tmp_path):
+    pictures = make_pictures(tmp_path)
+    assert [(j["theme"], j["scene"]) for j in pictures.pending()] == [("photographic", 0), ("toon", 0)]
+    add_picture(pictures)
+    add_picture(pictures, scene=4)  # an orphan row (index past the scenes) is ignored
+    assert [j["theme"] for j in pictures.pending()] == ["toon"]
+    urls = pictures.chapter("PSA:117")["haiku"][0]["photographic"]
+    assert urls["full"].startswith("/pictures/photographic/haiku/PSA-117-0.webp?v=") and urls["thumb"] == urls["full"]
+    thumb = pictures.dir / scene_pictures.picture_name("photographic", "PSA:117", "haiku", 0, thumb=True)
+    thumb.parent.mkdir(parents=True)
+    thumb.write_bytes(b"webp")
+    assert "/thumbs/" in pictures.chapter("PSA:117")["haiku"][0]["photographic"]["thumb"]
+    assert [(t["id"], t["made"], t["total"]) for t in pictures.summary()] == [("photographic", 1, 1), ("toon", 0, 1)]
+    assert [i[:3] for i in pictures.gallery("photographic")] == [["PSA:117", "haiku", 0]]
+    pictures.store.put("PSA:117", "haiku", {"scenes": [dict(GOOD, prompt=GOOD["prompt"] + " again")]})  # rewritten
+    assert len(pictures.pending(["photographic"])) == 1 and pictures.chapter("PSA:117") == {}
+    pictures.store.put("PSA:117", "haiku", {"scenes": [GOOD]})
+    (pictures.dir / "photographic" / "haiku" / "PSA-117-0.webp").unlink()  # file gone, row still there
+    assert len(pictures.pending(["photographic"])) == 1 and pictures.gallery("photographic") == []
+
+
+def test_the_table_from_before_themes_is_refused(tmp_path):
+    store = chapter_scenes.Store(tmp_path / "scenes.sqlite3")
+    with sqlite3.connect(store.path) as db:
+        db.execute("CREATE TABLE pictures (key TEXT, writer TEXT, scene INTEGER, file TEXT)")
+    with pytest.raises(RuntimeError, match="migration"):
+        scene_pictures.Pictures(store, THEMES)
+
+
+@pytest.mark.parametrize("bad", ["con", "-x", "../x", "Toon", "a" * 32, "photographic"])
+def test_theme_ids_must_be_safe_and_unique(tmp_path, bad):
+    path = tmp_path / "themes.json"
+    path.write_text(json.dumps(THEMES + [dict(THEMES[1], id=bad)]), encoding="utf-8")
+    with pytest.raises(ValueError, match="theme id"):
+        scene_pictures.load_themes(path)
+
+
+def test_unknown_theme_is_refused(tmp_path):
+    with pytest.raises(ValueError, match="Unknown theme"):
+        make_pictures(tmp_path).gallery("nope")
 
 
 @pytest.mark.parametrize("raw", [
-    "/pictures/haiku/../scenes.sqlite3", "/pictures/haiku/%2e%2e/PSA-117-0.webp", "/pictures/haiku/PSA-117-0.WEBP",
-    "/pictures/other/PSA-117-0.webp", "/pictures/haiku/4AB-117-0.webp", "/pictures/haiku/PSA-117-0.webp\n",
-    "/pictures/haiku/PSA-١١٧-0.webp", "/pictures/haiku/PSA-117-12.webp", "/pictures/haiku/PSA-117-1.webp",
+    "/pictures/photographic/haiku/../../scenes.sqlite3", "/pictures/photographic/haiku/%2e%2e/PSA-117-0.webp",
+    "/pictures/photographic/haiku/PSA-117-0.WEBP", "/pictures/photographic/other/PSA-117-0.webp",
+    "/pictures/not-a-theme/haiku/PSA-117-0.webp", "/pictures/haiku/PSA-117-0.webp",
+    "/pictures/photographic/haiku/4AB-117-0.webp", "/pictures/photographic/haiku/PSA-117-0.webp\n",
+    "/pictures/photographic/haiku/PSA-١١٧-0.webp", "/pictures/photographic/haiku/PSA-117-12.webp",
+    "/pictures/photographic/haiku/PSA-117-1.webp", "/pictures/photographic/haiku/thumbs/PSA-117-0.webp",
 ])
 def test_picture_route_serves_only_made_pictures(tmp_path, raw):
-    add_picture(make_store(tmp_path))
+    add_picture(make_pictures(tmp_path))
     assert chapter_scenes_view.picture_file(raw, tmp_path / "pictures") is None
 
 
 def test_picture_route_finds_a_made_picture(tmp_path):
-    add_picture(make_store(tmp_path))
-    found = chapter_scenes_view.picture_file("/pictures/haiku/PSA-117-0.webp", tmp_path / "pictures")
-    assert found == (tmp_path / "pictures" / "haiku" / "PSA-117-0.webp").resolve()
+    add_picture(make_pictures(tmp_path))
+    found = chapter_scenes_view.picture_file("/pictures/photographic/haiku/PSA-117-0.webp", tmp_path / "pictures")
+    assert found == (tmp_path / "pictures" / "photographic" / "haiku" / "PSA-117-0.webp").resolve()
 
 
-def test_picture_maker_imports_without_torch_and_seeds_repeatably():
-    import chapter_pictures
-    assert chapter_pictures.seed_for("PSA:117", "haiku", 0) == chapter_pictures.seed_for("PSA:117", "haiku", 0)
-    assert chapter_pictures.seed_for("PSA:117", "haiku", 0) != chapter_pictures.seed_for("PSA:117", "qwen", 0)
+def test_the_lock_probe_sees_a_run_holding_the_lock(tmp_path):
+    assert chapter_pictures_runner.lock_held(tmp_path) is False
+    with open(tmp_path / ".lock", "a+", encoding="utf-8") as run:
+        run.seek(0)
+        msvcrt.locking(run.fileno(), msvcrt.LK_NBLCK, 1)
+        assert chapter_pictures_runner.lock_held(tmp_path) is True
+        run.seek(0)
+        msvcrt.locking(run.fileno(), msvcrt.LK_UNLCK, 1)
+    assert chapter_pictures_runner.lock_held(tmp_path) is False
+
+
+def test_runner_refuses_unknown_themes_and_paths():
+    with pytest.raises(ValueError, match="Unknown theme"):
+        chapter_pictures_runner.start("--keys=GEN:1")
+    with pytest.raises(ValueError, match="Unknown picture request"):
+        chapter_pictures_runner.handle_post("/api/pictures/other", {})
+
+
+def test_picture_maker_imports_without_torch_and_seeds_the_same_in_every_theme():
+    import chapter_pictures  # noqa: F401  (torch is imported only inside run())
+    assert "torch" not in sys.modules
+    assert scene_pictures.seed_for("PSA:117", "haiku", 0) == scene_pictures.seed_for("PSA:117", "haiku", 0)
+    assert scene_pictures.seed_for("PSA:117", "haiku", 0) != scene_pictures.seed_for("PSA:117", "qwen", 0)
