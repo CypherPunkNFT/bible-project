@@ -17978,6 +17978,46 @@
   "why": "the cache name useAsync is given on this page (useAsync(loadManuscripts, \"manuscripts/collection\")), not a data file: the net reads it as one because data/manuscripts/ exists"
  },
  {
+  "check": "files",
+  "item": "src/data/whos-older/characters.source.json",
+  "why": "a build input no page reads: scripts/build-whos-older.ts builds whos-older.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/whos-older/order-facts.source.json",
+  "why": "a build input no page reads: scripts/build-whos-older.ts builds whos-older.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/whos-older/blocked-pairs.source.json",
+  "why": "a build input no page reads: scripts/build-whos-older.ts builds whos-older.json from it, and the blocked pairs' reasons are never shown (only the ids reach the game)"
+ },
+ {
+  "check": "files",
+  "item": "src/data/odd-one-out/facts-table.json",
+  "why": "read only by the odd-one-out test suite's independent solver (src/pages/games/odd-one-out/sets.test.ts); no page shows it"
+ },
+ {
+  "check": "files",
+  "item": "src/data/map-quest/curation.json",
+  "why": "a build input no page reads: scripts/build-map-quest.py builds places.json and disputed.json from it; the disputed notes the game shows are collected from disputed.json (page_data_specs.py)"
+ },
+ {
+  "check": "files",
+  "item": "src/data/map-quest/places.json",
+  "why": "Map quest's places: names, coordinates and ids only. Place names stay as written, as on the atlas (page_data_specs.py, data/places.json)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/odd-one-out/sets.json .books[][]",
+  "why": "[reader code, book name] pairs at one path, so the codes the reader links use would be translated too; the verse references the page code builds from them keep the English book names until that code builds them from the reader's Bible (left for the page-code step, sequence 29)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/map-quest/disputed.json [].sites[].name",
+  "why": "the names of the proposed sites (\"Jebel Musa\", \"Ain el Qudeirat\"), kept as written like every place name on the atlas; shown in one list sentence the page code builds"
+ },
+ {
   "check": "code",
   "file": "src/data/countdowns/advent.ts",
   "item": "“I am the Lord’s servant”",

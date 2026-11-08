@@ -11,8 +11,9 @@ export const HOLD_MS: Record<Difficulty, number> = { easy: 3000, medium: 2500, h
 /** A Hard board holds at least this many pairs of tier 2 or 3 (design 8). */
 export const HARD_DEEP_PAIRS = 4;
 export const MIXED = "mixed";
-/** The spec's own example: a new player's first Easy board always has it (design 10). */
-export const SPEC_PAIR = { who: "daniel", story: "the lions' den" } as const;
+/** The spec's own example, the lions' den: a new player's first Easy board always has it (design 10). Found by its key
+ *  verse, Daniel 6:22, not its story, which a translated copy words in its own language. */
+export const SPEC_PAIR = { who: "daniel", keyVerseId: 27006022 } as const;
 
 export interface DeckInfo { key: string; title: string; offered: Record<Difficulty, boolean>; easyExtra: string[] }
 export interface CharacterInfo { label: string; href: string | null; first: string; group?: boolean; parable?: boolean }
@@ -89,7 +90,7 @@ export function poolFor(data: PairsFile, deck: string, difficulty: Difficulty): 
 }
 
 export const specPair = (data: PairsFile) =>
-  data.pairs.find((pair) => pair.who === SPEC_PAIR.who && pair.story === SPEC_PAIR.story);
+  data.pairs.find((pair) => pair.who === SPEC_PAIR.who && pair.keyVerseId === SPEC_PAIR.keyVerseId);
 
 /** True when two pairs must not share a board (design 6.1–6.4; shared words only on Easy). */
 export function clashes(data: PairsFile, a: PairInfo, b: PairInfo, difficulty: Difficulty): boolean {

@@ -23,6 +23,8 @@ export interface Person {
   hi: number | null;
   /** false = early Genesis: the bounds only keep the genealogies' order and are never shown as years. */
   shown: boolean;
+  /** In a translated copy, the English label: the clash rule reads it, so every language asks the same pairs. */
+  english?: string;
 }
 
 export interface Fact {
@@ -83,13 +85,20 @@ export function labelsClash(a: string, b: string): boolean {
   return firstWord(a) === firstWord(b) && !(qualified(a) && qualified(b));
 }
 
+/** `shown` (a translated copy, or the English itself) with each person's English label beside its own, by id. */
+export function withEnglishLabels<D extends { characters: Person[] }>(shown: D, english: D): D {
+  if (shown === english) return english;
+  const labels = new Map(english.characters.map((person) => [person.id, person.label]));
+  return { ...shown, characters: shown.characters.map((person) => ({ ...person, english: labels.get(person.id) ?? person.label })) };
+}
+
 /** a was certainly born before b on its window alone: strictly, with no shared year; an open edge proves nothing. */
 const windowsBefore = (a: Person, b: Person) => a.hi !== null && b.lo !== null && a.hi < b.lo;
 
 /** The order of a pair, or null when it must never be asked (§5.1). */
 export function orderOf<P extends Person>(a: P, b: P, index: PairIndex): Order<P> | null {
   if (a.id === b.id || EXCLUDED_IDS.includes(a.id) || EXCLUDED_IDS.includes(b.id)) return null;
-  if (labelsClash(a.label, b.label)) return null;
+  if (labelsClash(a.english ?? a.label, b.english ?? b.label)) return null;
   const key = pairKey(a.id, b.id);
   if (index.blocked.has(key)) return null;
   const fact = index.facts.get(key);

@@ -4,6 +4,8 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSiteLanguage } from "@/lib/language";
+import { inSiteLanguage } from "../translated-data";
 import { CHOICE_LABELS, buildRound, isAvailable, opensWithExample, seededRng, shownLabel, shuffle, type Choice,
   type Difficulty, type SetsFile } from "./game";
 import { Reveal } from "./Reveal";
@@ -13,19 +15,21 @@ import { bestKey, browserStore, readBest, readRound, readSeen, rememberSeen, sav
 import "../games.css";
 import "./odd-one-out.css";
 
-const loadSets = () => import("@/data/odd-one-out/sets.json").then((module) => module.default as unknown as SetsFile);
+const loadSets = () => import("@/data/odd-one-out/sets.json")
+  .then((module) => inSiteLanguage("odd-one-out/sets.json", module.default as unknown as SetsFile));
 
 export default function OddOneOutGame() {
   useEffect(() => { document.title = "Odd one out · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   const [data, setData] = useState<SetsFile | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const language = useSiteLanguage(); // another language reads its copy; the round in play keeps its ids
   useEffect(() => {
     let live = true;
     setFailed(false);
     loadSets().then((sets) => { if (live) setData(sets); }).catch(() => { if (live) setFailed(true); });
     return () => { live = false; };
-  }, [attempt]);
+  }, [attempt, language]);
   return <div className="oo-page mx-auto max-w-3xl px-4 sm:px-6">
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
     {failed ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />

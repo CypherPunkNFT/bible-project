@@ -12,8 +12,9 @@
 /** Raised when the manifest or pack format changes, so a front end never reads packs it does not understand. */
 export const LANGUAGE_PACK_LAYOUT = 1;
 export const PACK_MANIFEST = "packs.json";
-/** Translated folders read by their own loaders (resources/index.ts, debate-transcripts.ts), packed like TRANSLATED_DATA. */
-export const PACKED_ELSEWHERE = ["resources/", "transcripts/"];
+/** Translated folders read by their own loaders (resources/index.ts, debate-transcripts.ts, pages/games/translated-data.ts),
+ * packed like TRANSLATED_DATA. */
+export const PACKED_ELSEWHERE = ["resources/", "transcripts/", "odd-one-out/", "whos-older/", "memory-match/"];
 /** Workers refuse a file over 25 MiB; packs and bank parts stay a megabyte under it. */
 export const MAX_RELEASE_FILE_BYTES = 25 * 1024 * 1024;
 export const MAX_PACK_BYTES = 24 * 1024 * 1024;

@@ -6,7 +6,8 @@ code's own text goes to data/i18n/<lang>/ui.json as {English: translation}, whic
 (src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet, and
 seed/bible/<lang>.json, the home page's verses cut from that language's Bible (src/components/home/banner-verses.tsx),
 is written over both, since a quotation is the Bible's wording and never a translator's. The Resources
-files bundled with the code (extract.RESOURCES, src/data/resources/) get copies in data/i18n/<lang>/resources/.
+files bundled with the code (extract.RESOURCES, src/data/resources/) get copies in data/i18n/<lang>/resources/, and
+the games' data files (extract.GAME_DATA, part of RESOURCES) in data/i18n/<lang>/<game>/.
 A string with no translation stays English. data/ is git-ignored, so rerun this after a data rebuild or new chunks.
 The debate transcripts (content/apologetics/transcripts/*.txt) get a translated copy of the whole text in
 data/i18n/<lang>/transcripts/<name>.json as {"text": ...}, which the debate viewer reads (src/lib/debate-transcripts.ts).
@@ -255,7 +256,7 @@ def apply(repo: Path, lang: str) -> None:
     target = SITE / "data" / "i18n" / lang
     files = swapped = kept = 0
     # Each spec with the folder its files' copies are placed relative to: data/x -> i18n/<lang>/x,
-    # src/data/resources/x -> i18n/<lang>/resources/x.
+    # src/data/resources/x -> i18n/<lang>/resources/x, src/data/<game>/x -> i18n/<lang>/<game>/x.
     specs = [(spec, SITE / "data") for spec in SOURCES if spec[1].startswith("data/")]
     specs += [(spec, SITE / "src" / "data") for spec in RESOURCES]
     for spec, home in specs:

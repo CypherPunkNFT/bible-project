@@ -96,6 +96,11 @@ PEOPLE_DATA = [
         ".parts[].title", ".parts[].sections[].title", ".parts[].sections[].items[].title"}, set(), set()),
 ]
 
+# Another chat's game, not committed when its rule was written (2026-11-08): a tree without it skips the rule
+# (page_data.data_strings) instead of stopping, as a release tree made before that commit would.
+MAP_QUEST_DISPUTED = "src/data/map-quest/disputed.json"
+OPTIONAL_DATA = {MAP_QUEST_DISPUTED}
+
 SITE_DATA = [
     # Resources > Learning: the catalogue's own words, and each open workbook's description, ages and conditions.
     (SITE_DATA_KIND, "src/data/resources/learning-catalogue.json", False, (), {
@@ -127,6 +132,10 @@ SITE_DATA = [
     # (extract.debate_section_titles), so only what they miss is added.
     (SITE_DATA_KIND, "content/apologetics/transcripts/index.json", True, (), {
         ".*.segments[].speaker", ".*.sections[].title", ".*.provenance", ".*.coverage"}, set(), set()),
+    # Map quest's note on each place whose site is disputed (src/pages/games/map-quest/Play.tsx). Its data is bundled
+    # with the page so the daily puzzle never waits on a file, so the screen is swapped rather than a copy read. The
+    # place and site names stay as written, as on the atlas.
+    (SITE_DATA_KIND, MAP_QUEST_DISPUTED, False, (), {"[].note"}, set(), set()),
 ]
 
 

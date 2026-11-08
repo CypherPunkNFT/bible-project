@@ -108,6 +108,8 @@ MARKDOWN = ("apologetics", "public/content/apologetics/*.md")
 # facts, workbooks. Appended as new chunks (--resources); apply.py writes their translated copies to
 # data/i18n/<lang>/resources/, which src/data/resources/index.ts reads. Names, addresses, ids and categories stay
 # English: the code keys on them ("No walk-in" addresses go to the page text instead, see resource_page_strings).
+# The games' data files bundled with their pages are copied the same way (data/i18n/<lang>/<game>/<file>), read by
+# src/pages/games/translated-data.ts; GAME_DATA below says which.
 RESOURCE_KIND = "resource"
 RESOURCES = [
     (RESOURCE_KIND, "src/data/resources/life.json", False, (), {
@@ -130,6 +132,23 @@ RESOURCES = [
         ".items[].outline.parts[].place", ".items[].outline.sessions[].title", ".items[].outline.sessions[].brief"},
      set(), set()),
 ]
+# The games' cards and reasons (sequence 29, card D56). Names of people, places and books on the cards take each
+# language's Bible form, as the people list's do. Never collected: ids, links, the memory-match clash words, and the
+# book lists, which pair each reader code with its name at one path ([code, name]); verse references are built by the
+# page code (they keep the English book names until that code builds them from the reader's Bible). The who's-older and
+# memory-match code compares no collected text: the clash rule reads the English label (pairing.ts withEnglishLabels).
+# Map quest's notes are page data instead (page_data_specs.py): its data is bundled with the page, read at once.
+GAME_DATA = [
+    (RESOURCE_KIND, "src/data/odd-one-out/sets.json", False, ("items", "rules", "labels"), {
+        ".items.*.label", ".items.*.brief", ".rules.*.members", ".rules.*.odd", ".rules.*.oddOnly", ".rules.*.others",
+        ".sets[].also[]", ".sets[].labels.*"}, set(), set()),
+    (RESOURCE_KIND, "src/data/whos-older/whos-older.json", False, (), {
+        ".characters[].label", ".characters[].tag", ".characters[].when", ".characters[].brief", ".facts[].why"},
+     set(), set()),
+    (RESOURCE_KIND, "src/data/memory-match/pairs.json", False, ("characters",), {
+        ".characters.*.label", ".decks[].title", ".pairs[].story"}, set(), set()),
+]
+RESOURCES += GAME_DATA
 
 # Text written into the page code; what counts as on-screen text is page_rules.py's.
 PAGE_KIND = "page"
@@ -323,7 +342,8 @@ def resource_strings() -> list[str]:
     for spec in RESOURCES:
         files = sorted(SITE.glob(spec[1]))
         if not files:
-            raise SystemExit(f"no files match {spec[1]}: the Resources data layout changed, update RESOURCES")
+            raise SystemExit(f"no files match {spec[1]}: the Resources or game data layout changed, update RESOURCES "
+                             "or GAME_DATA")
         for path in files:
             walk(json.loads(path.read_text("utf-8")), "", spec, lambda text: found.setdefault(text))
     return list(found)

@@ -239,3 +239,36 @@ def test_a_partial_check_never_overwrites_the_shared_report(tmp_path: Path, monk
     monkeypatch.setattr(sys, "argv", ["unregistered.py"])
     unregistered.main()
     assert all(f"{name}: 0" in report.read_text("utf-8") for name in unregistered.CHECKS)
+
+
+def test_the_games_cards_and_reasons_are_collected_and_their_keys_are_not() -> None:
+    """Sequence 29 (card D56): odd one out, who's older and memory match had no rule, so they showed English in every
+    language. Every field a game rule names reads some text; ids, links, reader codes and the clash words stay out."""
+    texts = set(extract.resource_strings())
+    for spec in extract.GAME_DATA:
+        seen: set[str] = set()
+        for path in sorted(extract.SITE.glob(spec[1])):
+            unregistered.all_strings(json.loads(path.read_text("utf-8")), "", spec, lambda field, _text: seen.add(field))
+        assert spec[4] - seen == set(), spec[1]
+    sets = json.loads((extract.SITE / "src/data/odd-one-out/sets.json").read_text("utf-8"))
+    pairs = json.loads((extract.SITE / "src/data/memory-match/pairs.json").read_text("utf-8"))
+    rule = next(iter(sets["rules"].values()))
+    assert {rule["members"], rule["odd"], pairs["decks"][0]["title"], pairs["pairs"][0]["story"]} <= texts
+    keys = {sets["books"][0][0], sets["sets"][0]["id"], next(iter(sets["items"].values()))["href"], pairs["pairs"][0]["id"],
+            *pairs["pairs"][0]["words"]}
+    assert keys & texts == set()
+
+
+def test_map_quest_notes_are_site_data_and_a_tree_without_the_game_skips_the_rule(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    import page_data_specs
+    disputed = extract.SITE / page_data_specs.MAP_QUEST_DISPUTED
+    if disputed.exists():
+        notes = {place["note"] for place in json.loads(disputed.read_text("utf-8"))}
+        assert notes <= set(page_data.data_strings(extract.SITE, extract.walk)["sitedata"])
+    spec = next(spec for spec in page_data.PAGE_DATA if spec[1] == page_data_specs.MAP_QUEST_DISPUTED)
+    monkeypatch.setattr(page_data, "PAGE_DATA", [spec])
+    monkeypatch.setattr(page_data, "PAGE_HTML", [])
+    monkeypatch.setattr(page_data, "teacher_genres", lambda site: [])
+    # A tree made before the game was committed has no such file: the rule is skipped, not a stop.
+    assert page_data.data_strings(tmp_path, extract.walk)["sitedata"] == []

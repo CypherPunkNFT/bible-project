@@ -5,6 +5,8 @@
 import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSiteLanguage } from "@/lib/language";
+import { inSiteLanguage } from "../translated-data";
 import { Board } from "./Board";
 import { columnsFor, dealCards, drawPairs, isOffered, opensWithSpecPair, seededRng, shuffle, type PairsFile } from "./deal";
 import { newGame, pairCount, stars, type GameState } from "./game";
@@ -15,7 +17,8 @@ import { bestKey, browserStore, readBest, readGame, readSeen, readSettings, reme
 import "../games.css";
 import "./memory-match.css";
 
-const loadPairs = () => import("@/data/memory-match/pairs.json").then((module) => module.default as unknown as PairsFile);
+const loadPairs = () => import("@/data/memory-match/pairs.json")
+  .then((module) => inSiteLanguage("memory-match/pairs.json", module.default as unknown as PairsFile));
 
 /** Narrow screens get fewer columns; decided once, when the cards are dealt (design 8). */
 const isNarrow = () => typeof window !== "undefined" && !!window.matchMedia?.("(max-width: 639px)").matches;
@@ -25,12 +28,13 @@ export default function MemoryMatchGame() {
   const [data, setData] = useState<PairsFile | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const language = useSiteLanguage(); // another language reads its copy; the board in play keeps its pair ids
   useEffect(() => {
     let live = true;
     setFailed(false);
     loadPairs().then((pairs) => { if (live) setData(pairs); }).catch(() => { if (live) setFailed(true); });
     return () => { live = false; };
-  }, [attempt]);
+  }, [attempt, language]);
   return <div className="mm-page mx-auto max-w-4xl px-3 sm:px-6">
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
     {failed ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />

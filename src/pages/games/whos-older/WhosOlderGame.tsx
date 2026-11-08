@@ -4,6 +4,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSiteLanguage } from "@/lib/language";
 import { explain } from "./explain";
 import { MILESTONES, answer, buildPool, current, endsRun, newRun, next, pairOf, score, streakNow, type Difficulty, type Mode,
   type Pool, type Run, type WhosOlderData } from "./game";
@@ -11,16 +12,22 @@ import { Reveal } from "./Reveal";
 import { RoundView } from "./Round";
 import { CantLoad, RunOver, StartScreen } from "./Screens";
 import { browserStore, canSave, readSaved, saveBest, saveRun, type Best } from "./storage";
+import { withEnglishLabels } from "./pairing";
 import "../games.css";
+import { inSiteLanguage } from "../translated-data";
 import "./whos-older.css";
 
-const loadData = () => import("@/data/whos-older/whos-older.json").then((module) => module.default as unknown as WhosOlderData);
+const loadData = () => import("@/data/whos-older/whos-older.json").then(async (module) => {
+  const english = module.default as unknown as WhosOlderData;
+  return withEnglishLabels(await inSiteLanguage("whos-older/whos-older.json", english), english);
+});
 
 export default function WhosOlderGame() {
   useEffect(() => { document.title = "Who's older? · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   const [data, setData] = useState<WhosOlderData | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const language = useSiteLanguage(); // another language reads its copy; the run in play keeps its ids
   useEffect(() => {
     let live = true;
     setFailed(false);
@@ -29,7 +36,7 @@ export default function WhosOlderGame() {
       if (live) setFailed(true);
     });
     return () => { live = false; };
-  }, [attempt]);
+  }, [attempt, language]);
   return <div className="wo-page mx-auto max-w-3xl px-4 sm:px-6">
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
     {failed ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />

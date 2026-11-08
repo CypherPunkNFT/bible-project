@@ -24,8 +24,8 @@ import json
 import re
 from pathlib import Path
 
-from page_data_specs import (PEOPLE_DATA, PEOPLE_DATA_KIND, SITE_DATA, SITE_DATA_KIND, STUDY_DATA, STUDY_DATA_KIND,
-                             teacher_genres)
+from page_data_specs import (OPTIONAL_DATA, PEOPLE_DATA, PEOPLE_DATA_KIND, SITE_DATA, SITE_DATA_KIND, STUDY_DATA,
+                             STUDY_DATA_KIND, teacher_genres)
 from page_rules import jsx_prose, strings_in, translatable
 
 KINDS = (PEOPLE_DATA_KIND, STUDY_DATA_KIND, SITE_DATA_KIND)
@@ -112,6 +112,8 @@ def data_strings(site: Path, walk) -> dict[str, list[str]]:
     found: dict[str, dict[str, None]] = {kind: {} for kind in KINDS}
     for spec in PAGE_DATA:
         files = sorted(site.glob(spec[1]))
+        if not files and spec[1] in OPTIONAL_DATA:
+            continue
         if not files:
             hint = ("data/ is built, not kept in git: build the site's data first" if spec[1].startswith("data/")
                     else "the page's data moved, update PAGE_DATA (page_data.py or page_data_specs.py)")
