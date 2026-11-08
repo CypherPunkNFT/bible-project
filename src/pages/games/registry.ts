@@ -103,7 +103,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "family", art: GAME_ART.whosOlder,
   },
   {
-    slug: "charades", status: "coming-soon", title: "Family charades",
+    slug: "charades", status: "live", load: () => import("./charades/CharadesGame"),
+    title: "Family charades",
     description: "Hold the phone to your forehead, act out the scene on it, and let everyone else guess.",
     audiences: ["family", "youth-group"],
     shelf: "family", art: GAME_ART.charades,

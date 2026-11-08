@@ -660,3 +660,26 @@ Columns: **Card** is what the screen shows; **Pic** the picture for Little ones;
 ### 16.3 Left for the owner (none blocks the build)
 
 The open points in §13 still stand, and the design's defaults can be built as they are: *Guess it* first, no crucifixion card, the two scenes with God kept, parables in Everything, and no custom decks. The review agrees with each default. It adds no new owner decision.
+
+---
+
+## 17. Implementation notes (build step, job f646667b, sequence 31 step 9, 2026-11-07)
+
+The game is built to this design and live at `/games/charades` (the `charades` entry in [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) is now `status: "live"`). Files are as §10 lists, in [src/pages/games/charades/](Jarvis/Projects/BibleProject/Website/src/pages/games/charades/), with the scenes in [scenes.json](Jarvis/Projects/BibleProject/Website/src/data/charades/scenes.json), copied row for row from Appendix A. The deck table of §3.3 is reproduced exactly by the tests.
+
+Where the build had to choose something the design left open, or differs slightly:
+
+- **One recap row per scene.** A passed scene that comes back later in the round keeps its first row, and its mark becomes the later answer. A scene showing at the buzzer that had been passed earlier stays "passed".
+- **Scores are saved when the round ends, and follow fixes on the recap.** A team's total and the best score are written as soon as the recap opens and adjusted when a mark is fixed. So a reload, or "Read the story" in the same tab, never loses the round. Tapping *Next team* or *Play again* only moves on.
+- **Remembered per age group and per mode.** Round length and pictures are remembered per age group. *Controls* is remembered per mode: *Guess it* starts on tilt and *Act it* on buttons, as §1.1 says.
+- **Get ready with tilt also shows a small *Start round* button**, in case a phone never reads as upright.
+- **"Read the story" for a passage that runs into the next chapter** (Jonah 1:17–2:10) opens the first chapter shaded from the first verse to its end (`?hl=17-999`; the reader's highlight accepts it).
+- **The hand-over screen** shows the team's name on its own line above "Pass the phone to your next guesser". The final standings say "The winner" or "A tie at the top" above the names. Written this way, the site's translation check can register the words, which it cannot do for a sentence with a name inserted into it.
+- **Fit-to-size text.** The card title is fitted by measuring, between 28 px and 160 px, within three lines.
+
+**Not yet done: the manual checks of §11.** These need one iPhone (Safari) and one Android phone (Chrome), over HTTPS:
+- tip down gives Correct and tip up gives Pass;
+- the card stays upright when the phone is held sideways, with its rotation lock both on and off;
+- the screen stays awake through a round.
+
+They could not be done from this build machine. The tilt thresholds stay at the design's starting values until someone tries a real phone.

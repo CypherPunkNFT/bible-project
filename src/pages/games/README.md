@@ -158,6 +158,36 @@ progress are kept in the browser under `bp-whos-older`; a reload brings back the
   independent re-check of the pairing rule over 2,000 random pairs of the real file, and the left card being right
   40–60% of the time.
 
+## Family charades
+
+`charades` ([charades/CharadesGame.tsx](charades/CharadesGame.tsx); design:
+[docs/features/family-charades/design.md](../../../docs/features/family-charades/design.md)) is a Heads Up!-style game
+for one phone in one room. *Guess it* (the default): the guesser holds the phone to their forehead, everyone else acts
+the scene, and the guesser tips the phone down for Got it or up to Pass. *Act it*: classic charades, the actor reads the
+phone and taps Got it. Decks by age (Little ones, Kids, Teens and adults), Everything at Easy/Medium/Hard or one of
+seven themes (offered only with at least 12 scenes), rounds of 30–120 seconds, optional teams, and a recap with every
+scene's passage and a "Read the story" link. The round is a fixed layer over the page (`charades.css`); the setup and
+recap sit in the site's layout. Settings, best score per round length and the last 200 scenes seen are kept under
+`bp-charades` in local storage; a team game in progress under `bp-charades-game` in session storage.
+
+- **Data:** `src/data/charades/scenes.json`, 129 hand-kept scenes (design Appendix A). No build script: add or change a
+  row by hand and run `npm test`; `scenes.test.ts` checks every reference against `data/plain/bsb/` and that each
+  scene's check word occurs as whole words in its passage, and prints the deck sizes.
+- **Controls:** tilt (`tilt.ts`, pure: `cos β · cos γ` says whether the screen faces up or down, whichever way round
+  the phone is held), big Got it / Pass buttons, and → or Space / ← / Esc on a computer, all live at once. Everything
+  that needs the Start tap (sound, wake lock, fullscreen on Android, the iPhone motion prompt) is started in the tap
+  before anything is awaited (`sensors.ts`). With no tilt readings within a second, or motion access refused, the round
+  plays on buttons and says why; the next visit starts on *Buttons only*.
+- **Testing on a phone:** browsers send no orientation events on plain HTTP, so the local preview opened on a phone over
+  the network plays on buttons only. Use HTTPS (a tunnel or the deployed preview) to try tilt.
+- **Known gaps:** the game's words and the scenes are English in every language. The tilt thresholds and the card's
+  self-turning (for a phone whose rotation lock is on) are tested on recorded-style numbers, not yet on a real iPhone
+  and Android phone (design §11's manual checks).
+- **Checks:** the `*.test.ts(x)` files in `charades/` run in `npm test`: the scene rules against the BSB, the deck table,
+  1,000 dealt rounds per offered deck, the tilt detector on synthetic sequences, the round clock and team totals,
+  storage, and the page itself (a buttons round, a tilt round from dispatched orientation events, the iPhone prompt
+  granted and refused, no readings, and the Start tap's call order).
+
 ## Memory card match
 
 `memory-match` ([memory-match/MemoryMatchGame.tsx](memory-match/MemoryMatchGame.tsx); design:
