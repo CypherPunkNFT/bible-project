@@ -1,6 +1,8 @@
 # Live Quiz for youth groups — design
 
-**Status:** draft from the research-and-design step (2026-11-07). One review and then the build follow as separate steps.
+**Status:** reviewed (2026-11-07). Written by the research-and-design step, then reviewed once against the spec, the
+shared rules and the real codebase; the corrections are applied in the body below and listed in the **Review** section
+at the end. The build step follows.
 **Spec (owner-approved, binding):** APPROVED-IDEAS.md entry 1 — "Kahoot-style: leader shows the game on a screen, kids answer on their phones. Uses the existing ~5,000 multiple-choice questions."
 **Shared rules:** FEATURE-BUILD-RULES.md (Jarvis/Projects/BibleProject/) — no runtime LLM cost, reuse site data, Berean Standard Bible for Scripture, register on the /games hub, touch only this feature's files plus its registry/nav entry, add tests, never deploy.
 **Slug:** `live-quiz`.
@@ -58,8 +60,8 @@ actually wants out of a quiz night.
 2. **Six-digit numeric code + QR**, typed on a numeric keypad. Industry standard; easy to read off a projector.
 3. **Kahoot's scoring formula** (500–1000 for a right answer), **streak shown but worth no points** (keeps comebacks
    possible), and an **"accuracy only" setting** for leaders who don't want speed pressure on younger kids.
-4. **Answers on the phone show their text**, not just shapes (our options are long — median 29 characters, 1 in 20 over
-   79 — and unreadable from the back of a hall). The question text on phones is a leader setting, on by default.
+4. **Answers on the phone show their text**, not just shapes (our options are long — median 24 characters, 1 in 20 over
+   68, longest 157 — and unreadable from the back of a hall). The question text on phones is a leader setting, on by default.
 5. **Kahoot's safety set**: lock room, remove player, friendly-name generator, name filter.
 6. **No player paywall.** Cap at 100 players per room (see 7.2), which covers any youth group.
 
@@ -87,21 +89,30 @@ From the bank, in the leader's browser:
    opt-in because catechism answers are tradition-specific — Lutheran, Reformed — and a mixed youth group may not share
    one), **Level** (Easy / Medium / Hard / Mixed), **For children** (only `children: true`, with the `child` wording
    where it exists), and optionally a **theme, testament or book**.
-2. Leave out the 28 questions whose wording points outside themselves ("this passage", "the following", "in this
-   story") and any whose options say "all of the above" / "none of the above" (none today, but the rule protects
-   option shuffling). This is a small pure filter with a test.
+2. Leave out the questions whose wording points outside themselves ("this passage", "the following", "in this
+   story" and similar — a fixed phrase list in `pick.ts`; the three phrases above match 13 questions today), any whose
+   options say "all of the above" / "none of the above" (none today, but the rule protects option shuffling), and the
+   15 two-part questions whose lead-in (question + answer) is over 400 characters — too long to read off a projector
+   in the read window, and over the room's size limit (6.1). This is a small pure filter with a test.
 3. Draw N at random without repeats (N = 10, 15, 20 or 30; default 15). **Mixed** level orders the draw easy →
    medium → hard so the game warms up.
 4. Shuffle each question's four options (the bank already varies the right answer's position; shuffling again stops
-   kids memorising "it's always B" from earlier games) and record the right option's new index.
-5. **Play again** in the same room draws from the pool minus questions already used in that room (kept in the leader's
-   browser for the room's life).
+   kids memorising "it's always B" from earlier games) and record the right option's new index. With **For children**
+   on, a question that has `child` wording uses its `child.question`, `child.options` and `child.answer` instead
+   (all 716 have exactly four options, the answer always among them).
+5. Trim the `reference` string to 160 characters (ending "…") before it goes into the room: most are short (99% under
+   73 characters) but 42 are long lists of references, up to 1,679 characters. The `link` (book, chapter, verse) is
+   sent as is.
+6. **Play again** in the same room draws from the pool minus questions already used in that room (the room keeps the
+   used ids, so this survives a leader reload).
 
 If the filters leave fewer questions than N, the setup screen says so ("Only 7 questions match — play 7, or widen the
 filters") and offers to play what there is; with fewer than 3 the Create button is disabled.
 
-Questions need a **stable id** for "already used" tracking. The bank has no id field; use a short hash of
-`collection + question` computed in the browser (8 duplicate question texts exist; the collection makes them unique).
+Questions need a **stable id** for "already used" tracking and for the leader page to find its own copy of a question
+after a reload. The bank has no id field; use a short hash of `collection + question + answer` computed in the browser.
+(8 question texts repeat; `collection + question` alone still collides once — two catechism questions both reading
+"What are they?" — while adding the answer makes all 14,916 unique, measured 2026-11-07.)
 
 ---
 
@@ -120,7 +131,7 @@ create → LOBBY ──start──▶ READ ──(read time)──▶ ANSWER ─
 | Phase | Big screen | Phones | Ends when |
 |---|---|---|---|
 | **Lobby** | Join code, address, QR, names appearing, player count, Start, Lock | "You're in — look for your name on the screen" | Leader presses Start (needs ≥ 1 player) |
-| **Read** | Question number, question text large, a draining bar | "Question 3 of 15 — read it on the screen" (+ the question text if that setting is on) | Read time: 2 s + 40 ms per character of the question, clamped to 3–7 s |
+| **Read** | Question number, question text large, a draining bar | "Question 3 of 15 — read it on the screen" (+ the question text if that setting is on) | Read time: 2 s + 40 ms per character of the question (lead-in included), clamped to 3–7 s, or 3–12 s when there is a lead-in. Pause holds it; Next skips it |
 | **Answer** | Question, the four options with colour + shape + letter, countdown, "18 of 24 answered" | Four big buttons (colour, shape, letter, option text), countdown | Timer (10 / 20 / 30 s, default 20) runs out, **or** every connected player has answered, **or** the leader presses Skip |
 | **Reveal** | Right option highlighted, a bar per option with how many chose it, the reference and BSB verse text with a link | Big ✓ or ✗, "+850", streak flame if ≥ 2, "You're 4th" | Leader presses Next (or 8 s later if Auto-advance is on) |
 | **Leaderboard** | Top 5 with rise/fall arrows, "and 19 others" | Own rank and "120 points behind Sam" | Leader presses Next (or 6 s with Auto-advance). Skipped after the last question. |
@@ -146,7 +157,7 @@ from the player list during the game) · End game · Fullscreen · Sound on/off.
 | For children (6–11) | on / off | off |
 | Theme / testament / book | any of the test page's themes, OT/NT, a book | none |
 | Scoring | Speed counts (500–1000) / Accuracy only (1000 per right answer) | Speed counts |
-| Names | Players type a name / Name picker only | Players type |
+| Names | Players type a name / Name picker only | Players type (Name picker only is automatically suggested when "For children" is on — children then never type a name, the safeguard Kahoot recommends) |
 | Question text on phones | on / off | on |
 | Auto-advance | on / off | off |
 
@@ -207,7 +218,8 @@ works (a leader may test on a tablet).
 one thumb. The route chunk must stay small (no question bank, no heavy libraries): phones download only the page and
 receive questions over the socket.
 
-1. **Code** — six-digit field, numeric keypad (`inputmode="numeric"`, `autocomplete="one-time-code"` off), Join.
+1. **Code** — six-digit field, numeric keypad (`inputmode="numeric"`, `autocomplete="off"`, so phones neither offer
+   saved values nor treat it as a text-message login code), Join.
    Prefilled and skipped when arriving from the QR link.
 2. **Name** — text field (max 16 characters), or, in "Name picker only" rooms, a generated two-word name with
    "Spin again" (three spins) and **This is me**.
@@ -227,12 +239,26 @@ returns to the foreground).
 
 ### 5.3 Hub registration
 
-The game registers itself in the /games hub registry (`src/pages/games/registry.ts`, documented in the README beside
-it) with its title, one-line description ("Kahoot-style quiz for youth groups: the leader shows it on a screen, players
-answer on their phones"), route `/games/live-quiz`, and status switched from "coming soon" to live. **Note for the build
-step:** on 2026-11-07 the hub (built by the job that created it, "job 714") was **not yet in the source tree** —
-`src/pages/games/` does not exist. If it still doesn't exist when the build starts, add only this game's routes and
-leave the registry entry to be added as soon as the hub lands (do not build a competing hub).
+The /games hub now exists in the working tree ([registry.ts](../../../src/pages/games/registry.ts), its
+[README.md](../../../src/pages/games/README.md) and [GamesPage.tsx](../../../src/pages/games/GamesPage.tsx); checked
+2026-11-07 during the review). Its registry **already has a `live-quiz` entry** with `status: "coming-soon"`, title
+"Live youth-group quiz", audiences youth group and church night. Going live is a one-entry change, following the README:
+
+```ts
+{
+  slug: "live-quiz", status: "live", load: () => import("./live-quiz/LiveQuizGame"),
+  title: "Live youth-group quiz",
+  description: "The leader puts the game on a screen and everyone answers on their phones, from thousands of questions.",
+  audiences: ["youth-group", "church-night"],
+},
+```
+
+`GamesPage` then serves the leader page at `/games/live-quiz` by itself — **no route for it in `src/App.tsx`**. The game
+page is drawn inside the site's normal header and footer; the leader's Fullscreen control (3.2) puts the game area
+alone on the projector. Keep the existing description (it is already within the README's 140-character limit).
+
+The player page is the one exception to the README's "a game never touches the router": `/play` deliberately sits
+outside `/games/…` (5.2), so it needs its own two `<Route>` lines in `src/App.tsx`, lazy-loaded like every other page.
 
 ---
 
@@ -253,9 +279,12 @@ exact same game; scores use one clock (the server's); and the right answer is **
 reveal**.
 
 The leader's browser picks the questions (it already has the bank loaded) and sends them to the room when creating it:
-text, four options, right index, reference and verse link, at most 30 questions. The room validates their shape and
-lengths (question ≤ 400 characters, options ≤ 200, exactly 4 options, right index 0–3) and keeps them. The server never
-needs the 17 MB bank.
+stable id, text, optional lead-in, four options, right index, reference and verse link, at most 30 questions. The room
+validates their shape and lengths and keeps them: question ≤ 300 characters (longest in the bank: 224), each option ≤ 200
+(longest: 157), exactly 4 options, right index 0–3, lead-in question + answer ≤ 400 (longer ones never enter the pool,
+2.1), reference ≤ 160 (trimmed in 2.1), link book code ≤ 8 characters with whole-number chapter and verse, id ≤ 16
+characters. Worst case that is about 1.7 KB per question and about 51 KB for 30, so the create request body is capped at
+64 KB. The server never needs the 17 MB bank.
 
 ### 6.2 Why a Durable Object, and the alternatives rejected
 
@@ -277,10 +306,27 @@ needs the 17 MB bank.
 | `src/lib/live-quiz/engine.ts` | **Pure game logic, no I/O**: `applyHostAction`, `applyPlayerMessage`, `onDeadline`, `score`, `rank`, `nextWakeAt`, name rules. Every rule in sections 3, 4 and 7 lives here and is unit-tested. |
 | `src/lib/live-quiz/names.ts` | Friendly-name word lists (e.g. Brave/Gentle/Joyful/Faithful… × Lion/Dove/Lamb/Cedar/Eagle/Sparrow…), a small block-list for typed names, normalisation. |
 | `src/lib/live-quiz/pick.ts` | Question selection from section 2.1 (pool, exclusions, draw, mixed ordering, option shuffle, stable id). |
-| `server/live-quiz/room.ts` | The Durable Object class `LiveQuizRoom`: socket accept/close, storage load/save, alarm → `engine.onDeadline`, fan-out of the engine's outgoing messages. Thin; holds no rules of its own. |
+| `src/lib/live-quiz/room-core.ts` | Everything the room object does that is not Cloudflare-specific — load/save through a small `RoomStorage` interface, token-hash checks, routing a socket's message to the engine, turning the engine's output into per-socket sends through a `RoomSockets` interface, computing the next alarm. Unit-tested with in-memory fakes. |
+| `server/live-quiz/room.ts` | The Durable Object class `LiveQuizRoom` (`extends DurableObject` from `cloudflare:workers`): adapts `ctx.storage`, `ctx.acceptWebSocket` / `getWebSockets` / attachments and `setAlarm` to `room-core`'s interfaces, and nothing else. A few dozen lines; holds no rules of its own. |
 | `functions/api/live-quiz/[[path]].ts` | Routes `POST /api/live-quiz/rooms` (create, picks a free code) and `GET /api/live-quiz/rooms/:code` (exists / locked / full) and the socket upgrade `GET /api/live-quiz/rooms/:code/socket` to the room's object. Declares its own `LiveQuizEnv` type for the binding rather than editing shared types. |
-| `src/pages/games/live-quiz/…` | Leader page, player page, their components, CSS, and a `useRoomSocket` hook (connect, reconnect with backoff, server-time offset). |
-| Shared-file entries | the hub registry entry; two routes (`/games/live-quiz`, `/play[/:code]`) in [src/App.tsx](../../../src/App.tsx); `"/api/live-quiz/*"` added to the `include` list in [public/_routes.json](../../../public/_routes.json) (the release's `run_worker_first` list is built from it); in [scripts/prepare-testimonies-release.ts](../../../scripts/prepare-testimonies-release.ts) the generated `wrangler.jsonc` gains `durable_objects: { bindings: [{ name: "LIVE_QUIZ", class_name: "LiveQuizRoom" }] }` and `migrations: [{ tag: "live-quiz-v1", new_sqlite_classes: ["LiveQuizRoom"] }]`; [server/site-worker.mjs](../../../server/site-worker.mjs) re-exports `LiveQuizRoom` (the release copy must carry `room.ts` beside it so wrangler bundles it). |
+| `src/pages/games/live-quiz/…` | `LiveQuizGame.tsx` (the leader page, default export, loaded by the hub registry), `PlayPage.tsx` (the player page for `/play`), their components, CSS, and a `useRoomSocket` hook (connect, reconnect with backoff, server-time offset). |
+| Shared-file entries | the hub registry entry going live (5.3); the `/play` and `/play/:code` routes in [src/App.tsx](../../../src/App.tsx) (no `/games/live-quiz` route — the hub serves it); `"/api/live-quiz/*"` added to the `include` list in [public/_routes.json](../../../public/_routes.json) (the release's `run_worker_first` list is built from it); in [scripts/prepare-testimonies-release.ts](../../../scripts/prepare-testimonies-release.ts) the generated `wrangler.jsonc` gains `durable_objects: { bindings: [{ name: "LIVE_QUIZ", class_name: "LiveQuizRoom" }] }` and `migrations: [{ tag: "live-quiz-v1", new_sqlite_classes: ["LiveQuizRoom"] }]`, and the same script bundles `server/live-quiz/room.ts` with its `src/lib/live-quiz/` imports into one file, `worker/live-quiz-room.mjs`, using the esbuild already installed (0.25.12; `cloudflare:workers` marked external); [server/site-worker.mjs](../../../server/site-worker.mjs) gains one line, `export { LiveQuizRoom } from "./live-quiz-room.mjs";`; the privacy page's one sentence (6.8). Each is an added line or entry — the other chains are editing some of the same files in parallel. |
+
+**Rules for the shared code in `src/lib/live-quiz/`** (it is compiled three ways: into the browser bundle, by
+`wrangler pages functions build`, and into the room bundle): relative imports only — the `@/` alias exists only in the
+Vite and app TypeScript configs, not in [tsconfig.worker.json](../../../tsconfig.worker.json) or the worker builds — and
+no DOM, React or browser-only APIs (the worker typecheck uses `lib: ["ES2023"]` and no DOM types).
+
+**Why not copy `room.ts` into the release as it is:** the release's `site-worker.mjs` sits in a separate release folder;
+a copied `room.ts` would still import `../../src/lib/live-quiz/…`, which does not exist there. Bundling it to one file
+first avoids that.
+
+**The release path:** Durable Object classes can only be defined by a Worker, not by a Cloudflare Pages project, so this
+game needs the Workers release (`scripts/deploy-worker.mjs`, which runs `wrangler deploy` and applies the migration) —
+the path the site already uses. Also, [server/site-worker.mjs](../../../server/site-worker.mjs) refuses every non-GET
+`/api/` request on the temporary `*.workers.dev` address (to protect the shared testimonies database); creating a room is
+a POST, so on that test address room creation fails unless `/api/live-quiz/` is exempted from that check. The room
+touches no database, so exempting it is safe; the build step should add that exemption next to the check.
 
 The release changes are written but **not run** — the rules say never deploy.
 
@@ -290,9 +336,14 @@ The dev server (Vite on port 8930, started by "Start site.cmd") has no Workers r
 
 - `wrangler.live-quiz.jsonc` — a dev-only config whose `main` is a tiny dev worker exporting `LiveQuizRoom` and routing
   `/api/live-quiz/*` to it, with the Durable Object binding and migration.
-- script `"live-quiz:dev": "wrangler dev -c wrangler.live-quiz.jsonc --port 8932"` (Miniflare runs Durable Objects,
-  alarms and hibernation locally — no Cloudflare account or cost).
-- in [vite.config.ts](../../../vite.config.ts) a dev-server proxy: `"/api/live-quiz": { target: "http://127.0.0.1:8932", ws: true }`.
+- script `"live-quiz:dev": "wrangler dev -c wrangler.live-quiz.jsonc --ip 127.0.0.1 --port 8928"` (Miniflare runs
+  Durable Objects, alarms and hibernation locally — no Cloudflare account or cost). **Not 8932**: the site's browser
+  checks already start their own preview there (comment at the top of [vite.config.ts](../../../vite.config.ts)), and
+  8930–8947 are mostly taken by other local tools; 8928 is unused by anything in the site. It is a back-end port only,
+  never opened in a browser, so it does not break the AGENTS.md rule against new preview addresses.
+- in [vite.config.ts](../../../vite.config.ts) the same proxy entry in **both** `server` and `preview`:
+  `proxy: { "/api/live-quiz": { target: "http://127.0.0.1:8928", ws: true } }`. The `preview` one matters: the owner's
+  one preview address, 8931, is `vite preview` started from this same config by `scripts/start-preview.mjs`.
 
 If the leader page cannot reach the API locally it says so plainly ("The live-game server isn't running on this PC —
 run `bun run live-quiz:dev`") rather than a generic error. To try it with real phones on the same Wi-Fi, the dev server
@@ -301,7 +352,13 @@ would need to listen on the LAN address; that is a manual step for the owner, no
 ### 6.5 Messages (JSON over the socket)
 
 Every message has a `t` (type). The server validates every incoming message against `protocol.ts` and drops anything
-malformed or too large (> 4 KB) with an `error` reply.
+malformed or too large with an `error` reply. Size limits: **1 KB** for any player message, **4 KB** for leader
+messages, except the leader's `again {questions}`, which carries a fresh list of up to 30 questions and may be up to
+**64 KB** (the same limit as the create request, 6.1).
+
+**Flood guard:** every incoming message is billed (20 count as one request, 8.1), so a socket that sends more than 20
+messages in any 10 seconds is closed with "Too many messages"; a phone's normal traffic is one answer per question.
+A closed phone can reconnect and rejoin as itself.
 
 **First message on every socket** authenticates (never put tokens in the URL, where they end up in logs):
 - leader: `{t:"host", token}`
@@ -339,8 +396,8 @@ Outgoing messages are free on Cloudflare, so personal per-phone messages cost no
 - In memory while awake; **written through** to the object's SQLite-backed storage on every change, because a
   hibernating object loses its memory and is rebuilt from storage when the next message or alarm wakes it
   (`blockConcurrencyWhile` loads it in the constructor).
-- Keys: `room` (settings, phase, question list, current index, deadlines, used-locked flags, leader token hash) written
-  on phase changes; `p:<playerId>` (name, token hash, score, streak, current answer, answer times) written on join and
+- Keys: `room` (settings, phase, question list, current index, deadlines, locked flag, ids of questions already used
+  in this room, removed player ids, leader token hash) written on phase changes; `p:<playerId>` (name, token hash, score, streak, current answer, answer times) written on join and
   each answer. About 500 row writes in a 30-player, 15-question game.
 - **One alarm** per object, always set to the engine's `nextWakeAt`: the end of the current read or answer window, the
   auto-advance moment, or the clean-up time.
@@ -363,7 +420,7 @@ them within a few hours."
 | Case | Behaviour |
 |---|---|
 | Phone locks its screen / switches app / loses Wi-Fi | The socket drops. On return (`visibilitychange`, `online`) the hook reconnects with backoff (0.5 s, 1, 2, 4, max 8 s), sends `rejoin`, receives the current `state`. The player keeps their score; questions they missed score 0. Shown as "Reconnecting…". The leader's tile for that player greys out while disconnected. |
-| Leader's laptop reloads or crashes | The page finds `{code, token}` in `localStorage` and resumes the same room in its current phase. While no leader is connected, timers already running still finish (a question still closes on time), but the game **never advances past a reveal** without the leader; phones show "Waiting for the leader". |
+| Leader's laptop reloads or crashes | The page finds `{code, token}` in `localStorage` and resumes the same room in its current phase. The reveal's verse block is drawn from the room's own copy of each question (reference and `link`), with the bank's book names once the bank has reloaded, so it does not depend on the leader's earlier in-memory draw. While no leader is connected, timers already running still finish (a question still closes on time), but the game **never advances past a reveal** without the leader; phones show "Waiting for the leader". |
 | Leader never comes back | Room wiped after 2 hours without a leader (6.7). |
 | "Everyone answered" with disconnected players | Counts only connected players, so one dead phone can't hold up the question. |
 | A player answers twice (double tap, or two tabs) | The first answer stands; later ones are ignored. Two tabs with the same token: the newer socket replaces the older one (the older gets "Opened on another tab"). |
@@ -383,8 +440,9 @@ them within a few hours."
 | Joining after the game started | Allowed (unless locked); joins with 0 points from the next question. Kahoot allows the same. |
 | Duplicate name | Case-insensitive; the phone is asked to pick another ("Sam is taken — try Sam B"). |
 | Rude or invisible names | Trimmed, Unicode-normalised, control and zero-width characters removed, 1–16 characters. A short block-list rejects obvious words ("Please choose another name"). The real safeguards are **Remove player** and **Name picker only** — no list catches everything, and the doc should not pretend otherwise. |
-| Removed player tries again | The room remembers removed player ids and their device token; the same phone can't rejoin that room. (A determined kid can clear storage; the leader can lock the room.) |
+| Removed player tries again | The room remembers removed player ids and refuses their token, and the phone keeps a "removed from game <code>" mark in `localStorage`, so the same phone can't simply rejoin that room. (A determined kid can clear storage and join under a new name; the leader can remove again and lock the room. There is no device identity beyond that, by design — no fingerprinting of children's phones.) |
 | Random people guessing codes | 900,000 codes, few live rooms, codes die within hours; the leader sees every name and can lock. The join-check endpoint answers only exists/locked/full. Add Cloudflare's rate limiting rule on `/api/live-quiz/*` at release time only if abuse is seen (free rule, no code). |
+| Someone scripts room creation | Creating a room needs no account, so it can be automated. An empty room costs about three billed requests and a few row writes, and is wiped after 2 hours without a leader (6.7): on the Paid plan a million requests (the monthly allowance) is roughly 300,000 junk rooms, and past that $0.15 per million. Not worth code now; the same free rate-limiting rule covers it if it happens. |
 
 ### 7.3 Content and the bank
 
@@ -393,7 +451,7 @@ them within a few hours."
 | Filters match too few questions | Setup says how many match; can play fewer; Create disabled below 3. |
 | Question has no verse link (294) | Reveal shows the reference string if there is one, else just the answer. |
 | Verse text fails to load | Reveal shows the reference with its link; never blocks the game. |
-| Two-part questions (195 with `lead_in`) | Lead-in shown above the question on screen and phone, as the test page does. |
+| Two-part questions (195 with `lead_in`) | Lead-in shown above the question on screen and phone, as the test page does; its characters count towards the read time. The 15 whose lead-in is over 400 characters are left out (2.1). |
 | Long question or option | Screen text scales down to a minimum; phone buttons wrap; validator caps lengths. |
 | Leader's language is not English | Questions come from that language's bank; phone UI uses the site's own language handling; answer text `dir="auto"`. |
 | Leader sends edited question text | Possible (the leader's browser builds the list), but it only reaches the leader's own invited players, who are already in the room listening to that leader. Shape and length validation applies; no HTML is ever rendered from messages (React text only). |
@@ -463,16 +521,26 @@ COST/DEPENDENCY GATE (to be approved by the owner at release, not at build):
 
 ## 9. Tests the build step should add
 
+**Where they go:** the site's vitest only collects `src/**/*.test.{ts,tsx}` ([vitest.config.ts](../../../vitest.config.ts)),
+so every test lives under `src/` — `src/lib/live-quiz/*.test.ts` and `src/pages/games/live-quiz/*.test.tsx`. A test
+file under `server/` would silently never run. Nothing imports `server/live-quiz/room.ts` in tests (its
+`cloudflare:workers` import cannot load in vitest's jsdom); the room's behaviour is tested through `room-core.ts`.
+
 - **Engine (unit, vitest):** scoring formula (instant, half time, buzzer, < 0.5 s, accuracy mode, pause excluded),
   ranking with ties, phase transitions for every leader action including stale/double actions, "everyone answered"
   counting only connected players, late-answer grace, answers to old questions ignored, once-only answers, join rules
   (duplicate, full, locked, removed, late join), clean-up times from `nextWakeAt`.
-- **Picking (unit):** pool filters, exclusions, mixed ordering, option shuffle keeps the right answer, too-few handling,
-  stable ids, no repeats on play again.
-- **Protocol (unit):** every validator rejects malformed, oversized and wrong-phase messages; no message to a phone
-  contains `correct` before the reveal.
-- **Room object (unit with a fake storage and fake sockets):** state survives a simulated hibernation (rebuild from
-  storage), alarm drives deadlines, tokens are checked by hash.
+- **Picking (unit):** pool filters, exclusions (including over-long lead-ins), mixed ordering, option shuffle keeps the
+  right answer, children's wording swapped in, reference trimming, too-few handling, stable ids unique across the real
+  bank's duplicate texts, no repeats on play again.
+- **Protocol (unit):** every validator rejects malformed, oversized (per-message limits in 6.5, create body in 6.1) and
+  wrong-phase messages; a 30-question worst-case `again` is accepted; no message to a phone contains `correct` before
+  the reveal.
+- **Room core (unit, `room-core.ts` with in-memory fake storage and fake sockets):** state survives a simulated
+  hibernation (rebuild from storage), alarm drives deadlines, tokens are checked by hash, the flood guard closes a
+  spamming socket.
+- **Hub (existing):** [games.test.tsx](../../../src/pages/games/games.test.tsx) already checks every registry entry and
+  needs no change when this game goes live.
 - **Pages (component):** player screens for each phase render from a `state` snapshot; leader lobby shows code and QR.
 - Then the site's own `npm test`, `npm run typecheck`, `npm run lint` and `npm run build`.
 - **Manual end-to-end** (recorded in the build step's report): `bun run live-quiz:dev` + the dev server, one leader tab
@@ -500,3 +568,55 @@ added on top of this design without changing the room model.
 - Bible competitors — https://bibletrivialive.com/ ; https://apps.apple.com/us/app/bible-live-quiz-group-trivia/id6762076569 ; https://kerygma.one/ ; https://triviamaker.com/
 - Cloudflare Durable Objects pricing — https://developers.cloudflare.com/durable-objects/platform/pricing/
 - Cloudflare Durable Objects WebSockets / Hibernation API — https://developers.cloudflare.com/durable-objects/best-practices/websockets/
+
+---
+
+## Review
+
+**Reviewed 2026-11-07, once, by the review step of the Bible Guide games chain** (orchestrator job
+97051f1125ff4c0cb86fc3d7af7ec7d5). Checked against the owner's approved spec (APPROVED-IDEAS.md entry 1), the shared
+rules (FEATURE-BUILD-RULES.md), the site's AGENTS.md, and the real code and data in this repository: the question bank
+was re-measured, and the hub, router, worker entry point, release script, Vite, vitest and TypeScript configs were read.
+Every correction below is already applied in the body above.
+
+**Verdict:** the design is sound and fits the spec — leader-paced, Kahoot-style, phones answer, built on the existing
+question bank, no runtime AI, Scripture from the Berean Standard Bible, registered on the /games hub, no deploy. The
+choice of one Cloudflare Durable Object per room is right, and the cost figures check out (re-computed: about 188 GB-s
+and 85 requests for a 30-player game, so about 2,100 games a month inside the $5 plan's allowance even without
+hibernation, about $0.0023 per game beyond it). Six problems would have broken or misled the build; they are fixed.
+
+### Problems that would have broken the build (fixed)
+
+| # | What was wrong | What changed | Where |
+|---|---|---|---|
+| 1 | The doc said the /games hub did not exist yet and told the build to add a `/games/live-quiz` route in `src/App.tsx`. The hub now exists, already lists this game as "coming soon", and serves every live game's page by itself. A second route would duplicate it and break the README's rule. | Section rewritten: make the existing registry entry live (code given), no `/games/live-quiz` route; only `/play` needs router lines, as a stated exception. File names `LiveQuizGame.tsx` / `PlayPage.tsx` fixed. | 5.3, 6.3 |
+| 2 | Every incoming socket message was capped at 4 KB, but "play again" sends up to 30 new questions over the socket (about 50 KB) — it would always have been refused. | Separate limits: 1 KB player, 4 KB leader, 64 KB for "play again" and for room creation. | 6.1, 6.5 |
+| 3 | The room's size checks covered only question and option text. The bank has references up to 1,679 characters and two-part lead-ins up to 1,826 — they would either be rejected or pass unchecked. | References trimmed to 160 characters; the 15 questions with lead-ins over 400 characters left out of the pool; every field now has a limit, worst case worked out. | 2.1, 6.1, 7.3 |
+| 4 | The release step was told to copy `room.ts` beside the worker's entry file. `room.ts` imports the shared game logic from `src/lib/live-quiz/`, which does not exist in the release folder, so the release build would fail. | Release script bundles the room and its imports into one file with the esbuild already installed; the worker entry re-exports it in one line. | 6.3 |
+| 5 | Room tests were planned beside `server/live-quiz/room.ts`, but the site's test runner only collects tests under `src/`, and `room.ts` imports a Cloudflare-only module the test runner cannot load. Those tests would never run. | Room logic moved into `src/lib/live-quiz/room-core.ts` behind small storage/socket interfaces and tested there; `room.ts` becomes a thin adapter; test locations spelled out. | 6.3, 9 |
+| 6 | The local game server was put on port 8932, which the site's browser checks already use for their own preview. | Moved to 8928 (unused by anything in the site), bound to 127.0.0.1, back-end only. | 6.4 |
+
+### Smaller corrections (fixed)
+
+- **Owner's only preview (8931) would not have reached the game server**: the proxy was only on the dev server. It now goes in both the `server` and `preview` blocks of vite.config.ts, since 8931 is `vite preview` from the same config. (6.4)
+- **Shared code compiled three ways**: added the rule that `src/lib/live-quiz/` uses relative imports only and no browser-only APIs — the worker builds and worker typecheck know neither the `@/` alias nor DOM types. (6.3)
+- **Test address would refuse room creation**: the worker blocks every non-GET `/api/` call on `*.workers.dev`; noted that `/api/live-quiz/` needs exempting (it touches no database). Also noted that Durable Objects need the Workers release path, not Pages — which is already the site's path. (6.3)
+- **Stable question id collided**: `collection + question` repeats once in the real bank (two catechism questions "What are they?"); now `collection + question + answer`, measured unique across all 14,916. (2.1)
+- **"Play again" memory lost on a leader reload**: the used-question list moved from the leader's browser into the room's storage, with the removed-player list. (2.1, 6.7)
+- **Leader reload and the verse block**: the reveal now draws on the room's copy of each question's reference and link, not on the leader's lost in-memory draw. (7.1)
+- **Children's wording**: spelled out that "For children" swaps in the 716 questions' child wording, options and answer (all verified four options with the answer among them). (2.1)
+- **Read time with a lead-in**: lead-in characters now count, with a 12-second ceiling instead of 7 when there is one; Pause holds and Next skips. (3.1, 7.3)
+- **Children's names**: "Name picker only" is suggested automatically when "For children" is on, so children don't type names. (3.3)
+- **Message flood guard**: incoming messages are billed, so a socket sending more than 20 messages in 10 seconds is closed. (6.5)
+- **Scripted room creation**: added the edge case with its cost bound (about 300,000 junk rooms per million requests); no code needed now. (7.2)
+- **Removed players**: the doc mentioned a "device token" that the design never defines. Now: the room refuses the removed player's token and the phone keeps a "removed" mark; no device fingerprinting of children's phones. (7.2)
+- **Code field**: `autocomplete="one-time-code" off` was contradictory; now `autocomplete="off"`. (5.2)
+- **Measurements corrected**: option length is median 24 characters, 1 in 20 over 68, longest 157 (was "median 29, 1 in 20 over 79"); the "28 questions pointing outside themselves" figure could not be reproduced from the phrases given (they match 13), so the doc now names a phrase list and leaves the count to the build. (1.3, 2.1)
+
+### Checked and left as written
+
+- **The spec's "~5,000 questions"**: the bank has grown to 14,916, all with exactly four options and the right answer always among them (re-measured). Using the whole bank, filtered by the leader, keeps the owner's intent; the default kinds (Bible quiz + Sunday school) still give 13,135, and 5,071 of those suit children.
+- **Kinds, levels, children's flag, links, standalone and lead-in counts, question lengths** in section 2: all re-measured and correct.
+- **Cloudflare pricing and the Free/Paid inference** in section 8: arithmetic re-done and correct; the owner should still confirm the plan in the Cloudflare dashboard before release.
+- **Scripture**: the reveal uses the test page's existing Berean Standard Bible verse block (`loadChapterPlain("bsb", …)`), as the rules require.
+- **Shared files**: every touch outside this feature's folder is a one-line or one-entry addition (registry, router, routes list, release script, worker entry, Vite proxy, package script, privacy sentence), as the parallel-chains rule asks.
