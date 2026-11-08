@@ -4,6 +4,7 @@ import path from "node:path";
 import { PARABLES, PARABLE_GUIDE_URL } from "../../src/data/parables";
 import { lifeEventPaths } from "../../src/data/life-events";
 import { sympathyPaths } from "../../src/data/sympathy";
+import { countdownPaths } from "../../src/data/countdowns";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
 import { WEBSITE } from "./sources.ts";
@@ -259,6 +260,8 @@ function studyAndSiteTemplates(): TemplateDef[] {
       lifeEventPaths().map((address) => single(address === "/life-events" ? "hub" : address.split("/")[2], address, "A life-event page.", address))),
     one("sympathy", "site", "Funeral and sympathy pages", "/sympathy/<loss>", "Comforting passages for particular losses, funeral readings, and condolence cards to send or print.", ["src/pages/sympathy/SympathyPage.tsx"], ["src/pages/sympathy/", "src/data/sympathy/"],
       sympathyPaths().map((address) => single(address === "/sympathy" ? "hub" : address.split("/")[2], address, "A sympathy page.", address))),
+    one("countdowns", "site", "Countdowns", "/countdowns/<occasion>/<day>", "Daily readings and a card for each day leading up to Christmas and Easter, with a church sharing panel.", ["src/pages/countdowns/CountdownsPage.tsx"], ["src/pages/countdowns/", "src/data/countdowns/"],
+      countdownPaths().map((address) => single(address === "/countdowns" ? "hub" : address.slice("/countdowns/".length), address, "A countdown page.", address))),
     one("search", "site", "Search", "/search?q=<words>", "Keyword search across the Bible.", ["src/pages/SearchPage.tsx"], ["src/pages/SearchPage.tsx", "src/components/search/"], [
       single("results", "With results", "A common word.", "/search?q=grace"),
       single("none", "No results", "A word that is not in the Bible.", "/search?q=zzzzqx"),

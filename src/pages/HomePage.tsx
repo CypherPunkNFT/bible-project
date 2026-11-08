@@ -286,6 +286,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
           <p className="hf-why"><strong>Why it matters.</strong> Scripture is meant to be lived among others. A workbook gives a group somewhere to begin, a fellowship gives it company, and in a hard season a hotline, food, pregnancy care or grief care close by can be the first step toward help.</p>
           <p><Link to="/life-events" className="underline underline-offset-4">Verses and printable cards for life's big days</Link></p>
           <p><Link to="/sympathy" className="underline underline-offset-4">Words of comfort and sympathy cards</Link></p>
+          <p><Link to="/countdowns" className="underline underline-offset-4">Advent and Lent daily readings</Link></p>
         </FeatureBlock>
         <FeatureBlock reverse tone="epistles" level="h3" kicker="Learning materials" title={<>Study it <em>together.</em></>}
           art={<DeskScene />} artTo="/resources/learning" artLabel="Browse the learning materials"

@@ -672,3 +672,25 @@ The design has a working default for each of these, so none blocks the next step
 ### Not changed
 
 The open questions for the owner (section 11) stay as written, each with a working default, so none blocks the implementation. The doctrinal framing (2.4), the Advent and Lent reading plans, the privacy rules for personal names (5.5) and the church panel were checked and are kept as designed.
+
+## 13. Implementation notes
+
+**Built** in step 9 of sequence 33, 2026-11-07, to the design above. Advent (29 days, 5 candle panels), Lent (47 days) and Holy Week (Lent's last eight days) are live in the local source; nothing was deployed.
+
+**Where things are:**
+- Data: [src/data/countdowns/](../../../src/data/countdowns/): `types.ts`, `advent.ts`, `lent-1.ts`, `lent-2.ts`, `keys.ts` (`KEPT_KEYS`, `KEY_ALIASES`), and `index.ts` (the three occasions with their introductions, `HYMN_TITLES`, `countdownPaths()` for the sitemap).
+- Engine and pages: [src/pages/countdowns/](../../../src/pages/countdowns/): `calendar.ts` (no imports), `season.ts` (window, run, state, day line), `storage.ts` (`bp-countdowns`), `ics.ts`, `message.ts`, `card.ts`, and the pages.
+- Shared entries: one route in `App.tsx`, the hub's search title in `page-head.ts`, one line in the home page's Resources block, one page type in `scripts/design-review/site-map-rest.ts`.
+
+**Adding an occasion** (Pentecost, a wedding, a baby, any date): write its days in one new data file, add one `Occasion` entry to `OCCASIONS` in `index.ts`, and add its keys to `KEPT_KEYS`. No page code changes. A chosen-date occasion uses `target: { kind: "chosen" }`; the baby occasion adds `maxAfter: 14`, `finishLabel: "Our baby is here"` and `footLink` to `/sympathy/loss-of-baby`. The tests already exercise a chosen-date occasion with "still waiting" days on test data, and a test wedding added as data only renders, takes a `?date=` and keeps its ticks.
+
+**Small departures from the design, and why:**
+- The `Occasion` type gained presentation fields the design's sketch left implicit: `summary` (the hub line), `numberedOf` ("Day 12 of 40"), `calendar` (doors or week grid), `style` (the card's look), `note`, `closing` (the "afterwards" line), `finishLabel` and `footLink` (for the personal occasions).
+- Hymn links carry display titles from `HYMN_TITLES` in the data, as sympathy's funeral hymns do, so a page never loads the whole hymn collection; a test checks every id exists in the collection.
+- Day 33's title says "kernel of wheat", the Berean's own word, and day 37's says "betrayed for money", as Mark has it (the silver is in Matthew).
+- Hymns chosen where the plan left the choice open: December 14, "Alas, and Did My Saviour Bleed"; December 25, "Shepherds, Rejoice, Lift Up Your Eyes"; Good Friday, "When I Survey the Wondrous Cross".
+- The reflections run 87 to 110 words (about 7,300 words in all), inside the 60–110 limit.
+
+**Code review before release** (one independent read of the built code against this design) found eleven problems, all fixed, most with a test in `countdowns-states.test.tsx`. The serious ones: the first print of a church sheet came out blank, because the print area was only created when the button was pressed (it now stays mounted); and a browser that blocks site storage made every countdown page fail, because storage was read outside the guard (it now falls back to "ticks last for this visit"). The others bring the pages into line with sections 6.2, 6.3, 7.4 and 7.6: the church panel leads while a season is still coming up; Holy Week links to today's Lent reading while Lent is under way; the "afterwards" days give next year's start date; the Lent calendar labels its Holy Week row; sharing is offered only once the verse has loaded; the announcement resets when the page rolls over to next year; Holy Week's calendar file uses Lent's event ids, so importing both files never doubles a day; a built-in name such as `constructor` in a day address is treated as an unknown day; and a candle reading is fetched afresh when the year's candle panels change.
+
+**Not run here:** the hand-run Playwright print check (8.3, "Print, in a browser"). Crawler copies should be refreshed before each season once the owner releases: `bun run seo:capture --only /countdowns` in October and January.

@@ -54,6 +54,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/resources": "Free Bible Study Resources",
   "/life-events": "Bible Verses for Weddings, Babies, Baptisms and Graduations",
   "/sympathy": "Bible Verses for Sympathy Cards and Funerals",
+  "/countdowns": "Advent and Lent Devotionals: Daily Bible Reading Plans",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",

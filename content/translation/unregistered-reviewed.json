@@ -17976,5 +17976,71 @@
   "file": "src/pages/study/witnesses/SurvivingWitnessesPage.tsx",
   "item": "read in English: manuscripts/collection",
   "why": "the cache name useAsync is given on this page (useAsync(loadManuscripts, \"manuscripts/collection\")), not a data file: the net reads it as one because data/manuscripts/ exists"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/advent.ts",
+  "item": "“I am the Lord’s servant”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-1.ts",
+  "item": "“Destroy this temple”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-1.ts",
+  "item": "“Who do you say I am?”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-1.ts",
+  "item": "“Listen to him”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-1.ts",
+  "item": "“God, have mercy on me, a sinner”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-2.ts",
+  "item": "“After three days he will rise”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-2.ts",
+  "item": "“I am the resurrection”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/lent-2.ts",
+  "item": "“It is finished”",
+  "why": "countdown day titles that quote Scripture, kept English with the rest of the countdown pages, whose reflections, prayers and Berean readings stay English in this build (docs/features/countdowns/design.md section 9, 'Site shown in another language')"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/index.ts",
+  "item": "Christmas",
+  "why": "the day a countdown leads to, used inside the English day lines ('13 days until Christmas'); the countdown pages stay English in this build (docs/features/countdowns/design.md section 9)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/index.ts",
+  "item": "Easter",
+  "why": "the day a countdown leads to, used inside the English day lines ('13 days until Christmas'); the countdown pages stay English in this build (docs/features/countdowns/design.md section 9)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/countdowns/index.ts",
+  "item": "’Twas on That Dark, That Doleful Night",
+  "why": "the title of a published hymn (Isaac Watts), kept as published like the hymn collection's own titles"
  }
 ]

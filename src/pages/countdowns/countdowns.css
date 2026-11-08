@@ -1,0 +1,131 @@
+/* Countdown pages on screen (design 7.2–7.5). Each occasion's accent is a fixed value of its own, readable in light and
+   dark: Advent a deep blue-violet, Lent a muted purple; Christmas Day white and gold, Easter Day a sunrise on the card.
+   Printed sheets: countdowns-sheet.css. */
+.cd-page { --cd-accent: #4b4f8f; --cd-soft: color-mix(in srgb, var(--cd-accent) 8%, transparent); padding-block: 2.5rem 4rem; }
+.cd-style-lent { --cd-accent: #6a4c7c; }
+:root[data-theme="dark"] .cd-page { --cd-accent: #a9adf0; }
+:root[data-theme="dark"] .cd-page.cd-style-lent { --cd-accent: #c9a8dc; }
+.cd-page h1 { margin-top: .8rem; font: 450 clamp(2rem, 4.4vw, 3.1rem)/1.12 var(--font-serif); letter-spacing: -.03em; }
+.cd-page h2 { margin-top: 2.6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font: 500 1.4rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.cd-page h3 { font: 500 1.12rem/1.3 var(--font-serif); }
+.cd-intro { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: 1.02rem; line-height: 1.75; }
+.cd-crumbs { color: var(--muted); font-size: .8rem; letter-spacing: .04em; }
+.cd-page a:not(.cd-button):not(.cd-door):not(.cd-hub-card) { color: var(--cd-accent); text-underline-offset: 3px; }
+.cd-status { margin-top: 1.4rem; padding: .7rem 1rem; border-left: 3px solid var(--cd-accent); background: var(--cd-soft); font-size: .95rem; }
+.cd-gentle { margin-top: 1rem; padding: .6rem .9rem; border: 1px solid var(--line); border-radius: .4rem; }
+.cd-quiet { margin-top: .8rem; color: var(--muted); font-size: .85rem; }
+.cd-failed { margin-top: .8rem; color: var(--red-letter); }
+.cd-source { margin-top: 3rem; color: var(--muted); font-size: .78rem; }
+.cd-foot-link { margin-top: .6rem; font-size: .78rem; }
+.cd-kicker { color: var(--muted); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+.cd-ref { color: var(--muted); font-size: .9rem; }
+
+.cd-button { display: inline-flex; align-items: center; gap: .3rem; min-height: 2.4rem; padding: .45rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: inherit; font-size: .9rem; cursor: pointer; }
+.cd-button:hover, .cd-button:focus-visible { border-color: var(--cd-accent); }
+.cd-button:disabled { opacity: .5; cursor: not-allowed; }
+.cd-button-main, .cd-marked { border-color: var(--cd-accent); background: var(--cd-accent); color: #fff; }
+:root[data-theme="dark"] :is(.cd-button-main, .cd-marked) { color: #15131c; }
+.cd-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+
+/* Today */
+.cd-today-grid { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 1.6rem; margin-top: 1.2rem; align-items: start; }
+.cd-today-text h3 { margin-top: .3rem; font-size: 1.5rem; }
+
+/* The day card */
+.cd-card { --cd-card-ink: #2a2c63; --cd-card-paper: #ecebf8; display: flex; flex-direction: column; gap: .8rem; padding: 1.6rem 1.4rem; border-radius: .6rem; background: var(--cd-card-paper); color: var(--cd-card-ink); text-align: center; }
+.cd-look-christmas { --cd-card-paper: #fffdf6; --cd-card-ink: #6b5212; border: 1px solid #d9b85c; }
+.cd-look-lent { --cd-card-paper: #f1ecf4; --cd-card-ink: #4a3459; }
+.cd-look-palm { --cd-card-paper: #eef3ea; --cd-card-ink: #34502d; }
+.cd-look-easter { --cd-card-paper: #fff6ea; --cd-card-ink: #7a4415; }
+.cd-look-plain { --cd-card-paper: #f5f3ef; --cd-card-ink: #2b2620; }
+.cd-ornament { width: 3rem; height: 1.5rem; margin-inline: auto; }
+.cd-card-line { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+.cd-card-verse { font: 400 1.12rem/1.55 var(--font-serif); }
+.cd-card figcaption { display: flex; flex-direction: column; gap: .2rem; font-size: .82rem; }
+.cd-card-reference { font-weight: 600; }
+.cd-card-address { opacity: .75; font-size: .72rem; }
+.cd-card-waiting { min-height: 12rem; justify-content: center; background: var(--cd-soft); color: var(--muted); }
+
+/* Candle panel */
+.cd-candle { margin-top: 1.4rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-left: 3px solid #c9a227; border-radius: .4rem; }
+.cd-candle-kicker { color: var(--muted); font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }
+.cd-candle blockquote { margin-top: .5rem; font-family: var(--font-serif); }
+.cd-candle > p { margin-top: .5rem; }
+
+/* Calendar */
+.cd-count { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
+.cd-grid { display: grid; gap: .45rem; margin-top: .8rem; }
+.cd-grid-doors { grid-template-columns: repeat(auto-fill, minmax(3.4rem, 1fr)); }
+.cd-grid-weeks, .cd-weekdays { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.cd-weekdays { display: grid; gap: .45rem; margin-top: .8rem; color: var(--muted); font-size: .72rem; text-align: center; }
+.cd-door { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; min-height: 3.4rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: inherit; font: 500 1.05rem/1 var(--font-serif); cursor: pointer; transition: transform .2s, background-color .2s; }
+.cd-door:hover, .cd-door:focus-visible { border-color: var(--cd-accent); transform: translateY(-1px); }
+.cd-closed { background: var(--cd-soft); color: var(--muted); }
+.cd-today { border: 2px solid var(--cd-accent); }
+.cd-read { background: color-mix(in srgb, var(--cd-accent) 14%, transparent); }
+.cd-sunday { background: color-mix(in srgb, var(--cd-accent) 4%, transparent); }
+.cd-door-tag { margin-top: .2rem; font-size: .6rem; letter-spacing: .04em; text-transform: uppercase; }
+.cd-tick { position: absolute; top: .2rem; right: .3rem; color: var(--cd-accent); font-size: .7rem; }
+.cd-peek { margin-top: .8rem; font-size: .9rem; }
+@media (prefers-reduced-motion: reduce) { .cd-door { transition: none; } .cd-door:hover { transform: none; } }
+
+/* Every day */
+.cd-catch-up { margin-top: .8rem; font-size: .9rem; }
+.cd-plan-rows > li { display: grid; grid-template-columns: 12rem minmax(0, 1fr) 13rem 1.5rem; gap: .8rem; padding: .55rem .2rem; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.cd-plan-today { background: var(--cd-soft); }
+.cd-plan-date, .cd-plan-ref, .cd-plan-label { color: var(--muted); }
+.cd-plan-mark { color: var(--cd-accent); }
+
+/* Day page */
+.cd-reading h2 { font-size: 1.15rem; }
+.cd-text { margin-top: .8rem; font: 400 1.08rem/1.8 var(--font-serif); }
+.cd-reflection p, .cd-prayer p, .cd-question p, .cd-hymn p { margin-top: .8rem; line-height: 1.75; }
+.cd-prayer p { font-style: italic; }
+.cd-day-card .cd-card { max-width: 24rem; margin-top: 1rem; }
+.cd-share { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.cd-manual { display: flex; flex-direction: column; gap: .3rem; width: 100%; margin-top: .5rem; font-size: .8rem; }
+.cd-manual textarea, .cd-announce textarea { width: 100%; padding: .6rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: inherit; font-size: .9rem; }
+.cd-day-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; font-size: .9rem; }
+
+/* For your church */
+.cd-church-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 1rem; }
+.cd-church h3 { margin-top: 1.2rem; }
+.cd-church p { margin-top: .4rem; font-size: .92rem; }
+.cd-link-row code { font-size: .82rem; word-break: break-all; }
+.cd-qr { display: flex; align-items: center; gap: 1rem; margin-top: .8rem; }
+.cd-qr .le-qr { width: 7rem; height: 7rem; padding: .3rem; background: #fff; }
+.cd-paper { display: flex; gap: 1rem; margin-top: .6rem; border: 0; font-size: .9rem; }
+.cd-paper label { display: flex; align-items: center; gap: .3rem; }
+.cd-announce { display: block; margin-top: .6rem; }
+.cd-copy { display: inline-flex; flex-direction: column; gap: .3rem; margin-top: .5rem; }
+
+/* Personal countdowns */
+.cd-date-form { display: grid; gap: .8rem; max-width: 28rem; margin-top: 1.4rem; }
+.cd-date-form label { display: flex; flex-direction: column; gap: .3rem; font-size: .9rem; }
+.cd-date-form input { padding: .5rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: inherit; }
+.cd-personal { margin-top: 1rem; }
+
+/* Hub and Explore more */
+.cd-hub-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.cd-hub-grid > li { --cd-accent: #4b4f8f; }
+.cd-hub-grid > li.cd-style-lent { --cd-accent: #6a4c7c; }
+:root[data-theme="dark"] .cd-hub-grid > li { --cd-accent: #a9adf0; }
+:root[data-theme="dark"] .cd-hub-grid > li.cd-style-lent { --cd-accent: #c9a8dc; }
+.cd-hub-card { display: flex; flex-direction: column; gap: .5rem; height: 100%; padding: 1.2rem; border: 1px solid var(--line); border-top: 3px solid var(--cd-accent); border-radius: .5rem; color: inherit; }
+.cd-hub-card:hover, .cd-hub-card:focus-visible { background: color-mix(in srgb, var(--cd-accent) 6%, transparent); }
+.cd-hub-card h3 { font-size: 1.4rem; }
+.cd-hub-when { margin-top: auto; color: var(--muted); font-size: .85rem; }
+.cd-more-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.4rem; margin-top: 1rem; font-size: .92rem; }
+.cd-more-grid li { margin-top: .35rem; }
+
+@media (max-width: 760px) {
+  .cd-today-grid, .cd-church-grid, .cd-hub-grid { grid-template-columns: minmax(0, 1fr); }
+  .cd-plan-rows > li { grid-template-columns: minmax(0, 1fr) 1.5rem; }
+  .cd-plan-date, .cd-plan-title, .cd-plan-ref { grid-column: 1; }
+  .cd-plan-date, .cd-plan-ref { font-size: .8rem; }
+  .cd-plan-mark { grid-column: 2; grid-row: 1; }
+}
+
+/* The way on (Holy Week's link to today's Lent reading, next year's start date) and the labelled Holy Week row. */
+.cd-onward { margin-top: .5rem; font-size: .95rem; }
+.cd-grid-weeks .cd-row-label { grid-column: 1 / -1; font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; opacity: .75; padding-top: .4rem; }
