@@ -1,6 +1,6 @@
 # Family charades — design
 
-**Status:** research & design step (job cda34ed8, sequence 31 step 7, 2026-11-07). Next: one critical review (step 8), then the build (step 9).
+**Status:** research & design step (job cda34ed8, sequence 31 step 7, 2026-11-07); reviewed once (job fd995568, step 8, 2026-11-07), with its corrections applied in the body and listed in §16. Next: the build (step 9).
 **Spec (binding):** [APPROVED-IDEAS.md](Jarvis/Projects/BibleProject/APPROVED-IDEAS.md), entry 19: *"Phone held to the forehead shows a scene (Jonah and the whale, David and Goliath); the player acts it out while others guess."*
 **Step brief:** research Heads Up!-style phone party games; phone to the forehead shows a Bible scene to act out; tilt or tap for correct/pass, timer, decks by age and difficulty, scene list.
 **Shared rules:** [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md). No model runs while people play (and none is used here at all). Existing site data is reused. Scripture wording follows the Berean Standard Bible (BSB). The game registers on the /games hub. Only this feature's files, plus its one registry line and README section, are touched. Nothing is deployed.
@@ -77,7 +77,7 @@ Memory research calls it the **enactment effect**: people remember actions they 
 ### 2.5 What the research means for this game
 
 1. **Copy the Heads Up! controls exactly** (down = correct, up = pass, free passes, 60 seconds, a recap). Familiarity is worth more than novelty in a party game.
-2. **Never depend on the sensor.** A third of the ways people will open this page (a laptop, a refused prompt, an old phone, a page opened over plain HTTP during testing) give no tilt. Buttons must be a full game, not a fallback screen.
+2. **Never depend on the sensor.** Many of the ways people will open this page (a laptop, a refused prompt, an old phone, a page opened over plain HTTP during testing) give no tilt. Buttons must be a full game, not a fallback screen.
 3. **Arm the tilt only from upright.** A phone lying on a table or held flat while setting up must never score.
 4. **Make the card readable sideways and upright,** because the web cannot lock the screen the way an app can.
 5. **Pick scenes you can act**: a person doing something visible, short enough to read at a glance from across a room.
@@ -118,7 +118,7 @@ The data test recomputes this table from the file and checks the "offered" rule,
 
 ### 3.4 Editorial rules for a family acting game
 
-- **Act what is visible.** Every scene names a person or thing *and* something happening ("Zacchaeus climbs a tree", not "Zacchaeus").
+- **Act what is visible.** Every scene must be something bodies can show: a person, animal or thing doing something you can see. Most titles say who *and* what happens ("Zacchaeus climbs a tree", not "Zacchaeus"); a few keep the name the scene is known by ("The burning bush", "The golden calf", "The lost sheep"), because that name is what the guesser will shout.
 - **No scene whose point is sexual** (no Bathsheba, no Potiphar's wife) and **no gruesome death to act out** (no Jael's tent peg, no Judas, no Eglon, no bears and Elisha).
 - **Violence is age 8+ unless it is the familiar children's version.** "David and Goliath" is 4+ because the spec names it and every children's Bible has it; "Samson pushes the pillars" (he dies with the crowd) and "Job sits in the ashes" are 12+.
 - **The crucifixion is not a charades card.** Acting it for laughs against a timer is not fitting. The Christmas and Easter deck carries Holy Week through Palm Sunday, the Last Supper, washing feet, Peter and the rooster, the empty tomb, Thomas, and the ascension. *(Open point for the owner, §13.)*
@@ -158,14 +158,14 @@ The data test recomputes this table from the file and checks the "offered" rule,
 | `id` | Lower case, hyphens, unique, never reused for a different scene (the "recently seen" list in the browser keys on it). |
 | `title` | The card. At most 36 characters (fits two lines at the minimum card size, §7.3). Starts with a capital; no full stop. |
 | `ref` | Book code, chapter:verse, optional range (may cross a chapter: `JON 1:17-2:10`); several passages joined with `;`. Book codes as in the site's reader (`scripts/bible/books.py`). |
-| `check` | A word or phrase that must occur, ignoring case and punctuation, in the BSB text of `ref`. |
+| `check` | A word or phrase that must occur **as whole words**, ignoring case and punctuation, in the BSB text of `ref`. Whole words, not any run of letters: otherwise "ten" would pass on "often" and "storm" on "windstorm". |
 | `tier` | 1, 2 or 3 (§3.1). |
 | `age` | 4, 8 or 12 (§3.1). |
 | `themes` | One or more theme keys. |
 | `picture` | Optional, one to two emoji, shown above the title for Little ones (and for anyone who switches pictures on). Only emoji from Unicode Emoji 13.0 (2020) or older, so older Android phones do not show empty boxes. |
 | `story` | Optional group key: scenes from one episode share it, and a round never deals two of them (§4.4). |
 
-**No verse wording in the file.** The site's `prebuild` check ([check-verse-wording.py](Jarvis/Projects/BibleProject/Website/scripts/check-verse-wording.py)) refuses whole verses in data files; titles are a few words, and the one quotation ("Lazarus, come out!", John 11:43) is three words, so the check is never triggered.
+**No verse wording in the file.** The site's `prebuild` check ([check-verse-wording.py](Jarvis/Projects/BibleProject/Website/scripts/check-verse-wording.py)) refuses any text in the site's code and data that is nothing but a whole verse of ten words or more; titles are a few words, and the one quotation ("Lazarus, come out!", John 11:43) is three words, so the check is never triggered.
 
 ### 4.2 The data test (`scenes.test.ts`, part of `npm test`)
 
@@ -173,7 +173,7 @@ It reads [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/)
 
 1. a duplicate `id`, an unknown theme key, a tier outside 1–3, an age outside {4, 8, 12}, a title over 36 characters;
 2. a `ref` whose book, chapter or verse does not exist in the BSB plain text;
-3. a `check` that does not occur in the BSB text of the passage;
+3. a `check` that does not occur as whole words in the BSB text of the passage (text normalised as the countdowns data test does: the leading `¶` removed, case and punctuation ignored, spaces collapsed);
 4. a `picture` outside the allowed emoji list (a small set in the test: every emoji Appendix A uses, all Emoji 13.0 or older);
 5. a `story` key used by only one scene (a typo);
 6. either spec example missing (`jonah-fish`, `david-goliath`), or either not tier 1 and age 4+;
@@ -181,7 +181,7 @@ It reads [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/)
 
 It also prints (does not fail) the §3.3 table, so a reviewer sees what a change does to the decks.
 
-**This step ran the same checks** on the starter list with a throwaway script (kept in the job folder, `scenes/check_scenes.cda34ed8.py`): all 129 references exist and all 129 check words occur in the site's BSB text. It caught three of the draft's titles, written from memory, that did not match the site's BSB:
+**This step ran the same checks** on the starter list with a throwaway script (kept in the job folder, `scenes/check_scenes.cda34ed8.py`): all 129 references exist and all 129 check words occur in the site's BSB text. (That script matched any run of letters. The review re-checked every row with the whole-word rule above: one row failed, "Jesus calms the storm", because Mark 4:35–41 in the BSB says "windstorm" and never "storm"; its check word is now `windstorm`, and all 129 pass.) It caught three of the draft's titles, written from memory, that did not match the site's BSB:
 
 | Draft title | Site's BSB says | Card now |
 |---|---|---|
@@ -195,7 +195,7 @@ It also prints (does not fail) the §3.3 table, so a reviewer sees what a change
 |---|---|
 | [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/) | The data test's source of truth for references and check words. |
 | The reader route `/read/bsb/<BOOK>/<chapter>?hl=<first>-<last>` (as Memory card match and Odd one out link) | "Read the story" on the recap: the passage's verses in its first chapter. |
-| [refs.ts](Jarvis/Projects/BibleProject/Website/src/lib/refs.ts) (`formatRange`, book names) | Turning `JON 1:17-2:10` into "Jonah 1:17–2:10" on the recap. |
+| [refs.ts](Jarvis/Projects/BibleProject/Website/src/lib/refs.ts) (`bookByCode`, `formatRange`) with the site's catalog from `useCatalog()` ([catalog.ts](Jarvis/Projects/BibleProject/Website/src/lib/catalog.ts), as Map quest's [Play.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/map-quest/Play.tsx) uses it) | Turning `JON 1:17-2:10` into "Jonah 1:17–2:10" on the recap. `formatRange` takes verse ids (`BBCCCVVV`), not the text form, so the game parses `ref` with `bookByCode` into a start and end id first (a small pure function in `deck.ts`, tested). Component tests wrap the game in `CatalogContext.Provider`, as [MapQuestGame.test.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/map-quest/MapQuestGame.test.tsx) does. |
 | [PlayPage.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/live-quiz/PlayPage.tsx) (wake lock), [PlayerScreens.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/live-quiz/PlayerScreens.tsx) (vibrate, gated on reduced motion), [LeaderRoom.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/live-quiz/LeaderRoom.tsx) (Web Audio beeps) | Patterns copied into this game's own small files, not imported from live-quiz, so the two games stay independent (shared-file rule). |
 | [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) entry `charades` | Switched to `status: "live"` with `load`; title, description, audiences, shelf and art stay as they are. |
 
@@ -208,7 +208,8 @@ It also prints (does not fail) the §3.3 table, so a reviewer sees what a change
 1. **Pool** = scenes allowed by age group, deck and difficulty (§3.2).
 2. **Order**: shuffle the pool (Fisher–Yates with `crypto.getRandomValues`), then move scenes on the device's *recently seen* list to the back, oldest-seen first. The list holds the last 200 scene ids played, across rounds and visits (§6.4).
 3. **One per story per round**: while dealing, skip a scene whose `story` key was already dealt this round (so "Noah builds the ark" and "The rainbow promise" never meet in one round, when a guesser could shout "Noah!" for both). Five story groups exist in the starter list: Noah, Joseph sold by his brothers, Jonah's storm and fish, Peter freed from prison, and the first disciples called.
-4. **Running out**: if a long team game uses up the pool, the deal starts again from a fresh shuffle, still never repeating a scene inside one round. At 12 or more scenes per deck and at most about 15 per round, this always succeeds; the test proves it over 1,000 simulated rounds per offered deck.
+4. **Running out inside a round.** A round can need more fresh scenes than a deck holds: passing is free, so a guesser who passes fast can go through 20 or more scenes in 60 seconds. The one-per-story rule also lowers how many different scenes one round can get: 12 for Kids' *The early church* (13 scenes, one story pair), 13 for Little ones' *In the beginning* (16 scenes, four of them Noah's). So, when no fresh scene is left in the round, **the scenes passed in this round come back**, the earliest-passed first, as if the passed cards went to the bottom of the pile. A scene marked correct never comes back in the same round. If every scene that can be dealt has been guessed, the round ends early with "You got through the whole deck!" and goes to the recap with the time left shown.
+5. **Running out across rounds**: if a long team game uses up the pool, the next round's deal starts again from a fresh shuffle (recently seen scenes still last).
 
 ---
 
@@ -223,6 +224,8 @@ It also prints (does not fail) the §3.3 table, so a reviewer sees what a change
 | **Keys** | → or Space | ← | Always (a laptop on a table facing the actors, the guesser facing away, a helper pressing keys). Esc pauses. |
 
 The start screen has a *Controls* choice: **Tilt and buttons** (default where the sensor works) or **Buttons only**. It remembers the choice.
+
+After a button or key answer the feedback shows for 700 ms and then the next scene appears. With tilt on, the next scene also waits for the phone to be upright again (§5.2), which on a forehead it already is.
 
 ### 5.2 Reading the tilt
 
@@ -257,13 +260,17 @@ So, when tilt readings are available, the card **turns itself in steps of 90°**
 
 ### 5.4 Getting permission, and falling back
 
-All of this happens on the **Start** tap, because iOS only allows the permission prompt, fullscreen, wake lock and sound to start from a tap:
+All of this happens on the **Start** tap, because iOS only allows the permission prompt, fullscreen, wake lock and sound to start from a tap.
+
+**Order matters.** Everything that needs the tap is *started* in the tap handler itself, before the handler waits for anything: create or resume the `AudioContext`, request the wake lock, request fullscreen where step 5 allows it, and call `requestPermission()`, all synchronously. (The landscape lock comes after fullscreen has been granted, since it needs fullscreen rather than the tap.) Only then does the handler wait for their results. Once the code has waited on a promise, the browser may no longer treat what follows as part of the tap, and then sound stays locked on an iPhone or fullscreen is refused. The steps below are the order the *results* are used in:
 
 1. If the player chose *Buttons only*: skip to step 5.
-2. If `DeviceOrientationEvent.requestPermission` is a function (iPhone, iPad): call it. `"granted"` → step 3. `"denied"` or an error → buttons, with the line *"Tilt is off because motion access was not allowed. You can play with the buttons, or reload the page and allow it."*
+2. If `DeviceOrientationEvent.requestPermission` is a function (iPhone, iPad): call it (already started in the tap, as above). `"granted"` → step 3. `"denied"` or an error → buttons, with the line *"Tilt is off because motion access was not allowed. You can play with the buttons, or reload the page and allow it."*
 3. Listen for `deviceorientation`. If no reading with real numbers arrives within **1 second**: buttons, with *"This device isn't sending tilt here, so use the buttons."* (This covers computers, phones without the sensor, and pages opened over plain HTTP, where browsers send nothing.)
 4. Tilt works: the get-ready screen says "Hold the phone to your forehead, screen facing out".
-5. Also on the tap: try to keep the screen awake; start sound; on browsers that allow it (Android), try fullscreen and then a landscape lock, ignoring any refusal.
+5. Also on the tap (started synchronously, as above): try to keep the screen awake and start sound. **Only in *Guess it*, only on a touch device** (`matchMedia("(pointer: coarse)")`) and only when `screen.orientation.lock` exists (in practice Android), also try fullscreen and then a landscape lock, ignoring any refusal. Never on a computer, where fullscreen would hide the site for no gain, and never in *Act it*, where the actor holds the phone however suits them. Fullscreen is left when the round ends or the page is paused.
+
+If the one-second check finds no readings, the game records that on the device (`tiltFailed` in §6.5), so next time *Controls* starts on *Buttons only*; the player can still pick *Tilt and buttons*, and a later check that does get readings clears the flag. Hiding the tilt option outright only happens when `DeviceOrientationEvent` does not exist at all, which is rare, because most desktop browsers define it even with no sensor.
 
 If readings **stop** in the middle of a round (for more than 3 seconds while the page is visible), the buttons grow to full size and a small line says *"Tilt stopped; use the buttons"*. The round goes on.
 
@@ -284,7 +291,7 @@ If readings **stop** in the middle of a round (for more than 3 seconds while the
 
 The room decides, as in every charades game; the screen only records it. *How to play* states the house rule shown on the start screen:
 
-- **Easy and Little ones:** naming the main person *or* the main thing counts ("Jonah!", "the whale!").
+- **Easy and Little ones:** a name or a thing that picks out *this* scene counts ("Zacchaeus!", "Goliath!", "the whale!"). For people with many scenes in the deck (Jesus, Moses, Noah, David, Joseph, Elijah, Peter, Paul) the name alone does not count; add what happens or the main thing ("Jesus and the storm", "Moses in the basket"). Without this, a guesser who shouts "Jesus!" at every card would score on about a dozen of the Little ones' 45 scenes.
 - **Medium and Hard:** say who *and* what happens ("Jonah swallowed by the fish").
 - Any wording counts: "whale" for the great fish, "wise men" for the Magi, "Joseph's coat" for the robe.
 
@@ -302,7 +309,7 @@ The room decides, as in every charades game; the screen only records it. *How to
 
 ### 6.5 What the game keeps on the device
 
-- **`bp-charades` in local storage:** `{ version: 1, settings: { mode, ageGroup, deck, difficulty, seconds per age group, controls, sound, pictures }, best: { "30": n, "60": n, "90": n, "120": n }, recent: [up to 200 scene ids] }`. *Best* is the best single-round score per round length, shown on the start screen ("Best in 60 seconds: 11").
+- **`bp-charades` in local storage:** `{ version: 1, settings: { mode, ageGroup, deck, difficulty, seconds per age group, controls, sound, pictures }, tiltFailed: boolean (§5.4), best: { "30": n, "60": n, "90": n, "120": n }, recent: [up to 200 scene ids] }`. *Best* is the best single-round score per round length, shown on the start screen ("Best in 60 seconds: 11").
 - **`bp-charades-game` in session storage:** a team game in progress (teams, totals, whose turn, finished rounds), so a reload, or opening "Read the story" in the same tab and coming back, never loses the scores. A round interrupted by a reload is dropped and that team's turn starts again; a half-played round cannot be resumed fairly.
 - As in Who's older?'s storage file: storage that is missing, full or broken never stops the game; it just keeps nothing.
 
@@ -310,7 +317,7 @@ The room decides, as in every charades game; the screen only records it. *How to
 
 ## 7. Screens
 
-All screens live on the one page at `/games/charades`. The setup and recap sit inside the site's normal header and footer; the round itself fills the whole screen.
+All screens live on the one page at `/games/charades`. The setup and recap sit inside the site's normal header and footer, as the games README requires of every game page. The round itself fills the whole screen by drawing a fixed layer over the page (`position: fixed; inset: 0`, above the site header's stacking level) from `charades.css`. Nothing in the site layout changes. While the layer is up, the page behind it does not scroll, and when it closes, focus returns to the button that opened it.
 
 ### 7.1 Start (setup)
 
@@ -326,12 +333,12 @@ All screens live on the one page at `/games/charades`. The setup and recap sit i
 
 - Guess it with tilt: *"Hold the phone to your forehead, screen facing out."* with a drawing; *"Tip down when you get it. Tip up to pass."* The countdown starts by itself once the phone is upright.
 - Guess it with buttons: *"Hold the phone on your forehead, or give it to a helper who holds it facing the actors. Tap Got it or Pass."* and a *Start round* button.
-- Act it: *"Read your scene, then act it out. No talking! Tap Got it when someone guesses."* and *Start round*.
+- Act it: *"Read your scene, then act it out. No talking! Tap Got it when someone guesses."* and *Start round*. With Little ones, who may not read yet, it adds: *"Can't read it yet? Look at the picture, or ask a grown-up to whisper it."*
 - With teams: *"Team 2's turn"* at the top.
 
 ### 7.3 The card (full screen, during the round)
 
-- The scene title as large as fits: the text is sized to fill the card in at most three lines, never below 28 px, using the screen's short side in portrait and long side in landscape (the 36-character limit was set so the longest title, "A burning coal touches Isaiah's lips", fits in two lines at 28 px on a 320 px-wide phone in portrait).
+- The scene title as large as fits: the text is sized to fill the card in at most three lines, never below 28 px, using the screen's short side in portrait and long side in landscape (the 36-character limit was set so the longest title, "A burning coal touches Isaiah's lips", fits in three lines at 28 px on a 320 px-wide phone in portrait; at that size a line holds about 18 characters, so two lines would not be enough once words wrap). In landscape, and on any larger screen, the text grows well past the minimum, which is what makes it readable across a room.
 - The picture above it, when pictures are on.
 - The timer in a corner; the round's score small in the opposite corner.
 - Buttons as §5.1. In *Act it*, a *Hide card* button blanks the card until tapped again.
@@ -341,7 +348,7 @@ All screens live on the one page at `/games/charades`. The setup and recap sit i
 ### 7.4 Time's up and recap
 
 - "Time's up!" for 1.2 seconds, then the recap (back in the site's layout).
-- Large score: *"7 correct"*, with *"3 passed"* beside it; *"New best!"* if it is one.
+- Large score: *"7 correct"*, with *"3 passed"* beside it; *"New best!"* if it is one. A round that ended early because the whole deck was guessed says so, with the seconds left.
 - The list, in the order played: ✓ / ↷ / – (not played), the scene title, its reference ("Jonah 1:17–2:10") and **Read the story**. Tapping the mark corrects it (§6.3).
 - Buttons: *Next team* (teams) or *Play again*, and *Change deck*.
 
@@ -402,11 +409,11 @@ No new dependency. The words are English in every language, like the other games
 All run in `npm test` (Vitest), beside the code:
 
 - **`tilt.test.ts`:** `screenFacing` at known angles (flat face up = 1, face down = −1, upright portrait and both landscape directions ≈ 0); the detector on synthetic sequences: forehead jitter (±15°) never answers; a tip down past 40° gives one Correct; a tip up gives one Pass; holding tipped gives exactly one answer; a phone put down flat before arming gives nothing; a `null` reading is ignored; arming needs 300 ms upright. `uprightTurn` gives 0/90/180/270 for the four ways of holding, and does not change during a tilt.
-- **`deck.test.ts`:** pools match §3.3; small decks are not offered; no scene twice in one round; never two scenes of one story in one round; recently seen scenes come last; 1,000 simulated rounds per offered deck all deal 15 scenes; running out reshuffles without a repeat inside a round.
-- **`game.test.ts`:** time up leaves the current scene not played; pause stops the clock; fixing a mark changes the score until *Next*; team rotation and totals; ties.
-- **`storage.test.ts`:** round trip; broken or missing storage never throws; an old `version` is dropped.
+- **`deck.test.ts`:** pools match §3.3; small decks are not offered; never two scenes of one story in one round; recently seen scenes come last; for 1,000 simulated rounds per offered deck, the fresh scenes dealt before any repeat are all different and number exactly the deck's one-per-story maximum (12 for Kids' *The early church*, 13 for Little ones' *In the beginning*); after that only scenes passed in this round come back, earliest-passed first, and a scene marked correct never does; a round where every dealable scene is guessed ends early; across rounds the deal reshuffles; `ref` parsing into verse ids for every row (start and end, a range crossing a chapter, two passages joined with `;`).
+- **`game.test.ts`:** time up leaves the current scene not played; a round whose deck is all guessed ends early with the time left; pause stops the clock; fixing a mark changes the score until *Next*; team rotation and totals; ties.
+- **`storage.test.ts`:** round trip (including `tiltFailed`); broken or missing storage never throws; an old `version` is dropped.
 - **`scenes.test.ts`:** every rule of §4.2 against the real BSB files.
-- **`CharadesGame.test.tsx`** (with fake timers): a buttons-only round from Start to recap; a tilt round driven by dispatched `deviceorientation` events, including a mocked iOS `requestPermission` returning `"granted"` and `"denied"` (the second ending on buttons with its message), and no readings at all (buttons after one second); the hub opens `/games/charades` and shows the game.
+- **`CharadesGame.test.tsx`** (with fake timers): a buttons-only round from Start to recap; a tilt round driven by dispatched `deviceorientation` events, including a mocked iOS `requestPermission` returning `"granted"` and `"denied"` (the second ending on buttons with its message), and no readings at all (buttons after one second, and *Buttons only* preselected on the next visit); on the Start tap, the audio, wake-lock and permission calls are all made before the handler first waits (a spy records the call order); the hub opens `/games/charades` and shows the game. Rendered inside `CatalogContext.Provider` (§4.3).
 - **Manual checks the build step should report** (cannot be automated): on one iPhone (Safari) and one Android phone (Chrome), over HTTPS (the local preview opened over plain HTTP on a phone sends no tilt), confirm tip down = Correct, tip up = Pass, the card stays upright sideways with the phone's rotation lock both on and off, and the screen stays awake through a round.
 
 ---
@@ -416,7 +423,7 @@ All run in `npm test` (Vitest), beside the code:
 | Situation | What happens |
 |---|---|
 | iPhone, player refuses motion access | Buttons, with the one-line reason and how to get tilt back (§5.4). |
-| Computer, or a phone with no sensor | No readings within 1 s → buttons; the tilt option is hidden next time if the browser reports no support. |
+| Computer, or a phone with no sensor | No readings within 1 s → buttons; next time *Controls* starts on *Buttons only* (§5.4). No fullscreen on a computer. |
 | Page opened over plain HTTP (testing on a phone) | Browsers send no orientation events on insecure pages → buttons, same message. The README notes it for developers. |
 | Readings stop mid-round | After 3 s without readings while visible, buttons grow and a line explains; the round continues. |
 | Phone lying flat when Start is tapped | The detector waits for upright; nothing scores until the phone is held up. |
@@ -429,7 +436,10 @@ All run in `npm test` (Vitest), beside the code:
 | Sound silent (iPhone on silent, or browser blocks audio) | Feedback is visual first; nothing depends on sound. |
 | Two answers in quick succession (tilt and tap together) | The first answer wins; the card ignores input during the 700 ms feedback and until upright again. |
 | Answer at the same instant as the buzzer | Time's up wins; the recap lets the room mark that scene ✓ (§6.3). |
-| Deck smaller than a long team game needs | Reshuffle; never a repeat inside one round (§4.4). |
+| Guesser passes so fast the round runs out of fresh scenes | Scenes passed this round come back, earliest first; a guessed scene never does (§4.4). |
+| The whole deck guessed before the buzzer | The round ends early, "You got through the whole deck!", and the recap shows the time left. |
+| Deck smaller than a long team game needs | The next round reshuffles (§4.4). |
+| Guesser shouts "Jesus!" at every card (Easy or Little ones) | Does not count where Jesus has several scenes; the house rule asks for the name plus what happens (§6.2). |
 | Settings change between team turns | Not offered mid-game; *Change deck* ends the team game after a confirmation. |
 | Reload during a team game | Team totals and finished rounds come back from session storage; the interrupted round's turn restarts. |
 | Reload during quick play | Back to the start screen with settings kept. |
@@ -521,9 +531,9 @@ Columns: **Card** is what the screen shows; **Pic** the picture for Little ones;
 | 41 | `david-harp` | David plays the harp for Saul | 🎶 | 1 Samuel 16:14–23 | harp | 2 | 8+ | Kings |  |
 | 42 | `david-goliath` | David and Goliath | 🪨 | 1 Samuel 17:4–50 | Goliath | 1 | 4+ | Kings |  |
 | 43 | `david-cuts-robe` | David cuts Saul's robe | ✂️ | 1 Samuel 24:1–7 | robe | 3 | 8+ | Kings |  |
-| 44 | `david-dances` | David dances before the ark | 💃 | 2 Samuel 6:12–16 | dancing | 2 | 8+ | Kings |  |
+| 44 | `david-dances` | David dances before the ark | 🕺 | 2 Samuel 6:12–16 | dancing | 2 | 8+ | Kings |  |
 | 45 | `solomon-two-mothers` | Solomon and the two mothers | ⚖️ | 1 Kings 3:16–28 | sword | 2 | 8+ | Kings |  |
-| 46 | `solomon-temple` | Solomon builds the temple | 🛕 | 1 Kings 6:1–14 | temple | 2 | 8+ | Kings |  |
+| 46 | `solomon-temple` | Solomon builds the temple | 🏗️ | 1 Kings 6:1–14 | temple | 2 | 8+ | Kings |  |
 | 47 | `queen-of-sheba` | The queen of Sheba visits | 👑 | 1 Kings 10:1–13 | Sheba | 3 | 8+ | Kings |  |
 | 48 | `elijah-ravens` | Ravens feed Elijah | 🐦 | 1 Kings 17:2–6 | ravens | 2 | 4+ | Kings, Mir |  |
 | 49 | `elijah-carmel` | Fire on Mount Carmel | 🔥 | 1 Kings 18:20–39 | fire | 2 | 8+ | Kings, Mir |  |
@@ -554,7 +564,7 @@ Columns: **Card** is what the screen shows; **Pic** the picture for Little ones;
 | 74 | `water-into-wine` | Water into wine | 🍷 | John 2:1–11 | wine | 1 | 4+ | Jesus, Mir |  |
 | 75 | `fishers-of-men` | Fishers of men | 🎣 | Matthew 4:18–20 | fishers of men | 2 | 8+ | Jesus | first-disciples |
 | 76 | `nets-full-of-fish` | Nets full of fish | 🐟 | Luke 5:4–7 | nets | 2 | 4+ | Jesus, Mir | first-disciples |
-| 77 | `calming-the-storm` | Jesus calms the storm | ⛈️ | Mark 4:35–41 | storm | 1 | 4+ | Jesus, Mir |  |
+| 77 | `calming-the-storm` | Jesus calms the storm | ⛈️ | Mark 4:35–41 | windstorm | 1 | 4+ | Jesus, Mir |  |
 | 78 | `walking-on-water` | Jesus walks on the water | 🌊 | Matthew 14:25–31 | water | 1 | 4+ | Jesus, Mir |  |
 | 79 | `loaves-and-fish` | Five loaves and two fish | 🍞 | John 6:5–13 | loaves | 1 | 4+ | Jesus, Mir |  |
 | 80 | `through-the-roof` | A man lowered through the roof | 🏠 | Mark 2:1–12 | roof | 2 | 8+ | Jesus, Mir |  |
@@ -607,3 +617,46 @@ Columns: **Card** is what the screen shows; **Pic** the picture for Little ones;
 | 127 | `rich-fool` | The rich fool builds bigger barns | 🌾 | Luke 12:16–21 | barns | 3 | 8+ | Par |  |
 | 128 | `unforgiving-servant` | The servant who would not forgive | 💸 | Matthew 18:23–35 | debt | 3 | 8+ | Par |  |
 | 129 | `banquet-excuses` | The banquet guests make excuses | 🍽️ | Luke 14:16–24 | banquet | 3 | 8+ | Par |  |
+
+---
+
+## 16. Review
+
+**One critical review, as the build rules ask (job fd995568, sequence 31 step 8, 2026-11-07).** Checked against the binding spec (APPROVED-IDEAS.md entry 19), [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md) and the real website code. Every correction below has already been made in the body above; this section only records what changed and why.
+
+### 16.1 What was checked and held up
+
+- **The spec and the rules.** The spec's forehead picture is kept as the default mode, and both of its examples are in the list, easiest tier, offered to all ages. There is no running model cost, scripture wording is BSB, site data is reused, and only the game's own files plus its one registry entry and README section are touched. Nothing is deployed. The long-list rule does not apply.
+- **The code the design depends on is real:** the `charades` entry in [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) (coming soon, shelf Family and party, `GAME_ART.charades`); the games README's rules (default export, no props, `load` for live games); the `/games/*` route; the live quiz's wake lock, vibration with reduced-motion check, and Web Audio beeps; the reader's `?hl=` links as Odd one out and Who's older? build them; the `bp-` prefix for storage keys; and BSB plain text in `data/plain/bsb/<BOOK>.json` keyed `chapter:verse`, which several existing data tests already read with `readFileSync`.
+- **The deck table (§3.3)** was recomputed from Appendix A by a separate script. Every number matches.
+- **All 129 passages exist** in the site's BSB text.
+- **The tilt maths (§5.2, §5.3)** was derived again from the W3C angle convention. "Screen up or down" = cos(beta)·cos(gamma), and "up across the screen" = (−cos(beta)·sin(gamma), sin(beta)), are both correct. The first is unaffected by the angle wrap-around near a sideways phone, because it is the actual height of the screen's facing direction, whichever way the browser reports the angles.
+
+### 16.2 What changed, and why
+
+**Problems that would have broken the game or its tests**
+
+1. **Dealing (§4.4, §11, §12).** The design promised that 1,000 test rounds per deck would each deal 15 different scenes. That is impossible. With the "one scene per story per round" rule, Kids' *The early church* can give at most 12 different scenes in a round, and Little ones' *In the beginning* 13. And because passing is free, a fast guesser can go through more than 15 scenes in a minute. The test as written could never pass, and the game had no rule for a round that runs out. **Now** the scenes passed earlier in the round come back, earliest first; a guessed scene never does; and a round where everything has been guessed ends early with a message. The test checks this.
+2. **The easy house rule gave free points (§6.2).** "Naming the main person counts" meant a guesser could shout "Jesus!" at every card and be right on about a dozen of the Little ones' 45 scenes ("Moses!" on four). **Now** a name counts only if it picks out this scene. For people with many scenes, the guess needs what happens as well.
+3. **Start-tap order on iPhones (§5.4, §11).** The design asked for the motion permission, sound, wake lock and fullscreen "on the Start tap" but did not say they must all be *started* before the code waits for the permission answer. Once the code has waited, the browser may no longer count it as part of the tap: sound can stay locked on an iPhone, and fullscreen can be refused. **Now** the design states the order, and a component test checks it.
+4. **The check-word rule was loose (§4.1, §4.2, Appendix A).** It did not say whether the check word must be a whole word. The design step's script matched any run of letters, so "storm" passed on Mark 4's "windstorm"; with that rule, "ten" would pass on "often". **Now** check words must occur as whole words. The review re-checked all 129 rows that way. One failed: "Jesus calms the storm", whose BSB passage never says "storm". Its check word is now `windstorm`, and all 129 pass.
+
+**Smaller corrections**
+
+5. **Formatting references (§4.3, §11).** `formatRange` in refs.ts takes verse ids and the site's catalog, not the text form `JON 1:17-2:10`. The design now says how: the text is parsed into ids with `bookByCode`, using `useCatalog()` as Map quest does, and component tests supply the catalog the way Map quest's test does.
+6. **Full screen versus the games README (§7).** The README says every game page is drawn inside the site's header and footer. The round's full-screen card is now specified as a fixed layer drawn by the game's own CSS. Nothing in the site layout changes, scrolling is locked behind the layer, and focus returns when it closes.
+7. **Fullscreen and landscape lock only where they help (§5.4, §12).** They are now tried only in *Guess it* on a touch device. Before, a laptop in Chrome would have gone fullscreen, and so would *Act it*.
+8. **Hiding the tilt option (§5.4, §6.5, §12).** "Hidden when the device reports no sensor support" would almost never happen, because most desktop browsers report the feature even with no sensor. **Now** a failed one-second check is remembered (`tiltFailed`), so the next visit starts on *Buttons only*, which the player can still change.
+9. **Two pictures (Appendix A).** "Solomon builds the temple" used 🛕, the Hindu temple emoji; it is now 🏗️ (building work). "David dances before the ark" used 💃, a woman dancing; it is now 🕺. Both are older than Emoji 13.0, as §4.1 requires.
+10. **Title size (§7.3).** At the 28 px minimum on a 320 px phone held upright, the longest title needs three lines, not two. The three-line fitting rule already allowed for this, so only the wording changed.
+11. **Smaller wording fixes.**
+    - The "act what is visible" rule (§3.4) claimed that every title names a person and an action. Several, such as "The burning bush", do not. The rule now says what is really true.
+    - The research takeaway (§2.5) gave an invented share ("a third"); it now says "many".
+    - The verse-wording check is now described exactly (§4.1): whole verses of ten words or more.
+    - How long the next scene waits after a button answer is now stated (§5.1).
+    - *Act it* with Little ones who cannot read yet now gets a one-line hint (§7.2).
+12. **Housekeeping.** The appendix table had Windows line endings while the rest of the file did not. The whole file now uses one style. No content changed.
+
+### 16.3 Left for the owner (none blocks the build)
+
+The open points in §13 still stand, and the design's defaults can be built as they are: *Guess it* first, no crucifixion card, the two scenes with God kept, parables in Everything, and no custom decks. The review agrees with each default. It adds no new owner decision.
