@@ -96,7 +96,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "daily", art: GAME_ART.mapQuest,
   },
   {
-    slug: "whos-older", status: "coming-soon", title: "Who's older?",
+    slug: "whos-older", status: "live", load: () => import("./whos-older/WhosOlderGame"),
+    title: "Who's older?",
     description: "Two Bible characters appear: tap the one who lived first.",
     audiences: ["solo", "family"],
     shelf: "family", art: GAME_ART.whosOlder,
