@@ -130,7 +130,12 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
   page as a grid, grouped by chapter in Bible order ("1 Samuel 17"), with writer chips (Both / Claude Haiku / Local
   Qwen) and a count. Clicking a picture opens it large over the page with its title, chapter and verses, and writer;
   the arrow keys and on-screen arrows step through, and Esc or a click outside closes it.
-  `GET /api/gallery?theme=ID` returns the list.
+  `GET /api/gallery?theme=ID` returns every scene; a scene not drawn yet has no picture URLs.
+- **All | Finished** (owner 2026-11-07): All lists every scene, with a dashed "Not drawn yet" tile where the theme has
+  no picture; Finished lists only drawn pictures. The choice is remembered.
+- **▶ Speed run** (owner 2026-11-07: "speed run through all the images"): opens the large view at the first picture of
+  what the gallery shows (filter and writer chips apply), with a "12 / 63" counter; ← → step through, wrapping at the
+  ends. A not-drawn scene shows an empty frame in the run.
 
 **Not now:** a "New theme" form on the page, thumbnails at a smaller size (the WebP files are about 300 KB and load
 lazily), publishing anything.
