@@ -1,0 +1,467 @@
+# Odd one out — design
+
+**Status:** draft from the research & design step (job 717, 2026-11-07). One review step and an implement step follow.
+**Spec (binding):** [APPROVED-IDEAS.md](Jarvis/Projects/BibleProject/APPROVED-IDEAS.md), entry 23: *"Four items (e.g. Peter, John, Paul, James); find the one that doesn't belong and see why (Paul — the only one not with Jesus during his ministry)."*
+**Shared rules:** [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md). No model runs while people play, existing site data is reused, Scripture is quoted from the Berean Standard Bible (BSB), the game registers on the /games hub, only this feature's files are touched, and nothing is deployed.
+**Slug:** `odd-one-out`. **Route:** `/games/odd-one-out`.
+
+---
+
+## 0. Summary
+
+The player sees four Bible people, places or books and taps the one that doesn't belong. The answer is then shown with the reason, a one-line fact for each of the four, verse references, and links into the site's own person, place and book pages.
+
+All puzzles are built **once, ahead of time**, by a deterministic Python script. The script reads the site's existing people, rulers, apostles, prophets, places, letters and book data, plus a small hand-curated facts file. It writes one JSON file that ships with the site. Nothing is generated while people play, and the core build uses **no language model at all**: the explanations are filled in from hand-written phrases and site data.
+
+The hard part is making sure **only one answer is defensible**. The design rests on four ideas:
+
+1. Every item gets a fact sheet listing many properties, including obvious surface ones such as "the only woman" or "the only one whose name starts with a different letter".
+2. A candidate set is rejected if **any** property singles out a different item.
+3. Unknown facts count against the set, never for it.
+4. A second, independent solver in the test suite re-checks every shipped set.
+
+A quick prototype on the real data (§5.6) showed why sets must be **built around a near-miss item** rather than sampled at random. Random sampling kept 7 of 920 sets, and those were poor puzzles. Construction around a near miss kept 201 of 439 attempts.
+
+---
+
+## 1. What the spec fixes, and what this design decides
+
+| Spec says | Design decision |
+|---|---|
+| Four items | Always exactly four, all of the **same kind** (all people, all places or all books). Mixing kinds would make "the only place" a second answer. |
+| Find the one that doesn't belong | One tap answers. No second guess and no timer: the game is family-paced and teaching-first (§9). |
+| …and see why | Every set carries a headline reason, a one-line fact with a verse reference for each item, a key verse quoted in BSB, and links to the site's pages (§7). |
+| The example: Peter, John, Paul, James → Paul | This exact set is in the curated set list. It is the first puzzle a new player sees on Easy People, and it doubles as a test fixture (§12). |
+| (Brief) built once ahead of time from tagged people/places/books data | One build script, run by hand. Its output is committed. A `--check` mode proves the output is current (§5). |
+| (Brief) guard against sets with more than one valid answer | The uniqueness checks in §6 are layered: construction-time rejection, the conservative handling of unknowns, a separate test-suite solver, a review sheet the owner can skim, and a veto list. |
+| (Rules) no runtime model cost | No model at runtime. The core build uses none either. An *optional* extra check by a cheap model is designed in §6.6, but it is not part of the implement step and needs the owner's yes first. |
+
+---
+
+## 2. Research
+
+### 2.1 The puzzle form
+
+- **Psychometric "classification" items.** Verbal-reasoning tests (school entrance exams, Mensa-style tests) have long used "which word is the odd one out?". Good items have one category that three share and that clearly excludes the fourth. Bad items are the ones test-prep forums argue about: a solver finds a second, equally valid category. The classic weakness of the form is that **any four things differ in many ways**.
+- **Colton, "Automated Puzzle Generation" (AISB 2002).** This is the founding paper on machine-made odd-one-out puzzles. It generated them, along with analogy and next-in-sequence puzzles, from a theory-formation system over structured data. Its central technical problem is exactly ours: a puzzle **should have only one plausible answer**, and the generator has to search for alternative answers and discard sets that have them. Its worked example: in a number set, 18 is odd because the others are square numbers, but another number is odd for a different reason, so the set is ambiguous. *Lesson:* uniqueness has to be checked against a broad, deliberately over-inclusive set of properties, not only the intended one.
+- **Pintér et al., "Automated Word Puzzle Generation via Topic Dictionaries" (2012).** This work builds odd-one-out sets from coherent concept groups, then adds a weakly related intruder. It rates each set by its *least-related member*, because one member that is too weakly connected to the rest makes a puzzle ambiguous. *Lesson:* the three "belonging" items must be **tightly** grouped, and the odd item must be **close but outside**. A random outsider is too easy, and a weak member creates rivals.
+- **Hebart et al., THINGS odd-one-out (Nature Human Behaviour, 2020).** This study collected about 1.5 million human "odd one out of three" judgements to map how people judge similarity. People pick whichever difference is **most salient to them**, often a visual or surface one rather than the "intended" category. *Lesson:* surface properties (only woman, only New Testament, only one with a book named after them, first letters) are the ones players reach for first. They must always be checked, even though they never make good headline reasons.
+- **"Which One Doesn't Belong?" (Christopher Danielson, 2016; wodb.ca).** This maths-education book designs every set so that **each of the four** can be defended, to spark argument. That is the opposite of what we want, and it confirms how easily four items yield four answers. *Lesson:* uniqueness has to be engineered. It never happens by accident.
+- **NYT Connections (Wyna Liu, 2023–).** Sixteen words go into four groups of four, with deliberate *red herrings*: words that seem to belong to a group but don't. Each board is hand-built from a notebook of category ideas, and another editor reviews it. Players get angry when two groupings are both valid, and the game's answer screen names each category. *Lessons:* (a) red herrings make Hard mode fun, as long as the true answer stays unique. (b) Naming the category afterwards is what makes the moment satisfying. (c) Even hand-made puzzles get a second reviewer, which is why this design adds an owner review sheet and veto list.
+- **TV quizzes.** BBC *Odd One Out* (1982–85) and the connections rounds of *Only Connect* show the "reveal the link" beat the spec asks for: the explanation is the payoff, not an afterthought.
+
+### 2.2 What the research means for this game
+
+1. **Build sets, don't sample them.** Start from a meaningful category, pick an outsider that is a *near miss*, then pick three members so that nothing else stands out (§5.4).
+2. **Over-check, under-explain.** Check rivals against every property we can compute, including silly surface ones. Use only meaningful, curated categories as the explained reason.
+3. **Treat unknowns as dangerous.** A missing fact must never let a set through (§6.2).
+4. **Make the reveal the reward.** Name the category, show why each member fits, and link to learn more (§7).
+5. **Add a human pass.** The script writes a review sheet, and the owner can veto any set by its id (§6.5).
+
+---
+
+## 3. Site data reused
+
+| Source (all existing) | What it gives this game |
+|---|---|
+| [people.json](Jarvis/Projects/BibleProject/Website/data/study/people.json) | 3,133 people: name, other names (`o`), a one-line description (`b`), mention count (`c`, used for fame), period (`p`), group flag (`g`, marks peoples rather than persons). |
+| [data/study/people/](Jarvis/Projects/BibleProject/Website/data/study/people/) (one file per person) | Sex (`s`), testament/era (`e`), tribe or nation (`t`), role phrase (`d`: "King / Prophet / Apostle / Judge / Priest / Levite / Warrior … living at the time of …"), parents, siblings, spouses and children ids, books the person appears in with counts (`k`), and verse references (`refs`). |
+| [src/data/people-pages/](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) | Curated groups with display names, for example: kings of Israel and of Judah (with realm and house), the judges, the Herods, Rome, Persia, Assyria and Babylon, Egypt, the Twelve, Paul's companions, the Jerusalem church, and six prophet groups. **These are the main source of headline categories for people.** |
+| [src/data/apostle-pages/](Jarvis/Projects/BibleProject/Website/src/data/apostle-pages/) | The Twelve plus Matthias and Paul, with story entries, places and companions. Paul's file lists the places on his journeys. |
+| [prophets.json](Jarvis/Projects/BibleProject/Website/data/study/prophets.json) | 64 prophets, each marked as a prophet, a writing prophet, a New Testament prophet or a false prophet. |
+| [people-slugs.json](Jarvis/Projects/BibleProject/Website/src/data/people-slugs.json) | Readable person addresses such as "james-son-of-zebedee", used for links and for disambiguated labels. |
+| [places.json](Jarvis/Projects/BibleProject/Website/data/places.json) | 1,252 places: type (settlement, region, mountain, river, island, body of water…), coordinates, a location confidence score, and the verses where each is named. |
+| [data/places-by-book/](Jarvis/Projects/BibleProject/Website/data/places-by-book/) | Places named in each book. |
+| [catalog.json](Jarvis/Projects/BibleProject/Website/data/catalog.json) | The books with their sections (history, poetry, prophets, gospels, epistles, revelation, apocrypha). |
+| [letters.json](Jarvis/Projects/BibleProject/Website/data/study/letters.json) | 21 letters, with the name each opens in and its recipients. |
+| [data/text/bsb/](Jarvis/Projects/BibleProject/Website/data/text/bsb/) | BSB text, for key-verse quotes and for chapter counts ("one-chapter books"). |
+| [bank.json](Jarvis/Projects/BibleProject/Website/data/questions/bank.json) | Not a source of sets. Its `people` and `places` tags are used only as a **fame signal**: an item that is asked about in the question bank is one players know. |
+
+The twenty-questions game (entry 16) will one day build a full character-tag table, but in chain A it comes after this game is built. **This game must not depend on it.** If that table exists later, its tags can be added to the fact sheet as more rival checks, which is cheap to do.
+
+---
+
+## 4. Content model
+
+A set has four items, one odd item, one **rule** (the reason) and a **polarity**:
+- `members-share`: the three share the rule and the odd one lacks it. For example, three are kings of Judah and one is a king of Israel.
+- `odd-only`: only the odd one has the rule. For example, the only woman, or the only one who is a river.
+
+The shipped file is `src/data/odd-one-out/sets.json`. It is generated, and its header says "do not edit":
+
+```jsonc
+{
+  "about": "Odd one out sets. Generated by scripts/build-odd-one-out.py; do not edit.",
+  "version": 1,
+  "stamp": "<hash of inputs>",               // changes only when inputs change
+  "rules": {
+    "the-twelve": {
+      "kind": "person",
+      "members": "were among the Twelve Jesus chose during his ministry",   // used for members-share
+      "odd": "was not with Jesus during his ministry",                       // the odd item's line
+      "keyRef": [40010002, 40010004],
+      "keyQuote": "These are the names of the twelve apostles: first Simon, who is called Peter, …"  // BSB, filled in at build time
+    }
+  },
+  "items": {
+    "peter-mat-4-18": { "kind": "person", "label": "Peter", "brief": "Apostle of Jesus, leader in the early church",
+                        "href": "/people/peter", "ref": 40004018 }
+  },
+  "sets": [
+    { "id": "ooo-3f9a2c", "kind": "person", "difficulty": "easy",
+      "items": ["peter-mat-4-18", "john-mat-4-21", "paul-act-7-58", "james-mat-4-21"],   // stored order; the game shuffles
+      "odd": "paul-act-7-58", "rule": "the-twelve", "polarity": "members-share",
+      "facts": { "peter-mat-4-18": [40010002], "john-mat-4-21": [40010002], "james-mat-4-21": [40010002], "paul-act-7-58": [44009001] },
+      "also": [] }                             // other properties that single out the SAME odd item (§6.3)
+  ]
+}
+```
+
+- **Set ids** are a short hash of the rule, the polarity and the sorted item ids. They stay the same across rebuilds, so the "already seen" record in the player's browser survives a data refresh.
+- `items` and `rules` are stored once and referenced by id, which keeps the file small. At about 420 sets the file should be around 150–250 KB raw and much smaller compressed. It is loaded with a dynamic import only on the game route, so it never adds weight to other pages.
+
+---
+
+## 5. Building the sets (once, ahead of time)
+
+**Script:** `scripts/build-odd-one-out.py`, Python 3.12, the same style as the site's `build-people-pages-index.py` family. Commands:
+- `py -3.12 scripts/build-odd-one-out.py` writes `src/data/odd-one-out/sets.json` and `docs/features/odd-one-out/review-sheet.md`.
+- `py -3.12 scripts/build-odd-one-out.py --check` exits non-zero if the committed output differs from a fresh build.
+
+**Curated inputs** live beside the script in `scripts/odd-one-out/`:
+- `rules.json`: the rule catalogue (§5.3), with the hand-written phrases, tier, kind, source and key verse for each rule.
+- `facts.json`: a small set of hand-curated facts the site data does not hold. Every fact carries verse references. Examples: who followed Jesus during his ministry, the seven churches of Revelation, the Philistine cities, the books of the Law, books named after a person.
+- `veto.json`: set ids the owner has rejected, each with a one-line reason.
+- `seed-sets.json`: hand-written sets that must ship, starting with the spec's own example. They still go through every check.
+
+The build is **deterministic**: a fixed random seed and sorted inputs, so the same inputs always produce the same file. It is not added to `prebuild`, and `package.json` is not changed (shared file, see the rules). The implement step runs it by hand and commits the output. The vitest suite guards the output (§12).
+
+### 5.1 The item pool (who and what may appear)
+
+**People:**
+- Not a group (`g` unset), and not Jesus or God. Unnamed people ("a wife of Peter") are excluded.
+- At least one of: a mention count at or above the fame line for the difficulty (§8), membership of a curated people-pages group, or a mention in the question bank.
+- Known **aliases are merged**. The site stores Jacob under the name "Israel" (`israel-gen-25-26`, other names include "Jacob"), so the label must read **Jacob**. A small `labels` override table in `facts.json` covers such cases, and the build fails if a label override names an id that doesn't exist.
+
+**Places:**
+- Mentioned in at least 3 verses (Easy needs 15 or more).
+- Gates, roads, pools, campsites and structures are excluded as too obscure.
+
+**Books:**
+- The 66 books of the Protestant canon. The Apocrypha is excluded, because whether those books belong is itself a matter of tradition.
+
+### 5.2 The fact sheet (properties per item)
+
+Every property is **tri-state**: true, false or unknown. Each one has a **tier** (how likely a player is to think of it) and a **use**: `rule` means it can be a headline reason, and it is always also used for rival checks; `rival` means it is only used for rival checks.
+
+| Kind | Property | Tier | Use | Derived from |
+|---|---|---|---|---|
+| person | woman | 1 | rule | `s` |
+| person | Old vs New Testament | 1 | rule | `e` |
+| person | has a Bible book named after them | 1 | rule | catalogue names vs person (curated map, so that "John" the letter writer and "John" the Baptist are not confused) |
+| person | king/queen, prophet, apostle, judge, priest | 1 | rule | `d` role word + people-pages groups |
+| person | one of the Twelve | 1 | rule | apostle pages (the Twelve only, not Matthias or Paul) |
+| person | followed Jesus during his ministry | 2 | rule | `facts.json` (the Twelve + named disciples, with verse refs) |
+| person | king of Israel (north) / king of Judah | 2 | rule | people-pages rulers (`realm`) |
+| person | a Herod, a Roman ruler, a Persian king, a king of Assyria/Babylon, a Pharaoh | 2 | rule | people-pages ruler groups |
+| person | a writing prophet | 2 | rule | prophets.json `kind` |
+| person | son of Jacob; child of David; sibling of X | 2 | rule | family links (`ch`, `si`) |
+| person | Paul's companion | 2 | rule | people-pages "Paul's companions" |
+| person | era (Patriarchs … Exile and Return) | 2 | rival | `e` |
+| person | tribe | 3 | rival | `t` (values marked "(?)" become unknown) |
+| person | named in the Gospels / Acts / the Law / Genesis | 3 | rival | `k` |
+| person | non-Israelite (Edom, Egypt…) | 2 | rival | `t` |
+| any | first letter of the label (three share it, one differs) | 1 | rival | label |
+| any | label carries a qualifier ("James, son of Zebedee") | 1 | rival | label (§6.4) |
+| place | settlement / region / mountain / river / island / sea | 1 | rule | `type` |
+| place | one of the seven churches of Revelation | 2 | rule | `facts.json` (Rev 2–3) |
+| place | a Philistine city | 2 | rule | `facts.json` |
+| place | on Paul's journeys | 2 | rule | Paul's apostle-page places |
+| place | named only in the New / only in the Old Testament | 2 | rule | `verses` |
+| place | outside the land of Israel | 2 | rival | coordinates; **unknown** when confidence is below 0.5 |
+| book | Old vs New Testament | 1 | rule | catalogue |
+| book | a Gospel; a book of the Law; a prophet book; a poetry book; a history book | 1 | rule | catalogue sections + `facts.json` for the Law (the five books) |
+| book | a letter that opens in Paul's name | 2 | rule | letters.json (the site's careful wording, not claims about who wrote it) |
+| book | a one-chapter book | 2 | rule | BSB chapter count |
+| book | named after a person | 2 | rule | `facts.json` |
+| book | letter to a church vs to a person | 2 | rule | letters.json `recipients` |
+
+The table is the starting set for the implement step. The implement step may add properties freely, because more properties make the checks stricter. It may only add **rule** properties if they have hand-written phrases in `rules.json`.
+
+### 5.3 The rule catalogue
+
+Each `rules.json` entry has: `id`, `kind`, `tier`, `members` phrase, `odd` phrase, optional `oddOnly` phrase (for the `odd-only` polarity), `keyRef`, and `source` (the site file or `facts.json` key). A rule is only a headline if a person would accept it as a real biblical category. "Not named in the book of Acts" is a fact, but nobody would call it *the* reason. That is why book-appearance properties are rival-only.
+
+The spec's example is the rule `followed-jesus` with the odd phrase "was not with Jesus during his ministry". The `the-twelve` rule gives the same answer for that set, and both can be shown (§6.3). Note that **"named in the Gospels" is not the same rule.** James the brother of Jesus is named in the Gospels (Matthew 13:55) but did not follow Jesus during his ministry (John 7:5). This is why that rule is curated with verse references rather than derived from where a name appears.
+
+### 5.4 Construction (for each rule and polarity)
+
+1. **Candidates.** Members are the items where the rule is true; outsiders are the items where it is false. Items where it is unknown are never used.
+2. **Pick a near-miss odd item.** Rank outsiders by similarity to the members. Similarity is measured only over **rule-use** properties at tiers 1–2; surface properties are left out, because the prototype showed they otherwise pull every set towards four names with the same first letter. Easy takes an outsider from anywhere in the top half; Hard takes one from the top 10%. Hard sets therefore have a built-in red herring: the odd item shares most of the members' other properties.
+3. **Pick three members.** From the members most similar to the odd item (top 12), try combinations of three in a seeded order and keep the first one that passes all checks in §6. If none passes, drop that odd item.
+4. **Variety limits.** No item appears in more than 6 sets. No rule supplies more than 15% of a kind's sets. The same four items never appear twice under different rules (the first one built is kept).
+5. **Seed sets** from `seed-sets.json` are checked the same way and **fail the build** if they don't pass. A hand-written set gets no exemption.
+6. **Veto.** Ids in `veto.json` are dropped. The build fails if a vetoed id no longer exists, so stale entries get noticed.
+
+**Targets:**
+
+| Kind | Easy | Medium | Hard | Total |
+|---|---|---|---|---|
+| People | ~80 | ~80 | ~80 | ~240 |
+| Places | ~40 | ~40 | ~40 | ~120 |
+| Books | ~25 | ~25 | ~10 | ~60 |
+
+The build prints the counts it actually achieved. **Minimum to offer a combination:** 20 sets, which is two rounds. Below that, the combination (for example Hard Books) is hidden from the start screen rather than repeating sets. "Mixed" draws from all kinds.
+
+### 5.5 Explanations (template, not a model)
+
+The headline and the lines are filled in from `rules.json` phrases plus the item's label and `brief`:
+- **Headline, `members-share`:** "**Paul** was not with Jesus during his ministry. Peter, John and James were among the Twelve Jesus chose."
+- **Headline, `odd-only`:** "**The Jordan** is the only river. Bethel, Hebron and Shiloh are towns."
+- **Per-item line:** label, then the site's one-line `brief`, then the verse reference that proves the rule fact for that item (`facts[item]`, else the item's first reference). Each line links to the item's page.
+- **Key verse:** `rules[rule].keyQuote`, quoted from the BSB at build time (one short quote, at most two verses).
+- **"Also true":** when §6.3 finds tier-1 or tier-2 properties that single out the same odd item, one extra line names them: "Paul is also the only one who …". A player who chose the right item for a different reason is told they were right.
+
+### 5.6 Prototype evidence (real site data, this job)
+
+A throwaway prototype (kept in this job's own folder, not shipped) ran the checks above on 115 well-known, uniquely named people with about 25 derived properties.
+
+| Approach | Tried | Kept | What the kept sets looked like |
+|---|---|---|---|
+| Random four (three members + any outsider) | 920 | 7 (0.8%) | Poor: for example Job as the "only non-apostle" next to Peter, Judas and Paul (too easy, and Job differs in ten other ways). |
+| Built around a near-miss odd item (§5.4) | 439 odd items | 201 sets, across 14 rules | Mostly sound (for example Leah, Rachel and Rebekah with Lot as the only man). |
+
+The prototype also exposed **four problems the design now handles:**
+- **First letters skewed the sets.** When first letters counted towards similarity, sets drifted to four names starting with A ("Abijah, Ahaz, Asa, Abishai"). Surface properties are now used for rival checks only.
+- **Weak headlines.** The prototype produced rules like "Adam is the only one not named in Acts". Book-appearance properties are therefore rival-only.
+- **The same odd item stood out on several properties.** For example "Abijah, Ahaz, Asa + Aaron": Aaron is not a king *and* is from another era. The answer is unique, but the reason is not; §6.3 handles this.
+- **Jacob appears under the name "Israel"** in the site data. Hence the alias and label table in §5.1.
+
+---
+
+## 6. Guarding against more than one valid answer
+
+### 6.1 The core check (run on every candidate)
+
+For a set {m1, m2, m3, odd} with intended rule R:
+1. R must be **known** for all four items and must give the intended split.
+2. Every other property Q of that kind (both uses, all tiers) is tried in **both directions**: the one item where Q is true while the other three are false, and the one item where Q is false while the other three are true.
+3. If Q can single out any item **other than** the odd one, there is a **rival answer** and the set is rejected.
+4. If Q singles out the odd item too, it is recorded in `also` (§6.3).
+
+### 6.2 Unknowns count against the set
+
+An unknown value is treated as *whichever value would create a rival*. If any filling-in of the unknowns lets Q single out a non-odd item, the set is rejected. Examples:
+- A tribe marked "(?)" in the data.
+- A place whose location confidence is below 0.5, which makes "outside the land of Israel" unknown.
+- A person with no era.
+
+This is the main protection against gaps in the data: missing knowledge can only *remove* sets, never let a doubtful one through.
+
+### 6.3 Unique answer, but several reasons
+
+If other properties at tiers 1–2 also single out the odd item:
+- **Easy:** allowed. The headline uses the intended rule and the "also true" line names the others. The player's answer is right whatever their reason.
+- **Medium:** at most one extra reason.
+- **Hard:** none. The intended rule must be the *only* thing that singles out the odd item. This is what makes Hard sets clean and red-herring-rich.
+
+### 6.4 Label and surface checks
+
+- **No two items share a display name** in a set (Mary, James, John, Herod, Zechariah…). Each same-named person has a qualified label ("James, son of Zebedee") from the people slugs or the `labels` table.
+- **Qualifier check.** If exactly one label is qualified, or exactly one is bare, the qualifier itself becomes a rival ("the only one with a description"). The set is rejected unless that item is the odd one *and* the qualifier doesn't give the reason away.
+- **No giveaway words.** A label may not contain a word from its rule's phrases. "John the Baptist" may not be the odd one in a rule about prophets or the Twelve; "Simon the Zealot" is fine.
+- **First-letter check.** If three labels share a first letter and the fourth doesn't, that is a rival, unless the fourth is the odd one.
+- **Alias collisions.** No item may be another item's alias. For example "Saul" (Paul) beside "Saul" (the king) is blocked by id and alias, not just by label.
+
+### 6.5 Human review and veto
+
+Every build writes `docs/features/odd-one-out/review-sheet.md`, one line per set: the four labels, the answer, the headline, the "also true" reasons and the set id. The owner (or a reviewer) skims it, and any set that reads wrong goes into `veto.json` with a reason. The rebuild drops it. Vetoes are by stable id, so they survive rebuilds. The review step of this sequence should read a sample of the sheet once the implement step has produced it.
+
+### 6.6 Optional extra check by a cheap model (not in the implement step)
+
+A language model asked "list every defensible odd one out among these four, with reasons" is a good adversary. It knows facts our fact sheet doesn't, such as "Moses is the only one who didn't enter the Promised Land". It is **optional**, and the core design works without it. If the owner wants it later:
+- Run it through [BatchRunner](Jarvis/Tools/BatchRunner/README.md), as the batch rule requires. One minimal call per set, the cheapest model (Haiku), a pilot of 3 sets first, and a budget cap. The model output goes only into a list of flagged set ids for human judgement. It never edits sets automatically.
+- **Size:** about 420 sets × roughly 600 input and 150 output tokens. That is a few hundred thousand tokens in total, a very small share of the Max plan. The exact figure comes from the pilot.
+- It **needs the owner's explicit yes** under the cost rule before it runs, so it is listed under owner decisions (§15), not as an implement task.
+
+### 6.7 The independent second check (in the test suite)
+
+`src/pages/games/odd-one-out/sets.test.ts` holds a **separate TypeScript solver**. It does not read the rule, polarity or `also` fields. For each shipped set it recomputes, from a fact table the build writes alongside the sets, every item that some property can single out, and asserts that the answer is exactly one item. That item must equal `odd`. Because it is written independently of the Python checker, a bug in one is caught by the other. The fact table is stored in `src/data/odd-one-out/facts-table.json` as compact bitsets per item and property, and it is imported only by tests.
+
+---
+
+## 7. What the player sees after answering
+
+1. **Result banner**, with an icon *and* words (never colour alone): "Right!" or "Not quite: the odd one out was **Paul**."
+2. **Headline reason** (§5.5).
+3. **Four lines**, one per item, in the order shown: the label, the site's one-line brief, and a verse reference link. The odd item's line is marked.
+4. **Key verse** in BSB, with its reference linking to the reader at that verse.
+5. **"Also true"** line when there is one (§6.3).
+6. **Next** button (and the Enter key). On the last set of a round, **See results**.
+
+The links go to existing pages: people at `/people/:slug`, places at the atlas place view the site already links to from verses, books and verses in the reader at `/read/:translation/:book/:chapter`. Links open in the same tab. Round progress is held in session storage, so pressing Back returns to the same set (§14).
+
+---
+
+## 8. Difficulty
+
+| | Easy | Medium | Hard |
+|---|---|---|---|
+| Fame of items | People mentioned 60+ times, or in the question bank's people tags; places in 15+ verses | 20+ mentions or a curated group member; places in 6+ verses | 8+ mentions; places in 3+ verses |
+| Rule tiers | Tier 1 rules, and the best-known tier 2 rules (the Twelve, kings of Judah) | Tier 1–2 | Tier 2 |
+| Odd item | From the top half of near misses | Top quarter | Top 10% (red herring) |
+| Other reasons for the same answer | Allowed | At most one | None |
+
+Books are all well known, so book difficulty comes only from rule tier and near-miss strength. Hard Books may fall below the minimum; if so it is hidden (§5.4).
+
+---
+
+## 9. Game rules
+
+- **A round is 10 sets** of the chosen kind (People, Places, Books, Mixed) and difficulty.
+- **One tap answers.** Changing your mind is not possible. The reveal appears immediately.
+- **Score:** 1 point per right answer. The round summary shows the score out of 10 and the best streak in the round. The best score for each kind and difficulty is kept on this device (local storage only, no account and no server).
+- **No timer.** It is a teaching game for families and groups, and reading the reveal is the point.
+- **Answer position:** the four items are shuffled for each showing with a random permutation, so the odd item is in each slot equally often (tested).
+- **Freshness:** sets seen recently (stored by set id on this device, up to the last 200) are avoided until the pool for that combination runs out. Then the oldest seen come back first.
+- **First run:** a new player's first Easy People round starts with the spec's example set (Peter, John, Paul, James), which teaches the game by example.
+- **No sharing or daily mode.** The spec doesn't ask for them, so they are left out. A shared daily set could be added later from the same data.
+
+---
+
+## 10. Screens
+
+Mobile first. Follows the site's existing Tailwind tokens and light/dark themes. The layout keeps the four choices fully visible on a 320 px wide screen.
+
+1. **Start**
+   - Title "Odd one out" and the line "Four names. One doesn't belong. Can you see why?"
+   - Two rows of chips: **What** (People / Places / Books / Mixed) and **How hard** (Easy / Medium / Hard). Combinations with too few sets are disabled, with a short reason.
+   - A **Play** button.
+   - The best score for the current choice, if there is one.
+2. **Puzzle**
+   - Progress "3 of 10" and the score so far.
+   - The prompt "Which one doesn't belong?"
+   - Four large choice buttons in a 2×2 grid, or a single column below 360 px. Long names wrap and never truncate ("Chedorlaomer", "Maher-shalal-hash-baz").
+   - A small kind label ("People") so Mixed rounds stay clear.
+3. **Reveal** (on the same screen, below the grid, which scrolls into view)
+   - The chosen button is marked right or wrong and the odd item is marked, using ✓/✗ icons plus words.
+   - The explanation block from §7, then **Next**.
+4. **Round summary**
+   - The score, the best streak, and a list of the 10 sets. Each row shows the four labels, a ✓/✗ mark and the headline, and can be tapped to expand its full explanation again.
+   - **Play again** (same choice) and **Change game** (back to Start).
+5. **Can't load**
+   - "The puzzles didn't load" with a **Try again** button, following the site's existing missing-data pattern (`DataUnavailable`).
+
+**Accessibility:**
+- The choices are real buttons, and keys 1–4 select them.
+- The result is announced through an `aria-live="polite"` region.
+- Focus moves to the result heading after answering, and to the first choice on Next.
+- Animations respect `prefers-reduced-motion`.
+- The colour contrast meets WCAG AA in both themes.
+
+---
+
+## 11. Files
+
+**New, this feature only:**
+- `scripts/build-odd-one-out.py`, and the inputs `scripts/odd-one-out/{rules,facts,veto,seed-sets}.json`
+- `scripts/tests/test_odd_one_out.py` (pytest, run by `npm run test:data`)
+- `src/data/odd-one-out/sets.json` and `src/data/odd-one-out/facts-table.json` (generated)
+- `src/pages/games/odd-one-out/OddOneOutPage.tsx` (the screens), `game.ts` (pure logic: round building, shuffling, scoring, freshness), `game.test.ts`, `sets.test.ts`, `odd-one-out.css`
+- `docs/features/odd-one-out/review-sheet.md` (generated)
+
+**Touched (one entry each):**
+- The games hub registry `src/pages/games/registry.ts`: add the entry and set it live. Follow `src/pages/games/README.md` for whether the route is declared there or in [App.tsx](Jarvis/Projects/BibleProject/Website/src/App.tsx).
+
+**Dependency to note.** The hub and registry that the rules attribute to job 714 **did not exist in the site** when this design was written (2026-11-07, no `src/pages/games/` folder). The implement step must check first:
+- If the hub exists, register there.
+- If it still doesn't, add only the `/games/odd-one-out` route in App.tsx and say plainly in its report that the hub entry is waiting. It must not build the hub itself, because that is another job's file and the rules forbid broad shared changes.
+
+---
+
+## 12. Tests
+
+All tests run under `npm test` (vitest) unless marked pytest.
+
+**`sets.test.ts`** checks the shipped data:
+- Every set has 4 distinct ids, all of one kind, and every id exists in `items`.
+- `odd` is one of the four, `rule` exists, and there are no duplicate set ids or duplicate quads.
+- No two labels in a set are the same.
+- Every fact reference is a valid verse id.
+- Every kind and difficulty combination that is offered has at least 20 sets.
+- The independent solver (§6.7) finds exactly one answer and it equals `odd`.
+- The spec's example set is present and answers Paul.
+
+**`game.test.ts`** checks the game logic:
+- A round has 10 distinct sets.
+- The shuffle is a permutation, and over many seeded rounds the odd item's position is roughly uniform.
+- Scoring and the best streak are correct.
+- Freshness skips recently seen sets and falls back to the oldest when the pool runs out.
+- Hidden combinations are reported as unavailable.
+- Corrupt local storage is ignored safely.
+
+**`test_odd_one_out.py`** (pytest) checks the checker itself:
+- A known-ambiguous set is rejected ("Peter, Andrew, Mary Magdalene, Paul": both "the only woman" and "not one of the Twelve / followed Jesus" are rivals).
+- A clean set passes.
+- An unknown tribe creates a rival.
+- The qualifier and first-letter rivals are caught.
+- A giveaway label is rejected.
+- A seed set that fails stops the build.
+- A stale veto id stops the build.
+- `--check` detects changed output.
+
+**Before handing back**, the implement step runs `npm test`, `npm run typecheck`, `npm run lint` and `npm run build`, and reports the results honestly.
+
+---
+
+## 13. Cost
+
+- **Running the game:** no cost. Static JSON, no server calls, no model.
+- **Building sets:** no cost. Local Python, no model.
+- **The optional model check (§6.6):** only with the owner's yes, through BatchRunner with a budget cap. Its expected size is a very small share of the Max plan.
+
+---
+
+## 14. Edge cases
+
+| Case | Handling |
+|---|---|
+| Same-name people (Mary ×6, James ×4, John, Herod, Zechariah, Saul/Saul) | Never two in one set. Labels are qualified from the slugs (§6.4). Ids, not names, are compared. |
+| Name stored under an alias (Jacob as "Israel") | Labels override table. The build fails on an unknown id in it. |
+| A qualifier gives the answer away ("John the Baptist" in a prophets set) | Giveaway-word check rejects it. |
+| Contested facts (who wrote Hebrews, 2 Peter, the Gospels) | Authorship is never used. Only "opens in Paul's name" from the site's letters data. |
+| Disputed locations (Mount Sinai, Emmaus) | Location-based properties become unknown (confidence below 0.5), and unknowns count against the set (§6.2). The place can still appear in type-based sets ("the only mountain"). |
+| Tradition-dependent canon (the Apocrypha) | Excluded. |
+| "One of the Twelve" vs "apostle" (Matthias, Paul, Barnabas) | Separate rules with exact phrases. "The Twelve" means the list in Matthew 10 (Matthias is not in it). Both rules exist as rival properties, so a set where they disagree is rejected. |
+| "Named in the Gospels" vs "followed Jesus" (James the brother of Jesus) | Curated `followed-jesus` facts with refs. The book-appearance property is rival-only (§5.3). |
+| Moral judgements ("the only evil king") | Not used as rules in version 1. They need judgement calls and verse-by-verse sourcing. They could be added later as curated facts with refs. |
+| Jesus, God, angels, Satan | Excluded from the pool. |
+| Peoples and nations (Amorites, Edomites) | Excluded (`g` flag). |
+| Very long names | They wrap. The buttons grow in height; the layout is tested at 320 px. |
+| Double tap or tap during reveal | The first tap locks the answer; later taps are ignored until Next. |
+| Reload or Back mid-round | The round (set ids, position, score) is kept in session storage and resumed. A new tab starts fresh. |
+| Pool exhausted for a combination | Oldest-seen sets come back first. Combinations under 20 sets are hidden. |
+| Data file fails to load | "Can't load" screen with Try again. No partial game. |
+| Local storage unavailable or corrupt | The game still works; best scores and freshness are just not kept. |
+| Site data changes later (people rebuilt) | `--check` fails in whatever runs it, a rebuild regenerates sets, and stable ids keep vetoes and "seen" lists valid where the sets survive. |
+| Translation into the site's other languages | Version 1 is English. Rule phrases and briefs are data, so a later translation pass can add per-language phrase files without changing the logic. |
+| The /games hub not built yet | §11: route only, the report says the hub entry is waiting, and no hub is built. |
+
+---
+
+## 15. Open points for the review step and the owner
+
+1. **Owner decision (optional):** whether to run the extra cheap-model check of every set for answers the fact sheet can't see (§6.6). It needs a yes under the cost rule. The game is complete without it.
+2. **Review step:** confirm the people-pages groups cover the curated rules listed, and that `facts.json` stays small (a few dozen entries, each with verse refs).
+3. **Implement step:** check whether the /games hub exists before wiring the route (§11).
+
+---
+
+## 16. Sources
+
+- Simon Colton, "Automated Puzzle Generation", AISB 2002: <http://ccg.doc.gold.ac.uk/wp-content/uploads/2016/08/colton_aisb02.pdf> (also <https://www.researchgate.net/publication/2892578_Automated_Puzzle_Generation>)
+- Balázs Pintér et al., "Automated Word Puzzle Generation via Topic Dictionaries", 2012: <https://arxiv.org/abs/1206.0377>; topic-model version <https://discovery.ucl.ac.uk/1433225/1/pinter12automated.pdf>
+- Martin N. Hebart et al., "Revealing the multidimensional mental representations of natural objects underlying human similarity judgements", Nature Human Behaviour 4, 2020 (THINGS triplet odd-one-out task)
+- Christopher Danielson, *Which One Doesn't Belong?* (Stenhouse 2016; Charlesbridge 2019): <https://www.charlesbridge.com/products/which-one-doesnt-belong-playing-with-shapes>, <https://talkingmathwithkids.com/wp-content/uploads/2026/02/look-inside.pdf>
+- NYT Connections: <https://en.wikipedia.org/wiki/The_New_York_Times_Connections>; Slate interview with Wyna Liu (July 2024): <https://slate.com/life/2024/07/connections-nyt-today-wordle-wyna-liu.html>
+- Knowledge-graph question generation with difficulty control (background): <https://arxiv.org/pdf/2602.20135>, <https://arxiv.org/html/2604.10748>
