@@ -1,0 +1,13 @@
+{
+  "about": "Timeline sort pairs never dealt together (design \u00a74.5): every event in a against every event in b, because their order is honestly disputed. The build fails if windows or facts would settle one.",
+  "contested": [
+    {"a": ["enoch-taken"], "b": ["noah-born"], "reason": "The Hebrew text of Genesis 5 has Enoch taken 69 years before Noah was born; the Samaritan text's smaller ages at fatherhood put Noah's birth about 180 years before Enoch was taken."},
+    {"a": ["noah-curses-canaan"], "b": ["babel", "terah-to-haran"], "reason": "Genesis does not say how long after the Flood Noah planted his vineyard (he lived 350 years after it, Genesis 9:28), so its time against Babel and Terah's move is not stated."},
+    {"a": ["ezra-arrives"], "b": ["nehemiah-petition", "nehemiah-walls", "nehemiah-second-visit"], "reason": "Ezra 7:7's 'seventh year of Artaxerxes' is 458 BC (Artaxerxes I, the traditional view) or 398 BC (Artaxerxes II, held by many scholars since van Hoonacker); Nehemiah came in Artaxerxes I's twentieth year, 445/444 BC, and returned after his thirty-second, 433/432 BC."},
+    {"a": ["benjamin-war"], "b": ["othniel-delivers", "ehud-kills-eglon", "deborah-barak", "gideon-fleece", "gideon-midian", "abimelech-millstone", "jephthah-ammon", "samson-lion", "samson-delilah", "samson-dagon"], "reason": "Judges 17–21 is set early (Phinehas, Aaron's grandson, is priest, Judges 20:28) but is not tied to any judge, so its order against each judge's story is unknown. Othniel is included because nothing orders the war against him either."},
+    {"a": ["ruth-bethlehem", "boaz-marries-ruth"], "b": ["othniel-delivers", "ehud-kills-eglon", "deborah-barak", "gideon-fleece", "gideon-midian", "abimelech-millstone", "jephthah-ammon", "samson-lion", "samson-delilah", "samson-dagon", "samuel-born", "samuel-called", "ark-captured"], "reason": "Ruth's story is set 'in the days when the judges ruled' (Ruth 1:1), but under which judge is not said; Eli and Samuel were judges too (1 Samuel 4:18; 7:15)."},
+    {"a": ["daniel-lions"], "b": ["cyrus-decree"], "reason": "Both fall in the first years after Babylon fell; Daniel 6:28 names the reigns of Darius and Cyrus without ordering these events, and who 'Darius the Mede' was is itself debated."},
+    {"a": ["presentation-temple"], "b": ["wise-men", "flight-to-egypt", "bethlehem-boys"], "reason": "Luke has the family go home to Nazareth after the presentation (Luke 2:39); Matthew has the wise men's visit and the flight to Egypt. How the two accounts fit together is debated."},
+    {"a": ["sermon-mount"], "b": ["feeding-5000"], "reason": "The Gospels arrange Galilean events differently, and neither event is tied in time to the other."}
+  ]
+}

@@ -66,7 +66,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "daily", art: GAME_ART.wordle,
   },
   {
-    slug: "timeline", status: "coming-soon", title: "Timeline sort",
+    slug: "timeline", status: "live", load: () => import("./timeline/TimelineGame"),
+    title: "Timeline sort",
     description: "Drag Bible events, from the Flood to the Exodus to David's reign, into the right order.",
     audiences: ["solo", "family"],
     shelf: "daily", art: GAME_ART.timeline,

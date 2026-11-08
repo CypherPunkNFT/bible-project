@@ -113,7 +113,9 @@ describe("games hub", () => {
   });
 
   it("sends the address of a game not built yet back to the hub", () => {
-    renderAt("/games/timeline");
+    const comingSoon = GAMES.find((game) => !isLive(game));
+    expect(comingSoon).toBeDefined();
+    renderAt(`/games/${comingSoon!.slug}`);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bible games for");
   });
 });
