@@ -1,0 +1,90 @@
+/* The games' drawings (parts.tsx). Colour comes from the tile's --game (a book colour), ink and paper from the theme,
+   so one set of drawings serves light and dark. Strokes: ga-l main, ga-i ink, ga-f fine, ga-h hatching. Fills: ga-t tint,
+   ga-t2 faint light, ga-s solid, ga-p paper (hides what is behind). Each scene's one living detail loops slowly, always
+   (the owner wants line art that loops, and phones have no hover); only transform and opacity move, plus two short
+   stroke-draws. With reduced motion nothing moves and every drawing is complete. */
+.ga-art { display: block; width: 100%; height: auto; overflow: visible; color: var(--game, var(--accent)); }
+.ga-art :is(path, rect, circle, ellipse) { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ga-art .ga-arch { fill: color-mix(in srgb, currentColor 12%, var(--surface)); }
+.ga-art .ga-arch-line { stroke: currentColor; stroke-width: .8; stroke-opacity: .35; }
+.ga-art .ga-sun { fill: currentColor; fill-opacity: .09; }
+.ga-art .ga-l { stroke: currentColor; stroke-width: 1.5; }
+.ga-art .ga-i { stroke: var(--ink); stroke-width: 1.1; stroke-opacity: .82; }
+.ga-art .ga-f { stroke: currentColor; stroke-width: .85; stroke-opacity: .62; }
+.ga-art .ga-h { stroke: currentColor; stroke-width: .6; stroke-opacity: .42; }
+.ga-art .ga-t { fill: currentColor; fill-opacity: .18; }
+.ga-art .ga-t2 { fill: currentColor; fill-opacity: .07; }
+.ga-art .ga-s { fill: currentColor; }
+.ga-art .ga-p { fill: var(--surface); }
+.ga-art .ga-on-l { stroke: var(--surface); stroke-width: 1; }
+.ga-art .ga-bold { stroke-width: 2.4; }
+.ga-art .ga-heavy { stroke-width: 4.2; }
+.ga-art .ga-dash { stroke-dasharray: 3 3.5; }
+.ga-art text { fill: var(--ink); font-family: var(--font-serif); font-weight: 600; }
+.ga-art .ga-on { fill: var(--surface); }
+.ga-art .ga-mute { fill: var(--muted); }
+.ga-art .ga-tone { fill: currentColor; }
+.ga-art .ga-small { font-family: var(--font-sans); font-weight: 700; }
+/* Hatching turns to mush at phone size. */
+@media (max-width: 639px) { .ga-art .ga-sm-hide { display: none; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ga-art :is(.ga-turn, .ga-flip, .ga-ring, .ga-pulse, .ga-pop, .ga-lift, .ga-drop, .ga-bob, .ga-slide) { transform-box: fill-box; transform-origin: 50% 50%; }
+  .ga-art .ga-fill { transform-box: fill-box; transform-origin: 0 50%; animation: ga-fill 8s calc(var(--i, 0) * .35s) ease-in-out infinite both; }
+  .ga-art .ga-turn { animation: ga-turn 9s calc(var(--i, 0) * .18s) ease-in-out infinite; }
+  .ga-art .ga-flip { animation: ga-flip 8s ease-in-out infinite; }
+  .ga-art .ga-drop { animation: ga-drop 7s ease-in-out infinite; }
+  .ga-art .ga-ring { animation: ga-ring 7s ease-out infinite both; }
+  .ga-art .ga-pulse { animation: ga-pulse 6s ease-in-out infinite; }
+  .ga-art .ga-pop { animation: ga-pop 7.5s calc(var(--i, 0) * .6s) ease-out infinite both; }
+  .ga-art .ga-lift { animation: ga-lift 6s ease-in-out infinite; }
+  .ga-art .ga-bob { animation: ga-bob 5s ease-in-out infinite; }
+  .ga-art .ga-twinkle { animation: ga-twinkle 3.6s calc(var(--i, 0) * .7s) ease-in-out infinite both; }
+  .ga-art .ga-slide { animation: ga-slide 8s ease-in-out infinite; }
+  .ga-art .ga-write { stroke-dasharray: 1; animation: ga-write 7s ease-in-out infinite both; }
+  .ga-art .ga-quill { animation: ga-quill 7s ease-in-out infinite both; }
+  .ga-art .ga-draw { stroke-dasharray: 1; animation: ga-draw 7s calc(var(--i, 0) * .3s) ease-in-out infinite both; }
+  .ga-art .ga-rain { animation: ga-rain 1.6s calc(var(--i, 0) * .25s) linear infinite both; }
+  .ga-art .ga-signal { animation: ga-signal 2.8s calc(var(--i, 0) * .5s) ease-in-out infinite both; }
+  .ga-art .ga-wave-l { animation: ga-wave-l 3.2s ease-in-out infinite alternate; }
+  .ga-art .ga-wave-r { animation: ga-wave-r 3.2s ease-in-out infinite alternate; }
+  .ga-art .ga-tip { animation: ga-tip 12s ease-in-out infinite; }
+  .ga-art .ga-sweep { animation: ga-sweep 12s linear infinite; }
+  .ga-art .ga-heat { animation: ga-heat 3s calc(var(--i, 0) * .5s) ease-out infinite both; }
+  .ga-art .ga-flame { transform-box: fill-box; transform-origin: 50% 100%; animation: ga-flame 2.6s ease-in-out infinite; }
+  .ga-art .ga-sway { transform-box: view-box; animation: ga-sway 9s ease-in-out infinite alternate; }
+}
+@keyframes ga-fill { 0%, 100% { transform: scaleX(.04); } 30%, 85% { transform: scaleX(calc(.35 + var(--i, 0) * .17)); } }
+@keyframes ga-turn { 0%, 70%, 100% { transform: scaleY(1); } 74% { transform: scaleY(.05); } 78% { transform: scaleY(1); } }
+@keyframes ga-flip { 0%, 60%, 68%, 84%, 92%, 100% { transform: scaleX(1); } 64%, 88% { transform: scaleX(.05); } }
+@keyframes ga-drop { 0%, 22%, 100% { transform: translateY(0); } 8% { transform: translateY(-14px); } 15% { transform: translateY(0); } 18% { transform: translateY(-3px); } }
+@keyframes ga-ring { 0%, 14% { transform: scale(.4); opacity: 0; } 16% { opacity: 1; } 42%, 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes ga-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: .5; } }
+@keyframes ga-pop { 0% { opacity: 0; transform: scale(.6); } 8%, 70% { opacity: 1; transform: scale(1); } 80%, 100% { opacity: 0; transform: scale(.9); } }
+@keyframes ga-lift { 0%, 100% { transform: translateY(0); } 40%, 60% { transform: translateY(-8px); } }
+@keyframes ga-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes ga-twinkle { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+@keyframes ga-slide { 0%, 25%, 95%, 100% { transform: none; } 45%, 75% { transform: translate(-16px, 44px) rotate(10deg); } }
+@keyframes ga-write { 0% { stroke-dashoffset: 1; } 55%, 85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes ga-quill { 0%, 100% { transform: translate(-56px, 0); } 55%, 85% { transform: translate(0, 0); } }
+@keyframes ga-draw { 0% { stroke-dashoffset: 1; opacity: 1; } 30%, 80% { stroke-dashoffset: 0; opacity: 1; } 92%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes ga-rain { 0% { transform: translateY(-3px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(6px); opacity: 0; } }
+@keyframes ga-signal { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
+@keyframes ga-wave-l { from { transform: rotate(-8deg); } to { transform: rotate(10deg); } }
+@keyframes ga-wave-r { from { transform: rotate(8deg); } to { transform: rotate(-10deg); } }
+@keyframes ga-tip { 0%, 40% { transform: rotate(0deg); } 50%, 90% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
+@keyframes ga-sweep { to { transform: rotate(360deg); } }
+@keyframes ga-heat { 0% { transform: translateY(4px); opacity: 0; } 40% { opacity: .85; } 100% { transform: translateY(-6px); opacity: 0; } }
+@keyframes ga-flame { 0%, 100% { transform: scale(1, 1) skewX(0deg); } 30% { transform: scale(.9, 1.1) skewX(3deg); } 60% { transform: scale(1.05, .92) skewX(-2deg); } }
+@keyframes ga-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+
+/* Windows high contrast: no tinted planes, every line in the system's text colour. */
+@media (forced-colors: active) {
+  .ga-art :is(.ga-arch, .ga-sun, .ga-t, .ga-t2) { fill: none; }
+  .ga-art .ga-s { fill: CanvasText; }
+  .ga-art .ga-p { fill: Canvas; }
+  .ga-art :is(.ga-l, .ga-i, .ga-f, .ga-h, .ga-arch-line) { stroke: CanvasText; }
+  .ga-art text { fill: CanvasText; }
+  .ga-art .ga-on { fill: Canvas; }
+  .ga-art .ga-on-l { stroke: Canvas; }
+}

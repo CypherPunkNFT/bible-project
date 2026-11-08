@@ -32,6 +32,7 @@ const TopicsPage = lazy(() => import("@/pages/TopicsPage"));
 const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
+const GamesPage = lazy(() => import("@/pages/games/GamesPage"));
 const LiveQuizPlayPage = lazy(() => import("@/pages/games/live-quiz/PlayPage"));
 const LifeEventsPage = lazy(() => import("@/pages/life-events/LifeEventsPage"));
 const SympathyPage = lazy(() => import("@/pages/sympathy/SympathyPage"));
@@ -159,6 +160,7 @@ export default function App() {
               <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
+              <Route path="/games/*" element={<GamesPage />} />
               <Route path="/play" element={<LiveQuizPlayPage />} />
               <Route path="/play/:code" element={<LiveQuizPlayPage />} />
               <Route path="/life-events/*" element={<LifeEventsPage />} />

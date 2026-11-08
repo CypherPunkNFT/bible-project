@@ -1,4 +1,4 @@
-import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Mail, Menu, Moon, Search, ShieldCheck, Sun, UsersRound, X } from "lucide-react";
+import { BookOpen, Church, Gamepad2, GitBranch, GraduationCap, HandHeart, Mail, Menu, Moon, Search, ShieldCheck, Sun, UsersRound, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { LanguageMenu } from "@/components/LanguageMenu";
@@ -21,6 +21,7 @@ const NAV = [
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/teachers", label: "Teachers", icon: UsersRound, end: false },
   { to: "/resources", label: "Resources", icon: HandHeart, end: false },
+  { to: "/games", label: "Games", icon: Gamepad2, end: false },
 ];
 
 // Everything the mobile header hides behind the hamburger must stay reachable here.

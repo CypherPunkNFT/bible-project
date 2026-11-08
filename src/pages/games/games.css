@@ -1,0 +1,99 @@
+/* The games hub (GamesPage.tsx): a hero with the games-table drawing, then four shelves of game tiles. Tiles sit between
+   hairlines like the stations' doorways (stations.css), never in boxes: the arched picture is the only shape around
+   anything. Each tile has a short rule in its game's colour that runs the tile's width on hover or keyboard focus (the
+   site has no focus outline), and its title underlines on focus. A coming-soon tile keeps its picture, slightly softened,
+   and does not link. Every rule here is under a gm- class: the game pages import this file too (.gm-back, .gm-quiz). */
+.gm-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 1.5rem 3rem; align-items: center; }
+.gm-hero h1 { margin-top: 1.1rem; font: 450 clamp(2.5rem, 5.4vw, 4.6rem)/1.06 var(--font-serif); letter-spacing: -.045em; overflow-wrap: anywhere; }
+.gm-hero h1 span { color: var(--accent); font-style: italic; font-weight: 400; }
+.gm-lede { max-width: 32rem; margin-top: 1.3rem; color: color-mix(in srgb, var(--ink) 74%, transparent); font-size: .98rem; line-height: 1.75; }
+.gm-hero .st-stats { margin-top: 1.5rem; }
+.gm-jump { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+.gm-jump a { display: inline-flex; align-items: center; gap: .55rem; padding: .4rem .45rem .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .8rem; transition: border-color .2s, background-color .2s; }
+.gm-jump a span { display: inline-grid; place-items: center; min-width: 1.4rem; height: 1.4rem; padding-inline: .3rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: .68rem; font-variant-numeric: tabular-nums; }
+.gm-jump a:is(:hover, :focus-visible) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.gm-jump a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.gm-hero-figure { min-width: 0; }
+.gm-hero-art { max-height: 30rem; }
+
+/* Shelves: a numbered serif heading, what the shelf is for, and its count. */
+.gm-shelf { margin-top: 4.2rem; scroll-margin-top: 5.5rem; }
+.gm-shelf-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: end; gap: .4rem 1.4rem; padding-bottom: 1.1rem; }
+.gm-shelf-num { color: var(--accent); font: 400 2.6rem/1 var(--font-serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.gm-shelf-head h2 { font: 450 clamp(1.6rem, 2.8vw, 2.2rem)/1.1 var(--font-serif); letter-spacing: -.025em; }
+.gm-shelf-head p { margin-top: .35rem; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.gm-shelf-count { color: var(--muted); font: 600 .62rem/1.3 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+
+/* Four columns on desktop, two on tablets, one on phones (shelves hold four, so no tile is left alone on a row). Each
+   tile draws its own left and bottom hairline; the grid clips the first column's, so the dividers never depend on a
+   tile's position or a shelf's size. */
+.gm-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; border-top: 1px solid var(--line); }
+@media (max-width: 1099px) { .gm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.gm-grid > li { display: flex; min-width: 0; margin-left: -1px; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.gm-card { --game: var(--accent); position: relative; display: flex; flex: 1; flex-direction: column; min-width: 0; padding: 1.1rem 1.3rem 1.1rem; color: inherit; }
+.gm-card::before { content: ""; position: absolute; left: 0; top: -1px; width: 2.4rem; height: 2px; background: var(--game); transition: width .5s cubic-bezier(.16, 1, .3, 1); }
+a.gm-card:is(:hover, :focus-visible)::before { width: 100%; }
+.gm-art { position: relative; margin: .1rem 0 .7rem; }
+.gm-art .ga-art { transition: transform .6s cubic-bezier(.16, 1, .3, 1); }
+@media (hover: hover) { a.gm-card:hover .gm-art .ga-art { transform: translateY(-4px); } }
+.gm-badge { position: absolute; top: .2rem; left: 0; display: inline-flex; align-items: center; gap: .3rem; padding: .22rem .55rem; border-radius: 999px; font: 650 .56rem/1.2 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+a.gm-card .gm-badge { background: var(--game-tab); color: var(--game-tab-ink); }
+.gm-card[aria-disabled="true"] .gm-badge { border: 1px solid var(--line); background: var(--page); color: var(--muted); }
+.gm-card[aria-disabled="true"] { cursor: default; }
+.gm-card[aria-disabled="true"] .gm-art .ga-art { opacity: .8; }
+.gm-card[aria-disabled="true"]::before { background: color-mix(in srgb, var(--game) 45%, var(--line)); }
+.gm-text { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.gm-card h3 { font-family: var(--font-serif); font-size: clamp(1.25rem, 1.7vw, 1.45rem); line-height: 1.2; letter-spacing: -.02em; overflow-wrap: anywhere; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a.gm-card:focus-visible h3 { text-decoration-line: underline; text-decoration-color: var(--game); }
+.gm-card[aria-disabled="true"] h3 { color: color-mix(in srgb, var(--ink) 85%, transparent); }
+.gm-card p { margin: .5rem 0 .9rem; color: var(--muted); font-size: .85rem; line-height: 1.65; }
+.gm-audiences { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+.gm-audiences li { padding: .2rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 78%, transparent); font-size: .7rem; line-height: 1.4; }
+.gm-card-foot { display: flex; justify-content: flex-end; align-items: center; margin-top: auto; padding-top: .8rem; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); font-size: .76rem; }
+.gm-card-foot strong { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .8rem; border-radius: 999px; background: var(--game-tab); color: var(--game-tab-ink); font-weight: 600; }
+.gm-card-foot strong svg { transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
+a.gm-card:is(:hover, :focus-visible) .gm-card-foot strong svg { transform: translate(2px, -2px); }
+.gm-card-foot > span { color: var(--muted); letter-spacing: .02em; }
+
+/* Tiles rise into place as they scroll into view, only where the browser can tie motion to scrolling. They start at
+   0.35 opacity, never 0, so a full-page screenshot or a jump link can never meet an invisible tile. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .gm-grid > li { animation: gm-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+  }
+}
+@keyframes gm-rise { from { opacity: .35; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 899px) {
+  .gm-hero { grid-template-columns: 1fr; }
+  .gm-hero-figure { order: -1; width: 100%; max-width: 34rem; margin-inline: auto; }
+  .gm-hero-art { max-height: 22rem; }
+}
+/* Phones: one compact row per game, picture on the left, words on the right. */
+@media (max-width: 639px) {
+  .gm-hero-art { max-height: 28vh; }
+  .gm-shelf { margin-top: 3rem; }
+  .gm-shelf-head { grid-template-columns: auto minmax(0, 1fr); }
+  .gm-shelf-num { font-size: 2rem; }
+  .gm-shelf-count { grid-column: 2; white-space: normal; }
+  .gm-grid { grid-template-columns: 1fr; }
+  .gm-grid > li { margin-left: 0; border-left: 0; }
+  .gm-card { display: grid; grid-template-columns: 7rem minmax(0, 1fr); align-items: start; gap: 1rem; padding: 1rem 0; }
+  .gm-art { margin: 0; }
+  .gm-badge { position: static; margin-top: .45rem; padding: .2rem .45rem; letter-spacing: .07em; white-space: nowrap; }
+  .gm-card h3 { font-size: 1.15rem; }
+  .gm-card p { margin: .35rem 0 .7rem; font-size: .82rem; }
+  .gm-audiences { margin-bottom: .7rem; }
+  .gm-card-foot { padding-top: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .gm-card::before, .gm-art .ga-art, .gm-card-foot strong svg { transition: none; } }
+@media (forced-colors: active) {
+  .gm-badge, .gm-card-foot strong { border: 1px solid CanvasText; }
+  .gm-card::before { background: CanvasText; }
+}
+
+/* /games/quiz: the homepage quiz on its own page, with a way back to the hub above it. */
+.gm-quiz { overflow: clip; padding-top: 2rem; }
+.gm-quiz .hq { margin-top: 1.5rem; }
+.gm-back { display: inline-flex; align-items: center; gap: .4rem; color: var(--muted); font-size: .8rem; transition: color .2s; }
+.gm-back:hover { color: var(--ink); }
