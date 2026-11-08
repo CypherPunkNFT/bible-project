@@ -4,6 +4,7 @@
 import { ArrowDown } from "lucide-react";
 import { forwardRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { formatNumber } from "@/lib/site-format";
 import { joinsOf } from "./order";
 import { barOf, reasonOf, verseLink, yearAxis, type Loaded } from "./text";
 
@@ -39,7 +40,7 @@ export const Reveal = forwardRef<HTMLHeadingElement, Props>(function Reveal({ lo
               {reason.verses.map((v) => <span key={v.href}> <Link to={v.href}>{v.label}</Link></span>)}</span>
           </p>}
           <article className="tl-event">
-            <h3>{event.label}{had !== i && <span className="tl-had"> — you had it at {had + 1}</span>}</h3>
+            <h3>{event.label}{had !== i && <span className="tl-had">{" — "}{`You placed it at ${formatNumber(had + 1)}.`}</span>}</h3>
             <p className="tl-dating">{event.dating}</p>
             {bar && <div className="tl-bar" aria-hidden="true">
               <span className={bar.open ? "is-open" : undefined} style={{ left: `${bar.left}%`, width: `${bar.width}%` }} />

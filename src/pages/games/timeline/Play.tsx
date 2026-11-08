@@ -3,7 +3,7 @@
 // Every move and every Check is saved at once, so a reload can neither re-deal nor undo a try.
 import { ArrowRight, Star } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 import { mulberry32 } from "./daily-rules";
 import { LEVELS, shuffleForDisplay } from "./deal";
 import { ERAS, trueOrder } from "./order";
@@ -55,7 +55,11 @@ export function DailyPlay({ loaded, n, ids, saved, onSave, onPractice }: DailyPr
   const ticks = marks ? marks.ticks.filter(Boolean).length : 0;
   const linked = marks ? marks.joins.filter(Boolean).length : 0;
   const left = DAILY_TRIES - tries.length;
-  const line = marks ? `${ticks} in the right place, ${linked} ${linked === 1 ? "join" : "joins"}, ${left} ${left === 1 ? "try" : "tries"} left` : "";
+  const line = marks ? <>
+    <span>{`${formatNumber(ticks)} in the right place.`}</span>{" "}
+    <span>{plural(linked, "{n} join.", "{n} joins.")}</span>{" "}
+    <span>{plural(left, "{n} try left.", "{n} tries left.")}</span>
+  </> : null;
 
   if (done) {
     return <Reveal ref={heading} loaded={loaded} truth={truth} order={last ?? order}
@@ -105,9 +109,9 @@ export function PracticePlay({ loaded, round, saved, onSave, onNext }: PracticeP
     const earned = stars(right, total);
     const streak = saved.practice.perfect[round.level];
     return <Reveal ref={heading} loaded={loaded} truth={truth} order={round.order}
-      banner={<>{formatNumber(right)} of {formatNumber(total)} pairs in order
+      banner={<>{`${formatNumber(right)} of ${formatNumber(total)} pairs in order`}
         <span className="tl-stars" aria-label={`${earned} of 3 stars`}>{[1, 2, 3].map((s) => <Star key={s} size={18} aria-hidden="true" className={s <= earned ? "is-on" : undefined} />)}</span></>}>
-      {right === total && streak > 1 && <p className="tl-celebrate" role="status">{formatNumber(streak)} perfect rounds in a row!</p>}
+      {right === total && streak > 1 && <p className="tl-celebrate" role="status">{`${formatNumber(streak)} perfect rounds in a row!`}</p>}
       <button type="button" className="tl-primary tl-next" onClick={onNext}>Next round<ArrowRight size={15} aria-hidden="true" /></button>
     </Reveal>;
   }
@@ -115,7 +119,7 @@ export function PracticePlay({ loaded, round, saved, onSave, onNext }: PracticeP
     <header className="tl-head">
       <h1>Practice <span>{LEVELS[round.level].title} · {era}</span></h1>
     </header>
-    {round.widened && <p className="tl-note">Not enough {LEVELS[round.level].title} events in this part of the story: showing some harder ones.</p>}
+    {round.widened && <p className="tl-note">Not enough events at this level in this part of the story: showing some harder ones.</p>}
     <p className="tl-hint">{HINT}</p>
     <SortList order={round.order} labelOf={labelOf} onMove={onMove} />
     <div className="tl-check-bar">

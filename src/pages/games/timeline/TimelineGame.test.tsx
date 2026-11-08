@@ -50,7 +50,9 @@ describe("timeline sort page", () => {
     expect(screen.getByText(/now position 2 of 6/)).toBeInTheDocument();
     expect(check()).toBeEnabled();
     fireEvent.click(check());
-    expect(screen.getByText(/in the right place, \d joins?, 3 tries left/)).toBeInTheDocument();
+    expect(screen.getByText(/^\d in the right place\.$/)).toBeInTheDocument();
+    expect(screen.getByText(/^\d joins?\.$/)).toBeInTheDocument();
+    expect(screen.getByText("3 tries left.")).toBeInTheDocument();
     expect(check()).toBeDisabled(); // the same order again would waste a try
 
     truth.forEach((id, i) => { const from = order().indexOf(id); if (from !== i) keyboardMove(from, i); });

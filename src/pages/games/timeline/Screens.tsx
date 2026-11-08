@@ -2,7 +2,7 @@
 // Daily result with its share and countdown, and the message when the data cannot load.
 import { CalendarDays, Dumbbell, Play, RotateCcw, Share2 } from "lucide-react";
 import { useState } from "react";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 import { useNow } from "../map-quest/use-now";
 import { msUntilMidnight } from "./daily";
 import { LEVEL_KEYS, LEVELS, type EraChoice, type Level } from "./deal";
@@ -29,7 +29,7 @@ export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, res
     <h1>Timeline sort</h1>
     <p className="tl-lede">Put Bible events in the order they happened, earliest at the top.</p>
     {resume && <button type="button" className="tl-primary tl-continue" onClick={onResume}>
-      <Play size={15} aria-hidden="true" />Continue your {resume.mode === "daily" ? "daily timeline" : "practice round"}
+      <Play size={15} aria-hidden="true" />{resume.mode === "daily" ? "Continue your daily timeline" : "Continue your practice round"}
     </button>}
     <div className="tl-modes">
       <section className="tl-mode" aria-labelledby="tl-daily-title">
@@ -38,7 +38,7 @@ export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, res
         {dailyNumber !== null && <button type="button" className="tl-primary" onClick={onDaily}>
           {dailyDone ? "Done — see your result" : `Play #${formatNumber(dailyNumber)}`}
         </button>}
-        <p className="tl-best">Streak {formatNumber(streak)} · best {formatNumber(saved.daily.best)}</p>
+        <p className="tl-best">{`Streak ${formatNumber(streak)} · best ${formatNumber(saved.daily.best)}`}</p>
       </section>
       <section className="tl-mode" aria-labelledby="tl-practice-title">
         <h2 id="tl-practice-title"><Dumbbell size={18} aria-hidden="true" />Practice</h2>
@@ -46,7 +46,7 @@ export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, res
         <fieldset className="tl-chips">
           <legend>Level</legend>
           {LEVEL_KEYS.map((key) => <button key={key} type="button" aria-pressed={level === key} onClick={() => setLevel(key)}>
-            {LEVELS[key].title} · {LEVELS[key].cards} cards</button>)}
+            <span>{LEVELS[key].title}</span>{" · "}<span>{plural(LEVELS[key].cards, "{n} card", "{n} cards")}</span></button>)}
         </fieldset>
         <label className="tl-era">Part of the story
           <select value={era} onChange={(event) => setEra(event.target.value as EraChoice)}>
@@ -55,7 +55,7 @@ export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, res
           </select>
         </label>
         <button type="button" className="tl-primary" onClick={() => onPractice(level, era)}>Start practice</button>
-        <p className="tl-best">Best perfect streak at {LEVELS[level].title}: {formatNumber(saved.practice.bestPerfect[level])}</p>
+        <p className="tl-best">{`Best perfect streak at this level: ${formatNumber(saved.practice.bestPerfect[level])}`}</p>
       </section>
     </div>
     <details className="tl-how">
