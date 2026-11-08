@@ -1,5 +1,33 @@
 # Results and evaluation record
 
+## Qwen 3.8 on the Qwen 3.6 test chapters, 2026-11-07
+
+The owner asked whether the newer local model, Qwen 3.8 27B (uncensored build, on HyperQwen), does better than
+Qwen 3.6 did in the 2026-10-13 pilot below. The owner chose the $0 version of the test: no Haiku drafts and no blind
+Claude review.
+
+- **Same inputs and checks:** the 16 pilot chapters (`dev-1`, writer prompt v1; `fresh-1`, prompt v2 with the length
+  gate), the same evidence packets and acceptance checks, through
+  [chapter_summary_writer_comparison.py](../../scripts/chapter_summary_writer_comparison.py)
+  `--label qwen38-writer --thinking off`. Drafts: `.local/chapter-summary-studio/claude-pilot/<run>/<CHAPTER>/qwen38-writer/`.
+- **One setting differs:** thinking off (HyperQwen's recommended setting; Qwen 3.6 ran with reasoning on).
+- **Code checks:** 16 of 16 accepted, 14 on the first attempt (Daniel 7 and Mark 9 needed the one retry). Qwen 3.6 also
+  passed all 16, so the checks do not separate the two models. Speed: 2–22 s a chapter (mean 9 s) against Qwen 3.6's
+  74–216 s (mean 111 s).
+- **Spot check of the errors Qwen 3.6 was faulted for** (my reading against the BSB; not a blind review):
+  - Fixed: Genesis 4 now has Abel's blood crying out from the ground and Cain building one city named for Enoch;
+    Jonah 4's summary gives the plant's withering to the worm and Jonah's faintness to the wind.
+  - Repeated: Jonah 4's outline still says "a worm and scorching wind to destroy it" (v. 7 vs v. 8); Psalm 88 says
+    "with friends removed" and "separated from friends", dropping God as the one who removed them (v. 8); Isaiah 53
+    turns the confessing "we/our" into "others/their" and "when His soul is made a guilt offering" (v. 10) into a
+    result ("As a result, He will see His offspring").
+  - New in Exodus 21: the second-wife rule (v. 10, "if he takes another wife") is turned into "if a master marries
+    her"; verses 20–21 (a master whose servant dies under the rod, and the exception) are left out.
+- **Reading:** better than Qwen 3.6 on several named faults and about twelve times faster, but it still makes the same
+  kinds of material errors (changed agent, lost "we", condition turned into result). It is not a replacement for
+  Claude on summaries that must be exactly right. A blind review would be needed to score it on the same scale as
+  the table below.
+
 ## Full run: the whole Bible, 2026-10-13 (current)
 
 Ran 19:30–22:10 America/New_York.

@@ -257,7 +257,7 @@ def stage(folder, name, system, prompt, schema, check, budget, think=False):
         messages = [{'role':'system','content':system}, {'role':'user','content':prompt}]
         if errors:
             messages.append({'role':'user','content':'Previous attempt rejected: '+errors[-1]+'. Regenerate the complete object with this corrected.'})
-        response = studio.ollama('/api/chat', {'model':studio.DEFAULT_MODEL, 'stream':False,
+        response = studio.chat({'model':studio.DEFAULT_MODEL, 'stream':False,
             'think':think, 'format':schema, 'keep_alive':'5m',
             'options':{'temperature':0, 'num_ctx':32768, 'num_predict':budget}, 'messages':messages})
         save(folder/f'{name}-{attempt}.json', response)

@@ -338,7 +338,7 @@ def chat(payload):
     options = payload.get("options", {})
     body = {"model": payload["model"], "messages": payload["messages"], "stream": False,
             "temperature": options.get("temperature", 0), "max_tokens": options.get("num_predict", 2400),
-            "chat_template_kwargs": {"enable_thinking": False}}
+            "chat_template_kwargs": {"enable_thinking": bool(payload.get("think", False))}}
     if payload.get("format"):
         body["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": payload["format"]}}
     reply = local_request("/chat/completions", body)

@@ -2,7 +2,7 @@
 evidence packets a pilot run already validated (e.g. claude-pilot/dev-1). Only the writer differs.
 Launches local inference immediately; never touches the studio database.
 
-  python scripts/chapter_summary_writer_comparison.py --run-id dev-1
+  python scripts/chapter_summary_writer_comparison.py --run-id dev-1 [--label qwen38-writer] [--thinking off]
 
 Output per chapter: claude-pilot/<run>/<CHAPTER>/qwen-writer/ (write-N.json raw responses, write-errors.json,
 draft.json, sentence-support.json, result.json). Refuses a chapter whose qwen-writer folder already exists.
@@ -31,7 +31,7 @@ def studio_idle() -> None:
             raise RuntimeError("Pause the studio batch before this comparison.")
 
 
-def run(run_id: str) -> None:
+def run(run_id: str, label: str = "qwen-writer", thinking: bool = True) -> None:
     studio_idle()
     base = pilot.run_folder(run_id)
     manifest = pilot.load(base / "manifest.json")
@@ -46,7 +46,7 @@ def run(run_id: str) -> None:
         return result
     summary = []
     for chapter_dir in sorted(p for p in base.iterdir() if (p / "evidence.json").exists()):
-        out = chapter_dir / "qwen-writer"
+        out = chapter_dir / label
         out.mkdir(exist_ok=False)
         code, number = chapter_dir.name.rsplit("-", 1)
         scripture, supplied = pilot.snapshot(chapter_dir)
@@ -58,7 +58,7 @@ def run(run_id: str) -> None:
             generated, errors = trial.stage(out, "write", system,
                 f"TARGET {code} {number} BSB. Evidence packet:\n" + json.dumps(packet, ensure_ascii=False),
                 trial.WRITER_SCHEMA, lambda d: check(d, packet, scripture, supplied),
-                6000 + 250 * len(packet["sections"]), think=True)
+                6000 + 250 * len(packet["sections"]), think=thinking)
             pilot.save(out / "sentence-support.json", generated["support"])
             pilot.save(out / "draft.json", generated["draft"])
             item.update(status="draft", corrections=errors)
@@ -68,11 +68,14 @@ def run(run_id: str) -> None:
         pilot.save(out / "result.json", item)
         summary.append(item)
         print(json.dumps(item), flush=True)
-    pilot.save(base / "qwen-writer-results.json", {"completed_at": studio.now(), "results": summary,
-        "writer_prompt": version, "settings": "round-3 writer: temperature 0, num_ctx 32768, think on, budget 6000+250/section, 2 attempts"})
+    pilot.save(base / f"{label}-results.json", {"completed_at": studio.now(), "results": summary, "model": studio.DEFAULT_MODEL,
+        "writer_prompt": version, "settings": f"round-3 writer: temperature 0, thinking {'on' if thinking else 'off'}, budget 6000+250/section, 2 attempts"})
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--run-id", required=True)
-    run(parser.parse_args().run_id)
+    parser.add_argument("--label", default="qwen-writer", help="output folder name per chapter (must not exist yet)")
+    parser.add_argument("--thinking", choices=["on", "off"], default="on")
+    arguments = parser.parse_args()
+    run(arguments.run_id, arguments.label, arguments.thinking == "on")

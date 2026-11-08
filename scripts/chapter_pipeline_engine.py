@@ -182,7 +182,7 @@ def generate(pipeline, code, chapter, translation, model):
     start_time = time.monotonic()
     for attempt in range(1, 4):
         try:
-            response = core.ollama("/api/chat", {"model": model, "stream": False, "think": False,
+            response = core.chat({"model": model, "stream": False, "think": False,
                 "format": spec.schema, "keep_alive": "5m", "options": {"temperature": 0.1, "num_ctx": 16384, "num_predict": spec.output_tokens},
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt + feedback}]})
         except ValueError:
