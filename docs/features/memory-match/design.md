@@ -1,6 +1,6 @@
 # Memory card match — design
 
-**Status:** draft from the research & design step (job 738, 2026-11-07). Next: one critical review (step 5 of sequence 32), then implementation (step 6).
+**Status:** built and live at `/games/memory-match` (job b95c436d, 2026-11-07; where the build differs from this design and why is in §20). Reviewed by job a5fdb69f (§19). Drafted in the research & design step (job 738, 2026-11-07).
 **Spec (binding):** [APPROVED-IDEAS.md](Jarvis/Projects/BibleProject/APPROVED-IDEAS.md), entry 24: *"Flip cards to pair a character with their story (Daniel / the lions' den). Text-only cards — no images needed."*
 **Shared rules:** [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md). No model runs while people play. Existing site data is reused. Scripture is quoted from the Berean Standard Bible (BSB). The game registers on the /games hub. Only this feature's files are touched, and nothing is deployed.
 **Slug:** `memory-match`. **Route:** `/games/memory-match`. Already listed on the hub as "coming soon" (shelf: Family and party; audiences: Solo, Family; its hub picture already exists).
@@ -15,7 +15,7 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
 - **Difficulty** is set by the number of pairs (6, 9 or 12), by how well known the pairs are, by whether the card backs say "Who" or "Story", and by whether story cards may share tempting words.
 - **Scoring:** in solo play the score is the number of moves (one move is turning over two cards), shown with a timer. Stars come from moves only. The thresholds come from a simulation of a player with perfect memory (§9). Up to four people can also take turns on one phone (pass and play), where the score is pairs found.
 - **The hard part** is making sure every story card belongs to exactly **one** who card on the board. The design uses a "must not share a board" list, a same-first-name rule and a shared-word check. A board-drawing routine applies all of them, and the tests run it on thousands of random boards (§6).
-- **Teaching:** each pair, once found, shows its Bible reference. The end screen lists every pair with one BSB verse that tells the story, plus links to the reader and the person's page.
+- **Teaching:** each pair, once found, shows its Bible reference. The end screen lists every pair with one BSB verse that tells the story, plus links to the reader and the person's page. The game ships only the verse's id. Its wording is looked up when the summary is shown, in the same way as everywhere else on the site (§5.4).
 
 ---
 
@@ -32,7 +32,7 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
 | (Brief) moves/timer scoring | Moves decide the stars, and the timer is shown and recorded but never scored, so slow readers are not punished. Best moves and best time are kept on the device (§9). |
 | (Rules) no runtime model cost | No model at runtime or at build time. The pairs are hand-written and checked by a script (§5). |
 | (Rules) reuse site data | The script reads people, people slugs, the BSB text, the BSB section headings and the question bank (§3). |
-| (Rules) BSB, not KJV | Every story card must contain a check word found in its BSB passage. This catches KJV wording such as "coat of many colours" (BSB: robe), "budded" (BSB: sprouted) and "buried" (BSB: hid). The verse quoted on the end screen comes from the BSB text (§5.3). |
+| (Rules) BSB, not KJV | Every story card must contain a check word found in its BSB passage. This catches KJV wording such as "coat of many colours" (BSB: robe), "budded" (BSB: sprouted) and "buried" (BSB: hid). The verse quoted on the end screen is looked up when the summary is shown, through `src/lib/verses.ts`, from the site's Bible text (the BSB in English). The shipped file holds only the verse id, because the build refuses verse wording in data files (§5.4). |
 
 ---
 
@@ -72,7 +72,8 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
 |---|---|
 | [people.json](Jarvis/Projects/BibleProject/Website/data/study/people.json) | 3,133 people: id, name (`n`), other names (`o`), mention count (`c`). The build checks each named character's person id and uses the name and aliases for the giveaway check. Mention counts are shown on the review sheet as a fame signal. |
 | [people-slugs.json](Jarvis/Projects/BibleProject/Website/src/data/people-slugs.json) | Readable person addresses (`/people/<slug>`) for the end-screen links. |
-| [data/text/bsb/](Jarvis/Projects/BibleProject/Website/data/text/bsb/) | The BSB text: the check-word test and the key-verse quote. The same files also carry the BSB **section headings** (`h: [["s", "Daniel in the Lions' Den"]]`, 3,017 of them). The review sheet prints the heading at or just before each pair's passage as evidence that the passage is the story. Headings were also the main place this step looked for candidate stories. |
+| [data/plain/bsb/](Jarvis/Projects/BibleProject/Website/data/plain/bsb/) | The plain BSB verse text, one file per book (`"28:12": "…"`). The build uses it for the check-word test and to confirm the key verse exists. In the browser, [verses.ts](Jarvis/Projects/BibleProject/Website/src/lib/verses.ts) reads the same files to show the key verse on the summary. |
+| [data/text/bsb/](Jarvis/Projects/BibleProject/Website/data/text/bsb/) | The BSB reader text. These files also carry the BSB **section headings** (`h: [["s", "Daniel in the Lions' Den"]]`, 3,017 of them). The review sheet prints the heading at or just before each pair's passage as evidence that the passage is the story. Headings were also the main place this step looked for candidate stories. |
 | [bank.json](Jarvis/Projects/BibleProject/Website/data/questions/bank.json) | The question bank: 14,916 questions, more than the "~5,000" the rules mention. Its `people` tags are counted per name as a second fame signal for the tier check on the review sheet. It is **not** a source of pairs. |
 
 **Not used:** the per-person `story`, `article` and `short` text, which quotes the KJV, and the people-pages groups, which are about offices, not stories.
@@ -85,13 +86,13 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
 
 | Deck (chip label) | Covers | Starter pairs | Tier 1 / tier ≤ 2 / all |
 |---|---|---|---|
-| **Mixed** (default) | everything | 164 (142 characters) | 67 / 143 / 164 |
-| **In the beginning** | Genesis to Joshua | 32 | 16 / 31 / 32 |
+| **Mixed** (default) | everything | 164 (142 characters) | 65 / 143 / 164 |
+| **In the beginning** | Genesis to Joshua | 32 | 15 / 31 / 32 |
 | **Judges and kings** | Judges to Chronicles, Elijah and Elisha | 40 | 13 / 35 / 40 |
 | **Prophets and exile** | the prophets, Daniel, Esther, Ezra–Nehemiah, Job | 28 | 12 / 20 / 28 |
 | **Women of the Bible** | from Sarah to Priscilla | 30 | 12 / 27 / 30 |
 | **Meeting Jesus** | the Gospels | 30 | 19 / 29 / 30 |
-| **The early church** | Acts and the letters | 24 | 5 / 19 / 24 |
+| **The early church** | Acts and the letters | 24 | 4 / 19 / 24 |
 | **Parables** | figures in Jesus' parables | 15 | 6 / 14 / 15 |
 
 (A pair can belong to more than one deck: Ruth is in Women and in Judges and kings. So the deck counts add up to more than 164. The Mixed row counts each pair once.)
@@ -103,15 +104,16 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
 
 **Parable figures** (the good Samaritan, the prodigal son) are characters in stories Jesus told, not people in history. They get their own deck and are marked "In a parable Jesus told" on the end screen. Mixed includes them. *(This is the one deck the owner might prefer to drop. See §17.)*
 
-**Editorial choices for a family game.** No story whose point is sexual (no Bathsheba). Violent stories children learn anyway (the giant Goliath, the tent peg, Herod eaten by worms) are tier 2 or 3, so they never appear on Easy. One deliberate exception is tier 1 "killed his brother" (Cain), which every children's Bible tells; the review step may move it to tier 2. Story labels describe events and never judge people.
+**Editorial choices for a family game.** No story whose point is sexual (no Bathsheba). **A card whose words describe a killing or a gruesome death is tier 2 or 3**, so it never appears on Easy: "killed his brother" (Cain), "stoned for his faith" (Stephen), "the tent peg" (Jael), "hanged on his own gallows" (Haman), "eaten by worms" (Herod Agrippa). The rule is about what the card says. A tier 1 card may point to a story with danger in it if its words do not dwell on the harm, as "the giant Goliath" and "two mothers, one baby" do. Story labels describe events and never judge people.
 
 ### 4.1 The card text rules (checked by the build)
 
 1. **Length:** at most 30 characters for both who and story labels. This was measured for the tightest layout: Hard on a 320 px phone, §8. Words longer than 12 letters (Nebuchadnezzar) must carry soft hyphens in the source (`Nebu­chad­nezzar`), so they break cleanly in narrow cards.
 2. **Story labels start in lower case** unless they begin with a proper noun or a quotation ("For such a time as this"). Quotations must be BSB wording.
 3. **A story label never names its own character** or any of that character's aliases (no "Noah's ark", so it is "the ark and the flood"). The build checks this against `n` and `o` in people.json and the who label.
-4. **A story label may name a minor person who is not a who card anywhere** (the giant Goliath, Naboth's vineyard). If a capitalised word in a story label matches a word in another who card's label (Damascus in "blinded on the Damascus road" and "Ananias of Damascus"), the two must be on each other's "must not share a board" list, or the build fails.
+4. **A story label may name a minor person who is not a who card anywhere** (the giant Goliath, Naboth's vineyard, Boaz). If a capitalised word in a story label matches a word in another who card's label (Damascus in "blinded on the Damascus road" and "Ananias of Damascus"), the two must be on each other's "must not share a board" list, or the build fails.
 5. **The check word** (§5.3) must occur in the BSB text of the passage.
+6. **A quotation on a card must match the BSB word for word**, apart from leaving out words at either end. The build checks it: text inside quotation marks in a label must occur, ignoring case and punctuation, in the passage. (The draft's "You are the man!" failed this. The BSB at 2 Samuel 12:7 reads "You are that man!")
 
 ---
 
@@ -157,14 +159,15 @@ The game deals a grid of face-down text cards. Half are **who** cards (Daniel, R
    - a who label none of whose words is the person's `n` or one of their `o` (so "Pontius Pilate" passes on "Pilate", and "King Saul" on "Saul");
    - a reference or key verse that does not exist, or a key verse outside the passage;
    - a check word not found in the passage (§5.3);
+   - a quotation in a label that is not BSB wording (§4.1 rule 6);
    - any card-text rule in §4.1 broken;
    - a `notWith` key that does not exist;
    - a duplicate `(who, story)`;
    - the spec's pair (Daniel / the lions' den) missing.
 3. Compute, per pair:
    - a **stable id**: a short hash of `who` plus the story text, so the "already seen" list in the browser survives rebuilds;
-   - the person link (`/people/<slug>`) and reader link (`/read/bsb/<BOOK>/<chapter>?hl=<verse>`);
-   - the BSB key-verse text;
+   - the person link (`/people/<slug>`) and reader link (`/read/bsb/<BOOK>/<chapter>?hl=<first>-<last>`, the passage's verses in its first chapter, the same form odd-one-out uses, e.g. `/read/bsb/MAT/4?hl=18-19`);
+   - the key verse's **id** (`BBCCCVVV`, books numbered as in `scripts/bible/books.py`) and its reference text ("Daniel 6:22"). **Never the verse's wording** (§5.4);
    - the content words of the story label (minus stop words), for the shared-word rule (§6.2);
    - the symmetric `notWith` list.
 4. For each deck and difficulty, count the distinct characters in its pool (§8). Mark the combination **offered** only if there are at least *pairs on the board + 3*, so boards vary. A combination below that is hidden with a warning (not a failure). If Mixed falls below it at any difficulty, the build fails.
@@ -199,14 +202,16 @@ Each pair names one word or phrase that must appear, ignoring case, in the BSB t
   "characters": { "daniel": { "label": "Daniel", "href": "/people/daniel" } },
   "pairs": [
     { "id": "mm-4be1c2", "who": "daniel", "story": "the lions' den", "tier": 1, "decks": ["prophets"],
-      "ref": "Daniel 6:16–23", "readerHref": "/read/bsb/DAN/6?hl=16",
-      "keyVerse": "Daniel 6:22", "keyQuote": "My God sent His angel and shut the mouths of the lions. …",
-      "words": ["lions", "den"], "notWith": ["belshazzar", "darius"] }
+      "ref": "Daniel 6:16–23", "readerHref": "/read/bsb/DAN/6?hl=16-23",
+      "keyVerse": "Daniel 6:22", "keyVerseId": 27006022,
+      "words": ["lion", "den"], "notWith": ["belshazzar", "darius"] }
   ]
 }
 ```
 
-At 164 pairs the file is about 60–70 KB raw and roughly 20 KB compressed. It is loaded with a dynamic import on the game route only.
+**No verse wording in this file.** The site's build runs [check-verse-wording.py](Jarvis/Projects/BibleProject/Website/scripts/check-verse-wording.py) before every build (`prebuild`). It fails if any file under `src/` or `data/` holds a whole verse of ten words or more as a text of its own, outside the Bibles themselves. A `keyQuote` field holding "My God sent His angel and shut the mouths of the lions…" would stop the build. The site's rule, stated at the top of [verses.ts](Jarvis/Projects/BibleProject/Website/src/lib/verses.ts), is that pages and data hold verse ids and the words are looked up there. So the summary takes every board pair's `keyVerseId` and calls `useVerseTable(ids)` from `src/lib/verses.ts`, which reads `data/plain/<bible>/<BOOK>.json` for the site's current Bible: the BSB in English, and a translated Bible where the site's language has one. While the text loads, and if a Bible has no text for that verse, the line shows the reference alone. Story and who labels are only a few words long, so the check never touches them.
+
+At 164 pairs the file is about 40–50 KB raw and roughly 12 KB compressed. It is loaded with a dynamic import on the game route only.
 
 ---
 
@@ -218,10 +223,11 @@ A board is fair only if every story card on it belongs to exactly one who card o
 
 This is a curated list. Use it where a player who knows the stories could reasonably match the story card to another character:
 - **Same scene, different actor.** "The golden calf" fits Moses as well as Aaron (Moses burned it). "For such a time as this" was said *by Mordecai to* Esther. Ananias was "sent to Straight Street" to the blinded Paul.
-- **Same kind of event.** Mordecai "would not bow down", and so did Shadrach, Meshach and Abednego before the statue. Matthew was "called from the tax booth", and Zacchaeus was a tax collector too. Stephen was "stoned for his faith", and Paul was stoned at Lystra.
+- **Same kind of event.** Mordecai "would not bow down", and so did Shadrach, Meshach and Abednego before the statue. Matthew was "called from the tax booth", and Zacchaeus was a tax collector too. Stephen was "stoned for his faith", and Paul was stoned at Lystra. Gehazi and Ananias and Sapphira both "lied" about money. Joash and Josiah were both boy kings.
+- **Same name, different story.** The beggar in the parable of the rich man is called Lazarus, so "a great chasm between them" could be claimed by the who card Lazarus.
 - **Shared names in the label** (§4.1 rule 4).
 
-The starter list has 56 such links. The build makes them symmetric, so listing a link on one side is enough.
+The starter list has 59 such links, counted once per pair of characters after the review (§19). The build makes them symmetric, so listing a link on one side is enough.
 
 ### 6.2 Shared words between story cards
 
@@ -229,9 +235,11 @@ Two story cards that share a content word ("the walls of Jericho", "the writing 
 - **Easy:** never on one board.
 - **Medium and Hard:** allowed, and they are good red herrings, as in NYT Connections.
 
+**How "content word" is worked out** (by the build, stored as `words`, so the browser does no text processing): lower-case the label, drop quotation marks and punctuation, drop a trailing possessive `'s` or `'`, drop stop words (a, an, the, of, in, on, at, to, for, by, his, her, their, from, with, and, as, this, that, me, I, you, all), then drop a final plural `s` from words of four letters or more ("walls" → "wall", "angels" → "angel", "stars" → "star"). Without this, "the walls of Jericho" and "the writing on the wall", or "the angel's announcement" and "angels in the night fields", would not count as sharing a word.
+
 ### 6.3 Same first name
 
-Characters whose labels share a first name (Mary Magdalene, Mary of Bethany, Mary, mother of Jesus; King Herod and Herod Agrippa; the Simons; Philip the evangelist and the apostle Philip, if he is added later; Ananias of Damascus and Ananias and Sapphira) are **never on one board**. The "first name" is the label's first word after dropping "The" and "King", so King Saul's is Saul, and Joseph of Arimathea never meets Joseph of Genesis. Labels are always qualified anyway, so a Mixed board never shows two cards reading just "Mary".
+Characters whose labels share a first name (Mary Magdalene, Mary of Bethany, Mary, mother of Jesus; King Herod and Herod Agrippa; the Simons; Philip the evangelist and the apostle Philip, if he is added later; Ananias of Damascus and Ananias and Sapphira) are **never on one board**. The "first name" is the label's first word after dropping "The" and "King", lower-cased, with trailing punctuation and a possessive `'s` removed. So King Saul's is "saul", "Mary, mother of Jesus" gives "mary", Lot's wife gives "lot" (and so never meets Lot, who is also on her `notWith` list), and Joseph of Arimathea never meets Joseph of Genesis. The rule also keeps some parable figures apart that would not confuse anyone (The rich fool and The rich man, The wise men and The wise builder). That is harmless, and the board tests confirm every deck still draws. Labels are always qualified anyway, so a Mixed board never shows two cards reading just "Mary".
 
 ### 6.4 One story per character
 
@@ -286,7 +294,7 @@ The board rules in §6.1–6.4 were run 2,000 times for every deck and difficult
 | Grid on a narrow screen (< 640 px wide) | 3 columns × 4 rows | 3 × 6 | 4 × 6 |
 | Grid on a wide screen | 4 columns × 3 rows | 6 × 3 | 6 × 4 |
 | Card backs | say **Who** or **Story** | say **Who** or **Story** | all the same |
-| Pairs drawn from | tier 1, topped up from tier 2 when the deck has fewer than 10 tier-1 characters (by question-bank count, then mentions) | tiers 1–2 | all tiers, with at least 4 pairs of tier 2 or 3 |
+| Pairs drawn from | tier 1. If the deck has fewer than 10 distinct tier-1 characters, tier-2 pairs are added, best known first (question-bank count, then mention count, then pair id, so the order is fixed), until the pool has 10 distinct characters. The build stores the result, so the browser does not rank anything | tiers 1–2 | all tiers, with at least 4 pairs of tier 2 or 3 |
 | Story cards sharing a word (§6.2) | never | allowed | allowed |
 | A non-pair stays up for | 3 s | 2.5 s | 2 s |
 | ★★★ at most (moves) | 11 | 16 | 21 |
@@ -294,7 +302,7 @@ The board rules in §6.1–6.4 were run 2,000 times for every deck and difficult
 
 **Why these sizes.** 12, 18 and 24 all divide into 3- and 6-column grids, and 24 also into 4 columns. That keeps every grid full, with no gaps that hint at structure. Text cards need more room than picture cards, so sizes stop at 24 (the classic 36- and 52-card spreads are unreadable as text on a phone).
 
-**Fit check (for the implement step to verify).** On a 360 × 640 phone, after the site header (about 56 px) and the game bar (about 64 px), Hard has roughly 6 rows × 80 px. Each card is then about 80 × 72 px. That holds four lines of 0.75rem text, enough for the longest starter labels of 30 characters ("took extra oil for their lamps", "forgiven much, forgave nothing") with soft-hyphenated long names. Easy and Medium use 0.95rem and 0.85rem. Every card is far above the 24 px minimum target size in WCAG 2.2 and above the common 44 px touch guideline. On a 320 × 568 screen, Hard may scroll by up to one row. That is accepted, because shrinking the text further would hurt more.
+**Fit check (for the implement step to verify).** On a 360 × 640 phone, after the site header and the game bar (about 64 px), Hard has roughly 6 rows × 80 px. The header is sticky and measures 61 px: a 4 px colour strip, a row with `min-height: 56px` ([site-navigation.css](Jarvis/Projects/BibleProject/Website/src/components/site-navigation.css)) and a 1 px border, plus the safe-area inset on notched phones. Each card is then about 80 × 72 px with the gaps. A real phone's browser bar takes some of the 640 px, so the Playwright check in §14 measures the viewport rather than trusting these sums. Keep the start screen's heading off the board screen, so that the board starts right under the game bar. That holds four lines of 0.75rem text, enough for the longest starter labels of 30 characters ("took extra oil for their lamps", "forgiven much, forgave nothing") with soft-hyphenated long names. Easy and Medium use 0.95rem and 0.85rem. Every card is far above the 24 px minimum target size in WCAG 2.2 and above the common 44 px touch guideline. On a 320 × 568 screen, Hard may scroll by up to one row. That is accepted, because shrinking the text further would hurt more.
 
 **The column count is fixed when cards are dealt** and kept for that board, including on resume. Rotating a phone, resizing a window or zooming never moves a card to a different row or column, which would wreck the player's memory. The cards resize instead. If they no longer fit, the board scrolls.
 
@@ -338,7 +346,7 @@ Mobile first, following the site's existing Tailwind tokens and light and dark t
    - A small **Restart** menu (new cards, same choice) and **Quit** (back to Start, after confirming).
 4. **Summary**
    - Solo: "All 9 pairs in 14 moves · 1:32", stars shown as ★ icons *and* words ("3 stars"), and any new record. Pass and play: the ranking.
-   - **The stories:** every pair on the board, each with the who label, story label, the BSB key verse quoted, a reader link to the passage, and a person-page link where there is one. Parable figures carry "In a parable Jesus told". The list is short (6–12 entries), so it renders whole, and the rule for long lists does not apply.
+   - **The stories:** every pair on the board, each with the who label, story label, the key verse quoted (looked up through `useVerseTable` in `src/lib/verses.ts`; the reference alone while it loads or if the text is missing, §5.4), a reader link to the passage, and a person-page link where there is one. Parable figures carry "In a parable Jesus told". The list is short (6–12 entries), so it renders whole, and the rule for long lists does not apply.
    - **Play again** (new cards, same choice) and **Change game** (back to Start).
 5. **Can't load**
    - "The cards didn't load" with **Try again**, drawn by the game itself when the dynamic import of `pairs.json` fails. The odd-one-out design notes that the site's `DataUnavailable` is an error class, not a screen.
@@ -434,7 +442,7 @@ All run under `npm test` (vitest) unless marked pytest.
 - `notWith` is symmetric and every key exists.
 - Every offered combination has at least *pairs on the board + 3* distinct characters in its pool.
 - Daniel / the lions' den is present, tier 1.
-- Every key quote is non-empty.
+- Every `keyVerseId` is a well-formed `BBCCCVVV` id, and no pair carries verse wording (there is no `keyQuote` field, §5.4).
 
 **`board.test.ts`** checks the drawing routine (§6.5) over 1,000 seeded draws for every offered deck and difficulty:
 - The board has exactly n pairs and 2n cards, each pair once.
@@ -459,7 +467,7 @@ All run under `npm test` (vitest) unless marked pytest.
 - Live-region messages for a pair and a non-pair.
 - Face-down cards contain no story or character text in the page.
 - The reduced-motion class path works.
-- The summary lists every pair with working reader links.
+- The summary lists every pair with working reader links, and shows each key verse's text once the verse lookup answers (mock `useVerseTable` with `vi.mock("@/lib/verses")`; no existing page test does this yet, so this test sets the pattern), or the reference alone when it answers with no text.
 - The hub serves the game at `/games/memory-match`.
 
 **`test_memory_match.py`** (pytest) checks the builder:
@@ -468,6 +476,9 @@ All run under `npm test` (vitest) unless marked pytest.
 - A story naming its own character fails ("Noah's ark").
 - A capitalised word shared with another who label, without a `notWith` link, fails.
 - A key verse outside the passage fails.
+- A quoted label that is not BSB wording fails ("You are the man!" for 2 Sam 12:7).
+- A `notWith` key that is not a who card fails (the draft's "Eli").
+- The content words come out as §6.2 says ("the walls of Jericho" → `wall`, `jericho`).
 - Removing the spec's pair fails.
 - `notWith` comes out symmetric.
 - The ids are stable across runs.
@@ -478,7 +489,7 @@ All run under `npm test` (vitest) unless marked pytest.
 - At 320 × 568, it scrolls by no more than one row.
 - Rotating mid-game keeps every card in its row and column.
 
-**Before handing back**, the implement step runs `npm test`, `npm run test:data`, `npm run typecheck`, `npm run lint` and `npm run build`, and reports the results honestly, including failures elsewhere in the site that were already there.
+**Before handing back**, the implement step runs `npm test`, `npm run test:data`, `npm run typecheck`, `npm run lint`, `py -3.12 scripts/check-verse-wording.py` (part of `prebuild`, so it decides whether the build can run at all) and `npm run build`, and reports the results honestly, including failures elsewhere in the site that were already there.
 
 ---
 
@@ -511,6 +522,7 @@ All run under `npm test` (vitest) unless marked pytest.
 | Local storage unavailable or corrupt | The game still works, without records, the seen list or remembered settings. Corrupt values are ignored, never thrown. |
 | Session storage corrupt | A fresh deal instead of a crash. |
 | Data file fails to load | The can't-load screen with Try again. |
+| Key verse text slow, missing or failing to load | The summary still renders. Each line shows its reference and reader link, and the quote fills in when the lookup answers. A Bible with no text for that verse leaves the reference alone (§5.4). |
 | Very long names | Soft hyphens in the data, wrapping text, and the 30-character cap, all tested at 320 px (§8, §14). |
 | Screen-reader player | Full keyboard play, announced card text and results, and the Pairs found list (§12). |
 | Pass and play: a player leaves | Quit and deal again. No forfeit logic (YAGNI). |
@@ -524,11 +536,10 @@ All run under `npm test` (vitest) unless marked pytest.
 ## 17. Open points for the review step and the owner
 
 1. **Owner (optional):** keep or drop the Parables deck. It stretches "character" to people in stories Jesus told. The game is complete without it, and Mixed then draws from the other six decks.
-2. **Review step:**
-   - Read Appendix A critically for pairs a knowledgeable player could dispute, missing `notWith` links, and tiers that look wrong (is "the left-handed judge" really tier 2?). Fix them in place.
-   - Check that the fit numbers in §8 match the real header heights on the site.
+2. **Review step:** done; see §19. Appendix A was read critically and corrected in place, and the §8 fit numbers were checked against the real header.
 3. **Implement step:**
-   - Choose the 52 person ids marked "choose" in Appendix A.
+   - Choose the 52 person ids marked "choose" in Appendix A. Watch the ones the prototype got wrong (§5.1), and for Lazarus take `lazarus-jhn-11-1`, not the parable's beggar.
+   - Ship verse ids, never verse wording, and run `scripts/check-verse-wording.py` (§5.4).
    - Add soft hyphens.
    - Read the generated review sheet before handing back.
    - Report how many pairs each deck and difficulty reached and which combinations, if any, are hidden.
@@ -561,7 +572,7 @@ How to read it:
 |---|---|---|---|---|---|---|---|---|
 | 1 | Adam | named the animals | GEN 2:19-20 | names | 1 | Beginnings | `adam-gen-2-19` | — |
 | 2 | Eve | the serpent and the fruit | GEN 3:1-6 | serpent | 1 | Beginnings | `eve-gen-3-20` | Adam |
-| 3 | Cain | killed his brother | GEN 4:8 | killed | 1 | Beginnings | `cain-gen-4-1` | — |
+| 3 | Cain | killed his brother | GEN 4:8 | killed | 2 | Beginnings | `cain-gen-4-1` | — |
 | 4 | Enoch | God took him away | GEN 5:24 | taken | 2 | Beginnings | choose: 2 named Enoch | Noah, Elijah |
 | 5 | Methuselah | lived 969 years | GEN 5:27 | 969 | 2 | Beginnings | `methuselah-gen-5-21` | — |
 | 6 | Noah | the ark and the flood | GEN 6:13-22 | ark | 1 | Beginnings | choose: 2 named Noah | — |
@@ -585,21 +596,21 @@ How to read it:
 | 24 | Caleb | still strong at eighty-five | JOS 14:10-11 | eighty-five | 2 | Beginnings | choose: 2 named Caleb | — |
 | 25 | Joshua | the walls of Jericho | JOS 6:20 | wall | 1 | Beginnings | choose: 5 named Joshua | Rahab |
 | 26 | Joshua | the sun stood still | JOS 10:12-13 | sun | 2 | Beginnings | choose: 5 named Joshua | — |
-| 27 | Achan | loot buried in his tent | JOS 7:21 | tent | 2 | Judges & kings | `achan-jos-7-1` | — |
+| 27 | Achan | loot hidden in his tent | JOS 7:21 | tent | 2 | Judges & kings | `achan-jos-7-1` | — |
 | 28 | Ehud | the left-handed judge | JDG 3:15 | left-handed | 2 | Judges & kings | choose: 2 named Ehud | — |
 | 29 | Gideon | the fleece on the floor | JDG 6:36-40 | fleece | 1 | Judges & kings | `gideon-jdg-6-11` | — |
 | 30 | Gideon | trumpets and torches in jars | JDG 7:16-20 | jars | 2 | Judges & kings | `gideon-jdg-6-11` | — |
 | 31 | Jephthah | a rash vow | JDG 11:30-31 | vow | 3 | Judges & kings | `jephthah-jdg-11-1` | — |
 | 32 | Samson | strength in his hair | JDG 16:17 | hair | 1 | Judges & kings | `samson-jdg-13-24` | Delilah |
 | 33 | Samson | the lion and the honey | JDG 14:5-9 | honey | 2 | Judges & kings | `samson-jdg-13-24` | — |
-| 34 | Samuel | a voice calling at night | 1SA 3:4-10 | called | 1 | Judges & kings | `samuel-1sa-1-20` | Eli |
+| 34 | Samuel | a voice calling at night | 1SA 3:4-10 | called | 1 | Judges & kings | `samuel-1sa-1-20` | — |
 | 35 | King Saul | hid among the baggage | 1SA 10:22 | baggage | 2 | Judges & kings | `saul-1sa-9-2` | — |
 | 36 | King Saul | the medium at Endor | 1SA 28:7-14 | Endor | 2 | Judges & kings | `saul-1sa-9-2` | — |
 | 37 | David | the giant Goliath | 1SA 17:4-50 | Goliath | 1 | Judges & kings | `david-rut-4-17` | — |
 | 38 | David | played the harp for the king | 1SA 16:23 | harp | 2 | Judges & kings | `david-rut-4-17` | — |
 | 39 | Jonathan | the arrows signal | 1SA 20:20-22 | arrows | 2 | Judges & kings | choose: 12 named Jonathan | David |
-| 40 | Absalom | caught by his hair in a tree | 2SA 18:9 | oak | 2 | Judges & kings | `absalom-2sa-3-3` | — |
-| 41 | Nathan | "You are the man!" | 2SA 12:7 | man | 2 | Judges & kings | choose: 6 named Nathan | David |
+| 40 | Absalom | his head caught in an oak | 2SA 18:9 | oak | 2 | Judges & kings | `absalom-2sa-3-3` | — |
+| 41 | Nathan | "You are that man!" | 2SA 12:7 | man | 2 | Judges & kings | choose: 6 named Nathan | David |
 | 42 | Uzzah | steadied the ark | 2SA 6:6-7 | ark | 3 | Judges & kings | choose: 2 named Uzzah | — |
 | 43 | Solomon | asked God for wisdom | 1KI 3:5-12 | wise | 1 | Judges & kings | `solomon-2sa-5-14` | — |
 | 44 | Solomon | two mothers, one baby | 1KI 3:16-28 | sword | 1 | Judges & kings | `solomon-2sa-5-14` | — |
@@ -610,14 +621,14 @@ How to read it:
 | 49 | Elisha | the floating axe head | 2KI 6:5-7 | float | 2 | Judges & kings, Prophets & exile | `elisha-1ki-19-16` | — |
 | 50 | Naaman | dipped seven times | 2KI 5:10-14 | seven | 1 | Judges & kings, Prophets & exile | choose: 4 named Naaman | Elisha |
 | 51 | Jehu | drove like a madman | 2KI 9:20 | madman | 2 | Judges & kings | choose: 5 named Jehu | — |
-| 52 | Joash | a baby hidden in the temple | 2KI 11:2-3 | hid | 3 | Judges & kings | choose: 8 named Joash | — |
+| 52 | Joash | a baby hidden in the temple | 2KI 11:2-3 | hid | 3 | Judges & kings | choose: 8 named Joash | Josiah |
 | 53 | Hezekiah | the shadow went back | 2KI 20:9-11 | shadow | 2 | Judges & kings | choose: 4 named Hezekiah | — |
 | 54 | Josiah | king at eight years old | 2KI 22:1 | eight | 2 | Judges & kings | choose: 2 named Josiah | — |
 | 55 | Uzziah | leprosy for burning incense | 2CH 26:16-21 | incense | 3 | Judges & kings | choose: 5 named Uzziah | — |
 | 56 | Daniel | the lions' den | DAN 6:16-23 | den | 1 | Prophets & exile | choose: 2 named Daniel | — |
 | 57 | Shadrach, Meshach, Abednego | the fiery furnace | DAN 3:19-27 | furnace | 1 | Prophets & exile | none (no link) | — |
 | 58 | Belshazzar | the writing on the wall | DAN 5:5-28 | wall | 1 | Prophets & exile | `belshazzar-dan-5-1` | Daniel |
-| 59 | Nebuchadnezzar | ate grass like an ox | DAN 4:33 | grass | 2 | Prophets & exile | `nebuchadnezzar-2ki-24-1` | — |
+| 59 | Nebuchadnezzar | ate grass like an ox | DAN 4:33 | grass | 2 | Prophets & exile | `nebuchadnezzar-2ki-24-1` | Shadrach, Meshach, Abednego |
 | 60 | Jonah | the great fish | JON 1:17 | fish | 1 | Prophets & exile | `jonah-2ki-14-25` | — |
 | 61 | Jonah | the vine that withered | JON 4:6-7 | plant | 3 | Prophets & exile | `jonah-2ki-14-25` | — |
 | 62 | Isaiah | a live coal on his lips | ISA 6:6-7 | coal | 2 | Prophets & exile | `isaiah-2ki-19-2` | — |
@@ -627,11 +638,11 @@ How to read it:
 | 66 | Hosea | married Gomer | HOS 1:2-3 | Gomer | 3 | Prophets & exile | `hosea-hos-1-1` | — |
 | 67 | Amos | a basket of summer fruit | AMO 8:1-2 | fruit | 3 | Prophets & exile | choose: 2 named Amos | — |
 | 68 | Nehemiah | rebuilt Jerusalem's walls | NEH 2:17-18 | wall | 1 | Prophets & exile | choose: 3 named Nehemiah | — |
-| 69 | Ezra | read the Law to the people | NEH 8:1-8 | read | 2 | Prophets & exile | choose: 2 named Ezra | Josiah |
+| 69 | Ezra | read the Law to the people | NEH 8:1-8 | read | 2 | Prophets & exile | choose: 2 named Ezra | Josiah, Nehemiah |
 | 70 | Mordecai | would not bow down | EST 3:2 | bow | 2 | Prophets & exile | choose: 2 named Mordecai | Shadrach, Meshach, Abednego |
 | 71 | Haman | hanged on his own gallows | EST 7:9-10 | gallows | 2 | Prophets & exile | `haman-est-3-1` | — |
 | 72 | Job | lost all, yet praised God | JOB 1:13-22 | naked | 1 | Prophets & exile | `job-job-1-1` | — |
-| 73 | Gehazi | lied and got leprosy | 2KI 5:20-27 | leprous | 3 | Prophets & exile | `gehazi-2ki-4-12` | Naaman, Elisha |
+| 73 | Gehazi | lied and got leprosy | 2KI 5:20-27 | leprous | 3 | Prophets & exile | `gehazi-2ki-4-12` | Naaman, Elisha, Ananias and Sapphira |
 | 74 | Baruch | wrote the scroll as dictated | JER 36:4 | scroll | 3 | Prophets & exile | choose: 4 named Baruch | Jeremiah |
 | 75 | Jehoiakim | burned the scroll | JER 36:22-23 | fire | 3 | Prophets & exile | `jehoiakim-2ki-23-34` | Baruch, Jeremiah |
 | 76 | Zerubbabel | laid the temple foundation | EZR 3:8-11 | foundation | 3 | Prophets & exile | choose: 2 named Zerubbabel | Solomon |
@@ -646,7 +657,7 @@ How to read it:
 | 85 | Jael | the tent peg | JDG 4:21 | peg | 2 | Women, Judges & kings | `jael-jdg-4-17` | — |
 | 86 | Delilah | the secret of his strength | JDG 16:4-19 | strength | 2 | Women, Judges & kings | `delilah-jdg-16-4` | Samson |
 | 87 | Naomi | "Call me Mara" | RUT 1:20 | Mara | 3 | Women, Judges & kings | `naomi-rut-1-2` | — |
-| 88 | Ruth | "Where you go, I will go" | RUT 1:16 | go | 1 | Women, Judges & kings | `ruth-rut-1-4` | Naomi |
+| 88 | Ruth | "Wherever you go, I will go" | RUT 1:16 | go | 1 | Women, Judges & kings | `ruth-rut-1-4` | Naomi |
 | 89 | Ruth | gleaned in Boaz's field | RUT 2:2-3 | glean | 1 | Women, Judges & kings | `ruth-rut-1-4` | — |
 | 90 | Hannah | prayed for a son | 1SA 1:10-11 | prayed | 1 | Women, Judges & kings | `hannah-1sa-1-2` | — |
 | 91 | Abigail | loaded donkeys with food | 1SA 25:18 | donkeys | 2 | Women, Judges & kings | choose: 2 named Abigail | — |
@@ -681,7 +692,7 @@ How to read it:
 | 120 | Jairus | his daughter raised | MRK 5:22-42 | daughter | 2 | Meeting Jesus | `jairus-mrk-5-22` | — |
 | 121 | Bartimaeus | the blind beggar at Jericho | MRK 10:46-52 | blind | 1 | Meeting Jesus | `bartimaeus-mrk-10-46` | — |
 | 122 | Zacchaeus | climbed a sycamore tree | LUK 19:1-10 | sycamore | 1 | Meeting Jesus | `zacchaeus-luk-19-2` | — |
-| 123 | Lazarus | raised after four days | JHN 11:38-44 | four days | 1 | Meeting Jesus | choose: 2 named Lazarus | — |
+| 123 | Lazarus | raised after four days | JHN 11:38-44 | four days | 1 | Meeting Jesus | choose: 2 named Lazarus (take `lazarus-jhn-11-1`; `lazarus-luk-16-20` is the beggar in the parable) | The rich man |
 | 124 | Thomas | "Unless I see the nail marks" | JHN 20:24-29 | nail | 1 | Meeting Jesus | `thomas-mat-10-3` | — |
 | 125 | Judas Iscariot | thirty pieces of silver | MAT 26:14-16 | silver | 1 | Meeting Jesus | choose: 5 named Judas | — |
 | 126 | Pontius Pilate | washed his hands | MAT 27:24 | washed | 1 | Meeting Jesus | `pilate-mat-27-2` | — |
@@ -692,7 +703,7 @@ How to read it:
 | 131 | Paul | shipwrecked on Malta | ACT 27:39-28:1 | Malta | 1 | Early church | `paul-act-7-58` | — |
 | 132 | Silas | sang in prison at midnight | ACT 16:25-26 | midnight | 1 | Early church | `silas-act-15-22` | Paul |
 | 133 | The Philippian jailer | "What must I do to be saved?" | ACT 16:27-34 | saved | 2 | Early church | none (no link) | Silas, Paul |
-| 134 | Stephen | stoned for his faith | ACT 7:54-60 | stone | 1 | Early church | `stephen-act-6-5` | Paul |
+| 134 | Stephen | stoned for his faith | ACT 7:54-60 | stone | 2 | Early church | `stephen-act-6-5` | Paul |
 | 135 | Philip the evangelist | ran up to a chariot | ACT 8:26-39 | chariot | 2 | Early church | choose: 4 named Philip | The Ethiopian official |
 | 136 | The Ethiopian official | baptized on a desert road | ACT 8:26-39 | water | 2 | Early church | none (no link) | Philip the evangelist |
 | 137 | Ananias of Damascus | sent to Straight Street | ACT 9:10-18 | Straight | 3 | Early church | choose: 3 named Ananias | Paul |
@@ -708,7 +719,7 @@ How to read it:
 | 147 | Herod Agrippa | eaten by worms | ACT 12:21-23 | worms | 3 | Early church | choose: 3 named Herod | — |
 | 148 | Timothy | his grandmother's faith | 2TI 1:5 | grandmother | 3 | Early church | `timothy-act-16-1` | — |
 | 149 | Apollos | the eloquent Alexandrian | ACT 18:24-26 | Alexandria | 3 | Early church | `apollos-act-18-24` | Priscilla |
-| 150 | The good Samaritan | helped the man robbers beat | LUK 10:30-37 | robbers | 1 | Parables | none (no link) | — |
+| 150 | The good Samaritan | helped a man beaten by robbers | LUK 10:30-37 | robbers | 1 | Parables | none (no link) | — |
 | 151 | The prodigal son | came home to a feast | LUK 15:11-32 | feast | 1 | Parables | none (no link) | — |
 | 152 | The prodigal son's brother | sulked outside the party | LUK 15:25-32 | angry | 2 | Parables | none (no link) | The prodigal son |
 | 153 | The man with 100 sheep | left the ninety-nine | LUK 15:3-7 | ninety-nine | 1 | Parables | none (no link) | — |
@@ -722,4 +733,100 @@ How to read it:
 | 161 | The servant with one talent | hid the money in the ground | MAT 25:14-30 | hid | 2 | Parables | none (no link) | — |
 | 162 | The unforgiving servant | forgiven much, forgave nothing | MAT 18:21-35 | forgive | 2 | Parables | none (no link) | — |
 | 163 | The five wise virgins | took extra oil for their lamps | MAT 25:1-13 | oil | 2 | Parables | none (no link) | — |
-| 164 | The rich man | a great chasm between them | LUK 16:19-31 | chasm | 3 | Parables | none (no link) | — |
+| 164 | The rich man | a great chasm between them | LUK 16:19-31 | chasm | 3 | Parables | none (no link) | Lazarus |
+
+---
+
+## 19. Review
+
+**One critical review, 2026-11-07 (job a5fdb69f, step 5 of sequence 32).** I checked the design against the spec (APPROVED-IDEAS entry 24), the shared build rules and the real codebase: the build scripts in `package.json`, `scripts/check-verse-wording.py`, `src/lib/verses.ts`, `scripts/bible/books.py`, the games registry and README, the odd-one-out game as built, the site header CSS, people.json and the plain BSB text in `data/plain/bsb/`. A scratch script checked every Appendix A row against the BSB. It looked at check words, quotations, label lengths, person ids and `notWith` names. It then re-ran the §6 board rules 2,000 times for every deck and difficulty on the corrected list. Every correction below is already made in the body above.
+
+The design's overall shape holds: concentration rules, asymmetric who/story pairs, the one-owner guarantee, move-based stars, the screens, accessibility and zero cost. It meets the spec, with Daniel / the lions' den guaranteed and text-only cards.
+
+### Would have broken the build
+
+| What | Why it mattered | Change |
+|---|---|---|
+| The shipped `pairs.json` held each key verse's full wording (`keyQuote`). | `npm run build` runs `scripts/check-verse-wording.py` first (`prebuild`). It fails if any file under `src/` or `data/` holds a whole verse of ten words or more as a text of its own. Most key verses are that long, so the build would have stopped. The site's rule is that data holds verse ids and the words come from `src/lib/verses.ts`. | `keyQuote` replaced by `keyVerseId` (`BBCCCVVV`; Daniel 6:22 is 27006022). The summary looks the text up with `useVerseTable` and shows the reference alone while it loads or if a Bible lacks the verse. This also means the quote follows the site's language. Tests, the edge-case table and the pre-handback checklist were updated to match (§1, §3, §5.2, §5.4, §10, §14, §16). |
+| Appendix A row 34 (Samuel) listed "Eli" as must-not-share. | Eli is not a who card, and §5.2 fails the build on a `notWith` name that does not exist. | Link removed. Eli can never be on a board, so nothing is lost. A builder test now covers it (§14). |
+
+### Card wording that was not BSB, or that a knowledgeable player could dispute
+
+| Row | Draft | BSB / fact | Now |
+|---|---|---|---|
+| 41 Nathan | "You are the man!" | "You are that man!" (2 Sam 12:7) | "You are that man!" |
+| 88 Ruth | "Where you go, I will go" | "wherever you go, I will go" (Ruth 1:16) | "Wherever you go, I will go" |
+| 40 Absalom | caught by his hair in a tree | "Absalom's head was caught fast in the tree" (2 Sam 18:9). The hair is a later tradition. | his head caught in an oak |
+| 27 Achan | loot buried in his tent | "hidden in the ground inside my tent" (Josh 7:21) | loot hidden in his tent |
+| 150 The good Samaritan | helped the man robbers beat | ungrammatical | helped a man beaten by robbers |
+
+The design checked check words, but nothing checked that a quotation on a card is BSB wording. That is how two misquotes got through. I added **card-text rule 6** (§4.1): quoted text must occur in the passage. It is a build failure (§5.2) and a builder test (§14).
+
+### Boards that could have had two plausible owners for one story
+
+I added five links to "must not share a board" (§6.1, Appendix A). There are now 59 links in all. The draft said 56, but a count of its own table gives 55.
+- **Nebuchadnezzar and Shadrach, Meshach, Abednego.** He had them thrown into "the fiery furnace".
+- **Lazarus and The rich man.** The beggar in that parable is named Lazarus, and people.json even has a separate record for him.
+- **Gehazi and Ananias and Sapphira.** Both lied to get money.
+- **Joash and Josiah.** Both were boy kings (aged seven and eight), so "king at eight years old" tempts Joash.
+- **Ezra and Nehemiah.** Both stand at the reading of the Law (Neh 8:9).
+
+### Rules that contradicted themselves or were too vague to build the same way twice
+
+- **Violence on Easy (§4).** The draft said violent stories are never tier 1, yet David / the giant Goliath was tier 1, and it made Cain's "killed his brother" an exception. The rule is now about what the card says: a card whose words describe a killing or gruesome death is tier 2 or 3. **Cain and Stephen ("stoned for his faith") moved to tier 2.** Goliath stays tier 1, because the card only names him. The deck table was recounted from the appendix: Mixed 65 tier-1 pairs, In the beginning 15, The early church 4.
+- **Shared words (§6.2).** The draft did not say how words are compared. So "walls" vs "wall" and "angel's" vs "angels" would not have counted as shared, and Easy boards could have paired them. It now spells out lower-casing, punctuation, possessives, stop words and plural `s`. The build stores the result.
+- **First names (§6.3).** Commas and possessives are now stripped ("Mary," and "Lot's"). The doc also notes the harmless side effect on parable figures such as The rich fool and The rich man.
+- **Easy pool top-up (§8).** The draft said tier 2 is added when a deck has fewer than 10 tier-1 characters, but not how many to add. It now adds until the pool reaches 10 distinct characters, in a fixed order, computed by the build.
+
+### Smaller corrections
+
+- **Header (§8).** The site header is 61 px (a 4 px strip, a 56 px row and a 1 px border; `src/components/site-navigation.css`), not 56 px. It is sticky. The Hard fit still holds, at about 86 px per row on 360 × 640. The Playwright check measures the real viewport.
+- **Reader links (§5.2).** These now highlight the passage's whole range (`?hl=16-23`), the form odd-one-out already uses and tests.
+- **Data source (§3).** The verse text the build and browser use is `data/plain/bsb/`. `data/text/bsb/` holds the reader text and the section headings.
+
+### Checked and found correct (no change)
+
+- All 164 check words occur in their BSB passages, including two that look like KJV wording but are in the site's BSB: Jacob's "ladder" (Gen 28:12) and Jonah's "vine" (Jonah 4:6).
+- Every fixed person id in Appendix A exists in people.json, and `daniel-ezk-14-14` is the prophet.
+- The registry entry (`memory-match`, Family shelf, Solo and Family audiences, art already there) matches §13. Going live is still a one-entry change.
+- After the corrections, every deck at every difficulty is offered, and 2,000 random boards each drew without a failure.
+- "The left-handed judge" (Ehud) stays tier 2. Regular adult readers know him, and the card is not violent.
+
+### Left to the owner
+
+- Keep or drop the Parables deck (§17). This is unchanged, and the game is complete either way.
+
+---
+
+## 20. Implementation notes
+
+**Built 2026-11-07 (job b95c436d, step 6 of sequence 32).** The game follows this design. Where the build had to differ, or settled something the design left open, it is listed here.
+
+### Files as built
+
+- Builder: `scripts/build-memory-match.py`, with its checks in `scripts/memory-match/mm_build.py` (references, card text, content words, first names) and `scripts/memory-match/mm_pairs.py` (who cards, pairs, links, pools, the shipped document). Hand-kept inputs: `scripts/memory-match/characters.json` and `pairs.json`, made from Appendix A. Builder tests: `scripts/tests/test_memory_match.py`.
+- Generated: `src/data/memory-match/pairs.json` and `docs/features/memory-match/review-sheet.md`.
+- Game: `src/pages/games/memory-match/` holds `MemoryMatchGame.tsx`, `Screens.tsx` (start, "See the pairs first", can't load), `Board.tsx`, `Card.tsx`, `Summary.tsx`, `game.ts`, `deal.ts`, `storage.ts`, `memory-match.css`, and the tests `pairs.test.ts`, `deal.test.ts`, `game.test.ts` and `MemoryMatchGame.test.tsx`.
+- Layout checks: `e2e/memory-match.spec.ts` with its own config, `e2e/memory-match.config.ts` (port 8961).
+- The registry entry is live. Nothing else on the hub changed.
+
+### Where the build differs, and why
+
+| Design | As built | Why |
+|---|---|---|
+| `board.ts` beside `Board.tsx` (§13) | The drawing and dealing module is `deal.ts`, and its tests are `deal.test.ts`. | Windows file names ignore case, so `./Board` could not tell the two files apart and the type check failed. |
+| Appendix A row 13: Jacob is `jacob-mat-1-15` | `israel-gen-25-26` | `jacob-mat-1-15` is Jacob the father of Joseph, Mary's husband (Matthew 1:15). The patriarch's record is named Israel, with Jacob among its other names. |
+| A story never names its character or "aliases" (§4.1 rule 3) | The words "Jesus" and "God" are not treated as aliases, and words inside a quotation are checked as BSB wording instead. | people.json lists "Jesus" as another name of Barabbas (Matthew 27:17) and "God" for Jacob, which would fail "set free instead of Jesus". Naomi's other name is Mara, and her card is her own words, "Call me Mara". |
+| A capitalised word in a story shared with another who label needs a link (§4.1 rule 4) | "Jesus", "God", the label's first word and the words of quotations are left out. | Otherwise every story mentioning Jesus would need a link to "Mary, mother of Jesus". |
+| `notWith` is "made symmetric" (§5.1, §6.1) | A link joins two **characters**: every pair of either character carries the other. | §6.1 counts links "once per pair of characters" and says one side is enough. Linking only the one story would leave Abraham's other story free to meet Isaac. Every deck still draws at every difficulty (below). |
+| The key verse defaults to the first verse holding the check word (§5.1) | Three are set by hand: Paul's Damascus road (Acts 9:3, the light from heaven rather than the letters to the synagogues), fire on Mount Carmel (1 Kings 18:38, the fire falling) and the unforgiving servant (Matthew 18:33, "Shouldn't you also have had mercy"). | The automatic choice landed on a verse that does not tell the story. |
+| An "offered" combination needs pairs + 3 characters (§5.2) | Hard also needs 4 characters with tier 2 or 3 pairs. | Otherwise a Hard board could be offered that cannot hold its 4 deeper pairs. |
+| "Turn non-pairs back: when I tap" (§12) | A "Turn them back" button also appears under the grid while a non-pair waits. | Tapping a third card still works, but the button is easier with a keyboard or switch. |
+| Enter or Space on a card (§12) | Handled by the card's own key handler. | The tests can then play the whole board with the keyboard, and a repeated key cannot turn two cards. |
+
+### What the build found
+
+- 164 pairs and 142 characters pass every check, and every deck is offered at every difficulty. The Easy top-up from tier 2 adds King Saul to Judges and kings, seven characters to The early church, and four to Parables (the review sheet lists them).
+- `deal.test.ts` draws 1,000 boards for each of the 24 deck and difficulty combinations. Every board is fair: one character per pair, no shared first name, no linked characters, no shared story words on Easy, and at least 4 deeper pairs on Hard.
+- The Parables decision (§17) is still the owner's. The deck is in.
+- On a 360 × 640 phone, a Hard board made of the 12 longest labels first clipped words and ran past the screen. Three changes made it fit: the small "Who"/"Story" tag and the "✓ Matched" mark now sit in the card's top and bottom padding, the Hard cards have narrower side padding, and card words may break inside a long word (soft hyphens first). The layout checks in `e2e/memory-match.spec.ts` check the 360 × 640 fit, the one-row limit at 320 × 568, and that turning the phone moves no card.

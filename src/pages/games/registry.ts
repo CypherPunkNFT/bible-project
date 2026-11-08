@@ -133,7 +133,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "daily", art: GAME_ART.oddOneOut,
   },
   {
-    slug: "memory-match", status: "coming-soon", title: "Memory card match",
+    slug: "memory-match", status: "live", load: () => import("./memory-match/MemoryMatchGame"),
+    title: "Memory card match",
     description: "Flip cards to pair each character with their story, like Daniel and the lions' den.",
     audiences: ["solo", "family"],
     shelf: "family", art: GAME_ART.memoryMatch,

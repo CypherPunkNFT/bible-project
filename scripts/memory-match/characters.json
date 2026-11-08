@@ -1,0 +1,593 @@
+{
+ "about": "Memory card match: the who cards, hand-kept. person is an explicit data/study/people.json id or null (a group, an unnamed person or a parable figure). See docs/features/memory-match/design.md 5.1.",
+ "characters": {
+  "adam": {
+   "label": "Adam",
+   "person": "adam-gen-2-19"
+  },
+  "eve": {
+   "label": "Eve",
+   "person": "eve-gen-3-20"
+  },
+  "cain": {
+   "label": "Cain",
+   "person": "cain-gen-4-1"
+  },
+  "enoch": {
+   "label": "Enoch",
+   "person": "enoch-gen-5-18"
+  },
+  "methuselah": {
+   "label": "Methuselah",
+   "person": "methuselah-gen-5-21"
+  },
+  "noah": {
+   "label": "Noah",
+   "person": "noah-gen-5-29"
+  },
+  "abraham": {
+   "label": "Abraham",
+   "person": "abraham-gen-11-26"
+  },
+  "lot": {
+   "label": "Lot",
+   "person": "lot-gen-11-27"
+  },
+  "lots-wife": {
+   "label": "Lot's wife",
+   "person": null
+  },
+  "esau": {
+   "label": "Esau",
+   "person": "esau-gen-25-25"
+  },
+  "isaac": {
+   "label": "Isaac",
+   "person": "isaac-gen-17-19"
+  },
+  "jacob": {
+   "label": "Jacob",
+   "person": "israel-gen-25-26"
+  },
+  "joseph": {
+   "label": "Joseph",
+   "person": "joseph-gen-30-24"
+  },
+  "moses": {
+   "label": "Moses",
+   "person": "moses-exo-2-10"
+  },
+  "aaron": {
+   "label": "Aaron",
+   "person": "aaron-exo-4-14"
+  },
+  "korah": {
+   "label": "Korah",
+   "person": "korah-exo-6-21"
+  },
+  "balaam": {
+   "label": "Balaam",
+   "person": "balaam-num-22-5"
+  },
+  "caleb": {
+   "label": "Caleb",
+   "person": "caleb-num-13-6"
+  },
+  "joshua": {
+   "label": "Joshua",
+   "person": "joshua-exo-17-9"
+  },
+  "achan": {
+   "label": "Achan",
+   "person": "achan-jos-7-1"
+  },
+  "ehud": {
+   "label": "Ehud",
+   "person": "ehud-jdg-3-15"
+  },
+  "gideon": {
+   "label": "Gideon",
+   "person": "gideon-jdg-6-11"
+  },
+  "jephthah": {
+   "label": "Jephthah",
+   "person": "jephthah-jdg-11-1"
+  },
+  "samson": {
+   "label": "Samson",
+   "person": "samson-jdg-13-24"
+  },
+  "samuel": {
+   "label": "Samuel",
+   "person": "samuel-1sa-1-20"
+  },
+  "king-saul": {
+   "label": "King Saul",
+   "person": "saul-1sa-9-2"
+  },
+  "david": {
+   "label": "David",
+   "person": "david-rut-4-17"
+  },
+  "jonathan": {
+   "label": "Jonathan",
+   "person": "jonathan-1sa-13-2"
+  },
+  "absalom": {
+   "label": "Absalom",
+   "person": "absalom-2sa-3-3"
+  },
+  "nathan": {
+   "label": "Nathan",
+   "person": "nathan-2sa-7-2"
+  },
+  "uzzah": {
+   "label": "Uzzah",
+   "person": "uzzah-2sa-6-3"
+  },
+  "solomon": {
+   "label": "Solomon",
+   "person": "solomon-2sa-5-14"
+  },
+  "ahab": {
+   "label": "Ahab",
+   "person": "ahab-1ki-16-28"
+  },
+  "elijah": {
+   "label": "Elijah",
+   "person": "elijah-1ki-17-1"
+  },
+  "elisha": {
+   "label": "Elisha",
+   "person": "elisha-1ki-19-16"
+  },
+  "naaman": {
+   "label": "Naaman",
+   "person": "naaman-2ki-5-1"
+  },
+  "jehu": {
+   "label": "Jehu",
+   "person": "jehu-1ki-19-16"
+  },
+  "joash": {
+   "label": "Joash",
+   "person": "joash-2ki-11-2"
+  },
+  "hezekiah": {
+   "label": "Hezekiah",
+   "person": "hezekiah-2ki-16-20"
+  },
+  "josiah": {
+   "label": "Josiah",
+   "person": "josiah-1ki-13-2"
+  },
+  "uzziah": {
+   "label": "Uzziah",
+   "person": "uzziah-2ki-14-21"
+  },
+  "daniel": {
+   "label": "Daniel",
+   "person": "daniel-ezk-14-14"
+  },
+  "three-friends": {
+   "label": "Shadrach, Meshach, Abednego",
+   "person": null,
+   "group": true
+  },
+  "belshazzar": {
+   "label": "Belshazzar",
+   "person": "belshazzar-dan-5-1"
+  },
+  "nebuchadnezzar": {
+   "label": "Nebu\u00adchad\u00adnezzar",
+   "person": "nebuchadnezzar-2ki-24-1"
+  },
+  "jonah": {
+   "label": "Jonah",
+   "person": "jonah-2ki-14-25"
+  },
+  "isaiah": {
+   "label": "Isaiah",
+   "person": "isaiah-2ki-19-2"
+  },
+  "jeremiah": {
+   "label": "Jeremiah",
+   "person": "jeremiah-2ch-35-25"
+  },
+  "ezekiel": {
+   "label": "Ezekiel",
+   "person": "ezekiel-ezk-1-3"
+  },
+  "hosea": {
+   "label": "Hosea",
+   "person": "hosea-hos-1-1"
+  },
+  "amos": {
+   "label": "Amos",
+   "person": "amos-amo-1-1"
+  },
+  "nehemiah": {
+   "label": "Nehemiah",
+   "person": "nehemiah-neh-1-1"
+  },
+  "ezra": {
+   "label": "Ezra",
+   "person": "ezra-ezr-7-1"
+  },
+  "mordecai": {
+   "label": "Mordecai",
+   "person": "mordecai-est-2-5"
+  },
+  "haman": {
+   "label": "Haman",
+   "person": "haman-est-3-1"
+  },
+  "job": {
+   "label": "Job",
+   "person": "job-job-1-1"
+  },
+  "gehazi": {
+   "label": "Gehazi",
+   "person": "gehazi-2ki-4-12"
+  },
+  "baruch": {
+   "label": "Baruch",
+   "person": "baruch-jer-32-12"
+  },
+  "jehoiakim": {
+   "label": "Jehoiakim",
+   "person": "jehoiakim-2ki-23-34"
+  },
+  "zerubbabel": {
+   "label": "Zerubbabel",
+   "person": "zerubbabel-1ch-3-19"
+  },
+  "darius": {
+   "label": "Darius",
+   "person": "darius-dan-5-31"
+  },
+  "sarah": {
+   "label": "Sarah",
+   "person": "sarah-gen-11-29"
+  },
+  "hagar": {
+   "label": "Hagar",
+   "person": "hagar-gen-16-1"
+  },
+  "rebekah": {
+   "label": "Rebekah",
+   "person": "rebekah-gen-22-23"
+  },
+  "rachel": {
+   "label": "Rachel",
+   "person": "rachel-gen-29-6"
+  },
+  "miriam": {
+   "label": "Miriam",
+   "person": "miriam-exo-15-20"
+  },
+  "rahab": {
+   "label": "Rahab",
+   "person": "rahab-jos-2-1"
+  },
+  "deborah": {
+   "label": "Deborah",
+   "person": "deborah-jdg-4-4"
+  },
+  "jael": {
+   "label": "Jael",
+   "person": "jael-jdg-4-17"
+  },
+  "delilah": {
+   "label": "Delilah",
+   "person": "delilah-jdg-16-4"
+  },
+  "naomi": {
+   "label": "Naomi",
+   "person": "naomi-rut-1-2"
+  },
+  "ruth": {
+   "label": "Ruth",
+   "person": "ruth-rut-1-4"
+  },
+  "hannah": {
+   "label": "Hannah",
+   "person": "hannah-1sa-1-2"
+  },
+  "abigail": {
+   "label": "Abigail",
+   "person": "abigail-1sa-25-3"
+  },
+  "queen-of-sheba": {
+   "label": "The queen of Sheba",
+   "person": null
+  },
+  "widow-of-zarephath": {
+   "label": "The widow of Zarephath",
+   "person": null
+  },
+  "jezebel": {
+   "label": "Jezebel",
+   "person": "jezebel-1ki-16-31"
+  },
+  "esther": {
+   "label": "Esther",
+   "person": "esther-est-2-7"
+  },
+  "mary-mother": {
+   "label": "Mary, mother of Jesus",
+   "person": "mary-mat-1-16"
+  },
+  "elizabeth": {
+   "label": "Elizabeth",
+   "person": "elizabeth-luk-1-5"
+  },
+  "anna": {
+   "label": "Anna",
+   "person": "anna-luk-2-36"
+  },
+  "martha": {
+   "label": "Martha",
+   "person": "martha-luk-10-38"
+  },
+  "mary-of-bethany": {
+   "label": "Mary of Bethany",
+   "person": "mary-luk-10-39"
+  },
+  "mary-magdalene": {
+   "label": "Mary Magdalene",
+   "person": "mary-magdalene-mat-27-56"
+  },
+  "samaritan-woman": {
+   "label": "The Samaritan woman",
+   "person": null
+  },
+  "lydia": {
+   "label": "Lydia",
+   "person": "lydia-act-16-14"
+  },
+  "tabitha": {
+   "label": "Tabitha",
+   "person": "tabitha-act-9-36"
+  },
+  "priscilla": {
+   "label": "Priscilla",
+   "person": "priscilla-act-18-2"
+  },
+  "rhoda": {
+   "label": "Rhoda",
+   "person": "rhoda-act-12-13"
+  },
+  "wise-men": {
+   "label": "The wise men",
+   "person": null,
+   "group": true
+  },
+  "shepherds": {
+   "label": "The shepherds",
+   "person": null,
+   "group": true
+  },
+  "king-herod": {
+   "label": "King Herod",
+   "person": "herod-mat-2-1"
+  },
+  "zechariah": {
+   "label": "Zechariah",
+   "person": "zechariah-luk-1-5"
+  },
+  "simeon": {
+   "label": "Simeon",
+   "person": "simeon-luk-2-25"
+  },
+  "john-the-baptist": {
+   "label": "John the Baptist",
+   "person": "john-mat-3-1"
+  },
+  "peter": {
+   "label": "Peter",
+   "person": "peter-mat-4-18"
+  },
+  "andrew": {
+   "label": "Andrew",
+   "person": "andrew-mat-4-18"
+  },
+  "nathanael": {
+   "label": "Nathanael",
+   "person": "nathanael-jhn-1-45"
+  },
+  "matthew": {
+   "label": "Matthew",
+   "person": "matthew-mat-9-9"
+  },
+  "nicodemus": {
+   "label": "Nicodemus",
+   "person": "nicodemus-jhn-3-1"
+  },
+  "jairus": {
+   "label": "Jairus",
+   "person": "jairus-mrk-5-22"
+  },
+  "bartimaeus": {
+   "label": "Bartimaeus",
+   "person": "bartimaeus-mrk-10-46"
+  },
+  "zacchaeus": {
+   "label": "Zacchaeus",
+   "person": "zacchaeus-luk-19-2"
+  },
+  "lazarus": {
+   "label": "Lazarus",
+   "person": "lazarus-jhn-11-1"
+  },
+  "thomas": {
+   "label": "Thomas",
+   "person": "thomas-mat-10-3"
+  },
+  "judas-iscariot": {
+   "label": "Judas Iscariot",
+   "person": "judas-mat-10-4"
+  },
+  "pontius-pilate": {
+   "label": "Pontius Pilate",
+   "person": "pilate-mat-27-2"
+  },
+  "barabbas": {
+   "label": "Barabbas",
+   "person": "barabbas-mat-27-16"
+  },
+  "simon-of-cyrene": {
+   "label": "Simon of Cyrene",
+   "person": "simon-mat-27-32"
+  },
+  "joseph-of-arimathea": {
+   "label": "Joseph of Arimathea",
+   "person": "joseph-mat-27-57"
+  },
+  "paul": {
+   "label": "Paul",
+   "person": "paul-act-7-58"
+  },
+  "silas": {
+   "label": "Silas",
+   "person": "silas-act-15-22"
+  },
+  "philippian-jailer": {
+   "label": "The Philippian jailer",
+   "person": null
+  },
+  "stephen": {
+   "label": "Stephen",
+   "person": "stephen-act-6-5"
+  },
+  "philip-the-evangelist": {
+   "label": "Philip the evangelist",
+   "person": "philip-act-6-5"
+  },
+  "ethiopian-official": {
+   "label": "The Ethiopian official",
+   "person": null
+  },
+  "ananias-of-damascus": {
+   "label": "Ananias of Damascus",
+   "person": "ananias-act-9-10"
+  },
+  "ananias-and-sapphira": {
+   "label": "Ananias and Sapphira",
+   "person": null,
+   "group": true
+  },
+  "barnabas": {
+   "label": "Barnabas",
+   "person": "barnabas-act-4-36"
+  },
+  "cornelius": {
+   "label": "Cornelius",
+   "person": "cornelius-act-10-1"
+  },
+  "eutychus": {
+   "label": "Eutychus",
+   "person": "eutychus-act-20-9"
+  },
+  "matthias": {
+   "label": "Matthias",
+   "person": "matthias-act-1-23"
+  },
+  "simon-the-sorcerer": {
+   "label": "Simon the sorcerer",
+   "person": "simon-act-8-9"
+  },
+  "gamaliel": {
+   "label": "Gamaliel",
+   "person": "gamaliel-act-5-34"
+  },
+  "herod-agrippa": {
+   "label": "Herod Agrippa",
+   "person": "herod-act-12-1"
+  },
+  "timothy": {
+   "label": "Timothy",
+   "person": "timothy-act-16-1"
+  },
+  "apollos": {
+   "label": "Apollos",
+   "person": "apollos-act-18-24"
+  },
+  "good-samaritan": {
+   "label": "The good Samaritan",
+   "person": null,
+   "parable": true
+  },
+  "prodigal-son": {
+   "label": "The prodigal son",
+   "person": null,
+   "parable": true
+  },
+  "prodigal-sons-brother": {
+   "label": "The prodigal son's brother",
+   "person": null,
+   "parable": true
+  },
+  "man-with-100-sheep": {
+   "label": "The man with 100 sheep",
+   "person": null,
+   "parable": true
+  },
+  "woman-with-the-lost-coin": {
+   "label": "The woman with the lost coin",
+   "person": null,
+   "parable": true
+  },
+  "sower": {
+   "label": "The sower",
+   "person": null,
+   "parable": true
+  },
+  "rich-fool": {
+   "label": "The rich fool",
+   "person": null,
+   "parable": true
+  },
+  "wise-builder": {
+   "label": "The wise builder",
+   "person": null,
+   "parable": true
+  },
+  "foolish-builder": {
+   "label": "The foolish builder",
+   "person": null,
+   "parable": true
+  },
+  "persistent-widow": {
+   "label": "The persistent widow",
+   "person": null,
+   "parable": true
+  },
+  "tax-collector-who-prayed": {
+   "label": "The tax collector who prayed",
+   "person": null,
+   "parable": true
+  },
+  "servant-with-one-talent": {
+   "label": "The servant with one talent",
+   "person": null,
+   "parable": true
+  },
+  "unforgiving-servant": {
+   "label": "The unforgiving servant",
+   "person": null,
+   "parable": true
+  },
+  "five-wise-virgins": {
+   "label": "The five wise virgins",
+   "person": null,
+   "group": true,
+   "parable": true
+  },
+  "rich-man": {
+   "label": "The rich man",
+   "person": null,
+   "parable": true
+  }
+ }
+}
