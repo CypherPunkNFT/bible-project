@@ -3,7 +3,7 @@
 // and four schools with how each date was chosen.
 import { Link } from "react-router-dom";
 import { ageShare, ARTICLE_ROW, articleArc, D, findPart, LADDER_AGES, partById, sourceById, type LadderStep, type Part } from "./model";
-import { Cite, Head, OldText, Picture, Quote, StandPanel } from "./parts";
+import { Cite, Head, OldText, Picture, Quote, StandPanel, T } from "./parts";
 
 function Article({ part, onPart }: { part: Part; onPart: (id: string) => void }) {
   const { parts } = D.article, tied = new Set([part.id, part.answeredBy, part.answers]);
@@ -31,7 +31,7 @@ function PartRecord({ part }: { part: Part }) {
 function Rung({ step }: { step: LadderStep }) {
   const left = ageShare(step.from) * 100, width = (ageShare(step.to) - ageShare(step.from)) * 100, open = step.id === "lecture-theology";
   return <li className="mv-rung">
-    <div className="mv-rungname"><strong>{step.name}</strong><small>{step.text}</small></div>
+    <div className="mv-rungname"><strong>{step.name}</strong><small><T text={step.text} /></small></div>
     <div className="mv-rungtrack"><span className={`${step.inferred ? "inferred" : ""}${open ? " open" : ""}`} style={{ left: `${left}%`, width: `${open ? 100 - left : width}%` }} /></div>
   </li>;
 }
@@ -42,26 +42,26 @@ function Ladder() {
     <h3 className="mv-subhead">The road to that lectern</h3>
     <div className="mv-agescale" aria-hidden="true">{ages.map((a) => <span key={a} style={{ left: `${ageShare(a) * 100}%` }}>{a}</span>)}</div>
     <ol>{D.ladder.steps.map((s) => <Rung key={s.id} step={s} />)}</ol>
-    <p className="mv-caption">Ages {LADDER_AGES.from} to {LADDER_AGES.to}, drawn to scale. {D.ladder.note} Solid bars are the statute's, hatched bars are worked back. Its translation has “twenty” where other accounts of the same rule give twenty-one.</p>
+    <p className="mv-caption">Ages {LADDER_AGES.from} to {LADDER_AGES.to}, drawn to scale. <T text={D.ladder.note} /> Solid bars are the statute's, hatched bars are worked back. Its translation has “twenty” where other accounts of the same rule give twenty-one.</p>
   </div>;
 }
 
 export function School({ partId, onChange }: { partId: string | null; onChange: (values: Record<string, string | null>) => void }) {
   const part = findPart(partId), abelard = sourceById.get(D.abelard.source);
   return <>
-    <Head num="04" kicker="A question and its schools" title={<>Hear the other side first.<em> Then answer it by name.</em></>}
+    <Head num="06" kicker="A question and its schools" title={<>Hear the other side first.<em> Then answer it by name.</em></>}
       lead="Universities grew from cathedral schools, and they taught by a form as strict as a sonnet. Here is one short article from Thomas Aquinas, about the largest question there is, taken apart move by move." />
-    <p className="mv-para">{D.article.note}</p>
+    <p className="mv-para"><T text={D.article.note} /></p>
     <div className="mv-article">
       <Article part={part} onPart={(id) => onChange({ part: id })} />
       <PartRecord part={part} />
     </div>
-    <p className="mv-caption">{D.article.cite}. The arcs tie each objection to its reply. {D.abelard.text} “{D.abelard.quote}”, as {abelard?.title.includes("W. J. Lewis") ? "W. J. Lewis" : "its translator"} renders it.</p>
+    <p className="mv-caption">{D.article.cite}. The arcs tie each objection to its reply. <T text={D.abelard.text} /> “{D.abelard.quote}”, as {abelard?.title.includes("W. J. Lewis") ? "W. J. Lewis" : "its translator"} renders it.</p>
     <div className="mv-schoolgrid">
       <Ladder />
       <div>
         <h3 className="mv-subhead">Four schools, and how each date was chosen</h3>
-        <dl className="mv-schools">{D.schools.map((s) => <div key={s.name}><dt>{s.name}</dt><dd><b>{s.when}</b> {s.note}</dd></div>)}</dl>
+        <dl className="mv-schools">{D.schools.map((s) => <div key={s.name}><dt>{s.name}</dt><dd><b>{s.when}</b> <T text={s.note} /></dd></div>)}</dl>
         <Picture id="lecture" />
       </div>
     </div>

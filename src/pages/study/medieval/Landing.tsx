@@ -3,7 +3,7 @@
 import { StudyTrail } from "@/components/study/StudyTrail";
 import { D, sourceCounts } from "./model";
 
-const CHAPTERS = [["mirror", "Written above, found below"], ["mission", "How the north was baptised"], ["powers", "Popes and kings"], ["school", "A question and its schools"], ["parish", "A walk to the altar"], ["claims", "Four claims tested"], ["stops", "Where it stops"]];
+const CHAPTERS = [["mirror", "Written above, found below"], ["mission", "How the north was baptised"], ["powers", "Popes and kings"], ["split", "East and West"], ["crusade", "Crusade and inquisition"], ["school", "A question and its schools"], ["parish", "A walk to the altar"], ["claims", "Four claims tested"], ["stops", "Where it stops"]];
 
 /** The study's own drawing, in the circle and orbit every study's opening uses: a sealed decree coming down on its cord to a small parish church. Symbolic: no one church or document. */
 function Hero() {
@@ -34,7 +34,7 @@ function Hero() {
 export function Landing() {
   const counts = sourceCounts(D.sources);
   const figures: [string, string, string][] = [
-    ["Years", "About 850", "AD 500 to 1350 in the Latin West, with the East left to another study"],
+    ["Years", "About 900", "AD 451 to 1350 in the Latin West, with its parting from the Greek East followed on to 1439"],
     ["Pairs set side by side", String(D.pairs.length), "a decree and what is found near it, picked to show the gap, so they cannot measure how often rules were kept"],
     ["Places baptised", String(D.stations.length), "from Reims to Prussia, each with who wrote the story and how long after"],
     ["Sources listed", String(D.sources.length), `${counts.read} read whole, ${counts.part} in part, ${counts["second-hand"]} second-hand, ${counts.located} only located`],
@@ -43,16 +43,16 @@ export function Landing() {
     <div className="mv-intro">
       <div>
         <StudyTrail area="church" />
-        <p className="mv-eyebrow">Mission · Throne · School · Parish</p>
+        <p className="mv-eyebrow">Mission · Throne · East and West · Crusade · School · Parish</p>
         <h1>The medieval church<em>what was ordered, and what reached the village</em></h1>
         <p className="mv-lead">Most of what survives was written by the people giving the orders.</p>
         <p className="mv-lede">A pope's list says he may depose emperors. An emperor then takes Rome. A council orders bishops to train their priests, and seven years later a curate in Berkshire cannot say what case the first word of his own prayer is in.</p>
-        <p className="mv-lede">This study reads the church from about AD 500 to 1350 through its conversions, its quarrels with kings, its schools and its parish floors. In each it asks the same thing: who wrote this down, and how far did it reach?</p>
+        <p className="mv-lede">This study reads the church from the council of Chalcedon in 451 to about 1350 through its conversions, its quarrels with kings, its parting from the Greek East, its crusades and heresy trials, its schools and its parish floors. In each it asks the same thing: who wrote this down, and how far did it reach?</p>
       </div>
       <Hero />
     </div>
     <dl className="mv-figures">{figures.map(([label, value, note]) => <div key={label}><dt>{label}</dt><dd>{value}</dd><small>{note}</small></div>)}</dl>
     <div className="mv-outcomes"><p className="mv-kicker">By the end you can</p><ul>{D.outcomes.map((o) => <li key={o}>{o}</li>)}</ul></div>
-    <nav className="mv-chapters" aria-label="On this page">{CHAPTERS.map(([id, label], i) => <a key={id} href={`#${id}`}><b>0{i + 1}</b>{label}</a>)}</nav>
+    <nav className="mv-chapters" aria-label="On this page">{CHAPTERS.map(([id, label], i) => <a key={id} href={`#${id}`}><b>{String(i + 1).padStart(2, "0")}</b>{label}</a>)}</nav>
   </>;
 }

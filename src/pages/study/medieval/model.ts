@@ -20,6 +20,10 @@ export type Spot = { id: string; n: string; name: string; rule: string; record: 
 export type Claim = { id: string; claim: string; head: string; evidence: string; inference: string; limit: string; sources: string[]; test: TestItem };
 export type TestItem = { question: string; options: { text: string; right: boolean; why: string }[] };
 export type Source = { id: string; title: string; url: string; kind: string; status: string; answers: string; read: string };
+export type SplitStep = { id: string; year: number; to: number; when: string; kind: "strain" | "break" | "wound" | "union"; head: string; text: string; inference: string; limit: string; sources: string[] };
+export type WitnessSide = { id: string; name: string; short: string };
+export type Witness = { side: string; who: string; written: number; says: string };
+export type CrusadeEvent = { id: string; group: "crusade" | "inquisition"; year: number; to: number; when: string; head: string; text: string; inference: string; limit: string; witnesses: Witness[]; sources: string[]; verse?: string };
 export type Picture = { id: string; src: string; alt: string; credit: string; licence: string; licenceUrl: string; href: string; retrieved: string; width: number; height: number; record?: { href: string; label: string } };
 
 export const D = dossier as unknown as {
@@ -27,6 +31,9 @@ export const D = dossier as unknown as {
   rounds: Round[]; roundsNote: string; powersStand: Stand; article: { cite: string; note: string; parts: Part[] }; abelard: { text: string; quote: string; source: string };
   ladder: { note: string; steps: LadderStep[] }; schools: School[]; schoolStand: Stand; parish: { note: string; stations: Spot[] }; claims: Claim[];
   confusedWords: { word: string; note: string }[]; reach: string[]; sources: Source[]; pictures: Picture[]; verses: { label: string }[];
+  split: { lead: string; note: string; steps: SplitStep[]; stand: Stand };
+  crusade: { lead: string; sidesNote: string; sides: WitnessSide[]; events: CrusadeEvent[]; debate: { head: string; text: string; sources: string[] }; stand: Stand };
+  checkNotes: unknown;
 };
 export const MV = generated as unknown as {
   recordHash: string; verses: Record<string, Verse>; coast: { width: number; height: number; lon0: number; lat1: number; x: number; y: number; paths: string[] };
@@ -38,8 +45,10 @@ export const DEFAULT_STATION = "jelling";
 export const DEFAULT_ROUND = "canossa";
 export const DEFAULT_PART = "o1";
 export const DEFAULT_SPOT = "font";
+export const DEFAULT_STEP = "sentences";
+export const DEFAULT_EVENT = "rhineland";
 export const DEFAULT_YEAR = 1000;
-export const YEAR_FROM = 500;
+export const YEAR_FROM = 451;
 export const YEAR_TO = 1350;
 
 export const sourceById = new Map(D.sources.map((s) => [s.id, s]));
@@ -52,6 +61,8 @@ const pairById = new Map(D.pairs.map((p) => [p.id, p]));
 const stationById = new Map(D.stations.map((s) => [s.id, s]));
 const roundById = new Map(D.rounds.map((r) => [r.id, r]));
 const spotById = new Map(D.parish.stations.map((s) => [s.id, s]));
+const stepById = new Map(D.split.steps.map((s) => [s.id, s]));
+const eventById = new Map(D.crusade.events.map((e) => [e.id, e]));
 const openable = new Map(D.pairs.map((p) => [`pair:${p.id}`, p]));
 
 /** Every verse on this page opens in the Berean, whatever the reader last read (study rule 3). */
@@ -68,6 +79,11 @@ export const findStation = (value: string | null): Station => pick(stationById, 
 export const findRound = (value: string | null): Round => pick(roundById, value, DEFAULT_ROUND);
 export const findPart = (value: string | null): Part => pick(partById, value, DEFAULT_PART);
 export const findSpot = (value: string | null): Spot => pick(spotById, value, DEFAULT_SPOT);
+export const findStep = (value: string | null): SplitStep => pick(stepById, value, DEFAULT_STEP);
+export const findEvent = (value: string | null): CrusadeEvent => pick(eventById, value, DEFAULT_EVENT);
+
+/** A picture is shown only when its licence and credit are settled: an "open" note means the run could not clear it (brief section 4). */
+export const pictureShown = (picture: Pick<Picture, "licence" | "credit">): boolean => !/^open$/i.test(picture.licence.trim()) && !/^open$/i.test(picture.credit.trim()) && picture.licence.trim() !== "";
 
 export function findOpened(value: string | null): Pair | null {
   return (value ? openable.get(value) : undefined) ?? null;
@@ -122,7 +138,7 @@ export function sourceCounts(sources: Pick<Source, "status">[]): Record<string, 
 
 // The mirror line. An axis of years, decrees on one side and what is set beside them on the other, drawn along the page when wide and down it when narrow.
 export const MIRROR = {
-  from: 480, to: 1370, first: 34, step: 26, radius: 11,
+  from: 440, to: 1370, first: 34, step: 26, radius: 11,
   wide: { width: 1000, height: 340, start: 24, end: 976, cross: 160 },
   tall: { width: 320, height: 900, start: 24, end: 876, cross: 160 },
 } as const;
@@ -209,4 +225,36 @@ export function articleArc(from: string, to: string): string {
   if (a < 0 || b < 0) return "";
   const y1 = (a + 0.5) * ARTICLE_ROW, y2 = (b + 0.5) * ARTICLE_ROW, bend = 46 - (b - a) * 6;
   return `M46 ${y1}C${bend} ${y1} ${bend} ${y2} 46 ${y2}`;
+}
+
+// The two strands of East and West: years along, the Latin line above and the Greek below; drawn along the page when wide and down it when narrow.
+export const SPLIT = {
+  from: 440, to: 1470, ruler: [500, 700, 900, 1100, 1300],
+  wide: { width: 1000, height: 200, start: 30, end: 970, latin: 64, greek: 136 },
+  tall: { width: 300, height: 820, start: 24, end: 796, latin: 110, greek: 190 },
+} as const;
+export const SPLIT_LATER = { year: 1965, label: "1965: the sentences of 1054 removed" } as const;
+
+export function splitPlace(year: number, orientation: Orientation): number {
+  const { start, end } = SPLIT[orientation];
+  return start + ((Math.min(SPLIT.to, Math.max(SPLIT.from, year)) - SPLIT.from) / (SPLIT.to - SPLIT.from)) * (end - start);
+}
+
+/** Whether the two churches were in communion in a year: "no" inside a break, "faint" between 1054 and 1204 (a matter of reading), after 1204 "no". */
+export function communion(year: number): "yes" | "faint" | "no" {
+  for (const step of D.split.steps) if (step.kind === "break" && step.id !== "sentences" && year >= step.year && year <= step.to) return "no";
+  if (year >= 1204) return "no";
+  return year >= 1054 ? "faint" : "yes";
+}
+
+/** The rungs between the strands, one each twenty years, with their state. */
+export function splitRungs(): { year: number; state: "yes" | "faint" | "no" }[] {
+  const rungs: { year: number; state: "yes" | "faint" | "no" }[] = [];
+  for (let year = 460; year <= SPLIT.to - 10; year += 20) rungs.push({ year, state: communion(year) });
+  return rungs;
+}
+
+/** Which sides have a witness for an event: the grid's filled and empty marks. */
+export function witnessSides(event: Pick<CrusadeEvent, "witnesses">): Set<string> {
+  return new Set(event.witnesses.map((w) => w.side));
 }

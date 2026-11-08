@@ -9,6 +9,14 @@ const artFor = (href: string): Drawing => {
   if(href==='/study/how-the-church-has-read-the-bible')return 'church';
   if(href==='/study/the-medieval-church')return 'church';
   if(href==='/study/egypt-beside-israel')return 'tablet';
+  if(href==='/study/the-land-of-the-bible')return 'map';
+  if(href==='/study/how-the-old-testament-books-were-written')return 'scroll';
+  if(href==='/study/how-the-new-testament-books-were-written')return 'letter';
+  if(href==='/study/new-testament-history')return 'rulers';
+  if(href==='/study/the-temple-and-israels-worship')return 'layers';
+  if(href==='/study/the-early-church')return 'church';
+  if(href==='/study/israel-from-the-exodus-to-solomon')return 'timeline';
+  if(href==='/study/hebrew-poetry-and-biblical-narrative')return 'language';
   if(href.includes('museum-archaeology'))return 'museum';
   if(href.includes('/atlas/old-maps'))return 'oldmaps';
   if(href==='/study/manuscripts')return 'witnesses';
@@ -55,6 +63,14 @@ const standaloneStudies = new Set([
   '/study/the-medieval-church',
   '/study/how-hebrew-works',
   '/study/how-new-testament-greek-works',
+  '/study/the-land-of-the-bible',
+  '/study/how-the-old-testament-books-were-written',
+  '/study/how-the-new-testament-books-were-written',
+  '/study/new-testament-history',
+  '/study/the-temple-and-israels-worship',
+  '/study/the-early-church',
+  '/study/israel-from-the-exodus-to-solomon',
+  '/study/hebrew-poetry-and-biblical-narrative',
 ]);
 
 // Symbolic line drawings, not facsimiles, territorial maps or measured archaeological sections.

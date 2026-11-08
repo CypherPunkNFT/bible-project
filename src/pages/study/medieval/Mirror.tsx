@@ -24,7 +24,7 @@ function MirrorArt({ orientation, chosen, field, onChoose }: { orientation: Orie
   const shown = new Set(pairsIn(field).map((p) => p.id));
   const [a1, a2] = mirrorPoint(start, 0, orientation), [b1, b2] = mirrorPoint(end, 0, orientation);
   const [up1, up2] = orientation === "wide" ? [start, 16] : [10, 14], [down1, down2] = orientation === "wide" ? [start, height - 6] : [width - 10, 14];
-  return <svg className={`mv-mirrorart ${orientation}`} viewBox={`0 0 ${width} ${height}`} role="img" aria-label="A line of years from about 500 to 1350. Eleven decrees are marked on one side and eleven things found near them on the other, joined by threads. The list beside it gives each.">
+  return <svg className={`mv-mirrorart ${orientation}`} viewBox={`0 0 ${width} ${height}`} role="img" aria-label="A line of years from 451 to 1350. Eleven decrees are marked on one side and eleven things found near them on the other, joined by threads. The list beside it gives each.">
     <text className="mv-side" x={up1} y={up2} textAnchor={orientation === "wide" ? "start" : "start"}>Decreed</text>
     <text className="mv-side" x={down1} y={down2} textAnchor={orientation === "wide" ? "start" : "end"}>Set beside it</text>
     {D.pairs.map((p) => <path key={p.id} className={`mv-thread${p.id === chosen.id ? " on" : ""}${shown.has(p.id) ? "" : " off"}${p.link === "beside" ? " beside" : ""}`} d={threadPath(p.id, layout, orientation)} />)}

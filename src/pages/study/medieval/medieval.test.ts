@@ -4,16 +4,18 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { STUDY_BRANCHES } from "@/pages/study/hub/collections";
+import { communion, DEFAULT_EVENT, DEFAULT_STEP, findEvent, findStep, pictureShown, SPLIT, splitPlace, splitRungs, witnessSides } from "./model";
+import { notesById, parseChecked, plainText } from "@/pages/study/check-notes/checked";
 import { ageShare, articleArc, axisPlace, D, DEFAULT_PART, DEFAULT_ROUND, DEFAULT_SPOT, DEFAULT_STATION, DEFAULT_YEAR, findField, findOpened, findPair, findPart, findRound, findSpot, findStation, laneOffset, MIRROR, mirrorLayout, MV, panDrop, parseYear, PLAN_STOPS, readerHref, readingTag, sourceById, sourceCounts, stationMark, stationState, threadPath, verseByLabel, writtenLag, YEAR_FROM, YEAR_TO } from "./model";
 
 const IMAGE_BUDGET = 150_000;
 const SET_BUDGET = 1_000_000;
-const RECORD_BUDGET = 90_000;
+const RECORD_BUDGET = 120_000;
 const DATA_BUDGET = 40_000;
 const RECORD = "content/academic-research/33-the-medieval-church.json";
 const EXTERNAL = /^https:\/\/[a-z0-9.-]+\.[a-z]{2,}\//i;
 const HREF = "/study/the-medieval-church";
-const BAD = ["__proto__", "constructor", "pair:__proto__", "pair:nope", "pair:", "", "<script>"];
+const BAD = ["__proto__", "constructor", "toString", "pair:__proto__", "pair:nope", "pair:", "", "<script>"];
 
 describe("The medieval church: its rules", () => {
   it("opens every verse in the Berean", () => {
@@ -27,6 +29,8 @@ describe("The medieval church: its rules", () => {
       expect(findRound(bad).id).toBe(DEFAULT_ROUND);
       expect(findPart(bad).id).toBe(DEFAULT_PART);
       expect(findSpot(bad).id).toBe(DEFAULT_SPOT);
+      expect(findStep(bad).id).toBe(DEFAULT_STEP);
+      expect(findEvent(bad).id).toBe(DEFAULT_EVENT);
       expect(findPair(bad, null).id).toBe("dictatus");
     }
     expect(findOpened(null)).toBeNull();
@@ -166,7 +170,7 @@ describe("The medieval church: its research record", () => {
   });
   it("cites only sources it lists, each saying what was read", () => {
     for (const s of D.sources) expect(s.read.length, s.id).toBeGreaterThan(5);
-    const cited = [...D.pairs, ...D.stations, ...D.rounds, ...D.parish.stations, ...D.claims].flatMap((item) => item.sources);
+    const cited = [...D.pairs, ...D.stations, ...D.rounds, ...D.parish.stations, ...D.claims, ...D.split.steps, ...D.crusade.events, D.crusade.debate].flatMap((item) => item.sources);
     for (const id of cited) expect(sourceById.has(id), id).toBe(true);
   });
   it("links outside the site only by https", () => {
@@ -177,7 +181,7 @@ describe("The medieval church: its research record", () => {
     }
   });
   it("has a Berean text for every verse it lists, and uses each of them", () => {
-    const used = new Set([D.missionStand.verse, ...(D.powersStand.verses ?? []), ...D.rounds.map((r) => r.verse), ...D.article.parts.map((p) => p.verse), ...D.parish.stations.flatMap((s) => s.standVerses ?? [])].filter(Boolean));
+    const used = new Set([D.missionStand.verse, ...(D.powersStand.verses ?? []), ...D.rounds.map((r) => r.verse), ...D.article.parts.map((p) => p.verse), ...D.parish.stations.flatMap((s) => s.standVerses ?? []), ...(D.split.stand.verses ?? []), ...(D.crusade.stand.verses ?? []), ...D.crusade.events.map((e) => e.verse)].filter(Boolean));
     for (const { label } of D.verses) {
       expect(used.has(label), label).toBe(true);
       expect(bsbWords(verseByLabel.get(label)!).length, label).toBeGreaterThan(10);
@@ -196,7 +200,9 @@ describe("The medieval church: its research record", () => {
   });
   it("hands its neighbours' subjects over", () => {
     const out = D.boundaries.out.join(" ");
-    for (const neighbour of ["Traditions: shared roots & divisions", "The church, worship & the good life", "How the church has read the Bible", "Reform, renewal & revival", "The first Christian generations", "Creeds & councils", "Jews and Christians"]) expect(out, neighbour).toContain(neighbour);
+    for (const neighbour of ["The early church", "The Reformation and the awakenings", "How the church has read the Bible", "Baptist history", "Jews and Christians"]) expect(out, neighbour).toContain(neighbour);
+    expect(D.boundaries.in).toContain("451");
+    for (const old of ["Traditions: shared roots", "crusades to the Holy Land and the inquisition have no study"]) expect(out, old).not.toContain(old);
     expect(D.stations.map((s) => s.id)).not.toContain("kyiv");
   });
   it("stays within the budgets for the record and the generated data", () => {
@@ -235,5 +241,88 @@ describe("The medieval church: where it sits", () => {
   });
   it("has its route", () => {
     expect(readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf-8")).toContain(`path="${HREF}"`);
+  });
+});
+
+describe("The medieval church: East and West", () => {
+  it("runs its seven steps in order from 451, with Lyon and Florence as unions", () => {
+    expect(D.split.steps.map((s) => s.id)).toEqual(["chalcedon", "acacius", "photius", "sentences", "sack", "lyon", "florence"]);
+    expect(D.split.steps[0].year).toBe(451);
+    for (const id of ["lyon", "florence"]) expect(D.split.steps.find((s) => s.id === id)?.kind).toBe("union");
+    for (const s of D.split.steps) expect(s.year <= s.to, s.id).toBe(true);
+  });
+  it("draws a gap in communion only where the record dates a break, and fades the rungs between 1054 and 1204", () => {
+    expect(communion(470)).toBe("yes");
+    expect(communion(500)).toBe("no");
+    expect(communion(700)).toBe("yes");
+    expect(communion(865)).toBe("no");
+    expect(communion(1100)).toBe("faint");
+    expect(communion(1300)).toBe("no");
+    expect(splitRungs().some((r) => r.state === "faint")).toBe(true);
+  });
+  it("places every step inside the drawing, both ways round", () => {
+    for (const orientation of ["wide", "tall"] as const) {
+      const { start, end } = SPLIT[orientation];
+      for (const s of D.split.steps) {
+        expect(splitPlace(s.year, orientation)).toBeGreaterThanOrEqual(start);
+        expect(splitPlace(s.to, orientation)).toBeLessThanOrEqual(end);
+      }
+    }
+  });
+});
+
+describe("The medieval church: crusade and inquisition", () => {
+  it("keeps every event inside 451 to 1350, each with a witness from a side it names", () => {
+    const sides = new Set(D.crusade.sides.map((s) => s.id));
+    for (const e of D.crusade.events) {
+      expect(e.year >= 451 && e.to <= 1350 && e.year <= e.to, e.id).toBe(true);
+      expect(e.witnesses.length, e.id).toBeGreaterThan(0);
+      for (const w of e.witnesses) {
+        expect(sides.has(w.side), `${e.id} ${w.side}`).toBe(true);
+        expect(w.written, `${e.id} ${w.who}`).toBeGreaterThanOrEqual(e.year);
+      }
+    }
+    expect(witnessSides(D.crusade.events.find((e) => e.id === "jerusalem")!)).toEqual(new Set(["latin", "muslim", "jewish"]));
+  });
+  it("reports violence by more than one side, and gives the historians' disagreement", () => {
+    const ids = D.crusade.events.map((e) => e.id);
+    for (const id of ["rhineland", "jerusalem", "hattin", "beziers", "avignonet", "extirpanda", "gui"]) expect(ids, id).toContain(id);
+    expect(D.crusade.debate.text).toContain("Historians disagree");
+    expect(D.crusade.stand.text).toContain("Lord of the conscience");
+  });
+});
+
+describe("The medieval church: check notes", () => {
+  const strings = (value: unknown, path = ""): [string, string][] => {
+    if (typeof value === "string") return [[path, value]];
+    if (Array.isArray(value)) return value.flatMap((v, i) => strings(v, `${path}[${i}]`));
+    if (value && typeof value === "object") return Object.entries(value).flatMap(([k, v]) => (k === "checkNotes" ? [] : strings(v, `${path}.${k}`)));
+    return [];
+  };
+  const notes = notesById(D.checkNotes);
+  it("has a note for every marker and a marker for every note, at the note's own path", () => {
+    const seen = new Map<string, string>();
+    for (const [path, text] of strings(D)) for (const seg of parseChecked(text)) if (seg.kind === "check") seen.set(seg.id, path);
+    expect([...seen.keys()].sort()).toEqual([...notes.keys()].sort());
+    for (const [id, path] of seen) expect(notes.get(id)?.path, id).toBe(path);
+    expect(notes.size).toBe(16);
+  });
+  it("leaves every new note open, numbered from c1, with its words the marked words", () => {
+    [...notes.values()].forEach((note, i) => {
+      expect(note.id).toBe(`c${i + 1}`);
+      expect(note.status).toBe("open");
+      expect(note.before).toBe(note.after);
+    });
+  });
+  it("never leaves marker syntax once the markers are read, and keeps markers out of controls and quotations", () => {
+    for (const [path, text] of strings(D)) {
+      expect(plainText(text), path).not.toMatch(/\{\{|\}\}/);
+      if (/^\.(fields|ways|pictures|sources|verses|article)|\.test\./.test(path)) expect(text, path).not.toContain("{{check");
+    }
+  });
+  it("hides a picture whose licence or credit is still open", () => {
+    expect(pictureShown({ licence: "open", credit: "x" })).toBe(false);
+    expect(pictureShown({ licence: "CC0", credit: "Open" })).toBe(false);
+    for (const p of D.pictures) expect(pictureShown(p), p.id).toBe(true);
   });
 });

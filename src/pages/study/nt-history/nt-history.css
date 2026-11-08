@@ -1,0 +1,291 @@
+/* New Testament history (/study/new-testament-history). Its tone is the Gospels and Acts violet; gold is the site's accent for the turn.
+   Its own shape is the lattice of reigns: lanes of offices crossed by lines of years. Chosen is carried by ink, weight and a single border,
+   never by a focus ring and never by colour alone. Fixed years are solid, reckoned years are hatched, and the words say which. */
+.nh-root { --tone: var(--gospels); --sans: var(--font-sans); --serif: var(--font-serif); background: var(--page); color: var(--ink); font: 14px/1.55 var(--sans); }
+body:has(.nh-root) { overflow-x: clip; }
+.nh-root * { box-sizing: border-box; }
+.nh-root :is(button, a, summary, [tabindex]):focus, .nh-root :is(button, a, summary, [tabindex]):focus-visible { outline: none; }
+.nh-root button { font: inherit; color: inherit; cursor: pointer; }
+.nh-root :where(a) { color: inherit; }
+.nh-root :where(h1, h2, h3, p, dl, dd, figure, blockquote) { margin: 0; }
+.nh-root :where(ul, ol) { margin: 0; padding: 0; list-style: none; }
+.nh-wrap { max-width: var(--site-content-width); margin: 0 auto; padding: 1.2rem var(--site-gutter) 3rem; }
+.nh-sec { scroll-margin-top: 84px; }
+.nh-wrap .nh-sec + .nh-sec { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.nh-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.nh-kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.nh-kicker b { font-weight: 600; color: var(--accent); }
+.nh-para { max-width: 72ch; margin-top: .55rem; font-size: .9rem; line-height: 1.68; }
+.nh-caption { max-width: 72ch; margin-top: .7rem; font-size: .76rem; line-height: 1.6; color: var(--muted); }
+.nh-ref { padding: 0; border: 0; border-bottom: 1px dotted currentColor; background: none; color: var(--accent); font-size: inherit; line-height: inherit; }
+.nh-ref:hover { border-bottom-style: solid; }
+.nh-refs { margin-top: .5rem; font-size: .8rem; color: var(--muted); }
+.nh-refs .nh-ref + .nh-ref { margin-left: .55rem; }
+.nh-open { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; padding: 0; border: 0; background: none; color: var(--accent); font-size: .82rem; font-weight: 600; }
+.nh-open:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nh-root .chk-mark { cursor: pointer; }
+
+/* Opening */
+.nh-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 2.5rem; align-items: center; }
+.nh-eyebrow { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.nh-intro h1 { margin-block: .8rem .9rem; font: 500 clamp(2.3rem, 5vw, 3.9rem)/1.03 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.nh-intro h1 em { display: block; margin-top: .25rem; color: var(--accent); font-weight: 400; font-size: .56em; line-height: 1.15; }
+.nh-lead { margin-bottom: .8rem; font: 400 1.25rem/1.4 var(--serif); }
+.nh-lede { max-width: 60ch; color: var(--muted); font-size: .95rem; line-height: 1.8; }
+.nh-art { color: var(--tone); text-align: center; }
+.nh-art svg { display: block; width: 100%; max-width: 24rem; margin: 0 auto; }
+.nh-art figcaption { margin-top: -.4rem; font: italic 400 .98rem/1.35 var(--serif); color: var(--ink); }
+.nh-art figcaption span { display: block; }
+.nh-art small { display: block; margin-top: .3rem; font: 400 .66rem/1.4 var(--sans); color: var(--muted); }
+.nh-orbit { transform-origin: 200px 200px; animation: nh-turn 110s linear infinite; }
+.nh-spark { animation: nh-twinkle 4.5s ease-in-out infinite; }
+.nh-spark-b { animation-delay: -2.2s; }
+@keyframes nh-turn { to { transform: rotate(360deg); } }
+@keyframes nh-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .9; } }
+.nh-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.8rem; padding-block: .9rem; border-block: 1px solid var(--line); }
+.nh-figures > div { min-width: 0; padding: .2rem 1rem; border-left: 1px solid var(--line); }
+.nh-figures > div:first-child { padding-left: 0; border-left: 0; }
+.nh-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nh-figures dd { margin-top: .2rem; font: 500 1.6rem/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+.nh-figures small { display: block; margin-top: .25rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.nh-outcomes { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 1.4rem; margin-top: 1.6rem; }
+.nh-outcomes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1.6rem; }
+.nh-outcomes li { padding-left: .9rem; border-left: 2px solid var(--line); font-size: .85rem; line-height: 1.55; }
+.nh-question { margin-top: 1.4rem; font: italic 400 1.1rem/1.45 var(--serif); }
+.nh-chapters { display: flex; flex-wrap: wrap; gap: .1rem 1.3rem; margin-top: 1.4rem; }
+.nh-chapters a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; font-size: .8rem; text-decoration: none; color: var(--muted); }
+.nh-chapters a:hover { color: var(--ink); }
+.nh-chapters b { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+.nh-stance { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 2.2rem; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.nh-confession { margin-top: .6rem; font: italic 400 1.15rem/1.4 var(--serif); }
+.nh-confession small { display: block; margin-top: .2rem; font: 400 .72rem var(--sans); color: var(--muted); }
+
+/* Section heads */
+.nh-head h2 { margin-top: .4rem; font: 500 clamp(1.7rem, 3.4vw, 2.5rem)/1.12 var(--serif); letter-spacing: -.02em; }
+.nh-head h2 em { color: var(--accent); font-weight: 400; }
+.nh-head > p:last-child { max-width: 70ch; margin-top: .6rem; color: var(--muted); font-size: .92rem; line-height: 1.7; }
+
+/* 01 The lattice */
+.nh-lattice { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.6rem; margin-top: 1.4rem; }
+.nh-anchors li + li { border-top: 1px solid var(--line); }
+.nh-anchor { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: .5rem; width: 100%; min-height: 44px; padding: .55rem .5rem; border: 1px solid transparent; border-radius: 8px; background: none; text-align: left; }
+.nh-anchor b { font: 500 .78rem/1.3 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.nh-anchor span { font: 400 .95rem/1.3 var(--serif); }
+.nh-anchor small { display: block; margin-top: .1rem; font: 400 .72rem/1.35 var(--sans); color: var(--muted); }
+.nh-anchor:hover { border-color: var(--line); }
+.nh-anchor[aria-pressed="true"] { border-color: var(--ink); }
+.nh-anchor[aria-pressed="true"] b { color: var(--accent); }
+.nh-chart { min-width: 0; }
+.nh-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nh-axis text, .nh-lane-name { fill: var(--muted); font: 500 10px var(--sans); letter-spacing: .04em; }
+.nh-lane-name { text-transform: uppercase; letter-spacing: .12em; font-size: 9px; }
+.nh-axis line { stroke: var(--line); }
+.nh-lane-rule { stroke: var(--line); }
+.nh-bar { fill: var(--surface-2); stroke: var(--muted); stroke-width: .8; cursor: pointer; }
+.nh-bar.fixed { fill: color-mix(in srgb, var(--tone) 22%, var(--surface)); stroke: var(--tone); }
+.nh-bar.reckoned { fill: url(#nh-hatch); stroke: var(--tone); stroke-dasharray: 3 2; }
+.nh-bar.lit { stroke: var(--ink); stroke-width: 1.8; stroke-dasharray: none; }
+.nh-bar.chosen { stroke: var(--accent); stroke-width: 2.2; stroke-dasharray: none; }
+.nh-hatch-line { stroke: var(--tone); stroke-width: 1.1; opacity: .55; }
+.nh-bar-label { fill: var(--ink); font: 500 10px var(--sans); pointer-events: none; }
+.nh-bar-label.dim { fill: var(--muted); }
+.nh-cross { stroke: var(--accent); stroke-width: 1.4; }
+.nh-cross.alt { stroke-dasharray: 4 3; }
+.nh-cross-band { fill: var(--accent); opacity: .12; }
+.nh-cross-label { fill: var(--accent); font: 600 10px var(--sans); }
+.nh-span { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 3; fill: none; }
+.nh-reading { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1.6rem; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.nh-reading h3 { font: 500 1.25rem/1.25 var(--serif); }
+.nh-years { margin-top: .45rem; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; font-size: .82rem; }
+.nh-years b { font-weight: 600; }
+.nh-touch li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem; padding: .35rem 0; border-bottom: 1px solid var(--line); font-size: .84rem; }
+.nh-touch li small { color: var(--muted); }
+.nh-touch .named { font-weight: 600; }
+.nh-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-top: .8rem; font-size: .74rem; color: var(--muted); }
+.nh-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+.nh-swatch { display: inline-block; width: 22px; height: 10px; border: 1px solid var(--tone); background: color-mix(in srgb, var(--tone) 22%, var(--surface)); }
+.nh-swatch.reckoned { border-style: dashed; background: repeating-linear-gradient(45deg, transparent 0 3px, color-mix(in srgb, var(--tone) 55%, transparent) 3px 4px); }
+.nh-swatch.cross { width: 2px; height: 14px; border: 0; background: var(--accent); }
+.nh-rulers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.4rem; }
+.nh-rulers h3 { padding-bottom: .35rem; border-bottom: 1px solid var(--line); font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nh-ruler { display: flex; justify-content: space-between; gap: .6rem; width: 100%; min-height: 44px; padding: .3rem .45rem; border: 1px solid transparent; border-radius: 6px; background: none; text-align: left; font-size: .84rem; }
+.nh-ruler small { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nh-ruler:hover { border-color: var(--line); }
+.nh-ruler[aria-pressed="true"] { border-color: var(--ink); }
+.nh-ruler.lit span { font-weight: 600; }
+.nh-ruler-note { margin-top: 1rem; padding-left: .9rem; border-left: 2px solid var(--accent); font-size: .86rem; line-height: 1.6; max-width: 72ch; }
+
+/* 02 Which Herod? — six cards, one anatomy */
+.nh-herods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 2rem; margin-top: 1.4rem; }
+.nh-herod { display: flex; flex-direction: column; gap: .35rem; min-width: 0; padding-top: .8rem; border-top: 1px solid var(--ink); }
+.nh-herod-top { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.nh-herod h3 { font: 500 1.3rem/1.2 var(--serif); }
+.nh-herod .nh-rank { font: italic 400 .95rem var(--serif); color: var(--accent); }
+.nh-herod dl { display: grid; gap: .3rem; padding-top: .45rem; border-top: 1px solid var(--line); font-size: .8rem; }
+.nh-herod dt { display: inline; font-weight: 600; }
+.nh-herod dd { display: inline; color: var(--muted); }
+.nh-herod svg { flex: none; color: var(--tone); }
+.nh-note-line { font-size: .84rem; line-height: 1.55; }
+
+/* Records in lists (03, 06, 08) */
+.nh-era + .nh-era { margin-top: 1.8rem; }
+.nh-era > h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; font: 500 1.2rem/1.3 var(--serif); }
+.nh-era > h3 small { font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nh-era > p { max-width: 72ch; margin-top: .3rem; font-size: .88rem; color: var(--muted); }
+.nh-steps { position: relative; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0 1.6rem; margin-top: .7rem; }
+.nh-step { display: grid; grid-template-rows: auto auto 1fr; gap: .15rem; width: 100%; min-height: 44px; padding: .65rem .2rem .7rem; border: 0; border-top: 1px solid var(--line); background: none; text-align: left; }
+.nh-step small { font: 600 .66rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.nh-step span { font: 400 1rem/1.3 var(--serif); }
+.nh-step i { font-style: normal; font-size: .76rem; color: var(--muted); }
+.nh-step:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.nh-step[aria-expanded="true"] { border-top: 2px solid var(--ink); }
+
+/* The three parts of a record */
+.nh-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+.nh-three dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nh-three dd { margin: .3rem 0 0; font-size: .86rem; line-height: 1.62; }
+.nh-three > div { padding-top: .5rem; border-top: 1px solid var(--line); }
+.nh-three > div:nth-child(3) { border-top-style: dashed; }
+
+/* 04 Witnesses */
+.nh-witnesses { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin-top: 1.4rem; border-block: 1px solid var(--line); }
+.nh-witness { display: flex; flex-direction: column; gap: .3rem; min-width: 0; min-height: 44px; padding: .9rem .9rem 1rem; border: 0; border-left: 1px solid var(--line); background: none; text-align: left; }
+.nh-witness:first-child { border-left: 0; padding-left: 0; }
+.nh-witness b { font: 500 1.15rem/1.2 var(--serif); }
+.nh-witness small { font-size: .72rem; color: var(--muted); }
+.nh-witness i { font-style: normal; font-size: .78rem; color: var(--accent); }
+.nh-witness:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.nh-witness-gap { margin-top: .2rem; font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.nh-together { margin-top: 1rem; max-width: 72ch; font: 400 1.02rem/1.6 var(--serif); }
+
+/* 05 The years of Jesus */
+.nh-years-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; margin-top: 1.4rem; }
+.nh-years-grid h3 { font: 500 1.3rem/1.2 var(--serif); }
+.nh-anchorlist { margin-top: .6rem; }
+.nh-anchorlist li { padding: .45rem 0 .45rem .9rem; border-left: 1px solid var(--line); font-size: .84rem; line-height: 1.55; }
+.nh-switch { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.nh-switch button { min-height: 44px; padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: none; font-size: .8rem; }
+.nh-switch button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }
+.nh-views { display: grid; gap: .8rem; margin-top: .8rem; }
+.nh-view { padding: .7rem 0 .2rem; border-top: 1px solid var(--line); }
+.nh-view.dim { opacity: .45; }
+.nh-view h4 { margin: 0; font: 500 1.05rem/1.3 var(--serif); }
+.nh-view p { margin-top: .3rem; font-size: .83rem; line-height: 1.6; }
+.nh-view p b { font-weight: 600; }
+.nh-strip { display: block; width: 100%; max-width: 980px; height: auto; margin-top: .9rem; }
+.nh-strip text { fill: var(--muted); font: 500 10px var(--sans); }
+.nh-strip .nh-strip-range { fill: url(#nh-hatch-years); stroke: var(--tone); stroke-dasharray: 3 2; }
+.nh-strip .nh-strip-range.dim { opacity: .3; }
+.nh-strip .nh-strip-herod { fill: color-mix(in srgb, var(--tone) 18%, var(--surface)); stroke: var(--tone); }
+.nh-strip line { stroke: var(--line); }
+.nh-strip .nh-strip-point { stroke: var(--accent); stroke-width: 2; }
+.nh-strip .nh-strip-point.dim { opacity: .3; }
+.nh-census { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.nh-census h3 { font: 500 1.25rem/1.25 var(--serif); }
+.nh-census-views { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; margin-top: .9rem; }
+.nh-census-views > div { padding-top: .5rem; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.55; }
+.nh-census-views > div.others { border-top-style: dashed; }
+.nh-census-views h4 { margin: 0 0 .3rem; font: 500 .98rem/1.3 var(--serif); }
+.nh-census-views .nh-tag { display: block; margin-bottom: .25rem; font-size: .6rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* 06 The trial */
+.nh-trial { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1.4rem; }
+.nh-trial > div { padding-top: .7rem; border-top: 1px solid var(--ink); }
+.nh-trial h3 { font: 500 1.15rem/1.25 var(--serif); }
+.nh-trial p { margin-top: .4rem; font-size: .84rem; line-height: 1.6; }
+.nh-guilt { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 2rem; margin-top: 1.8rem; padding: 1.1rem 0; border-block: 1px solid var(--line); }
+.nh-guilt p { font: 400 1rem/1.65 var(--serif); }
+
+/* 07 Paul's fixed points */
+.nh-paul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.nh-fixed { display: flex; flex-direction: column; gap: .25rem; min-height: 44px; padding: .7rem .1rem; border: 0; border-top: 2px solid var(--tone); background: none; text-align: left; }
+.nh-fixed small { font-size: .72rem; color: var(--accent); font-weight: 600; }
+.nh-fixed b { font: 500 1.05rem/1.25 var(--serif); }
+.nh-fixed:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.nh-recon { margin-top: 1.4rem; }
+.nh-recon svg { display: block; width: 100%; max-width: 1100px; height: auto; }
+.nh-recon text { fill: var(--ink); font: 400 10.5px var(--sans); }
+.nh-recon .tick { fill: var(--muted); font-size: 9.5px; }
+.nh-recon .fixedpt { stroke: var(--tone); stroke-width: 2; }
+.nh-recon .range { fill: url(#nh-hatch-paul); stroke: var(--tone); stroke-dasharray: 3 2; }
+.nh-recon line.axis { stroke: var(--line); }
+
+/* 08 The revolt */
+.nh-revolt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; margin-top: 1.4rem; }
+.nh-mourning { padding-left: 1rem; border-left: 2px solid var(--tone); }
+.nh-mourning p { font: 400 .98rem/1.65 var(--serif); }
+
+/* Bible text and old texts */
+.nh-verse { margin-top: .7rem; padding-left: .9rem; border-left: 2px solid var(--accent); }
+.nh-verse p { font: 400 1rem/1.6 var(--serif); }
+.nh-verse cite { display: block; margin-top: .25rem; font: normal 500 .74rem var(--sans); color: var(--muted); }
+
+/* 09 Claims */
+.nh-claims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.8rem 2.4rem; margin-top: 1.4rem; }
+.nh-claim { padding-top: .8rem; border-top: 1px solid var(--line); }
+.nh-claim blockquote { font: italic 400 1.1rem/1.4 var(--serif); }
+.nh-claim h3 { margin-top: .4rem; font-size: .9rem; font-weight: 600; }
+.nh-claim > p { margin-top: .35rem; font-size: .84rem; line-height: 1.6; }
+.nh-test { margin-top: .8rem; }
+.nh-test > p { font-size: .82rem; font-weight: 600; }
+.nh-test li + li { margin-top: .3rem; }
+.nh-test button { width: 100%; min-height: 44px; padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: none; text-align: left; font-size: .82rem; }
+.nh-test button[aria-pressed="true"] { border-color: var(--ink); }
+.nh-test .nh-why { margin-top: .5rem; font-size: .82rem; line-height: 1.55; }
+.nh-test .nh-why b { font-weight: 600; }
+
+/* 10 Where it stops */
+.nh-close { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4rem; margin-top: 1.4rem; }
+.nh-close h3 { margin-bottom: .5rem; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nh-words dt { font: 500 .98rem/1.3 var(--serif); }
+.nh-words dd { margin: .15rem 0 .8rem; font-size: .82rem; line-height: 1.55; color: var(--muted); }
+.nh-reach li, .nh-trail li { padding: .45rem 0; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.55; }
+.nh-trail li small { display: block; color: var(--muted); }
+.nh-trail .nh-tagline { color: var(--accent); font-weight: 600; }
+.nh-closing { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); text-align: center; }
+.nh-closing p { font: italic 400 1.35rem/1.4 var(--serif); }
+.nh-closing a { display: inline-flex; align-items: center; min-height: 44px; margin-top: .6rem; color: var(--accent); font-weight: 600; font-size: .85rem; }
+
+/* The sheet */
+.nh-root .ms-sheet { position: fixed; z-index: 60; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); display: flex; flex-direction: column; background: var(--surface); border-left: 1px solid var(--line); box-shadow: -14px 0 40px rgb(0 0 0 / .18); transform: translateX(100%); visibility: hidden; transition: transform .38s cubic-bezier(.2, .8, .3, 1), visibility 0s; }
+.nh-root .ms-sheet.open { transform: none; visibility: visible; }
+.nh-root .ms-sheet:not(.open) { transition: transform .38s cubic-bezier(.4, 0, .6, 1), visibility 0s .38s; }
+.nh-root .ms-sheet-close { position: absolute; top: calc(.8rem + env(safe-area-inset-top, 0px)); right: .8rem; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.nh-root .ms-sheet-close:hover { color: var(--ink); border-color: var(--ink); }
+.nh-root .ms-sheet-body { flex: 1; overflow-y: auto; padding: calc(1.4rem + env(safe-area-inset-top, 0px)) 1.4rem calc(1.6rem + env(safe-area-inset-bottom, 0px)); border-top: 2px solid var(--tone); }
+.nh-root .ms-sheet h2 { margin: .35rem 3.2rem .1rem 0; font: 500 1.5rem/1.2 var(--serif); letter-spacing: -.02em; }
+.nh-root .ms-sheet .nh-three { grid-template-columns: 1fr; gap: .9rem; }
+.nh-sheet-line { margin-top: .5rem; font-size: .84rem; line-height: 1.6; }
+.nh-sheet-says { margin-top: .8rem; padding-left: .9rem; border-left: 2px solid var(--line); font: 400 .95rem/1.6 var(--serif); }
+.nh-cite { margin-top: 1rem; padding-top: .6rem; border-top: 1px solid var(--line); font-size: .76rem; line-height: 1.55; color: var(--muted); }
+.nh-cite li + li { margin-top: .3rem; }
+
+@media (max-width: 1100px) {
+  .nh-witnesses { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .nh-witness:nth-child(4) { border-left: 0; padding-left: 0; }
+  .nh-paul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .nh-census-views { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 960px) {
+  .nh-intro { grid-template-columns: 1fr; gap: 1.2rem; }
+  .nh-art svg { max-width: 17rem; }
+  .nh-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 0; }
+  .nh-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .nh-lattice { grid-template-columns: 1fr; }
+  .nh-anchors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
+  .nh-anchors li + li { border-top: 0; }
+  .nh-rulers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nh-herods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nh-stance, .nh-reading, .nh-years-grid, .nh-guilt, .nh-revolt, .nh-close, .nh-claims { grid-template-columns: 1fr; }
+  .nh-trial { grid-template-columns: 1fr; gap: 1rem; }
+}
+@media (max-width: 640px) {
+  .nh-chart, .nh-recon, .nh-strip { display: none; }
+  .nh-outcomes, .nh-outcomes ul, .nh-three, .nh-herods, .nh-anchors, .nh-rulers, .nh-census-views { grid-template-columns: 1fr; }
+  .nh-witnesses, .nh-paul { grid-template-columns: 1fr; }
+  .nh-witness, .nh-witness:nth-child(4) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .nh-witness:first-child { border-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nh-root *, .nh-root *::before, .nh-root *::after { animation: none !important; transition-duration: 1ms !important; }
+}

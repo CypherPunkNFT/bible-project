@@ -3,7 +3,11 @@
 import { Component, useState, type ErrorInfo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { BibleName, VerseAt } from "@/components/Verse";
-import { ext, pictureById, readerHref, readingTag, sourceById, verseByLabel, type Field, type Stand, type Way } from "./model";
+import { Checked } from "@/pages/study/check-notes/CheckNotes";
+import { ext, pictureById, pictureShown, readerHref, readingTag, sourceById, verseByLabel, type Field, type Stand, type Way } from "./model";
+
+/** A research string as reading text: a settled passage is highlighted and opens its editor's note (brief section 4). Never inside a control or a drawing: those take plainText. */
+export const T = ({ text }: { text: string }) => <Checked text={text} />;
 
 export class MvSection extends Component<{ id: string; resetKey?: string; children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -34,12 +38,14 @@ export function Cite({ ids }: { ids: string[] }) {
   return <div className="mv-cite">{ids.map((id) => <SourceLink key={id} id={id} />)}</div>;
 }
 
-/** What the evidence says · what this study infers · where the evidence stops, kept apart (study rule A2). */
+const read = (part: ReactNode) => (typeof part === "string" ? <T text={part} /> : part);
+
+/** What the evidence says · what this study infers · where the evidence stops, kept apart (study rule A2). Strings read through <Checked>. */
 export function ThreeParts({ evidence, inference, limit }: { evidence: ReactNode; inference: ReactNode; limit: ReactNode }) {
   return <dl className="mv-three">
-    <div><dt>What the evidence says</dt><dd>{evidence}</dd></div>
-    <div><dt>What this study infers</dt><dd>{inference}</dd></div>
-    <div><dt>Where the evidence stops</dt><dd>{limit}</dd></div>
+    <div><dt>What the evidence says</dt><dd>{read(evidence)}</dd></div>
+    <div><dt>What this study infers</dt><dd>{read(inference)}</dd></div>
+    <div><dt>Where the evidence stops</dt><dd>{read(limit)}</dd></div>
   </dl>;
 }
 
@@ -63,7 +69,7 @@ export function OldText({ who, children }: { who: ReactNode; children: ReactNode
 /** The site's own word, marked as the site's, with the Scripture it rests on. */
 export function StandPanel({ stand, labels }: { stand: Stand; labels: string[] }) {
   return <aside className="mv-stand">
-    <div><p className="mv-kicker">{stand.head}</p><p className="mv-para">{stand.text}</p></div>
+    <div><p className="mv-kicker">{stand.head}</p><p className="mv-para"><T text={stand.text} /></p></div>
     <div>{labels.map((label) => <Quote key={label} label={label} />)}</div>
   </aside>;
 }
@@ -100,6 +106,7 @@ export function Picture({ id, lazy = true }: { id: string; lazy?: boolean }) {
   const [broken, setBroken] = useState(false);
   const picture = pictureById.get(id);
   if (!picture) { console.error(`The medieval church page: picture "${id}" is not in the research record`); return null; }
+  if (!pictureShown(picture)) return null;
   return <figure className="mv-pic">
     {!broken && <img src={picture.src} width={picture.width} height={picture.height} alt={picture.alt} loading={lazy ? "lazy" : undefined}
       onError={() => { console.error(`The medieval church page: the picture ${picture.src} did not load`); setBroken(true); }} />}

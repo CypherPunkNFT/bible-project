@@ -2,7 +2,7 @@
 // this study draws from the records, and how little shows whether it was kept. The list is the interface. Where a stop touches baptism or the Supper,
 // the site's own word stands beside the report and is marked as the site's.
 import { D, findSpot, PLAN_STOPS, type Spot } from "./model";
-import { Cite, Head, Picture, Quote } from "./parts";
+import { Cite, Head, Picture, Quote, T } from "./parts";
 
 function FloorPlan({ spot, onSpot }: { spot: Spot; onSpot: (id: string) => void }) {
   const walk = D.parish.stations.map((s) => PLAN_STOPS[s.id].join(" ")).join("L");
@@ -25,26 +25,26 @@ function FloorPlan({ spot, onSpot }: { spot: Spot; onSpot: (id: string) => void 
 export function Parish({ spotId, onChange }: { spotId: string | null; onChange: (values: Record<string, string | null>) => void }) {
   const spot = findSpot(spotId), choose = (id: string) => onChange({ at: id });
   return <>
-    <Head num="05" kicker="A walk to the altar" title={<>Six steps through a parish.<em> A rule at each. A silence after.</em></>}
+    <Head num="07" kicker="A walk to the altar" title={<>Six steps through a parish.<em> A rule at each. A silence after.</em></>}
       lead="Most people's whole church was one building, and most of them left no word about it. So this walk has rules and a few inspectors' notes, and says where those stop." />
     <div className="mv-parish">
-      <div><FloorPlan spot={spot} onSpot={choose} /><p className="mv-caption">{D.parish.note}</p></div>
+      <div><FloorPlan spot={spot} onSpot={choose} /><p className="mv-caption"><T text={D.parish.note} /></p></div>
       <ol className="mv-spotlist">{D.parish.stations.map((s) => <li key={s.id}><button type="button" aria-pressed={s.id === spot.id} onClick={() => choose(s.id)}><b>{Number(s.n)}</b><strong>{s.name}</strong></button></li>)}</ol>
     </div>
     <div className={`mv-spotrecord${spot.picture ? " withpic" : ""}`} aria-live="polite">
       <div>
         <h3>{spot.name}</h3>
         <dl className="mv-three">
-          <div><dt>The rule, in its own words</dt><dd>{spot.rule}</dd></div>
-          <div><dt>What this study draws from the record</dt><dd>{spot.record}</dd></div>
-          <div><dt>Where the evidence stops</dt><dd>{spot.limit}</dd></div>
+          <div><dt>The rule, in its own words</dt><dd><T text={spot.rule} /></dd></div>
+          <div><dt>What this study draws from the record</dt><dd><T text={spot.record} /></dd></div>
+          <div><dt>Where the evidence stops</dt><dd><T text={spot.limit} /></dd></div>
         </dl>
         <Cite ids={spot.sources} />
       </div>
       {spot.picture && <Picture id={spot.picture} />}
     </div>
     {spot.stand && <aside className="mv-stand">
-      <div><p className="mv-kicker">Where this site stands</p><p className="mv-para">{spot.stand}</p></div>
+      <div><p className="mv-kicker">Where this site stands</p><p className="mv-para"><T text={spot.stand} /></p></div>
       <div>{(spot.standVerses ?? []).map((label) => <Quote key={label} label={label} />)}</div>
     </aside>}
   </>;

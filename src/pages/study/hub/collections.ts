@@ -457,6 +457,22 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                     {"kind": "Interactive study", "title": "Israel among the empires", "text": "Trace tribute, conquest, exile and return through synchronized maps and primary evidence.", "href": "/study/israel-among-the-empires", "art": "inscription", "tone": "prophets"},
                     {"kind": "Interactive archaeology", "title": "Cities through their layers", "text": "Explore Jericho, Lachish, Jerusalem and Corinth through selected phases, finds and disputed interpretations.", "href": "/study/cities-through-their-layers", "art": "inscription", "tone": "epistles"},
                     {"kind": "Interactive journey", "title": "The world of Jesus & the apostles", "text": "Explore eight connected settings, from Galilean households and Jerusalem to Caesarea, Corinth, Ephesus and travel toward Rome.", "href": "/study/world-of-jesus-apostles", "art": "city", "tone": "gospels"},
+                    {
+                        "kind": "Study",
+                        "title": "Israel from the exodus to Solomon",
+                        "text": "Hang the Bible's own numbers from Solomon's fourth year, lay the dated finds beneath them, and see where the two exodus dates part.",
+                        "href": "/study/israel-from-the-exodus-to-solomon",
+                        "meta": "Span · Site · Nail · Range",
+                        "tone": "history"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "New Testament history",
+                        "text": "Set the rulers the Gospels and Acts name against Rome, Herod's family and the governors of Judea, from Pompey in 63 BC to the fall of Masada.",
+                        "href": "/study/new-testament-history",
+                        "meta": "Kings · Governors · Witnesses · Years",
+                        "tone": "acts"
+                    },
                     {"kind": "Guide", "title": "Rulers in the biblical world", "text": "Follow rulers and their settings, then open the biblical passages and the people they connect.", "href": "/study/people?view=rulers"},
                     {
                         "kind": "Atlas",
@@ -531,6 +547,22 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "href": "/study/dead-sea-scrolls"
                     },
                     {
+                        "kind": "Study",
+                        "title": "How the Old Testament books were written",
+                        "text": "Hear what each book says of its own writing first, then weigh the marks of a later hand and the theories built on them, kept apart.",
+                        "href": "/study/how-the-old-testament-books-were-written",
+                        "meta": "Self-witness · Editing · Sources · Prophecy",
+                        "tone": "prophets"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "How the New Testament books were written",
+                        "text": "Read Mark, Matthew and Luke side by side, compare four accounts of how they relate, and weigh what the earliest readers said of each book.",
+                        "href": "/study/how-the-new-testament-books-were-written",
+                        "meta": "Witnesses · Sources · Signatures · Dates",
+                        "tone": "epistles"
+                    },
+                    {
                         "kind": "Guide",
                         "title": "How the letters were read",
                         "text": "Explore reception, questions and comparison.",
@@ -587,6 +619,14 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "text": "Learn the alphabet, see how endings say who did what whatever the word order, and test what a verb's form does and does not say about time.",
                         "href": "/study/how-new-testament-greek-works",
                         "meta": "Alphabet · Ending · Order · Verb"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "Hebrew poetry and biblical narrative",
+                        "text": "See lines that pair, passages that fold back, poems that run the alphabet and stories that leave things unsaid, with the Hebrew beside the Berean.",
+                        "href": "/study/hebrew-poetry-and-biblical-narrative",
+                        "meta": "Line · Fold · Letter · Scene",
+                        "tone": "poetry"
                     },
                     {
                         "kind": "Guide",
@@ -659,6 +699,22 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "tone": "epistles"
                     },
                     {
+                        "kind": "Study",
+                        "title": "The land of the Bible",
+                        "text": "Cross the land in its bands from the coast to the plateau beyond the rift, and see why travellers go up to Jerusalem and why the rain mattered.",
+                        "href": "/study/the-land-of-the-bible",
+                        "meta": "Coast · Hills · Rift · Rain",
+                        "tone": "history"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "The temple and Israel's worship",
+                        "text": "Lay the tent, Solomon's house, the house rebuilt after the exile and Herod's temple over one another, round the one room all four kept.",
+                        "href": "/study/the-temple-and-israels-worship",
+                        "meta": "Tent · House · Courts · Feasts",
+                        "tone": "prophets"
+                    },
+                    {
                         "kind": "Atlas",
                         "title": "Ancient cities",
                         "text": "Explore a city’s setting and biblical connections.",
@@ -717,10 +773,18 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                     },
                     {
                         "kind": "Study",
+                        "title": "The early church",
+                        "text": "Open the kinds of writing that survive from AD 64 to the council of Chalcedon in 451, from Clement's letter to a council's decided words, and watch the witness change.",
+                        "href": "/study/the-early-church",
+                        "meta": "Letters · Martyrs · Councils",
+                        "tone": "acts"
+                    },
+                    {
+                        "kind": "Study",
                         "title": "The medieval church",
-                        "text": "Set what popes, councils and kings decreed from about AD 500 to 1350 beside what the record shows next, from the baptism of the north to a parish floor.",
+                        "text": "Set what popes, councils and kings decreed from Chalcedon in 451 to about 1350 beside what the record shows next, from the parting of East and West and the crusades to a parish floor.",
                         "href": "/study/the-medieval-church",
-                        "meta": "Mission · Throne · School · Parish",
+                        "meta": "Mission · East and West · Crusade · Parish",
                         "tone": "gospels"
                     },
                     {
@@ -737,7 +801,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                     },
                     {
                         "kind": "Reading outline",
-                        "title": "The early church",
+                        "title": "The early church: an outline",
                         "text": "Browse the existing topic outlines and their source links.",
                         "href": "/study/atlas/early-church",
                         "outline": true

@@ -17,7 +17,7 @@ function Test({ claim }: { claim: Claim }) {
 
 export function Claims() {
   return <>
-    <Head num="06" kicker="Four claims tested" title={<>Four things often said.<em> One test each.</em></>}
+    <Head num="08" kicker="Four claims tested" title={<>Four things often said.<em> One test each.</em></>}
       lead="Each of these is repeated in good faith, and each holds some truth. The question is how much the sources can carry." />
     <ol>{D.claims.map((claim) => <li key={claim.id} className="mv-claim-row">
       <p className="mv-claim">{claim.claim}</p>

@@ -173,8 +173,9 @@
       "category": "languages",
       "categoryTitle": "Languages & translation",
       "title": "Hebrew poetry and biblical narrative",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "13-hebrew-poetry-and-biblical-narrative.json",
+      "route": "/study/hebrew-poetry-and-biblical-narrative",
       "designProposal": "13-hebrew-poetry-and-biblical-narrative/design.md"
     },
     {
@@ -231,8 +232,9 @@
       "category": "church",
       "categoryTitle": "Christian thought & church history",
       "title": "The early church",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "21-the-early-church.json",
+      "route": "/study/the-early-church",
       "designProposal": "21-the-early-church/design.md"
     },
     {
@@ -331,7 +333,8 @@
       "categoryTitle": "Christian thought & church history",
       "title": "The medieval church",
       "status": "implemented-local",
-      "file": "33-the-medieval-church.json"
+      "file": "33-the-medieval-church.json",
+      "route": "/study/the-medieval-church"
     },
     {
       "order": 37,
@@ -374,8 +377,9 @@
       "category": "culture",
       "categoryTitle": "Ancient cultures & daily life",
       "title": "The land of the Bible",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "40-the-land-of-the-bible.json",
+      "route": "/study/the-land-of-the-bible",
       "designProposal": "40-the-land-of-the-bible/design.md"
     },
     {
@@ -383,8 +387,9 @@
       "category": "bible-formation",
       "categoryTitle": "The Bible: formation & transmission",
       "title": "How the Old Testament books were written",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "41-how-the-old-testament-books-were-written.json",
+      "route": "/study/how-the-old-testament-books-were-written",
       "designProposal": "41-how-the-old-testament-books-were-written/design.md"
     },
     {
@@ -392,8 +397,9 @@
       "category": "bible-formation",
       "categoryTitle": "The Bible: formation & transmission",
       "title": "How the New Testament books were written",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "42-how-the-new-testament-books-were-written.json",
+      "route": "/study/how-the-new-testament-books-were-written",
       "designProposal": "42-how-the-new-testament-books-were-written/design.md"
     },
     {
@@ -401,8 +407,9 @@
       "category": "history",
       "categoryTitle": "History & archaeology",
       "title": "New Testament history: from Herod to the fall of Jerusalem",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "43-new-testament-history.json",
+      "route": "/study/new-testament-history",
       "designProposal": "43-new-testament-history/design.md"
     },
     {
@@ -410,8 +417,9 @@
       "category": "culture",
       "categoryTitle": "Ancient cultures & daily life",
       "title": "The temple and Israel's worship",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "44-the-temple-and-israels-worship.json",
+      "route": "/study/the-temple-and-israels-worship",
       "designProposal": "44-the-temple-and-israels-worship/design.md"
     },
     {
@@ -419,8 +427,9 @@
       "category": "history",
       "categoryTitle": "History & archaeology",
       "title": "Israel from the exodus to Solomon",
-      "status": "draft",
+      "status": "implemented-local",
       "file": "38-israel-from-the-exodus-to-solomon.json",
+      "route": "/study/israel-from-the-exodus-to-solomon",
       "designProposal": "38-israel-from-the-exodus-to-solomon/design.md"
     }
   ],
