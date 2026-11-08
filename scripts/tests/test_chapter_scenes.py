@@ -110,7 +110,8 @@ def test_a_picture_counts_only_in_its_theme_for_the_current_prompt_and_an_existi
     assert len(pictures.pending(["photographic"])) == 1 and pictures.chapter("PSA:117") == {}
     pictures.store.put("PSA:117", "haiku", {"scenes": [GOOD]})
     (pictures.dir / "photographic" / "haiku" / "PSA-117-0.webp").unlink()  # file gone, row still there
-    assert len(pictures.pending(["photographic"])) == 1 and pictures.gallery("photographic") == []
+    assert len(pictures.pending(["photographic"])) == 1
+    assert pictures.gallery("photographic") == [["PSA:117", "haiku", 0, GOOD["title"], 1, 2, None, None]]  # listed, not drawn
 
 
 def test_the_table_from_before_themes_is_refused(tmp_path):

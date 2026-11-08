@@ -145,9 +145,10 @@ class Pictures:
                 for t in self.themes]
 
     def gallery(self, theme_id: str) -> list[list]:
-        """The theme's fresh pictures in Bible order: [key, writer, scene, title, first verse, last verse, full, thumb]."""
+        """Every scene in the theme in Bible order: [key, writer, scene, title, first verse, last verse, full, thumb].
+        full and thumb are None for a scene whose picture is not drawn (or not fresh) yet."""
         self.theme(theme_id)
         order = {k: i for i, k in enumerate(chapter_scenes.all_keys())}
-        items = [s for s in self.states(theme_ids=[theme_id]) if s["fresh"]]
-        items.sort(key=lambda s: (order.get(s["key"], 0), s["writer"], s["scene"]))
-        return [[s["key"], s["writer"], s["scene"], s["title"], *s["verses"], *self.urls(s).values()] for s in items]
+        items = sorted(self.states(theme_ids=[theme_id]), key=lambda s: (order.get(s["key"], 0), s["writer"], s["scene"]))
+        return [[s["key"], s["writer"], s["scene"], s["title"], *s["verses"],
+                 *(self.urls(s).values() if s["fresh"] else (None, None))] for s in items]
