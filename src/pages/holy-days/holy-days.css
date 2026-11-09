@@ -1,0 +1,58 @@
+/* The holy days calendar (docs/features/holy-days/design.md). Logical properties only, so the page mirrors right to left;
+   each tradition has an accent readable in light and dark, always beside its written name. */
+.hd-page { --hd-accent: #5a4a8a; --hd-western: #4b4f8f; --hd-orthodox: #8a3b2e; --hd-feast: #3f6b45; padding-block: 2.5rem 4rem; }
+:root[data-theme="dark"] .hd-page { --hd-accent: #c3b5f0; --hd-western: #a9adf0; --hd-orthodox: #f0a99a; --hd-feast: #9fd3a6; }
+.hd-page h1 { margin-top: .8rem; font: 450 clamp(2rem, 4.4vw, 3.1rem)/1.12 var(--font-serif); letter-spacing: -.03em; }
+.hd-page h2 { margin-top: 2.4rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font: 500 1.4rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.hd-page a { color: var(--hd-accent); text-underline-offset: 3px; }
+.hd-intro { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: 1.02rem; line-height: 1.75; }
+.hd-quiet { margin-top: .5rem; color: var(--muted); font-size: .88rem; }
+.hd-failed { margin-top: .6rem; color: var(--red-letter); }
+.hd-kicker { margin-inline-end: .4rem; color: var(--muted); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+.hd-coming { margin-top: 1.4rem; padding: .7rem 1rem; border-inline-start: 3px solid var(--hd-accent); background: color-mix(in srgb, var(--hd-accent) 8%, transparent); }
+
+.hd-controls { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; align-items: center; margin-top: 1.6rem; }
+.hd-year { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.hd-year-field input { width: 5.2rem; min-height: 2.4rem; padding: .35rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: inherit; font: 500 1.05rem var(--font-serif); text-align: center; }
+.hd-hint { flex-basis: 100%; color: var(--red-letter); font-size: .82rem; }
+.hd-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.4rem; min-width: 2.4rem; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: inherit; font-size: .9rem; cursor: pointer; }
+.hd-button:hover, .hd-button:focus-visible { border-color: var(--hd-accent); }
+.hd-button[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+.hd-step { padding-inline: .6rem; font-size: 1.2rem; line-height: 1; }
+:root[dir="rtl"] .hd-step span { display: inline-block; transform: scaleX(-1); }
+.hd-filter { display: flex; flex-wrap: wrap; gap: .4rem; }
+.hd-chip[aria-pressed="true"] { border-color: var(--hd-tone); background: color-mix(in srgb, var(--hd-tone) 14%, transparent); }
+.hd-chip[aria-pressed="false"] { color: var(--muted); }
+.hd-western { --hd-tone: var(--hd-western); }
+.hd-orthodox { --hd-tone: var(--hd-orthodox); }
+.hd-feast { --hd-tone: var(--hd-feast); }
+
+.hd-month { margin-top: 1.4rem; }
+.hd-month-name { color: var(--muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+.hd-month ul { margin-top: .4rem; border-top: 1px solid var(--line); }
+.hd-day { border-bottom: 1px solid var(--line); }
+.hd-day-button { display: grid; grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr) auto; gap: .2rem 1rem; align-items: baseline; width: 100%; padding: .75rem .3rem; border-inline-start: 3px solid var(--hd-tone); background: transparent; color: inherit; text-align: start; cursor: pointer; }
+.hd-day-button:hover, .hd-day-button:focus-visible { background: color-mix(in srgb, var(--hd-tone) 7%, transparent); }
+.hd-date { color: var(--muted); font-size: .9rem; padding-inline-start: .5rem; }
+.hd-name { font: 500 1.08rem/1.3 var(--font-serif); }
+.hd-tradition { color: var(--hd-tone); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+.hd-span { grid-column: 2 / -1; color: var(--muted); font-size: .85rem; }
+.hd-detail { padding: .4rem 1rem 1.2rem; padding-inline-start: 1.2rem; border-inline-start: 3px solid var(--hd-tone); }
+.hd-detail > p { max-width: 46rem; margin-top: .6rem; line-height: 1.7; }
+.hd-reckoning { font-size: .93rem; }
+.hd-label { margin-top: 1rem; color: var(--muted); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+.hd-passages { display: grid; gap: .9rem; margin-top: .5rem; }
+.hd-passages blockquote { font: 400 1.05rem/1.6 var(--font-serif); }
+.hd-reference { margin-top: .25rem; font-size: .88rem; }
+.hd-reference span { color: var(--muted); }
+.hd-link-button { border: 0; background: none; color: var(--hd-accent); text-decoration: underline; cursor: pointer; }
+
+.hd-note { margin-top: 3rem; }
+.hd-note p { max-width: 46rem; margin-top: .8rem; line-height: 1.75; }
+
+@media (max-width: 640px) {
+  .hd-day-button { grid-template-columns: minmax(0, 1fr) auto; }
+  .hd-date { grid-column: 1 / -1; }
+  .hd-span { grid-column: 1 / -1; padding-inline-start: .5rem; }
+  .hd-name { padding-inline-start: .5rem; }
+}

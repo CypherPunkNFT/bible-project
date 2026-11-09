@@ -58,6 +58,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/baby-names/boys": "Biblical Boy Names: Meanings and Bible Stories",
   "/baby-names/girls": "Biblical Girl Names: Meanings and Bible Stories",
   "/countdowns": "Advent and Lent Devotionals: Daily Bible Reading Plans",
+  "/holy-days": "Holy Days Calendar: Easter, Lent, Advent, Pentecost and the Biblical Feasts",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",
