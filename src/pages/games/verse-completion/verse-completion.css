@@ -1,0 +1,93 @@
+/* /games/verse-completion (VerseCompletionGame.tsx): mobile first, the site's colour tokens in both themes. Every word
+   state has its own symbol and words besides its colour. Verse text is at least 1.25rem on phones and every button is at
+   least 44px tall. Under reduced motion nothing shakes. */
+.vc-page { --vc-tone: var(--accent); --vc-right: var(--resource-life, #3d6b58); --vc-wrong: #b4442f; padding-top: 2rem; padding-bottom: 5rem; }
+.vc-loading { margin-top: 2rem; color: var(--muted); }
+.vc-start h1, .vc-summary h1, .vc-mine h1 { margin-top: 1.4rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.15; letter-spacing: -.02em; }
+.vc-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.vc-note { margin-top: .6rem; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.vc-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; margin-top: 1rem; }
+.vc-streak { display: inline-flex; align-items: center; gap: .35rem; font-weight: 600; }
+.vc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.1rem; }
+.vc-primary, .vc-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .6rem 1.3rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
+.vc-primary { background: var(--accent); color: var(--page); }
+.vc-secondary { border: 1px solid var(--line); }
+.vc-secondary[aria-pressed="true"] { border-color: var(--vc-right); }
+.vc-primary:disabled, .vc-secondary:disabled { opacity: .45; cursor: not-allowed; }
+.vc-link { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; color: var(--accent); font-size: .92rem; font-weight: 600; }
+.vc-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; border: 0; padding: 0; }
+.vc-chips legend { width: 100%; margin-bottom: .45rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.vc-chips button { display: flex; flex-direction: column; align-items: flex-start; min-height: 44px; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 1rem; font-size: .92rem; text-align: left; }
+.vc-chips button[aria-pressed="true"] { border-color: var(--vc-tone); background: color-mix(in srgb, var(--vc-tone) 12%, transparent); font-weight: 650; }
+.vc-chip-text { color: var(--muted); font-size: .78rem; font-weight: 400; }
+.vc-chip { min-height: 44px; padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; }
+.vc-chip[aria-pressed="true"] { border-color: var(--vc-right); font-weight: 600; }
+
+/* A card */
+.vc-round-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; }
+.vc-card { margin-top: 1rem; padding: 1.1rem 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.vc-ref { color: var(--vc-tone); font: 650 .8rem/1.2 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.vc-verse { margin-top: .7rem; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.65; overflow-wrap: anywhere; }
+.vc-verse.is-small { font-size: 1.05rem; }
+@media (min-width: 640px) { .vc-verse { font-size: 1.45rem; } }
+.vc-gaps { display: inline; }
+.vc-gap { display: inline-block; width: 1.6rem; height: .2rem; margin: 0 .18rem; border-radius: 2px; background: var(--line); vertical-align: middle; }
+.vc-endings { display: flex; flex-direction: column; gap: .6rem; margin-top: 1rem; }
+.vc-ending { display: flex; align-items: flex-start; gap: .5rem; min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: .8rem; text-align: left; font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.45; }
+.vc-ending.is-right { border-color: var(--vc-right); background: color-mix(in srgb, var(--vc-right) 12%, transparent); }
+.vc-ending.is-wrong { border-color: var(--vc-wrong); background: color-mix(in srgb, var(--vc-wrong) 10%, transparent); }
+.vc-ending.is-other { opacity: .6; }
+.vc-ending svg { flex: none; margin-top: .3rem; }
+.vc-built { min-height: 2rem; margin-top: .8rem; font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.6; }
+.vc-placed.is-missed { color: var(--vc-wrong); text-decoration: line-through; }
+.vc-cursor { color: var(--muted); }
+.vc-word-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
+.vc-word { display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 52px; padding: .5rem; border: 1px solid var(--line); border-radius: .8rem; font-size: 1.05rem; font-weight: 600; overflow-wrap: anywhere; }
+.vc-key { color: var(--muted); font-size: .72rem; font-weight: 500; }
+.vc-word.is-shake { border-color: var(--vc-wrong); animation: vc-shake .3s; }
+@keyframes vc-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) { .vc-word.is-shake { animation: none; } }
+.vc-type, .vc-letters { margin-top: 1rem; }
+.vc-label { display: block; margin-bottom: .4rem; color: var(--muted); font-size: .85rem; font-weight: 600; }
+.vc-input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--page); color: var(--ink); font-size: 1.1rem; line-height: 1.5; resize: vertical; }
+.vc-letter { max-width: 8rem; text-align: center; }
+.vc-dont { margin-top: .6rem; }
+
+/* The result */
+.vc-mark { position: relative; border-radius: .2rem; }
+.vc-symbol { margin: 0 .15rem 0 .05rem; font-family: var(--font-sans); font-size: .7em; vertical-align: super; }
+.vc-mark.is-exact .vc-symbol { color: var(--vc-right); }
+.vc-mark.is-typo { text-decoration: underline dotted; text-underline-offset: .2em; }
+.vc-mark.is-near { background: color-mix(in srgb, var(--vc-tone) 14%, transparent); }
+.vc-mark.is-wrong, .vc-mark.is-missing { background: color-mix(in srgb, var(--vc-wrong) 14%, transparent); }
+.vc-mark.is-wrong .vc-symbol, .vc-mark.is-missing .vc-symbol { color: var(--vc-wrong); }
+.vc-typed { margin-right: .25rem; color: var(--muted); font-size: .85em; }
+.vc-score { display: flex; align-items: center; gap: .7rem; margin-top: .9rem; }
+.vc-stars { display: inline-flex; gap: .15rem; color: var(--line); }
+.vc-stars .is-on { color: #c9962b; fill: currentColor; }
+.vc-perfect { padding: .15rem .55rem; border: 1px solid var(--vc-right); border-radius: 999px; color: var(--vc-right); font-size: .78rem; font-weight: 650; }
+.vc-change { margin-top: .6rem; font-weight: 600; }
+
+/* Summary and My verses */
+.vc-total { margin-top: .8rem; font-size: 1.15rem; font-weight: 650; }
+.vc-rows { margin-top: 1rem; overflow-anchor: none; }
+.vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.vc-row.is-mine { display: block; }
+.vc-row-ref { min-width: 10rem; font-weight: 600; }
+.vc-row-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem; width: 100%; min-height: 44px; text-align: left; }
+.vc-row-box, .vc-row-due { color: var(--muted); font-size: .85rem; }
+.vc-row-body { padding: .3rem 0 .6rem; }
+.vc-meter { display: inline-flex; gap: .2rem; }
+.vc-meter span { width: .9rem; height: .5rem; border: 1px solid var(--vc-tone); border-radius: 2px; }
+.vc-meter span.is-on { background: var(--vc-tone); }
+.vc-tools { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: .9rem; }
+.vc-tools select { margin-left: .4rem; min-height: 44px; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--page); color: var(--ink); }
+.vc-clear { margin-top: 2rem; }
+
+/* How to play */
+.vc-help-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgb(0 0 0 / .45); }
+.vc-help { width: min(34rem, 100%); max-height: 90vh; overflow: auto; padding: 1.3rem 1.4rem; border-radius: 1rem; background: var(--page); color: var(--ink); }
+.vc-help h2 { font-family: var(--font-serif); font-size: 1.5rem; }
+.vc-help ul { margin: .8rem 0 0 1.1rem; list-style: disc; line-height: 1.55; }
+.vc-help li + li { margin-top: .35rem; }
+.vc-help .vc-primary { margin-top: 1.1rem; }

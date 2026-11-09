@@ -73,7 +73,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "daily", art: GAME_ART.timeline,
   },
   {
-    slug: "verse-completion", status: "coming-soon", title: "Verse completion",
+    slug: "verse-completion", status: "live", load: () => import("./verse-completion/VerseCompletionGame"),
+    title: "Verse completion",
     description: "See the start of a verse and finish it: a game that doubles as memorisation.",
     audiences: ["solo"],
     shelf: "solo", art: GAME_ART.verseCompletion,
