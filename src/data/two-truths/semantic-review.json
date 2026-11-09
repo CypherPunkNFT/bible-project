@@ -1,0 +1,1223 @@
+{
+  "reviewer": "Job 763 implementation semantic review against local BSB; no independent human sign-off or model calls claimed",
+  "statements": {
+    "noah-gen-5-29:t1": {
+      "fingerprint": "c062e2ba147c68ec8fc866c2a0625066f0b80a7340e678cd4ecba305f51c9c34",
+      "note": "Flood age explicitly 600."
+    },
+    "noah-gen-5-29:t2": {
+      "fingerprint": "7d456323a2a83d2f7c23bbd2bf15ffed708f191984ceda37370ab27cae7d9589",
+      "note": "Raven is sent, then the dove; order is explicit."
+    },
+    "noah-gen-5-29:t3": {
+      "fingerprint": "6adbd96d1c98267f7a0fdc99862941e7aaf1d1234c639a086290191e12905b41",
+      "note": "Planting a vineyard is explicit; unsupported timing qualifier removed."
+    },
+    "noah-gen-5-29:l1": {
+      "fingerprint": "dacd8b5f69ac456d232b2c9bfd34404b08201f89e05d6c1a11da313c1e2f2282",
+      "note": "Three named sons contradict four sons."
+    },
+    "noah-gen-5-29:l2": {
+      "fingerprint": "ab726916b641646c265eaf4e95e7d87f007415f780452d8783993f45457562fc",
+      "note": "Resting mountains are Ararat, not Sinai."
+    },
+    "abraham-gen-11-26:t1": {
+      "fingerprint": "b881d066f72e4e85fdc40dd9ae827d4bb69c9d0679164b32ae0bee35c33c810d",
+      "note": "Isaac birth age explicitly a hundred."
+    },
+    "abraham-gen-11-26:t2": {
+      "fingerprint": "2b174fc1ce66d8364a42c91771cdfb32c083622aa1ae984e5f53313fe3ff003c",
+      "note": "Terah takes Abram and family from Ur."
+    },
+    "abraham-gen-11-26:t3": {
+      "fingerprint": "521816f4279eb51e7ac221c0b7826ab67a0a3ec95543009ac26ef53477e5e765",
+      "note": "Burial, not purchase, is stated."
+    },
+    "abraham-gen-11-26:l1": {
+      "fingerprint": "987ee308c4e0a5ef0a4eef82ded0b2cf770cbbcdfd73fa7aee28d09deacff188",
+      "note": "Hagar bears Ishmael; additional verse identifies her as Egyptian maidservant."
+    },
+    "abraham-gen-11-26:l2": {
+      "fingerprint": "dd7655ee8c4421d9489c64cf7896e728cf3970ac359a881132e4e5acf9310e03",
+      "note": "Haran departure age is seventy-five, not fifty."
+    },
+    "sarah-gen-11-29:t1": {
+      "fingerprint": "122111034063fac74fb1c99461425abc35c37205aedd62ccfce11941f0111046",
+      "note": "Expanded promise/hearing/laughter context supports the whole claim."
+    },
+    "sarah-gen-11-29:t2": {
+      "fingerprint": "82ad2fa894919d726617e716c0e6aca6ea7c4922b146f1ba21684553354079ff",
+      "note": "Lifespan explicitly 127."
+    },
+    "sarah-gen-11-29:t3": {
+      "fingerprint": "e1754aceb5949f69118d0311f90b3a568c4b3e8af352cbc9321e30d3fd208784",
+      "note": "Sarai is renamed Sarah."
+    },
+    "sarah-gen-11-29:l1": {
+      "fingerprint": "64e56a15ca6b6b84c0f20037867479ca3cda710f18ccb56ed59c592408efc721",
+      "note": "Burial site explicitly Machpelah at Hebron, not Bethlehem."
+    },
+    "sarah-gen-11-29:l2": {
+      "fingerprint": "1672b49201ceb7429a0148db3662cea2975ac55f0e4453995ebde9419ac22793",
+      "note": "Promise and Abraham response now together show ninety, not sixty."
+    },
+    "israel-gen-25-26:t1": {
+      "fingerprint": "af54ca0a220c8d5f3402fe5c730ecf21a94e63db14722335154bb8043b41bd60",
+      "note": "Contract and seven years of service identify Laban and Rachel."
+    },
+    "israel-gen-25-26:t2": {
+      "fingerprint": "a9f22275a7fcd1ec8829a0b31700f35b601763dc652eb8d838ceed4d5bddfaf8",
+      "note": "Dream explicitly describes ladder reaching heaven."
+    },
+    "israel-gen-25-26:t3": {
+      "fingerprint": "cb951f0fca970e20d11fd9d181d7084273024351853a3da06bb4df2f1b982fa3",
+      "note": "Naming Israel is explicit; unsupported timing qualifier removed."
+    },
+    "israel-gen-25-26:l1": {
+      "fingerprint": "38a5782664230cdbd7b9c339bfa43e6a91d2f34783071bdfb426db267df8e117",
+      "note": "Birth order Esau then Jacob contradicts reversed order."
+    },
+    "israel-gen-25-26:l2": {
+      "fingerprint": "daed5a0149ed0f3a0f5d41791fbd773ae087d635e2bf0fec4b4d7747487b9b9b",
+      "note": "Comparative love explicitly favors Rachel over Leah."
+    },
+    "joseph-gen-30-24:t1": {
+      "fingerprint": "72d7c0cab07f7b1d8e7d7dfbc47f692979360b3de315ce79fdb05c44b8ff3016",
+      "note": "Brothers sell Joseph for twenty shekels."
+    },
+    "joseph-gen-30-24:t2": {
+      "fingerprint": "8baed22cb3307d6ec1ac6a397b4427409d3541ae606b1942ecdd5c281d744f23",
+      "note": "Pharaoh service begins at thirty."
+    },
+    "joseph-gen-30-24:t3": {
+      "fingerprint": "a53045695ecfe762b1686f11b3831179b5d867916b5eeb5d1db82b663f0999dc",
+      "note": "Expanded prison passage contains both complete interpretations."
+    },
+    "joseph-gen-30-24:l1": {
+      "fingerprint": "0c34b791d44c5952720fa1affa6f0f8a1a65b2220f10f52a04f6a470301f0b9a",
+      "note": "Reuben is named firstborn, not Joseph."
+    },
+    "joseph-gen-30-24:l2": {
+      "fingerprint": "34a4635a75fdea8c512639ef32fe6fbb5603bad37c71eca1ab765e22f35380c5",
+      "note": "Traders destination explicitly Egypt, not Babylon."
+    },
+    "moses-exo-2-10:t1": {
+      "fingerprint": "e12abfd75a697eeebe4a7daacabbb1cfdadd0cd0342e72b5af7c530c074edc67",
+      "note": "Moses age eighty at the narrated Pharaoh audience."
+    },
+    "moses-exo-2-10:t2": {
+      "fingerprint": "363140753d25a93fdc9efb0803ca6ec40f7f56a8b4dc565f556e30408fe3b9db",
+      "note": "Jethro identified as father-in-law and priest of Midian."
+    },
+    "moses-exo-2-10:t3": {
+      "fingerprint": "e8c738bfe2cee02fc313399c998f55f0e42bf06dce2e0f264ae5f643d9091cd0",
+      "note": "Death age explicitly a hundred and twenty."
+    },
+    "moses-exo-2-10:l1": {
+      "fingerprint": "70005abb6bd959967c574f83b3262f035cbdf0289fc3d9a3f72f3e9c562c6239",
+      "note": "Basket bank is Nile, not Jordan."
+    },
+    "moses-exo-2-10:l2": {
+      "fingerprint": "413e3f3d28654fce77fd597d96a5d6182c14392084dec1414db08c94a7291ec6",
+      "note": "Explicit prohibition of crossing contradicts leading Israel across."
+    },
+    "aaron-exo-4-14:t1": {
+      "fingerprint": "3f65e6964febfc3e5cca60ddd3feed934e52de2df6177da0d3f13eaa832146ea",
+      "note": "Eighty-three minus eighty is three; brother relationship added from Exodus 4."
+    },
+    "aaron-exo-4-14:t2": {
+      "fingerprint": "d5cab80d1a3b0df0bae60d2c3557736d4ca19f63b13e89fbb2f18bd382dd7293",
+      "note": "Staff bears sprouts, blossoms and almonds."
+    },
+    "aaron-exo-4-14:t3": {
+      "fingerprint": "def16ac812a2c682bd0f1bf88d4660bb5d656aa702979f14555377b66eae2c46",
+      "note": "Expanded passage identifies Aaron and Moses delayed on mountain."
+    },
+    "aaron-exo-4-14:l1": {
+      "fingerprint": "09eed8ff5c230145aa2004f136aae29857df91029ddda897072345243f899cb3",
+      "note": "Levite contradicts Judah."
+    },
+    "aaron-exo-4-14:l2": {
+      "fingerprint": "f617912c524b1f7c75fe438631ce2d29483c92ea080b7b62471ef4ea946cb66c",
+      "note": "Mount Hor and death there both explicit."
+    },
+    "miriam-exo-15-20:t1": {
+      "fingerprint": "2dd22dde5f32f1a86996a5059766ef36d31c80a8dbef810631fae7ed68579ea3",
+      "note": "Prophetess title explicit."
+    },
+    "miriam-exo-15-20:t2": {
+      "fingerprint": "d3d7c7220044e2b8b578e228a0ac900750f2a8b19edb16738aced6f3673f583c",
+      "note": "Sea crossing context added before tambourine and followers."
+    },
+    "miriam-exo-15-20:t3": {
+      "fingerprint": "0ba5ba733ff77d66290a214d0dfa074f875655e54ba849a1d394470afd147f7b",
+      "note": "Criticism of Cushite marriage explicit."
+    },
+    "miriam-exo-15-20:l1": {
+      "fingerprint": "7ead4933230ed4f7d79be3380f91ec26030a81f512356af6445848c814a3a037",
+      "note": "Same parents identify siblings, contradicting aunt."
+    },
+    "miriam-exo-15-20:l2": {
+      "fingerprint": "7f57d625a27f8f51ba01c832d924dfb098dba470ac688000bad58f45964ecfe6",
+      "note": "Death and burial in Kadesh in Wilderness of Zin, not Egypt before Exodus."
+    },
+    "joshua-exo-17-9:t1": {
+      "fingerprint": "d2b2745dbe8b388785520520965ceee3d286ca27019b0cce1c82e9e30f3c16ca",
+      "note": "All twelve tribal spies listed; Hoshea identified as Joshua."
+    },
+    "joshua-exo-17-9:t2": {
+      "fingerprint": "11107ae29904a47e83858f0e13bd9a5fc29e7baa6c9804d43bc78c955a7d4494",
+      "note": "Shout precedes collapse of Jericho wall."
+    },
+    "joshua-exo-17-9:t3": {
+      "fingerprint": "d3bb844c02f04b2807e6f7d6d1c6bfb522d7633c26aaa6a5aa3393826aca970d",
+      "note": "Death age explicitly 110."
+    },
+    "joshua-exo-17-9:l1": {
+      "fingerprint": "f8ea61c57261896af48fb52a30df69b6b7135980d707d2b5794276f4d10e732e",
+      "note": "Expanded range connects Hoshea of Ephraim to Joshua, not Levi."
+    },
+    "joshua-exo-17-9:l2": {
+      "fingerprint": "485ec8c4ba85b650221b544a7680ae7dc401e2b0ef6dae2e3a6e613ce65a2322",
+      "note": "Six days then seventh-day circuit contradict forty-day march."
+    },
+    "rahab-jos-2-1:t1": {
+      "fingerprint": "5331c782e654321b563ab19e7e190edf184ab1690b19a6fc0587cc9188a6ea72",
+      "note": "Two spies and roof hiding are both supplied."
+    },
+    "rahab-jos-2-1:t2": {
+      "fingerprint": "cdaa095aa9ef616a53b38c3d52967d4605d32220a4d9d8fd07e80150d1d5a6a5",
+      "note": "Window rope escape explicit."
+    },
+    "rahab-jos-2-1:t3": {
+      "fingerprint": "1756784a8b380f10bffa24bf0c6aaf490d3c08a15f1200bfc2f444546bc80a8d",
+      "note": "Genealogy heading identifies Jesus and list names Rahab."
+    },
+    "rahab-jos-2-1:l1": {
+      "fingerprint": "167112064c39c894e40fcd8d6b501b6d62a513d6edb1615a56aef6133119024e",
+      "note": "Rahab house is in Jericho, not Ai."
+    },
+    "rahab-jos-2-1:l2": {
+      "fingerprint": "5d57b310462c8852aca893549c06cbb0b9679107897016dd8640569f625f2db5",
+      "note": "Scarlet window signal and tying it are explicit, not blue cloth."
+    },
+    "deborah-jdg-4-4:t1": {
+      "fingerprint": "01cb8f563886b2d7089dbff7b84ef09b79ffe2d22e0c293c69c0d37d091b5782",
+      "note": "People come for judgment under Palm of Deborah."
+    },
+    "deborah-jdg-4-4:t2": {
+      "fingerprint": "e504886d307b45fb7642c62436ade1a4e0a223965045cda945a897bda7ba924b",
+      "note": "Prophetess and judge explicit."
+    },
+    "deborah-jdg-4-4:t3": {
+      "fingerprint": "e3f40c686a503d83248b74c10c76a9164155793f707727b467b71c75285de83b",
+      "note": "Deborah and Barak sing; narrowed from unstated victory label."
+    },
+    "deborah-jdg-4-4:l1": {
+      "fingerprint": "a543a0912593cdb788390a77fbae95c2fad4877962b47107d5f6cccb1de5b756",
+      "note": "Jael kills Sisera in the narrated event, not Deborah."
+    },
+    "deborah-jdg-4-4:l2": {
+      "fingerprint": "25c41a9b8a801669642fd96d1eb7f35d4b746cfbba09deba9b574ad026b779fb",
+      "note": "Deborah summons Barak to lead men, not Gideon."
+    },
+    "gideon-jdg-6-11:t1": {
+      "fingerprint": "18213c54dd5398b7e838c35183760b19e2c0f9e42d91609b20acf89634786c65",
+      "note": "Expanded fleece passage names Gideon and the test."
+    },
+    "gideon-jdg-6-11:t2": {
+      "fingerprint": "d17220721ac9a515f8b288c4824ea73353a63d1a6c42f07da77bc536976ff10c",
+      "note": "Three hundred retained, others sent home."
+    },
+    "gideon-jdg-6-11:t3": {
+      "fingerprint": "98c58f183e74dc62459864fd095dd38aef8988aa7eec5cdaadcdd06f5147255f",
+      "note": "Angel arrives while Gideon threshes in winepress."
+    },
+    "gideon-jdg-6-11:l1": {
+      "fingerprint": "15a465590e2502f521afd4b1337f1eea9ee285fbc0035d1a0678db25fdb64340",
+      "note": "Manasseh clan contradicts Judah."
+    },
+    "gideon-jdg-6-11:l2": {
+      "fingerprint": "f0070e22c860cdb77fd290613381fe7ead0dbdf978bf8c5c8aa127307b87ac03",
+      "note": "Offer to rule and express refusal included together."
+    },
+    "samson-jdg-13-24:t1": {
+      "fingerprint": "be27ed1438363e78b2e849b18391c921c0a5445302aea9611edffb4e3eb1192f",
+      "note": "Young lion and bare hands both explicit."
+    },
+    "samson-jdg-13-24:t2": {
+      "fingerprint": "868524388f81cfaf91cc75cb73dc7c6e0fbda0ed27414d6c43cdac4930f8074b",
+      "note": "Donkey jawbone and thousand slain explicit."
+    },
+    "samson-jdg-13-24:t3": {
+      "fingerprint": "af2aa98bed938a19b861604f8c0d22f150bd662ed23d6819a7afbc587383a9a5",
+      "note": "Fox tails and torches explicit."
+    },
+    "samson-jdg-13-24:l1": {
+      "fingerprint": "5ffc3ee3fda0e6a32f7fde532790ff7cb9dab745612bca688badf0fe4623b5d0",
+      "note": "Delilah summons Philistine lords who seize Samson, not Egyptians."
+    },
+    "samson-jdg-13-24:l2": {
+      "fingerprint": "96956b25869d6bf8e39f389a5ccc24c758e4099105989ab50eb6ade46c8495ae",
+      "note": "Manoah the Danite and birth of Samson link father and son, not Benjamin."
+    },
+    "ruth-rut-1-4:t1": {
+      "fingerprint": "f63d8b9e65cc04154ba6a658335acccfd3078ab82d8a60468619b4f42aa98046",
+      "note": "Ruth is Moabite and lived in Moab."
+    },
+    "ruth-rut-1-4:t2": {
+      "fingerprint": "9b99fd84a91972d55e76bbb4357645ee79df23584d13933e146fe6ac8f9c7761",
+      "note": "Gleaning in Boaz field explicit."
+    },
+    "ruth-rut-1-4:t3": {
+      "fingerprint": "8e8baa230f6500b60d478e6247ace3c0466b78f4f608d884c5edb646412d2c10",
+      "note": "Ruth bears Obed, father of Jesse, father of David the king: three generations."
+    },
+    "ruth-rut-1-4:l1": {
+      "fingerprint": "37a7985d0bb499535a98e4b0ebade6ab673d7c96da607d5279b0a39c427fdf1f",
+      "note": "Naomi explicitly has daughter-in-law Ruth."
+    },
+    "ruth-rut-1-4:l2": {
+      "fingerprint": "176a286d0b550a68578d013de409dfa654c482e80229661d352423c2f523285a",
+      "note": "At this departure Ruth clings to Naomi and arrives Bethlehem; not a later-life inference."
+    },
+    "hannah-1sa-1-2:t1": {
+      "fingerprint": "4aa0ea53610c11b538a485bf013c4cdd88ff9d7e5d4986a1116c37bdfb997c8c",
+      "note": "Shiloh, Hannah prayer and request for son all explicit."
+    },
+    "hannah-1sa-1-2:t2": {
+      "fingerprint": "32018bbfe0c2ba21e7ca6b9a1c49cfb7dc38e7e00a0446511756046cffa543dd",
+      "note": "Birth/name and bringing the boy to Eli included; unsupported priest title removed."
+    },
+    "hannah-1sa-1-2:t3": {
+      "fingerprint": "0088e2877852e5a468bcf1b405cc07cf5e8d1381e9a2348bfa60d63bb7c3155b",
+      "note": "Samuel and his mother robe custom connected by added prior verse."
+    },
+    "hannah-1sa-1-2:l1": {
+      "fingerprint": "9325420f962cbb46a5e6a4f042a55b11c5b2f96ad4e35e660401f01cca358a7c",
+      "note": "Husband explicitly Elkanah, not Jesse."
+    },
+    "hannah-1sa-1-2:l2": {
+      "fingerprint": "cbdc10d2d5a20470e583d186fa26ee2f1383c666ec70e8892092fbbb0d1f1341",
+      "note": "Later children three sons/two daughters, not three daughters."
+    },
+    "samuel-1sa-1-20:t1": {
+      "fingerprint": "707bea6d49a25e16b3556ccba636f0c5df6a543d4fc55bed2fb84f3a8c248702",
+      "note": "Boy, lying down before lamp extinguished, repeated divine calls all in expanded passage."
+    },
+    "samuel-1sa-1-20:t2": {
+      "fingerprint": "afff25d87dbcd0c50ddda715674150e841dffb3cd272205799e860f67bbe59d1",
+      "note": "Samuel pours oil from flask on Saul."
+    },
+    "samuel-1sa-1-20:t3": {
+      "fingerprint": "9362142ef1efbe4b0373ce1ec30cff951f0f3be93a37c8b4352ba9f56e4e7ea3",
+      "note": "Jesse youngest is fetched and anointed as David."
+    },
+    "samuel-1sa-1-20:l1": {
+      "fingerprint": "c868f62939291fee91ce1ebe4f4a8b5f854691851fa5500c6392a08496b40236",
+      "note": "Specific calling episode is under Eli, not a claim about all prior occupations."
+    },
+    "samuel-1sa-1-20:l2": {
+      "fingerprint": "bd2d5276ecf4472f4c313b404ba381e1a57936e5753d7ce1ad4e59271ecb9781",
+      "note": "Judicial appointment and dishonest bribery explicitly contradict honest sons."
+    },
+    "david-rut-4-17:t1": {
+      "fingerprint": "bb16168d4c1bc85c0e164ae2061fab751ba95de254e0508deaf6e5104b1c41ee",
+      "note": "Jesse family and youngest David identified in expanded range."
+    },
+    "david-rut-4-17:t2": {
+      "fingerprint": "7314ef90e04bc17a50282556c35e28ee6b7722971b7adf3b65dadfe2d5fdfd99",
+      "note": "David harp playing relieves Saul."
+    },
+    "david-rut-4-17:t3": {
+      "fingerprint": "954c42b36782d244ef7bbfc868581e6bb99cb1e61e1d13b50e27365ab6bf809e",
+      "note": "Accession age explicitly thirty."
+    },
+    "david-rut-4-17:l1": {
+      "fingerprint": "4c4b5ac4a3fc5429781a8fe0d045094a956bf78bb46d7231b6d4b5423298cf10",
+      "note": "Five smooth stones, not seven; correction uses BSB brook."
+    },
+    "david-rut-4-17:l2": {
+      "fingerprint": "a32a77bfb42ade508d8d015138ca416e80eb64d23cb35a556b4ad3e11f16b442",
+      "note": "Jonathan son of Saul; added friendship evidence links Jonathan to David."
+    },
+    "solomon-2sa-5-14:t1": {
+      "fingerprint": "31d441732ea271d5a7a337228ecf2fe0659bba134b87f4310e0ded676f90ae1a",
+      "note": "God invitation and Solomon request for understanding heart now included."
+    },
+    "solomon-2sa-5-14:t2": {
+      "fingerprint": "34d2ea6311dd7d5f6c5638b0d7bc44648ac5d77855b2c2abf93d7eb182b9e6ed",
+      "note": "Temple construction completed; unnecessary location removed."
+    },
+    "solomon-2sa-5-14:t3": {
+      "fingerprint": "0d430cdbe153e2855d6bc8af544ead66d02cabdb1b40aa8cd3a9839dc309aff1",
+      "note": "Queen of Sheba tests him with difficult questions, BSB key wording retained."
+    },
+    "solomon-2sa-5-14:l1": {
+      "fingerprint": "035d41573198dc4dca811fa14e53d17a6a7291c7b50ca778d6a2ef544a08e5aa",
+      "note": "Bathsheba gives birth to Solomon, not Michal."
+    },
+    "solomon-2sa-5-14:l2": {
+      "fingerprint": "c873181294b0a43a3e220aa7a923392150b6e679393e88275e6d5ccf3907406b",
+      "note": "Reign over all Israel forty years, not twenty."
+    },
+    "elijah-1ki-17-1:t1": {
+      "fingerprint": "6c7a9e6ecb824abc5fb67d750895f7a626a8240a218b0638fd2e9e9d15ffe874",
+      "note": "Elijah at brook and ravens delivering bread/meat explicitly linked."
+    },
+    "elijah-1ki-17-1:t2": {
+      "fingerprint": "138631ce47c6cbaf23f98b39ead03454e638dc068c8b3736de8b6f959f3dfe9f",
+      "note": "Assembly on Carmel and Elijah addressing prophets both included."
+    },
+    "elijah-1ki-17-1:t3": {
+      "fingerprint": "ab93acc7acbd32d77739715b6bd6b6db2651a496a873d798b64e536a66525818",
+      "note": "Whirlwind ascension explicit, no chariot substitution."
+    },
+    "elijah-1ki-17-1:l1": {
+      "fingerprint": "11ab5b302e847b5d846857a207dd64379c0f3efd3fd9fd4da01076a53ff526a8",
+      "note": "Elisha appointed successor and called; not Gehazi."
+    },
+    "elijah-1ki-17-1:l2": {
+      "fingerprint": "5d5895666e72712f041dd8317bb6feb359ff45521579f606c59971bdd78d1441",
+      "note": "Forty-day flight destination is Horeb, not Egypt; same journey specified."
+    },
+    "elisha-1ki-19-16:t1": {
+      "fingerprint": "45c9134f5c75b0722666e38be9f1e6643c89a840a5b03a20d6a3d9374b461246",
+      "note": "Elisha asks Elijah for double portion."
+    },
+    "elisha-1ki-19-16:t2": {
+      "fingerprint": "29e92c6c3dea1e6bbb0c983c037b6cbd286dd101a7bea504076062d2cc40ef34",
+      "note": "Expanded passage identifies Elisha as man of God making iron float."
+    },
+    "elisha-1ki-19-16:t3": {
+      "fingerprint": "6a25000c788fd57122739fc8b7ce1d0ab150d4aebbd334e84f255880843f1df1",
+      "note": "Messenger conveys Elisha command to wash seven times in Jordan."
+    },
+    "elisha-1ki-19-16:l1": {
+      "fingerprint": "a98d01999de9ecb684fa2d678a20d23273d64174c3b7eac39c921239d80712f1",
+      "note": "Patronymic Shaphat contradicts Amoz."
+    },
+    "elisha-1ki-19-16:l2": {
+      "fingerprint": "1f145916626c098c8baf060444a936ee15f493867fbef49c015b7dad35ba6bd6",
+      "note": "At calling Elisha plows with twelve teams, not mending nets."
+    },
+    "jonah-2ki-14-25:t1": {
+      "fingerprint": "8c3aa591cfa473aa079d7469ec2397f117a52fab97f7a765a191add345722331",
+      "note": "Jonah explicitly boards ship bound Tarshish."
+    },
+    "jonah-2ki-14-25:t2": {
+      "fingerprint": "8fd89b9f33308571d21cbafbb3e0848d31490d5848591c1ce088f23fc36ec267",
+      "note": "Great fish, not a disputed whale claim; three days and nights explicit."
+    },
+    "jonah-2ki-14-25:t3": {
+      "fingerprint": "43f5849ad6fd75b1e500b87c55044ea0869c09f74d1be5d47a230450f50e6c3c",
+      "note": "Divinely appointed vine shades head; plant is verse wording."
+    },
+    "jonah-2ki-14-25:l1": {
+      "fingerprint": "1d5cb9747fdee88d4da64dd5b3b8fc33a0159853cd0b83ca7a168f048117c46f",
+      "note": "Commission destination Nineveh, not Babylon."
+    },
+    "jonah-2ki-14-25:l2": {
+      "fingerprint": "20dedd18a33ef7548a516f3d891a24c237a6f1292d26f7fe11b1875656f73dc9",
+      "note": "Jonah warning followed by Ninevites belief/fast, not ignoring."
+    },
+    "esther-est-2-7:t1": {
+      "fingerprint": "6a9913a1ce519610d32877b575d9f65ce0d4eb2708679f7fe2c127466d02cbdf",
+      "note": "Daughter of Mordecai uncle establishes cousin; upbringing explicit."
+    },
+    "esther-est-2-7:t2": {
+      "fingerprint": "7d2bd802b2243cc3ab683c1c77ee2cc5a3e43a20f07358f8b50c2873e65bd570",
+      "note": "Queen replacement of Vashti explicit."
+    },
+    "esther-est-2-7:t3": {
+      "fingerprint": "db36338a09b6473cc1ef1c509d75fe0c2c8de11273ee10dcb33f7162dc9f4769",
+      "note": "Susa Jews and three-day fast request explicit."
+    },
+    "esther-est-2-7:l1": {
+      "fingerprint": "96e9671854608ae0aa0a823eb5097736bf400527368528b5d99f1b5f97f1d037",
+      "note": "Same coronation explicitly by Xerxes, not Nebuchadnezzar."
+    },
+    "esther-est-2-7:l2": {
+      "fingerprint": "97243fc4a2274f7ae211e2ba2d5d0e99b29be5fbf620778d0b5b1a3530a1d6bf",
+      "note": "Hadassah identified as Esther; no claim about language of names needed."
+    },
+    "daniel-ezk-14-14:t1": {
+      "fingerprint": "c78dcc9015a13acfd7ea81063e6750e76f0effefb5878322a4874f7acafffc06",
+      "note": "Expanded food refusal and vegetable request identify Daniel."
+    },
+    "daniel-ezk-14-14:t2": {
+      "fingerprint": "41658b7b5af0a9089f1d51b6a5593fdc2b05d7cb7d5bdd0a53284f553fc1efdb",
+      "note": "Windows toward Jerusalem and three daily prayers explicit."
+    },
+    "daniel-ezk-14-14:t3": {
+      "fingerprint": "6b758efee6588c0767f7c90a1131dea2fdfe201764263c1b41119e1a15a547e1",
+      "note": "Daniel response to Belshazzar and reading/interpretation included."
+    },
+    "daniel-ezk-14-14:l1": {
+      "fingerprint": "328648b3a8bde0a35b65be72511ba8f2c294001b259bef359c234c1623f503f1",
+      "note": "Darius signs decree and orders lions-den confinement, not Nebuchadnezzar."
+    },
+    "daniel-ezk-14-14:l2": {
+      "fingerprint": "0df494430b3f039332f39b19fa5c310a510eae857cb6347491f6237a7dfb1e1e",
+      "note": "Babylonian king summons captive young men including Daniel; not Assyria."
+    },
+    "nehemiah-neh-1-1:t1": {
+      "fingerprint": "5233791cbe7ad62a4df449f99ec64f1b01adffbdb8e6abb5f633ae123aa6a483",
+      "note": "Cupbearer to king explicit; unnecessary Persia qualifier removed."
+    },
+    "nehemiah-neh-1-1:t2": {
+      "fingerprint": "9d3deee66c64e5810b2f80c81ef7403daf9dbf9812ad8e3c4d08b48c8b5b206b",
+      "note": "Laborers carry materials with weapon in other hand."
+    },
+    "nehemiah-neh-1-1:t3": {
+      "fingerprint": "e5e4406478ccbae2e930abc037bcc9087c4ee0f82d7a558bdb9be0fdf905a49c",
+      "note": "Wall completion fifty-two days explicit; unnecessary place qualifier removed."
+    },
+    "nehemiah-neh-1-1:l1": {
+      "fingerprint": "21bb8e47888ab288eecd261c490fd110b04385d3460899a32faac4cee935acac",
+      "note": "Specific wine service dated to Artaxerxes, not a claim about every past ruler."
+    },
+    "nehemiah-neh-1-1:l2": {
+      "fingerprint": "03b017d06da19b55ceb163b4b01c5dcd1d127fdd9bdb6fc67be1abf5acb647a0",
+      "note": "Ezra reads; Nehemiah governor identified in same assembly."
+    },
+    "mary-mat-1-16:t1": {
+      "fingerprint": "2b14f49b8d29ea6a5b201ee9cd3e6b60d52cf1e4dfdba07e03a0258399902fbb",
+      "note": "Gabriel, Mary and announcement of son all explicit."
+    },
+    "mary-mat-1-16:t2": {
+      "fingerprint": "4e301b83615e7b66677f35e42e8a40ef9d1cbcb0fee7934a978a84f4b5ec3c62",
+      "note": "Elizabeth relative and Mary visit included in expanded range."
+    },
+    "mary-mat-1-16:t3": {
+      "fingerprint": "9bcf4b8cc775f0875d9077758fc3b51e15b70589c4b8c332d04b2af54992c815",
+      "note": "Mother near Jesus cross; label specifies mother of Jesus rather than namesake."
+    },
+    "mary-mat-1-16:l1": {
+      "fingerprint": "b82e40968384ddb55a6200ff0eb269c0906a6a60f72665822ded340974739ad3",
+      "note": "Gabriel sent to Nazareth, not Bethlehem."
+    },
+    "mary-mat-1-16:l2": {
+      "fingerprint": "28d28248b0d2813189da6c3c8fb139604d17662743a3962ae20ed701516e9124",
+      "note": "Mary pledged to Joseph of David house, not Zechariah."
+    },
+    "john-mat-3-1:t1": {
+      "fingerprint": "84ef07c5a9a8c73fcbc2c86dc5dac3adbcfe65c63d6a208cf6c98a7ad83c827d",
+      "note": "Locusts and wild honey explicitly food of Baptist."
+    },
+    "john-mat-3-1:t2": {
+      "fingerprint": "104798a9c96f5d5ba099f66a5cdaf96d8fa573246265151e12f8b4b0fdd1c2f8",
+      "note": "Priest Zechariah and promised son John linked by expanded range."
+    },
+    "john-mat-3-1:t3": {
+      "fingerprint": "4e460ec82d4ab9539f1cefa54371ef6b1365e3751b170f9fd12cc757e252a94e",
+      "note": "Herod order and beheading both included."
+    },
+    "john-mat-3-1:l1": {
+      "fingerprint": "bf0fa14fe47bc255fe473b24525125e4f10ce321c007f999afceb183514753b1",
+      "note": "Narrated garment camel hair/leather belt, not fine linen robes."
+    },
+    "john-mat-3-1:l2": {
+      "fingerprint": "50c6ddaf4e005e6478e70197256fecafff2dbca9769ab3b22b4387d528e2dca1",
+      "note": "Specified Jerusalem crowds baptized in Jordan, not claim about every baptism."
+    },
+    "peter-mat-4-18:t1": {
+      "fingerprint": "60c2e8bc978304477dab0c8d312649a648a3a0f0520d1f62e70cb592e86c35ed",
+      "note": "Peter walks toward Jesus on water explicitly."
+    },
+    "peter-mat-4-18:t2": {
+      "fingerprint": "b26ded088671dba8dfe435ec8c42205cefa1cad40ba15ab54f1a745b607425f1",
+      "note": "All three denials included, not merely a prediction."
+    },
+    "peter-mat-4-18:t3": {
+      "fingerprint": "75025aa5cefe348d3ecf094dc60e4719bcf69c975c7bbcb60f7f1666d85171fe",
+      "note": "Simon Peter brother Andrew explicitly identified."
+    },
+    "peter-mat-4-18:l1": {
+      "fingerprint": "e354d3e02c9f7931d37e9e644d2d89762fe8b908728d9a29ffadbb55656839f1",
+      "note": "Calling scene is casting fishing nets, not collecting taxes."
+    },
+    "peter-mat-4-18:l2": {
+      "fingerprint": "074ac4f6fc1cf346ae887f1f04cc113087fae64058c0847b2678c45100c86595",
+      "note": "Specific naming by Jesus is Cephas/Peter, not unsupported claims about all earlier names."
+    },
+    "zacchaeus-luk-19-2:t1": {
+      "fingerprint": "e7f60cdefecee0407b1130db5a06d943e8287edc05421e37129dc078e53464b6",
+      "note": "Zacchaeus identity and sycamore climb connected by expanded range."
+    },
+    "zacchaeus-luk-19-2:t2": {
+      "fingerprint": "3665928b0967a19054d357ee41eca5914e2f5aa931ae549e68f09e25db298109",
+      "note": "Jericho setting and chief tax collector explicit."
+    },
+    "zacchaeus-luk-19-2:t3": {
+      "fingerprint": "05e105447a9f12d7ac8cde2c8afe7a364b1e43a8a3bd9ce6a775de72c9edc138",
+      "note": "Half possessions to poor explicit."
+    },
+    "zacchaeus-luk-19-2:l1": {
+      "fingerprint": "14a913928974e77317c778ccc792e94ac92a18ae402686010e0ecc64f127aa40",
+      "note": "Small stature prevents view, opposite of being tall enough."
+    },
+    "zacchaeus-luk-19-2:l2": {
+      "fingerprint": "9ed704cd00a72cf824c0f0467d7fee4251ab50a3472f9e9fd856c2c6dd9bd998",
+      "note": "Repayment explicitly fourfold, not twice."
+    },
+    "paul-act-7-58:t1": {
+      "fingerprint": "86b439b705ad0f8c35d490e4d92997d6f5002f9d05042a36cfd797e9b80fabef",
+      "note": "Paul first-person birth in Tarsus stated."
+    },
+    "paul-act-7-58:t2": {
+      "fingerprint": "e51b213afb92dffc8d9ba1b00a2585304aef7ddfac88a42790e1376c6e37a5bb",
+      "note": "Damascus road light followed by inability to see explicit."
+    },
+    "paul-act-7-58:t3": {
+      "fingerprint": "97aff719da910c13d3fb2b82f338286760915bceca38bf0209554060b457e900",
+      "note": "Ship breaking up and Paul escape now joined to Malta landing."
+    },
+    "paul-act-7-58:l1": {
+      "fingerprint": "7f87f90a3310a036a32e71bb4d076d7fb5908c5bfbbbdc6354ccdc1227f1ab19",
+      "note": "Aquila/Priscilla and shared tentmaking identified together, same work not earlier career."
+    },
+    "paul-act-7-58:l2": {
+      "fingerprint": "e5946ad7154546848b7f5ea15967a165148392cc2cad243e22c16d4da0df7219",
+      "note": "Tribe explicitly Benjamin, not Judah."
+    },
+    "lydia-act-16-14:t1": {
+      "fingerprint": "3151a0d9f5f0c178edbde41fbf545b067b01e85a93b54219fc176704b547c324",
+      "note": "Lydia dealer in purple cloth explicit."
+    },
+    "lydia-act-16-14:t2": {
+      "fingerprint": "c546ad6b9fed85a3801e6c1c40058ee40f46d07d0453af0f01b185bf31348a39",
+      "note": "Home city explicitly Thyatira."
+    },
+    "lydia-act-16-14:t3": {
+      "fingerprint": "282b7db46c88d99990d3fbf30e8d9b467b242eca7823ef73e2c453b7eceabe38",
+      "note": "River prayer meeting and Lydia hearing Paul connected by expanded range."
+    },
+    "lydia-act-16-14:l1": {
+      "fingerprint": "025d22e3018df2ad6cefcb84bcff7dd64960b8d7d95d2dccb29d5014f057753a",
+      "note": "Specified riverside episode in Philippi, not generic denial of any future Corinth meeting."
+    },
+    "lydia-act-16-14:l2": {
+      "fingerprint": "ec4ccfd83124afebae5266382ed63d30c538a0797da5e1e4d0ba60953c21e88e",
+      "note": "Home city Thyatira contradicts Athens."
+    }
+  },
+  "triples": {
+    "noah-gen-5-29:l1|noah-gen-5-29:t1|noah-gen-5-29:t2": {
+      "fingerprint": "cddec0b2568977cb2770b44ab10b618515122d7676d91df7809b0174bf3585f4",
+      "note": "Reviewed question text together: flood-age, birds, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "noah-gen-5-29:l1|noah-gen-5-29:t1|noah-gen-5-29:t3": {
+      "fingerprint": "6d4927ec758f087503ba3944ad86134455bc83ad665c6bb2660a6433894daad7",
+      "note": "Reviewed question text together: flood-age, vineyard, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "noah-gen-5-29:l1|noah-gen-5-29:t2|noah-gen-5-29:t3": {
+      "fingerprint": "8e5e149dff5a02ab145ca1e329fc6129939c05015d85325788f4cce0eefbc5c5",
+      "note": "Reviewed question text together: birds, vineyard, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "noah-gen-5-29:l2|noah-gen-5-29:t1|noah-gen-5-29:t2": {
+      "fingerprint": "7f3bfc26618664ed5c1ccbd0a796f0420d9433f228f952237e23cde6abe26458",
+      "note": "Reviewed question text together: flood-age, birds, ark-rest. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "noah-gen-5-29:l2|noah-gen-5-29:t1|noah-gen-5-29:t3": {
+      "fingerprint": "5dd0408b45330c233de43308c6d637306e8e46abe21b3056e846ffdd97ddbd7d",
+      "note": "Reviewed question text together: flood-age, vineyard, ark-rest. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "noah-gen-5-29:l2|noah-gen-5-29:t2|noah-gen-5-29:t3": {
+      "fingerprint": "a13d52dfd1a702cb4d998946d3b561aed94eced717d330c9f65824d8505e6f5e",
+      "note": "Reviewed question text together: birds, vineyard, ark-rest. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "abraham-gen-11-26:l1|abraham-gen-11-26:t1|abraham-gen-11-26:t2": {
+      "fingerprint": "10841770eea6f15fdd0847460b026ecc5d1494a1257a6a7bb21a44e8063cb0db",
+      "note": "Reviewed question text together: isaac-birth-age, family-origin, ishmael-mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "abraham-gen-11-26:l1|abraham-gen-11-26:t1|abraham-gen-11-26:t3": {
+      "fingerprint": "cb98389aa7d155c1a2ddc7dbd2d6285b1f3692c99da51969fd5d17dd4adee0d0",
+      "note": "Reviewed question text together: isaac-birth-age, sarah-burial, ishmael-mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "abraham-gen-11-26:l1|abraham-gen-11-26:t2|abraham-gen-11-26:t3": {
+      "fingerprint": "bdf6736de541599ac4b32aa83d4231439a035c49459c704a5a5dfc10bbfbcaba",
+      "note": "Reviewed question text together: family-origin, sarah-burial, ishmael-mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "abraham-gen-11-26:l2|abraham-gen-11-26:t2|abraham-gen-11-26:t3": {
+      "fingerprint": "1a662f7a5756149b026ddc7a624052abd4e9e0778466c98daec14553bc8e345f",
+      "note": "Reviewed question text together: family-origin, sarah-burial, haran-departure-age. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l1|sarah-gen-11-29:t1|sarah-gen-11-29:t2": {
+      "fingerprint": "b29b0e1ba5183872715276148da808759c66334cf92ceafe496c23f8c0a9d8bb",
+      "note": "Reviewed question text together: promised-child, death-age, burial. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l1|sarah-gen-11-29:t1|sarah-gen-11-29:t3": {
+      "fingerprint": "5b1c78d01c38a470ca703d5541d1c6b610b7913840b238fe51309d17a4e948b9",
+      "note": "Reviewed question text together: promised-child, name, burial. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l1|sarah-gen-11-29:t2|sarah-gen-11-29:t3": {
+      "fingerprint": "f17a94bd3be8d3559b669f296df6278839a22ecb1c04a487c181c248cfe27dee",
+      "note": "Reviewed question text together: death-age, name, burial. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l2|sarah-gen-11-29:t1|sarah-gen-11-29:t2": {
+      "fingerprint": "7a130c15d96db367418bcfc3b66d0c0696d01ba68eb5a5e8e27987796a11bd1c",
+      "note": "Reviewed question text together: promised-child, death-age, promise-age. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l2|sarah-gen-11-29:t1|sarah-gen-11-29:t3": {
+      "fingerprint": "80ec325c4d8bc645d6d535aa3a87ec03927f108335f63f9310e13d2442cf6e0f",
+      "note": "Reviewed question text together: promised-child, name, promise-age. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "sarah-gen-11-29:l2|sarah-gen-11-29:t2|sarah-gen-11-29:t3": {
+      "fingerprint": "5adffa736fd019fef39217d56ed8a114b16174dcd7e948bb789d5080d3e0f367",
+      "note": "Reviewed question text together: death-age, name, promise-age. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "israel-gen-25-26:l1|israel-gen-25-26:t1|israel-gen-25-26:t2": {
+      "fingerprint": "74383be60eb01e4215e17d74f393a193021048a83357b5092ad708291fd2a9e0",
+      "note": "Reviewed question text together: rachel-love, dream, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "israel-gen-25-26:l1|israel-gen-25-26:t1|israel-gen-25-26:t3": {
+      "fingerprint": "b5a6bfe907d6745f4283e3b0fedad42f6d2552be066176cf9a60c65f44292f3c",
+      "note": "Reviewed question text together: rachel-love, name, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "israel-gen-25-26:l1|israel-gen-25-26:t2|israel-gen-25-26:t3": {
+      "fingerprint": "e9846561036c4186037e7c9ff3bbe98061ff3cb0a28bbcce2ddba33c0855d8ef",
+      "note": "Reviewed question text together: dream, name, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "israel-gen-25-26:l2|israel-gen-25-26:t2|israel-gen-25-26:t3": {
+      "fingerprint": "e44b8eb9abf76399f533f1f527d3968a4cc374b526ed1df2a4de47e8453758a4",
+      "note": "Reviewed question text together: dream, name, rachel-love. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joseph-gen-30-24:l1|joseph-gen-30-24:t1|joseph-gen-30-24:t2": {
+      "fingerprint": "19d5043ffc5e63ba62933aa383653fe396f750afa0922aa91feeee31c33c5534",
+      "note": "Reviewed question text together: sale, service-age, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joseph-gen-30-24:l1|joseph-gen-30-24:t1|joseph-gen-30-24:t3": {
+      "fingerprint": "31f9637f64718084aa3c528d4ae47a877347bca494fd632b24550ecef111e8b0",
+      "note": "Reviewed question text together: sale, dreams, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joseph-gen-30-24:l1|joseph-gen-30-24:t2|joseph-gen-30-24:t3": {
+      "fingerprint": "8e9a9a5f089c80cd61cbe8ecb98e615c411a1f1907e69290d32b1188dc3f9745",
+      "note": "Reviewed question text together: service-age, dreams, birth-order. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joseph-gen-30-24:l2|joseph-gen-30-24:t2|joseph-gen-30-24:t3": {
+      "fingerprint": "ee6052bf2cbdd4ff8d0bfcd248d64b83adfa88a40042c8874e95c15eda5fa251",
+      "note": "Reviewed question text together: service-age, dreams, sale. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l1|moses-exo-2-10:t1|moses-exo-2-10:t2": {
+      "fingerprint": "a607b88d132f171404689161cffad52266637bcc08bbe450afc515fe89c0f052",
+      "note": "Reviewed question text together: pharaoh-age, jethro, basket. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l1|moses-exo-2-10:t1|moses-exo-2-10:t3": {
+      "fingerprint": "175d76b758c0345086540172ebb74c36066f17f261ac5de0b8a098bddf66ebbe",
+      "note": "Reviewed question text together: pharaoh-age, death-age, basket. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l1|moses-exo-2-10:t2|moses-exo-2-10:t3": {
+      "fingerprint": "a9ab95da73045b058342ee289a8a2e873951abd86dac670b48d0404b6a052a96",
+      "note": "Reviewed question text together: jethro, death-age, basket. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l2|moses-exo-2-10:t1|moses-exo-2-10:t2": {
+      "fingerprint": "96a868b9976491800ab8e7df7a359802b9639c2e1400141b4575e339ebdcd43f",
+      "note": "Reviewed question text together: pharaoh-age, jethro, jordan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l2|moses-exo-2-10:t1|moses-exo-2-10:t3": {
+      "fingerprint": "e246077d4a10b5091c1bcd72402dca7de57c1383d7c76caac5344dcab42a9e11",
+      "note": "Reviewed question text together: pharaoh-age, death-age, jordan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "moses-exo-2-10:l2|moses-exo-2-10:t2|moses-exo-2-10:t3": {
+      "fingerprint": "f1fbd12e98cb3064a191623d228041449006da9971773d90ea6fc311d97dd4ea",
+      "note": "Reviewed question text together: jethro, death-age, jordan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l1|aaron-exo-4-14:t1|aaron-exo-4-14:t2": {
+      "fingerprint": "c7910b6e9ef8efd69cb68bd1853149137631816780c61a3bbfdb660a0915252a",
+      "note": "Reviewed question text together: age, staff, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l1|aaron-exo-4-14:t1|aaron-exo-4-14:t3": {
+      "fingerprint": "d769e0817ec1199201f2a8d5975e630d5bb1b23cd0e355361c8205e211a5a3f8",
+      "note": "Reviewed question text together: age, calf, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l1|aaron-exo-4-14:t2|aaron-exo-4-14:t3": {
+      "fingerprint": "01a14dd34a15b2d8f15e8daad2fa0f53365338522607c3fe6887aa22150574ad",
+      "note": "Reviewed question text together: staff, calf, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l2|aaron-exo-4-14:t1|aaron-exo-4-14:t2": {
+      "fingerprint": "d5cf51da693616e717f254983c469344c31f6c16d530bad6babb7d396e0e3af8",
+      "note": "Reviewed question text together: age, staff, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l2|aaron-exo-4-14:t1|aaron-exo-4-14:t3": {
+      "fingerprint": "5271959c963668c8ae667e126adcb8df767273b7514563aa51af17001ce176f4",
+      "note": "Reviewed question text together: age, calf, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "aaron-exo-4-14:l2|aaron-exo-4-14:t2|aaron-exo-4-14:t3": {
+      "fingerprint": "3cc5a7c46013a2bd8e1bf3bde8a1a325a56a8c401cb12db08f503b57b2d93f2d",
+      "note": "Reviewed question text together: staff, calf, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "miriam-exo-15-20:l1|miriam-exo-15-20:t1|miriam-exo-15-20:t2": {
+      "fingerprint": "e98ba47d1c79738bd709363ac8fc6f8608ddffe8f951ac7a27d4b864d454c7c3",
+      "note": "Reviewed question text together: prophecy, tambourine, family. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "miriam-exo-15-20:l2|miriam-exo-15-20:t1|miriam-exo-15-20:t2": {
+      "fingerprint": "7367a57e8b5e48e3bf1b6108db18b5f08b5b99ef9b7cf7ee8db55be87de2108f",
+      "note": "Reviewed question text together: prophecy, tambourine, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "miriam-exo-15-20:l2|miriam-exo-15-20:t1|miriam-exo-15-20:t3": {
+      "fingerprint": "730f45ccd0199664db3c800104d1657d565b6d53d9b5bd9a669192716d0773ea",
+      "note": "Reviewed question text together: prophecy, criticism, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "miriam-exo-15-20:l2|miriam-exo-15-20:t2|miriam-exo-15-20:t3": {
+      "fingerprint": "5fcb9cd1fad57cdcbc206f37fa03ada884495c7ff41f6f44e8e08edc9c1dbf3a",
+      "note": "Reviewed question text together: tambourine, criticism, death-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joshua-exo-17-9:l1|joshua-exo-17-9:t1|joshua-exo-17-9:t2": {
+      "fingerprint": "bbcb867d25dc44584b9d69815ab58079ce472079caee07d869b3f7da1a98d671",
+      "note": "Reviewed question text together: spies, jericho, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joshua-exo-17-9:l1|joshua-exo-17-9:t1|joshua-exo-17-9:t3": {
+      "fingerprint": "63099be1c2fc330078fc7262987cc900a8decf60796e5d4ac49827b42a8d7fa5",
+      "note": "Reviewed question text together: spies, death-age, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joshua-exo-17-9:l1|joshua-exo-17-9:t2|joshua-exo-17-9:t3": {
+      "fingerprint": "6b029437a735499cee549be8e251df3d275f091597fba56f7d195698a091de85",
+      "note": "Reviewed question text together: jericho, death-age, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "joshua-exo-17-9:l2|joshua-exo-17-9:t1|joshua-exo-17-9:t3": {
+      "fingerprint": "7e3e235cb09f8e70934af49d938d5a575fb0a691759d7ccd9768593828efa3dd",
+      "note": "Reviewed question text together: spies, death-age, jericho. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l1|rahab-jos-2-1:t1|rahab-jos-2-1:t2": {
+      "fingerprint": "6cda1abaf3e3a6f66d4b527ac730f03e7169bbc58b5ed72672fb0a3ec13e839f",
+      "note": "Reviewed question text together: spies, escape, city. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l1|rahab-jos-2-1:t1|rahab-jos-2-1:t3": {
+      "fingerprint": "998589c52c92f4eac0de1cd74d3df16065675d2128a799550d95a73f95ccfae3",
+      "note": "Reviewed question text together: spies, lineage, city. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l1|rahab-jos-2-1:t2|rahab-jos-2-1:t3": {
+      "fingerprint": "598c5d7abf3dade677b94d8943274cf7aa9dcb344cd58cccfa226c1779e9c9fe",
+      "note": "Reviewed question text together: escape, lineage, city. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l2|rahab-jos-2-1:t1|rahab-jos-2-1:t2": {
+      "fingerprint": "222edffea82f3af44d20df3aa664402bf36682a2a0d53be7ad2f2d6a540b15bd",
+      "note": "Reviewed question text together: spies, escape, signal. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l2|rahab-jos-2-1:t1|rahab-jos-2-1:t3": {
+      "fingerprint": "d618dcddb96996e7678de7788b264bcf3a9eed6b4cbb1e428e2ba20172d2abd7",
+      "note": "Reviewed question text together: spies, lineage, signal. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "rahab-jos-2-1:l2|rahab-jos-2-1:t2|rahab-jos-2-1:t3": {
+      "fingerprint": "4fbcfcd5281166d8723a3c2eb19a3e9e0fb825a147369993a2cbdd7630c9f0e6",
+      "note": "Reviewed question text together: escape, lineage, signal. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "deborah-jdg-4-4:l1|deborah-jdg-4-4:t1|deborah-jdg-4-4:t2": {
+      "fingerprint": "aa97a9ac2509ff6f03b352cdbe97f972586d50bdb8c49e6cc85918f7f5b792c4",
+      "note": "Reviewed question text together: judgment, prophecy, sisera. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "deborah-jdg-4-4:l1|deborah-jdg-4-4:t1|deborah-jdg-4-4:t3": {
+      "fingerprint": "b012a36b9e665e894bab12c36300387e9d476bf9b3daa63d1e142b17f7274225",
+      "note": "Reviewed question text together: judgment, barak, sisera. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "deborah-jdg-4-4:l1|deborah-jdg-4-4:t2|deborah-jdg-4-4:t3": {
+      "fingerprint": "51f636caabd68ee775033455298034d3301ca705736b721ec8f64d469e80d1ff",
+      "note": "Reviewed question text together: prophecy, barak, sisera. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "deborah-jdg-4-4:l2|deborah-jdg-4-4:t1|deborah-jdg-4-4:t2": {
+      "fingerprint": "a6fccea23a4ec37d34bd72b20a36d67895ec9d9a4fca2b259b9d41f47fa94813",
+      "note": "Reviewed question text together: judgment, prophecy, barak. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l1|gideon-jdg-6-11:t1|gideon-jdg-6-11:t2": {
+      "fingerprint": "616dfb1b3eb640b4734b12a9d3ff952b22d17b21015d218ad093058957f419ed",
+      "note": "Reviewed question text together: fleece, army, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l1|gideon-jdg-6-11:t1|gideon-jdg-6-11:t3": {
+      "fingerprint": "e6e796850aa3b2be40fb48f4fe5291cc015e62a44d6acb53beb3f600b234a9b8",
+      "note": "Reviewed question text together: fleece, winepress, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l1|gideon-jdg-6-11:t2|gideon-jdg-6-11:t3": {
+      "fingerprint": "e17962195cf13f854a405e0e471b2762ba268f84944f2ffa37e671883dca5b4b",
+      "note": "Reviewed question text together: army, winepress, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l2|gideon-jdg-6-11:t1|gideon-jdg-6-11:t2": {
+      "fingerprint": "7e1975451417ca85fc2e43069463246e325dffb06cc07eda0b5549444fa83310",
+      "note": "Reviewed question text together: fleece, army, kingship. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l2|gideon-jdg-6-11:t1|gideon-jdg-6-11:t3": {
+      "fingerprint": "5c34f51de1ef41b13b209fa4c73cf37743538611a91d8bb48fb27d1f20f07704",
+      "note": "Reviewed question text together: fleece, winepress, kingship. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "gideon-jdg-6-11:l2|gideon-jdg-6-11:t2|gideon-jdg-6-11:t3": {
+      "fingerprint": "2ab000556930d73eeb11a41867e64bbaf4ff194a1c46273ca988c531ba7eb534",
+      "note": "Reviewed question text together: army, winepress, kingship. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l1|samson-jdg-13-24:t1|samson-jdg-13-24:t2": {
+      "fingerprint": "d7f6622fa5c4d5f42bcaa09adc9736060c35c39b5a6c5f67e601381282252d3d",
+      "note": "Reviewed question text together: lion, jawbone, captors. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l1|samson-jdg-13-24:t1|samson-jdg-13-24:t3": {
+      "fingerprint": "5dfe7a014a6504d9dd775392a8be9616050578e1e4c275cdf3cafcffb45b6a67",
+      "note": "Reviewed question text together: lion, foxes, captors. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l1|samson-jdg-13-24:t2|samson-jdg-13-24:t3": {
+      "fingerprint": "db3ac6dc2d3171a015eb39f6ce7c3720e9938efddb5ed1f06ff8ed9bcf28d001",
+      "note": "Reviewed question text together: jawbone, foxes, captors. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l2|samson-jdg-13-24:t1|samson-jdg-13-24:t2": {
+      "fingerprint": "6c421419da16d4dd90064db0eda0af5c80ce45e3a0dd2373ddc7f84051d5bdf6",
+      "note": "Reviewed question text together: lion, jawbone, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l2|samson-jdg-13-24:t1|samson-jdg-13-24:t3": {
+      "fingerprint": "8d91719217f6e79bbb490aed31630ff3b7209af84ffb9ec62db9317be9f719f7",
+      "note": "Reviewed question text together: lion, foxes, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samson-jdg-13-24:l2|samson-jdg-13-24:t2|samson-jdg-13-24:t3": {
+      "fingerprint": "3f84fd6e356e1d7afdbbbe19bfc8175a3fd9f0047c5fe6b4b9318e2d5f666f72",
+      "note": "Reviewed question text together: jawbone, foxes, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l1|ruth-rut-1-4:t1|ruth-rut-1-4:t2": {
+      "fingerprint": "5846c975ab6771147904be7f678b019ec545ea4abb3f238a20bf76c6a3884a7c",
+      "note": "Reviewed question text together: moab-origin, gleaning, mother-in-law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l1|ruth-rut-1-4:t1|ruth-rut-1-4:t3": {
+      "fingerprint": "93c3e7cc649020babf536b00885e68eafe7dd574690b410d8b1ffeef8a4eefb4",
+      "note": "Reviewed question text together: moab-origin, lineage, mother-in-law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l1|ruth-rut-1-4:t2|ruth-rut-1-4:t3": {
+      "fingerprint": "3f69e2556b1fc1f954f9b10928034b4ba4af1733b70a8252eee1efb5b663bc12",
+      "note": "Reviewed question text together: gleaning, lineage, mother-in-law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l2|ruth-rut-1-4:t1|ruth-rut-1-4:t2": {
+      "fingerprint": "156ca9742ba8c1bfe8b164ef7ee455d71bc8282b3cb52648d84ed369c2a9e495",
+      "note": "Reviewed question text together: moab-origin, gleaning, naomi-journey. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l2|ruth-rut-1-4:t1|ruth-rut-1-4:t3": {
+      "fingerprint": "0a674869b9fd7be7c770574d09fa77ce3628768329bcf9e69ee3411ac643c223",
+      "note": "Reviewed question text together: moab-origin, lineage, naomi-journey. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "ruth-rut-1-4:l2|ruth-rut-1-4:t2|ruth-rut-1-4:t3": {
+      "fingerprint": "4d0b9e20ba092edce71c4ab6ee5437e634e3cfecafb322c1ba473347e816ec36",
+      "note": "Reviewed question text together: gleaning, lineage, naomi-journey. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l1|hannah-1sa-1-2:t1|hannah-1sa-1-2:t2": {
+      "fingerprint": "7e33fc6c2b2d17f9c135e35bb55dbe21d2f1121ec1db2e07812604066126807b",
+      "note": "Reviewed question text together: prayer, samuel, husband. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l1|hannah-1sa-1-2:t1|hannah-1sa-1-2:t3": {
+      "fingerprint": "8822264f8df62abc4614f04a2f0b993384ed6bd923fa7800552864db7c9f17d4",
+      "note": "Reviewed question text together: prayer, robe, husband. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l1|hannah-1sa-1-2:t2|hannah-1sa-1-2:t3": {
+      "fingerprint": "1cbf3ece3f481f895423d5cead1efa98519e679d10f3683e6a28814ea46b19a0",
+      "note": "Reviewed question text together: samuel, robe, husband. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l2|hannah-1sa-1-2:t1|hannah-1sa-1-2:t2": {
+      "fingerprint": "323cfb7e3c296900bed1579b0e33204569082bc1746e23d63058923a8a650684",
+      "note": "Reviewed question text together: prayer, samuel, children. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l2|hannah-1sa-1-2:t1|hannah-1sa-1-2:t3": {
+      "fingerprint": "3924b3b5b4ceae922a0fe39b27c27b5f63ba0e9c411b72d4c817d6df161f1c6f",
+      "note": "Reviewed question text together: prayer, robe, children. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "hannah-1sa-1-2:l2|hannah-1sa-1-2:t2|hannah-1sa-1-2:t3": {
+      "fingerprint": "cfd85ad3eddeb81217fac9a42c9e8b354ee77a924d98ac6a932e0ec750909361",
+      "note": "Reviewed question text together: samuel, robe, children. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samuel-1sa-1-20:l1|samuel-1sa-1-20:t2|samuel-1sa-1-20:t3": {
+      "fingerprint": "0377a6f2e1ec19fc7aa9fc2f20a409b7ece4f8ad586abbcab79af9d3a53fa04a",
+      "note": "Reviewed question text together: saul, david, calling. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samuel-1sa-1-20:l2|samuel-1sa-1-20:t1|samuel-1sa-1-20:t2": {
+      "fingerprint": "bc0a386d76a0f102f39499a4d702fb5031614df58a89ef6db76786f6fa713dfe",
+      "note": "Reviewed question text together: calling, saul, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samuel-1sa-1-20:l2|samuel-1sa-1-20:t1|samuel-1sa-1-20:t3": {
+      "fingerprint": "930b5f7842abb2a646b124af0681ce826ece0e0d1a23f5ff962a6c6b20f7b7af",
+      "note": "Reviewed question text together: calling, david, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "samuel-1sa-1-20:l2|samuel-1sa-1-20:t2|samuel-1sa-1-20:t3": {
+      "fingerprint": "94d0855726ce614d202354780a459717cff53e40cced11836c0d6f98e4473a15",
+      "note": "Reviewed question text together: saul, david, sons. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l1|david-rut-4-17:t1|david-rut-4-17:t2": {
+      "fingerprint": "89e26a0bf28e52701645ceb6e8d1a8ee9867e7dd1f5efccb8ebb912c69dacf72",
+      "note": "Reviewed question text together: birth-order, harp, stones. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l1|david-rut-4-17:t1|david-rut-4-17:t3": {
+      "fingerprint": "43ab2365173e85f382c649d75b1a4db0ab8810705024d89013be057c9416dbc4",
+      "note": "Reviewed question text together: birth-order, accession-age, stones. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l1|david-rut-4-17:t2|david-rut-4-17:t3": {
+      "fingerprint": "e08346cb52af8739ef76594c70a49e8a0985a20ca61cd0d481dda536e52fd7e5",
+      "note": "Reviewed question text together: harp, accession-age, stones. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l2|david-rut-4-17:t1|david-rut-4-17:t2": {
+      "fingerprint": "38540705cfdc2f268f3ed074804d9d87dd8f21875f83fa0cbe8954ce0cca1905",
+      "note": "Reviewed question text together: birth-order, harp, jonathan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l2|david-rut-4-17:t1|david-rut-4-17:t3": {
+      "fingerprint": "cd8dbabc1f19838dd532691d43ab0aa5c1070891d94a8568fba22a0a1a65acb5",
+      "note": "Reviewed question text together: birth-order, accession-age, jonathan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "david-rut-4-17:l2|david-rut-4-17:t2|david-rut-4-17:t3": {
+      "fingerprint": "5a1f85a910931bfb1cf7e5348b950c758a25896250572ec22699223f851131e7",
+      "note": "Reviewed question text together: harp, accession-age, jonathan. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l1|solomon-2sa-5-14:t1|solomon-2sa-5-14:t2": {
+      "fingerprint": "97822c7f951fdda665a488204f068beb87ee778dd918f4d41112281d4bbcaa2a",
+      "note": "Reviewed question text together: wisdom, temple, mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l1|solomon-2sa-5-14:t1|solomon-2sa-5-14:t3": {
+      "fingerprint": "2cb269f33b5de26fd9658145aa739bf82746391e668bd230ffd41bbf9521cd24",
+      "note": "Reviewed question text together: wisdom, sheba, mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l1|solomon-2sa-5-14:t2|solomon-2sa-5-14:t3": {
+      "fingerprint": "1ce2c130f47ea2a9537149618cb1a09e332b28ea9e073f1286cd6aa960594e13",
+      "note": "Reviewed question text together: temple, sheba, mother. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l2|solomon-2sa-5-14:t1|solomon-2sa-5-14:t2": {
+      "fingerprint": "24f637b6c4d72db7e4644795896dce0a0a243abb7732fc39c24f886f33f124f0",
+      "note": "Reviewed question text together: wisdom, temple, reign-length. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l2|solomon-2sa-5-14:t1|solomon-2sa-5-14:t3": {
+      "fingerprint": "68dfe8f89f596271480c6b39994272fe8a8c2038cac744350b715eb2ddd52582",
+      "note": "Reviewed question text together: wisdom, sheba, reign-length. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "solomon-2sa-5-14:l2|solomon-2sa-5-14:t2|solomon-2sa-5-14:t3": {
+      "fingerprint": "6e50bb52434e8993f4d6dbf546ec7aca15987efb8956846dacf9edc1e0863866",
+      "note": "Reviewed question text together: temple, sheba, reign-length. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l1|elijah-1ki-17-1:t1|elijah-1ki-17-1:t2": {
+      "fingerprint": "c98ce8897e11e6b7e17af5c892585ebcb2f6db11e8859f6b5d4395a39664d0fc",
+      "note": "Reviewed question text together: ravens, carmel, successor. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l1|elijah-1ki-17-1:t1|elijah-1ki-17-1:t3": {
+      "fingerprint": "6b6a8a835a467668d19ce5530f3028baf101fef85bd2171e7d2a67c1be462397",
+      "note": "Reviewed question text together: ravens, whirlwind, successor. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l1|elijah-1ki-17-1:t2|elijah-1ki-17-1:t3": {
+      "fingerprint": "e9d046ab0bc58b970c10e91c5cb20d1097e5060e6ab7076e2825292795862bee",
+      "note": "Reviewed question text together: carmel, whirlwind, successor. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l2|elijah-1ki-17-1:t1|elijah-1ki-17-1:t2": {
+      "fingerprint": "e7157397ebd44c37cea0dbfdd8d240f16c3153a4ebebce8eb52013465f8044ea",
+      "note": "Reviewed question text together: ravens, carmel, flight. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l2|elijah-1ki-17-1:t1|elijah-1ki-17-1:t3": {
+      "fingerprint": "e6f98687e485fc887cc1c01c038e34db0736e37e7aed1c2e083480c8fcdc30d4",
+      "note": "Reviewed question text together: ravens, whirlwind, flight. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elijah-1ki-17-1:l2|elijah-1ki-17-1:t2|elijah-1ki-17-1:t3": {
+      "fingerprint": "91fe58c41d5bde65bb0d4e015baa2cdb81f62befeb94de543236bdd7d0ac5aee",
+      "note": "Reviewed question text together: carmel, whirlwind, flight. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l1|elisha-1ki-19-16:t1|elisha-1ki-19-16:t2": {
+      "fingerprint": "bce4a821c75bb762d8e951c80c3ce304ff3ceea1165341736f829cae9e2160f0",
+      "note": "Reviewed question text together: double-portion, axe, father. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l1|elisha-1ki-19-16:t1|elisha-1ki-19-16:t3": {
+      "fingerprint": "9a109bbb918fe92b308344208af7abf859949cc4c9c351c0b029a38aae822e95",
+      "note": "Reviewed question text together: double-portion, naaman, father. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l1|elisha-1ki-19-16:t2|elisha-1ki-19-16:t3": {
+      "fingerprint": "77d600ac14926f8e7bdfa13d490dd8f4f557d2fba385ad0a4bf1ff27fe816166",
+      "note": "Reviewed question text together: axe, naaman, father. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l2|elisha-1ki-19-16:t1|elisha-1ki-19-16:t2": {
+      "fingerprint": "2e03eeca162ca3f5771ef0ede36724349320d78bab71c35e7e2172c384e952bc",
+      "note": "Reviewed question text together: double-portion, axe, calling. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l2|elisha-1ki-19-16:t1|elisha-1ki-19-16:t3": {
+      "fingerprint": "6513e91f5a56bf1ce3405fc398e471e564a9044837ed09c430a04ac6b4e9101e",
+      "note": "Reviewed question text together: double-portion, naaman, calling. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "elisha-1ki-19-16:l2|elisha-1ki-19-16:t2|elisha-1ki-19-16:t3": {
+      "fingerprint": "b498f76d6713bbababf656f3fa2133e777e96202673fc0b46971cc87ad6a47ff",
+      "note": "Reviewed question text together: axe, naaman, calling. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l1|jonah-2ki-14-25:t1|jonah-2ki-14-25:t2": {
+      "fingerprint": "acc01833235f22638b8f94c2806339729250e24f61ad02342caae9b603502401",
+      "note": "Reviewed question text together: tarshish, fish, commission. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l1|jonah-2ki-14-25:t1|jonah-2ki-14-25:t3": {
+      "fingerprint": "9fcf71b691843fa6d5e6b15baeb68e5284d31ea14ba1c34d2dcf4c45c3f8253f",
+      "note": "Reviewed question text together: tarshish, shade, commission. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l1|jonah-2ki-14-25:t2|jonah-2ki-14-25:t3": {
+      "fingerprint": "3d2f7de8ce0950c087922a38a19f0f0b9e0815a3cfdc7a6801b15968e3b5e70c",
+      "note": "Reviewed question text together: fish, shade, commission. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l2|jonah-2ki-14-25:t1|jonah-2ki-14-25:t2": {
+      "fingerprint": "e275d47824ea34f2d211ffc05abecccd7e3a9ba8e61b0b00636a51948bdb3e82",
+      "note": "Reviewed question text together: tarshish, fish, response. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l2|jonah-2ki-14-25:t1|jonah-2ki-14-25:t3": {
+      "fingerprint": "541ee3e9c28b3a3594698deab80c9497b19c789cc9cc617bc8cb29a5174529d4",
+      "note": "Reviewed question text together: tarshish, shade, response. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "jonah-2ki-14-25:l2|jonah-2ki-14-25:t2|jonah-2ki-14-25:t3": {
+      "fingerprint": "d71da35b8e6ec28168748062756bbf00a5f0db2cafb8dfa23883d6b0ab2ece28",
+      "note": "Reviewed question text together: fish, shade, response. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "esther-est-2-7:l1|esther-est-2-7:t1|esther-est-2-7:t3": {
+      "fingerprint": "4e45fdc07b923a622af5aa4449668cafa41bf2bbc6eaa88a346e14504ff27501",
+      "note": "Reviewed question text together: mordecai, fast, queen. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "esther-est-2-7:l2|esther-est-2-7:t1|esther-est-2-7:t2": {
+      "fingerprint": "bc4a36f875902ca3e931326db6eb87076cbe6f08abad42cfe9b6bfd8c2d96ce2",
+      "note": "Reviewed question text together: mordecai, queen, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "esther-est-2-7:l2|esther-est-2-7:t1|esther-est-2-7:t3": {
+      "fingerprint": "88298079216cdfc418ec66fce28e8ac880a5dbfc100db468fca6eb87db3eb785",
+      "note": "Reviewed question text together: mordecai, fast, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "esther-est-2-7:l2|esther-est-2-7:t2|esther-est-2-7:t3": {
+      "fingerprint": "4a1e787f206c75fd0823ae77f9f763033721d0989dbac83ce8fb313e086a0b30",
+      "note": "Reviewed question text together: queen, fast, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l1|daniel-ezk-14-14:t1|daniel-ezk-14-14:t2": {
+      "fingerprint": "e6eab016c08904f1b017426b4c7cc3d0f596d65130fb7665d22cc90fd32be2f8",
+      "note": "Reviewed question text together: food, prayer, lions. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l1|daniel-ezk-14-14:t1|daniel-ezk-14-14:t3": {
+      "fingerprint": "0066f62103a2cd9a31adc3de97b6026985ec96837643a3b1e371fdda3d929e19",
+      "note": "Reviewed question text together: food, writing, lions. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l1|daniel-ezk-14-14:t2|daniel-ezk-14-14:t3": {
+      "fingerprint": "9aaabce170ffdeaad8f1ce03dcf10ee4f8ddcfbf8bbd10b057bc52425d745dee",
+      "note": "Reviewed question text together: prayer, writing, lions. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l2|daniel-ezk-14-14:t1|daniel-ezk-14-14:t2": {
+      "fingerprint": "4b473e52267d596a90de1879df256317e92ab7b7dde0599fcb7672313d8a7e0b",
+      "note": "Reviewed question text together: food, prayer, exile. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l2|daniel-ezk-14-14:t1|daniel-ezk-14-14:t3": {
+      "fingerprint": "7bda2e3ba80adf0d1bb90a47a2e589f91bb6b50e20bd1d143985e9ad068489e5",
+      "note": "Reviewed question text together: food, writing, exile. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "daniel-ezk-14-14:l2|daniel-ezk-14-14:t2|daniel-ezk-14-14:t3": {
+      "fingerprint": "145345e0e64d7572192a42c937ad9f4a8c9cac6aee2b382a9b477464a4fea2e3",
+      "note": "Reviewed question text together: prayer, writing, exile. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "nehemiah-neh-1-1:l1|nehemiah-neh-1-1:t2|nehemiah-neh-1-1:t3": {
+      "fingerprint": "6a5b8496a0d4961d575a37044860c88c798e99f8615f9dfcb2791c866ececed1",
+      "note": "Reviewed question text together: builders, wall, cupbearer. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "nehemiah-neh-1-1:l2|nehemiah-neh-1-1:t1|nehemiah-neh-1-1:t2": {
+      "fingerprint": "68198f29770054d4c3a6c12011b6ac2c5d67ecc2e2cd27733ce8f8fc7df90464",
+      "note": "Reviewed question text together: cupbearer, builders, law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "nehemiah-neh-1-1:l2|nehemiah-neh-1-1:t1|nehemiah-neh-1-1:t3": {
+      "fingerprint": "1e441bae450eb6f07158ce6c8bf214923efcceab6097574182d76d3dc779a523",
+      "note": "Reviewed question text together: cupbearer, wall, law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "nehemiah-neh-1-1:l2|nehemiah-neh-1-1:t2|nehemiah-neh-1-1:t3": {
+      "fingerprint": "ac821ec557d5cc2ad94a453e5d1b5164f7430d52db0be5d59d4eea7b919431df",
+      "note": "Reviewed question text together: builders, wall, law. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l1|mary-mat-1-16:t1|mary-mat-1-16:t2": {
+      "fingerprint": "4f6d7f021c01c77dac9209d458272645db831bc518e2c071e92a2a2053e329ac",
+      "note": "Reviewed question text together: angel, elizabeth, angel-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l1|mary-mat-1-16:t1|mary-mat-1-16:t3": {
+      "fingerprint": "d5eb09e58f88f88f3f15b18b31c8c2a7f2ef8f50d29748f31b68f17bc1b85a95",
+      "note": "Reviewed question text together: angel, cross, angel-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l1|mary-mat-1-16:t2|mary-mat-1-16:t3": {
+      "fingerprint": "d44a03f76d15bffa37b564d9a8346135ac6d7672806b8155b93b5adcb27d6121",
+      "note": "Reviewed question text together: elizabeth, cross, angel-place. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l2|mary-mat-1-16:t1|mary-mat-1-16:t2": {
+      "fingerprint": "a7898ab1a1da9c8d17e38115836464b0265388b66b60ed9483c01941789b23dc",
+      "note": "Reviewed question text together: angel, elizabeth, engagement. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l2|mary-mat-1-16:t1|mary-mat-1-16:t3": {
+      "fingerprint": "fea8ebb67f3ad8485fda0aff358981a08cec12db8d289e861bd8fcf4eeef1928",
+      "note": "Reviewed question text together: angel, cross, engagement. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "mary-mat-1-16:l2|mary-mat-1-16:t2|mary-mat-1-16:t3": {
+      "fingerprint": "97ff46468ae4137225bb5636cd44ede7e6f0d86d022f240b07a6a629e7c9a885",
+      "note": "Reviewed question text together: elizabeth, cross, engagement. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l1|john-mat-3-1:t1|john-mat-3-1:t2": {
+      "fingerprint": "32bc1a0446caacdff6dacb59621d8c51dbe867571c1009d26565d40c2c13c5a5",
+      "note": "Reviewed question text together: food, father, clothing. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l1|john-mat-3-1:t1|john-mat-3-1:t3": {
+      "fingerprint": "988015bfd9122092c58ce0580c42c21db62236bcfa86ff5149c49d4adaa65e92",
+      "note": "Reviewed question text together: food, death, clothing. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l1|john-mat-3-1:t2|john-mat-3-1:t3": {
+      "fingerprint": "9a4c7ed3a04c9313753c1082c892fe1bbf0af903f7a20cc901b51ad6f5d23ec2",
+      "note": "Reviewed question text together: father, death, clothing. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l2|john-mat-3-1:t1|john-mat-3-1:t2": {
+      "fingerprint": "7c4843b9c882f4150c9a73e6bf7dddf35cfabb93eaebd79aafadeae7eba28bdf",
+      "note": "Reviewed question text together: food, father, baptism. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l2|john-mat-3-1:t1|john-mat-3-1:t3": {
+      "fingerprint": "81d737210e20801dbe1ee3de8c32b3125742571380bd2fec5aa3c3e2a20d495a",
+      "note": "Reviewed question text together: food, death, baptism. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "john-mat-3-1:l2|john-mat-3-1:t2|john-mat-3-1:t3": {
+      "fingerprint": "25d38e89547e20822303dcd7a51e8c0b2de8b496ba19a6f76d8bf2401f6aeeaf",
+      "note": "Reviewed question text together: father, death, baptism. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l1|peter-mat-4-18:t1|peter-mat-4-18:t2": {
+      "fingerprint": "aca7331e6087ef9a8fb3de0230b53c1079cc0141aa77024b5505db5ee27f1530",
+      "note": "Reviewed question text together: water, denial, calling-work. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l1|peter-mat-4-18:t1|peter-mat-4-18:t3": {
+      "fingerprint": "3743aa29d6f79713ba1324fc547943b03ea7ad1f931f6e347b745595d5e0a4f2",
+      "note": "Reviewed question text together: water, brother, calling-work. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l1|peter-mat-4-18:t2|peter-mat-4-18:t3": {
+      "fingerprint": "5aaa62ed6aba9ade3b77c06b03843c49b1fb6f0d3d72814bc123c4aa9b5a8916",
+      "note": "Reviewed question text together: denial, brother, calling-work. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l2|peter-mat-4-18:t1|peter-mat-4-18:t2": {
+      "fingerprint": "acc9998d0371fe2d8ccc033fe62af3b9d1a23d31d59df30d4dd2e65db3ee97d8",
+      "note": "Reviewed question text together: water, denial, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l2|peter-mat-4-18:t1|peter-mat-4-18:t3": {
+      "fingerprint": "6e95a83aff65e9b7ff6802102c9fb01e9bf60a41688375f15920d96f5cc4b529",
+      "note": "Reviewed question text together: water, brother, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "peter-mat-4-18:l2|peter-mat-4-18:t2|peter-mat-4-18:t3": {
+      "fingerprint": "b9590ca6c38f3a9a637f0bd669c1438313daa73105b8a741adb161fee19e4e0d",
+      "note": "Reviewed question text together: denial, brother, name. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "zacchaeus-luk-19-2:l1|zacchaeus-luk-19-2:t2|zacchaeus-luk-19-2:t3": {
+      "fingerprint": "c39b5925392ee96081968052b00d5da57454975675c07e4ad5df6f7dd5eb7a0b",
+      "note": "Reviewed question text together: occupation, giving, height. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "zacchaeus-luk-19-2:l2|zacchaeus-luk-19-2:t1|zacchaeus-luk-19-2:t2": {
+      "fingerprint": "3dda1fff14cee8d3e34fa783cea77d6ebfea1d7a9edbd73808cb681b03c79666",
+      "note": "Reviewed question text together: tree, occupation, repayment. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l1|paul-act-7-58:t1|paul-act-7-58:t2": {
+      "fingerprint": "2be726f94b02ee21d3f4100a27246d2026e608889fbb23276821cee7184924f9",
+      "note": "Reviewed question text together: birthplace, damascus, trade. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l1|paul-act-7-58:t1|paul-act-7-58:t3": {
+      "fingerprint": "b1474d8ee38019f36dd32e9f5d27f2c3454fc6d187e15379690b1e86aee301ed",
+      "note": "Reviewed question text together: birthplace, shipwreck, trade. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l1|paul-act-7-58:t2|paul-act-7-58:t3": {
+      "fingerprint": "71a9149d1c387ff5fef52c2cd3a6710882841111ec31a44c65910db16faf46fb",
+      "note": "Reviewed question text together: damascus, shipwreck, trade. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l2|paul-act-7-58:t1|paul-act-7-58:t2": {
+      "fingerprint": "a4fdbb5c0f9b60eea72758674093aca761ad7f60b48edbf35cc0e7070b81dd55",
+      "note": "Reviewed question text together: birthplace, damascus, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l2|paul-act-7-58:t1|paul-act-7-58:t3": {
+      "fingerprint": "613379fb0b910c4645c4a4659f91f8153c563338337d83505681bd45388af160",
+      "note": "Reviewed question text together: birthplace, shipwreck, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "paul-act-7-58:l2|paul-act-7-58:t2|paul-act-7-58:t3": {
+      "fingerprint": "0f113930e688daeb1a053f34a573ece6eef0528d06323086c3aa3e86a3425406",
+      "note": "Reviewed question text together: damascus, shipwreck, tribe. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "lydia-act-16-14:l1|lydia-act-16-14:t1|lydia-act-16-14:t2": {
+      "fingerprint": "5d99e287969d0c991d514084d3b9d6984742ae6d75b4c0edd757ae1b2618ab5f",
+      "note": "Reviewed question text together: trade, home-city, meeting-city. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    },
+    "lydia-act-16-14:l2|lydia-act-16-14:t1|lydia-act-16-14:t3": {
+      "fingerprint": "23a9dcaadc0a1b1f1263e638c3016bb95237e8ee567340268673dbd1d9181aa8",
+      "note": "Reviewed question text together: trade, riverside, home-city. Distinct facts; neither truth states the correction or settles the other statement. Namesake-qualified person label only; biographical tags and evidence withheld until reveal."
+    }
+  }
+}

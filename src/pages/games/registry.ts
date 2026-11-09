@@ -111,7 +111,7 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "family", art: GAME_ART.charades,
   },
   {
-    slug: "two-truths", status: "coming-soon", title: "Two truths and a lie",
+    slug: "two-truths", status: "live", load: () => import("./two-truths/TwoTruthsGame"), title: "Two truths and a lie",
     description: "Three statements about a Bible character: spot the one that was made up.",
     audiences: ["solo", "youth-group"],
     shelf: "groups", art: GAME_ART.twoTruths,

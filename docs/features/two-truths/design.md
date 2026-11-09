@@ -89,7 +89,7 @@
 | `check` | Words that must occur, as written, in the cited verses of the site's Berean Standard Bible (the build checks this). |
 | `truth` | Lies only: the correction, one sentence, shown after "The truth:". |
 | `swap` | Lies only: what was changed: `person`, `place`, `number`, `object`, `group` (tribe or nation), `order` or `outcome`. |
-| `swapIn` | Lies only: the exact words in `text` that carry the made-up detail ("Babylon", "seven stones", "Gehazi"). The build checks they are in the lie and **not** in the lie's own verses. |
+| `swapIn` | Lies only: the exact words in `text` that carry the made-up detail ("Babylon", "seven stones", "Gehazi"). The build checks they occur in the lie; presence or absence in the cited verses does not prove contradiction. Recorded semantic review establishes the contradiction (§5.4). |
 | `topic` | Short key ("age-at-death", "birthplace"). Two statements with the same topic are never dealt together. |
 | `clash` | Optional list of statement ids never dealt with this one, for cases the topic key misses (Appendix A, Zacchaeus). |
 | `reviewed` | Boolean; only explicitly reviewed statements may ship, including hand-written ones. |
@@ -183,9 +183,9 @@ An import script (follow-up job) reads the BatchRunner output folder, keeps only
 
 ### 6.1 Ten rounds (solo, the default)
 
-- Ten rounds, ten different people. Each round: the person's label and tag, then three statements marked A, B and C. Tap the one you think is made up.
+- Ten rounds, ten different people. Each round: the person's label, then three statements marked A, B and C. The biography tag appears only after reveal (§8.2–8.3). Tap the one you think is made up.
 - **Score:** one point per lie spotted. No timer, no lives: the game is about reading and learning, and a family can play it together on one phone.
-- After each pick, the reveal (§8.3) opens in place; *Next* moves on.
+- After the player confirms the selected statement (§8.2), the reveal (§8.3) opens in place; *Next* moves on.
 - **End screen:** score out of ten, a short line by score band (0–4 "Good start", 5–7 "Well read", 8–9 "Sharp eye", 10 "Perfect"), the recap (each person, with the lie struck through and its truth), *Play again*, and *Share*. The share text is the game name, the score and one square per round (🟩 spotted, 🟥 missed), plus the site address. No statements, so no spoilers and no lies travelling on their own.
 - **Kept on the device:** best score, games played, average score.
 
@@ -723,3 +723,5 @@ One critical review, 2026-11-08, sequence 31 step 11. Reviewed against approved 
 - Repair repository-relative Markdown links from the actual design folder.
 
 Validation: the accompanying review script checks all 150 Appendix A reference ranges and check phrases against local BSB data. Phrase matches do not prove a fact or contradiction. Step 12 must record semantic approval of all launch statements and valid triples; no model run is needed for the starter deck. Runtime tests and the site build were not run for this documentation review. The feature-specific scope and never-deploy rules govern this step despite general project publication guidance.
+
+Recovery reconciliation (2026-11-08): aligned the §4.1 swapIn table and §6.1 summary with the already-reviewed detailed rules: semantic contradiction review, biography tags only after reveal, and explicit pick confirmation. No gameplay requirement or verification gate changed.
