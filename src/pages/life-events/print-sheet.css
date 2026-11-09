@@ -4,6 +4,8 @@
 .print-sheet-portal { display: none; }
 
 @media print {
+  /* The browser's dark color scheme otherwise paints the paper margins dark even around a white sheet. */
+  html.print-sheet-active { color-scheme: light !important; }
   html.print-sheet-active,
   html.print-sheet-active body { margin: 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; background: #fff !important; }
   html.print-sheet-active body > :not(.print-sheet-portal) { display: none !important; }

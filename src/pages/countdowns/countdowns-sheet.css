@@ -12,6 +12,8 @@
 .cds-rows .cds-name { font-weight: 600; }
 .cds-box { width: 7pt; height: 7pt; margin-top: 1pt; border: .6pt solid #333; }
 .cds-rows-compact { font-size: 7pt; line-height: 1.15; }
+/* Lent's 47 readings need three columns to leave room for the QR/link in each half-page insert. */
+.cds-rows-compact:has(> li:nth-child(33)) { columns: 3; column-gap: 12pt; }
 .cds-rows-compact > li { grid-template-columns: 40pt minmax(0, 1fr); padding: 1pt 0; }
 .cds-rows-compact .cds-name, .cds-rows-compact .cds-ref { grid-column: 2; }
 .cds-rows-compact .cds-name:empty { display: none; }

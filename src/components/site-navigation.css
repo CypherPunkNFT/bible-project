@@ -4,3 +4,11 @@
 .site-navigation>span{align-self:center}
 .site-navigation>.site-nav-selected{color:var(--accent);font-weight:600;background:color-mix(in srgb,var(--accent) 9%,var(--surface));box-shadow:inset 0 -4px var(--accent)}
 .site-navigation>.site-nav-item:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+/* Keep the full brand and every control on narrow phones without shrinking targets. */
+@media(max-width:359px){
+  [data-site-header] .site-header-row{column-gap:4px;padding-inline:12px}
+  .site-header-row>a:first-child{gap:4px;font-size:16px}
+  .site-header-row>a:first-child>img{width:28px;height:28px}
+  .site-header-row .language-menu-panel{right:auto;left:50%;transform:translateX(-50%)}
+}
+.site-header-row :is(a,button):focus-visible{box-shadow:0 0 0 2px var(--accent)}
