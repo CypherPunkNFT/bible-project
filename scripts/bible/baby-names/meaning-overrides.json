@@ -1,5 +1,5 @@
 {
-  "_about": "Hand-checked meanings (design 3.3 rule 1). Every entry cites the local source it rests on. Entries keyed 'Name|H1234' settle one original word's flagged draft (a Strong's chain ending on an ordinary word, or a gloss too long for a headline); their wording is taken from Strong's own text along that chain, reviewed by hand in job 824 (2026-11-09). Easton's Bible Dictionary (1897) is quoted from the CCEL copy already in SOURCES.md (easton-txt, sources/ccel/ebd2.txt).",
+  "_about": "Hand-checked meanings (design 3.3 rule 1). Every entry cites the local source it rests on. Entries keyed 'Name|H1234' settle one original word's flagged draft (a Strong's chain ending on an ordinary word, or a gloss too long for a headline); their wording is taken from Strong's own text along that chain, reviewed by hand in job 824 (2026-11-09); entries marked job 836 settle Strong's pointers the build cannot follow by rule (2026-11-09). Easton's Bible Dictionary (1897) is quoted from the CCEL copy already in SOURCES.md (easton-txt, sources/ccel/ebd2.txt).",
   "overrides": {
     "Mary": {
       "headline": "Meaning uncertain",
@@ -1489,6 +1489,91 @@
       "label": "Probable",
       "cite": "Strong's H6834 ('the same as H6833; Tsippor, a Moabite'); H6833 ('from H6852; a little bird (as hopping)'), usage: bird, fowl, sparrow",
       "reviewed": "job 824"
+    },
+    "Zion|H6726": {
+      "headline": "monumental or guiding pillar",
+      "label": "Probable",
+      "explanation": "Strong's treats the name as the same as the word for a monumental or guiding pillar, a landmark.",
+      "cite": "Strong's H6726 ('the same (regularly) as H6725'); H6725 ('a monumental or guiding pillar')",
+      "reviewed": "job 836"
+    },
+    "Simon|G4826": {
+      "headline": "hearing",
+      "label": "Probable",
+      "explanation": "Symeon comes from the same Hebrew name as Simon: Shimon, which Strong's glosses 'hearing'.",
+      "cite": "Strong's G4826 ('from the same as G4613; Symeon (i.e. Shimon)'); G4613 ('of Hebrew origin (H8095)'); H8095 ('from H8085; hearing')",
+      "reviewed": "job 836"
+    },
+    "Rahab|G4460": {
+      "headline": "proud",
+      "label": "Probable",
+      "explanation": "Raab is the Greek form of the Hebrew Rachab. The local Greek dictionary prints its source as G7343, a misprint for the Hebrew H7343.",
+      "cite": "Strong's G4460 ('of Hebrew origin (G7343); Raab (i.e. Rachab)'); H7343 ('the same as H7342; proud')",
+      "reviewed": "job 836"
+    },
+    "Rahab|G4477": {
+      "headline": "proud",
+      "label": "Probable",
+      "explanation": "Rachab comes from the same Hebrew name as Raab: Rachab, which Strong's glosses 'proud'. G7343 in the Greek dictionary is a misprint for the Hebrew H7343.",
+      "cite": "Strong's G4477 ('from the same as G4460; Rachab, a Canaanitess'); G4460 ('of Hebrew origin (G7343); Raab (i.e. Rachab)'); H7343 ('the same as H7342; proud')",
+      "reviewed": "job 836"
+    },
+    "Joanna|G2489": {
+      "headline": "favored by the LORD",
+      "label": "Probable",
+      "explanation": "Joanna is the feminine of John (Jochanan), 'favored by the LORD': Strong's gives 'Jehovah-favored'.",
+      "cite": "Strong's G2489 ('feminine of the same as G2491; Joanna, a Christian'); G2491 ('of Hebrew origin (H3110)'); H3110 ('a form of H3076'); H3076 ('from H3068 and H2603; Jehovah-favored')",
+      "reviewed": "job 836"
+    },
+    "Salome|G4539": {
+      "headline": "peace",
+      "label": "Probable (Strong's says 'probably')",
+      "explanation": "Strong's says Salome is probably the feminine of the Hebrew word shalom, whose senses include welfare and peace.",
+      "cite": "Strong's G4539 ('probably of Hebrew origin (feminine from H7965); Salome (i.e. Shelomah)'); H7965 ('safe, i.e. (figuratively) well, happy, friendly; also (abstractly) welfare, i.e. health, prosperity, peace')",
+      "reviewed": "job 836"
+    },
+    "Priscilla|G4252": {
+      "headline": "ancient",
+      "label": "Probable",
+      "origin": "Latin",
+      "explanation": "Priscilla is 'little Prisca'; Strong's gives Prisca as the feminine of the Latin Priscus, 'ancient'.",
+      "cite": "Strong's G4252 ('diminutive of G4251; Priscilla (i.e. little Prisca)'); G4251 ('of Latin origin; feminine of Priscus, ancient')",
+      "reviewed": "job 836"
+    },
+    "Sapphira|G4551": {
+      "headline": "sapphire",
+      "label": "Probable",
+      "explanation": "Strong's gives the name as the feminine of the word for the sapphire gem.",
+      "cite": "Strong's G4551 ('feminine of G4552; Sapphire, an Israelitess'); G4552 ('of Hebrew origin (H5601); a \"sapphire\" or lapis-lazuli gem')",
+      "reviewed": "job 836"
+    },
+    "Sosipater|G4989": {
+      "headline": "of a safe father",
+      "label": "Probable",
+      "explanation": "Sosipater is a longer form of Sopater, which Strong's glosses 'of a safe father'.",
+      "cite": "Strong's G4989 ('prolongation for G4986; Sosipatrus, a Christian'); G4986 ('from the base of G4982 and G3962; of a safe father')",
+      "reviewed": "job 836"
+    },
+    "Rhesa|G4488": {
+      "headline": "the LORD has cured",
+      "label": "Probable (Strong's says 'probably')",
+      "explanation": "Strong's says Rhesa is probably Hebrew, apparently the name Rephaiah, 'Jah has cured'.",
+      "cite": "Strong's G4488 ('probably of Hebrew origin (apparently for H7509); Resa (i.e. Rephajah)'); H7509 ('from H7495 and H3050; Jah has cured')",
+      "reviewed": "job 836"
+    },
+    "Esli|G2069": {
+      "headline": "towards the LORD are my eyes",
+      "label": "Probable (Strong's says 'probably')",
+      "explanation": "Strong's says Esli is probably the Hebrew Elioenai, 'towards Jehovah (are) my eyes'.",
+      "cite": "Strong's G2069 ('of Hebrew origin (probably for H454); Esli, an Israelite'); H454 ('from H413 and H3068 and H5869; towards Jehovah (are) my eyes')",
+      "reviewed": "job 836"
+    },
+    "Shema|H8087": {
+      "headline": "sound, rumor, announcement",
+      "label": "Probable",
+      "explanation": "Strong's gives the name as the word for something heard: a sound, rumor or announcement.",
+      "cite": "Strong's H8087 ('for the same as H8088; Shema'); H8088 ('from H8085; something heard, i.e. a sound, rumor, announcement')",
+      "reviewed": "job 836"
     }
   }
 }

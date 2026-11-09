@@ -386,3 +386,50 @@ The site data test replaces the earlier assertion that Esther, Matthew, Michal a
 - the three people's bearers.
 
 Gate results and browser screenshots are recorded in the job's report, not here.
+
+## 14. The 150-name hand check, and meanings the build had dropped — 9 November 2026
+
+This section records the check step (job 836) after section 13. The requirements above are unchanged.
+
+**The hand check (3.3, 3.4).** The US popularity file is still absent, so the hand check used the fallback list: the 150 names the Bible mentions most often (ties broken by slug; there is no tie at the cut-off). Each one's headline, label and themes were read against Strong's, the Berean's notes and Easton. The local Brown-Driver-Briggs file gives no etymology for these names (Zion and Othniel are entered only as a place and a person), so it changed nothing. The result is recorded name by name in `src/data/baby-names/theme-review.json`, together with every other name that has a hand-checked override (362 names in all; the override headlines were read again by eye and every quotation in their citations was checked mechanically). `theme-review.test.ts` fails if a later data or keyword change alters any of them, or brings a new name into the top 150, until someone checks those names again.
+
+**Themes.** The keyword list matched whole words only, so inflected forms were missed. For example, Samson ("sunlight") had no Light theme and Azariah ("the LORD has helped") had no Help theme. Sixteen forms were added to `themes.json`:
+- Light: sunlight, lightning, enlightener, enlightening
+- Help: helped, deliverer
+- Strength: strengthen, strengthened, heroic
+- Peace: comforter, comfortable, safety
+- Nature: fruits
+- God: almighty
+- Love: friendly
+
+27 names gained a theme from these words and none lost one. A known limit: on the short pages Malchiah, Malchiel and Malchijah, "king of (i.e. appointed by) …" matches three themes, and the two-theme cap keeps God and Gift.
+
+**Meanings Strong's gives that the build dropped.** Twenty-two names, and the second Greek forms on the Saul, Simon and Rahab pages, showed "Meaning uncertain" although Strong's gives a meaning:
+- **A gloss starting with "for" was read as a derivation.** The derivation pattern matched "for" without a word boundary, so it threw away glosses such as "force of God" (Othniel), "fortunate" (Gadi), "fortune of God" (Gaddiel), "forcible" (Othni), "forceful" (Uzzi), "forsaking" (Shobek) and "formative" (Izri). It now matches only the word "for". "a form for" and "formed like" are still read as derivations.
+- **Some pointer wordings were not followed.** The build now also follows "a shortened form of", "another form for", "a form for", "contraction for" and "of Hebrew origin, the same as". That gives Matthias, Matthat and Mattatha "gift of the LORD"; Paul's Greek name Saul "asked"; Silas "silvan" (from Silvanus); Hemam "raging"; and Zizah "prominence".
+- **Hedges along the chain now count.** A "probably" or "perhaps" on any step of the chain now gives the label "Probable (Strong's says 'probably')". Matthat and Mattatha carry it. So do these blocks, whose headlines are unchanged but which were labelled plain Probable before: Job (the second Hebrew form), Lazarus, Bezai, Ehi, Elienai, Jonam, Jorim, Joshah, Pinon, Shimeah, Shimeam, Uzzia, Vaniah and Zephon. Strong's "apparently" is not counted as a hedge, so Matthias stays plain Probable, as Michal does.
+- **Twelve meanings could not be reached by rule, so each has a reviewed override** (`"reviewed": "job 836"`), with Strong's wording quoted at every step:
+  - Zion: "monumental or guiding pillar", because Strong's says it is "the same (regularly) as" that word.
+  - Simon's and Rahab's second Greek forms: "hearing" and "proud". Strong's derives them "from the same" Hebrew name. The local Greek dictionary prints Rahab's source as G7343, a misprint for the Hebrew H7343, and the explanation says so.
+  - Joanna: "favored by the LORD" (the feminine of John).
+  - Salome: "peace", hedged.
+  - Priscilla: "ancient", Latin.
+  - Sapphira: "sapphire".
+  - Sosipater: "of a safe father".
+  - Rhesa: "the LORD has cured", hedged.
+  - Esli: "towards the LORD are my eyes", hedged.
+  - Shema: "sound, rumor, announcement".
+
+**Still uncertain, on purpose.** Each of these chains ends on "of foreign origin", on a root "of unknown meaning", on a pagan god, or only on a shared verb root, so none gives a meaning: Abednego, Shadrach, Merodach-baladan, Apollos, Zelophehad, Claudia, Elmadam, Hodiah's first form, and the place block on the Shiloh page. Mijamin and Miniamin also stay uncertain: the chain now reaches Strong's H4509, but its wording "from (the) right hand" reads as a derivation, not a gloss, and no override was written for it.
+
+**Checks.** An independent check found every quoted phrase in all 254 overrides in the local Strong's or Easton text. Two phrases are written differently from the source:
+- Phoebe's quotation spells the entry's Greek word φοῖβος in Latin letters.
+- Rahab's quotation keeps the misprinted G7343.
+
+The Python tests now cover:
+- glosses that start with "for";
+- the new pointer wordings;
+- hedges along a chain;
+- the new theme forms.
+
+The Vitest data test checks every meaning block of Othniel, Silas, Rahab, Saul and Simon. The data build still produces 1,815 pages (523 full), and no flagged draft is left without an override.

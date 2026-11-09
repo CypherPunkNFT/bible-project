@@ -121,6 +121,28 @@ def test_themes_come_from_the_headline_only_and_skip_negatives():
     assert themes_for(UNCERTAIN_HEADLINE, themes) == []
     assert themes_for("she has not received mercy", themes) == []
     assert themes_for("beloved", themes) == ["love"]
+    # Inflected forms found missing in the 150-name review (job 836): Samson, Barak, Hosea, Menahem, Ammishaddai.
+    assert themes_for("sunlight", themes) == ["light"] and themes_for("lightning", themes) == ["light"]
+    assert themes_for("deliverer", themes) == ["help"] and themes_for("comforter", themes) == ["peace"]
+    assert themes_for("people of the Almighty", themes) == ["god"]
+
+
+def test_glosses_starting_with_for_are_kept_and_hedges_along_a_chain_count():
+    """'force of God' is a gloss, not a 'for H…' derivation; 'a form for N' and 'probably a shortened form of N' are
+    pointers, and a hedge on any step labels the meaning hedged (job 836)."""
+    lexicon = {**LEXICON, **{e.id: e for e in [
+        entry("H6274", "from the same as H6273 and H410; force of God;", "Othniel, an Israelite"),
+        entry("H4509", "from H4480 and H3225; from (the) right hand;", "Minjamin, the name of two Israelites"),
+        entry("H4326", "a form for H4509;", "Mijamin, the name of three Israelites"),
+        entry("H4993", "from H4991 and H3050; gift of Jah;", "Mattithjah, the name of four Israelites"),
+        entry("G3161", "of Hebrew origin (H4993);", "Mattathias (i.e. Mattithjah), an Israelite and a Christian"),
+        entry("G3158", "probably a shortened form of G3161;", "Matthat (i.e. Mattithjah), the name of two Israelites"),
+    ]}}
+    assert (strongs_meaning("H6274", lexicon).headline, strongs_meaning("H6274", lexicon).label) == ("force of God", PROBABLE)
+    assert strongs_meaning("H4326", lexicon).chain == ["H4326", "H4509"]
+    matthat = strongs_meaning("G3158", lexicon)
+    assert (matthat.headline, matthat.label, matthat.chain) == ("gift of the LORD", PROBABLE_HEDGED, ["G3158", "G3161", "H4993"])
+    assert strongs_meaning("H7327", lexicon).headline == "friend"  # 'probably for H7468; friend;' stays a derivation
 
 
 def test_slug_rule():

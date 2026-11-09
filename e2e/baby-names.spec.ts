@@ -80,6 +80,21 @@ test.describe("baby names", () => {
     await page.screenshot({ path: test.info().outputPath("nature-filter.png") });
   });
 
+  test("meanings Strong's gives are shown, and inflected theme words reach their filter", async ({ page }) => {
+    await page.goto("/baby-names/othniel");
+    await expect(page.locator(".bn-headline")).toContainText("“force of God”");
+    await expect(page.locator(".bn-headline")).not.toContainText("Meaning uncertain");
+    await page.screenshot({ path: test.info().outputPath("othniel.png"), fullPage: true });
+    await page.goto("/baby-names/zion");
+    await expect(page.locator(".bn-headline")).toContainText("“monumental or guiding pillar”");
+    await page.screenshot({ path: test.info().outputPath("zion.png"), fullPage: true });
+    await page.goto("/baby-names");
+    await page.getByRole("group", { name: "Meaning" }).getByRole("button", { name: "Light", exact: true }).click();
+    await page.getByRole("searchbox", { name: "Search names" }).fill("Samson");
+    await expect(page.locator(".bn-row-name")).toHaveText(["Samson"]);
+    await page.screenshot({ path: test.info().outputPath("light-filter-samson.png") });
+  });
+
   test("a name page shows its meaning and verses and links to the person's page", async ({ page }) => {
     await page.goto("/baby-names/hannah");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Hannah: Meaning in the Bible");

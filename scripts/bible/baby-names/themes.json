@@ -1,16 +1,16 @@
 {
   "_about": "Meaning themes for the baby-name filters (docs/features/baby-names/design.md 3.4). A name gets up to two, matched as whole words in its headline meaning only. Shared with the tests.",
   "themes": {
-    "god": {"label": "God and the LORD", "words": ["god", "lord", "divine"]},
+    "god": {"label": "God and the LORD", "words": ["god", "lord", "divine", "almighty"]},
     "grace": {"label": "Grace and favour", "words": ["grace", "gracious", "favor", "favored", "favour", "favoured", "mercy", "merciful", "compassion", "compassionate", "graciousness"]},
     "gift": {"label": "Gift", "words": ["gift", "given", "granted", "gave", "reward", "add", "appointed"]},
     "joy": {"label": "Joy and praise", "words": ["joy", "joyful", "praise", "praised", "laughs", "laughter", "rejoice", "pleasant", "delight", "happy", "blessed", "blessing", "pleasantness", "pleasure"]},
-    "light": {"label": "Light", "words": ["light", "shining", "bright", "lamp", "star", "dawn", "morning", "sun", "fire", "brightness", "brilliancy", "flame"]},
-    "strength": {"label": "Strength and courage", "words": ["strength", "strong", "mighty", "might", "power", "powerful", "warrior", "hero", "courage", "brave", "firm", "victory", "conqueror", "rock"]},
-    "peace": {"label": "Peace and rest", "words": ["peace", "peaceful", "rest", "comfort", "quiet", "tranquil", "safe"]},
-    "help": {"label": "Help and rescue", "words": ["help", "helper", "saves", "saved", "salvation", "save", "savior", "deliver", "delivered", "deliverance", "rescued", "redeemed", "healed", "heals", "hears", "heard", "remembered"]},
-    "love": {"label": "Love and friendship", "words": ["love", "loving", "loved", "beloved", "friend", "friendship", "dear", "darling", "companion"]},
-    "nature": {"label": "Nature", "words": ["ewe", "bee", "dove", "palm", "lily", "rose", "tree", "lion", "gazelle", "deer", "flower", "garden", "olive", "vine", "myrrh", "cedar", "oak", "eagle", "lamb", "honey", "dew", "rain", "river", "sea", "field", "fruitful", "branch", "ibex", "hyrax", "raven", "wolf", "hawk", "bird", "heifer", "camel", "antelope", "grapes", "apple", "pomegranate", "cassia", "balsam", "grain", "fruit", "stream"]},
+    "light": {"label": "Light", "words": ["light", "shining", "bright", "lamp", "star", "dawn", "morning", "sun", "fire", "brightness", "brilliancy", "flame", "sunlight", "lightning", "enlightener", "enlightening"]},
+    "strength": {"label": "Strength and courage", "words": ["strength", "strong", "mighty", "might", "power", "powerful", "warrior", "hero", "courage", "brave", "firm", "victory", "conqueror", "rock", "strengthen", "strengthened", "heroic"]},
+    "peace": {"label": "Peace and rest", "words": ["peace", "peaceful", "rest", "comfort", "quiet", "tranquil", "safe", "safety", "comforter", "comfortable"]},
+    "help": {"label": "Help and rescue", "words": ["help", "helper", "saves", "saved", "salvation", "save", "savior", "deliver", "delivered", "deliverance", "rescued", "redeemed", "healed", "heals", "hears", "heard", "remembered", "helped", "deliverer"]},
+    "love": {"label": "Love and friendship", "words": ["love", "loving", "loved", "beloved", "friend", "friendship", "dear", "darling", "companion", "friendly"]},
+    "nature": {"label": "Nature", "words": ["ewe", "bee", "dove", "palm", "lily", "rose", "tree", "lion", "gazelle", "deer", "flower", "garden", "olive", "vine", "myrrh", "cedar", "oak", "eagle", "lamb", "honey", "dew", "rain", "river", "sea", "field", "fruitful", "branch", "ibex", "hyrax", "raven", "wolf", "hawk", "bird", "heifer", "camel", "antelope", "grapes", "apple", "pomegranate", "cassia", "balsam", "grain", "fruit", "fruits", "stream"]},
     "royalty": {"label": "Royalty", "words": ["king", "queen", "princess", "prince", "crown", "royal", "ruler", "rules", "noble", "lady", "mistress"]}
   }
 }

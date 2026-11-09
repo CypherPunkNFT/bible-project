@@ -136,6 +136,10 @@ describe("baby names: meanings", () => {
       expect([row.m, row.th], slug).toEqual([headline, ["nature"]]);
     }
     expect(nameFile("matthew").originals[0].meaning.headline).toBe("gift of the LORD");
+    // Strong's pointers and "for…" glosses the build once dropped (job 836): every block of these names has a meaning.
+    for (const [slug, headline] of [["othniel", "force of God"], ["silas", "silvan"], ["rahab", "proud"], ["saul", "asked"], ["simon", "hearing"]]) {
+      expect(nameFile(slug).originals.map((block) => block.meaning.headline), slug).toEqual(nameFile(slug).originals.map(() => headline));
+    }
   });
 
   it("keeps every headline short and well formed", () => {

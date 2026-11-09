@@ -21,10 +21,11 @@ MEANS = re.compile(r"(?:^|; |\. |Hebrew |which )(?P<name>[A-Z][\w-]+)(?: is anot
                    r"(?P<hedge>probably |possibly |likely )?means (?P<meaning>[^;.]+?)(?= and also sounds like|[;.]|$)")
 SOUNDS = re.compile(r"(?:^|; |\. )(?P<name>[A-Z][\w-]+),? (?:sounds like|also sounds like)(?P<pun>[^;.]+)")
 ARTICLE = r"^(?:an? |the )?(?:probably |perhaps |apparently )?"
-POINTER = re.compile(ARTICLE + r"(?:the same as|a form of|another form of|abbreviated form (?:of|for)|a shorter form of|shorter form of|a variation of|for|"
-                     r"of Hebrew origin \(|of Hebrew origin \(compare |Aramaic of|by contraction for|contracted for|"
+POINTER = re.compile(ARTICLE + r"(?:the same as|a form of|a form for|another form (?:of|for)|abbreviated form (?:of|for)|a shorter form of|"
+                     r"shorter form of|a shortened form of|a variation of|for|of Hebrew origin \(|of Hebrew origin \(compare |"
+                     r"of Hebrew origin, the same as|Aramaic of|by contraction for|contracted for|contraction for|"
                      r"abbreviated from) ?([HG]\d+)")
-DERIVATION = re.compile(ARTICLE + r"(?:from|the same as|a form of|a variation of|for|feminine|masculine|dual|plural|"
+DERIVATION = re.compile(ARTICLE + r"(?:from|the same as|a form of|form for|formed (?:like|as)|a variation of|for\b|feminine|masculine|dual|plural|"
                         r"of foreign|of Persian|of Egyptian|of Latin|of Hebrew|of Chaldee|of Aramaic|of uncertain|"
                         r"of Phoenician|of Arabic|of Babylonian|of Assyrian|of Greek|of Philistine|of Moabite|of Ethiopian|"
                         r"compare|the same|corresponding|patrial|patronymic|orthographical|by contraction|contracted|"
@@ -154,6 +155,8 @@ def strongs_meaning(strongs: str, lexicon: dict[str, StrongEntry]) -> Meaning:
     if entry is None:
         return Meaning(UNCERTAIN_HEADLINE, UNCERTAIN, "none", wording, chain, origin=origin)
     gloss, hedged = strongs_gloss(entry)
+    # A hedge on any step of the chain hedges the meaning ('probably a shortened form of G3161', Matthat).
+    hedged = hedged or any(re.match(r"^(?:probably|perhaps)\b", lexicon[s].source) for s in chain[:-1] if s in lexicon)
     if gloss:
         headline = clean_headline(gloss)
         check = len(headline) > HEADLINE_MAX or not entry.is_name
