@@ -1,0 +1,282 @@
+{
+  "_about": "Settles names the build cannot spell from the Berean on its own (design 3.2). 'people': person id -> the Berean spelling of their name, for a person whose name lines carry no Berean-tagged word. 'aliases': extra forms that should land on a page (form -> Berean spelling). 'reviewed': hand decisions on TIPNR name lines (key 'person|Strong's|first form'): exclude with a reason, confirm a spelling with Berean verse evidence, or move verses away ('dropRefs'). 'identities': site-added people TIPNR lacks, with the Strong's number, spelling and verses the build checks. The build fails on any decision that no longer matches.",
+  "people": {},
+  "aliases": {
+    "Emmanuel": "Immanuel"
+  },
+  "reviewed": {
+    "abinadab-1ki-4-11|H41|Abinadab": {
+      "exclude": true,
+      "reason": "The verse names Ben-abinadab, not a separate Abinadab; do not split a patronymic into another bearer."
+    },
+    "achish-1sa-21-10|H40|Abimelech": {
+      "exclude": true,
+      "reason": "Abimelech occurs in the Psalm heading, not the numbered Berean verse; no verified verse occurrence for this name line."
+    },
+    "achsah-1ch-2-49|H5915|Achsah": {
+      "spelling": "Acsah",
+      "refs": [
+        13002049
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "adino-2sa-23-8|H5722|Adino": {
+      "exclude": true,
+      "reason": "Berean has Josheb-basshebeth and a spear description, not Adino; translation variant excluded."
+    },
+    "ahijah-1ch-26-20|H281|Ahijah": {
+      "exclude": true,
+      "reason": "Berean translates fellow Levites rather than naming Ahijah in this verse."
+    },
+    "amminadib-sng-6-12|H5993|Amminadib": {
+      "exclude": true,
+      "reason": "Berean translates royal chariots of my people rather than a personal name."
+    },
+    "amon-2ki-21-18|G301|Amos": {
+      "spelling": "Amon",
+      "refs": [
+        40001010
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "augustus-luk-2-1|G4575|Augustan": {
+      "exclude": true,
+      "reason": "Imperial Regiment is a unit designation, not an additional personal name of Augustus."
+    },
+    "bani-ezr-10-38|H1137|Bani": {
+      "exclude": true,
+      "reason": "Berean names descendants of Binnui; the Bani/Binnui identity is not established here, so do not merge them."
+    },
+    "barabbas-mat-27-16|G2424|Jesus": {
+      "exclude": true,
+      "reason": "Berean names Barabbas, without the variant given name Jesus; exclude this variant line only."
+    },
+    "ben-1ch-15-18|H1122|Ben": {
+      "exclude": true,
+      "reason": "Berean has next in rank, with no person named Ben."
+    },
+    "ben-abinadab-1ki-4-11|H1125|Ben-Abinadab": {
+      "spelling": "Ben-abinadab",
+      "refs": [
+        11004011
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "ben-geber-1ki-4-13|H1127|Ben-Geber": {
+      "spelling": "Ben-geber",
+      "refs": [
+        11004013
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "cush-psa-7-1|H3568|Cush": {
+      "exclude": true,
+      "reason": "Cush occurs in the Psalm heading, not the numbered Berean verse; no verified verse occurrence for this name line."
+    },
+    "deker-1ki-4-9|H1857|Deker": {
+      "exclude": true,
+      "reason": "Berean names Ben-deker; do not infer a separate bearer from a patronymic."
+    },
+    "eleasah-1ch-2-39|H501|Eleasah": {
+      "spelling": "Elasah",
+      "refs": [
+        13002039
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "elizaphan-num-34-25|H469|Elizaphan": {
+      "spelling": "Eli-zaphan",
+      "refs": [
+        4034025
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "gera-1ch-8-7|H1540|Heglam": {
+      "exclude": true,
+      "reason": "Berean names Gera, not Heglam; the source line Strong number differs, so no lexical identity is inferred."
+    },
+    "hadad-gen-36-39|H1924|Hadar": {
+      "exclude": true,
+      "reason": "Berean names Hadad rather than Hadar; exclude this variant lexical line, preserving the confirmed Hadad lines."
+    },
+    "hagabah-ezr-2-45|H2286|Hagaba": {
+      "spelling": "Hagabah",
+      "refs": [
+        15002045,
+        16007048
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "hammelech-jer-36-26|H4428|Hammelech": {
+      "exclude": true,
+      "reason": "Berean translates the king, a title rather than a personal name."
+    },
+    "hashbaddanah-neh-8-4|H2806|Hashbaddanah": {
+      "spelling": "Hash-baddanah",
+      "refs": [
+        16008004
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "hesed-1ki-4-10|H2618|Hesed": {
+      "exclude": true,
+      "reason": "Berean names Ben-hesed; do not infer a separate bearer from a patronymic."
+    },
+    "hodaviah-ezr-2-40|H3063|Judah": {
+      "spelling": "Yehudah",
+      "refs": [
+        15003009
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "hur-1ki-4-8|H1133|Hur": {
+      "exclude": true,
+      "reason": "Berean names Ben-hur; do not infer a separate bearer from a patronymic."
+    },
+    "ish-bosheth-2sa-2-8|H792|Eshbaal": {
+      "spelling": "Esh-baal",
+      "refs": [
+        13008033
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "izhar-exo-6-18|H5992|Izhar": {
+      "exclude": true,
+      "reason": "Berean names Amminadab in this variant genealogy line; identity with Izhar is not established."
+    },
+    "jehoiada-2ki-11-4|G914|Barachiah": {
+      "exclude": true,
+      "reason": "Berechiah in Matthew is not securely identified as Jehoiada; exclude the source conflation."
+    },
+    "jehonathan-neh-12-18|H3083|Jehonathan": {
+      "spelling": "Jonathan",
+      "refs": [
+        16012018
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "jehubbah-1ch-7-34|H3160|Jehubbah": {
+      "spelling": "Hubbah",
+      "refs": [
+        13007034
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "jehudijah-1ch-4-18|H3057|Judahite wife": {
+      "exclude": true,
+      "reason": "Judean wife is a description, not a personal name."
+    },
+    "joel-1sa-8-2|H2059|Vashni": {
+      "exclude": true,
+      "reason": "Berean names Joel his firstborn, not Vashni; do not attach the variant word meaning to Joel."
+    },
+    "josiah-zec-6-10|H2581|Hen": {
+      "exclude": true,
+      "reason": "Berean translates gracious son, not a personal name Hen."
+    },
+    "jozacar-2ki-12-21|H3108|Jozacar": {
+      "exclude": true,
+      "reason": "Berean names Jozabad; alternate-name lexical identity is not established for this line."
+    },
+    "judas-mat-10-3|G3002|Lebbeus": {
+      "exclude": true,
+      "reason": "Berean names Thaddaeus, not the variant Lebbeus; retain only confirmed name lines."
+    },
+    "justus-act-18-7|G6084|Titius": {
+      "exclude": true,
+      "reason": "Berean has Titus Justus; G6084 is outside the source dictionary and the given-name lexical identity is unverified."
+    },
+    "malchijah-ezr-10-25-2|H4441|Malkijah": {
+      "spelling": "Malchijah",
+      "refs": [
+        15010025
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "malchi-shua-1sa-14-49|H4444|Malchi-shua": {
+      "spelling": "Malchishua",
+      "refs": [
+        9014049
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "melzar-dan-1-11|H4453|Melzar": {
+      "exclude": true,
+      "reason": "Berean translates steward, an office rather than a personal name."
+    },
+    "mezahab-gen-36-39|H4314|Mezahab": {
+      "spelling": "Me-zahab",
+      "refs": [
+        1036039
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "nebu-sar-sekim-jer-39-3|H8310|Nebu-sar-sekim": {
+      "exclude": true,
+      "reason": "Berean names Nebo-sarsekim the Rabsaris; the source line points to H8310, an office, so its name identity is not established."
+    },
+    "nero-php-4-22|G3505|Nero": {
+      "exclude": true,
+      "reason": "The numbered verse contains no name Nero; do not infer a named bearer from historical identification."
+    },
+    "peter-mat-4-18|G920|Bar-Jonah": {
+      "exclude": true,
+      "reason": "Son of Jonah is a patronymic phrase, not a separate given name Bar-Jonah in Berean."
+    },
+    "rab-mag-jer-39-3|H7248|Rab-mag": {
+      "exclude": true,
+      "reason": "Rabmag is an office attached to Nergal-sharezer, not a given name."
+    },
+    "rakem-1ch-7-16|H7552|Rakem": {
+      "spelling": "Rekem",
+      "refs": [
+        13007016
+      ],
+      "reason": "Reviewed against the numbered Berean verse; this is its printed spelling for the source name line."
+    },
+    "tiglath-pileser-2ki-15-19|H3377|Jareb": {
+      "exclude": true,
+      "reason": "Berean translates great king; do not equate a title with this named ruler."
+    },
+    "ucal-pro-30-1|H401|Ucal": {
+      "exclude": true,
+      "reason": "Berean translates worn out rather than a person named Ucal."
+    },
+    "sennacherib-2ki-18-13|H5623|Sargon": {
+      "exclude": true,
+      "reason": "TIPNR files Sargon (Isaiah 20:1) as another name of Sennacherib; the site's people data keeps Sargon as his own person (sargon-isa-20-1), who bears the Sargon page instead (see \"identities\"). Sennacherib keeps his own name line."
+    },
+    "ahasuerus-ezr-4-6|H325|Ahasuerus": {
+      "dropRefs": [
+        27009001
+      ],
+      "reason": "Daniel 9:1 names Darius's father, whom the site's people data keeps as his own person (ahasuerus-dan-9-1: 'He is not the Ahasuerus of the book of Esther'); the verse moves to him. The king of Esther and Ezra keeps his other 28 verses."
+    }
+  },
+  "identities": {
+    "sargon-isa-20-1": {
+      "strongs": "H5623",
+      "spelling": "Sargon",
+      "refs": [
+        23020001
+      ],
+      "reason": "Site-added person; the Berean prints 'Sargon king of Assyria' at Isaiah 20:1, and TIPNR's own Sargon line there gives Strong's H5623 ('Sargon, an Assyrian king')."
+    },
+    "ahasuerus-dan-9-1": {
+      "strongs": "H325",
+      "spelling": "Xerxes",
+      "refs": [
+        27009001
+      ],
+      "reason": "Site-added father of Darius the Mede; the Berean prints 'Darius son of Xerxes' at Daniel 9:1, the Hebrew name Achashverosh (H325) that TIPNR tags there. A separate bearer on the Xerxes page, not merged with the king of Esther."
+    },
+    "candace-act-8-27": {
+      "strongs": "G2582",
+      "spelling": "Candace",
+      "refs": [
+        44008027
+      ],
+      "reason": "Site-added queen; the Berean prints 'Candace, queen of the Ethiopians' at Acts 8:27 as her name, without an article (unlike 'the Tartan' or 'the Rabshakeh'), and Strong's G2582 treats it as a proper name ('Candace, an Egyptian queen'). Many think it was the title of the queens of Meroe; her person record says only what Acts says."
+    }
+  }
+}

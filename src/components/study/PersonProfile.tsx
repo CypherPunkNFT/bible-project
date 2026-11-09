@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
+import { nameLinkFor } from "@/data/baby-names";
 import { SlideLink } from "@/components/people-pages/SlideLink";
 import { useCarried } from "@/components/people-pages/use-carried";
 import { RefLink } from "@/components/study/StudyParts";
@@ -27,6 +28,7 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
       <div className="min-w-0">
         <h1 id="person-name" className="font-serif text-4xl font-semibold sm:text-5xl">{person.n}</h1>
         {person.o.length > 0 && <p className="mt-2 text-sm text-muted">Also called {person.o.join(", ")}</p>}
+        <NameLink person={person} />
         <p className="mt-1 text-sm text-muted">{facts}{sameName > 1 && ` · one of ${sameName} people named ${person.n}`}</p>
         {person.b && <p className="mt-4 max-w-3xl text-lg">{person.b}</p>}
         {person.note && <p className="mt-2 max-w-3xl text-sm text-muted">{person.note}</p>}
@@ -54,6 +56,12 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
       </aside>
     </div>
   </>;
+}
+
+/** "The name Hannah: meaning and everyone who bore it", to the Biblical baby names page (docs/features/baby-names/design.md 6.5). */
+function NameLink({ person }: { person: Person }) {
+  const link = nameLinkFor(person);
+  return link && <div className="mt-2 text-sm"><Link to={link.path} className="text-accent underline underline-offset-2">{`The name ${link.name}: meaning and everyone who bore it`}</Link></div>;
 }
 
 /** The site's own story from Scripture (content/people/stories/): the short line, then, on "Read more", each paragraph

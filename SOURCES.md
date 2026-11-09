@@ -1,3 +1,20 @@
+## Biblical baby names — registered 7 November 2026 (local preview only; nothing published)
+
+The name pages at `/baby-names` (design: [docs/features/baby-names/design.md](docs/features/baby-names/design.md)).
+[scripts/bible/build_baby_names.py](scripts/bible/build_baby_names.py) builds `data/baby-names/` (one index and one file
+per name) and `src/data/baby-names/person-links.json` from sources already listed in this register; no new download was
+made. Verse wording is never copied into these files: the pages quote it from the Berean files the site already serves.
+
+| What | How it was used | Licence / terms | Credit on the page |
+|---|---|---|---|
+| STEP Bible TIPNR (already listed, `tipnr`) | Who bears each name, their sex, period and every reference; the Hebrew or Greek form and its Strong's number | **CC BY 4.0** | "People data: STEP Bible", linked to www.STEPBible.org |
+| Strong's Hebrew dictionary, Open Scriptures `HebrewStrong.xml` inside `hebrew-lexicon` (already listed) | Only Strong's own `<w>`, `<source>`, `<meaning>` and `<usage>` text: the meaning, the root word, the origin language. Not the abridged BDB lines in `StrongHebrewG.xml` | Text public domain; this edition **CC BY 4.0**, credit Open Scriptures | "Meanings: Strong's Concordance, Open Scriptures edition" |
+| Strong's Greek dictionary, Ulrik Petersen's `strongsgreek.xml` inside `strongs` (already listed) | The same, for New Testament names | Public domain | as above |
+| Berean Standard Bible USFM and plain text (already listed) | The Strong's-tagged names in each verse; the Berean's own name notes ("Naomi means pleasant"); the quoted verses | Public domain | "Scripture quotations are from the Berean Standard Bible (public domain)." |
+| Hitchcock's *Bible Names Dictionary* (already listed, `hitchcock-xml`) | Only a closed "Older dictionary meaning" line where it differs; never a headline | Text public domain | Named on a page only when that line is shown |
+| Easton's *Illustrated Bible Dictionary* (1897), CCEL plain text (already listed, `easton-txt`) | Quoted, word for word, only in the citation of a hand-checked meaning where Strong's alone is silent or ambiguous (Esther "star", Elijah, Elisha, Matthew, Michal), and in the explanation of three names left uncertain (Mary, Miriam, Jesse); never read by the build and never a headline on its own | Text public domain | "Also cited: Easton's Illustrated Bible Dictionary (1897), public domain." on pages that cite it |
+| US Social Security Administration national baby-name file, `names.zip` | **Optional and not on this PC.** ssa.gov refused the scripted download (HTTP 403), so it is not in `scripts/fetch-sources.py`. When saved by hand to `../sources/ssa/names.zip`, the build adds "Popular today" ranks; without it that sort is hidden. Record its data year and checksum here when it is added | US government work, public domain | "US popularity: Social Security Administration, <year>" |
+
 ## Audio Bible verse timings — registered 25 October 2026 (local preview only; nothing published)
 
 The Read alongside panel on `/listen/asv` highlights the verse being read. The verse start times were worked out
@@ -1394,7 +1411,7 @@ The data builders read these source IDs and SHA-256 prefixes directly from this 
 | [faith-names-approved](sources/cypherpunk-faith/faith-names-approved.json) | The owner's approved grouping (Father / Son / Holy Spirit, 302 names), display names and removals, from the same page | the owner's own | eefc8b30bb085be4 |
 | [isbe](sources/crosswire/ISBE.zip) | James Orr (ed.), *International Standard Bible Encyclopedia* (1915), about 9,000 articles; CrossWire SWORD module, version 2.2 · **the in-depth article on person, place and topic pages** | Public domain (CrossWire: "DistributionLicense=Public Domain") | 4de747545d9c349a |
 | [smith-xml](sources/ccel/smith-bibledict.xml) | William Smith, *Smith's Bible Dictionary* (1863/1884), CCEL edition · a second classic-dictionary voice on person, place and topic pages | Book public domain; CCEL claims its electronic markup, so the text is used, not CCEL's markup | f0aa85b544f70384 |
-| [hitchcock-xml](sources/ccel/hitchcock-bible-names.xml) | Roswell D. Hitchcock, *Bible Names Dictionary* (1869), CCEL edition · **the meaning of each name** on person and place pages | as above | 43390f72248bb368 |
+| [hitchcock-xml](sources/ccel/hitchcock-bible-names.xml) | Roswell D. Hitchcock, *Bible Names Dictionary* (1869), CCEL edition · shown only as a labelled older meaning (a closed "Older dictionary meaning" line) on the Biblical baby-name pages, never as the main meaning | as above | 43390f72248bb368 |
 | [fausset-ocr](sources/archive-org/fausset-bible-encyclopedia-1900.txt) | A. R. Fausset, *Bible Encyclopaedia and Dictionary, Critical and Expository* (1900 printing), Internet Archive item `bibleencyclopedi0000arfa_c4x1`, machine-read (OCR) text · a third dictionary voice, **after cleaning** | Public domain (1900; author died 1910) | 1dd222ab3f21cb1f |
 | [theographic](sources/theographic/theographic-bible-metadata.zip) | Robert Rouse, *Theographic Bible Metadata*: people, places, events, periods and dates linked to verses (GitHub `robertrouse/theographic-bible-metadata`, master) · dates for the people periods, events on person pages, a timeline, a cross-check of family links | **CC BY-SA 4.0**: credit Theographic; anything built from it is shared under the same licence | 16b4def7d1bf491a |
 | [openbible-topics](sources/openbible-topics/topic-scores.zip) | OpenBible.info *Topical Bible*: modern topics with verse references ranked by reader votes (generated 2026-10-05; updated weekly) · today's topics beside Torrey's and Nave's, verses ranked by votes; **references only** (its quotations are ESV, which is under copyright) | **CC BY**: credit OpenBible.info | ba9c95ecc5377ca0 |

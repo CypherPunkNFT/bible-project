@@ -317,3 +317,72 @@ Virtue and word names that are not names in the Bible (Grace, Faith, Hope, Trini
 - Shared files (6.5, 7.1): the home-page line sits in a block other chains may also edit, so it is re-read just before editing; the source-register change is justified and limited to a new section plus the one Hitchcock line; the Jesus page now names its link targets (`/study/gospels` and his person page).
 
 **Not changed, on purpose:** the full/short page split and the roughly 650 indexed pages; the meaning method's order (override, the Bible's own note, Strong's, uncertain); Hitchcock shown only as a labelled older opinion; no top-navigation entry; and the three questions left for the owner in section 9. These are reasoned, within the approved idea and the rules, and none blocks the build.
+
+## 12. Implementation recovery audit — job754, 8 November 2026
+
+This is an incomplete recovery checkpoint, not implementation approval or a change to the requirements above. The actual implementation and Vitest files already existed when the recovery began; the original job report had stopped recording progress after the data tests.
+
+- Initial data: 1,809 pages (523 full, 1,286 short), 500 aliases, 27 meaning overrides. Final recovery data: 1,807 pages (521 full, 1,286 short), 499 aliases; removed Jew (people designation) and Zealot (epithet), preserving Judah and Simon, with explicit exclusion reasons. SSA is absent. The owner-approved optional fallback remains: no US ranks or Popular sort, and Most mentioned on the boy/girl landing pages. No SSA download or bypass was attempted during recovery.
+- Existing Greek XML deviation verified against the local prologue and [upstream XML](https://raw.githubusercontent.com/openscriptures/strongs/master/greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml): public-domain Strong text, XML prepared by Ulrik Petersen. Preserve this input rather than importing the different Greek JSON edition.
+- [HebrewLexicon upstream readme](https://raw.githubusercontent.com/openscriptures/HebrewLexicon/master/readme.md) confirms the CC BY 4.0 edition and public-domain dictionary text, asking for credit to the Open Scriptures Hebrew Bible Project. [STEP upstream](https://github.com/STEPBible/STEPBible-Data) confirms CC BY 4.0. [Berean official terms](https://berean.bible/terms.htm) confirm the text's public-domain dedication. These were opened on 8 November 2026. Exact local file hashes and consultation limits are in the original job folder's source-verification-job754.json.
+- Applied fixes: place-name atlas links; preservation of the wordplay in Reuben's combined Berean note; beloved meanings assigned to Love rather than Joy; non-name exclusions; Jesus's special Gospels/person-page treatment while retaining a distinct Jesus Justus card. These defects have failing-before and passing-after focused regression receipts. Also corrected Greek-versus-Hebrew origin labels and Greek root language/direction attributes, and added full project attribution and licence links. Actual baby-name data rebuilt successfully. Final focused Vitest: 51 passed in three files, using the portable esbuild transformer. Python: 22 passed. These checks do not replace final canonical supervisor gates or the required browser checks.
+
+Still required before calling implementation done:
+
+1. Complete and record the design's per-name source and theme review (fallback selection: the 150 most mentioned names plus all overrides). The source extraction is in review-extract-job754.json; extraction is not review. Settle all 187 remaining flagged original-word drafts with reviewed wording and citations.
+2. Verify or correct unsupported exact-source attributions in existing overrides. Direct inspection found that local BDB entries for David, Mary/Miriam and Michal do not contain the wording attributed to them. The local BDB is incomplete; do not treat a citation string as verification or invent missing support.
+3. Resolve the 47 unconfirmed spelling lines and three missing TIPNR identities in the actual build log, preserving every qualifying name and documenting exclusions; make unresolved Berean spellings fail as section 3.2 requires. Current code logs and skips them.
+4. Complete remaining template/design reconciliation and final canonical gates after stable source/data changes. Section 7.2's existing e2e/baby-names.spec.ts long-scroll/person-link acceptance check remains a supervisor operation under the recovery authorization; no browser or visual result is claimed here.
+
+The full original report, focused command receipts and pending source decisions remain in the original job folder. No deployment, push, commit, alternate preview server, ACL change, antivirus change, paid model call or new job was performed. This appendix is staged for supervisor installation because the recovery authorization prohibits attempts to write inherited protected docs.
+
+## 13. Finishing the meanings, spellings and missing people — 9 November 2026
+
+This section records what the finishing step changed after the recovery audit in section 12. The requirements above are unchanged; this is how the open items in section 12 were settled.
+
+**Flagged draft meanings (section 12, item 1).** The earlier re-run had turned every draft meaning (a Strong's pointer chain that ends on an ordinary word) into "Meaning uncertain". That withheld meanings Strong's states plainly, including the three nature examples section 3.4 relies on (Deborah "bee", Jonah "dove", Tamar "palm tree"). Section 3.3 says an override settles a draft, so every flagged block now has a hand-checked entry in `meaning-overrides.json`, marked `"reviewed": "job 824"`:
+
+- 185 draft blocks: 168 labelled Probable, 16 labelled "Probable (Strong's says 'probably')" because Strong's itself hedges, and 1 left Meaning uncertain (Abimael) where Strong's gives no usable sense. The other flagged drafts were already settled by an existing override or by the Bible's own note.
+- 22 automatic headlines that came out malformed (for example Benaiah "prolonged from and , the LORD has built"), rewritten from the same Strong's text: 14 Probable, 7 hedged, and Meshach left uncertain.
+- 6 headlines taken from the Bible's own notes that were longer than 40 characters, shortened word for word and still labelled Given in the Bible.
+
+Every citation is built from the actual local Strong's entries along the chain. A test checks that every word of a reviewed headline appears in its own citation or explanation. Unpleasant senses are shown plainly and get no theme. The data build now lists any flagged draft still without an override, and a test fails if one reaches a page.
+
+**Existing overrides (section 12, item 2).** Easton's dictionary is on this PC, already registered as `easton-txt` (`../sources/ccel/ebd2.txt`), and every quoted phrase was found in it. Esther is therefore "star" again, citing Strong's ("of Persian derivation") and Easton ("the Persian word satarah, which means a star"). Further changes:
+
+- Elijah "whose God is the LORD" (Easton). The design's "my God is the LORD" is in no local source.
+- Elisha "God his salvation" (Easton).
+- Michal "rivulet" (Strong's "apparently", and Easton).
+- Matthew "gift of the LORD": Strong's G3156 says "Matthaeus (i.e. Matthitjah)", and H4993 says "gift of Jah". The G3164 cross-reference in both local Greek editions is noted as a misprint.
+- Mary, Miriam and Jesse stay uncertain. Their explanations name only the proposals a local source actually prints. The design's "bitter", Egyptian "beloved" and "star of the sea" are in no local source, so they are not shown.
+- The Moses override was re-keyed to Moses's own Strong's numbers, so it no longer covers the Manasseh reading of Judges 18:30.
+
+**Origin language.** Strong's "of foreign derivation" and "of foreign origin" used to fall through to Hebrew or Greek, so pages such as Sargon wrongly said "from the Hebrew". They now give the language as other, shown as "a foreign name".
+
+**Spellings and missing people (section 12, item 3).** All unconfirmed spelling lines have reviewed decisions in `spelling-overrides.json`: 16 confirmed spellings, 32 exclusions with individual reasons, and one verse move. The build fails on any new unconfirmed line, on a decision that no longer matches anything, and on a site-added person that is neither identified nor excluded. Three people the site has but TIPNR lacks now have reviewed identities. Each identity names its Strong's number and verses, and its spelling must appear in every one of those Berean verses:
+
+- **Sargon** (Isaiah 20:1, H5623). TIPNR files the Sargon line under Sennacherib, so the Sargon page showed the wrong man. That line is now excluded, and Sargon's page shows Sargon.
+- **The father of Darius the Mede** (Daniel 9:1, H325, printed "Xerxes"). TIPNR had put this verse on the king of Esther's story. It is moved to its own person with a reviewed `dropRefs` decision, so the verse is counted once. The Xerxes page now lists two men.
+- **Candace** (Acts 8:27, G2582). The Berean prints it as the queen's name without an article, and Strong's calls it "an Egyptian queen". She keeps a page. Many think Candace was the title of the queens of Meroe; that is recorded in the decision's reason, and her card says only what Acts says.
+
+"The Tartan" and "the Rabshakeh" are Assyrian offices printed with "the", like the already excluded Rab-mag. They are now in `excluded.json`.
+
+**Easton credit.** A page that cites Easton adds the line "Also cited: Easton's Illustrated Bible Dictionary (1897), public domain." Easton is listed in the baby-names table of `SOURCES.md`.
+
+**Tests.** The Python tests now cover:
+
+- foreign origins;
+- reviewed identities, and every way one can be wrong;
+- verse moves that cannot invent a verse or empty a line;
+- the headline-word check;
+- that no flagged draft reaches a page;
+- the Sargon, Xerxes and Candace pages.
+
+The site data test replaces the earlier assertion that Esther, Matthew, Michal and Elisha are uncertain. It checks:
+
+- Esther "star" with its Easton citation;
+- Deborah, Jonah and Tamar under the nature theme;
+- every headline at most 40 characters and well formed;
+- the three people's bearers.
+
+Gate results and browser screenshots are recorded in the job's report, not here.

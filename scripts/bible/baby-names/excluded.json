@@ -1,0 +1,66 @@
+{
+  "_about": "Names that get no baby-name page (design 3.2). Each entry: the name as the Berean spells it, and why. The build fails if an entry matches nothing, so this list stays true. 'formOnly': the name is not a page but must never be used as another spelling either.",
+  "names": [
+    {
+      "name": "Christ",
+      "reason": "A title of Jesus (Messiah, 'anointed'), not a given name; it belongs with the Names of God page at /study/names."
+    },
+    {
+      "name": "Messiah",
+      "reason": "A title of Jesus that TIPNR lists as another form of his name; it must not become a redirect to the Jesus page.",
+      "formOnly": true
+    },
+    {
+      "name": "Baal",
+      "reason": "The name of a pagan god (also borne by one obscure Benjamite); not offered as a baby name."
+    },
+    {
+      "name": "Baal-zebub",
+      "reason": "A Philistine god (Beelzebul, a name for Satan in the Gospels)."
+    },
+    {
+      "name": "Adrammelech",
+      "reason": "An Assyrian god (2 Kings 17:31); the same name is borne by Sennacherib's murderous son."
+    },
+    {
+      "name": "Anammelech",
+      "reason": "An Assyrian god worshipped with child sacrifice (2 Kings 17:31)."
+    },
+    {
+      "name": "Pharaoh",
+      "reason": "A title of Egypt's kings, not a given name."
+    },
+    {
+      "name": "Caesar",
+      "reason": "A title of the Roman emperors, not a given name."
+    },
+    {
+      "name": "Hittite",
+      "reason": "A people's name (the clan of Heth), not a given name."
+    },
+    {
+      "name": "Greek",
+      "reason": "A people's name, not a given name."
+    },
+    {
+      "name": "Jew",
+      "reason": "A people's designation, not a person's given name. Galatians 2:14 uses it for Jewish identity; Strong's G2450 and G2452 describe Judaizing/Jewish practice, not the personal name Judah."
+    },
+    {
+      "name": "Zealot",
+      "reason": "Simon's epithet in Luke 6:15, not a given name (Strong's G2208); Simon keeps his own name page."
+    },
+    {
+      "name": "Iscariot",
+      "reason": "Judas's epithet (probably 'man of Kerioth'), not a given name; Judas has his own page."
+    },
+    {
+      "name": "Tartan",
+      "reason": "An Assyrian office (the army's commander-in-chief), printed 'the Tartan' in the Berean (2 Kings 18:17, Isaiah 20:1); a title, not a given name, like Pharaoh."
+    },
+    {
+      "name": "Rabshakeh",
+      "reason": "An Assyrian office (the chief cupbearer or field commander), always printed 'the Rabshakeh' in the Berean; a title, not a given name."
+    }
+  ]
+}

@@ -31,7 +31,8 @@ it('restores every record exactly from the list, its details bundle and the sear
   });
 });
 
-it('finds details in the same bundle the build wrote them to', async () => {
+// 500 sequential WebCrypto digests: well under 2 s alone, but over the 5 s default when the full suite runs in parallel.
+it('finds details in the same bundle the build wrote them to', { timeout: 30_000 }, async () => {
   for (const entry of original.entries.slice(0, 500)) expect(await detailsShard(entry.id)).toBe(buildShard(entry.id));
 });
 

@@ -1,0 +1,1494 @@
+{
+  "_about": "Hand-checked meanings (design 3.3 rule 1). Every entry cites the local source it rests on. Entries keyed 'Name|H1234' settle one original word's flagged draft (a Strong's chain ending on an ordinary word, or a gloss too long for a headline); their wording is taken from Strong's own text along that chain, reviewed by hand in job 824 (2026-11-09). Easton's Bible Dictionary (1897) is quoted from the CCEL copy already in SOURCES.md (easton-txt, sources/ccel/ebd2.txt).",
+  "overrides": {
+    "Mary": {
+      "headline": "Meaning uncertain",
+      "label": "Uncertain",
+      "origin": "Hebrew",
+      "explanation": "Mary is the Greek form of Miriam, and its meaning is uncertain. Strong's gives 'rebelliously' for Miriam and Easton's dictionary 'their rebellion'; neither is a settled meaning.",
+      "cite": "Strong's G3137 (of Hebrew origin, H4813); H4813 ('from H4805; rebelliously'); Easton's Bible Dictionary (1897), 'Miriam' ('Their rebellion'), 'Mary' ('Hebrew Miriam')"
+    },
+    "Miriam": {
+      "headline": "Meaning uncertain",
+      "label": "Uncertain",
+      "explanation": "The meaning is uncertain. Strong's gives 'rebelliously' and Easton's dictionary 'their rebellion'; neither is a settled meaning. Mary is its Greek form.",
+      "cite": "Strong's H4813 ('from H4805; rebelliously'); Easton's Bible Dictionary (1897), 'Miriam' ('Their rebellion')"
+    },
+    "Elijah": {
+      "headline": "whose God is the LORD",
+      "label": "Probable",
+      "cite": "Strong's H452 ('from H410 and H3050; God of Jehovah'); Easton's Bible Dictionary (1897), 'Elijah' ('Whose God is Jehovah'); LORD replaces the older English form Jehovah"
+    },
+    "Esther": {
+      "headline": "star",
+      "label": "Probable",
+      "origin": "Persian",
+      "explanation": "A Persian name. Strong's says only 'of Persian derivation'; Easton's dictionary explains it from the Persian word satarah, 'a star'. Esther's Hebrew name was Hadassah (Esther 2:7).",
+      "cite": "Strong's H635 ('of Persian derivation'); Easton's Bible Dictionary (1897), 'Esther' ('the Persian word satarah, which means a star')"
+    },
+    "Jesse": {
+      "headline": "Meaning uncertain",
+      "label": "Uncertain",
+      "explanation": "Strong's derives it from a word meaning 'there is' and glosses it 'extant'; Easton's dictionary gives 'firm, or a gift'. The origin of the name is not certain.",
+      "cite": "Strong's H3448 ('extant'); Easton's Bible Dictionary (1897), 'Jesse' ('Firm, or a gift')"
+    },
+    "Sarah": {
+      "headline": "princess",
+      "label": "Probable",
+      "explanation": "The same word as the Hebrew for a woman of rank: 'lady, princess, queen'. God gave Abraham's wife this name in place of Sarai (Genesis 17:15).",
+      "cite": "Strong's H8283 (the same as H8282); H8282 ('a mistress, i.e. female noble'), usage: lady, princess, queen"
+    },
+    "Ezra": {
+      "headline": "help",
+      "label": "Probable",
+      "cite": "Strong's H5830 (a variation of H5833, 'aid: help')"
+    },
+    "Rachel": {
+      "headline": "ewe",
+      "label": "Probable",
+      "cite": "Strong's H7354 (the same as H7353, 'a ewe')"
+    },
+    "Stephen": {
+      "headline": "crown",
+      "label": "Probable",
+      "origin": "Greek",
+      "explanation": "The Greek word for a victor's wreath or crown.",
+      "cite": "Strong's G4736 (the same as G4735, 'a chaplet, as a badge of royalty, a prize in the public games')"
+    },
+    "Peter": {
+      "headline": "rock",
+      "label": "Given in the Bible",
+      "origin": "Greek",
+      "explanation": "Jesus gave Simon the name Cephas, Aramaic for 'rock', which is translated Peter (John 1:42).",
+      "cite": "Strong's G4074 ('a piece of rock'); John 1:42"
+    },
+    "Cephas": {
+      "headline": "rock",
+      "label": "Given in the Bible",
+      "origin": "Aramaic",
+      "explanation": "Aramaic for 'rock'; John 1:42 says it is translated Peter.",
+      "cite": "Strong's G2786 (of Aramaic origin, compare H3710 'a hollow rock'); John 1:42"
+    },
+    "Barnabas": {
+      "headline": "son of encouragement",
+      "label": "Given in the Bible",
+      "origin": "Aramaic",
+      "explanation": "The apostles' name for Joseph of Cyprus; Acts 4:36 explains it as 'Son of Encouragement'.",
+      "cite": "Acts 4:36; Strong's G921 ('son of Nabas, i.e. prophecy')"
+    },
+    "Tabitha": {
+      "headline": "gazelle",
+      "label": "Given in the Bible",
+      "origin": "Aramaic",
+      "explanation": "Acts 9:36 gives her Greek name too: Dorcas, which also means gazelle.",
+      "cite": "Acts 9:36; Strong's G5000"
+    },
+    "Daniel": {
+      "headline": "judge of God",
+      "label": "Probable",
+      "cite": "Strong's H1840 ('judge of God')"
+    },
+    "David": {
+      "headline": "loving",
+      "label": "Probable",
+      "cite": "Strong's H1732 ('loving')"
+    },
+    "Elisha": {
+      "headline": "God his salvation",
+      "label": "Probable",
+      "explanation": "Easton's dictionary gives 'God his salvation'. Strong's instead treats Elisha as a contraction of Elishua and gives 'God of supplication (or of riches)'.",
+      "cite": "Easton's Bible Dictionary (1897), 'Elisha' ('God his salvation'); Strong's H477 (contracted for H474); H474 ('God of supplication (or of riches)')"
+    },
+    "Michal": {
+      "headline": "rivulet",
+      "label": "Probable",
+      "explanation": "Strong's says the name is 'apparently' the word for a small stream. Easton's dictionary gives 'rivulet, or who as God?'.",
+      "cite": "Strong's H4324 ('apparently the same as H4323; revulet'); Easton's Bible Dictionary (1897), 'Michal' ('Rivulet, or who as God?')"
+    },
+    "Martha": {
+      "headline": "lady",
+      "label": "Probable",
+      "origin": "Aramaic",
+      "cite": "Strong's G3136 ('probably of Chaldee origin, meaning mistress')"
+    },
+    "Phoebe": {
+      "headline": "bright",
+      "label": "Probable",
+      "origin": "Greek",
+      "cite": "Strong's G5402 ('feminine of phoibos, bright')",
+      "explanation": "Strong's gives the feminine of a Greek word for bright; its further derivation is only probable."
+    },
+    "Matthew": {
+      "headline": "gift of the LORD",
+      "label": "Probable",
+      "explanation": "Strong's identifies Matthew as the Hebrew Mattithiah, 'gift of Jah'; Easton's dictionary gives 'gift of God'. (Strong's derivation line for Matthew points to G3164, a verb meaning 'to fight', which does not fit its own identification; the meaning here follows the identification.)",
+      "cite": "Strong's G3156 ('Matthaeus (i.e. Matthitjah)'); H4993 Mattithiah ('from H4991 and H3050; gift of Jah'); Easton's Bible Dictionary (1897), 'Matthew' ('Gift of God')"
+    },
+    "Hiram": {
+      "headline": "noble",
+      "label": "Probable",
+      "cite": "Strong's H2438 (another form of H2361, 'whiteness, i.e. noble')",
+      "explanation": "Strong's calls the derivation through H2361 probable."
+    },
+    "Abigail": {
+      "headline": "source of joy",
+      "label": "Probable",
+      "cite": "Strong's H26 ('father, i.e. source, of joy')"
+    },
+    "Abijah": {
+      "headline": "worshipper of the LORD",
+      "label": "Probable",
+      "cite": "Strong's H29 ('father, i.e. worshipper, of Jah')"
+    },
+    "Gideon": {
+      "headline": "feller (warrior)",
+      "label": "Probable",
+      "cite": "Strong's H1439 ('feller, i.e. warrior')"
+    },
+    "Paul": {
+      "headline": "small",
+      "label": "Probable",
+      "origin": "Latin",
+      "explanation": "A Latin family name, Paulus, meaning 'small'. He also bore the Hebrew name Saul (Acts 13:9).",
+      "cite": "Strong's G3972 ('of Latin origin; little')"
+    },
+    "Zerubbabel": {
+      "headline": "born in Babylon",
+      "label": "Probable",
+      "cite": "Strong's H2216 ('descended of, i.e. from, Babylon, i.e. born there')"
+    },
+    "Moses|H4872": {
+      "headline": "drawn out (of the water)",
+      "label": "Probable",
+      "explanation": "Pharaoh's daughter named him 'because I drew him out of the water' (Exodus 2:10).",
+      "cite": "Strong's H4872 ('drawing out (of the water), i.e. rescued'); Exodus 2:10"
+    },
+    "Moses|H4873": {
+      "headline": "drawn out (of the water)",
+      "label": "Probable",
+      "explanation": "Pharaoh's daughter named him 'because I drew him out of the water' (Exodus 2:10).",
+      "cite": "Strong's H4872 ('drawing out (of the water), i.e. rescued'); Exodus 2:10"
+    },
+    "Moses|G3475": {
+      "headline": "drawn out (of the water)",
+      "label": "Probable",
+      "explanation": "Pharaoh's daughter named him 'because I drew him out of the water' (Exodus 2:10).",
+      "cite": "Strong's H4872 ('drawing out (of the water), i.e. rescued'); Exodus 2:10"
+    },
+    "Jeshurun": {
+      "headline": "the upright one",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Deuteronomy 32:15 (its first explanation, word for word)"
+    },
+    "Magor-missabib": {
+      "headline": "terror on every side",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Jeremiah 20:3 (its first explanation, word for word)"
+    },
+    "Maher-shalal-hash-baz": {
+      "headline": "the spoil speeds, the prey hastens",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Isaiah 8:1 (its first explanation, word for word)"
+    },
+    "Oholah": {
+      "headline": "her own tent",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Ezekiel 23:4 (its first explanation, word for word)"
+    },
+    "Oholibah": {
+      "headline": "the tent is in her",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Ezekiel 23:4 (its first explanation, word for word)"
+    },
+    "Zaphenath-paneah": {
+      "headline": "Revealer of Mysteries",
+      "label": "Given in the Bible",
+      "reviewed": "job 824",
+      "cite": "Berean Standard Bible note at Genesis 41:45 (its first explanation, word for word)"
+    },
+    "Abel|H1893": {
+      "headline": "emptiness, vanity",
+      "label": "Probable",
+      "cite": "Strong's H1893 ('the same as H1892; Hebel, the son of Adam'); H1892 ('from H1891; emptiness or vanity'), usage: altogether, vain, vanity",
+      "reviewed": "job 824"
+    },
+    "Abi-albon|H45": {
+      "headline": "father of strength (valiant)",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H45 ('from H1 and an unused root of uncertain derivation; probably, father of strength (i.e. valiant); Abialbon, an...'), usage: Abialbon",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'probably, father of strength (i.e. valiant)'."
+    },
+    "Abihu|H30": {
+      "headline": "worshipper of God",
+      "label": "Probable",
+      "cite": "Strong's H30 ('from H1 and H1931; father (i.e. worshipper) of Him (i.e. God); Abihu, a son of Aaron'), usage: Abihu",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'father (i.e. worshipper) of Him (i.e. God)'."
+    },
+    "Abimael|H39": {
+      "headline": "Meaning uncertain",
+      "label": "Uncertain",
+      "cite": "Strong's H39 ('from H1 and an elsewhere unused (probably foreign) word; father of Mael (apparently some Arab tribe);...'), usage: Abimael",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'father of Mael', where Mael is an unknown, probably foreign, word."
+    },
+    "Abishai|H52": {
+      "headline": "father of a gift (generous)",
+      "label": "Probable",
+      "cite": "Strong's H52 ('from H1 and H7862; father of a gift (i.e. probably generous); Abishai, an Israelite'), usage: Abishai",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'father of a gift (i.e. probably generous)'."
+    },
+    "Achbor|H5907": {
+      "headline": "mouse",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H5907 ('probably for H5909; Akbor, the name of an Idumaean and of two Israelites'); H5909 ('probably from the same as H5908 in the secondary sense of attacking; a mouse (as nibbling)'), usage: mouse",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'probably for' the word for 'a mouse'."
+    },
+    "Adam|G76": {
+      "headline": "human being (ruddy)",
+      "label": "Probable",
+      "cite": "Strong's G76 ('of Hebrew origin (H121); Adam, the first man; typically (of Jesus) man (as his representative)'); H121 ('the same as H120; Adam the name of the first man, also of a place in Palestine'); H120 ('from H119; ruddy i.e. a human being (an individual or the species, mankind, etc.)'), usage: another, hypocrite, common sort, low, person",
+      "reviewed": "job 824",
+      "explanation": "The Greek form of the Hebrew name Adam."
+    },
+    "Adam|H120": {
+      "headline": "human being (ruddy)",
+      "label": "Probable",
+      "cite": "Strong's H120 ('from H119; ruddy i.e. a human being (an individual or the species, mankind, etc.)'), usage: another, hypocrite, common sort, low, person",
+      "reviewed": "job 824"
+    },
+    "Adam|H121": {
+      "headline": "human being (ruddy)",
+      "label": "Probable",
+      "cite": "Strong's H121 ('the same as H120; Adam the name of the first man, also of a place in Palestine'); H120 ('from H119; ruddy i.e. a human being (an individual or the species, mankind, etc.)'), usage: another, hypocrite, common sort, low, person",
+      "reviewed": "job 824"
+    },
+    "Adin|H5720": {
+      "headline": "voluptuous",
+      "label": "Probable",
+      "cite": "Strong's H5720 ('the same as H5719; Adin, the name of two Israelites'); H5719 ('from H5727; voluptuous'), usage: given to pleasures",
+      "reviewed": "job 824"
+    },
+    "Ahban|H257": {
+      "headline": "brother of understanding",
+      "label": "Probable",
+      "cite": "Strong's H257 ('from H251 and H995; brother (i.e. possessor) of understanding; Achban, an Israelite'), usage: Ahban",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'brother (i.e. possessor) of understanding'."
+    },
+    "Aher|H313": {
+      "headline": "other",
+      "label": "Probable",
+      "cite": "Strong's H313 ('the same as H312; Acher, an Israelite'); H312 ('from H309; properly, hinder'), usage: (an-) other man, following, next, strange",
+      "reviewed": "job 824"
+    },
+    "Ahio|H283": {
+      "headline": "brotherly",
+      "label": "Probable",
+      "cite": "Strong's H283 ('prolonged from H251; brotherly; Achio, the name of three Israelites'), usage: Ahio",
+      "reviewed": "job 824"
+    },
+    "Aiah|H345": {
+      "headline": "hawk",
+      "label": "Probable",
+      "cite": "Strong's H345 ('the same as H344; Ajah, the name of two Israelites'); H344 ('perhaps from H337; the screamer, i.e. a hawk'), usage: kite, vulture",
+      "reviewed": "job 824"
+    },
+    "Allon|H438": {
+      "headline": "oak",
+      "label": "Probable",
+      "cite": "Strong's H438 ('the same as H437; Allon, an Israelite, also a place in Palestine'); H437 ('a variation of H436'); H436 ('prolonged from H352; an oak or other strong tree'), usage: plain. See also H356",
+      "reviewed": "job 824"
+    },
+    "Alvah|H5933": {
+      "headline": "moral perverseness",
+      "label": "Probable",
+      "cite": "Strong's H5933 ('the same as H5932; Alvah or Aljah, an Idumaean'); H5932 ('for H5766; moral perverseness'); H5766 ('and (feminine); or; or; from H5765; (moral) evil'), usage: iniquity, perverseness, unjust(-ly)",
+      "reviewed": "job 824"
+    },
+    "Amal|H6000": {
+      "headline": "toil",
+      "label": "Probable",
+      "cite": "Strong's H6000 ('the same as H5999; Amal, an Israelite'); H5999 ('from H5998; toil, i.e. wearing effort'), usage: grievance(-vousness), iniquity, labour, mischief, pain(-ful)",
+      "reviewed": "job 824"
+    },
+    "Ami|H532": {
+      "headline": "skilled (an architect)",
+      "label": "Probable",
+      "cite": "Strong's H532 ('an abbreviated form for H526; Ami, an Israelite'); H526 ('the same as H525; Amon, the name of three Israelites'); H525 ('from H539, probably in the sense of training; like H542 skilled, i.e. an architect'), usage: one brought up",
+      "reviewed": "job 824"
+    },
+    "Amnon|H550": {
+      "headline": "faithful",
+      "label": "Probable",
+      "cite": "Strong's H550 ('from H539; faithful; Amnon (or Aminon), a son of David'), usage: Amnon",
+      "reviewed": "job 824"
+    },
+    "Amon|H526": {
+      "headline": "skilled (an architect)",
+      "label": "Probable",
+      "cite": "Strong's H526 ('the same as H525; Amon, the name of three Israelites'); H525 ('from H539, probably in the sense of training; like H542 skilled, i.e. an architect'), usage: one brought up",
+      "reviewed": "job 824"
+    },
+    "Anak|H6061": {
+      "headline": "necklace",
+      "label": "Probable",
+      "cite": "Strong's H6061 ('the same as H6060; Anak, a Canaanite'); H6060 ('from H6059; a necklace (as if strangling)'), usage: chain",
+      "reviewed": "job 824"
+    },
+    "Aner|H6063": {
+      "headline": "boy",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H6063 ('probably for H5288; Aner, a Amorite, also a place in Palestine'); H5288 ('from H5287; (concretely) a boy (as active), from the age of infancy to adolescence'), usage: babe, boy, child, damsel (from the margin), lad, servant",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'probably for' the word for 'a boy'."
+    },
+    "Arba|H704": {
+      "headline": "four",
+      "label": "Probable",
+      "cite": "Strong's H704 ('the same as H702; Arba, one of the Anakim'); H702 ('masculine; from H7251; four'), usage: four",
+      "reviewed": "job 824"
+    },
+    "Ariel|H740": {
+      "headline": "lion of God",
+      "label": "Probable",
+      "cite": "Strong's H740 ('the same as H739; Ariel, a symbolical name for Jerusalem, also the name of an Israelite'); H739 ('from H738 and H410; lion of God'), usage: lionlike men",
+      "reviewed": "job 824"
+    },
+    "Arodi|H722": {
+      "headline": "an Arodite (descendant of Arod)",
+      "label": "Probable",
+      "cite": "Strong's H722 ('patronymic from H721; an Arodite or descendant of Arod'), usage: Arodi, Arodites",
+      "reviewed": "job 824"
+    },
+    "Atarah|H5851": {
+      "headline": "crown",
+      "label": "Probable",
+      "cite": "Strong's H5851 ('the same as H5850; Atarah, an Israelitess'); H5850 ('from H5849; a crown'), usage: crown",
+      "reviewed": "job 824"
+    },
+    "Attai|H6262": {
+      "headline": "timely",
+      "label": "Probable",
+      "cite": "Strong's H6262 ('for H6261; Attai, the name of three Israelites'); H6261 ('from H6256; timely'), usage: fit",
+      "reviewed": "job 824"
+    },
+    "Azubah|H5806": {
+      "headline": "desertion",
+      "label": "Probable",
+      "cite": "Strong's H5806 ('the same as H5805; Azubah, the name of two Israelitesses'); H5805 ('feminine passive participle of H5800; desertion (of inhabitants)'), usage: forsaking",
+      "reviewed": "job 824"
+    },
+    "Bakbakkar|H1230": {
+      "headline": "searcher",
+      "label": "Probable",
+      "cite": "Strong's H1230 ('reduplicated from H1239; searcher; Bakbakkar, an Israelite'), usage: Bakbakkar",
+      "reviewed": "job 824"
+    },
+    "Bakbuk|H1227": {
+      "headline": "bottle",
+      "label": "Probable",
+      "cite": "Strong's H1227 ('the same as H1228; Bakbuk, one of the Nethinim'); H1228 ('from H1238; a bottle (from the gurgling in emptying)'), usage: bottle, cruse",
+      "reviewed": "job 824"
+    },
+    "Bar-Jesus|G919": {
+      "headline": "son of Jesus (or Joshua)",
+      "label": "Probable",
+      "cite": "Strong's G919 ('of Chaldee origin (H1247 and H3091); son of Jesus (or Joshua); Bar-jesus, an Israelite'), usage: Barjesus",
+      "reviewed": "job 824"
+    },
+    "Barak|H1301": {
+      "headline": "lightning",
+      "label": "Probable",
+      "cite": "Strong's H1301 ('the same as H1300; Barak, an Israelite'); H1300 ('from H1299; lightning'), usage: bright, glitter(-ing sword), lightning",
+      "reviewed": "job 824"
+    },
+    "Barak|H917": {
+      "headline": "servile",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H917 ('probably shortened for H5658; servile; Bedan, the name of two Israelites'), usage: Bedan",
+      "reviewed": "job 824"
+    },
+    "Bariah|H1282": {
+      "headline": "fugitive",
+      "label": "Probable",
+      "cite": "Strong's H1282 ('the same as H1281; Bariach, an Israelite'); H1281 ('(shortened) from H1272; a fugitive, i.e. the serpent (as fleeing), and the constellation by that name'), usage: crooked, noble, piercing",
+      "reviewed": "job 824"
+    },
+    "Barsabbas|G923": {
+      "headline": "son of Sabas",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G923 ('of Chaldee origin (H1247 and probably H6634); son of Sabas (or Tsaba); Bar-sabas, the name of two Israelites'), usage: Barsabas",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'son of Sabas (or Tsaba)', from Aramaic bar, 'son'."
+    },
+    "Bartimaeus|G924": {
+      "headline": "son of Timæus",
+      "label": "Probable",
+      "cite": "Strong's G924 ('of Chaldee origin (H1247 and H2931); son of Timæus (or the unclean); Bar-timæus, an Israelite'), usage: Bartimæus",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'son of Timæus (or the unclean)'."
+    },
+    "Becher|H1071": {
+      "headline": "young camel",
+      "label": "Probable",
+      "cite": "Strong's H1071 ('the same as H1070; Beker, the name of two Israelites'); H1070 ('from H1069 (in the sense of youth); a young camel'), usage: dromedary",
+      "reviewed": "job 824"
+    },
+    "Bedan|H917": {
+      "headline": "servile",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H917 ('probably shortened for H5658; servile; Bedan, the name of two Israelites'), usage: Bedan",
+      "reviewed": "job 824"
+    },
+    "Bedeiah|H912": {
+      "headline": "servant of the LORD",
+      "label": "Probable",
+      "cite": "Strong's H912 ('probably a shortened form H5662; servant of Jehovah; Bedejah, an Israelite'), usage: Bedeiah",
+      "reviewed": "job 824"
+    },
+    "Bela|H1106": {
+      "headline": "a gulp",
+      "label": "Probable",
+      "cite": "Strong's H1106 ('the same as H1105; Bela, the name of a place, also of an Edomite and of two Israelites'); H1105 ('from H1104; a gulp'), usage: devouring, that which he hath swallowed up",
+      "reviewed": "job 824"
+    },
+    "Benaiah|H1141": {
+      "headline": "the LORD has built",
+      "label": "Probable",
+      "cite": "Strong's H1141 ('(prolonged) from H1129 and H3050; Jah has built; Benajah, the name of twelve Israelites'), usage: Benaiah",
+      "reviewed": "job 824"
+    },
+    "Beno|H1121": {
+      "headline": "son",
+      "label": "Probable",
+      "cite": "Strong's H1121 ('from H1129; a son (as a builder of the family name), in the widest sense (of literal and figurative...'), usage: afflicted, age, (Ahoh-) (Ammon-) (Hachmon-) (Lev-) ite, colt",
+      "reviewed": "job 824"
+    },
+    "Beracah|H1294": {
+      "headline": "benediction",
+      "label": "Probable",
+      "cite": "Strong's H1294 ('the same as H1293; Berakah, the name of an Israelite, and also of a valley in Palestine'); H1293 ('from H1288; benediction'), usage: blessing, liberal, pool, present",
+      "reviewed": "job 824"
+    },
+    "Bezer|H1221": {
+      "headline": "an inaccessible spot",
+      "label": "Probable",
+      "cite": "Strong's H1221 ('the same as H1220, an inaccessible spot; Betser, a place in Palestine; also an Israelite'); H1220 ('from H1219; strictly a clipping, i.e. gold (as dug out)'), usage: gold defence",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for gold (as dug out), here meaning 'an inaccessible spot'."
+    },
+    "Buzi|H941": {
+      "headline": "a Buzite (descendant of Buz)",
+      "label": "Probable",
+      "cite": "Strong's H941 ('the same as H940; Buzi, an Israelite'); H940 ('patronymic from H938; a Buzite or descendant of Buz'), usage: Buzite",
+      "reviewed": "job 824"
+    },
+    "Buz|H938": {
+      "headline": "disrespect",
+      "label": "Probable",
+      "cite": "Strong's H938 ('the same as H937; Buz, the name of a son of Nahor, and of an Israelite'); H937 ('from H936; disrespect'), usage: contempt(-uously), despised, shamed",
+      "reviewed": "job 824"
+    },
+    "Cain|H7014": {
+      "headline": "lance",
+      "label": "Probable",
+      "cite": "Strong's H7014 ('the same as H7013 (with a play upon the affinity to H7069); Kajin, the name of the first child, also of a...'); H7013 ('from H6969 in the original sense of fixity; a lance (as striking fast)'), usage: spear",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for 'a lance', with a play on the verb 'to get' (see the wordplay note)."
+    },
+    "Caleb|H3612": {
+      "headline": "dog, or forcible",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H3612 ('perhaps a form of H3611, or else from the same root in the sense of forcible; Caleb, the name of three...'); H3611 ('from an unused root means. to yelp, or else to attack; a dog'), usage: dog",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'perhaps' a form of the word for 'a dog', 'or else' from the same root in the sense of 'forcible'."
+    },
+    "Caleb|H3621": {
+      "headline": "dog, or forcible",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H3621 ('a form of H3612; Kelubai, an Israelite'); H3612 ('perhaps a form of H3611, or else from the same root in the sense of forcible; Caleb, the name of three...'); H3611 ('from an unused root means. to yelp, or else to attack; a dog'), usage: dog",
+      "reviewed": "job 824",
+      "explanation": "Strong's: a form of Caleb, which is 'perhaps' a form of the word for 'a dog', 'or else' from the same root in the sense of 'forcible'."
+    },
+    "Carmel|H3760": {
+      "headline": "planted field, garden",
+      "label": "Probable",
+      "cite": "Strong's H3760 ('the same as H3759; Karmel, the name of a hill and of a town in Palestine'); H3759 ('from H3754; a planted field (garden, orchard, vineyard or park)'), usage: full (green) ears (of corn), fruitful field (place)",
+      "reviewed": "job 824"
+    },
+    "Carpus|G2591": {
+      "headline": "fruit",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G2591 ('perhaps for G2590; Carpus, probably a Christian'); G2590 ('probably from the base of G726; fruit (as plucked), literally or figuratively'), usage: fruit",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'perhaps for' the word for 'fruit'."
+    },
+    "Chelub|H3620": {
+      "headline": "bird-trap, basket",
+      "label": "Probable",
+      "cite": "Strong's H3620 ('the same as H3619; Kelub, the name of two Israelites'); H3619 ('from the same as H3611; a bird-trap (as furnished with a clap-stick or treadle to spring it)'), usage: basket, cage",
+      "reviewed": "job 824"
+    },
+    "Chidon|H3592": {
+      "headline": "dart",
+      "label": "Probable",
+      "cite": "Strong's H3592 ('the same as H3591; Kidon, a place in Palestine'); H3591 ('from the same as H3589; (perhaps smaller than H2595) properly, something to strike with, i.e. a dart'), usage: lance, shield, spear, target",
+      "reviewed": "job 824"
+    },
+    "Chilion|H3630": {
+      "headline": "pining, destruction",
+      "label": "Probable",
+      "cite": "Strong's H3630 ('a form of H3631; Kiljon, an Israelite'); H3631 ('from H3615; pining, destruction'), usage: consumption, failing",
+      "reviewed": "job 824"
+    },
+    "Cushi|H3569": {
+      "headline": "a Cushite (descendant of Cush)",
+      "label": "Probable",
+      "cite": "Strong's H3569 ('patronymically from H3568; a Cushite, or descendant of Cush'), usage: Cushi, Cushite, Ethiopian(-s)",
+      "reviewed": "job 824"
+    },
+    "Cushi|H3570": {
+      "headline": "a Cushite (descendant of Cush)",
+      "label": "Probable",
+      "cite": "Strong's H3570 ('the same as H3569; Cushi, the name of two Israelites'); H3569 ('patronymically from H3568; a Cushite, or descendant of Cush'), usage: Cushi, Cushite, Ethiopian(-s)",
+      "reviewed": "job 824"
+    },
+    "Dara|H1873": {
+      "headline": "pearl of knowledge",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H1873 ('probably a contraction from H1862; Dara, an Israelite'); H1862 ('apparently from H1858 and H1843; pearl of knowledge; Darda, an Israelite'), usage: Darda",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'probably a contraction from' Darda, 'pearl of knowledge'."
+    },
+    "Debir|H1688": {
+      "headline": "the shrine (innermost sanctuary)",
+      "label": "Probable",
+      "cite": "Strong's H1688 ('(Joshua 13:26 (but see H3810)), the same as H1687; Debir, the name of an Amoritish king and of two places in...'); H1687 ('from H1696 (apparently in the sense of oracle); the shrine or innermost part of the sanctuary'), usage: oracle",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for 'the shrine or innermost part of the sanctuary'."
+    },
+    "Deborah|H1683": {
+      "headline": "bee",
+      "label": "Probable",
+      "cite": "Strong's H1683 ('the same as H1682; Deborah, the name of two Hebrewesses'); H1682 ('from H1696 (in the sense of orderly motion); the bee (from its systematic instincts)'), usage: bee",
+      "reviewed": "job 824"
+    },
+    "Dishan|H1787": {
+      "headline": "antelope (the leaper)",
+      "label": "Probable",
+      "cite": "Strong's H1787 ('Diyshon, the same as H1788; Dishon, the name of two Edomites'); H1788 ('from H1758; the leaper, i.e. an antelope'), usage: pygarg",
+      "reviewed": "job 824"
+    },
+    "Dishan|H1789": {
+      "headline": "antelope (the leaper)",
+      "label": "Probable",
+      "cite": "Strong's H1789 ('another form of H1787 Dishan, an Edomite'); H1787 ('Diyshon, the same as H1788; Dishon, the name of two Edomites'); H1788 ('from H1758; the leaper, i.e. an antelope'), usage: pygarg",
+      "reviewed": "job 824",
+      "explanation": "Strong's: another form of Dishon, the same as the word for 'the leaper, i.e. an antelope'."
+    },
+    "Dishon|H1787": {
+      "headline": "antelope (the leaper)",
+      "label": "Probable",
+      "cite": "Strong's H1787 ('Diyshon, the same as H1788; Dishon, the name of two Edomites'); H1788 ('from H1758; the leaper, i.e. an antelope'), usage: pygarg",
+      "reviewed": "job 824"
+    },
+    "Dishon|H1789": {
+      "headline": "antelope (the leaper)",
+      "label": "Probable",
+      "cite": "Strong's H1789 ('another form of H1787 Dishan, an Edomite'); H1787 ('Diyshon, the same as H1788; Dishon, the name of two Edomites'); H1788 ('from H1758; the leaper, i.e. an antelope'), usage: pygarg",
+      "reviewed": "job 824",
+      "explanation": "Strong's: another form of Dishon, the same as the word for 'the leaper, i.e. an antelope'."
+    },
+    "Dumah|H1746": {
+      "headline": "silence",
+      "label": "Probable",
+      "cite": "Strong's H1746 ('the same as H1745; Dumah, a tribe and region of Arabia'); H1745 ('from an unused root meaning to be dumb (compare H1820); silence'), usage: silence",
+      "reviewed": "job 824"
+    },
+    "Ebed|H5651": {
+      "headline": "servant",
+      "label": "Probable",
+      "cite": "Strong's H5651 ('the same as H5650; Ebed, the name of two Israelites'); H5650 ('from H5647; a servant'), usage: bondage, bondman, (bond-) servant, (man-) servant",
+      "reviewed": "job 824"
+    },
+    "Eber|H5677": {
+      "headline": "a region across",
+      "label": "Probable",
+      "cite": "Strong's H5677 ('the same as H5676; Eber, the name of two patriarchs and four Israelites'); H5676 ('from H5674; properly, a region across'), usage: against, beyond, by, from, over, passage, quarter, straight",
+      "reviewed": "job 824"
+    },
+    "Eden|H5731": {
+      "headline": "pleasure",
+      "label": "Probable",
+      "cite": "Strong's H5731 ('the same as H5730 (masculine); Eden, the region of Adam's home'); H5730 ('from H5727; pleasure'), usage: delicate, delight, pleasure. See also H1040",
+      "reviewed": "job 824"
+    },
+    "Eder|H5740": {
+      "headline": "a muster (of animals)",
+      "label": "Probable",
+      "cite": "Strong's H5740 ('the same as H5739; Eder, the name of an Israelite and of two places in Palestine'); H5739 ('from H5737; an arrangement, i.e. muster (of animals)'), usage: drove, flock, herd",
+      "reviewed": "job 824"
+    },
+    "Eglah|H5698": {
+      "headline": "heifer",
+      "label": "Probable",
+      "cite": "Strong's H5698 ('the same as H5697; Eglah, a wife of David'); H5697 ('feminine of H5695; a (female) calf, especially one nearly grown (i.e. a heifer)'), usage: calf, cow, heifer",
+      "reviewed": "job 824"
+    },
+    "Eker|H6134": {
+      "headline": "transplanted person",
+      "label": "Probable",
+      "cite": "Strong's H6134 ('the same as H6133; Eker, an Israelite'); H6133 ('from H6131; figuratively, a transplanted person, i.e. naturalized citizen'), usage: stock",
+      "reviewed": "job 824"
+    },
+    "Elah|H425": {
+      "headline": "oak (a strong tree)",
+      "label": "Probable",
+      "cite": "Strong's H425 ('the same as H424; Elah, the name of an Edomite, of four Israelites, and also of a place in Palestine'); H424 ('feminine of H352; an oak or other strong tree'), usage: elm, oak, teil-tree",
+      "reviewed": "job 824"
+    },
+    "Enosh|H583": {
+      "headline": "a mortal (man)",
+      "label": "Probable",
+      "cite": "Strong's H583 ('the same as H582; Enosh, a son of Seth'); H582 ('from H605; properly, a mortal (and thus differing from the more dignified H120)'), usage: another, (blood-) thirsty, certain, chap(-man); divers",
+      "reviewed": "job 824"
+    },
+    "Ephah|H5891": {
+      "headline": "obscurity",
+      "label": "Probable",
+      "cite": "Strong's H5891 ('the same as H5890; Ephah, the name of a son of Midian, and of the region settled by him; also of an Israelite...'); H5890 ('feminine from H5774; obscurity (as if from covering)'), usage: darkness",
+      "reviewed": "job 824"
+    },
+    "Ephod|H641": {
+      "headline": "girdle (ephod)",
+      "label": "Probable",
+      "cite": "Strong's H641 ('the same as H646 shortened; Ephod, an Israelite'); H646 ('rarely; probably of foreign derivation a girdle'), usage: ephod",
+      "reviewed": "job 824"
+    },
+    "Eshcol|H812": {
+      "headline": "bunch of grapes",
+      "label": "Probable",
+      "cite": "Strong's H812 ('the same as H811; Eshcol, the name of an Amorite, also of a valley in Palestine'); H811 ('probably prolonged from H810; a bunch of grapes or other fruit'), usage: cluster (of grapes)",
+      "reviewed": "job 824"
+    },
+    "Ethnan|H869": {
+      "headline": "a present",
+      "label": "Probable",
+      "cite": "Strong's H869 ('the same as H868 in the sense of H867; Ethnan, an Israelite'); H868 ('the same as H866; a gift (as the price of harlotry or idolatry)'); H866 ('from H8566; a present (as the price of harlotry)'), usage: reward",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as a word for 'a gift (as the price of harlotry or idolatry)'."
+    },
+    "Ezer|H5829": {
+      "headline": "help (aid)",
+      "label": "Probable",
+      "cite": "Strong's H5829 ('the same as H5828; Ezer, the name of four Israelites'); H5828 ('from H5826; aid'), usage: help",
+      "reviewed": "job 824"
+    },
+    "Ezrah|H5834": {
+      "headline": "help (aid)",
+      "label": "Probable",
+      "cite": "Strong's H5834 ('the same as H5833; Ezrah, an Israelite'); H5833 ('(Psalm 60:11 (13); Psalm 108:12 (13)), feminine of H5828; aid'), usage: help(-ed, -er)",
+      "reviewed": "job 824"
+    },
+    "Geber|H1398": {
+      "headline": "valiant man (warrior)",
+      "label": "Probable",
+      "cite": "Strong's H1398 ('the same as H1397; Geber, the name of two Israelites'); H1397 ('from H1396; properly, a valiant man or warrior'), usage: every one, man, mighty",
+      "reviewed": "job 824"
+    },
+    "Geshem|H1654": {
+      "headline": "shower",
+      "label": "Probable",
+      "cite": "Strong's H1654 ('the same as H1653; Geshem or Gashmu, an Arabian'); H1653 ('from H1652; a shower'), usage: rain, shower",
+      "reviewed": "job 824"
+    },
+    "Haggedolim|H1419": {
+      "headline": "great",
+      "label": "Probable",
+      "cite": "Strong's H1419 ('(shortened) from H1431; great (in any sense); hence, older; also insolent'), usage: aloud, elder(-est), exceeding(-ly), far, high, long, loud",
+      "reviewed": "job 824"
+    },
+    "Hakkoz|H6976": {
+      "headline": "thorn",
+      "label": "Probable",
+      "cite": "Strong's H6976 ('the same as H6975; Kots, the name of two Israelites'); H6975 ('from H6972 (in the sense of pricking); a thorn'), usage: thorn",
+      "reviewed": "job 824"
+    },
+    "Harhur|H2744": {
+      "headline": "inflammation",
+      "label": "Probable",
+      "cite": "Strong's H2744 ('a fuller form of H2746; inflammation; Charchur, one of the Nethinim'), usage: Harhur",
+      "reviewed": "job 824"
+    },
+    "Hathath|H2867": {
+      "headline": "dismay",
+      "label": "Probable",
+      "cite": "Strong's H2867 ('the same as H2866; Chathath, an Israelite'); H2866 ('from H2865; dismay'), usage: casting down",
+      "reviewed": "job 824"
+    },
+    "Helah|H2458": {
+      "headline": "disease",
+      "label": "Probable",
+      "cite": "Strong's H2458 ('the same as H2457; Chelah, an Israelitess'); H2457 ('from H2456; properly, disease'), usage: scum",
+      "reviewed": "job 824"
+    },
+    "Heled|H2466": {
+      "headline": "life (the world)",
+      "label": "Probable",
+      "cite": "Strong's H2466 ('the same as H2465; Cheled, an Israelite'); H2465 ('from an unused root apparently meaning to glide swiftly; life (as a fleeting portion of time)'), usage: age, short time, world",
+      "reviewed": "job 824"
+    },
+    "Heresh|H2792": {
+      "headline": "magical craft",
+      "label": "Probable",
+      "cite": "Strong's H2792 ('the same as H2791 Cheresh, a Levite'); H2791 ('from H2790; magical craft'), usage: cunning, secretly",
+      "reviewed": "job 824"
+    },
+    "Hodesh|H2321": {
+      "headline": "new moon (month)",
+      "label": "Probable",
+      "cite": "Strong's H2321 ('the same as H2320; Chodesh, an Israelitess'); H2320 ('from H2318; the new moon'), usage: month(-ly), new moon",
+      "reviewed": "job 824"
+    },
+    "Hod|H1936": {
+      "headline": "grandeur",
+      "label": "Probable",
+      "cite": "Strong's H1936 ('the same as H1935; Hod, an Israelite'); H1935 ('from an unused root; grandeur (i.e. an imposing form and appearance)'), usage: beauty, comeliness, excellency, glorious, glory, goodly",
+      "reviewed": "job 824"
+    },
+    "Hori|H2753": {
+      "headline": "cave-dweller",
+      "label": "Probable",
+      "cite": "Strong's H2753 ('the same as H2752; Chori, the name of two men'); H2752 ('from H2356; cave-dweller or troglodyte; a Chorite or aboriginal Idumaean'), usage: Horims, Horites",
+      "reviewed": "job 824"
+    },
+    "Huppah|H2647": {
+      "headline": "canopy",
+      "label": "Probable",
+      "cite": "Strong's H2647 ('the same as H2646; Chuppah, an Israelite'); H2646 ('from H2645; a canopy'), usage: chamber, closet, defence",
+      "reviewed": "job 824"
+    },
+    "Hur|H2354": {
+      "headline": "white linen",
+      "label": "Probable",
+      "cite": "Strong's H2354 ('the same as H2353 or H2352; Chur, the name of four Israelites and one Midianite'); H2353 ('from H2357; white linen'), usage: white",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for 'white linen', or as another word (H2352, a hole)."
+    },
+    "Ir|H5893": {
+      "headline": "city",
+      "label": "Probable",
+      "cite": "Strong's H5893 ('the same as H5892; Ir, an Israelite'); H5892 ('or; (Judges 10:4), from H5782 a city (a place guarded by waking or a watch) in the widest sense (even of a...'), usage: Ai (from margin), city, court (from margin), town",
+      "reviewed": "job 824"
+    },
+    "Issachar|H3485": {
+      "headline": "he will bring a reward",
+      "label": "Probable",
+      "cite": "Strong's H3485 ('(strictly yis-saws-kawr'); from H5375 and H7939; he will bring a reward; Jissaskar, a son of Jacob'), usage: Issachar",
+      "reviewed": "job 824"
+    },
+    "Izhar|H3324": {
+      "headline": "oil",
+      "label": "Probable",
+      "cite": "Strong's H3324 ('the same as H3323; Jitshar, an Israelite'); H3323 ('from H6671; oil (as producing light)'), usage: anointed oil",
+      "reviewed": "job 824"
+    },
+    "Jabal|H2989": {
+      "headline": "stream",
+      "label": "Probable",
+      "cite": "Strong's H2989 ('the same as H2988; Jabal, an antediluvian'); H2988 ('from H2986; a stream'), usage: (water-) course, stream",
+      "reviewed": "job 824"
+    },
+    "Jabesh|H3003": {
+      "headline": "dry",
+      "label": "Probable",
+      "cite": "Strong's H3003 ('the same as H3002 (also; often with the addition of H1568, i.e. Jabesh of Gilad); Jobesh, the name of an...'); H3002 ('from H3001; dry'), usage: dried (away), dry",
+      "reviewed": "job 824"
+    },
+    "Jael|H3278": {
+      "headline": "ibex",
+      "label": "Probable",
+      "cite": "Strong's H3278 ('the same as H3277; Jael, a Canaanite'); H3277 ('from H3276; an ibex (as climbing)'), usage: wild goat",
+      "reviewed": "job 824"
+    },
+    "Jair|H3265": {
+      "headline": "wooded",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H3265 ('apparently the passive participle of the same as H3293; wooded; Jaur, an Israelite'), usage: Jair(from the margin)",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'apparently' a form meaning 'wooded'."
+    },
+    "Jamin|H3226": {
+      "headline": "right hand",
+      "label": "Probable",
+      "cite": "Strong's H3226 ('the same as H3225; Jamin, the name of three Israelites'); H3225 ('from H3231; the right hand or side (leg, eye) of a person or other object (as the stronger and more dexterous)'), usage: left-handed, right (hand, side), south",
+      "reviewed": "job 824"
+    },
+    "Jarib|H3402": {
+      "headline": "he will contend",
+      "label": "Probable",
+      "cite": "Strong's H3402 ('the same as H3401; Jarib, the name of three Israelites'); H3401 ('from H7378; literally he will contend'), usage: that content(-eth), that strive",
+      "reviewed": "job 824"
+    },
+    "Jashar|H3477": {
+      "headline": "straight",
+      "label": "Probable",
+      "cite": "Strong's H3477 ('from H3474; straight (literally or figuratively)'), usage: convenient, equity, Jasher, just, meet(-est), straight",
+      "reviewed": "job 824"
+    },
+    "Jashen|H3464": {
+      "headline": "sleepy",
+      "label": "Probable",
+      "cite": "Strong's H3464 ('the same as H3463; Jashen, an Israelite'); H3463 ('from H3462; sleepy'), usage: asleep, (one out of) sleep(-eth, -ing), slept",
+      "reviewed": "job 824"
+    },
+    "Jehudi|H3065": {
+      "headline": "a Jew (descendant of Judah)",
+      "label": "Probable",
+      "cite": "Strong's H3065 ('the same as H3064; Jehudi, an Israelite'); H3064 ('patronymically from H3063; a Jehudite (i.e. Judaite or Jew), or descendant of Jehudah (i.e. Judah)'), usage: Jew",
+      "reviewed": "job 824"
+    },
+    "Jemimah|H3224": {
+      "headline": "dove",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H3224 ('perhaps from the same as H3117; properly, warm, i.e. affectionate; hence, dove (compare H3123); Jemimah, one...'), usage: Jemimah",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'perhaps' from a word meaning 'warm, i.e. affectionate; hence, dove'."
+    },
+    "Jerah|H3392": {
+      "headline": "month (lunation)",
+      "label": "Probable",
+      "cite": "Strong's H3392 ('the same as H3391; Jerach, an Arabian patriarch'); H3391 ('from a unused root of uncertain signification; a lunation, i.e. month'), usage: month, moon",
+      "reviewed": "job 824"
+    },
+    "Jether|H3500": {
+      "headline": "excess, superiority",
+      "label": "Probable",
+      "cite": "Strong's H3500 ('the same as H3499; Jether, the name of five or six Israelites and of one Midianite'); H3499 ('from H3498; properly, an overhanging, i.e. (by implication) an excess, superiority, remainder'), usage: abundant, cord, exceeding, excellancy(-ent), what they leave",
+      "reviewed": "job 824"
+    },
+    "Jethro|H3500": {
+      "headline": "excess, superiority",
+      "label": "Probable",
+      "cite": "Strong's H3500 ('the same as H3499; Jether, the name of five or six Israelites and of one Midianite'); H3499 ('from H3498; properly, an overhanging, i.e. (by implication) an excess, superiority, remainder'), usage: abundant, cord, exceeding, excellancy(-ent), what they leave",
+      "reviewed": "job 824"
+    },
+    "Jezer|H3337": {
+      "headline": "a form",
+      "label": "Probable",
+      "cite": "Strong's H3337 ('the same as H3336; Jetser, an Israelite'); H3336 ('from H3335; a form'), usage: frame, thing framed, imagination, mind, work",
+      "reviewed": "job 824"
+    },
+    "Joed|H3133": {
+      "headline": "appointer",
+      "label": "Probable",
+      "cite": "Strong's H3133 ('apparently the active participle of H3259; appointer; Joed, an Israelite'), usage: Joed",
+      "reviewed": "job 824"
+    },
+    "Jonah|H3124": {
+      "headline": "dove",
+      "label": "Probable",
+      "cite": "Strong's H3124 ('the same as H3123; Jonah, an Israelite'); H3123 ('probably from the same as H3196; a dove (apparently from the warmth of their mating)'), usage: dove, pigeon",
+      "reviewed": "job 824"
+    },
+    "Joses|G2500": {
+      "headline": "let him add",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G2500 ('perhaps for G2501; Joses, the name of two Israelites'); G2501 ('of Hebrew origin (H3130); Joseph, the name of seven Israelites'); H3130 ('future of H3254; let him add (or perhaps simply active participle adding); Joseph, the name of seven...'), usage: Joseph. Compare H3084",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'perhaps for' Joseph, 'let him add'."
+    },
+    "Keziah|H7103": {
+      "headline": "cassia",
+      "label": "Probable",
+      "cite": "Strong's H7103 ('the same as H7102; Ketsiah, a daughter of Job'); H7102 ('from H7106; cassia (as peeled'), usage: cassia",
+      "reviewed": "job 824"
+    },
+    "Koz|H6976": {
+      "headline": "thorn",
+      "label": "Probable",
+      "cite": "Strong's H6976 ('the same as H6975; Kots, the name of two Israelites'); H6975 ('from H6972 (in the sense of pricking); a thorn'), usage: thorn",
+      "reviewed": "job 824"
+    },
+    "Laban|H3837": {
+      "headline": "white",
+      "label": "Probable",
+      "cite": "Strong's H3837 ('the same as H3836; Laban, a Mesopotamian; also a place in the Desert'); H3836 ('from H3835; white'), usage: white",
+      "reviewed": "job 824"
+    },
+    "Lahmi|H3902": {
+      "headline": "foodful",
+      "label": "Probable",
+      "cite": "Strong's H3902 ('from H3899; foodful; (or perhaps erroneous transcription) for H1022 Lachmi, an Israelite; or rather probably...'), usage: Lahmi. See also H3433",
+      "reviewed": "job 824"
+    },
+    "Laish|H3919": {
+      "headline": "lion",
+      "label": "Probable",
+      "cite": "Strong's H3919 ('the same as H3918; Laish, the name of two places in Palestine'); H3918 ('from H3888 in the sense of crushing; a lion (from his destructive blows)'), usage: (old) lion",
+      "reviewed": "job 824"
+    },
+    "Lebanah|H3838": {
+      "headline": "white (the moon)",
+      "label": "Probable",
+      "cite": "Strong's H3838 ('the same as H3842; Lebana or Lebanah, one of the Nethinim'); H3842 ('from H3835; properly, (the) white, i.e. the moon'), usage: moon. See also H3838",
+      "reviewed": "job 824"
+    },
+    "Lot|H3876": {
+      "headline": "a veil",
+      "label": "Probable",
+      "cite": "Strong's H3876 ('the same as H3875; Lot, Abraham's nephew'); H3875 ('from H3874; a veil'), usage: covering",
+      "reviewed": "job 824"
+    },
+    "Matri|H4309": {
+      "headline": "rainy",
+      "label": "Probable",
+      "cite": "Strong's H4309 ('from H4305; rainy; Matri, an Israelite'), usage: Matri",
+      "reviewed": "job 824"
+    },
+    "Mattan|H4977": {
+      "headline": "a present (gift)",
+      "label": "Probable",
+      "cite": "Strong's H4977 ('the same as H4976; Mattan, the name of a priest of Baal, and of an Israelite'); H4976 ('from H5414; a present'), usage: gift, to give, reward",
+      "reviewed": "job 824"
+    },
+    "Matthan|G3157": {
+      "headline": "a present (gift)",
+      "label": "Probable",
+      "cite": "Strong's G3157 ('of Hebrew origin (H4977); Matthan (i.e. Mattan), an Israelite'); H4977 ('the same as H4976; Mattan, the name of a priest of Baal, and of an Israelite'); H4976 ('from H5414; a present'), usage: gift, to give, reward",
+      "reviewed": "job 824"
+    },
+    "Medan|H4091": {
+      "headline": "contest, quarrel",
+      "label": "Probable",
+      "cite": "Strong's H4091 ('the same as H4090; Medan, a son of Abraham'); H4090 ('a form of H4066'); H4066 ('from H1777; a contest or quarrel'), usage: brawling, contention(-ous), discord, strife. Compare H4079",
+      "reviewed": "job 824"
+    },
+    "Melchi|G3197": {
+      "headline": "my king",
+      "label": "Probable",
+      "cite": "Strong's G3197 ('of Hebrew origin (H4428 with pronominal suffix, my king); Melchi (i.e. Malki), the name of two Israelites'); H4428 ('from H4427; a king'), usage: king, royal",
+      "reviewed": "job 824"
+    },
+    "Mered|H4778": {
+      "headline": "rebellion",
+      "label": "Probable",
+      "cite": "Strong's H4778 ('the same as H4777; Mered, an Israelite'); H4777 ('from H4775; rebellion'), usage: rebellion",
+      "reviewed": "job 824"
+    },
+    "Meshach|H4335": {
+      "headline": "Meaning uncertain",
+      "label": "Uncertain",
+      "cite": "Strong's H4335 ('borrowed from H4336; Meshak, an Israelite'); H4336 ('(Aramaic) of foreign origin and doubtful significance; name of H4333 Meshak, the Babylonian'), usage: Meshak",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'of foreign origin and doubtful significance'."
+    },
+    "Mesha|H4338": {
+      "headline": "safety",
+      "label": "Probable",
+      "cite": "Strong's H4338 ('a variation for H4337; safety; Mesha, a Moabite'), usage: Mesha",
+      "reviewed": "job 824"
+    },
+    "Mibhar|H4006": {
+      "headline": "select, the best",
+      "label": "Probable",
+      "cite": "Strong's H4006 ('the same as H4005; Mibchar, an Israelite'); H4005 ('from H977; select, i.e. best'), usage: choice(-st), chosen",
+      "reviewed": "job 824"
+    },
+    "Mibzar|H4014": {
+      "headline": "fortification",
+      "label": "Probable",
+      "cite": "Strong's H4014 ('the same as H4013; Mibtsar, an Idumaean'); H4013 ('also (in plural) feminine (Daniel 11:l5); from H1219; a fortification, castle, or fortified city'), usage: (de-, most) fenced, fortress, (most) strong (hold)",
+      "reviewed": "job 824"
+    },
+    "Midian|H4080": {
+      "headline": "contest, quarrel",
+      "label": "Probable",
+      "cite": "Strong's H4080 ('the same as H4079; Midjan, a son of Abraham; also his country and (collectively) his descendants'); H4079 ('a variation for H4066'); H4066 ('from H1777; a contest or quarrel'), usage: brawling, contention(-ous), discord, strife. Compare H4079",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as a variant of the word for 'a contest or quarrel' (H4066)."
+    },
+    "Mikloth|H4732": {
+      "headline": "rods",
+      "label": "Probable",
+      "cite": "Strong's H4732 ('(or perhaps mik-kel-ohth') plural of (feminine) H4731; rods; Mikloth, a place in the Desert'), usage: Mikloth",
+      "reviewed": "job 824"
+    },
+    "Mirmah|H4821": {
+      "headline": "fraud",
+      "label": "Probable",
+      "cite": "Strong's H4821 ('the same as H4820; Mirmah, an Israelite'); H4820 ('from H7411 in the sense of deceiving; fraud'), usage: craft, deceit(-ful, -fully), false, feigned, guile, subtilly",
+      "reviewed": "job 824"
+    },
+    "Mishma|H4927": {
+      "headline": "a report",
+      "label": "Probable",
+      "cite": "Strong's H4927 ('the same as H4926; Mishma, the name of a son of Ishmael, and of an Israelite'); H4926 ('from H8085; a report'), usage: hearing",
+      "reviewed": "job 824"
+    },
+    "Moza|H4162": {
+      "headline": "going forth",
+      "label": "Probable",
+      "cite": "Strong's H4162 ('the same as H4161; Motsa, the name of two Israelites'); H4161 ('xlit môtsâ corrected to môtsâʼ; from H3318; a going forth, i.e. (the act) an egress, or (the place) an exit'), usage: brought out, bud, that which came out, east, going forth",
+      "reviewed": "job 824"
+    },
+    "Naaman|H5283": {
+      "headline": "pleasantness",
+      "label": "Probable",
+      "cite": "Strong's H5283 ('the same as H5282; Naaman, the name of an Israelite and of a Damascene'); H5282 ('from H5276; pleasantness (plural as concrete)'), usage: pleasant",
+      "reviewed": "job 824"
+    },
+    "Naarah|H5292": {
+      "headline": "girl",
+      "label": "Probable",
+      "cite": "Strong's H5292 ('the same as H5291; Naarah, the name of an Israelitess, and of a place in Palestine'); H5291 ('feminine of H5288; a girl (from infancy to adolescence)'), usage: damsel, maid(-en), young (woman)",
+      "reviewed": "job 824"
+    },
+    "Nahash|H5176": {
+      "headline": "snake",
+      "label": "Probable",
+      "cite": "Strong's H5176 ('the same as H5175; Nachash, the name of two persons apparently non-Israelite'); H5175 ('from H5172; a snake (from its hiss)'), usage: serpent",
+      "reviewed": "job 824"
+    },
+    "Nogah|H5052": {
+      "headline": "brilliancy",
+      "label": "Probable",
+      "cite": "Strong's H5052 ('the same as H5051; Nogah, a son of David'); H5051 ('from H5050; brilliancy (literally or figuratively)'), usage: bright(-ness), light, (clear) shining",
+      "reviewed": "job 824"
+    },
+    "Nympha|G3564": {
+      "headline": "nymph-given",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G3564 ('probably contracted for a compound of G3565 and G1435; nymph-given (i.e. -born); Nymphas, a Christian'), usage: Nymphas",
+      "reviewed": "job 824"
+    },
+    "Ohel|H169": {
+      "headline": "tent",
+      "label": "Probable",
+      "cite": "Strong's H169 ('the same as H168; Ohel, an Israelite'); H168 ('from H166; a tent (as clearly conspicuous from a distance)'), usage: covering, (dwelling) (place), home, tabernacle, tent",
+      "reviewed": "job 824"
+    },
+    "Oholibamah|H173": {
+      "headline": "tent of the height",
+      "label": "Probable",
+      "cite": "Strong's H173 ('from H168 and H1116; tent of (the) height; Oholibamah, a wife of Esau'), usage: Aholibamah",
+      "reviewed": "job 824"
+    },
+    "On|H203": {
+      "headline": "ability, power",
+      "label": "Probable",
+      "cite": "Strong's H203 ('the same as H202; On, an Israelite'); H202 ('probably from the same as H205 (in the sense of effort, but successful); ability, power, (figuratively) wealth'), usage: force, goods, might, strength, substance",
+      "reviewed": "job 824"
+    },
+    "Oreb|H6159": {
+      "headline": "raven",
+      "label": "Probable",
+      "cite": "Strong's H6159 ('the same as H6158; Oreb, the name of a Midianite and of the cliff near the Jordan'); H6158 ('from H6150; a raven (from its dusky hue)'), usage: raven",
+      "reviewed": "job 824"
+    },
+    "Oren|H767": {
+      "headline": "ash tree",
+      "label": "Probable",
+      "cite": "Strong's H767 ('the same as H766; Oren, an Israelite'); H766 ('from the same as H765 (in the sense of strength); the ash tree (from its toughness)'), usage: ash",
+      "reviewed": "job 824"
+    },
+    "Parosh|H6551": {
+      "headline": "flea",
+      "label": "Probable",
+      "cite": "Strong's H6551 ('the same as H6550; Parosh, the name of our Israelite'); H6550 ('probably from H6544 and H6211; a flea (as the isolated insect)'), usage: flea",
+      "reviewed": "job 824"
+    },
+    "Peresh|H6570": {
+      "headline": "dung",
+      "label": "Probable",
+      "cite": "Strong's H6570 ('the same as H6569; Peresh, an Israelite'); H6569 ('from H6567; excrement (as eliminated)'), usage: dung",
+      "reviewed": "job 824",
+      "explanation": "Strong's gives the plain word: 'excrement (as eliminated)'."
+    },
+    "Philologus|G5378": {
+      "headline": "fond of words",
+      "label": "Probable",
+      "cite": "Strong's G5378 ('from G5384 and G3056; fond of words, i.e. talkative (argumentative, learned, \"philological\"); Philologus, a...'), usage: Philologus",
+      "reviewed": "job 824"
+    },
+    "Piltai|H6408": {
+      "headline": "a Paltite (descendant of Palti)",
+      "label": "Probable",
+      "cite": "Strong's H6408 ('for H6407; Piltai, an Israelite'); H6407 ('patronymically from H6406; a Paltite or descendant of Palti'), usage: Paltite",
+      "reviewed": "job 824"
+    },
+    "Raamah|H7484": {
+      "headline": "a horse's mane",
+      "label": "Probable",
+      "cite": "Strong's H7484 ('the same as H7483; Ramah, the name of a grandson of Ham, and of a place (perhaps founded by him)'); H7483 ('feminine of H7482; the mane of a horse (as quivering in the wind)'), usage: thunder",
+      "reviewed": "job 824"
+    },
+    "Reba|H7254": {
+      "headline": "a fourth part",
+      "label": "Probable",
+      "cite": "Strong's H7254 ('the same as H7253; Reba, a Midianite'); H7253 ('from H7251; a fourth (part or side)'), usage: fourth part, side, square",
+      "reviewed": "job 824"
+    },
+    "Reelaiah|H7480": {
+      "headline": "fearful of the LORD",
+      "label": "Probable",
+      "cite": "Strong's H7480 ('from H7477 and H3050; made to tremble (i.e. fearful) of Jah; Reelajah, an Israelite'), usage: Reeliah",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'made to tremble (i.e. fearful) of Jah'."
+    },
+    "Rehob|H7340": {
+      "headline": "width (an avenue)",
+      "label": "Probable",
+      "cite": "Strong's H7340 ('the same as H7339; Rechob, the name of a place in Syria, also of a Syrian and an Israelite'); H7339 ('from H7337; a width, i.e. (concretely) avenue or area'), usage: broad place (way), street. See also H1050",
+      "reviewed": "job 824"
+    },
+    "Rehum|H7348": {
+      "headline": "compassionate",
+      "label": "Probable",
+      "cite": "Strong's H7348 ('a form of H7349; Rechum, the name of a Persian and of three Israelites'); H7349 ('from H7355; compassionate'), usage: full of compassion, merciful",
+      "reviewed": "job 824"
+    },
+    "Resheph|H7566": {
+      "headline": "a live coal",
+      "label": "Probable",
+      "cite": "Strong's H7566 ('the same as H7565; Resheph, an Israelite'); H7565 ('from H8313; a live coal'), usage: arrow, (burning) coal, burning heat, spark, hot thunderbolt",
+      "reviewed": "job 824"
+    },
+    "Rezin|H7526": {
+      "headline": "delight",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H7526 ('probably for H7522; Retsin, the name of a Syrian and of an Israelite'); H7522 ('from H7521; delight (especially as shown)'), usage: (be) acceptable(-ance, -ed), delight, desire, favour",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'probably' for the word meaning 'delight'."
+    },
+    "Rimmon|H7417": {
+      "headline": "pomegranate",
+      "label": "Probable",
+      "cite": "Strong's H7417 ('(; or; (1 Chronicles 6:62 (77)), the same as H7416; in Joshua 19:13: is mistaken for part of a name; article...'); H7416 ('from H7426; a pomegranate, the tree (from its upright growth) or the fruit (also an artificial ornament)'), usage: pomegranate",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for 'a pomegranate' (H7416)."
+    },
+    "Rinnah|H7441": {
+      "headline": "a shout (of joy or grief)",
+      "label": "Probable",
+      "cite": "Strong's H7441 ('the same as H7440; Rinnah, an Israelite'); H7440 ('from H7442; properly, a creaking (or shrill sound), i.e. shout (of joy or grief)'), usage: cry, gladness, joy, proclamation, rejoicing, shouting",
+      "reviewed": "job 824"
+    },
+    "Rizpah|H7532": {
+      "headline": "hot stone (pavement)",
+      "label": "Probable",
+      "cite": "Strong's H7532 ('the same as H7531; Ritspah, an Israelitess'); H7531 ('feminine of H7529; a hot stone'), usage: live coal, pavement",
+      "reviewed": "job 824"
+    },
+    "Romamti-ezer|H7320": {
+      "headline": "I have raised up a help",
+      "label": "Probable",
+      "cite": "Strong's H7320 ('(or Romam from H7311 and H5828; I have raised up a help; Romamti-Ezer, an Israelite'), usage: Romamti-ezer",
+      "reviewed": "job 824"
+    },
+    "Rosh|H7220": {
+      "headline": "head",
+      "label": "Probable",
+      "cite": "Strong's H7220 ('probably the same as H7218; Rosh, the name of an Israelite and of a foreign nation'); H7218 ('from an unused root apparently meaning to shake; the head (as most easily shaken), whether literal or...'), usage: band, beginning, captain, chapiter, company, end, excellent",
+      "reviewed": "job 824"
+    },
+    "Sala|G4527": {
+      "headline": "a shoot (or spear)",
+      "label": "Probable",
+      "cite": "Strong's G4527 ('of Hebrew origin (H7974); Sala (i.e. Shelach), a patriarch'); H7974 ('the same as H7973; Shelach, a postdiluvian patriarch'); H7973 ('from H7971; a missile of attack, i.e. spear'), usage: dart, plant, put off, sword, weapon",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as Shelah, from a word meaning 'a missile of attack, i.e. spear; also (figuratively) a shoot of growth'."
+    },
+    "Saph|H5593": {
+      "headline": "vestibule",
+      "label": "Probable",
+      "cite": "Strong's H5593 ('the same as H5592; Saph, a Philistine'); H5592 ('from H5605, in its original sense of containing; a vestibule (as a limit)'), usage: bason, bowl, cup, door (post), gate, post, threshold",
+      "reviewed": "job 824"
+    },
+    "Saraph|H8315": {
+      "headline": "burning",
+      "label": "Probable",
+      "cite": "Strong's H8315 ('the same as H8314; Saraph, an Israelite'); H8314 ('from H8313; burning, i.e. (figuratively) poisonous (serpent)'), usage: fiery (serpent), seraph",
+      "reviewed": "job 824"
+    },
+    "Shallum|H7967": {
+      "headline": "requital",
+      "label": "Probable",
+      "cite": "Strong's H7967 ('the same as H7966; Shallum, the name of fourteen Israelites'); H7966 ('from H7999; a requital, i.e. (secure) retribution, (venal) a fee'), usage: recompense, reward",
+      "reviewed": "job 824"
+    },
+    "Shallun|H7968": {
+      "headline": "requital",
+      "label": "Probable",
+      "cite": "Strong's H7968 ('probably for H7967; Shallun, an Israelite'); H7967 ('the same as H7966; Shallum, the name of fourteen Israelites'); H7966 ('from H7999; a requital, i.e. (secure) retribution, (venal) a fee'), usage: recompense, reward",
+      "reviewed": "job 824"
+    },
+    "Shamir|H8069": {
+      "headline": "thorn (diamond)",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H8069 ('the same as H8068; Shamir, the name of two places in Palestine'); H8068 ('from H8104 in the original sense of pricking; a thorn'), usage: adamant (stone), brier, diamond",
+      "reviewed": "job 824"
+    },
+    "Shammah|H8048": {
+      "headline": "ruin, astonishment",
+      "label": "Probable",
+      "cite": "Strong's H8048 ('the same as H8047; Shammah, the name of an Edomite and four Israelites'); H8047 ('from H8074; ruin'), usage: astonishment, desolate(-ion), waste, wonderful thing",
+      "reviewed": "job 824"
+    },
+    "Shaphan|H8227": {
+      "headline": "hyrax",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H8227 ('from H8226; a species of rock-rabbit (from its hiding), i.e. probably the hyrax'), usage: coney",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'a species of rock-rabbit (from its hiding), i.e. probably the hyrax'."
+    },
+    "Sheber|H7669": {
+      "headline": "fracture",
+      "label": "Probable",
+      "cite": "Strong's H7669 ('the same as H7667; Sheber, an Israelite'); H7667 ('from H7665; a fracture, figuratively, ruin'), usage: affliction, breach, breaking, broken(-footed, -handed), hurt",
+      "reviewed": "job 824"
+    },
+    "Shechem|H7928": {
+      "headline": "neck (shoulders)",
+      "label": "Probable",
+      "cite": "Strong's H7928 ('for H7926; Shekem, the name of a Hivite and two Israelites'); H7926 ('from H7925; the neck (between the shoulders) as the place of burdens'), usage: back, consent, portion, shoulder",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as the word for 'the neck (between the shoulders)'."
+    },
+    "Sheerah|H7609": {
+      "headline": "female kindred",
+      "label": "Probable",
+      "cite": "Strong's H7609 ('the same as H7608; Sheerah, an Israelitess'); H7608 ('feminine of H7607; female kindred by blood'), usage: near kinswomen",
+      "reviewed": "job 824"
+    },
+    "Shelah|H7974": {
+      "headline": "a shoot (or spear)",
+      "label": "Probable",
+      "cite": "Strong's H7974 ('the same as H7973; Shelach, a postdiluvian patriarch'); H7973 ('from H7971; a missile of attack, i.e. spear'), usage: dart, plant, put off, sword, weapon",
+      "reviewed": "job 824",
+      "explanation": "Strong's: the same as a word meaning 'a missile of attack, i.e. spear; also (figuratively) a shoot of growth'."
+    },
+    "Shemed|H8106": {
+      "headline": "something preserved",
+      "label": "Probable",
+      "cite": "Strong's H8106 ('the same as H8105; Shemer, the name of three Israelites'); H8105 ('from H8104; something preserved, i.e. the settlings (plural only) of wine'), usage: dregs, (wines on the) lees",
+      "reviewed": "job 824"
+    },
+    "Shemer|H8106": {
+      "headline": "something preserved",
+      "label": "Probable",
+      "cite": "Strong's H8106 ('the same as H8105; Shemer, the name of three Israelites'); H8105 ('from H8104; something preserved, i.e. the settlings (plural only) of wine'), usage: dregs, (wines on the) lees",
+      "reviewed": "job 824"
+    },
+    "Sheresh|H8329": {
+      "headline": "root",
+      "label": "Probable",
+      "cite": "Strong's H8329 ('the same as H8328; Sheresh, an Israelite'); H8328 ('from H8327; a root (literally or figuratively)'), usage: bottom, deep, heel, root",
+      "reviewed": "job 824"
+    },
+    "Sheth|H8351": {
+      "headline": "tumult",
+      "label": "Probable",
+      "cite": "Strong's H8351 ('(Numbers 24:17) from H7582; tumult'), usage: Sheth",
+      "reviewed": "job 824"
+    },
+    "Shillem|H8006": {
+      "headline": "requital",
+      "label": "Probable",
+      "cite": "Strong's H8006 ('the same as H8005; Shillem, an Israelite'); H8005 ('from H7999; requital'), usage: recompense",
+      "reviewed": "job 824"
+    },
+    "Shiphrah|H8236": {
+      "headline": "brightness",
+      "label": "Probable",
+      "cite": "Strong's H8236 ('the same as H8235; Shiphrah, an Israelitess'); H8235 ('from H8231; brightness'), usage: garnish",
+      "reviewed": "job 824"
+    },
+    "Shobach|H7731": {
+      "headline": "thicket",
+      "label": "Probable",
+      "cite": "Strong's H7731 ('perhaps for H7730; Shobak, a Syrian'); H7730 ('for H5441; a thicket, i.e. interlaced branches'); H5441 ('from H5440; a copse'), usage: thicket",
+      "reviewed": "job 824"
+    },
+    "Shoham|H7719": {
+      "headline": "beryl (a gem)",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H7719 ('the same as H7718; Shoham, an Israelite'); H7718 ('from an unused root probably mean to blanch; a gem, probably the beryl (from its pale green color)'), usage: onyx",
+      "reviewed": "job 824"
+    },
+    "Shual|H7777": {
+      "headline": "jackal",
+      "label": "Probable",
+      "cite": "Strong's H7777 ('the same as H7776; Shual, the name of an Israelite and of a place in Palestine'); H7776 ('from the same as H8168; a jackal (as a burrower)'), usage: fox",
+      "reviewed": "job 824"
+    },
+    "Shua|H7770": {
+      "headline": "a halloo",
+      "label": "Probable",
+      "cite": "Strong's H7770 ('the same as H7769; Shua, a Canaanite'); H7769 ('from H7768; a halloo'), usage: cry, riches",
+      "reviewed": "job 824"
+    },
+    "Shuhah|H7746": {
+      "headline": "chasm",
+      "label": "Probable",
+      "cite": "Strong's H7746 ('the same as H7745; Shuchah, an Israelite'); H7745 ('from H7743; a chasm'), usage: ditch, pit",
+      "reviewed": "job 824"
+    },
+    "Stachys|G4720": {
+      "headline": "head of grain",
+      "label": "Probable",
+      "cite": "Strong's G4720 ('the same as G4719; Stachys, a Christian'); G4719 ('from the base of G2476; a head of grain (as standing out from the stalk)'), usage: ear (of corn)",
+      "reviewed": "job 824"
+    },
+    "Stephanas|G4734": {
+      "headline": "crowned",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G4734 ('probably contraction for (crowned; from G4737); Stephanas, a Christian'), usage: Stephanas",
+      "reviewed": "job 824"
+    },
+    "Tahash|H8477": {
+      "headline": "antelope (fur animal)",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H8477 ('the same as H8476; Tachash, a relative of Abraham'); H8476 ('probably of foreign derivation; a (clean) animal with fur, probably a species of antelope'), usage: badger",
+      "reviewed": "job 824"
+    },
+    "Tahath|H8480": {
+      "headline": "the bottom (beneath)",
+      "label": "Probable",
+      "cite": "Strong's H8480 ('the same as H8478; Tachath, the name of a place in the Desert, also of three Israelites'); H8478 ('from the same as H8430; the bottom (as depressed)'), usage: as, beneath, flat, in(-stead), (same) place (where...is)",
+      "reviewed": "job 824"
+    },
+    "Tamar|H8559": {
+      "headline": "palm tree",
+      "label": "Probable",
+      "cite": "Strong's H8559 ('the same as H8558; Tamar, the name of three women and a place'); H8558 ('from an unused root meaning to be erect; a palm tree'), usage: palm (tree)",
+      "reviewed": "job 824"
+    },
+    "Tanhumeth|H8576": {
+      "headline": "compassion, solace",
+      "label": "Probable",
+      "cite": "Strong's H8576 ('for H8575 (feminine); Tanchumeth, an Israelite'); H8575 ('and (feminine); from H5162; compassion, solace'), usage: comfort, consolation",
+      "reviewed": "job 824"
+    },
+    "Tappuah|H8599": {
+      "headline": "apple",
+      "label": "Probable",
+      "cite": "Strong's H8599 ('the same as H8598; Tappuach, the name of two places in Palestine, also of an Israelite'); H8598 ('from H5301; an apple (from its fragrance), i.e. the fruit or the tree (probably includ. others of the pome...'), usage: apple (tree). See also H1054",
+      "reviewed": "job 824"
+    },
+    "Tarshish|H8659": {
+      "headline": "topaz (a gem)",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H8659 ('probably the same as H8658 (as the region of the stone, or the reverse); Tarshish, a place on the...'); H8658 ('probably of foreign derivation (compare H8659); a gem, perhaps the topaz'), usage: beryl",
+      "reviewed": "job 824",
+      "explanation": "Strong's hedges: 'probably the same as' the word for 'a gem, perhaps the topaz'."
+    },
+    "Tehinnah|H8468": {
+      "headline": "graciousness",
+      "label": "Probable",
+      "cite": "Strong's H8468 ('the same as H8467; Techinnah, an Israelite'); H8467 ('from H2603; graciousness'), usage: favour, grace, supplication",
+      "reviewed": "job 824"
+    },
+    "Teman|H8487": {
+      "headline": "the south (right hand)",
+      "label": "Probable",
+      "cite": "Strong's H8487 ('the same as H8486; Teman, the name of two Edomites, and of the region and descendant of one of them'); H8486 ('denominative from H3225; the south (as being on the right hand of a person facing the east)'), usage: south (side, -ward, wind)",
+      "reviewed": "job 824"
+    },
+    "Tiberius|G5086": {
+      "headline": "of the river Tiber",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's G5086 ('of Latin origin; probably pertaining to the river Tiberis or Tiber; Tiberius, a Roman emperor'), usage: Tiberius",
+      "reviewed": "job 824",
+      "explanation": "Strong's: of Latin origin, 'probably pertaining to the river Tiberis or Tiber'."
+    },
+    "Tikvah|H8616": {
+      "headline": "expectancy (a cord)",
+      "label": "Probable",
+      "cite": "Strong's H8616 ('the same as H8615; Tikvah, the name of two Israelites'); H8615 ('from H6960; (compare H6961) literally a cord (as an attachment)'), usage: expectation(-ted), hope, live, thing that I long for",
+      "reviewed": "job 824",
+      "explanation": "Strong's: 'literally a cord (as an attachment); figuratively, expectancy'."
+    },
+    "Ulam|H198": {
+      "headline": "solitary",
+      "label": "Probable (Strong's says 'probably')",
+      "cite": "Strong's H198 ('appar, from H481 (in the sense of dumbness); solitary; Ulam, the name of two Israelites'), usage: Ulam",
+      "reviewed": "job 824"
+    },
+    "Ur|H218": {
+      "headline": "flame",
+      "label": "Probable",
+      "cite": "Strong's H218 ('the same as H217; Ur, a place in Chaldaea; also an Israelite'); H217 ('from H215; flame'), usage: fire, light. See also H224",
+      "reviewed": "job 824"
+    },
+    "Zecher|H2144": {
+      "headline": "memento",
+      "label": "Probable",
+      "cite": "Strong's H2144 ('the same as H2143; Zeker, an Israelite'); H2143 ('from H2142; a memento, abstractly recollection (rarely if ever)'), usage: memorial, memory, remembrance, scent",
+      "reviewed": "job 824"
+    },
+    "Zeeb|H2062": {
+      "headline": "wolf",
+      "label": "Probable",
+      "cite": "Strong's H2062 ('the same as H2061; Zeeb, a Midianitish prince'); H2061 ('from an unused root meaning to be yellow; a wolf'), usage: wolf",
+      "reviewed": "job 824"
+    },
+    "Zerah|H2226": {
+      "headline": "a rising of light",
+      "label": "Probable",
+      "cite": "Strong's H2226 ('the same as H2225; Zerach, the name of three Israelites, also of an Idumaean and an Ethiopian prince'); H2225 ('from H2224; a rising of light'), usage: rising",
+      "reviewed": "job 824"
+    },
+    "Zeri|H6874": {
+      "headline": "balsam",
+      "label": "Probable",
+      "cite": "Strong's H6874 ('the same as H6875; Tseri, an Israelite'); H6875 ('from an unused root meaning to crack (as by pressure), hence, to leak; distillation, i.e. balsam'), usage: balm",
+      "reviewed": "job 824"
+    },
+    "Zeror|H6872": {
+      "headline": "parcel",
+      "label": "Probable",
+      "cite": "Strong's H6872 ('from H6887; a parcel (as packed up); also a kernel or particle (as if a package)'), usage: bag, bendeth, bundle, least grain, small stone",
+      "reviewed": "job 824"
+    },
+    "Zibiah|H6645": {
+      "headline": "female gazelle",
+      "label": "Probable",
+      "cite": "Strong's H6645 ('for H6646; Tsibjah, an Israelite'); H6646 ('feminine of H6643; a female gazelle'), usage: roe",
+      "reviewed": "job 824"
+    },
+    "Zibia|H6644": {
+      "headline": "female gazelle",
+      "label": "Probable",
+      "cite": "Strong's H6644 ('for H6645; Tsibja, an Israelite'); H6645 ('for H6646; Tsibjah, an Israelite'); H6646 ('feminine of H6643; a female gazelle'), usage: roe",
+      "reviewed": "job 824"
+    },
+    "Ziha|H6727": {
+      "headline": "drought",
+      "label": "Probable",
+      "cite": "Strong's H6727 ('as if feminine of H6704; drought; Tsicha, the name of two Nethinim'), usage: Ziha",
+      "reviewed": "job 824"
+    },
+    "Zimmah|H2155": {
+      "headline": "a plan",
+      "label": "Probable",
+      "cite": "Strong's H2155 ('the same as H2154; Zimmah, the name of two Israelites'); H2154 ('from H2161; a plan, especially a bad one'), usage: heinous crime, lewd(-ly, -ness), mischief, purpose, thought",
+      "reviewed": "job 824"
+    },
+    "Zippor|H6834": {
+      "headline": "little bird",
+      "label": "Probable",
+      "cite": "Strong's H6834 ('the same as H6833; Tsippor, a Moabite'); H6833 ('from H6852; a little bird (as hopping)'), usage: bird, fowl, sparrow",
+      "reviewed": "job 824"
+    }
+  }
+}
