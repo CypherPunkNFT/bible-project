@@ -164,7 +164,12 @@ function withSlots(key: string): string | null {
     const values = line.pattern.exec(key)?.slice(1);
     const template = values && fromEnglish.get(target!)?.get(line.english);
     if (!values || !template) continue;
-    const filled = values.map((value) => knownPiece(value.trim()) ?? (PLAIN_WORD.test(value) ? null : value));
+    const filled = values.map((value) => {
+      const own = normal(value);
+      // plural() can fill a slot before its outer sentence is translated. Accept only learned forms.
+      const ownPlural = ownForms.get(target!)?.has(own) || ownForms.get(target!)?.has(own.replace(NUMBER, "{n}"));
+      return ownPlural ? value : knownPiece(value.trim()) ?? (PLAIN_WORD.test(value) ? null : value);
+    });
     if (filled.some((value) => value === null)) continue;
     let index = 0;
     return template.replace(/\{n\}/g, () => filled[index++] ?? "");
