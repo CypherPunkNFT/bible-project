@@ -118,7 +118,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "groups", art: GAME_ART.twoTruths,
   },
   {
-    slug: "emoji-stories", status: "coming-soon", title: "Emoji stories",
+    slug: "emoji-stories", status: "live", load: () => import("./emoji-stories/EmojiStoriesGame"),
+    title: "Emoji stories",
     description: "A Bible story told in emoji (boat, rain, rainbow): guess which one it is.",
     audiences: ["solo", "family", "youth-group"],
     shelf: "family", art: GAME_ART.emojiStories,

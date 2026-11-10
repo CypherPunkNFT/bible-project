@@ -1,7 +1,15 @@
 # Emoji stories — design
 
-**Status:** research and design, sequence 31 step 14 (2026-11-09). Next: one critical review (step 15), then implement
-(step 16). Approved spec: entry 21 of [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) — *"A Bible story told in emoji
+**Status:** research and design, sequence 31 step 14 (2026-11-09); reviewed once, step 15 (2026-11-09) — corrections
+applied in the body and listed in the [Review](#review) section at the end. **Implemented, step 16 (2026-11-09):** live
+on `/games/emoji-stories` in the local preview (not released). The set has 106 puzzles (tiers 40/47/19, Old and New
+Testament 53 each): Appendix A's 71 plus 35 new ones. Two more new candidates, Nicodemus and Joseph in prison, were
+dropped after a blind solve missed them three times out of three; the golden calf, the temptation and the talents moved to tier 3 for the same reason. The Daily
+starts on 2026-11-09. The Daily screen's file is `DailyScreen.tsx`, not `Daily.tsx`, because Windows reads `./Daily`
+and `./daily` as the same file. Two more choices made in the build: the emoji row is `role="group"` with the
+"Clues: …" label rather than `role="img"` (§11.7), because an image role would hide each tile's own label from touch
+exploration; and the Daily's *Answer with* choice is kept for that day only, so every Daily opens on Typing (§6.1) while
+Practice and rooms remember the device's choice. Code: [src/pages/games/emoji-stories/](../../../src/pages/games/emoji-stories/). Approved spec: entry 21 of [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) — *"A Bible story told in emoji
 (boat, rain, rainbow = Noah); guess the story."* Shared rules: [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md).
 Slug and registry entry: `emoji-stories`, already listed as coming soon in
 [registry.ts](../../../src/pages/games/registry.ts) (shelf *Family and party*, audiences solo, family and youth group).
@@ -28,7 +36,8 @@ fits one story better than any other in the set.**
   the next one.
 - **The reveal** shows the story's title, each emoji with its passage word, a key verse quoted from the BSB, and links to
   read the whole passage and, where there is one, the main person's page.
-- **Three modes:** *Daily* (one puzzle for everyone on a local date, three guesses, a spoiler-free share line),
+- **Three modes:** *Daily* (one puzzle for everyone on a local date, three guesses — two if answering by choices — and
+  a spoiler-free share line),
   *Practice* (rounds of ten, Easy / Mixed / Hard, Old / New Testament / both) and *Show a room* (big emoji appear one at
   a time on a screen for a family or youth group to shout out; the leader reveals).
 
@@ -89,7 +98,7 @@ fits one story better than any other in the set.**
 1. **Clues stand for things in the passage, never for sounds of the title.** Each emoji names its passage word, and the
    tests check that word is in the BSB text. Puns are out by construction.
 2. **Objects, animals, places and weather carry the puzzle; faces may add colour but never carry it** (the closeness
-   rule in §5.4 makes sure no face is the only thing separating two puzzles).
+   rule in §5.4 counts only non-face emoji, so no face is ever what separates two puzzles).
 3. **Only emoji up to Unicode 13.0, no flags, no joined sequences, no skin tones** — and the page still guards against a
    missing glyph (§11.6).
 4. **A closed list of answers** for typing, three guesses in the Daily, hints that open on a miss, a share line without
@@ -103,8 +112,8 @@ fits one story better than any other in the set.**
 | The BSB text, one file per book | `data/plain/bsb/<BOOK>.json` (keys `"chapter:verse"`) | The tests check every clue word against the passage; the key verse is quoted from it. |
 | Verse display and links | `Verse` in [Verse.tsx](../../../src/components/Verse.tsx) (`bible="bsb"`), the reader's address form `/read/bsb/<BOOK>/<chapter>?hl=<verse>` (as [two-truths/Reveal.tsx](../../../src/pages/games/two-truths/Reveal.tsx) uses) | The reveal's quote and its "Read the story" link. |
 | Charades' 129 checked scenes | [scenes.json](../../../src/data/charades/scenes.json) | The story list and its references were the starting point for Appendix A; ids are kept where the story is the same, so the two games can link to each other later. No code dependency. |
-| People pages | [people-slugs.json](../../../src/data/people-slugs.json) | The reveal's "More about Noah" link; the "right person, wrong story" feedback (§6.4). |
-| Bible Wordle's daily pattern | [wordle/daily.ts](../../../src/pages/games/wordle/daily.ts), [daily-rules.ts](../../../src/pages/games/wordle/daily-rules.ts), [share.ts](../../../src/pages/games/wordle/share.ts) | The same local-date numbering, schedule-file approach and share fallback. **Copied in small, not imported**: the Wordle folder is still uncommitted in the working tree, and the Two truths step found that importing another chain's uncommitted file breaks a commit of this game on its own. |
+| People pages | [people-slugs.json](../../../src/data/people-slugs.json), read through `slugOf` in [people-slugs.ts](../../../src/lib/people-slugs.ts); pages live at `/people/<slug>` | The reveal's "More about Noah" link; the "right person, wrong story" feedback (§6.4). |
+| Bible Wordle's daily pattern | [wordle/daily.ts](../../../src/pages/games/wordle/daily.ts), [daily-rules.ts](../../../src/pages/games/wordle/daily-rules.ts), [share.ts](../../../src/pages/games/wordle/share.ts); Timeline sort's committed [timeline/daily.ts](../../../src/pages/games/timeline/daily.ts) and [daily-rules.ts](../../../src/pages/games/timeline/daily-rules.ts) | The same local-date numbering, schedule-file approach and share fallback. **Copied in small, not imported**: the Wordle folder is still uncommitted in the working tree (checked again at review), and the Two truths step found that importing another chain's uncommitted file breaks a commit of this game on its own. Timeline's copy is committed and is the safer one to read from. |
 | The games hub | [registry.ts](../../../src/pages/games/registry.ts), [README.md](../../../src/pages/games/README.md) | Going live is one entry change; its shelf and picture are already set. |
 
 The ~5,000-question bank is not used: its questions are text and would not make emoji puzzles. The people and places data
@@ -147,7 +156,7 @@ implement step), holds the stories and their puzzles; a build script writes two 
 | `testament` | `"old"` or `"new"`, for the Practice filter and for picking believable wrong choices. |
 | `who` | Hint 3 (§7): the main people, or "A story Jesus told" for a parable. Plain words, no Bible reference. |
 | `people` | Person ids (as in `data/study/people/`), optional; for the reveal's link and the near-miss feedback. |
-| `aliases` | Other names for the story that a player might type (§6.3): traditional names ("the fall"), main names ("Noah"), common spellings ("Zaccheus"). **Never clue words** that a player would type straight off the pictures. |
+| `aliases` | Other names for the story that a player might type (§6.3): traditional names ("the fall", "Jacob's ladder", "the widow's mite"), main names ("Noah"), common spellings ("Zaccheus"). **No alias may be made only of clue words** ("basket", "ladder"), so typing straight off the pictures does not find the answer; a traditional name that contains clue words follows the same limit as titles (§5.2.6). |
 | `emoji` | Three to six pairs of `[emoji, word]`. The word is the passage word the emoji stands for, as it is spelled in the site's BSB. Order is the order the story tells them. |
 | `confusable` | Ids of stories this one must never be offered beside as a wrong choice (§5.4); kept symmetric by the test. |
 | `retired` | Optional `true`. A retired story is never dealt again and never scheduled, but stays in the file for past Daily puzzles. Never delete a story after launch. |
@@ -168,8 +177,11 @@ and Jonah's fish) only by giving each its own id and passage.
   both represented.
 - **Content rules (family audience):** nothing gory or frightening in the emoji (no 🩸 💀 ☠️ 🔪 🔫 💣 ⚰️), no innuendo
   emoji, no flags, nothing mocking. Hard stories (Cain and Abel, Abraham and Isaac) are allowed when the emoji stay
-  gentle, as children's Bibles tell them. **No emoji face or person ever stands for God or for Jesus**; where the story
-  needs Him, the passage's own signs do the work (🕊️ dove, 🔥 fire, ☁️ heavens, 🗣️ voice), or the other clues do.
+  gentle, as children's Bibles tell them. **No face emoji (😴 🤫 😢 and the like) and no adult person ever stands for
+  God or for Jesus**; where the story needs Him, the passage's own signs do the work (🕊️ dove, 🔥 fire, ☁️ heavens,
+  🗣️ voice, 💤 for His sleep), or the other clues do. The one exception is 👶 for the infant Jesus in the birth
+  stories, as every nativity scene and children's Bible shows Him. Because a clue word cannot show *who* an emoji
+  stands for, this rule is checked by eye on the review sheet, which marks every face and person emoji.
 
 ### 5.2 Rules for each clue
 
@@ -177,39 +189,52 @@ and Jonah's fish) only by giving each its own id and passage.
    enough: this BSB says *ladder* in Genesis 28:12, *doorframes* in Exodus 12:7, *wealthy* for Zacchaeus and *sleeping*
    for Jesus in the boat — the first draft of Appendix A had all four wrong (§5.6).
 2. **No puns or sound-alikes**, no letters spelling a name (🅰️, 🔤), no number emoji standing for anything but a number
-   in the text (5️⃣ 🍞 2️⃣ 🐟 is fine; 1️⃣ 2️⃣ for "twelve apostles" is fine).
+   in the text (5️⃣ 🍞 2️⃣ 🐟 is fine; 1️⃣ 2️⃣ is fine for "the Twelve" only where the passage says twelve). A number
+   emoji's clue word must itself be a number, so the BSB check proves the number is there.
 3. **The emoji means what the word says, on every platform.** Its Unicode name should be the word or plainly include it
    (🧺 *basket* — basket). Near fits are allowed when the picture is unmistakable (🚢 *ship* for the ark, 🏨 *hotel*
    for the inn) and are what the review sheet is for. A cactus for "no rain" is not a near fit.
-4. **Faces only as extra colour** (😂 Sarah laughed, 😢 Jesus wept), never as one of the two clues that make a puzzle
-   distinct (§5.4).
+4. **Faces only as extra colour** (😂 Sarah laughed, 😭 Peter wept), never as one of the two clues that make a puzzle
+   distinct (§5.4), and never for God or Jesus (§5.1). A "face" is any emoji in a Unicode `face-…` subgroup of
+   `emoji-test.txt` (so 💤, 👀, ✋ and 👶 are not faces), which makes the rule testable.
 5. **3 to 6 emoji.** Fewer is a riddle, more is a list.
 6. **Not the title spelled out.** For tier 2 and 3, at most one clue word may appear in the title (otherwise *Choices*
-   becomes a word-matching exercise).
+   becomes a word-matching exercise). Words are compared after the normalising of §6.3, and a word that differs only
+   by a final *s* counts as the same ("widow's" → "widows" counts as "widow", "dreams" as "dream").
 
 ### 5.3 Rules for each emoji character
 
 - On the allow-list in [emoji.json](../../../src/data/emoji-stories/emoji.json), which the build script writes from
-  Unicode's official `emoji-test.txt` (kept in the raw sources folder, `../sources/unicode/`, beside Wordle's word list):
-  each emoji's Unicode name and version.
+  Unicode's official `emoji-test.txt` (kept in the raw sources folder as `<sources>/unicode/emoji-test-15.1.txt`, where
+  `<sources>` is found the way [build-wordle.ts](../../../scripts/build-wordle.ts) and `scripts/bible/paths.py` find it:
+  `BIBLE_SOURCES`, else `sources/` in the site, else `../sources`, which today holds Wordle's `enable/` word list):
+  each emoji's Unicode name, version and subgroup (the subgroup is what marks a face, §5.2.4). The script pins the
+  file's SHA-256 (`d876ee249aa28eaa76cfa6dfaa702847a8d13b062aa488d465d0395ee8137ed9` for 15.1, checked at review) as
+  Wordle pins its word list, and stops if the file differs.
 - **Fully qualified** (with the colour-presentation selector, e.g. `🕊️` not `🕊`), **Unicode Emoji 13.0 or earlier**, no
   joiner (U+200D), no skin-tone modifier, no regional-indicator (flag) letters, not on the blocked list in §5.1.
-- Appendix A uses 142 different emoji, all 13.0 or earlier; twelve are from 12.0 or 13.0 (🩹 🤏 🪵 🪨 🪖 🩴 🪟 🪣 🪢 🪜 🪙
-  🪦) and are the ones a Windows 10 computer cannot draw — §11.6 covers that.
+- Appendix A uses 148 different emoji, all 13.0 or earlier; thirteen are from 12.0 or 13.0. The eleven from 13.0 (🪵 🪨
+  🪖 🩴 🪟 🪣 🪢 🪜 🪙 🪦 🫓) are the ones a Windows 10 computer cannot draw; the two from 12.0 (🩹 🤏) draw on any Windows 10
+  updated since 2019 but may be missing on older phones — §11.6 covers both.
 
 ### 5.4 One story, not two: the closeness rule and confusable pairs
 
 Most emoji recur: 🔥 is in the burning bush, Mount Carmel, the fiery furnace, the golden calf, Pentecost, Peter's denial
 and the beach breakfast. That is fine — the *row* tells the story. Two checks keep rows apart:
 
-- **The closeness rule (a test):** for every two puzzles A and B, A has **at least two emoji B lacks**. One distinct
-  emoji is too thin: if it is missing on the device, or misread, the two rows become the same. Appendix A's first draft
-  failed it once — the manna (🐦 💧 🍞 🍯) and Elijah fed by ravens (🐦 🍞 🥩 💧) rows differed by one emoji; Elijah's
-  brook became 🏞️ and the pair is now also listed as confusable.
+- **The closeness rule (a test):** for every two puzzles A and B, A has **at least two non-face emoji B lacks** (face
+  as defined in §5.2.4). One distinct emoji is too thin: if it is missing on the device, or misread, the two rows become
+  the same; and a face is the clue most often misread. Appendix A's first draft failed it once — the manna (🐦 💧 🍞 🍯)
+  and Elijah fed by ravens (🐦 🍞 🥩 💧) rows differed by one emoji; Elijah's brook became 🏞️ and the pair is now also
+  listed as confusable. The review found three more pairs separated only by faces (Jesus calms the storm from Jesus
+  walks on the water by 😴 🤫 alone; Peter's denial from the fiery furnace and from the beach breakfast by 🐓 and 😭);
+  the storm and Peter rows were changed (Review, below).
 - **Confusable pairs (hand-kept, symmetric):** stories a fair player could still mix up never appear as each other's
   wrong choices — Jesus calms the storm / Jesus walks on the water / Jonah (⛵ 🌊 ⛈️), the Red Sea / walking on water,
-  manna / ravens, Elijah's chariot / the Red Sea, the fiery furnace / Peter's denial (3️⃣ 🔥). The build lists every pair
-  sharing two or more emoji in the review sheet, so the list is easy to complete.
+  manna / ravens, Elijah's chariot / the Red Sea, the fiery furnace / Peter's denial (3️⃣ 🔥), the golden calf / Mount
+  Carmel (🐂 🔥) and Lazarus / the empty tomb (🪦 🪨) — the review's blind solves mixed up manna and the ravens, and
+  the golden calf and Mount Carmel. The build lists every pair sharing two or more emoji in the review sheet, so the
+  list is easy to complete; Appendix A has 26 such pairs after the review's changes.
 
 ### 5.5 Who writes the set, and the checks it must pass
 
@@ -222,11 +247,11 @@ Checks, in order:
 |---|---|---|
 | 1 | Every clue word occurs as a whole word in the BSB text of `ref`; `key` is inside `ref`, ≤ 60 words, contains a clue word. | `stories.test.ts`, reading `data/plain/bsb/` (the same way [scenes.test.ts](../../../src/pages/games/charades/scenes.test.ts) does). |
 | 2 | Every emoji is on the allow-list, fully qualified, ≤ 13.0, no joiner, skin tone, flag or blocked emoji; 3–6 per puzzle. | `stories.test.ts` against `emoji.json`; the build script refuses to write `emoji.json` for an emoji not in `emoji-test.txt`. |
-| 3 | The closeness rule; confusable lists symmetric and naming real ids. | `stories.test.ts`. |
-| 4 | Tier 2–3 titles contain at most one clue word; no clue word is "God", "LORD", "Jesus" or "Christ". | `stories.test.ts`. |
+| 3 | The closeness rule, counting only non-face emoji; confusable lists symmetric and naming real ids. | `stories.test.ts`, faces read from the subgroup in `emoji.json`. |
+| 4 | Tier 2–3 titles contain at most one clue word (§5.2.6), and so does every alias; no alias is made only of clue words; no clue word is "God", "LORD", "Jesus" or "Christ"; every number emoji (keycaps, 🔟, 💯) has a number as its clue word. | `stories.test.ts`. |
 | 5 | Ids unique and address-safe; titles unique (case-insensitive); aliases unique across stories unless the alias is a person's name (§6.3); every `people` id exists. | `stories.test.ts`. |
-| 6 | **Meaning check by eye.** | [review-sheet.md](review-sheet.md), written by the build: each puzzle with every emoji's Unicode name beside its word ("🌵 *cactus* — rain" stands out), the pairs sharing two or more emoji, and the counts per tier and testament. |
-| 7 | **Blind solve.** Someone who did not write a puzzle sees only its emoji and the full title list and names the story. A puzzle missed, or solved only via hint 3, is rewritten or moved up a tier. | The review step (step 15) does this for Appendix A; the implement step for what it adds, using a reviewer agent that sees only the emoji and titles. The owner may also play the sheet. An optional cheap-model blind solve is §13's open point, not part of the plan. |
+| 6 | **Meaning check by eye**, including the rule that no face or adult person stands for God or Jesus (§5.1). | [review-sheet.md](review-sheet.md), written by the build: each puzzle with every emoji's Unicode name beside its word ("🌵 *cactus* — rain" stands out), every face and person emoji marked, the pairs sharing two or more emoji, and the counts per tier and testament. |
+| 7 | **Blind solve.** Someone who did not write a puzzle sees only its emoji and the full title list and names the story. A puzzle missed, or solved only via hint 3, is rewritten or moved up a tier. | The review step did this for Appendix A (four runs, see the Review section); the implement step does it for what it adds, using one minimal-context call that sees only the emoji and titles (no workspace context, no tools, as the workspace's batch rule requires; a run of 71 puzzles read about 3,600 tokens). The owner may also play the sheet. A larger repeated model pass is §15's open point, not part of the plan. |
 
 ### 5.6 Prototype evidence (this step)
 
@@ -238,7 +263,10 @@ for their clue (the golden calf's fire is in Exodus 32:20). After fixes it found
 ravens). Reading the rows by eye then caught what no mechanical check can: 🌵 cactus standing for "no rain", 😴 sleeping
 face standing for Saul *relieving himself* in the cave, 🙅 for Esther's fast and 🏚️ for famine — all replaced. That is
 exactly why §5.5 has a review sheet and a blind solve as well as tests. The final run: **71 puzzles, 142 distinct emoji,
-0 problems, highest version 13.0, no closeness failures.**
+0 problems, highest version 13.0, no closeness failures.** That run covered checks 1–3 only. The review re-ran them with
+its own script and added check 4 and the face-aware closeness rule: five tier 2 titles had two or three clue words in
+them, the Last Supper's 1️⃣ 2️⃣ stood for "apostles" rather than a number in Luke's text, and three pairs were told apart
+only by faces. All are fixed in Appendix A; the corrected set passes checks 1–4 (Review, below).
 
 ## 6. Answering: choices or typing
 
@@ -249,12 +277,14 @@ exactly why §5.5 has a review sheet and a blind solve as well as tests. The fin
 | Who it suits | Children, families, first-timers, phones | Regular players, the Daily |
 | Difficulty | Recognition: easier; three wrong titles also teach | Recall: harder, closer to the room game |
 | Fairness risk | Wrong choices that also fit (handled by §6.2) | Spelling and wording ("Noah's ark" / "the flood"): handled by never judging text (§6.3) |
-| Translated site | Works fully: titles are translated with the game data | Works on translated titles; aliases stay English (§15) |
+| Translated site | Works fully once the game data is collected for translation (§15.1); until then the titles show in English | Matches English titles and aliases until then; translated titles join the search keys once they exist |
 | Accessibility | Four big buttons, keys 1–4 | A standard combobox with a listbox; screen-reader friendly but more steps |
 
 **Decision:** both, chosen with one switch, *Answer with: Choices / Typing*, remembered on the device. Practice and
 Show-a-room open on Choices; the Daily opens on Typing and can switch to Choices **before the first guess** of the day
-(the share line then says "with choices"). On a translated site everything opens on Choices.
+(the share line then says "with choices"). **With choices the Daily allows two guesses, not three**: three tries at four
+titles would win three times in four by luck alone, and a streak would mean nothing; two keeps a blind guess at one in
+two, and a wrong title is greyed out after it is picked. On a translated site everything opens on Choices.
 
 ### 6.2 Picking the wrong choices
 
@@ -315,9 +345,11 @@ Three, in a fixed order from least to most revealing, the same in every mode:
 | 2. The pictures | Each emoji's passage word appears under it | 👶 child · 🧺 basket · 🌿 reeds · 👸 daughter |
 | 3. Who | The story's `who` line | "Moses, his mother and Pharaoh's daughter" |
 
-- **Practice:** a *Hint* button opens the next one; each costs a point (§8.2).
+- **Practice:** a *Hint* button opens the next one; the first two cost a point each and the third is free (the score
+  never drops below 1 for a right answer, §8.2).
 - **Daily:** each wrong guess opens the next hint for free; the player may also open one early, and the share line
-  shows how many were opened (💡). After the third wrong guess the answer is revealed.
+  shows how many were opened (💡). After the last wrong guess (the third, or the second with choices) the answer is
+  revealed, so in the Daily hint 3 is only ever seen by asking for it (and the share line counts it).
 - **Show a room:** the leader's *Hint* button shows the next one large on the screen.
 - A hint never names the story's title. Hint 3 for a parable is "A story Jesus told", never the parable's name.
 
@@ -325,7 +357,7 @@ Three, in a fixed order from least to most revealing, the same in every mode:
 
 ### 8.1 Daily
 
-One puzzle for everyone on a local calendar date (§9). Three guesses, typed by default. A solved or lost Daily stays
+One puzzle for everyone on a local calendar date (§9). Three guesses, typed by default (two with choices, §6.1). A solved or lost Daily stays
 solved on reload and on the same day in another tab. Stats on the device: played, solved, current and best streak, and a
 1/2/3-guess distribution. The share line, copied or sent with the phone's share sheet (the Wordle fallback: share sheet,
 else clipboard, else a box to copy from):
@@ -337,7 +369,7 @@ bibleguide.io/games/emoji-stories
 ```
 
 The emoji row is the *puzzle*, not the answer, so it invites friends to play without spoiling. 🟥 wrong, 🟨 close, 🟩 right,
-⬜ unused guesses; "with choices" is added when answered by choices.
+⬜ unused guesses; "with choices" is added when answered by choices (two squares, not three).
 
 ### 8.2 Practice
 
@@ -358,12 +390,17 @@ the last 60 puzzles shown.
 
 Like Bible Wordle and Timeline sort: a schedule file, written ahead of time, read by the page.
 
-- [daily.json](../../../src/data/emoji-stories/daily.json): `{ epoch, builtOn, days: [storyId, …] }`; puzzle #1 is the
+- [daily.json](../../../src/data/emoji-stories/daily.json): `{ epoch, frozenThrough, days: [storyId, …] }` (as built:
+  `frozenThrough` is the number of days a rebuild must keep, today plus 14, in place of a build date); puzzle #1 is the
   epoch (a local date), `days[n − 1]` is puzzle *n*. Written by `scripts/build-emoji-stories.ts`, about two years ahead.
 - **Rules** (in `daily-rules.ts`, shared by the script and the page): no story again within 300 days, or within the pool
-  size minus 10 when the pool is smaller; at most one tier 3 and at least three tier 1 in any seven days; Sundays tier 1
-  (families play together); never more than three days in a row from the same testament. Seeded (mulberry32, as Wordle),
-  so the same file always comes out of the same inputs.
+  size minus 30 when the pool is smaller (so at least 30 stories are always free to choose from); at most one tier 3 and
+  at least three tier 1 in any seven days; Sundays tier 1 (families play together); never more than three days in a row
+  from the same testament. Seeded (mulberry32, as Wordle), so the same file always comes out of the same inputs.
+- **When no story meets every rule on a day** (possible with a pool of 100–120 and these tier rules, which the first
+  draft's "pool minus 10" made likely), the rules give way in a fixed order — first the testament run, then the weekly
+  tier mix, then the repeat gap, never the Sunday rule — and the build lists every day that needed it in the review
+  sheet. A day is never left empty and the build never loops.
 - **Append-only:** a rebuild never changes a day already written for today or earlier, nor the next 14 days; it may
   re-plan days after that (new puzzles join the schedule there). A retired story stays on past days.
 - **Past the end of the file**, the page carries on with the same rules over the active stories.
@@ -402,7 +439,8 @@ opens a mode directly, as Map quest and Timeline do.
   order the story tells them.
 - Under it: the hints opened so far; then the answer area (four choice buttons, or the search box with its suggestion
   list and a *Guess* button); then guess slots (Daily) or the round's progress and score (Practice).
-- *Hint* button with "(−1 point)" in Practice or "(shows on your share)" in the Daily.
+- *Hint* button with "(−1 point)" in Practice for the first two hints and "(free)" for the third, or "(shows on your
+  share)" in the Daily.
 
 ### 11.3 Reveal
 
@@ -444,9 +482,9 @@ to draw.
 | File | What |
 |---|---|
 | `src/data/emoji-stories/stories.json` | Hand-kept stories and puzzles (§4), from Appendix A plus the additions. |
-| `src/data/emoji-stories/emoji.json` | Generated: each emoji used, its Unicode name and version. |
+| `src/data/emoji-stories/emoji.json` | Generated: each emoji used, its Unicode name, version and subgroup. |
 | `src/data/emoji-stories/daily.json` | Generated: the schedule (§9). |
-| `scripts/build-emoji-stories.ts` | Writes the two generated files and the review sheet; `--check` fails if any is out of date; `--epoch`. Reads `../sources/unicode/emoji-test.txt` (Unicode 15.1, downloaded once from unicode.org, free). Run with `node --experimental-strip-types`. |
+| `scripts/build-emoji-stories.ts` | Writes the two generated files and the review sheet; `--check` fails if any is out of date; `--epoch`. Reads `<sources>/unicode/emoji-test-15.1.txt` (Unicode 15.1, downloaded once from unicode.org, free; SHA-256 pinned, §5.3). Run with `node --experimental-strip-types`. |
 | `docs/features/emoji-stories/review-sheet.md` | Generated (§5.5 check 6). |
 | `src/pages/games/emoji-stories/EmojiStoriesGame.tsx` | The page: default export, no props. Screens split into `Start.tsx`, `Puzzle.tsx`, `Reveal.tsx`, `RoundEnd.tsx`, `Room.tsx` to stay under 500 lines each. |
 | `…/answer-match.ts` | Normalising, search keys, ranking (§6.3). Pure functions. |
@@ -467,14 +505,18 @@ other games' pages do.
 ## 13. Tests (for the implement step)
 
 - **Data** (`stories.test.ts`): §5.5 checks 1–5 over the real file, the counts in §5.1 (at least 100 active puzzles, 20
-  per offered filter), and that `emoji.json`, `daily.json` and the review sheet match a fresh build (`--check` logic).
+  per offered filter), and that `emoji.json`, `daily.json` and the review sheet match a fresh build (running
+  `scripts/build-emoji-stories.ts --check`, as [statements.test.ts](../../../src/pages/games/two-truths/statements.test.ts)
+  does for Two truths; this needs the pinned `emoji-test-15.1.txt` in `<sources>/unicode/`, §5.3).
 - **Matching** (`answer-match.test.ts`): every title and alias finds its own story first; the spec's example ("noah",
   "the flood", "Noahs ark", "ark") finds Noah; "zacheus" and "Zaccheus" find Zacchaeus; "david" lists every David story;
   "the" alone suggests nothing; accents and curly apostrophes match plain ones.
 - **Dealing** (`deal.test.ts`): 1,000 rounds per filter — no confusable or two-shared-emoji choice, no two choices with
   the same person, positions balanced, no repeats within a round, recent puzzles avoided.
-- **Daily** (`daily.test.ts`): every schedule rule over the whole file plus a year of fallback days; the frozen days are
-  unchanged by a rebuild with an extra story; puzzle numbers across daylight-saving changes in three time zones.
+- **Daily** (`daily.test.ts`): every schedule rule over the whole file plus a year of fallback days (any day where a
+  rule gave way must follow the §9 order); a small pool (40 stories, only five of them tier 1) still fills two years without an
+  empty day; the frozen days are unchanged by a rebuild with an extra story; puzzle numbers across daylight-saving
+  changes in three time zones. With choices a Daily allows two guesses.
 - **Page** (`EmojiStoriesGame.test.tsx`): a Practice round with choices; a Daily solved by typing on the second guess with
   a close first guess; a lost Daily; hints and score; reload keeps the Daily; the share text; the missing-emoji label
   (canvas mocked); the hub serves `/games/emoji-stories`.
@@ -493,7 +535,8 @@ other games' pages do.
 | Typed name of a person with several stories | All of their stories listed; the player chooses. |
 | Typed text matches nothing | "No story by that name in this game"; costs nothing. |
 | The player picks the same wrong story twice in the Daily | The second pick is refused before counting ("Already tried"). |
-| Switching to choices mid-Daily | Only before the first guess; afterwards the switch is disabled with a line saying why. |
+| Switching to choices mid-Daily | Only before the first guess, and the Daily then has two guesses (§6.1); afterwards the switch is disabled with a line saying why. |
+| No story meets every schedule rule on a day | The rules give way in a fixed order (§9); the day is listed in the review sheet. |
 | Daily opened just before midnight, answered after | The answer counts for the puzzle that was opened; the page then offers the new one. |
 | Device clock wrong or changed | Puzzle number follows the device date; a date before the epoch shows puzzle #1's "starts on" message. |
 | Daily played on two devices | Separate records; no account, no server. |
@@ -521,9 +564,11 @@ other games' pages do.
    free emoji pictures (for example Twemoji, CC-BY 4.0, self-hosted, about 1–2 KB each, with a credit line) would make
    every device show the same pictures and remove the missing-glyph problem, at the cost of copied artwork and a licence
    credit. **Recommended: not now**; revisit if the missing-emoji label proves common.
-3. **Optional cheap-model blind solve.** A pass where a small model sees only each puzzle's emoji and the title list and
-   names the story, flagging disagreements for a person to look at. About 120 calls of ~1,500 tokens each with the
-   cheapest model, run through the workspace's batch tool: a few cents of API cost, or a very small share of the Max
+3. **A larger model blind solve.** The review's blind solve was four single calls, each showing one model all 71
+   puzzles at once (about 3,600 tokens in and 1,000 out per call, on the Max plan). That is cheap enough to repeat in
+   the implement step for the added puzzles (§5.5 check 7). What stays open is a bigger pass — one call per puzzle,
+   several runs or several models, through the workspace's batch tool — which would measure each puzzle more fairly
+   than one model guessing all of them together. About 120 calls of ~1,500 tokens each: a very small share of the Max
    plan. Not part of the implement step; only on the owner's yes.
 4. **Launch size.** 100 puzzles minimum is a judgement call; the review may raise or lower it.
 
@@ -554,46 +599,49 @@ other games' pages do.
 
 ## Appendix A. Starter set (71 puzzles)
 
-Every row passed checks 1–3 of §5.5 on 2026-11-09: each word is in the site's BSB text of the passage, every emoji is
-Unicode 13.0 or earlier with no joiner, flag or skin tone, and every puzzle has at least two emoji that any other puzzle
-lacks. Still to do on these rows (implement step): `key`, `who`, `people`, `aliases` and `confusable` for each, and
-the blind solve (§5.5 check 7). Ids match the charades scene ids where the story is the same. Tier counts: 28 tier 1,
-39 tier 2, 4 tier 3 — the additions should lean towards tiers 1 and 3.
+Every row passed checks 1–4 of §5.5 on 2026-11-09 (re-run independently at review, after the review's changes): each
+word is in the site's BSB text of the passage, every emoji is Unicode 13.0 or earlier with no joiner, flag or skin
+tone, every puzzle has at least two non-face emoji that any other puzzle lacks, tier 2–3 titles hold at most one clue
+word, and every number emoji stands for a number in the text. The review also blind-solved the set (§5.5 check 7;
+results in the Review section). Still to do on these rows (implement step): `key`, `who`, `people`, `aliases` and
+`confusable` for each. Ids match the charades scene ids where the story is the same. Tier counts: 28 tier 1, 38 tier 2,
+5 tier 3; 40 Old and 31 New Testament; 14 tier 1 in each testament — the additions should lean towards tier 1 (each
+testament needs 20 for the Easy filters) and tier 3, and towards the New Testament.
 
 | # | Story (answer) | Passage (BSB) | Tier | Emoji, and the passage word each one stands for |
 |---|---|---|---|---|
 | 1 | God creates the world (`creation`) | GEN 1:1-2:3 | 1 | 🌍 earth · ☀️ light · 🌳 trees · 🐟 fish · 🐦 birds · 7️⃣ seventh |
 | 2 | The serpent and the forbidden fruit (`garden-fruit`) | GEN 3:1-13 | 1 | 🌳 tree · 🐍 serpent · 🍎 fruit · 🍃 leaves |
-| 3 | Cain and Abel's offerings (`cain-abel`) | GEN 4:1-10 | 2 | 🌾 soil · 🐑 flock · 😠 angry · ❓ where |
+| 3 | Cain and Abel's offerings (`cain-abel`) | GEN 4:1-10 | 2 | 🌾 soil · 🐑 flock · 🎁 offering · 😠 angry · ❓ where |
 | 4 | Noah's ark and the flood (`noah-flood`) | GEN 6:13-9:17 | 1 | 🚢 ark · 🐾 animals · 🌧️ rain · 🕊️ dove · 🌈 rainbow |
 | 5 | The tower of Babel (`tower-babel`) | GEN 11:1-9 | 2 | 🧱 bricks · 🗼 tower · 🗣️ language · 🌍 earth |
 | 6 | Sarah laughs, and Isaac is born (`sarah-laughs`) | GEN 18:9-15; GEN 21:1-7 | 2 | ⛺ tent · 👵 old · 😂 laughed · 👶 son |
 | 7 | Abraham, Isaac and the ram (`isaac-ram`) | GEN 22:1-14 | 2 | ⛰️ mountains · 🪵 wood · 🔥 fire · 🐏 ram |
 | 8 | Lot's wife looks back (`lots-wife`) | GEN 19:15-26 | 2 | 🔥 fire · 🏃 run · 👀 look · 🧂 salt |
-| 9 | Esau sells his birthright for stew (`esau-stew`) | GEN 25:27-34 | 2 | 🏹 hunter · 😫 famished · 🍲 stew · 💰 sell |
+| 9 | Esau trades his birthright (`esau-stew`) | GEN 25:27-34 | 2 | 🏹 hunter · 😫 famished · 🍲 stew · 💰 sell |
 | 10 | Jacob's dream of a stairway to heaven (`jacob-ladder`) | GEN 28:10-17 | 2 | 🪨 stones · 😴 sleep · 🪜 ladder · 👼 angels |
 | 11 | Joseph, his robe and his brothers (`joseph-robe`) | GEN 37:3-28 | 1 | 🧥 robe · 🌾 sheaves · 🌙 moon · ⭐ stars · 💰 silver |
 | 12 | Joseph explains Pharaoh's dreams (`pharaohs-dreams`) | GEN 41:14-36 | 2 | 🐄 cows · 🌾 grain · 7️⃣ seven · 💭 dream |
 | 13 | Baby Moses in the basket (`baby-moses`) | EXO 2:1-10 | 1 | 👶 child · 🧺 basket · 🌿 reeds · 👸 daughter |
 | 14 | The burning bush (`burning-bush`) | EXO 3:1-6 | 1 | 🐑 flock · 🔥 fire · 🌿 bush · 🩴 sandals |
 | 15 | The plagues of Egypt (`plagues`) | EXO 8:1-10:23 | 1 | 🐸 frogs · 🦟 gnats · 🦗 locusts · 🌑 darkness |
-| 16 | The first Passover (`passover`) | EXO 12:1-13 | 2 | 🐑 lamb · 🚪 doorframes · 🍞 bread · 🌿 herbs |
-| 17 | Crossing the Red Sea (`red-sea`) | EXO 14:15-29 | 1 | ✋ hand · 🌊 sea · 🧱 walls · 🚶 walked · 🐎 horses |
-| 18 | Manna and quail in the wilderness (`manna`) | EXO 16:11-31 | 2 | 🐦 quail · 💧 dew · 🍞 bread · 🍯 honey |
+| 16 | The first Passover (`passover`) | EXO 12:1-13 | 2 | 🐑 lamb · 🚪 doorframes · 🌙 night · 🫓 unleavened · 🌿 herbs |
+| 17 | Crossing the Red Sea (`red-sea`) | EXO 14:15-29 | 1 | ✋ hand · 🌊 sea · 🏜️ dry · 🚶 walked · 🐎 horses |
+| 18 | Manna and quail in the wilderness (`manna`) | EXO 16:11-31 | 2 | 🐦 quail · ⛺ camp · 💧 dew · 🍞 bread · 🍯 honey |
 | 19 | The Ten Commandments (`ten-commandments`) | EXO 19:16-20; EXO 34:1-4; EXO 34:28 | 1 | ⛰️ mountain · ⛈️ thunder · 🔟 Ten · 🪨 stone |
-| 20 | The golden calf (`golden-calf`) | EXO 32:1-20 | 2 | 💍 earrings · 🔥 fire · 🐂 calf · 💃 dancing |
+| 20 | The golden calf (`golden-calf`) | EXO 32:1-20 | 2 | 💍 earrings · 🔥 fire · 🐂 calf · 🎶 singing · 💃 dancing |
 | 21 | Balaam's talking donkey (`balaams-donkey`) | NUM 22:21-33 | 2 | 🐴 donkey · 🗡️ sword · 👼 angel · 💬 said |
 | 22 | Rahab hides the spies (`rahab`) | JOS 2:1-21 | 3 | 🏠 house · 🕵️ spies · 🪢 rope · 🔴 scarlet |
 | 23 | The walls of Jericho (`jericho`) | JOS 6:1-20 | 1 | 🚶 march · 7️⃣ seven · 📯 horns · 📢 shout · 🧱 wall |
-| 24 | Gideon's fleece, jars and torches (`gideon`) | JDG 6:36-40; JDG 7:16-22 | 2 | 🐑 fleece · 💧 dew · 🏺 jars · 🔥 torches |
+| 24 | Gideon's fleece and the 300 (`gideon`) | JDG 6:36-40; JDG 7:16-22 | 2 | 🐑 fleece · 💧 dew · 📯 horns · 🏺 jars · 🔥 torches |
 | 25 | Samson's strength (`samson`) | JDG 14:5-9; JDG 16:17-30 | 2 | 🦁 lion · 🍯 honey · ✂️ shave · 🏛️ pillars |
 | 26 | Ruth and Naomi (`ruth`) | RUT 1:16-17; RUT 2:2-3; RUT 3:7; RUT 4:13 | 2 | 👵 Naomi · 🚶 go · 🌾 grain · 👣 feet · 💒 wife |
 | 27 | God calls young Samuel (`samuel-called`) | 1SA 3:1-10 | 2 | 🕯️ lamp · 🛏️ lying · 🗣️ called · 👂 listening |
 | 28 | David and Goliath (`david-goliath`) | 1SA 17:34-50 | 1 | 🐑 sheep · 5️⃣ five · 🪨 stones · 🛡️ armor · 🗡️ sword |
 | 29 | David spares Saul in the cave (`david-saul-cave`) | 1SA 24:1-7 | 3 | 🕳️ cave · ✂️ cut · 🧥 robe |
 | 30 | Solomon and the two mothers (`solomon-judgment`) | 1KI 3:16-28 | 2 | 👩 woman · 👶 son · 🗡️ sword · ⚖️ justice |
-| 31 | Ravens feed Elijah (`elijah-ravens`) | 1KI 17:1-6 | 2 | 🐦 ravens · 🍞 bread · 🥩 meat · 🏞️ brook |
-| 32 | Fire on Mount Carmel (`elijah-carmel`) | 1KI 18:20-39 | 2 | ⛰️ Mount · 🐂 bulls · 💧 water · 🔥 fire |
+| 31 | Ravens feed Elijah (`elijah-ravens`) | 1KI 17:1-6 | 3 | 🐦 ravens · 🍞 bread · 🥩 meat · 🏞️ brook |
+| 32 | Elijah and the prophets of Baal (`elijah-carmel`) | 1KI 18:20-39 | 2 | ⛰️ Mount · 🐂 bulls · 💧 water · 🔥 fire |
 | 33 | Elijah goes up in a whirlwind (`elijah-chariot`) | 2KI 2:7-14 | 2 | 🧥 cloak · 🌊 waters · 🔥 fire · 🐎 horses · 🌪️ whirlwind |
 | 34 | Naaman dips seven times (`naaman`) | 2KI 5:1-14 | 2 | 🪖 army · 7️⃣ seven · 🛁 wash · 👶 child |
 | 35 | Jonah and the great fish (`jonah`) | JON 1:3-2:10 | 1 | ⛵ ship · ⛈️ storm · 🐋 fish · 3️⃣ three |
@@ -601,35 +649,121 @@ the blind solve (§5.5 check 7). Ids match the charades scene ids where the stor
 | 37 | The writing on the wall (`writing-on-wall`) | DAN 5:1-28 | 2 | 🍷 wine · ✋ hand · ✍️ wrote · 🧱 wall · ⚖️ scales |
 | 38 | Daniel in the lions' den (`lions-den`) | DAN 6:10-23 | 1 | 🙏 prayed · 🪟 windows · 🦁 lions · 👼 angel |
 | 39 | Queen Esther saves her people (`esther`) | EST 4:14-16; EST 5:1-8 | 2 | 👸 queen · 🍽️ banquet · 3️⃣ three · 👑 king |
-| 40 | Nehemiah rebuilds the wall (`nehemiah-wall`) | NEH 2:17-18; NEH 4:17-18; NEH 6:15 | 3 | 🧱 wall · 🔨 rebuild · 🗡️ sword · 5️⃣ fifty-two · 2️⃣ fifty-two |
+| 40 | Nehemiah and the walls of Jerusalem (`nehemiah-wall`) | NEH 2:17-18; NEH 4:17-18; NEH 6:15 | 3 | 🧱 wall · 🔨 rebuild · 🗡️ sword · 5️⃣ fifty-two · 2️⃣ fifty-two |
 | 41 | Jesus is born in Bethlehem (`nativity`) | LUK 2:1-16 | 1 | 👶 Child · 🏨 inn · 🐑 flocks · 👼 angel |
 | 42 | The Magi follow the star (`magi`) | MAT 2:1-12 | 1 | ⭐ star · 👑 King · 🎁 gifts · 👶 Child |
 | 43 | The boy Jesus in the temple (`boy-jesus`) | LUK 2:41-50 | 2 | 1️⃣ twelve · 2️⃣ twelve · 🏛️ temple · 🔍 searching · ❓ questions |
 | 44 | John the Baptist in the wilderness (`john-baptist`) | MAT 3:1-6 | 2 | 🐫 camel · 🦗 locusts · 🍯 honey · 🏞️ river |
-| 45 | Jesus is baptized (`jesus-baptized`) | MAT 3:13-17 | 2 | 🌊 water · 🕊️ dove · ☁️ heavens · 🗣️ voice |
+| 45 | Jesus is baptized (`jesus-baptized`) | MAT 3:13-17 | 2 | 🏞️ Jordan · 🌊 water · 🕊️ dove · ☁️ heavens · 🗣️ voice |
 | 46 | Water into wine at Cana (`water-into-wine`) | JHN 2:1-11 | 1 | 💒 wedding · 6️⃣ six · 🏺 jars · 💧 water · 🍷 wine |
-| 47 | Jesus calms the storm (`calm-storm`) | MRK 4:35-41 | 1 | ⛵ boat · 🌊 waves · 😴 sleeping · 🤫 Silence |
+| 47 | Jesus calms the storm (`calm-storm`) | MRK 4:35-41 | 1 | ⛵ boat · 🌀 windstorm · 🌊 waves · 💤 sleeping · 😨 afraid |
 | 48 | Jesus walks on the water (`walk-on-water`) | MAT 14:22-33 | 1 | ⛵ boat · 🌬️ wind · 🚶 walked · 🌊 water · ✋ hand |
 | 49 | Feeding the five thousand (`loaves-fish`) | JHN 6:5-13 | 1 | 5️⃣ five · 🍞 loaves · 2️⃣ two · 🐟 fish · 🧺 baskets |
 | 50 | The man let down through the roof (`through-roof`) | MRK 2:1-12 | 2 | 🏠 home · 4️⃣ four · 🛏️ mat · 🚶 walk |
-| 51 | The woman at the well (`woman-at-well`) | JHN 4:5-15 | 2 | 🪣 well · 💧 water · 6️⃣ sixth · 👩 woman |
-| 52 | Zacchaeus climbs a tree (`zacchaeus`) | LUK 19:1-10 | 1 | 🤏 small · 🌳 tree · 💰 wealthy · 🏠 house |
+| 51 | Jesus and the Samaritan woman (`woman-at-well`) | JHN 4:5-15 | 2 | 🪣 well · 💧 water · 6️⃣ sixth · 👩 woman |
+| 52 | Zacchaeus climbs a tree (`zacchaeus`) | LUK 19:1-10 | 1 | 🤏 small · 🧗 climbed · 🌳 tree · 💰 wealthy · 🏠 house |
 | 53 | The good Samaritan (`good-samaritan`) | LUK 10:30-37 | 1 | 🛣️ road · 🩹 bandaged · 🐴 animal · 🏨 inn |
 | 54 | The prodigal son (`prodigal-son`) | LUK 15:11-32 | 1 | 💰 estate · 🐖 pigs · 🏃 ran · 💍 ring · 🎉 celebrate |
 | 55 | The lost sheep (`lost-sheep`) | LUK 15:3-7 | 1 | 💯 hundred · 🐑 sheep · 🔍 lost · 🎉 rejoice |
 | 56 | The house on the rock (`house-on-rock`) | MAT 7:24-27 | 1 | 🏠 house · 🪨 rock · 🏖️ sand · 🌧️ rain |
 | 57 | The farmer sowing seed (`sower`) | MAT 13:3-9 | 2 | 🌱 seed · 🐦 birds · 🪨 rocky · 🌵 thorns · 🌾 crop |
 | 58 | The mustard seed (`mustard-seed`) | MAT 13:31-32 | 2 | 🤏 smallest · 🌱 seeds · 🌳 tree · 🐦 birds |
-| 59 | The widow's two small coins (`widows-coins`) | MRK 12:41-44 | 2 | 🏛️ treasury · 👵 widow · 2️⃣ two · 🪙 coins |
-| 60 | Ten lepers, one comes back (`ten-lepers`) | LUK 17:11-19 | 2 | 🔟 ten · 🚶 way · 1️⃣ One · 🙏 thanksgiving |
-| 61 | Lazarus, come out! (`lazarus`) | JHN 11:17-44 | 2 | 4️⃣ four · 😢 wept · 🪦 tomb · 🪨 stone · 🚶 came |
+| 59 | The widow's offering (`widows-coins`) | MRK 12:41-44 | 2 | 🏛️ treasury · 👵 widow · 2️⃣ two · 🪙 coins |
+| 60 | The ten lepers (`ten-lepers`) | LUK 17:11-19 | 2 | 🔟 ten · 🚶 way · 1️⃣ One · 🙏 thanksgiving |
+| 61 | Lazarus, come out! (`lazarus`) | JHN 11:17-44 | 2 | 4️⃣ four · 😢 weeping · 🪦 tomb · 🪨 stone · 🚶 came |
 | 62 | Jesus rides into Jerusalem (`palm-sunday`) | JHN 12:12-15 | 1 | 🌴 palm · 📣 shouting · 🐴 donkey · 👑 King |
-| 63 | The Last Supper (`last-supper`) | LUK 22:14-20 | 1 | 1️⃣ apostles · 2️⃣ apostles · 🍞 bread · 🙏 thanks · 🍷 cup |
-| 64 | Peter denies Jesus three times (`peter-rooster`) | LUK 22:54-62 | 2 | 🔥 fire · 3️⃣ three · 🐓 rooster · 😭 wept |
-| 65 | The empty tomb (`empty-tomb`) | LUK 24:1-12 | 1 | 🌅 morning · 🌿 spices · 🪨 stone · ❓ Why |
-| 66 | Thomas sees and believes (`doubting-thomas`) | JHN 20:24-29 | 2 | 8️⃣ Eight · ✋ hands · 👀 see · 🙏 believe |
+| 63 | The Last Supper (`last-supper`) | MRK 14:17-25 | 1 | 1️⃣ Twelve · 2️⃣ Twelve · 🍞 bread · 🙏 thanks · 🍷 cup |
+| 64 | Peter denies Jesus three times (`peter-rooster`) | LUK 22:54-62 | 2 | 🔥 fire · 👧 girl · 3️⃣ three · 🐓 rooster · 😭 wept |
+| 65 | The empty tomb (`empty-tomb`) | LUK 24:1-12 | 1 | 🌅 morning · 🌿 spices · 🪦 tomb · 🪨 stone · ❓ Why |
+| 66 | Doubting Thomas (`doubting-thomas`) | JHN 20:24-29 | 2 | 8️⃣ Eight · ✋ hands · 👀 see · 🙏 believe |
 | 67 | Breakfast on the beach (`breakfast-beach`) | JHN 21:1-14 | 3 | 🎣 fish · 🥅 net · 1️⃣ 153 · 5️⃣ 153 · 3️⃣ 153 · 🔥 fire |
 | 68 | The Holy Spirit at Pentecost (`pentecost`) | ACT 2:1-13 | 2 | 🌬️ wind · 🔥 fire · 👅 tongues · 🗣️ speak |
 | 69 | Saul on the road to Damascus (`road-damascus`) | ACT 9:1-9 | 2 | 🛣️ journey · ⚡ flashed · 👀 see · 3️⃣ three |
 | 70 | Paul and Silas sing in prison (`prison-songs`) | ACT 16:22-30 | 2 | ⛓️ chains · 🕛 midnight · 🎶 hymns · 🚪 doors |
 | 71 | Paul's shipwreck and the snake (`shipwreck`) | ACT 27:39-28:6 | 2 | 🚢 ship · 🌊 sea · 🏝️ island · 🔥 fire · 🐍 viper |
+
+## Review
+
+**One critical review, sequence 31 step 15, 2026-11-09.** Read against the approved spec (entry 21 of APPROVED-IDEAS.md),
+the shared build rules, and the site's code and data as they stand today. Every correction below is already made in
+the body above; this section says what changed and why.
+
+### How it was checked
+
+- **Every file and pattern the design leans on was opened:** the hub entry (`emoji-stories`, still coming soon, shelf
+  and picture set), `Verse`, the reader's `?hl=` links as Two truths' reveal builds them, the charades scenes and their
+  BSB test, people slugs and the `/people/<slug>` route, Wordle's and Timeline's daily files, Wordle's build script and
+  how it finds the raw sources folder, Two truths' `--check` test, and the translation checks. All exist as described;
+  Wordle's folder is indeed still uncommitted.
+- **Appendix A was re-checked with an independent script** (not the design step's): every clue word against the BSB
+  text of its passage, every emoji against Unicode's `emoji-test.txt` 15.1 (version, qualification, joiners, skin tones,
+  flags, subgroup), the closeness rule, the title rule and the number rule. All 71 rows' BSB words and all emoji
+  versions were right. The design's own rules turned up fifteen problems, plus three more once the title rule was made
+  precise. The final run has none.
+- **The set was blind-solved** (the design's own check 7, which it gave to this step): one model (Sonnet) saw only the
+  71 emoji rows, shuffled, and the list of titles, with no workspace context or tools, in one call per run (about 3,600
+  tokens in, 1,000 out). Four runs: 66, 68, 67 and 68 of 71 right. Puzzles missed were strengthened between runs.
+
+### What changed, and why
+
+1. **Five titles gave the answer away, and three more once the rule was made precise.** The design says a tier 2 or 3
+   title may contain at most one clue word, but its prototype never ran that check. Gideon's title held three, and four
+   others two. Retitled: *Gideon's fleece and the 300*, *Elijah and the prophets of Baal*, *Jesus and the Samaritan
+   woman*, *The widow's offering*, *The ten lepers*. The rule now counts plurals and possessives as the same word
+   ("widow's" = "widow"), which caught *Esau sells his birthright for stew*, *Nehemiah rebuilds the wall* and *Thomas
+   sees and believes*: now *Esau trades his birthright*, *Nehemiah and the walls of Jerusalem* and *Doubting Thomas*
+   (§5.2, Appendix A).
+2. **Faces were deciding puzzles, though the design said they never would.** It claimed the closeness rule kept faces
+   from being what tells two puzzles apart, but the rule as written counted every emoji. Jesus calms the storm differed
+   from Jesus walks on the water only by 😴 and 🤫. "Face" is now defined from Unicode's own grouping (any `face-…`
+   subgroup), and the closeness rule counts only non-face emoji (§2.3, §5.2, §5.4, check 3).
+3. **The rule that no face stands for Jesus was broken by four puzzles, and by its own example.** 😴 and 🤫 were Jesus
+   asleep and Jesus saying "Silence!"; 😢 was "Jesus wept"; 👶 was the infant Jesus in the nativity and the Magi. The
+   storm is now ⛵ boat · 🌀 windstorm · 🌊 waves · 💤 sleeping · 😨 afraid (💤 is a sign of sleep, not a face, and the fear
+   is the disciples'). Lazarus keeps 😢 but its word is now *weeping*, which John 11:33 gives to Mary and the mourners.
+   The rule now says plainly that 👶 for the infant Jesus is allowed, as in every nativity scene, and that the review
+   sheet marks every face and person emoji, because no test can tell whom an emoji stands for (§5.1, §5.2, check 6).
+4. **The Last Supper used 1️⃣ 2️⃣ for "apostles".** Luke 22:14–20 never says twelve, so the numbers stood for something
+   not in the text, against the design's own principle. The passage is now Mark 14:17–25 ("Jesus arrived with the
+   Twelve"), and a new check requires every number emoji's word to be a number (§5.2, check 4).
+5. **The Red Sea's 🧱 brick wall stood for walls of water.** That is the opposite picture, and it pointed towards Jericho,
+   which shares 🚶 and 🧱. Now 🏜️ desert for "dry ground" (Exodus 14:16, 22, 29).
+6. **Puzzles strengthened after the blind solve:** Peter's denial gained 👧 the servant girl (it was told apart from
+   two others only by 🐓 and a face); the empty tomb gained 🪦 tomb; manna gained ⛺ camp; the Passover gained 🌙 night and
+   swapped 🍞 for 🫓 flatbread, "unleavened"; Zacchaeus gained 🧗 climbed; Cain and Abel gained 🎁 offering; the golden
+   calf gained 🎶 singing; Jesus' baptism gained 🏞️ Jordan; Gideon gained 📯 horns. Elijah fed by ravens moved to tier 3,
+   and the golden calf / Mount Carmel and Lazarus / empty tomb pairs joined the "never offered side by side" list.
+7. **The Daily could be won by luck.** With choices it allowed three guesses at four titles, so a blind tapper won three
+   days in four and a streak meant nothing. With choices the Daily now has two guesses (§6.1, §7, §8.1, §14).
+8. **The Daily schedule could get stuck.** "No repeat within pool size minus 10 days" leaves about ten stories to choose
+   from each day, and the Sunday, weekly-tier and testament rules can then rule out all ten. Now at least 30 are always
+   free, and when nothing fits, the rules give way in a fixed order (never the Sunday rule), with each such day listed
+   in the review sheet and tested (§9, §13, §14).
+9. **Hint costs disagreed.** One section said every hint costs a point, another that two or three hints both leave 1
+   point. Now the first two cost a point and the third is free, and the button says so (§7, §11.2). It also now says
+   that in the Daily hint 3 is only seen if asked for, since the last miss ends the game.
+10. **The raw Unicode file would not be found where the design put it.** The site finds raw sources through a setting
+    or one of two folders, not a fixed `../sources`; the design now uses that same rule, pins the file's checksum as
+    Wordle pins its word list, and says the data test needs it (§5.3, §12, §13).
+11. **Smaller corrections:** the two Unicode 12.0 emoji (🩹 🤏) do draw on Windows 10 updated since 2019 — only the 13.0
+    ones do not (§5.3); the translated-site row said titles are translated now, which contradicts the open point that
+    leaves translation to a later job (§6.1); the alias rule as written would have banned "Jacob's ladder" and "the
+    burning bush", so it now bans aliases made *only* of clue words (§4); person links now name the real helper and
+    route (§3); Appendix A's counts are updated (148 emoji, 26 pairs sharing two or more, tiers 28 / 38 / 5).
+
+### Decisions on the open points
+
+- **Launch size:** kept at 100 minimum. Appendix A has 14 tier 1 puzzles in each testament and the Easy filters need
+  20, so the additions must bring at least six tier 1 puzzles per testament; the appendix note now says so.
+- **Translation and emoji pictures:** left as the design recommends (a later translation job; native emoji, no bundled
+  picture set).
+
+### Left for the implement step
+
+- **Manna and the ravens remain the hardest pair.** The model swapped them in two of four runs; both are about birds,
+  bread and meat. They are never offered side by side, ravens is now tier 3, and the first hint (Exodus or 1 Kings)
+  separates them. The implement step's blind solve should look at them again; dropping the ravens puzzle is acceptable.
+- **The golden calf** was missed in two runs before it gained 🎶 (then solved), and **Naaman** once, at low
+  confidence: both worth a look on the review sheet.
+- The design step's list of what the implement step must still write for each row (`key`, `who`, `people`, `aliases`,
+  `confusable`) is unchanged.

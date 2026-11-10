@@ -264,3 +264,30 @@ people on one phone. The board in progress is kept in session storage; records, 
 - **Checks:** the `*.test.ts(x)` files in `memory-match/` run in `npm test` (including 1,000 drawn boards for every deck and
   difficulty); `npm run test:data` runs the builder's tests and `--check`; `npx playwright test -c e2e/memory-match.config.ts`
   checks the phone layout against a build.
+
+## Emoji stories
+
+`emoji-stories` ([emoji-stories/EmojiStoriesGame.tsx](emoji-stories/EmojiStoriesGame.tsx); design:
+[docs/features/emoji-stories/design.md](../../../docs/features/emoji-stories/design.md)) shows a row of three to six
+emoji that tells one Bible story; the player names the story, by choosing one of four titles or by typing and picking a
+story from the game's own list (judged by story id, never by spelling). Three hints (where it is, what each picture
+means, who is in it); a Daily shared by everyone on a date (three typed guesses or two with choices, a spoiler-free share
+line), Practice rounds of ten by difficulty and testament, and Show a room, where the emoji arrive one at a time on a
+big screen. `?play=daily|practice|room` opens a mode. Saved in the browser under `bp-emoji-stories` (and a Practice
+round in progress under `bp-emoji-stories-round` in session storage; a room round is never stored). The Daily opens on
+Typing every day; switching it to Choices is kept for that day only, and Practice keeps its own choice.
+
+- **Data:** `src/data/emoji-stories/stories.json` is hand-kept: each puzzle's emoji with the BSB passage word it stands
+  for, its passage, key verse, people, aliases and "never offer side by side" list. `emoji.json`, `daily.json` and
+  [the review sheet](../../../docs/features/emoji-stories/review-sheet.md) are written from it by
+  `node --experimental-strip-types scripts/build-emoji-stories.ts`, which needs Unicode's `emoji-test-15.1.txt` in
+  `<sources>/unicode/` (checksum pinned). Run it after editing `stories.json`; it never changes a day already kept.
+- **Daily epoch:** puzzle #1 is `2026-11-09` (the build date). To number from the real launch day, delete `daily.json`
+  and run the script with `--epoch YYYY-MM-DD` before the first release; after launch, never.
+- **Emoji the device cannot draw** show an empty tile with their Unicode name under it (a canvas test,
+  `emoji-support.ts`: no colour and the width of the "no such character" box).
+- **Known gaps:** titles, hints and clue words are English in every language (the translation collector does not read
+  `src/data/emoji-stories/` yet); a translated site opens on Choices.
+- **Checks:** the `*.test.ts(x)` files in `emoji-stories/` run in `npm test`: every puzzle against the BSB text and the
+  Unicode list, the closeness and title rules, `--check` of the generated files, 1,000 dealt rounds per filter, the
+  Daily rules over the whole schedule, puzzle numbers across daylight saving, answer matching, and the page itself.

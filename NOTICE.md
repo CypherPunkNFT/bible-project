@@ -19,6 +19,7 @@ the project's own, and keeps its publisher's terms. Full list, with checksums: [
 | Names of God list | The site owner's own selection, drawn from Torrey and Scripture | Free to use with the rest of this project |
 | Satellite imagery (NASA Blue Marble Next Generation, via GIBS) | Public domain | Credit "NASA" is appreciated |
 | Coastlines (Natural Earth, via world-atlas) | Public domain | Nothing |
+| Emoji stories' emoji names and versions (`src/data/emoji-stories/emoji.json`), from Unicode's emoji-test.txt 15.1, © 2023 Unicode®, Inc. | [Unicode License v3](https://www.unicode.org/license.txt) | Keep Unicode's copyright and permission notice with the data. The puzzles, clue words and schedule are this project's own |
 | Fonts: Literata, Archivo, Noto Serif Hebrew | SIL Open Font License | Keep the licence with the font files |
 
 The Westminster Leningrad Codex's words are public domain. Its word-by-word grammar tags are CC BY-SA, so the

@@ -15,6 +15,19 @@ made. Verse wording is never copied into these files: the pages quote it from th
 | Easton's *Illustrated Bible Dictionary* (1897), CCEL plain text (already listed, `easton-txt`) | Quoted, word for word, only in the citation of a hand-checked meaning where Strong's alone is silent or ambiguous (Esther "star", Elijah, Elisha, Matthew, Michal), and in the explanation of three names left uncertain (Mary, Miriam, Jesse); never read by the build and never a headline on its own | Text public domain | "Also cited: Easton's Illustrated Bible Dictionary (1897), public domain." on pages that cite it |
 | US Social Security Administration national baby-name file, `names.zip` | **Optional and not on this PC.** ssa.gov refused the scripted download (HTTP 403), so it is not in `scripts/fetch-sources.py`. When saved by hand to `../sources/ssa/names.zip`, the build adds "Popular today" ranks; without it that sort is hidden. Record its data year and checksum here when it is added | US government work, public domain | "US popularity: Social Security Administration, <year>" |
 
+## Emoji stories — registered 9 November 2026 (local preview only; nothing published)
+
+The emoji puzzle game at `/games/emoji-stories` (design: [docs/features/emoji-stories/design.md](docs/features/emoji-stories/design.md)).
+Its 106 puzzles, clue words, titles and Daily schedule are the site's own hand-made selection; every clue word is checked
+against the Berean Standard Bible already listed here. [scripts/build-emoji-stories.ts](scripts/build-emoji-stories.ts)
+builds `src/data/emoji-stories/emoji.json`, `daily.json` and the review sheet; `stories.json`, `emoji.json` and
+`daily.json` ship.
+
+| What | How it was used | Licence / terms | Checksum |
+|---|---|---|---|
+| Unicode **emoji-test.txt**, Emoji 15.1, from https://unicode.org/Public/emoji/15.1/emoji-test.txt, kept in the project's raw sources folder as `../sources/unicode/emoji-test-15.1.txt` from the site (5,325 lines) | Only the official name, Emoji version and qualification of the emoji the puzzles use are copied into `emoji.json` (names read aloud by screen readers and shown under a picture a device cannot draw); the tests and the build refuse an emoji not in it, newer than 13.0, or not fully qualified. The build script checks the checksum and stops if the file differs. | Unicode License v3 (free use, copying and modification with Unicode's copyright and permission notice kept; recorded in [NOTICE.md](NOTICE.md)); file header "© 2023 Unicode®, Inc." | sha256 `d876ee249aa28eaa76cfa6dfaa702847a8d13b062aa488d465d0395ee8137ed9` |
+| Berean Standard Bible (already listed below) | Every clue word is a word of the puzzle's BSB passage; the reveal quotes the key verse from the site's own BSB text | Public domain | — |
+
 ## Audio Bible verse timings — registered 25 October 2026 (local preview only; nothing published)
 
 The Read alongside panel on `/listen/asv` highlights the verse being read. The verse start times were worked out
