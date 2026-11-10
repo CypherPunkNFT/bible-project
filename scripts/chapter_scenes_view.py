@@ -125,14 +125,15 @@ function applyMode(){const scenes=mode==='scenes',gal=scenes&&view==='gallery';
  document.querySelectorAll('.primary [data-pipeline]').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  $('summaries-side').hidden=scenes;$('scenes-side').hidden=!scenes;$('scenes-top').hidden=!scenes;
  for(const n of [document.querySelector('main > .top'),document.querySelector('main > .stats'),$('summary-card'),document.querySelector('.toolbar'),$('edit-panel'),document.querySelector('.statusbox'),document.querySelector('.legend:not(#scenes-legend)')])n.hidden=scenes;
- $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes||gal;$('gallery').hidden=!gal;
- document.querySelector('section.atlas.book-explorer').hidden=gal;document.querySelector('.workspace').hidden=gal;
+ $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes;$('gallery').hidden=!gal;
+ document.querySelector('.workspace').hidden=gal;
  document.querySelectorAll('.view-tabs [data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===view));
 $('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
  document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(gal)loadGallery();else if(scenes)loadScenes()}
 function setMode(m){mode=m;if(m!=='scenes')closeLightbox();if(m==='scenes'){cache={};refreshSummary().catch(()=>{})}try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
 const baseRender=render,baseTiles=renderTiles;
-render=function(){baseRender();if(mode==='scenes')loadScenes()};
+render=function(){baseRender();if(mode==='scenes'){loadScenes();if(view==='gallery')galleryFollow()}};
+document.querySelector('section.atlas[aria-labelledby="atlas-title"]').after($('gallery'));  // gallery sits under the book and chapter pickers
 renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
 document.querySelectorAll('.primary [data-pipeline]').forEach(b=>b.onclick=()=>setMode(b.dataset.pipeline));
 refreshSummary().catch(()=>{});applyMode();renderTiles()})();

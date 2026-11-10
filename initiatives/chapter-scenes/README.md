@@ -156,10 +156,12 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
 **Scenes | Gallery tabs** at the top of the Scenes page.
 - Scenes: the scene cards as now, with each frame showing the chosen theme's picture. Under the frame a strip of
   small thumbnails, one per theme that has this scene drawn; clicking one switches the chosen theme for the page.
-- Gallery: the chapter explorer, Scripture panel and scene card are hidden. All pictures of the chosen theme fill the
-  page as a grid, grouped by chapter in Bible order ("1 Samuel 17"), with writer chips (Both / Claude Haiku / Local
-  Qwen) and a count. Clicking a picture opens it large over the page with its title, chapter and verses, and writer;
-  the arrow keys and on-screen arrows step through, and Esc or a click outside closes it.
+- Gallery (owner 2026-11-10): the book and chapter pickers stay at the top; the Scripture panel and scene card are
+  hidden. Under the pickers, the chosen book's pictures fill the page as a grid grouped by chapter ("1 Samuel 17"),
+  with a count; clicking another book redraws it, clicking a chapter scrolls to that chapter. Clicking a picture
+  opens it large: picture on the left; on the right the count, title, chapter and verses, the scene's description
+  (its "moment") and the BSB verses. The arrow keys and on-screen arrows step through every book, not just the
+  chosen one; Esc or a click outside closes it.
   `GET /api/gallery?theme=ID` returns every scene; a scene not drawn yet has no picture URLs.
 - **All | Finished** (owner 2026-11-07): All lists every scene, with a dashed "Not drawn yet" tile where the theme has
   no picture; Finished lists only drawn pictures. The choice is remembered.
