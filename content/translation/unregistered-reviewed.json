@@ -24661,6 +24661,6 @@
    "1870": "364032a64b54f8820f0d6b162aedd7ebf365aeb34c2331248ddc2c4ac1dea872",
    "1871": "917361b5605cb800c2ae816e5e58896180b4101272cc6033e489548d26c845e5"
   },
-  "why": "collected page text other chats added (prayers, verse packs, games, holy days, a reading-level word list) that the step's $1.50 could not also pay for: chunks 1851-1855, 1862-1864, 1866-1868, 1872-1874 were translated in its two runs. About $0.35 to $0.50 at list price within card D56's money finishes these with translate_new.py; chunk 1871 holds a list of English stop words ('a about above after ...') for the reading-level tool, which should be ruled as code data, not translated"
+  "why": "collected page text other chats added (prayers, verse packs, games, holy days, a reading-level word list) that the step's $1.50 could not also pay for: chunks 1851-1855, 1862-1864, 1866-1868, 1872-1874 were translated in its two runs. Their 1,490 strings a language (303 + 400 + 391 + 396) cost about $0.55 to $0.65 at list price with translate_new.py, within card D56's $2.95 left; one string of chunk 1871 is a list of English stop words ('a about above after ...') for the reading-level tool, which should be ruled as code data, not translated"
  }
 ]
