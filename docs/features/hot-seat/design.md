@@ -1,6 +1,6 @@
 # Hot seat — design
 
-**Status:** research & design step (job 0d6edd1a, sequence 31 step 17, 2026-11-10). Next: one review (step 18), then the build.
+**Status:** designed (job 0d6edd1a, sequence 31 step 17, 2026-11-10) and reviewed once (job f7d6bba9, step 18, 2026-11-10; corrections applied in the body, list in §17). Next: the build (step 19).
 **Spec (binding):** [APPROVED-IDEAS.md](Jarvis/Projects/BibleProject/APPROVED-IDEAS.md), entry 22: *"One player in the hot seat answers rapid-fire questions from the question bank for 60 seconds while the group reads them off a phone; score how many they get."*
 **Step brief:** research rapid-fire party quiz formats; one player answers quick-fire questions from the question bank for 60 seconds while the group reads them off a phone and marks right/wrong. Cover question selection by age, timer, scoring, multiple rounds and players, and a leaderboard for the session.
 **Shared rules:** [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md). No model runs while people play, and none is needed to build this game: every question already exists in the bank. Existing site data and code are reused. Scripture wording follows the Berean Standard Bible (BSB). The game registers on the /games hub. Only this feature's own files, plus its one registry entry and one README section, are touched. Nothing is deployed.
@@ -41,7 +41,7 @@ One phone, one room, no accounts, no server. Players take turns in the **hot sea
 
 ### 1.1 Not the icebreaker of the same name
 
-"Hot seat" is also a well-known youth-group icebreaker in which the group asks one person questions *about themselves* (favourite food, worst haircut). The hub card and the setup screen say plainly that this is a **Bible quiz**: "Sixty seconds, as many Bible questions as you can answer." No get-to-know-you questions are included; that would need a new hand-written list and is not what the spec asks.
+"Hot seat" is also a well-known youth-group icebreaker in which the group asks one person questions *about themselves* (favourite food, worst haircut). The setup screen's first line says plainly that this is a **Bible quiz** (§6.1); the hub card already sits among the Bible games with its stopwatch picture, and its description is kept as it is (§10) so its existing translations stay valid. No get-to-know-you questions are included; that would need a new hand-written list and is not what the spec asks.
 
 ---
 
@@ -51,7 +51,7 @@ One phone, one room, no accounts, no server. Players take turns in the **hot sea
 
 | Show | The rapid-fire part | What this game takes from it |
 |---|---|---|
-| **The Chase** (UK ITV since 2009; US, Australian and German versions) | The **Cash Builder**: each contestant alone answers as many quick-fire, open-ended questions as they can in **60 seconds**; each right answer is worth money (£1,000 in the UK, $5,000 in the US, $2,000 in Australia, €500 in Germany). No penalty for a wrong answer. | The exact shape of a turn: one player, 60 seconds, open questions, a point per right answer, no penalty. The spec's "60 seconds" is this format. |
+| **The Chase** (UK ITV since 2009; US, Australian and German versions) | The **Cash Builder**: each contestant alone answers as many quick-fire, open-ended questions as they can in **60 seconds**; each right answer is worth money (£1,000 in the UK, $5,000 on the first US version (2013–2015), $2,000 in Australia, €500 in Germany). No penalty for a wrong answer. | The exact shape of a turn: one player, 60 seconds, open questions, a point per right answer, no penalty. The spec's "60 seconds" is this format. |
 | **Mastermind** (BBC since 1972) | One contender in the famous black chair answers questions for two minutes (two and a half for general knowledge since 2010). They may say "pass" to save time. When the time-up beeps sound mid-question, the host finishes reading it and allows an answer, which gave Magnus Magnusson his catchphrase *"I've started, so I'll finish."* Ties go to fewer passes, then to five sudden-death questions. Answers to passed questions are read out after the round. | **The question on screen at the buzzer may still be answered** (§4.3). Passing is allowed. Answers are given after the turn, on the recap, not during it. The tie-break by passes is *not* taken (§5.1): in a family game it pushes children to guess wrong rather than pass. |
 | **Family Feud — Fast Money** (US since 1976) | Two family members answer the same five questions in **20 and 25 seconds**; the host reads, the contestant blurts, and passing to come back later is allowed. | Proof that very short clocks work if the questions are short. Sets the question-length limit (§3.2): a question the reader cannot say in about five seconds kills the pace. |
 | **Millionaire Hot Seat** (Australia, Nine Network 2009–2023, Network Ten from 2026) | Six contestants take turns in the "hot seat" against a clock that grows with the question's difficulty (15, 30, 45 seconds); one pass per player hands the question to the next contestant. | The name, and the idea that the seat **rotates through the room**. Its pass-to-the-next-player and elimination rules are left out (§8): they need a host's judgement and leave children sitting out. |
@@ -83,7 +83,7 @@ Recalling an answer strengthens memory more than reading it again: in Roediger a
 
 | Group | For | Questions drawn | Answer style (default) |
 |---|---|---|---|
-| **Little ones** | about 4–7 | Bank questions marked suitable for children (`children: true`, written for about 6–11), level **easy** only, in the children's wording where the bank has one | **Two choices**: the reader reads the question, then "…was it *A* or *B*?" (§3.3) |
+| **Little ones** | about 4–7 | Bank questions marked suitable for children (`children: true`, judged for about 6–11), level **easy** only, in the children's wording where the bank has one (few do, see below) | **Two choices**: the reader reads the question, then "…was it *A* or *B*?" (§3.3) |
 | **Kids** | 8–12 | Children's questions, **easy and medium**, children's wording where present | Open answer |
 | **Teens and adults** | 13 and up | All Bible quiz and Sunday-school questions, **easy, medium and hard**; the first two questions of a turn are easy (a warm-up, as the live quiz ramps up) | Open answer |
 | **Bible experts** | anyone who wants it hard | **Medium and hard** only | Open answer |
@@ -92,11 +92,13 @@ The labels match the family charades game's age words (Little ones, Kids, Teens 
 
 One setting decides who hears two choices: **Little ones** (default), **Little ones and kids**, or **Nobody**.
 
+**What the bank really gives the younger groups (measured in review):** the bank has no questions written for under-6s. Little ones draw exactly the easy half of the Kids pool, so the difference between the two groups is the medium questions and the two-choice reading, and the two choices are what make the game fair for a 4- to 7-year-old. A usable children's wording (`child`, with four valid options) exists for only **180** of the 3,080 Little ones questions and **260** of the 4,428 Kids questions; every other question is read in its ordinary wording, which the bank's children flag already judges simple enough. The setup's group picker says "Little ones (4–7): easy questions, two choices read out" so nobody expects picture-book questions.
+
 ### 3.2 Which questions are eligible at all
 
 Starting from the bank's 14,916 questions, a question is in a group's pool only if every rule holds:
 
-1. **Kind:** Bible quiz or Sunday school (the bank's `trivia` and `lesson`). **Catechism questions are left out**, unlike the live quiz and Jeopardy where they are opt-in: only 451 of 1,781 are short enough for this game, their answers are set formulas that one church tradition recites, and a spoken rapid-fire answer to "What is the chief end of man?" cannot be judged "near enough". (Open point for the review, §14.)
+1. **Kind:** Bible quiz or Sunday school (the bank's `trivia` and `lesson`). **Catechism questions are left out**, unlike the live quiz and Jeopardy where they are opt-in: only 451 of 1,781 are short enough for this game, their answers are set formulas that one church tradition recites, and a spoken rapid-fire answer to "What is the chief end of man?" cannot be judged "near enough". (Decided in review, §14.)
 2. **Playable at all:** the live quiz's `isPlayable` test from [pick.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/pick.ts): the question stands on its own, its four options are valid and include the right one, it does not point at "this passage" or "the following", and no option is "all/none of the above". (The options are needed for the two-choice style.)
 3. **No two-part questions:** questions with a `lead_in` (whose first part must be read first) are left out; they double the reading time.
 4. **Answerable without choices:** the wording shown does not match `(which|what|who) of (these|the following)` or `which one of`, nor contain a capital-letter "NOT" — the same rule Bible Jeopardy uses when its choices are hidden ([categories.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/jeopardy/categories.ts) keeps it as a private constant, so this game keeps its own copy with a comment naming the source, rather than editing another game's file). It applies to all styles, so a Little one's question never depends on choices that were not read.
@@ -130,7 +132,7 @@ Questions are drawn **one at a time, as the turn needs them** (a fast pair can g
 
 For *Teens and adults* the first two draws of each turn come from easy questions. Within a turn, levels are otherwise as the pool holds them (about a third easy, two-fifths medium, a quarter hard).
 
-Each drawn question is frozen into the turn as it was shown: its id (the live quiz's `questionId`), the wording, the answer, the full printed answer when it differs, the two choices if used, the reference (trimmed with the live quiz's `trimReference`) and the reader link. So a recap, a reload or a change of site language never re-reads the bank for questions already asked.
+Each drawn question is frozen into the turn as it was shown, by passing it through the live quiz's exported `toQuizQuestion(q, children, random)`, which already returns everything needed: the id (`questionId`), the wording shown (children's or ordinary, by the same rule as the pool), the four options with the right one's place, the reference trimmed by `trimReference`, and the reader link checked by the live quiz's private `cleanLink`. The game keeps from it the id, the wording, the right option as the answer to judge, the reference and the link, adds the bank's full printed `answer` when it differs from the right option, and, for two choices, the right option plus one of the other three (§3.3). So a recap, a reload or a change of site language never re-reads the bank for questions already asked, and the game re-implements none of the live quiz's private helpers.
 
 ---
 
@@ -138,14 +140,14 @@ Each drawn question is frozen into the turn as it was shown: its id (the live qu
 
 ### 4.1 Players
 
-- **1 to 12 entries.** Each has a name (normalised and capped at 16 characters with the live quiz's `normaliseName` and `NAME_MAX`; empty names become "Player 1", "Player 2"…) and a group. One entry is enough to play (someone still reads); the setup suggests at least two.
+- **1 to 12 entries.** Each has a name and a group. The name is cleaned with the live quiz's `normaliseName` and capped at its `NAME_MAX` (16): `normaliseName` does not cut, so the field has `maxLength={NAME_MAX}` and the game also cuts the cleaned name to 16 characters by code point, so an emoji is never split. Empty names become "Player 1", "Player 2"… (written with the number filled into one registered phrase, §6.0). The live quiz's rude-name filter is not used: names here are typed by the group on its own phone and never shown outside the room. One entry is enough to play (someone still reads); the setup suggests at least two.
 - **A name may be a team.** For a youth group of 20, five teams of four: the team sends a different member to the seat each round, and the game needs no team logic. The setup says so in one line.
 - The roster and each person's group are remembered on the phone for next time.
 
 ### 4.2 Turns and readers
 
 - A **round** is one turn for every player still in the game. The order is the setup order, **turned by one each round** (round 2 starts with the second player), so nobody always goes first or last.
-- Before each turn a **hand-over screen** names the player and suggests the reader: **the player who just sat**, or for the very first turn "anyone but Anna". The suggestion is only a line of text; anyone may read.
+- Before each turn a **hand-over screen** names the player and suggests the reader: **the player who just sat**, or for the very first turn the line "Anyone else can read." The suggestion is only text; anyone may read.
 - A player who has stepped out can be **skipped this round** from the hand-over screen; that turn is recorded as not played (§5.3 handles the averages).
 
 ### 4.3 The clock
@@ -153,13 +155,14 @@ Each drawn question is frozen into the turn as it was shown: its id (the live qu
 - **Length:** 30, 45, **60** (default, from the spec) or 90 seconds, set for the game. Changing it mid-game applies from the next turn; the standings then note "turns of different lengths".
 - **Start:** the reader taps **Start** on the hand-over screen; a 3-2-1 count (one beep each) gives the player time to sit up, then the first question shows and the clock runs.
 - **Display:** large digits plus a draining ring at the top of the turn screen. From 5 seconds the digits change colour and a soft tick sounds each second.
+- **Sounds** are the charades game's existing tones (its `beep` kinds): `tick` for each count-down number and each of the last five seconds, `buzzer` at time, and `correct` / `pass` on a Right / Pass mark. Wrong has no tone (charades has none, and a sad noise for a child's wrong answer is not wanted).
 - **Time is up:** a buzzer sounds and a band says **"Time! Finish this question."** The question on screen can still be marked Right, Wrong or Pass (Mastermind's rule); after that mark, no new question is drawn and the recap opens. If the reader does nothing for 15 seconds after the buzzer, the open question is left unmarked and the recap opens (it shows as "not answered" and can be marked there).
 - **Accuracy:** the clock keeps an end time, not a count of ticks (the charades game's method), so a slow phone or a dropped frame never gives extra time.
 - **Pause:** a pause button (and leaving the page, locking the phone, or opening the menu) stops the clock and **hides the question and answer**, so nobody peeks during a pause. Resume continues with the time that was left.
 
 ### 4.4 Rounds
 
-- **1 to 5 rounds**, default **2** (5 Second Rule's advice: 2–3 for large groups, 4–5 for small). The setup shows an estimate: players × rounds × (turn length + about 40 seconds for the hand-over and recap), e.g. "8 players, 2 rounds: about 25 minutes".
+- **1 to 5 rounds**, default **2** (5 Second Rule's advice: 2–3 for large groups, 4–5 for small). The setup shows an estimate: players × rounds × (turn length + about 40 seconds for the hand-over and recap), written as one counted phrase, e.g. "About 25 minutes" (`plural(n, "About {n} minute", "About {n} minutes")`, §6.0).
 - After the last round the final standings offer **Play another round**, which adds one round to the same session and keeps every point, and **New game** (same players, scores to zero).
 - **End game** in the menu ends the session at once; the standings then say which players did not get a turn in the unfinished round.
 
@@ -172,7 +175,7 @@ Each drawn question is frozen into the turn as it was shown: its id (the live qu
 - **✓ Right: one point.** ✗ Wrong and ↷ Pass: no point and no penalty. Their only cost is time, so passing a hard question quickly is good play, as in the Cash Builder.
 - Every group scores the same: the handicap is in the questions (§3.1), not in the points. A two-choice right answer is also one point.
 - **The reader judges, generously.** The answer box shows the bank's short answer and, when it differs, the full printed answer in smaller type; a line on the how-to card says *"Near enough counts. Lamp is lamp, and Jonah's 'whale' is his great fish."* The game never checks spelling or speech.
-- **Ties share a place** ("1st = Anna and Ben"). There is no tie-break: the evening is for fun, and a pass-count tie-break (Mastermind's) would teach children to guess rather than pass. A group that wants a decider can play another round.
+- **Ties share a place**: both rows show the same place (written with the site's `ordinal`, "1st"), and the final screen names a shared top place with `formatList` ("Anna and Ben"). There is no tie-break: the evening is for fun, and a pass-count tie-break (Mastermind's) would teach children to guess rather than pass. A group that wants a decider can play another round.
 
 ### 5.2 Fixing a mistake
 
@@ -184,7 +187,7 @@ Each drawn question is frozen into the turn as it was shown: its id (the live qu
 - **After each turn:** a short standings table (place, name, total, a ▲/▼ for places gained or lost this turn) on the way to the next hand-over.
 - **When players have played different numbers of turns** (joined late, skipped, game ended mid-round), the table adds **turns played** and **average per turn**, and sorts by total with a note; the average is shown, not used to rank, because a late joiner should see their real total.
 - **Final standings:** places 1–3 named at the top in large type (no confetti, no glow), then the full table with one column per round and the total; shout-outs for **best single turn** and **longest run of right answers** (with the player's name and group).
-- **Phone records:** the phone keeps the best single-turn score per group and turn length ("Kids, 60 seconds: 14"). A turn that beats it gets one line on the recap: "New best on this phone for Kids at 60 seconds." Records are by group, not by name, because names typed on a shared phone are not identities.
+- **Phone records:** the phone keeps the best single-turn score per group, turn length and answer style (open or two choices), since a two-choice turn is easier and must not set the open-answer record. A turn that beats it gets one line on the recap: "New best on this phone", with the group, seconds and style shown beside it as separate labels (§6.0). Records are by group, not by name, because names typed on a shared phone are not identities.
 
 ---
 
@@ -192,21 +195,32 @@ Each drawn question is frozen into the turn as it was shown: its id (the live qu
 
 The setup and the final standings sit in the site's normal layout. The hand-over, count-down, turn and recap are a fixed full-screen layer over the page (as charades does), so a scroll or the site header never gets in the reader's way. The look follows the games' existing styles and the site's approved design rules: no glow everywhere, no boxes around everything, no chat bubbles. Everything works one-handed on a phone held upright, and with a mouse and keyboard on a computer.
 
+### 6.0 Words on screen (the translation check)
+
+The first step of `npm run build` is the site's English-text check ([english_build_check.py](Jarvis/Projects/BibleProject/Website/content/translation/english_build_check.py), described in [the translation README](Jarvis/Projects/BibleProject/Website/content/translation/README.md)). It stops the build on new on-screen English that the translation collector cannot register, and its "language nets" also stop it on sentences built from pieces around a value, hand-written singular/plural choices, and number formats fixed to one language. Every word this game shows is written to pass it, the way the charades and Jeopardy screens are:
+
+- **A player's name always stands in its own element**, never inside a sentence. The fixed words around it are whole phrases of their own: a label such as "In the hot seat" or "Reading" above or beside the name, not "Give the phone to {name} to read". The example lines in §6.1–6.6 are written that way.
+- **Counts** use the site's `plural(n, "{n} point", "{n} points")`; **places** use `ordinal`; **lists of names** use `formatList`; **numbers** use `formatNumber`; all from [site-format.ts](Jarvis/Projects/BibleProject/Website/src/lib/site-format.ts). A whole phrase with numbers only, like "Round 2 of 3", may be one template string, as charades' "Turn 2 of 3" is.
+- Labels such as the group names and the mark words are plain string literals the collector reads.
+- Text no reader sees, or that is English on purpose, needs a ruling in `content/translation/unregistered-reviewed.json` instead. This game should need none.
+
+The build step runs `py -3.12 content/translation/english_build_check.py` before the full build and fixes anything it names in the game's own files.
+
 ### 6.1 Setup
 
 - Title, the game's picture, and one line: *"One player, sixty seconds, as many Bible questions as they can answer. Someone else reads from this phone."* A **How to play** link opens a short card (§6.8).
 - **Players:** one row per player: name field, group picker (Little ones / Kids / Teens and adults / Bible experts), move up/down, remove. **Add player** up to 12. Hint: "A name can be a team."
 - **Game:** seconds per turn (30 / 45 / 60 / 90), rounds (1–5), testament (Both / Old / New), two choices for (Little ones / Little ones and kids / Nobody), sound on/off.
 - The time estimate (§4.4).
-- **Start game**, disabled with "Loading questions…" until the bank has loaded (loading starts when the page opens, so it is usually ready before names are typed). If a group's pool under the chosen testament held fewer than 60 questions, that group's option would show "too few questions" and be unavailable; with today's bank this never happens, but the check protects against a future bank change.
-- If a saved session less than 12 hours old exists: a band at the top, **"Carry on tonight's game (round 2 of 3, Anna leads)"** or **Start fresh**.
+- **Start game**, disabled with "Loading questions…" until the bank has loaded (loading starts when the page opens, so it is usually ready before names are typed). If loading fails: "The questions could not be loaded." and **Try again** (§9 says how). If a group's pool under the chosen testament held fewer than 60 questions, that group's option would show "too few questions" and be unavailable; with today's bank this never happens, but the check protects against a future bank change.
+- If a saved session less than 12 hours old exists: a band at the top, **Carry on tonight's game** with "Round 2 of 3" and the leader shown under a "Leading" label (the name in its own element, §6.0), or **Start fresh**.
 
 ### 6.2 Hand-over (full screen)
 
 - "Round 2 of 3 · turn 4 of 6".
-- The player's name very large, with their group underneath ("Kids").
-- "Give the phone to **Ben** to read" (§4.2) and "Anna, sit facing the reader. No peeking!"
-- **Start 60 seconds** (large). Smaller: **Skip Anna this round**, **Standings**, **Menu**.
+- An "In the hot seat" label, the player's name very large under it, and their group underneath ("Kids").
+- A "Reading" label with the suggested reader's name (§4.2), and the line "Sit facing the reader. No peeking!"
+- **Start** with the turn's seconds as a counted phrase (`plural(n, "Start {n} second", "Start {n} seconds")`), large. Smaller: **Skip this round** (skips the player named above), **Standings**, **Menu**. On a computer, the keys of §6.4 are listed here.
 
 ### 6.3 Count-down
 
@@ -221,7 +235,7 @@ From top to bottom, in portrait:
 3. **The answer**, in a tinted band directly under the question: the short answer in bold; the full printed answer smaller when it differs; the reference (e.g. Acts 8:38) in small type. The reader's eye goes question → answer → buttons without moving the phone.
 4. **The buttons**, filling the bottom third: **✗ Wrong** and **↷ Pass** side by side, and **✓ Right** the widest, on the right, under the right thumb. Each at least 64 pixels high, each with its symbol, its word and its own colour (never colour alone). A small **Undo** sits above them on the left.
 
-Each mark gives instant feedback (a short colour flash on the score and, on Android, a 30 ms vibration; none when the reader asks for reduced motion) and the next question replaces the old one with no animation, so nothing slows the pace.
+Each mark gives instant feedback (a short colour flash on the score and, on Android, a 30 ms vibration through charades' `buzz(30)`; none when the reader asks for reduced motion) and the next question replaces the old one with no animation, so nothing slows the pace.
 
 **On a computer** the same layout is centred; keys: **→** Right, **←** Wrong, **↓** Pass, **Backspace** Undo, **Esc** pause. The keys are listed on the hand-over screen. Space is deliberately not used (a stray press would score).
 
@@ -229,13 +243,13 @@ Each mark gives instant feedback (a short colour flash on the score and, on Andr
 
 ### 6.5 Recap
 
-- "Anna scored **9**" (and the phone-record line when earned).
-- One row per question asked: the mark (tap to change, §5.2), the question, the answer, the reference as a link that opens the passage in the site's reader **in a new tab**, so the game is not lost. A turn rarely exceeds 25 rows, so no windowing is needed here.
+- The player's name, and under it the score as a counted phrase (`plural(n, "{n} point", "{n} points")`), large; the phone-record line when earned.
+- One row per question asked: the mark (tap to change, §5.2), the question, the answer, the reference as a link that opens the passage in the site's reader **in a new tab**, so the game is not lost (the link is `/read/bsb/{book}/{chapter}` with `?v={verse}` when there is a verse, written the way Jeopardy's [Verse.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/jeopardy/Verse.tsx) writes it, with `target="_blank" rel="noopener"` and a hidden "(opens in a new tab)"). A turn rarely exceeds 25 rows, so no windowing is needed here.
 - **Save turn** → standings (§5.3) → next hand-over.
 
 ### 6.6 Standings between turns
 
-The table of §5.3 and one button: **Next: Ben in the hot seat**. Also reachable from the hand-over screen at any time.
+The table of §5.3 and one button, **Next player**, with the next player's name shown beside it in its own element (§6.0). Also reachable from the hand-over screen at any time.
 
 ### 6.7 Final standings
 
@@ -270,7 +284,7 @@ Local storage, not session storage (which the charades game uses), because phone
 | A projector or room screen | The live quiz and Jeopardy cover the big-screen case; this game is for a living room or a circle of chairs with one phone. |
 | Speech recognition or typed answers | Judging spoken, near-enough answers is what people do well and machines do badly; it would also need the microphone. |
 | Share card or online leaderboard | A one-room party game; nothing to compare across rooms. Could come later from the same final table. |
-| Catechism questions | §3.2 rule 1; open point for the owner (§14). |
+| Catechism questions | §3.2 rule 1; decided in review (§14). |
 | Themed decks (Moses, Jesus' miracles…) | The pool is big enough that "everything" stays fresh; the test page's themes could be added later as one more setting, as Jeopardy uses them. |
 | Get-to-know-you questions | Not Bible questions and not in the bank (§1.1). |
 
@@ -280,13 +294,14 @@ Local storage, not session storage (which the charades game uses), because phone
 
 | From | What |
 |---|---|
-| [data.ts](Jarvis/Projects/BibleProject/Website/src/lib/data.ts) via [useQuestionBank.ts](Jarvis/Projects/BibleProject/Website/src/pages/questions/useQuestionBank.ts) | Loading the bank in the reader's language, in parts, with the site's error handling. `BankQuestion`, `rightChoice`. |
-| [pick.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/pick.ts) | `isPlayable`, `poolOf` (kinds, level, children, testament), `questionId`, `trimReference`. |
+| [data.ts](Jarvis/Projects/BibleProject/Website/src/lib/data.ts) | `loadQuestionBank` (the bank in the reader's language, in parts), `BankQuestion`, `QuestionBank`. Loaded through a small hook in `HotSeatGame.tsx` written like Jeopardy's `useBank` in [JeopardyGame.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/jeopardy/JeopardyGame.tsx): it re-runs on a change of site language (`useSiteLanguage`) and on a retry counter, so **Try again** works (`loadQuestionBank` forgets a failed load, so a retry fetches again). The shared [useQuestionBank.ts](Jarvis/Projects/BibleProject/Website/src/pages/questions/useQuestionBank.ts) is not used: it has no retry. Jeopardy's hook is not exported, so its dozen lines are written again, with a comment naming the source. |
+| [pick.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/pick.ts) | `isPlayable`, `poolOf` (kinds, level, children, testament), `toQuizQuestion` (freezing a drawn question, §3.4), `questionId`. |
 | [names.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/names.ts) | `normaliseName`, `NAME_MAX`. |
 | [categories.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/jeopardy/categories.ts) | `shownText` (the children's wording rule). The "needs choices" pattern is copied (it is not exported), with a comment naming the source. |
-| [charades/sound.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/charades/sound.ts), [charades/sensors.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/charades/sensors.ts) | `unlockSound`, `beep`, `buzz`; `requestWakeLock`, `releaseWakeLock` (screen kept awake during a session, re-requested on return to the page). |
-| [useRowWindow](Jarvis/Projects/BibleProject/Website/src/lib/useRowWindow.ts) | The windowed "All questions tonight" list. |
-| The site's verse-link and reference helpers | The recap's "read the passage" links (the same ones the live quiz and Jeopardy use). |
+| [charades/sound.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/charades/sound.ts), [charades/sensors.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/charades/sensors.ts) | `unlockSound`, `beep` (`tick`, `buzzer`, `correct`, `pass`), `buzz`; `requestWakeLock`, `releaseWakeLock`. A wake lock is dropped by the browser whenever the page is hidden, and `requestWakeLock` does not ask again by itself, so the game requests it again on its own `visibilitychange` handler while a session is open. |
+| [useRowWindow](Jarvis/Projects/BibleProject/Website/src/lib/useRowWindow.ts) | The windowed "All questions tonight" list (`scroller: "window"`). |
+| [site-format.ts](Jarvis/Projects/BibleProject/Website/src/lib/site-format.ts) | `plural`, `ordinal`, `formatList`, `formatNumber` (§6.0). |
+| (no shared helper exists) | The recap's "read the passage" link is written inline as `/read/bsb/{book}/{chapter}?v={verse}`, exactly as the live quiz's player screens and Jeopardy's `Verse.tsx` do; there is no site helper for it to import. |
 
 If the build step finds that importing from another game's folder makes that game harder to change, it may copy the few lines instead; either way no other game's file is edited.
 
@@ -322,8 +337,9 @@ No change to the router, header, other games, the bank or its scripts.
 - **deal.test.ts:** with a seeded random function: no question repeats within a session across 60 simulated turns of 20 draws for every group; the first-four-words rule and the topic spread hold; *Teens and adults* turns open with two easy questions; two-choice pairs always contain the right answer and one of that question's own wrong options, in both orders over many draws; the seen list is honoured and its oldest entries are forgotten only when fewer than 200 unseen remain.
 - **game.test.ts:** marks and points; Undo back to the first question; time-up allows exactly one more mark and then no new question; the 15-second idle close; recap fixes change the total before saving and never after; round order turns by one each round; skips, late joiners and leavers give the right turns-played and averages; ties share a place; best turn, longest run, phone records; Play another round keeps points, New game clears them.
 - **storage.test.ts:** round-trip of all three keys; a damaged or older-version value is ignored, not thrown; a session older than 12 hours is not offered; the seen list stays at 2,000; a store that throws on write leaves the game playable and flags "not saving".
-- **HotSeatGame.test.tsx:** a whole two-player, one-round game with the fixture bank and fake timers: setup, hand-over, count-down, marking by button and by key, the buzzer and the last question, recap fix, standings, final; the pause hides question and answer; a reload mid-turn offers "Carry on" and resumes with the time that was left; the bank failing to load shows the error with Retry.
+- **HotSeatGame.test.tsx:** a whole two-player, one-round game with the fixture bank and fake timers: setup, hand-over, count-down, marking by button and by key, the buzzer and the last question, recap fix, standings, final; the pause hides question and answer; a reload mid-turn offers "Carry on" and resumes with the time that was left; the bank failing to load shows "The questions could not be loaded." with **Try again**, and a second attempt that succeeds opens the setup.
 - The existing [games.test.tsx](Jarvis/Projects/BibleProject/Website/src/pages/games/games.test.tsx) covers the registry entry with no change.
+- **The build's English-text check** (§6.0): `py -3.12 content/translation/english_build_check.py` reports nothing new in `src/pages/games/hot-seat/`, run before `npm run build` (which runs it first anyway).
 
 **Manual checks** for the build step, on the always-on preview at http://127.0.0.1:8931/games/hot-seat (never a new dev server): screenshots of every screen at phone width (portrait and landscape) and desktop, light and dark; a real one-minute turn to check the pace (a reader should manage 10–15 questions); the question at its 140-character maximum on a 360-pixel-wide screen.
 
@@ -333,20 +349,20 @@ No change to the router, header, other games, the bank or its scripts.
 
 | Case | What happens |
 |---|---|
-| The bank fails to load or is slow | Setup shows "Loading questions…"; on failure, the site's error text and **Retry**. A game in progress that needs new questions after a reload waits for the bank on the hand-over screen with the same message. |
+| The bank fails to load or is slow | Setup shows "Loading questions…"; on failure, "The questions could not be loaded." and **Try again** (§6.1, §9). A game in progress that needs new questions after a reload waits for the bank on the hand-over screen with the same message. |
 | A group's pool runs dry in a long session | The seen list's oldest entries for that pool are forgotten first (§3.4); if even the session-asked rule leaves nothing (not reachable with today's pools), questions asked earlier this session become eligible again, oldest first, and the recap marks them "asked earlier". |
 | Reader taps the wrong button | Undo at once, or fix it on the recap (§5.2). |
 | A question the reader cannot pronounce or judge | Pass. The recap shows the answer for everyone. |
 | The player answers just as the buzzer sounds | The question on screen may always be finished (§4.3). |
 | Phone locks, a call comes in, the tab is closed | The clock pauses (page hidden) and the question is hidden; on return the turn resumes with the time left. After a closed tab, "Carry on tonight's game" restores everything up to the last mark. |
 | Accidental Back or a link opened in the same tab | The session is saved after every mark; returning to `/games/hot-seat` offers "Carry on". Recap links open in a new tab. |
-| Several tabs open on the game | Each tab keeps its own session in memory; the most recent save wins on the next "Carry on". Rare on a shared phone, and the cost is at most one turn. (Jeopardy's tab-claiming was considered; not worth it here, open point §14.) |
+| Several tabs open on the game | Each tab keeps its own session in memory; the most recent save wins on the next "Carry on". Rare on a shared phone, and the cost is at most one turn. (Jeopardy's tab-claiming was considered and left out, §14.) |
 | A player leaves mid-game | Menu → Players → Remove: their points stay in the table, marked "left"; they are skipped from then on. |
 | A latecomer arrives | Menu → Players → Add: they start from the next round with 0 points; the table shows turns played and averages (§5.3). |
 | Only one player | The game runs; the final screen shows their total and phone records. |
 | 12 players, 5 rounds | About an hour; the estimate says so before Start. The leaderboard table scrolls inside the site layout (12 rows). |
 | Turn length changed mid-game | Applies from the next turn; the standings note "turns of different lengths". |
-| The site language is not English | Questions come from the bank in the reader's language (the site's existing translated bank parts), and the frozen questions keep the language they were shown in. Known gaps: the "needs choices" filter (§3.2 rule 4) is an English pattern, so in other languages a few "which of these" questions can slip through (the reader passes them); and question ids are computed from the shown text, so the seen list may not recognise a question asked earlier in another language. The game's own words follow the site's translation process; until translated they show in English, as the other games' do. |
+| The site language is not English | Questions come from the bank in the reader's language (the site's existing translated bank parts), and the frozen questions keep the language they were shown in. Known gaps: the "needs choices" filter (§3.2 rule 4) is an English pattern, so in other languages a few "which of these" questions can slip through (the reader passes them); and question ids are computed from the shown text, so the seen list may not recognise a question asked earlier in another language. Checked in review: `questionId` hashes the question's collection, its `question` and its `answer`, and a translated bank part replaces `question` and `answer`, so the same question has a different id in each language. That is accepted: it costs at most an occasional repeat after someone changes the site language, even within one evening if the language is changed mid-game, and keying on the English text would mean loading the English bank as well. The game's own words are written to pass the build's English-text check (§6.0), so the translation collector registers them; until a translation run reaches them they show in English, as the other games' do. |
 | Sound blocked (iPhone on silent, sound not yet unlocked) | Sound is started on the Start tap; it is never the only signal: the clock's digits, ring and the "Time!" band carry everything. |
 | Screen dims during a turn | Wake lock requested on Start game and on every return to the page; where unsupported, a 60-second turn rarely outlasts the phone's dim timeout, and any tap keeps it awake. |
 | Reduced motion | No flashes or ring animation (the ring steps once a second); no vibration. |
@@ -364,14 +380,16 @@ No change to the router, header, other games, the bank or its scripts.
 
 ---
 
-## 14. Open points for the review step and the owner
+## 14. Points that were open, as decided in review
 
-1. **Catechism questions** are left out entirely (§3.2 rule 1), unlike the live quiz and Jeopardy, which offer them as an option. Recommendation: keep them out; a church that wants catechism drills has those games.
-2. **Per-player groups vs one level for everyone.** This design lets each player pick their own group, which makes mixed-age evenings fair. The simpler alternative (one level for the whole game) would make the setup a little shorter. Recommendation: per player, defaulting everyone to *Teens and adults* so a group that does not care need not touch it.
-3. **The 140 / 40 character limits** are judgement calls from the measured lengths (median question about 80 characters, 90% under about 125). The build step's manual one-minute turn should confirm the pace; the limits are two constants in `pool.ts`.
-4. **No tie-break** (§5.1). A sudden-death tie-break could be added later if the owner wants a single winner.
-5. **Tab claiming** like Jeopardy's is not designed in (§12); the review may judge whether a shared phone ever has two tabs open on the game.
-6. **The seen list across languages** (§12): the review should confirm what `questionId` returns for a translated bank question, and whether keying the seen list on the English question is worth the extra work.
+None of these needs the owner: each has an obvious answer that keeps the game simple, and each can be changed later without losing anything.
+
+1. **Catechism questions stay out** (§3.2 rule 1). Only 451 of the bank's 1,781 are short enough, and a recited formula cannot be judged "near enough" at speed. A church that wants catechism drills has the live quiz and Jeopardy, which offer them.
+2. **Groups stay per player**, every new player defaulting to *Teens and adults*, so a group that does not care never touches the picker. Per-player groups are the only way a grandparent and a six-year-old share one fair leaderboard, which is the point of the game.
+3. **The 140 / 40 character limits stay** as two constants in `pool.ts`; the build step's manual one-minute turn (§11) confirms the pace. The pools were re-measured in review with these limits and match §3.2 exactly.
+4. **No tie-break** (§5.1). "Play another round" is the decider for a group that wants one.
+5. **No tab claiming** (§12). A second tab on the same shared phone is rare, and the worst case is losing one turn's marks, which the recap and "Carry on" already make cheap. Jeopardy's version (a tab id saved with the game, so a tab that sees a newer save from another tab says "This game is open in another tab" with **Use this tab**) can be copied later in a few lines if two tabs ever turn out to be common.
+6. **The seen list keeps `questionId` on the question as shown.** Checked: the id is a hash of the question's collection, its `question` and its `answer`; translated bank parts replace `question` and `answer`, so ids differ by language. The cost is an occasional repeat after a language change (§12); keying on English would mean downloading the English bank alongside the translated one. Not worth it.
 
 ---
 
@@ -392,3 +410,28 @@ None. No model, no new service, no new dependency, no new data file. The game re
 - Hot seat as a party and youth-group game: Faithful Parables, "20 Christian Games for Youth Fellowship" (Hot Seat Bible Edition): https://faithfulfable.com/christian-games-for-youth-fellowship/; KraftyLab, "Hot Seat Questions" (speed-seat variant): https://www.kraftylab.com/blog/hot-seat-questions; Quizado, "Question games": https://quizado.com/blog/question-games.
 - 5 Second Rule rules: Geeky Hobbies: https://www.geekyhobbies.com/5-second-rule-rules/; Geeky Hobbies, Disney edition: https://www.geekyhobbies.com/5-second-rule-disney-edition-rules/.
 - Roediger, H. L., III, & Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. *Psychological Science*, 17(3), 249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x
+
+---
+
+## 17. Review
+
+**One review, 2026-11-10** (job f7d6bba9, sequence 31 step 18), as [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md) asks: read critically against the spec (APPROVED-IDEAS.md entry 22), the shared rules and the real code. The corrections below are already made in the body above; this section only records them.
+
+**Checked and found right (no change):**
+- The four pool sizes, their level and testament splits, and the 14,916-question total: re-measured on today's [bank.json](Jarvis/Projects/BibleProject/Website/data/questions/bank.json) with §3.2's rules, and every number in the §3.2 table matched exactly. The bank has no trivia or Sunday-school question without a level, and ten topics, the largest about a fifth of the bank, so the topic-spread rule of §3.4 always has somewhere to go.
+- The code the design reuses exists with the names it gives: `isPlayable`, `poolOf`, `questionId`, `trimReference` in [pick.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/pick.ts); `normaliseName` and `NAME_MAX` in [names.ts](Jarvis/Projects/BibleProject/Website/src/lib/live-quiz/names.ts); `shownText` and the private "needs choices" pattern in Jeopardy's [categories.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/jeopardy/categories.ts); `unlockSound`, `beep`, `buzz`, `requestWakeLock`, `releaseWakeLock` in charades; `useRowWindow`.
+- The hub entry `hot-seat` (coming soon, shelf for youth groups and church nights, audiences youth group and family, picture already drawn), so the registry change is only `status` and `load`.
+- The charades game's age labels, its end-time clock and its use of session storage; the fixture name staying out of Vitest's file list; Jeopardy's real-bank test being skipped when the bank is absent.
+- The spec is met: one player, 60 seconds, questions from the bank, read off one phone, a score of how many were right; and the brief's age selection, timer, scoring, rounds, players and session leaderboard are all covered. No model, no cost, no new data, nothing deployed.
+
+**Corrected, most important first:**
+1. **The build would have failed on the game's own words.** The first step of `npm run build` is the site's English-text check, which also stops the build on sentences built around a value and hand-written plurals. The design did not mention it, and many of its example lines were exactly that kind of sentence ("Anna scored 9", "Give the phone to Ben to read", "Skip Anna this round", "1st = Anna and Ben", "8 players, 2 rounds: about 25 minutes"). Added §6.0 (names in their own element; counts, places and lists through the site's `plural`, `ordinal` and `formatList`), rewrote those lines in §4.2, §4.4, §5.1, §5.3, §6.1, §6.2, §6.5 and §6.6, and added the check to §11 and §12.
+2. **"Retry" had nothing behind it.** §9 loaded the bank through the shared `useQuestionBank`, which has no retry, while §11 and §12 promised one. §9 now loads it the way Jeopardy does (a small hook that re-runs on a retry counter and on a change of site language), and the button is named "Try again" as in Jeopardy.
+3. **A "site verse-link helper" that does not exist.** No shared helper writes reader links; the live quiz and Jeopardy each write `/read/bsb/{book}/{chapter}?v={verse}` inline. §6.5 and §9 now say so. In the same place, §3.4 now freezes each question with the live quiz's exported `toQuizQuestion`, which already returns the id, the shown wording, the options, the trimmed reference and a checked link, instead of rebuilding the live quiz's private helpers.
+4. **The children's wording was oversold.** Only 180 of the 3,080 Little ones questions and 260 of the 4,428 Kids questions have a usable children's wording, and the Little ones pool is exactly the easy half of the Kids pool. §3.1 now says this plainly: the two choices read aloud are what make it fair for the youngest, and the group picker says so.
+5. **§1.1 said the hub card calls the game a Bible quiz,** but the card's description, which §10 keeps unchanged, does not. §1.1 now gives that job to the setup screen and keeps the description, so its existing translations stay valid.
+6. Smaller fixes: `normaliseName` does not shorten names, so §4.1 adds the 16-character cut (by code point, so an emoji is never split); phone records are kept per answer style too, so an easier two-choice turn never sets the open-answer record (§5.3); the sounds are mapped to charades' existing tones, with no tone for Wrong (§4.3); the wake lock is asked for again by the game itself after the page is hidden, since charades' helper does not (§9); the US prize in the research table is dated to the first US version of The Chase (§2.1).
+
+**Open points (§14) decided** without needing the owner: catechism stays out, groups stay per player, the length limits stay, no tie-break, no tab claiming, and the seen list keeps its current ids (checked: they differ by language, an accepted small cost).
+
+**Left for the build step:** the manual one-minute turn and screenshots on the always-on preview (§11), and running the English-text check before the full build. Nothing in this design needs the owner's decision.
