@@ -135,8 +135,8 @@ export interface CreedBundle {
  * writes most years bare and a few the older way round ("AD 60"). */
 export function yearWithEra(label: string): string {
   const year = label.trim();
-  if (!year || /\b(BC|BCE)\b/.test(year)) return year;
-  return `${year.replace(/^AD\s+/, "")} AD`;
+  const bare = /^(?:AD\s+)?((?:c\.\s+)?\d{1,4})$/.exec(year);
+  return bare ? `${bare[1]} AD` : year;
 }
 
 export function documentTypeLabel(type: string | null | undefined): string {

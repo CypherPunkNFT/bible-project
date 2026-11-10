@@ -64,7 +64,7 @@ export function Directory() {
         {FAMILIES.map((f) => <button key={f.key} type="button" aria-pressed={f.key === family} style={cssVars({ "--tone": `var(${f.tone})` })}
           onClick={() => setFamily((current) => (current === f.key ? null : f.key))}><i />{f.label}</button>)}
       </div>
-      <span className="dir-count" role="status">{`${formatNumber(shown)} of ${formatNumber(people.length)} teachers`}</span>
+      <span className="dir-count" role="status">{`${formatNumber(shown)} of ${plural(people.length, "{n} teacher", "{n} teachers")}`}</span>
     </div>
     <div className="dir-list">
       {shown ? columns.map((column, i) => <div key={i} className="dir-col">{column.map((g) => <Group key={g.region} group={g} onOpen={open} />)}</div>)

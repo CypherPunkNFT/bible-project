@@ -58,7 +58,7 @@ export function TeacherCatalogue() {
         {facet('family','Tradition',FAMILIES.map(f=>({value:f.key,label:f.label,tone:`var(${f.tone})`})))}
         {facet('era','Era',eras.map(era=>({value:era,label:`${era}–${+era+99}`})))}
       </aside>
-      <div className="pc-results"><div className="pc-toolbar"><p className="pc-result-count" aria-live="polite"><strong>{formatNumber(visible.length)}</strong>{` of ${formatNumber(rows.length)} teachers`}</p><div className="pc-sort" role="radiogroup" aria-label="Sort preachers"><span>Sort</span>{SORTS.map(([key,label])=><button key={key} type="button" role="radio" aria-checked={sort===key} onClick={()=>setSort(key)}>{label}</button>)}</div></div>
+      <div className="pc-results"><div className="pc-toolbar"><p className="pc-result-count" aria-live="polite"><strong>{formatNumber(visible.length)}</strong>{` of ${plural(rows.length, "{n} teacher", "{n} teachers")}`}</p><div className="pc-sort" role="radiogroup" aria-label="Sort preachers"><span>Sort</span>{SORTS.map(([key,label])=><button key={key} type="button" role="radio" aria-checked={sort===key} onClick={()=>setSort(key)}>{label}</button>)}</div></div>
         <div className="pc-scroll slim-scroll" ref={viewport} role="region" aria-label="Preacher cards" tabIndex={0}><div className="pc-grid">{visible.map(row=><TeacherCard key={row.person.id} row={row} start={start} onOpen={openProfile}/>)}</div>{!visible.length&&<div className="pc-empty"><p>No teacher matches these filters.</p><button type="button" onClick={clear}>Clear the filters</button></div>}</div>
       </div>
     </div>

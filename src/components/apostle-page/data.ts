@@ -1,6 +1,7 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 import { useEffect, useState } from "react";
 import { loadCatalog } from "@/lib/data";
+import { ordinal } from "@/lib/site-format";
 import { currentBibleSlug, fillVerses } from "@/lib/verses";
 import booksJson from "@/data/apostle-pages/books.json";
 import indexJson from "@/data/apostle-pages/index.json";
@@ -108,7 +109,13 @@ export const REDUCED = () => window.matchMedia("(prefers-reduced-motion: reduce)
 
 /** "about AD 95–96" → "c. 95"; "4th century" → "4th c.". */
 export function whenShort(when = ""): string {
-  if (/(\d)(st|nd|rd|th) century/.test(when)) { const c = when.match(/(\w+ )?(\d)(st|nd|rd|th) century/)!; return `${c[1] && /early|late/i.test(c[1]) ? c[1].trim() + " " : ""}${c[2]}${c[3]} c.`; }
+  if (/(\d{1,2})(st|nd|rd|th) century/.test(when)) {
+    const c = when.match(/(\w+ )?(\d{1,2})(st|nd|rd|th) century/)!;
+    const n = Number(c[2]);
+    if (c[1] && /early/i.test(c[1])) return `early ${ordinal(n)} c.`;
+    if (c[1] && /late/i.test(c[1])) return `late ${ordinal(n)} c.`;
+    return `${ordinal(n)} c.`;
+  }
   const ad = when.match(/(about|not later than|c\.)?\s*AD\s*(\d{2,4})/i);
   if (ad) return `${/not later/i.test(ad[1] ?? "") ? "by " : ad[1] ? "c. " : ""}${ad[2]}`;
   const m = when.match(/(about|c\.)?\s*(\d{3,4})/i);

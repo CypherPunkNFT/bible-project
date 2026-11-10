@@ -111,6 +111,9 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   );
 }
 
+/** The whole line for a time that is not a king, so the page translator sees one sentence. */
+const TIME_OF: Partial<Record<string, string>> = { Moses: "In the time of Moses", "the judges": "In the time of the judges", "the exile": "In the time of the exile" };
+
 function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name: string) => string | undefined; dim?: boolean }) {
   const catalog = useCatalog();
   const book = prophet.book ? bookByCode(catalog, prophet.book) : undefined;
@@ -135,8 +138,14 @@ function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name
         <p className="mt-2 text-sm text-muted">
           {prophet.king ? (
             <>
-              {prophet.king === "Moses" || prophet.king === "the judges" || prophet.king === "the exile" ? "In the time of " : "In the days of "}
-              {kingId(prophet.king) ? <Link to={rulerHref(kingId(prophet.king)!)} state={cameFrom("Prophets through time")} className="relative z-10 underline decoration-line underline-offset-2 hover:text-accent">{prophet.king}</Link> : prophet.king}
+              {kingId(prophet.king) ? (
+                <>
+                  {TIME_OF[prophet.king] ? "In the time of " : "In the days of "}
+                  <Link to={rulerHref(kingId(prophet.king)!)} state={cameFrom("Prophets through time")} className="relative z-10 underline decoration-line underline-offset-2 hover:text-accent">{prophet.king}</Link>
+                </>
+              ) : (
+                TIME_OF[prophet.king] ?? `In the days of ${prophet.king}`
+              )}
               {prophet.anchor && (
                 <>
                   {" — "}

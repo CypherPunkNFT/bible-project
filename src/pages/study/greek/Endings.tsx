@@ -20,7 +20,7 @@ function Fan({ nounId, onOpen }: { nounId: string; onOpen: (key: string) => void
       return <li key={slot}><button type="button" data-open={key} onClick={() => onOpen(key)}>
         <span lang="grc" className={`ng-fan-form ng-end-${job.id}`}><span className="ng-stemmed">{noun.stem}</span><b>{cell.end}</b></span>
         <span className="ng-fan-job"><b>{job.plain}</b> · {count}<span className="ng-hide"> {job.name}</span></span>
-        <small>{thousands(cell.all)} {plural(cell.all, "time", "times")}</small>
+        <small>{plural(cell.all, "{n} time", "{n} times")}</small>
       </button></li>;
     })}</ol>
   </div>;

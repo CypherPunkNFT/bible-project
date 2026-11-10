@@ -10,7 +10,7 @@ const SHOWN = 8;
 function HymnLink({ hymn }: { hymn: ChapterHymn }) {
   return <li>
     <Link to={`/study/hymns/${hymn.id}`} className="group block rounded-lg px-2 py-1.5 hover:bg-surface-2">
-      <span className="font-serif text-[1.02rem] leading-snug group-hover:text-accent">{hymn.t.replace(/[,;:]$/, "")}</span>
+      <span className="font-serif text-[1.02rem] leading-snug group-hover:text-accent">{hymn.t.replace(/[,;:，；：、،؛]\s*$/u, "")}</span>
       <span className="block text-xs text-muted">{hymn.a} · {hymn.y} · {hymn.r}</span>
     </Link>
   </li>;

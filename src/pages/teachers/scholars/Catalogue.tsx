@@ -14,7 +14,7 @@ import { onExportLinkClick } from './catalogue/export-download';
 import './catalogue/population.css';
 import "./Catalogue.css";
 import "./Fields.css";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const BATCH_SIZE = 48;
 const SORTS: [LibrarySort, string][] = [['featured', 'Featured'], ['az', 'A–Z'], ['year', 'Birth year'], ['held', 'Most associated'], ['named', 'Most named']];
@@ -73,7 +73,7 @@ export function Catalogue() {
       <Facets view={view} data={data} filters={filters} people={people} options={options} onOptions={setOptions} text={text} onText={search}
         onToggle={(key: FacetKey, value: string) => set(toggled(filters, key, value))} onUsed={() => set({ ...filters, used: !filters.used })} onClear={clear} />
       <div className="cat-results">
-        <div className="cat-bar"><p className="cat-count" aria-live="polite"><b>{library ? formatNumber(visible.length) : '…'}</b>{` of ${library ? formatNumber(library.length) : '…'} contributors`}</p>
+        <div className="cat-bar"><p className="cat-count" aria-live="polite"><b>{library ? formatNumber(visible.length) : '…'}</b>{` of ${library ? plural(library.length, "{n} contributor", "{n} contributors") : '… contributors'}`}</p>
           <div className="cat-tools"><button type="button" className="cat-view-toggle" aria-label={view==='cards'?'Open full contributor table':'Return to catalogue cards'} aria-pressed={view==='table'} onClick={()=>{setView(view==='cards'?'table':'cards');scroll.current?.scrollTo({top:0,left:0});}}>{view==='cards'?<Table2 size={14} aria-hidden="true"/>:<LayoutGrid size={14} aria-hidden="true"/>}{view==='cards'?'Full table':'Card view'}</button>
           {view === 'table' ? <label className="cat-sort-select">Sort<select aria-label="Sort contributors" value={sort} onChange={e => setSort(e.target.value as LibrarySort)}>{SORTS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label> : <div className="cat-sort" role="radiogroup" aria-label="Sort by"><span className="cat-sort-l">Sort</span>{SORTS.map(([key,label]) => <button key={key} type="button" role="radio" data-sort={key} aria-checked={key === sort} onClick={() => setSort(key)}>{label}</button>)}</div>}</div></div>
         <div ref={scrollRef} className="cat-scroll slim-scroll" data-view={view} role="region" aria-label="Scholar and contributor results" tabIndex={0}>

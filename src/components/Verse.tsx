@@ -6,7 +6,7 @@ import { useCatalog } from "@/lib/catalog";
 import { bibleName, useCurrentBible, useVerses, verseIdOf, verseReference, type ResolvedPassage, type ResolvedVerse, type VerseSpec } from "@/lib/verses";
 
 /** Words a page puts around a quotation are the page's; a verse can open or close on its own quotation mark. */
-const withoutOuterQuotes = (text: string) => text.replace(/^[“"‘']+/, "").replace(/[”"’']+$/, "");
+const withoutOuterQuotes = (text: string) => text.replace(/^[“"‘'「『]+/, "").replace(/[”"’'」』]+$/, "");
 
 export function VerseMissing({ id, reason }: { id: number; reason?: string }) {
   const catalog = useCatalog();

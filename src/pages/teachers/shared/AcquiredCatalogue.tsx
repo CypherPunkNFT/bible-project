@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageCodes, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
 import { SectionHead } from "./Frame";
 import "./acquired.css";
-import { formatDate, formatNumber } from "@/lib/site-format";
+import { formatDate, formatNumber, plural } from "@/lib/site-format";
 
 // Its own text node after the count: the collector skips a text with ";".
 const OVERLAP_NOTE = "Editions and formats can overlap; this is not a count of distinct books.";
@@ -39,7 +39,7 @@ export function ContributorWorks({ contributor, onOpenWork }: { contributor: Pic
 
 function ContributorCard({ contributor: c }: { contributor: AcquiredContributor }) {
   const [open, setOpen] = useState(false);
-  return <details onToggle={e => setOpen(e.currentTarget.open)}><summary><strong>{c.name}</strong><span>{c.roles.join(", ")}{" · "}{`${formatNumber(c.records)} held`}{" · "}{`${formatNumber(c.readable)} readable here`}</span></summary><p className="acq-caption">{c.traditions.length ? `Recorded tradition: ${c.traditions.join(", ")}.` : "Faith and tradition not recorded."} {c.profileId ? "A documented profile is also in the main biographical catalogue." : "Biography not yet recorded."}</p>{c.sourceLifeDates?.length ? <p className="acq-caption">{`Source life-date labels: ${c.sourceLifeDates.join("; ")}. These are transcribed identity evidence, not a reviewed biography.`}</p> : null}{open && <ContributorWorks contributor={c} />}</details>;
+  return <details onToggle={e => setOpen(e.currentTarget.open)}><summary><strong>{c.name}</strong><span>{c.roles.join(", ")}{" · "}{plural(c.records, "{n} held", "{n} held")}{" · "}{plural(c.readable, "{n} readable here", "{n} readable here")}</span></summary><p className="acq-caption">{c.traditions.length ? `Recorded tradition: ${c.traditions.join(", ")}.` : "Faith and tradition not recorded."} {c.profileId ? "A documented profile is also in the main biographical catalogue." : "Biography not yet recorded."}</p>{c.sourceLifeDates?.length ? <p className="acq-caption">{`Source life-date labels: ${c.sourceLifeDates.join("; ")}. These are transcribed identity evidence, not a reviewed biography.`}</p> : null}{open && <ContributorWorks contributor={c} />}</details>;
 }
 
 export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "scholars"; authorId?: string | null }) {
@@ -56,7 +56,7 @@ export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "sc
     <div className="acq-controls"><label>Find a contributor<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Name or recorded tradition" /></label><label>Role<select value={role} onChange={e => { setRole(e.target.value); setPage(0); }}><option value="">All roles</option><option value="author">Author</option><option value="editor">Editor</option><option value="translator">Translator</option></select></label></div>
     {error && <p role="alert">{error}</p>}
     {!data && !error && <p role="status">Loading acquired catalogue…</p>}
-    {data && <p className="acq-caption">{query || role ? `${formatNumber(contributors.length)} of ${formatNumber(shelves.length)} contributors match · Updated ${formatDate(new Date(data.updatedAt))}.` : `Updated ${formatDate(new Date(data.updatedAt))}.`}</p>}
+    {data && <p className="acq-caption">{query || role ? `${formatNumber(contributors.length)} of ${plural(shelves.length, "{n} contributor", "{n} contributors")} match · Updated ${formatDate(new Date(data.updatedAt))}.` : `Updated ${formatDate(new Date(data.updatedAt))}.`}</p>}
     {data && !contributors.length && <p>No contributors match these filters.</p>}
     <div className="acq-contributors">{contributors.slice(page * 24, (page + 1) * 24).map(c => <ContributorCard key={c.id} contributor={c} />)}</div>
     {contributors.length > 24 && <nav className="acq-pagination" aria-label="Contributor pages"><button disabled={!page} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(contributors.length / 24)}</span><button disabled={(page + 1) * 24 >= contributors.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}

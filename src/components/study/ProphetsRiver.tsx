@@ -29,6 +29,8 @@ const LANES = [0, 2, 1, 3];
 const initials = (name: string) => name.replace(/[^A-Za-z]/g, "").slice(0, 2);
 const roleOf = (p: Prophet) => (p.kind === "false" ? (p.sex === "Female" ? "False prophetess" : "False prophet") : p.sex === "Female" ? "Prophetess" : "Prophet");
 const back = () => cameFrom("Prophets through time");
+/** The whole line for a time that is not a king, so the page translator sees one sentence. */
+const TIME_OF: Partial<Record<string, string>> = { Moses: "In the time of Moses", "the judges": "In the time of the judges", "the exile": "In the time of the exile" };
 
 export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingId: (name: string) => string | undefined }) {
   const eras = ERAS.filter((era) => prophets.some((p) => p.era === era.id));
@@ -108,8 +110,8 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
         <h3>{focus.name}</h3>
         {focus.brief && <p className="pm-panel-brief">{focus.brief}</p>}
         <p className="pm-panel-when">
-          {focus.king ? <>{focus.king === "Moses" || focus.king === "the judges" || focus.king === "the exile" ? "In the time of " : "In the days of "}
-            {kingId(focus.king) ? <SlideLink to={rulerHref(kingId(focus.king)!)} state={back()}>{focus.king}</SlideLink> : focus.king}</> : "Not dated by any king in Scripture"}
+          {focus.king ? (kingId(focus.king) ? <>{TIME_OF[focus.king] ? "In the time of " : "In the days of "}
+            <SlideLink to={rulerHref(kingId(focus.king)!)} state={back()}>{focus.king}</SlideLink></> : TIME_OF[focus.king] ?? `In the days of ${focus.king}`) : "Not dated by any king in Scripture"}
           {focus.anchor && <> · <RefLink span={focus.anchor} /></>}
         </p>
         <div className="pm-panel-actions">

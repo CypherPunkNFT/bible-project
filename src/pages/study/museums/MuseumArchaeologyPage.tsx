@@ -41,9 +41,9 @@ function Card({ card }: { card: MuseumCard }) {
             <span className="mu-soon">Coming soon</span>
           ) : (
             <span className="mu-card-counts">
-              {formatNumber(card.records)} {plural(card.records, "record", "records")}
-              {card.photographs > 0 ? ` · ${card.photographs} photographed` : ""}
-              {card.catalogue_rows > 0 ? ` · ${card.catalogue_rows} in the catalogue` : ""}
+              {plural(card.records, "{n} record", "{n} records") +
+                (card.photographs > 0 ? ` · ${plural(card.photographs, "{n} photographed", "{n} photographed")}` : "") +
+                (card.catalogue_rows > 0 ? ` · ${plural(card.catalogue_rows, "{n} in the catalogue", "{n} in the catalogue")}` : "")}
             </span>
           )}
           <ArrowUpRight size={17} aria-hidden="true" />
@@ -238,7 +238,7 @@ export default function MuseumArchaeologyPage() {
                 <li key={holder.name}>
                   <span>{holder.name}</span>
                   <small>
-                    {formatNumber(holder.records)} {plural(holder.records, "record", "records")}
+                    {plural(holder.records, "{n} record", "{n} records")}
                   </small>
                 </li>
               ))}
