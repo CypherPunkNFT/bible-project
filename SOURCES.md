@@ -71,6 +71,9 @@ What the app adds, all free to use and ship inside an app:
 | What | Used for | Licence |
 |---|---|---|
 | **Literata** reading font (Type Together for Google), through `@expo-google-fonts/literata` 0.4.3 | The Bible text, as on the site | Font: **SIL Open Font License 1.1** (font may be bundled; credit shown in the app's Settings). Package code: MIT |
+| **Archivo** (Omnibus-Type, for Google), through `@expo-google-fonts/archivo` 0.4.2 (added 2026-11-10) | The site's word font for headers, menus, eyebrows and buttons, so the app's frame matches bibleguide.io | Font: **SIL Open Font License 1.1** (may be bundled). Package code: MIT |
+| **Noto Serif Hebrew** (Google), through `@expo-google-fonts/noto-serif-hebrew` 0.4.2 (added 2026-11-10) | Hebrew words, in the same face the site uses | Font: **SIL Open Font License 1.1** (may be bundled). Package code: MIT |
+| `lucide-react-native` 1.11.0 (added 2026-11-10) | The same line icons the site draws with `lucide-react` (header, menu, page links, buttons) | **ISC** |
 | Expo SDK 58 (`expo` 58.0.19, `expo-router` 58.0.26, `expo-sqlite` 58.0.14, `expo-font`, `expo-splash-screen`) | The app framework, pages, on-phone databases | MIT. SQLite itself is public domain |
 | React 19.3 and React Native 0.88 | Drawing the app | MIT |
 | Uniwind 1.13 and Tailwind CSS 4.3 | The site's palette and styling classes | MIT |
