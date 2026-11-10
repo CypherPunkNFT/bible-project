@@ -164,8 +164,9 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
   chosen one, and the page behind follows: each picture shown makes its book and chapter the page's own, so
   closing the view leaves you on the book and chapter where you stopped. Esc or a click outside closes it.
 - **Reviewing pictures** (owner 2026-11-10: "no approve button ... if I just click next, then it's good"): moving on
-  from a picture with → or ← approves it; **✗ Not right** (or the X key) flags it, with an optional note (Enter
-  saves); clicking it again undoes the flag. Closing the view approves nothing. Reviews are kept in the
+  from a picture with → or ← approves it; the big red round **✗** on the picture's top-right corner (or the X key)
+  flags it, with an optional note in the panel (Enter saves) and a red frame; clicking it again undoes the flag.
+  The picture and its panel form one joined, centred block of the same height; the panel scrolls on its own. Closing the view approves nothing. Reviews are kept in the
   `picture_reviews` table of `scenes.sqlite3` (`POST /api/pictures/review`) and count only for the picture as
   drawn now: a redraw (new `made_at`) is unreviewed again. Gallery tiles show ✓ or a red ✗; the filters are All,
   Finished, Not looked at and Flagged; the count line shows the book's approved and flagged pictures.

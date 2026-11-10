@@ -27,19 +27,29 @@ CSS = r"""
 .gallery-group{content-visibility:auto;contain-intrinsic-size:auto 320px;margin:0 0 28px}
 .gallery-group h3{font:19px/1.3 Georgia;margin:0 0 12px;color:var(--ink)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.gallery-grid button{position:relative;display:block;padding:0;border:0;background:#eef0ea;border-radius:9px;overflow:hidden;cursor:zoom-in;aspect-ratio:16/9}.gallery-grid button.flagged::after,.gallery-grid button.ok::after{position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 13px system-ui;color:#fff}.gallery-grid button.flagged::after{content:'✗';background:#b3412f}.gallery-grid button.ok::after{content:'✓';background:rgba(36,82,62,.85)}.gallery-grid button.flagged{box-shadow:0 0 0 3px #b3412f}.lb-review{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}#lb-flag{border:1px solid rgba(255,255,255,.28);background:transparent;color:#f2d6d0;border-radius:18px;padding:6px 14px;font:600 13px system-ui;cursor:pointer;outline:none}#lb-flag:hover{background:rgba(179,65,47,.25)}#lb-flag.on{background:#b3412f;border-color:#b3412f;color:#fff}#lb-review-state{color:#9fb0a5;font-size:12px}#lb-note{width:100%;box-sizing:border-box;min-height:58px;margin:0 0 14px;padding:8px 10px;border:1px solid #b3412f;border-radius:6px;background:#141d18;color:#f1f4f1;font:13.5px/1.5 system-ui;resize:vertical;outline:none}
+.gallery-grid button{position:relative;display:block;padding:0;border:0;background:#eef0ea;border-radius:9px;overflow:hidden;cursor:zoom-in;aspect-ratio:16/9}.gallery-grid button.flagged::after,.gallery-grid button.ok::after{position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 13px system-ui;color:#fff}.gallery-grid button.flagged::after{content:'✗';background:#b3412f}.gallery-grid button.ok::after{content:'✓';background:rgba(36,82,62,.85)}.gallery-grid button.flagged{box-shadow:0 0 0 3px #b3412f}.lb-review{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}#lb-review-state{color:#9fb0a5;font-size:12px}#lb-note{width:100%;box-sizing:border-box;min-height:58px;margin:0 0 14px;padding:8px 10px;border:1px solid #b3412f;border-radius:6px;background:#141d18;color:#f1f4f1;font:13.5px/1.5 system-ui;resize:vertical;outline:none}
 .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
 .gallery-grid button:hover img{transform:scale(1.035)}
-#lightbox{position:fixed;inset:0;z-index:60;background:rgba(14,21,17,.9);display:flex;align-items:center;justify-content:center;padding:56px 72px}
-.lb-body{display:flex;gap:24px;align-items:center;width:100%;height:100%;min-height:0}#lightbox figure{margin:0;flex:1 1 auto;min-width:0;max-width:100%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}#lb-verses{flex:0 0 min(380px,32vw);align-self:center;max-height:calc(100vh - 112px);overflow-y:auto;background:#1c2822;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px 20px;color:#e8eee9}#lb-ref{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}#lb-guide{display:inline-block;margin:0 0 12px;color:#d8b86a;font-size:13px;font-weight:600;text-decoration:none;outline:none}#lb-guide:hover{text-decoration:underline}#lb-text p{margin:0 0 10px;font:16px/1.7 Georgia,serif}#lb-text sup{color:#c9a85a;font:600 11px system-ui;margin-right:5px;vertical-align:2px}
-#lightbox img{max-width:100%;max-height:calc(100vh - 112px);object-fit:contain;border-radius:8px;background:#fff;display:block}
-#lb-count{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;margin-bottom:6px}#lb-title{display:block;font:22px/1.3 Georgia,serif;color:#fff;margin-bottom:4px}#lb-caption{display:block;color:#cfd8d1;font-size:13px;margin-bottom:12px}#lb-moment{margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12);color:#dfe7e1;font-size:14.5px;line-height:1.6}
-#lb-empty{width:100%;aspect-ratio:16/9;max-height:calc(100vh - 112px);border:1px dashed rgba(255,255,255,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#cfd8d1;font-size:15px}
-.lb-btn{position:fixed;border:0;background:rgba(255,255,255,.12);color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px;line-height:1;cursor:pointer}
-.lb-btn:hover{background:rgba(255,255,255,.24)}.lb-btn.close{top:16px;right:16px}
-.lb-btn.prev{left:14px;top:50%;transform:translateY(-50%)}.lb-btn.next{right:14px;top:50%;transform:translateY(-50%)}
-@media(max-width:650px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#lightbox{padding:64px 12px 24px}.lb-body{flex-direction:column;align-items:stretch;overflow-y:auto}#lightbox figure{flex:none}#lb-verses{flex:none;width:auto;max-height:none;align-self:auto}
-.lb-btn.prev,.lb-btn.next{top:auto;bottom:14px;transform:none}}
+#lightbox{position:fixed;inset:0;z-index:60;background:rgba(10,15,12,.92);display:flex;align-items:center;justify-content:center;padding:56px 92px}
+.lb-body{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
+.lb-pair{display:flex;align-items:stretch;max-width:100%;max-height:100%;border-radius:12px;overflow:hidden;background:#1c2822;box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+#lightbox figure{position:relative;margin:0;flex:0 1 auto;min-width:0;display:flex}
+#lightbox img{display:block;max-width:100%;max-height:calc(100vh - 112px);object-fit:contain}
+#lb-empty{width:min(1000px,calc(100vw - 620px));aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#cfd8d1;font-size:15px;background:repeating-linear-gradient(135deg,#18221d 0 14px,#1c2822 14px 28px)}
+.lb-pair.flagged figure::after{content:'';position:absolute;inset:0;border:5px solid #d93a2b;pointer-events:none}
+#lb-flag{position:absolute;top:16px;right:16px;z-index:2;width:62px;height:62px;padding:0;border-radius:50%;border:0;background:#d93a2b;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;outline:none;opacity:.88;box-shadow:0 6px 18px rgba(0,0,0,.45);transition:transform .15s,opacity .15s,box-shadow .15s}
+#lb-flag svg{width:28px;height:28px;display:block}#lb-flag:hover{opacity:1;transform:scale(1.07)}
+#lb-flag.on{opacity:1;box-shadow:0 0 0 4px #fff,0 6px 18px rgba(0,0,0,.45)}
+#lb-verses{position:relative;flex:0 0 min(400px,34vw);border-left:1px solid rgba(255,255,255,.08);color:#e8eee9}
+#lb-scroll{position:absolute;inset:0;overflow-y:auto;padding:20px 22px}
+#lb-ref{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}#lb-guide{display:inline-block;margin:0 0 12px;color:#d8b86a;font-size:13px;font-weight:600;text-decoration:none;outline:none}#lb-guide:hover{text-decoration:underline}#lb-text p{margin:0 0 10px;font:16px/1.7 Georgia,serif}#lb-text sup{color:#c9a85a;font:600 11px system-ui;margin-right:5px;vertical-align:2px}
+#lb-count{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;margin-bottom:6px}#lb-title{display:block;font:22px/1.3 Georgia,serif;color:#fff;margin-bottom:4px}#lb-caption{display:block;color:#cfd8d1;font-size:13px;margin-bottom:10px}#lb-moment{margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12);color:#dfe7e1;font-size:14.5px;line-height:1.6}
+.lb-btn{position:fixed;z-index:3;display:flex;align-items:center;justify-content:center;width:54px;height:54px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .15s,transform .15s,border-color .15s}
+.lb-btn svg{width:24px;height:24px;display:block}.lb-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);transform:scale(1.06)}
+.lb-btn.close{top:18px;right:18px;width:46px;height:46px}.lb-btn.close svg{width:20px;height:20px}
+.lb-btn.prev{left:22px;top:50%;margin-top:-27px}.lb-btn.next{right:22px;top:50%;margin-top:-27px}
+@media(max-width:650px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#lightbox{padding:64px 12px 84px}.lb-body{align-items:flex-start}.lb-pair{flex-direction:column;overflow-y:auto}#lightbox figure{flex:none}#lb-verses{flex:none;border-left:0;border-top:1px solid rgba(255,255,255,.08)}#lb-scroll{position:static}#lb-empty{width:100%}#lb-flag{width:52px;height:52px;top:10px;right:10px}
+.lb-btn.prev,.lb-btn.next{top:auto;bottom:16px;margin-top:0}}
 """
 
 SIDE = (
@@ -53,14 +63,15 @@ TOP = (
     '<div class="writer-tabs" id="gallery-filter"></div></div>'
     '<div class="gallery-tools"><span class="tiny" id="gallery-count"></span>'
     '<button id="gallery-run">▶ Speed run</button></div></div><div id="gallery-body"></div></section>'
-    '<div id="lightbox" hidden><button class="lb-btn close" id="lb-close" aria-label="Close">×</button>'
-    '<button class="lb-btn prev" id="lb-prev" aria-label="Previous picture">‹</button>'
-    '<div class="lb-body"><figure><img id="lb-img" alt=""><div id="lb-empty" hidden>Not drawn yet</div></figure>'
-    '<div id="lb-verses" role="region" aria-label="Scene and verses"><span id="lb-count"></span><b id="lb-title"></b>'
-    '<span id="lb-caption"></span><div class="lb-review" id="lb-review"><button id="lb-flag" title="Mark this picture wrong (X)">✗ Not right</button>'
+    '<div id="lightbox" hidden><button class="lb-btn close" id="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
+    '<button class="lb-btn prev" id="lb-prev" aria-label="Previous picture"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>'
+    '<div class="lb-body"><div class="lb-pair" id="lb-pair"><figure><img id="lb-img" alt=""><div id="lb-empty" hidden>Not drawn yet</div>'
+    '<button id="lb-flag" title="Not right (X)" aria-label="Mark this picture not right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></figure>'
+    '<div id="lb-verses" role="region" aria-label="Scene and verses"><div id="lb-scroll"><span id="lb-count"></span><b id="lb-title"></b>'
+    '<span id="lb-caption"></span><div class="lb-review" id="lb-review">'
     '<span id="lb-review-state"></span></div><textarea id="lb-note" hidden placeholder="What is wrong? (optional, Enter saves)"></textarea>'
-    '<p id="lb-moment" hidden></p><span id="lb-ref"></span><a id="lb-guide" target="_blank" rel="noopener"></a><div id="lb-text"></div></div></div>'
-    '<button class="lb-btn next" id="lb-next" aria-label="Next picture">›</button></div>')
+    '<p id="lb-moment" hidden></p><span id="lb-ref"></span><a id="lb-guide" target="_blank" rel="noopener"></a><div id="lb-text"></div></div></div></div></div>'
+    '<button class="lb-btn next" id="lb-next" aria-label="Next picture"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>')
 
 JS = r"""
 let themes=[],theme='',view='scenes',gallery=[],galleryFilter='all',galleryBook='',galleryAt='',lbItems=[],lbIndex=0;
@@ -124,7 +135,7 @@ async function showMoment(it,request){const box=$('lb-moment');box.hidden=true;t
 function chapterVerses(k){if(!chapterText[k]){const [c,n]=k.split(':');chapterText[k]=api('/api/chapter?code='+c+'&chapter='+n+'&translation=bsb').then(d=>d.verses).catch(e=>{delete chapterText[k];throw e})}return chapterText[k]}
 async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text');$('lb-ref').textContent=chapterLabel(it.key)+':'+versesLabel(it.vs,it.ve)+' · BSB';
  // Bible Guide (the local site) opens the whole chapter with the scene's verses highlighted and in view.
- {const [c,n]=it.key.split(':'),g=$('lb-guide');g.href='http://localhost:8931/read/bsb/'+c+'/'+n+'?hl='+it.vs+(it.ve!==it.vs?'-'+it.ve:'');g.textContent='Read '+chapterLabel(it.key)+' in Bible Guide ↗'}box.replaceChildren(el('p',null,'Loading verses…'));$('lb-verses').scrollTop=0;showMoment(it,request);
+ {const [c,n]=it.key.split(':'),g=$('lb-guide');g.href='http://localhost:8931/read/bsb/'+c+'/'+n+'?hl='+it.vs+(it.ve!==it.vs?'-'+it.ve:'');g.textContent='Read '+chapterLabel(it.key)+' in Bible Guide ↗'}box.replaceChildren(el('p',null,'Loading verses…'));$('lb-scroll').scrollTop=0;showMoment(it,request);
  try{const verses=await chapterVerses(it.key);if(request!==verseRequest)return;box.replaceChildren();
   verses.forEach(v=>{const nums=String(v.number).split(/[-–]/).map(Number);if(!v.text||nums[0]>it.ve||nums.at(-1)<it.vs)return;const p=el('p');p.append(el('sup',null,String(v.number)),v.text);box.append(p)});
   if(!box.childElementCount)box.append(el('p',null,'No verse text found for this range.'))}
@@ -135,9 +146,9 @@ function followLarge(it){const [c,n]=it.key.split(':');if(dirty||(c===code&&Numb
  code=c;chapter=Number(n);render();loadSource().catch(e=>notify(e.message))}
 // Reviews: moving on from a picture approves it; only ✗ (or the X key) marks it wrong, with an optional note.
 let galleryButtons={};
-function showReview(it){const row=it.row,v=row&&it.full?row[8]:undefined,flag=$('lb-flag'),note=$('lb-note');$('lb-review').hidden=!(row&&it.full);note.hidden=v!=='flagged';
- if(!row||!it.full)return;flag.classList.toggle('on',v==='flagged');flag.textContent=v==='flagged'?'✗ Flagged · click to undo':'✗ Not right';
- $('lb-review-state').textContent=v==='ok'?'✓ Approved':v==='flagged'?'':'Not looked at · moving on approves it';if(document.activeElement!==note)note.value=row[9]||''}
+function showReview(it){const row=it.row,v=row&&it.full?row[8]:undefined,flag=$('lb-flag'),note=$('lb-note');$('lb-review').hidden=flag.hidden=!(row&&it.full);note.hidden=v!=='flagged';$('lb-pair').classList.toggle('flagged',v==='flagged');
+ if(!row||!it.full)return;flag.classList.toggle('on',v==='flagged');flag.title=v==='flagged'?'Flagged · click to undo (X)':'Not right (X)';
+ $('lb-review-state').textContent=v==='ok'?'✓ Approved':v==='flagged'?'✗ Flagged · the red X again undoes it':'Not looked at · moving on approves it';if(document.activeElement!==note)note.value=row[9]||''}
 async function review(it,verdict,note){const row=it.row,before=[row[8],row[9]];row[8]=verdict;row[9]=verdict==='flagged'?note:'';
  const b=galleryButtons[row[0]+'|'+row[1]+'|'+row[2]];if(b){b.classList.remove('ok','flagged');b.classList.add(verdict);b.title=row[3]+(row[9]?' · flagged: '+row[9]:'')}
  if(lbItems[lbIndex]===it)showReview(it);galleryCount();
