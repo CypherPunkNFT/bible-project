@@ -31,14 +31,14 @@ CSS = r"""
 .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
 .gallery-grid button:hover img{transform:scale(1.035)}
 #lightbox{position:fixed;inset:0;z-index:60;background:rgba(14,21,17,.9);display:flex;align-items:center;justify-content:center;padding:56px 72px}
-#lightbox figure{margin:0;max-width:100%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.lb-body{display:flex;gap:24px;align-items:center;width:100%;height:100%;min-height:0}#lightbox figure{margin:0;flex:1 1 auto;min-width:0;max-width:100%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}#lb-verses{flex:0 0 min(380px,32vw);align-self:center;max-height:calc(100vh - 170px);overflow-y:auto;background:#1c2822;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px 20px;color:#e8eee9}#lb-ref{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}#lb-text p{margin:0 0 10px;font:16px/1.7 Georgia,serif}#lb-text sup{color:#c9a85a;font:600 11px system-ui;margin-right:5px;vertical-align:2px}
 #lightbox img{max-width:100%;max-height:calc(100vh - 170px);object-fit:contain;border-radius:8px;background:#fff;display:block}
 #lightbox figcaption{color:#cfd8d1;font-size:13px;line-height:1.6}#lb-count{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;margin-bottom:4px}
 #lb-empty{width:min(1100px,calc(100vw - 144px));aspect-ratio:16/9;max-height:calc(100vh - 170px);border:1px dashed rgba(255,255,255,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#cfd8d1;font-size:15px}#lightbox figcaption b{display:block;font:20px/1.3 Georgia;color:#fff}
 .lb-btn{position:fixed;border:0;background:rgba(255,255,255,.12);color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px;line-height:1;cursor:pointer}
 .lb-btn:hover{background:rgba(255,255,255,.24)}.lb-btn.close{top:16px;right:16px}
 .lb-btn.prev{left:14px;top:50%;transform:translateY(-50%)}.lb-btn.next{right:14px;top:50%;transform:translateY(-50%)}
-@media(max-width:650px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#lightbox{padding:64px 12px 24px}
+@media(max-width:650px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#lightbox{padding:64px 12px 24px}.lb-body{flex-direction:column;align-items:stretch;overflow-y:auto}#lightbox figure{flex:none}#lb-verses{flex:none;width:auto;max-height:none;align-self:auto}
 .lb-btn.prev,.lb-btn.next{top:auto;bottom:14px;transform:none}}
 """
 
@@ -55,8 +55,9 @@ TOP = (
     '<button id="gallery-run">▶ Speed run</button></div></div><div id="gallery-body"></div></section>'
     '<div id="lightbox" hidden><button class="lb-btn close" id="lb-close" aria-label="Close">×</button>'
     '<button class="lb-btn prev" id="lb-prev" aria-label="Previous picture">‹</button>'
-    '<figure><img id="lb-img" alt=""><div id="lb-empty" hidden>Not drawn yet</div>'
+    '<div class="lb-body"><figure><img id="lb-img" alt=""><div id="lb-empty" hidden>Not drawn yet</div>'
     '<figcaption><span id="lb-count"></span><b id="lb-title"></b><span id="lb-caption"></span></figcaption></figure>'
+    '<div id="lb-verses" role="region" aria-label="Verses"><span id="lb-ref"></span><div id="lb-text"></div></div></div>'
     '<button class="lb-btn next" id="lb-next" aria-label="Next picture">›</button></div>')
 
 JS = r"""
@@ -77,9 +78,14 @@ function setThemes(list){const before=theme;themes=list||[];if(!themes.some(t=>t
 function setTheme(id){if(!themes.some(t=>t.id===id)||id===theme)return;theme=id;try{localStorage.setItem('studio-theme',id)}catch(e){}renderThemes();
  if(mode==='scenes'){if(view==='gallery')loadGallery();else renderScenes()}}
 async function refreshSummary(){const d=await api('/api/scenes');sceneKeys=d.keys;setThemes(d.themes);counts();renderTiles()}
-function framePicture(frame,s){const pics=s.pictures||{},cur=pics[theme];if(!cur)return;
+const largeItem=i=>({full:i[6],key:i[0],vs:i[4],ve:i[5],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+themeName(theme)});
+async function galleryItems(){return (await api('/api/gallery?theme='+encodeURIComponent(theme))).items}  // fresh: runs keep importing
+function framePicture(frame,s,n){const pics=s.pictures||{},cur=pics[theme];if(!cur)return;
  const img=new Image();img.loading='lazy';img.alt=s.title;img.src=cur.full;img.title='Open large';
- img.onclick=()=>openLightbox([{full:cur.full,title:s.title,caption:chapterLabel(key())+':'+versesLabel(s.verse_start,s.verse_end)+' · '+themeName(theme)}],0);
+ img.onclick=async()=>{const k=key(),single=[{full:cur.full,key:k,vs:s.verse_start,ve:s.verse_end,title:s.title,caption:chapterLabel(k)+':'+versesLabel(s.verse_start,s.verse_end)+' · '+themeName(theme)}];
+  // Open inside every drawn picture of the theme, so → carries on past this chapter and book.
+  try{const drawn=(await galleryItems()).filter(i=>i[6]),at=drawn.findIndex(i=>i[0]===k&&i[2]===n&&i[3]===s.title);openLightbox(at<0?single:drawn.map(largeItem),Math.max(at,0))}
+  catch(e){openLightbox(single,0)}};
  img.onerror=()=>{frame.classList.remove('has-picture');img.remove()};frame.classList.add('has-picture');frame.append(img)}
 function themeStrip(s){const pics=s.pictures||{},have=themes.filter(t=>pics[t.id]);if(have.length<2)return null;
  const strip=el('div','theme-strip');have.forEach(t=>{const b=el('button',t.id===theme?'on':'');b.title=t.name;const i=new Image();i.alt=t.name;i.loading='lazy';i.src=pics[t.id].thumb;b.append(i);b.onclick=()=>setTheme(t.id);strip.append(b)});return strip}
@@ -92,7 +98,7 @@ function renderGallery(){const body=$('gallery-body'),filter=$('gallery-filter')
  $('gallery-count').textContent=galleryFilter==='finished'?drawn.toLocaleString()+' pictures · '+themeName(theme):gallery.length.toLocaleString()+' scenes · '+drawn.toLocaleString()+' drawn · '+themeName(theme);
  $('gallery-run').disabled=!items.length;
  if(!items.length){body.append(el('p','scenes-empty',gallery.length?'No pictures in this theme yet.':'No scenes yet.'));return}
- const large=items.map(i=>({full:i[6],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+themeName(theme)}));
+ const large=items.map(largeItem);
  $('gallery-run').onclick=()=>openLightbox(large,0);
  const groups=[];items.forEach((it,n)=>{const g=groups[groups.length-1];if(g&&g.key===it[0])g.items.push(n);else groups.push({key:it[0],items:[n]})});
  const sentinel=el('div');body.append(sentinel);let shown=0;
@@ -103,14 +109,21 @@ function renderGallery(){const body=$('gallery-body'),filter=$('gallery-filter')
    sec.append(grid);body.insertBefore(sec,sentinel)}
   if(shown>=groups.length){galleryObserver.disconnect();sentinel.remove()}};
  galleryObserver=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting))more()},{rootMargin:'900px'});more();if(sentinel.isConnected)galleryObserver.observe(sentinel)}
+const chapterText={};let verseRequest=0;
+function chapterVerses(k){if(!chapterText[k]){const [c,n]=k.split(':');chapterText[k]=api('/api/chapter?code='+c+'&chapter='+n+'&translation=bsb').then(d=>d.verses).catch(e=>{delete chapterText[k];throw e})}return chapterText[k]}
+async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text');$('lb-ref').textContent=chapterLabel(it.key)+':'+versesLabel(it.vs,it.ve)+' · BSB';box.replaceChildren(el('p',null,'Loading verses…'));$('lb-verses').scrollTop=0;
+ try{const verses=await chapterVerses(it.key);if(request!==verseRequest)return;box.replaceChildren();
+  verses.forEach(v=>{const nums=String(v.number).split(/[-–]/).map(Number);if(!v.text||nums[0]>it.ve||nums.at(-1)<it.vs)return;const p=el('p');p.append(el('sup',null,String(v.number)),v.text);box.append(p)});
+  if(!box.childElementCount)box.append(el('p',null,'No verse text found for this range.'))}
+ catch(e){if(request===verseRequest)box.replaceChildren(el('p',null,'Could not load the verses: '+e.message))}}
 function openLightbox(items,n){lbItems=items;lbIndex=n;$('lightbox').hidden=false;showLarge()}
 function showLarge(){const it=lbItems[lbIndex],img=$('lb-img');if(it.full)img.src=it.full;else img.removeAttribute('src');img.hidden=!it.full;$('lb-empty').hidden=!!it.full;
  img.alt=it.title;$('lb-title').textContent=it.title;$('lb-caption').textContent=it.caption;$('lb-count').textContent=lbItems.length>1?(lbIndex+1).toLocaleString()+' / '+lbItems.length.toLocaleString():'';
- $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
+ $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;showVersesPanel(it);[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
 function step(d){if(lbItems.length<2)return;lbIndex=(lbIndex+d+lbItems.length)%lbItems.length;showLarge()}
 function closeLightbox(){$('lightbox').hidden=true;$('lb-img').removeAttribute('src')}
 $('lb-prev').onclick=e=>{e.stopPropagation();step(-1)};$('lb-next').onclick=e=>{e.stopPropagation();step(1)};$('lb-close').onclick=closeLightbox;
-$('lightbox').onclick=e=>{if(e.target.id==='lightbox')closeLightbox()};
+$('lightbox').onclick=e=>{if(e.target.id==='lightbox'||e.target.classList.contains('lb-body'))closeLightbox()};
 document.addEventListener('keydown',e=>{if($('lightbox').hidden)return;if(e.key==='Escape')closeLightbox();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
 function setView(v){view=v;try{localStorage.setItem('studio-scenes-view',v)}catch(e){}applyMode()}
 document.querySelectorAll('.view-tabs [data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));

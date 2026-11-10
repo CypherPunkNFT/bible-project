@@ -1,13 +1,24 @@
-# Codex image run: the "Painterly realism" theme, drawn by headless Codex
+# Codex image run: the "Painterly realism" theme, drawn by headless Codex, in 7 sections
 
-Instructions for the agent that runs this job. Read all of it before doing anything. The owner pastes a short
-block that points here; this file is the whole brief.
+Instructions for the agent that runs one section of this job. Read all of it before doing anything. The owner pastes
+a short block that starts with **PHASE N** (N = 1 to 7); that number is your section. This file is the whole brief.
 
-**Job right now: the real run (owner, 2026-11-10).** Draw every scene of every Bible chapter in the "Painterly
-realism" style: 3,213 pictures, 9 already done in a trial. Verify each picture and load it into the Studio. Keep
-going until all 3,213 are in the Studio or a real blocker stops you. At the trial's pace (about 2.5 minutes per
-batch of 3) this is about 45 hours of running, so expect to hit a ChatGPT usage limit along the way. When that
-happens, stop as section 5 says; the next start carries on from the manifest.
+**The job (owner, 2026-11-10).** Draw every scene of every Bible chapter in the "Painterly realism" style: 3,213
+pictures. The chapters are cut into **7 sections that run at the same time, one chat per section**. You run only your
+section, in your section's folder, and never touch another section's files. Keep going until every picture in your
+section is in the Studio or blocked, or a real blocker stops you (section 6).
+
+| Phase | Chapters | Pictures | Left when cut |
+|---|---|---|---|
+| 1 | Genesis 1 – 1 Samuel 9 | 727 | 415 (296 drawn by the first run, 16 blocked, 2 drawn but not yet checked) |
+| 2 | 1 Samuel 10 – 2 Chronicles 20 | 417 | 417 |
+| 3 | 2 Chronicles 21 – Psalm 95 | 415 | 415 |
+| 4 | Psalm 96 – Jeremiah 6 | 417 | 417 |
+| 5 | Jeremiah 7 – Micah 6 | 415 | 415 |
+| 6 | Micah 7 – Acts 23 | 415 | 415 |
+| 7 | Acts 24 – Revelation 22 | 407 | 407 |
+
+The cut is fixed in `initiatives/chapter-scenes/sections.json`.
 
 ## 1. What this project is
 
@@ -15,93 +26,64 @@ A Bible study website project picks, for each of the 1,189 Bible chapters, 1 to 
 picture prompt for each (3,213 scenes, all written by Claude Haiku). The owner looks at them in a local web app, the
 Chapter Summary Studio (http://127.0.0.1:8947: choose **Scenes** in the dark panel on the far left, then the
 **Gallery** tab). There is one art style ("theme"), `painterly-realism`, and it is drawn by **headless Codex using
-its built-in image tool on the owner's ChatGPT login**. That is this job. (Earlier styles drawn on the graphics card,
-and a second scene writer, were retired on 2026-11-10; ignore any mention of them in older notes.)
+its built-in image tool on the owner's ChatGPT login**. That is this job.
 
-Project root (run project commands from here): `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website`
+Project root: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website`
+Your section folder (N = your phase):
+`D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\section-N`
 
 | What | Where |
 |---|---|
-| Background and design (sections "Pictures" and "Themes and the gallery") | `initiatives/chapter-scenes/README.md` |
-| The theme and its style text (`"engine": "codex"`) | `initiatives/chapter-scenes/themes.json`, entry `painterly-realism` |
-| **The manifest: the 3,213 pictures to make, one entry each** | `.local/chapter-scene-studio/codex/painterly-realism/manifest.json` |
-| The trial's logs, runner and notes (for reference; do not write there, do not reuse its batch folders) | `.local/chapter-scene-studio/codex/painterly-realism/trial-2026-11-10/` |
-| Where each finished original goes (the entry's `output` field) | `.local/chapter-scene-studio/codex/painterly-realism/originals/<writer>/<BOOK>-<chapter>-<scene>.png` |
-| Per-batch logs and reports (you create these) | `.local/chapter-scene-studio/codex/painterly-realism/batches/<batch>/` |
-| Progress notes for the owner (you create and keep this) | `.local/chapter-scene-studio/codex/painterly-realism/progress.md` |
-| Manifest builder, Studio import and status | `scripts/codex_pictures.py` (run with the system `python`) |
-| Proof that headless Codex image generation works here | runner `D:\FortressOfSolitude\.tmp\run_headless_eden.py`; its output `D:\FortressOfSolitude\.tmp\headless-eden\` (eden.png, events.jsonl, result.txt, stderr.txt) |
+| Background and design | `initiatives/chapter-scenes/README.md` (project root) |
+| The theme and its style text | `initiatives/chapter-scenes/themes.json`, entry `painterly-realism` |
+| **Your manifest: your section's pictures, one entry each** | `section-N\manifest.json` |
+| Your tools (ready, tested) | `section-N\runner.py`, `finalize.py`, `reject.py`, `block.py`, `watch.py` |
+| Where each original goes (the entry's `output`) | `section-N\originals\haiku\<BOOK>-<chapter>-<scene>.png` |
+| Your batch logs and reports | `section-N\batches\<batch>\` (the runner creates them) |
+| Your progress notes (the runner and your tools append to it) | `section-N\progress.md` |
+| Studio import and status | `scripts/codex_pictures.py` (project root, system `python`) |
+| The first single run's files (history; do not write there) | `painterly-realism\` itself: `manifest-before-sections.json`, `batches\`, `progress.md`, its helper scripts |
 | Codex's image skill (each worker reads it) | `C:\Users\lcladm\.codex\skills\.system\imagegen\SKILL.md` |
-| Where Codex saves what it generates (originals, keep them) | `C:\Users\lcladm\.codex\generated_images\<thread id>\exec-*.png` |
+| Where Codex saves what it generates (keep them) | `C:\Users\lcladm\.codex\generated_images\<thread id>\exec-*.png` |
 
 ## 2. The manifest
 
-Built already: 3,213 entries in Bible order, batches `b001`–`b1071`, 3 each. The 9 trial pictures (Genesis 22,
-Exodus 14, Leviticus 16) are `in_studio` and are skipped. Each entry:
+Each entry, in Bible order, in batches of 3 (`b001`, `b002`, ... numbered within your section):
 
 | Field | Meaning |
 |---|---|
 | `id` | e.g. `haiku/GEN-22-0`: writer / book code - chapter - scene index (0-based) |
 | `key`, `writer`, `scene`, `title`, `verses` | which scene this is |
-| `prompt` | **the exact text to draw**: the theme's style, a blank line, `Scene: ` and the scene's prompt. Pass it unchanged |
+| `prompt` | **the exact text to draw**: the theme's style, a blank line, `Scene: ` and the scene's prompt |
 | `sha` | the Studio's hash of that prompt; do not edit |
-| `output` | the absolute path where the chosen original PNG must end up |
+| `output` | the absolute path where the original PNG must end up |
 | `status` | `pending` → `generated` (file saved) → `verified` (you checked it) → `in_studio` (imported). Or `blocked` |
-| `batch`, `attempts`, `session_id`, `artifact`, `file_sha256`, `last_error` | yours to fill: Codex thread id, the path under `.codex\generated_images`, SHA256 of the file at `output`, the latest error |
+| `attempts`, `session_id`, `artifact`, `file_sha256`, `last_error` | filled by the tools |
 
-Rules for the manifest:
-- Read it, change only those fields, and write it back **whole after every result** (write a temp file, then
-  rename it over the old one). Never hand-edit `prompt`, `sha`, `output`, `id`.
-- `python scripts/codex_pictures.py manifest --theme painterly-realism` rebuilds it safely: an unchanged entry keeps
-  its run fields, and anything already in the Studio is marked `in_studio`. **Run it once at the start of the run**
-  (it also picks up any scene whose prompt changed), and again only if the file is lost or damaged. Never pass
-  `--pilot`.
-- `python scripts/codex_pictures.py status --theme painterly-realism` counts statuses.
-- Never run your own changes to the manifest while `codex_pictures.py import` is running. Run everything one step at
-  a time.
+Change the manifest **only through the tools** in your folder (they write it whole, safely, and refuse while a worker
+runs). `python scripts/codex_pictures.py status --theme painterly-realism --section N` (from the project root) counts
+your statuses. `... manifest --theme painterly-realism --section N` rebuilds it, keeping every entry's progress; use
+it only if the file is lost or damaged.
 
-## 3. How to call Codex (proven method)
+## 3. How Codex is called (proven, already built into runner.py)
 
-Read `D:\FortressOfSolitude\.tmp\run_headless_eden.py` first; it is the exact working invocation. The trial's batch
-runner, `trial-2026-11-10\runner.py` (with `watch.py`, `finalize.py`), drew and imported 5 batches cleanly with this
-method. Read it, copy it into the theme folder (its paths are relative to its own folder, so it then points at the new
-manifest) and reuse it if it fits this brief, or write your own batch runner (Python, standard library + Pillow,
-list-form `subprocess`) in
-`.local/chapter-scene-studio/codex/painterly-realism/runner.py`, modelled on it.
+`runner.py` launches one headless worker per batch with the proven method: the Codex executable from the VS Code
+extension (it falls back to the newest one if the folder changed), `exec --json --ignore-user-config
+--skip-git-repo-check --sandbox workspace-write -c approval_policy="never" -c forced_login_method="chatgpt" -c
+allow_login_shell=false -c windows.sandbox="elevated" -C <your section folder> -o <batch>\result.txt -`, the worker
+prompt on stdin, events to `events.jsonl`, `OPENAI_API_KEY` removed, a 900-second deadline, and only one worker per
+section at a time. Reference for the method: `D:\FortressOfSolitude\.tmp\run_headless_eden.py`.
 
-Executable: `C:\Users\lcladm\.vscode\extensions\openai.chatgpt-26.1021.22027-win32-x64\bin\windows-x86_64\codex.exe`.
-If that folder is gone (the VS Code extension updated), use the newest
-`C:\Users\lcladm\.vscode\extensions\openai.chatgpt-*-win32-x64\bin\windows-x86_64\codex.exe` and note it.
-
-Arguments, as one list (no shell string):
-```
-exec --json --ignore-user-config --skip-git-repo-check
---sandbox workspace-write
--c approval_policy="never"
--c forced_login_method="chatgpt"
--c allow_login_shell=false
--c windows.sandbox="elevated"
--C D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism
--o <batch folder>\result.txt
--
-```
-- The worker prompt goes in on **stdin**. stdout (JSONL events) goes to `<batch folder>\events.jsonl`, stderr to
-  `<batch folder>\stderr.txt`. Also save the worker prompt as `<batch folder>\prompt.txt`.
-- `-C` is the theme folder so the worker can write into `originals\`. Do not widen the sandbox.
-- Windows: launch any shell command through `C:\Windows\System32\cmd.exe` with login off. **PowerShell is blocked by
-  Bitdefender.** Do not disable antivirus, add exclusions or bypass the sandbox. The parent process needs normal
-  (approved) host execution so Codex can reach the existing ChatGPT login.
-- No API key and no Images API. Never set `OPENAI_API_KEY`, never use the imagegen skill's CLI fallback
-  (`scripts/image_gen.py`), never let anything switch to paid API billing. Do not use the Fortress Orchestrator.
-- The thread id is in the first event (`{"type":"thread.started","thread_id":...}`): store it as `session_id`. The
-  generated file's original path appears in the events (the worker's copy command names
-  `...\.codex\generated_images\<thread id>\exec-*.png`): store it as `artifact`.
-- Each call reads about 100,000 input tokens (mostly cached) of the owner's ChatGPT plan, plus the image itself. That
-  is why batches hold 3 pictures, not 1.
+- Windows: shell commands go through `C:\Windows\System32\cmd.exe` with login off. **PowerShell is blocked by
+  Bitdefender.** Do not disable antivirus, add exclusions or bypass the sandbox.
+- No API key and no Images API, ever; never the imagegen skill's CLI fallback; never paid API billing; not the
+  Fortress Orchestrator.
+- Each worker reads about 100,000 tokens of the owner's ChatGPT plan, and 7 sections run at once, so usage limits and
+  "at capacity" answers are likely. Section 6 says what to do.
 
 ## 4. The worker prompt (one per batch of 3)
 
-Fill in the three entries; keep the rest word for word.
+`runner.py` reads this block from this file and fills in the three entries. Do not change it.
 
 ```
 You are making 3 pictures for a Bible study project, one native image-generation call per picture. First read and
@@ -135,56 +117,51 @@ PICTURE 3
 ...
 ```
 
-## 5. The loop
+## 5. The loop (run every command from your section folder, with the system `python`)
 
-1. **Reconcile first** (every start and restart). For every entry: if `output` exists, decodes and is not yet
-   `verified`/`in_studio`, mark it `generated` and verify it (step 4) instead of drawing it again. Make sure no
-   earlier Codex worker of this run is still running (check its batch folder and the process list) before
-   drawing anything; never start a second attempt at a picture while an earlier attempt might still produce it.
-2. **Pick the next batch**: the lowest batch id with an entry that is `pending` (or `generated` but failed
-   verification). Draw only the entries that still need it. One batch at a time; one worker at a time.
-3. **Run the worker** with a finite deadline: about 900 seconds for 3 pictures (pictures take 1-4 minutes each). While
-   it runs, watch for files appearing at the `output` paths and mark each `generated` as soon as it appears (and
-   write the manifest). If the deadline passes, end only that worker's process tree and keep what it saved.
-4. **Verify each new file yourself**, independently of what the worker reported:
-   - it exists, is not empty, and opens as an image with Pillow (`Image.open(...).verify()`, then reopen and load);
-   - it is landscape (width greater than height) and at least 1024 pixels wide; record the actual size;
-   - record its SHA256 in `file_sha256`;
-   - **look at it** (open the image) and check it agrees with the entry's `title` and `prompt`: the right event and
-     people, the painterly style, no text or watermark, nothing grossly wrong (extra limbs, melted faces, a blank or
-     unrelated picture). Note one line per picture in the batch report.
-   Pass → `verified`. Fail → back to `pending`, `attempts` + 1, `last_error` saying what was wrong.
-5. **Import into the Studio** after each batch: `python scripts/codex_pictures.py import --theme painterly-realism`.
-   It center-crops each verified picture to 16:9 and saves 1344 x 768 WebP plus a 480 x 270 small copy under
-   `.local/chapter-scene-studio/pictures/painterly-realism/`, records it in the database, and sets `in_studio`.
-   If it prints "not imported", read the reason and fix the cause (for example a stale `file_sha256`).
-6. **Write the batch report** (`<batch folder>\report.md`: each picture, status, size, SHA256, spot-check line) and
-   append a line to `progress.md`.
-7. **Go straight to the next batch.** Do not stop after launching a process or after the first batch.
+1. **Start / restart: reconcile.** `python runner.py` with no batch. It refuses if a worker of your section is still
+   running (then wait for it; never start a second attempt at a picture that might still be drawing) and prints
+   `NEEDS_VISUAL <id>` for any saved picture not yet checked. Check those first (steps 4–5) using their `batch`.
+2. **Pick the next batch:** the lowest batch with an entry that is `pending` and has fewer than 3 attempts.
+3. **Draw it:** `python runner.py bNNN`. It returns when the worker ends or after 900 seconds, printing `GENERATED`
+   lines. If it prints `CAPACITY`, see section 6.
+4. **Look at every new picture yourself** (open the image file at its `output`). Pass it only if it shows the entry's
+   `title` and `prompt`: the right event, people and key details (numbers that matter, who does what, which way
+   people face or move), the painterly style, **no text, letters or inscriptions anywhere** (tablets, plates, scrolls
+   and signs must be blank or illegible), and nothing grossly wrong (extra limbs, melted faces, blank or unrelated).
+   - Fail: `python reject.py <id> "<what is wrong>"`. It moves the file aside and puts the entry back to `pending`
+     (or `blocked` after its third attempt). The next `python runner.py bNNN` redraws it.
+   - Refused by OpenAI's safety system twice (`moderation_blocked`): `python block.py <id> "<the exact error>"`.
+5. **Record the passes and import:** write `batches\bNNN\visual-reviews.json` as `{"<id>": "<one line on what you
+   saw>", ...}` for the pictures that passed, then `python finalize.py bNNN`. It re-checks each file, finds its
+   original in `.codex\generated_images`, marks it `verified`, imports it into the Studio (cropped to 16:9, plus the
+   gallery copy), writes `report.md` and a progress line. If it says "not imported", read why and fix the cause.
+6. **Go straight to the next batch.** Do not stop after one batch, and do not wait for anything else.
 
-Retries: an entry gets at most 3 attempts in total; after that set `blocked` with the reason and move on to other
-entries. A transient failure (timeout, network) waits 60 seconds, then 120, then 240 before the next try. **Stop the
-whole run at once, without retrying,** on: a login or authentication error, the image tool being unavailable, a
-permissions/sandbox refusal, or a usage-limit/quota message. Record the exact message in `progress.md` and report it.
+## 6. Problems
 
-## 6. Never
+- **"At capacity" / too many requests** (the runner prints `CAPACITY`; the attempts are given back): wait 5 minutes and
+  run the same batch again; then 10, then 20 minutes. After 4 capacity pauses in a row, stop and report it.
+- **Timeouts or network errors:** wait 60, then 120, then 240 seconds and retry.
+- **Stop the whole section at once, without retrying,** when the runner prints `BLOCKER`: a usage limit or quota
+  message, a login or authentication error, the image tool being unavailable, or a permission or sandbox refusal. The
+  runner writes `blocker.txt` and leaves the batch's undrawn entries `pending` with the attempt not counted, so a
+  later restart of the phase simply carries on. Report the exact message and stop.
+- An entry that keeps failing (3 attempts) becomes `blocked`: record the reason and carry on with other entries.
 
-- Never change code in `scripts/`, `themes.json`, the scenes, or the database by hand (the import script is the only
-  writer of pictures into the Studio).
-- Never delete or overwrite verified originals, anything under `.codex\generated_images`, or other themes' pictures.
-- Never run `scripts/chapter_pictures.py` (the graphics-card maker; it refuses this theme anyway) or
-  `scripts/chapter_scenes.py`.
-- Never stop the Studio, HyperQwen, Docker or any process that is not a worker you started in this run.
-- Never change global Codex settings (`~\.codex\config.toml`), git state (no commit, push, stash, reset), or publish
-  anything.
+## 7. Never
 
-## 7. When finished
+- Never touch another section's folder, the first run's files, or `manifest-before-sections.json`.
+- Never change code in `scripts/`, `themes.json`, `sections.json`, the scenes, or the database by hand (the import
+  script is the only writer of pictures into the Studio).
+- Never delete pictures or anything under `.codex\generated_images`; rejected pictures are moved aside, not deleted.
+- Never run `scripts/chapter_pictures.py` or `scripts/chapter_scenes.py`.
+- Never stop the Studio or any process that is not a worker of your own section.
+- Never change global Codex settings (`~\.codex\config.toml`) or git state (no commit, push, stash, reset), and never
+  publish anything.
 
-Report: verified and imported / 3,213, any `blocked` entries with their reasons, total attempts, and these paths:
-- originals: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\originals\`
-- manifest: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\manifest.json`
-- progress: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\progress.md`
+## 8. When finished
 
-Then tell the owner where to look: the Studio at http://127.0.0.1:8947 → **Scenes** → **Gallery**, theme **Painterly
-realism** in the side panel (it shows the count drawn); **Finished** shows only drawn pictures and **▶ Speed run**
-steps through them.
+Report, in plain words: your phase and its chapters, pictures in the Studio / your section's total, the `blocked`
+entries with their reasons, and your section folder's path. The owner checks the pictures in the Studio:
+http://127.0.0.1:8947 → **Scenes** → **Gallery** → **Finished** or **▶ Speed run**.

@@ -4,12 +4,16 @@ themes.json entry says "engine": "codex". This script does not call Codex. It wr
 (the manifest) and, once a picture is verified, brings it into the Studio like a FLUX picture.
 Docs: initiatives/chapter-scenes/CODEX_IMAGES.md (the run instructions) and README.md (Pictures; Themes).
 
-python scripts/codex_pictures.py manifest --theme painterly-realism           every scene (--pilot: the 12 pilot chapters)
-python scripts/codex_pictures.py import --theme painterly-realism            every "verified" entry into the Studio
-python scripts/codex_pictures.py status --theme painterly-realism
+python scripts/codex_pictures.py manifest --theme painterly-realism --section 3   one section's scenes
+python scripts/codex_pictures.py import --theme painterly-realism --section 3     its "verified" entries into the Studio
+python scripts/codex_pictures.py status --theme painterly-realism [--section 3]
 
-Manifest: .local/chapter-scene-studio/codex/<theme>/manifest.json, a list of entries. Statuses: pending (to draw),
-generated (file saved, not checked), verified (checked by the runner), in_studio (imported here), blocked.
+Sections (2026-11-10): the chapters are cut into 7 runs that go at the same time, fixed in
+initiatives/chapter-scenes/sections.json. Each has its own folder, codex/<theme>/section-<N>/, holding its manifest,
+runner, batch logs and originals (a Codex worker may write only inside its own folder). Without --section the
+manifest is codex/<theme>/manifest.json (the single run before sections).
+Statuses: pending (to draw), generated (file saved, not checked), verified (checked by the runner), in_studio
+(imported here), blocked.
 """
 from __future__ import annotations
 
@@ -26,6 +30,8 @@ import scene_pictures
 
 RUN_FIELDS = ("status", "attempts", "session_id", "artifact", "file_sha256", "last_error")
 BATCH_SIZE = 3
+SECTIONS_FILE = chapter_scenes.DOCS / "sections.json"
+LEGACY = "manifest-before-sections.json"  # the single run's manifest, kept when the sections were cut
 
 
 def now() -> str:
@@ -39,8 +45,19 @@ def codex_theme(pictures: scene_pictures.Pictures, theme_id: str) -> dict:
     return theme
 
 
-def folder(pictures: scene_pictures.Pictures, theme_id: str) -> Path:
-    return pictures.store.path.parent / "codex" / theme_id
+def folder(pictures: scene_pictures.Pictures, theme_id: str, section: int | None = None) -> Path:
+    base = pictures.store.path.parent / "codex" / theme_id
+    return base / f"section-{section}" if section else base
+
+
+def section_keys(section: int, path: Path = SECTIONS_FILE) -> set[str]:
+    """The chapters of one section: every key from its first to its last, in Bible order."""
+    sections = {s["section"]: s for s in json.loads(path.read_text(encoding="utf-8"))}
+    if section not in sections:
+        sys.exit(f"Unknown section {section}; {path.name} has sections {sorted(sections)}")
+    keys = chapter_scenes.all_keys()
+    first, last = keys.index(sections[section]["first"]), keys.index(sections[section]["last"])
+    return set(keys[first:last + 1])
 
 
 def load(path: Path) -> list[dict]:
@@ -55,12 +72,15 @@ def write(path: Path, entries: list[dict]) -> None:
     os.replace(temp, path)
 
 
-def build_manifest(pictures: scene_pictures.Pictures, theme_id: str, keys: set[str] | None) -> Path:
-    """One entry per scene; an entry whose prompt is unchanged keeps its run fields, a changed one starts again."""
+def build_manifest(pictures: scene_pictures.Pictures, theme_id: str, keys: set[str] | None,
+                   section: int | None = None) -> Path:
+    """One entry per scene; an entry whose prompt is unchanged keeps its run fields, a changed one starts again.
+    A section's first build takes the run fields from the single run's manifest (kept as LEGACY)."""
     codex_theme(pictures, theme_id)
-    base = folder(pictures, theme_id)
+    base = folder(pictures, theme_id, section)
     path = base / "manifest.json"
-    old = {e["id"]: e for e in load(path)}
+    old = {e["id"]: e for e in load(folder(pictures, theme_id) / LEGACY)} if section else {}
+    old.update({e["id"]: e for e in load(path)})
     order = {k: i for i, k in enumerate(chapter_scenes.all_keys())}
     states = sorted((s for s in pictures.states(theme_ids=[theme_id]) if not keys or s["key"] in keys),
                     key=lambda s: (order.get(s["key"], 0), s["writer"], s["scene"]))
@@ -106,9 +126,9 @@ def save_webp(image, path: Path, size=None, quality: int = 90) -> None:
     os.replace(temp, path)
 
 
-def import_verified(pictures: scene_pictures.Pictures, theme_id: str) -> None:
+def import_verified(pictures: scene_pictures.Pictures, theme_id: str, section: int | None = None) -> None:
     codex_theme(pictures, theme_id)
-    path = folder(pictures, theme_id) / "manifest.json"
+    path = folder(pictures, theme_id, section) / "manifest.json"
     entries = load(path)
     if not entries:
         sys.exit(f"No manifest at {path}; run the manifest command first.")
@@ -143,9 +163,9 @@ def import_verified(pictures: scene_pictures.Pictures, theme_id: str) -> None:
     print(f"Imported {counts['imported']} into the Studio, {counts['skipped']} not imported ({theme_id}).")
 
 
-def status(pictures: scene_pictures.Pictures, theme_id: str) -> None:
+def status(pictures: scene_pictures.Pictures, theme_id: str, section: int | None = None) -> None:
     codex_theme(pictures, theme_id)
-    entries = load(folder(pictures, theme_id) / "manifest.json")
+    entries = load(folder(pictures, theme_id, section) / "manifest.json")
     tally: dict[str, int] = {}
     for entry in entries:
         tally[entry["status"]] = tally.get(entry["status"], 0) + 1
@@ -159,19 +179,23 @@ def main() -> None:
     parser.add_argument("--theme", required=True, help="a themes.json id whose engine is codex")
     parser.add_argument("--pilot", action="store_true", help="manifest: only the 12 pilot chapters")
     parser.add_argument("--keys", default="", help="manifest: comma-separated chapters such as GEN:22,1SA:17")
+    parser.add_argument("--section", type=int, help="one section of sections.json (its own folder and manifest)")
     args = parser.parse_args()
     pictures = scene_pictures.Pictures()
     if args.command == "manifest":
-        keys = set(chapter_scenes.PILOT) if args.pilot else {k.strip() for k in args.keys.split(",") if k.strip()}
+        if args.section:
+            keys = section_keys(args.section)
+        else:
+            keys = set(chapter_scenes.PILOT) if args.pilot else {k.strip() for k in args.keys.split(",") if k.strip()}
         unknown = keys - set(chapter_scenes.all_keys())
         if unknown:
             sys.exit(f"Unknown chapters {sorted(unknown)}; expected keys such as GEN:22")
-        path = build_manifest(pictures, args.theme, keys or None)
+        path = build_manifest(pictures, args.theme, keys or None, args.section)
         print(f"Manifest: {path} ({len(load(path))} pictures)")
     elif args.command == "import":
-        import_verified(pictures, args.theme)
+        import_verified(pictures, args.theme, args.section)
     else:
-        status(pictures, args.theme)
+        status(pictures, args.theme, args.section)
 
 
 if __name__ == "__main__":

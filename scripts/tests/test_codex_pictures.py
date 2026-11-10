@@ -78,3 +78,35 @@ def test_a_changed_file_is_not_imported(pictures):
 def test_flux_theme_refused_by_codex_script(pictures):
     with pytest.raises(SystemExit):
         codex_pictures.build_manifest(pictures, "photographic", None)
+
+
+def test_section_keys_runs_first_to_last_and_refuses_unknown(tmp_path):
+    path = tmp_path / "sections.json"
+    path.write_text('[{"section": 1, "first": "GEN:49", "last": "EXO:2"}]', encoding="utf-8")
+    assert codex_pictures.section_keys(1, path) == {"GEN:49", "GEN:50", "EXO:1", "EXO:2"}
+    with pytest.raises(SystemExit):
+        codex_pictures.section_keys(2, path)
+
+
+def test_real_sections_cover_every_chapter_once():
+    keys = [codex_pictures.section_keys(n) for n in range(1, 8)]
+    assert sum(len(k) for k in keys) == len(set().union(*keys)) == len(chapter_scenes.all_keys()) == 1189
+
+
+def test_section_manifest_lives_in_its_folder_and_carries_the_single_run(pictures):
+    legacy = codex_pictures.build_manifest(pictures, "paint", None)
+    entries = codex_pictures.load(legacy)
+    entries[1].update(status="blocked", attempts=3, last_error="moderation_blocked")
+    codex_pictures.write(legacy.with_name(codex_pictures.LEGACY), entries)
+    path = codex_pictures.build_manifest(pictures, "paint", {"PSA:117"}, section=4)
+    assert path.parent.name == "section-4"
+    section = codex_pictures.load(path)
+    assert all(Path(e["output"]).is_relative_to(path.parent / "originals") for e in section)
+    assert [(e["status"], e["attempts"]) for e in section] == [("pending", 0), ("blocked", 3)]
+    # The section's own manifest wins on a rebuild.
+    section[1].update(status="pending", attempts=0)
+    codex_pictures.write(path, section)
+    codex_pictures.build_manifest(pictures, "paint", {"PSA:117"}, section=4)
+    assert [e["status"] for e in codex_pictures.load(path)] == ["pending", "pending"]
+    assert codex_pictures.build_manifest(pictures, "paint", {"GEN:1"}, section=5) and \
+        codex_pictures.load(codex_pictures.folder(pictures, "paint", 5) / "manifest.json") == []

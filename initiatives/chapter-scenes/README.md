@@ -19,6 +19,12 @@ Painterly realism and retired the rest:
 - **Real run:** the manifest lists all 3,213 scenes (9 already drawn in the trial); the run brief is
   [CODEX_IMAGES.md](CODEX_IMAGES.md). The trial's logs and runner are in
   `.local/chapter-scene-studio/codex/painterly-realism/trial-2026-11-10/`.
+- **Seven sections at once (owner 2026-11-10):** the first single run stopped on "model at capacity" after 296
+  pictures (Genesis to Leviticus). The chapters are cut into 7 sections of about 415 pictures still to draw
+  ([sections.json](sections.json)); each runs in its own chat from a paste block that starts "PHASE N of 7", in its
+  own folder `codex/painterly-realism/section-N/` (manifest, runner, finalize, reject, block). The single run's
+  manifest is kept as `manifest-before-sections.json` and seeded section 1. A capacity or usage-limit stop leaves
+  pictures waiting, with the attempt not counted.
 
 Sections below describe the pilot, the two writers and the FLUX themes as they were built; they are history now.
 
@@ -160,6 +166,12 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
 - **▶ Speed run** (owner 2026-11-07: "speed run through all the images"): opens the large view at the first picture of
   what the gallery shows (filter and writer chips apply), with a "12 / 63" counter; ← → step through, wrapping at the
   ends. A not-drawn scene shows an empty frame in the run.
+- **Verses beside the picture** (owner 2026-11-10): the large view shows the picture on the left and the scene's
+  verses (BSB, from `/api/chapter`, one fetch per chapter) in a scrolling panel on the right; on a phone the panel
+  sits under the picture.
+- **→ crosses books** (owner 2026-11-10): a picture opened from the Scenes page opens inside every drawn picture
+  of the theme (a fresh `/api/gallery` list per click, since the runs keep importing), at the one clicked, so → runs
+  on past the chosen chapter and book while the page behind stays on it.
 
 **Themes drawn by Codex (2026-11-09).** A theme with `"engine": "codex"` in [themes.json](themes.json) is drawn by
 headless Codex's built-in image tool on the owner's ChatGPT login, not by FLUX: `chapter_pictures.py` skips it and

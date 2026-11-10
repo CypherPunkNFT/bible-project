@@ -100,7 +100,7 @@ function showVerses(a,b){let first=null;document.querySelectorAll('#scripture p'
 function chip(a,b){const c=el('button','verse-link',a===b?'v. '+a:'vv. '+a+'–'+b);c.title='Show these verses in the chapter';c.onclick=()=>showVerses(a,b);return c}
 function list(items,cls,fill){const ul=el('ul',cls);items.forEach(x=>{const li=el('li');fill(li,x);ul.append(li)});return ul}
 """ + themes_ui.JS + r"""function sceneCard(s,i){const card=el('article','scene');
- const frame=el('div','scene-frame');framePicture(frame,s);
+ const frame=el('div','scene-frame');framePicture(frame,s,i);
  frame.append(el('b',null,s.shot+' shot · 16:9'),el('span',null,'Picture not made yet · focal point: '+s.focal_point));card.append(frame);
  const strip=themeStrip(s);if(strip)card.append(strip);
  card.append(el('div','scene-eyebrow',i===0?'Main scene':'Scene '+(i+1)));
