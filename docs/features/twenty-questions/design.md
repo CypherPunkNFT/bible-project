@@ -1130,17 +1130,21 @@ would be guesswork. The one-time tagging run still waits for the owner's yes on 
 Built to this design and registered live on `/games`. Where the build differs from the text above, and why:
 
 1. **The tagging model run was not made.** §5.3–5.6's two-pass run costs model usage and waits for the owner's yes.
-   The story, place and book values were written by hand in one pass instead
+   The story, place and book values were written by hand in three passes instead
    ([story.source.json](../../../scripts/twenty-questions/story.source.json)), and so were the 92 questions. A hand
    value is yes only with a verse that names the person, or one marked `(context)` and checked by hand.
 2. **The pool is 298 people, 146 in tier 1, not about 406.** The people pages hold 196 distinct people, not 393, so
-   §3.1's first source was smaller than measured; the rest came from the other sources §3.1 lists.
-3. **The simulation is below the §5.5 targets.** Truthful players' tier-1 people are found 71.9 % of the time
-   (target 99 %), the whole pool 64.4 % (97 %), with "Don't know" on detail questions 45.9 % (95 %), after one wrong
-   answer 41.1 % (85 %). The cause is honest "unsure" values: the hand pass left many pairs of people that no question
-   separates (listed in the [review sheet](review-sheet.md)). Wrong guesses were never traded for coverage: a value is
-   no only where the text or a hand rule settles it. The data test keeps these figures as a floor; the model run is
-   the planned way to reach the targets.
+   §3.1's first source was smaller than measured, and the rule as written gives 308. From those, 563. **The simulation is below the §5.5 targets.** Truthful players' tier-1 people are found 84.9 % of the time
+   (target 99 %), the whole pool 69.1 % (97 %), with "Don't know" on detail questions 46.6 % (95 %), after one wrong
+   answer 59.6 % (85 %). A first hand pass gave 71.9 / 64.4 / 45.9 / 41.1 %; later hand passes (about 600 values,
+   each checked against the text and the question's definition) cut the well-known pairs that no question separates
+   from 136 to 14. Shadrach, Meshach and Abednego are told apart by no fact in the text at all; the others (Leah and
+   Rebekah, Japheth and Ham, Adam and Methuselah, Xerxes and Artaxerxes, Philip and Thomas, Joseph of Arimathea and
+   Nicodemus, and the minor prophets Hosea, Joel, Micah, Obadiah and Malachi) are separated only by facts players
+   often get wrong, which are slip-marked, or by nothing the text settles. The rest of the gap is honest "unsure"
+   values among the less-known people. Wrong guesses were never traded for coverage: a value is no only where the
+   text or the question's definition settles it, and a book question counts taking part, not a mention. The data test
+   keeps these figures as a floor; the model run is the planned way to reach the targets.
 4. **The rate cap is 120 reports an hour, not about 30**, so a family or a school behind one address can play all
    evening; the review in this step judged 30 too tight. Database errors answer 503, so the endpoint fails quietly
    until the migration is applied.
@@ -1151,4 +1155,8 @@ Built to this design and registered live on `/games`. Where the build differs fr
    screen shows instead; a game in progress resumes exactly.
 7. **The privacy policy** needs one sentence about the anonymous game report before release. It is a shared page,
    so this step did not edit it.
-8. **Not built:** `learn.ts` (§10.4) waits for real reports, and the BatchRunner job files wait for the model run.
+8. **Screen text and translation.** The questions, people and notes stay English in every language (as above). The
+   game's own buttons and sentences are written as one template per sentence, with `plural()` for counts, so the
+   site's English build check passes and its collector registers them for translation. Two wordings changed for it:
+   a person not in the game is now "*name* is a good one.", and accepting a lesson row says "Thanks for telling us."
+9. **Not built:** `learn.ts` (§10.4) waits for real reports, and the BatchRunner job files wait for the model run.

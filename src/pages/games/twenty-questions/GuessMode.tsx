@@ -3,6 +3,7 @@
 // the result screen is open and sent when the player leaves it, so "Actually, that wasn't my person" can still take a
 // win back without a false report.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { formatNumber } from "@/lib/site-format";
 import { EXTRA_TURNS, TURNS, nextStep, type Answer, type Engine, type Softened } from "./engine";
 import { Lesson, YourAnswers } from "./Lesson";
 import { Dots, PersonSummary } from "./parts";
@@ -79,7 +80,7 @@ function Play({ engine, game, softened, onUpdate, onQuit }: Pick<Props, "engine"
 
   const streak = turns.length >= 6 && turns.slice(-6).every((t) => t.kind === "q" && t.answer === "d");
   return <div className="tq-play">
-    <Dots kinds={turns.map((t) => t.kind)} limit={game.limit} noun="Turn" />
+    <Dots kinds={turns.map((t) => t.kind)} limit={game.limit} />
     <div className="tq-stage" aria-live="polite">
       {step.kind === "ask" && <>
         <h1 className="tq-question">{engine.data.tags[step.tag].q}</h1>
@@ -92,7 +93,7 @@ function Play({ engine, game, softened, onUpdate, onQuit }: Pick<Props, "engine"
         <p className="tq-hint">{engine.data.people[step.person].b}</p>
       </>}
       {step.kind === "out" && <>
-        <h1 className="tq-question">I'm out of {game.limit === TURNS ? "questions" : "turns"}.</h1>
+        <h1 className="tq-question">{game.limit === TURNS ? "I'm out of questions." : "I'm out of turns."}</h1>
         <p className="tq-hint">{game.limit === TURNS ? `I can keep going for ${EXTRA_TURNS} more, or you can tell me who it was.` : "Tell me who it was, and I'll learn from it."}</p>
       </>}
     </div>
@@ -107,7 +108,7 @@ function Play({ engine, game, softened, onUpdate, onQuit }: Pick<Props, "engine"
         <button type="button" className="tq-answer" onClick={() => guessReply(false)}>No</button>
       </>}
       {step.kind === "out" && <>
-        {game.limit === TURNS && <button type="button" className="tq-answer" onClick={() => onUpdate({ ...game, limit: TURNS + EXTRA_TURNS })}>Keep going: {EXTRA_TURNS} more</button>}
+        {game.limit === TURNS && <button type="button" className="tq-answer" onClick={() => onUpdate({ ...game, limit: TURNS + EXTRA_TURNS })}>{`Keep going: ${formatNumber(EXTRA_TURNS)} more`}</button>}
         <button type="button" className="tq-answer is-soft" onClick={() => onUpdate({ ...game, over: "lost" })}>I give up, tell me who you were thinking of</button>
       </>}
     </div>
@@ -138,7 +139,7 @@ function Won({ engine, game, onUpdate, onPlayAgain, onSwap, report, leave }: Res
     onUpdate({ ...game, turns: [...game.turns.slice(0, -1), { kind: "g", person, right: false }], over: null });
   };
   return <div className="tq-result">
-    <h1 ref={heading} tabIndex={-1}>Got it in {game.turns.length}!</h1>
+    <h1 ref={heading} tabIndex={-1}>{`Got it in ${formatNumber(game.turns.length)}!`}</h1>
     <PersonSummary person={engine.data.people[person]} onLeave={report.flush} />
     <YourAnswers engine={engine} person={person} turns={game.turns} refs={refs} />
     <div className="tq-actions">
@@ -181,13 +182,13 @@ function Lost({ engine, game, onSoften, onPlayAgain, onSwap, report, leave }: Re
     {actions}
   </div>;
   if (pick.kind === "other") return <div className="tq-result">
-    <h1 ref={heading} tabIndex={-1}>{pick.label}: a good one.</h1>
-    <p className="tq-lede">{pick.label} isn't in the game yet. Your game has been noted, and people chosen often are added later.</p>
+    <h1 ref={heading} tabIndex={-1}>{`${pick.label} is a good one.`}</h1>
+    <p className="tq-lede">{`${pick.label} isn't in the game yet. Your game has been noted, and people chosen often are added later.`}</p>
     {actions}
   </div>;
   const person = engine.data.people[pick.person];
   return <div className="tq-result">
-    <h1 ref={heading} tabIndex={-1}>It was {person.label}.</h1>
+    <h1 ref={heading} tabIndex={-1}>{`It was ${person.label}.`}</h1>
     <PersonSummary person={person} onLeave={report.flush} />
     <Lesson engine={engine} person={pick.person} turns={game.turns} refs={refs} disputed={disputed} accepted={accepted}
       onAccept={(id) => setAccepted((a) => [...a, id])} onDispute={dispute} />

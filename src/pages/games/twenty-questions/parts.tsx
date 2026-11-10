@@ -3,18 +3,19 @@
 import { Link } from "react-router-dom";
 import { Verse } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
+import { formatNumber } from "@/lib/site-format";
 import { verseReference } from "@/lib/verses";
 import type { TqPerson } from "./engine";
 import { personHref } from "./shared";
 
 /** One slot per turn: a question (round) or a guess (gold diamond), so colour is never the only signal. */
-export function Dots({ kinds, limit, noun = "Question" }: { kinds: readonly ("q" | "g")[]; limit: number; noun?: string }) {
+export function Dots({ kinds, limit }: { kinds: readonly ("q" | "g")[]; limit: number }) {
   const now = Math.min(kinds.length + 1, limit);
   return <div className="tq-dots">
     <ol aria-hidden="true">
       {Array.from({ length: limit }, (_, i) => <li key={i} className={kinds[i] === "g" ? "is-guess" : kinds[i] ? "is-used" : ""} />)}
     </ol>
-    <p className="tq-turn">{noun} {now} of {limit}</p>
+    <p className="tq-turn">{`Turn ${formatNumber(now)} of ${formatNumber(limit)}`}</p>
   </div>;
 }
 
@@ -23,7 +24,7 @@ export function PersonSummary({ person, onLeave }: { person: TqPerson; onLeave?:
     <p className="tq-person-name">{person.label}</p>
     {person.b && <p className="tq-person-brief">{person.b}</p>}
     {person.s && person.s !== person.b && <p className="tq-person-story">{person.s}</p>}
-    <Link className="tq-link" to={personHref(person)} onClick={onLeave}>Read about {person.label}</Link>
+    <Link className="tq-link" to={personHref(person)} onClick={onLeave}>{`Read about ${person.label}`}</Link>
   </div>;
 }
 

@@ -135,7 +135,16 @@
     "solomon-2sa-5-14",
     "potiphar-gen-37-36"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "joseph-gen-30-24": null,
+    "samuel-1sa-1-20": null,
+    "esther-est-2-7": null,
+    "jesse-rut-4-17": null,
+    "zerubbabel-1ch-3-19": null,
+    "melchizedek-gen-14-18": null,
+    "hosea-hos-1-1": null
+   }
   },
   "court-official": {
    "closed": "all",
@@ -202,14 +211,12 @@
     "levi-gen-29-34",
     "benjamin-gen-35-18",
     "esau-gen-25-25",
-    "leah-gen-29-16",
     "jesse-rut-4-17",
     "nabal-1sa-25-3",
     "jesus-isa-7-14",
     "saul-1sa-9-2",
     "elisha-1ki-19-16",
     "job-job-1-1",
-    "rebekah-gen-22-23",
     "ishmael-gen-16-11",
     "gad-gen-30-11",
     "naphtali-gen-30-8",
@@ -225,7 +232,11 @@
     "abraham-gen-11-26",
     "lot-gen-11-27",
     "laban-gen-24-29"
-   ]
+   ],
+   "no": {
+    "leah-gen-29-16": null,
+    "rebekah-gen-22-23": null
+   }
   },
   "fisherman": {
    "closed": "all",
@@ -287,7 +298,6 @@
     "james-mat-4-21",
     "john-mat-4-21",
     "mark-act-12-12",
-    "thomas-mat-10-3",
     "silas-act-15-22",
     "matthew-mat-9-9"
    ],
@@ -296,7 +306,10 @@
     "naomi-rut-1-2",
     "esther-est-2-7",
     "gideon-jdg-6-11"
-   ]
+   ],
+   "no": {
+    "thomas-mat-10-3": null
+   }
   },
   "miracle-birth": {
    "closed": "all",
@@ -343,23 +356,25 @@
    },
    "unsure": [
     "eve-gen-3-20",
-    "cain-gen-4-1",
-    "abel-gen-4-2",
-    "ham-gen-5-32",
-    "japheth-gen-5-32",
     "job-job-1-1",
     "esau-gen-25-25",
     "melchizedek-gen-14-18",
     "lot-gen-11-27",
     "laban-gen-24-29",
-    "rebekah-gen-22-23",
     "jethro-exo-2-18",
     "miriam-exo-15-20",
     "anna-luk-2-36"
    ],
    "slip": [
     "enoch-gen-5-18"
-   ]
+   ],
+   "no": {
+    "rebekah-gen-22-23": null,
+    "cain-gen-4-1": null,
+    "abel-gen-4-2": null,
+    "japheth-gen-5-32": null,
+    "ham-gen-5-32": null
+   }
   },
   "miracles": {
    "closed": "all",
@@ -482,7 +497,6 @@
     "salome-mat-20-20",
     "barnabas-act-4-36",
     "silas-act-15-22",
-    "rebekah-gen-22-23",
     "hezekiah-2ki-16-20",
     "azariah-dan-1-6",
     "hananiah-dan-1-6",
@@ -492,7 +506,10 @@
    "slip": [
     "isaiah-2ki-19-2",
     "joshua-exo-17-9"
-   ]
+   ],
+   "no": {
+    "rebekah-gen-22-23": null
+   }
   },
   "dream": {
    "closed": "all",
@@ -626,7 +643,37 @@
     "mordecai-est-2-5",
     "ezekiel-ezk-1-3"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "david-rut-4-17": null,
+    "moses-exo-2-10": null,
+    "saul-1sa-9-2": null,
+    "solomon-2sa-5-14": null,
+    "judah-gen-29-35": null,
+    "samuel-1sa-1-20": null,
+    "hezekiah-2ki-16-20": null,
+    "nebuchadnezzar-2ki-24-1": null,
+    "jonathan-1sa-13-2": null,
+    "jeroboam-1ki-11-26": null,
+    "ahab-1ki-16-28": null,
+    "pilate-mat-27-2": null,
+    "josiah-1ki-13-2": null,
+    "jehu-1ki-19-16": null,
+    "jesse-rut-4-17": null,
+    "rehoboam-1ki-11-43": null,
+    "ahasuerus-ezr-4-6": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "cyrus-2ch-36-22": null,
+    "artaxerxes-ezr-4-7": null,
+    "herod-mat-2-1": null,
+    "melchizedek-gen-14-18": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "augustus-luk-2-1": null,
+    "hosea-hos-1-1": null,
+    "joshua-exo-17-9": null
+   }
   },
   "killed": {
    "closed": "all",
@@ -675,7 +722,6 @@
     "judas-mat-10-4",
     "isaiah-2ki-19-2",
     "jeremiah-2ch-35-25",
-    "andrew-mat-4-18",
     "thomas-mat-10-3",
     "matthew-mat-9-9",
     "philip-mat-10-3",
@@ -703,12 +749,10 @@
     "herod-mat-14-1",
     "pilate-mat-27-2",
     "barabbas-mat-27-16",
-    "jehu-1ki-19-16",
     "nebuchadnezzar-2ki-24-1",
     "ahasuerus-ezr-4-6",
     "artaxerxes-ezr-4-7",
     "cyrus-2ch-36-22",
-    "darius-dan-5-31",
     "augustus-luk-2-1",
     "cornelius-act-10-1",
     "lazarus-jhn-11-1",
@@ -723,7 +767,26 @@
    "no": {
     "sapphira-act-5-1": null,
     "ananias-act-5-1": null,
-    "uzzah-2sa-6-3": null
+    "uzzah-2sa-6-3": null,
+    "judah-gen-29-35": null,
+    "david-rut-4-17": null,
+    "moses-exo-2-10": null,
+    "solomon-2sa-5-14": null,
+    "joseph-gen-30-24": null,
+    "joshua-exo-17-9": null,
+    "samuel-1sa-1-20": null,
+    "hezekiah-2ki-16-20": null,
+    "jeroboam-1ki-11-26": null,
+    "esther-est-2-7": null,
+    "jesse-rut-4-17": null,
+    "rehoboam-1ki-11-43": null,
+    "zerubbabel-1ch-3-19": null,
+    "manasseh-2ki-20-21": null,
+    "melchizedek-gen-14-18": null,
+    "nehemiah-neh-1-1": null,
+    "jehu-1ki-19-16": null,
+    "darius-dan-5-31": null,
+    "andrew-mat-4-18": null
    },
    "unsureRulers": true
   },
@@ -799,7 +862,23 @@
    "yesFrom": [
     "ruler-israel",
     "judge"
-   ]
+   ],
+   "no": {
+    "nebuchadnezzar-2ki-24-1": null,
+    "pilate-mat-27-2": null,
+    "jesse-rut-4-17": null,
+    "ahasuerus-ezr-4-6": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "cyrus-2ch-36-22": null,
+    "artaxerxes-ezr-4-7": null,
+    "herod-mat-2-1": null,
+    "melchizedek-gen-14-18": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "hosea-hos-1-1": null,
+    "augustus-luk-2-1": null
+   }
   },
   "battle": {
    "closed": "all",
@@ -876,7 +955,16 @@
     "moses-exo-2-10",
     "deborah-jdg-4-4"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "joseph-gen-30-24": null,
+    "pilate-mat-27-2": null,
+    "esther-est-2-7": null,
+    "jesse-rut-4-17": null,
+    "zerubbabel-1ch-3-19": null,
+    "herod-mat-14-1": null,
+    "hosea-hos-1-1": null
+   }
   },
   "enemy": {
    "closed": "all",
@@ -946,7 +1034,24 @@
    "slip": [
     "paul-act-7-58"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "judah-gen-29-35": null,
+    "david-rut-4-17": null,
+    "moses-exo-2-10": null,
+    "joseph-gen-30-24": null,
+    "joshua-exo-17-9": null,
+    "samuel-1sa-1-20": null,
+    "hezekiah-2ki-16-20": null,
+    "jonathan-1sa-13-2": null,
+    "josiah-1ki-13-2": null,
+    "esther-est-2-7": null,
+    "jesse-rut-4-17": null,
+    "zerubbabel-1ch-3-19": null,
+    "melchizedek-gen-14-18": null,
+    "nehemiah-neh-1-1": null,
+    "hosea-hos-1-1": null
+   }
   },
   "betrayed": {
    "closed": "all",
@@ -1000,7 +1105,8 @@
     "reuben-gen-29-32",
     "laban-gen-24-29",
     "cain-gen-4-1"
-   ]
+   ],
+   "no": {}
   },
   "anointed": {
    "closed": "all",
@@ -1025,7 +1131,6 @@
     "mary-luk-10-39",
     "zerubbabel-1ch-3-19",
     "joshua-ezr-2-2",
-    "jeroboam-1ki-11-26",
     "rehoboam-1ki-11-43",
     "hezekiah-2ki-16-20",
     "josiah-1ki-13-2",
@@ -1040,7 +1145,26 @@
     "absalom-2sa-3-3",
     "cyrus-2ch-36-22"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "judah-gen-29-35": null,
+    "joseph-gen-30-24": null,
+    "joshua-exo-17-9": null,
+    "jonathan-1sa-13-2": null,
+    "pilate-mat-27-2": null,
+    "jesse-rut-4-17": null,
+    "ahasuerus-ezr-4-6": null,
+    "herod-mat-14-1": null,
+    "artaxerxes-ezr-4-7": null,
+    "herod-mat-2-1": null,
+    "melchizedek-gen-14-18": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "nehemiah-neh-1-1": null,
+    "hosea-hos-1-1": null,
+    "augustus-luk-2-1": null,
+    "jeroboam-1ki-11-26": null
+   }
   },
   "built": {
    "closed": "all",
@@ -1085,7 +1209,27 @@
    "slip": [
     "cain-gen-4-1"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "judah-gen-29-35": null,
+    "saul-1sa-9-2": null,
+    "joseph-gen-30-24": null,
+    "zedekiah-2ki-24-17": null,
+    "pilate-mat-27-2": null,
+    "jehu-1ki-19-16": null,
+    "esther-est-2-7": null,
+    "jesse-rut-4-17": null,
+    "ahasuerus-ezr-4-6": null,
+    "herod-mat-14-1": null,
+    "manasseh-2ki-20-21": null,
+    "jezebel-1ki-16-31": null,
+    "artaxerxes-ezr-4-7": null,
+    "melchizedek-gen-14-18": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "hosea-hos-1-1": null,
+    "augustus-luk-2-1": null
+   }
   },
   "animal": {
    "closed": "all",
@@ -1129,7 +1273,6 @@
     "andrew-mat-4-18",
     "zipporah-exo-2-21",
     "hagar-gen-16-1",
-    "cain-gen-4-1",
     "ezekiel-ezk-1-3",
     "zechariah-ezr-5-1",
     "laban-gen-24-29",
@@ -1147,7 +1290,10 @@
     "aaron-exo-4-14",
     "peter-mat-4-18",
     "moses-exo-2-10"
-   ]
+   ],
+   "no": {
+    "cain-gen-4-1": null
+   }
   },
   "water-miracle": {
    "closed": "all",
@@ -1242,7 +1388,6 @@
     "benjamin-gen-35-18",
     "mark-act-12-12",
     "rebekah-gen-22-23",
-    "rachel-gen-29-6",
     "israel-gen-25-26",
     "esau-gen-25-25",
     "naaman-2ki-5-1",
@@ -1262,7 +1407,34 @@
     "isaac-gen-17-19",
     "ishmael-gen-16-11"
    ],
-   "unsureRulers": true
+   "unsureRulers": true,
+   "no": {
+    "judah-gen-29-35": null,
+    "hezekiah-2ki-16-20": null,
+    "nebuchadnezzar-2ki-24-1": null,
+    "jeroboam-1ki-11-26": null,
+    "ahab-1ki-16-28": null,
+    "zedekiah-2ki-24-17": null,
+    "pilate-mat-27-2": null,
+    "jehu-1ki-19-16": null,
+    "jesse-rut-4-17": null,
+    "rehoboam-1ki-11-43": null,
+    "ahasuerus-ezr-4-6": null,
+    "zerubbabel-1ch-3-19": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "cyrus-2ch-36-22": null,
+    "artaxerxes-ezr-4-7": null,
+    "herod-mat-2-1": null,
+    "melchizedek-gen-14-18": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "nehemiah-neh-1-1": null,
+    "hosea-hos-1-1": null,
+    "augustus-luk-2-1": null,
+    "leah-gen-29-16": null,
+    "rachel-gen-29-6": null
+   }
   },
   "met-jesus": {
    "closed": "all",
@@ -1322,7 +1494,6 @@
     "simon-mat-10-4": "MAT 10:4"
    },
    "unsure": [
-    "herod-mat-2-1",
     "zechariah-luk-1-5",
     "barnabas-act-4-36",
     "mark-act-12-12",
@@ -1345,7 +1516,10 @@
     "elijah-1ki-17-1",
     "stephen-act-6-5",
     "barabbas-mat-27-16"
-   ]
+   ],
+   "no": {
+    "herod-mat-2-1": null
+   }
   },
   "risen-jesus": {
    "closed": "all",
@@ -1627,7 +1801,6 @@
     "zechariah-luk-1-5": "LUK 1:8",
     "simeon-luk-2-25": "LUK 2:25",
     "anna-luk-2-36": "LUK 2:36",
-    "mark-act-12-12": "ACT 12:12",
     "melchizedek-gen-14-18": "GEN 14:18",
     "haggai-ezr-5-1": "EZR 5:1",
     "zechariah-ezr-5-1": "EZR 5:1",
@@ -1644,7 +1817,8 @@
     "huldah-2ki-22-14": "2KI 22:14",
     "gamaliel-act-5-34": "ACT 5:34",
     "uriah-2sa-11-3": "2SA 11:9",
-    "adonijah-2sa-3-4": "1KI 1:5"
+    "adonijah-2sa-3-4": "1KI 1:5",
+    "mark-act-12-12": "ACT 12:12"
    },
    "unsure": [
     "mary-mat-1-16",
@@ -1679,7 +1853,6 @@
     "zacchaeus-luk-19-2",
     "simon-mat-27-32",
     "barabbas-mat-27-16",
-    "herod-mat-14-1",
     "nebuchadnezzar-2ki-24-1",
     "jesse-rut-4-17",
     "jonah-2ki-14-25",
@@ -1694,7 +1867,40 @@
     "Divided Monarchy",
     "Exile and Return",
     "New Testament"
-   ]
+   ],
+   "no": {
+    "samuel-1sa-1-20": null,
+    "elijah-1ki-17-1": null,
+    "john-mat-3-1": null,
+    "jeroboam-1ki-11-26": null,
+    "ahab-1ki-16-28": null,
+    "elisha-1ki-19-16": null,
+    "mordecai-est-2-5": null,
+    "jehu-1ki-19-16": null,
+    "esther-est-2-7": null,
+    "haman-est-3-1": null,
+    "eli-1sa-1-3": null,
+    "ahasuerus-ezr-4-6": null,
+    "jezebel-1ki-16-31": null,
+    "cyrus-2ch-36-22": null,
+    "artaxerxes-ezr-4-7": null,
+    "hannah-1sa-1-2": null,
+    "naaman-2ki-5-1": null,
+    "apollos-act-18-24": null,
+    "cornelius-act-10-1": null,
+    "darius-dan-5-31": null,
+    "belshazzar-dan-5-1": null,
+    "aquila-act-18-2": null,
+    "priscilla-act-18-2": null,
+    "goliath-1sa-17-4": null,
+    "lydia-act-16-14": null,
+    "jairus-mrk-5-22": null,
+    "augustus-luk-2-1": null,
+    "bartimaeus-mrk-10-46": null,
+    "eutychus-act-20-9": null,
+    "timothy-act-16-1": null,
+    "herod-mat-14-1": null
+   }
   },
   "galilee": {
    "closed": "all",
@@ -1736,20 +1942,41 @@
     "lazarus-jhn-11-1",
     "john-mat-3-1",
     "zacchaeus-luk-19-2",
-    "bartimaeus-mrk-10-46",
     "jael-jdg-4-17",
     "sisera-jdg-4-2",
     "herod-mat-2-1",
     "elizabeth-luk-1-5",
-    "zechariah-luk-1-5",
-    "simon-mat-27-32"
+    "zechariah-luk-1-5"
    ],
    "slip": [
     "jonah-2ki-14-25"
    ],
    "unsureEra": [
     "New Testament"
-   ]
+   ],
+   "no": {
+    "paul-act-7-58": null,
+    "pilate-mat-27-2": null,
+    "barnabas-act-4-36": null,
+    "timothy-act-16-1": null,
+    "silas-act-15-22": null,
+    "apollos-act-18-24": null,
+    "cornelius-act-10-1": null,
+    "mark-act-12-12": null,
+    "barabbas-mat-27-16": null,
+    "stephen-act-6-5": null,
+    "aquila-act-18-2": null,
+    "priscilla-act-18-2": null,
+    "joseph-mat-27-57": null,
+    "luke-2co-13-13": null,
+    "ananias-act-5-1": null,
+    "lydia-act-16-14": null,
+    "augustus-luk-2-1": null,
+    "sapphira-act-5-1": null,
+    "eutychus-act-20-9": null,
+    "simon-mat-27-32": null,
+    "bartimaeus-mrk-10-46": null
+   }
   },
   "rome": {
    "closed": "all",
@@ -1829,7 +2056,29 @@
    ],
    "unsureEra": [
     "New Testament"
-   ]
+   ],
+   "no": {
+    "john-mat-3-1": null,
+    "pilate-mat-27-2": null,
+    "herod-mat-14-1": null,
+    "mary-mat-1-16": null,
+    "joseph-mat-1-16": null,
+    "martha-luk-10-38": null,
+    "herod-mat-2-1": null,
+    "lazarus-jhn-11-1": null,
+    "barabbas-mat-27-16": null,
+    "zechariah-luk-1-5": null,
+    "elizabeth-luk-1-5": null,
+    "stephen-act-6-5": null,
+    "joseph-mat-27-57": null,
+    "nicodemus-jhn-3-1": null,
+    "zacchaeus-luk-19-2": null,
+    "ananias-act-5-1": null,
+    "simon-mat-27-32": null,
+    "augustus-luk-2-1": null,
+    "sapphira-act-5-1": null,
+    "bartimaeus-mrk-10-46": null
+   }
   },
   "israelite": {
    "yes": {
@@ -1872,7 +2121,38 @@
     "simon-mat-10-4": "MAT 10:4",
     "israel-gen-25-26": "GEN 32:28",
     "joseph-gen-30-24": "GEN 30:24",
-    "dinah-gen-30-21": "GEN 30:21"
+    "dinah-gen-30-21": "GEN 30:21",
+    "jeremiah-2ch-35-25": "Jeremiah 1:1",
+    "isaiah-2ki-19-2": "Isaiah 1:1",
+    "elijah-1ki-17-1": "1 Kings 17:1: a prophet of Israel",
+    "elisha-1ki-19-16": "1 Kings 19:16",
+    "daniel-ezk-14-14": "Daniel 1:6",
+    "ezekiel-ezk-1-3": "Ezekiel 1:3",
+    "habakkuk-hab-1-1": "Habakkuk 1:1: a prophet to Judah",
+    "joel-jol-1-1": "Joel 1:1",
+    "micah-jer-26-18": "Micah 1:1",
+    "malachi-mal-1-1": "Malachi 1:1",
+    "obadiah-oba-1-1": "Obadiah 1",
+    "haggai-ezr-5-1": "Haggai 1:1",
+    "zechariah-ezr-5-1": "Zechariah 1:1",
+    "amos-amo-1-1": "Amos 1:1",
+    "hosea-hos-1-1": "Hosea 1:1",
+    "jonah-2ki-14-25": "2 Kings 14:25",
+    "azariah-dan-1-6": "Daniel 1:6",
+    "hananiah-dan-1-6": "Daniel 1:6",
+    "mishael-dan-1-6": "Daniel 1:6",
+    "nehemiah-neh-1-1": "Nehemiah 1:1-2",
+    "samson-jdg-13-24": "Judges 13:2: a Danite",
+    "barak-jdg-4-6": "Judges 4:6: of Naphtali",
+    "deborah-jdg-4-4": "Judges 4:4",
+    "jephthah-jdg-11-1": "Judges 11:1: a Gileadite",
+    "nathan-2sa-7-2": "2 Samuel 7:2",
+    "naomi-rut-1-2": "Ruth 1:2",
+    "abigail-1sa-25-3": "1 Samuel 25:3",
+    "hannah-1sa-1-2": "1 Samuel 1:1-2",
+    "bathsheba-2sa-11-3": "2 Samuel 11:3",
+    "gideon-jdg-6-11": "Judges 6:15: of Manasseh",
+    "esther-est-2-7": "Esther 2:5-7"
    },
    "unsure": [
     "herod-mat-2-1",
@@ -1890,7 +2170,12 @@
     "hagar-gen-16-1"
    ],
    "no": {
-    "jezebel-1ki-16-31": null
+    "jezebel-1ki-16-31": null,
+    "jael-jdg-4-17": null,
+    "pilate-mat-27-2": null,
+    "goliath-1sa-17-4": null,
+    "cornelius-act-10-1": null,
+    "lydia-act-16-14": null
    }
   },
   "foreign": {
@@ -1917,7 +2202,8 @@
     "ebed-melech-jer-38-7": "JER 38:7",
     "haman-est-3-1": "EST 3:1",
     "nebuchadnezzar-2ki-24-1": "2KI 24:1",
-    "cyrus-2ch-36-22": "2CH 36:22"
+    "cyrus-2ch-36-22": "2CH 36:22",
+    "jael-jdg-4-17": "JDG 4:17"
    },
    "no": {
     "peter-mat-4-18": null,
@@ -1945,7 +2231,43 @@
     "jesus-isa-7-14": null,
     "israel-gen-25-26": null,
     "joseph-gen-30-24": null,
-    "dinah-gen-30-21": null
+    "dinah-gen-30-21": null,
+    "jeremiah-2ch-35-25": null,
+    "isaiah-2ki-19-2": null,
+    "elijah-1ki-17-1": null,
+    "elisha-1ki-19-16": null,
+    "daniel-ezk-14-14": null,
+    "ezekiel-ezk-1-3": null,
+    "habakkuk-hab-1-1": null,
+    "joel-jol-1-1": null,
+    "micah-jer-26-18": null,
+    "malachi-mal-1-1": null,
+    "obadiah-oba-1-1": null,
+    "haggai-ezr-5-1": null,
+    "zechariah-ezr-5-1": null,
+    "amos-amo-1-1": null,
+    "hosea-hos-1-1": null,
+    "jonah-2ki-14-25": null,
+    "azariah-dan-1-6": null,
+    "hananiah-dan-1-6": null,
+    "mishael-dan-1-6": null,
+    "nehemiah-neh-1-1": null,
+    "samson-jdg-13-24": null,
+    "barak-jdg-4-6": null,
+    "deborah-jdg-4-4": null,
+    "jephthah-jdg-11-1": null,
+    "nathan-2sa-7-2": null,
+    "naomi-rut-1-2": null,
+    "abigail-1sa-25-3": null,
+    "hannah-1sa-1-2": null,
+    "bathsheba-2sa-11-3": null,
+    "gideon-jdg-6-11": null,
+    "esther-est-2-7": null,
+    "apollos-act-18-24": null,
+    "aquila-act-18-2": null,
+    "joseph-mat-27-57": null,
+    "jairus-mrk-5-22": null,
+    "caleb-num-13-6": null
    },
    "unsure": [
     "herod-mat-2-1",
@@ -1973,7 +2295,8 @@
    "no": {
     "moses-exo-2-10": null,
     "aaron-exo-4-14": null,
-    "miriam-exo-15-20": null
+    "miriam-exo-15-20": null,
+    "jael-jdg-4-17": null
    }
   },
   "era-exodus": {
@@ -2146,11 +2469,362 @@
   },
   "era-patriarchs": {
    "unsure": [
-    "noah-gen-5-29",
-    "shem-gen-5-32",
-    "ham-gen-5-32",
-    "japheth-gen-5-32"
+    "noah-gen-5-29"
+   ],
+   "no": {
+    "japheth-gen-5-32": null,
+    "ham-gen-5-32": null,
+    "shem-gen-5-32": null
+   }
+  },
+  "married": {
+   "yes": {
+    "isaiah-2ki-19-2": "Isaiah 8:3: the prophetess, his wife",
+    "esther-est-2-7": "Esther 2:17: made queen by Xerxes",
+    "job-job-1-1": "Job 2:9: his wife",
+    "pilate-mat-27-2": "Matthew 27:19: his wife",
+    "gideon-jdg-6-11": "Judges 8:30: many wives",
+    "caleb-num-13-6": "1 Chronicles 2:18-19: Azubah and Ephrath",
+    "ishmael-gen-16-11": "Genesis 21:21: his mother took a wife for him",
+    "zedekiah-2ki-24-17": "Jeremiah 38:23: his wives",
+    "naaman-2ki-5-1": "2 Kings 5:2: his wife",
+    "belshazzar-dan-5-1": "Daniel 5:2: his wives",
+    "jairus-mrk-5-22": "Mark 5:40: the child's father and mother",
+    "potiphar-gen-37-36": "Genesis 39:7: his master's wife",
+    "cain-gen-4-1": "Genesis 4:17: Cain knew his wife"
+   },
+   "no": {
+    "paul-act-7-58": null,
+    "jeremiah-2ch-35-25": null
+   }
+  },
+  "children": {
+   "yes": {
+    "zedekiah-2ki-24-17": "2 Kings 25:7: his sons",
+    "jephthah-jdg-11-1": "Judges 11:34: his only child, a daughter",
+    "jairus-mrk-5-22": "Mark 5:23: his little daughter"
+   },
+   "no": {
+    "paul-act-7-58": null,
+    "jeremiah-2ch-35-25": null,
+    "michal-1sa-14-49": null
+   }
+  },
+  "levite": {
+   "yes": {
+    "jeremiah-2ch-35-25": "Jeremiah 1:1: of the priests at Anathoth",
+    "ezekiel-ezk-1-3": "Ezekiel 1:3: the priest",
+    "barnabas-act-4-36": "Acts 4:36: a Levite",
+    "zechariah-luk-1-5": "Luke 1:5: a priest",
+    "elizabeth-luk-1-5": "Luke 1:5: a descendant of Aaron",
+    "john-mat-3-1": "Luke 1:5, 13: son of the priest Zechariah"
+   },
+   "no": {
+    "israel-gen-25-26": null,
+    "abraham-gen-11-26": null,
+    "isaac-gen-17-19": null,
+    "joseph-gen-30-24": null,
+    "paul-act-7-58": null,
+    "daniel-ezk-14-14": null,
+    "azariah-dan-1-6": null,
+    "hananiah-dan-1-6": null,
+    "mishael-dan-1-6": null,
+    "joseph-mat-1-16": null,
+    "jonah-2ki-14-25": null,
+    "jeroboam-1ki-11-26": null,
+    "gideon-jdg-6-11": null,
+    "samson-jdg-13-24": null,
+    "barak-jdg-4-6": null,
+    "jael-jdg-4-17": null,
+    "naomi-rut-1-2": null,
+    "jephthah-jdg-11-1": null,
+    "cornelius-act-10-1": null,
+    "lydia-act-16-14": null,
+    "pilate-mat-27-2": null,
+    "augustus-luk-2-1": null,
+    "herod-mat-2-1": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "adam-gen-2-19": null,
+    "eve-gen-3-20": null,
+    "noah-gen-5-29": null,
+    "sarah-gen-11-29": null,
+    "rebekah-gen-22-23": null,
+    "rachel-gen-29-6": null,
+    "leah-gen-29-16": null,
+    "lot-gen-11-27": null,
+    "laban-gen-24-29": null,
+    "shem-gen-5-32": null,
+    "ham-gen-5-32": null,
+    "japheth-gen-5-32": null,
+    "cain-gen-4-1": null,
+    "abel-gen-4-2": null,
+    "seth-gen-4-25": null,
+    "enoch-gen-5-18": null,
+    "methuselah-gen-5-21": null,
+    "job-job-1-1": null
+   }
+  },
+  "tribe-judah": {
+   "yes": {
+    "joseph-mat-1-16": "Luke 2:4: of the house and line of David",
+    "daniel-ezk-14-14": "Daniel 1:6: from the tribe of Judah",
+    "azariah-dan-1-6": "Daniel 1:6: from the tribe of Judah",
+    "hananiah-dan-1-6": "Daniel 1:6: from the tribe of Judah",
+    "mishael-dan-1-6": "Daniel 1:6: from the tribe of Judah",
+    "caleb-num-13-6": "Numbers 13:6: from the tribe of Judah",
+    "naomi-rut-1-2": "Ruth 1:2: Ephrathites from Bethlehem in Judah"
+   },
+   "no": {
+    "israel-gen-25-26": null,
+    "abraham-gen-11-26": null,
+    "isaac-gen-17-19": null,
+    "joseph-gen-30-24": null,
+    "paul-act-7-58": null,
+    "jeremiah-2ch-35-25": null,
+    "ezekiel-ezk-1-3": null,
+    "john-mat-3-1": null,
+    "zechariah-luk-1-5": null,
+    "elizabeth-luk-1-5": null,
+    "barnabas-act-4-36": null,
+    "esther-est-2-7": null,
+    "jonah-2ki-14-25": null,
+    "jeroboam-1ki-11-26": null,
+    "gideon-jdg-6-11": null,
+    "samson-jdg-13-24": null,
+    "barak-jdg-4-6": null,
+    "jael-jdg-4-17": null,
+    "jephthah-jdg-11-1": null,
+    "hannah-1sa-1-2": null,
+    "cornelius-act-10-1": null,
+    "lydia-act-16-14": null,
+    "pilate-mat-27-2": null,
+    "augustus-luk-2-1": null,
+    "herod-mat-2-1": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "adam-gen-2-19": null,
+    "eve-gen-3-20": null,
+    "noah-gen-5-29": null,
+    "sarah-gen-11-29": null,
+    "rebekah-gen-22-23": null,
+    "rachel-gen-29-6": null,
+    "leah-gen-29-16": null,
+    "lot-gen-11-27": null,
+    "laban-gen-24-29": null,
+    "shem-gen-5-32": null,
+    "ham-gen-5-32": null,
+    "japheth-gen-5-32": null,
+    "cain-gen-4-1": null,
+    "abel-gen-4-2": null,
+    "seth-gen-4-25": null,
+    "enoch-gen-5-18": null,
+    "methuselah-gen-5-21": null,
+    "job-job-1-1": null
+   }
+  },
+  "tribe-benjamin": {
+   "yes": {
+    "paul-act-7-58": "Philippians 3:5: of the tribe of Benjamin",
+    "esther-est-2-7": "Esther 2:7, 15: cousin of Mordecai the Benjamite"
+   },
+   "no": {
+    "israel-gen-25-26": null,
+    "abraham-gen-11-26": null,
+    "isaac-gen-17-19": null,
+    "joseph-gen-30-24": null,
+    "jeremiah-2ch-35-25": null,
+    "ezekiel-ezk-1-3": null,
+    "john-mat-3-1": null,
+    "zechariah-luk-1-5": null,
+    "elizabeth-luk-1-5": null,
+    "barnabas-act-4-36": null,
+    "daniel-ezk-14-14": null,
+    "azariah-dan-1-6": null,
+    "hananiah-dan-1-6": null,
+    "mishael-dan-1-6": null,
+    "joseph-mat-1-16": null,
+    "caleb-num-13-6": null,
+    "naomi-rut-1-2": null,
+    "jonah-2ki-14-25": null,
+    "jeroboam-1ki-11-26": null,
+    "gideon-jdg-6-11": null,
+    "samson-jdg-13-24": null,
+    "barak-jdg-4-6": null,
+    "jael-jdg-4-17": null,
+    "jephthah-jdg-11-1": null,
+    "hannah-1sa-1-2": null,
+    "cornelius-act-10-1": null,
+    "lydia-act-16-14": null,
+    "pilate-mat-27-2": null,
+    "augustus-luk-2-1": null,
+    "herod-mat-2-1": null,
+    "herod-mat-14-1": null,
+    "jezebel-1ki-16-31": null,
+    "adam-gen-2-19": null,
+    "eve-gen-3-20": null,
+    "noah-gen-5-29": null,
+    "sarah-gen-11-29": null,
+    "rebekah-gen-22-23": null,
+    "rachel-gen-29-6": null,
+    "leah-gen-29-16": null,
+    "lot-gen-11-27": null,
+    "laban-gen-24-29": null,
+    "shem-gen-5-32": null,
+    "ham-gen-5-32": null,
+    "japheth-gen-5-32": null,
+    "cain-gen-4-1": null,
+    "abel-gen-4-2": null,
+    "seth-gen-4-25": null,
+    "enoch-gen-5-18": null,
+    "methuselah-gen-5-21": null,
+    "job-job-1-1": null
+   }
+  },
+  "famous-sibling": {
+   "no": {
+    "saul-1sa-9-2": null,
+    "joshua-exo-17-9": null,
+    "paul-act-7-58": null,
+    "jeremiah-2ch-35-25": null,
+    "samuel-1sa-1-20": null,
+    "elijah-1ki-17-1": null,
+    "john-mat-3-1": null,
+    "nebuchadnezzar-2ki-24-1": null,
+    "jeroboam-1ki-11-26": null,
+    "ahab-1ki-16-28": null,
+    "daniel-ezk-14-14": null,
+    "isaiah-2ki-19-2": null,
+    "elisha-1ki-19-16": null,
+    "job-job-1-1": null,
+    "pilate-mat-27-2": null,
+    "gideon-jdg-6-11": null,
+    "mordecai-est-2-5": null,
+    "josiah-1ki-13-2": null,
+    "noah-gen-5-29": null,
+    "jehu-1ki-19-16": null,
+    "esther-est-2-7": null,
+    "haman-est-3-1": null,
+    "jesse-rut-4-17": null,
+    "samson-jdg-13-24": null,
+    "eli-1sa-1-3": null,
+    "nathan-2sa-7-2": null,
+    "ahasuerus-ezr-4-6": null,
+    "jephthah-jdg-11-1": null,
+    "jonah-2ki-14-25": null,
+    "manasseh-2ki-20-21": null,
+    "timothy-act-16-1": null,
+    "judas-mat-10-4": null,
+    "boaz-rut-2-1": null,
+    "jezebel-1ki-16-31": null,
+    "naomi-rut-1-2": null,
+    "cyrus-2ch-36-22": null,
+    "azariah-dan-1-6": null,
+    "hananiah-dan-1-6": null,
+    "mishael-dan-1-6": null,
+    "silas-act-15-22": null,
+    "joseph-mat-1-16": null,
+    "philip-mat-10-3": null,
+    "artaxerxes-ezr-4-7": null,
+    "mary-magdalene-mat-27-56": null,
+    "barak-jdg-4-6": null,
+    "abigail-1sa-25-3": null,
+    "ruth-rut-1-4": null,
+    "bathsheba-2sa-11-3": null,
+    "thomas-mat-10-3": null,
+    "haggai-ezr-5-1": null,
+    "hannah-1sa-1-2": null,
+    "herod-mat-2-1": null,
+    "naaman-2ki-5-1": null,
+    "melchizedek-gen-14-18": null,
+    "apollos-act-18-24": null,
+    "cornelius-act-10-1": null,
+    "enoch-gen-5-18": null,
+    "mark-act-12-12": null,
+    "barabbas-mat-27-16": null,
+    "deborah-jdg-4-4": null,
+    "zechariah-luk-1-5": null,
+    "belshazzar-dan-5-1": null,
+    "darius-dan-5-31": null,
+    "ehud-jdg-3-15": null,
+    "elizabeth-luk-1-5": null,
+    "rahab-jos-2-1": null,
+    "amos-amo-1-1": null,
+    "methuselah-gen-5-21": null,
+    "stephen-act-6-5": null,
+    "aquila-act-18-2": null,
+    "priscilla-act-18-2": null,
+    "zechariah-ezr-5-1": null,
+    "jael-jdg-4-17": null,
+    "delilah-jdg-16-4": null,
+    "nathanael-jhn-1-45": null,
+    "joseph-mat-27-57": null,
+    "nicodemus-jhn-3-1": null,
+    "hosea-hos-1-1": null,
+    "luke-2co-13-13": null,
+    "zacchaeus-luk-19-2": null,
+    "ananias-act-5-1": null,
+    "simon-mat-27-32": null,
+    "ezekiel-ezk-1-3": null,
+    "habakkuk-hab-1-1": null,
+    "joel-jol-1-1": null,
+    "lydia-act-16-14": null,
+    "micah-jer-26-18": null,
+    "jairus-mrk-5-22": null,
+    "potiphar-gen-37-36": null,
+    "augustus-luk-2-1": null,
+    "malachi-mal-1-1": null,
+    "obadiah-oba-1-1": null,
+    "sapphira-act-5-1": null,
+    "bartimaeus-mrk-10-46": null,
+    "eutychus-act-20-9": null,
+    "adam-gen-2-19": null
+   }
+  },
+  "era-divided": {
+   "yes": {
+    "jeroboam-1ki-11-26": "1 Kings 12:20: made king of Israel when the kingdom split"
+   },
+   "no": {
+    "malachi-mal-1-1": null
+   }
+  },
+  "followed-jesus": {
+   "yes": {
+    "bartimaeus-mrk-10-46": "Mark 10:52: followed Jesus along the road"
+   },
+   "no": {
+    "simon-mat-27-32": null
+   },
+   "unsure": [
+    "nicodemus-jhn-3-1"
    ]
+  },
+  "era-first-kings": {
+   "no": {
+    "jehu-1ki-19-16": null
+   }
+  },
+  "era-exile": {
+   "no": {
+    "micah-jer-26-18": null,
+    "hosea-hos-1-1": null
+   }
+  },
+  "ruler": {
+   "no": {
+    "hosea-hos-1-1": null
+   }
+  },
+  "ruler-israel": {
+   "no": {
+    "hosea-hos-1-1": null
+   }
+  },
+  "ruler-foreign": {
+   "no": {
+    "hosea-hos-1-1": null
+   }
   }
  }
 }

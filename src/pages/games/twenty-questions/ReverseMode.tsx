@@ -3,6 +3,7 @@
 // answers still allow (a windowed list, the site's long-list rule) and show how evenly each question would split
 // them. Nothing is reported from this mode.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { formatNumber, plural } from "@/lib/site-format";
 import { useRowWindow } from "@/lib/useRowWindow";
 import { TURNS, reverseAnswer, simulate, stillPossible, type Engine } from "./engine";
 import { Dots, PersonSummary, VerseNote } from "./parts";
@@ -39,7 +40,7 @@ export function ReverseMode({ engine, game, onUpdate, onPlayAgain, onSwap, onQui
   const last = game.moves[game.moves.length - 1];
   return <div className="tq-play tq-reverse">
     <h1 className="tq-reverse-title">Who am I thinking of?</h1>
-    <Dots kinds={game.moves.map((m) => m.kind)} limit={TURNS} noun="Turn" />
+    <Dots kinds={game.moves.map((m) => m.kind)} limit={TURNS} />
     <p className="sr-only" aria-live="polite">{last?.kind === "q" ? `${engine.data.tags[last.tag].q} ${REVERSE_WORDS[answers.get(last.tag)!]}.`
       : last?.kind === "g" ? `No, it isn't ${engine.data.people[last.person].label}.` : ""}</p>
     <div className="tq-actions">
@@ -70,7 +71,7 @@ function Log({ engine, game, refs }: { engine: Engine; game: ReverseGame; refs: 
   const secret = engine.data.people[game.secret];
   return <ol className="tq-log" aria-label="Answers so far" reversed>
     {[...game.moves].reverse().map((m, i) => {
-      if (m.kind === "g") return <li key={game.moves.length - i} className="is-guess">No, it isn't {engine.data.people[m.person].label}.</li>;
+      if (m.kind === "g") return <li key={game.moves.length - i} className="is-guess">{`No, it isn't ${engine.data.people[m.person].label}.`}</li>;
       const answer = reverseAnswer(engine, game.secret, m.tag), tag = engine.data.tags[m.tag];
       const verse = answer === "yes" || answer === "no" ? refs?.[secret.id]?.[tag.id] : undefined;
       return <li key={game.moves.length - i} className={i === 0 ? "is-new" : ""}>
@@ -78,7 +79,7 @@ function Log({ engine, game, refs }: { engine: Engine; game: ReverseGame; refs: 
         {verse !== undefined && <details className="tq-why"><summary>Why?</summary><VerseNote verse={verse} /></details>}
       </li>;
     })}
-    {!game.moves.length && <li className="tq-empty">Pick a question below. Each question or guess uses one of your {TURNS} turns.</li>}
+    {!game.moves.length && <li className="tq-empty">{`Pick a question below. Each question or guess uses one of your ${formatNumber(TURNS)} turns.`}</li>}
   </ol>;
 }
 
@@ -87,7 +88,7 @@ function Possible({ engine, people }: { engine: Engine; people: readonly number[
   const [open, setOpen] = useState(false);
   return <div className="tq-possible">
     <button type="button" className="tq-quiet" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-      People still possible: {people.length}
+      {`People still possible: ${formatNumber(people.length)}`}
     </button>
     {open && <PeopleRows engine={engine} people={people} />}
   </div>;
@@ -121,7 +122,7 @@ function ReverseResult({ engine, game, onPlayAgain, onSwap }: Pick<Props, "engin
     <h1 ref={heading} tabIndex={-1}>{game.over === "won" ? `Yes! It was ${person.label}. You got it in ${game.moves.length}.` : `Out of turns. It was ${person.label}.`}</h1>
     <PersonSummary person={person} />
     <p className="tq-lede">{siteTurns === null ? "This one is hard: the site couldn't find them in 20 turns either."
-      : `The site would have needed about ${siteTurns} ${siteTurns === 1 ? "turn" : "turns"}.`}</p>
+      : plural(siteTurns, "The site would have needed about {n} turn.", "The site would have needed about {n} turns.")}</p>
     <div className="tq-actions">
       <button type="button" className="tq-primary" onClick={onPlayAgain}>Play again</button>
       <button type="button" className="tq-secondary" onClick={onSwap}>Swap: I think, you guess</button>

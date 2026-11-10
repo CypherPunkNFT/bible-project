@@ -2,6 +2,7 @@
 // the "Your answers" list with any difference marked; after a loss each difference gets "Oh, I see" or "I still think
 // your note is wrong", which softens that one value on this device (§10.3). Notes are read with slip marks undone,
 // because this is where the game teaches the true value.
+import { formatNumber } from "@/lib/site-format";
 import type { Engine, Turn } from "./engine";
 import { VerseNote } from "./parts";
 import { ANSWER_WORDS, differences, type Difference, type EvidenceRefs } from "./shared";
@@ -10,8 +11,8 @@ function Note({ engine, person, difference, refs }: { engine: Engine; person: nu
   const p = engine.data.people[person], tag = engine.data.tags[difference.tag];
   const verse = refs?.[p.id]?.[tag.id];
   return <>
-    <p><strong>You said:</strong> {ANSWER_WORDS[difference.answer]} to “{tag.q}”</p>
-    <p><strong>Our notes on {p.label}:</strong> {ANSWER_WORDS[difference.note]}.</p>
+    <p><strong>You said:</strong> {`${ANSWER_WORDS[difference.answer]} to “${tag.q}”`}</p>
+    <p><strong>{`Our notes on ${p.label}:`}</strong> {ANSWER_WORDS[difference.note]}.</p>
     {verse !== undefined && <VerseNote verse={verse} />}
   </>;
 }
@@ -21,7 +22,7 @@ export function YourAnswers({ engine, person, turns, refs }: { engine: Engine; p
   const marked = new Map(differences(engine, person, turns).map((d) => [d.tag, d]));
   const questions = turns.flatMap((t) => (t.kind === "q" ? [t] : []));
   return <details className="tq-answers" open={marked.size > 0}>
-    <summary>Your answers{marked.size ? ` (${marked.size} differed from our notes)` : ""}</summary>
+    <summary>{marked.size ? `Your answers (${formatNumber(marked.size)} differed from our notes)` : "Your answers"}</summary>
     <ol>
       {questions.map((t) => {
         const difference = marked.get(t.tag);
@@ -51,11 +52,11 @@ export function Lesson({ engine, person, turns, refs, disputed, accepted, onAcce
   const rows = differences(engine, person, turns);
   const name = engine.data.people[person].label;
   return <section className="tq-lesson" aria-label="Where we disagreed">
-    {rows.length === 0 ? <p>Your answers all matched our notes on {name}; we just ran out of questions. We'll ask sharper questions next time.</p>
+    {rows.length === 0 ? <p>{`Your answers all matched our notes on ${name}; we just ran out of questions. We'll ask sharper questions next time.`}</p>
       : <ul>
         {rows.map((d) => {
           const id = engine.data.tags[d.tag].id;
-          const done = disputed.includes(id) ? "Noted: this device will not count it against you again." : accepted.includes(id) ? "Thanks." : "";
+          const done = disputed.includes(id) ? "Noted: this device will not count it against you again." : accepted.includes(id) ? "Thanks for telling us." : "";
           return <li key={id} className="tq-lesson-row">
             <Note engine={engine} person={person} difference={d} refs={refs} />
             {done ? <p className="tq-done" role="status">{done}</p> : <div className="tq-row-actions">

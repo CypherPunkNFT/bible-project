@@ -1,7 +1,7 @@
 // Bible twenty questions: the form rules every pre-written question must pass (design §6). Used by
 // scripts/twenty-questions/check.ts and the data test. Relative imports only (Node loads it directly).
 
-const OPENERS = ["Is ", "Was ", "Did ", "Does ", "Has "];
+const OPENER = /^(Is|Was|Did|Does|Has) /;
 const HARD_WORDS = /\b(patriarch|theophany|levitical|pentateuch|eschatolog|covenantal)\w*/i;
 const PRONOUNS = /\b(he|she|his|her|him)\b/i;
 
@@ -10,7 +10,7 @@ const normal = (q: string) => q.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace
 /** Problems with one question, given every question (to catch duplicates); empty when it passes. */
 export function questionProblems(question: string, all: readonly string[]): string[] {
   const problems: string[] = [];
-  if (!OPENERS.some((o) => question.startsWith(o))) problems.push(`must start with ${OPENERS.map((o) => o.trim()).join(", ")}`);
+  if (!OPENER.test(question)) problems.push("must start with Is, Was, Did, Does or Has");
   if (!question.endsWith("?")) problems.push("must end with a question mark");
   if (question.length > 70) problems.push(`is ${question.length} characters; the limit is 70`);
   if (!question.includes("your person")) problems.push('must say "your person"');

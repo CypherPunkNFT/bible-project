@@ -349,10 +349,10 @@ sections, with optional hints (people still possible, and a bar showing how even
   and rewrites [docs/features/twenty-questions/review-sheet.md](../../../docs/features/twenty-questions/review-sheet.md).
 - **Saved on the device** under `bp-twenty-questions`: the game in progress (by ids, dropped when the game file
   changes), the last 30 reverse-mode secrets, softened values (by game-file version, person and question) and totals.
-- **Known gaps:** the story, place and book values were written by hand in one pass, standing in for the two-pass
+- **Known gaps:** the story, place and book values were written by hand in three passes, standing in for the two-pass
   model tagging of design §5.3, which waits for the owner's yes on its cost. Many values are therefore "unsure", and
-  the simulation finds a truthful player's well-known person about 72 % of the time against the design's 99 %. The
-  data test holds today's figures as a floor. The game is English in every language. The privacy policy needs a
+  the simulation finds a truthful player's well-known person about 85 % of the time against the design's 99 %. The
+  data test holds today's figures as a floor. The questions, people and notes are English in every language; the game's own buttons and sentences are written as whole templates so the site's translation collector registers them. The privacy policy needs a
   sentence about the anonymous game report before release.
 - **Checks:** the `*.test.ts(x)` files in `twenty-questions/` run in `npm test`: the engine on small hand-made files,
   the shipped file (real people, well-formed values, the early-Genesis rule, question form, Jesus's hand values, the

@@ -5,6 +5,7 @@
 import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import { TURNS, pickSecret, prepare, type Engine, type TqData } from "./engine";
 import { GuessMode } from "./GuessMode";
@@ -133,7 +134,7 @@ function Start({ engine, saved, dropped, onGuess, onReverse, onResume, onReset }
         </fieldset>
       </div>
     </div>
-    {totals.played > 0 && <p className="tq-small">Played {totals.played} · the site guessed {totals.siteWon} · you won {totals.playerWon}</p>}
+    {totals.played > 0 && <p className="tq-small">{`Played ${formatNumber(totals.played)} · the site guessed ${formatNumber(totals.siteWon)} · you won ${formatNumber(totals.playerWon)}`}</p>}
     <details className="tq-how">
       <summary>How does it guess?</summary>
       <p>Every person in this game has a list of facts from the Bible, each checked against a verse. Before each question I count

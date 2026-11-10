@@ -21,7 +21,7 @@ const value = (personId: string, tagId: string) => file.people.find((p) => p.id 
  * targets (TARGETS) because the two-pass model tagging of design §5.3 has not been run yet; until then these floors
  * stop the game from getting worse. Raise them, never lower them, when the tags improve.
  */
-const FLOORS = { truthfulTier1: 0.71, truthfulPool: 0.64, dontKnowTier1: 0.45, oneSlipTier1: 0.41 };
+const FLOORS = { truthfulTier1: 0.84, truthfulPool: 0.69, dontKnowTier1: 0.46, oneSlipTier1: 0.59 };
 
 describe("the shipped game file", () => {
   it("holds only real people from the site's list, never a tribe or a people, with unique ids and labels", () => {
