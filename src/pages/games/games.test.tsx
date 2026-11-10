@@ -107,7 +107,7 @@ describe("games hub", () => {
 
   it("names who each game is for", () => {
     renderAt("/games");
-    const card = screen.getByRole("group", { name: "Bible Jeopardy" });
+    const card = screen.getByRole("link", { name: "Bible Jeopardy" });
     const audiences = within(card).getByRole("list", { name: "Who it's for" });
     expect(within(audiences).getAllByRole("listitem").map((item) => item.textContent)).toEqual(["Church night", "Youth group"]);
   });

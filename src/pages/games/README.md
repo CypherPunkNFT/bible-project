@@ -188,6 +188,28 @@ and only whole words mark a verse Memorised. Saved in the browser under `bp-vers
 - **Checks:** the `*.test.ts(x)` files in `verse-completion/` run in `npm test`, including `data.test.ts`, which rebuilds
   the pool from `curation.json` and fails if `pool.json` differs.
 
+## Bible Jeopardy
+
+`jeopardy` ([jeopardy/JeopardyGame.tsx](jeopardy/JeopardyGame.tsx); design:
+[docs/features/bible-jeopardy/design.md](../../../docs/features/bible-jeopardy/design.md)) is a church-night game on
+one projected screen. The host names 2–6 teams, deals a board of 3–6 categories × 5 tiles (100–500) from the question
+bank ("Surprise me", or chosen from the test page's themes and the books of the Bible), previews and swaps it, then
+plays: the clue fills the screen, the host marks each team ✓ or ✗ (or keys 1–6, Shift + 1–6), steals, a Daily Double
+and a Final with written bets, undo, and a printable host sheet. Nothing is generated and nothing runs on a server.
+
+- **Code:** `categories.ts` (themes and books, the pool, "Surprise me"), `generate.ts` (the difficulty ladder, filling
+  scarcest column first, Daily Double, Final, swaps), `rules.ts` (the one reducer where points change, with undo),
+  `keys.ts` (the key table), `storage.ts` (saved game, settings, seen list), `link.ts` (the board link), the screens
+  beside them. Shared code from the live quiz (`pick.ts`, `names.ts`) and the test page (`themes.ts`) is imported,
+  never edited.
+- **Saved in the browser:** `bp-jeopardy` (the game in progress, with undo history; a newer save from another tab
+  stops this one until "Use this tab"), `bp-jeopardy-settings`, `bp-jeopardy-seen` (the last 1,500 clues the room saw).
+- **Board link:** `?board=1.<language>.<settings>.<columns>` (link.ts). A question no longer in the bank is redrawn
+  for the same category at that row's level; a link from another site language is redrawn with the same categories.
+- **Checks:** the `*.test.ts(x)` files in `jeopardy/` run in `npm test`. `categories.test.ts` also builds 200 boards
+  from the real bank and skips itself when `data/questions/bank.json` is absent. `bank.test.fixture.ts` is the small
+  test bank (its name keeps it out of the translation collector and out of Vitest's file list).
+
 ## Who's older?
 
 `whos-older` ([whos-older/WhosOlderGame.tsx](whos-older/WhosOlderGame.tsx); design:

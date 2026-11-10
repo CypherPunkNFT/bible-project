@@ -80,7 +80,7 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "solo", art: GAME_ART.verseCompletion,
   },
   {
-    slug: "jeopardy", status: "coming-soon", title: "Bible Jeopardy",
+    slug: "jeopardy", status: "live", load: () => import("./jeopardy/JeopardyGame"), title: "Bible Jeopardy",
     description: "Category boards built from the question bank, ready for the projector.",
     audiences: ["church-night", "youth-group"],
     shelf: "groups", art: GAME_ART.jeopardy,

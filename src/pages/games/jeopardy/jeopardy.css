@@ -1,0 +1,205 @@
+/* Bible Jeopardy (docs/features/bible-jeopardy/design.md 9, 14). Setup and preview sit in the page; the stage is the
+   part that goes full screen, sized from the viewport so it reads from the back of a hall. Site palette only, tiles in
+   the game's "prophets" tone; never the TV show's blue-and-gold look. Every rule is under a jp- class. */
+.jp-page { max-width: 72rem; padding-bottom: 4rem; }
+.jp-page.is-playing { max-width: none; }
+.jp-setup, .jp-preview, .jp-resume { margin-top: 1.4rem; }
+.jp-setup-head h1, .jp-preview-head h1, .jp-resume h1 { font: 450 clamp(2rem, 4vw, 3rem)/1.1 var(--font-serif); letter-spacing: -.03em; }
+.jp-setup-head p { max-width: 40rem; margin: .6rem 0 .4rem; color: var(--muted); line-height: 1.65; }
+.jp-section { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); max-width: 46rem; }
+.jp-section h2 { font: 450 1.5rem/1.2 var(--font-serif); margin-bottom: .8rem; }
+.jp-choice { margin: .9rem 0 .3rem; border: 0; padding: 0; }
+.jp-choice legend { font-weight: 600; font-size: .9rem; margin-bottom: .35rem; }
+.jp-choice > div { display: flex; flex-wrap: wrap; gap: .4rem; }
+.jp-choice label { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .85rem; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; font-size: .88rem; }
+.jp-choice label.is-on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.jp-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.jp-choice label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.jp-choice:disabled label { opacity: .6; cursor: default; }
+.jp-toggle { display: flex; gap: .6rem; align-items: flex-start; margin: .8rem 0; cursor: pointer; }
+.jp-toggle input { margin-top: .3rem; width: 1.05rem; height: 1.05rem; accent-color: var(--accent); }
+.jp-toggle strong { display: block; font-weight: 600; font-size: .92rem; }
+.jp-toggle small, .jp-hint { display: block; color: var(--muted); font-size: .83rem; line-height: 1.55; }
+.jp-note { margin: 1rem 0; padding: .6rem .9rem; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); font-size: .9rem; }
+.jp-error { color: var(--red-letter); font-size: .82rem; margin-top: .25rem; flex-basis: 100%; }
+.jp-stepper { display: inline-flex; align-items: center; gap: .6rem; }
+.jp-stepper button, .jp-icon { display: inline-grid; place-items: center; min-width: 2.2rem; height: 2.2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); }
+.jp-stepper button:disabled { opacity: .45; }
+.jp-team-names { display: grid; gap: .5rem; margin: .9rem 0; }
+.jp-team-names li { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.jp-team-names input { flex: 1; min-width: 10rem; max-width: 20rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); }
+.jp-team-number { display: inline-grid; place-items: center; min-width: 1.8rem; height: 1.8rem; border-radius: 999px; background: var(--team, var(--surface-2)); color: var(--team-ink, var(--ink)); font-weight: 700; font-size: .85rem; }
+.jp-primary, .jp-quiet { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: .9rem; }
+.jp-primary { background: var(--prophets-tab); color: var(--prophets-tab-ink); border: 1px solid var(--prophets-tab); }
+.jp-primary:disabled { opacity: .5; }
+.jp-quiet { border: 1px solid var(--line); background: transparent; color: var(--ink); }
+.jp-primary:focus-visible, .jp-quiet:focus-visible, .jp-icon:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.jp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 2rem; }
+.jp-link-line { margin-bottom: .6rem; }
+.jp-tone-0 { --team: var(--history-tab); --team-ink: var(--history-tab-ink); }
+.jp-tone-1 { --team: var(--poetry-tab); --team-ink: var(--poetry-tab-ink); }
+.jp-tone-2 { --team: var(--prophets-tab); --team-ink: var(--prophets-tab-ink); }
+.jp-tone-3 { --team: var(--gospels-tab); --team-ink: var(--gospels-tab-ink); }
+.jp-tone-4 { --team: var(--acts-tab); --team-ink: var(--acts-tab-ink); }
+.jp-tone-5 { --team: var(--epistles-tab); --team-ink: var(--epistles-tab-ink); }
+
+/* Category picker: drawn whole in a scrolling panel. */
+.jp-picker-list { max-height: 24rem; overflow-y: auto; padding: .4rem .8rem; border: 1px solid var(--line); border-radius: .5rem; }
+.jp-picker h3 { margin-top: .8rem; font: 600 .7rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.jp-picker h4 { margin-top: .5rem; font-weight: 600; font-size: .85rem; }
+.jp-picker li label { display: flex; align-items: center; gap: .5rem; padding: .2rem 0; font-size: .88rem; }
+.jp-pick-title { flex: 1; }
+.jp-pick-count { color: var(--muted); font-variant-numeric: tabular-nums; }
+.jp-picker li.is-greyed { opacity: .55; }
+.jp-picker li small { display: block; margin-left: 1.6rem; color: var(--muted); font-size: .75rem; }
+
+/* Preview. */
+.jp-preview-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+.jp-preview-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.jp-preview-board { display: grid; grid-template-columns: repeat(var(--jp-columns), minmax(0, 1fr)); gap: .6rem; margin-top: 1.4rem; }
+@media (max-width: 700px) { .jp-preview-board { grid-template-columns: minmax(0, 1fr); } }
+.jp-preview-column h2 { font: 600 1.05rem/1.25 var(--font-serif); min-height: 2.6em; }
+.jp-preview-column > p { color: var(--muted); font-size: .8rem; line-height: 1.5; min-height: 3em; }
+.jp-preview-column ol { display: grid; gap: .3rem; margin: .6rem 0; }
+.jp-preview-column li { padding: .5rem; border-radius: .35rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font-weight: 700; text-align: center; }
+.jp-preview-tools { display: flex; flex-wrap: wrap; gap: .3rem; }
+.jp-preview-tools .jp-quiet { padding: .3rem .7rem; font-size: .8rem; }
+.jp-preview-tools select { max-width: 100%; padding: .3rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); font-size: .8rem; }
+.jp-preview-final { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.jp-preview-final h2 { font: 600 1.05rem/1.25 var(--font-serif); }
+.jp-resume ul { margin: .8rem 0 1.2rem; }
+.jp-resume button { margin-right: .6rem; }
+
+/* The stage: in the page a wide block, full screen the whole display. Sizes follow the viewport height. */
+.jp-stage { position: relative; display: flex; flex-direction: column; min-height: min(80vh, 56.25vw); margin-top: 1rem; padding: 1.5vh 1.5vw; border-radius: .6rem; background: var(--page); color: var(--ink); }
+.jp-stage:fullscreen { min-height: 100vh; margin: 0; border-radius: 0; }
+.jp-stage-light { --page: #faf7f0; --surface: #ffffff; --surface-2: #ece4d4; --ink: #1f1b16; --muted: #5d5549; --line: #d0c5b1; --accent: #8a5a12; }
+.jp-stage-dark { --page: #12110f; --surface: #1b1916; --surface-2: #26231f; --ink: #ece6da; --muted: #b0a797; --line: #3d3830; --accent: #e0b25c; }
+.jp-stage-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.jp-small-screen { display: none; }
+@media (max-width: 600px) { .jp-small-screen { display: block; color: var(--muted); font-size: .8rem; } }
+.jp-board { flex: 1; display: grid; grid-template-rows: auto repeat(5, minmax(0, 1fr)); gap: .8vh; }
+.jp-board-heads, .jp-board-row { display: grid; grid-template-columns: repeat(var(--jp-columns), minmax(0, 1fr)); gap: .6vw; }
+.jp-board-head { display: grid; place-items: center; min-height: 9vh; padding: .4vh .4vw; text-align: center; font: 600 clamp(.9rem, 3vh, 2.2rem)/1.15 var(--font-serif); overflow-wrap: anywhere; }
+.jp-board-head.is-mid { font-size: clamp(.85rem, 2.5vh, 1.8rem); }
+.jp-board-head.is-long { font-size: clamp(.8rem, 2.1vh, 1.5rem); }
+.jp-board-row [role="gridcell"] { display: flex; }
+.jp-tile { flex: 1; min-height: 8vh; border: 0; border-radius: .5rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font: 700 clamp(1.4rem, 7vh, 4.5rem)/1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.jp-tile.is-played { background: color-mix(in srgb, var(--ink) 10%, var(--page)); cursor: default; }
+.jp-tile:focus-visible { outline: .6vh solid var(--accent); outline-offset: .3vh; }
+@media (prefers-reduced-motion: no-preference) { .jp-clue, .jp-answer, .jp-daily-double { animation: jp-open .25s ease-out; } }
+@keyframes jp-open { from { transform: scale(.96); opacity: .4; } to { transform: none; opacity: 1; } }
+
+/* Clue and answer. */
+.jp-clue, .jp-answer, .jp-final, .jp-daily-double, .jp-results { flex: 1; display: flex; flex-direction: column; gap: 1.6vh; }
+.jp-clue-head { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font: 600 clamp(.9rem, 2.6vh, 1.8rem)/1.2 var(--font-sans); }
+.jp-clue-body { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2vh; text-align: center; }
+.jp-lead-in { color: var(--muted); font-size: clamp(.9rem, 2.8vh, 1.8rem); }
+.jp-clue-text { max-width: 60rem; font: 500 clamp(1.4rem, 6vh, 4.2rem)/1.2 var(--font-serif); overflow-wrap: anywhere; }
+.jp-clue-text.is-mid { font-size: clamp(1.3rem, 5vh, 3.5rem); }
+.jp-clue-text.is-long { font-size: clamp(1.2rem, 4vh, 2.8rem); }
+.jp-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1vh 2vw; width: min(100%, 60rem); text-align: left; font-size: clamp(1rem, 3.2vh, 2.2rem); }
+.jp-choices li { display: flex; gap: .7rem; align-items: baseline; padding: .8vh 1vw; border: 1px solid var(--line); border-radius: .4rem; }
+.jp-choices li span { font-weight: 700; color: var(--muted); }
+.jp-choices li.is-right { border-color: var(--poetry); background: color-mix(in srgb, var(--poetry) 14%, transparent); }
+.jp-clue-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem; }
+.jp-clue-foot > .jp-primary { margin-left: auto; }
+.jp-answer > .jp-clue-foot { margin-top: auto; }
+.jp-marks { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+.jp-marks li { display: flex; align-items: center; gap: .4rem; }
+.jp-team-label { max-width: 12rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.jp-mark-buttons { display: inline-flex; gap: .3rem; }
+.jp-right, .jp-wrong { display: inline-flex; align-items: center; gap: .25rem; padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 600; }
+.jp-right:disabled, .jp-wrong:disabled { opacity: .4; }
+.jp-mark { display: inline-flex; align-items: center; gap: .25rem; font-weight: 700; }
+.jp-mark.is-right { color: var(--poetry); }
+.jp-mark.is-wrong { color: var(--red-letter); }
+.jp-timer { position: relative; height: .8vh; min-height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.jp-timer > span { position: absolute; inset: 0; background: var(--prophets); transform-origin: left; transition: transform .2s linear; }
+.jp-timer.is-done { height: auto; overflow: visible; background: transparent; text-align: center; }
+.jp-timer strong { font-size: clamp(1rem, 3vh, 2rem); }
+.jp-answer-question { color: var(--muted); font-size: clamp(.9rem, 2.6vh, 1.6rem); text-align: center; }
+.jp-answer-text { text-align: center; font: 600 clamp(1.6rem, 7vh, 5rem)/1.15 var(--font-serif); overflow-wrap: anywhere; }
+.jp-verse { max-width: 50rem; margin: 0 auto; text-align: center; }
+.jp-verse blockquote { font: italic 400 clamp(1rem, 3vh, 1.9rem)/1.45 var(--font-serif); }
+.jp-verse figcaption { display: flex; justify-content: center; gap: .6rem; margin-top: .6vh; color: var(--muted); font-size: clamp(.85rem, 2.3vh, 1.4rem); }
+.jp-verse a { display: inline-flex; align-items: center; gap: .2rem; color: var(--accent); }
+.jp-verse-version { font-size: .8em; letter-spacing: .08em; }
+.jp-scored { text-align: center; font-weight: 700; font-size: clamp(1rem, 3vh, 2rem); }
+
+/* Daily Double, Final and results. */
+.jp-daily-double { justify-content: center; align-items: center; text-align: center; }
+.jp-daily-double h2, .jp-final-category { font: 600 clamp(2rem, 10vh, 7rem)/1.05 var(--font-serif); letter-spacing: -.03em; }
+.jp-dd-team { font-size: clamp(1.1rem, 4vh, 2.6rem); font-weight: 600; }
+.jp-daily-double form { display: grid; gap: 1vh; justify-items: center; }
+.jp-bet-row { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; }
+.jp-bet-row input, .jp-final-row input { width: 8rem; padding: .45rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1.1rem; }
+.jp-bet-row button { padding: .45rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); }
+.jp-dd-actions { display: flex; gap: .6rem; margin-top: 1vh; }
+.jp-final { justify-content: center; align-items: center; text-align: center; }
+.jp-final-line { color: var(--muted); font-size: clamp(1rem, 3vh, 2rem); }
+.jp-final-note { max-width: 40rem; font-size: clamp(1rem, 2.8vh, 1.8rem); }
+.jp-final-marks { display: grid; gap: .6rem; width: min(100%, 52rem); margin: 0 auto; }
+.jp-final-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: .5rem; }
+.jp-final-row.is-current { border-color: var(--accent); }
+.jp-final-score { margin-left: auto; font-weight: 700; font-variant-numeric: tabular-nums; }
+.jp-results { align-items: center; }
+.jp-results h2 { font: 600 clamp(1.8rem, 7vh, 4rem)/1.1 var(--font-serif); }
+.jp-podium { display: grid; gap: .8vh; width: min(100%, 46rem); }
+.jp-place { display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1vh 1.2vw; border-bottom: 1px solid var(--line); font-size: clamp(1rem, 3.2vh, 2.2rem); }
+.jp-place-1 { font-size: clamp(1.2rem, 4.6vh, 3rem); font-weight: 700; }
+.jp-place small { grid-column: 2 / -1; color: var(--muted); font-size: .55em; }
+.jp-place-number { font-family: var(--font-serif); color: var(--accent); }
+.jp-place-score { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: no-preference) { .jp-place { animation: jp-rise .5s ease-out both; } .jp-place-2 { animation-delay: .1s; } .jp-place-3 { animation-delay: .2s; } }
+@keyframes jp-rise { from { transform: translateY(1rem); opacity: 0; } to { transform: none; opacity: 1; } }
+.jp-results-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+
+/* Scoreboard, menu and notices. */
+.jp-stage-foot { display: flex; align-items: flex-end; gap: 1rem; margin-top: 1.4vh; padding-top: 1vh; border-top: 1px solid var(--line); }
+.jp-scoreboard { flex: 1; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; }
+.jp-scoreboard > li { position: relative; display: flex; align-items: center; gap: .5rem; padding: .4vh .6vw; border-radius: .5rem; transition: transform .2s; }
+.jp-scoreboard > li.is-choosing { transform: translateY(-.6vh); background: color-mix(in srgb, var(--team) 14%, transparent); box-shadow: inset 0 -3px 0 var(--team); }
+.jp-team-name { display: inline-flex; align-items: center; gap: .4rem; border: 0; background: none; color: var(--ink); font-size: clamp(.9rem, 2.4vh, 1.5rem); }
+.jp-team-name .jp-team-label { max-width: 10rem; }
+.jp-to-choose { color: var(--muted); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.jp-team-score { border: 0; background: none; color: var(--ink); font: 700 clamp(1rem, 3vh, 2rem)/1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.jp-delta { font-weight: 700; font-size: .85rem; }
+.jp-delta.is-up { color: var(--poetry); }
+.jp-delta.is-down { color: var(--red-letter); }
+.jp-adjust { position: absolute; bottom: 100%; left: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; width: max-content; padding: .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
+.jp-adjust form { display: flex; gap: .3rem; }
+.jp-adjust input { width: 6rem; padding: .25rem .4rem; border: 1px solid var(--line); border-radius: .3rem; background: var(--page); color: var(--ink); }
+.jp-adjust button { padding: .25rem .6rem; border: 1px solid var(--line); border-radius: 999px; background: var(--page); color: var(--ink); }
+.jp-menu-wrap { position: relative; }
+.jp-menu { position: absolute; right: 0; bottom: 110%; z-index: 6; display: grid; min-width: 13rem; padding: .3rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
+.jp-menu button { padding: .5rem .7rem; border: 0; background: none; color: var(--ink); text-align: left; border-radius: .3rem; }
+.jp-menu button:is(:hover, :focus-visible) { background: var(--surface-2); }
+.jp-stage-note { margin-top: .6vh; color: var(--muted); }
+.jp-confirm { position: absolute; inset: auto 1rem 5rem; z-index: 8; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: 1rem; border: 1px solid var(--accent); border-radius: .5rem; background: var(--surface); color: var(--ink); }
+.jp-page > .jp-confirm { position: static; margin-top: 1rem; }
+.jp-confirm p { flex-basis: 100%; }
+
+/* How to play. */
+.jp-overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: color-mix(in srgb, #000 45%, transparent); }
+.jp-dialog { position: relative; width: min(100%, 36rem); max-height: 90vh; overflow-y: auto; padding: 1.6rem; border-radius: .7rem; background: var(--surface); color: var(--ink); }
+.jp-dialog h2 { font: 600 1.5rem/1.2 var(--font-serif); margin-bottom: .6rem; }
+.jp-dialog h3 { margin-top: 1rem; font-weight: 600; }
+.jp-dialog ul { display: grid; gap: .45rem; padding-left: 1.1rem; list-style: disc; line-height: 1.55; font-size: .92rem; }
+.jp-dialog-close { position: absolute; top: .8rem; right: .8rem; }
+.jp-dialog-actions { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1.2rem; }
+.jp-keys { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem; margin-top: .4rem; font-size: .88rem; }
+.jp-keys dt { font-weight: 600; }
+
+/* Printing: only the host sheet or the rules. */
+.jp-print { display: none; }
+.jp-sheet h1 { font-size: 16pt; margin-bottom: 8pt; }
+.jp-sheet h2 { font-size: 12pt; margin: 10pt 0 4pt; }
+.jp-sheet table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+.jp-sheet th, .jp-sheet td { padding: 3pt 4pt; border: 1px solid #999; text-align: left; vertical-align: top; }
+.jp-sheet-dd { display: block; font-size: 8pt; }
+@media print {
+  body > *:not(.jp-print) { display: none !important; }
+  .jp-print { display: block; color: #000; background: #fff; }
+  .jp-sheet section { break-inside: avoid; }
+}

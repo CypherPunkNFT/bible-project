@@ -755,3 +755,44 @@ entry; tests; no deploy) are all respected.
 **Left as designed, on purpose:** the name "Bible Jeopardy" (approved by the owner and already on the hub; 1.4 keeps the
 show's look, music and phrases out); five fixed rows; one screen with phone buzzers and a presenter window postponed
 (12); friendly team names in English in every language, as in the live quiz.
+
+---
+
+## Implementation notes
+
+Built 2026-11-09 (sequence 30 step 16) in [src/pages/games/jeopardy/](../../../src/pages/games/jeopardy/), and the
+registry entry is now live at /games/jeopardy. The files are those of section 10, plus four small ones: `model.ts`
+(the shared types and the ladder table), `display.ts` (choice letters, clue sizes, team-button order, the team-name
+check), `useGame.ts` (the saved game and the other-tab check) and `bank.test.fixture.ts` (the tests' small bank). The
+hub's [games.test.tsx](../../../src/pages/games/games.test.tsx) did need one change after all: it used Bible Jeopardy
+as its example of a coming-soon card, so it now finds the game's link instead.
+
+Where the build settled a detail the design left open:
+
+- **Undo** steps back through every host action, including Show answer and Back to board, not only scoring ones, up
+  to 600 steps (more than a full board's worth). It is simpler to trust: Z always undoes exactly the last click.
+- **The answer shows by itself** once no team can still answer: every team marked wrong, or the Daily Double team
+  wrong.
+- **Swap with a chosen category** is a "Choose…" list under each column beside the Swap button (which uses the
+  surprise rule).
+- **Play again** leads to the preview of a new board, with the same teams and settings, so the host can still swap a
+  column; Start game is one click from there.
+- **A link question no longer in the bank** is redrawn at its row's level on the difficulty ladder (the link keeps ids,
+  not levels). The redraw never takes a question another tile of the link still names.
+- **The tie-breaker** scores no points: the first tied team marked right is shown first in the results, with "Won the
+  tie-breaker".
+- **Team colours** are the book palette's tab colours, each with its number; the stage's light/dark switch is in the
+  game menu.
+- **The host sheet and the rules** print through a small part of the page that only the print stylesheet shows.
+- **After one review of the built game** (no critical problems found), these were fixed: the How to play panel and
+  the other-tab notice now open inside the stage, so they show in full screen; Replay a tile works by mouse as well as
+  by key; a team name with emoji (counted as one character each, as the live quiz counts them) no longer makes a saved
+  game look damaged; a held key no longer repeats; End game is no longer offered once the Final or a tie-breaker has
+  begun; a swap never brings the Final's category onto the board; a second tie-breaker never repeats the first one's
+  question; the exact-score box follows the −100 / +100 buttons; Play again keeps the finished game's settings for New
+  board and Swap; leaving a link game clears the link from the address; a link's Daily Double stays on its column when
+  an earlier column is left out; three chosen books unblock Build board; and a tab whose saves fail (storage full) no
+  longer mistakes its own game for another tab's.
+- **Known small gaps, left for later:** a tab copied with the browser's Duplicate tab shares its tab id with the
+  original, so the other-tab notice does not fire between those two; and there is no on-screen control to rename a
+  team mid-game (the reducer supports it).
