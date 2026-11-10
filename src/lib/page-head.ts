@@ -60,6 +60,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/countdowns": "Advent and Lent Devotionals: Daily Bible Reading Plans",
   "/holy-days": "Holy Days Calendar: Easter, Lent, Advent, Pentecost and the Biblical Feasts",
   "/verse-of-the-day": "Bible Verse of the Day: Today's Verse, and a Free Widget for Church Websites",
+  "/verse-cards": "Bible Verse Cards: Free Verse Pictures to Share",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",

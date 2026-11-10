@@ -265,6 +265,7 @@ function studyAndSiteTemplates(): TemplateDef[] {
       babyNamePaths(readJson<NamesIndex>("data/baby-names/index.json").names).map((address) => single(address === "/baby-names" ? "hub" : address.slice("/baby-names/".length), address, "A baby-names page.", address))),
     one("countdowns", "site", "Countdowns", "/countdowns/<occasion>/<day>", "Daily readings and a card for each day leading up to Christmas and Easter, with a church sharing panel.", ["src/pages/countdowns/CountdownsPage.tsx"], ["src/pages/countdowns/", "src/data/countdowns/"],
       countdownPaths().map((address) => single(address === "/countdowns" ? "hub" : address.slice("/countdowns/".length), address, "A countdown page.", address))),
+    one("verse-cards", "site", "Shareable verse cards", "/verse-cards", "Make a picture of a Bible verse to post or send, in four sizes and six designs, each linking back to the verse.", ["src/pages/verse-cards/VerseCardsPage.tsx"], ["src/pages/verse-cards/", "src/lib/verse-card/", "src/components/verse-card/"]),
     one("search", "site", "Search", "/search?q=<words>", "Keyword search across the Bible.", ["src/pages/SearchPage.tsx"], ["src/pages/SearchPage.tsx", "src/components/search/"], [
       single("results", "With results", "A common word.", "/search?q=grace"),
       single("none", "No results", "A word that is not in the Bible.", "/search?q=zzzzqx"),

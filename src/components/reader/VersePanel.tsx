@@ -1,4 +1,4 @@
-import { Link2, Layers, X } from "lucide-react";
+import { Image as ImageIcon, Link2, Layers, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
@@ -11,6 +11,7 @@ import type { CrossRefBook, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { useVerseText } from "@/lib/useVerseText";
 import { formatNumber } from "@/lib/utils";
+import { verseCardPath } from "@/lib/verse-card/links";
 import { ReferencePanel } from "./ReferencePanel";
 import { plural } from "@/lib/site-format";
 
@@ -47,6 +48,8 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
     return all.sort((a, b) => b[2] - a[2]);
   }, [refs, chapter, verse, lastVerse]);
   const bookName = catalog.books.find((b) => b.code === bookCode)?.name ?? bookCode;
+  // A verse card always quotes the Berean, so it is offered only where the verse numbers match it (design 7.1).
+  const cardHref = inCanon && kjvNumbering ? verseCardPath(catalog.books.find((b) => b.code === bookCode)?.num ?? 0, Number(chapter), verse, lastVerse) : null;
 
   useEffect(() => {
     setShown(FIRST_PAGE);
@@ -81,6 +84,11 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
           >
             <Layers className="h-4 w-4 text-accent" aria-hidden /> {compare ? "Hide" : "Show"} this verse in every version
           </button>
+          {cardHref && (
+            <Link to={cardHref} className="mb-2 flex w-full items-center gap-2 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2">
+              <ImageIcon className="h-4 w-4 text-accent" aria-hidden /> {translation.slug === "bsb" ? "Make a verse card" : "Make a verse card (Berean)"}
+            </Link>
+          )}
         </>
       }
       footer={

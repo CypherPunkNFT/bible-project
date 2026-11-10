@@ -2,6 +2,7 @@
 // where a church gets the code for its own website. The page says nothing about today until the browser has worked it
 // out, so a search engine's ready-made copy never names a stale date or verse.
 import { useState } from "react";
+import { cardPagePath, keyFromReadPath } from "@/lib/verse-card/links";
 import { Builder } from "./Builder";
 import { WidgetBox, type ShownDay } from "./Preview";
 import "./verse-of-the-day.css";
@@ -57,7 +58,7 @@ export default function VerseOfTheDayPage() {
     <article className="vd-page mx-auto max-w-4xl px-4 sm:px-6">
       <h1>Bible verse of the day</h1>
       <WidgetBox className="vd-today" attributes={TODAY_ATTRIBUTES} onDay={setToday} />
-      {today && <p className="vd-chapter"><a href={today.read}>Read the chapter</a></p>}
+      {today && <p className="vd-chapter"><a href={today.read}>Read the chapter</a>{keyFromReadPath(today.read) && <> · <a href={cardPagePath(keyFromReadPath(today.read)!)}>Make a card of this verse</a></>}</p>}
       <p className="vd-intro">Every day a new verse from the Berean Standard Bible, the same for everyone, changing at midnight where you are.</p>
 
       <section aria-labelledby="vd-builder-title">

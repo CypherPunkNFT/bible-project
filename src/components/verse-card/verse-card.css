@@ -1,0 +1,41 @@
+/* The verse card share panel (CardSharePanel.tsx, CardCanvas.tsx, ShareButtons.tsx). Hairlines rather than boxes, as the
+   site's other verse tools; the card picture is the one large thing in the panel. */
+.vc-panel { display: grid; gap: 1.4rem; margin-top: 1.2rem; }
+@media (min-width: 900px) { .vc-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 2rem; } }
+
+.vc-canvas { position: relative; width: 100%; max-width: 34rem; margin-inline: auto; }
+.vc-canvas canvas { display: block; width: 100%; height: 100%; border-radius: .35rem; box-shadow: 0 1px 3px rgb(0 0 0 / .18); }
+.vc-preview.vc-story { max-width: 20rem; }
+.vc-preview.vc-portrait { max-width: 26rem; }
+.vc-wait { display: grid; place-items: center; height: 100%; min-height: 8rem; border: 1px dashed var(--line); border-radius: .35rem; color: var(--muted); font-size: .9rem; }
+
+.vc-controls { display: grid; gap: 1.1rem; }
+.vc-choices { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; border: 0; }
+.vc-choices legend { margin-bottom: .45rem; color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.vc-look, .vc-size { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .7rem .3rem .35rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .85rem; transition: border-color .2s; }
+.vc-size { flex-direction: column; align-items: flex-start; gap: 0; padding: .35rem .8rem; border-radius: .45rem; text-align: start; }
+.vc-size small { color: var(--muted); font-size: .72rem; }
+.vc-look:hover, .vc-size:hover:not(:disabled) { border-color: var(--accent); }
+.vc-look[aria-pressed="true"], .vc-size[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.vc-size:disabled { opacity: .55; cursor: not-allowed; }
+.vc-swatch { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 999px; font: 600 .7rem/1 var(--font-serif); box-shadow: inset 0 0 0 1px rgb(0 0 0 / .12); }
+
+.vc-line { display: grid; gap: .35rem; max-width: 24rem; }
+.vc-line > span { color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.vc-line input { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: 1rem; }
+.vc-line input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.vc-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.vc-actions button { padding: .45rem 1rem; border: 1px solid var(--line); border-radius: .4rem; font-size: .9rem; transition: border-color .2s; }
+.vc-actions button:hover:not(:disabled) { border-color: var(--accent); }
+.vc-actions button:disabled { opacity: .5; cursor: not-allowed; }
+.vc-actions .vc-primary { border-color: var(--accent); background: var(--accent); color: var(--page); font-weight: 600; }
+.vc-status { min-height: 1.3rem; margin-top: .5rem; color: var(--muted); font-size: .85rem; }
+.vc-manual { display: grid; gap: .35rem; margin-top: .6rem; color: var(--muted); font-size: .85rem; }
+.vc-manual textarea { min-height: 6rem; padding: .5rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: .9rem; }
+.vc-hold { margin-top: .8rem; }
+.vc-hold img { width: 100%; max-width: 22rem; border-radius: .35rem; }
+.vc-hold figcaption { margin-top: .4rem; color: var(--muted); font-size: .85rem; }
+.vc-problem { padding: .6rem .9rem; border-inline-start: 2px solid var(--red-letter, #a33); font-size: .95rem; }
+
+@media print { .vc-panel { display: none; } }

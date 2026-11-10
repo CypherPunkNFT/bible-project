@@ -1,3 +1,12 @@
+## Shareable verse cards — registered 10 November 2026 (local preview only; nothing published)
+
+The verse card pages at `/verse-cards` and the shared card generator in `src/lib/verse-card/` (design:
+[docs/features/verse-cards/design.md](docs/features/verse-cards/design.md)). **No new source.** The words are the
+Berean Standard Bible (already listed, public domain), printed on every card with "Berean Standard Bible ·
+bibleguide.io"; the lettering is the site's own Literata and Archivo (already listed, SIL Open Font Licence); the
+star, olive sprig, low sun and rule are line drawings made for this feature in `src/lib/verse-card/ornaments.ts`, not
+downloaded pictures. Pictures are drawn on the visitor's own device; nothing is uploaded.
+
 ## Biblical baby names — registered 7 November 2026 (local preview only; nothing published)
 
 The name pages at `/baby-names` (design: [docs/features/baby-names/design.md](docs/features/baby-names/design.md)).

@@ -18067,5 +18067,17 @@
   "file": "src/data/countdowns/index.ts",
   "item": "’Twas on That Dark, That Doleful Night",
   "why": "the title of a published hymn (Isaac Watts), kept as published like the hymn collection's own titles"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/verse-card/layout.ts",
+  "item": "\"Literata Variable\", Georgia, serif",
+  "why": "a font list the card generator hands to the canvas (ctx.font) to draw the card; never shown on a page as text (Shareable verse cards, sequence 32 step 16, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/verse-card/layout.ts",
+  "item": "\"Archivo Variable\", Arial, sans-serif",
+  "why": "a font list the card generator hands to the canvas (ctx.font) to draw the card; never shown on a page as text (Shareable verse cards, sequence 32 step 16, 2026-11-10)"
  }
 ]
