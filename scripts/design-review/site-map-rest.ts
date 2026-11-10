@@ -6,6 +6,7 @@ import { lifeEventPaths } from "../../src/data/life-events";
 import { sympathyPaths } from "../../src/data/sympathy";
 import { babyNamePaths, type NamesIndex } from "../../src/data/baby-names";
 import { countdownPaths } from "../../src/data/countdowns";
+import { birthdayVersePaths } from "../../src/data/birthday-verses";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
 import { WEBSITE } from "./sources.ts";
@@ -265,6 +266,8 @@ function studyAndSiteTemplates(): TemplateDef[] {
       babyNamePaths(readJson<NamesIndex>("data/baby-names/index.json").names).map((address) => single(address === "/baby-names" ? "hub" : address.slice("/baby-names/".length), address, "A baby-names page.", address))),
     one("countdowns", "site", "Countdowns", "/countdowns/<occasion>/<day>", "Daily readings and a card for each day leading up to Christmas and Easter, with a church sharing panel.", ["src/pages/countdowns/CountdownsPage.tsx"], ["src/pages/countdowns/", "src/data/countdowns/"],
       countdownPaths().map((address) => single(address === "/countdowns" ? "hub" : address.slice("/countdowns/".length), address, "A countdown page.", address))),
+    one("birthday-verses", "site", "Birthday verses", "/birthday-verses/<month>-<day>", "A verse for every date of the year, each with a card and a message to send a friend on their birthday.", ["src/pages/birthday-verses/BirthdayVersesPage.tsx"], ["src/pages/birthday-verses/", "src/data/birthday-verses/", "src/data/occasion-verses/birthday-by-date.ts"],
+      birthdayVersePaths().map((address) => single(address === "/birthday-verses" ? "hub" : address.slice("/birthday-verses/".length), address, "A birthday verses page.", address))),
     one("verse-cards", "site", "Shareable verse cards", "/verse-cards", "Make a picture of a Bible verse to post or send, in four sizes and six designs, each linking back to the verse.", ["src/pages/verse-cards/VerseCardsPage.tsx"], ["src/pages/verse-cards/", "src/lib/verse-card/", "src/components/verse-card/"]),
     one("search", "site", "Search", "/search?q=<words>", "Keyword search across the Bible.", ["src/pages/SearchPage.tsx"], ["src/pages/SearchPage.tsx", "src/components/search/"], [
       single("results", "With results", "A common word.", "/search?q=grace"),

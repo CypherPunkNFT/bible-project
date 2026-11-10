@@ -41,6 +41,7 @@ const CountdownsPage = lazy(() => import("@/pages/countdowns/CountdownsPage"));
 const HolyDaysPage = lazy(() => import("@/pages/holy-days/HolyDaysPage"));
 const VerseOfTheDayPage = lazy(() => import("@/pages/verse-of-the-day/VerseOfTheDayPage"));
 const VerseCardsPage = lazy(() => import("@/pages/verse-cards/VerseCardsPage"));
+const BirthdayVersesPage = lazy(() => import("@/pages/birthday-verses/BirthdayVersesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const EmblemMockupsPage = lazy(() => import("@/pages/EmblemMockupsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
@@ -175,6 +176,7 @@ export default function App() {
               <Route path="/holy-days" element={<HolyDaysPage />} />
               <Route path="/verse-of-the-day" element={<VerseOfTheDayPage />} />
               <Route path="/verse-cards/*" element={<VerseCardsPage />} />
+              <Route path="/birthday-verses/*" element={<BirthdayVersesPage />} />
               <Route path="/banner-emblems" element={<EmblemMockupsPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />

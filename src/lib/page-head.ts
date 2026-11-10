@@ -61,6 +61,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/holy-days": "Holy Days Calendar: Easter, Lent, Advent, Pentecost and the Biblical Feasts",
   "/verse-of-the-day": "Bible Verse of the Day: Today's Verse, and a Free Widget for Church Websites",
   "/verse-cards": "Bible Verse Cards: Free Verse Pictures to Share",
+  "/birthday-verses": "Birthday Bible Verses: A Verse for Every Day of the Year",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",
