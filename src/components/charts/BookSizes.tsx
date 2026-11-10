@@ -7,6 +7,18 @@ import type { SectionFilter } from "./SectionGuide";
 
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
+// Each measure's lines written whole, so the page translator finds them with their numbers (a measure's name alone,
+// lower-case, is not filled into a line).
+const LONGEST_BY: Record<Metric, (count: string) => string> = {
+  words: (count) => `Longest by words · ${count} words`,
+  verses: (count) => `Longest by verses · ${count} verses`,
+  chapters: (count) => `Longest by chapters · ${count} chapters`,
+};
+const READ_BOOK: Record<Metric, (name: string, count: string) => string> = {
+  words: (name, count) => `${name}: ${count} words. Read this book.`,
+  verses: (name, count) => `${name}: ${count} verses. Read this book.`,
+  chapters: (name, count) => `${name}: ${count} chapters. Read this book.`,
+};
 
 /** Every book, with comparable scales and a choice of canonical or size order. */
 export function BookSizes({ stats, section = "" }: { stats: Stats; section?: SectionFilter }) {
@@ -29,9 +41,9 @@ export function BookSizes({ stats, section = "" }: { stats: Stats; section?: Sec
         <label>Order<select aria-label="Order" value={order} onChange={(event) => setOrder(event.target.value)}><option value="canon">Bible order</option><option value="longest">Longest first</option></select></label>
         {!section && <label><input type="checkbox" checked={apocrypha} onChange={(event) => setApocrypha(event.target.checked)} className="accent-[var(--apocrypha)]" />Include Apocrypha</label>}
       </div>
-      <div className="chart-live-detail"><strong>{longest.name}</strong><span>Longest by {metric} · {formatNumber(value(longest))} {metric}</span></div>
+      <div className="chart-live-detail"><strong>{longest.name}</strong><span>{LONGEST_BY[metric](formatNumber(value(longest)))}</span></div>
       <ol className="size-bars">{books.map((b) => <li key={b.code}>
-        <Link to={"/read/kjv/" + b.code + "/1"} aria-label={b.name + ": " + formatNumber(value(b)) + " " + metric + ". Read this book."}>
+        <Link to={"/read/kjv/" + b.code + "/1"} aria-label={READ_BOOK[metric](b.name, formatNumber(value(b)))}>
           <span className="truncate text-right">{b.name}</span>
           <span className="size-bar-track"><span style={{ width: Math.max(.5, value(b) / max * 100) + "%", background: sectionColor(b.section) }} /></span>
           <span className="text-right tabular-nums text-muted">{formatNumber(value(b))}</span>

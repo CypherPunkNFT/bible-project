@@ -2,6 +2,7 @@
 // library's editions stacked as they came, the oldest at the bottom, the newest lifting off the top on a slow loop.
 // Names and years are the editions' own (data/catalog.json). Still under reduced motion (versions-card-art.css).
 import { useCatalog } from "@/lib/catalog";
+import { formatNumber } from "@/lib/site-format";
 import "./versions-card-art.css";
 
 const STACK = [
@@ -30,6 +31,6 @@ export function VersionsStackArt() {
         </g>;
       })}
     </svg>
-    <span className="study-art-note">Six of the {editions} editions, oldest at the bottom</span>
+    <span className="study-art-note">{`Six of the ${formatNumber(editions)} editions, oldest at the bottom`}</span>
   </div>;
 }

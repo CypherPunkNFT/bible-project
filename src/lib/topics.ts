@@ -1,7 +1,7 @@
 /** Topics (scripts/build-topics.py): Torrey's New Topical Textbook (1897) and Nave's Topical Bible (1896/1903), with Easton's
  * Bible Dictionary (1897) articles, in a two-level taxonomy (family -> group -> topics). */
 import type { Span } from "./study";
-import { formatNumber, plural } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 
 export interface TopicSubcategory { id: string; title: string; description: string; topics: string[] }
 export interface TopicCategory { id: string; title: string; description: string; subcategories: TopicSubcategory[] }
@@ -53,4 +53,4 @@ export function matchTopics(index: TopicIndex, query: string, limit = 12, fold =
 
 /** "1 point · 1 passage", "3 points · 12 passages". */
 export const pointsAndPassages = (points: number, passages: number) => points === 0 && passages === 0 ? "Dictionary article" :
-  `${points} ${plural(points, "point", "points")} · ${formatNumber(passages)} ${plural(passages, "passage", "passages")}`;
+  `${plural(points, "{n} point", "{n} points")} · ${plural(passages, "{n} passage", "{n} passages")}`;

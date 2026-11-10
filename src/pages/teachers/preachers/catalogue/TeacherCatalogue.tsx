@@ -7,7 +7,7 @@ import { usePreachers } from '../context';
 import { cssVars, initials, toneOf } from '../drawer/helpers';
 import { continentFor, regionGroups } from '../directory/regions';
 import './teacher-catalogue.css';
-import { compareText } from "@/lib/site-format";
+import { compareText, plural } from "@/lib/site-format";
 
 type Facet = 'region' | 'family' | 'era';
 type Filters = Record<Facet, string[]>;
@@ -26,7 +26,7 @@ function TeacherCard({ row, start, onOpen }: { row: Row; start: number; onOpen: 
     <h3>{p.name}</h3><p className="pc-meta">{lifeLabel(p)} · {row.town}</p>
     <p className="pc-tags"><span>{family.label}</span><span>{row.region}</span></p>
     <div className="pc-work"><small>{title ? 'Key work' : 'Library collection'}</small><div><strong>{title ?? 'Explore their held works'}</strong>{work && <span>{work.y}</span>}</div></div>
-    <p className="pc-counts">{p.works ? <>{formatNumber(p.works)} catalogue works · {formatNumber(p.genres.sermon ?? 0)} sermons</> : p.heldTexts ? <>{formatNumber(p.heldTexts)} held texts</> : 'No works linked yet'}</p>
+    <p className="pc-counts">{p.works ? `${plural(p.works, "{n} catalogue work", "{n} catalogue works")} · ${plural(p.genres.sermon ?? 0, "{n} sermon", "{n} sermons")}` : p.heldTexts ? plural(p.heldTexts, "{n} held text", "{n} held texts") : 'No works linked yet'}</p>
     <div className="pc-life" aria-hidden="true"><i style={{left:percent(p.born),width:`max(4px, calc(${percent(lifeEnd(p))} - ${percent(p.born)}))`}} /></div>
     <button className="pc-card-hit" type="button" aria-label={`Open the profile of ${p.name}`} onClick={e => onOpen(p.id,e.currentTarget)} />
   </article>;
@@ -58,7 +58,7 @@ export function TeacherCatalogue() {
         {facet('family','Tradition',FAMILIES.map(f=>({value:f.key,label:f.label,tone:`var(${f.tone})`})))}
         {facet('era','Era',eras.map(era=>({value:era,label:`${era}–${+era+99}`})))}
       </aside>
-      <div className="pc-results"><div className="pc-toolbar"><p className="pc-result-count" aria-live="polite"><strong>{visible.length}</strong> of {rows.length} teachers</p><div className="pc-sort" role="radiogroup" aria-label="Sort preachers"><span>Sort</span>{SORTS.map(([key,label])=><button key={key} type="button" role="radio" aria-checked={sort===key} onClick={()=>setSort(key)}>{label}</button>)}</div></div>
+      <div className="pc-results"><div className="pc-toolbar"><p className="pc-result-count" aria-live="polite"><strong>{formatNumber(visible.length)}</strong>{` of ${formatNumber(rows.length)} teachers`}</p><div className="pc-sort" role="radiogroup" aria-label="Sort preachers"><span>Sort</span>{SORTS.map(([key,label])=><button key={key} type="button" role="radio" aria-checked={sort===key} onClick={()=>setSort(key)}>{label}</button>)}</div></div>
         <div className="pc-scroll slim-scroll" ref={viewport} role="region" aria-label="Preacher cards" tabIndex={0}><div className="pc-grid">{visible.map(row=><TeacherCard key={row.person.id} row={row} start={start} onOpen={openProfile}/>)}</div>{!visible.length&&<div className="pc-empty"><p>No teacher matches these filters.</p><button type="button" onClick={clear}>Clear the filters</button></div>}</div>
       </div>
     </div>

@@ -37,8 +37,7 @@ export function Landing() {
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Teachers in the library</p>
         <h1 className="lnd-title">Five Centuries of<br /><em>biblical teachers</em></h1>
-        <p className="lnd-lead">{countWord(people.length, true)} pastors, preachers and missionaries, from {first.name} in {first.places[first.places.length - 1][0]} to teachers still living today.
-          {" "}Their sermons and books are in the library. Find one you know, or meet someone new.</p>
+        <p className="lnd-lead">{`${countWord(people.length, true)} pastors, preachers and missionaries, from ${first.name} in ${first.places[first.places.length - 1][0]} to teachers still living today. Their sermons and books are in the library. Find one you know, or meet someone new.`}</p>
         <nav className="lnd-jump" aria-label="On this page">
           {JUMPS.map(([id, label]) => <a key={id} href={`#${id}`} onClick={(event) => jumpTo(event, id)}>{label}<ArrowRight size={14} strokeWidth={1.5} aria-hidden /></a>)}
         </nav>

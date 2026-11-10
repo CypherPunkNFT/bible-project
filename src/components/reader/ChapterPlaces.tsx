@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { loadBookPlaces } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
-import { compareText } from "@/lib/site-format";
+import { compareText, formatNumber } from "@/lib/site-format";
 
 /** Places named in this chapter (OpenBible.info geocoding), each a link to the atlas. Loads only this book's list. */
 export function ChapterPlaces({ bookCode, bookNum, chapter }: { bookCode: string; bookNum: number; chapter: number }) {
@@ -18,7 +18,7 @@ export function ChapterPlaces({ bookCode, bookNum, chapter }: { bookCode: string
   return (
     <section aria-label="Places in this chapter" className="mt-10 rounded-2xl border border-line bg-surface p-4">
       <h2 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-        <MapPin className="h-3.5 w-3.5" aria-hidden /> Places in this chapter · {found.length}
+        <MapPin className="h-3.5 w-3.5" aria-hidden /> {`Places in this chapter · ${formatNumber(found.length)}`}
       </h2>
       <ul className="flex flex-wrap gap-1.5">
         {found.map(({ place, count }) => (

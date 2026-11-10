@@ -39,7 +39,7 @@ function wrap(text,width=21,count=2){const words=text.split(/\s+/),lines=[''];fo
 let denseMap=null;
 function dotMap(){
  const extent=Math.max(1000,(mapRings.at(-1)?.radius||410)*2+180);
- denseMap=new DenseWorkMap(nodes,{label:leaderId?leader().name:study().label,year,wrap,escape:esc,positions:workPositions,rings:mapRings,centre:wrap(leaderId?leader().short:study().label,16,3),subtitle:leaderId?'THROUGH TIME':nodes.length+' WORKS',viewBox:mapOpen?'0 0 1000 1000':`${500-extent/2} ${500-extent/2} ${extent} ${extent}`,dated:!!leaderId});
+ denseMap=new DenseWorkMap(nodes,{label:leaderId?leader().name:study().label,year,wrap,escape:esc,positions:workPositions,rings:mapRings,centre:wrap(leaderId?leader().short:study().label,16,3),subtitle:leaderId?'THROUGH TIME':plural(nodes.length,'{n} WORK','{n} WORKS'),viewBox:mapOpen?'0 0 1000 1000':`${500-extent/2} ${500-extent/2} ${extent} ${extent}`,dated:!!leaderId});
  return denseMap.markup;
 }
 function urlFor(id,person=null){const p=new URLSearchParams({study:id});if(person)p.set('leader',person);return person?'/teachers/collections/'+encodeURIComponent(person)+'?'+new URLSearchParams({study:id}):'/study/circles?'+p;}
@@ -49,7 +49,7 @@ function frame(){app.classList.toggle('leader-view',!!leaderId);const c=category
  $('#breadcrumb').innerHTML=`<a href="/study">Study</a><span>/</span><a href="${urlFor(studyId)}">Circles of study</a>${p?`<span>/</span><span>${esc(p.name)}</span>`:''}`;
  $('#hero-kicker').textContent=p?p.kind.toUpperCase():'THE STUDY LIBRARY';$('#hero-title').innerHTML=p?esc(p.name):'Circles of <em>study.</em>';
  $('#hero-line').textContent=p?(p.line||'Explore the works, follow their dates, and return to the studies they shape.'):'Begin with a subject. Follow the works that deepen it.';
- document.title=(p?p.name+' · Works':'Circles of study')+' · Bible Guide';
+ document.title=(p?`${p.name} · Works`:'Circles of study')+' · Bible Guide';
  $('#categories').innerHTML=categories.map(c=>`<button class="category-card" style="--tone:${c.tone}" data-category="${c.id}" aria-pressed="${c.id===category().id}">${icon(c.icon,'category-icon')}<span class="category-arrow">↗</span><strong>${esc(c.label)}</strong><small>${studies.filter(s=>s.category===c.id).length} subjects · ${esc(c.tag)}</small></button>`).join('');
  $('#collection-heading').innerHTML=p?`<div class="collection-mark">${icon('orbit')}</div><div><p class="eyebrow">PROMINENT WORKS &amp; SELECTED SERMONS</p><h2>A life in <em>words.</em></h2></div>`:`<div class="collection-mark">${icon(c.icon)}</div><div><p class="eyebrow">CIRCLES OF STUDY</p><h2>${esc(c.label)}</h2></div>`;
  $('#subcategories').innerHTML=studies.filter(s=>s.category===c.id).map(s=>`<button data-study="${s.id}" aria-current="${s.id===studyId}">${esc(s.label)}</button>`).join('');
@@ -134,7 +134,7 @@ async function openReader(w,trigger,part=0){
  const sourceRecord=readerData.readers[w.id],record=sourceRecord?.parts?.[part]||sourceRecord,body=$('#reader-body');
  $('#reader-title').textContent=w.title;
  $('#reader-kicker').textContent=record?.edition||'FROM THE READING SHELF';
- $('#reader-meta').textContent=[w.author,w.fullDate||w.year,w.number?'Sermon '+w.number:''].filter(Boolean).join(' · ');
+ $('#reader-meta').textContent=[w.author,w.fullDate||w.year,w.number?`Sermon ${w.number}`:''].filter(Boolean).join(' · ');
  $('#reader-editions')?.remove();
  if(sourceRecord?.parts){const select=document.createElement('select');select.id='reader-editions';select.setAttribute('aria-label','Choose a volume');select.innerHTML=sourceRecord.parts.map((p,i)=>`<option value="${i}">${esc(p.edition)}</option>`).join('');select.value=String(part);select.onchange=()=>openReader(w,trigger,Number(select.value));$('#reader-meta').after(select);}
  $('#reader-credit').textContent=record?.credit||w.author;

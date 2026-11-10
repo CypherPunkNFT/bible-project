@@ -8,7 +8,7 @@ import type { Fellowship, FellowshipsData } from "@/data/resources";
 import { commaParts, firstSentence, hostOf, kindOf, restOf, tone } from "../life/format";
 import { ContactLink } from "../life/Row";
 import { AUDIENCES, sentence, shortCost } from "./format";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const STROKE = 1.6;
 
@@ -45,7 +45,7 @@ export function FellowshipDirectory({ data, mapped, mapCities }: { data: Fellows
           <p className="lf-pane-title"><span>{g.title}</span><small>{plural(shown.length, "{n} fellowship", "{n} fellowships")}{who ? ` open to ${who === "all" ? "anyone" : who}` : ""}</small></p>
           {shown.length ? <ol aria-label={g.title}>{shown.map((f) => <FellowshipRow key={f.id} fellowship={f} kind={g.id} mapped={mapped.get(f.id) ?? 0} mapCities={mapCities}
             open={open === f.id} onToggle={() => setOpen(open === f.id ? null : f.id)} />)}</ol>
-            : <p className="fw-none">None of these is for {who}. <button type="button" onClick={() => setWho("")}>Show everyone</button></p>}
+            : <p className="fw-none">{`None of these is for ${who}. `}<button type="button" onClick={() => setWho("")}>Show everyone</button></p>}
         </div>;
       })}</div>
     </div>
@@ -69,7 +69,7 @@ const FellowshipRow = memo(function FellowshipRow({ fellowship: f, kind, mapped,
     </button>
     <div className="lf-quick-row">
       {f.locator && <a className="lf-quick" data-way="call" href={f.locator} target="_blank" rel="noreferrer"><Search size={16} strokeWidth={STROKE} aria-hidden="true" /><span>Find a group</span></a>}
-      {mapped > 0 && <a className="lf-quick" href="#fw-where" title={`Pinned on the city maps below (${plural(mapCities, "{n} city", "{n} cities")} searched)`}><MapPin size={16} strokeWidth={STROKE} aria-hidden="true" /><span>{mapped} on the map</span></a>}
+      {mapped > 0 && <a className="lf-quick" href="#fw-where" title={`Pinned on the city maps below (${plural(mapCities, "{n} city", "{n} cities")} searched)`}><MapPin size={16} strokeWidth={STROKE} aria-hidden="true" /><span>{`${formatNumber(mapped)} on the map`}</span></a>}
     </div>
     <button type="button" className="lf-chev-btn" tabIndex={-1} aria-hidden="true" onClick={onToggle}>{chev}</button>
     <div className="lf-body" ref={body}><div>
@@ -78,13 +78,13 @@ const FellowshipRow = memo(function FellowshipRow({ fellowship: f, kind, mapped,
         <div><dt>Who it is for</dt><dd>{commaParts(f.for.map(sentence))}</dd></div>
         <div><dt>How it meets</dt><dd>{commaParts(f.meets.map(sentence))}</dd></div>
         {f.cost && <div><dt>Cost</dt><dd>{f.cost}</dd></div>}
-        {f.jacksonville && <div><dt>Near Jacksonville, {f.checked}</dt><dd>{f.jacksonville}</dd></div>}
+        {f.jacksonville && <div><dt>{`Near Jacksonville, ${f.checked}`}</dt><dd>{f.jacksonville}</dd></div>}
       </dl>
       <div className="lf-contacts">
         {f.locator && <ContactLink contact={{ kind: "web", value: f.locator, note: "Find a group" }} />}
         {f.faith && <ContactLink contact={{ kind: "web", value: f.faith, note: "Statement of faith" }} />}
       </div>
-      <p className="lf-checked">Checked {f.checked} on <a href={f.source} target="_blank" rel="noreferrer">{hostOf(f.source)}</a></p>
+      <p className="lf-checked">{`Checked ${f.checked} on `}<a href={f.source} target="_blank" rel="noreferrer">{hostOf(f.source)}</a></p>
     </div></div>
   </li>;
 });

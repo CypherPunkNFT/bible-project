@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import { sectionColor } from "@/lib/sections";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** Which books each edition includes. A page that filters by version group itself passes `group`, and the chart's own
  *  group menu goes. `bookStrip` swaps the "Inspect a book" menu for a row of grey squares over the columns: hovering
@@ -29,7 +29,7 @@ export function CoverageMatrix({ group: shared, bookStrip = false, plain = false
   // Hovering changes the description, not the thousands of cells in the table.
   const table = useMemo(() => <table className="coverage-table"><caption className="sr-only">Books included in each Bible version. Filled squares indicate an included book.</caption>
     {bookStrip && <thead><tr><th scope="col"><span className="sr-only">Inspect a book</span></th>
-      {books.map((b) => <td key={b.code} className="coverage-book"><button type="button" data-tip={b.name + " · " + versions.filter((t) => t.books[b.code]).length + "/" + versions.length + " versions"} aria-label={"Inspect " + b.name} aria-pressed={selected === b.code}
+      {books.map((b) => <td key={b.code} className="coverage-book"><button type="button" data-tip={b.name + " · " + versions.filter((t) => t.books[b.code]).length + "/" + versions.length + " versions"} aria-label={`Inspect ${b.name}`} aria-pressed={selected === b.code}
         onClick={() => { setSelected((current) => (current === b.code ? "" : b.code)); setHover(""); }} /></td>)}<td /></tr></thead>}
     <tbody>
     {versions.map((t) => {
@@ -52,7 +52,7 @@ export function CoverageMatrix({ group: shared, bookStrip = false, plain = false
       {shared === undefined && <label>Versions<select value={group} onChange={(event) => { setGroup(event.target.value); setHover(""); }}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>}
       {!bookStrip && <label>Inspect a book<select value={selected} onChange={(event) => { setSelected(event.target.value); setHover(""); }}><option value="">All books</option>{books.map((b) => <option value={b.code} key={b.code}>{b.name}</option>)}</select></label>}
     </div>}
-    <p className="chart-live-detail" aria-live="polite">{hover || (selected ? selectedName + " is included in " + versions.filter((t) => t.books[selected]).length + " of these " + versions.length + " versions." : plain ? "" : "Filled = included. Hover to inspect a square, or choose a book " + (bookStrip ? "from the grey squares along the top." : "above."))}</p>
+    <p className="chart-live-detail" aria-live="polite">{hover || (selected ? `${selectedName} is included in ${formatNumber(versions.filter((t) => t.books[selected]).length)} of these ${formatNumber(versions.length)} versions.` : plain ? "" : bookStrip ? "Filled = included. Hover to inspect a square, or choose a book from the grey squares along the top." : "Filled = included. Hover to inspect a square, or choose a book above.")}</p>
     <div className={"slim-scroll relative overflow-x-auto pb-3" + (bookStrip ? " pt-8" : "")} tabIndex={0} role="region" aria-label="Version coverage table; scroll horizontally to see more books" onMouseLeave={() => setHover("")}>{table}</div>
     {!plain && <p className="chart-hint mt-3">Books run from Genesis to Revelation, followed by the Apocrypha. The total at right is the number of books in that version. Select a version’s abbreviation to start reading.</p>}
   </div>;

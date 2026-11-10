@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { loadHymnsByChapter } from "@/lib/data";
 import type { ChapterHymn, HymnsByChapter } from "@/lib/hymn-pages";
 import { useAsync } from "@/lib/useAsync";
+import { formatNumber } from "@/lib/site-format";
 
 const SHOWN = 8;
 
@@ -28,14 +29,14 @@ export function ChapterHymns({ bookCode, bookNum, chapter }: { bookCode: string;
   return (
     <section aria-label="Sung on this chapter" className="mt-6 rounded-2xl border border-line bg-surface p-4">
       <h2 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-        <Music className="h-3.5 w-3.5" aria-hidden /> Sung on this chapter · {here.on.length + here.echo.length}
+        <Music className="h-3.5 w-3.5" aria-hidden /> {`Sung on this chapter · ${formatNumber(here.on.length + here.echo.length)}`}
       </h2>
       {on.length > 0 && <ul className="grid gap-0.5 sm:grid-cols-2">{on.map((h) => <HymnLink key={h.id} hymn={h} />)}</ul>}
       {echo.length > 0 && <>
         <p className="mb-1 mt-3 px-2 text-xs text-muted">{on.length ? "And hymns with a line that echoes a verse here" : "Hymns with a line that echoes a verse here"}</p>
         <ul className="grid gap-0.5 sm:grid-cols-2">{echo.map((h) => <HymnLink key={h.id} hymn={h} />)}</ul>
       </>}
-      {more > 0 && <p className="mt-2 px-2 text-sm"><Link to="/study/hymns" className="text-muted hover:text-ink">+{more} more in the hymns collection</Link></p>}
+      {more > 0 && <p className="mt-2 px-2 text-sm"><Link to="/study/hymns" className="text-muted hover:text-ink">{`+${formatNumber(more)} more in the hymns collection`}</Link></p>}
     </section>
   );
 }

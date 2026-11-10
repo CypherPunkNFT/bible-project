@@ -5,7 +5,7 @@ import { useAsync } from "@/lib/useAsync";
 
 import { ATLAS_BASE as BASE } from "./routes";
 import { PlacesArtwork } from "./PlacesArtwork";
-import { compareText } from "@/lib/site-format";
+import { compareText, formatNumber, plural } from "@/lib/site-format";
 export function FindCityCard() {
   return <Link to={`${BASE}/cities/find`} className="places-compact-card places-find-city" aria-label="Find Your City">
     <Search size={34} strokeWidth={1.35} aria-hidden /><span><strong>Find Your City</strong><small>Search the places behind the stories</small></span><ArrowUpRight size={15} aria-hidden />
@@ -29,10 +29,10 @@ export function CityDirectory() {
       {data.status === "loading" && <p role="status">Loading cities…</p>}
       {data.status === "error" && <p role="alert">The directory could not load. Refresh to try again.</p>}
       {data.status === "ready" && <>
-        <p className="places-city-overlap" role="status">{cities.length} matching cities and settlements · OpenBible.info</p>
-        <div className="places-directory-results">{cities.slice(current * 24, current * 24 + 24).map((place) => <Link key={place.id} to={`${BASE}/map?place=${place.id}`}><strong>{place.name}</strong><span>{place.verses.length} passages · {place.lat.toFixed(1)}°, {place.lon.toFixed(1)}°</span><ArrowUpRight size={15} aria-hidden /></Link>)}</div>
-        {!cities.length && <p>No cities match “{query}”. Try a shorter name or another spelling.</p>}
-        {cities.length > 24 && <nav className="places-directory-pages" aria-label="Directory pages"><button disabled={current === 0} onClick={() => changePage(current - 1)}><ArrowLeft size={15} aria-hidden />Previous</button><span>Page {current + 1} of {last + 1}</span><button disabled={current === last} onClick={() => changePage(current + 1)}>Next<ArrowRight size={15} aria-hidden /></button></nav>}
+        <p className="places-city-overlap" role="status">{`${plural(cities.length, "{n} matching city or settlement", "{n} matching cities and settlements")} · OpenBible.info`}</p>
+        <div className="places-directory-results">{cities.slice(current * 24, current * 24 + 24).map((place) => <Link key={place.id} to={`${BASE}/map?place=${place.id}`}><strong>{place.name}</strong><span>{`${plural(place.verses.length, "{n} passage", "{n} passages")} · ${place.lat.toFixed(1)}°, ${place.lon.toFixed(1)}°`}</span><ArrowUpRight size={15} aria-hidden /></Link>)}</div>
+        {!cities.length && <p>{`No cities match “${query}”. Try a shorter name or another spelling.`}</p>}
+        {cities.length > 24 && <nav className="places-directory-pages" aria-label="Directory pages"><button disabled={current === 0} onClick={() => changePage(current - 1)}><ArrowLeft size={15} aria-hidden />Previous</button><span>{`Page ${formatNumber(current + 1)} of ${formatNumber(last + 1)}`}</span><button disabled={current === last} onClick={() => changePage(current + 1)}>Next<ArrowRight size={15} aria-hidden /></button></nav>}
       </>}
     </section>
   </>;

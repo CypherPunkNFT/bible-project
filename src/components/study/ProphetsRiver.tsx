@@ -113,7 +113,7 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
           {focus.anchor && <> · <RefLink span={focus.anchor} /></>}
         </p>
         <div className="pm-panel-actions">
-          <SlideLink to={prophetHref(focus.id)} state={back()} className="pm-button">Open {focus.name}’s page <ArrowUpRight size={15} aria-hidden /></SlideLink>
+          <SlideLink to={prophetHref(focus.id)} state={back()} className="pm-button">{`Open ${focus.name}’s page`} <ArrowUpRight size={15} aria-hidden /></SlideLink>
           {focus.book && <Link to={`/read/kjv/${focus.book}/1`} className="pm-button pm-button-quiet">Read the book <BookOpen size={15} aria-hidden /></Link>}
         </div>
       </div>

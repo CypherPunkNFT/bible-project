@@ -44,27 +44,27 @@ function Status() {
   const size = meaning.manifest ? MB(meaning.manifest.bytes) : "about 85 MB";
   const box = "mt-6 rounded-2xl border p-5";
   if (meaning.phase === "checking") return <div className={box + " border-line"} role="status">Checking this device…</div>;
-  if (meaning.phase === "unsupported") return <div className={box + " border-line"}><p className="font-semibold text-ink">This device can’t run meaning search.</p><p className="mt-1 text-sm">{meaning.reason} Word search works as before.</p></div>;
+  if (meaning.phase === "unsupported") return <div className={box + " border-line"}><p className="font-semibold text-ink">This device can’t run meaning search.</p><p className="mt-1 text-sm">{meaning.reason} <span>Word search works as before.</span></p></div>;
   if (meaning.phase === "error") return <div className={box + " border-line"}><p className="font-semibold text-ink">Something went wrong.</p><p className="mt-1 text-sm">{meaning.reason}</p>{meaning.manifest && <button type="button" onClick={() => void enableMeaning()} className="mt-3 rounded-xl bg-ink px-4 py-2 text-sm font-semibold text-page">Try again</button>}</div>;
   if (meaning.phase === "downloading") return (
     <div className={box + " border-accent/50"} role="status" aria-live="polite">
-      <p className="font-semibold text-ink">Downloading to this device… {Math.round(meaning.progress * 100)}%</p>
+      <p className="font-semibold text-ink">{`Downloading to this device… ${formatNumber(Math.round(meaning.progress * 100))}%`}</p>
       <div className="mt-3 h-2 overflow-hidden rounded-full bg-surface-2"><div className="h-full rounded-full bg-accent transition-[width]" style={{ width: `${meaning.progress * 100}%` }} /></div>
-      <p className="mt-2 text-xs">{size} in total. You can keep using the site; this happens once.</p>
+      <p className="mt-2 text-xs">{`${size} in total. You can keep using the site; this happens once.`}</p>
     </div>
   );
   if (meaning.phase === "ready") return (
     <div className={box + " border-accent/50 bg-accent/5"}>
       <p className="flex items-center gap-2 font-semibold text-ink"><Check size={18} className="text-accent" /> Meaning search is on for this device.</p>
-      <p className="mt-1 text-sm">It uses {MB(meaning.storedBytes)} of this browser’s storage, and searching keeps working if your connection drops. Try it on the <Link to="/search" className="text-accent underline">Search page</Link>.</p>
+      <p className="mt-1 text-sm"><span>{`It uses ${MB(meaning.storedBytes)} of this browser’s storage, and searching keeps working if your connection drops.`}</span> Try it on the <Link to="/search" className="text-accent underline">Search page</Link>.</p>
       <button type="button" onClick={() => void disableMeaning()} className="mt-3 inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2 text-sm hover:border-ink"><Trash2 size={15} /> Remove from this device</button>
     </div>
   );
   return (
     <div className={box + " border-accent/50"}>
-      <p className="flex items-center gap-2 font-semibold text-ink"><Check size={18} className="text-accent" /> This device can run it.{meaning.phase === "update" && " An improved version is ready."}</p>
-      <p className="mt-1 text-sm">One download of {size}, then every search runs here, privately, with no internet needed. Wi-Fi is best.</p>
-      <button type="button" onClick={() => void enableMeaning()} className="mt-3 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-page hover:opacity-90"><Download size={16} /> {meaning.phase === "update" ? "Update" : "Turn on"} meaning search · {size}</button>
+      <p className="flex items-center gap-2 font-semibold text-ink"><Check size={18} className="text-accent" /> {meaning.phase === "update" ? "This device can run it. An improved version is ready." : "This device can run it."}</p>
+      <p className="mt-1 text-sm">{`One download of ${size}, then every search runs here, privately, with no internet needed. Wi-Fi is best.`}</p>
+      <button type="button" onClick={() => void enableMeaning()} className="mt-3 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-page hover:opacity-90"><Download size={16} /> {meaning.phase === "update" ? `Update meaning search · ${size}` : `Turn on meaning search · ${size}`}</button>
     </div>
   );
 }
@@ -108,14 +108,14 @@ export default function MeaningSearchPage() {
         <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="divide-y divide-line">
           <tr><th className="py-2 pr-4 font-semibold text-ink">Device</th><td className="py-2">Most laptops from the last eight years, and most phones and tablets from the last five or six.</td></tr>
           <tr><th className="py-2 pr-4 font-semibold text-ink">Browser</th><td className="py-2">Any current Chrome, Edge, Firefox or Safari. No graphics card needed.</td></tr>
-          <tr><th className="py-2 pr-4 font-semibold text-ink">Download</th><td className="py-2">{meaning.manifest ? MB(meaning.manifest.bytes) : "About 85 MB"}, once. Wi-Fi recommended.</td></tr>
+          <tr><th className="py-2 pr-4 font-semibold text-ink">Download</th><td className="py-2">{`${meaning.manifest ? MB(meaning.manifest.bytes) : "About 85 MB"}, once. Wi-Fi recommended.`}</td></tr>
           <tr><th className="py-2 pr-4 font-semibold text-ink">Speed</th><td className="py-2">Measured: a few hundredths of a second on a laptop; about a third of a second on a slow phone.</td></tr>
         </tbody></table></div>
         <p className="mt-3 flex items-center gap-2 text-sm"><Smartphone size={16} className="text-accent" /> The box at the top of this page checks your device before offering the download.</p>
       </Block>
 
       <Block title="What it covers.">
-        <p><strong className="text-ink">Now:</strong> the {counts?.studies ?? 25} studies in the question library and all {counts ? formatNumber(counts.bibleVerses) : "31,098"} verses of the World English Bible. <strong className="text-ink">Next:</strong> study pages, people and places, and more languages.</p>
+        <p><strong className="text-ink">Now:</strong>{` the ${formatNumber(counts?.studies ?? 25)} studies in the question library and all ${counts ? formatNumber(counts.bibleVerses) : "31,098"} verses of the World English Bible. `}<strong className="text-ink">Next:</strong> study pages, people and places, and more languages.</p>
       </Block>
 
       <Block title="What it doesn’t do.">

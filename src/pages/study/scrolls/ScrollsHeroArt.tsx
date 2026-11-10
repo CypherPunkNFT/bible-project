@@ -16,7 +16,7 @@ export default function ScrollsHeroArt() {
     <div className="dss-art-top"><span>THE WRITTEN SURFACE</span><span className="dss-art-index">SCROLL / FRAGMENT</span></div>
     <div className="dss-art-scene">
       <svg className="dss-art-drawing" viewBox="0 0 640 520" role="group" aria-labelledby={`${id}-title ${id}-desc`}>
-        <title id={`${id}-title`}>A line drawing of an unrolled scroll and manuscript fragments</title><desc id={`${id}-desc`}>Original schematic artwork, not a historical manuscript or a proposed reconstruction. {view==='scroll'?'The scroll form is emphasised.':'The separate fragments are emphasised.'}</desc>
+        <title id={`${id}-title`}>A line drawing of an unrolled scroll and manuscript fragments</title><desc id={`${id}-desc`}>{view==='scroll'?'Original schematic artwork, not a historical manuscript or a proposed reconstruction. The scroll form is emphasised.':'Original schematic artwork, not a historical manuscript or a proposed reconstruction. The separate fragments are emphasised.'}</desc>
         <defs>
           <clipPath id={`${id}-body`}><path d={main}/></clipPath>
           <clipPath id={`${id}-lens-clip`}><circle cx="421" cy="224" r="45"/></clipPath>

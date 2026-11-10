@@ -50,7 +50,7 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
         {focusBook ? (
           <span><span className="mr-2 inline-block h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(focusBook.section) }} aria-hidden /><strong className="font-serif text-base">{focusBook.name}</strong> <span className="text-muted">· {plural(counts.get(focusBook.code) ?? 0, "{n} verse", "{n} verses")}</span></span>
         ) : (
-          <span className="text-muted">In {plural(booksWithHits, "{n} book", "{n} books")}. Point at a bar to name it; click one to see its verses.</span>
+          <span className="text-muted">{`In ${plural(booksWithHits, "{n} book", "{n} books")}. Point at a bar to name it; click one to see its verses.`}</span>
         )}
         {selected && <button type="button" onClick={() => onSelect("")} className="inline-flex items-center gap-1 text-xs text-muted hover:text-ink"><X size={13} aria-hidden />Show every book</button>}
       </p>
@@ -83,7 +83,7 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
       </div>
       {chosen && chapters.length > 0 && (
         <div className="word-dist-chapters mt-4 border-t border-line pt-3">
-          <p className="text-xs text-muted">{chosen.name}: {plural(counts.get(chosen.code) ?? 0, "{n} verse", "{n} verses")} in {plural(chapters.length, "{n} chapter", "{n} chapters")}. Open one in the reader:</p>
+          <p className="text-xs text-muted">{`${chosen.name}: ${plural(counts.get(chosen.code) ?? 0, "{n} verse", "{n} verses")} in ${plural(chapters.length, "{n} chapter", "{n} chapters")}. Open one in the reader:`}</p>
           <ul className="mt-2 flex flex-wrap gap-1.5">
             {chapters.map(([chapter, { count, verse }], i) => (
               <li key={chapter} style={{ animationDelay: `${i * 25}ms` }}>

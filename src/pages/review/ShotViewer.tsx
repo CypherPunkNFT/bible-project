@@ -48,7 +48,7 @@ export function ShotViewer({ opened, shots, onClose, onMove }: { opened: Opened;
         {shot
           ? <img key={`${sample.id}-${view}-${shownPart}`} src={`/review-data/shots/${shownPart === "crop" ? shot.crop : shot.full}`} alt={`${sample.label}, ${VIEWS.find((v) => v.key === view)?.label}`} />
           : <p>No screenshot of this view yet.</p>}
-        {shot?.clipped && shownPart === "full" && <p className="review-viewer-note">The page is longer than this; the picture shows its first {formatNumber(Math.round(shot.height))} pixels.</p>}
+        {shot?.clipped && shownPart === "full" && <p className="review-viewer-note">{`The page is longer than this; the picture shows its first ${formatNumber(Math.round(shot.height))} pixels.`}</p>}
       </div>
     </div>
   );

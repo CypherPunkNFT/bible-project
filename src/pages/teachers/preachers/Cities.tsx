@@ -66,11 +66,11 @@ function WhoArrived({ city, onLight }: { city: City; onLight: (stay: number | nu
       {city.stays.map((s, i) => {
         const left = ((s.from - city.first) / span) * 100, width = Math.max(1.5, ((s.to - s.from) / span) * 100);
         const how = s.bornHere ? "born here" : s.cameFrom ? `from ${s.cameFrom}` : "birthplace unknown";
-        const until = s.to >= THIS_YEAR && !s.person.died ? "today" : s.to;
+        const until = s.to >= THIS_YEAR && !s.person.died ? "until today" : `until ${s.to}`;
         return <li key={`${city.name}-${s.person.id}`}>
           <button type="button" data-i={i} style={dotStyle(familyOf(s.person).tone)} onClick={(e) => openProfile(s.person.id, e.currentTarget)}>
             <span className="cty-yr">{s.from}</span>
-            <span className="cty-who"><i /><b>{s.person.name}</b><small>{how} · until {until}{s.returned ? " · returned later" : ""}</small></span>
+            <span className="cty-who"><i /><b>{s.person.name}</b><small>{`${how} · ${until}${s.returned ? " · returned later" : ""}`}</small></span>
             <span className="cty-bar"><span style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }} /></span>
           </button>
         </li>;

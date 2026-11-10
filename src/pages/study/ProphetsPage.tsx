@@ -66,7 +66,7 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
         <>
           <div id="prophets-directory" className="study-section-anchor"><ProphetsRiver prophets={prophets.value} kingId={kingId} /></div>
           <h3 className="mt-10 font-serif text-2xl font-semibold">Every prophet, era by era</h3>
-          {focusRuler && <p className="mt-2 text-sm text-muted">Lit: the prophets Scripture places in the days of {focusRuler.name}. <Link className="underline" to={rulerHref(focusRuler.id)}>Back to the reign</Link></p>}
+          {focusRuler && <p className="mt-2 text-sm text-muted">{`Lit: the prophets Scripture places in the days of ${focusRuler.name}. `}<Link className="underline" to={rulerHref(focusRuler.id)}>Back to the reign</Link></p>}
           <div role="group" aria-label="Show" className="mt-6 flex flex-wrap gap-1.5">
             {KINDS.map((k) => (
               <button
@@ -153,7 +153,7 @@ function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name
         {book && (
           <p className="mt-2 text-sm">
             <Link to={`/read/kjv/${book.code}/1`} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">
-              Read {book.name}
+              {`Read ${book.name}`}
             </Link>
           </p>
         )}

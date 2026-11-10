@@ -11,6 +11,7 @@ import { layoutStrip, linearYears, timeSpan, yearTicks, type StripBar } from "./
 import { useCarried } from "./use-carried";
 import { useStripPill } from "./use-strip-pill";
 import { ClaimList } from "./Evidence";
+import { formatNumber } from "@/lib/site-format";
 
 const LABEL_H = 20, TRACK_H = 34, BAR_H = 26, LANE_GAP = 14, AXIS_H = 26, NOMINAL_W = 1000;
 /** A neighbour in the line widens the window only if their reign is this close (years) to this one. */
@@ -74,7 +75,7 @@ export function SuccessionStrip({ ruler, summary, intro }: { ruler: Ruler; summa
   const powers = ruler.worldStage.map((w) => w.power);
   const worldShown = strip?.layout.lanes.some((l) => WORLD_REALMS.includes(l.id as Ruler["realm"]));
 
-  const resting = strip && <span className="lg-muted">{ruler.synchronisms?.length ? "Point at a line to read the verse that dates one reign by the other. " : ""}Point at a bar to name the reign. Bars use {summary.dates?.label || "the main dating"}; other systems are under “Dates differ”.{strip.layout.bars.some((b) => b.undated) ? " A dotted bar has no years of its own: it stands beside the rulers Scripture names with it." : ""}</span>;
+  const resting = strip && <span className="lg-muted">{ruler.synchronisms?.length ? "Point at a line to read the verse that dates one reign by the other. Point at a bar to name the reign." : "Point at a bar to name the reign."}{summary.dates?.label ? ` Bars use ${summary.dates.label}; other systems are under “Dates differ”.` : " Bars use the main dating; other systems are under “Dates differ”."}{strip.layout.bars.some((b) => b.undated) ? " A dotted bar has no years of its own: it stands beside the rulers Scripture names with it." : ""}</span>;
 
   const lead = ruler.realm === "united" ? "One lane for the united kingdom, which splits in two at Rehoboam. Each bar is a reign; choose one to open it."
     : ruler.realm === "israel" || ruler.realm === "judah" ? "Both thrones at once. The lines are Scripture's own cross-dating between the two kingdoms. Each bar is a reign; choose one to open it."
@@ -112,8 +113,8 @@ export function SuccessionStrip({ ruler, summary, intro }: { ruler: Ruler; summa
     </>}
     <CrossDating ruler={ruler} />
     <nav className="pp-strip-nav" aria-label="Neighbouring reigns">
-      {before ? <SlideLink to={rulerHref(before.id)} state={carried} rel="prev"><ArrowLeft size={16} aria-hidden />Before: {before.name}</SlideLink> : <span />}
-      {after ? <SlideLink to={rulerHref(after.id)} state={carried} rel="next">After: {after.name}<ArrowRight size={16} aria-hidden /></SlideLink> : <span />}
+      {before ? <SlideLink to={rulerHref(before.id)} state={carried} rel="prev"><ArrowLeft size={16} aria-hidden />{`Before: ${before.name}`}</SlideLink> : <span />}
+      {after ? <SlideLink to={rulerHref(after.id)} state={carried} rel="next">{`After: ${after.name}`}<ArrowRight size={16} aria-hidden /></SlideLink> : <span />}
     </nav>
   </Section>;
 }
@@ -152,7 +153,7 @@ function CrossDating({ ruler }: { ruler: Ruler }) {
   const carried = useCarried();
   if (!ruler.synchronisms?.length) return null;
   return <details className="lg-more">
-    <summary>Cross-dated in Scripture · {ruler.synchronisms.length}</summary>
+    <summary>{`Cross-dated in Scripture · ${formatNumber(ruler.synchronisms.length)}`}</summary>
     <ul className="pp-claims" style={{ marginTop: ".6rem" }}>{ruler.synchronisms.map((s) => {
       const other = rulerFor(s.otherRulerId);
       return <li key={s.quote.span.join("-")}>“{s.quote.text}”<Refs refs={[s.quote.span]} /> <span className="lg-muted">· with </span>

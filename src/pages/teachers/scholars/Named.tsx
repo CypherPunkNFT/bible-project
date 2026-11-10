@@ -8,6 +8,10 @@ import { useScholars } from "./context";
 import { AREAS, areaPhrase, buildHeat, type SortKey } from "./named/model";
 import { Row } from "./named/Row";
 import "./Named.css";
+import { formatNumber } from "@/lib/site-format";
+
+// Its own text node after the counted sentences: the collector skips a text with ";".
+const SQUARES_NOTE = "Squares compare distinct page connections for each credit; source details retain the recorded consultation limits. Coverage includes citations, linked research directories, bibliographies and chart inputs.";
 import type {SourceInspection} from './built/SourceDetails';
 
 interface Tip { id: string; col: number; name: string; text: string; x: number; y: number }
@@ -89,6 +93,6 @@ export function Named({onInspect}:{onInspect?:(selection:SourceInspection)=>void
       </div>
     </div>
     </div>
-    <p className="num-explain">{heat.named.length} recorded credit labels across nine areas, including named contributors and institutional source providers. Joint credits may represent several people. Squares compare distinct page connections for each credit; source details retain the recorded consultation limits. Coverage includes citations, linked research directories, bibliographies and chart inputs.</p>
+    <p className="num-explain">{`${formatNumber(heat.named.length)} recorded credit labels across nine areas, including named contributors and institutional source providers. Joint credits may represent several people.`}{" "}{SQUARES_NOTE}</p>
   </div>;
 }

@@ -14,6 +14,7 @@ import { PartArt } from "./part-art";
 import { nextLesson, passageLabel, toneStyle, type Lesson, type PartLessons } from "./data";
 import { LessonStage } from "./LessonStage";
 import { Path, PartRow, Top } from "./PathView";
+import { formatNumber, plural } from "@/lib/site-format";
 import type { Progress } from "./progress";
 
 /** The first lesson of a part not yet done, or its first. */
@@ -84,9 +85,12 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
     <section className="ck-sunday" style={toneStyle(chosen.part.tone)} aria-labelledby="ck-mix-title" aria-live="polite">
       <div className="ck-sunday-art"><PartArt part={chosen.part} /></div>
       <div>
-        <p className="ck-eyebrow">{chosen.id === next.id ? "Up next · " : ""}{chosen.part.title} · Lesson {chosen.n}</p>
+        <p className="ck-eyebrow">{`${chosen.id === next.id ? "Up next · " : ""}${chosen.part.title} · Lesson ${formatNumber(chosen.n)}`}</p>
         <h2 id="ck-mix-title">{chosen.title}</h2>
-        <p>{chosen.passage ? <>Read <b>{passageLabel(chosen.passage, bookNames)}</b> {`together, then answer ${chosen.questions.length} questions.`}</> : `Learn together, then answer ${chosen.questions.length} questions.`}
+        {/* One sentence, one text node (the passage is no longer set bold inside it), so a translation can reorder it. */}
+        <p>{chosen.passage
+          ? `Read ${passageLabel(chosen.passage, bookNames)} together, then answer ${plural(chosen.questions.length, "{n} question", "{n} questions")}.`
+          : `Learn together, then answer ${plural(chosen.questions.length, "{n} question", "{n} questions")}.`}
           {progress[chosen.id] && ` Last time: ${progress[chosen.id].right} of ${progress[chosen.id].total} right.`}</p>
         <button type="button" className="ck-go" onClick={() => void showOnPath(chosen)}>{progress[chosen.id] ? "Start the quiz again" : "Start the quiz"}<ArrowDown size={18} aria-hidden /></button>
         <button type="button" className="ck-go ck-go-outline" onClick={() => onGuide(chosen)}>See all the questions</button>
@@ -95,8 +99,8 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
     </section>
     </div>
     <section ref={pathSection} className="ck-path-part ck-mix-path" style={toneStyle(group.part.tone)} aria-labelledby="ck-mix-path-title">
-      <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
-      <p>{group.part.line}. Choose one to start its quiz.</p>
+      <h2 id="ck-mix-path-title">{`All ${formatNumber(group.lessons.length)} lessons in ${group.part.title}`}</h2>
+      <p>{`${group.part.line}. Choose one to start its quiz.`}</p>
       <div className="ck-mix-path-body">
         <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} holdId={playing?.id} settle={settle} />
       </div>

@@ -11,6 +11,18 @@ import "./people-pages.css";
 
 type Sex = "M" | "F" | "G" | "";
 
+// A card's call to action written whole, so the page translator finds each line (a heading lower-cased into a line, or a
+// pronoun alone, is not filled in).
+const EXPLORE: Record<string, string> = {
+  "Her time as queen": "Explore her time as queen", "His time as queen": "Explore his time as queen",
+  "Her time as judge": "Explore her time as judge", "His time as judge": "Explore his time as judge",
+  "Her time as leader": "Explore her time as leader", "His time as leader": "Explore his time as leader",
+  "Her governorship": "Explore her governorship", "His governorship": "Explore his governorship",
+  "Her rule": "Explore her rule", "His rule": "Explore his rule",
+};
+const exploreReign = (their: string) => (their === "her" ? "Explore her reign" : their === "their" ? "Explore their reign" : "Explore his reign");
+const exploreMission = (their: string) => (their === "her" ? "Explore her mission" : their === "their" ? "Explore their mission" : "Explore his mission");
+
 /** Arrow keys move between the parts of the switch (each half is an ordinary link). */
 function arrowKeys(event: KeyboardEvent<HTMLElement>) {
   if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
@@ -67,7 +79,7 @@ function PageCard({ page, sex, compact }: { page: SpecialPage; sex: Sex; compact
       <Icon className="pp-entry-icon" size={iconSize} strokeWidth={1.25} aria-hidden />
       <span className="pp-entry-kicker">{ruler.title}{when && ` · ${when}`}</span>
       <span className="pp-entry-line">{ruler.tagline}</span>
-      <span className="pp-entry-cta">Explore {heading === "The reign" ? `${their} reign` : heading.charAt(0).toLowerCase() + heading.slice(1)}<ArrowRight size={18} aria-hidden /></span>
+      <span className="pp-entry-cta">{heading === "The reign" ? exploreReign(their) : EXPLORE[heading] ?? `Explore ${heading.charAt(0).toLowerCase() + heading.slice(1)}`}<ArrowRight size={18} aria-hidden /></span>
     </SlideLink>;
   }
   if (page.aspect === "mission") {
@@ -77,7 +89,7 @@ function PageCard({ page, sex, compact }: { page: SpecialPage; sex: Sex; compact
       <Route className="pp-entry-icon" size={iconSize} strokeWidth={1.25} aria-hidden />
       <span className="pp-entry-kicker">{apostle.title}{apostle.called && ` · called in ${apostle.called}`}</span>
       <span className="pp-entry-line">{apostle.tagline}</span>
-      <span className="pp-entry-cta">Explore {their} mission<ArrowRight size={18} aria-hidden /></span>
+      <span className="pp-entry-cta">{exploreMission(their)}<ArrowRight size={18} aria-hidden /></span>
     </SlideLink>;
   }
   const prophet = page.summary;

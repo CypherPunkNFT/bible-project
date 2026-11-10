@@ -9,7 +9,7 @@ import { Glyph } from "./Art";
 import { doorBack, groupsFor, toneOf } from "./model";
 import { SecHead } from "./parts";
 import { Stack } from "./Stack";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const SLIDE_MS = 680, OPEN_MS = 760, EASE = "cubic-bezier(.65, 0, .25, 1)";
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,7 +30,7 @@ function AgeView({ division, audience: a, kind, onKind, settled }: ViewProps) {
         lead={`${a.line} ${plural(items.length, "{n} title", "{n} titles")} in ${plural(groupsFor(division, a.id).length, "{n} subject", "{n} subjects")}, every one ready to download. Point at a book to see who made it and the credit to give with it.`} />
       <div className="lm-kinds" role="group" aria-label="Light one kind">
         {kinds.map(([k, n]) => <button key={k.id} type="button" className="lm-kind" aria-pressed={kind === k.id} onClick={() => onKind(kind === k.id ? null : k.id)}>
-          <Glyph name={k.glyph} size={20} strokeWidth={1.25} /><span><b>{k.plural}</b><small>{n} here</small></span>
+          <Glyph name={k.glyph} size={20} strokeWidth={1.25} /><span><b>{k.plural}</b><small>{`${formatNumber(n)} here`}</small></span>
         </button>)}
       </div>
       <Stack division={division} audience={a} kind={kind} back={back} reflow={settled} />

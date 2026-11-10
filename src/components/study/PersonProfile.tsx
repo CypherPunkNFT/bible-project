@@ -12,6 +12,7 @@ import { bookByNum, formatRange } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
 import type { Person, PersonRow, PersonStory } from "@/lib/study";
 import { cn } from "@/lib/utils";
+import { formatNumber } from "@/lib/site-format";
 
 const SEX = { M: "Man", F: "Woman", G: "Group", "": "" } as const;
 
@@ -27,7 +28,7 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
     <header className={entry ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start" : undefined}>
       <div className="min-w-0">
         <h1 id="person-name" className="font-serif text-4xl font-semibold sm:text-5xl">{person.n}</h1>
-        {person.o.length > 0 && <p className="mt-2 text-sm text-muted">Also called {person.o.join(", ")}</p>}
+        {person.o.length > 0 && <p className="mt-2 text-sm text-muted">{`Also called ${person.o.join(", ")}`}</p>}
         <NameLink person={person} />
         <p className="mt-1 text-sm text-muted">{facts}{sameName > 1 && ` · one of ${sameName} people named ${person.n}`}</p>
         {person.b && <p className="mt-4 max-w-3xl text-lg">{person.b}</p>}
@@ -46,9 +47,9 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
           {person.article && person.short && <button type="button" onClick={() => setFull(!full)} className="text-sm text-accent underline">{full ? "Shorter" : "Read more"}</button>}
           <DescriptionCredit person={person} />
         </section>}
-        <h2 className="mb-1.5 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Every verse that names {person.n} · {person.refs.length}</h2>
+        <h2 className="mb-1.5 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">{`Every verse that names ${person.n} · ${formatNumber(person.refs.length)}`}</h2>
         <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm">{person.refs.slice(0, refsShown).map((ref) => <RefLink key={ref} span={[ref, ref]} label={formatRange(catalog, ref, ref)} />)}</p>
-        {person.refs.length > refsShown && <button type="button" onClick={() => setRefsShown((n) => n + 200)} className="mt-2 text-sm text-accent underline">Show more ({person.refs.length - refsShown} left)</button>}
+        {person.refs.length > refsShown && <button type="button" onClick={() => setRefsShown((n) => n + 200)} className="mt-2 text-sm text-accent underline">{`Show more (${formatNumber(person.refs.length - refsShown)} left)`}</button>}
       </div>
       <aside className="space-y-6">
         <FamilyTree person={person} byId={byId} />
@@ -99,7 +100,7 @@ function SiteStoryCredit({ id }: { id: string }) {
 function DescriptionCredit({ person }: { person: Person }) {
   if (!person.b && !person.short && !person.article) return null;
   return <p className="mt-2 text-xs text-muted" title={person.fx?.length ? `Corrected: ${person.fx.join(", ")}` : undefined}>
-    {person.added ? "Record added by this site" : <>Description adapted by STEP Bible from AI output (Claude 3 Opus, 2024){person.fx?.length ? " · corrected by this site" : ""}</>}
+    {person.added ? "Record added by this site" : person.fx?.length ? "Description adapted by STEP Bible from AI output (Claude 3 Opus, 2024) · corrected by this site" : "Description adapted by STEP Bible from AI output (Claude 3 Opus, 2024)"}
   </p>;
 }
 

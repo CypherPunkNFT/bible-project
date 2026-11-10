@@ -47,7 +47,7 @@ export function ReignProphets({ ruler }: { ruler: Ruler }) {
   const about = isForeign(ruler);
   return <Section id="pp-prophets" kicker="Prophets" title={about ? `The prophets who spoke about ${ruler.kind === "queen" ? "her" : "him"}` : "Prophets of the reign"}
     lead={about ? "Prophets who spoke of this ruler, with their words." : "Who stood before the ruler, and what they said. Choose a card to read the exchange."}
-    aside={!about && <Link className="pp-link" to={prophetsForKingHref(ruler.id)}>Prophets through time, at this {ruler.kind === "judge" ? "judge" : "reign"} <ArrowUpRight size={14} aria-hidden /></Link>}>
+    aside={!about && <Link className="pp-link" to={prophetsForKingHref(ruler.id)}>{ruler.kind === "judge" ? "Prophets through time, at this judge" : "Prophets through time, at this reign"} <ArrowUpRight size={14} aria-hidden /></Link>}>
     <ul className="lg-themes">
       {ruler.prophets.map((p, i) => {
         const isOpen = open === i;
@@ -82,7 +82,7 @@ export function WorldStage({ ruler }: { ruler: Ruler }) {
     {ruler.outside.length > 0 && <>
       <p className="pp-label" style={{ marginTop: "1.2rem" }}>Outside the Bible</p>
       <div className="pp-cards">{ruler.outside.map((o) => <article key={o.name} className="pp-card" data-outside="">
-        <p className="lg-kicker">Outside the Bible · {o.date}</p><h4>{o.name}</h4><EvidenceClaim claim={o.claim} as="div" plain />
+        <p className="lg-kicker">{`Outside the Bible · ${o.date}`}</p><h4>{o.name}</h4><EvidenceClaim claim={o.claim} as="div" plain />
       </article>)}</div>
     </>}
   </Section>;

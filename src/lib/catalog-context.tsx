@@ -24,7 +24,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
     return (
       <div className="mx-auto max-w-xl p-10 text-center">
         <h1 className="font-serif text-2xl">The Bible data could not be loaded</h1>
-        <p className="mt-3 text-muted">Run the data build (scripts/build-data.py), then reload. Details: {error}</p>
+        <p className="mt-3 text-muted">Run the data build (scripts/build-data.py), then reload. Details: <span>{error}</span></p>
       </div>
     );
   }

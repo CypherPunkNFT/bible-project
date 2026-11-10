@@ -11,6 +11,7 @@ import { rightChoice } from "@/lib/data";
 import { verseOf } from "../questions/test/engine";
 import { passageLabel, readerUrl, type Lesson } from "./data";
 import { LessonArt } from "./lesson-art";
+import { formatNumber } from "@/lib/site-format";
 
 interface Props { lesson: Lesson; bookNames: Record<string, string>; next: Lesson | null; onClose: () => void; onOpen: (lesson: Lesson) => void; onFinish: (right: number, total: number) => void }
 
@@ -34,7 +35,7 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
   };
   return <aside className="ck-panel" style={{ "--tone": `var(--${lesson.part.tone})` } as CSSProperties} aria-label={`Lesson ${lesson.n}: ${lesson.title}`}>
     <header className="ck-panel-top">
-      <span className="ck-eyebrow">{lesson.part.title} · Lesson {lesson.n}</span>
+      <span className="ck-eyebrow">{`${lesson.part.title} · Lesson ${formatNumber(lesson.n)}`}</span>
       <button type="button" className="ck-stage-back" onClick={onClose}>Back to the lessons<X size={18} strokeWidth={1.7} aria-hidden /></button>
     </header>
     <div className="ck-stage-head">
@@ -48,7 +49,7 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
         onPick={(choice) => { setPicked(choice); mark(choice === rightChoice(lesson.questions[index])); }}
         onShow={() => setShown(true)} onMark={mark} marked={marks[index]} />
       <footer className="ck-panel-foot">
-        <span>{right} right so far</span>
+        <span>{`${formatNumber(right)} right so far`}</span>
         <button type="button" className="ck-go" disabled={marks[index] === undefined} onClick={() => go(index + 1)}>
           {index + 1 < total ? "Next question" : "See how we did"}<ArrowRight size={18} strokeWidth={1.7} aria-hidden /></button>
       </footer>

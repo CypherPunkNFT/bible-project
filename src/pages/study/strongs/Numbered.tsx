@@ -28,7 +28,7 @@ function Neighbours() {
   return <div className="sn-neighbours">
     <p className="sn-kicker">Side by side, and far apart</p>
     <ul>{[near, next, far].map((w) => <li key={w.id}><b>{w.id}</b> <Lemma lang={w.lang}>{w.lemma}</Lemma> <i>{w.translit}</i> “{w.gloss}”</li>)}</ul>
-    <p>Two words spelled alike sit together. A third with almost the same sense sits {fmt(5368 - 26)} numbers away, because it starts with phi. Strong knew: his entry for 25 ends “Comp. 5368”.</p>
+    <p>{`Two words spelled alike sit together. A third with almost the same sense sits ${fmt(5368 - 26)} numbers away, because it starts with phi. Strong knew: his entry for 25 ends “Comp. 5368”.`}</p>
   </div>;
 }
 
@@ -48,11 +48,11 @@ export function Numbered() {
     <div className="sn-alpha">
       <p className="sn-q">Does the whole list really run by the alphabet? Choose a letter to see where it falls; every number is on this line.</p>
       <div className="sn-switch" role="group" aria-label="Which list">{(["greek", "hebrew"] as const).map((a) => <button key={a} type="button" aria-pressed={a === alphabet} onClick={() => { setPointed(null); update({ alphabet: a, letter: SN.bands[a][0].name }); }}>{a === "greek" ? `Greek · ${fmt(TOP.greek)} numbers` : `Hebrew · ${fmt(TOP.hebrew)} numbers`}</button>)}</div>
-      <p className="sn-axis"><span>{alphabet === "greek" ? "G" : "H"}1</span><span>Numbers run left to right{alphabet === "hebrew" ? ", though Hebrew reads right to left" : ""}</span><span>{alphabet === "greek" ? "G" : "H"}{fmt(TOP[alphabet])}</span></p>
+      <p className="sn-axis"><span>{alphabet === "greek" ? "G" : "H"}1</span><span>{alphabet === "hebrew" ? "Numbers run left to right, though Hebrew reads right to left" : "Numbers run left to right"}</span><span>{alphabet === "greek" ? "G" : "H"}{fmt(TOP[alphabet])}</span></p>
       <Line alphabet={alphabet} shown={shown} onPoint={setPointed} onChoose={(b) => update({ letter: b.name })} />
       <div className="sn-letters" role="group" aria-label="Choose a letter">{SN.bands[alphabet].map((b) => <button key={b.name} type="button" aria-pressed={b === chosen} aria-label={`${b.name} · numbers ${b.from} to ${b.to}`} onClick={() => update({ letter: b.name })}><Lemma lang={alphabet}>{b.letter}</Lemma></button>)}</div>
-      <p className="sn-readout" aria-live="polite"><b>{shown.name}</b>{`: numbers ${fmt(shown.from)} to ${fmt(shown.to)}, ${fmt(shown.to - shown.from + 1)} in all. It begins with `}<Lemma lang={alphabet}>{shown.first.lemma}</Lemma> <i>{shown.first.translit}</i>, “{shown.first.gloss}”.{pinsHere.length > 0 && <> This study's words here: {pinsHere.join(", ")}.</>}</p>
-      <p className="sn-caption">The order holds. Reading the first spelling STEP Bible gives for each number, {out.count} of {fmt(out.read)} fall out of alphabetical place; they join the range around them here. That count is from STEP Bible's data, not Strong's printed page.</p>
+      <p className="sn-readout" aria-live="polite"><b>{shown.name}</b>{`: numbers ${fmt(shown.from)} to ${fmt(shown.to)}, ${fmt(shown.to - shown.from + 1)} in all. It begins with `}<Lemma lang={alphabet}>{shown.first.lemma}</Lemma> <i>{shown.first.translit}</i>, “{shown.first.gloss}”.{pinsHere.length > 0 && <>{` This study's words here: ${pinsHere.join(", ")}.`}</>}</p>
+      <p className="sn-caption">{`The order holds. Reading the first spelling STEP Bible gives for each number, ${fmt(out.count)} of ${fmt(out.read)} fall out of alphabetical place; they join the range around them here. That count is from STEP Bible's data, not Strong's printed page.`}</p>
     </div>
     <div className="sn-pair">
       <Scan id="dictionary" />

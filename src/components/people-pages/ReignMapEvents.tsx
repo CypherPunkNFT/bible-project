@@ -10,6 +10,7 @@ import { EvidenceClaim } from "./Evidence";
 import { EVENT_MARK, REALM_LABEL, isForeign } from "./kinds";
 import { atlasCityHref } from "./links";
 import { placeLayers } from "./map-layers";
+import { formatNumber } from "@/lib/site-format";
 
 /**
  * The kingdom: the words on top, the Atlas's own map as the bottom half of the card (PRESENTATION.md §3.4). A Roman
@@ -28,10 +29,10 @@ export function KingdomCard({ ruler, focus, onPoint }: { ruler: Ruler; focus?: s
     <div className="pp-kingdom-text">
       <p className="lg-kicker">{kicker}</p>
       <h3 id="pp-kingdom-title" className="lg-title">{seatOnly ? `${ruler.capital!.name}, where he sat` : ruler.capital ? `${ruler.capital.name} and the places of the ${ruler.kind === "judge" ? "story" : foreign || ruler.kind === "queen" ? "account" : "reign"}` : "The places Scripture names"}</h3>
-      <p className="lg-lead">{seatOnly ? ruler.capital!.note ?? `${ruler.title}.` : <>{REALM_LABEL[ruler.realm]}{ruler.tribe ? ` · tribe of ${ruler.tribe}` : ""}. Only places Scripture names are shown, each where the Atlas puts it.</>}</p>
+      <p className="lg-lead">{seatOnly ? ruler.capital!.note ?? `${ruler.title}.` : <>{ruler.tribe ? `${REALM_LABEL[ruler.realm]} · tribe of ${ruler.tribe}.` : `${REALM_LABEL[ruler.realm]}.`} <span>Only places Scripture names are shown, each where the Atlas puts it.</span></>}</p>
       <div className="lg-chips">
-        {ruler.capital && (capitalHref ? <Link className="lg-chip" to={capitalHref}>Capital ● {ruler.capital.name} <ArrowUpRight size={13} aria-hidden /></Link> : <span className="lg-chip">Capital ● {ruler.capital.name}</span>)}
-        {!seatOnly && <span className="lg-chip">Places named: {places.length}</span>}
+        {ruler.capital && (capitalHref ? <Link className="lg-chip" to={capitalHref}>{`Capital ● ${ruler.capital.name}`} <ArrowUpRight size={13} aria-hidden /></Link> : <span className="lg-chip">{`Capital ● ${ruler.capital.name}`}</span>)}
+        {!seatOnly && <span className="lg-chip">{`Places named: ${formatNumber(places.length)}`}</span>}
         <button type="button" className="lg-chip" aria-expanded={note} onClick={() => setNote(!note)}>No borders drawn ⓘ</button>
       </div>
       {note && <p className="lg-caption">Borders are drawn only where a sourced outline exists. None does for this page, so the map shows the places Scripture names in the reign and no border at all.</p>}

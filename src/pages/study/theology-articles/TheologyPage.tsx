@@ -8,18 +8,18 @@ import { ARTICLES, SOURCES, articleHref, sectionFigures, type Article } from "./
 import { Figures, SourceList } from "./parts";
 import { TheologyArt } from "./TheologyArt";
 import "./theology.css";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 function ArticleCard({ article }: { article: Article }) {
   return <li className="th-card">
     <Link to={articleHref(article.id)}>
       <div className="th-card-copy">
-        <span className="th-small-label">Article · {article.minutes} min read</span>
+        <span className="th-small-label">{`Article · ${formatNumber(article.minutes)} min read`}</span>
         <h3>{article.title}<em>{article.kicker}</em></h3>
         <p className="th-card-question">{article.question}</p>
         <p>{article.summary}</p>
         <div className="th-card-foot">
-          <span>{article.sections.length} parts · {article.sourceIds.length} sources</span>
+          <span>{`${plural(article.sections.length, "{n} part", "{n} parts")} · ${plural(article.sourceIds.length, "{n} source", "{n} sources")}`}</span>
           <span>Read the article <ArrowUpRight size={15} aria-hidden="true" /></span>
         </div>
       </div>

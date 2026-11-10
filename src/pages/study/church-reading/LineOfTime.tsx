@@ -38,7 +38,7 @@ export function LineOfTime({ onOpen }: { onOpen: (id: string) => void }) {
       </div>)}
       <p className="hc-readout" aria-hidden="true">{pointed ? <><b>{pointed.name}, {pointed.when}.</b> {pointed.looking}</> : "Point at a bar to read what that reader was looking for."}</p>
     </div>
-    <p className="hc-caption">Each bar is the range given for the work, drawn no narrower than a small minimum so that it can be seen and pressed. It is not a lifespan. The hatched stretch from about AD {gap.from} to {gap.to} is this selection's: readers were reading all through it, and the planned study of the medieval church picks up its institutions.</p>
+    <p className="hc-caption">{`Each bar is the range given for the work, drawn no narrower than a small minimum so that it can be seen and pressed. It is not a lifespan. The hatched stretch from about AD ${gap.from} to ${gap.to} is this selection's: readers were reading all through it, and the planned study of the medieval church picks up its institutions.`}</p>
     <ol className="hc-turns">{D.turns.map((turn) => <li key={turn.id}><small>{turn.when}</small><h3>{turn.title}</h3><p>{turn.text}</p></li>)}</ol>
     <div className="hc-stance">
       <p className="hc-kicker">{baptist.head}</p>

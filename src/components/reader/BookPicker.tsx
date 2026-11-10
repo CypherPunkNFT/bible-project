@@ -65,7 +65,7 @@ export function BookPicker({ translation, current, onPick, onClose }: Props) {
         onClick={(event) => event.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-serif text-xl font-semibold">Choose a chapter · {translation.abbr}</h2>
+          <h2 className="font-serif text-xl font-semibold">{`Choose a chapter · ${translation.abbr}`}</h2>
           <button type="button" onClick={onClose} className="rounded-full p-2 hover:bg-surface-2" aria-label="Close">
             <X className="h-5 w-5" />
           </button>

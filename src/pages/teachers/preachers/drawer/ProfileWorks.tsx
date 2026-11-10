@@ -25,7 +25,7 @@ export function ProfileWorks({ person, onOpen }: { person: Person; onOpen: OpenW
   return <section className="drw-shelf" aria-label={`${person.short}'s works`}>
     <h3>Works in the library</h3>
     <p className="drw-note">Open a reading copy beside this profile. Shared collections include contributions by this person; formats and editions can overlap.</p>
-    <div className="drw-shelf-views" role="group" aria-label="Works to show"><button type="button" aria-pressed={view==='readable'} onClick={()=>{setView('readable');setPage(0);}}>Readable texts{!loading?` · ${formatNumber(readable)}`:''}</button><button type="button" aria-pressed={view==='all'} onClick={()=>{setView('all');setPage(0);}}>All records</button></div>
+    <div className="drw-shelf-views" role="group" aria-label="Works to show"><button type="button" aria-pressed={view==='readable'} onClick={()=>{setView('readable');setPage(0);}}>{loading ? 'Readable texts' : `Readable texts · ${formatNumber(readable)}`}</button><button type="button" aria-pressed={view==='all'} onClick={()=>{setView('all');setPage(0);}}>All records</button></div>
     <label className="drw-work-search">Find a work<input type="search" value={query} placeholder="Title or Bible reference" onChange={e=>{setQuery(e.target.value);setPage(0);}} /></label>
     {loading&&<p role="status" className="drw-note">Loading works…</p>}
     {error&&<p role="alert" className="drw-note">{error}</p>}

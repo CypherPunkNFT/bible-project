@@ -14,7 +14,7 @@ import "./circular-genealogy.css";
 
 import { JESUS, gospelPeople, fullFamilyDepth, type GospelAccount } from "@/lib/genealogy-catalog";
 import { FamilyStartingPoints } from "@/components/study/FamilyStartingPoints";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 const colors = ["#e3b65c", "#8ec8ad", "#81adc9", "#b29bcf", "#ce909f", "#cca678", "#9ebba1", "#a7a5d1", "#cfaf88"];
 const load = async (): Promise<FamilyPerson[]> => {
   const response = await fetch("/content/study/genealogy.json");
@@ -508,7 +508,7 @@ function Graph({ people:records, familyBands, sizeScale, editing, initialView, i
         <button disabled={ring===null && spacingIds.size < 2} onClick={balanceFamily} style={{gridColumn:"1 / -1"}}>Balance family</button>
         <button disabled={spacingIds.size < 2} onClick={straightenSiblinghood} style={{gridColumn:"1 / -1"}}>Straighten siblinghood</button>
         <button disabled={spacingIds.size < 2} onClick={() => spaceFamily(.85)}>Tighten siblings</button><button disabled={spacingIds.size < 2} onClick={() => spaceFamily(1/.85)}>Spread siblings</button>
-        <span>{locked.size} locked</span>
+        <span>{`${formatNumber(locked.size)} locked`}</span>
         <details className="circle-study-notes"><summary>Explain your choices</summary><textarea aria-label="Layout study notes" placeholder="What were you trying to improve? e.g. Keep Benjamin's family together with more space from Gad." value={study.notes} onChange={e => setStudy(previous => ({ ...previous, notes: e.target.value }))} /></details>
         <button className="circle-export-study" onClick={exportStudy}>Export layout study</button>
       </div>}
@@ -519,7 +519,7 @@ function Graph({ people:records, familyBands, sizeScale, editing, initialView, i
         {radial.radii.slice(1).map((radius, i) => <g key={i} className="circle-ring" opacity={ring === null || ring === i + 1 ? 1 : .3}>
           <circle r={radius} fill="none" stroke={colors[i % colors.length]} strokeWidth={widthOf(i+1)} strokeOpacity={ring === i + 1 ? .14 : .045} className="circle-ring-hit" onClick={() => setRing(ring === i + 1 ? null : i + 1)} />
           {Array.from({length:tracksOf(i+1)},(_,track)=>track).map(track => <circle key={track} r={radius+trackOffsetOf(i+1,track)} fill="none" stroke={colors[i % colors.length]} strokeOpacity={.22} strokeDasharray="3 8" />)}
-          <g role="button" tabIndex={0} aria-label={`Highlight generation ${i+1}`} aria-pressed={ring === i+1} transform={`translate(0,${-radius})`} onClick={() => setRing(ring === i+1 ? null : i+1)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setRing(ring === i+1 ? null : i+1); } }}><rect x={-56} y={-18} width={112} height={36} rx={18} /><text textAnchor="middle" y={5}>GENERATION {["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"][i]}</text></g>
+          <g role="button" tabIndex={0} aria-label={`Highlight generation ${i+1}`} aria-pressed={ring === i+1} transform={`translate(0,${-radius})`} onClick={() => setRing(ring === i+1 ? null : i+1)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setRing(ring === i+1 ? null : i+1); } }}><rect x={-56} y={-18} width={112} height={36} rx={18} /><text textAnchor="middle" y={5}>{`GENERATION ${["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"][i]}`}</text></g>
         </g>)}
         {[...displayedBundles].map(([key, families]) => {
           const orderedParents=[...families].sort((aa,bb)=>Number(nodes.get(bb[0].from)!.person.s==="M")-Number(nodes.get(aa[0].from)!.person.s==="M"));
@@ -558,9 +558,9 @@ function Graph({ people:records, familyBands, sizeScale, editing, initialView, i
           const opacity = ring !== null ? (a.generation === ring || pairedParent?.generation === ring || children[0].generation === ring ? .7 : .05) : active ? ((relatives.has(a.person.id) || (pairedParent && relatives.has(pairedParent.person.id))) && children.some(n => relatives.has(n.person.id)) ? .9 : .06) : familyBands ? .72 : .42;
           return <g key={key} className="circle-family-links" fill="none" stroke={color} opacity={opacity} strokeWidth={active && relatives.has(a.person.id) ? 2.8 : 1.5} pointerEvents="none">
             {bands.map((d,i) => <path key={`band:${i}`} className={`circle-sibling-band${siblingParent===a.person.id ? " circle-sibling-selected" : ""}`} onPointerDown={e=>beginSiblingDrag(e,a.person.id,children[0].generation)} role="button" tabIndex={0} aria-label={`Select ${a.person.n}'s siblinghood`} d={d} strokeWidth={personRadius*2} stroke="color-mix(in srgb, currentColor 45%, white)" style={{color}} strokeOpacity={siblingParent===a.person.id ? .5 : .28} aria-pressed={siblingParent===a.person.id} onClick={e=> { e.stopPropagation(); if(suppressClick.current) { suppressClick.current=false; return; } setSiblingParent(a.person.id); setSelected(a.person.id); setSpacingTarget("children"); setPinnedPerson(a.person.id); setHover(null); setRing(null); setNotice("Siblinghood selected. Straighten siblinghood aligns this family and its descendants."); }} onKeyDown={e=> { if(e.key==="Enter" || e.key===" ") { e.preventDefault(); e.stopPropagation(); setSiblingParent(a.person.id); setSelected(a.person.id); setSpacingTarget("children"); setPinnedPerson(a.person.id); setHover(null); setRing(null); } }} />)}
-            {familyBands && union && <path className="circle-parent-union" strokeWidth={1.4} vectorEffect="non-scaling-stroke" d={union.union}><title>{a.person.n} and {pairedParent!.person.n}: parents of {children.map(n=>n.person.n).join(", ")}</title></path>}
+            {familyBands && union && <path className="circle-parent-union" strokeWidth={1.4} vectorEffect="non-scaling-stroke" d={union.union}><title>{`${a.person.n} and ${pairedParent!.person.n}: parents of ${children.map(n=>n.person.n).join(", ")}`}</title></path>}
             {familyBands && <path className="circle-band-stem" strokeWidth={1.4} vectorEffect="non-scaling-stroke" d={union?.stem ?? bandStem}><title>{a.person.n}{pairedParent ? ` and ${pairedParent.person.n}` : ""} {"\u2192"} {children.map(n=>n.person.n).join(", ")}{children.length>1 ? " (sibling group)" : " (recorded child)"}{maternalOnly ? `; father: ${firstParent.person.n} (connection omitted for clarity)` : ""}</title></path>}
-            {!familyBands && (pointMode ? firstBundle : a.generation !== 0 && children[0].generation !== 0) && <path d={pointMode ? hubTrunk : routes.trunk}><title>{a.person.n}: shared connection to {children.length} recorded children</title></path>}
+            {!familyBands && (pointMode ? firstBundle : a.generation !== 0 && children[0].generation !== 0) && <path d={pointMode ? hubTrunk : routes.trunk}><title>{`${a.person.n}: shared connection to ${plural(children.length, "{n} recorded child", "{n} recorded children")}`}</title></path>}
             {!familyBands && children.map((child, index) => {
               const central = a.generation === 0 || child.generation === 0;
               const distance = Math.hypot(child.x-a.x, child.y-a.y);

@@ -166,20 +166,22 @@ export default function SearchPage() {
           <PlacesSection words={sectionWords} />
         </>
       )}
-      {(state.status === "loading" || state.status === "done") && <h2 className="mt-10 font-serif text-2xl font-semibold">Exact words <span className="align-middle text-xs font-normal text-muted">in {resultTranslation.abbr}; change the version above</span></h2>}
+      {(state.status === "loading" || state.status === "done") && <h2 className="mt-10 font-serif text-2xl font-semibold">Exact words <span className="align-middle text-xs font-normal text-muted">{`in ${resultTranslation.abbr}; change the version above`}</span></h2>}
 
       {state.status === "loading" && (
         <p className="mt-3 text-sm text-muted" role="status">
-          Reading {translation.abbr}… {state.loaded} of {books.length} books
+          {`Reading ${translation.abbr}… ${formatNumber(state.loaded)} of ${formatNumber(books.length)} books`}
         </p>
       )}
       {state.status === "done" && (
         <section aria-live="polite" className="mt-3">
           <p className="text-lg">
             {exact.mode === "words" ? (
-              <>No verse has the exact words “{state.query}”. <strong>{formatNumber(exact.hits.length)}</strong> {plural(exact.hits.length, "verse holds", "verses hold")} {exact.most === words.length ? `all ${words.length} of your words` : `${exact.most} of your ${words.length} words`}, in the {resultTranslation.name}.</>
+              <>{`No verse has the exact words “${state.query}”. `}{exact.most === words.length
+                ? `${plural(exact.hits.length, "{n} verse holds", "{n} verses hold")} all ${formatNumber(words.length)} of your words, in the ${resultTranslation.name}.`
+                : `${plural(exact.hits.length, "{n} verse holds", "{n} verses hold")} ${formatNumber(exact.most)} of your ${formatNumber(words.length)} words, in the ${resultTranslation.name}.`}</>
             ) : (
-              <><strong>{formatNumber(exact.hits.length)}</strong> {plural(exact.hits.length, "verse contains", "verses contain")} “{exact.mode === "word" ? focusWord : state.query}” in the {resultTranslation.name}.</>
+              <>{`${plural(exact.hits.length, "{n} verse contains", "{n} verses contain")} “${exact.mode === "word" ? focusWord : state.query}” in the ${resultTranslation.name}.`}</>
             )}
           </p>
           {exact.hits.length > 0 && <WordDistribution books={resultBooks} hits={exact.hits} selected={bookFilter} onSelect={(code) => { setBookFilter(code); setShown(PAGE); }} slug={resultTranslation.slug} />}
@@ -203,7 +205,7 @@ export default function SearchPage() {
           </ol>
           {listed.length > shown && (
             <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-4 w-full rounded-xl bg-surface-2 py-2.5 text-sm">
-              Show more ({formatNumber(listed.length - shown)} left)
+              {`Show more (${formatNumber(listed.length - shown)} left)`}
             </button>
           )}
         </section>

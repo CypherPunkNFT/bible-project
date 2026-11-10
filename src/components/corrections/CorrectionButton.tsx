@@ -103,7 +103,7 @@ function CorrectionForm({ page, onClose }: { page: { path: string; title: string
       <div className="correction-sent">
         <Check aria-hidden />
         <h2 id="correction-title">Thank you.</h2>
-        <p>Your correction has been sent. {email.trim() ? "We'll reply to the address you gave." : ""}</p>
+        <p>{email.trim() ? "Your correction has been sent. We'll reply to the address you gave." : "Your correction has been sent."}</p>
         <button type="button" className="correction-link" onClick={onClose}>Close</button>
       </div>
     );
@@ -148,7 +148,7 @@ function CorrectionForm({ page, onClose }: { page: { path: string; title: string
 
       <div className="correction-actions">
         <button type="submit" className="correction-send" disabled={!label || !message.trim() || sending}>{sending ? "Sending…" : "Send correction"}</button>
-        {status.state === "error" && <p role="alert">{status.message} You can also email {CONTACT_ADDRESS}.</p>}
+        {status.state === "error" && <p role="alert">{status.message} <span>{`You can also email ${CONTACT_ADDRESS}.`}</span></p>}
       </div>
     </form>
   );

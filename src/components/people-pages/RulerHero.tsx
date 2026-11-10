@@ -11,6 +11,7 @@ import { atlasCityHref, eraOfYear } from "./links";
 import { AspectSwitch } from "./PersonEntry";
 import { SlideLink } from "./SlideLink";
 import { useCarried } from "./use-carried";
+import { formatNumber } from "@/lib/site-format";
 
 /** The reign at a glance: name, the line under it, five figures, and the whole line of rulers with this one lit. */
 export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSummary }) {
@@ -39,17 +40,17 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
     </div>
     <h2 id="pp-hero-title">{ruler.name}.<em>{ruler.tagline}</em></h2>
     {(ruler.otherNames?.length || ruler.title.toLowerCase().includes("prophet")) && <div className="pp-badges">
-      {ruler.otherNames?.length ? <span className="pp-badge">Also called {ruler.otherNames.join(", ")}</span> : null}
+      {ruler.otherNames?.length ? <span className="pp-badge">{`Also called ${ruler.otherNames.join(", ")}`}</span> : null}
       {ruler.title.toLowerCase().includes("prophet") && (prophetFor(ruler.id)
-        ? <Link className="pp-badge" to={prophetHref(ruler.id)}>{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess" : "Prophet"} · the word →</Link>
-        : <Link className="pp-badge" to="/study/people?view=prophets">{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess" : "Prophet"} · in Prophets through time →</Link>)}
+        ? <Link className="pp-badge" to={prophetHref(ruler.id)}>{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess · the word →" : "Prophet · the word →"}</Link>
+        : <Link className="pp-badge" to="/study/people?view=prophets">{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess · in Prophets through time →" : "Prophet · in Prophets through time →"}</Link>)}
     </div>}
     <dl className="pp-stats">
       <div className="pp-stat">
         <dt>{held}<button type="button" className="pp-info" aria-expanded={dating} aria-controls="pp-dating-note" aria-label="How the dates are worked out" onClick={() => setDating(!dating)}>i</button></dt>
         <dd>{length || "Not given"}<small>{main ? `${formatYears(main.from, main.to, main.approx)}${ruler.dates.length > 1 ? " (dates vary)" : ""}` : length ? "No years BC in Scripture" : ruler.reign.text}</small></dd>
         {dating && <div id="pp-dating-note" className="pp-stat-note">
-          {ruler.reign.text && <p>Scripture: “{ruler.reign.text}”.</p>}
+          {ruler.reign.text && <p>{`Scripture: “${ruler.reign.text}”.`}</p>}
           {ruler.dates.filter((d) => d.from).map((d) => <p key={d.system + d.label}>{d.label}: {formatYears(d.from!, d.to ?? d.from!, d.approx)}</p>)}
           <a href="#pp-dating" className="pp-link">Dates differ: every view</a>
         </div>}
@@ -82,7 +83,7 @@ function RealmLane({ line, current }: { line: RulerSummary[]; current: string })
   const here = rulerFor(current);
   const resting = here ? `${here.name} glows. Point at another to name them; choose one to open their reign.` : "";
   return <div className="pp-lane">
-    <p className="pp-lane-label"><span>{REALM_LABEL[line[0].realm]}: {line.length} rulers</span><span>{line[0].name} → {line[line.length - 1].name}</span></p>
+    <p className="pp-lane-label"><span>{`${REALM_LABEL[line[0].realm]}: ${formatNumber(line.length)} rulers`}</span><span>{line[0].name} → {line[line.length - 1].name}</span></p>
     <nav className="pp-lane-track" aria-label={`The rulers of ${REALM_LABEL[line[0].realm]}`}>
       {line.map((r) => <SlideLink key={r.id} to={rulerHref(r.id)} state={carried} aria-current={r.id === current ? "page" : undefined}
         style={{ flexGrow: r.years ?? 12 }} aria-label={`${r.name}, ${r.title}${r.years ? `, ${r.years} years` : ""}`}

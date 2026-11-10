@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { categoryStyle, groupIcon } from "@/lib/topic-style";
 import { categoryUrl, topicCount, type TopicCategory } from "@/lib/topics";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const GROUPS_SHOWN = 6;
 
@@ -18,12 +19,12 @@ function CompactCategoryCard({ category }: { category: TopicCategory }) {
         <span className="grid h-10 w-10 place-items-center rounded-xl text-white" style={{ background: color }}><Icon size={20} /></span>
         <span>
           <span className="block font-serif text-xl font-semibold leading-tight">{category.title}</span>
-          <span className="text-xs text-muted">{topicCount(category)} topics · {category.subcategories.length} groups</span>
+          <span className="text-xs text-muted">{`${plural(topicCount(category), "{n} topic", "{n} topics")} · ${plural(category.subcategories.length, "{n} group", "{n} groups")}`}</span>
         </span>
       </span>
       <span className="relative mt-4 flex flex-wrap gap-1.5">
         {shown.map((sub) => <span key={sub.id} className="rounded-full px-2.5 py-1 text-xs" style={{ background: `color-mix(in srgb, ${color} 12%, transparent)`, color }}>{sub.title}</span>)}
-        {more > 0 && <span className="rounded-full px-2.5 py-1 text-xs text-muted">+{more} more</span>}
+        {more > 0 && <span className="rounded-full px-2.5 py-1 text-xs text-muted">{`+${formatNumber(more)} more`}</span>}
       </span>
       <span className="relative mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold" style={{ color }}>Explore <ArrowRight size={15} className="transition group-hover:translate-x-1" /></span>
     </Link>
@@ -44,7 +45,7 @@ export function CategoryCard({ category, compact = false }: { category: TopicCat
         <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl text-white" style={{ background: color }}><Icon size={24} /></span>
         <span>
           <span className="block font-serif text-2xl font-semibold leading-tight group-hover:underline">{category.title}</span>
-          <span className="text-xs text-muted">{topicCount(category)} topics · {category.subcategories.length} groups</span>
+          <span className="text-xs text-muted">{`${plural(topicCount(category), "{n} topic", "{n} topics")} · ${plural(category.subcategories.length, "{n} group", "{n} groups")}`}</span>
         </span>
       </Link>
       <p className="relative mt-2 text-sm text-muted">{category.description}</p>
@@ -55,7 +56,7 @@ export function CategoryCard({ category, compact = false }: { category: TopicCat
             <li key={sub.id}>
               <Link to={categoryUrl(category.id, sub.id)} className="flex h-full items-center gap-2.5 rounded-xl border border-line bg-page p-2.5 text-sm leading-tight transition hover:-translate-y-0.5 hover:border-current hover:shadow" style={{ color: "var(--ink)" }}>
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg" style={{ background: `color-mix(in srgb, ${color} 14%, transparent)`, color }}><GroupIcon size={17} /></span>
-                <span><span className="block font-semibold">{sub.title}</span><span className="text-xs text-muted">{sub.topics.length} topics</span></span>
+                <span><span className="block font-semibold">{sub.title}</span><span className="text-xs text-muted">{plural(sub.topics.length, "{n} topic", "{n} topics")}</span></span>
               </Link>
             </li>
           );

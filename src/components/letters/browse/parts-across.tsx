@@ -4,7 +4,7 @@ import type { Claim, Span } from "@/data/letters/types";
 import { useKeep } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
 import { GROUP_TONE, toneOfLetter, type GroupKey, type LettersData } from "./data";
-import { compareText } from "@/lib/site-format";
+import { compareText, formatNumber } from "@/lib/site-format";
 
 const chip = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
@@ -28,7 +28,7 @@ export function TopicList({ data, subcategory }: { data: LettersData; subcategor
   return <><Choose items={sub.topics} title={(t) => t.title} count={(t) => t.n} detail={(t) => <>
     <h4>{t.title}</h4><ul className="lb-points">{t.points.map((p) => <li key={p.text}>{p.text} <Refs refs={p.refs} limit={12} /></li>)}</ul>
     <Link className="lb-open" to={`/topics/${t.id}`}>The whole topic, across the Bible →</Link></>} />
-    <p className="lb-caption">From Torrey's New Topical Textbook (public domain), "{sub.title}", keeping only the passages in the twenty-one letters.</p></>;
+    <p className="lb-caption">{`From Torrey's New Topical Textbook (public domain), "${sub.title}", keeping only the passages in the twenty-one letters.`}</p></>;
 }
 
 /** One of the threads that run through the collections, with its letters and passages. */
@@ -62,7 +62,7 @@ export function OrderSlope({ data }: { data: LettersData }) {
         <text x={L} y={y(i) + 4} textAnchor="end" className="lg-svg-strong">{String(i + 1).padStart(2, "0")} {l.name}</text>
         <text x={R} y={y(j) + 4} className="lg-svg-text">{l.name} · {l.date.from ? `AD ${l.date.from}–${l.date.to}` : "not dated"}</text></g>; })}
   </svg></div>
-  <p className="lb-tip">{k ? <><b>{data.letter(k).name}</b>{keep.kept && <KeepX onRelease={keep.release} />} · {bible.indexOf(k) + 1} in the Bible, {byDate.indexOf(k) + 1} by earliest date proposed</>
+  <p className="lb-tip">{k ? <><b>{data.letter(k).name}</b>{keep.kept && <KeepX onRelease={keep.release} />}{" · "}{`${bible.indexOf(k) + 1} in the Bible, ${byDate.indexOf(k) + 1} by earliest date proposed`}</>
     : "The Bible puts Paul's letters first, longest to shortest. By the earliest date proposed, James comes first (AD 40), then 1 Thessalonians and Galatians (AD 48). Click a letter."}</p></div>;
 }
 
@@ -90,7 +90,7 @@ export function RepeatedQuotes({ data, label }: { data: LettersData; label: (spa
   return <><Choose items={list} title={([k]) => k} count={([, e]) => e.quotes.length} detail={([k, e]) => <><h4>{k}</h4>
     <ul className="lb-points">{e.quotes.map((q) => <li key={q.at[0]}><Refs refs={[q.at]} />{q.note ? ` · ${q.note}` : ""}</li>)}</ul>
     <LetterChips data={data} codes={[...new Set(e.quotes.map((q) => q.code))]} /></>} />
-    <p className="lb-caption">{list.length} Old Testament passages are quoted in more than one place in the letters.</p></>;
+    <p className="lb-caption">{`${formatNumber(list.length)} Old Testament passages are quoted in more than one place in the letters.`}</p></>;
 }
 
 const OT_PEOPLE = ["Adam", "Cain", "Enoch", "Noah", "Abraham", "Sarah", "Esau", "Moses", "Rahab", "Elijah (Elias)"];

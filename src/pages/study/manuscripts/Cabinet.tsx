@@ -65,7 +65,7 @@ export function Cabinet() {
     return <button key={r.i} type="button" className={`cab-case${im ? "" : " cab-drawn"}`} data-open={r.i} style={{ "--tone": `var(${k.tone})` } as CSSProperties}
       onClick={(e) => openRecord(r.i, e.currentTarget)} onPointerOver={() => setPointed(r)} onFocus={() => setPointed(r)}>
       <span className="cab-art">{im ? <img src={im.src} alt="" loading="lazy" width={im.w} height={im.h} /> : <><FormArt record={r} /><em>drawing of the form</em></>}</span>
-      <span className="cab-label"><i>No. {String(number).padStart(2, "0")}{sig ? ` · ${sig}` : ""}</i><b>{SHORT[r.i] ?? r.n}</b><small>{r.d ?? r.f ?? "date not in the record"}</small></span></button>;
+      <span className="cab-label"><i>{sig ? `No. ${String(number).padStart(2, "0")} · ${sig}` : `No. ${String(number).padStart(2, "0")}`}</i><b>{SHORT[r.i] ?? r.n}</b><small>{r.d ?? r.f ?? "date not in the record"}</small></span></button>;
   };
   return <div className="ms-part ms-part-cabinet ms-shelf">
     <p className="ms-part-lead">{cabinetLead(index)}</p>

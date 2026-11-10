@@ -1,6 +1,6 @@
 import {DEBATES, PATHS, PRACTICE, STUDIES, TOPICS, WORLDVIEWS} from '@/data/apologetics-library';
 import writings from '../../content/teachers/writings/index.json';
-const materials = writings.map(w => ({label: w.name + ' writings', to: w.path, detail: `Apologetics materials · ${w.documents} PDFs`}));
+const materials = writings.map(w => ({label: `${w.name} writings`, to: w.path, detail: `Apologetics materials · ${w.documents} PDFs`}));
 const base = '/apologetics';
 const islam = base + '/worldviews/islam';
 const guide = islam + '/guide';
@@ -31,7 +31,7 @@ const destinations: Destination[] = [
   ...TOPICS.map(t=>({label:t.title,to:base+'/topics/'+t.id,detail:'Question topic'})),
   ...PATHS.map(p=>({label:p.title,to:base+'/paths/'+p.id,detail:'Learning path'})),
   ...DEBATES.map(d=>({label:d.title,to:base+'/debates/'+d.id,detail:'Debate study'})),
-  ...STUDIES.map(s=>({label:s.title,to:base+'/study/'+s.id,detail:'Study · '+s.summary})),
+  ...STUDIES.map(s=>({label:s.title,to:base+'/study/'+s.id,detail:`Study · ${s.summary}`})),
 ];
 function groupFor(path:string) {
   if(path.startsWith(base+'/topics/reformed')) return 'Reformed theology';

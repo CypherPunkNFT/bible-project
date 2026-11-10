@@ -3,7 +3,7 @@ import type { Citation, KeyWord, Ladder, Letter, OpenQuestion } from "@/data/let
 import { ClaimText, Refs } from "./LetterParts";
 import { useWordVerses } from "./letter-hooks";
 import { StableTip } from "@/components/StableTip";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const starResting = <span className="lg-muted">Choose a star to see every verse where that word stands behind the text.</span>;
 
@@ -84,16 +84,17 @@ export function WordConstellation({ letters, columns }: { letters: Letter[]; col
 function WordVerses({ word, label, count, codes, onClose }: { word: KeyWord; label: string; count: number; codes: string[]; onClose: () => void }) {
   const verses = useWordVerses(codes, word.strongs);
   const [all, setAll] = useState(false);
+  const used = verses ? `used ${formatNumber(count)} times in ${plural(verses.length, "{n} verse", "{n} verses")}` : `used ${formatNumber(count)} times`;
   return <div className="lg-word-panel" aria-live="polite">
     <div className="lg-word-panel-head">
       <div><b className="lg-word-greek">{word.greek}</b> <span className="lg-muted">{word.translit} · {word.strongs}</span>
-        <p>“{word.gloss}” in <strong>{label}</strong> · used {count} times{verses ? ` in ${verses.length} ${plural(verses.length, "verse", "verses")}` : ""}{word.note ? ` · ${word.note}` : ""}</p></div>
+        <p>{`“${word.gloss}” in`} <strong>{label}</strong> {word.note ? `· ${used} · ${word.note}` : `· ${used}`}</p></div>
       <button type="button" className="lg-dialog-close" onClick={onClose} aria-label="Close">×</button>
     </div>
     {verses === undefined ? <p className="lg-muted">Finding the verses…</p>
       : <><p className="lg-subhead" style={{ marginTop: ".75rem" }}>The verses, where the KJV text is tagged with this Greek word</p>
         <Refs refs={all ? verses : verses.slice(0, 40)} limit={all ? verses.length : 40} />
-        {verses.length > 40 && !all && <button type="button" className="lg-tab" style={{ marginLeft: ".5rem" }} onClick={() => setAll(true)}>Show all {verses.length}</button>}</>}
+        {verses.length > 40 && !all && <button type="button" className="lg-tab" style={{ marginLeft: ".5rem" }} onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)}`}</button>}</>}
   </div>;
 }
 

@@ -7,7 +7,6 @@ import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
 import { FAMILY_STUDY, groupIcon, sectionOf } from "@/lib/topic-style";
 import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory, type TopicSummary } from "@/lib/topics";
-import { formatNumber } from "@/lib/utils";
 import { compareText, plural } from "@/lib/site-format";
 
 /** The small line under a topic. A contents page ("Family": no points or passages of its own, only the topics split out of
@@ -42,18 +41,18 @@ function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory
       <div className="topics-detail-heading">
         <Icon size={36} strokeWidth={1.35} aria-hidden />
         <div><h3>{group.title}</h3><p>{group.description}</p></div>
-        <span className="topics-detail-count">{group.topics.length} topics · {formatNumber(passagesOf(group, index))} passages</span>
+        <span className="topics-detail-count">{`${plural(group.topics.length, "{n} topic", "{n} topics")} · ${plural(passagesOf(group, index), "{n} passage", "{n} passages")}`}</span>
       </div>
       {large && (
         <div className="topics-group-tools">
-          <label className="topics-group-filter"><Search size={15} aria-hidden /><span className="sr-only">Filter {group.title}</span><input value={filter} onChange={(e) => setFilter(e.target.value)} placeholder={`Filter ${group.topics.length} topics…`} /></label>
+          <label className="topics-group-filter"><Search size={15} aria-hidden /><span className="sr-only">{`Filter ${group.title}`}</span><input value={filter} onChange={(e) => setFilter(e.target.value)} placeholder={`Filter ${group.topics.length} topics…`} /></label>
           <div className="topics-letters" role="group" aria-label="First letter">
             <button type="button" aria-pressed={!letter} onClick={() => setLetter("")}>All</button>
             {letters.map((l) => <button key={l} type="button" aria-pressed={letter === l} onClick={() => setLetter(letter === l ? "" : l)}>{l}</button>)}
           </div>
         </div>
       )}
-      {large && !shown.length && <p className="topics-group-empty">No topic in {group.title} matches “{filter}”.</p>}
+      {large && !shown.length && <p className="topics-group-empty">{`No topic in ${group.title} matches “${filter}”.`}</p>}
       <ul className="topics-topic-grid" aria-label={`Topics in ${group.title}`}>
         {shown.map((id) => {
           const topic = index.topics[id];
@@ -62,7 +61,7 @@ function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory
       </ul>
       {family.subcategories.length > 1 && (
         <nav className="topics-detail-next" aria-label="Other groups">
-          <span>More in {family.title}</span>
+          <span>{`More in ${family.title}`}</span>
           {family.subcategories.filter((sub) => sub.id !== group.id).map((sub) => { const SubIcon = groupIcon(sub.id); return <button type="button" key={sub.id} onClick={() => onChoose(sub.id)}><SubIcon size={14} aria-hidden />{sub.title}</button>; })}
         </nav>
       )}
@@ -98,9 +97,9 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
     <TopicsShell index={index} current={family.id} back={<Link to="/topics"><ArrowLeft size={15} aria-hidden />All topics</Link>}>
       <header className="topics-family-intro">
         <div>
-          <p className="topics-kicker">{sectionOf(family.id)?.title ?? "Topics"} · {topicCount(family)} topics</p>
+          <p className="topics-kicker">{`${sectionOf(family.id)?.title ?? "Topics"} · ${plural(topicCount(family), "{n} topic", "{n} topics")}`}</p>
           <h1>{family.title}</h1>
-          <p>{family.description} {family.subcategories.length} {plural(family.subcategories.length, "group", "groups")}; open one to see its topics.</p>
+          <p>{family.description} {plural(family.subcategories.length, "{n} group; open one to see its topics.", "{n} groups; open one to see its topics.")}</p>
         </div>
         <TopicsArtwork kind={family.id} words={familyWords(family, index)} />
       </header>
@@ -112,7 +111,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
             {family.subcategories.map((sub) => {
               const Icon = groupIcon(sub.id);
               return <button key={sub.id} type="button" data-selection-key={sub.id} className="topics-compact-card" onClick={() => choose(sub.id)} aria-label={sub.title}>
-                <Icon size={34} strokeWidth={1.35} aria-hidden /><span><strong>{sub.title}</strong><small>{sub.topics.length} topics · {sub.description}</small></span><ArrowUpRight size={15} aria-hidden />
+                <Icon size={34} strokeWidth={1.35} aria-hidden /><span><strong>{sub.title}</strong><small>{`${plural(sub.topics.length, "{n} topic", "{n} topics")} · ${sub.description}`}</small></span><ArrowUpRight size={15} aria-hidden />
               </button>;
             })}
           </div>

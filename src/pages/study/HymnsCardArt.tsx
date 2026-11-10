@@ -99,7 +99,7 @@ export function HymnsCardArt() {
     </svg>
     <div ref={read} className={`study-hymns-read${shown ? "" : " swap"}`}>
       <small>Psalm</small>
-      <div className="num"><b>{stop.psalm}</b><span>{count} {plural(count, "hymn", "hymns")} sung on it</span></div>
+      <div className="num"><b>{stop.psalm}</b><span>{plural(count, "{n} hymn sung on it", "{n} hymns sung on it")}</span></div>
       <q>{stop.line}</q>
       <p>{stop.author} · {stop.year}</p>
     </div>

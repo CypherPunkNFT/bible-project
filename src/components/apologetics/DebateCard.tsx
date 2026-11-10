@@ -23,6 +23,6 @@ export function DebateCard({ debate, index, returnState }: {
       {i > 0 && <span className="dr-exchange-versus"><span aria-hidden="true">VS</span><span className="sr-only">versus</span></span>}
       <span className="dr-exchange-speaker"><span className="dr-exchange-initials" aria-hidden="true">{initials(name)}</span><span className="dr-exchange-name">{name}</span></span>
     </span>)}</div>
-    <div className="dr-exchange-metadata"><span>{debate.setting}</span><span className="dr-exchange-resources"><span>{transcripts[debate.id] ? 'Transcript' : 'Transcript source'}</span>{debate.recording && <span>YouTube{/^\d+:\d{2}(?::\d{2})?$/.test(debate.recording.duration) && ` · ${debate.recording.duration}`}</span>}<span>Study guide</span></span></div>
+    <div className="dr-exchange-metadata"><span>{debate.setting}</span><span className="dr-exchange-resources"><span>{transcripts[debate.id] ? 'Transcript' : 'Transcript source'}</span>{debate.recording && <span>{/^\d+:\d{2}(?::\d{2})?$/.test(debate.recording.duration) ? `YouTube · ${debate.recording.duration}` : 'YouTube'}</span>}<span>Study guide</span></span></div>
   </Link>;
 }

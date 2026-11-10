@@ -23,5 +23,5 @@ export function HistoricalLandingArt({kind}:{kind:DiscoveryStudyId}) {
       <g transform="rotate(-13 288 270)" stroke="currentColor" strokeWidth="1.4"><path d="M111 180Q286 99 472 181V321Q286 393 111 321Z" fill={`url(#${id}-stone)`}/><ellipse cx="111" cy="251" rx="34" ry="71" fill="var(--dh-shadow)"/><ellipse cx="472" cy="251" rx="28" ry="70" fill="var(--dh-face)"/><path d="M155 186Q285 130 432 185M154 212Q285 158 433 211M154 238Q285 187 433 237M154 264Q285 218 433 263M154 290Q285 250 432 289M155 316Q285 286 432 315" fill="none" opacity=".22"/><path d="M326 145L302 193 321 229 309 260" fill="none" opacity=".45"/></g>
       <g stroke="currentColor" fill="var(--dh-shadow)" opacity=".4"><path d="M405 429V374L438 351 470 374V429M414 374H461M429 429V395H446V429M480 429V392L505 378 529 392V429"/><path d="M87 433H550" fill="none"/></g>
     </>}
-  </svg><figcaption>{description} Surface lines are abstract guides, not ancient writing.</figcaption></figure>;
+  </svg><figcaption>{description} <span>Surface lines are abstract guides, not ancient writing.</span></figcaption></figure>;
 }

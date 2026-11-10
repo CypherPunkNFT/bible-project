@@ -42,14 +42,14 @@ export function VerseLinks({ pair, counts, onReverse, onBack, backLabel }: { pai
     {links.status === "loading" && <Loading />}
     {links.status === "error" && <p className="cx-verses-note" role="alert">These cross-references could not be loaded. <button type="button" onClick={() => window.location.reload()}>Try again</button></p>}
     {links.status === "ready" && <>
-      <p className="cx-verses-note">{formatNumber(total)} cross-references, the ones OpenBible.info readers voted most helpful first.</p>
+      <p className="cx-verses-note">{`${formatNumber(total)} cross-references, the ones OpenBible.info readers voted most helpful first.`}</p>
       <ol className="cx-verses-list">
         {links.value.slice(0, shown).map((link) => <li key={link.from + "-" + link.to[0]}>
           <p className="cx-verses-refs"><RefLink span={[link.from, link.from]} className="cx-ref" /><ArrowRight size={13} aria-hidden="true" /><RefLink span={link.to} className="cx-ref" /></p>
           <div className="cx-verses-texts"><PassageText span={[link.from, link.from]} max={1} /><PassageText span={link.to} max={3} /></div>
         </li>)}
       </ol>
-      {shown < total && <button type="button" className="cx-verses-more" onClick={() => setShown((n) => n + PAGE)}>Show {formatNumber(Math.min(PAGE, total - shown))} more · {formatNumber(total - shown)} left</button>}
+      {shown < total && <button type="button" className="cx-verses-more" onClick={() => setShown((n) => n + PAGE)}>{`Show ${formatNumber(Math.min(PAGE, total - shown))} more · ${formatNumber(total - shown)} left`}</button>}
     </>}
   </div>;
 }

@@ -15,7 +15,7 @@ export function ResearchCasePage({ data }: { data: ResearchBundle }) {
     <ResearchHero eyebrow={page.eyebrow} title={page.title} lead={page.lead} kind={page.kind} meta={`${page.minutes} minute reading · Source-led case`} />
     <div className="rs-answer"><p className="rs-eyebrow">{page.question}</p><p>{page.answer}</p><Link to={researchUrl("evidence/" + page.evidenceId)}>Examine the evidence record <ArrowRight size={17} aria-hidden /></Link></div>
     <div className="rs-reading-grid"><ReadingContents sections={page.sections} /><article>
-      {page.kind === "historical" ? <div className="rs-featured-quote"><p className="rs-eyebrow">The inscription’s own image</p><blockquote>“{source.citation.quote}”</blockquote><p>{source.title} · iii 27b–30</p><CitationInspector source={source} /></div> : <WitnessComparison />}
+      {page.kind === "historical" ? <div className="rs-featured-quote"><p className="rs-eyebrow">The inscription’s own image</p><blockquote>“{source.citation.quote}”</blockquote><p>{`${source.title} · iii 27b–30`}</p><CitationInspector source={source} /></div> : <WitnessComparison />}
       {page.sections.map(section => <section className="rs-reading-section" id={section.id} key={section.id}><h2>{section.title}</h2><p>{section.text}</p><BlockCitations citations={section.citations} data={data} /></section>)}
       <section className="rs-conclusion"><p className="rs-eyebrow">A proportionate conclusion</p><p>{page.conclusion}</p><ul>{page.limits.map(limit => <li key={limit}>{limit}</li>)}</ul></section>
       <RelatedLinks links={page.related} />

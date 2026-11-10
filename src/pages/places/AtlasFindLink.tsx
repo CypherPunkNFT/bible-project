@@ -13,5 +13,5 @@ import { ATLAS_BASE as BASE } from "./routes";
 export function AtlasFindLink({ place }: { place: string }) {
   const places = useAsync(loadPlaces, "places");
   if (places.status !== "ready" || !atlasHasPlace(places.value, place)) return null;
-  return <Link to={`${BASE}/map?find=${encodeURIComponent(place)}`}>Find {place} in the atlas<ArrowRight size={16} aria-hidden /></Link>;
+  return <Link to={`${BASE}/map?find=${encodeURIComponent(place)}`}>{`Find ${place} in the atlas`}<ArrowRight size={16} aria-hidden /></Link>;
 }

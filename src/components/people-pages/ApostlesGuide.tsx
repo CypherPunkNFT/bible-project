@@ -94,9 +94,15 @@ function ApostleCard({ apostle: a }: { apostle: ApostleSummary }) {
     <SlideLink to={personPath(a.id, "mission")} state={cameFrom("The apostles")}>
       <span className="rg-card-top"><span className="ag-mini" data-dashed={a.id === JUDAS ? "" : undefined}>{initials(a.name)}</span><span>{a.title}</span></span>
       <strong>{a.name}</strong><span className="rg-card-line">{a.tagline}</span>
-      {isWider(a) && <span className="rg-card-foot"><span>{a.called ?? "No calling scene in Scripture"}</span><span aria-hidden>Open {pronouns(a.sex).their} mission →</span></span>}
+      {isWider(a) && <span className="rg-card-foot"><span>{a.called ?? "No calling scene in Scripture"}</span><span aria-hidden>{openMission(a.sex)} →</span></span>}
     </SlideLink>
   </li>;
+}
+
+/** "Open his mission" written whole for each pronoun, so the page translator finds the line (a pronoun alone is not filled in). */
+function openMission(sex: ApostleSummary["sex"]): string {
+  const their = pronouns(sex).their;
+  return their === "their" ? "Open their mission" : their === "her" ? "Open her mission" : "Open his mission";
 }
 
 /** The preview that rolls down in place of the ring (the Atlas reveal). */
@@ -104,13 +110,13 @@ function ApostlePreview({ apostle, onBack }: { apostle: ApostleSummary; onBack: 
   return <article className="lg-glass ag-preview">
     <button type="button" className="places-collections-back" onClick={onBack}><ArrowLeft size={14} aria-hidden /> All the apostles</button>
     <div className="ag-preview-head"><span className="ag-medal-disc ag-big" data-dashed={apostle.id === JUDAS ? "" : undefined}>{initials(apostle.name)}</span>
-      <div><p className="lg-kicker">{apostle.title}</p><h3 className="lg-title">{apostle.name}</h3>{apostle.otherNames.length > 0 && <p className="lg-muted">Also called {apostle.otherNames.join(", ")}</p>}</div></div>
+      <div><p className="lg-kicker">{apostle.title}</p><h3 className="lg-title">{apostle.name}</h3>{apostle.otherNames.length > 0 && <p className="lg-muted">{`Also called ${apostle.otherNames.join(", ")}`}</p>}</div></div>
     <dl className="lg-facts">
       <div className="lg-fact"><dt>Called</dt><dd>{apostle.called ?? "Scripture does not tell the scene"}</dd></div>
       <div className="lg-fact"><dt>From · trade</dt><dd>{[apostle.home, apostle.trade].filter(Boolean).join(" · ") || "Scripture does not say"}</dd></div>
       <div className="lg-fact"><dt>How the story ends · Scripture</dt><dd>{apostle.ending ?? "Scripture does not record it"}</dd></div>
       {apostle.tradition && <div className="lg-fact"><dt>Later tradition says</dt><dd>{apostle.tradition}</dd></div>}
     </dl>
-    <SlideLink to={personPath(apostle.id, "mission")} state={cameFrom("The apostles")} className="rg-button" style={{ marginTop: "1rem" }}>Open {pronouns(apostle.sex).their} mission <ArrowUpRight size={15} aria-hidden /></SlideLink>
+    <SlideLink to={personPath(apostle.id, "mission")} state={cameFrom("The apostles")} className="rg-button" style={{ marginTop: "1rem" }}>{openMission(apostle.sex)} <ArrowUpRight size={15} aria-hidden /></SlideLink>
   </article>;
 }

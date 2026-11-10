@@ -7,6 +7,7 @@ import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import { EditionsArt } from "./EditionsArt";
 import { LanguageShelf, LibraryFigures } from "./LanguageShelf";
+import { formatNumber } from "@/lib/site-format";
 import "@/pages/charts.css";
 import "./editions.css";
 
@@ -34,7 +35,7 @@ export default function EditionsPage() {
       <div>
         <p className="ed-words">Editions · Languages · Contents</p>
         <h1>Know the edition <em>you are reading</em>.</h1>
-        <p className="ed-lead">{editions.length} editions in {languageCount} languages, from {years.length ? Math.min(...years) : "—"} to {years.length ? Math.max(...years) : "—"}. Find one by its language or its year and open it to read, then see which books each one holds.</p>
+        <p className="ed-lead">{`${formatNumber(editions.length)} editions in ${formatNumber(languageCount)} languages, from ${years.length ? Math.min(...years) : "—"} to ${years.length ? Math.max(...years) : "—"}. Find one by its language or its year and open it to read, then see which books each one holds.`}</p>
       </div>
       <EditionsArt />
     </header>

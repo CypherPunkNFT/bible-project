@@ -8,9 +8,9 @@ function Record({ pair }: { pair: Pair }) {
   return <>
     <p className="mv-kicker mv-sheet-when">{fieldById.get(pair.field)?.name} · {pair.link === "same" ? "the same quarrel or rule" : "only set side by side by this study"}</p>
     <h2>{pair.head}</h2>
-    <p className="mv-sidehead">Decreed · {pair.declared.when}</p>
+    <p className="mv-sidehead">{`Decreed · ${pair.declared.when}`}</p>
     {pair.declared.quote ? <OldText who={pair.declared.who}>“{pair.declared.quote}”</OldText> : <p className="mv-para">{pair.declared.who}.</p>}
-    <p className="mv-sidehead">Set beside it · {pair.followed.when}</p>
+    <p className="mv-sidehead">{`Set beside it · ${pair.followed.when}`}</p>
     {pair.followed.quote ? <OldText who={pair.followed.who}>“{pair.followed.quote}”</OldText> : <p className="mv-para">{pair.followed.who}.</p>}
     <ThreeParts evidence={pair.evidence} inference={pair.inference} limit={pair.limit} />
     <Cite ids={pair.sources} />

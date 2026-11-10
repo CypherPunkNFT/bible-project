@@ -38,9 +38,9 @@ export function RecordDetails({ entry, directory, onClose }: { entry: SourceEntr
       {missingIdentity(entry) && <p className="source-review-badge">Attribution needs review</p>}
       <section><h3>Identity & collection</h3><dl><dt>Record ID</dt><dd><code>{entry.id}</code></dd><dt>Collections</dt><dd>{entry.categories.map(id => directory.collections.find(c => c.id === id)?.label ?? id).join(' · ') || 'Not recorded'}</dd><dt>Recorded role</dt><dd>{entry.role || 'Not recorded'}</dd></dl></section>
       <section><h3>Author tradition & era</h3><p>These labels describe recorded authors, not the date or doctrinal reliability of this edition.</p>
-      {entry.metadata?.authors.length ? entry.metadata.authors.map(author=><div className="source-author-facts" key={author.id}><strong>{author.name}</strong><dl><dt>Recorded traditions</dt><dd>{author.traditions.map(traditionLabel).join(' · ')||'Unrecorded'}</dd><dt>Author period</dt><dd>{eraLabels[author.era??'unrecorded']}{author.born!==null && ' · '+(author.approximate?'c. ':'')+author.born+(author.died?'–'+author.died:'')}</dd><dt>Date basis</dt><dd>{author.dateStatus.replace(/-/g,' ')}{author.dateBasis&&' · '+author.dateBasis}{author.sourceConflict&&' · conflicting source labels retained'}</dd><dt>Linked author ID</dt><dd><code>{author.id}</code></dd></dl>{author.evidence.map((url,index)=><a key={url} href={url}>Recorded evidence {index+1} ↗</a>)}</div>) : <p>No eligible author metadata is linked to this exact catalogue record yet. It remains in Unrecorded / unresolved.</p>}
+      {entry.metadata?.authors.length ? entry.metadata.authors.map(author=><div className="source-author-facts" key={author.id}><strong>{author.name}</strong><dl><dt>Recorded traditions</dt><dd>{author.traditions.map(traditionLabel).join(' · ')||'Unrecorded'}</dd><dt>Author period</dt><dd>{eraLabels[author.era??'unrecorded']}{author.born!==null && ' · '+(author.approximate?'c. ':'')+author.born+(author.died?'–'+author.died:'')}</dd><dt>Date basis</dt><dd>{author.dateStatus.replace(/-/g,' ')}{author.dateBasis&&' · '+author.dateBasis}{author.sourceConflict&&' · conflicting source labels retained'}</dd><dt>Linked author ID</dt><dd><code>{author.id}</code></dd></dl>{author.evidence.map((url,index)=><a key={url} href={url}>{`Recorded evidence ${index+1} ↗`}</a>)}</div>) : <p>No eligible author metadata is linked to this exact catalogue record yet. It remains in Unrecorded / unresolved.</p>}
       </section>
-      {entry.metadata?.basis && <p className="source-card-note">Metadata link: {entry.metadata.basis}.</p>}
+      {entry.metadata?.basis && <p className="source-card-note">{`Metadata link: ${entry.metadata.basis}.`}</p>}
       {entry.metadata?.caution && <section><h3>Source-specific reading caution</h3><p>{entry.metadata.caution}</p></section>}
       <section><h3>Original sources & editions</h3><AcquisitionLinks entry={entry}/></section>
       {entry.basis && <section><h3>Recorded use basis</h3><p>{entry.basis}</p></section>}
@@ -62,7 +62,7 @@ export function SourceCatalogue({ directory, entries, matches, failed, facetStat
   // Phones list the cards in the page itself (no inner scroll box), so the pager repeats under the last card and turning
   // a page from there goes back up to the first card.
   const turn = (next: number, fromBottom: boolean) => { onPage(next); if (fromBottom) stage.current?.scrollIntoView({block:'start'}); };
-  const pager = (fromBottom = false) => <nav className={fromBottom ? 'source-card-pagination source-card-pagination-bottom' : 'source-card-pagination'} aria-label={fromBottom ? 'Catalogue pages, end of list' : 'Catalogue pages'}><button type="button" disabled={page === 0} onClick={() => turn(page - 1, fromBottom)}>Previous</button><span>{matches.length ? page * SOURCE_PAGE_SIZE + 1 : 0}–{Math.min((page + 1) * SOURCE_PAGE_SIZE, matches.length)} of {number(matches.length)}</span><button type="button" disabled={(page + 1) * SOURCE_PAGE_SIZE >= matches.length} onClick={() => turn(page + 1, fromBottom)}>Next</button></nav>;
+  const pager = (fromBottom = false) => <nav className={fromBottom ? 'source-card-pagination source-card-pagination-bottom' : 'source-card-pagination'} aria-label={fromBottom ? 'Catalogue pages, end of list' : 'Catalogue pages'}><button type="button" disabled={page === 0} onClick={() => turn(page - 1, fromBottom)}>Previous</button><span>{`${number(matches.length ? page * SOURCE_PAGE_SIZE + 1 : 0)}–${number(Math.min((page + 1) * SOURCE_PAGE_SIZE, matches.length))} of ${number(matches.length)}`}</span><button type="button" disabled={(page + 1) * SOURCE_PAGE_SIZE >= matches.length} onClick={() => turn(page + 1, fromBottom)}>Next</button></nav>;
   const groups = useMemo((): {key:FacetKey; name:string; note?:string; options:string[][]}[] => {
     const values = (key:FacetKey) => [...new Set((entries ?? []).flatMap(e=>facetValues(e,key)))].sort();
     return [
@@ -113,7 +113,7 @@ export function SourceCatalogue({ directory, entries, matches, failed, facetStat
       </aside>
       <div className="source-card-results">
         <div ref={stage} className="source-card-stage">
-        <div className="source-card-toolbar"><p role="status"><strong>{entries ? number(matches.length) : '…'}</strong> of {entries ? number(entries.length) : '…'} records</p>{active.length > 0 && <div className="source-active-filters" aria-label="Active catalogue filters">{active.map(item=><button type="button" key={item.key+item.value} aria-label={'Remove filter: '+item.label} onClick={()=>onFilters(toggleFacet(filters,item.key,item.value))}>{item.label}<X size={11} aria-hidden/></button>)}</div>}{pager()}</div>
+        <div className="source-card-toolbar"><p role="status"><strong>{entries ? number(matches.length) : '…'}</strong> of {entries ? number(entries.length) : '…'} records</p>{active.length > 0 && <div className="source-active-filters" aria-label="Active catalogue filters">{active.map(item=><button type="button" key={item.key+item.value} aria-label={`Remove filter: ${item.label}`} onClick={()=>onFilters(toggleFacet(filters,item.key,item.value))}>{item.label}<X size={11} aria-hidden/></button>)}</div>}{pager()}</div>
         <div ref={scroll} className="source-card-scroll" role="region" aria-label="Source catalogue cards" tabIndex={0}>
           <div className="source-card-grid">{shown.map(entry => {
             const index = directory.collections.findIndex(c => entry.categories.includes(c.id));
@@ -128,7 +128,7 @@ export function SourceCatalogue({ directory, entries, matches, failed, facetStat
               {missingIdentity(entry) && <span className="source-work-warning">Attribution needs review</span>}
               <div className="source-work-origin"><span>{formats || entry.kind}</span><p>{providers.length ? providers.slice(0,2).join(' · ') + (providers.length > 2 ? ' +' + (providers.length - 2) : '') : 'Source not recorded'}</p></div>
               <span className="source-work-action">Source & details <ArrowRight size={14}/></span>
-              <button type="button" className="source-work-hit" aria-label={'Open source details: ' + entry.title + ' — ' + (entry.author || 'Author not recorded')} onClick={() => setSelected(entry)}/>
+              <button type="button" className="source-work-hit" aria-label={`Open source details: ${entry.title} — ${entry.author || 'Author not recorded'}`} onClick={() => setSelected(entry)}/>
             </article>;
           })}</div>
           {!entries && <p role="status" className="source-card-empty">{failed ? 'The catalogue could not load. Reload to try again.' : 'Opening the catalogue…'}</p>}

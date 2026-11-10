@@ -28,7 +28,7 @@ export function KnownWorks({ person, onOpenWork }: { person: Person; onOpenWork?
 
 export function GenreBar({ person }: { person: Person }) {
   const entries = Object.entries(person.genres).sort((a, b) => b[1] - a[1]);
-  if (!entries.length) return <p className="drw-empty">Nothing by {person.short} is catalogued in the library yet.</p>;
+  if (!entries.length) return <p className="drw-empty">{`Nothing by ${person.short} is catalogued in the library yet.`}</p>;
   const colour = (genre: string) => `var(${GENRE_TONE[genre] ?? "--muted"})`;
   return <>
     <div className="drw-gbar">
@@ -42,8 +42,9 @@ export function GenreBar({ person }: { person: Person }) {
 
 export function BookStrip({ data, person }: { data: PeopleData; person: Person }) {
   const max = Math.max(...person.books);
-  if (!max) return <p className="drw-empty">None of {person.short}&apos;s works in the library is tied to a main Bible passage yet.</p>;
+  if (!max) return <p className="drw-empty">{`None of ${person.short}'s works in the library is tied to a main Bible passage yet.`}</p>;
   const top = person.books.map((n, i) => [n, data.books[i]] as const).filter(([n]) => n).sort((a, b) => b[0] - a[0]);
+  const often = top.slice(0, 3).map(([n, b]) => `${b.name} (${formatNumber(n)})`).join(", ");
   return <>
     <div className="drw-books" role="img" aria-label="Works by Bible book">
       {data.books.map((book, i) => {
@@ -53,7 +54,7 @@ export function BookStrip({ data, person }: { data: PeopleData; person: Person }
       })}
     </div>
     <div className="drw-books-ends"><span>Old Testament</span><span>New Testament</span></div>
-    <p className="drw-note">{top.length} of 66 books. Most often: {top.slice(0, 3).map(([n, b]) => `${b.name} (${formatNumber(n)})`).join(", ")}. Bar height uses a square-root scale.</p>
+    <p className="drw-note">{`${formatNumber(top.length)} of 66 books. Most often: ${often}. Bar height uses a square-root scale.`}</p>
   </>;
 }
 
@@ -81,7 +82,7 @@ export function FromLibrary({ person }: { person: Person }) {
     picks.push({ t: w.t, s: `${w.r} · ${genreName(w.g)}`, u: w.u });
   }
   return <>
-    {person.acquiredId && <section><h3>Acquired texts</h3><p className="drw-note">{formatNumber(person.heldTexts)} held text representations · {formatNumber(person.readableTexts)} readable here. Editions and formats can overlap.</p><Link className="drw-read" to={`/teachers/works?author=${encodeURIComponent(person.acquiredId)}`}>Browse the full shelf →</Link></section>}
+    {person.acquiredId && <section><h3>Acquired texts</h3><p className="drw-note">{`${formatNumber(person.heldTexts)} held text representations · ${formatNumber(person.readableTexts)} readable here. Editions and formats can overlap.`}</p><Link className="drw-read" to={`/teachers/works?author=${encodeURIComponent(person.acquiredId)}`}>Browse the full shelf →</Link></section>}
     {items.length > 0 && <section><h3>From the library</h3><WorkList rows={items.slice(0, 5)} /></section>}
     {picks.length > 0 && person.notable.length > 0 && <section><h3>Read them on a passage</h3><WorkList rows={picks} /></section>}
   </>;

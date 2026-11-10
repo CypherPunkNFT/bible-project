@@ -67,19 +67,19 @@ export function Catalogue() {
     <span id="acquired" /><span id="fields" />
     <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
       line={<>Explore authors, translators and their works across the full library. Open a documented profile or browse a contributor’s works.</>} />
-    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {formatNumber(library.length)} contributor entries</>}<Link className="cat-download" to="/analysis">Full-page list</Link><a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download onClick={e => onExportLinkClick(e, setExportError)}>Download complete catalogue</a>{exportError && <span role="alert"> {exportError}</span>}</p>
-    {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
+    <p className="cat-coverage">{library ? `${formatNumber(data.scholars.length)} documented scholar profiles · ${formatNumber(library.length)} contributor entries` : `${formatNumber(data.scholars.length)} documented scholar profiles`}<Link className="cat-download" to="/analysis">Full-page list</Link><a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download onClick={e => onExportLinkClick(e, setExportError)}>Download complete catalogue</a>{exportError && <span role="alert"> {exportError}</span>}</p>
+    {libraryError && <p role="alert">{`The full library could not load: ${libraryError}. Reload to try again.`}</p>}
     <div className="cat-layout">
       <Facets view={view} data={data} filters={filters} people={people} options={options} onOptions={setOptions} text={text} onText={search}
         onToggle={(key: FacetKey, value: string) => set(toggled(filters, key, value))} onUsed={() => set({ ...filters, used: !filters.used })} onClear={clear} />
       <div className="cat-results">
-        <div className="cat-bar"><p className="cat-count" aria-live="polite"><b>{library ? formatNumber(visible.length) : '…'}</b> of {library ? formatNumber(library.length) : '…'} contributors</p>
+        <div className="cat-bar"><p className="cat-count" aria-live="polite"><b>{library ? formatNumber(visible.length) : '…'}</b>{` of ${library ? formatNumber(library.length) : '…'} contributors`}</p>
           <div className="cat-tools"><button type="button" className="cat-view-toggle" aria-label={view==='cards'?'Open full contributor table':'Return to catalogue cards'} aria-pressed={view==='table'} onClick={()=>{setView(view==='cards'?'table':'cards');scroll.current?.scrollTo({top:0,left:0});}}>{view==='cards'?<Table2 size={14} aria-hidden="true"/>:<LayoutGrid size={14} aria-hidden="true"/>}{view==='cards'?'Full table':'Card view'}</button>
           {view === 'table' ? <label className="cat-sort-select">Sort<select aria-label="Sort contributors" value={sort} onChange={e => setSort(e.target.value as LibrarySort)}>{SORTS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label> : <div className="cat-sort" role="radiogroup" aria-label="Sort by"><span className="cat-sort-l">Sort</span>{SORTS.map(([key,label]) => <button key={key} type="button" role="radio" data-sort={key} aria-checked={key === sort} onClick={() => setSort(key)}>{label}</button>)}</div>}</div></div>
         <div ref={scrollRef} className="cat-scroll slim-scroll" data-view={view} role="region" aria-label="Scholar and contributor results" tabIndex={0}>
           {!library && !libraryError && <p role="status">Loading every contributor…</p>}
           {view==='table'?<div className="pop-table-wrap"><ContributorTable people={slice} data={data} expanded={shelf} onExpand={setShelf} onOpen={openProfile}/></div>:<VirtualCards people={visible} data={data} shelf={shelf} onShelf={setShelf} onOpen={openProfile} scroller={scroller} profileOrigin={profile?.origin ?? null} />}
-          {view==='table'&&loaded<visible.length&&<button type="button" className="pop-load" onClick={()=>setLoaded(n=>Math.min(n+BATCH_SIZE,visible.length))}>Show more contributors ({formatNumber(Math.min(loaded,visible.length))} of {formatNumber(visible.length)})</button>}
+          {view==='table'&&loaded<visible.length&&<button type="button" className="pop-load" onClick={()=>setLoaded(n=>Math.min(n+BATCH_SIZE,visible.length))}>{`Show more contributors (${formatNumber(Math.min(loaded,visible.length))} of ${formatNumber(visible.length)})`}</button>}
           {library && !visible.length && <div className="cat-empty"><p>No contributor matches these filters.</p><button type="button" className="cat-clear" onClick={clear}>Clear the filters</button></div>}
         </div>
       </div>

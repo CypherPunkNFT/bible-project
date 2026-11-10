@@ -118,11 +118,11 @@ export function Built() {
 
   return <>
     <SectionHead section="built" kicker="On this site" title={<>Sources <em>in use</em></>}
-      line={<>Follow the work behind the site: {overviewModel.features.length} features and {formatNumber(overviewModel.totalCount)} documented source records. Choose an area, search the full index, or open a source to trace its page connections.</>} />
+      line={<>{`Follow the work behind the site: ${formatNumber(overviewModel.features.length)} features and ${formatNumber(overviewModel.totalCount)} documented source records. Choose an area, search the full index, or open a source to trace its page connections.`}</>} />
     <div ref={cardRef} className={`blt-card${sweep !== "hidden" ? " blt-in" : ""}${sweep === "settled" ? " blt-settled" : ""}`}
       style={{'--blt-window-height':`${openingHeight}px`} as CSSProperties}
       onClick={onCardClick}>
-      <div className="blt-controls"><p><b>{model.rows.length}</b> of {formatNumber(model.matchedCount)} sources shown · {model.features.length} {plural(model.features.length, "feature", "features")}</p><label><span className="sr-only">Search all site sources</span><input type="search" placeholder="Find a work, contributor or page" value={query} onChange={event=>{setQuery(event.target.value);setLimit(8);setFocus(null);setPinned(null);cardRef.current?.querySelectorAll('.blt-scroll,.blt-stack').forEach(el=>el.scrollTo({top:0}));}}/></label><button type="button" className="blt-more" onClick={downloadIndex}>Download index</button>{model.rows.length<model.matchedCount&&<button type="button" className="blt-more" onClick={()=>setLimit(n=>n+8)}>More connections +</button>}</div>
+      <div className="blt-controls"><p><b>{formatNumber(model.rows.length)}</b>{` of ${formatNumber(model.matchedCount)} sources shown · ${plural(model.features.length, "{n} feature", "{n} features")}`}</p><label><span className="sr-only">Search all site sources</span><input type="search" placeholder="Find a work, contributor or page" value={query} onChange={event=>{setQuery(event.target.value);setLimit(8);setFocus(null);setPinned(null);cardRef.current?.querySelectorAll('.blt-scroll,.blt-stack').forEach(el=>el.scrollTo({top:0}));}}/></label><button type="button" className="blt-more" onClick={downloadIndex}>Download index</button>{model.rows.length<model.matchedCount&&<button type="button" className="blt-more" onClick={()=>setLimit(n=>n+8)}>More connections +</button>}</div>
       <div className="blt-tabs" role="tablist" aria-label="Source study area" onKeyDown={event => {
         const tabs=Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role=tab]'));
         const current=tabs.indexOf(event.target as HTMLButtonElement);

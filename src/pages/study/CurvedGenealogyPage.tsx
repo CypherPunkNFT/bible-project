@@ -8,7 +8,7 @@ import { compareArrangement, type StudyNode } from "@/lib/circular-layout-study"
 import { staggeredBranches, siblingBands, ringArc } from "@/lib/circular-genealogy-paths";
 import { useAsync } from "@/lib/useAsync";
 import "./circular-genealogy.css";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const starts = [["Abraham", "abraham-gen-11-26"], ["Jacob", "israel-gen-25-26"], ["Adam", "adam-gen-2-19"], ["David", "david-rut-4-17"], ["Jesus", "jesus-isa-7-14"]];
 const curveCenter = 36000;
@@ -346,7 +346,7 @@ function Graph({ people }: { people: FamilyPerson[] }) {
         <button disabled={ring===null && spacingIds.size < 2} onClick={balanceFamily} style={{gridColumn:"1 / -1"}}>Balance family</button>
         <button disabled={spacingIds.size < 2} onClick={straightenSiblinghood} style={{gridColumn:"1 / -1"}}>Straighten siblinghood</button>
         <button disabled={spacingIds.size < 2} onClick={() => spaceFamily(.85)}>Tighten siblings</button><button disabled={spacingIds.size < 2} onClick={() => spaceFamily(1/.85)}>Spread siblings</button>
-        <span>{locked.size} locked</span>
+        <span>{`${formatNumber(locked.size)} locked`}</span>
         <details className="circle-study-notes"><summary>Explain your choices</summary><textarea aria-label="Layout study notes" placeholder="What were you trying to improve? e.g. Keep Benjamin's family together with more space from Gad." value={study.notes} onChange={e => setStudy(previous => ({ ...previous, notes: e.target.value }))} /></details>
         <button className="circle-export-study" onClick={exportStudy}>Export layout study</button>
       </div>
@@ -357,7 +357,7 @@ function Graph({ people }: { people: FamilyPerson[] }) {
         {radial.radii.slice(1).map((radius, i) => <g key={i} className="circle-ring" opacity={ring === null || ring === i + 1 ? 1 : .3}>
           <path d={ringArc(radius,curveStart,curveEnd)} fill="none" stroke={colors[i % colors.length]} strokeWidth={widthOf(i+1)} strokeOpacity={ring === i + 1 ? .14 : .045} className="circle-ring-hit" onClick={() => setRing(ring === i + 1 ? null : i + 1)} />
           {Array.from({length:tracksOf(i+1)},(_,track)=>track).map(track => <path key={track} d={ringArc(radius+trackOffsetOf(i+1,track),curveStart,curveEnd)} fill="none" stroke={colors[i % colors.length]} strokeOpacity={.22} strokeDasharray="3 8" />)}
-          <g role="button" tabIndex={0} aria-label={`Highlight generation ${i+1}`} aria-pressed={ring === i+1} transform={`translate(${Math.cos(curveStart)*radius},${Math.sin(curveStart)*radius})`} onClick={() => setRing(ring === i+1 ? null : i+1)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setRing(ring === i+1 ? null : i+1); } }}><rect x={-56} y={-18} width={112} height={36} rx={18} /><text textAnchor="middle" y={5}>GENERATION {["I", "II", "III", "IV", "V"][i]}</text></g>
+          <g role="button" tabIndex={0} aria-label={`Highlight generation ${i+1}`} aria-pressed={ring === i+1} transform={`translate(${Math.cos(curveStart)*radius},${Math.sin(curveStart)*radius})`} onClick={() => setRing(ring === i+1 ? null : i+1)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setRing(ring === i+1 ? null : i+1); } }}><rect x={-56} y={-18} width={112} height={36} rx={18} /><text textAnchor="middle" y={5}>{`GENERATION ${["I", "II", "III", "IV", "V"][i]}`}</text></g>
         </g>)}
         {[...branch.edges.filter(e => e.kind === "parent").reduce((groups, e) => {
           const key = `${e.from}:${nodes.get(e.to)!.generation}:${nodes.get(e.to)!.trackOffset}`;
@@ -373,7 +373,7 @@ function Graph({ people }: { people: FamilyPerson[] }) {
           const opacity = ring !== null ? (a.generation === ring || children[0].generation === ring ? .7 : .05) : active ? (relatives.has(a.person.id) && children.some(n => relatives.has(n.person.id)) ? .9 : .06) : .42;
           return <g key={key} className="circle-family-links" fill="none" stroke={color} opacity={opacity} strokeWidth={active && relatives.has(a.person.id) ? 2.8 : 1.5} pointerEvents="none">
             {bands.map((d,i) => <path key={`band:${i}`} className={`circle-sibling-band${siblingParent===a.person.id ? " circle-sibling-selected" : ""}`} onPointerDown={e=>beginSiblingDrag(e,a.person.id,children[0].generation)} role="button" tabIndex={0} aria-label={`Select ${a.person.n}'s siblinghood`} d={d} strokeWidth={54} stroke="color-mix(in srgb, currentColor 45%, white)" style={{color}} strokeOpacity={siblingParent===a.person.id ? .5 : .28} aria-pressed={siblingParent===a.person.id} onClick={e=> { e.stopPropagation(); if(suppressClick.current) { suppressClick.current=false; return; } setSiblingParent(a.person.id); setSelected(a.person.id); setSpacingTarget("children"); setPinnedPerson(a.person.id); setHover(null); setRing(null); setNotice("Siblinghood selected. Straighten siblinghood aligns this family and its descendants."); }} onKeyDown={e=> { if(e.key==="Enter" || e.key===" ") { e.preventDefault(); e.stopPropagation(); setSiblingParent(a.person.id); setSelected(a.person.id); setSpacingTarget("children"); setPinnedPerson(a.person.id); setHover(null); setRing(null); } }} />)}
-            {a.generation !== 0 && children[0].generation !== 0 && <path d={routes.trunk}><title>{a.person.n}: shared connection to {children.length} recorded children</title></path>}
+            {a.generation !== 0 && children[0].generation !== 0 && <path d={routes.trunk}><title>{`${a.person.n}: shared connection to ${plural(children.length, "{n} recorded child", "{n} recorded children")}`}</title></path>}
             {children.map((child, index) => {
               const central = a.generation === 0 || child.generation === 0;
               const distance = Math.hypot(child.x-a.x, child.y-a.y);
@@ -392,6 +392,6 @@ function Graph({ people }: { people: FamilyPerson[] }) {
         </g>)}
       </g></g>
     </svg>
-    <div className="circle-bottom"><div className="circle-zoom"><button aria-label="Zoom out" onClick={() => zoomBy(.8)}>{"\u2212"}</button><button onClick={() => fit.current()}>Fit curves</button><button aria-label="Zoom in" onClick={() => zoomBy(1.25)}>+</button></div><div className="circle-selection"><strong>{person.n}</strong><span>{person.b}</span><span className="circle-edit-status" role="status">{notice}</span>{selected !== root && <button onClick={() => choose(selected)}>Center this life {"\u2197"}</button>}</div><small>Mock study / STEP Bible family records{branch.omitted ? " / Branch limited to 180 people" : ""}</small></div>
+    <div className="circle-bottom"><div className="circle-zoom"><button aria-label="Zoom out" onClick={() => zoomBy(.8)}>{"\u2212"}</button><button onClick={() => fit.current()}>Fit curves</button><button aria-label="Zoom in" onClick={() => zoomBy(1.25)}>+</button></div><div className="circle-selection"><strong>{person.n}</strong><span>{person.b}</span><span className="circle-edit-status" role="status">{notice}</span>{selected !== root && <button onClick={() => choose(selected)}>Center this life {"\u2197"}</button>}</div><small>{branch.omitted ? "Mock study / STEP Bible family records / Branch limited to 180 people" : "Mock study / STEP Bible family records"}</small></div>
   </>;
 }

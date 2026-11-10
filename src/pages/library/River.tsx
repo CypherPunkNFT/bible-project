@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type MutableRefObject } from "react";
 import { formatNumber } from "@/lib/utils";
+import { plural } from "@/lib/site-format";
 import type { Bar, Library, Metric } from "./model";
 import { useRiver, type RiverApi } from "./useRiver";
 
@@ -73,7 +74,9 @@ export function River({ library, selection, onSelect, handle, titleOf }: Props) 
             <b style={{ color: `var(--${hover.section})` }}>
               {hover.name} {hover.chapter}
             </b>{" "}
-            · {hover.verses} verses · {formatNumber(hover.words)} words{hover.red ? ` · ${formatNumber(hover.red)} words of Jesus` : ""}
+            {hover.red
+              ? `· ${plural(hover.verses, "{n} verse", "{n} verses")} · ${formatNumber(hover.words)} words · ${formatNumber(hover.red)} words of Jesus`
+              : `· ${plural(hover.verses, "{n} verse", "{n} verses")} · ${formatNumber(hover.words)} words`}
             {title && (
               <>
                 {" "}

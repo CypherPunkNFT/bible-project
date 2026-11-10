@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { PARABLES, PARABLE_FORMS } from '@/data/parables';
+import { formatNumber } from '@/lib/site-format';
 
 export function ParableScope() {
   return <details className="pb-count-note" id="parable-count">
     <summary>Are these all the parables? Why lists give different totals</summary>
-    <div><p>This collection contains {PARABLES.length} studies in Matthew, Mark and Luke. That is the size of this collection, not a universally agreed biblical total.</p>
+    <div><p>{`This collection contains ${formatNumber(PARABLES.length)} studies in Matthew, Mark and Luke. That is the size of this collection, not a universally agreed biblical total.`}</p>
       <p>Our reading labels distinguish narrative parables (stories with particular characters and unfolding action), brief comparisons (compact scenes, images and hypothetical examples), and related figurative teaching (the returning spirit and the sheep-and-goats judgment scene). These are editorial reading aids; some passages sit across the boundaries.</p>
       <p>{Object.entries(PARABLE_FORMS).map(([form, label]) => `${label}: ${PARABLES.filter(story => story.form === form).length}`).join(' · ')}.</p>
       <p>The collection includes kingdom stories and short comparisons such as salt, the lamp, the eye, the measure and a father’s gifts. Shared imagery may bring Gospel passages into one study without implying one occasion. The talents and minas, and Matthew’s royal wedding and Luke’s great supper, remain separate because their settings and details differ. The divided kingdom and the strong man also remain distinct comparisons within the same argument.</p>

@@ -28,7 +28,7 @@ export function Strip({ book, keys }: { book: number; keys: readonly (readonly [
       </button>;
     })}</div>
     <p className="st-say">{pointed
-      ? <><b>{ordinal(pointed.c + 1)} century</b> · {plural(pointed.n, "{n} dated copy", "{n} dated copies")}</>
+      ? <><b>{`${ordinal(pointed.c + 1)} century`}</b> · {plural(pointed.n, "{n} dated copy", "{n} dated copies")}</>
       : `${formatNumber(dated.length)} dated open records hold ${name}. Point at a century.`}</p>
   </div>;
 }

@@ -34,6 +34,14 @@ function Group({ group, onOpen }: { group: ShownGroup; onOpen: (id: string, orig
   </section>;
 }
 
+/** The empty-list line, one whole sentence for each filter that is set. */
+function noMatch(query: string, familyLabel: string | undefined): string {
+  if (query && familyLabel) return `No one matches “${query}” among the ${familyLabel}.`;
+  if (query) return `No one matches “${query}”.`;
+  if (familyLabel) return `No one matches among the ${familyLabel}.`;
+  return "No one matches.";
+}
+
 export function Directory() {
   const { data, openProfile } = usePreachers();
   const people = data.people;
@@ -45,7 +53,7 @@ export function Directory() {
   const familyLabel = FAMILIES.find((f) => f.key === family)?.label;
 
   return <>
-    <SectionHead num="08" kicker="Everyone" title={<>All {people.length}, <em>by where they served</em></>}
+    <SectionHead num="08" kicker="Everyone" title={<>{`All ${formatNumber(people.length)},`} <em>by where they served</em></>}
       line="Grouped by the country where each one lived longest after their birthplace, with the town and how many of their works the library holds. Choose a name to open the profile." />
     <div className="dir-tools">
       <label className="dir-search">
@@ -56,11 +64,11 @@ export function Directory() {
         {FAMILIES.map((f) => <button key={f.key} type="button" aria-pressed={f.key === family} style={cssVars({ "--tone": `var(${f.tone})` })}
           onClick={() => setFamily((current) => (current === f.key ? null : f.key))}><i />{f.label}</button>)}
       </div>
-      <span className="dir-count" role="status">{shown} of {people.length} teachers</span>
+      <span className="dir-count" role="status">{`${formatNumber(shown)} of ${formatNumber(people.length)} teachers`}</span>
     </div>
     <div className="dir-list">
       {shown ? columns.map((column, i) => <div key={i} className="dir-col">{column.map((g) => <Group key={g.region} group={g} onOpen={open} />)}</div>)
-        : <p className="dir-empty">No one matches{query.trim() ? ` “${query.trim()}”` : ""}{familyLabel ? ` among the ${familyLabel}` : ""}.</p>}
+        : <p className="dir-empty">{noMatch(query.trim(), familyLabel)}</p>}
     </div>
   </>;
 }

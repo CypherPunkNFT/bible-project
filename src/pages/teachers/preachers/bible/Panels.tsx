@@ -30,7 +30,7 @@ export function Summary({ model, view, narrow, onOpen, onPin }: { model: BibleMo
     {note && <p className="bib-note">{note}</p>}
     <p className="bib-mini">Most taken chapters</p>
     <ol className="bib-top">{top.map((c) => <li key={c.i}><button type="button" onClick={() => onPin(c.i)}><span>{chapterName(model.books, c)}</span><b>{valueOf(c, view)}</b></button></li>)}</ol>
-    <p className="bib-hint">{narrow ? "Tap a square" : "Point at a square, or click it to keep it open,"} to see who took that chapter and read what they wrote.</p>
+    <p className="bib-hint">{narrow ? "Tap a square to see who took that chapter and read what they wrote." : "Point at a square, or click it to keep it open, to see who took that chapter and read what they wrote."}</p>
   </div>;
 }
 
@@ -61,7 +61,7 @@ export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, on
   return <div className="bib-inner" style={tone(`--${section}`)}>
     <div className="bib-top-row"><p className="kicker">{SECTION_LABEL[section]}</p>
       {closable && <button type="button" className="bib-icon-btn" onClick={onClose} aria-label="Close"><X size={16} strokeWidth={1.5} aria-hidden /></button>}</div>
-    <h3>{name}<small>{cell.verses} verses</small></h3>
+    <h3>{name}<small>{plural(cell.verses, "{n} verse", "{n} verses")}</small></h3>
     <p className="bib-note">{cell.total
       ? `${plural(cell.total, "{n} work", "{n} works")} in the library ${plural(cell.total, "takes", "take")} this chapter as their main text, by ${plural(cell.voices, "{n} teacher", "{n} teachers")}.`
       : "No work in the library takes this chapter as its main text yet."}</p>
@@ -75,8 +75,8 @@ export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, on
     })}</ul>}
     {shown.length > 0 && <><p className="bib-mini">Read their works</p>
       <ul className="bib-titles">{shown.map((entry, i) => <WorkLink key={`${entry.person.id}-${entry.work.v}-${i}`} entry={entry} model={model} />)}</ul></>}
-    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>Show all {formatNumber(list.length)} titles</button>}
-    {elsewhere > 0 && <p className="bib-more-note">{plural(elsewhere, "{n} more work", "{n} more works")} {plural(elsewhere, "takes", "take")} this chapter alongside an earlier main text, so {plural(elsewhere, "it is", "they are")} listed under that chapter.</p>}
-    <Link className="bib-read" to={readHref(model.books, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />Read {name}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
+    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>{`Show all ${formatNumber(list.length)} titles`}</button>}
+    {elsewhere > 0 && <p className="bib-more-note">{plural(elsewhere, "{n} more work takes this chapter alongside an earlier main text, so it is listed under that chapter.", "{n} more works take this chapter alongside an earlier main text, so they are listed under that chapter.")}</p>}
+    <Link className="bib-read" to={readHref(model.books, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />{`Read ${name}`}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
   </div>;
 }

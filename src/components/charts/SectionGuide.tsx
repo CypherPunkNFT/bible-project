@@ -18,8 +18,8 @@ export function SectionGuide({ section }: { section: SectionFilter }) {
     <div><h3>A library of different voices.</h3><p>Story, poetry, prophecy and letters ask us to read in different ways. Choose a section to explore its literary character and place in Scripture.</p></div>
     <p>These are this site's reading-chart groups. Individual books mix literary forms, and other Bible traditions arrange the books differently. <a href="https://bibleproject.com/videos/literary-styles-bible/" target="_blank" rel="noreferrer">Explore literary styles ↗</a></p>
   </div>;
-  return <aside className="section-guide" style={{ "--section-color": sectionColor(section) } as CSSProperties} aria-label={SECTION_BY_ID[section].name + " literary guide"}>
-    <div><p className="section-guide-label">{SECTION_BY_ID[section].span}</p><h3>Why {SECTION_BY_ID[section].name}?</h3><p>{insight.why}</p></div>
+  return <aside className="section-guide" style={{ "--section-color": sectionColor(section) } as CSSProperties} aria-label={`${SECTION_BY_ID[section].name} literary guide`}>
+    <div><p className="section-guide-label">{SECTION_BY_ID[section].span}</p><h3>{`Why ${SECTION_BY_ID[section].name}?`}</h3><p>{insight.why}</p></div>
     <div><h4>How to read it</h4><p>{insight.read}</p></div>
     <div className="section-guide-thread"><h4>A thread to follow</h4><p>{insight.thread}</p><RefLink span={insight.ref} /></div>
   </aside>;

@@ -25,7 +25,9 @@ export default function EmblemMockupsPage() {
         larger Hebrew, in a circle grown slightly so no outer ring is squeezed; 3 simplifies the rings inside the Hebrew so
         the letters can grow into that space. The homepage uses 1 until you choose.</p></header>
     {BANNERS.map((banner) => <section key={banner.number} className="hm-banner-part">
-      <p className="home-wrap hm-banner-label"><span>Around the ring: {DESIGNS[banner.emblem][0].source}{DESIGNS[banner.emblem][2].hebrew !== DESIGNS[banner.emblem][0].hebrew && <>. In 3: {DESIGNS[banner.emblem][2].source}</>}</span></p>
+      <p className="home-wrap hm-banner-label"><span>{DESIGNS[banner.emblem][2].hebrew !== DESIGNS[banner.emblem][0].hebrew
+        ? `Around the ring: ${DESIGNS[banner.emblem][0].source}. In 3: ${DESIGNS[banner.emblem][2].source}`
+        : `Around the ring: ${DESIGNS[banner.emblem][0].source}`}</span></p>
       <SectionBanner {...banner} emblemSlot={<div className="hm-emblem-pair">{[0, 1, 2].map((variant) =>
         <figure key={variant}><Emblem kind={banner.emblem} variant={variant} className="home-banner-emblem" /><figcaption>{variant + 1}</figcaption></figure>)}</div>} />
     </section>)}

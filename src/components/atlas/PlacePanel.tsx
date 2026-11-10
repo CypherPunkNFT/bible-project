@@ -10,7 +10,7 @@ import { useCurrentBible } from "@/lib/verses";
 import type { MapPlace } from "./projection";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { OldMapsFold } from "./OldMapsFold";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** One place: where it is named, as a reference list by book, then the verses themselves. */
 export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
@@ -38,7 +38,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
             <MapPin className="h-5 w-5" style={{ color: sectionColor(place.section) }} aria-hidden /> {place.name}
           </h2>
           <p className="text-sm text-muted">
-            Named in {place.verses.length} {plural(place.verses.length, "verse", "verses")} · location confidence {Math.round(place.confidence * 100)}%
+            {`Named in ${plural(place.verses.length, "{n} verse", "{n} verses")} · location confidence ${formatNumber(Math.round(place.confidence * 100))}%`}
           </p>
         </div>
         <button type="button" onClick={onClose} className="rounded-full p-1.5 hover:bg-surface-2" aria-label="Close">
@@ -85,7 +85,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
       </ol>
       {place.verses.length > shown && (
         <button type="button" onClick={() => setShown((n) => n + 30)} className="mt-3 w-full rounded-lg bg-surface-2 py-2 text-sm">
-          Show more ({place.verses.length - shown} left)
+          {`Show more (${formatNumber(place.verses.length - shown)} left)`}
         </button>
       )}
       <p className="mt-4 text-[11px] text-muted">Place data from OpenBible.info's Bible geocoding (CC-BY 4.0).</p>

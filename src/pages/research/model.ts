@@ -38,8 +38,8 @@ export interface ResearchBundle {
 
 export function sourceUses(data: ResearchBundle, sourceId: string) {
   return [
-    ...data.cases.filter(p => p.sourceIds.includes(sourceId)).map(p => ({ to: "cases/" + p.id, label: p.title, note: "Apologetics · " + p.question })),
-    ...data.lessons.filter(p => p.sourceIds.includes(sourceId)).map(p => ({ to: "study/" + p.id, label: p.title, note: "Studies · " + p.passage.reference })),
+    ...data.cases.filter(p => p.sourceIds.includes(sourceId)).map(p => ({ to: "cases/" + p.id, label: p.title, note: `Apologetics · ${p.question}` })),
+    ...data.lessons.filter(p => p.sourceIds.includes(sourceId)).map(p => ({ to: "study/" + p.id, label: p.title, note: `Studies · ${p.passage.reference}` })),
   ];
 }
 

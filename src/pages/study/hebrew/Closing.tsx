@@ -15,14 +15,14 @@ export function Closing() {
         <dl className="hw-confused">{D.confusedWords.map((w) => <div key={w.word}><dt>{w.word}</dt><dd><Mixed text={w.note} /></dd></div>)}</dl></div>
       <div><p className="hw-kicker">How far the evidence reaches</p>
         <ul className="hw-reach">
-          <li>Counted: {thousands(c.hebrewWords)} Hebrew words. Set aside: {thousands(c.aramaicWords)} Aramaic words and {thousands(c.setAside)} others STEP restores or supplies, or leaves untagged.</li>
+          <li>{`Counted: ${thousands(c.hebrewWords)} Hebrew words. Set aside: ${thousands(c.aramaicWords)} Aramaic words and ${thousands(c.setAside)} others STEP restores or supplies, or leaves untagged.`}</li>
           {D.reach.map((line) => <li key={line}>{line}</li>)}
         </ul>
         <p className="hw-kicker hw-kicker-gap">Not here</p>
         <ul className="hw-reach">{D.boundaries.out.map((line) => <li key={line}>{line}</li>)}</ul></div>
     </div>
     <p className="hw-kicker hw-trail-head">Where this page's Hebrew comes from</p>
-    <p className="hw-para">{D.chain.line} The wider history is told in <Link to="/study/from-manuscript-to-printed-bible">From manuscript to printed Bible</Link>.</p>
+    <p className="hw-para">{D.chain.line} <span>The wider history is told in <Link to="/study/from-manuscript-to-printed-bible">From manuscript to printed Bible</Link>.</span></p>
     <ol className="hw-chain">{D.chain.steps.map((s) => <li key={s.name}><b>{s.name}</b><small>{s.note}</small></li>)}</ol>
     <p className="hw-kicker hw-trail-head">Reading trail, and what was read</p>
     <ul className="hw-sources">{D.sources.map((s) => <li key={s.id}>
@@ -32,7 +32,7 @@ export function Closing() {
     <p className="hw-kicker hw-trail-head">Credits</p>
     <ul className="hw-credits">
       <li><a href={D.credit.url} {...ext}>STEP Bible</a>. {D.credit.line} <a href={D.credit.licence} {...ext}>The licence ↗</a></li>
-      {D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. {p.licence}. Retrieved {p.retrieved}.</li>)}
+      {D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. {p.licence}. {`Retrieved ${p.retrieved}.`}</li>)}
     </ul>
     <div className="hw-final">
       <p>“{D.question}”</p>

@@ -46,7 +46,7 @@ const mapResting = <span className="lg-muted">Point at a place; click to keep it
 
 /** The map's tip for one place (StableTip keeps the box at the tallest of these). */
 function placeTip(p: Point, mark: ReactNode) {
-  return <><strong>{p.name}</strong>{mark}{p.letter && <span className="lg-muted"> · letter: {p.letter}</span>}{p.note && <span className="lg-muted"> · {p.note}</span>}<Refs refs={p.refs} /></>;
+  return <><strong>{p.name}</strong>{mark}{p.letter && <span className="lg-muted">{` · letter: ${p.letter}`}</span>}{p.note && <span className="lg-muted"> · {p.note}</span>}<Refs refs={p.refs} /></>;
 }
 
 /** Routes and pins over the land outline, zoomed to the places shown; one toggle per layer. `focus` (a place id) lights
@@ -104,14 +104,14 @@ export function LetterMap({ layers, title, displayWidth = 1150, focus, onActive 
         const on = play?.id === layer.id;
         return <button key={layer.id} type="button" className="lg-play-button" aria-pressed={on}
           onClick={() => (on && play?.running ? setPlay({ ...play, running: false }) : on && play && play.t < play.stops - 1 ? setPlay({ ...play, running: true }) : start(layer))}>
-          <span aria-hidden="true">{on && play?.running ? "❚❚" : "▶"}</span>{layer.title}{layer.years && <small>AD {layer.years[0]}–{layer.years[1]}</small>}
+          <span aria-hidden="true">{on && play?.running ? "❚❚" : "▶"}</span>{layer.title}{layer.years && <small>{`AD ${layer.years[0]}–${layer.years[1]}`}</small>}
         </button>;
       })}
       {play && <button type="button" className="lg-play-button" onClick={() => setPlay(null)}>Reset</button>}
     </div>}
     {playing && current && <div className="lg-play-status" aria-live="polite">
       <strong>{playing.layer.title}</strong>
-      <span className="lg-muted">{playing.layer.years ? `AD ${playing.layer.years[0]}–${playing.layer.years[1]}` : "in order"} · stop {stopIndex + 1} of {points[playIndex].length}</span>
+      <span className="lg-muted">{playing.layer.years ? `AD ${playing.layer.years[0]}–${playing.layer.years[1]} · stop ${stopIndex + 1} of ${points[playIndex].length}` : `in order · stop ${stopIndex + 1} of ${points[playIndex].length}`}</span>
       <span>{current.name}</span><Refs refs={current.refs} limit={2} />
       <div className="lg-play-progress"><i style={{ width: `${(play!.t / Math.max(1, points[playIndex].length - 1)) * 100}%` }} /></div>
     </div>}

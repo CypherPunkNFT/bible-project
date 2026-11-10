@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { D, HH, type Ladder } from "./model";
 import { Cite, Head, Quote, SourceLink } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function GrainRange() {
   return <div className="hh-range">
@@ -26,7 +27,7 @@ function FoodWords() {
   return <div className="hh-words">
     <p className="hh-kicker">How often does the Hebrew Bible name it?</p>
     <ul>{D.words.map((w) => <li key={w.id}><span>{w.label}</span><i><u style={{ width: `${(w.count / top) * 100}%` }} /></i><b>{w.count}</b></li>)}</ul>
-    <p className="hh-caption">Tim Frank's counts, in the article below. As a check, this site's tagged King James has {HH.breadTags} tags for the same Hebrew word. A tag is not an exact count of uses, so a small gap is expected. A count shows what writers named, not what people ate.</p>
+    <p className="hh-caption">{`Tim Frank's counts, in the article below. As a check, this site's tagged King James has ${formatNumber(HH.breadTags)} tags for the same Hebrew word. A tag is not an exact count of uses, so a small gap is expected. A count shows what writers named, not what people ate.`}</p>
     <Cite ids={["frank-odyssey"]} />
   </div>;
 }

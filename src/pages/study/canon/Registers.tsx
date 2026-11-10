@@ -39,7 +39,7 @@ export function Registers({ num }: { num: string }) {
     <div className="cr-finding"><span className="kicker">Read across</span><p aria-live="polite">{CN.findings[writing]}</p></div>
     <div className="cr-inspect" ref={panel} hidden={!w} onKeyDown={(e) => { if (e.key === "Escape") setWitness(null); }}>{w && witness !== null && <>
       <header><div><p className="kicker">{w.date} · {w.passage}</p><h3>{w.name} / {B.books[writing]}</h3></div><button type="button" className="cr-close" aria-label="Close source inspection" onClick={close}>×</button></header>
-      <div className="cr-grid"><div><p className="kicker">What this passage establishes</p><p>{w.states[writing].text}</p><blockquote>“{w.excerpt}”</blockquote><small>{w.translation} · excerpt from this passage's general criterion</small></div>
+      <div className="cr-grid"><div><p className="kicker">What this passage establishes</p><p>{w.states[writing].text}</p><blockquote>“{w.excerpt}”</blockquote><small>{`${w.translation} · excerpt from this passage's general criterion`}</small></div>
         <div><p className="kicker">Read within its limits</p><p>{w.principle} {byId.get(RECORD[witness])?.limit ?? ""}</p><Cite ids={w.sourceIds} />
           <button type="button" className="cn-link" data-open={RECORD[witness]}>Open the full record →</button></div></div>
     </>}</div>

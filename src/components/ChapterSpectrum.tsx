@@ -61,11 +61,11 @@ export function ChapterSpectrum({ stats, slug, height = 120 }: { stats: Stats; s
             <strong className="text-ink">
               {hover.name} {hover.chapter}
             </strong>{" "}
-            · {SECTION_BY_ID[hover.section].name} · {hover.verses} verses · {formatNumber(hover.words)} words — click to read
+            {`· ${SECTION_BY_ID[hover.section].name} · ${formatNumber(hover.verses)} verses · ${formatNumber(hover.words)} words — click to read`}
           </span>
         ) : (
           <span>
-            {formatNumber(bars.length)} chapters, Genesis to Revelation. Each bar is one chapter; its height is its length. Point at one, click to read it.
+            {`${formatNumber(bars.length)} chapters, Genesis to Revelation.`} <span>Each bar is one chapter; its height is its length. Point at one, click to read it.</span>
           </span>
         )}
       </figcaption>

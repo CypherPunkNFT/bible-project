@@ -1,6 +1,7 @@
 import { ArrowUpRight, BookOpen, Download, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
+import { formatNumber } from "@/lib/site-format";
 
 export const REPOSITORY = "https://github.com/CypherPunkNFT/bible-project";
 
@@ -42,7 +43,7 @@ export function HomeAbout() {
           A free Bible library, open to everyone.
         </h2>
         <p className="mt-3 text-muted">
-          {catalog.translations.length} versions, no accounts, no ads, no paywall. Nothing here is locked away, including the code.
+          {`${formatNumber(catalog.translations.length)} versions, no accounts, no ads, no paywall. Nothing here is locked away, including the code.`}
         </p>
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-3">

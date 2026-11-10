@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { D, EG, type Claim } from "./model";
 import { Cite, Head, ReadVerses, ThreeParts } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function Test({ claim }: { claim: Claim }) {
   const [picked, setPicked] = useState<number | null>(null);
@@ -24,7 +25,7 @@ export function Claims() {
       <p className="eg-claim">{claim.claim}</p>
       <h3>{claim.head}</h3>
       <ThreeParts evidence={claim.evidence} inference={claim.inference} limit={claim.limit} />
-      {claim.id === "habiru" && <p className="eg-caption">Counted by this study's script from the edition's dictionary field: {habiru.letters} letters, {habiru.spelled.length} spelled out ({habiru.spelled.join(", ")}), {habiru.signsOnly} in signs only, {habiru.fromByblos} from Byblos.</p>}
+      {claim.id === "habiru" && <p className="eg-caption">{`Counted by this study's script from the edition's dictionary field: ${formatNumber(habiru.letters)} letters, ${formatNumber(habiru.spelled.length)} spelled out (${habiru.spelled.join(", ")}), ${formatNumber(habiru.signsOnly)} in signs only, ${formatNumber(habiru.fromByblos)} from Byblos.`}</p>}
       <ReadVerses labels={claim.verses} />
       <Test claim={claim} />
       <Cite ids={claim.sources} />

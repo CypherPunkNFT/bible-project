@@ -28,14 +28,14 @@ export function ProfileBody({ data, person, onOpen, onOpenWork }: ProfileBodyPro
     </header>
     <p className="drw-line">{person.line}</p>
     <p><Link to={`/teachers/collections/${encodeURIComponent(person.id)}`}>Explore their works through the years →</Link></p>
-    <p className="drw-ring-note">The ring runs from 1500 to today; the coloured arc is {person.short}&apos;s lifetime.</p>
+    <p className="drw-ring-note">{`The ring runs from 1500 to today; the coloured arc is ${person.short}'s lifetime.`}</p>
     <dl className="drw-figs">
       <div><dt>Catalogue work records</dt><dd>{formatNumber(person.works)}</dd></div>
       <div><dt>Sermons</dt><dd>{formatNumber(sermons)}</dd></div>
       <div><dt>Places</dt><dd>{new Set(person.places.map((x) => x[0])).size}</dd></div>
       <div><dt>Links</dt><dd>{links.length}</dd></div>
     </dl>
-    <section><h3>Where {person.short} lived</h3><PlaceMap data={data} person={person} lit={lit} /><LifeStrip person={person} lit={lit} /></section>
+    <section><h3>{`Where ${person.short} lived`}</h3><PlaceMap data={data} person={person} lit={lit} /><LifeStrip person={person} lit={lit} /></section>
     <section><h3>Best known for</h3><KnownWorks person={person} onOpenWork={onOpenWork} /></section>
     <section><h3>Genres in the work catalogue</h3><GenreBar person={person} /></section>
     <section>
@@ -53,7 +53,7 @@ export function ProfileBody({ data, person, onOpen, onOpenWork }: ProfileBodyPro
             <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
           </button>
         </li>)}
-      </ul> : <p className="drw-empty">No documented links to the other {data.people.length - 1} yet.</p>}
+      </ul> : <p className="drw-empty">{`No documented links to the other ${formatNumber(data.people.length - 1)} yet.`}</p>}
     </section>
     <ProfileWorks key={person.id} person={person} onOpen={onOpenWork} />
   </div>;

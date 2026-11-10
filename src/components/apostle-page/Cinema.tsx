@@ -59,7 +59,7 @@ function AfterSlide({ d }: { d: Apostle }) {
   const sheet = useSheet();
   return <div className="cn-slide cn-after"><div className="cn-text"><p className="kicker"><Icon name="scroll" size={14} />Scripture first</p><h3 className="cn-title">What Scripture says of his end</h3>
     <ul className="cn-ending">{d.ending.scripture.map((c, i) => <li key={i}><p>{c.text}</p><ClaimFoot d={d} c={c} /></li>)}</ul></div>
-    <div className="cn-ladder"><p className="kicker"><Icon name="tradition" size={14} />Then tradition · {plural(d.trad.length, "{n} source", "{n} sources")}, earliest first</p>
+    <div className="cn-ladder"><p className="kicker"><Icon name="tradition" size={14} />{`Then tradition · ${plural(d.trad.length, "{n} source, earliest first", "{n} sources, earliest first")}`}</p>
       <ol>{d.trad.map((t) => <li key={t.key}><button type="button" onClick={() => sheet.openEntry(t)}><span className="ld-when">{whenShort(t.when)}</span><span className="ld-who">{t.who}</span><LayerChip layer={t.layer ?? "tradition"} /></button></li>)}</ol>
       <p className="plain-line">Each is labelled with who said it and when; none is blended into Scripture.</p></div></div>;
 }
@@ -130,7 +130,7 @@ export function Cinema({ d }: { d: Apostle }) {
       const slides = ci === 3 ? [<AfterSlide key="after" d={d} />] : ch.slides.length ? ch.slides.map((s, si) => <Slide key={s.entry + si} d={d} {...s} play={si === at[ci] ? plays[ci] : null} />) : [<EmptySlide key="empty" d={d} />];
       return <section key={ch.n} id={`ap-chapter-${ch.period}`} className={`cn-chapter${ch.period === 4 ? " trad" : ""}`} data-ci={ci} style={{ "--tone": PERIOD_TONE[ch.period] } as CSSProperties} aria-label={`Chapter ${ch.n}: ${ch.title}`}>
         {sky[ch.period - 1]}<div className="cn-bgnum" aria-hidden="true">{ch.n}</div>
-        <header className="cn-head"><p className="kicker">Chapter {ch.n} · {p.title}</p><h2>{ch.title}</h2><p className="sub">{p.sub} · {!n ? "nothing recorded" : ch.period === 4 ? plural(n, "{n} source", "{n} sources") : plural(n, "{n} record", "{n} records")}</p></header>
+        <header className="cn-head"><p className="kicker">{`Chapter ${ch.n} · ${p.title}`}</p><h2>{ch.title}</h2><p className="sub">{p.sub} · {!n ? "nothing recorded" : ch.period === 4 ? plural(n, "{n} source", "{n} sources") : plural(n, "{n} record", "{n} records")}</p></header>
         <div className="cn-viewport"><div className="cn-track" style={{ "--x": at[ci] } as CSSProperties}>{slides}</div></div>
         {k > 1 && <div className="cn-nav"><button type="button" className="cn-arrow" aria-label="Previous scene" onClick={() => slideTo(ci, at[ci] - 1)}><Icon name="arrowLeft" size={18} /></button>
           <div className="cn-dots">{Array.from({ length: k }, (_, i) => <button key={i} type="button" aria-label={`Scene ${i + 1}`} aria-current={i === at[ci] ? "true" : undefined} onClick={() => slideTo(ci, i)} />)}</div>

@@ -14,7 +14,7 @@ export function Caption({ data, model, focus }: { data: ScholarsData; model: Mod
   if (f) {
     const books = model.links.filter((l) => l.f === f).map((l) => l.s.works[0][0]);
     return f.planned
-      ? <><b>{books.length} source records in the library</b>, listed in the bibliography<span className="blt-cap-note">{listWords(books)}.</span></>
+      ? <><b>{plural(books.length, "{n} source record in the library", "{n} source records in the library")}</b>, listed in the bibliography<span className="blt-cap-note">{listWords(books)}.</span></>
       : <><b>{f.name}</b> · {plural(books.length, "one source shown", "{n} leading sources shown")}<span className="blt-cap-note">{listWords(books)}.</span></>;
   }
   if (!s) return null;

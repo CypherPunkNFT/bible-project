@@ -20,7 +20,7 @@ export function PassagePair({ left, right, note, onClose }: { left: Span; right:
   </section>;
   return <dialog ref={dialog} className="lg-dialog lg-pair-dialog" onClose={onClose} onClick={(e) => { if (e.target === dialog.current) dialog.current?.close(); }} aria-labelledby="lg-pair-title">
     <div className="lg-dialog-body">
-      <header><p className="lg-kicker">Side by side</p><h3 id="lg-pair-title" className="lg-title">{label(left)} and {label(right)}</h3>
+      <header><p className="lg-kicker">Side by side</p><h3 id="lg-pair-title" className="lg-title">{`${label(left)} and ${label(right)}`}</h3>
         <button type="button" className="lg-dialog-close" onClick={() => dialog.current?.close()} aria-label="Close">×</button></header>
       <div className="lg-pair">{side(left)}{side(right)}</div>
       {note && <p className="lg-muted lg-pair-note">{note}</p>}

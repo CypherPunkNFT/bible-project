@@ -5,7 +5,7 @@
 // row left to right in common-metre phrases, a slower left hand holds notes on the bottom row, with rests between phrases.
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
 import { bookIndexOf, type HymnBook, type HymnCollection } from "@/lib/hymns";
-import { formatNumber } from "./model";
+import { plural } from "@/lib/site-format";
 
 const SECTIONS = [["history", "Law & history"], ["poetry", "Poetry"], ["prophets", "Prophets"], ["gospels", "Gospels & Acts"], ["epistles", "Letters"], ["revelation", "Rev."]] as const;
 const ROWS = [
@@ -33,7 +33,7 @@ function Row({ books, perBook, peakAt, second, first, last, named }: {
         </g>
         {i === peakAt && <>
           <text className="hc-pipe-name" x={x - 6} y={top + 10} textAnchor="end">{b.name}</text>
-          <text className="hc-pipe-n" x={x - 6} y={top + 22} textAnchor="end">{formatNumber(n)} hymns</text>
+          <text className="hc-pipe-n" x={x - 6} y={top + 22} textAnchor="end">{plural(n, "{n} hymn", "{n} hymns")}</text>
         </>}
         {i !== peakAt && named.includes(b.name) && <>
           <text className="hc-pipe-name" x={lx} y={top - 15} textAnchor={anchor}>{b.name}</text>

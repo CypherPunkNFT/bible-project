@@ -41,7 +41,7 @@ export function MoveWords({ orderValue, swapValue, onParam }: { orderValue: stri
         </li>; })}
       </ol>
       <div className="ng-readings" aria-live="polite">
-        <div><p className="ng-kicker">What the Greek says</p><p className="ng-reading">{sentenceCase(doer)} loved {receiver}.</p></div>
+        <div><p className="ng-kicker">What the Greek says</p><p className="ng-reading">{`${sentenceCase(doer)} loved ${receiver}.`}</p></div>
         <div><p className="ng-kicker">The same order in English</p>
           <p className={`ng-reading ng-${reads}`}>{sentenceCase(units.map((u) => unitText(u, swapped).english).join(" "))}{reads === "broken" ? "?" : "."}</p>
           <p className="ng-verdict">{READS[reads]}</p></div>

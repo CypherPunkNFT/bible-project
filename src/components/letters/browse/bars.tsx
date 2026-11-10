@@ -25,8 +25,8 @@ export function GroupsBar({ data, group, chosen, choose }: { data: LettersData; 
     return <div key={grouping.label}>
       <dt>{grouping.label}<button type="button" className="lb-info" aria-pressed={open === grouping.label} aria-label={`What are the ${grouping.label.toLowerCase()}?`}
         onClick={() => setOpen(open === grouping.label ? null : grouping.label)}>i</button></dt>
-      <small>{ls.length} letters · {formatNumber(ls.reduce((s, l) => s + l.verses, 0))} verses</small>
-      <dd>AD {from}–{to}</dd>
+      <small>{`${formatNumber(ls.length)} letters · ${formatNumber(ls.reduce((s, l) => s + l.verses, 0))} verses`}</small>
+      <dd>{`AD ${from}–${to}`}</dd>
       <div className="lb-chips">{ls.map((l) => <Pick key={l.code} letter={l} chosen={chosen} choose={choose} tone={tone} />)}</div>
       {open === grouping.label && <div className="lb-note"><ClaimText claim={grouping.claim} as="div" /></div>}
     </div>;
@@ -36,7 +36,7 @@ export function GroupsBar({ data, group, chosen, choose }: { data: LettersData; 
 /** One column per letter (James–Jude, John): its dates, its length, and the button that makes "Inside" follow it. */
 export function LettersBar({ data, group, chosen, choose }: { data: LettersData; group: GroupKey; chosen: Letter; choose: (code: string) => void }) {
   return <dl className="lb-figures lb-bar">{data.groups[group].letters.map((l) => <div key={l.code}>
-    <dt>{l.name}</dt><small>{l.verses} verses</small><dd>{dates(l)}</dd>
+    <dt>{l.name}</dt><small>{`${formatNumber(l.verses)} verses`}</small><dd>{dates(l)}</dd>
     <div className="lb-chips"><Pick letter={l} chosen={chosen} choose={choose} label={`Inside ${l.name}`} tone={GROUP_TONE[group]} /></div>
   </div>)}</dl>;
 }
@@ -46,7 +46,7 @@ export function LettersLinkBar({ data, group, to }: { data: LettersData; group: 
   const { search } = useLocation();
   return <dl className="lb-figures lb-bar">{data.groups[group].letters.map((l) => { const target = to(l.code);
     return <div key={l.code}>
-      <dt>{l.name}</dt><small>{l.verses} verses</small><dd>{dates(l)}</dd>
+      <dt>{l.name}</dt><small>{`${formatNumber(l.verses)} verses`}</small><dd>{dates(l)}</dd>
       <div className="lb-chips"><Link className="lb-chip" style={chipTone(GROUP_TONE[group])} to={`${target.path}${search}`}>{target.label}</Link></div>
     </div>; })}</dl>;
 }

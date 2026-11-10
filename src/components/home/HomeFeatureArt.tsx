@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "./home-features.css";
+import { formatNumber } from "@/lib/site-format";
 
 /** True while the element is on screen, so loops only run when someone can see them. */
 function useOnScreen<T extends Element>() {
@@ -124,7 +125,7 @@ export function BibleScene({ versions, languages }: { versions: number; language
     <g className="hf-layer-book"><OpenBook /></g>
     <g className="hf-layer-words"><Languages /></g>
     <g className="hf-layer-wave"><SoundWave /></g>
-    <text className="hf-caption" x="300" y="428" textAnchor="middle">ONE WORD · {versions} VERSIONS · {languages} LANGUAGES · READ ALOUD</text>
+    <text className="hf-caption" x="300" y="428" textAnchor="middle">{`ONE WORD · ${formatNumber(versions)} VERSIONS · ${formatNumber(languages)} LANGUAGES · READ ALOUD`}</text>
   </svg>;
 }
 

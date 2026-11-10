@@ -128,7 +128,7 @@ export function Places({ num }: { num: string }) {
     return <button key={h.id} type="button" role="listitem" className="pl-card" style={toneOf(h.country)} data-city={h.city} data-holder={h.id} data-kind={kind}
       aria-pressed={open && city?.city === h.city && holderId === h.id} onClick={(e) => openCity(h.city, h.id, e.currentTarget)}>
       <span className="pl-icon" title={kindLabel}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{HOLDER_ICONS[kind]}</svg></span>
-      <span className="pl-card-text"><b>{h.name}</b><small>{kindLabel} · {h.city}, {h.country}</small><small>Oldest here: {first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–"}</small></span><em>{formatNumber(h.n)}</em></button>;
+      <span className="pl-card-text"><b>{h.name}</b><small>{kindLabel} · {h.city}, {h.country}</small><small>{!first ? "Oldest here: –" : first.d ? `Oldest here: ${first.n}, ${first.d}` : `Oldest here: ${first.n}`}</small></span><em>{formatNumber(h.n)}</em></button>;
   };
 
   return <>
@@ -150,7 +150,7 @@ export function Places({ num }: { num: string }) {
         <p className="kicker">{city.country} · {continentOf(city.country)}</p><h2>{city.city}</h2>
         <p className="pl-holders">{city.holders.map((h) => <button key={h.id} type="button" aria-pressed={h.id === holderId} onClick={() => setHolderId(h.id === holderId ? null : h.id)}>{h.name} <em>{formatNumber(h.n)}</em></button>)}</p>
         <p className="pl-kinds">{[...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => <span key={k} style={{ "--tone": `var(${kindOf(k).tone})` } as CSSProperties}><i />{kindOf(k).label} {formatNumber(n)}</span>)}</p>
-        <p className="pl-sub">Oldest first · {plural(list.length, "{n} record", "{n} records")}</p>
+        <p className="pl-sub">{`Oldest first · ${plural(list.length, "{n} record", "{n} records")}`}</p>
         <ol className="pl-list">{list.map((r) => <li key={r.i}><button type="button" data-open={r.i} onClick={(e) => openRecord(r.i, e.currentTarget)}><span>{r.d ?? "undated"}</span><b>{r.n}</b>{sigla(r) && <small>{sigla(r)}</small>}</button></li>)}</ol>
       </>}
     </SlidePanel>

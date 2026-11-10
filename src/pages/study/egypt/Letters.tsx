@@ -3,6 +3,7 @@
 // and the page says so. The signs are hidden from screen readers in favour of the plain rendering.
 import { COAST, cityRadius, D, EG, ext, findCity, findPassage, MAP, mapPoint, signParts, verseByLabel, type Word } from "./model";
 import { Head, Picture, Quote, VerseLink } from "./parts";
+import { formatNumber, plural } from "@/lib/site-format";
 
 function Signs({ text }: { text: string }) {
   return <>{signParts(text).map((part, i) => part.kind === "sup" ? <sup key={i}>{part.value}</sup> : part.kind === "sub" ? <sub key={i}>{part.value}</sub> : <span key={i}>{part.value}</span>)}</>;
@@ -40,17 +41,17 @@ export function Letters({ cityId, letterId, onChange }: { cityId: string | null;
   return <>
     <Head num="03" kicker="Letters from Canaan" title={<>Seven times and seven times.<em> In clay.</em></>} lead={D.letters.lead} />
     <div className="eg-places">
-      <div><CityMap cityId={city.id} onCity={(id) => onChange({ city: id })} /><p className="eg-caption">{D.letters.countNote} Coast simplified, places approximate. Of {clientLetters} letters with text, {unplaced} cannot be placed at all.</p></div>
+      <div><CityMap cityId={city.id} onCity={(id) => onChange({ city: id })} /><p className="eg-caption">{D.letters.countNote} {`Coast simplified, places approximate. Of ${formatNumber(clientLetters)} letters with text, ${formatNumber(unplaced)} cannot be placed at all.`}</p></div>
       <ul className="eg-citylist">{D.letters.cities.map((c) => <li key={c.id}>
         <button type="button" aria-pressed={c.id === city.id} onClick={() => onChange({ city: c.id })}><span>{c.name}</span><small>{EG.letters.cities[c.id]?.letters ?? 0}</small></button>
       </li>)}</ul>
       <div className="eg-cityrecord" aria-live="polite">
-        <p className="eg-kicker">{data?.letters ?? 0} letters in the edition</p>
+        <p className="eg-kicker">{plural(data?.letters ?? 0, "{n} letter in the edition", "{n} letters in the edition")}</p>
         <h3>{city.name}</h3>
         <p className="eg-para">{city.note}</p>
         {data && data.writers.length > 0 && <ul className="eg-writers">{data.writers.map(([who, n]) => <li key={who}>{who}<small>{n}</small></li>)}</ul>}
         <Quote label={city.verse} />
-        {city.letter && <button type="button" className="eg-tolink" onClick={() => { onChange({ letter: city.letter! }); document.getElementById("reader")?.scrollIntoView(); }}>Read a letter from {city.name} below ↓</button>}
+        {city.letter && <button type="button" className="eg-tolink" onClick={() => { onChange({ letter: city.letter! }); document.getElementById("reader")?.scrollIntoView(); }}>{`Read a letter from ${city.name} below ↓`}</button>}
       </div>
     </div>
 
@@ -77,7 +78,7 @@ export function Letters({ cityId, letterId, onChange }: { cityId: string | null;
     <div className="eg-canaan">
       <div>
         <h3 className="eg-subhead">Canaan's own words, showing through</h3>
-        <p className="eg-para">The writers wrote in Akkadian, as diplomats did, but their own speech shows through. The edition tags {canaanite.words} words across {canaanite.letters} letters as Canaanite. That is only the edition's tagging: scholars see Canaanite in the grammar of far more. Some of these words look like Scripture's Hebrew.</p>
+        <p className="eg-para">{`The writers wrote in Akkadian, as diplomats did, but their own speech shows through. The edition tags ${formatNumber(canaanite.words)} words across ${formatNumber(canaanite.letters)} letters as Canaanite. That is only the edition's tagging: scholars see Canaanite in the grammar of far more. Some of these words look like Scripture's Hebrew.`}</p>
         <table className="eg-cognates">
           <thead><tr><th scope="col">In the letter</th><th scope="col">Gloss</th><th scope="col">Hebrew word</th><th scope="col">Where to see it</th></tr></thead>
           <tbody>{D.letters.cognates.map((c) => <tr key={c.id}>

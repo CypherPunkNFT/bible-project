@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { D, ext, sourceCounts } from "./model";
 import { Head } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 const NEARBY: [string, string][] = [
   ["/read/bsb/GAL/4", "Galatians 4 in the Berean"], ["/teachers/scholars/origen", "Origen"], ["/teachers/scholars/augustine", "Augustine"], ["/teachers/scholars/aquinas", "Thomas Aquinas"],
@@ -26,14 +27,14 @@ export function Closing() {
     <p className="hc-kicker hc-trail-head">Nearby on this site</p>
     <nav className="hc-nearby" aria-label="Nearby on this site">{NEARBY.map(([href, label]) => <Link key={href} to={href}>{label}</Link>)}</nav>
     <details className="hc-trail">
-      <summary><span className="hc-kicker">Reading trail, and what was read</span><span className="hc-trail-count">Of {D.sources.length} sources: {counts.whole} used in full (the passage itself), {counts.part} read in part, {counts.secondHand} known only second-hand, {counts.located} located and not read.</span></summary>
+      <summary><span className="hc-kicker">Reading trail, and what was read</span><span className="hc-trail-count">{`Of ${formatNumber(D.sources.length)} sources: ${formatNumber(counts.whole)} used in full (the passage itself), ${formatNumber(counts.part)} read in part, ${formatNumber(counts.secondHand)} known only second-hand, ${formatNumber(counts.located)} located and not read.`}</span></summary>
       <ul className="hc-sources">{D.sources.map((s) => <li key={s.id}>
       <p className="hc-source-title">{s.url.startsWith("/") ? <Link to={s.url}>{s.title}</Link> : <a href={s.url} {...ext}>{s.title}<span aria-hidden="true"> ↗</span></a>}<small>{s.kind}</small></p>
       <p className="hc-source-q">{s.answers}</p><p>{s.read}</p>
       </li>)}</ul>
     </details>
     <p className="hc-kicker hc-trail-head">Pictures</p>
-    <ul className="hc-credits">{D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>. Retrieved {p.retrieved}.</li>)}</ul>
+    <ul className="hc-credits">{D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>{`. Retrieved ${p.retrieved}.`}</li>)}</ul>
     <div className="hc-final">
       <p>“{D.question}”</p>
       <small>Carry that to the next time someone tells you what a passage has always meant.</small>

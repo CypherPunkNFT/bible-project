@@ -85,7 +85,7 @@ export function Cards({ collection }: { collection: HymnCollection }) {
               <div className="pc-work"><small>{r.h.s ? "Subject" : "Hymn book"}</small><div><strong>{r.h.s || r.g.label}</strong></div></div>
               <Link className="pc-card-hit" to={hymnHref(r.h.id)} aria-label={`Open ${r.h.t}`} /></article>)}
             {visible.length === 0 && <div className="pc-empty"><p>No hymn matches these filters.</p></div>}
-            {visible.length > limit && <div className="pc-load"><button type="button" onClick={() => setLimit(limit + PAGE)}>Load more</button><span>{formatNumber(limit)} of {formatNumber(visible.length)}</span></div>}
+            {visible.length > limit && <div className="pc-load"><button type="button" onClick={() => setLimit(limit + PAGE)}>Load more</button><span>{`${formatNumber(limit)} of ${formatNumber(visible.length)}`}</span></div>}
           </div>
         </OutsideScroll>
       </div>

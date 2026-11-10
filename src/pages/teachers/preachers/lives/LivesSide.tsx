@@ -60,7 +60,7 @@ export function LivesSide({ people, views, year, hover, onHover, onOpen }: Props
   return <div className="life-side">
     <div className="life-now">
       <div><p className="kicker">The year</p><b className="life-year">{year}</b></div>
-      <p className="life-meta"><b>{plural(list.length, "{n} teacher", "{n} teachers")} alive</b>{plural(cities, "{n} place", "{n} places")}</p>
+      <p className="life-meta"><b>{plural(list.length, "{n} teacher alive", "{n} teachers alive")}</b>{plural(cities, "{n} place", "{n} places")}</p>
     </div>
     <div ref={inset} className={`life-inset${instant ? " instant" : ""}`}>
       <svg className={fading ? "fading" : undefined} role="img" aria-label="Where they were living that year" viewBox={`0 0 ${view.width} ${view.height}`}>

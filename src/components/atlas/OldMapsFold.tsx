@@ -22,6 +22,8 @@ export function OldMapsFold({ placeId, placeName }: { placeId: string; placeName
   const entry = (BY_PLACE as Record<string, PlaceMaps>)[placeId];
   if (!entry) return null;
   const tab = open ? 0 : -1;
+  const nameIt = plural(entry.count, "{n} old map names it", "{n} old maps name it");
+  const howMany = entry.count !== 1 && entry.earliest ? `${nameIt}, from ${entry.earliest}` : nameIt;
 
   return (
     <div className="shrink-0 rounded-b-2xl border-t border-line" style={{ ["--fold-tone" as string]: "var(--epistles)" }}>
@@ -49,7 +51,7 @@ export function OldMapsFold({ placeId, placeName }: { placeId: string; placeName
             ))}
           </ul>
           <Link to={atlasDestination("old-maps")} tabIndex={tab} className="inline-flex items-center gap-1.5 pb-3 pt-2 text-xs text-[color:var(--fold-tone)] hover:underline">
-            {entry.count !== 1 && entry.earliest ? `${plural(entry.count, "{n} old map names it", "{n} old maps name it")}, from ${entry.earliest}` : plural(entry.count, "{n} old map names it", "{n} old maps name it")} · Old maps <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+            {`${howMany} · Old maps`} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>
         </div>
       </div>
@@ -61,7 +63,7 @@ export function OldMapsFold({ placeId, placeName }: { placeId: string; placeName
         className="flex w-full items-center gap-2.5 rounded-b-2xl bg-[color-mix(in_srgb,var(--fold-tone)_5%,var(--surface))] px-4 py-2.5 text-left text-sm outline-none transition-colors hover:bg-[color-mix(in_srgb,var(--fold-tone)_10%,var(--surface))]"
       >
         <OldMapIcon size={18} className="shrink-0 text-[color:var(--fold-tone)]" />
-        <span className="flex-1 font-semibold">Old maps of {placeName}</span>
+        <span className="flex-1 font-semibold">{`Old maps of ${placeName}`}</span>
         <span className="font-medium text-[color:var(--fold-tone)]">{fmt(entry.count)}</span>
         <span className="grid h-6 w-6 place-items-center rounded-full bg-[color-mix(in_srgb,var(--fold-tone)_12%,transparent)] text-[color:var(--fold-tone)]">
           <ChevronUp className={cn("h-4 w-4 transition-transform duration-300 motion-reduce:transition-none", open && "rotate-180")} aria-hidden />

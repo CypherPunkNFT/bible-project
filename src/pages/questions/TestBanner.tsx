@@ -53,7 +53,7 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   // The pill under the words; on a phone, where the words sit above the boxes, it stands under the boxes instead.
   const go = (place: "left" | "phone") => <div className="qp-test-go-slot" data-place={place}>
     {done ? <Link className="qp-test-go" to={`/study/questions/test${query ? `?${query}` : ""}`}>
-      {subject ? <>Take a test on {subject}</> : "Take a test on the whole Bible"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
+      {subject ? `Take a test on ${subject}` : "Take a test on the whole Bible"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
       : <span className="qp-test-go qp-test-wait" aria-disabled="true">Choose your options to take the test</span>}
   </div>;
   return <section className="qp-test-banner" id="qp-test" aria-labelledby="qp-test-title">

@@ -4,6 +4,7 @@ import { useCatalog } from "@/lib/catalog";
 import { formatRange } from "@/lib/refs";
 import { studyRefLink } from "@/lib/study";
 import type { Citation, Claim, Span } from "@/data/letters/types";
+import { formatNumber } from "@/lib/site-format";
 
 /** Citation number (1-based, in the order of the file's sources list) by id, for the superscript markers. */
 const CitationIndex = createContext<Map<string, number>>(new Map());
@@ -23,7 +24,7 @@ export function Refs({ refs, limit = 6 }: { refs?: Span[]; limit?: number }) {
   const shown = unique.slice(0, limit);
   return <span className="lg-refs">
     {shown.map((span) => <Link key={span.join("-")} to={studyRefLink(catalog, span)}>{formatRange(catalog, span[0], span[1])}</Link>)}
-    {unique.length > limit && <span className="lg-muted">+{unique.length - limit} more</span>}
+    {unique.length > limit && <span className="lg-muted">{`+${formatNumber(unique.length - limit)} more`}</span>}
   </span>;
 }
 

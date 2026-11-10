@@ -67,7 +67,7 @@ export function VersionsList() {
           The versions
         </h2>
         <p className="text-sm text-muted">
-          {catalog.translations.length} free texts ·{" "}
+          {`${formatNumber(catalog.translations.length)} free texts`}{" · "}
           <Link to="/versions" className="underline underline-offset-2 hover:text-ink">
             sources and licences
           </Link>
@@ -115,7 +115,7 @@ export function VersionsList() {
                             <span className="min-w-0 flex-1">
                               <span className="block truncate">{t.name}</span>
                               <span className="block truncate text-xs text-muted">
-                                {t.year} · {testaments(catalog, t)} · {formatNumber(t.verses)} verses
+                                {`${t.year} · ${testaments(catalog, t)} · ${formatNumber(t.verses)} verses`}
                               </span>
                             </span>
                             <span className="hidden shrink-0 items-center gap-1 text-sm text-muted group-hover:text-ink sm:flex">

@@ -15,7 +15,7 @@ export function LibraryCard({ person: p, data, onOpen, row, pinned }: { person: 
     <p className="cat-card-tags">{fields.length ? fields.map(f => <span key={f} className="cat-field">{data.fields[f]}</span>) : <span className="cat-field">Field unassigned</span>}</p>
     {p.collections.length > 0 && <p className="cat-collections">{p.collections.map(id => FIELD_COLLECTIONS.find(([key]) => key === id)?.[1] ?? id).join(' · ')}</p>}
     {example && <div className="cat-card-work"><span>Associated work</span><b>{example.title}</b></div>}
-    <p className="cat-held-count">{formatNumber(p.records)} associated records · {formatNumber(p.readable)} public reading records</p>
+    <p className="cat-held-count">{`${formatNumber(p.records)} associated records · ${formatNumber(p.readable)} public reading records`}</p>
     <p className="cat-library-action">Browse associated works</p>
     <button type="button" className="cat-card-hit" aria-label={`Browse associated works by ${p.name}`} onClick={onOpen} />
   </article>;

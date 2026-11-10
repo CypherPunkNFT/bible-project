@@ -29,7 +29,7 @@ export function Closing() {
       <p className="fy-source-q">{s.answers}</p><p>{s.read}</p>
     </li>)}</ul>
     <p className="fy-kicker fy-trail-head">Pictures</p>
-    <ul className="fy-credits">{D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>. Retrieved {p.retrieved}.</li>)}</ul>
+    <ul className="fy-credits">{D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>{`. Retrieved ${p.retrieved}.`}</li>)}</ul>
     <div className="fy-final">
       <p>“{D.question}”</p>
       <small>Carry that into the next passage that mentions a harvest.</small>

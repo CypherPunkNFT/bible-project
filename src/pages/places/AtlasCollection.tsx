@@ -210,7 +210,7 @@ function JourneyWorkspace({ choice, lenses, lens, onLens, next }: { choice: Choi
     {built ? <JourneyExperience lens={built} />
       : <div className="pg-soon">
         <span className="pg-soon-art">{hasEmblem(choice.id) && <Emblem id={choice.id} size={120} stroke={1} />}</span>
-        <div><p className="places-kicker">{lens.label} lens</p><h3>{lens.title}</h3><p>{lens.description}</p>
+        <div><p className="places-kicker">{`${lens.label} lens`}</p><h3>{lens.title}</h3><p>{lens.description}</p>
           <div className="places-next-build"><Compass size={18} aria-hidden /><p>{next}</p></div><AtlasFindLink place={choice.place} /></div>
       </div>}
   </section>;

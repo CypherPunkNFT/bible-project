@@ -76,7 +76,7 @@ function Beyond({ city, lookup }: { city: FellowshipCity; lookup: Lookup }) {
     <ul>{rows.map((same) => { const [g] = same, { kind } = lookup(g.fellowship); return <li key={g.id} style={{ "--c": tone(kind) } as CSSProperties}>
       <span><strong>{g.host}</strong> · {whatMeets(same)}<br />{g.address}<br />
         {same.map((x, n) => { const { f } = lookup(x.fellowship); return <span key={x.id}>{n > 0 && " · "}<a href={x.source} target="_blank" rel="noreferrer">{f ? shortName(f.name) : hostOf(x.source)}</a></span>; })}
-        {same.some((x) => x.sbc) && <> · <a href={same.find((x) => x.sbc)!.sbc} target="_blank" rel="noreferrer">Southern Baptist</a></>} · checked {g.checked}</span>
+        {same.some((x) => x.sbc) && <> · <a href={same.find((x) => x.sbc)!.sbc} target="_blank" rel="noreferrer">Southern Baptist</a></>}{` · checked ${g.checked}`}</span>
     </li>; })}</ul>
   </section>;
 }

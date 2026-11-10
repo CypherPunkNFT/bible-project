@@ -30,7 +30,7 @@ export function Closeness() {
   const say = (x: Row | null) => {
     if (!x?.first) return BASE;
     const f = x.first, next = x.copies.slice(1, 4).map((r) => `${short(r)} (${r.d})`), held = holderText(index, f);
-    return <><b>{x.book.name}</b> · written about {x.a}–{x.z} · oldest copy here: <b>{f.n}</b>, {f.d}{held ? `, ${held}` : ""}{x.gap ? ` · about ${x.gap} years after the middle of the writing range` : ""}{next.length ? ` · then ${next.join(", ")}` : ""}</>;
+    return <><b>{x.book.name}</b>{` · written about ${x.a}–${x.z} · oldest copy here: `}<b>{f.n}</b>{`, ${f.d ?? ""}${held ? `, ${held}` : ""}`}{x.gap ? ` · about ${x.gap} years after the middle of the writing range` : ""}{next.length ? ` · then ${next.join(", ")}` : ""}</>;
   };
   const row = (x: Row) => {
     const f = x.first;

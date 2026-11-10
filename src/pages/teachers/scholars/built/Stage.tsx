@@ -5,6 +5,7 @@ import type { ScholarsData } from "@/data/teachers/pages-types";
 import { faithOf, toneOf, yearsOf } from "./labels";
 import type { Layout, Lit, Model } from "./model";
 import { Mark } from "../marks/Mark";
+import { formatNumber } from "@/lib/site-format";
 
 interface StageProps {
   data: ScholarsData;
@@ -31,7 +32,7 @@ export function Stage({ data, model, layout, lit, pinned }: StageProps) {
       const n = links.filter((l) => l.f === f).length;
       return <button key={f.id} type="button" className={`blt-feat${f.planned ? " blt-planned" : ""}${on(lit?.features.has(f.id))}`} data-f={f.id}
         aria-pressed={pinned === f.id} style={{ "--tone": `var(${f.tone})`, ...(layout ? box(layout.feat[i]) : {}) } as CSSProperties}>
-        <b>{f.name}</b><small>{n} of {f.matched} sources</small><i aria-hidden="true" />
+        <b>{f.name}</b><small>{`${formatNumber(n)} of ${formatNumber(f.matched)} sources`}</small><i aria-hidden="true" />
       </button>;
     })}
     {rows.map(({ s }, i) => {

@@ -73,7 +73,7 @@ export function Picture({ id, lazy = true }: { id: string; lazy?: boolean }) {
   return <figure className="hh-pic">
     {!broken && <img src={picture.src} width={picture.width} height={picture.height} alt={picture.alt} loading={lazy ? "lazy" : undefined}
       onError={() => { console.error(`Home and household page: the picture ${picture.src} did not load`); setBroken(true); }} />}
-    {broken && <p className="hh-pic-missing">{picture.alt} The picture could not be loaded.</p>}
+    {broken && <p className="hh-pic-missing">{picture.alt} <span>The picture could not be loaded.</span></p>}
     <figcaption>{picture.credit}. <a href={picture.licenceUrl} {...ext}>{picture.licence}</a> · <a href={picture.href} {...ext}>Source page ↗</a></figcaption>
   </figure>;
 }

@@ -147,7 +147,7 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker, prebui
       </div>
       <div className="chart-live-detail" aria-live="polite">
         <strong>{book?.name ?? "The whole Bible"}</strong>
-        <span>{formatNumber(book ? prepared.counts.get(book.code) ?? 0 : prepared.total)} cross-references between chapters</span>
+        <span>{`${formatNumber(book ? prepared.counts.get(book.code) ?? 0 : prepared.total)} cross-references between chapters`}</span>
       </div>
       </div>
       <div ref={wrap} className="relative w-full">

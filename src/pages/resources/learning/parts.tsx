@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import type { Division, OpenFile, OpenWork, Title } from "@/data/resources/learning-catalogue";
 import { TrackGlyph } from "./Art";
 import { makerOf, splitTitle, toneOf } from "./model";
+import { formatNumber, plural } from "@/lib/site-format";
 
 
 
@@ -37,9 +38,9 @@ const size = (bytes: number) => (bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB`
 /** An open workbook's files: one or two buttons, or a numbered list when it comes as many (66 story booklets). */
 function OpenDownloads({ work }: { work: OpenWork }) {
   const button = (f: OpenFile, solid: boolean) => <a key={f.href} className={`lm-btn${solid ? " solid" : ""}`} href={f.href} target="_blank" rel="noreferrer" {...(f.external ? {} : { download: "" })}>
-    <ArrowDownToLine size={16} aria-hidden="true" />Download {f.kind.toUpperCase()}{f.external ? " from the maker" : ""} <small>{size(f.bytes)}</small></a>;
+    <ArrowDownToLine size={16} aria-hidden="true" />{f.external ? `Download ${f.kind.toUpperCase()} from the maker ` : `Download ${f.kind.toUpperCase()} `}<small>{size(f.bytes)}</small></a>;
   if (work.files.length <= 2) return <div className="lm-dl-row">{work.files.map((f, i) => button(f, i === 0))}</div>;
-  return <details className="lm-dl-many"><summary>{work.files.length} files to download</summary>
+  return <details className="lm-dl-many"><summary>{plural(work.files.length, "{n} file to download", "{n} files to download")}</summary>
     <ol>{work.files.map((f) => <li key={f.href}><a className="lm-textlink" href={f.href} target="_blank" rel="noreferrer" download="">{f.label}</a> <small className="muted">{size(f.bytes)}</small></li>)}</ol>
   </details>;
 }
@@ -62,7 +63,7 @@ export function SourceLink({ path, title, back, className = "lm-textlink" }: { p
 /** "For" … "Status": every fact of one title (LEARNING.md 6.6). */
 export function Record({ title, division, back }: { title: Title; division: Division; back: { path: string; label: string } }) {
   const a = division.audience[title.audience], ready = title.status === "ready";
-  const series = title.series.map((s) => <span key={s.id} className="lm-record-line">{division.seriesById[s.id].name} <span className="muted">({s.step} of {division.inSeries(s.id).length})</span></span>);
+  const series = title.series.map((s) => <span key={s.id} className="lm-record-line">{division.seriesById[s.id].name} <span className="muted">{`(${formatNumber(s.step)} of ${formatNumber(division.inSeries(s.id).length)})`}</span></span>);
   const sessions = title.sessions ? `${title.sessions}${title.minutes ? ` · about ${title.minutes} minutes each` : ""}${ready ? "" : " (planned)"}` : "To be set when written";
   const rows: [string, ReactNode][] = [
     ["For", `${a.name}${a.setting ? "" : ` · ${a.age}`}`], ["Kind", division.kind[title.kind].name], ["Subject", division.track[title.track].name],
@@ -82,7 +83,7 @@ function openFacts(division: Division, title: Title, w: OpenWork): [string, Reac
   const doors = w.doors.map((d) => division.audience[d]).filter(Boolean).map((a) => a.setting ? a.name : `${a.name} (${a.age})`).join(" · ");
   const rows: [string, ReactNode][] = [
     ["Made by", [w.author, w.publisher].filter((s, i, all) => s && all.indexOf(s) === i).join(" · ")],
-    ["For", <>{doors}{w.ages ? <span className="muted"> · ages {w.ages}</span> : null}</>],
+    ["For", <>{doors}{w.ages ? <span className="muted">{` · ages ${w.ages}`}</span> : null}</>],
     ["Kind", division.kind[title.kind].name], ["Subject", division.track[title.track].name],
   ];
   if (w.pages) rows.push(["Pages", String(w.pages)]);

@@ -58,8 +58,8 @@ export default function TeacherList({ info }: { info: SectionInfo }) {
       {SECTIONS.map((s) => <Link key={s.slug} to={`/teachers/${s.slug}`} aria-current={s.slug === info.slug ? "page" : undefined}>{s.title}</Link>)}
     </nav>
     <header className="st-hero tl-hero">
-      <div><p className="st-kick">Teachers · {String(SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p><div className="tl-title-row"><h1>{info.title}</h1><span className="tl-hero-art"><StationArt kind={info.art} /></span></div></div>
-      <div className="st-side"><p>{info.text}</p><StationStats items={stats(info.section, people)} /><p className="tl-rule">How this list is made: {TEACHERS.rules[info.section].replace(/^Listed as an? \w+ when /, "a person is here when ")}</p></div>
+      <div><p className="st-kick">{`Teachers · ${String(SECTIONS.indexOf(info) + 1).padStart(2, "0")}`}</p><div className="tl-title-row"><h1>{info.title}</h1><span className="tl-hero-art"><StationArt kind={info.art} /></span></div></div>
+      <div className="st-side"><p>{info.text}</p><StationStats items={stats(info.section, people)} /><p className="tl-rule"><span>How this list is made:</span> {TEACHERS.rules[info.section].replace(/^Listed as an? \w+ when /, "a person is here when ")}</p></div>
     </header>
     <div className="tl-filters">
       <label className="tl-search"><Search size={16} aria-hidden="true" /><span className="sr-only">Find a name</span><input type="search" value={params.get("q") ?? ""} placeholder="Find a name" onChange={(e) => change("q", e.target.value)} /></label>
@@ -70,7 +70,7 @@ export default function TeacherList({ info }: { info: SectionInfo }) {
     <p className="tl-status" role="status">{COUNTED[info.section](visible.length)}{visible.length > count ? ` · showing ${count}` : ""}</p>
     {visible.length === 0 ? <p className="tl-empty">No one matches these filters. <button type="button" onClick={() => setParams({}, { replace: true })}>Clear the filters</button></p> :
       <ol className="tl-list">{visible.slice(0, count).map((t, i) => <TeacherRow key={t.id} teacher={t} section={info.section} open={open.includes(t.id)} onToggle={() => toggle(t.id)} divider={i === firstCited && i > 0 && info.section === "scholar"} />)}</ol>}
-    {visible.length > count && <button type="button" className="tl-more" onClick={() => setShown({ key: filterKey, count: count + PAGE })}>Show {Math.min(PAGE, visible.length - count)} more <span>of {visible.length - count}</span></button>}
+    {visible.length > count && <button type="button" className="tl-more" onClick={() => setShown({ key: filterKey, count: count + PAGE })}>{`Show ${formatNumber(Math.min(PAGE, visible.length - count))} more`} <span>{`of ${formatNumber(visible.length - count)}`}</span></button>}
   </div>;
 }
 
@@ -111,7 +111,7 @@ function TeacherPanel({ id, teacher: t, section }: { id: string; teacher: Teache
       </Block>}
       {t.holdings && <Block title="In the library’s catalogue">
         <ul className="tl-genres">{t.holdings.genres.map(([g, n]) => <li key={g}><span>{labels.genres[g] ?? g}</span><b>{formatNumber(n)}</b></li>)}</ul>
-        {t.holdings.sermonBooks > 0 && <p className="tl-note">Sermons with a main text in {plural(t.holdings.sermonBooks, "{n} book", "{n} books")} of the Bible.</p>}
+        {t.holdings.sermonBooks > 0 && <p className="tl-note">{plural(t.holdings.sermonBooks, "Sermons with a main text in {n} book of the Bible.", "Sermons with a main text in {n} books of the Bible.")}</p>}
         <p className="tl-note">Catalogued in the library; not published on the site.</p>
       </Block>}
       {t.apologetics.length > 0 && <Block title="On the Apologetics pages">

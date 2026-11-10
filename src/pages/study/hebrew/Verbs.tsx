@@ -10,7 +10,7 @@ function Grid({ onOpen }: { onOpen: (key: string) => void }) {
   const { rows, cols } = D.grid;
   return <div className="hw-gridwrap" role="region" aria-label="The verb to keep, by person and form" tabIndex={0}>
     <table className="hw-grid">
-      <caption><He>{D.grid.letters}</He>, {D.grid.name}, in its plain stem. Each cell is the commonest form in the text with no object ending. Press one for a verse.</caption>
+      <caption><He>{D.grid.letters}</He>{`, ${D.grid.name}, in its plain stem. Each cell is the commonest form in the text with no object ending. Press one for a verse.`}</caption>
       <thead><tr><td />{cols.map((col) => <th key={col.id} scope="col">{col.label}</th>)}</tr></thead>
       <tbody>{rows.map((row) => <tr key={row.id}>
         <th scope="row">{row.label}</th>
@@ -31,7 +31,7 @@ function Stems({ onOpen }: { onOpen: (key: string) => void }) {
     const data = H.featured[item.id];
     return <li key={item.id}>
       <button type="button" data-open={`word:${item.id}`} onClick={() => onOpen(`word:${item.id}`)}><span className="hw-rowhe" lang="he" dir="rtl">{data.he}</span></button>
-      <div><b>{item.stem}: {item.word}</b> <small>{thousands(H.counts.seeStems[item.stemCode!])} of {thousands(H.counts.seeTotal)} verbs tagged with this word</small>
+      <div><b>{item.stem}: {item.word}</b> <small>{`${thousands(H.counts.seeStems[item.stemCode!])} of ${thousands(H.counts.seeTotal)} verbs tagged with this word`}</small>
         <p>{item.tends}.</p><p className="hw-verse-ref"><VerseLink label={data.label} /></p></div>
     </li>;
   })}</ol>;

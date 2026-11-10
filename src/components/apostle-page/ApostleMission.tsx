@@ -33,7 +33,7 @@ export function ApostleMissionPage({ id }: { id: string }) {
 }
 
 function Sources({ d }: { d: Apostle }) {
-  return <details className="sources"><summary>Sources · {plural(d.citations.length, "{n} work", "{n} works")} cited on this page</summary>
+  return <details className="sources"><summary>{`Sources · ${plural(d.citations.length, "{n} work cited on this page", "{n} works cited on this page")}`}</summary>
     <ul>{d.citations.map((c) => <li key={c.id}><a href={c.url ?? "#"} target="_blank" rel="noreferrer">{c.author}</a>, <i>{c.title}</i>{c.year ? ` (${c.year})` : ""}{c.where ? `, ${c.where}` : ""}</li>)}</ul>
     <p className="plain-line">Scripture is quoted from the <BibleName /> as held on this site. Places from OpenBible.info (CC BY); the land outline is the Atlas's own (Natural Earth).</p></details>;
 }
@@ -77,7 +77,7 @@ function ApostleMission({ id }: { id: string }) {
     return () => removeEventListener("resize", set);
   }, []);
 
-  if (state.status === "error") return <div className="ap ap-page"><div className="wrap"><p className="plain-line ap-missing">This page could not load its data ({state.message}).</p></div></div>;
+  if (state.status === "error") return <div className="ap ap-page"><div className="wrap"><p className="plain-line ap-missing">{`This page could not load its data (${state.message}).`}</p></div></div>;
   if (!d) return <div className="ap ap-page ap-loading" aria-busy="true"><div className="land" /></div>;
   return <SheetContext.Provider value={api}>
     <div className="ap ap-page" data-people-ready={placed ? readyKey({ kind: "special", id, aspect: "mission" }) : undefined} style={{ "--tone": "var(--accent)" } as CSSProperties}>

@@ -63,7 +63,7 @@ export function QuizDoor({ Art = BibleBoardArt, id = "questions", number = "03" 
       <div className="quiz-feature-body">
         <div className="quiz-feature-words">
           <h3>Questions &amp; Answers</h3>
-          <p>For more than four hundred years churches have taught the faith by asking questions: parents at home, teachers in Sunday school, pastors to those about to join the church. Here are {n(S.questions)} of them from {S.collections} collections and five traditions ({S.traditions.join(", ")}), each with the answer its source printed, four choices to pick from, and nearly every one tied to the verse it asks about.</p>
+          <p>{"For more than four hundred years churches have taught the faith by asking questions: parents at home, teachers in Sunday school, pastors to those about to join the church. "}{`Here are ${n(S.questions)} of them from ${n(S.collections)} collections and five traditions (${S.traditions.join(", ")}), each with the answer its source printed, four choices to pick from, and nearly every one tied to the verse it asks about.`}</p>
           <ul className="quiz-readers">{READERS.map(([ReaderIcon, label, figure, line]) => <li key={label}>
             <ReaderIcon size={28} strokeWidth={1.3} aria-hidden="true" /><p><strong><b>{figure}</b> {label.toLowerCase()}.</strong> {line}</p>
           </li>)}</ul>

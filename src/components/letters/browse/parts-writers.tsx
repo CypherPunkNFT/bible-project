@@ -4,6 +4,7 @@ import { FlowChart } from "../FlowChart";
 import { TimelineStrip } from "../TimelineStrip";
 import { PersonLink } from "./frame";
 import { Glance, LetterWords, OtList, OutlineBar } from "./parts-letter";
+import { formatNumber } from "@/lib/site-format";
 
 /** A writer's card: his life in the story, step by step, then the way to his own page. */
 export function WriterLife({ writer, timeline, from }: { writer: Writer; timeline: Timeline; from: string }) {
@@ -47,11 +48,11 @@ function OtSummary({ flow, letters }: { flow: Flow; letters: Letter[] }) {
   return <div className="lb-ot-summary">
     <dl className="lb-figures">{[...per].map(([name, books]) => {
       const total = [...books.values()].reduce((sum, n) => sum + n, 0), top = Math.max(0, ...books.values());
-      const most = [...books].filter(([, n]) => n === top).map(([book]) => book);
-      return <div key={name}><dt>{name}</dt><small>{books.size} books</small><dd>{total} passages</dd>
-        {total > 0 && <p className="lb-ot-most">Most from {list(most)} ({top}{most.length > 1 ? " each" : ""})</p>}</div>;
+      const most = [...books].filter(([, n]) => n === top).map(([book]) => book), tied = most.length > 1;
+      return <div key={name}><dt>{name}</dt><small>{`${formatNumber(books.size)} books`}</small><dd>{`${formatNumber(total)} passages`}</dd>
+        {total > 0 && <p className="lb-ot-most">{tied ? `Most from ${list(most)} (${formatNumber(top)} each)` : `Most from ${list(most)} (${formatNumber(top)})`}</p>}</div>;
     })}</dl>
-    {everyLetter.length > 0 && <p className="lb-tip">Every one of these letters draws on {list(everyLetter)}.</p>}
+    {everyLetter.length > 0 && <p className="lb-tip">{`Every one of these letters draws on ${list(everyLetter)}.`}</p>}
   </div>;
 }
 

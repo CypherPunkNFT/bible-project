@@ -136,6 +136,7 @@ export function GridSection({ d }: { d: Apostle }) {
   const gospels = codes.filter((c) => ROWS.includes(c)).sort(byNum), letters = codes.filter((c) => !ROWS.includes(c)).sort(byNum);
   const max = Math.max(1, ...Object.values(heat).flatMap((b) => Object.values(b.counts)), ...Object.values(altHeat).flatMap((b) => Object.values(b.counts)));
   const missing = ROWS.filter((c) => !codes.includes(c)).map((c) => ROW_NAME[c]);
+  const missingBooks = missing.join(", ").replace(/, ([^,]*)$/, " or $1");
   const verses = Object.values(heat).reduce((n, b) => n + sumOf(b.counts), 0), chapters = Object.values(heat).reduce((n, b) => n + Object.keys(b.counts).length, 0);
   const [chosen, setChosen] = useState<[string, number] | null>(() => {
     let best: [string, number, number] | null = null;
@@ -168,8 +169,8 @@ export function GridSection({ d }: { d: Apostle }) {
     </div>
     <div className="heat-foot">
       <div className="heat-key"><span>Fewer</span>{[0, 0.15, 0.35, 0.6, 1].map((k) => <i key={k} style={{ "--k": k } as CSSProperties} className={k ? "on" : undefined} />)}<span>More verses name him</span>
-        {alt && <><i className="alt" style={{ "--k": 0.4 } as CSSProperties} /><span>names {alt.name}</span></>}</div>
-      {missing.length > 0 && <p className="heat-others">No verse in {missing.join(", ").replace(/, ([^,]*)$/, " or $1")} names him.</p>}
+        {alt && <><i className="alt" style={{ "--k": 0.4 } as CSSProperties} /><span>{`names ${alt.name}`}</span></>}</div>
+      {missing.length > 0 && <p className="heat-others">{`No verse in ${missingBooks} names him.`}</p>}
     </div>
   </section>;
 }
@@ -177,16 +178,17 @@ export function GridSection({ d }: { d: Apostle }) {
 function ChapterNow({ d, code, ch, open }: { d: Apostle; code: string; ch: number; open: (e: Entry) => void }) {
   const alt = d.alt[0], altHeat = alt?.heat ?? {}, b = d.heat[code] ?? altHeat[code];
   const mineV = d.heat[code]?.first[ch], altV = altHeat[code]?.first[ch], v = mineV ?? altV, ents = entriesIn(d, b.num, ch);
+  const namesHim = plural(d.heat[code]?.counts[ch] ?? 0, "{n} verse names him", "{n} verses name him");
   return <>
     <div className="heat-now-v">
       <p className="kicker">{b.name} {ch}</p>
-      <h3>{plural(d.heat[code]?.counts[ch] ?? 0, "{n} verse", "{n} verses")} name him{altHeat[code]?.counts[ch] ? `; ${plural(altHeat[code].counts[ch], "{n} verse", "{n} verses")} name ${alt.name}` : ""}</h3>
+      <h3>{altHeat[code]?.counts[ch] ? `${namesHim}; ${plural(altHeat[code].counts[ch], "{n} verse names", "{n} verses name")} ${alt.name}` : namesHim}</h3>
       {v ? <blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · {mineV ? "the first verse here that names him" : `names ${alt.name}`}</footer></blockquote>
         : <p className="plain-line">No verse in this chapter names him.</p>}
     </div>
     <div className="heat-now-e">
       {ents.length > 0 && <><p className="kicker heat-k">What happens here</p><ul className="heat-ents">{ents.map((e) => <li key={e.key}><button type="button" onClick={() => open(e)}><Icon name={e.icon} size={15} /><span>{e.title}</span></button></li>)}</ul></>}
-      <Link className="read" to={`/read/kjv/${bookCode(b.num)}/${ch}`}><Icon name="open" size={13} />Read {b.name} {ch}</Link>
+      <Link className="read" to={`/read/kjv/${bookCode(b.num)}/${ch}`}><Icon name="open" size={13} />{`Read ${b.name} ${ch}`}</Link>
     </div>
   </>;
 }

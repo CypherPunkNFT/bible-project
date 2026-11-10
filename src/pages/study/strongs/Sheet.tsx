@@ -30,14 +30,14 @@ export function StrongsSheet({ opened, onClose }: { opened: { word: Word; row: R
       const { word, row } = opened, s = row.sample;
       const book = catalog.books.find((b) => b.code === s.code)?.name ?? s.code;
       return <>
-        <p className="sn-kicker">{word.id} · a sample, not the list</p>
-        <h2><Lemma lang={word.lang}>{word.lemma}</Lemma> as “{row.label}”</h2>
+        <p className="sn-kicker">{`${word.id} · a sample, not the list`}</p>
+        <h2><Lemma lang={word.lang}>{word.lemma}</Lemma>{` as “${row.label}”`}</h2>
         <blockquote className="sn-verse"><p><VerseAt verse={s} /></p><cite>{book} {s.chapter}:{s.verse}, <BibleName /></cite></blockquote>
         <ThreeParts
-          evidence={<>{bereanLine(row)} This group holds {formatNumber(row.count)} of the {formatNumber(word.total)} King James tags for {word.id}. Word and short sense from STEP Bible: <i>{word.translit}</i>, “{word.gloss}”.</>}
+          evidence={<>{bereanLine(row)} {`This group holds ${formatNumber(row.count)} of the ${formatNumber(word.total)} King James tags for ${word.id}. Word and short sense from STEP Bible: `}<i>{word.translit}</i>, “{word.gloss}”.</>}
           inference="This is one more English choice for one number. What the word is doing here is shown by the verse and the verses around it."
           limit="One sample was picked by hand from this group, so it does not show the group's range. Tags can fall on neighbouring words. Two English versions chose their words; this study does not rank them." />
-        <Link className="sn-sheet-go" to={readerHref(s.code, s.chapter, s.verse)}>Read {book} {s.chapter} in the Berean →</Link>
+        <Link className="sn-sheet-go" to={readerHref(s.code, s.chapter, s.verse)}>{`Read ${book} ${s.chapter} in the Berean →`}</Link>
       </>;
     })()}
   </SlidePanel>;

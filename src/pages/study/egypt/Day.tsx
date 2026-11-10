@@ -35,7 +35,7 @@ export function Day({ themeId, onTheme }: { themeId: string | null; onTheme: (id
       <button type="button" aria-pressed={t.id === theme.id} onClick={() => onTheme(t.id)}><b>{t.num}</b><span>{t.name}</span></button>
     </li>)}</ol>
     <div className="eg-pair" aria-live="polite">
-      <div><p className="eg-kicker">The hymn · {D.strophes[theme.strophe]}</p><OldText who="Breasted's translation of 1912. Line breaks are run together here">{theme.hymn}</OldText></div>
+      <div><p className="eg-kicker">{`The hymn · ${D.strophes[theme.strophe]}`}</p><OldText who="Breasted's translation of 1912. Line breaks are run together here">{theme.hymn}</OldText></div>
       <div><p className="eg-kicker">The psalm</p>{theme.verses.map((label) => <Quote key={label} label={label} />)}</div>
     </div>
     <p className="eg-para eg-pairnote">{theme.note}</p>

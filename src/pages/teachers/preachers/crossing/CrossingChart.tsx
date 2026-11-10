@@ -11,16 +11,20 @@ const ageAt = (p: Person, year: number) => (year === p.born ? `${p.short} was bo
 /** The sentence under the pickers, computed from the dates and places on record. */
 export function CrossingSentence({ p, q, link }: { p: Person; q: Person; link: PersonLink | undefined }) {
   const { s, e } = overlap(p, q);
-  const note = link && <span className="xing-link-note">On record between them: {link.note}</span>;
+  const note = link && <span className="xing-link-note">{`On record between them: ${link.note}`}</span>;
   if (e < s) {
     const [first, second] = lifeEnd(p) < q.born ? [p, q] : [q, p];
     const gap = second.born - lifeEnd(first);
-    return <>{first.short} died in {lifeEnd(first)}, {gap === 0 ? "the same year" : `${plural(gap, "{n} year", "{n} years")} before`} {second.short} was born. Their lives never overlapped.{note}</>;
+    // At most three values per sentence for the page translator, so the gap sentence is two whole clauses.
+    if (gap === 0) return <>{`${first.short} died in ${lifeEnd(first)}, the same year ${second.short} was born. Their lives never overlapped.`}{note}</>;
+    return <>{`${first.short} died in ${lifeEnd(first)},`}{` ${plural(gap, "{n} year", "{n} years")} before ${second.short} was born. Their lives never overlapped.`}{note}</>;
   }
-  const years = e - s, A = <b>{p.short}</b>, B = <b>{q.short}</b>;
-  const opening = !p.died && !q.died ? <>{A} and {B} have both been alive since {s}.</>
-    : years === 0 ? <>{A} and {B} were both alive only in {s}.</>
-    : <>{A} and {B} were both alive for {plural(years, "{n} year", "{n} years")}, from {s} to {e}.</>;
+  // Each a whole sentence (the names are no longer bold, so the page translator gets one line); the long one is two
+  // whole clauses, as a sentence holds at most three values.
+  const years = e - s;
+  const opening = !p.died && !q.died ? `${p.short} and ${q.short} have both been alive since ${s}.`
+    : years === 0 ? `${p.short} and ${q.short} were both alive only in ${s}.`
+    : <>{`${p.short} and ${q.short} were both alive for ${plural(years, "{n} year", "{n} years")},`}{` from ${s} to ${e}.`}</>;
   const shared = sharedPlaces(p, q);
   const cities = shared.slice(0, 3).map((x, i, all) => (i && all[i - 1].name === x.name ? `again ${span(x)}` : `${x.name} ${span(x)}`)).join(", and ");
   const rest = shared.length
@@ -39,11 +43,11 @@ function LifeRow({ row, order, X, width, pad, barH, onOpen }: RowProps) {
   return <>
     <g className="xing-grow" style={{ animationDelay: `${order * 0.12}s` }}>
       {first > p.born && <rect x={X(p.born)} y={y + 0.5} width={Math.max(1, X(first) - X(p.born) - 1.5)} height={barH - 1} rx={4} fill="none" stroke={tone} strokeDasharray="3 3">
-        <title>Where they lived before {first} is not recorded</title></rect>}
+        <title>{`Where they lived before ${first} is not recorded`}</title></rect>}
       {stays(p).map((sg, i) => {
         const x1 = X(sg.start), x2 = X(sg.last ? lifeEnd(p) : sg.end), w = Math.max(1.5, x2 - x1 - (sg.last ? 0 : 1.5));
         return <g key={i}>
-          <rect x={x1} y={y} width={w} height={barH} rx={4} fill={tone} fillOpacity={i % 2 ? 0.72 : 1}><title>{sg.name}, from {sg.start}</title></rect>
+          <rect x={x1} y={y} width={w} height={barH} rx={4} fill={tone} fillOpacity={i % 2 ? 0.72 : 1}><title>{`${sg.name}, from ${sg.start}`}</title></rect>
           {sg.name.length * 6.3 + 12 < w && <text x={x1 + 7} y={y + 12.5} fontSize={10.5} fontWeight={600} fill="var(--page)" pointerEvents="none">{sg.name}</text>}
         </g>;
       })}

@@ -14,7 +14,7 @@ import { chosenIn, homeOf, iconOf, shelfMeta, shownShelves, toneOf, type Counted
 // Its styles sit with the test page's (th- rules); imported here so the questions page, which shows it too, has them.
 import "../../test-options.css";
 import "./theme-box.css";
-import { formatNumber, plural } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 
 interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
@@ -72,7 +72,7 @@ function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
     <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
     const on = theme.id === selected, mark = record[theme.id];
     return <Cell key={theme.id} id={icon} n={i} title={theme.title} line={theme.line} on={on} press open={on ? "Chosen" : "Choose the test"}
-      meta={<>{formatNumber(n)} questions · <span className={mark ? "th-best" : undefined}>{mark ? `Best ${mark.best} of ${mark.of}` : "Not taken yet"}</span></>}
+      meta={<>{plural(n, "{n} question", "{n} questions")} · <span className={mark ? "th-best" : undefined}>{mark ? `Best ${mark.best} of ${mark.of}` : "Not taken yet"}</span></>}
       onClick={() => onChoose(on ? "" : theme.id)} />;
   })}</ul></div>;
 }

@@ -84,7 +84,7 @@ export function Handed() {
       </div>
     </div>
     <FloatingTip ref={tip} className="hand-tip">
-      {hotLink && <><b>{hotLink.a.short} → {hotLink.b.short}</b>{hotLink.note}{hotGap > 0 && <><br /><small>{plural(hotGap, "{n} year", "{n} years")} between one life and the next</small></>}</>}
+      {hotLink && <><b>{hotLink.a.short} → {hotLink.b.short}</b>{hotLink.note}{hotGap > 0 && <><br /><small>{plural(hotGap, "{n} year between one life and the next", "{n} years between one life and the next")}</small></>}</>}
     </FloatingTip>
   </>;
 }

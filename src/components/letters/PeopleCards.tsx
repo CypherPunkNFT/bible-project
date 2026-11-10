@@ -79,7 +79,7 @@ function PersonRecord({ id }: { id: string }) {
     <p className="lg-subhead">Who they were</p>
     {p.short && <p className="lg-claim">{p.short}</p>}
     {p.article && p.article !== p.short && <details className="lg-more"><summary>Read more</summary>{p.article.split("\n").filter(Boolean).map((para, i) => <p key={i}>{para}</p>)}</details>}
-    <p className="lg-subhead" style={{ marginTop: "1.25rem" }}>Named in {books.length} {plural(books.length, "book", "books")}</p>
+    <p className="lg-subhead" style={{ marginTop: "1.25rem" }}>{`Named in ${plural(books.length, "{n} book", "{n} books")}`}</p>
     <div className="lg-chips" style={{ marginTop: 0 }}>{books.map(({ book, count }) => {
       const first = firstIn(book!.num);
       return first ? <Link key={book!.num} className="lg-chip" to={studyRefLink(catalog, [first, first])}>{book!.name} · {count}</Link>

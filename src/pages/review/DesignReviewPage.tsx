@@ -73,6 +73,11 @@ export default function DesignReviewPage() {
   const resultOf = (t: Template, variant: string) => checks?.results.find((r) => r.template === t.id && r.variant === variant);
   const checkedPages = checks?.results.reduce((n, r) => n + r.checked, 0) ?? 0;
   const failingPages = checks ? new Set(checks.results.flatMap((r) => r.failures.map((f) => f.url))).size : 0;
+  // Each half of the meta line is one whole sentence, so the page translator gets it in one piece.
+  const shotsLine = shots ? `Screenshots taken ${when(shots.takenAt)} (code version ${shots.commit})` : "Screenshots taken not yet";
+  const checksLine = !checks ? "Machine checks not run yet"
+    : checks.finishedAt ? `Machine checks finished ${when(checks.finishedAt)}: ${plural(checkedPages, "{n} page checked", "{n} pages checked")}, ${formatNumber(failingPages)} with a problem`
+    : `Machine checks running, started ${when(checks.startedAt)}: ${plural(checkedPages, "{n} page checked", "{n} pages checked")}, ${formatNumber(failingPages)} with a problem`;
   const shown = (t: Template) => t.variants.filter((v) => filter === "all" || statuses.get(`${t.id}/${v.id}`) === filter);
 
   return (
@@ -81,8 +86,7 @@ export default function DesignReviewPage() {
         <p className="review-kicker">Design review · local preview only</p>
         <h1>Every kind of page, once.</h1>
         <p className="review-lead">
-          {inventory.templates.length} page types, {statuses.size} designs to look at. Each one shows the same page on a computer and a
-          phone, light and dark, for a typical record and the records most likely to break it. Accept it, or say what should change.
+          {`${formatNumber(inventory.templates.length)} page types, ${formatNumber(statuses.size)} designs to look at. Each one shows the same page on a computer and a phone, light and dark, for a typical record and the records most likely to break it. Accept it, or say what should change.`}
         </p>
         <dl className="review-summary">
           <div data-status="accepted"><dt>Accepted</dt><dd>{counts.accepted}</dd></div>
@@ -91,7 +95,7 @@ export default function DesignReviewPage() {
           <div data-status="changed"><dt>Changed since accepted</dt><dd>{counts.changed}</dd></div>
         </dl>
         <p className="review-meta">
-          Screenshots taken {when(shots?.takenAt)}{shots ? ` (code version ${shots.commit})` : ""} · Machine checks {checks ? `${checks.finishedAt ? "finished" : "running, started"} ${when(checks.finishedAt ?? checks.startedAt)}: ${formatNumber(checkedPages)} pages checked, ${formatNumber(failingPages)} with a problem` : "not run yet"}
+          {`${shotsLine} · ${checksLine}`}
         </p>
       </header>
 
@@ -113,7 +117,7 @@ export default function DesignReviewPage() {
         if (!templates.length) return null;
         return (
           <section key={area.id} id={`area-${area.id}`} className="review-area" aria-labelledby={`area-title-${area.id}`}>
-            <h2 id={`area-title-${area.id}`}>{area.title}<small>{templates.length} page {plural(templates.length, "type", "types")}</small></h2>
+            <h2 id={`area-title-${area.id}`}>{area.title}<small>{plural(templates.length, "{n} page type", "{n} page types")}</small></h2>
             {templates.map((t) => (
               <article key={t.id} id={`t-${t.id}`} className="review-template">
                 <header>
@@ -131,7 +135,7 @@ export default function DesignReviewPage() {
           </section>
         );
       })}
-      <p className="review-foot">Made from the site's own route table and data on {when(inventory.generatedAt)} (code version {inventory.commit}). Decisions are saved to the project and every chat reads them before changing a page type.</p>
+      <p className="review-foot">{`Made from the site's own route table and data on ${when(inventory.generatedAt)} (code version ${inventory.commit}). Decisions are saved to the project and every chat reads them before changing a page type.`}</p>
     </div>
   );
 }

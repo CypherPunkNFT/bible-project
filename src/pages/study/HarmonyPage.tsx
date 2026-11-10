@@ -272,7 +272,7 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
           <li key={row.n} id={`event-${row.n}`}>
             {partHeading && (
               <h2 className="mb-1 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                Part {row.part} · {row.partTitle}
+                {`Part ${row.part} · ${row.partTitle}`}
               </h2>
             )}
             <div

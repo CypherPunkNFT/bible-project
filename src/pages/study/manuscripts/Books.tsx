@@ -69,19 +69,19 @@ export function Books() {
         <p className="bk-t">New Testament</p><div className="bk-grid">{Array.from({ length: 27 }, (_, i) => tile(i + 39))}</div>
         <p className="bk-key"><span className="bk-key-star"><span className="bk-star">★</span> copies with a picture</span><span>fewer</span><i /><i /><i /><i /><span>more</span><span className="bk-key-0"><b />none in the open data</span></p></div>
       <aside ref={side} className="bk-panel" style={style({ "--tone": `var(--${info.sec})` })}>
-        <div className="bk-head"><p className="kicker">{SEC[info.sec]}</p><h3>{info.name}</h3><p>{plural(all.length, "{n} record", "{n} records")} hold it{all.length ? `, ${formatNumber(dated)} with a date` : ""}.</p></div>
+        <div className="bk-head"><p className="kicker">{SEC[info.sec]}</p><h3>{info.name}</h3><p>{all.length ? `${plural(all.length, "{n} record holds it", "{n} records hold it")}, ${formatNumber(dated)} with a date.` : `${plural(all.length, "{n} record holds it", "{n} records hold it")}.`}</p></div>
         <div className="bk-chapters">{withCh.length ? <>
           <div className="bk-ch" style={style({ "--cols": String(cols) })}>{Array.from({ length: info.ch }, (_, i) => i + 1).map((c) =>
             <button key={c} type="button" aria-pressed={c === chapter} style={style({ "--k": perCh[c] ? Math.sqrt(perCh[c] / maxCh).toFixed(3) : "0" })}
               title={`Chapter ${c}: ${plural(perCh[c], "{n} record", "{n} records")} name it${chPictured.has(c) ? ", one with a picture" : ""}`} onClick={() => setChapter(chapter === c ? 0 : c)}>{c}{chPictured.has(c) && <Star />}</button>)}</div>
-          <p className="bk-ch-note">{chapter ? <>Chapter {chapter}: {plural(shown.length, "{n} record", "{n} records")} name it. <button type="button" onClick={() => setChapter(0)}>Show every copy</button></>
+          <p className="bk-ch-note">{chapter ? <>{`Chapter ${chapter}: ${plural(shown.length, "{n} record names it", "{n} records name it")}. `}<button type="button" onClick={() => setChapter(0)}>Show every copy</button></>
             : `${plural(withCh.length, "{n} record", "{n} records")} name the chapters they hold, mostly fragments; the rest name only the book. Choose a chapter.`}</p>
         </> : <p className="bk-ch-note">{all.length ? "These records name the book, not its chapters." : ""}</p>}</div>
         <OutsideScroll className="bk-scroll" label={`Copies of ${info.name}`} resetKey={`${filter}-${book}-${chapter}`}>
           <ol className="bk-list">{shown.length ? shown.map((r) => <li key={r.i}><button type="button" data-open={r.i} style={style({ "--tone": `var(${kindOf(r.k).tone})` })} onClick={(e) => openRecord(r.i, e.currentTarget)}>
             <span className="bk-d">{r.d ?? "undated"}</span>
             <span className="bk-n"><b>{r.n}{r.im && <Star />}</b><small>{[sigla(r), kindOf(r.k).label, holderText(index, r) || r.f].filter(Boolean).join(" · ")}</small></span></button></li>)
-            : <li className="bk-none">No record in this selection holds {info.name}.</li>}</ol>
+            : <li className="bk-none">{`No record in this selection holds ${info.name}.`}</li>}</ol>
         </OutsideScroll>
       </aside>
     </div>

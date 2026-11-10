@@ -111,7 +111,7 @@ function ContactForm() {
       </button>
       {status.state === "error" && (
         <p role="alert" className="text-sm text-red-700 dark:text-red-400">
-          {status.message} You can also email {CONTACT_ADDRESS} directly.
+          {status.message} {`You can also email ${CONTACT_ADDRESS} directly.`}
         </p>
       )}
     </form>

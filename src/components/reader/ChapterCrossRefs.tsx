@@ -45,7 +45,7 @@ export function ChapterCrossRefs({ translation, bookCode, chapter, onPick, onClo
             </button>
           </div>
           <h3 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-            <Link2 className="h-3.5 w-3.5" aria-hidden /> Cross-references {total > 0 && `· ${formatNumber(total)}`}
+            <Link2 className="h-3.5 w-3.5" aria-hidden /> {total > 0 ? `Cross-references · ${formatNumber(total)}` : "Cross-references"}
           </h3>
         </>
       }

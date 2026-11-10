@@ -90,7 +90,7 @@ export function ParallelText({ columns, options, selected, highlight = null, onS
             <span className="text-muted">{column.translation.name}</span>
             {column.translation.numbering !== primary.translation.numbering && (
               <p className="mt-0.5 flex items-center gap-1 text-xs text-accent">
-                <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden /> Numbers verses differently ({NUMBERING_LABEL[column.translation.numbering]}) — rows may not match.
+                <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden /> {`Numbers verses differently (${NUMBERING_LABEL[column.translation.numbering]}) — rows may not match.`}
               </p>
             )}
             {!column.chapter && <p className="text-xs text-muted">Not in this version.</p>}
@@ -135,7 +135,7 @@ export function ParallelText({ columns, options, selected, highlight = null, onS
                     </span>
                   ))
                 ) : cell ? (
-                  <span className="font-sans text-xs text-muted">joined with verse {cell.joinedWith} above</span>
+                  <span className="font-sans text-xs text-muted">{`joined with verse ${cell.joinedWith} above`}</span>
                 ) : (
                   <span className="text-muted">—</span>
                 )}

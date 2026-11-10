@@ -73,7 +73,7 @@ function CatalogueRows({ object }: { object: MuseumObject }) {
         row.match === "object" ? (
           <div key={row.id}>
             <p className="mu-row-id">
-              Archaeology catalogue · row {row.id}
+              {`Archaeology catalogue · row ${row.id}`}
               {row.assessment ? <small>{row.assessment}</small> : null}
             </p>
             {row.supported ? (
@@ -91,11 +91,11 @@ function CatalogueRows({ object }: { object: MuseumObject }) {
                 <strong>Its reach, and its limit.</strong> {row.scope}
               </p>
             ) : null}
-            {row.passages ? <p className="mu-limit">Bears on: {row.passages}</p> : null}
+            {row.passages ? <p className="mu-limit">{`Bears on: ${row.passages}`}</p> : null}
           </div>
         ) : (
           <div key={row.id} className="mu-related">
-            <p className="mu-row-id mu-row-related">Related row · {row.id}</p>
+            <p className="mu-row-id mu-row-related">{`Related row · ${row.id}`}</p>
             <p className="mu-limit">
               Our archaeology catalogue has a row for <strong>{row.name}</strong>, which shares a name with this
               record. This object is not that one, so that row&apos;s conclusions are not repeated here.
@@ -144,7 +144,7 @@ function ObjectEntry({ object, museum }: { object: MuseumObject; museum: Museum 
         <p className="mu-how">{object.basis_label}</p>
         {object.people.length > 0 || object.places.length > 0 ? (
           <p className="mu-named">
-            Named in the record: {[...object.people, ...object.places].join(" · ")}
+            {`Named in the record: ${[...object.people, ...object.places].join(" · ")}`}
           </p>
         ) : null}
         <div className="mu-object-links">
@@ -298,16 +298,14 @@ export default function MuseumPage() {
 
           {held.totals.listed < held.totals.records ? (
             <p className="mu-caption mu-cut">
-              {formatNumber(held.totals.records)} records are held for this collection and{" "}
-              {formatNumber(held.totals.listed)} are listed here — the ones its own records tie to something
-              biblical, audited first. The rest are in the research corpus, not on this page.
+              {`${formatNumber(held.totals.records)} records are held for this collection and ${formatNumber(held.totals.listed)} are listed here — the ones its own records tie to something biblical, audited first. The rest are in the research corpus, not on this page.`}
             </p>
           ) : null}
 
           {held.recorded_as.length > 1 ? (
             <details className="mu-details">
               <summary>
-                Written {held.recorded_as.length} different ways by its cataloguers
+                {`Written ${formatNumber(held.recorded_as.length)} different ways by its cataloguers`}
                 <Plus size={15} aria-hidden="true" />
               </summary>
               <ul className="mu-recorded">
@@ -363,9 +361,9 @@ export default function MuseumPage() {
               ) : null}
               {objects.length > limit ? (
                 <button type="button" className="mu-more" onClick={() => setLimit(limit + PAGE)}>
-                  Show {Math.min(PAGE, objects.length - limit)} more
+                  {`Show ${formatNumber(Math.min(PAGE, objects.length - limit))} more`}
                   <span>
-                    {limit} of {objects.length}
+                    {`${formatNumber(limit)} of ${formatNumber(objects.length)}`}
                   </span>
                 </button>
               ) : null}

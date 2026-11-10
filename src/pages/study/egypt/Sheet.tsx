@@ -9,7 +9,7 @@ function Record({ p }: { p: Parallel }) {
   return <>
     <p className="eg-kicker eg-sheet-when">{p.where}</p>
     <h2>{p.prov}</h2>
-    <p className="eg-sheet-line">Counted by: {p.judges.map((id) => JUDGE_WORD.get(id)).join(", ")}.</p>
+    <p className="eg-sheet-line">{`Counted by: ${p.judges.map((id) => JUDGE_WORD.get(id)).join(", ")}.`}</p>
     <OldText who="Amenemope, in Griffith's translation of 1926" where={p.griffithRef}>{p.griffith}</OldText>
     {p.verses.map((label) => <Quote key={label} label={label} />)}
     {p.behind && <dl className="eg-behind">

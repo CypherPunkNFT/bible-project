@@ -35,7 +35,7 @@ function ScriptureReading({ entry, onClose }: { entry: NameEntry; onClose: () =>
   return (
     <article className="word-scripture-content" tabIndex={-1} aria-label={`${entry.name} Scripture`} data-reading-content>
       <header>
-        <p>Scripture / {reading.reference} · <BibleAbbr /></p>
+        <p>{`Scripture / ${reading.reference} ·`} <BibleAbbr /></p>
         <button type="button" onClick={onClose} aria-label="Back to names">
           <X size={18} aria-hidden="true" />
         </button>

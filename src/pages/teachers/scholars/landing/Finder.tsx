@@ -53,7 +53,7 @@ export function Finder({ query, onQuery, found, onOpen }: FinderProps) {
           <span className="lnd-opt-t"><b>{m.s.name}</b><small>{years(m.s)} · {"work" in m.why ? <><i>{m.why.work}</i>, {m.why.year}</> : m.why.text}</small></span>
           <span className="lnd-opt-go"><ArrowRight size={14} aria-hidden="true" /></span></button>)}
         <p className="lnd-res-n">{found.length} {plural(found.length, "match", "matches")}</p>
-      </> : <p className="lnd-none">Nothing matches “{q}”. Try a name like Jerome, a book like the Vulgate, or a field like archaeology.</p>}
+      </> : <p className="lnd-none">{`Nothing matches “${q}”. Try a name like Jerome, a book like the Vulgate, or a field like archaeology.`}</p>}
     </div>
   </div>;
 }

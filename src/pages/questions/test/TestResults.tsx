@@ -7,6 +7,7 @@ import type { BankTopic } from "@/lib/data";
 import type { Item, Result } from "./engine";
 import { VerseWords } from "./parts";
 import { Ring } from "./Ring";
+import { formatNumber } from "@/lib/site-format";
 
 interface Props {
   items: Item[];
@@ -34,7 +35,7 @@ export function TestResults({ items, results, topics, bookNames, backTo, onRetak
         <h1 id={titleId}><strong>{right}</strong> of {items.length} <em>right</em></h1>
         <p>{verdictOf(right / items.length)}</p>
         <div className="tp-results-actions">
-          {missed.length > 0 && <button type="button" className="tp-begin-go" onClick={() => onRetake(missed)}><RotateCcw size={16} strokeWidth={1.6} aria-hidden />Retake the {missed.length} I missed</button>}
+          {missed.length > 0 && <button type="button" className="tp-begin-go" onClick={() => onRetake(missed)}><RotateCcw size={16} strokeWidth={1.6} aria-hidden />{`Retake the ${formatNumber(missed.length)} I missed`}</button>}
           <button type="button" className="tp-quiet" onClick={onNew}><RotateCw size={15} strokeWidth={1.6} aria-hidden />Take it again</button>
           {backTo && <Link className="tp-quiet" to={backTo}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>}
         </div>
@@ -70,7 +71,7 @@ function ByTopic({ items, results, topics }: { items: Item[]; results: Result[];
   return <div className="tp-by-topic">
     <h2>By <em>topic</em></h2>
     <ul>{sorted.map(([title, { right, total }]) => <li key={title} style={{ "--share": `${(right / total) * 100}%` } as CSSProperties}>
-      <span>{title}</span><span className="tp-bar" aria-hidden><span /></span><small>{right} of {total}</small>
+      <span>{title}</span><span className="tp-bar" aria-hidden><span /></span><small>{`${formatNumber(right)} of ${formatNumber(total)}`}</small>
     </li>)}</ul>
   </div>;
 }

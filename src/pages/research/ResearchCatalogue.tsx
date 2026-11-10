@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import NotFoundPage from "@/pages/NotFoundPage";
 import { filterSources, researchUrl, sourceUses, type ResearchBundle } from "./model";
+import { formatNumber } from "@/lib/site-format";
 import { CitationInspector, RelatedLinks, ResearchArt, ResearchHero, SourceTile, WitnessComparison } from "./ResearchParts";
 
 export function ResearchIndex({ data, view = "all" }: { data: ResearchBundle; view?: "all" | "cases" | "study" }) {
@@ -26,8 +27,8 @@ export function WorksCatalogue({ data }: { data: ResearchBundle }) {
   const [query, setQuery] = useState("");
   const shown = filterSources(data.sources, query, data.contributors);
   return <><ResearchHero eyebrow="Scholars · Named editions" title="Behind the reading." lead="Find the work, identify the edition and see exactly where it is used in the site’s cases and studies." />
-    <div className="rs-filter"><label><Search size={19} aria-hidden /><span className="sr-only">Search works and editions</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Find an author, witness, place or edition…" /></label><p role="status">{shown.length} of {data.sources.length} editions</p></div>
-    {shown.length ? <div className="rs-source-grid">{shown.map(s => <SourceTile key={s.id} source={s} />)}</div> : <p className="rs-empty">No edition matches “{query}”. Try Jerusalem, Greek or Mark.</p>}
+    <div className="rs-filter"><label><Search size={19} aria-hidden /><span className="sr-only">Search works and editions</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Find an author, witness, place or edition…" /></label><p role="status">{`${formatNumber(shown.length)} of ${formatNumber(data.sources.length)} editions`}</p></div>
+    {shown.length ? <div className="rs-source-grid">{shown.map(s => <SourceTile key={s.id} source={s} />)}</div> : <p className="rs-empty">{`No edition matches “${query}”. Try Jerusalem, Greek or Mark.`}</p>}
     <section className="rs-shelf"><div className="rs-section-title"><div><p className="rs-eyebrow">People & institutions</p><h2>The work behind the source.</h2></div></div><div className="rs-contributors">{data.contributors.map(c => <Link to={researchUrl("contributors/" + c.id)} key={c.id}><small>{c.kind === "institution" ? "Editorial project" : "Modern scholarship"}</small><h3>{c.name}</h3><p>{c.role}</p><ArrowUpRight size={17} aria-hidden /></Link>)}</div></section>
   </>;
 }
@@ -56,7 +57,7 @@ export function ContributorPage({ data }: { data: ResearchBundle }) {
   const { id } = useParams();
   const contributor = data.contributors.find(c => c.id === id);
   if (!contributor) return <NotFoundPage />;
-  return <><ResearchHero eyebrow={"Scholars · " + (contributor.kind === "institution" ? "Institution" : "Contributor")} title={contributor.name} lead={contributor.role} />
+  return <><ResearchHero eyebrow={contributor.kind === "institution" ? "Scholars · Institution" : "Scholars · Contributor"} title={contributor.name} lead={contributor.role} />
     {contributor.kind === "person" && <p className="rs-credit">Faith or tradition: not established in the edition credits reviewed here.</p>}
     <div className="rs-contributor-reading"><section className="rs-reading-section"><h2>The contribution</h2><p>{contributor.description}</p><p>{contributor.scope}</p><p className="rs-credit">{contributor.sourceLocator}</p></section>
       <section className="rs-shelf"><p className="rs-eyebrow">Named works & editions in these readings</p><div className="rs-source-grid">{contributor.works.map(id => <SourceTile key={id} source={data.sources.find(s => s.id === id)!} />)}</div></section>

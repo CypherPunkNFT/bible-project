@@ -14,7 +14,7 @@ export function Closing() {
         <dl className="ng-confused">{D.confusedWords.map((w) => <div key={w.word}><dt>{w.word}</dt><dd><Mixed text={w.note} /></dd></div>)}</dl></div>
       <div><p className="ng-kicker">How far the evidence reaches</p>
         <ul className="ng-reach">
-          <li>Counted: {thousands(c.words)} Greek words, of the {thousands(c.allRows)} word entries STEP holds across all the editions it compares.</li>
+          <li>{`Counted: ${thousands(c.words)} Greek words, of the ${thousands(c.allRows)} word entries STEP holds across all the editions it compares.`}</li>
           {D.reach.map((line) => <li key={line}>{line}</li>)}
         </ul>
         <p className="ng-kicker ng-kicker-gap">Not here</p>
@@ -28,7 +28,7 @@ export function Closing() {
     <p className="ng-kicker ng-trail-head">Credits</p>
     <ul className="ng-credits">
       <li><a href={D.credit.url} {...ext}>STEP Bible</a>. {D.credit.line} <a href={D.credit.licence} {...ext}>The licence ↗</a></li>
-      {D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. {p.licence}. Retrieved {p.retrieved}.</li>)}
+      {D.pictures.map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. {p.licence}. {`Retrieved ${p.retrieved}.`}</li>)}
     </ul>
     <div className="ng-final">
       <p>“{D.question}”</p>

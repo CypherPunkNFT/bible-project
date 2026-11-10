@@ -18,7 +18,7 @@ import { SeriesBlock } from "./SeriesBlocks";
 import { doorUrl, makerOf, splitTitle, titleUrl, toneOf } from "./model";
 import { Cover, Downloads, OpenFacts, Record, SecHead } from "./parts";
 import "./learning.css";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 
 export default function LearningTitlePage({ data }: { data: LearningData }) {
@@ -110,17 +110,17 @@ function Sessions({ sessions, outline, num, rest, images, onPage }: SessionsProp
       lead="Each session opens with its own line drawing. Choose one to read its summary, a key verse and its questions." />
     <div className="lm-sess-grid">{sessions.map((x) => <button key={x.n} type="button" className="lm-sess" aria-pressed={x.n === open} onClick={() => setOpen(x.n === open ? null : x.n)}>
       <SessionArt shapes={outline.art[x.art] ?? []} />
-      <span className="meta"><span className="no">Session {x.n} · {part(x)?.place}</span><h3>{x.title}</h3><p>{x.read} · p. {x.page}</p></span>
+      <span className="meta"><span className="no">{`Session ${formatNumber(x.n)} · ${part(x)?.place ?? ""}`}</span><h3>{x.title}</h3><p>{x.read} · p. {x.page}</p></span>
     </button>)}</div>
     {s && <div className="lm-sess-open">
       <div>
-        <span className="lm-kicker">Session {s.n} · {part(s)?.label} · {part(s)?.place}</span>
+        <span className="lm-kicker">{`Session ${formatNumber(s.n)} · ${part(s)?.label ?? ""} · ${part(s)?.place ?? ""}`}</span>
         <h3>{s.title}</h3>
         <p className="brief">{s.brief} <span className="refs">({s.briefRefs})</span></p>
         <blockquote><Verse id={s.key.id} /><small>{s.key.ref} · <BibleAbbr /></small></blockquote>
         <p className="qk"><span><b>{s.questions.observe}</b>observe</span><span><b>{s.questions.interpret}</b>interpret</span><span><b>{s.questions.reflect}</b>reflect</span><span><b>{s.keyVerses}</b>key verses</span></p>
       </div>
-      <button type="button" onClick={() => onPage(s.page)}><img src={images[s.page - 1]} alt={`The page where session ${s.n} opens`} width={1000} height={1414} /><small>Pages {s.page}–{s.end}</small></button>
+      <button type="button" onClick={() => onPage(s.page)}><img src={images[s.page - 1]} alt={`The page where session ${s.n} opens`} width={1000} height={1414} /><small>{`Pages ${formatNumber(s.page)}–${formatNumber(s.end)}`}</small></button>
     </div>}
   </section>;
 }

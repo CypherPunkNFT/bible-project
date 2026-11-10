@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { enableMeaning, useMeaning } from "@/lib/meaning/store";
 import { useSearchLanguage } from "@/lib/search-language";
+import { formatNumber } from "@/lib/site-format";
 
 const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
 
@@ -29,10 +30,10 @@ export function MeaningPrompt({ query, active, className = "" }: { query: string
   let body: ReactNode;
   if (meaning.phase === "ready") {
     body = active ?? (query.trim()
-      ? <Link to={askByMeaning} className="font-semibold text-accent hover:underline">{star}Ask “{query.trim()}” by meaning: studies and verses <ArrowRight size={13} className="inline align-[-2px]" aria-hidden /></Link>
+      ? <Link to={askByMeaning} className="font-semibold text-accent hover:underline">{star}{`Ask “${query.trim()}” by meaning: studies and verses `}<ArrowRight size={13} className="inline align-[-2px]" aria-hidden /></Link>
       : <span className="text-muted">{star}Meaning search is on: ask in your own words on the Search page.</span>);
   } else if (meaning.phase === "downloading") {
-    body = <span className="flex flex-1 items-center gap-3 text-muted"><span>{star}Setting up meaning search… {Math.round(meaning.progress * 100)}%</span><span className="h-1.5 max-w-40 flex-1 overflow-hidden rounded-full bg-surface-2"><span className="block h-full rounded-full bg-accent" style={{ width: `${meaning.progress * 100}%` }} /></span></span>;
+    body = <span className="flex flex-1 items-center gap-3 text-muted"><span>{star}{`Setting up meaning search… ${formatNumber(Math.round(meaning.progress * 100) / 100, { style: "percent" })}`}</span><span className="h-1.5 max-w-40 flex-1 overflow-hidden rounded-full bg-surface-2"><span className="block h-full rounded-full bg-accent" style={{ width: `${meaning.progress * 100}%` }} /></span></span>;
   } else {
     body = <>
       <span className="text-muted">{star}Semantic search: a small model on your device, free and private.</span>

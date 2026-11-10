@@ -12,7 +12,7 @@ import { studyRefLink } from "@/lib/study";
 import type { Catalog } from "@/lib/types";
 import { EvidenceClaim } from "./Evidence";
 import { ReadLink } from "./ProphetSections";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 type Book = Prophet["books"][number];
 
@@ -36,7 +36,7 @@ export function BookSection({ prophet, singer }: { prophet: Prophet; singer?: bo
       <EvidenceClaim claim={book.claim} as="div" />
       {book.outline.length > 0 && <OutlineBars book={book} />}
       {book.quotedInNT.length > 0 && <>
-        <p className="pp-label" style={{ marginTop: "1.4rem" }}>Where the New Testament quotes it · {book.quotedInNT.length}</p>
+        <p className="pp-label" style={{ marginTop: "1.4rem" }}>{`Where the New Testament quotes it · ${formatNumber(book.quotedInNT.length)}`}</p>
         <FlowChart flow={quotationFlow(catalog, book)} />
       </>}
     </div>)}

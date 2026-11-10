@@ -4,6 +4,7 @@ import { promptSize } from "./controls";
 import { scoreOf, type Run } from "./engine";
 import { Choices, KeyHint, NextButton, OpenAnswer, Verdict, VerseWords } from "./parts";
 import { Ring } from "./Ring";
+import { formatNumber } from "@/lib/site-format";
 
 interface Props { run: Run; bookNames: Record<string, string>; kinds: Record<string, string> }
 
@@ -14,7 +15,7 @@ export function QuestionPanel({ run, bookNames, kinds }: Props) {
   return <div className="tp-panel-layout">
     <div className="tp-panel" key={run.index}>
       <span className="tp-panel-mark" aria-hidden>?</span>
-      <div className="tp-panel-head"><span>Question {run.index + 1} of {run.items.length}</span>
+      <div className="tp-panel-head"><span>{`Question ${formatNumber(run.index + 1)} of ${formatNumber(run.items.length)}`}</span>
         <span className="tp-meta">{kinds[item.q.kind] ?? item.q.kind} · {item.q.collection}</span></div>
       <div className="tp-panel-body">
         {item.q.lesson && <p className="tp-lesson">{item.q.lesson}</p>}
@@ -31,7 +32,7 @@ export function QuestionPanel({ run, bookNames, kinds }: Props) {
       </div>
     </div>
     <aside className="tp-panel-side" aria-label="How the test is going">
-      <Ring results={run.results} current={run.index}><strong>{score}</strong><small>right of {answeredCount}</small></Ring>
+      <Ring results={run.results} current={run.index}><strong>{score}</strong><small>{`right of ${formatNumber(answeredCount)}`}</small></Ring>
       <dl className="tp-panel-stats">
         <div><dt>Right</dt><dd className="is-right">{score}</dd></div>
         <div><dt>Missed</dt><dd className="is-wrong">{answeredCount - score}</dd></div>

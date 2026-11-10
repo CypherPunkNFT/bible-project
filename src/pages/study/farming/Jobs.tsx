@@ -20,7 +20,7 @@ export function Jobs({ picked, onOpen }: { picked: string | null; onOpen: (key: 
           <span className="fy-jobname">
             <JobArt id={job.id} />
             <span><strong>{job.name}</strong><small>{job.line}</small>
-              <span className="fy-jobkinds">{job.witness.map((kind) => <KindMark key={kind} kind={kind} />)}<span className="fy-sr">Evidence: {job.witness.map((kind) => D.evidenceKinds.find((k) => k.id === kind)?.word).join(", ")}. Placed at {seasonNames(job.seasons)}.</span></span>
+              <span className="fy-jobkinds">{job.witness.map((kind) => <KindMark key={kind} kind={kind} />)}<span className="fy-sr">{`Evidence: ${job.witness.map((kind) => D.evidenceKinds.find((k) => k.id === kind)?.word).join(", ")}.`} {`Placed at ${seasonNames(job.seasons)}.`}</span></span>
             </span>
           </span>
           <span className="fy-strip" aria-hidden="true">{monthBars(job.seasons).map((bar) => <i key={bar.start} className="fy-bar" style={{ gridColumn: `${bar.start + 1} / span ${bar.months}` }} />)}</span>

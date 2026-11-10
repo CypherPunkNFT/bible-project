@@ -47,7 +47,7 @@ function say(id: string | null): ReactNode {
   if (id === "A") return <Rich text={cbgm.initial} />;
   const [, , parent, second] = NODES[id];
   const tail = id === "05" ? ` ${cbgm.arises}` : second ? ` Mixed ancestry: it also draws on ${second}, so one line cannot describe it.` : VARIANT.has(id) ? ` ${cbgm.inherits}` : "";
-  return <><b>{id}</b> · closest potential ancestor here: <b>{parent}</b>. Path to the initial text: {pathTo(id).join(" → ")}.{tail}</>;
+  return <><b>{id}</b> · closest potential ancestor here: <b>{parent}</b>{`. Path to the initial text: ${pathTo(id).join(" → ")}.`}{tail}</>;
 }
 
 function Cbgm() {

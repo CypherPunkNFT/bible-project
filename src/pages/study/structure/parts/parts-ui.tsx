@@ -4,6 +4,7 @@ import { RefLink } from "@/components/study/StudyParts";
 import type { Measure } from "@/lib/chart-measures";
 import { STUDY_MEASURES, TEXT_MEASURES } from "@/lib/chart-measures";
 import type { PartsView } from "./use-parts";
+import { plural } from "@/lib/site-format";
 
 /** The nine measures as pills in two labelled groups: what is counted in the text, what is found in the studies. */
 export function MeasureGroups({ measure, onMeasure, className = "" }: { measure: Measure; onMeasure: (m: Measure) => void; className?: string }) {
@@ -21,8 +22,8 @@ export function MeasureGroups({ measure, onMeasure, className = "" }: { measure:
 export function Evidence({ view, section }: { view: PartsView; section: SectionFilter }) {
   if (!view.isStudy || view.loading) return null;
   return <>
-    {view.note && <p className="chart-measure-note">{view.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</p>}
-    <details className="measure-evidence" open={!!section}><summary>Explore the passages · {view.detail.length} {section ? "entries here" : "source entries"}</summary>
+    {view.note && <p className="chart-measure-note">{view.note} <span>Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</span></p>}
+    <details className="measure-evidence" open={!!section}><summary>{`Explore the passages · ${section ? plural(view.detail.length, "{n} entry here", "{n} entries here") : plural(view.detail.length, "{n} source entry", "{n} source entries")}`}</summary>
       <OutsideScroll label="Source passages for the selected measure" className="measure-evidence-scroll" resetKey={`${view.label}:${section}`}>
         <ol>{view.detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol>
       </OutsideScroll>

@@ -34,7 +34,7 @@ function pagesFor(world:World){
 function StudyLinks({world}:{world:World}){
  const location=useLocation();
  const path=location.pathname,active=world.to===root+'/islam'?currentIslam(path,location.search).to:path+location.hash;
- return <nav className="sm-study-links" aria-label={world.label+' subpages'}>{pagesFor(world).map(p=><Link key={p.label} to={p.to} onFocus={reveal} aria-current={path.startsWith(world.to)&&p.to===active?'page':undefined}>{p.label}</Link>)}</nav>;
+ return <nav className="sm-study-links" aria-label={`${world.label} subpages`}>{pagesFor(world).map(p=><Link key={p.label} to={p.to} onFocus={reveal} aria-current={path.startsWith(world.to)&&p.to===active?'page':undefined}>{p.label}</Link>)}</nav>;
 }
 function WorldChoices(){
  const location=useLocation();
@@ -98,6 +98,6 @@ export function WorldviewNavigation({leading,trailing}:{leading:ReactNode;traili
   void transition.finished.catch(()=>undefined).then(()=>{if(generation!==run.current)return;active.current=null;clearSectionTransition();});
  }
  return <div className="sm-container" data-single-row={singleRow} onClickCapture={openSection}><div className="sm-topbar">{leading}<nav ref={mainRef} className="sm-main" aria-label="Apologetics sections">{sections.map(d=>{const Icon=d.icon;return <div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}><Icon size={17} strokeWidth={1.7} aria-hidden="true"/><span>{d.label}</span></Link></div>;})}</nav>{trailing}</div>
- {!singleRow&&<div id="sm-panel" className="sm-panel">{group==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={group+' destinations'}>{(group==='Sources'?[{label:'The source room',to:base+'/sources'},{label:'Historic Christian works',to:base+'/texts'}]:secondary(group)).map(d=><Link key={d.to} to={d.to} onFocus={reveal} aria-current={path===d.to?'page':undefined}>{d.label}</Link>)}</nav>}</div>}
+ {!singleRow&&<div id="sm-panel" className="sm-panel">{group==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={`${group} destinations`}>{(group==='Sources'?[{label:'The source room',to:base+'/sources'},{label:'Historic Christian works',to:base+'/texts'}]:secondary(group)).map(d=><Link key={d.to} to={d.to} onFocus={reveal} aria-current={path===d.to?'page':undefined}>{d.label}</Link>)}</nav>}</div>}
  </div>;
 }

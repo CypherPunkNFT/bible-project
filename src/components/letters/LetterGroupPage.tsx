@@ -164,8 +164,8 @@ function PeopleAndPlaces({ group, code }: { group: LetterGroup; code: string }) 
   if (!letter.people.length && !letter.places.length) return null;
   return <Section kicker="People and places" title={`Who and where in ${letter.name}`}>
     <div className="lg-two">
-      <div><p className="lg-subhead">People named ({letter.people.length})</p><ul className="lg-list">{letter.people.map((p) => <li key={p.name}><strong>{p.name}</strong>{p.note && <span className="lg-muted"> — {p.note}</span>}<Refs refs={p.refs} limit={3} /></li>)}</ul></div>
-      <div><p className="lg-subhead">Places named ({letter.places.length})</p>
+      <div><p className="lg-subhead">{`People named (${formatNumber(letter.people.length)})`}</p><ul className="lg-list">{letter.people.map((p) => <li key={p.name}><strong>{p.name}</strong>{p.note && <span className="lg-muted"> — {p.note}</span>}<Refs refs={p.refs} limit={3} /></li>)}</ul></div>
+      <div><p className="lg-subhead">{`Places named (${formatNumber(letter.places.length)})`}</p>
         {pins.length > 0 && <LetterMap title={`Places in ${letter.name}`} displayWidth={560} layers={[{ id: `places-${letter.code}`, title: letter.name, stops: pins.map((p) => ({ name: p.implied ? `${p.name} (implied)` : p.name, placeId: p.placeId!, refs: p.refs })), claim: { text: "" } }]} />}
         <ul className="lg-list" style={{ marginTop: ".75rem" }}>{letter.places.map((p) => <li key={p.name}><strong>{p.name}</strong>{p.implied && <span className="lg-muted"> (implied, not named)</span>}{p.note && <span className="lg-muted"> — {p.note}</span>}<Refs refs={p.refs} limit={3} /></li>)}</ul>
       </div>

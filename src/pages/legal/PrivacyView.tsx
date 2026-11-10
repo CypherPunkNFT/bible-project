@@ -19,7 +19,7 @@ export function PrivacyView({ version, supportTo, children }: { version: PolicyV
     <div className="lg-page">
       <section className="lg-hero">
         <div>
-          <p className="lg-eyebrow">Privacy Policy · Updated {UPDATED}</p>
+          <p className="lg-eyebrow">{`Privacy Policy · Updated ${UPDATED}`}</p>
           <h1>Nothing to sell.<em>Nothing tracked.</em></h1>
           <p className="lg-sub">Read in your inner room,<br />with the door shut.</p>
           <p className="lg-lead">Bible Guide is free, has no ads and does not track you. This page says exactly what the website and the Bible Guide app collect, and why.</p>

@@ -4,6 +4,7 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { formatNumber } from "@/lib/site-format";
 
 const TURN_MS = 320, EASE = "cubic-bezier(.65, 0, .25, 1)";
 
@@ -47,7 +48,7 @@ export function PageViewer({ title, images, start, onClose }: { title: string; i
       <div className="lm-viewer-sheet"><img ref={img} src={images[page - 1]} alt={`Page ${page} of ${title}`} width={1000} height={1414} /></div>
       <figcaption>
         <button type="button" onClick={() => turn(-1)} disabled={page === 1} aria-label="Previous page"><ChevronLeft size={16} aria-hidden="true" /></button>
-        <span aria-live="polite" data-page={page}>Page {page} of {total}</span>
+        <span aria-live="polite" data-page={page}>{`Page ${formatNumber(page)} of ${formatNumber(total)}`}</span>
         <button type="button" onClick={() => turn(1)} disabled={page === total} aria-label="Next page"><ChevronRight size={16} aria-hidden="true" /></button>
         <button type="button" ref={closeButton} onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
       </figcaption>

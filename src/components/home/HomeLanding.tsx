@@ -7,6 +7,7 @@ import { bookByCode } from "@/lib/refs";
 import { SECTIONS, tone } from "@/lib/sections";
 import type { HomeData } from "@/lib/study";
 import "./home.css";
+import { formatNumber } from "@/lib/site-format";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
@@ -62,13 +63,12 @@ export function HomeLanding({ home }: { home: HomeData | null }) {
           ) : null}
         </motion.p>
         <motion.p {...rise(0.6)} className="mt-4 max-w-2xl text-base text-muted sm:text-lg">
-          One story from Genesis to Revelation. Read it in {catalog.translations.length} free versions — from Wycliffe and the King James to the Hebrew and Greek —
-          and see how its sixty-six books point to one Lord.
+          {`One story from Genesis to Revelation. Read it in ${formatNumber(catalog.translations.length)} free versions — from Wycliffe and the King James to the Hebrew and Greek — and see how its sixty-six books point to one Lord.`}
         </motion.p>
         <motion.div {...rise(0.75)} className="mt-8 flex flex-wrap gap-3">
           {last && lastLabel ? (
             <Link to={last} className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-page transition hover:opacity-90">
-              <BookOpen className="h-4 w-4" aria-hidden /> Continue: {lastLabel}
+              <BookOpen className="h-4 w-4" aria-hidden /> {`Continue: ${lastLabel}`}
             </Link>
           ) : (
             <Link to="/read/kjv/JHN/1" className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-page transition hover:opacity-90">

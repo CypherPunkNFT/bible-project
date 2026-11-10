@@ -32,7 +32,7 @@ export const Rail = memo(function Rail({ model, chosen, onChoose, onOpen }: Rail
 
 function Quiet({ people, onOpen }: { people: Person[]; onOpen: Open }) {
   if (!people.length) return null;
-  return <details className="thr-quiet"><summary>{people.length} more teachers have no Bible texts recorded yet</summary>
+  return <details className="thr-quiet"><summary>{plural(people.length, "{n} more teacher has no Bible texts recorded yet", "{n} more teachers have no Bible texts recorded yet")}</summary>
     <p>These teachers have profiles, but their works have no main Bible text recorded for this chart yet. This is a list of mapped works, not the whole acquired library. Choose a name for their profile.</p>
     <div className="slim-scroll">{people.map((p) => <button key={p.id} type="button" onClick={(e) => onOpen(p.id, e.currentTarget)}>{p.name}</button>)}</div></details>;
 }
@@ -40,12 +40,13 @@ function Quiet({ people, onOpen }: { people: Person[]; onOpen: Open }) {
 export function Who({ model, track, onOpen }: { model: ThroughModel; track: Track; onOpen: Open }) {
   const p = track.person;
   if (!p) return <div className="thr-who"><p className="kicker">Every teacher, summed</p><h3>Everyone</h3>
-    <p>{plural(track.works, "{n} work", "{n} works")} on a recorded Bible text by {model.teachers.length} of {model.teachers.length + model.quiet.length} profiled teachers, across {plural(track.bookCount, "{n} book", "{n} books")}.</p></div>;
+    <p>{`${plural(track.works, "{n} work", "{n} works")} on a recorded Bible text by ${formatNumber(model.teachers.length)} of ${formatNumber(model.teachers.length + model.quiet.length)} profiled teachers,`}{" "}
+      {plural(track.bookCount, "across {n} book.", "across {n} books.")}</p></div>;
   const family = familyOf(p);
   return <div className="thr-who">
     <p className="kicker" style={tone(family.tone)}>{family.label} · {lifeLabel(p)}</p>
     <h3><button type="button" className="thr-name" style={tone(family.tone)} onClick={(e) => onOpen(p.id, e.currentTarget)}>{p.name}</button></h3>
-    <p>{plural(track.works, "{n} work", "{n} works")} on a Bible text, across {plural(track.bookCount, "{n} book", "{n} books")}.</p></div>;
+    <p>{`${plural(track.works, "{n} work", "{n} works")} on a Bible text, across ${plural(track.bookCount, "{n} book", "{n} books")}.`}</p></div>;
 }
 
 function PlayIcon({ playing }: { playing: boolean }) {
@@ -63,7 +64,7 @@ export function Years({ track, timeline, year, playing, onPlay, onYear }: YearsP
       <button type="button" className={`thr-play${playing ? " thr-on" : ""}`} aria-label={playing ? "Pause" : "Play through the years"} onClick={onPlay}><PlayIcon playing={playing} /></button>
       <input type="range" className="thr-range" step="1" aria-label="Show works up to year" min={timeline?.first ?? 0} max={timeline?.all ?? 0}
         value={timeline ? Math.min(year, timeline.all) : 0} onChange={(e) => onYear(Number(e.target.value))} />
-      <output className="thr-readout">{limited ? <><b>{year}</b> {formatNumber(soFar)} dated so far</> : <><b>All</b> {formatNumber(track.works)} works</>}</output>
+      <output className="thr-readout">{limited ? <><b>{year}</b>{` ${formatNumber(soFar)} dated so far`}</> : <><b>All</b>{" "}{plural(track.works, "{n} work", "{n} works")}</>}</output>
     </div>
   </div>;
 }

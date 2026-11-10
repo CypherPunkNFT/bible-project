@@ -9,6 +9,7 @@ import { ClaimList, EvidenceClaim, QuoteText } from "./Evidence";
 import { REALM_LABEL, VERDICT, accountsHeading } from "./kinds";
 import { SlideLink } from "./SlideLink";
 import { useCarried } from "./use-carried";
+import { formatNumber } from "@/lib/site-format";
 
 const BOOK_NAME: Record<RegnalRecord["book"], string> = { kings: "Kings", chronicles: "Chronicles", samuel: "Samuel", other: "Scripture" };
 
@@ -31,7 +32,7 @@ export function VerdictCard({ ruler, possessive }: { ruler: Ruler; possessive: s
     {primary.comparison && <QuoteText quote={primary.comparison} className="pp-quote-small" />}
     {(ruler.verdictNotes?.length || chronicles) && <div className="pp-divider" />}
     {ruler.verdictNotes?.length ? <><p className="pp-label">But also</p><ClaimList claims={ruler.verdictNotes} /></> : null}
-    {chronicles && <div style={{ marginTop: "1rem" }}><p className="pp-label">{BOOK_NAME[chronicles.book]} gives it as</p><QuoteText quote={chronicles.verdict} className="pp-quote-small" /></div>}
+    {chronicles && <div style={{ marginTop: "1rem" }}><p className="pp-label">{`${BOOK_NAME[chronicles.book]} gives it as`}</p><QuoteText quote={chronicles.verdict} className="pp-quote-small" /></div>}
     <div className="pp-divider" />
     <VerdictRow ruler={ruler} />
   </Section>;
@@ -43,7 +44,7 @@ function VerdictRow({ ruler }: { ruler: Ruler }) {
   const line = rulersOfRealm(ruler.realm);
   if (line.length < 2) return null;
   return <div>
-    <p className="pp-label">{REALM_LABEL[ruler.realm]}: {line.length} rulers</p>
+    <p className="pp-label">{`${REALM_LABEL[ruler.realm]}: ${formatNumber(line.length)} rulers`}</p>
     <nav className="pp-verdict-row" aria-label={`Verdicts on the rulers of ${REALM_LABEL[ruler.realm]}`}>
       {line.map((r) => <SlideLink key={r.id} to={rulerHref(r.id)} state={carried} data-tone={r.verdictTone} aria-current={r.id === ruler.id ? "page" : undefined}
         aria-label={`${r.name}: ${VERDICT[r.verdictTone].spoken}`} title={`${r.name} · ${VERDICT[r.verdictTone].label}`}>{VERDICT[r.verdictTone].symbol}</SlideLink>)}

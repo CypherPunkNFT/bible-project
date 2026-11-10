@@ -93,7 +93,7 @@ export function BookChapters({ library, section, onClearSection }: { library: Li
           {ORDERS.map(([id, label]) => <button key={id} type="button" aria-pressed={order === id} onClick={() => setOrder(id)}
             className={cn("rounded-full px-3 py-1.5", order === id ? "bg-ink text-page" : "text-muted hover:text-ink")}>{label}</button>)}
         </div>
-        {section ? <span className="shape-hint">Showing the {SECTION_BY_ID[section].name} books · <button type="button" onClick={onClearSection}>Show all 66</button></span>
+        {section ? <span className="shape-hint">{`Showing the ${SECTION_BY_ID[section].name} books · `}<button type="button" onClick={onClearSection}>Show all 66</button></span>
           : <span className="shape-hint">Choose a book to open its chapters and their summaries.</span>}
       </div>
       <ol className="shape-books">
@@ -132,10 +132,10 @@ function OpenBook({ library, bar, summaries, onSelect, onClose }: { library: Lib
   return (
     <div className="shape-book" style={{ "--tone": `var(--${book.section})` } as CSSProperties}>
       <div className="shape-book-head">
-        <div><h3>{book.name}</h3><p>{book.count} {plural(book.count, "chapter", "chapters")} · {formatNumber(book.words)} words · about {minutesToRead(book.words)} min to read</p></div>
+        <div><h3>{book.name}</h3><p>{`${plural(book.count, "{n} chapter", "{n} chapters")} · ${plural(book.words, "{n} word", "{n} words")} · about ${formatNumber(minutesToRead(book.words))} min to read`}</p></div>
         <button type="button" onClick={onClose} aria-label={`Close ${book.name}`}><X size={16} aria-hidden="true" /></button>
       </div>
-      <p className="shape-book-detail" aria-live="polite"><strong>{shown.name} {shown.chapter}</strong>{titleOf(shown) && <em>{titleOf(shown)}</em>}<span>{shown.verses} verses · {formatNumber(shown.words)} words</span></p>
+      <p className="shape-book-detail" aria-live="polite"><strong>{shown.name} {shown.chapter}</strong>{titleOf(shown) && <em>{titleOf(shown)}</em>}<span>{`${plural(shown.verses, "{n} verse", "{n} verses")} · ${plural(shown.words, "{n} word", "{n} words")}`}</span></p>
       <div className="shape-strip" style={{ "--gap": `${book.count > 80 ? 1 : book.count > 40 ? 2 : 4}px` } as CSSProperties} onMouseLeave={() => setHover(null)}>
         {chapters.map((c) => (
           <button key={c.index} type="button" className={c.index === bar.index ? "on" : undefined}

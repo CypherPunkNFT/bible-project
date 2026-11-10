@@ -3,6 +3,7 @@ import { StableTip } from "@/components/StableTip";
 import type { Parallel, Span } from "@/data/letters/types";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
 import { useKeep, useSpanLabel, useVerseIndex } from "./letter-hooks";
+import { formatNumber } from "@/lib/site-format";
 
 const W = 1000;
 const H = 260;
@@ -157,7 +158,7 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", m
   // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
   const keptMark = <KeepX onRelease={() => undefined} />;
   const ribbonResting = hint ? <span className="lg-muted">{hint}</span>
-    : <span className="lg-muted">{parallel.pairs.length} parallel passages{kinds.length ? ` · ${kinds.join(" · ")}` : ""}. Point at a ribbon to read both ends; click to keep it.</span>;
+    : <span className="lg-muted">{kinds.length ? `${formatNumber(parallel.pairs.length)} parallel passages · ${kinds.join(" · ")}.` : `${formatNumber(parallel.pairs.length)} parallel passages.`} <span>Point at a ribbon to read both ends; click to keep it.</span></span>;
   const pairTip = (p: Parallel["pairs"][number], mark: ReactNode) => <><strong>{label(p.left)}</strong> <span className="lg-muted">with</span> <strong>{label(p.right)}</strong>{mark}
     {p.kind && <span className="lg-muted"> · {p.kind}</span>}{p.weight !== undefined && <span className="lg-muted"> · {p.weight} {weightLabel}</span>}
     {p.note && <span className="lg-muted"> · {p.note}</span>}<Refs refs={[p.left, p.right]} /></>;

@@ -23,7 +23,7 @@ export function VersionMenu({ bookCode, current, parallel, onRead, onParallel }:
 
   return (
     <div className="max-h-[min(70vh,36rem)] overflow-y-auto overscroll-contain p-2">
-      <p className="px-2 pb-2 pt-1 text-xs text-muted">Choose a version. The column button reads it side by side (up to {MAX_SIDE_BY_SIDE}).</p>
+      <p className="px-2 pb-2 pt-1 text-xs text-muted">{`Choose a version. The column button reads it side by side (up to ${MAX_SIDE_BY_SIDE}).`}</p>
       {groupVersions(catalog.translations).map(({ group, sections }) => (
           <section key={group.id} aria-label={group.title} className="mb-2">
             <h3 className="px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">{group.title}</h3>

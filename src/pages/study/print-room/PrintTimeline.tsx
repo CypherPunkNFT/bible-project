@@ -4,6 +4,7 @@
 import { useMemo, useState, type CSSProperties } from 'react';
 import { AXIS, AXIS_STOPS, CHAPTERS, ITEMS, LANES, NARROWED, TICKS, type TimelineItem } from './print-timeline';
 import { setPrintState } from './usePrintState';
+import { formatNumber } from '@/lib/site-format';
 
 /** Labels are placed against a 1000-unit track; the chart never draws narrower than that, so they never collide. */
 const DESIGN_WIDTH = 1000;
@@ -90,6 +91,6 @@ export function PrintTimeline({ onEdition }: { onEdition: (id: string) => void }
     </div></div>
     <p className="pr-tl-say" aria-live="polite">{shown
       ? <><strong>{shown.label}</strong><span>{shown.date}</span>{shown.note} <em>{whereItGoes(shown)} →</em></>
-      : <span>From the Gutenberg Bible to NA28: {ITEMS.length - 1} printed editions and translations, and the one manuscript three of them are built on.</span>}</p>
+      : <span>{`From the Gutenberg Bible to NA28: ${formatNumber(ITEMS.length - 1)} printed editions and translations, and the one manuscript three of them are built on.`}</span>}</p>
   </section>;
 }

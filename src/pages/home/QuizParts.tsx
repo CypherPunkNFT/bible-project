@@ -5,11 +5,12 @@ import { ArrowRight, ArrowUpRight, Check, RotateCcw, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { QUESTIONS } from "../quiz-data";
 import { LETTERS, chapterOf, type Quiz } from "./quiz-state";
+import { formatNumber } from "@/lib/site-format";
 
 export function Tally({ quiz }: { quiz: Quiz }) {
   return <div className="qv-tally" aria-live="polite">
     <p><strong>{quiz.right}</strong><span>right</span></p>
-    <p><strong>{quiz.answered}</strong><span>of {QUESTIONS.length} answered</span></p>
+    <p><strong>{quiz.answered}</strong><span>{`of ${formatNumber(QUESTIONS.length)} answered`}</span></p>
     <button type="button" onClick={quiz.restart} data-hidden={quiz.answered === 0 || undefined}><RotateCcw size={13} aria-hidden />Start again</button>
   </div>;
 }
@@ -30,7 +31,7 @@ function Actions({ quiz, read, label }: { quiz: Quiz; read: string; label: strin
     {quiz.question
       ? <button type="button" className="qv-next" onClick={quiz.next}>{quiz.finished ? "See how you did" : "Next question"}<ArrowRight size={15} aria-hidden /></button>
       : <button type="button" className="qv-next" onClick={quiz.restart}><RotateCcw size={15} aria-hidden />Try again</button>}
-    <Link to={`/read/bsb/${read}`}>Read {label}<ArrowUpRight size={15} aria-hidden /></Link>
+    <Link to={`/read/bsb/${read}`}>{`Read ${label}`}<ArrowUpRight size={15} aria-hidden /></Link>
   </div>;
 }
 
@@ -50,7 +51,7 @@ export function Reveal({ quiz, verse = true }: { quiz: Quiz; verse?: boolean }) 
 export function Verdict({ quiz }: { quiz: Quiz }) {
   const { verdict } = quiz;
   return <div className="qv-verdict">
-    <p className="qv-meta"><span>All twelve answered</span><span>{quiz.right} of {QUESTIONS.length} right</span></p>
+    <p className="qv-meta"><span>All twelve answered</span><span>{`${formatNumber(quiz.right)} of ${formatNumber(QUESTIONS.length)} right`}</span></p>
     <h3>{verdict.title}</h3>
     <blockquote>“<Verse id={verdict.verse} unquoted />”<cite>{verdict.ref}</cite></blockquote>
     <Actions quiz={quiz} read={verdict.read} label={chapterOf(verdict.ref)} />

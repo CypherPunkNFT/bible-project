@@ -12,7 +12,7 @@ export function VerbChart({ formValue, onForm }: { formValue: string | null; onF
     <ul className="hw-lenses" aria-label="Choose a verb form">
       {D.forms.map((f) => <li key={f.id}><button type="button" aria-pressed={f.id === form.id} onClick={() => onForm(f.id)}>{f.name}</button></li>)}
     </ul>
-    <p className="hw-lens-line" aria-live="polite"><b>{form.name}.</b> {form.plain}. Genesis {percent(genesis[form.id] as number, genesis.total)}%, of {thousands(genesis.total)} verbs. Psalms {percent(psalms[form.id] as number, psalms.total)}%, of {thousands(psalms.total)}.</p>
+    <p className="hw-lens-line" aria-live="polite"><b>{form.name}.</b> {form.plain}. {`Genesis ${percent(genesis[form.id] as number, genesis.total)}%, of ${thousands(genesis.total)} verbs.`} {`Psalms ${percent(psalms[form.id] as number, psalms.total)}%, of ${thousands(psalms.total)}.`}</p>
     <ol className="hw-bars">{H.counts.books.map((book) => {
       const count = book[form.id] as number, share = percent(count, book.total);
       return <li key={book.name} title={`${book.name}: ${thousands(count)} of ${thousands(book.total)} Hebrew verbs`}>

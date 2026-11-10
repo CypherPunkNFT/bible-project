@@ -34,10 +34,10 @@ export function CityMapExperience({ choice, visit }: { choice: CityChoice; visit
   const current = cityPlace(places, choice);
   const inspected = shown.find((place) => place.id === inspectedId);
   return <section id="city-map-experience" className="city-map-experience" tabIndex={-1} aria-labelledby="city-map-title" data-map-city={current?.name ?? ""} data-map-place={current?.id ?? ""} data-selected-city={choice.id}>
-    <header><div><p className="places-kicker">Your city</p><h2 id="city-map-title">{choice.title}</h2></div>{current && <span>On the atlas · {current.lat.toFixed(2)}° N, {current.lon.toFixed(2)}° E</span>}</header>
+    <header><div><p className="places-kicker">Your city</p><h2 id="city-map-title">{choice.title}</h2></div>{current && <span>{`On the atlas · ${current.lat.toFixed(2)}° N, ${current.lon.toFixed(2)}° E`}</span>}</header>
     {raw.status === "loading" && <div className="city-map-loading" role="status">Loading the map…</div>}
     {raw.status === "error" && <p role="alert">The map could not load. Refresh to try again.</p>}
-    {raw.status === "ready" && !current && <p role="status">{choice.title} is not on the atlas map yet.</p>}
+    {raw.status === "ready" && !current && <p role="status">{`${choice.title} is not on the atlas map yet.`}</p>}
     {current && <StreetAtlasMap places={shown} selected={inspected ?? current} focusKey={visit} onSelect={(place) => setInspectedId(place.id)} coveredFraction={wide && inspected ? .36 : 0} overlay={wide && inspected ? <div className="absolute bottom-3 right-4 top-3 w-[min(24rem,40%)]"><PlacePanel place={inspected} onClose={() => setInspectedId(null)} overlay /></div> : undefined} />}
     {!wide && inspected && <PlacePanel place={inspected} onClose={() => setInspectedId(null)} overlay={false} />}
   </section>;

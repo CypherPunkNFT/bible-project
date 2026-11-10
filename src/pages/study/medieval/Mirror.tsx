@@ -47,12 +47,12 @@ function SideText({ side }: { side: Side }) {
 
 function Chosen({ pair, onOpen }: { pair: Pair; onOpen: (id: string) => void }) {
   return <div className="mv-chosen" aria-live="polite">
-    <p className="mv-kicker">Pair {NUMBER.get(pair.id)} · {fieldById.get(pair.field)?.name} · {pair.link === "same" ? "the same quarrel or rule" : "only set side by side by this study"}</p>
+    <p className="mv-kicker">{`Pair ${NUMBER.get(pair.id) ?? ""} · ${fieldById.get(pair.field)?.name ?? ""} · ${pair.link === "same" ? "the same quarrel or rule" : "only set side by side by this study"}`}</p>
     <h3>{pair.head}</h3>
     <div className="mv-sides">
-      <div><p className="mv-sidehead">Decreed · {pair.declared.when}</p>
+      <div><p className="mv-sidehead">{`Decreed · ${pair.declared.when}`}</p>
         <SideText side={pair.declared} /></div>
-      <div><p className="mv-sidehead">Set beside it · {pair.followed.when}</p>
+      <div><p className="mv-sidehead">{`Set beside it · ${pair.followed.when}`}</p>
         <SideText side={pair.followed} /></div>
     </div>
     <button type="button" className="mv-open" data-opener={`pair:${pair.id}`} onClick={() => onOpen(pair.id)}>Open the record: evidence, inference and where it stops →</button>

@@ -29,7 +29,7 @@ export function Closing() {
       <p className="mv-source-q">{s.answers}</p><p>{s.read}</p>
     </li>)}</ul>
     <p className="mv-kicker mv-trail-head">Pictures</p>
-    <ul className="mv-credits">{D.pictures.filter(pictureShown).map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>. Retrieved {p.retrieved}.</li>)}</ul>
+    <ul className="mv-credits">{D.pictures.filter(pictureShown).map((p) => <li key={p.id}><a href={p.href} {...ext}>{p.credit}</a>. <a href={p.licenceUrl} {...ext}>{p.licence}</a>{`. Retrieved ${p.retrieved}.`}</li>)}</ul>
     <div className="mv-final">
       <p>“{D.question}”</p>
       <small>Carry that to the next document you hear settles a question about the Middle Ages, whether it is offered in praise of them or in blame.</small>

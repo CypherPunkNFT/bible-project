@@ -49,7 +49,7 @@ export function BuiltFromRing({ division, audience, items, back }: { division: D
   });
 
   const list = <>
-    <h3>{plural(items.length, "{n} title", "{n} titles")} behind this door</h3>
+    <h3>{`${plural(items.length, "{n} title", "{n} titles")} behind this door`}</h3>
     <p>Choose a title (or a page on the outer ring) to draw its links. Every line ends at a page the site has already reviewed.</p>
     <ul>{items.map((t) => <li key={t.id}><a href={titleUrl(t.id)} onClick={(e) => { e.preventDefault(); setPick({ item: t.id }); }}>{t.title}</a> <span className="muted">· {division.kind[t.kind].name}</span> <Status title={t} /></li>)}</ul>
   </>;

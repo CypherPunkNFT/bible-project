@@ -28,7 +28,7 @@ function Mixer() {
       <p className="hw-syll" lang="he" dir="rtl">{carrier.glyph}{vowel.mark}</p>
       <p className="hw-syll-sound">{syllable(carrier, vowel)}</p>
       <p><b>{vowel.name}.</b> <Mixed text={vowel.line} /></p>
-      <p className="hw-count">{thousands(H.counts.vowels[vowel.id])} times in the Hebrew text, by this study's count.</p>
+      <p className="hw-count">{`${thousands(H.counts.vowels[vowel.id])} times in the Hebrew text, by this study's count.`}</p>
     </div>
   </div>;
 }
@@ -45,7 +45,7 @@ export function Points({ onOpen }: { onOpen: (key: string) => void }) {
           <span className="hw-trip-he" lang="he" dir="rtl">{data.he}</span>
           <span className="hw-trip-sound">{item.sound}</span>
           <b>{item.word}</b>
-          <small>Under its own dictionary number, {thousands(data.count)} times</small>
+          <small>{`Under its own dictionary number, ${thousands(data.count)} times`}</small>
         </button>
         <p className="hw-verse-ref"><VerseLink label={data.label} /></p>
       </li>;

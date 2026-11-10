@@ -114,7 +114,7 @@ function LongestBooks() {
 
 function Testaments() {
   const share = OLD_TESTAMENT_CHAPTERS / CHAPTER_COUNT;
-  const rows = [["OLD", OLD_TESTAMENT_CHAPTERS, "23,145", "accent", 50], ["NEW", CHAPTER_COUNT - OLD_TESTAMENT_CHAPTERS, "7,957", "gospels", 80]] as const;
+  const rows = [["OLD TESTAMENT", OLD_TESTAMENT_CHAPTERS, 23145, "accent", 50], ["NEW TESTAMENT", CHAPTER_COUNT - OLD_TESTAMENT_CHAPTERS, 7957, "gospels", 80]] as const;
   return <>
     <circle className="hf-ring-track" cx="58" cy="66" r="27" />
     <g transform="rotate(-90 58 66)">
@@ -124,8 +124,8 @@ function Testaments() {
     <text className="hf-stat-big" x="58" y="70" textAnchor="middle">{Math.round(share * 100)}%</text>
     {rows.map(([name, chapters, verses, tone, y]) => <g key={name} style={toned(tone)}>
       <rect className="hf-stat-bar" x="106" y={y - 7} width="6" height="6" rx="1.5" />
-      <text className="hf-stat-label" x="118" y={y - 1}>{name} TESTAMENT</text>
-      <text className="hf-stat-note" x="118" y={y + 10}>{chapters} chapters · {verses} verses</text>
+      <text className="hf-stat-label" x="118" y={y - 1}>{name}</text>
+      <text className="hf-stat-note" x="118" y={y + 10}>{`${formatNumber(chapters)} chapters · ${formatNumber(verses)} verses`}</text>
     </g>)}
   </>;
 }
@@ -157,7 +157,7 @@ export function ChaptersScene() {
       <g className="hf-marker-move"><path d={`M0 ${GRID_Y - 5}V${GRID_BOTTOM + 3}`} /><path className="hf-marker-ribbon" d={`M-4 ${GRID_BOTTOM + 3}h8v11l-4-3-4 3Z`} /></g>
     </g>
     <text className="hf-caption" x={GRID_X} y={GRID_BOTTOM + 32}>GENESIS 1</text>
-    <text className="hf-caption" x="300" y={GRID_BOTTOM + 32} textAnchor="middle">{formatNumber(CHAPTER_COUNT)} CHAPTERS</text>
+    <text className="hf-caption" x="300" y={GRID_BOTTOM + 32} textAnchor="middle">{`${formatNumber(CHAPTER_COUNT)} CHAPTERS`}</text>
     <text className="hf-caption" x={GRID_X + GRID_WIDTH} y={GRID_BOTTOM + 32} textAnchor="end">REVELATION 22</text>
     <g className="hf-layer-stats">
       <Panel x={GRID_X} y={176} title="CHAPTERS BY SECTION"><SectionBars /></Panel>

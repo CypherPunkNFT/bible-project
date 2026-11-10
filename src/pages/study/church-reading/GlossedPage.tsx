@@ -44,10 +44,10 @@ function PassageVerse({ label, chosen, onChoose }: { label: string } & Choose) {
 
 function Strip({ chosen, onOpen }: { chosen: Reader; onOpen: (id: string) => void }) {
   return <div className="hc-strip" aria-live="polite">
-    <p className="hc-kicker">{chosen.name} · {chosen.when} · on {chosen.fasten.verse}</p>
+    <p className="hc-kicker">{`${chosen.name} · ${chosen.when} · on ${chosen.fasten.verse}`}</p>
     <blockquote>“{chosen.quote}”</blockquote>
     <p className="hc-strip-looking"><b>Looking for:</b> {chosen.looking}</p>
-    <button type="button" className="hc-open" aria-haspopup="dialog" data-opener={`strip:${chosen.id}`} onClick={() => onOpen(chosen.id)}>Open {chosen.name}'s record →</button>
+    <button type="button" className="hc-open" aria-haspopup="dialog" data-opener={`strip:${chosen.id}`} onClick={() => onOpen(chosen.id)}>{`Open ${chosen.name}'s record →`}</button>
   </div>;
 }
 
@@ -66,7 +66,7 @@ function RealLeaf() {
       <div className="hc-word">
         <p className="hc-kicker">One word</p>
         <p className="hc-word-greek" lang="grc">{CR.word.greek}</p>
-        <p className="hc-word-pair"><span><small>King James</small>“are an {CR.word.kingJames}”</span><span><small>Berean</small>“serve as illustrations”</span></p>
+        <p className="hc-word-pair"><span><small>King James</small>{`“are an ${CR.word.kingJames}”`}</span><span><small>Berean</small>“serve as illustrations”</span></p>
         <p className="hc-para">{D.theWord.note}</p>
       </div>
     </div>

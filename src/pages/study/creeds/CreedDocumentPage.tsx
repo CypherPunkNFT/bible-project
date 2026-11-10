@@ -78,14 +78,14 @@ function Section({
           {section.text ? <p className="creed-answer">{section.text}</p> : null}
           {section.passageReference ? (
             <p className="creed-passage-note">
-              The whole of this confession is {section.passageReference}, given here in the Berean Standard Bible.
+              {`The whole of this confession is ${section.passageReference}, given here in the Berean Standard Bible.`}
             </p>
           ) : null}
 
           {section.parallel
             ? Object.entries(section.parallel).map(([language, body]) => (
                 <details key={language} className="creed-parallel">
-                  <summary>The {language} text</summary>
+                  <summary>{`The ${language} text`}</summary>
                   {body.split(/\n{2,}/).map((paragraph, position) => (
                     <p key={position}>{paragraph}</p>
                   ))}
@@ -95,14 +95,13 @@ function Section({
 
           {section.restated?.length ? (
             <p className="creed-restated">
-              Scripture quoted here is given in the Berean Standard Bible: {section.restated.join("; ")}.
+              {`Scripture quoted here is given in the Berean Standard Bible: ${section.restated.join("; ")}.`}
             </p>
           ) : null}
           {section.unrestated?.length ? (
             <details className="creed-unrestated">
               <summary>
-                {plural(section.unrestated.length, "One quotation here is", "{n} quotations here are")}{" "}
-                left in this document's own older wording
+                {plural(section.unrestated.length, "One quotation here is left in this document's own older wording", "{n} quotations here are left in this document's own older wording")}
                 {section.unrestated.some((flagged) => flagged.reference)
                   ? `: ${section.unrestated.map((flagged) => flagged.reference || "reference not given").join("; ")}`
                   : ""}
@@ -241,8 +240,8 @@ export default function CreedDocumentPage() {
         </Link>
         <h1 className="mt-4 font-serif text-3xl font-semibold">Not in this collection</h1>
         <p className="mt-3 text-muted">
-          There is no document at this address. <Link to="/study/creeds">Open the collection</Link> to see the{" "}
-          {index.status === "ready" ? index.value.counts.documents : ""} that are here.
+          There is no document at this address. <Link to="/study/creeds">Open the collection</Link>
+          {` to see the ${index.status === "ready" ? formatNumber(index.value.counts.documents) : ""} that are here.`}
         </p>
       </div>
     );
@@ -274,7 +273,7 @@ export default function CreedDocumentPage() {
             {found.tradition ? ` · ${found.tradition}` : ""}
           </p>
           <h1>{found.title}</h1>
-          {found.alternativeTitles?.length ? <p className="creed-also">Also called {found.alternativeTitles.join(", ")}.</p> : null}
+          {found.alternativeTitles?.length ? <p className="creed-also">{`Also called ${found.alternativeTitles.join(", ")}.`}</p> : null}
           {found.originStory ? <p className="creed-origin">{found.originStory}</p> : null}
 
           <dl className="creed-figures">
@@ -334,22 +333,20 @@ export default function CreedDocumentPage() {
             <label>
               <input type="checkbox" checked={showScripture} onChange={(event) => setShowScripture(event.target.checked)} />
               <span>
-                Show every proof-text in full, in the {found.scripture.abbreviation ?? "BSB"}
+                {`Show every proof-text in full, in the ${found.scripture.abbreviation ?? "BSB"}`}
               </span>
             </label>
             {found.counts.quotations > 0 ? (
               <p>
-                {formatNumber(found.counts.quotations)}{" "}
-                {plural(found.counts.quotations, "quotation in this document is", "quotations in this document are")} given
-                in the Berean Standard Bible.
+                {plural(found.counts.quotations, "{n} quotation in this document is given in the Berean Standard Bible.", "{n} quotations in this document are given in the Berean Standard Bible.")}
                 {found.counts.unrestated > 0
                   ? ` ${formatNumber(found.counts.unrestated)} more are left in the document's own older wording, each marked where it stands.`
                   : ""}
               </p>
             ) : found.counts.unrestated > 0 ? (
               <p>
-                This document's quotations are left in its own older wording — {formatNumber(found.counts.unrestated)}{" "}
-                of them, each marked where it stands. Its proof-text references are shown in the <BibleName />.
+                {`This document's quotations are left in its own older wording — ${formatNumber(found.counts.unrestated)} of them, each marked where it stands. Its proof-text references are shown in the `}
+                <BibleName />.
               </p>
             ) : (
               <p>This document states its doctrine rather than quoting verses; its references are shown in the <BibleName />.</p>
@@ -419,11 +416,10 @@ export default function CreedDocumentPage() {
           </ul>
           <p>
             The document's own wording is unchanged apart from the quoted verses described above. Its proof-text
-            references were resolved against this site's own copy of the <BibleName />; the{" "}
+            references were resolved against this site's own copy of the <BibleName />
             {found.counts.referenceOnly > 0
-              ? `${plural(found.counts.referenceOnly, "{n} reference", "{n} references")} the Berean text does not carry are shown as references with no verse words`
-              : "references it does not carry would be shown as references with no verse words"}
-            .
+              ? `; the ${plural(found.counts.referenceOnly, "{n} reference", "{n} references")} the Berean text does not carry are shown as references with no verse words.`
+              : "; the references it does not carry would be shown as references with no verse words."}
           </p>
         </footer>
       </div>

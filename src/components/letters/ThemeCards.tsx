@@ -6,6 +6,7 @@ import { formatRange } from "@/lib/refs";
 import type { LettersOverview } from "@/data/letters/types";
 import { CiteMarks } from "./LetterParts";
 import { LETTER_TONE } from "./letter-hooks";
+import { formatNumber } from "@/lib/site-format";
 
 // An icon for each theme, chosen from words in its title; a book for anything unmatched.
 const ICONS: [RegExp, LucideIcon][] = [
@@ -30,7 +31,7 @@ export function ThemeCards({ themes, letterName, openLetter }: { themes: Letters
         <button type="button" className="lg-theme-head" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : theme.title)}>
           <span className="lg-theme-icon"><Icon size={22} strokeWidth={1.5} aria-hidden="true" /></span>
           <span className="lg-theme-title">{theme.title}</span>
-          <span className="lg-theme-count">{theme.letters.length} letters · {theme.claim.refs?.length ?? 0} passages</span>
+          <span className="lg-theme-count">{`${formatNumber(theme.letters.length)} letters · ${formatNumber(theme.claim.refs?.length ?? 0)} passages`}</span>
           {!expanded && <span className="lg-theme-teaser">{theme.claim.text}</span>}
         </button>
         {expanded && <ThemeDetail theme={theme} letterName={letterName} openLetter={openLetter} />}
@@ -53,7 +54,7 @@ function ThemeDetail({ theme, letterName, openLetter }: { theme: LettersOverview
       <div className="lg-theme-verses">{(all ? refs : refs.slice(0, SHOWN_VERSES)).map((span) => <figure key={span.join("-")}>
         <figcaption>{formatRange(catalog, span[0], span[1])}</figcaption><PassageText span={span} max={5} />
       </figure>)}</div>
-      {refs.length > SHOWN_VERSES && !all && <button type="button" className="lg-tab" style={{ marginTop: ".75rem" }} onClick={() => setAll(true)}>Show all {refs.length} passages</button>}
+      {refs.length > SHOWN_VERSES && !all && <button type="button" className="lg-tab" style={{ marginTop: ".75rem" }} onClick={() => setAll(true)}>{`Show all ${formatNumber(refs.length)} passages`}</button>}
     </>}
   </div>;
 }

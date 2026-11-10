@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { lifeLabel } from "../../shared/people";
 import { cssVars, toneOf } from "../drawer/helpers";
 import { RESULTS_SHOWN, type SearchHit } from "./content";
+import { formatNumber } from "@/lib/site-format";
 
 interface LandingSearchProps {
   query: string;
@@ -61,8 +62,8 @@ export function LandingSearch({ query, onQuery, hits, onHot, onOpen }: LandingSe
           <ArrowRight size={14} strokeWidth={1.5} aria-hidden />
         </button>
       </li>)}
-      {hits.length > RESULTS_SHOWN && <li className="lnd-more">{hits.length - RESULTS_SHOWN} more lit on the arc below</li>}
-      {!hits.length && <li className="lnd-more">No teacher or town matches “{typed}”.</li>}
+      {hits.length > RESULTS_SHOWN && <li className="lnd-more">{`${formatNumber(hits.length - RESULTS_SHOWN)} more lit on the arc below`}</li>}
+      {!hits.length && <li className="lnd-more">{`No teacher or town matches “${typed}”.`}</li>}
     </ul>
   </div>;
 }

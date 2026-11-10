@@ -48,7 +48,7 @@ function Picture({ index, r }: { index: MsIndex; r: MsRecord }) {
 function Facts({ index, r }: { index: MsIndex; r: MsRecord }) {
   const k = kindOf(r.k), rows: [string, ReactNode][] = [];
   rows.push(["Date", r.d ? <>{r.d}<small>{BASIS[r.db ?? ""] ?? ""}{r.dw ? ` (the source says “${r.dw}”)` : ""}</small>{r.why && <small className="ms-fix">{r.why}</small>}</>
-    : <span className="muted">Not given in the open record{r.dr ? ` (it says “${r.dr}”)` : ""}</span>]);
+    : <span className="muted">{r.dr ? `Not given in the open record (it says “${r.dr}”)` : "Not given in the open record"}</span>]);
   if (r.m) rows.push(["Material", capital(r.m)]);
   if (r.sc || r.la) rows.push(["Writing", [r.la, r.sc].filter(Boolean).join(", ")]);
   const bt = booksText(index, r);
@@ -56,9 +56,9 @@ function Facts({ index, r }: { index: MsIndex; r: MsRecord }) {
   rows.push(["Contents", bt ? <>{capital(bt)}<small>{BOOK_SOURCE[r.bs ?? ""] ?? ""}</small>{r.bwhy && <small className="ms-fix">{r.bwhy}</small>}{said}</>
     : r.lect ? <>Readings for the church year{said}</> : <span className="muted">Not itemised in the open record</span>]);
   if (r.ch) rows.push(["Chapters", Object.entries(r.ch).map(([b, list]) => `${index.data.books[Number(b)].name} ${ranges(list)}`).join("; ")]);
-  if (r.f && r.x) rows.push(["Found", <>{r.f}<small>{plural(r.x[0], "{n} fragment", "{n} fragments")}, {plural(r.x[1], "{n} line", "{n} lines")} of transcribed text</small></>]);
+  if (r.f && r.x) rows.push(["Found", <>{r.f}<small>{`${plural(r.x[0], "{n} fragment", "{n} fragments")}, ${plural(r.x[1], "{n} line", "{n} lines")} of transcribed text`}</small></>]);
   const held = holderText(index, r);
-  rows.push(["Where it is now", held ? <>{held}{r.sh && <small>Shelfmark {r.sh}</small>}{r.h && r.hr && !held.includes(r.hr) && <small>The catalogue says: “{r.hr}”</small>}</>
+  rows.push(["Where it is now", held ? <>{held}{r.sh && <small>{`Shelfmark ${r.sh}`}</small>}{r.h && r.hr && !held.includes(r.hr) && <small>The catalogue says: “{r.hr}”</small>}</>
     : <span className="muted">{r.src === "dss" ? "The scroll records do not name a holder" : "Not given in the open record"}</span>]);
   rows.push(["Kind", <>{k.label}{r.L.length > 1 && <small>Also counted with: {r.L.filter((x) => x !== r.k).map((x) => kindOf(x).label).join(", ")}</small>}</>]);
   return <dl className="ms-facts">{rows.map(([t, d]) => <div key={t}><dt>{t}</dt><dd>{d}</dd></div>)}</dl>;
@@ -67,7 +67,7 @@ function Facts({ index, r }: { index: MsIndex; r: MsRecord }) {
 function Sources({ r }: { r: MsRecord }) {
   if (r.src === "dss") return <p className="ms-src">Record: ETCBC Dead Sea Scrolls, transcriptions by Martin G. Abegg, Jr., James E. Bowley and Edward M. Cook; Text-Fabric conversion by Jarod Jacobs, Martijn Naaijer and Dirk Roorda. CC BY-NC 4.0, non-commercial. <a href="https://github.com/ETCBC/dss" {...ext}>github.com/ETCBC/dss</a>{r.ds && <>. Date: {DSS_DATE[r.ds]}{(r.dn ?? 0) > 1 ? plural(r.dn ?? 0, ", chosen from {n} dated claim", ", chosen from {n} dated claims") : ""}</>}</p>;
   if (r.src === "syr") return <p className="ms-src">Record: <a href={r.su} {...ext}>Syriaca.org</a>, The Syriac Reference Portal, from William Wright's catalogue of the British Museum's Syriac manuscripts. CC BY 3.0.</p>;
-  return <p className="ms-src">Record: <a href={`https://www.wikidata.org/wiki/${encodeURIComponent(r.i)}`} {...ext}>Wikidata {r.i}</a> (CC0){r.wp && <>, with details from the English Wikipedia article <a href={`https://en.wikipedia.org/w/index.php?oldid=${encodeURIComponent(String(r.wr ?? ""))}`} {...ext}>{r.wp}</a> (CC BY-SA 4.0)</>}.</p>;
+  return <p className="ms-src">Record: <a href={`https://www.wikidata.org/wiki/${encodeURIComponent(r.i)}`} {...ext}>{`Wikidata ${r.i}`}</a> (CC0){r.wp && <>, with details from the English Wikipedia article <a href={`https://en.wikipedia.org/w/index.php?oldid=${encodeURIComponent(String(r.wr ?? ""))}`} {...ext}>{r.wp}</a> (CC BY-SA 4.0)</>}.</p>;
 }
 
 /** The record sheet for `record`; `open` slides it in. Escape or a click outside closes it (a click on another [data-open]

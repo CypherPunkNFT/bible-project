@@ -15,7 +15,7 @@ import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartL
 import type { Progress } from "./progress";
 import "./parent-guide.css";
 import "./course-heads.css";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** What a version of the section's top is given (the page's own below; the mock-up's four, CourseHeads.tsx). */
 export interface CourseHeadProps {
@@ -60,7 +60,7 @@ export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick,
     <div className="ch-list">
       <ol>{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
         <button type="button" aria-current={part.id === here?.id ? "true" : undefined} onClick={() => onPick(part.id === here?.id && current ? current : ls[0])}><i aria-hidden /><span className="ch-part"><strong>{part.title}</strong>
-          <small>{ls.length} lessons · {ls.reduce((n, l) => n + l.questions.length, 0)} questions</small></span><ArrowDown size={15} aria-hidden /></button>
+          <small>{`${plural(ls.length, "{n} lesson", "{n} lessons")} · ${plural(ls.reduce((n, l) => n + l.questions.length, 0), "{n} question", "{n} questions")}`}</small></span><ArrowDown size={15} aria-hidden /></button>
       </li>)}</ol>
     </div>
   </header>;
@@ -86,7 +86,7 @@ export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick,
     <ol className="pg-parts">{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
       <button type="button" onClick={() => onPick(ls[0])}>
         <span className="pg-part-art"><PartArt part={part} /></span>
-        <strong>{part.title}</strong><small>{ls.length} lessons</small>
+        <strong>{part.title}</strong><small>{plural(ls.length, "{n} lesson", "{n} lessons")}</small>
       </button>
     </li>)}</ol>
   </header>;
@@ -153,13 +153,13 @@ function Sheet({ lesson, bookNames, progress, onStart }: { lesson: Lesson; bookN
   const done = progress[lesson.id];
   return <article>
     <header className="pg-sheet-head">
-      <p className="ck-eyebrow">{lesson.part.title} · Lesson {lesson.n}</p>
+      <p className="ck-eyebrow">{`${lesson.part.title} · Lesson ${formatNumber(lesson.n)}`}</p>
       <h3>{lesson.title}</h3>
       <p className="pg-read">
         <span>{lesson.passage
           ? <>Read <Link to={readerUrl(lesson.passage.book, lesson.passage.from)}>{passageLabel(lesson.passage, bookNames)}</Link> together first, then {lesson.questions.length} questions.</>
-          : <>{lesson.questions.length} questions and answers to learn together.</>}</span>
-        {done && <span className="pg-done"><Check size={14} strokeWidth={2.2} aria-hidden />Done: {done.right} of {done.total} right</span>}
+          : plural(lesson.questions.length, "{n} question and answer to learn together.", "{n} questions and answers to learn together.")}</span>
+        {done && <span className="pg-done"><Check size={14} strokeWidth={2.2} aria-hidden />{`Done: ${formatNumber(done.right)} of ${formatNumber(done.total)} right`}</span>}
       </p>
       {onStart && <button type="button" className="ck-go" onClick={() => onStart(lesson)}>Start with your child<ArrowUp size={18} aria-hidden /></button>}
     </header>

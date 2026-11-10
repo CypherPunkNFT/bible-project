@@ -13,7 +13,7 @@ import "./test-options.css";
 
 export default function QuestionsTestPage() {
   const { bank, failed } = useQuestionBank();
-  if (failed) return <p className="tp-status" role="alert">The questions could not be loaded: {failed}</p>;
+  if (failed) return <p className="tp-status" role="alert">The questions could not be loaded: <span>{failed}</span></p>;
   if (!bank) return <p className="tp-status">Loading the questions…</p>;
   return <TestBody bank={bank} />;
 }

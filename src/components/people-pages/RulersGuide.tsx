@@ -15,6 +15,18 @@ import { readyKey } from "./usePeoplePageSlide";
 import "./people-pages.css";
 import "./people-guides.css";
 
+// The preview's button written whole for each page heading, so the page translator finds the line (a heading
+// lower-cased into a line is not filled in).
+const OPEN_HEADING: Record<string, string> = {
+  "The reign": "Open the reign",
+  "Her time as queen": "Open her time as queen", "His time as queen": "Open his time as queen",
+  "Her time as judge": "Open her time as judge", "His time as judge": "Open his time as judge",
+  "Her time as leader": "Open her time as leader", "His time as leader": "Open his time as leader",
+  "Her governorship": "Open her governorship", "His governorship": "Open his governorship",
+  "Her rule": "Open her rule", "His rule": "Open his rule",
+};
+const openHeading = (heading: string) => OPEN_HEADING[heading] ?? `Open ${heading.replace(/^The /, "the ").replace(/^(His|Her) /, (w) => w.toLowerCase())}`;
+
 type FilterId = "all" | "judges" | "united" | "israel" | "judah" | "women" | "foreign" | "governors" | "rome";
 const FILTERS: { id: FilterId; label: string; test: (r: RulerSummary) => boolean }[] = [
   { id: "all", label: "All", test: () => true },
@@ -88,7 +100,7 @@ function RulerPreview({ ruler, order, era, onStep }: { ruler: RulerSummary; orde
       <h3>{ruler.name}</h3>
       <p className="rg-preview-verdict"><span aria-hidden>{VERDICT[ruler.verdictTone].symbol} </span>{ruler.verdict ? `“${ruler.verdict}”` : VERDICT[ruler.verdictTone].label}</p>
       <p className="rg-preview-when">{ruler.reignText}{ruler.dates ? ` · ${formatYears(ruler.dates.from, ruler.dates.to, ruler.dates.approx)}` : " · no years of its own"}{ruler.prophets.length ? ` · prophets: ${ruler.prophets.join(", ")}` : ""}</p>
-      <SlideLink to={rulerHref(ruler.id)} state={cameFrom("Rulers through time")} className="rg-button">Open {pageHeading(ruler, ruler.sex).replace(/^The /, "the ").replace(/^(His|Her) /, (w) => w.toLowerCase())} <ArrowUpRight size={15} aria-hidden /></SlideLink>
+      <SlideLink to={rulerHref(ruler.id)} state={cameFrom("Rulers through time")} className="rg-button">{openHeading(pageHeading(ruler, ruler.sex))} <ArrowUpRight size={15} aria-hidden /></SlideLink>
     </div>
     <div className="rg-step">
       <button type="button" onClick={() => step(-1)} aria-label="Previous ruler in time"><ArrowLeft size={18} /></button>

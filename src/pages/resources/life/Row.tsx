@@ -7,13 +7,18 @@ import type { Contact, Help } from "@/data/resources";
 import { firstSentence, hostOf, hrefOf, quickActions, restOf, sameUrl, subtitle, tone, WAY_WORD, wayOf, type Way } from "./format";
 
 const STROKE = 1.6;
+/** A line of labels joined by " · " ("Southern Baptist Convention  ·  21.2 mi N of city hall", "Website · BSF group finder"),
+ * as one text node per label and per separator. Joined in one node, the page translator fitted the whole line into one
+ * label's line with a slot ("{n} mi N of city hall", "{n} group finder"), which put the other label inside it: "a
+ * Southern Baptist Convention · 21.2 mi al N del ayuntamiento" (sequence 29's joined-sentence review). */
+const pieces = (line: string) => line.split(/(\s+·\s+)/);
 const ICONS: Record<Way, LucideIcon> = { call: Phone, text: MessageSquareText, chat: MessageCircle, web: Globe, email: Mail, other: Globe };
 
 export function ContactLink({ contact }: { contact: Contact }) {
   const way = wayOf(contact.kind), href = hrefOf(contact), Icon = ICONS[way];
   const shown = /^https?:\/\//.test(contact.value) ? hostOf(contact.value) : contact.value;
   const words = [WAY_WORD[way], contact.note].filter(Boolean).join(" · ");
-  const body = <><Icon size={18} strokeWidth={STROKE} aria-hidden="true" /><strong>{shown}</strong>{words && <small>{words}</small>}</>;
+  const body = <><Icon size={18} strokeWidth={STROKE} aria-hidden="true" /><strong>{shown}</strong>{words && <small>{pieces(words)}</small>}</>;
   if (!href) return <p className="lf-contact">{body}</p>;
   const external = href.startsWith("http");
   return <a className="lf-contact" data-way={way} href={href} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>{body}</a>;
@@ -44,7 +49,7 @@ function Detail({ entry: e, address }: { entry: Help & { address?: string }; add
       {e.contact.map((c) => <ContactLink key={`${c.kind}-${c.value}-${c.note ?? ""}`} contact={c} />)}
       {e.locator && !e.contact.some((c) => sameUrl(c.value, e.locator!)) && <ContactLink contact={{ kind: "web", value: e.locator, note: "Find local help" }} />}
     </div>
-    <p className="lf-checked">Checked {e.checked} on <a href={e.source} target="_blank" rel="noreferrer">{hostOf(e.source)}</a>{e.faith === true && <> · <span className="lf-faith">Faith-based</span></>}</p>
+    <p className="lf-checked">{`Checked ${e.checked} on `}<a href={e.source} target="_blank" rel="noreferrer">{hostOf(e.source)}</a>{e.faith === true && <> · <span className="lf-faith">Faith-based</span></>}</p>
   </div>;
 }
 
@@ -82,7 +87,7 @@ export const LifeRow = memo(function LifeRow({ entry: e, kind, open, onToggle, q
     <button type="button" className={n != null ? "lf-row-head lf-row-head-n" : "lf-row-head"} aria-expanded={open} onClick={() => onToggle(e.id)}>
       {n != null && <b className="lf-num" aria-hidden="true">{n}</b>}
       <span className="lf-name">{e.name}</span>
-      <span className="lf-sub">{sub ?? subtitle(e)}</span>
+      <span className="lf-sub">{pieces(sub ?? subtitle(e))}</span>
       <span className="lf-sum">{firstSentence(e.summary)}</span>
       <span className="lf-cost" data-none={e.cost ? undefined : ""}>{e.cost ? <b>{e.cost}</b> : "Cost not stated on its page"}{e.faith === true && <i className="lf-faith">Faith-based</i>}</span>
       {layout === "stack" && chev}

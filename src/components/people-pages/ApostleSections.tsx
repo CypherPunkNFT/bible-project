@@ -31,7 +31,7 @@ export function CallingScene({ apostle }: { apostle: Apostle }) {
     </div>}
     <QuoteText quote={call.quote} />
     {call.claim && <div style={{ marginTop: ".75rem" }}><EvidenceClaim claim={call.claim} as="div" /></div>}
-    {section && <Link className="pp-link" style={{ marginTop: ".75rem" }} to={harmonyHref(section.n)}>In the Gospel harmony: {section.title} <ArrowUpRight size={14} aria-hidden /></Link>}
+    {section && <Link className="pp-link" style={{ marginTop: ".75rem" }} to={harmonyHref(section.n)}>{`In the Gospel harmony: ${section.title}`} <ArrowUpRight size={14} aria-hidden /></Link>}
   </Section>;
 }
 
@@ -103,12 +103,12 @@ export function StoryEnding({ apostle, their = "his" }: { apostle: Pick<Apostle,
     <div className="pp-ending">
       <section className="pp-ending-scripture" aria-label="Scripture says">
         <p className="pp-label">Scripture says</p>
-        {scripture.length ? <ClaimList claims={scripture} /> : <p className="lg-muted">Scripture does not record how {their} life ended.</p>}
+        {scripture.length ? <ClaimList claims={scripture} /> : <p className="lg-muted">{their === "their" ? "Scripture does not record how their life ended." : their === "her" ? "Scripture does not record how her life ended." : "Scripture does not record how his life ended."}</p>}
       </section>
       <section className="pp-ending-tradition" aria-label="Tradition says">
         <p className="pp-label">Tradition says</p>
         {tradition.length ? <ul className="pp-claims">{tradition.map((t, i) => <li key={i}>
-          <EvidenceClaim claim={{ ...t, who: undefined }} as="div" plain /><span className="pp-who">Who says so: {t.who}, {t.when}</span>
+          <EvidenceClaim claim={{ ...t, who: undefined }} as="div" plain /><span className="pp-who">{`Who says so: ${t.who}, ${t.when}`}</span>
         </li>)}</ul> : <p className="lg-muted">No tradition is recorded here.</p>}
       </section>
     </div>

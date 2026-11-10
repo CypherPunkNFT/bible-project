@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SectionHead } from "@/pages/study/manuscripts/parts";
 import { CN, D } from "./model";
 import { Cite } from "./parts";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const T = D.traditions;
 const COUNTS = [["Samuel, Kings, Chronicles, Ezra–Nehemiah", "4 → 8"], ["The Twelve Prophets", "1 → 12"], ["Other books", "19 → 19"], ["Total in these counting conventions", "24 → 39"]] as const;
@@ -25,7 +26,7 @@ export function Compare({ num }: { num: string }) {
       lead="Choose two named sources. These are selected writings, not exhaustive inventories. Read each source’s scope before comparing its entries." />
     <div className="cc-body"><div className="cc-pickers"><Picker side="left" label="First collection" t={a} onPick={setLeft} /><Picker side="right" label="Second collection" t={b} onPick={setRight} /></div>
       {a.id === b.id && <p className="cc-same" role="status">You are viewing the same source on both sides. Choose a different source to compare.</p>}
-      <div className="cc-table-wrap" tabIndex={0} role="region" aria-label="Selected writings comparison; scroll horizontally on small screens"><table className="cc-table"><caption>Selected writings · {a.name} and {b.name}</caption>
+      <div className="cc-table-wrap" tabIndex={0} role="region" aria-label="Selected writings comparison; scroll horizontally on small screens"><table className="cc-table"><caption>{`Selected writings · ${a.name} and ${b.name}`}</caption>
         <thead><tr><th scope="col">Writing / collection</th><th scope="col">{a.name}</th><th scope="col">{b.name}</th></tr></thead>
         <tbody>{D.comparisonRows.map((row, i) => <tr key={row}><th scope="row">{row}</th><td>{a.states[i]}</td><td>{b.states[i]}</td></tr>)}</tbody></table></div>
       <p className="cn-caption">“Not specified” and “not individually named” describe this source’s limits, not a church’s rejection. “Greek portions” refers to material in Greek forms of Esther and Daniel beyond their Hebrew/Aramaic forms. No color marks one collection as correct.</p></div>
@@ -46,7 +47,7 @@ export function Practice({ num }: { num: string }) {
   };
   return <div className="cq"><div><p className="kicker"><span className="ms-num">{num}</span><span className="ms-dot" aria-hidden="true">·</span>Try the historical reasoning</p>
     <h2>How far can <em>this evidence take you?</em></h2><p>Choose the conclusion the source supports.</p></div>
-    <div className="cq-card" ref={card}><p className="kicker">Question {question + 1} of {CN.questions.length}</p><h3>{q.prompt}</h3>
+    <div className="cq-card" ref={card}><p className="kicker">{`Question ${formatNumber(question + 1)} of ${formatNumber(CN.questions.length)}`}</p><h3>{q.prompt}</h3>
       <div className="cq-answers" role="group" aria-label="Choose a conclusion">{q.answers.map((text, i) => <button key={text} type="button" data-a={i} aria-pressed={answer === i}
         className={answer !== null && i === q.correct ? "cq-right" : ""} onClick={() => setAnswer(i)}><span>{"ABC"[i]}</span>{text}</button>)}</div>
       <div className="cq-feedback" aria-live="polite">{answer !== null && <><strong>{answer === q.correct ? "That is the supported conclusion." : "That goes beyond what this evidence establishes."}</strong>
@@ -58,7 +59,7 @@ export function Practice({ num }: { num: string }) {
 export function Sources({ num }: { num: string }) {
   return <>
     <SectionHead num={num} kicker="Keep the sources" title={<>Keep the sources <em>in the conversation</em></>} lead="The links beside each record lead to the evidence. This directory records what was actually consulted." />
-    <details className="cs-list"><summary>Sources &amp; access notes · {D.sources.length} records</summary><div className="cs-grid">{D.sources.map((s) =>
+    <details className="cs-list"><summary>{`Sources & access notes · ${plural(D.sources.length, "{n} record", "{n} records")}`}</summary><div className="cs-grid">{D.sources.map((s) =>
       <div key={s.id}><a href={s.url} target="_blank" rel="noopener">{s.title}<span aria-hidden="true"> ↗</span></a><p>{s.access}.</p></div>)}</div></details>
     <div className="cs-guide"><h3>Follow the arguments, not just the bibliography.</h3>{D.scholarshipGuide.map((w) => <div key={w.question} className="cs-row"><h4>{w.question}</h4>
       <div><strong>{w.work}</strong><p>{w.contribution}</p><small>{w.access}</small><Cite ids={w.sourceIds} /></div></div>)}

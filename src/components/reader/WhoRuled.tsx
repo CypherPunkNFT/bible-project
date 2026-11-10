@@ -10,7 +10,7 @@ import { useAsync } from "@/lib/useAsync";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { chapterWho, isEmpty, loadWhoRuled, reignWords, reignYears, verseRuns, type ChapterWho, type Reason, type Span, type Statement, type WhoItem } from "@/lib/who-ruled";
 import "./who-ruled.css";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const CARD_ID = "who-ruled-when";
 const STRIP_RULERS = 4;
@@ -262,9 +262,9 @@ function Person({ item, ref_, verseHref, prophet = false }: { item: WhoItem; ref
             <ScrollText aria-hidden />
             <span>
               <Link className="wr-ref" to={item.href}>
-                {plural(prophetsOfReign, "The prophet", "{n} prophets")} of {reignWords(item.ruler)}
+                {`${plural(prophetsOfReign, "The prophet", "{n} prophets")} of ${reignWords(item.ruler)}`}
               </Link>{" "}
-              on {item.ruler!.sex === "F" ? "her" : "his"} page
+              {item.ruler!.sex === "F" ? "on her page" : "on his page"}
             </span>
           </li>
         ) : null}
@@ -295,7 +295,7 @@ function ReasonLine({ reason, item, ref_, verseHref }: { reason: Reason; item: W
         <>
           <TextQuote aria-hidden />
           <span>
-            Named in {plural(reason.verses.length, "verse", "verses")}{" "}
+            {plural(reason.verses.length, "Named in verse", "Named in verses")}{" "}
             {runs.slice(0, SHOWN_RUNS).map(([a, b], i) => (
               <span key={a}>
                 {i > 0 && ", "}
@@ -304,7 +304,7 @@ function ReasonLine({ reason, item, ref_, verseHref }: { reason: Reason; item: W
                 </Link>
               </span>
             ))}
-            {runs.length > SHOWN_RUNS && <span className="text-muted"> and {runs.length - SHOWN_RUNS} more</span>}
+            {runs.length > SHOWN_RUNS && <span className="text-muted">{` and ${formatNumber(runs.length - SHOWN_RUNS)} more`}</span>}
           </span>
         </>
       );
@@ -314,7 +314,7 @@ function ReasonLine({ reason, item, ref_, verseHref }: { reason: Reason; item: W
         <>
           <Hourglass aria-hidden />
           <span>
-            This chapter falls within Scripture's account of {reignWords(item.ruler)} ({ref_(reason.span)})
+            {`This chapter falls within Scripture's account of ${reignWords(item.ruler)}`} ({ref_(reason.span)})
           </span>
         </>
       );

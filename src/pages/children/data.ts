@@ -32,7 +32,13 @@ const CATECHISM_SET = 8;
 const EGYPT = new Set(["EXO", "LEV", "NUM", "DEU", "JOS"]);
 const KINGS = new Set(["JDG", "RUT", "1SA", "2SA", "1KI", "1CH", "2CH"]);
 const GOSPELS = new Set(["MAT", "MRK", "LUK", "JHN"]);
-const CROSS = /supper|garden|trial|cross|crucif|died|death of jesus|risen|rose|tomb|easter|resurrection/i;
+/** The chapters of each gospel from the Last Supper to the empty tomb: a lesson whose questions all fall in them is a
+ * "cross" lesson. Read from the passage, not the title, so it holds in every language (on a translated page the titles
+ * are translated, and English title words matched none of them, so the cross lessons fell in with Jesus's life). */
+const PASSION: Record<string, [number, number]> = { MAT: [26, 28], MRK: [14, 16], LUK: [22, 24], JHN: [18, 20] };
+/** The lesson's number before its title, in each language the bank is in: "Lesson I", "Lección I.", "Lição II:",
+ * "पाठ III", "Pelajaran IV", "第一课", "الدرس الأول:". The page shows the number on its own. */
+const LESSON_NUMBER = /^(?:(?:[\p{L}\p{M}]+\s+)?[IVXLC]+\b[.:]?|第[^课\s]*课[：:]?|الدرس\s[^:：(]+(?:[:：]|(?=\()))\s*/u;
 
 /** The book most of a lesson's questions point to. */
 function mainBook(questions: TestQuestion[]): string | null {
@@ -41,14 +47,18 @@ function mainBook(questions: TestQuestion[]): string | null {
   return [...counts].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 }
 
-function partOf(title: string, book: string | null, testament: "OT" | "NT"): Part {
+function partOf(passage: Passage | null, book: string | null, testament: "OT" | "NT"): Part {
   if (testament === "OT") {
     if (book === "GEN") return partById("beginnings");
     if (book && EGYPT.has(book)) return partById("egypt");
     if (book && KINGS.has(book)) return partById("kings");
     return partById("prophets");
   }
-  if (book && GOSPELS.has(book)) return partById(CROSS.test(title) ? "cross" : "jesus");
+  if (book && GOSPELS.has(book)) {
+    const passion = PASSION[book];
+    const cross = !!passage && !!passion && passage.from >= passion[0] && passage.to <= passion[1];
+    return partById(cross ? "cross" : "jesus");
+  }
   return partById("church");
 }
 
@@ -70,10 +80,11 @@ export function buildLessons(bank: QuestionBank): Lesson[] {
   for (const q of questions) if (q.collection === HURLBUT && q.lesson) byLesson.set(q.lesson, [...(byLesson.get(q.lesson) ?? []), q]);
   let testament: "OT" | "NT" = "OT";
   const stories = [...byLesson].map(([name, qs], index): Lesson => {
-    const title = name.replace(/^Lesson\s+[IVXLC]+\.?\s*/i, "").replace(/\.$/, "");
+    const title = name.replace(LESSON_NUMBER, "").replace(/[.。।]$/u, "");
     const book = mainBook(qs);
     if (book && GOSPELS.has(book)) testament = "NT";
-    return { id: `hurlbut-${index + 1}`, n: index + 1, title, part: partOf(title, book, testament), questions: qs, passage: passageOf(qs, book) };
+    const passage = passageOf(qs, book);
+    return { id: `hurlbut-${index + 1}`, n: index + 1, title, part: partOf(passage, book, testament), questions: qs, passage };
   });
   const catechism = questions.filter((q) => q.collection === CATECHISM);
   // Sets of about eight, the remainder spread over them, so none is left with one or two questions.

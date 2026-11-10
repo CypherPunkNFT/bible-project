@@ -71,7 +71,7 @@ function Article({ paragraphs }: { paragraphs: ArticleParagraph[] }) {
       {(all ? paragraphs : paragraphs.slice(0, ARTICLE_SHOWN)).map((paragraph, i) => (
         <p key={i}>{paragraph.map((part, j) => typeof part === "string" ? <Fragment key={j}>{part}</Fragment> : <RefLink key={j} span={[part[0], part[1]]} label={part[2]} />)}</p>
       ))}
-      {!all && <button type="button" onClick={() => setAll(true)} style={{ color: "var(--topics-color)" }}>Read the whole article ({paragraphs.length} paragraphs) <ChevronDown size={14} aria-hidden /></button>}
+      {!all && <button type="button" onClick={() => setAll(true)} style={{ color: "var(--topics-color)" }}>{plural(paragraphs.length, "Read the whole article ({n} paragraph)", "Read the whole article ({n} paragraphs)")} <ChevronDown size={14} aria-hidden /></button>}
     </div>
   );
 }
@@ -88,8 +88,8 @@ function Elsewhere({ title }: { title: string }) {
     <section aria-labelledby="topic-elsewhere" className="mt-10">
       <div className="topics-section-heading"><h2 id="topic-elsewhere">Elsewhere in the Bible Guide</h2><span>The same name in People and the Atlas</span></div>
       <ul className="topics-group-grid">
-        {persons.slice(0, 8).map((p) => <li key={p.id}><Link to={`/study/people/${p.id}`} className="topics-compact-card"><Network size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.n}</strong><small>{p.b} · family and passages</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
-        {spots.slice(0, 4).map((p) => <li key={p.id}><Link to={`/study/atlas/map?place=${p.id}`} className="topics-compact-card"><MapPin size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.name}</strong><small>{p.type} · on the atlas map</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
+        {persons.slice(0, 8).map((p) => <li key={p.id}><Link to={`/study/people/${p.id}`} className="topics-compact-card"><Network size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.n}</strong><small>{`${p.b} · family and passages`}</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
+        {spots.slice(0, 4).map((p) => <li key={p.id}><Link to={`/study/atlas/map?place=${p.id}`} className="topics-compact-card"><MapPin size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.name}</strong><small>{`${p.type} · on the atlas map`}</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
       </ul>
     </section>
   );
@@ -150,10 +150,10 @@ export function TopicPage({ index }: { index: TopicIndex }) {
             {place && <><ChevronRight size={12} aria-hidden /><Link to={categoryUrl(place.category.id)}>{place.category.title}</Link><ChevronRight size={12} aria-hidden /><Link to={categoryUrl(place.category.id, place.subcategory.id)}>{place.subcategory.title}</Link></>}
           </nav>
           <h1 className="flex items-center gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl text-white" style={{ background: "var(--topics-color)" }}><Icon size={24} aria-hidden /></span>{t.title}</h1>
-          <p>{t.points.length + nave.length ? `${pointsAndPassages(t.points.length + nave.length, verseCount)} · ` : ""}from {sourcesLine(t)}</p>
+          <p>{t.points.length + nave.length ? `${pointsAndPassages(t.points.length + nave.length, verseCount)} · from ${sourcesLine(t)}` : `from ${sourcesLine(t)}`}</p>
           {(t.book || t.parent) && <p className="topics-topic-actions">
-            {t.book && <Link to={`/read/kjv/${t.book}/1`} className="topics-read-book"><BookOpen size={16} aria-hidden />Read {t.title.replace(/^The Book of /, "")}<ArrowRight size={15} aria-hidden /></Link>}
-            {t.parent && index.topics[t.parent] && <Link to={topicUrl(t.parent)} className="topics-parent-link"><ListTree size={15} aria-hidden />Part of {index.topics[t.parent].title}</Link>}
+            {t.book && <Link to={`/read/kjv/${t.book}/1`} className="topics-read-book"><BookOpen size={16} aria-hidden />{`Read ${t.title.replace(/^The Book of /, "")}`}<ArrowRight size={15} aria-hidden /></Link>}
+            {t.parent && index.topics[t.parent] && <Link to={topicUrl(t.parent)} className="topics-parent-link"><ListTree size={15} aria-hidden />{`Part of ${index.topics[t.parent].title}`}</Link>}
           </p>}
         </div>
         {place && <TopicsArtwork kind={place.category.id} words={familyWords(place.category, index)} />}
@@ -168,7 +168,7 @@ export function TopicPage({ index }: { index: TopicIndex }) {
 
       {t.parts && t.parts.length > 0 && (
         <section aria-labelledby="topic-parts" className="mb-10">
-          <div className="topics-section-heading"><h2 id="topic-parts" className="flex items-center gap-2"><ListTree size={18} aria-hidden style={{ color: "var(--topics-color)" }} />In this topic</h2><span>{t.parts.length} topics of their own</span></div>
+          <div className="topics-section-heading"><h2 id="topic-parts" className="flex items-center gap-2"><ListTree size={18} aria-hidden style={{ color: "var(--topics-color)" }} />In this topic</h2><span>{plural(t.parts.length, "{n} topic of its own", "{n} topics of their own")}</span></div>
           <ul className="topics-topic-grid !mt-0">
             {t.parts.map((part) => { const other = index.topics[part]; return other && <li key={part}><Link to={topicUrl(part)}><span><strong>{other.title}</strong><small>{pointsAndPassages(other.points, other.refs)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>; })}
           </ul>
@@ -213,7 +213,7 @@ export function TopicPage({ index }: { index: TopicIndex }) {
 
       {place && neighbours.length > 0 && (
         <section aria-labelledby="topic-neighbours" className="mt-10">
-          <div className="topics-section-heading"><h2 id="topic-neighbours" className="flex items-center gap-2"><GroupIcon size={18} aria-hidden style={{ color: "var(--topics-color)" }} />More in {place.subcategory.title}</h2><Link to={categoryUrl(place.category.id, place.subcategory.id)} className="inline-flex items-center gap-1 text-xs" style={{ color: "var(--topics-color)" }}>{neighbours.length > NEIGHBOURS_SHOWN ? `All ${neighbours.length + 1} in ${place.subcategory.title}` : `All of ${place.category.title}`} <ArrowUpRight size={13} aria-hidden /></Link></div>
+          <div className="topics-section-heading"><h2 id="topic-neighbours" className="flex items-center gap-2"><GroupIcon size={18} aria-hidden style={{ color: "var(--topics-color)" }} />{`More in ${place.subcategory.title}`}</h2><Link to={categoryUrl(place.category.id, place.subcategory.id)} className="inline-flex items-center gap-1 text-xs" style={{ color: "var(--topics-color)" }}>{neighbours.length > NEIGHBOURS_SHOWN ? `All ${neighbours.length + 1} in ${place.subcategory.title}` : `All of ${place.category.title}`} <ArrowUpRight size={13} aria-hidden /></Link></div>
           <ul className="topics-topic-grid !mt-0">
             {neighbours.slice(0, NEIGHBOURS_SHOWN).map((n) => { const other = index.topics[n]; return other && <li key={n}><Link to={topicUrl(n)}><span><strong>{other.title}</strong><small>{pointsAndPassages(other.points, other.refs)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>; })}
           </ul>

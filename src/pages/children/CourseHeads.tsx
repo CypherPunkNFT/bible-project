@@ -52,7 +52,7 @@ function Preview({ lessons, total, expanded, onExpand, onPick, titleId, courseId
     <button type="button" className="ch-sheet" style={toneStyle(first.part.tone)} onClick={() => onPick(first)} aria-label={`Open the course at lesson ${first.n}, ${first.title}`}>
       <span className="ch-sheet-back" aria-hidden />
       <span className="ch-sheet-page">
-        <span className="ck-eyebrow">{first.part.title} · Lesson {first.n}</span>
+        <span className="ck-eyebrow">{`${first.part.title} · Lesson ${formatNumber(first.n)}`}</span>
         <strong>{first.title}</strong>
         {first.questions.slice(0, 3).map((q, i) => <span key={i} className="ch-sheet-q">
           <span className="ch-sheet-n">{i + 1}</span>
@@ -87,7 +87,7 @@ export function CourseHeadsPage(props: PageProps) {
       <nav aria-label="The versions">{VERSIONS.map(({ name }, i) => <a key={name} href={`#course-version-${i + 1}`}><span>{i + 1}</span>{name}</a>)}</nav>
     </header>
     {VERSIONS.map(({ name, note, Head }, i) => <div key={name} id={`course-version-${i + 1}`} className="chm-row">
-      <div className="ck-wrap chm-label"><span>Version {i + 1}</span><strong>{name}</strong><p>{note}</p></div>
+      <div className="ck-wrap chm-label"><span>{`Version ${formatNumber(i + 1)}`}</span><strong>{name}</strong><p>{note}</p></div>
       <Row {...props} Head={Head} />
     </div>)}
   </div>;

@@ -31,7 +31,7 @@ export default function ScholarWritingsPage() {
       <h1>{collection.name}</h1>
       <p className="sw-lead">Explore arguments for the Christian faith, the historical Jesus, and questions in philosophy and theology.</p>
       <ul className="sw-tags" aria-label="Subjects">{collection.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-      <p className="sw-stats"><strong>{collection.documents} PDFs</strong><span>{formatNumber(collection.pages)} pages</span><span>{collection.categories.length} source categories</span></p>
+      <p className="sw-stats"><strong>{plural(collection.documents, "{n} PDF", "{n} PDFs")}</strong><span>{plural(collection.pages, "{n} page", "{n} pages")}</span><span>{plural(collection.categories.length, "{n} source category", "{n} source categories")}</span></p>
       <p className="sw-note">Popular and scholarly writings from Reasonable Faith, catalogued 11 October 2026. Links open the publisher’s articles and original PDFs.</p>
       <a href={collection.biographyUrl} target="_blank" rel="noreferrer">About the author at Reasonable Faith ↗</a>
     </header>
@@ -41,11 +41,11 @@ export default function ScholarWritingsPage() {
         <label>Search titles and subjects<input type="search" value={query} onChange={e => change("q", e.target.value)} placeholder="Try resurrection, time, or God" /></label>
         <label>Source category<select value={category} onChange={e => change("category", e.target.value)}><option value="">All categories</option>{collection.categories.map(c => <option key={c}>{c}</option>)}</select></label>
       </div>
-      <p className="sw-result" role="status">{visible.length} of {collection.documents} writings{(query || category) && <button type="button" onClick={() => setParams({}, { replace: true })}>Clear filters</button>}</p>
+      <p className="sw-result" role="status">{`${formatNumber(visible.length)} of ${formatNumber(collection.documents)} writings`}{(query || category) && <button type="button" onClick={() => setParams({}, { replace: true })}>Clear filters</button>}</p>
       {!visible.length && <p className="sw-empty">No writings match these filters. Try another title or choose all categories.</p>}
       <ul className="sw-list">{visible.map(w => <li key={w.id}>
         <article><p className="sw-category">{w.categories.join(" · ")}</p><h3>{w.title}</h3><p className="sw-note">{w.pages} {plural(w.pages, "page", "pages")}</p>
-          <div className="sw-links"><a href={w.pdfUrl} target="_blank" rel="noreferrer" aria-label={`Open PDF: ${w.title}`}>Open PDF ↗</a>{w.articleUrls.map((url, i) => <a key={url} href={url} target="_blank" rel="noreferrer" aria-label={`Read source article: ${w.title}${i ? ` (${i + 1})` : ""}`}>Source article{i ? ` ${i + 1}` : ""} ↗</a>)}</div>
+          <div className="sw-links"><a href={w.pdfUrl} target="_blank" rel="noreferrer" aria-label={`Open PDF: ${w.title}`}>Open PDF ↗</a>{w.articleUrls.map((url, i) => <a key={url} href={url} target="_blank" rel="noreferrer" aria-label={`Read source article: ${w.title}${i ? ` (${i + 1})` : ""}`}>{i ? `Source article ${formatNumber(i + 1)} ↗` : "Source article ↗"}</a>)}</div>
         </article>
       </li>)}</ul>
     </section>

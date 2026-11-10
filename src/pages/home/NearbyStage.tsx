@@ -332,7 +332,7 @@ export function NearbyStage({ cities, words, checked }: { cities: Place[]; words
             : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
           <div className="hn-info">
             <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} words={words} />
-            <button type="button" className="hn-open" aria-busy={loading ? true : undefined} onClick={() => openCity(city.id)}>{loading ? <>Loading the map of {place}…<i aria-hidden /></> : <>Open the map of {place}<ArrowRight size={16} aria-hidden /></>}</button>
+            <button type="button" className="hn-open" aria-busy={loading ? true : undefined} onClick={() => openCity(city.id)}>{loading ? <>{`Loading the map of ${place}…`}<i aria-hidden /></> : <>{`Open the map of ${place}`}<ArrowRight size={16} aria-hidden /></>}</button>
           </div>
         </div>
       </div>
@@ -343,7 +343,7 @@ export function NearbyStage({ cities, words, checked }: { cities: Place[]; words
         </div>
         {cityMap}
       </div>}
-      {loading && <div ref={loader} className="hn-loading" role="status"><i aria-hidden /><span>Loading {loading}…</span></div>}
+      {loading && <div ref={loader} className="hn-loading" role="status"><i aria-hidden /><span>{`Loading ${loading}…`}</span></div>}
     </div>
     {mockup && <NearbyTicker />}
   </>;

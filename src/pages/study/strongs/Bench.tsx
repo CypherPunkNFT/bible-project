@@ -36,12 +36,12 @@ const MOVES: [string, string][] = [
 
 function Results({ number, verses }: { number: string; verses: Found[] }) {
   const [all, setAll] = useState(false);
-  if (!verses.length) return <p className="sn-readout">No King James tag for {number} in the 21 letters. It may still appear elsewhere in the New Testament; this tool reads only the letters.</p>;
+  if (!verses.length) return <p className="sn-readout">{`No King James tag for ${number} in the 21 letters. It may still appear elsewhere in the New Testament; this tool reads only the letters.`}</p>;
   const shown = all ? verses : verses.slice(0, 24);
   return <>
-    <p className="sn-readout"><b>{formatNumber(verses.length)}</b> {plural(verses.length, "verse", "verses")} in the 21 letters have a King James tag for {number}. Each link opens in the Berean, which has no tags, so read for the sense.</p>
+    <p className="sn-readout">{`${plural(verses.length, "{n} verse", "{n} verses")} in the 21 letters have a King James tag for ${number}. Each link opens in the Berean, which has no tags, so read for the sense.`}</p>
     <ul className="sn-found">{shown.map((v) => <li key={`${v.code}${v.chapter}:${v.verse}`}><Link to={readerHref(v.code, v.chapter, v.verse)}>{v.book} {v.chapter}:{v.verse}</Link></li>)}</ul>
-    {verses.length > shown.length && <button type="button" className="sn-more" onClick={() => setAll(true)}>Show all {verses.length} →</button>}
+    {verses.length > shown.length && <button type="button" className="sn-more" onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)} →`}</button>}
   </>;
 }
 
@@ -62,9 +62,9 @@ function Lookup() {
     <div className="sn-presets" role="group" aria-label="Try one of these">{["G26", "G1411", "G3056", "G5368"].map((id) => { const w = lemmaById.get(id); return <button key={id} type="button" aria-pressed={asked === id} onClick={() => ask(id)}>{id}{w && <> · <Lemma lang={w.lang}>{w.lemma}</Lemma></>}</button>; })}</div>
     <div aria-live="polite">
       {parsed.kind === "bad" && <p className="sn-readout">That is not a number. Try G26, or just 26.</p>}
-      {parsed.kind === "hebrew" && <p className="sn-readout">{parsed.id} is a Hebrew number. The letters are Greek, so this lookup has nothing to read for it.</p>}
-      {parsed.kind === "range" && <p className="sn-readout">Greek numbers run from 1 to 5624; {parsed.n} is outside them.</p>}
-      {parsed.kind === "unused" && <p className="sn-readout">{parsed.id} was never given to a word. Strong's Greek numbering skips 2717 and 3203 to 3302.</p>}
+      {parsed.kind === "hebrew" && <p className="sn-readout">{`${parsed.id} is a Hebrew number. The letters are Greek, so this lookup has nothing to read for it.`}</p>}
+      {parsed.kind === "range" && <p className="sn-readout">{`Greek numbers run from 1 to 5624; ${parsed.n} is outside them.`}</p>}
+      {parsed.kind === "unused" && <p className="sn-readout">{`${parsed.id} was never given to a word. Strong's Greek numbering skips 2717 and 3203 to 3302.`}</p>}
       {parsed.kind === "ok" && lookup.status === "loading" && <p className="sn-readout">Reading the 21 letters…</p>}
       {parsed.kind === "ok" && (lookup.status === "incomplete" || lookup.status === "timeout") && <p className="sn-readout">{failedLine} <button type="button" className="sn-more" onClick={() => setAttempt((n) => n + 1)}>Try again</button></p>}
       {parsed.kind === "ok" && lookup.status === "ready" && <Results key={parsed.id} number={parsed.id} verses={lookup.verses} />}

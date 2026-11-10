@@ -9,7 +9,7 @@ import type { Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { PassageText, RefLink } from "./StudyParts";
 import "./gospel-portraits.css";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const palette = (color: string) => ({ "--portrait-color": color }) as CSSProperties;
 
@@ -68,14 +68,14 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
                 return <g key={span.join("-")}><rect x={p.start * 1000} y="8" width={Math.max(2, (p.end - p.start) * 1000)} height="25" rx="2" className="portrait-highlight" /><path d={`M${(p.start + p.end) * 500} 1v36`} className="portrait-marker" /></g>;
               })}
             </svg>
-            <div className="portrait-ticks"><span>1:1</span><span>{formatNumber(book.verses)} verses</span><span>{chapters}:{book.chapters[chapters - 1][0]}</span></div>
+            <div className="portrait-ticks"><span>1:1</span><span>{plural(book.verses, "{n} verse", "{n} verses")}</span><span>{chapters}:{book.chapters[chapters - 1][0]}</span></div>
           </div>
         </div>;
       })}
       <figcaption id="portrait-map-method">Each line is a whole Gospel, scaled by its KJV verse count. The bright marks locate this entry; faint marks show other harmony passages. Position follows the written account, not elapsed time.</figcaption>
     </figure>
 
-    <div className="portrait-comparison-heading"><h4>Read the accounts in their setting</h4><span>KJV passages · {guide ? "Original reading notes" : "Robertson’s passage groupings"}</span></div>
+    <div className="portrait-comparison-heading"><h4>Read the accounts in their setting</h4><span>{guide ? "KJV passages · Original reading notes" : "KJV passages · Robertson’s passage groupings"}</span></div>
     <div className="portrait-accounts">
       {PORTRAIT_GOSPELS.map((gospel) => {
         const spans = selected.refs[gospel.key] ?? [];
@@ -85,7 +85,7 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
         const previous = index > 0 ? ordered[index - 1] : undefined;
         const following = index >= 0 ? ordered[index + 1] : undefined;
         return <section key={gospel.key} className="portrait-account" style={palette(gospel.color)} aria-label={`${gospel.name} account`}>
-          <header><h5>{gospel.name}</h5>{spans.length > 0 && <span>{passageVerseCount(spans, book)} verses</span>}</header>
+          <header><h5>{gospel.name}</h5>{spans.length > 0 && <span>{plural(passageVerseCount(spans, book), "{n} verse", "{n} verses")}</span>}</header>
           {spans.length ? <>
             {spans.map((span) => <div className="portrait-passage" key={span.join("-")}>
               <RefLink span={span} label={shortRange(span)} className="portrait-reference" />
@@ -97,23 +97,23 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
               {previous && <Neighbour label="Before" event={previous} spans={previous.refs[gospel.key]!} onPick={pick} />}
               {following && <Neighbour label="After" event={following} spans={following.refs[gospel.key]!} onPick={pick} />}
             </div>
-          </> : <div className="portrait-absent"><span aria-hidden>—</span><p>Robertson groups no passage from {gospel.name} with this entry.</p><p>This describes the harmony’s selection; it is not a claim that the Gospel has nothing related to say.</p></div>}
+          </> : <div className="portrait-absent"><span aria-hidden>—</span><p>{`Robertson groups no passage from ${gospel.name} with this entry.`}</p><p>This describes the harmony’s selection; it is not a claim that the Gospel has nothing related to say.</p></div>}
         </section>;
       })}
     </div>
 
     <section className="portrait-browser" aria-labelledby="portrait-browser-title">
-      <header><div><p className="portrait-eyebrow">Keep exploring</p><h4 id="portrait-browser-title">Explore {matchingPortraitEvents(events, "", "all").length} Gospel entries</h4></div>
+      <header><div><p className="portrait-eyebrow">Keep exploring</p><h4 id="portrait-browser-title">{plural(matchingPortraitEvents(events, "", "all").length, "Explore {n} Gospel entry", "Explore {n} Gospel entries")}</h4></div>
         <Link to="#harmony">Open the complete harmony <ArrowRight size={14} aria-hidden /></Link></header>
       <label className="portrait-search"><Search size={17} aria-hidden /><span className="sr-only">Search Gospel portrait entries</span><input type="search" value={query} placeholder="Search an event or harmony number…" onChange={(e) => { setQuery(e.target.value); setLimit(6); }} /></label>
       <div className="portrait-filters" role="group" aria-label="Filter harmony entries by Gospel coverage">
         {([['all', 'All accounts'], ['four', 'In all four'], ['one', 'In one Gospel']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={scope === value} onClick={() => { setScope(value); setLimit(6); }}>{label}</button>)}
-        <span role="status">{results.length} entries</span>
+        <span role="status">{plural(results.length, "{n} entry", "{n} entries")}</span>
       </div>
       <ol className="portrait-results">{results.slice(0, limit).map((event) => <li key={event.n}><button type="button" aria-pressed={selected.n === event.n} onClick={() => pick(event.n)}><span>§{event.n}</span><strong>{event.title}</strong><span>{PORTRAIT_GOSPELS.filter((g) => event.refs[g.key]).map((g) => g.name).join(" · ")}</span><ArrowRight size={15} aria-hidden /></button></li>)}</ol>
       {!results.length && <p className="portrait-empty">No entry matches. Try another word or choose All accounts.</p>}
-      {limit < results.length && <button className="portrait-more" type="button" onClick={() => setLimit(limit + 12)}>Show more entries ({results.length - limit} remaining)</button>}
-      <p className="portrait-selection" aria-live="polite">Comparing: {guide?.title ?? selected.title}. The map and accounts above update together.</p>
+      {limit < results.length && <button className="portrait-more" type="button" onClick={() => setLimit(limit + 12)}>{`Show more entries (${formatNumber(results.length - limit)} remaining)`}</button>}
+      <p className="portrait-selection" aria-live="polite">{`Comparing: ${guide?.title ?? selected.title}. The map and accounts above update together.`}</p>
     </section>
     <p className="portrait-method">Passage boundaries and groupings: <a href="https://www.gutenberg.org/ebooks/36264" target="_blank" rel="noreferrer">A. T. Robertson, <cite>A Harmony of the Gospels</cite> (1922)</a>. The eight guided comparisons are this site’s observations on the cited texts. Verse counts measure the selected passages, not importance. Nearby entries are sorted by their first verse and may overlap.</p>
   </div>;

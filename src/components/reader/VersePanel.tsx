@@ -82,7 +82,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
             aria-expanded={compare}
             className="mb-2 flex w-full items-center gap-2 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2"
           >
-            <Layers className="h-4 w-4 text-accent" aria-hidden /> {compare ? "Hide" : "Show"} this verse in every version
+            <Layers className="h-4 w-4 text-accent" aria-hidden /> {compare ? "Hide this verse in every version" : "Show this verse in every version"}
           </button>
           {cardHref && (
             <Link to={cardHref} className="mb-2 flex w-full items-center gap-2 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2">
@@ -93,7 +93,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
       }
       footer={
         <p className="text-[11px] text-muted">
-          Ordered by OpenBible.info readers' votes ({list.length ? "strongest first" : "none here"}). Cross references from OpenBible.info, CC-BY.
+          {list.length ? "Ordered by OpenBible.info readers' votes (strongest first). Cross references from OpenBible.info, CC-BY." : "Ordered by OpenBible.info readers' votes (none here). Cross references from OpenBible.info, CC-BY."}
         </p>
       }
     >
@@ -101,13 +101,12 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
 
       {/* Stays at the top of the scrolling list once the versions above it have scrolled away. */}
       <h3 className="sticky top-0 z-10 -mx-4 mb-1 flex items-center gap-2 bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-        <Link2 className="h-3.5 w-3.5" aria-hidden /> Cross-references {list.length > 0 && `· ${formatNumber(list.length)}`}
+        <Link2 className="h-3.5 w-3.5" aria-hidden /> {list.length > 0 ? `Cross-references · ${formatNumber(list.length)}` : "Cross-references"}
       </h3>
       {!inCanon && <p className="text-sm text-muted">The open cross-reference set covers the 66 books only, not the Apocrypha.</p>}
       {inCanon && !kjvNumbering && (
         <p className="text-sm text-muted">
-          The {translation.abbr} numbers verses differently ({NUMBERING_LABEL[translation.numbering]}), but the cross-references are numbered like the KJV, so they are not shown
-          here.{" "}
+          {`The ${translation.abbr} numbers verses differently (${NUMBERING_LABEL[translation.numbering]}), but the cross-references are numbered like the KJV, so they are not shown here.`}{" "}
           <Link className="underline hover:text-ink" to={`/read/kjv/${bookCode}/${chapter}`}>
             Open this chapter in the KJV
           </Link>{" "}
@@ -123,7 +122,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
       </ol>
       {list.length > shown && (
         <button type="button" onClick={() => setShown((n) => n + 20)} className="mt-3 w-full rounded-lg bg-surface-2 py-2 text-sm hover:brightness-95">
-          Show more ({formatNumber(list.length - shown)} left)
+          {`Show more (${formatNumber(list.length - shown)} left)`}
         </button>
       )}
       <div className="h-4" aria-hidden />
@@ -181,7 +180,7 @@ function EveryVersion({ current, bookCode, chapter, verse }: { current: Translat
       </ul>
       {shown.length < versions.length && (
         <button type="button" onClick={() => setEveryLanguage(true)} className="mb-5 w-full rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2">
-          Show {versions.length - shown.length} more languages
+          {`Show ${formatNumber(versions.length - shown.length)} more languages`}
         </button>
       )}
     </>
@@ -200,7 +199,7 @@ function VersionLine({ translation, bookCode, chapter, verse }: { translation: T
       </span>
       {translation.numbering !== "english" && (
         <span className="ms-1.5 text-[10px] text-muted" title="This version numbers verses differently, so this may be a neighbouring verse">
-          {NUMBERING_LABEL[translation.numbering]} numbering
+          {`${NUMBERING_LABEL[translation.numbering]} numbering`}
         </span>
       )}
     </li>

@@ -49,7 +49,7 @@ export function TraditionExperience() {
   const update = (key: string, value: string) => { const next = new URLSearchParams(search); next.set(key, value); setSearch(next, { replace: true }); };
 
   return <>
-    <header className="places-destination-intro history-intro"><div><p className="places-kicker">Beyond the New Testament · {data.title}</p><h1>{data.heading}</h1><p>{data.intro}</p></div><PlacesArtwork kind="catholic-orthodox" /></header>
+    <header className="places-destination-intro history-intro"><div><p className="places-kicker">{`Beyond the New Testament · ${data.title}`}</p><h1>{data.heading}</h1><p>{data.intro}</p></div><PlacesArtwork kind="catholic-orthodox" /></header>
     <section aria-labelledby="tradition-choose-title">
       <div className="places-section-heading"><h2 id="tradition-choose-title">{data.choose}</h2><span>Choose a tradition to see it on the map</span></div>
       <div className="tradition-choices" role="group" aria-label={data.choose}>{TRADITIONS.map((entry) => <button type="button" key={entry.id} aria-pressed={tradition.id === entry.id} aria-label={`${entry.title}, ${entry.subtitle}`} onClick={() => update("tradition", entry.id)}>
@@ -64,10 +64,10 @@ export function TraditionExperience() {
       <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind="catholic-orthodox" /><span>{tradition.title} · {tradition.places.join(" · ")}</span></div>
         <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{LENS_LABELS[lensId]}</p><h3>{lens.title}</h3><p>{lens.description}</p>
-          <div className="places-next-build"><Compass size={18} aria-hidden /><p>The growth map comes next: {tradition.title} spreading across the map, century by century.</p></div>
+          <div className="places-next-build"><Compass size={18} aria-hidden /><p>{`The growth map comes next: ${tradition.title} spreading across the map, century by century.`}</p></div>
           <AtlasFindLink place={tradition.place} /></div>
       </div>
     </section>
-    <section className="history-sources tradition-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own church perspective.</p>{data.sources.map((source, index) => <Link to={readingSourceUrl(`history-${data.id}-${index}`)} key={source.url}>{source.title}<ArrowRight size={15} aria-hidden /></Link>)}</section>
+    <section className="history-sources tradition-sources"><h4><BookOpen size={16} aria-hidden />{`Reading room · ${data.title}`}</h4><p>Start with these texts and accounts. Each source speaks from its own church perspective.</p>{data.sources.map((source, index) => <Link to={readingSourceUrl(`history-${data.id}-${index}`)} key={source.url}>{source.title}<ArrowRight size={15} aria-hidden /></Link>)}</section>
   </>;
 }

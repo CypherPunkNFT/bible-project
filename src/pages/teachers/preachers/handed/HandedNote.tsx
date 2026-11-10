@@ -2,7 +2,7 @@
 // the badges on the curves); for "All links", a summary and the links that reach across years when neither was alive.
 import type { Person } from "@/data/teachers/pages-types";
 import { gapOf, overlap, type Chain, type Link } from "./model";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 interface Props { chain: Chain; list: Link[]; all: Link[]; hot: number | null; onOpen: (id: string, origin: Element) => void }
 
@@ -27,11 +27,14 @@ export function HandedNote({ chain, list, all, hot, onOpen }: Props) {
   const across = all.filter((l) => gapOf(l) > 0).sort((m, n) => gapOf(n) - gapOf(m)), longest = across[0];
   const people = new Set(all.flatMap((l) => [l.from, l.to]));
   return <>
-    <h3>All {all.length} links</h3>
-    <p>{all.length} documented links join {people.size} of the teachers here. {across.length} of them reach across years when neither was alive
-      {longest ? <>; the longest, {longest.a.short} to {longest.b.short}, spans {plural(gapOf(longest), "{n} year", "{n} years")}.</> : "."}</p>
+    <h3>{`All ${formatNumber(all.length)} links`}</h3>
+    {/* Whole sentences and clauses, each with at most three values, so the page translator can fill each one (the ";"
+      stands alone: the collector skips a text holding one). */}
+    <p>{`${formatNumber(all.length)} documented links join ${formatNumber(people.size)} of the teachers here.`}{" "}
+      {`${formatNumber(across.length)} of them reach across years when neither was alive`}{longest ? ";" : "."}
+      {longest ? ` the longest, ${longest.a.short} to ${longest.b.short}, spans ${plural(gapOf(longest), "{n} year", "{n} years")}.` : null}</p>
     <ol key="all" className="hand-steps plain">{across.map((l) => <li key={l.k} className={hot === l.k ? "hot" : undefined}>
-      <Pair link={l} onOpen={onOpen} /><p>{l.note}</p><span className="hand-gap">{plural(gapOf(l), "{n} year", "{n} years")} apart</span>
+      <Pair link={l} onOpen={onOpen} /><p>{l.note}</p><span className="hand-gap">{plural(gapOf(l), "{n} year apart", "{n} years apart")}</span>
     </li>)}</ol>
   </>;
 }

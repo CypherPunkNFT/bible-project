@@ -9,6 +9,7 @@ import { topicUrl, type ChapterTopics } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
 import { usePeopleData } from "@/pages/teachers/shared/data";
 import { studiesFor, type StudyData } from "./chapter-studies";
+import { formatNumber } from "@/lib/site-format";
 
 const NO_HYMNS: HymnsByChapter = {};
 const NO_TOPICS: ChapterTopics = { chapters: {}, names: {} };
@@ -39,34 +40,34 @@ export function ChapterCompanions({ code, bookNumber, chapter, name }: { code: s
     <div className="shape-companions">
       <div className="shape-companion-columns">
         <section aria-labelledby="shape-hymns">
-          <p id="shape-hymns" className="lib-small-caps">Hymns on this chapter{songs.length ? ` · ${songs.length}` : ""}</p>
+          <p id="shape-hymns" className="lib-small-caps">{songs.length ? `Hymns on this chapter · ${formatNumber(songs.length)}` : "Hymns on this chapter"}</p>
           {hymns.status === "loading" ? <p className="lib-muted">…</p> : songs.length ? <OutsideScroll label={`Hymns on ${name}`} className="shape-scroll" resetKey={name}><ul className="shape-works">
             {songs.map((h) => <li key={h.id}><Link to={`/study/hymns/${h.id}`}><span>{h.t.replace(/[,;:]$/, "")}</span><small>{h.a} · {h.y} · {h.r}</small></Link></li>)}
-          </ul></OutsideScroll> : <p className="lib-muted">No hymn in our collection is written on {name}.</p>}
+          </ul></OutsideScroll> : <p className="lib-muted">{`No hymn in our collection is written on ${name}.`}</p>}
         </section>
         <section aria-labelledby="shape-teachers">
-          <p id="shape-teachers" className="lib-small-caps">Teachers who preached it{works.length ? ` · ${works.length}` : ""}</p>
+          <p id="shape-teachers" className="lib-small-caps">{works.length ? `Teachers who preached it · ${formatNumber(works.length)}` : "Teachers who preached it"}</p>
           {!people.data && !people.error ? <p className="lib-muted">…</p> : works.length ? <OutsideScroll label={`Teachers' works on ${name}`} className="shape-scroll" resetKey={name}><ul className="shape-works">
             {works.map(({ person, work }, i) => <li key={`${person.id}-${i}`}>
               {work.u ? <a href={work.u} target="_blank" rel="noreferrer"><span>{work.t}<ArrowUpRight size={12} aria-hidden="true" /></span><small>{person.short} · {work.r}{work.d ? ` · ${work.d.slice(0, 4)}` : ""}</small></a>
                 : <div><span>{work.t}</span><small>{person.short} · {work.r}</small></div>}
             </li>)}
-          </ul></OutsideScroll> :<p className="lib-muted">None of our teachers' works takes {name} as its main text yet.</p>}
+          </ul></OutsideScroll> :<p className="lib-muted">{`None of our teachers' works takes ${name} as its main text yet.`}</p>}
         </section>
       </div>
       <section className="shape-studies" aria-labelledby="shape-studies">
-        <p id="shape-studies" className="lib-small-caps">Studies connected to {name}</p>
+        <p id="shape-studies" className="lib-small-caps">{`Studies connected to ${name}`}</p>
         {studies.status === "loading" ? <p className="lib-muted">…</p> : <dl>
           {groups.map((group) => <div key={group.kind}><dt>{group.kind}</dt><dd>
             {group.links.slice(0, 10).map((link, i) => <Link key={i} to={link.href}>{link.title}{link.note && <small> · {link.note}</small>}</Link>)}
-            {group.links.length > 10 && <span className="lib-muted">+{group.links.length - 10} more</span>}
+            {group.links.length > 10 && <span className="lib-muted">{`+${formatNumber(group.links.length - 10)} more`}</span>}
           </dd></div>)}
-          {chapterTopics.length > 0 && <div><dt>Topics · {chapterTopics.length}</dt><dd className="shape-topics-cell">
+          {chapterTopics.length > 0 && <div><dt>{`Topics · ${formatNumber(chapterTopics.length)}`}</dt><dd className="shape-topics-cell">
             <OutsideScroll label={`Topics in ${name}`} className="shape-topic-scroll" resetKey={name}><ul className="shape-topics">
               {chapterTopics.map(([id]) => { const title = topicNames[id] ?? topicIndex?.topics[id]?.title ?? id; return <li key={id}><Link to={topicUrl(id)} title={title}>{title}</Link></li>; })}
             </ul></OutsideScroll>
           </dd></div>}
-          {!groups.length && !chapterTopics.length && <p className="lib-muted">No study on the site is connected to {name} yet.</p>}
+          {!groups.length && !chapterTopics.length && <p className="lib-muted">{`No study on the site is connected to ${name} yet.`}</p>}
         </dl>}
       </section>
     </div>

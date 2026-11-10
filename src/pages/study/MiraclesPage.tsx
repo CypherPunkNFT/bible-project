@@ -138,8 +138,7 @@ export default function MiraclesPage() {
             "Miracles Through Evil Agents". Both public domain. Every reference is checked against the King James text
             {index.status === "ready" && index.value.corrections.length > 0 && (
               <>
-                ; corrected misprints:{" "}
-                {index.value.corrections.map((c) => `${c.where} — printed ${c.printed}, corrected to ${c.corrected} (${c.why})`).join(" · ")}
+                {`; corrected misprints: ${index.value.corrections.map((c) => `${c.where} — printed ${c.printed}, corrected to ${c.corrected} (${c.why})`).join(" · ")}`}
               </>
             )}
             .
@@ -295,7 +294,7 @@ function MiracleRow({ item, open, onToggle }: { item: Item; open: boolean; onTog
           ))}
           {item.section && (
             <p className="text-xs text-muted">
-              Event §{item.section} in the{" "}
+              {`Event §${item.section} in the `}
               <Link className="underline" to={`/study/gospels#event-${item.section}`}>
                 Harmony of the Gospels
               </Link>

@@ -3,6 +3,7 @@
 // shape nor the colour stands alone. The list of passages is the interface, and the threads repeat it for a pointer.
 import { D, findJudge, JUDGE_WORD, papyrusY, proverbsY, SEAM, threadEnds, threadPath, type Parallel } from "./model";
 import { Cite, Head, Picture } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function Thread({ p, counted, picked, number, onOpen }: { p: Parallel; counted: boolean; picked: boolean; number: number; onOpen: () => void }) {
   const { fromY, toY } = threadEnds(p);
@@ -26,7 +27,7 @@ function SeamDrawing({ judgeId, pickedId, onOpen }: { judgeId: string; pickedId:
     <text className="eg-ruler-head" x={SEAM.right} y="16" textAnchor="middle">Proverbs</text>
     <path className="eg-ruler" d={`M${SEAM.left} ${SEAM.top}V${SEAM.bottom}M${SEAM.right} ${SEAM.top}V${SEAM.bottom}`} />
     {D.papyrus.chapters.map(([column, line], i) => <path key={i} className="eg-tick" d={`M${SEAM.left - (i % 5 === 4 ? 10 : 6)} ${papyrusY(column, line).toFixed(1)}h${i % 5 === 4 ? 10 : 6}`} />)}
-    {[5, 10, 15, 20, 25, 30].map((n) => <text key={n} className="eg-tick-num" x={SEAM.left - 14} y={papyrusY(...D.papyrus.chapters[n - 1]) + 3} textAnchor="end">ch {n}</text>)}
+    {[5, 10, 15, 20, 25, 30].map((n) => <text key={n} className="eg-tick-num" x={SEAM.left - 14} y={papyrusY(...D.papyrus.chapters[n - 1]) + 3} textAnchor="end">{`ch ${n}`}</text>)}
     {Array.from({ length: 70 }, (_, i) => <path key={i} className="eg-tick" d={`M${SEAM.right} ${proverbsY(i).toFixed(1)}h4`} />)}
     <path className="eg-stop" d={`M${SEAM.right - 26} ${lastVerse + 4}h52`} />
     <text className="eg-ruler-note" x={SEAM.right + 6} y={lastVerse + 18} textAnchor="middle">23:11</text>
@@ -48,11 +49,11 @@ export function Seam({ judgeId, picked, onJudge, onOpen }: { judgeId: string | n
     <Cite ids={[judge.source]} />
     <div className="eg-seam">
       <div><SeamDrawing judgeId={judge.id} pickedId={picked} onOpen={onOpen} />
-        <p className="eg-caption">A full thread is a passage this judge counts, and two stubs a passage they do not. Positions are true to Griffith's column and line numbers, and to Proverbs' verse numbers. {counted.length} of {D.parallels.length} are full now.</p></div>
+        <p className="eg-caption">{`A full thread is a passage this judge counts, and two stubs a passage they do not. Positions are true to Griffith's column and line numbers, and to Proverbs' verse numbers. ${formatNumber(counted.length)} of ${formatNumber(D.parallels.length)} are full now.`}</p></div>
       <ol className="eg-parlist">{D.parallels.map((p, i) => <li key={p.id}>
         <button type="button" aria-pressed={picked === p.id} onClick={() => onOpen(`par:${p.id}`)}>
           <b>{i + 1}</b>
-          <span><strong>{p.prov}</strong><small>{p.where}</small><small className="eg-whocounts">Counted by: {p.judges.map((id) => JUDGE_WORD.get(id)).join(", ")}</small></span>
+          <span><strong>{p.prov}</strong><small>{p.where}</small><small className="eg-whocounts">{`Counted by: ${p.judges.map((id) => JUDGE_WORD.get(id)).join(", ")}`}</small></span>
           <i aria-hidden="true">{p.judges.includes(judge.id) ? "●" : "○"}</i>
         </button>
       </li>)}</ol>

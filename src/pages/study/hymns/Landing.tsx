@@ -60,7 +60,7 @@ export function Landing({ collection }: { collection: HymnCollection }) {
       <div><dt>On a chapter</dt><dd>{formatNumber(counts.withChapter)}</dd><small>the rest on a subject</small></div>
       <div><dt>Hymn books</dt><dd>4</dd><small>by Watts, Newton and Cowper</small></div>
       <div><dt>Psalms sung</dt><dd>{psalmsSung} <small>of 150</small></dd><small>by Watts above all</small></div>
-      <div><dt>Books sung</dt><dd>{booksSung} <small>of {books.length}</small></dd><small>Genesis to Revelation</small></div>
+      <div><dt>Books sung</dt><dd>{booksSung} <small>{`of ${formatNumber(books.length)}`}</small></dd><small>Genesis to Revelation</small></div>
       <div><dt>Years</dt><dd>1707–1779</dd><small>from Watts to the Olney Hymns</small></div>
     </dl>
     <div className="hc-row" aria-label="Hymns to begin with"><div className="hc-track">{cards.map((h) => card(h, false))}{cards.map((h) => card(h, true))}</div></div>

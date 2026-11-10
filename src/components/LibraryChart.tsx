@@ -47,7 +47,7 @@ export function LibraryChart({ slug }: { slug: string }) {
           <h2 id="chart-title" className="font-serif text-2xl font-semibold sm:text-3xl">
             The reading chart
           </h2>
-          <p className="mt-1 text-sm text-muted">Every chapter of the Bible. {mode === "open" ? "Click a number to read it." : "Click a number to mark it read; click again to clear."}</p>
+          <p className="mt-1 text-sm text-muted">{mode === "open" ? "Every chapter of the Bible. Click a number to read it." : "Every chapter of the Bible. Click a number to mark it read; click again to clear."}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-sm">
           <div role="radiogroup" aria-label="What a click does" className="inline-flex rounded-full bg-surface-2 p-0.5">

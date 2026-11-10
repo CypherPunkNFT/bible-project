@@ -14,7 +14,7 @@ import { VERDICT, pad, useQuiz, type Quiz } from "./quiz-state";
 const TOTAL = QUESTIONS.length;
 
 function Meta({ quiz }: { quiz: Quiz }) {
-  return <p className="qv-meta"><span>Question {pad(quiz.current + 1)} of {TOTAL}</span><span>{quiz.question?.part}</span></p>;
+  return <p className="qv-meta"><span>{`Question ${pad(quiz.current + 1)} of ${TOTAL}`}</span><span>{quiz.question?.part}</span></p>;
 }
 
 function Title() {

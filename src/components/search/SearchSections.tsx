@@ -26,7 +26,7 @@ export function MeaningBadge() {
   const meaning = useMeaning();
   if (meaning.phase === "ready") return <Link to="/search/meaning" className="inline-flex items-center gap-1.5 rounded-full border border-accent/50 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent"><Sparkles size={13} /> Meaning search is on · manage</Link>;
   if (meaning.phase === "unsupported" || meaning.phase === "checking") return null;
-  return <Link to="/search/meaning" className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-xs text-muted hover:text-ink"><Sparkles size={13} /> Search by what you mean{meaning.phase === "update" ? " (update ready)" : ""} <ArrowRight size={12} /></Link>;
+  return <Link to="/search/meaning" className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-xs text-muted hover:text-ink"><Sparkles size={13} />{meaning.phase === "update" ? " Search by what you mean (update ready) " : " Search by what you mean "}<ArrowRight size={12} /></Link>;
 }
 
 function SectionHead({ title, note, link }: { title: string; note?: string; link?: { to: string; label: string } }) {
@@ -81,7 +81,9 @@ export function VersesSection({ query, meaning, language }: { query: string; mea
     return (
       <section className="mt-10 rounded-2xl border border-dashed border-accent/50 bg-accent/5 p-5">
         <p className="flex items-center gap-2 font-semibold"><Sparkles size={16} className="text-accent" /> Find verses by what they mean</p>
-        <p className="mt-1 text-sm text-muted">“{query}” as an idea, not just as words: meaning search finds the verses that say it, even in other words. It runs on your own device after a one-time download{state.manifest ? ` of ${MB(state.manifest.bytes)}` : ""}.</p>
+        <p className="mt-1 text-sm text-muted">{state.manifest
+          ? `“${query}” as an idea, not just as words: meaning search finds the verses that say it, even in other words. It runs on your own device after a one-time download of ${MB(state.manifest.bytes)}.`
+          : `“${query}” as an idea, not just as words: meaning search finds the verses that say it, even in other words. It runs on your own device after a one-time download.`}</p>
         <Link to="/search/meaning" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent">Learn how and turn it on <ArrowRight size={14} /></Link>
       </section>
     );
@@ -123,7 +125,7 @@ export function PlacesSection({ words: searchWords }: { words: string[] }) {
     <section aria-labelledby="search-places" className="mt-10">
       <div id="search-places"><SectionHead title="Places" note="on the atlas" /></div>
       <ul className="flex flex-wrap gap-2">
-        {hits.map((place) => <li key={place.id}><Link to={`/study/atlas/map?place=${place.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><MapPin size={14} className="text-accent" /><Marked parts={markPlace(place.name, words)} /><span className="text-xs text-muted">{formatNumber(place.verses.length)} verses</span></Link></li>)}
+        {hits.map((place) => <li key={place.id}><Link to={`/study/atlas/map?place=${place.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><MapPin size={14} className="text-accent" /><Marked parts={markPlace(place.name, words)} /><span className="text-xs text-muted">{plural(place.verses.length, "{n} verse", "{n} verses")}</span></Link></li>)}
       </ul>
     </section>
   );

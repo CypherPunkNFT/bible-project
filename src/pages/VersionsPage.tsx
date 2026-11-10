@@ -31,7 +31,7 @@ export default function VersionsPage() {
       <SourceDirectory scriptureCount={catalog.translations.length}>
       <header id="scriptures" className="scroll-mt-24 pb-6 pt-2">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
-        <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight">{catalog.translations.length} Bible editions to read and download.</h2>
+        <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight">{`${formatNumber(catalog.translations.length)} Bible editions to read and download.`}</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Every text below is in the public domain or shared by its publisher under a free-to-use licence, credited wherever that text is read.
           Each is shown as published, without the book introductions some of them carry.

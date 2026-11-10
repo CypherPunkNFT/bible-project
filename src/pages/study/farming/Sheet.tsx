@@ -14,7 +14,7 @@ function JobRecord({ job }: { job: Job }) {
   return <>
     <p className="fy-kicker fy-sheet-when">{seasonNames(job.seasons)}</p>
     <h2>{job.name}</h2>
-    <p className="fy-sheet-line">{job.line} On this study's placing: {when(job)}.</p>
+    <p className="fy-sheet-line">{job.line} {`On this study's placing: ${when(job)}.`}</p>
     {job.picture && <Picture id={job.picture} lazy={false} matte={job.id === "reap"} />}
     {job.picture2 && <Picture id={job.picture2} lazy={false} matte={job.id === "reap"} />}
     <p className="fy-sheet-kinds">{job.witness.map((kind) => <KindWord key={kind} kind={kind} />)}</p>

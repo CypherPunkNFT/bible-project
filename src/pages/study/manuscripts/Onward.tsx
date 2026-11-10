@@ -46,29 +46,29 @@ const pct = (a: number, b: number) => Math.round((a / b) * 100);
 export function BehindTheRecords({ num }: { num: string }) {
   const { index: { data } } = useMs();
   const C = data.counts;
-  const bar = (label: string, n: number, of: number) => <div key={label} className="cv-row"><span>{label}</span><span className="cv-track"><i style={{ width: `${Math.min(100, pct(n, of))}%` }} /></span><b>{pct(n, of)}%</b><small>{formatNumber(n)} of about {formatNumber(of)}</small></div>;
+  const bar = (label: string, n: number, of: number) => <div key={label} className="cv-row"><span>{label}</span><span className="cv-track"><i style={{ width: `${Math.min(100, pct(n, of))}%` }} /></span><b>{pct(n, of)}%</b><small>{`${formatNumber(n)} of about ${formatNumber(of)}`}</small></div>;
   return <>
     <SectionHead num={num} kicker="Behind the records" title={<>What the records <em>reach, and where they come from</em></>} lead="How much of the manuscript tradition the open catalogues hold, and the sources behind every record on this page." />
     <div className="bs-grid">
       <div className="on-col"><p className="on-k">How far the open data reaches</p>
         <div className="cv">{CLASSES.map(([k, l]) => bar(l, C.ga[k], C.liste[k]))}{bar("All Greek NT", C.gaTotal, C.liste.total)}</div>
-        <p>The open data holds about {pct(C.gaTotal, C.liste.total)}% of the Greek New Testament manuscripts in the official register, but nearly all of the oldest:
-          {" "}{pct(C.ga.papyrus, C.liste.papyrus)}% of the papyri and {pct(C.ga.majuscule, C.liste.majuscule)}% of the majuscules. Most of what is missing is mediaeval.
-          Another catalogue we consulted does not allow its records to be republished, so nothing from it is shown.</p>
-        <p>Only {formatNumber(C.lxxDated)} of the {formatNumber(C.byKind.lxx)} Greek Old Testament records carry a date; most are a catalogue number alone.
-          The {formatNumber(C.byKind.dss)} scroll records give where each was found but no present holder; {formatNumber(C.dssDated)} of them carry a date, most of them the period of their script.</p>
+        {/* One text node a sentence (the figures inside), so each sentence translates whole. */}
+        <p>{`The open data holds about ${pct(C.gaTotal, C.liste.total)}% of the Greek New Testament manuscripts in the official register, but nearly all of the oldest: ${pct(C.ga.papyrus, C.liste.papyrus)}% of the papyri and ${pct(C.ga.majuscule, C.liste.majuscule)}% of the majuscules.`}
+          {" Most of what is missing is mediaeval. Another catalogue we consulted does not allow its records to be republished, so nothing from it is shown."}</p>
+        <p>{`Only ${formatNumber(C.lxxDated)} of the ${formatNumber(C.byKind.lxx)} Greek Old Testament records carry a date; most are a catalogue number alone.`}
+          {` The ${formatNumber(C.byKind.dss)} scroll records give where each was found but no present holder; ${formatNumber(C.dssDated)} of them carry a date, most of them the period of their script.`}</p>
       </div>
       <div className="on-col"><p className="on-k">Where this comes from</p>
         <ul className="sr-list">
           <li><b>Wikidata</b>, catalogue records, CC0.</li>
-          <li><b>English Wikipedia</b>, dates, materials and contents for {formatNumber(data.records.filter((r) => r.wp).length)} records, CC BY-SA 4.0; each record links its article.</li>
+          <li><b>English Wikipedia</b>{`, dates, materials and contents for ${formatNumber(data.records.filter((r) => r.wp).length)} records, CC BY-SA 4.0; each record links its article.`}</li>
           <li><b>ETCBC Dead Sea Scrolls</b>, transcriptions by Martin G. Abegg, Jr., James E. Bowley and Edward M. Cook; Text-Fabric conversion by Jarod Jacobs, Martijn Naaijer and Dirk Roorda. CC BY-NC 4.0, non-commercial.</li>
           <li><b>Dead Sea Scroll dates</b>: Popović et al. 2025, PLOS ONE e0323185 (radiocarbon, palaeography and AI estimates), CC BY 4.0; English Wikipedia's Qumran cave lists and its radiocarbon table, CC BY-SA 4.0.</li>
-          <li><b>Syriaca.org</b>, {formatNumber(data.records.filter((r) => r.src === "syr").length)} Syriac biblical manuscripts after William Wright's catalogue, CC BY 3.0.</li>
-          <li><b>Wikimedia Commons</b>, {C.images} pictures, each credited where it appears.</li>
+          <li><b>Syriaca.org</b>{`, ${formatNumber(data.records.filter((r) => r.src === "syr").length)} Syriac biblical manuscripts after William Wright's catalogue, CC BY 3.0.`}</li>
+          <li><b>Wikimedia Commons</b>{`, ${formatNumber(C.images)} pictures, each credited where it appears.`}</li>
           <li><b>Natural Earth</b>, the land outline of the map, public domain.</li>
         </ul>
-        <details className="sr-more"><summary>Left out, and why ({data.excluded.length})</summary><ul>{data.excluded.map((x) => <li key={x.n}><b>{x.n}</b>: {x.why}.</li>)}</ul>
+        <details className="sr-more"><summary>{`Left out, and why (${formatNumber(data.excluded.length)})`}</summary><ul>{data.excluded.map((x) => <li key={x.n}><b>{x.n}</b>: {x.why}.</li>)}</ul>
           <p>Two values are corrected on this page and marked where they appear: the date of Codex Ephraemi and the contents of Codex Vaticanus.</p></details>
       </div>
     </div>

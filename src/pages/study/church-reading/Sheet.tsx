@@ -8,7 +8,7 @@ import { Cite, Quote, ThreeParts } from "./parts";
 
 function ReaderRecord({ reader }: { reader: Reader }) {
   return <>
-    <p className="hc-kicker hc-sheet-when">Note {reader.mark} · {reader.when} · {reader.place}</p>
+    <p className="hc-kicker hc-sheet-when">{`Note ${reader.mark} · ${reader.when} · ${reader.place}`}</p>
     <h2>{reader.name}</h2>
     <p className="hc-sheet-line">{reader.work}</p>
     <blockquote className="hc-sheet-quote">“{reader.quote}”</blockquote>

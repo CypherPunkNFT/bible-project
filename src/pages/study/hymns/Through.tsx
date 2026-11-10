@@ -96,7 +96,7 @@ function HymnItem({ collection, hymn, group }: { collection: HymnCollection; hym
     <Link key="ref" className="thr-ref" to={passageHref(collection.books, hymn)} title={`Read ${chapterLabel(book, chapterOf(hymn.v))} on this site`}><BookOpen size={12} strokeWidth={1.5} aria-hidden />{hymn.r}</Link>,
     group ? <span key="g" className="thr-who-tag" style={tone(group.tone)}>{group.short}</span> : null,
     <span key="y">{hymn.y}</span>,
-    hymn.m ? <span key="m">metre {hymn.m.replace(/,/g, ".")}</span> : null,
+    hymn.m ? <span key="m">{`metre ${hymn.m.replace(/,/g, ".")}`}</span> : null,
   ].filter(Boolean);
   return <li className="thr-item"><Link className="thr-work" to={hymnHref(hymn.id)}>{hymn.t}</Link>
     <p className="thr-meta">{bits.flatMap((bit, i) => (i ? [<span key={`sep-${i}`} className="thr-sep">·</span>, bit] : [bit]))}</p>
@@ -159,22 +159,22 @@ export function Through({ collection }: { collection: HymnCollection }) {
               <b>{formatNumber(s.works)}</b></button>;
           })}
         </nav>
-        <details className="thr-quiet"><summary>{formatNumber(model.everyone.all - model.everyone.works)} more hymns are on a subject, not a chapter</summary>
+        <details className="thr-quiet"><summary>{plural(model.everyone.all - model.everyone.works, "{n} more hymn is on a subject, not a chapter", "{n} more hymns are on a subject, not a chapter")}</summary>
           <p>Their books give them a subject (the love of God, the Lord's Supper, a funeral) rather than a passage, so they have no spoke. They are listed in the catalogue below.</p></details>
       </div>
       <div className="thr-ringcard" ref={ringCard} style={tone(shelf.group ? shelf.group.tone : "--accent")}>
         <div className="thr-who">{shelf.group
           ? <><p className="kicker" style={tone(shelf.group.tone)}>{shelf.group.year} · {shelf.group.who}</p><h3>{shelf.group.label}</h3>
-            <p>{plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter, across {plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible; {plural(shelf.all - shelf.works, "{n} more hymn", "{n} more hymns")} on a subject.</p></>
+            <p>{`${plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter, across ${plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible; ${plural(shelf.all - shelf.works, "{n} more hymn", "{n} more hymns")} on a subject.`}</p></>
           : <><p className="kicker">Every hymn, together</p><h3>Every hymn</h3>
-            <p>{plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter in {model.shelves.length} hymn books and hands, across {plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible.</p></>}</div>
+            <p>{`${plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter in ${formatNumber(model.shelves.length)} hymn books and hands, across ${plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible.`}</p></>}</div>
         <Ring collection={collection} shelf={shelf} selected={selected} onSelect={(b) => setSelected((b + BOOKS) % BOOKS)} />
       </div>
       <aside className="thr-book" style={{ ...tone(`--${book.section}`), height: panelHeight }}>
         <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
           <p className="thr-book-sub">{plural(entries.length, "{n} hymn", "{n} hymns")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
         <OutsideScroll label={`Hymns on ${book.name}`} className="thr-scroll" resetKey={`${chosen}-${selected}`}>
-          <ol className="thr-list">{items.length ? items : <li className="thr-empty">No hymn on {book.name} in {shelf.group ? shelf.group.short : "any of these books"}.</li>}</ol>
+          <ol className="thr-list">{items.length ? items : <li className="thr-empty">{shelf.group ? `No hymn on ${book.name} in ${shelf.group.short}.` : `No hymn on ${book.name} in any of these books.`}</li>}</ol>
         </OutsideScroll>
       </aside>
     </div>

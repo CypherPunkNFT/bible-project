@@ -39,7 +39,7 @@ function MeaningCard() {
         </>
       ) : meaning.phase === "downloading" ? (
         <>
-          <h2 className="mt-2 font-serif text-2xl font-semibold">Setting up… {Math.round(meaning.progress * 100)}%</h2>
+          <h2 className="mt-2 font-serif text-2xl font-semibold">{`Setting up… ${formatNumber(Math.round(meaning.progress * 100) / 100, { style: "percent" })}`}</h2>
           <div className="mt-3 h-2 overflow-hidden rounded-full bg-surface-2"><div className="h-full rounded-full bg-accent transition-[width]" style={{ width: `${meaning.progress * 100}%` }} /></div>
         </>
       ) : (
@@ -100,7 +100,7 @@ function TopicBrowser() {
   return (
     <section aria-labelledby="browse-topics" className="search-topic-browser mt-14 xl:-mx-32">{/* on wide screens exactly as wide as the Topics page, so the cards match */}
       <h2 id="browse-topics" className="font-serif text-3xl font-semibold tracking-tight">Or browse by topic</h2>
-      <p className="mt-1 text-sm text-muted">{formatNumber(Object.keys(index.value.topics).length)} topics in {index.value.categories.length} families, each with the passages that speak to it.</p>
+      <p className="mt-1 text-sm text-muted">{`${formatNumber(Object.keys(index.value.topics).length)} topics in ${formatNumber(index.value.categories.length)} families, each with the passages that speak to it.`}</p>
       <div className="mt-6"><TopicSectionRows index={index.value} /></div>
     </section>
   );

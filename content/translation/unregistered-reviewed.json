@@ -2124,7 +2124,7 @@
  {
   "check": "plural",
   "file": "src/pages/study/empires/EmpireArt.tsx",
-  "item": "{n} === 1 ? \"Documentary family links, Alstola pp. 125–127.\" : \"Schematic recorded relationship; people and buildings are illustrative.\"",
+  "item": "{n} === 1 ? \"Documentary family links, Alstola pp. 125–127. Object forms are not facsimiles.\" : \"Schematic recorded relationship; people and buildings are illustrative. Object forms are not facsimiles.\"",
   "why": "a view, panel, act or step number tested against 1, not a count: each view shows its own text, registered on its own"
  },
  {
@@ -18079,5 +18079,311 @@
   "file": "src/lib/verse-card/layout.ts",
   "item": "\"Archivo Variable\", Arial, sans-serif",
   "why": "a font list the card generator hands to the canvas (ctx.font) to draw the card; never shown on a page as text (Shareable verse cards, sequence 32 step 16, 2026-11-10)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/charts/CoverageMatrix.tsx",
+  "item": "slim-scroll relative overflow-x-auto pb-3{n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A className (Tailwind classes plus an optional ' pt-8'), not reader text."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/charts/VersionsTimeline.tsx",
+  "item": "rounded-full px-3 py-1.5 capitalize {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A className (Tailwind classes plus the pressed/unpressed colours), not reader text. (Line 51 before an import line was added.)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/reader/WhoRuled.tsx",
+  "item": "Dated by Scripture ({n}, above)",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is a Bible reference drawn as a <Link> (ref_ returns an element) inside the parenthesis, with words on both sides ('Dated by Scripture (' and ', above)'); it cannot go into a template string, and splitting it out would drop the link or leave ', above)' as a worded piece beside it."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/reader/WhoRuled.tsx",
+  "item": "Named in the book's heading ({n})",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is a Bible reference drawn as a <Link> (ref_ returns an element) inside the parenthesis; it cannot go into a template string, and keeping the link means the words before it stay their own text node."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/search/MeaningPrompt.tsx",
+  "item": "{n}Meaning search is on: ask in your own words on the Search page.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The {n} is an icon element (the star) in front of a sentence that is already one whole text node; nothing to join."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/search/MeaningPrompt.tsx",
+  "item": "{n}Semantic search: a small model on your device, free and private.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The {n} is an icon element (the star) in front of a sentence that is already one whole text node; nothing to join."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/sources/SourceCatalogue.tsx",
+  "item": "of {n} records",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The matching count is a stat figure in its own <strong> (source-catalogue.css styles it 1.5rem serif in ink colour) beside the label 'of N records'; making one text node would drop that display figure, which changes the toolbar's design."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/study/GenealogyExplorer.tsx",
+  "item": "{n}. Matching markers connect these families without crossing other lines.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: This is an SVG <title> tooltip, which holds text only (no <span> to separate the fixed sentence). The value is the route title built in src/lib/genealogy-routing.ts (not in my list) as names joined with lower-case English ('X and Y: recorded children Z'), so it cannot be filled as a slot; a single template would start with a value then '.', which the collector rejects. Splitting with {'. '} still reads as one pieced line to the check. The fixed sentence can only be made whole by changing genealogy-routing.ts to build whole tooltip sentences."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/LessonPanel.tsx",
+  "item": "of {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Score design: the number right is set in bold (<b>) beside 'of {total}'; one text node would drop the bold score."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/LessonPanel.tsx",
+  "item": "Next lesson: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: 'Next lesson:' then the lesson title, which already comes in the reader's language from that language's lesson bank; the label translates whole on its own, a template would make the translator match an already-translated title."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/ParentGuide.tsx",
+  "item": "together first, then {n} questions.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The passage is a <Link> inside the sentence (to the reader at that chapter); one text node is impossible without losing the link."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/home/QuizDoor.tsx",
+  "item": "For more than four hundred years churches have taught the faith by asking questions: parents at home, teachers in Sunday school, pastors to those about to join the church. {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Rewritten into two text nodes that are each a whole sentence (the fixed first sentence, then the counts sentence as one template); the net only sees them side by side."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/places/JourneyExperience.tsx",
+  "item": "{n} of {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Progress design: '{done} of {total}' is set in bold (<b>) before 'stops'; the bold part is now one template, the word 'stops' its own node."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/questions/test/TestResults.tsx",
+  "item": "of {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The results heading is designed as three styled parts: the score as a large <strong> number, \" of {total} \", and an accented <em>right</em>. A sentence split by inline elements cannot be one text node, and dropping the <strong>/<em> would change the results page's design (the big score and the accent word are the heading's look)."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/resources/FellowshipsPage.tsx",
+  "item": "National fellowships that gather believers to pray and to study the word together, across the country and online. Each says who it is for, how it meets and what it costs, and has its own group finder.{n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Rewritten into two text nodes that are each whole (the fixed sentences, then the cities sentence as one template with the city names as one list); the net only sees them side by side."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/resources/life/CitySection.tsx",
+  "item": "{n} Scroll or pinch to zoom.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Rewritten into two whole text nodes ('States: {credit}.' as one template, then the fixed 'Scroll or pinch to zoom.'); the net only sees them side by side."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/resources/life/CitySection.tsx",
+  "item": "{n}or {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The text-line notes are plain lowercase words from the data ('text HOME to ...'), which the translator will not fill as a slot; kept as pieces so 'or' and the notes translate on their own."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/resources/life/CitySection.tsx",
+  "item": "of land, {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Design: the area figure and unit are bold in their own <strong>; 'of land, {note}' follows, the note being a plain-words data note the translator will not fill as a slot."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/empires/EmpireMaps.tsx",
+  "item": "{n} Physical coastlines are generalized; no political borders are drawn. Arrows are schematic relationships, not travel routes.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: inside an SVG <desc>: the value (description) is a whole data sentence or sentences of its own text node and the fixed text after it is two whole sentences in their own node, so each is already translated whole; a template would make one line whose slot is plain English words (never filled), and no HTML element can split them inside <desc>"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/greek/MoveWords.tsx",
+  "item": "now. {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: inline elements: the sentence 'Same places, with <Gk>ὁ κόσμος</Gk> and <Gk>τὸν θεόν</Gk> now.' is broken by two Greek phrases in their own lang=\"grc\" elements (never translated, and must stay styled), so ' now.' cannot join the sentence; the value after it (D.moved.madeUp) is a separate whole sentence already in its own text node"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/greek/Sheet.tsx",
+  "item": "{n} {n} In this verse it stands as",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: separate things side by side: the first value is a whole sentence already written as one template ('All {n} of the words ... spelled this way.' / '{n} of the {n} words ...'), the second (job.line) is a whole data sentence, and 'In this verse it stands as' is a whole phrase followed by the Greek form in its own lang=\"grc\" element; each text node is already whole, and joining them would make a line with two sentence-sized slots the translator cannot fill"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/hymns/Catalogue.tsx",
+  "item": "of {n} hymns",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Result count design: the number shown is bold (<strong>) before 'of {total} hymns'; one text node would drop the bold count."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/manuscripts/Onward.tsx",
+  "item": "{n} Most of what is missing is mediaeval. Another catalogue we consulted does not allow its records to be republished, so nothing from it is shown.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Rewritten into two text nodes that are each a whole sentence (the figures sentence as one template, then the fixed sentences); the net only sees them side by side."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/manuscripts/Sheet.tsx",
+  "item": "The catalogue says: “{n}”",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is the catalogue's own words quoted verbatim (English source text, plain words the translator will not fill); the label translates on its own and the quote stays as the catalogue gives it."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/manuscripts/Sheet.tsx",
+  "item": "Readings for the church year{n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The fixed phrase is whole; the {n} is the separate <small> quote element after it, not text."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/manuscripts/Sheet.tsx",
+  "item": "Also counted with: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is a list of kind labels joined with commas; a joined list is not a label the translator knows, so as one template the line would stay English. In pieces the label translates."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/manuscripts/Sheet.tsx",
+  "item": ". Date: {n}{n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The date value DSS_DATE[...] is a React element, not a string, so it cannot go into a template; the sentence before it ends at a link to the data source."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/LibraryWorkPage.tsx",
+  "item": "Reading page {n} / {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A label followed by numbers only (\"Reading page 3 / 10\"): the numbers need no words. A whole template is refused by the collector (page_rules.template_text: the \"/\" makes it class_like), so the line would stay English; as pieces the registered label \"Reading page\" translates and the numbers stand."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/LibraryWorkPage.tsx",
+  "item": "Licence: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: One-word label and a data value (the licence's name, e.g. \"CC0 1.0\"): the collector refuses a template \"Licence: {n}\" (class_like: one-word colon label), so a template would leave the line English; as pieces the registered label \"Licence:\" translates and the licence name stays as recorded."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/ContributorTable.tsx",
+  "item": "Roles: {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: One-word label and a data value (role codes joined by \" · \"): the collector refuses the template \"Roles: {n}.\" (class_like), so a template would leave the line English; as pieces the label \"Roles:\" translates."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/ContributorTable.tsx",
+  "item": "Verified aliases: {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Label and a data value (alias names joined by \"; \"): the collector refuses the template \"Verified aliases: {n}.\" (class_like: the closing \".\" token), so a template would leave the line English; as pieces the registered label translates and the names stay as recorded."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/ContributorTable.tsx",
+  "item": "Recorded tradition: {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Label and a data value (tradition codes joined by \" · \"): the collector refuses the template \"Recorded tradition: {n}.\" (class_like, three tokens), so a template would leave the line English; as pieces the registered label translates."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/ContributorTable.tsx",
+  "item": "Identity join: {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Label and a data value (the recorded join basis): the collector refuses the template \"Identity join: {n}.\" (class_like), so a template would leave the line English; as pieces the registered label translates."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/PopulationWorks.tsx",
+  "item": "Provenance: {n} · {n}{n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: One-word label and data values (source code, provenance codes, intake status): the collector refuses a template \"Provenance: {n}\" (class_like: one-word colon label), so a template would leave the line English; as pieces the registered label \"Provenance:\" translates and the codes stay as recorded."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/catalogue/PopulationWorks.tsx",
+  "item": "Provenance: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Same as line 18: one-word label \"Provenance:\" and a list of provenance codes; the template form is refused by the collector, the pieced form translates the label."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/WorldviewsPage.tsx",
+  "item": "Across beliefs / {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The eyebrow is a whole label (\"Across beliefs /\") followed by the collection's theme, itself a list of labels joined by \" · \" (\"Jesus · God · the cross\", \"Reason · morality · meaning\"). As two text nodes each translates whole (the theme piece by piece). One template would be worse: the translator cannot fill a value holding \" · \" and lowercase words, so the line would stay English. Wrapping the theme in a <span> is not possible either: .ap-eyebrow > span is styled as a 1px decorative rule (apologetics.css:19)."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/apologetics/BasisReader.tsx",
+  "item": "Westminster {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A citation label: the proper name 'Westminster' (the Westminster Confession) followed by its section locator (e.g. '1.6'), like a Bible reference; nothing to translate around the number."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/ticker/TransitionTicker.tsx",
+  "item": "Tick {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Not reader text: the Transition Ticker is a developer debug clock for page transitions (transition-clock.ts header). TICKER_ENABLED is false on the live host (ticker-live-host.test.tsx asserts it), so readers never see it."
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/ticker/TransitionTicker.tsx",
+  "item": "{n} ms of {n} ms (real time)",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Not reader text: same developer-only Transition Ticker panel, disabled on the live host."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/ChildrenTests.tsx",
+  "item": "The lessons could not be loaded: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Error line on the children's test page only (/mockup and the tests page); the value is a raw load-error message, not reader text."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/ZoomTicker.tsx",
+  "item": "Tick {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A debugging control on the mock-up/test pages only (it slows the animation clock); not reader text on any live page, and its numbers are timings, so it stays as written."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/children/ZoomTicker.tsx",
+  "item": "{n} ms of {n} ms (real time)",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A debugging control on the mock-up/test pages only (it slows the animation clock); not reader text on any live page, and its numbers are timings, so it stays as written."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/home/NearbyTicker.tsx",
+  "item": "Slow connection ({n} s per city)",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A debugging control on the mock-up/test pages only (it slows the animation clock); not reader text on any live page, and its numbers are timings, so it stays as written."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/home/NearbyTicker.tsx",
+  "item": "Tick {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A debugging control on the mock-up/test pages only (it slows the animation clock); not reader text on any live page, and its numbers are timings, so it stays as written."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/home/NearbyTicker.tsx",
+  "item": "{n} ms of {n} ms{n} (real time)",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: A debugging control on the mock-up/test pages only (it slows the animation clock); not reader text on any live page, and its numbers are timings, so it stays as written."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/legal/privacy-content.tsx",
+  "item": "Bible Guide is a program of Redeemer Forge, Inc., a Florida not-for-profit corporation, which is responsible for the personal information described here. Write to us about privacy at {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The {n} is not a value but `mail`, a mailto <a> element (const at line 7) whose text is the email address. A React element cannot go into a template string, and the link is functional, not decoration. The text either side of it is fixed English the collector registers as it is, the same as any sentence with an inline link; the address itself needs no translation. Rewording the policy to move the link would change the legal text."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/legal/privacy-content.tsx",
+  "item": "Email {n} to ask what we hold about you, to correct it, or to delete it. You can delete a testimony yourself at any time, and clear what your browser saved in its settings.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Same as line 19: {n} is the `mail` mailto <a> element, not a value. An element cannot be put into a template, the link is functional, and rewording would change the privacy policy's text."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "Very little, and nothing for advertising. The {n} says exactly what and why.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: {n} is link(\"/privacy\", \"Privacy Policy\"), a <Link> element made by the file's link() helper, not a value. A React element cannot go into a template, and the link to the policy is the point of the answer; the surrounding words are fixed text registered as they are, like any sentence with an inline link."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/library/Timeline.tsx",
+  "item": "· Tells of: {n}. Written: {n}.",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The two values are long lowercase descriptive phrases from part-content.ts (\"from creation and Abraham (c. 2100 BC) to Nehemiah (c. 430 BC)\", \"c. 1446–400 BC, most from David and Solomon ...\"), which the page also shows on their own in the Parts facts list, so they are translated as their own text nodes. The translator never fills a value that is a run of plain English words, so one template would leave the whole caption English. As it stands every text node is whole: \" · Tells of: \" and \". Written: \" are the labels \"Tells of\" and \"Written\" with their marks (the translator strips the leading mark and the colon), and each value is a whole phrase. The caption sits beside a <b> part name, so it is already more than one node."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/resources/LifePage.tsx",
+  "item": ", and places in {n} that help with {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The kinds of help ({listParts(helpsWith)}) are plain lowercase words, which the translator will not fill as a slot; kept in pieces so each kind word translates on its own."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/teachers/scholars/population.ts",
+  "item": "{n}.json",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Not reader text: shard+'.json' is the file name of a contributor shard fetched from /content/scholar-population/contributors/; it is never shown on screen."
  }
 ]

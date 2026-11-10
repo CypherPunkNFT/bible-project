@@ -137,7 +137,7 @@ export function BookConversation({ books, pairs, book, onBook }: { books: BookIn
           <h3>{books[active[0]].name} <ArrowRight size={18} aria-hidden="true" /> {books[active[1]].name}</h3>
           <p><strong>{formatNumber(count(active[0], active[1]))}</strong> cross-references this way{active[0] !== active[1] && <> · <strong>{formatNumber(count(active[1], active[0]))}</strong> back</>}<span className="block">Choose it to read the cross-references.</span></p>
         </> : litBook ? <>
-          <h3>{litBook.name} in conversation</h3>
+          <h3>{`${litBook.name} in conversation`}</h3>
           <p>The books it shares the most cross-references with, counted both ways. Choose one to read its cross-references.</p>
         </> : <>
           <h3>The strongest conversations</h3>
@@ -154,8 +154,8 @@ export function BookConversation({ books, pairs, book, onBook }: { books: BookIn
             <span className="cx-list-line" aria-hidden="true"><i style={{ width: (n / pairMax) * 100 + "%" }} /></span>
           </button></li>)}
       </ol>
-      {litBook && <p className="cx-list-key"><span><i /> {litBook.name} refers to it</span><span><i className="cx-back" /> it refers to {litBook.name}</span></p>}
-      {litBook && <Link className="cx-read" to={`/read/kjv/${litBook.code}/1`}>Open {litBook.name} in the reader <ArrowRight size={14} aria-hidden="true" /></Link>}
+      {litBook && <p className="cx-list-key"><span><i />{` ${litBook.name} refers to it`}</span><span><i className="cx-back" />{` it refers to ${litBook.name}`}</span></p>}
+      {litBook && <Link className="cx-read" to={`/read/kjv/${litBook.code}/1`}>{`Open ${litBook.name} in the reader `}<ArrowRight size={14} aria-hidden="true" /></Link>}
       </>}
     </div>
   </div>;

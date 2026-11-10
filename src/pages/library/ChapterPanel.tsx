@@ -35,7 +35,7 @@ export const ChapterPanel = forwardRef<HTMLElement, Props>(function ChapterPanel
           <p className="lib-eyebrow lib-tone">
             <PartIcon id={bar.section} size={16} /> {part.name}{" "}
             <span>
-              · {part.testament} · chapter {bar.chapter} of {book.count} · {formatNumber(index + 1)} of {formatNumber(library.bars.length)} in the Bible
+              {`· ${part.testament} · chapter ${formatNumber(bar.chapter)} of ${formatNumber(book.count)} · ${formatNumber(index + 1)} of ${formatNumber(library.bars.length)} in the Bible`}
             </span>
           </p>
           <h2 id="chapter-title">
@@ -61,7 +61,7 @@ export const ChapterPanel = forwardRef<HTMLElement, Props>(function ChapterPanel
             <Figure label="Reading time" value={`${minutesToRead(bar.words)} min`} />
           </dl>
           <div className="lib-strip-block" aria-hidden="true">
-            <p className="lib-small-caps">{bar.name}, chapter by chapter</p>
+            <p className="lib-small-caps">{`${bar.name}, chapter by chapter`}</p>
             <div className="lib-strip" style={{ "--gap": `${book.count > 80 ? 0 : book.count > 40 ? 1 : 2}px` } as CSSProperties}>
               {chapters.map((b) => (
                 <button
@@ -96,7 +96,7 @@ export const ChapterPanel = forwardRef<HTMLElement, Props>(function ChapterPanel
           )}
           <div className="lib-chapter-actions">
             <Link className="lib-read" to={readHref}>
-              Read {bar.name} {bar.chapter} →
+              {`Read ${bar.name} ${bar.chapter} →`}
             </Link>
           </div>
         </div>

@@ -10,6 +10,7 @@ import { formatRange, sectionOfNum, splitId } from "@/lib/refs";
 import { studyRefLink } from "@/lib/study";
 import type { SectionId } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
+import { formatNumber } from "@/lib/site-format";
 import { cityPageFor } from "./city-link";
 import { buildPaulJourney, type JourneyChapter, type JourneyStop, type StopLayer } from "./paul-journey";
 import "./journey.css";
@@ -110,7 +111,7 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
       </aside>
     </div>
     <ul className="journey-key" aria-label="How to read the journey">
-      <li><i className="journey-key-scripture" />Places and passages: {lens === "letters" ? "named in the letters" : "named in Acts and Paul's letters"}</li>
+      <li><i className="journey-key-scripture" />{lens === "letters" ? "Places and passages: named in the letters" : "Places and passages: named in Acts and Paul's letters"}</li>
       {chapter.route && <li><i className="journey-key-route" />Dashed line: the way between stops is reconstructed. Scripture names the places, not the roads</li>}
       <li><i className="journey-key-proposed" />Proposed by scholars: the text does not say</li>
       <li><i className="journey-key-tradition" />Later tradition: told by writers after the New Testament</li>
@@ -147,14 +148,14 @@ function ChapterView({ chapter, datingCites, citations, isReached, onStop }: { c
 
 function StopView({ stop, number, total, chapter, citations, cityPage, isReached, onStop }: { stop: JourneyStop; number: number; total: number; chapter: JourneyChapter; citations: Citation[]; cityPage: string | null; isReached: (i: number) => boolean; onStop: (n: number) => void }) {
   return <div className="journey-stop">
-    <p className="places-kicker">{chapter.title} · stop {number} of {total}</p>
+    <p className="places-kicker">{`${chapter.title} · stop ${formatNumber(number)} of ${formatNumber(total)}`}</p>
     <h3>{stop.name}</h3>
     <span className={`journey-layer journey-layer-${stop.layer}`}>{LAYER[stop.layer]}</span>
     {stop.note && stop.note !== stop.name && <p>{stop.note}</p>}
     {stop.refs.length > 0 && <p className="journey-refs"><BookOpen size={15} aria-hidden /><Passages refs={stop.refs} /></p>}
     {stop.layer === "tradition" && stop.refs.length > 0 && <p className="journey-dating">The passage is Scripture; this event and its place are told by later writers, not by the passage.</p>}
     {stop.cites.length > 0 && <p className="journey-dating">{stop.layer === "tradition" ? "Told by" : "Sources"}: <Sources ids={stop.cites} citations={citations} /></p>}
-    {cityPage && <Link className="journey-city" to={cityPage}>Explore {stop.name.replace(/[,(].*$/, "").trim()} in Ancient Cities <ArrowUpRight size={15} aria-hidden /></Link>}
+    {cityPage && <Link className="journey-city" to={cityPage}>{`Explore ${stop.name.replace(/[,(].*$/, "").trim()} in Ancient Cities `}<ArrowUpRight size={15} aria-hidden /></Link>}
     <div className="pg-dots" role="group" aria-label="Stops">{chapter.stops.map((s, i) => <button key={`${s.placeId}-${i}`} type="button" aria-label={`${i + 1}. ${s.name}`} title={s.name} onClick={() => onStop(i + 1)}
       className={i + 1 === number ? "is-current" : isReached(i) ? "is-reached" : undefined} />)}</div>
   </div>;

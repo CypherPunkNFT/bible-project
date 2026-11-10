@@ -44,7 +44,7 @@ export function BookAtlas({ books, totals, selected, onChoose, onClose }: { book
           <i style={{ width: `${Math.max(4, ((totals.get(book.code) ?? 0) / max) * 100)}%` }} aria-hidden="true" />
         </button></li>)}</ol>
       </section>)}
-      {!groups.length && <p className="cx-atlas-empty">No book matches “{query}”.</p>}
+      {!groups.length && <p className="cx-atlas-empty">{`No book matches “${query}”.`}</p>}
     </div>
   </dialog>;
 }

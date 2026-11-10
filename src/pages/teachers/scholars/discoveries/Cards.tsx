@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Find, Scholar } from "@/data/teachers/pages-types";
 import { useScholars } from "../context";
+import { formatNumber } from "@/lib/site-format";
 import { AREA_ROUTE, areaOf, discoveryEvidence, cssVars, overviewOf, toneOf, type DiscoveryModel, type Step } from "./model";
 
 interface CardProps { on: boolean; onChoose: () => void }
@@ -12,7 +13,7 @@ export function OverviewCard({ model, on, onChoose }: CardProps & { model: Disco
   const words = overviewOf(model);
   return <article className={`dsc-find dsc-find-all${on ? " dsc-on" : ""}`}>
     <button type="button" className="dsc-find-hit" aria-label={`Show all ${model.finds.length} discoveries`} onClick={onChoose} />
-    <div className="dsc-find-top"><span className="dsc-year">{words.span}</span><span className="dsc-where">All {model.finds.length}</span></div>
+    <div className="dsc-find-top"><span className="dsc-year">{words.span}</span><span className="dsc-where">{`All ${formatNumber(model.finds.length)}`}</span></div>
     <h3>{words.title}</h3>
     <p>{words.from} {words.lie}</p>
     <div className="dsc-sum"><p className="dsc-step-k">From the dig to your screen</p><p>{words.reach}</p></div>

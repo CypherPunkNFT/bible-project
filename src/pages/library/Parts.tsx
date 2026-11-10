@@ -53,7 +53,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
         <button type="button" className="lib-inline-link" onClick={() => onChapter(index)}>
           {bar.name} {bar.chapter}
         </button>{" "}
-        · {bar.verses} {plural(bar.verses, "verse", "verses")}
+        {`· ${plural(bar.verses, "{n} verse", "{n} verses")}`}
       </>
     );
   };
@@ -95,7 +95,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
               <span className="lib-chip-name">{p.name}</span>
               <span className="lib-chip-range">{p.range}</span>
               <span className="lib-chip-count">
-                {f.books.length} {plural(f.books.length, "book", "books")} · {f.bars.length} chapters{done > 0 && <b> · {done} read</b>}
+                {`${plural(f.books.length, "{n} book", "{n} books")} · ${plural(f.bars.length, "{n} chapter", "{n} chapters")}`}{done > 0 && <b>{` · ${formatNumber(done)} read`}</b>}
               </span>
               <span className="lib-chip-share" style={{ "--share": `${f.share.toFixed(1)}%` } as CSSProperties} />
             </button>
@@ -129,7 +129,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
               ))}
             </div>
             <button type="button" className="lib-link-button" onClick={() => onShowPart(part)}>
-              Show {current.name} in the river ↑
+              {`Show ${current.name} in the river ↑`}
             </button>
           </div>
           <dl className="lib-facts">
@@ -144,7 +144,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
             <Fact label="Shortest chapter">{chapterLink(stats.shortest.index)}</Fact>
             {stats.books.length > 1 && (
               <Fact label="Longest book">
-                {stats.biggestBook.name} · {formatNumber(stats.biggestBook.words)} words
+                {`${stats.biggestBook.name} · ${formatNumber(stats.biggestBook.words)} words`}
               </Fact>
             )}
           </dl>

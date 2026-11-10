@@ -23,14 +23,16 @@ const when = (iso: string) => formatDateTime(new Date(iso), { dateStyle: "medium
 /** The machine checks for one design, in words: "Checked on 112 of 112 pages: no problems" or the problems found. */
 function CheckLine({ result, names }: { result?: CheckResult; names: { id: string; name: string }[] }) {
   const [open, setOpen] = useState(false);
-  if (result && !result.checked && result.coverage) return <p className="review-checks" data-state="none">Machine checks: {result.coverage}; this design is judged from its screenshots.</p>;
+  if (result && !result.checked && result.coverage) return <p className="review-checks" data-state="none">{`Machine checks: ${result.coverage}; this design is judged from its screenshots.`}</p>;
   if (!result || !result.checked) return <p className="review-checks" data-state="none">Machine checks: not run on these pages yet.</p>;
   const failing = names.filter((n) => result.failed[n.id]);
   const coverage = result.checked >= result.instances ? `all ${formatNumber(result.instances)}` : `${formatNumber(result.checked)} of ${formatNumber(result.instances)}`;
-  if (!failing.length) return <p className="review-checks" data-state="pass"><Check size={14} aria-hidden />Checked on {coverage} pages{result.coverage ? ` (${result.coverage})` : ""}: {names.map((n) => n.name.toLowerCase()).join(", ")}: no problems.</p>;
+  // "Checked on ... pages" is written whole (with or without its note), so the page translator gets one sentence.
+  const checkedOn = result.coverage ? `Checked on ${coverage} pages (${result.coverage})` : `Checked on ${coverage} pages`;
+  if (!failing.length) return <p className="review-checks" data-state="pass"><Check size={14} aria-hidden />{`${checkedOn}: ${names.map((n) => n.name.toLowerCase()).join(", ")}: no problems.`}</p>;
   return (
     <div className="review-checks" data-state="fail">
-      <p><X size={14} aria-hidden />Checked on {coverage} pages{result.coverage ? ` (${result.coverage})` : ""}. Problems: {failing.map((n) => `${n.name.toLowerCase()} on ${formatNumber(result.failed[n.id])} ${plural(result.failed[n.id], "page", "pages")}`).join("; ")}.</p>
+      <p><X size={14} aria-hidden />{`${checkedOn}. Problems: ${failing.map((n) => `${n.name.toLowerCase()} on ${plural(result.failed[n.id], "{n} page", "{n} pages")}`).join("; ")}.`}</p>
       <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}>{open ? "Hide the list" : `Show which pages (${result.failures.length}${result.failures.length >= 50 ? "+" : ""})`}</button>
       {open && <ul>{result.failures.map((f, i) => <li key={i}><a href={f.url} target="_blank" rel="noreferrer">{f.url}</a> <span>{f.width < 600 ? "phone" : "desktop"} · {names.find((n) => n.id === f.check)?.name ?? f.check}: {f.detail}</span></li>)}</ul>}
     </div>
@@ -94,7 +96,7 @@ export function VariantReview({ template, variant, shots, result, checkNames, de
         <h4>{variant.name}</h4>
         <span className="review-status" data-status={status}>{STATUS_WORDS[status]}</span>
         <span className="review-variant-count">{formatNumber(variant.instances)} {plural(variant.instances, "page", "pages")}</span>
-        <p>{variant.what}{why ? <em> Needs another look: {why}.</em> : null}</p>
+        <p>{variant.what}{why ? <em>{` Needs another look: ${why}.`}</em> : null}</p>
         <ul className="review-view-states" aria-label="Each view">
           {VIEWS.map((v) => <li key={v.key} data-status={views[v.key].status}>{v.label}: {STATUS_WORDS[views[v.key].status]}</li>)}
         </ul>
@@ -113,7 +115,7 @@ export function VariantReview({ template, variant, shots, result, checkNames, de
                     ? <button key={v.key} type="button" className="review-thumb" data-width={v.width} onClick={() => setOpened({ template, variant, sample, view: v.key })} aria-label={`Enlarge ${sample.label}, ${v.label}`}>
                         <img src={`/review-data/shots/${shot.thumb}`} alt="" loading="lazy" decoding="async" /><span>{v.label}</span>
                       </button>
-                    : <div key={v.key} className="review-thumb review-thumb-missing" data-width={v.width}><span>{v.label}: no screenshot yet</span></div>;
+                    : <div key={v.key} className="review-thumb review-thumb-missing" data-width={v.width}><span>{`${v.label}: no screenshot yet`}</span></div>;
                 })}
               </div>
             </figure>
@@ -145,7 +147,7 @@ export function VariantReview({ template, variant, shots, result, checkNames, de
 
       {history.length > 0 && (
         <details className="review-history">
-          <summary>Decision history ({history.length})</summary>
+          <summary>{`Decision history (${formatNumber(history.length)})`}</summary>
           <ol>
             {history.map((d) => (
               <li key={d.id} data-status={d.status}>

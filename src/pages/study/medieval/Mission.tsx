@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { D, findStation, MV, stationMark, stationState, STATE_WORD, wayById, writtenLag, YEAR_FROM, YEAR_TO, type Station } from "./model";
 import { Cite, Head, Picture, StandPanel, ThreeParts, WayMark, WayPath } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function MapMark({ station, year, chosen, onChoose }: { station: Station; year: number; chosen: boolean; onChoose: () => void }) {
   const { at, mark } = stationMark(station), way = wayById.get(station.way), state = stationState(station, year);
@@ -31,7 +32,7 @@ function Record({ station }: { station: Station }) {
     <p className="mv-kicker">{station.place} · {station.when}</p>
     <h3>{station.head}</h3>
     <p className="mv-lag"><b>{station.writer}</b>: {writtenLag(station)}.</p>
-    <ThreeParts evidence={station.text} inference={<>This study files {station.name} under “{way?.name}”. That is a one-line summary of a long story, and each of these places also had some of the others.</>} limit={station.limit} />
+    <ThreeParts evidence={station.text} inference={<>{`This study files ${station.name} under “${way?.name ?? ""}”. That is a one-line summary of a long story, and each of these places also had some of the others.`}</>} limit={station.limit} />
     <Cite ids={station.sources} />
   </div>;
 }
@@ -52,7 +53,7 @@ export function Mission({ stationId, addressYear, onChange }: { stationId: strin
         <label className="mv-year"><span>AD <b>{year}</b></span>
           <input type="range" min={YEAR_FROM} max={YEAR_TO} value={year} aria-valuetext={`AD ${year}`} onChange={(e) => setYear(Number(e.target.value))} onPointerUp={commit} onKeyUp={commit} onBlur={commit} />
         </label>
-        <p className="mv-caption" aria-live="polite">At AD {addressYear}: {counts.during} under way, {counts.after} past the range drawn here, {counts.before} not yet. “Range ended” means only that the dated events have ended, and not that anyone's faith had. A dashed ring is Poland's, standing for the country because the place is disputed. A mark on a line has been moved aside so that close places can be told apart, and its dot shows where the place is. Coast simplified from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>.</p>
+        <p className="mv-caption" aria-live="polite">{`At AD ${addressYear}: ${formatNumber(counts.during)} under way, ${formatNumber(counts.after)} past the range drawn here, ${formatNumber(counts.before)} not yet. “Range ended” means only that the dated events have ended, and not that anyone's faith had. A dashed ring is Poland's, standing for the country because the place is disputed. A mark on a line has been moved aside so that close places can be told apart, and its dot shows where the place is. Coast simplified from `}<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>.</p>
       </div>
       <ol className="mv-stationlist">{D.stations.map((s) => { const way = wayById.get(s.way), state = stationState(s, year); return <li key={s.id}>
         <button type="button" aria-pressed={s.id === station.id} onClick={() => onChange({ station: s.id })}>

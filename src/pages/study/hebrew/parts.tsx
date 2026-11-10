@@ -78,7 +78,7 @@ export function Figure({ id }: { id: string }) {
   const picture = pictureById.get(id);
   if (!picture) { console.error(`How Hebrew works page: picture "${id}" is not in the research record`); return null; }
   return <figure className="hw-pic">
-    {broken ? <p className="hw-pic-missing">{picture.alt} The picture could not be loaded.</p>
+    {broken ? <p className="hw-pic-missing">{picture.alt} <span>The picture could not be loaded.</span></p>
       : <img src={picture.src} width={picture.width} height={picture.height} alt={picture.alt} loading="lazy"
         onError={() => { console.error(`How Hebrew works page: the picture ${picture.src} did not load`); setBroken(true); }} />}
     <figcaption>{picture.caption} <small>{picture.credit}. {picture.licence}. <a href={picture.href} {...ext}>Source page ↗</a></small></figcaption>

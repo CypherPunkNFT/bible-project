@@ -111,18 +111,18 @@ function ProphetHero({ prophet, sex }: { prophet: Prophet; sex: Sex }) {
       <AspectSwitch id={prophet.id} name={prophet.name} current="word" />
     </div>
     <h2 id="pp-hero-title">{prophet.name}.<em>{prophet.tagline}</em></h2>
-    {prophet.otherNames?.length ? <div className="pp-badges"><span className="pp-badge">Also called {prophet.otherNames.join(", ")}</span></div> : null}
+    {prophet.otherNames?.length ? <div className="pp-badges"><span className="pp-badge">{`Also called ${prophet.otherNames.join(", ")}`}</span></div> : null}
     <dl className="pp-stats">
       <div className="pp-stat" data-not-sent={notSent ? "" : undefined}><dt>{inTheirWords ? "Scripture says" : "Scripture calls"}</dt><dd>{inTheirWords ? <small className="pp-said">{prophet.title}</small> : called}</dd></div>
       <div className="pp-stat"><dt>Era</dt><dd>{era.label}<small>{era.dates}</small></dd></div>
       <div className="pp-stat" data-wide=""><dt>In the days of</dt><dd data-many={rulers.length > 3 ? "" : undefined}>{rulers.length ? rulers.map((k, i) => <span key={k.person.name + i}>{i > 0 && " · "}{k.person.personId && rulerFor(k.person.personId)
-        ? <SlideLink to={rulerHref(k.person.personId)} state={carried}>{shortName(k.person.name)}</SlideLink> : <PersonLink person={{ ...k.person, name: shortName(k.person.name) }} />}</span>) : <small className="pp-fact">No ruler named beside {pronouns(sex).them}</small>}</dd></div>
+        ? <SlideLink to={rulerHref(k.person.personId)} state={carried}>{shortName(k.person.name)}</SlideLink> : <PersonLink person={{ ...k.person, name: shortName(k.person.name) }} />}</span>) : <small className="pp-fact">{pronouns(sex).them === "her" ? "No ruler named beside her" : pronouns(sex).them === "them" ? "No ruler named beside them" : "No ruler named beside him"}</small>}</dd></div>
       <div className="pp-stat"><dt>{plural(prophet.books.length, "Book", "Books")}</dt><dd>{prophet.books.length ? <BookLinks codes={prophet.books.map((b) => b.code)} /> : <small className="pp-fact">None bears the name</small>}</dd></div>
       <div className="pp-stat"><dt>{notSent ? `How ${sex === "F" ? "she" : sex === "G" ? "they" : "he"} spoke` : "How the word came"}</dt><dd><small className="pp-fact">{how ?? "Scripture does not say"}</small></dd></div>
     </dl>
     {line.length > 1 && <nav className="pp-strip-nav" aria-label={`Other prophets of ${era.label}, in story order`}>
       {before ? <SlideLink to={personPath(before.id, "word")} state={carried} rel="prev"><ArrowLeft size={16} aria-hidden />{before.name}</SlideLink> : <span />}
-      <span className="pp-strip-count">{at + 1} of {line.length} · {era.label}</span>
+      <span className="pp-strip-count">{`${at + 1} of ${line.length} · ${era.label}`}</span>
       {after ? <SlideLink to={personPath(after.id, "word")} state={carried} rel="next">{after.name}<ArrowRight size={16} aria-hidden /></SlideLink> : <span />}
     </nav>}
   </section>;

@@ -10,7 +10,7 @@ function Plate() {
   if (!picture) { console.error(`How New Testament Greek works page: picture "${D.papyrus.id}" is not in the research record`); return null; }
   return <figure className="ng-plate">
     {broken
-      ? <p className="ng-pic-missing">{picture.alt} The picture could not be loaded. Grenfell and Hunt's translation is beside it.</p>
+      ? <p className="ng-pic-missing">{picture.alt} <span>The picture could not be loaded. Grenfell and Hunt's translation is beside it.</span></p>
       : <div className="ng-plate-img">
         <img src={picture.src} width={picture.width} height={picture.height} alt={picture.alt} loading="lazy" onError={() => { console.error(`How New Testament Greek works page: the picture ${picture.src} did not load`); setBroken(true); }} />
         {D.papyrus.marks.map((m) => <span key={m.id} className="ng-plate-mark" style={{ top: `${m.top}%` }} aria-hidden="true"><b>{m.line}</b></span>)}
@@ -36,7 +36,7 @@ export function Common() {
     <div className="ng-shared">
       <div><p className="ng-kicker">The same verb in Luke</p>
         <p><Gk big>{p.luke.form}</Gk></p>
-        <p className="ng-para">Luke writes of Caesar's decree in the verb the farmer uses for his lambs. <VerseLink label={luke.label} />, one of {thousands(luke.count)} uses in the words counted.</p></div>
+        <p className="ng-para">Luke writes of Caesar's decree in the verb the farmer uses for his lambs. <VerseLink label={luke.label} />{`, one of ${thousands(luke.count)} uses in the words counted.`}</p></div>
       <div><p className="ng-kicker">The same word in Romans</p>
         <p><Gk big>{p.lord.form}</Gk></p>
         <p className="ng-para"><Mixed text={p.lord.line} /> <VerseLink label={lord.label} />.</p>

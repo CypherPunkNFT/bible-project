@@ -6,10 +6,10 @@ import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 
 import { useResource, type City, type CityFact, type CityFacts, type UsStates } from "@/data/resources";
 import { dialable } from "../contact-links";
 import { CityMap } from "./CityMap";
-import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listParts, tone, wayOf, type CityWords } from "./format";
+import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, tone, wayOf, type CityWords } from "./format";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
 import { ZoomButtons } from "./ZoomButtons";
-import { formatNumber, plural } from "@/lib/site-format";
+import { formatList, formatNumber, plural } from "@/lib/site-format";
 
 export function CitySection({ city, cities, onPick, leaving, checked, words = LIFE_WORDS }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string; words?: CityWords }) {
   const files = CITY_FILES[city.id];
@@ -72,11 +72,11 @@ export function UsaMap({ states, city, cities, onPick, onOpen }: { states: UsSta
       })}
     </svg>
     <ZoomButtons zoom={zoom} />
-  </div><figcaption>States: {credit}. Scroll or pinch to zoom.</figcaption></figure>;
+  </div><figcaption>{`States: ${credit}.`}{" Scroll or pinch to zoom."}</figcaption></figure>;
 }
 
 function Source({ fact }: { fact: CityFact }) {
-  return <a className="lf-src" href={fact.source} target="_blank" rel="noreferrer"><span className="lf-long">{fact.by}</span><span className="lf-short">{fact.by.split(",")[0]}</span> · checked {fact.checked}</a>;
+  return <a className="lf-src" href={fact.source} target="_blank" rel="noreferrer"><span className="lf-long">{fact.by}</span><span className="lf-short">{fact.by.split(",")[0]}</span>{` · checked ${fact.checked}`}</a>;
 }
 
 /** "211": the city's own 211 line from life.json, with its other numbers and its text line. */
@@ -89,9 +89,9 @@ function Local211({ city }: { city: City }) {
   return <div><dt>Local 211</dt><dd>
     <strong><a href="tel:211">211</a></strong>
     <span>{[line.name.replace(/\s*\((.*)\)/, " of $1"), line.hours, line.cost].filter(Boolean).join(" · ")}
-      {phones.length > 0 && <>; also {listParts(phones)}</>}
+      {phones.length > 0 && `; also ${formatList(phones)}`}
       {texts.length > 0 && <>{phones.length > 0 ? ", " : "; "}or {texts.join(", ")}</>}</span>
-    <a className="lf-src" href={line.source} target="_blank" rel="noreferrer">{hostOf(line.source)} · checked {line.checked}</a>
+    <a className="lf-src" href={line.source} target="_blank" rel="noreferrer">{`${hostOf(line.source)} · checked ${line.checked}`}</a>
   </dd></div>;
 }
 
@@ -107,13 +107,13 @@ export function CityInfo({ city, facts, kinds, checked, leaving, words }: { city
     <dl className="lf-facts">
       {f.county && <div><dt>County</dt><dd><strong>{f.county.value}</strong><span>{f.county.note}</span><Source fact={f.county} /></dd></div>}
       {f["county-population"] && <div><dt>Population</dt><dd><strong>{n(f["county-population"].value)}</strong>
-        <span>in {f.county?.value ?? "the county"}{f["city-population"] && <>, and {n(f["city-population"].value)} in the city of {place}</>}; {f["county-population"].note}</span><Source fact={f["county-population"]} /></dd></div>}
+        <span>{f["city-population"] ? `in ${f.county?.value ?? "the county"}, and ${n(f["city-population"].value)} in the city of ${place};` : `in ${f.county?.value ?? "the county"};`}{` ${f["county-population"].note}`}</span><Source fact={f["county-population"]} /></dd></div>}
       {f["land-area"] && <div><dt>Area</dt><dd><strong>{f["land-area"].value} {f["land-area"].unit}</strong><span>of land, {f["land-area"].note}</span><Source fact={f["land-area"]} /></dd></div>}
       <Local211 city={city} />
       <div className="lf-by-kind"><dt>Checked here</dt><dd>
         <div className="lf-kind-bar" aria-hidden="true">{kinds.map(([k, c]) => <span key={k} style={{ flex: c, background: tone(k) }} />)}</div>
         <ul className="lf-kind-key">{kinds.map(([k, c]) => <li key={k} style={{ "--c": tone(k) } as CSSProperties}><i />{kindOf(k).short} <b>{c}</b></li>)}{lines > 0 && <li className="lf-lines"><i />Phone lines <b>{lines}</b></li>}</ul>
-        <span className="lf-src lf-plain">{plural(city.entries.length, "{n} place", "{n} places")} from this site’s list · checked {checked}</span>
+        <span className="lf-src lf-plain">{`${plural(city.entries.length, "{n} place", "{n} places")} from this site’s list · checked ${checked}`}</span>
       </dd></div>
     </dl>
   </div>;

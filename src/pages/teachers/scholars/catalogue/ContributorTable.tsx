@@ -6,7 +6,7 @@ import type { LibraryPerson } from './library';
 import { dateLabel } from '../population';
 import { PopulationWorks } from './PopulationWorks';
 import { usePersonDetails } from './useLibrary';
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 function ContributorDetails({ person, data }: { person: LibraryPerson; data: ScholarsData }) {
   const p = usePersonDetails(person);
@@ -16,30 +16,30 @@ function ContributorDetails({ person, data }: { person: LibraryPerson; data: Sch
     <details className="pop-detail"><summary>Identity, roles &amp; aliases</summary><div>
       <p>Stable contributor ID: <code>{p.id}</code></p>
       <p>Source contributor IDs: {p.contributorIds.length ? p.contributorIds.map((id, i) => <span key={id}>{i > 0 && ' · '}<code>{id}</code></span>) : 'None recorded'}</p>
-      <p>Identity status: {identity?.status ?? p.facts?.kind ?? 'unresolved'}. Recorded entity: {identity?.entityType ?? p.facts?.kind ?? 'unestablished'}.</p>
+      <p>{`Identity status: ${identity?.status ?? p.facts?.kind ?? 'unresolved'}. Recorded entity: ${identity?.entityType ?? p.facts?.kind ?? 'unestablished'}.`}</p>
       {identity?.reviewRequired && <p className="pop-review">Identity review open. Similar names have not been merged.</p>}
       <p>Roles: {p.roles.join(' · ') || 'Role unrecorded'}.</p>
       <p>Verified aliases: {pop?.verifiedAliases.join('; ') || 'None recorded'}.</p>
-      <p>Recorded source names: {p.aliases.join('; ') || 'None'}.</p>
+      <p>{`Recorded source names: ${p.aliases.join('; ') || 'None'}.`}</p>
       <p>Recorded tradition: {p.traditions.join(' · ') || 'Unrecorded'}.</p>
-      {identity?.candidateIds?.length ? <p>Other candidate IDs (separate entries): {identity.candidateIds.join(', ')}</p> : null}
+      {identity?.candidateIds?.length ? <p>{`Other candidate IDs (separate entries): ${identity.candidateIds.join(', ')}`}</p> : null}
     </div></details>
     <details className="pop-detail"><summary>Dates &amp; fields</summary><div>
-      <p>{dateLabel(p)}. Date status: {p.facts?.dates.status ?? 'missing'}. Date authority: {p.facts?.dates.basis ?? 'unrecorded'}.</p>
-      {p.sourceLifeDates.length > 0 && <p>Original date labels: {p.sourceLifeDates.join('; ')}.</p>}
-      {p.scholar && <p>Biographical date authority: content/teachers/scholars.json · {p.scholar.id}</p>}
-      {p.facts?.dates.evidence?.map((e, i) => <p key={i}>{e.label} · {e.field} · record <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">Date source</a></>}</p>)}
-      <p>{p.facts?.expertise.length ? 'Documented expertise: ' + p.facts.expertise.map(f => data.fields[f]).join(', ') : 'Expertise unestablished; recorded work subjects are shown below.'}</p>
+      <p>{`${dateLabel(p)}.`}{` Date status: ${p.facts?.dates.status ?? 'missing'}. Date authority: ${p.facts?.dates.basis ?? 'unrecorded'}.`}</p>
+      {p.sourceLifeDates.length > 0 && <p>{`Original date labels: ${p.sourceLifeDates.join('; ')}.`}</p>}
+      {p.scholar && <p>{`Biographical date authority: content/teachers/scholars.json · ${p.scholar.id}`}</p>}
+      {p.facts?.dates.evidence?.map((e, i) => <p key={i}>{`${e.label} · ${e.field} · record`} <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">Date source</a></>}</p>)}
+      <p>{p.facts?.expertise.length ? `Documented expertise: ${p.facts.expertise.map(f => data.fields[f]).join(', ')}` : 'Expertise unestablished; recorded work subjects are shown below.'}</p>
       {Object.entries(p.fields).length ? Object.entries(p.fields).map(([f, e]) => <p key={f}>{data.fields[f as keyof typeof data.fields]}: {e?.basis}{e?.example && ` · ${e.example.id}`}</p>) : <p>Field unassigned.</p>}
     </div></details>
     <details className="pop-detail" open={worksOpen} onToggle={e => setWorksOpen(e.currentTarget.open)}><summary>Works, editions &amp; reading availability</summary><div>
-      {counts ? <><p>{formatNumber(counts.works)} canonical works · {formatNumber(counts.editions)} edition IDs</p><p>{formatNumber(counts.publicRecords)} packaged records · {formatNumber(counts.localCopies)} local copies · {formatNumber(counts.intakeRecords)} intake records · {formatNumber(counts.siteSources)} feature sources</p><p>{formatNumber(counts.publicReadable)} public reading records · {formatNumber(counts.localReadable)} local reading copies</p></> : <p>{formatNumber(p.records)} associated records</p>}
+      {counts ? <><p>{`${formatNumber(counts.works)} canonical works · ${formatNumber(counts.editions)} edition IDs`}</p><p>{`${formatNumber(counts.publicRecords)} packaged records · ${formatNumber(counts.localCopies)} local copies · ${formatNumber(counts.intakeRecords)} intake records · ${formatNumber(counts.siteSources)} feature sources`}</p><p>{`${formatNumber(counts.publicReadable)} public reading records · ${formatNumber(counts.localReadable)} local reading copies`}</p></> : <p>{plural(p.records, "{n} associated record", "{n} associated records")}</p>}
       {worksOpen && <PopulationWorks person={p} />}
     </div></details>
     <details className="pop-detail"><summary>Sources &amp; review evidence</summary><div>
       {identity?.joinBasis && <p>Identity join: {identity.joinBasis}.</p>}
       {identity?.authorities?.map(a => <div key={a.id}><p>{a.authority} · {a.id} · {a.review?.date} · {a.review?.kind}</p><p>{a.review?.scope}</p>{a.unresolved?.map((u, i) => <p key={i}>{u}</p>)}{a.evidence?.map((e, i) => <p key={i}><a href={e.url} target="_blank" rel="noreferrer">{e.locator || 'Identity evidence'}</a>{e.checkedOn && ` · checked ${e.checkedOn}`}</p>)}</div>)}
-      <p>Population provenance: {pop?.provenance?.join(' · ') || 'Recorded source credit'}</p>
+      <p>{`Population provenance: ${pop?.provenance?.join(' · ') || 'Recorded source credit'}`}</p>
     </div></details>
   </>;
 }
@@ -54,8 +54,8 @@ export function ContributorTable({ people, data, expanded, onExpand, onOpen }: {
         <div className="pop-contributor-summary">
           <div className="pop-contributor-name" data-column="contributor"><span className="pop-column-label">Contributor / stable IDs</span><h3>{p.name}</h3><code>{p.id}</code>{p.contributorIds.filter(id => id !== p.id).map(id => <code key={id}>{id}</code>)}<small>{pop?.verifiedAliases.length ? `Verified aliases: ${pop.verifiedAliases.join('; ')}` : 'No additional verified alias'}</small></div>
           <div data-column="identity"><span className="pop-column-label">Identity &amp; roles</span><b>{identity?.status ?? p.facts?.kind ?? 'unresolved'}</b><small>{identity?.entityType ? `Recorded entity: ${identity.entityType}` : p.facts?.kind ?? 'Entity unestablished'}{identity?.reviewRequired ? ' · identity review open' : ''}</small><span>{p.roles.join(' · ') || 'Role unrecorded'}</span></div>
-          <div data-column="dates"><span className="pop-column-label">Dates &amp; fields</span><span>{dateLabel(p)}</span><small>{fields.join(' · ') || 'Field unassigned'}</small><small>{p.facts?.expertise.length ? 'Documented expertise: ' + p.facts.expertise.map(f => data.fields[f]).join(', ') : 'Work subjects; expertise unestablished'}</small></div>
-          <div data-column="works"><span className="pop-column-label">Work associations</span>{counts ? <><b>{formatNumber(counts.works)} canonical works · {formatNumber(counts.editions)} edition IDs</b><small>{formatNumber(counts.publicRecords)} packaged records · {formatNumber(counts.localCopies)} local copies · {formatNumber(counts.intakeRecords)} intake records · {formatNumber(counts.siteSources)} feature sources</small><small>{formatNumber(counts.publicReadable)} public reading records · {formatNumber(counts.localReadable)} local reading copies</small></> : <span>{formatNumber(p.records)} associated records</span>}</div>
+          <div data-column="dates"><span className="pop-column-label">Dates &amp; fields</span><span>{dateLabel(p)}</span><small>{fields.join(' · ') || 'Field unassigned'}</small><small>{p.facts?.expertise.length ? `Documented expertise: ${p.facts.expertise.map(f => data.fields[f]).join(', ')}` : 'Work subjects; expertise unestablished'}</small></div>
+          <div data-column="works"><span className="pop-column-label">Work associations</span>{counts ? <><b>{`${formatNumber(counts.works)} canonical works · ${formatNumber(counts.editions)} edition IDs`}</b><small>{`${formatNumber(counts.publicRecords)} packaged records · ${formatNumber(counts.localCopies)} local copies · ${formatNumber(counts.intakeRecords)} intake records · ${formatNumber(counts.siteSources)} feature sources`}</small><small>{`${formatNumber(counts.publicReadable)} public reading records · ${formatNumber(counts.localReadable)} local reading copies`}</small></> : <span>{plural(p.records, "{n} associated record", "{n} associated records")}</span>}</div>
           <div className="pop-contributor-actions" data-column="explore"><span className="pop-column-label">Explore</span><button type="button" className="pop-contributor-toggle" aria-expanded={open} aria-controls={`population-${p.id}`} onClick={() => onExpand(open ? null : p.id)}>{open ? 'Close works' : 'Works & evidence'}<ChevronDown size={14} aria-hidden="true" /></button>{p.scholar ? <button type="button" className="pop-profile-link" onClick={e => onOpen(p.scholar!.id, e.currentTarget)}>Open profile</button> : pop?.profileAvailability.teacherId ? <Link to={`/teachers/collections/${pop.profileAvailability.teacherId}`}>Teacher profile &amp; collection available</Link> : <small>No curated profile</small>}</div>
         </div>
         {open && <div className="pop-contributor-body" id={`population-${p.id}`}><ContributorDetails person={p} data={data} /></div>}

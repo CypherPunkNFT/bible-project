@@ -27,7 +27,7 @@ function WordCard({ word, index, onOpen }: { word: Word; index: number; onOpen: 
         <span className="sn-bar-label">{r.label}</span><span className="sn-bar-track"><i style={{ width: `${Math.max(1.5, (r.count / most) * 100)}%` }} /></span><b>{fmt(r.count)}</b>
       </button></li>)}
     </ul>
-    <p className="sn-card-foot">{fmt(word.total)} tags{word.other > 0 ? `, ${fmt(word.other)} of them other English words` : ""}<span> · Choose a word to read a verse →</span></p>
+    <p className="sn-card-foot">{word.other > 0 ? `${fmt(word.total)} tags, ${fmt(word.other)} of them other English words` : `${fmt(word.total)} tags`}<span> · Choose a word to read a verse →</span></p>
   </li>;
 }
 
@@ -36,9 +36,9 @@ function OneEnglishWord() {
   return <div className="sn-love">
     <div><p className="sn-kicker">The other way round</p>
       <h3>One English word.<em> Several numbers.</em></h3>
-      <p>Going from English back to the number works the same way. In the New Testament the King James's “love” and its forms sit over at least {numbers.length} Greek numbers: {numbers.map((n) => `${n.id} (${n.count})`).join(", ")}. This counts every tag whose English is a form of the word.</p>
+      <p>{`Going from English back to the number works the same way. In the New Testament the King James's “love” and its forms sit over at least ${fmt(numbers.length)} Greek numbers: ${numbers.map((n) => `${n.id} (${n.count})`).join(", ")}. This counts every tag whose English is a form of the word.`}</p>
       <p className="sn-caption">The Berean also gives “love” in all three questions below. The tags show two Greek verbs. Readers of the Greek differ on whether the change marks a difference in meaning or is a matter of style. The number shows that two words are there. It cannot settle what the change means, and this study does not choose.</p></div>
-    <ol className="sn-john">{john21.map((row) => <li key={row.verse}><p className="sn-ref"><Link to={readerHref("JHN", 21, row.verse)}>John 21:{row.verse}</Link></p><p><VerseAt verse={{ code: "JHN", chapter: 21, verse: row.verse }} /></p><p className="sn-tagrow">King James tags on “love”: {row.numbers.map((n, i) => <b key={i}>{n}</b>)}</p></li>)}</ol>
+    <ol className="sn-john">{john21.map((row) => <li key={row.verse}><p className="sn-ref"><Link to={readerHref("JHN", 21, row.verse)}>{`John 21:${row.verse}`}</Link></p><p><VerseAt verse={{ code: "JHN", chapter: 21, verse: row.verse }} /></p><p className="sn-tagrow">King James tags on “love”: {row.numbers.map((n, i) => <b key={i}>{n}</b>)}</p></li>)}</ol>
   </div>;
 }
 

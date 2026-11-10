@@ -7,7 +7,7 @@ import { Cite, KindMark, Picture, Quote, ThreeParts } from "./parts";
 
 function RoomRecord({ room }: { room: Room }) {
   return <>
-    <p className="hh-kicker hh-sheet-kind"><KindMark kind={room.kind} /> Mostly: {kindWord(room.kind).toLowerCase()}</p>
+    <p className="hh-kicker hh-sheet-kind"><KindMark kind={room.kind} />{` Mostly: ${kindWord(room.kind).toLowerCase()}`}</p>
     <h2>{room.name}</h2>
     <p className="hh-sheet-line">{room.line}</p>
     <ThreeParts evidence={room.evidence} inference={room.inference} limit={room.limit} />

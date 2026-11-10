@@ -172,5 +172,5 @@ export function BookLinks({ codes }: { codes: string[] }) {
 }
 
 export function ReadLink({ code, name }: { code: string; name: string }) {
-  return <Link className="pp-link" to={`/read/kjv/${code}/1`}>Read {name} <ArrowUpRight size={14} aria-hidden /></Link>;
+  return <Link className="pp-link" to={`/read/kjv/${code}/1`}>{`Read ${name}`} <ArrowUpRight size={14} aria-hidden /></Link>;
 }

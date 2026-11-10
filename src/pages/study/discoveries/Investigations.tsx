@@ -11,7 +11,7 @@ export function CloseReading({ id }: { id: string }) {
   const [focus, setFocus] = useDiscoveryChoice('detail-'+id, reading.details.length);
   const detail = reading.details[focus];
   return <div className="dr-close-reading">
-    <div className="dr-reading-evidence"><p className="dr-kicker">Inspect the evidence / {reading.locator}</p><p className="dr-evidence-extract">{reading.extract}</p><p className="dr-caption">{reading.kind}</p><Citations ids={[reading.source]}/></div>
+    <div className="dr-reading-evidence"><p className="dr-kicker">{`Inspect the evidence / ${reading.locator}`}</p><p className="dr-evidence-extract">{reading.extract}</p><p className="dr-caption">{reading.kind}</p><Citations ids={[reading.source]}/></div>
     <div className="dr-annotation"><div className="dr-detail-choices" role="group" aria-label="Inspect a detail">{reading.details.map((item,i)=><button type="button" key={item.label} aria-pressed={focus===i} aria-controls="dr-annotation-result" onClick={()=>setFocus(i)}><span>0{i+1}</span>{item.label}</button>)}</div><div id="dr-annotation-result" className="dr-annotation-result" aria-live="polite"><h4>{detail.title}</h4><p>{detail.text}</p><Citations ids={detail.sources}/></div></div>
   </div>;
 }
@@ -37,7 +37,7 @@ export function CyrusComparison() {
   const comparison=dossier.cyrusComparison,item=comparison.rows[row];
   return <section className="dr-investigation dr-cyrus-study" id="cyrus-reading" aria-labelledby="dr-cyrus-title"><div className="dr-wide-heading"><div><p className="dr-kicker">04 / Test a historical parallel</p><h2 id="dr-cyrus-title">A restorer of sanctuaries.<br/><em>Whose sanctuaries?</em></h2></div><p>{comparison.intro}</p></div>
     <div className="dr-cyrus-controls" role="group" aria-label="Compare Cyrus texts">{comparison.rows.map((r,i)=><button type="button" key={r.label} aria-pressed={row===i} aria-controls="dr-cyrus-texts" onClick={()=>setRow(i)}>{r.label}</button>)}</div>
-    <ParallelObjects row={row}/><div id="dr-cyrus-texts" aria-live="polite"><div className="dr-cyrus-texts"><article><span className="dr-label">Babylonian Akkadian · royal inscription</span><h3>Cyrus Cylinder</h3><p>{item.cylinder}</p><Citations ids={comparison.sources}/></article><article><span className="dr-label">Hebrew narrative · proclamation presented in Ezra</span><h3>Ezra</h3><p>{item.ezra}</p><Link className="dr-link" to={row===2?'/read/kjv/EZR/6?hl=3-5':'/read/kjv/EZR/1?hl=1-4'}>Read Ezra {row===2?'6:3–5':'1:1–4'} →</Link></article></div><p className="dr-cyrus-insight">{item.insight}</p></div>
+    <ParallelObjects row={row}/><div id="dr-cyrus-texts" aria-live="polite"><div className="dr-cyrus-texts"><article><span className="dr-label">Babylonian Akkadian · royal inscription</span><h3>Cyrus Cylinder</h3><p>{item.cylinder}</p><Citations ids={comparison.sources}/></article><article><span className="dr-label">Hebrew narrative · proclamation presented in Ezra</span><h3>Ezra</h3><p>{item.ezra}</p><Link className="dr-link" to={row===2?'/read/kjv/EZR/6?hl=3-5':'/read/kjv/EZR/1?hl=1-4'}>{`Read Ezra ${row===2?'6:3–5':'1:1–4'} →`}</Link></article></div><p className="dr-cyrus-insight">{item.insight}</p></div>
     <div className="dr-cyrus-conclusion"><h3>Context, not a duplicate decree.</h3><p>{comparison.conclusion}</p><p>{comparison.scholarship}</p><Citations ids={comparison.scholarshipSources}/></div>
     <RelatedDiscoveryStudy id="cyrus"/>
   </section>;

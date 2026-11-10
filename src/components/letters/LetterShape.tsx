@@ -8,6 +8,7 @@ import { useAsync } from "@/lib/useAsync";
 import type { Letter, Span } from "@/data/letters/types";
 import { useKeep, useVerseIndex } from "./letter-hooks";
 import { KeepX, Refs } from "./LetterParts";
+import { formatNumber } from "@/lib/site-format";
 
 // Tones for outline kinds (Hebrews: teaching / warning / encouragement; 1 John: righteousness / love / belief).
 const KIND_TONES = ["var(--lg)", "var(--revelation)", "var(--poetry)", "var(--prophets)", "var(--acts)"];
@@ -52,7 +53,7 @@ export function LetterShape({ letters, selected, onSelect, outline = true }: { l
               className={`lg-seg${keep.peek(`s${section.start}`) ? " lg-peek" : ""}`}
               style={{ flexGrow: section.verses }} aria-label={`${section.title}, ${formatRange(catalog, section.start, section.end)}`} />)}
           </div>
-          <span className="lg-bar-count">{total} verses</span>
+          <span className="lg-bar-count">{`${formatNumber(total)} verses`}</span>
         </div>;
       })}
     </div>
@@ -60,7 +61,7 @@ export function LetterShape({ letters, selected, onSelect, outline = true }: { l
       options={[shapeResting, ...[...info.values()].map((i) => infoTip(i, keptMark))]} />
 
     {outline && chosen.outline.length > 0 && <div style={{ marginTop: "1.25rem" }}>
-      <p className="lg-subhead">{chosen.name} · outline in our own words{kinds.length ? ` · coloured by ${kinds.join(" / ")}` : ""}</p>
+      <p className="lg-subhead">{kinds.length ? `${chosen.name} · outline in our own words · coloured by ${kinds.join(" / ")}` : `${chosen.name} · outline in our own words`}</p>
       <div className="lg-outline">
         {chosen.outline.map((part) => {
           const length = index(part.span[1]) - index(part.span[0]) + 1;

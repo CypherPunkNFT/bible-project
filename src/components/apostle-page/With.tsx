@@ -122,6 +122,22 @@ function Circle({ d, onNow }: { d: Apostle; onNow: (now: Now) => void }) {
     </svg></div></div>;
 }
 
+/** "120 km north of Jerusalem": each direction its own whole sentence, so the page translator can look it up with its number. */
+function kmFromJerusalem(km: number, dir: string): string {
+  const n = formatNumber(km);
+  switch (dir) {
+    case "north": return `${n} km north of Jerusalem`;
+    case "north-east": return `${n} km north-east of Jerusalem`;
+    case "east": return `${n} km east of Jerusalem`;
+    case "south-east": return `${n} km south-east of Jerusalem`;
+    case "south": return `${n} km south of Jerusalem`;
+    case "south-west": return `${n} km south-west of Jerusalem`;
+    case "west": return `${n} km west of Jerusalem`;
+    case "north-west": return `${n} km north-west of Jerusalem`;
+    default: return `${n} km ${dir} of Jerusalem`;
+  }
+}
+
 function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   const sheet = useSheet();
   if (now.kind === "entry") {
@@ -134,15 +150,15 @@ function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   }
   if (now.kind === "person") {
     const r = d.rowByKey[now.key], shared = d.scripture.filter((e) => e.with[now.key]), comp = d.companions.find((c) => c.person.personId === r.id);
-    return <><p className="kicker">Named beside him · {plural(shared.length, "{n} record", "{n} records")}</p><h3>{r.name}</h3>
+    return <><p className="kicker">{`Named beside him · ${plural(shared.length, "{n} record", "{n} records")}`}</p><h3>{r.name}</h3>
       {comp && <><p className="with-text">{comp.claim.text}</p><ClaimFoot d={d} c={comp.claim} /></>}
       <ol className="with-list">{shared.map((e) => <li key={e.key}><button type="button" onClick={() => sheet.openEntry(e)}><span>{e.title}</span><small>{refText([e.with[now.key][0], e.with[now.key][0]])}</small></button></li>)}</ol>
-      <Link className="ref" to={personHref(r.id)}>Open {r.name}'s page</Link></>;
+      <Link className="ref" to={personHref(r.id)}>{`Open ${r.name}'s page`}</Link></>;
   }
   if (now.kind === "place") {
     const p = now.p;
     return <><p className="kicker">{p.tradition ? "Known from tradition" : "A place in his story"}</p><h3>{p.name}</h3>
-      {p.from && <p className="plain-line">{formatNumber(p.from.km)} km {p.from.dir} of Jerusalem</p>}
+      {p.from && <p className="plain-line">{kmFromJerusalem(p.from.km, p.from.dir)}</p>}
       {p.note && <p className="with-text">{p.note}</p>}<ClaimFoot d={d} c={{ layer: p.tradition ? "tradition" : "scripture", refs: p.refs }} /></>;
   }
   return <><p className="kicker">The centre</p><h3>{d.name}</h3><p className="with-text">{d.story ?? d.tagline}</p><p className="plain-line">Choose a person, a place or a record on the circle.</p></>;

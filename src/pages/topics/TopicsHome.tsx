@@ -22,7 +22,7 @@ function FamilyCard({ family, number, index }: { family: TopicCategory; number: 
       <div className="topics-card-top"><Icon size={18} strokeWidth={1.5} aria-hidden /><span>{FAMILY_EYEBROW[family.id] ?? "Topics"}</span><ArrowUpRight size={19} aria-hidden /></div>
       <TopicsArtwork kind={family.id} words={familyWords(family, index, 4)} />
       <div className="topics-card-copy"><span className="topics-card-number">{String(number).padStart(2, "0")}</span><h3 id={`topics-card-${family.id}`}>{family.title}</h3><p>{family.description}</p></div>
-      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{topics} topics in {family.subcategories.length} {plural(family.subcategories.length, "group", "groups")}<ArrowRight size={15} aria-hidden /></strong></div>
+      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{`${formatNumber(topics)} topics in ${plural(family.subcategories.length, "{n} group", "{n} groups")}`}<ArrowRight size={15} aria-hidden /></strong></div>
     </Link>
   );
 }
@@ -75,7 +75,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
           <div className="topics-intro-copy">
             <p className="topics-kicker">Scripture, subject by subject</p>
             <h1>Every subject.<br /><em>Every verse.</em></h1>
-            <p>{formatNumber(Object.keys(topics).length)} topics in {categories.length} families and {groups} groups, each with the passages that speak to it: doctrines and duties, every person and place, and the things of daily life.</p>
+            <p>{`${formatNumber(Object.keys(topics).length)} topics in ${formatNumber(categories.length)} families and ${formatNumber(groups)} groups, each with the passages that speak to it: doctrines and duties, every person and place, and the things of daily life.`}</p>
             <label className="topics-finder"><Search size={18} aria-hidden /><span className="sr-only">Find a topic</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Find a topic: grace, prayer, the Sabbath, lions…" /></label>
             <MeaningPrompt query={query} className="mt-3 max-w-[34rem]" />
             {!query && popular.length > 0 && <p className="topics-popular"><span>Popular</span>{popular.map((id) => <Link key={id} to={topicUrl(id)}>{topics[id].title}</Link>)}</p>}
@@ -97,7 +97,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
               {found.map((id) => {
                 const place = placeOf(index, id);
                 const Icon = groupIcon(place?.subcategory.id ?? "");
-                return <li key={id} style={tint(place?.category.id ?? "")}><Link to={topicUrl(id)} className="topics-compact-card"><Icon size={28} strokeWidth={1.35} aria-hidden /><span><strong>{topics[id].title}</strong><small>{place ? `${place.category.title} › ${place.subcategory.title}` : ""} · {formatNumber(topics[id].refs)} passages</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>;
+                return <li key={id} style={tint(place?.category.id ?? "")}><Link to={topicUrl(id)} className="topics-compact-card"><Icon size={28} strokeWidth={1.35} aria-hidden /><span><strong>{topics[id].title}</strong><small>{place ? `${place.category.title} › ${place.subcategory.title} · ${plural(topics[id].refs, "{n} passage", "{n} passages")}` : ` · ${plural(topics[id].refs, "{n} passage", "{n} passages")}`}</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>;
               })}
             </ul>
           </section>
@@ -107,7 +107,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
 
         {!query.trim() && index.readings && index.readings.length > 0 && (
           <section id="section-great-passages" className="topics-section topics-readings" aria-labelledby="topics-readings-title">
-            <div className="topics-row-heading"><h2 id="topics-readings-title"><span>★</span>Great passages</h2><p>{index.readings.length} readings chosen by Orville J. Nave, from Judah's plea for Benjamin to the new song.</p></div>
+            <div className="topics-row-heading"><h2 id="topics-readings-title"><span>★</span>Great passages</h2><p>{`${formatNumber(index.readings.length)} readings chosen by Orville J. Nave, from Judah's plea for Benjamin to the new song.`}</p></div>
             <ol>{index.readings.map((reading, i) => <li key={reading.title}><span className="topics-reading-number">{String(i + 1).padStart(2, "0")}</span><strong>{reading.title}</strong><span className="topics-reading-refs">{reading.refs.slice(0, 3).map((span, j) => <RefLink key={j} span={span} />)}</span></li>)}</ol>
           </section>
         )}

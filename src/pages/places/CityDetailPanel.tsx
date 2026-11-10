@@ -25,12 +25,12 @@ export function CityDetailPanel({ city, onBack }: { city: CityChoice; onBack: ()
     <div className="city-detail-columns">
       <div className="city-detail-story">
         {detail ? <>
-          <section><h4>{detail.churchTitle}</h4><p>{detail.church}</p><Link to={detail.passage.path}><BookOpen size={14} aria-hidden />Read {detail.passage.label}<ArrowUpRight size={13} aria-hidden /></Link></section>
+          <section><h4>{detail.churchTitle}</h4><p>{detail.church}</p><Link to={detail.passage.path}><BookOpen size={14} aria-hidden />{`Read ${detail.passage.label}`}<ArrowUpRight size={13} aria-hidden /></Link></section>
           <section><h4>The city</h4><p>{detail.city}</p></section>
-        </> : <section><h4>The city</h4><p>{city.subtitle}. {place ? `${city.title} is named in ${place.verses.length} ${plural(place.verses.length, "verse", "verses")}; each reference opens the passage.` : ""}</p></section>}
+        </> : <section><h4>The city</h4><p>{city.subtitle}. {place ? `${city.title} is named in ${plural(place.verses.length, "{n} verse", "{n} verses")}; each reference opens the passage.` : ""}</p></section>}
       </div>
       <section className="city-detail-verses" aria-label={`Where ${city.title} is named`}>
-        <h4>Where it is named{place ? ` · ${place.verses.length} ${plural(place.verses.length, "verse", "verses")}` : ""}</h4>
+        <h4>{place ? `Where it is named · ${plural(place.verses.length, "{n} verse", "{n} verses")}` : "Where it is named"}</h4>
         {raw.status === "loading" && <p className="city-detail-muted" role="status">Loading…</p>}
         {raw.status === "ready" && !place && <p className="city-detail-muted">This city is not in the atlas data yet.</p>}
         {place && <OutsideScroll label={`Passages naming ${city.title}`} className="city-detail-scroll"><ul>{[...byBook.entries()].map(([num, ids]) => {

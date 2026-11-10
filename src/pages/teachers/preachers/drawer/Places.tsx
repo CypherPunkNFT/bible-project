@@ -53,6 +53,6 @@ export function LifeStrip({ person, lit }: { person: Person; lit: number | null 
         <i /><span>{s.name}</span><small>{s.from}</small>
       </button>)}
     </div>
-    <div className="drw-strip-ends"><span>Born {person.circa ? "c. " : ""}{person.born}</span><span>{person.died ? `Died ${person.died} · about ${span} years` : "Living"}</span></div>
+    <div className="drw-strip-ends"><span>{person.circa ? `Born c. ${person.born}` : `Born ${person.born}`}</span><span>{person.died ? `Died ${person.died} · about ${span} years` : "Living"}</span></div>
   </>;
 }

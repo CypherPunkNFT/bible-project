@@ -47,7 +47,7 @@ export function SubjectLanes({ division, num, back }: { division: Division; num:
     return () => removeEventListener("resize", measure);
   }, []);
 
-  const base = <>{plural(division.titles.length, "{n} title", "{n} titles")} across {division.tracks.length} subjects. <span className="muted">A title made for more than one door appears under each of them.</span></>;
+  const base = <>{`${plural(division.titles.length, "{n} title", "{n} titles")} across ${plural(division.tracks.length, "{n} subject", "{n} subjects")}. `}<span className="muted">A title made for more than one door appears under each of them.</span></>;
   const seriesLine = (id: string) => { const s = division.seriesById[id]; return <><b>{s.name}</b> · {s.type}. {s.line}</>; };
   const options = [base, ...division.series.map((s) => seriesLine(s.id)), ...division.titles.map((t) => <TitleHint key={t.id} division={division} t={t} />)];
   const show = pointed ? <TitleHint division={division} t={division.title[pointed]} /> : series ? seriesLine(series) : base;

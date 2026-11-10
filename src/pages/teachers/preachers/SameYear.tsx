@@ -10,7 +10,7 @@ import { usePreachers } from "./context";
 import { cssVars, prefersReducedMotion, toneOf } from "./drawer/helpers";
 import { PRESETS, START_YEAR, aliveIn, ageNote, firstBirth, groupsIn, histogramOf } from "./sameyear/years";
 import "./sameyear.css";
-import { plural } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 interface YearState { year: number; animate: boolean }
 interface PlaceCardProps { place: string; people: Person[]; year: number; index: number; animate: boolean; onOpen: (id: string, origin: Element) => void }
@@ -69,14 +69,14 @@ export function SameYear() {
           <output className="yr-big" aria-live="polite">{year}</output>
           <button type="button" onClick={() => jump(year + 10)} aria-label="Ten years later"><ArrowRight size={16} strokeWidth={1.5} aria-hidden /></button>
         </div>
-        <p className="yr-sum"><b>{alive}</b> of the {people.length} {now ? "are" : "were"} alive, in <b>{groups.length}</b> {plural(groups.length, "place", "places")}. {notYet} not yet born · {gone} {now ? "have" : "had"} died.</p>
+        <p className="yr-sum">{now ? `${formatNumber(alive)} of the ${formatNumber(people.length)} are alive, in ${plural(groups.length, "{n} place", "{n} places")}.` : `${formatNumber(alive)} of the ${formatNumber(people.length)} were alive, in ${plural(groups.length, "{n} place", "{n} places")}.`}{" "}{now ? `${formatNumber(notYet)} not yet born · ${formatNumber(gone)} have died.` : `${formatNumber(notYet)} not yet born · ${formatNumber(gone)} had died.`}</p>
         <div className="yr-hist">
           <svg viewBox={`0 0 ${histogram.width} 60`} preserveAspectRatio="none" aria-hidden="true"><path d={histogram.path} /></svg>
           <span className="yr-marker" style={{ left: `${((year - first) / (THIS_YEAR - first)) * 100}%` }} />
           <input type="range" min={first} max={THIS_YEAR} step={1} aria-label="Year" ref={range} defaultValue={year} onChange={(event) => drag(Number(event.target.value))} />
         </div>
         <div className="yr-axis"><span>{first}</span><span>Today</span></div>
-        <p className="yr-note">Shaded: how many of the {people.length} were alive in each year (at most {histogram.max}). Places are where each person was living that year.</p>
+        <p className="yr-note">{`Shaded: how many of the ${formatNumber(people.length)} were alive in each year (at most ${formatNumber(histogram.max)}). Places are where each person was living that year.`}</p>
         <div className="yr-presets">
           {PRESETS.map((y) => <button key={y} type="button" aria-pressed={y === year} onClick={() => jump(y)}>{y}<small>{aliveIn(people, y).length}</small></button>)}
         </div>

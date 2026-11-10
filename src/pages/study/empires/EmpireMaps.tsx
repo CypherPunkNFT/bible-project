@@ -16,7 +16,7 @@ function MapPanel({period,local,showMovement}:{period:Period;local?:boolean;show
   return <figure className={`ie-map ${local?'ie-map-local':''}`}>
     <figcaption><span>{local?'02 / Close to home':'01 / The wider world'}</span><span>{local?'Southern Levant':'Egypt · Levant · Mesopotamia'}</span></figcaption>
     <div className="ie-map-viewport" tabIndex={0} role="region" aria-label={`${local?'Local':'Regional'} map. On narrow screens, scroll horizontally to inspect the whole map.`}><svg viewBox={`0 0 ${map.width} ${map.height}`} role="img" aria-labelledby={`${uid}-title ${uid}-desc`}>
-      <title id={`${uid}-title`}>{local?'Local':'Regional'} map · {period.date}</title><desc id={`${uid}-desc`}>{description} Physical coastlines are generalized; no political borders are drawn. Arrows are schematic relationships, not travel routes.</desc>
+      <title id={`${uid}-title`}>{local?`Local map · ${period.date}`:`Regional map · ${period.date}`}</title><desc id={`${uid}-desc`}>{description} Physical coastlines are generalized; no political borders are drawn. Arrows are schematic relationships, not travel routes.</desc>
       <defs>{['force','tribute','movement','alliance'].map(kind=><marker key={kind} id={`${uid}-${kind}`} markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" className={`ie-line-${kind}`}/></marker>)}</defs>
       <rect width={map.width} height={map.height} className="ie-water"/>
       <path d={map.land.replace(`M0,0L${map.width},0L${map.width},${map.height}L0,${map.height}Z`,'')} fillRule="evenodd" className="ie-land"/><path d={map.grid} className="ie-grid"/>

@@ -3,6 +3,7 @@ import { StableTip } from "@/components/StableTip";
 import type { Flow } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
+import { formatNumber } from "@/lib/site-format";
 
 const W = 1000;
 const NODE = 12;
@@ -41,7 +42,7 @@ export function FlowChart({ flow }: { flow: Flow }) {
   const focusOf = (name: string) => flow.links.filter((l) => l.source === name || l.target === name).sort((a, b) => b.value - a.value);
   // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
   const keptMark = <KeepX onRelease={() => undefined} />;
-  const flowResting = <span className="lg-muted">{total} quotations. Point at a book or a chapter to see the passages; click one to keep them open.</span>;
+  const flowResting = <span className="lg-muted">{`${formatNumber(total)} quotations.`} <span>Point at a book or a chapter to see the passages; click one to keep them open.</span></span>;
   const flowTip = (name: string, isKept: boolean, mark: ReactNode) => <>
     <strong>{name}</strong> <span className="lg-muted">· {focusOf(name).reduce((s, l) => s + l.value, 0)}{isKept ? "" : " · click to keep these open"}</span>{mark}
     <ul className="lg-flow-list">{focusOf(name).map((l) => <li key={`${l.source}→${l.target}`}>

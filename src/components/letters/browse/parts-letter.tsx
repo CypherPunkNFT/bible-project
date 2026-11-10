@@ -52,8 +52,8 @@ export function Glance({ letter }: { letter: Letter }) {
 /** The letter's people and places, on their own (Hebrews' "Who and where" card). */
 export function PeoplePlaces({ letter }: { letter: Letter }) {
   return <div className="lb-panel lb-glance" style={{ marginTop: 0 }}>
-    <div><p className="lb-panel-label">People named · {letter.people.length}</p><Names list={letter.people} empty="No one named." /></div>
-    <div><p className="lb-panel-label">Places named · {letter.places.length}</p><Names list={letter.places} empty="No place named." /></div>
+    <div><p className="lb-panel-label">{`People named · ${formatNumber(letter.people.length)}`}</p><Names list={letter.people} empty="No one named." /></div>
+    <div><p className="lb-panel-label">{`Places named · ${formatNumber(letter.places.length)}`}</p><Names list={letter.places} empty="No place named." /></div>
   </div>;
 }
 
@@ -68,7 +68,7 @@ export function OutlineBar({ letter, headings = false }: { letter: Letter; headi
   return <div className="lb-panel">
     {kinds.length > 0 && <div className="lb-legend">{kinds.map((kind) => <span key={kind}><i style={{ background: kindTone(kind) }} />{kind}</span>)}</div>}
     <div className="lb-outline">{parts.map((p, i) => <button key={p.span[0]} type="button" aria-pressed={keep.kept === i} style={{ flexGrow: verses(i), "--part": kindTone(p.kind) } as CSSProperties} {...keep.bind(i)}><span>{p.title}</span></button>)}</div>
-    <p className="lb-tip">{k ? <><b>{k.title}</b>{keep.kept !== null && <KeepX onRelease={keep.release} />} · {label(k.span)} · {verses(parts.indexOf(k))} verses{k.kind ? ` · ${k.kind}` : ""}<Refs refs={[k.span]} /></>
+    <p className="lb-tip">{k ? <><b>{k.title}</b>{keep.kept !== null && <KeepX onRelease={keep.release} />}{" · "}{k.kind ? `${label(k.span)} · ${formatNumber(verses(parts.indexOf(k)))} verses · ${k.kind}` : `${label(k.span)} · ${formatNumber(verses(parts.indexOf(k)))} verses`}<Refs refs={[k.span]} /></>
       : `${letter.name} in ${parts.length} parts, each as long as it is, in our own words. Click a part to keep it.`}</p>
     {headings && sections.status === "ready" && <HeadingsBeside parts={parts} sections={sections.value.find((s) => s.code === letter.code)?.sections ?? []} kept={keep.kept} label={label} />}
   </div>;
@@ -99,15 +99,15 @@ export function LetterWords({ letter }: { letter: Letter }) {
         <span><b>{word.gloss}</b><small>{word.greek} {word.translit} · {word.strongs}</small></span><em>{word.count}</em></button>; })}</div>
     <div className="lb-tip">{w ? <><b>{w.gloss}</b> ({w.greek}, {w.translit}){keep.kept !== null && <KeepX onRelease={() => { keep.release(); setAll(false); }} />}{w.note ? ` · ${w.note}` : ""}
       {keep.kept !== null && (verses === undefined ? <p className="lg-muted">Finding the verses…</p>
-        : <p>{verses.length} verses where the KJV text is tagged with this word: <Refs refs={all ? verses : verses.slice(0, 40)} limit={all ? verses.length : 40} />
-          {verses.length > 40 && !all && <button type="button" className="lb-tab" onClick={() => setAll(true)}>Show all {verses.length}</button>}</p>)}</>
+        : <p>{`${formatNumber(verses.length)} verses where the KJV text is tagged with this word:`} <Refs refs={all ? verses : verses.slice(0, 40)} limit={all ? verses.length : 40} />
+          {verses.length > 40 && !all && <button type="button" className="lb-tab" onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)}`}</button>}</p>)}</>
       : "A bigger star means more uses. Click a word to list every verse it appears in."}</div>
   </div>;
 }
 
 /** Each Old Testament quotation, linked to where the letter quotes and to the passage it comes from. */
 export function OtList({ letter }: { letter: Letter }) {
-  if (!letter.otQuotes.length) return <div className="lb-panel"><p className="lb-fact">{letter.name} quotes no Old Testament passage.</p></div>;
+  if (!letter.otQuotes.length) return <div className="lb-panel"><p className="lb-fact">{`${letter.name} quotes no Old Testament passage.`}</p></div>;
   return <div className="lb-panel"><ul className="lb-ot-list">{letter.otQuotes.map((q) => <li key={`${q.at[0]}-${q.from[0]}`}>
     <Refs refs={[q.at]} /> <span className="lg-muted">quotes</span> <Refs refs={[q.from]} />{q.note && <small>{q.note}</small>}</li>)}</ul></div>;
 }

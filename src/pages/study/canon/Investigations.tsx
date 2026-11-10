@@ -48,9 +48,9 @@ function CaseC() {
   const [listed, setListed] = useState(false);
   const p = pictureFor.get("alexandrinus"), s = codex.segments[segment];
   return <article className="ci-case" data-case="c"><CaseHead letter="C" kicker="The material witness · survival and reconstruction" title={codex.title} />
-    <p className="ci-intro">{codex.shelfmark}. Inspect the final surviving works, then add what the contents list names. A dashed boundary marks a different kind of evidence—not a lower level of religious value.</p>
+    <p className="ci-intro">{`${codex.shelfmark}. Inspect the final surviving works, then add what the contents list names. A dashed boundary marks a different kind of evidence—not a lower level of religious value.`}</p>
     <div className="ci-codex">{p && <figure className="ci-photo"><button type="button" data-open="alexandrinus" aria-label="Open the Codex Alexandrinus record"><PictureImg p={p} /></button>
-      <figcaption>A surviving page of the codex ({pictureWhat(p).replace(/^Codex Alexandrinus\s*/, "")}, from Mark), not one of the leaves below. <Credit p={p} /></figcaption></figure>}
+      <figcaption>{`A surviving page of the codex (${pictureWhat(p).replace(/^Codex Alexandrinus\s*/, "")}, from Mark), not one of the leaves below. `}<Credit p={p} /></figcaption></figure>}
       <div className="ci-codex-work"><label className="ci-switch"><input type="checkbox" className="ci-inventory" checked={listed}
         onChange={(e) => { setListed(e.target.checked); if (!e.target.checked && segment === 3) setSegment(0); }} /> Include the contents-list evidence</label>
         <div className="ci-strip" role="group" aria-label="Inspect the end of Alexandrinus">{codex.segments.map((x, i) =>

@@ -48,7 +48,7 @@ function Extras({ data, s }: { data: ScholarsData; s: Scholar }) {
     {finds.length > 0 && <section className="prf-card"><h3>Finds and digs</h3><ul className="prf-finds">
       {finds.map((f) => <li key={f.id}><b>{f.name}</b><span>{f.year} · {f.where[0]}</span><p>{f.line}</p></li>)}</ul></section>}
     {stepAt >= 0 && <section className="prf-card"><h3>How the Bible reached English</h3>
-      <p className="prf-chain">Step <b>{stepAt + 1}</b> of {steps.length}: {steps[stepAt][1]}.</p>
+      <p className="prf-chain">{`Step ${formatNumber(stepAt + 1)} of ${formatNumber(steps.length)}: ${steps[stepAt][1]}.`}</p>
       <ol className="prf-chain-row">{steps.map(([id], i) => <li key={id} className={i === stepAt ? "prf-on" : undefined}>{shortOf(id)}</li>)}</ol></section>}
   </>;
 }
@@ -74,7 +74,7 @@ export function ProfileContent({ data, s }: { data: ScholarsData; s: Scholar }) 
       {entry&&<section><h3>Complete library work associations</h3><PopulationWorks person={entry}/></section>}
       {s.writings && <section><h3>Apologetics materials</h3><p>Popular and scholarly articles from Reasonable Faith.</p><Link to={s.writings.to}>{s.writings.label} →</Link></section>}
       {s.biographyUrl && <p><a href={s.biographyUrl} target="_blank" rel="noreferrer">Author biography and bibliography ↗</a></p>}
-      {s.acquiredId && <section><h3>Acquired texts</h3><p>{formatNumber(s.heldTexts)} held text representations · {formatNumber(s.readableTexts)} readable here. Editions and formats can overlap.</p><Link to={`/teachers/works?author=${encodeURIComponent(s.acquiredId)}`}>Browse the full shelf →</Link></section>}
+      {s.acquiredId && <section><h3>Acquired texts</h3><p>{`${formatNumber(s.heldTexts)} held text representations · ${formatNumber(s.readableTexts)} readable here. Editions and formats can overlap.`}</p><Link to={`/teachers/works?author=${encodeURIComponent(s.acquiredId)}`}>Browse the full shelf →</Link></section>}
       {s.faith === "catholic" && <aside className="acq-warning"><strong>Doctrinal review</strong><p>Review Catholic doctrinal claims against the project standard, including justification and Marian teachings. Assess philosophical arguments separately; these topics do not imply every author holds every listed position.</p></aside>}
       <section><h3>How this site uses their work</h3>
         {s.site ? <div className="prf-use"><SiteBadge s={s} /><p>{s.site.note}</p></div> : <p className="prf-empty">Not used on this site yet.</p>}</section>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { caseById, caseOfSlot, D, G, percent, thousands, type Letter, type Opened } from "./model";
 import { Mixed, Quote } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function Grammar({ code, gloss, sound }: { code: string; gloss: string; sound: string }) {
   const note = G.codes[code];
@@ -19,18 +20,18 @@ function Grammar({ code, gloss, sound }: { code: string; gloss: string; sound: s
 function LetterRecord({ letter }: { letter: Letter }) {
   const data = G.letters[letter.id], count = G.counts.letters[letter.id];
   return <>
-    <p className="ng-kicker">Letter {D.letters.indexOf(letter) + 1} of 24</p>
+    <p className="ng-kicker">{`Letter ${formatNumber(D.letters.indexOf(letter) + 1)} of ${formatNumber(24)}`}</p>
     <h2 tabIndex={-1}>{letter.name}</h2>
     <p className="ng-sheet-glyph" lang="grc">{letter.upper} {letter.lower}{letter.final && <span> {letter.final}</span>}</p>
     <dl className="ng-facts">
       <div><dt>Sound here</dt><dd>{letter.sound}</dd></div>
-      {letter.lookslike && <div><dt>Do not read it as</dt><dd>English {letter.lookslike}, which it looks like</dd></div>}
+      {letter.lookslike && <div><dt>Do not read it as</dt><dd>{`English ${letter.lookslike}, which it looks like`}</dd></div>}
       {letter.note && <div><dt>Note</dt><dd><Mixed text={letter.note} /></dd></div>}
-      <div><dt>In the text counted</dt><dd>{thousands(count)} of {thousands(G.counts.lettersTotal)} letters, about {percent(count, G.counts.lettersTotal)}%</dd></div>
+      <div><dt>In the text counted</dt><dd>{`${thousands(count)} of ${thousands(G.counts.lettersTotal)} letters, about ${percent(count, G.counts.lettersTotal)}%`}</dd></div>
     </dl>
     <p className="ng-kicker ng-kicker-gap">A word in its verse</p>
     <p className="ng-sheet-word" lang="grc">{letter.word.form}</p>
-    <p className="ng-sheet-line">Said <b>{letter.word.say}</b> in this page's scheme. It means {letter.word.means}.</p>
+    <p className="ng-sheet-line">Said <b>{letter.word.say}</b>{` in this page's scheme. It means ${letter.word.means}.`}</p>
     <Quote label={data.label} />
   </>;
 }
@@ -38,7 +39,7 @@ function LetterRecord({ letter }: { letter: Letter }) {
 function WordRecord({ opened }: { opened: Extract<Opened, { type: "word" }> }) {
   const { line, word } = opened, job = word.k ? caseById.get(word.k) : undefined;
   return <>
-    <p className="ng-kicker">{line.label}, word {opened.index + 1}</p>
+    <p className="ng-kicker">{`${line.label}, word ${formatNumber(opened.index + 1)}`}</p>
     <h2 tabIndex={-1}>{word.t}</h2>
     <p className="ng-sheet-word" lang="grc">{word.g}</p>
     {job && <p className="ng-sheet-line">Its job here: <b>{job.plain}</b>. {job.name}.</p>}

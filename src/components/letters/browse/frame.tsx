@@ -81,7 +81,7 @@ function Hero({ page }: { page: PageDef }) {
 
 /** "Paul's own page →": the way from a collection to the person at its heart. */
 export function PersonLink({ writer, from }: { writer: Writer; from: string }) {
-  return <Link className="lb-person-link" to={`/people/${slugOf(writer.id) ?? writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
+  return <Link className="lb-person-link" to={`/people/${slugOf(writer.id) ?? writer.id}`} state={cameFrom(from)}>{`${writer.name}'s own page`} <ArrowRight size={14} aria-hidden /></Link>;
 }
 
 /** The opening paragraphs: the collection's introduction, or (James, Peter and Jude) a short life of each writer with his

@@ -77,6 +77,6 @@ export function Directory() {
     <div ref={frameRef} className="dir-frame slim-scroll" role="region" aria-label="Contributor directory" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,library?.length??0));}}>
       <div ref={listRef} className="dir-list" onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} limit={limit} /></div>
     </div>
-    {library&&limit<library.length&&<button type="button" className="pop-load" onClick={()=>setLimit(n=>Math.min(n+192,library.length))}>Show more directory entries ({formatNumber(Math.min(limit,library.length))} of {formatNumber(library.length)})</button>}
+    {library&&limit<library.length&&<button type="button" className="pop-load" onClick={()=>setLimit(n=>Math.min(n+192,library.length))}>{`Show more directory entries (${formatNumber(Math.min(limit,library.length))} of ${formatNumber(library.length)})`}</button>}
   </>;
 }

@@ -7,7 +7,7 @@ import { plural } from "@/lib/site-format";
 
 function Chosen({ season }: { season: Season }) {
   return <div className="fy-chosen" aria-live="polite">
-    <p className="fy-kicker">{monthSpan(season)}, on this study's placing</p>
+    <p className="fy-kicker">{`${monthSpan(season)}, on this study's placing`}</p>
     <div className="fy-chosen-parts">
       <div>
         <h3>{season.reading}</h3>

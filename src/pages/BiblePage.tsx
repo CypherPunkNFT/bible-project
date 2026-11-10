@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
 import { useCurrentBible } from "@/lib/verses";
+import { plural } from "@/lib/site-format";
 import "./bible.css";
 import { BibleCardArt } from "@/components/bible/BibleCardArt";
 import "@/components/bible/bible-card-art.css";
@@ -33,7 +34,7 @@ export default function BiblePage() {
       <Link to="/library" className="bible-path bible-library library-option-1" aria-labelledby="bible-library-title">
         <div className="bible-path-top"><Library size={20} aria-hidden="true" /><span>Explore the collection</span><ArrowUpRight size={22} aria-hidden="true" /></div>
         <BibleCardArt kind="library" books={catalog.books} />
-        <div className="bible-path-copy"><h2 id="bible-library-title">Library</h2><p>See the Bible at a glance. Choose a version, explore its books, and open any chapter.</p><div className="bible-path-foot"><span>{catalog.translations.length} versions · {languages} languages</span><strong>Explore the library <ArrowUpRight size={16} aria-hidden="true" /></strong></div></div>
+        <div className="bible-path-copy"><h2 id="bible-library-title">Library</h2><p>See the Bible at a glance. Choose a version, explore its books, and open any chapter.</p><div className="bible-path-foot"><span>{`${plural(catalog.translations.length, "{n} version", "{n} versions")} · ${plural(languages, "{n} language", "{n} languages")}`}</span><strong>Explore the library <ArrowUpRight size={16} aria-hidden="true" /></strong></div></div>
       </Link>
     </div>
     <p className="bible-connection"><span />The reading chart is also a doorway: choose a chapter in the Library and you are already reading.<span /></p>

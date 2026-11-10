@@ -10,7 +10,7 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 import { projectPlace, type MapPlace } from "./projection";
 import { groupPlaces, labelGroups, type PlaceGroup } from "./vector-layout";
 import "./vector-atlas.css";
-import { compareText, plural } from "@/lib/site-format";
+import { compareText, formatNumber, plural } from "@/lib/site-format";
 
 // Allow close inspection of dense city groups; marker sizes remain constant on screen.
 const MAX_ZOOM = 8192;
@@ -159,7 +159,7 @@ export function VectorAtlasMap({ places, selected, onSelect, overlay, coveredFra
           <g transform={`translate(${size.width - 26},28)`} className="vector-compass" aria-hidden="true"><text textAnchor="middle" y="-9">N</text><path d="M0,0 L-4,13 L0,10 L4,13 Z" /></g>
         </svg>
         {opened && <div className="vector-cluster-card" role="region" aria-label="Places in this area">
-          <header><div><p>{opened.members.length} places in this area</p><h3>Choose a place.</h3></div><button type="button" aria-label="Close place group" onClick={() => setOpened(null)}><X size={18} /></button></header>
+          <header><div><p>{`${formatNumber(opened.members.length)} places in this area`}</p><h3>Choose a place.</h3></div><button type="button" aria-label="Close place group" onClick={() => setOpened(null)}><X size={18} /></button></header>
           <input className="vector-group-search" aria-label="Find within this group" placeholder="Find within this group…" value={groupQuery} onChange={(event) => setGroupQuery(event.target.value)} />
           <OutsideScroll label="Grouped places" className="vector-cluster-list" frameClassName="rounded-lg" resetKey={groupQuery}>
             <ul>{[...opened.members].filter((place) => place.name.toLowerCase().includes(groupQuery.trim().toLowerCase())).sort((a, b) => compareText(a.name, b.name)).map((place) => <li key={place.id}><button type="button" onClick={() => { setOpened(null); onSelect(place); }}><span className="vector-list-dot" style={{ background: sectionColor(place.section) }} /><span>{place.name}<small>{place.type}</small></span><span>{place.verses.length}<small>verses</small></span></button></li>)}</ul>

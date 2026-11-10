@@ -59,7 +59,7 @@ export function Chapter({ num, chapter }: { num: string; chapter: (typeof chapte
     <Sky /><span className="bc-numeral" aria-hidden="true">{chapter.num}</span>
     <div className="bc-grid">
       <div className="bc-side">
-        <p className="kicker"><span className="ms-num">{num}</span><span className="ms-dot" aria-hidden="true">·</span>Chapter {chapter.num} · {chapter.kicker}</p>
+        <p className="kicker"><span className="ms-num">{num}</span><span className="ms-dot" aria-hidden="true">·</span>{`Chapter ${chapter.num} · ${chapter.kicker}`}</p>
         <h2><Rich text={chapter.title} /></h2><p className="bc-lead">{c.context}</p>
         <div className="bc-strip"><Strip book={chapter.book} keys={chapter.keys} /></div>
         <ol className="bc-scenes" role="group" aria-label="Scenes">{titles.map((t, i) =>

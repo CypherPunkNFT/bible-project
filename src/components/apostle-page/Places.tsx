@@ -15,6 +15,21 @@ import { formatNumber, plural } from "@/lib/site-format";
  */
 const KIND_LABEL: Record<string, string> = { lake: "Lake", town: "Town", city: "City", port: "Port", region: "Region", island: "Island", tradition: "Tradition", unpinned: "No coordinates" };
 const DIR_DEG: Record<string, number> = { north: 0, "north-east": 45, east: 90, "south-east": 135, south: 180, "south-west": 225, west: 270, "north-west": 315 };
+/** "120 km north": each direction its own whole phrase, so the page translator can look it up with its number. */
+function kmAway(km: number, dir: string): string {
+  const n = formatNumber(km);
+  switch (dir) {
+    case "north": return `${n} km north`;
+    case "north-east": return `${n} km north-east`;
+    case "east": return `${n} km east`;
+    case "south-east": return `${n} km south-east`;
+    case "south": return `${n} km south`;
+    case "south-west": return `${n} km south-west`;
+    case "west": return `${n} km west`;
+    case "north-west": return `${n} km north-west`;
+    default: return `${n} km ${dir}`;
+  }
+}
 const JERUSALEM = "a15257a";
 interface Box { x: number; y: number; w: number; h: number }
 
@@ -28,7 +43,7 @@ function tradFor(d: Apostle, p: Place) {
 
 function Card({ d, p, i, on, onPick }: { d: Apostle; p: Place; i: number; on: boolean; onPick: () => void }) {
   const ents = p.entries.map((k) => d.byKey[k]).filter(Boolean), what = p.note ?? ents[0]?.title ?? "", tr = p.tradition ? tradFor(d, p) : [];
-  const from = p.from ? <><svg width="10" height="10" viewBox="0 0 12 12" style={{ transform: `rotate(${DIR_DEG[p.from.dir]}deg)` }} aria-hidden="true"><path d="M6 1v10M6 1 3 4M6 1l3 3" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>{formatNumber(p.from.km)} km {p.from.dir}</>
+  const from = p.from ? <><svg width="10" height="10" viewBox="0 0 12 12" style={{ transform: `rotate(${DIR_DEG[p.from.dir]}deg)` }} aria-hidden="true"><path d="M6 1v10M6 1 3 4M6 1l3 3" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>{kmAway(p.from.km, p.from.dir)}</>
     : p.placeId === JERUSALEM ? "The city itself" : p.xy ? null : "No coordinates";
   return <button type="button" className={`pcard${p.tradition ? " trad" : ""}${p.xy ? "" : " nopin"}${on ? " on" : ""}`} data-place={i} onClick={onPick}>
     <span className="pcard-icon"><Icon name={p.kind} size={22} /></span>

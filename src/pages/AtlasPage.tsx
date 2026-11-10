@@ -91,7 +91,7 @@ function AtlasExplorer() {
         <div>
           <p className="places-kicker">Explore by place</p>
           <h1>The places of the Bible.</h1>
-          <p>Explore {formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.</p>
+          <p>{`Explore ${formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.`}</p>
         </div>
         <PlacesArtwork kind="atlas" />
       </header>
@@ -125,7 +125,7 @@ function AtlasExplorer() {
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Find a place…" className="h-9 w-44 rounded-lg border border-line bg-surface pl-8 pr-2 text-sm" />
         </label>
         <span className="text-sm text-muted" aria-live="polite">
-          {formatNumber(shown.length)} shown
+          {`${formatNumber(shown.length)} shown`}
         </span>
         {(query || book || sections.size > 0) && <button type="button" className="text-xs text-accent underline underline-offset-4" onClick={() => { setQuery(""); setBook(""); setSections(new Set()); }}>Clear filters</button>}
       </div>

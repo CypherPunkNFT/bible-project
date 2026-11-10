@@ -68,7 +68,7 @@ export function Endings({ nounValue, lineValue, lensValue, onParam, onOpen }: { 
   return <>
     <Head title={<>One stem, many endings.<em> Each ending has a job.</em></>}
       lead="A Greek noun carries its job on its end. Grammar books call these jobs cases, and there are four main ones. On this page each has its own underline, and a word with it." />
-    <dl className="ng-cases">{D.cases.map((c) => <div key={c.id}><dt><span className={`ng-mark-${c.id}`}>{c.plain}</span></dt><dd>{c.name}. {c.line} <small>{thousands(G.counts.cases[c.id])} nouns.</small></dd></div>)}</dl>
+    <dl className="ng-cases">{D.cases.map((c) => <div key={c.id}><dt><span className={`ng-mark-${c.id}`}>{c.plain}</span></dt><dd>{c.name}. {c.line} <small>{`${plural(G.counts.cases[c.id], "{n} noun", "{n} nouns")}.`}</small></dd></div>)}</dl>
     <ul className="ng-picks" aria-label="Which noun">{D.nouns.map((n) => <li key={n.id}><button type="button" aria-pressed={n.id === noun.id} onClick={() => onParam("noun", n.id === "logos" ? null : n.id)}><Gk>{n.name}</Gk> {n.means}</button></li>)}</ul>
     <p className="ng-lineline" aria-live="polite"><Mixed text={`${noun.name}, said ${noun.say}, ${noun.gender}, ${thousands(G.nouns[noun.id].total)} times as a noun. ${noun.line}`} /></p>
     <Fan nounId={noun.id} onOpen={onOpen} />

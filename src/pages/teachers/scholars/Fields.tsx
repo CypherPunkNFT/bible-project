@@ -67,32 +67,32 @@ export function Fields() {
     return <li key={p.id} data-person={p.id}>
       <button type="button" aria-label={scholar ? `Open the profile of ${p.name}` : `Browse held works by ${p.name}`} aria-expanded={scholar ? undefined : open}
         onClick={e => scholar ? openProfile(scholar.id, e.currentTarget) : setExpanded(open ? null : p.id)}>{content}</button>
-      {scholar && p.records > 0 && <button type="button" className="fld-held" aria-expanded={open} onClick={() => setExpanded(open ? null : p.id)}>{formatNumber(p.records)} held records · {open ? "Close works" : "Browse works"}</button>}
+      {scholar && p.records > 0 && <button type="button" className="fld-held" aria-expanded={open} onClick={() => setExpanded(open ? null : p.id)}>{`${plural(p.records, "{n} held record", "{n} held records")} · ${open ? "Close works" : "Browse works"}`}</button>}
       {open && <><p className="fld-credit">{p.traditions.length ? `Recorded tradition: ${p.traditions.join(", ")}.` : "Faith and tradition not recorded."} {p.aliases.length > 1 && `Source names: ${p.aliases.join("; ")}.`}</p><FieldWorks entry={p} /></>}
     </li>;
   }
   return <>
     <SectionHead num="04" kicker="Fields" title={<>Five ways to <em>study the Bible</em></>}
-      line={library ? <>{formatNumber(library.entries.length)} authors and contributors, drawn from {formatNumber(library.coverage.scannedRecords)} library records. Browse their held works by subject or collection, including CCEL and the Latin Fathers.</> : "Opening the library's subject index…"} />
-    {error && <p role="alert">The subject index could not be loaded. {error}</p>}
+      line={library ? `${formatNumber(library.entries.length)} authors and contributors, drawn from ${formatNumber(library.coverage.scannedRecords)} library records. Browse their held works by subject or collection, including CCEL and the Latin Fathers.` : "Opening the library's subject index…"} />
+    {error && <p role="alert">{`The subject index could not be loaded. ${error}`}</p>}
     <div className="fld-grid" style={{ "--cols": columns } as CSSProperties}>
       {groups.map(g => {
         const selected = choice.open && choice.key === g.key;
         const visible = g.people.filter(matches), currentPage = Math.min(page, Math.max(0, Math.ceil(visible.length / SIZE) - 1));
         return <article key={g.key} className={`fld-card${selected ? " fld-sel" : ""}`} data-field={g.key} style={{ "--tone": `var(${toneOf(g.key)})` } as CSSProperties}>
           <button type="button" className="fld-head" aria-label={`${g.label}: browse all ${formatNumber(g.people.length)} contributors`} aria-expanded={selected} aria-controls={`fld-list-${g.key}`} onClick={() => choose(g.key)}>
-            <span className="fld-count">{library ? formatNumber(g.people.length) : "…"} contributors</span><h3>{g.label}</h3>
+            <span className="fld-count">{library ? plural(g.people.length, "{n} contributor", "{n} contributors") : "… contributors"}</span><h3>{g.label}</h3>
             <span className="fld-span">{descriptions[g.key]}</span>
             <span className="fld-avatars" aria-hidden="true">{g.picks.map(({ person, caption }) => <span className="fld-featured" key={person.id} title={person.name}>
               <Mark scholar={{ name: person.name, field: g.key }} size={48} /><span>{caption}</span>
             </span>)}</span>
-            <span className="fld-more">Browse all {library ? formatNumber(g.people.length) : "…"}</span>
+            <span className="fld-more">{`Browse all ${library ? formatNumber(g.people.length) : "…"}`}</span>
           </button>
           <div className="fld-body" id={`fld-list-${g.key}`} hidden={!selected}>
             <div className="fld-body-in">
               <label className="fld-search"><Search size={14} aria-hidden="true" /><input type="search" aria-label={`Search ${g.label}`} placeholder="Find a name or work" value={selected ? query : ""} onChange={e => { setQuery(e.target.value); reset(); }} /></label>
               <div className="fld-controls"><select aria-label={`Collection in ${g.label}`} value={collection} onChange={e => { setCollection(e.target.value); reset(); }}><option value="">All collections</option>{FIELD_COLLECTIONS.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select><select aria-label={`Sort ${g.label}`} value={sort} onChange={e => { setSort(e.target.value); reset(); }}><option value="featured">Featured first</option><option value="held">Most held</option><option value="az">A–Z</option></select></div>
-              <p className="fld-results" role="status">{formatNumber(visible.length)} of {formatNumber(g.people.length)} contributors{(query || collection) && <button type="button" onClick={() => { setQuery(""); setCollection(""); reset(); }}>Clear</button>}</p>
+              <p className="fld-results" role="status">{`${formatNumber(visible.length)} of ${formatNumber(g.people.length)} contributors`}{(query || collection) && <button type="button" onClick={() => { setQuery(""); setCollection(""); reset(); }}>Clear</button>}</p>
               <ul className="fld-people" key={`${g.key}-${query}-${collection}-${sort}-${currentPage}`} tabIndex={0} aria-label={`${g.label} authors and contributors`}>
                 {selected && visible.slice(currentPage * SIZE, (currentPage + 1) * SIZE).map(p => personRow(p, g.key))}
                 {!library && !error && <li className="fld-empty">Loading the full subject index…</li>}
@@ -106,6 +106,6 @@ export function Fields() {
       })}
     </div>
     <p className="fld-library-note">Fields follow the subjects of held works and can overlap. Authors, editors and named collections retain their source credits. <a href="#acquired">Browse every acquired contributor <ArrowRight size={12} aria-hidden="true" /></a></p>
-    {library && <p className="fld-coverage">{data.scholars.length} documented profiles · {library.coverage.collections.ccel} CCEL contributors · {library.coverage.collections['latin-fathers']} Latin Fathers authors and editors. {formatNumber(library.coverage.withoutSubjectMatch)} other source names remain in the full library without a field assignment.</p>}
+    {library && <p className="fld-coverage">{`${formatNumber(data.scholars.length)} documented profiles · ${formatNumber(library.coverage.collections.ccel)} CCEL contributors · ${formatNumber(library.coverage.collections['latin-fathers'])} Latin Fathers authors and editors. ${formatNumber(library.coverage.withoutSubjectMatch)} other source names remain in the full library without a field assignment.`}</p>}
   </>;
 }

@@ -25,7 +25,7 @@ function Ga304() {
     <div className={`g3 is-loop${shown ? " is-revealed" : ""}`}>
       <div className="g3-stage"><p className="kicker">Sequence diagram · not to scale</p><Ga304Art /></div>
       <div className="g3-copy"><p className="g3-meta">{ga304.meta}</p><p><Rich text={ga304.lead} /></p>
-        <button type="button" className="pm-action" aria-pressed={shown} onClick={() => setShown(!shown)}>{shown ? "Hide" : "Reveal"} the surrounding evidence <span aria-hidden="true">→</span></button>
+        <button type="button" className="pm-action" aria-pressed={shown} onClick={() => setShown(!shown)}>{shown ? "Hide the surrounding evidence " : "Reveal the surrounding evidence "}<span aria-hidden="true">→</span></button>
         <div className="g3-find" aria-live="polite">{shown
           ? <><b>Houghton’s reassessment, 2023</b><p>{ga304.finding}</p><p><strong>Still unknown:</strong> {ga304.unknown}</p></>
           : <p>{ga304.before}</p>}</div>

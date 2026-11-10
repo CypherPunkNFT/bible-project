@@ -12,6 +12,17 @@ import { formatNumber } from "@/lib/utils";
 import type { SectionFilter } from "./SectionGuide";
 import { plural } from "@/lib/site-format";
 
+/** A share as the site's language writes a number, always with one decimal ("12.3"). */
+const oneDecimal = (value: number) => formatNumber(value, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+/** The chart's description, written whole for each measure (a measure's name alone, lower-case, is not filled into a line). */
+const DISTRIBUTION: Record<Measure, string> = {
+  books: "Distribution of books by section", chapters: "Distribution of chapters by section",
+  verses: "Distribution of verses by section", words: "Distribution of words by section",
+  red: "Distribution of words of Jesus by section", miracles: "Distribution of miracles by section",
+  prophecies: "Distribution of selected prophecies by section", episodes: "Distribution of Gospel episodes by section",
+  names: "Distribution of names of God by section",
+};
+
 /** `plain` leaves out the note under the chart on how the chosen measure is counted. */
 interface Props { stats: Stats; section: SectionFilter; onSection: (section: SectionFilter) => void; plain?: boolean }
 export function SectionDonut(props: Props) {
@@ -47,22 +58,22 @@ function SectionChart({ stats, section, onSection, plain, measure, entries }: Pr
   const slices = pie<(typeof rows)[number]>().value((r) => r.value).sort(null).padAngle(.012)(rows);
   const shape = arc<(typeof slices)[number]>().innerRadius(66).outerRadius(100).cornerRadius(3);
   const detail = entries ? (section ? grouped.get(section) ?? [] : entries) : [];
-  const share = (n: number) => total ? (n / total * 100).toFixed(1) : "0.0";
+  const share = (n: number) => oneDecimal(total ? n / total * 100 : 0);
   const subject = active ?? largest;
-  const insight = !subject.value ? "This source selection has no entries in " + subject.name + ". That does not mean the subject is absent from these books."
-    : entries ? subject.name + " has " + subject.value + " section entries (" + share(subject.value) + "% of this selection). Open the passages below to move from the pattern to the texts behind it."
-    : measure === "words" ? subject.name + " is " + (subject.bookCount / 66 * 100).toFixed(1) + "% of the books but " + share(subject.value) + "% of the words. Book counts alone can hide how much space a section occupies."
-    : measure === "books" ? subject.name + " brings together " + subject.bookCount + " books, " + formatNumber(subject.chapterCount) + " chapters and " + formatNumber(subject.words) + " words. Change the measure to discover how differently those books are sized."
-    : measure === "chapters" ? subject.name + " has " + formatNumber(subject.value) + " chapters across " + subject.bookCount + " books — about " + formatNumber(Math.round(subject.words / subject.chapterCount)) + " words per chapter. Open the atlas to see the variation."
-    : measure === "verses" ? subject.name + " averages " + (subject.value / subject.chapterCount).toFixed(1) + " verses per chapter. Verses vary greatly in length; compare words before using verse counts to estimate reading time."
-    : (subject.value / subject.words * 100).toFixed(1) + "% of the words in " + subject.name + " are marked as Jesus speaking in this edition. Explore Words of Jesus to compare the teaching and its narrative setting.";
+  const insight = !subject.value ? `This source selection has no entries in ${subject.name}. That does not mean the subject is absent from these books.`
+    : entries ? `${subject.name} has ${formatNumber(subject.value)} section entries (${share(subject.value)}% of this selection). Open the passages below to move from the pattern to the texts behind it.`
+    : measure === "words" ? `${subject.name} is ${oneDecimal(subject.bookCount / 66 * 100)}% of the books but ${share(subject.value)}% of the words. Book counts alone can hide how much space a section occupies.`
+    : measure === "books" ? `${subject.name} brings together ${formatNumber(subject.bookCount)} books, ${formatNumber(subject.chapterCount)} chapters and ${formatNumber(subject.words)} words. Change the measure to discover how differently those books are sized.`
+    : measure === "chapters" ? `${subject.name} has ${formatNumber(subject.value)} chapters across ${formatNumber(subject.bookCount)} books — about ${formatNumber(Math.round(subject.words / subject.chapterCount))} words per chapter. Open the atlas to see the variation.`
+    : measure === "verses" ? `${subject.name} averages ${oneDecimal(subject.value / subject.chapterCount)} verses per chapter. Verses vary greatly in length; compare words before using verse counts to estimate reading time.`
+    : `${oneDecimal(subject.value / subject.words * 100)}% of the words in ${subject.name} are marked as Jesus speaking in this edition. Explore Words of Jesus to compare the teaching and its narrative setting.`;
   return <>
     <div className="measure-insight" aria-live="polite">
       <div><span>{active?.name ?? "The whole Bible"}</span><strong>{formatNumber(active?.value ?? total)}</strong><small>{entries ? "section entries" : label.toLowerCase()}</small></div>
       <p>{insight}</p>
     </div>
     <div className="section-overview">
-      <svg viewBox="-110 -110 220 220" role="img" aria-label={"Distribution of " + label.toLowerCase() + " by section"}>
+      <svg viewBox="-110 -110 220 220" role="img" aria-label={DISTRIBUTION[measure]}>
         {slices.filter((s) => s.value > 0).map((slice) => <path key={slice.data.id} d={shape(slice) ?? ""} fill={sectionColor(slice.data.id)} opacity={section && section !== slice.data.id ? .25 : 1} onClick={() => onSection(section === slice.data.id ? "" : slice.data.id)} />)}
         <text textAnchor="middle" y={-4} className="fill-ink font-serif" fontSize={22}>{active ? share(active.value) + "%" : formatNumber(total)}</text>
         <text textAnchor="middle" y={14} className="fill-muted" fontSize={8}>{entries ? "section entries" : label.toLowerCase()}</text>
@@ -71,7 +82,7 @@ function SectionChart({ stats, section, onSection, plain, measure, entries }: Pr
         <span className="h-3 w-3 rounded-full" style={{ background: sectionColor(r.id) }} /><span><strong>{r.name}</strong><small>{formatNumber(r.value)} {entries ? plural(r.value, "entry", "entries") : label.toLowerCase()}</small><span className="section-mini-bar"><i style={{ width: share(r.value) + "%", background: sectionColor(r.id) }} /></span></span><span className="section-share" style={{ color: sectionColor(r.id) }}>{share(r.value)}%</span>
       </button></li>)}</ul>
     </div>
-    {!plain && <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>}
-    {entries && <details className="measure-evidence" open={!!section}><summary>Explore the passages · {detail.length} {section ? "entries here" : "source entries"}</summary><OutsideScroll label="Source passages for the selected measure" className="measure-evidence-scroll" resetKey={`${measure}:${section}`}><ol>{detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol></OutsideScroll>{detail.length === 0 && <p>No entries in this selection. Try another section or measure.</p>}</details>}
+    {!plain && <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} <span>Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</span></> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>}
+    {entries && <details className="measure-evidence" open={!!section}><summary>{`Explore the passages · ${section ? plural(detail.length, "{n} entry here", "{n} entries here") : plural(detail.length, "{n} source entry", "{n} source entries")}`}</summary><OutsideScroll label="Source passages for the selected measure" className="measure-evidence-scroll" resetKey={`${measure}:${section}`}><ol>{detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol></OutsideScroll>{detail.length === 0 && <p>No entries in this selection. Try another section or measure.</p>}</details>}
   </>;
 }

@@ -68,7 +68,7 @@ function Summary({ model, view, narrow, onPin }: { model: Model; view: string; n
       : `Watts set nearly every psalm, so the Psalms hold ${formatNumber(psalms)} of these ${formatNumber(model.onChapters)} hymns and are the brightest block. Choose a book to see its own map.`}</p>
     <p className="bib-mini">Most sung chapters</p>
     <ol className="bib-top">{top.map((c) => <li key={c.i}><button type="button" onClick={() => onPin(c.i)}><span>{nameOf(model, c)}</span><b>{valueOf(c, view)}</b></button></li>)}</ol>
-    <p className="bib-hint">{narrow ? "Tap a square" : "Click a square"} to see the hymns on that chapter and open one.</p>
+    <p className="bib-hint">{narrow ? "Tap a square to see the hymns on that chapter and open one." : "Click a square to see the hymns on that chapter and open one."}</p>
   </div>;
 }
 
@@ -83,7 +83,7 @@ function ChapterPanel({ model, cell, view, groups, expanded, onClose, onExpand }
   return <div className="bib-inner" style={tone(`--${section}`)}>
     <div className="bib-top-row"><p className="kicker">{SECTION_LABEL[section]}</p>
       <button type="button" className="bib-icon-btn" onClick={onClose} aria-label="Close"><X size={16} strokeWidth={1.5} aria-hidden /></button></div>
-    <h3>{name}<small>{cell.verses} verses</small></h3>
+    <h3>{name}<small>{plural(cell.verses, "{n} verse", "{n} verses")}</small></h3>
     <p className="bib-note">{cell.total
       ? `${plural(cell.total, "{n} hymn", "{n} hymns")} ${plural(cell.total, "takes", "take")} this chapter as ${plural(cell.total, "its", "their")} text.`
       : "No hymn whose words we hold takes this chapter as its text."}</p>
@@ -96,8 +96,8 @@ function ChapterPanel({ model, cell, view, groups, expanded, onClose, onExpand }
     {shown.length > 0 && <><p className="bib-mini">Open a hymn</p>
       <ul className="bib-titles">{shown.map((h) => <li key={h.id}><Link className="bib-work" to={hymnHref(h.id)}><span>{h.t}</span><ArrowRight size={13} strokeWidth={1.5} aria-hidden /></Link>
         <small>{h.r} · {groups.get(h.g)?.short} · {h.y}</small></li>)}</ul></>}
-    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>Show all {formatNumber(list.length)} hymns</button>}
-    <Link className="bib-read" to={readHref(model, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />Read {name}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
+    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>{`Show all ${formatNumber(list.length)} hymns`}</button>}
+    <Link className="bib-read" to={readHref(model, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />{`Read ${name}`}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
   </div>;
 }
 

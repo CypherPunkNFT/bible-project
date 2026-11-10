@@ -225,9 +225,7 @@ export default function MuseumArchaeologyPage() {
               </h2>
             </div>
             <p>
-              The cuneiform catalogues record a holder for almost every tablet, and these {others.length} institutions
-              and private collections are named among them. We hold catalogue rows about their objects, no photographs,
-              and nothing fetched from the institutions themselves — so they have a line here rather than a page.
+              {`The cuneiform catalogues record a holder for almost every tablet, and these ${formatNumber(others.length)} institutions and private collections are named among them. We hold catalogue rows about their objects, no photographs, and nothing fetched from the institutions themselves — so they have a line here rather than a page.`}
             </p>
           </div>
           <button type="button" className="mu-disclose" onClick={() => setShowOthers(!showOthers)}>
@@ -266,9 +264,7 @@ export default function MuseumArchaeologyPage() {
           </Link>
         </div>
         <p className="mu-caption">
-          Built from this project's own research corpus, retrieved {generated || "2026-10-17"}. The most photographed
-          collection here holds {photographed} of these pictures. Sources, licences and checksums are registered in the
-          project's source register.
+          {`Built from this project's own research corpus, retrieved ${generated || "2026-10-17"}. The most photographed collection here holds ${formatNumber(photographed)} of these pictures. Sources, licences and checksums are registered in the project's source register.`}
         </p>
       </footer>
     </div>
