@@ -6,7 +6,16 @@ composed, ending in a ready-to-paste prompt for an image generator. The owner re
 Each scene's picture is then drawn on this PC (see [Pictures](#pictures)) and shown in the scene's frame. Nothing
 is published.
 
-**State (2026-11-07):** pilot done, waiting for the owner to compare. Both writers wrote all 12 pilot chapters and every
+**State (2026-11-09):** every chapter (all 1,189) has Haiku scenes: 3,213 scenes (919 chapters with 3, 186 with 2, 84
+with 1), shown in the Studio. The owner chose Haiku; the full run of the 1,177 chapters left after the trial took 17:01–19:30
+through BatchRunner (inputs `.local/chapter-scene-studio/haiku-full/items`, results `haiku-full/runs`) and cost $3.81
+at list price on the Max plan, against a 3-chapter pilot projection of $2.84 and a $5 hard stop.
+8 answers failed the script checks and were redone (`haiku-full/retry-runs`, `retry2-runs`): one broken JSON, three
+with the third scene's prompt missing, and four psalms that cited the psalm's heading as verse 0. The heading is in
+the input without a verse number, so a psalm can still trip this; a rerun fixed every case. Qwen keeps only the 12 trial
+chapters. Pictures are not made yet (about 6 hours of the graphics card per theme for all 3,213).
+
+**Earlier (2026-11-07):** pilot done. Both writers wrote all 12 pilot chapters and every
 answer passed the script checks (Qwen needed a second try once, on Ezekiel 1). Haiku cost $0.05 in total, about
 $0.003 a chapter, so a full Haiku run projects to about $4 at list price; Qwen took about 100 seconds a chapter at 12
 at once. To look: start the Studio (`python scripts/chapter_summary_studio.py --data-dir
@@ -63,8 +72,7 @@ Defined in [scene-schema.json](scene-schema.json); the instructions every writer
 Ezekiel 1, Mark 4, John 11, Romans 8, Revelation 21. Stories, law, a list of names, two poems (one of 2 verses),
 visions, Gospel scenes with Jesus, a letter.
 
-**Full run (after the owner picks):** Qwen is $0 and about an hour of the graphics card; Haiku is quoted from the pilot's
-measured cost before it runs.
+**Full run:** Haiku, chosen by the owner on 2026-11-09 (see State above).
 
 ## Pictures
 
