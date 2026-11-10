@@ -108,7 +108,7 @@ function renderGallery(){const body=$('gallery-body'),filter=$('gallery-filter')
   sec.append(grid);body.append(sec)})}
 // Called after a book or chapter click: a new book redraws the page, a new chapter scrolls to it.
 function galleryFollow(){const k=key();if(k===galleryAt||!gallery.length)return;if(code!==galleryBook)renderGallery();galleryAt=k;
- document.querySelector('[data-gallery-key="'+k+'"]')?.scrollIntoView({block:'start',behavior:'smooth'})}
+ document.querySelector('[data-gallery-key="'+k+'"]')?.scrollIntoView({block:'start',behavior:$('lightbox').hidden?'smooth':'auto'})}
 const chapterText={};let verseRequest=0;
 const chapterScenes={};
 function sceneMoment(it){if(!chapterScenes[it.key])chapterScenes[it.key]=api('/api/scenes?key='+encodeURIComponent(it.key)).then(d=>d.writers).catch(e=>{delete chapterScenes[it.key];throw e});
@@ -120,10 +120,14 @@ async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text')
   verses.forEach(v=>{const nums=String(v.number).split(/[-–]/).map(Number);if(!v.text||nums[0]>it.ve||nums.at(-1)<it.vs)return;const p=el('p');p.append(el('sup',null,String(v.number)),v.text);box.append(p)});
   if(!box.childElementCount)box.append(el('p',null,'No verse text found for this range.'))}
  catch(e){if(request===verseRequest)box.replaceChildren(el('p',null,'Could not load the verses: '+e.message))}}
+// The page behind follows the large view: each picture shown makes its book and chapter the page's own,
+// as a click on that book and chapter would, so closing the view leaves you where you stopped.
+function followLarge(it){const [c,n]=it.key.split(':');if(dirty||(c===code&&Number(n)===chapter))return;
+ code=c;chapter=Number(n);render();loadSource().catch(e=>notify(e.message))}
 function openLightbox(items,n){lbItems=items;lbIndex=n;$('lightbox').hidden=false;showLarge()}
 function showLarge(){const it=lbItems[lbIndex],img=$('lb-img');if(it.full)img.src=it.full;else img.removeAttribute('src');img.hidden=!it.full;$('lb-empty').hidden=!!it.full;
  img.alt=it.title;$('lb-title').textContent=it.title;$('lb-caption').textContent=it.caption;$('lb-count').textContent=lbItems.length>1?(lbIndex+1).toLocaleString()+' / '+lbItems.length.toLocaleString():'';
- $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;showVersesPanel(it);[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
+ $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;showVersesPanel(it);followLarge(it);[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
 function step(d){if(lbItems.length<2)return;lbIndex=(lbIndex+d+lbItems.length)%lbItems.length;showLarge()}
 function closeLightbox(){$('lightbox').hidden=true;$('lb-img').removeAttribute('src')}
 $('lb-prev').onclick=e=>{e.stopPropagation();step(-1)};$('lb-next').onclick=e=>{e.stopPropagation();step(1)};$('lb-close').onclick=closeLightbox;
