@@ -86,7 +86,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "groups", art: GAME_ART.jeopardy,
   },
   {
-    slug: "twenty-questions", status: "coming-soon", title: "Bible twenty questions",
+    slug: "twenty-questions", status: "live", load: () => import("./twenty-questions/TwentyQuestionsGame"),
+    title: "Bible twenty questions",
     description: "Think of a Bible character and answer yes or no: the site asks questions until it guesses who.",
     audiences: ["solo", "family"],
     shelf: "solo", art: GAME_ART.twentyQuestions,

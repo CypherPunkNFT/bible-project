@@ -1,0 +1,845 @@
+{
+ "about": "Bible twenty questions: the tag list (docs/features/twenty-questions/design.md §4). Hand-kept. Each tag has one question, used in both modes. 'source' says which stage owns its values: data = scripts/twenty-questions/tq_data.py from the site's people data; hand = story.source.json (written in the implementation job, single pass; the two-pass model run of design §5.3 is pending the owner's yes). implies: a yes here means the listed tags cannot be no. excludes: a yes here means the listed tags cannot be yes. Both also tell the game which questions an answer has already settled. Questions were written in the implementation job and are held to the §6 form rules by check.ts.",
+ "tags": [
+  {
+   "id": "woman",
+   "group": "who",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person a woman?",
+   "definition": "The person is female (site data: sex).",
+   "excludes": [
+    "son-of-jacob",
+    "son-of-david",
+    "the-twelve",
+    "pharaoh"
+   ]
+  },
+  {
+   "id": "israelite",
+   "group": "who",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person an Israelite?",
+   "definition": "Descended from Jacob (Israel), or Jacob himself. Unsure for everyone who lived before Jacob's sons.",
+   "excludes": [
+    "foreign"
+   ]
+  },
+  {
+   "id": "foreign",
+   "group": "who",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person from a nation other than Israel?",
+   "definition": "Not an Israelite: an Egyptian, Philistine, Babylonian, Roman and so on. Unsure before Jacob's sons."
+  },
+  {
+   "id": "era-flood",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live before the Flood?",
+   "definition": "Lived before Noah's flood (Genesis 1-7).",
+   "excludes": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "era-patriarchs",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live in the time of Abraham, Isaac or Jacob?",
+   "definition": "Lived in the time of the patriarchs, Abraham to Joseph (Genesis 11-50)."
+  },
+  {
+   "id": "era-exodus",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live in the time of Moses?",
+   "definition": "Lived during Israel's time in Egypt, the Exodus or the wilderness journey (Exodus to Deuteronomy)."
+  },
+  {
+   "id": "era-conquest",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live when Joshua led Israel into Canaan?",
+   "definition": "Lived during the conquest of Canaan under Joshua."
+  },
+  {
+   "id": "era-judges",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live in the time of the judges?",
+   "definition": "Lived in the time of the judges, after Joshua and before King Saul."
+  },
+  {
+   "id": "era-first-kings",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live in the time of Saul, David or Solomon?",
+   "definition": "Lived in the time of the united kingdom under Saul, David and Solomon."
+  },
+  {
+   "id": "era-divided",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live after Israel split into two kingdoms?",
+   "definition": "Lived in the time of the divided kingdom, from Rehoboam to the fall of Jerusalem."
+  },
+  {
+   "id": "era-exile",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person live during the exile or the return from it?",
+   "definition": "Lived during the exile in Babylon or the return to Jerusalem (Daniel, Ezra, Nehemiah, Esther)."
+  },
+  {
+   "id": "new-testament",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person from the New Testament?",
+   "definition": "Lived in New Testament times.",
+   "excludes": [
+    "era-flood",
+    "era-patriarchs",
+    "era-exodus",
+    "era-conquest",
+    "era-judges",
+    "era-first-kings",
+    "era-divided"
+   ]
+  },
+  {
+   "id": "era-gospels",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the story of Jesus' life on earth?",
+   "definition": "Takes part in the Gospels' account of Jesus' life.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "era-church",
+   "group": "when",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the story of the early church?",
+   "definition": "Takes part in the events of Acts or the letters, after Jesus rose.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "ruler",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person a king or queen who ruled?",
+   "definition": "Reigned as king, queen, pharaoh, emperor or tetrarch over a land."
+  },
+  {
+   "id": "ruler-israel",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person rule over Israel or Judah?",
+   "definition": "Was king or queen of Israel, of Judah or of the united kingdom.",
+   "implies": [
+    "ruler",
+    "israelite"
+   ]
+  },
+  {
+   "id": "ruler-foreign",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person rule a nation other than Israel?",
+   "definition": "Reigned over a nation other than Israel or Judah: pharaohs, kings of Babylon or Persia, Herods, emperors.",
+   "implies": [
+    "ruler"
+   ]
+  },
+  {
+   "id": "ruled-judah",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person a king or queen of Judah?",
+   "definition": "Reigned over the southern kingdom of Judah after the kingdom split.",
+   "implies": [
+    "ruler",
+    "ruler-israel"
+   ]
+  },
+  {
+   "id": "ruled-north",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person a king of the northern kingdom, Israel?",
+   "definition": "Reigned over the ten northern tribes (Israel) after the kingdom split.",
+   "implies": [
+    "ruler",
+    "ruler-israel"
+   ],
+   "excludes": [
+    "ruled-judah"
+   ]
+  },
+  {
+   "id": "long-reign",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Did your person reign for 20 years or more?",
+   "definition": "Scripture gives a reign of 20 years or more (rulers pages, Kings' figures).",
+   "implies": [
+    "ruler"
+   ]
+  },
+  {
+   "id": "queen",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a queen?",
+   "definition": "A queen, whether she ruled or was a king's wife."
+  },
+  {
+   "id": "pharaoh",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person a pharaoh of Egypt?",
+   "definition": "A king of Egypt.",
+   "implies": [
+    "ruler",
+    "ruler-foreign",
+    "foreign"
+   ]
+  },
+  {
+   "id": "roman",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person a Roman official or emperor?",
+   "definition": "A Roman emperor, governor or other Roman official."
+  },
+  {
+   "id": "herod",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person part of King Herod's family?",
+   "definition": "A member of the Herod family.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "prophet",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person a prophet?",
+   "definition": "Called a prophet or prophetess in Scripture, or spoke the word of the LORD as one."
+  },
+  {
+   "id": "priest",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person a priest?",
+   "definition": "Served as a priest (high priests included)."
+  },
+  {
+   "id": "high-priest",
+   "group": "role",
+   "level": "detail",
+   "source": "hand",
+   "question": "Was your person a high priest?",
+   "definition": "Served as high priest.",
+   "implies": [
+    "priest"
+   ]
+  },
+  {
+   "id": "judge",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person one of Israel's judges?",
+   "definition": "One of the judges who led Israel between Joshua and Saul.",
+   "implies": [
+    "israelite"
+   ]
+  },
+  {
+   "id": "the-twelve",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person one of the twelve apostles?",
+   "definition": "One of the Twelve chosen by Jesus (Matthias, chosen to replace Judas, counts; Paul does not).",
+   "implies": [
+    "new-testament",
+    "followed-jesus",
+    "met-jesus"
+   ]
+  },
+  {
+   "id": "followed-jesus",
+   "group": "role",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person follow Jesus while Jesus taught on earth?",
+   "definition": "Followed Jesus as a disciple while he taught on earth.",
+   "implies": [
+    "met-jesus",
+    "new-testament"
+   ]
+  },
+  {
+   "id": "pauls-companion",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Did your person travel or work with Paul?",
+   "definition": "Travelled or worked with Paul on his missions.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "religious-leader",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a Jewish leader in Jesus' day?",
+   "definition": "A Pharisee, Sadducee, scribe, synagogue ruler, chief priest or council member in New Testament times.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "warrior",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a soldier or army commander?",
+   "definition": "Served as a soldier or led an army."
+  },
+  {
+   "id": "levite",
+   "group": "role",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person from the tribe of Levi?",
+   "definition": "A Levite, of the tribe of Levi (priests included)."
+  },
+  {
+   "id": "court-official",
+   "group": "role",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person serve at a king's court?",
+   "definition": "Served a king as an official, adviser, cupbearer, scribe or servant at court."
+  },
+  {
+   "id": "shepherd",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person look after sheep?",
+   "definition": "Kept sheep or flocks."
+  },
+  {
+   "id": "fisherman",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a fisherman?",
+   "definition": "Worked as a fisherman."
+  },
+  {
+   "id": "tax-collector",
+   "group": "role",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a tax collector?",
+   "definition": "Collected taxes.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "married",
+   "group": "family",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person married?",
+   "definition": "Scripture names a husband or wife, or says the person married."
+  },
+  {
+   "id": "children",
+   "group": "family",
+   "level": "everyday",
+   "source": "data",
+   "question": "Did your person have children?",
+   "definition": "Scripture names a child of the person, or says they had children."
+  },
+  {
+   "id": "son-of-jacob",
+   "group": "family",
+   "level": "everyday",
+   "source": "data",
+   "question": "Was your person one of Jacob's twelve sons?",
+   "definition": "One of the twelve sons of Jacob.",
+   "implies": [
+    "israelite",
+    "era-patriarchs"
+   ]
+  },
+  {
+   "id": "son-of-david",
+   "group": "family",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person a son of King David?",
+   "definition": "A son of David.",
+   "implies": [
+    "israelite",
+    "tribe-judah"
+   ]
+  },
+  {
+   "id": "twin",
+   "group": "family",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person a twin?",
+   "definition": "Born a twin."
+  },
+  {
+   "id": "famous-sibling",
+   "group": "family",
+   "level": "detail",
+   "source": "data",
+   "question": "Is a brother or sister of your person also well known?",
+   "definition": "A brother or sister of the person is also in this game."
+  },
+  {
+   "id": "name-changed",
+   "group": "family",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person given a new name?",
+   "definition": "God, a king or Jesus gave the person a new name (Abram to Abraham, Simon to Peter)."
+  },
+  {
+   "id": "miracle-birth",
+   "group": "family",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person's mother unable to have children for years?",
+   "definition": "The mother had been unable to have children until God gave this child."
+  },
+  {
+   "id": "long-life",
+   "group": "family",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person live to 120 or older?",
+   "definition": "Scripture gives an age at death of 120 years or more."
+  },
+  {
+   "id": "tribe-judah",
+   "group": "family",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person from the tribe of Judah?",
+   "definition": "Of the tribe of Judah.",
+   "excludes": [
+    "tribe-benjamin",
+    "levite"
+   ]
+  },
+  {
+   "id": "tribe-benjamin",
+   "group": "family",
+   "level": "detail",
+   "source": "data",
+   "question": "Was your person from the tribe of Benjamin?",
+   "definition": "Of the tribe of Benjamin.",
+   "excludes": [
+    "levite"
+   ]
+  },
+  {
+   "id": "miracles",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did God do miracles through your person?",
+   "definition": "God worked miracles or wonders through the person."
+  },
+  {
+   "id": "raised",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person die and come back to life?",
+   "definition": "Died and was raised back to life in Scripture's account (not the final resurrection)."
+  },
+  {
+   "id": "taken-up",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person taken up to heaven without dying?",
+   "definition": "Taken to God without dying.",
+   "excludes": [
+    "killed"
+   ]
+  },
+  {
+   "id": "angel",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did an angel speak to your person?",
+   "definition": "An angel, or the angel of the LORD, spoke to the person."
+  },
+  {
+   "id": "dream",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did God speak to your person in a dream or vision?",
+   "definition": "Received a dream or vision from God."
+  },
+  {
+   "id": "interpret-dreams",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person explain the meaning of dreams?",
+   "definition": "Explained the meaning of someone's dream."
+  },
+  {
+   "id": "prison",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person put in prison or taken captive?",
+   "definition": "Was imprisoned, put in chains or carried off as a captive."
+  },
+  {
+   "id": "killed",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person killed by someone else?",
+   "definition": "Was put to death or killed by other people."
+  },
+  {
+   "id": "leader",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person lead God's people?",
+   "definition": "Led Israel as a whole, or the church, as its leader."
+  },
+  {
+   "id": "battle",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person fight in a battle?",
+   "definition": "Took part in a battle as a fighter or commander."
+  },
+  {
+   "id": "enemy",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person fight against God's people?",
+   "definition": "Opposed, attacked or plotted against Israel or the church."
+  },
+  {
+   "id": "betrayed",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person betray or deny someone close to them?",
+   "definition": "Betrayed or denied someone close to them."
+  },
+  {
+   "id": "anointed",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Was your person anointed with oil?",
+   "definition": "Was anointed with oil as king, priest or prophet, or anointed by a woman as Jesus was."
+  },
+  {
+   "id": "built",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person build something famous?",
+   "definition": "Built something Scripture makes much of: the ark, the tabernacle, the temple, the city walls."
+  },
+  {
+   "id": "animal",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Is your person in a famous story with an animal?",
+   "definition": "Their story has an animal at its centre: a lion, a big fish, a donkey, a snake, ravens, bears."
+  },
+  {
+   "id": "water-miracle",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person cross water by a miracle or walk on it?",
+   "definition": "Crossed a sea or river on dry ground, or walked on water."
+  },
+  {
+   "id": "song",
+   "group": "story",
+   "level": "detail",
+   "source": "hand",
+   "question": "Is a song or psalm in the Bible credited to your person?",
+   "definition": "A psalm or song in Scripture is credited to them by name."
+  },
+  {
+   "id": "young",
+   "group": "story",
+   "level": "detail",
+   "source": "hand",
+   "question": "Is your person known for something they did when young?",
+   "definition": "Their story includes a famous moment from their childhood or youth."
+  },
+  {
+   "id": "met-jesus",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person meet Jesus?",
+   "definition": "Met Jesus face to face, during his life on earth or after he rose (Paul on the Damascus road counts)."
+  },
+  {
+   "id": "risen-jesus",
+   "group": "story",
+   "level": "everyday",
+   "source": "hand",
+   "question": "Did your person see Jesus alive after the resurrection?",
+   "definition": "Saw the risen Jesus.",
+   "implies": [
+    "met-jesus"
+   ]
+  },
+  {
+   "id": "baptised",
+   "group": "story",
+   "level": "detail",
+   "source": "hand",
+   "question": "Does the Bible say your person was baptised?",
+   "definition": "Scripture records their baptism."
+  },
+  {
+   "id": "egypt",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person live or work in Egypt?",
+   "definition": "Lived or worked in Egypt for a time."
+  },
+  {
+   "id": "babylon",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person live in Babylon or Persia?",
+   "definition": "Lived in Babylon or Persia for a time."
+  },
+  {
+   "id": "jerusalem",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person live or work in Jerusalem?",
+   "definition": "Lived or worked in Jerusalem."
+  },
+  {
+   "id": "galilee",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person live or work in Galilee?",
+   "definition": "Lived or worked in Galilee."
+  },
+  {
+   "id": "rome",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person go to Rome?",
+   "definition": "Went to, or lived in, Rome."
+  },
+  {
+   "id": "sea",
+   "group": "places",
+   "level": "detail",
+   "source": "hand",
+   "question": "Did your person go on a journey by ship?",
+   "definition": "Travelled by ship."
+  },
+  {
+   "id": "in-genesis",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the book of Genesis?",
+   "definition": "Takes part in the events of Genesis (not only mentioned)."
+  },
+  {
+   "id": "in-law",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in Exodus, Leviticus, Numbers or Deuteronomy?",
+   "definition": "Takes part in the events of Exodus to Deuteronomy."
+  },
+  {
+   "id": "in-joshua-ruth",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in Joshua, Judges or Ruth?",
+   "definition": "Takes part in the events of Joshua, Judges or Ruth."
+  },
+  {
+   "id": "in-samuel-kings",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the books of Samuel or Kings?",
+   "definition": "Takes part in the events of 1 and 2 Samuel or 1 and 2 Kings."
+  },
+  {
+   "id": "in-1-kings",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person in the book of 1 Kings?",
+   "definition": "Takes part in the events of 1 Kings; for kings, their reign is told there."
+  },
+  {
+   "id": "in-2-kings",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person in the book of 2 Kings?",
+   "definition": "Takes part in the events of 2 Kings; for kings, their reign is told there."
+  },
+  {
+   "id": "in-chronicles",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person in the books of Chronicles?",
+   "definition": "Takes part in the events of 1 and 2 Chronicles."
+  },
+  {
+   "id": "in-ezra-esther",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in Ezra, Nehemiah or Esther?",
+   "definition": "Takes part in the events of Ezra, Nehemiah or Esther."
+  },
+  {
+   "id": "in-prophets",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in one of the books of the prophets?",
+   "definition": "Takes part in the events of Isaiah to Malachi (not only mentioned)."
+  },
+  {
+   "id": "in-poetry",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person in Job, Psalms, Proverbs or the Song of Songs?",
+   "definition": "Takes part in, or is credited with words in, Job to the Song of Songs."
+  },
+  {
+   "id": "in-gospels",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the Gospels?",
+   "definition": "Takes part in the events of Matthew, Mark, Luke or John."
+  },
+  {
+   "id": "in-acts",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the book of Acts?",
+   "definition": "Takes part in the events of Acts.",
+   "implies": [
+    "new-testament"
+   ]
+  },
+  {
+   "id": "in-letters",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is your person in the New Testament letters?",
+   "definition": "Writes, receives or is greeted in Romans to Jude (not only mentioned)."
+  },
+  {
+   "id": "in-revelation",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person in the book of Revelation?",
+   "definition": "Takes part in Revelation."
+  },
+  {
+   "id": "book-named",
+   "group": "books",
+   "level": "everyday",
+   "source": "data",
+   "question": "Is there a book of the Bible named after your person?",
+   "definition": "A book of the Bible carries their name (the Gospels named after their writers count)."
+  },
+  {
+   "id": "letter-writer",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Does a New Testament letter open with your person's name?",
+   "definition": "A New Testament letter opens by naming them as its writer."
+  }
+ ]
+}
