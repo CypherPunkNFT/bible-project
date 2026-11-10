@@ -1,8 +1,8 @@
 # Bible Jeopardy for church nights — design
 
-**Status:** research and design (2026-11-09, orchestrator job 834, sequence 30 step 14). The next step reviews this
-document once against the spec, the shared rules and the real code, applies its corrections in the body and appends a
-**Review** section; the step after that builds it.
+**Status:** researched and designed (2026-11-09, orchestrator job 834, sequence 30 step 14); **reviewed once** against
+the spec, the shared rules and the real code (2026-11-09, sequence 30 step 15), with its corrections applied in the body
+and listed in the **Review** section at the end. Ready for the implementation step.
 **Spec (owner-approved, binding):** APPROVED-IDEAS.md entry 15, "Bible Jeopardy for church nights" — "Category boards
 built from the question bank, projector-ready."
 **Shared rules:** FEATURE-BUILD-RULES.md (Jarvis/Projects/BibleProject/) — no runtime AI cost, reuse the site's data,
@@ -36,7 +36,7 @@ no phones needed, no AI at runtime, and it costs nothing to run.
 | Who answers | **Take turns** (default, with steals) or **Buzz in** | Both are standard in churches and classrooms (1.3, 5) |
 | Wrong answers | **Cost nothing by default**; "Wrong answers lose points" is a setting | Church and children's sources drop the penalty (1.3, 6) |
 | Daily Double and Final | Both **on by default**, each can be switched off | The two parts people remember; both work without phones (6.3, 6.4) |
-| Host's answer | Single screen: answer shown after judging; a **printable host sheet** for leaders who want it beforehand | Projector mirrors the laptop in most church halls (5.4) |
+| Host's answer | Single screen: the host judges by ear, or shows the answer first and then marks; a **printable host sheet** for leaders who want it beforehand | Projector mirrors the laptop in most church halls (5.4) |
 | Saving | The game in progress survives a reload; a **board link** reopens a prepared board on another device | Leaders prepare at home and play at church (7) |
 | Cost | **$0** to build and run; nothing generated | Section 11 |
 
@@ -109,9 +109,9 @@ The television show (as summarised by the rules guides listed under Sources; the
 |---|---|---|
 | Questions | The question bank, read with `loadQuestionBank()` in [data.ts](../../../src/lib/data.ts) (type `BankQuestion`) | 14,916 questions, each with four options, a level (easy/medium/hard), a children flag, books, testament, people, places and subjects. |
 | What can stand on a projector | `isPlayable`, `poolOf`, `questionId`, `toQuizQuestion`, `trimReference` in [pick.ts](../../../src/lib/live-quiz/pick.ts) (the live quiz's own selection code) | Imported, not copied or changed. The live quiz's default (Bible quiz + Sunday school, catechism left out) leaves **13,122** playable questions: 3,921 easy, 5,819 medium, 3,382 hard. For children (`children: true`, children's wording where it exists): **5,061**, of which 3,488 easy, 1,568 medium, 5 hard. |
-| Categories | The test page's themes: `SHELVES`, `THEMES` and `inTheme` in [themes.ts](../../../src/pages/questions/test/themes.ts) | 59 themes in 4 shelves and 20 groups, each with a title and a one-line description. With the default pool, 58 have questions (the "God and his word" theme draws only on catechism questions, so it is empty unless catechism is switched on). |
+| Categories | The test page's themes: `SHELVES`, `THEMES` and `inTheme` in [themes.ts](../../../src/pages/questions/test/themes.ts). `inTheme` takes the test page's `TestQuestion` type: the bank file carries the model-made `subjects` and `passages` tags it reads, though the shared `BankQuestion` type does not declare them, so `categories.ts` treats bank questions as `TestQuestion`, exactly as the test page does. | 59 themes in 4 shelves and 20 groups, each with a title and a one-line description. With the default pool, 58 have questions (the "God and his word" theme draws only on catechism questions, so it is empty unless catechism is switched on). |
 | Book categories | `books` on each question; book names from `bank.books` | 57 of the 66 books have 25 or more playable questions (38 for children). |
-| Verse on the answer screen | `VerseWords` in [parts.tsx](../../../src/pages/questions/test/parts.tsx) — the BSB text of the linked verse, linked to the reader | 14,622 questions carry a `link`; the rest show only the reference. |
+| Verse on the answer screen | The game's own small `Verse.tsx`, using the same data calls as the test page's `VerseWords` in [parts.tsx](../../../src/pages/questions/test/parts.tsx): `loadChapterPlain("bsb", …)` from [data.ts](../../../src/lib/data.ts), `plainLookup` from [refs.ts](../../../src/lib/refs.ts), the chapter list from `useCatalog()`. `VerseWords` itself is not reused: it takes a bank question (a tile keeps only the live quiz's `QuizQuestion` copy) and its link opens the reader in the same tab, which would leave the game. | 14,622 questions carry a `link`; the rest show only the reference. |
 | Team names | `friendlyName` and `checkName` in [names.ts](../../../src/lib/live-quiz/names.ts) | "Brave Lions" style names for one-click team naming, plus the same typed-name filter. |
 | Translations | `loadQuestionBank()` picks the leader's language automatically | Clues and answers follow the site language, as in the live quiz. |
 
@@ -166,9 +166,10 @@ these settings".
   not in the surprise draw: themes make better headings.
 - **Choose categories:** a picker lists every offered category under the test page's shelves and groups, then "Old
   Testament books" and "New Testament books", each with its question count. The leader ticks up to the column count;
-  any column left empty is filled by the surprise rule.
+  any column left empty is filled by the surprise rule. The list is about 125 rows at most, so it is drawn whole in a
+  scrolling panel, with no "load more" button (within the shared rule for long lists).
 - **Testament:** an optional filter (Both / Old / New). For themes, it narrows candidates to questions of that
-  testament; a theme left with too few is greyed out.
+  testament; a theme left with too few is greyed out. Books of the other testament are hidden from the picker.
 
 ### 3.3 The difficulty ladder
 
@@ -204,7 +205,8 @@ The levels are the bank's own ratings (`level`, made by [question_difficulty.py]
 
 The live quiz's `poolOf` with these filters, then one extra rule:
 
-- **Kinds:** Bible quiz and Sunday school by default; **catechism** is opt-in, as in the live quiz, because its answers
+- **Kinds:** Bible quiz and Sunday school (the bank's kinds `trivia` and `lesson`, the live quiz's `DEFAULT_KINDS`) by
+  default; **catechism** (`catechism`) is opt-in, as in the live quiz, because its answers
   belong to one church tradition (mostly Reformed or Lutheran catechisms), and the site speaks in the Baptist Faith
   and Message's voice. A leader whose church uses a catechism can switch it on, which also brings in the doctrinal
   themes ("God and his word" and others).
@@ -212,7 +214,8 @@ The live quiz's `poolOf` with these filters, then one extra rule:
 - **Testament:** as 3.2.
 - **Extra rule — open answer needs a self-contained clue.** When choices are hidden, questions matching
   `/\b(which|what|who) of (these|the following)\b|\bwhich one of\b|\bNOT\b/` (case-sensitive "NOT") are left out
-  (25 adult, 6 children's today). With choices shown they stay in.
+  (25 adult, 6 children's today). The test runs on the wording the game will show (the children's wording when that is
+  used). With choices shown they stay in.
 
 Levels are **not** a pool filter here: every board mixes levels by row.
 
@@ -256,7 +259,9 @@ The person running the game is called **the host** on screen ("leader" in the li
 2. **Preview** (9.2): swap anything, then optionally **Print host sheet** (5.4) and **Copy board link** (7.2) to reopen
    the same board on the church laptop.
 3. **Start game** opens the board full-screen (the browser's full-screen mode on the game area, as the live quiz's
-   leader screen does). Esc leaves full screen; the game carries on in the page.
+   leader screen does with `requestFullscreen` in [LeaderRoom.tsx](../../../src/pages/games/live-quiz/LeaderRoom.tsx)).
+   Esc leaves full screen — the browser keeps that key for itself while in full screen, so the game never gives Esc any
+   other job there — and the game carries on in the page.
 
 ### 5.2 A turn
 
@@ -270,9 +275,11 @@ The person running the game is called **the host** on screen ("leader" in the li
      next (5.5).
    - **Wrong:** the team's button greys out for this clue (no team answers the same clue twice); points are taken off
      only if *Wrong answers lose points* is on. Then other teams may try (a steal).
-4. **Nobody knows / time's up:** **Show answer** (Space) reveals it with no change to any score.
-5. **Back to the board** (Esc or Enter on the answer screen): the tile is now empty, and the next chooser is
-   highlighted.
+4. **Nobody knows / time's up / the host is not sure:** **Show answer** (Space) reveals it with no change to any score.
+   The team buttons stay on the answer screen for every team not yet marked, so a host who does not know the answer
+   can show it first and then mark the team that spoke **Right** or **Wrong** (the way JeopardyLabs is played).
+5. **Back to the board** (Enter, Space or Backspace on the answer screen): the tile is now empty, and the next chooser
+   is highlighted.
 6. After the last tile: the **Final question** if on (6.4), otherwise **Results** (9.7).
 
 ### 5.3 The answer screen
@@ -290,7 +297,10 @@ Most church projectors mirror the laptop, so the host cannot see an answer the r
   well-known Bible facts this is how JeopardyLabs and printable sets are played.
 - **Print host sheet** (preview and game menu): a printer-friendly page (the browser's own print, no PDF library)
   listing every tile — category, value, clue, answer, reference — with the Daily Double and the Final marked. Printed
-  before the game, it lets the host judge open answers confidently.
+  before the game, it lets the host judge open answers confidently. The browser's print preview shows the whole sheet
+  on the screen, so on a mirrored projector it would show the room every answer: the game menu's **Print host sheet**
+  first asks "The print preview will show every answer on this screen. Is the projector off or covered?" with
+  **Print** and **Cancel**. From the preview (before the game) it prints straight away.
 
 A second "presenter" window on an extended display is left for later (12).
 
@@ -317,9 +327,11 @@ the only place points change, and every rule below is a unit test.
 
 - **Right:** + the tile's value.
 - **Wrong:** 0 by default; − the tile's value if **Wrong answers lose points** is on (default off; the setup screen
-  explains "On, like the TV show. Off is kinder for children").
-- Each team can be marked once per clue. A clue closes for scoring once a team is right; the host can still show the
-  answer.
+  explains "On, like the TV show. Off is kinder for children"). When on, it applies to every wrong mark, a steal
+  included, as on television.
+- Each team can be marked once per clue. A clue closes for scoring once a team is right. Marks are allowed on the clue
+  screen and, for teams not yet marked, on the answer screen too (5.2), until a team is right or the host goes back to
+  the board.
 - Scores are whole numbers and may go below zero only through a penalty or a Daily Double. A negative score is shown
   with a minus sign and the word "minus" for screen readers, never by colour alone.
 
@@ -336,8 +348,9 @@ the only place points change, and every rule below is a unit test.
 
 1. When the hidden tile is opened, a full-screen **"Daily Double"** card appears for the choosing team (no clue yet).
 2. **Bet:** from 0 up to the team's score or 500 (the board's top value), whichever is larger — the television rule,
-   scaled to our values, so a team at zero can still bet 500. Quick buttons **Half**, **All** and **500**, or type a
-   number; the box refuses anything outside the range and says why.
+   scaled to our values, so a team at zero can still bet 500. Quick buttons **Half** (half the highest allowed bet,
+   rounded down to a multiple of 50), **All** (the highest allowed bet) and **500**, or type a whole number; the box
+   refuses anything outside the range and says why.
 3. The clue appears; only that team answers. **Right:** + the bet. **Wrong:** − the bet (the bet is what makes it a
    Daily Double, so this applies even when ordinary penalties are off; the setup screen says so). No steals.
 4. The turn then passes as for any tile.
@@ -374,7 +387,8 @@ copyrighted, and a sound the leader did not expect is worse than none). The time
 ### 7.1 The game in progress
 
 The whole game (settings, teams, board tiles with their question copies, scores, history for undo, whose turn, which
-screen) is saved in `localStorage` under one key, `bible-jeopardy:game`, after every action. Opening /games/jeopardy
+screen) is saved in `localStorage` under one key, `bp-jeopardy` (the `bp-` names the other games use, such as
+`bp-timeline` and `bp-verse-completion`), after every action. Opening /games/jeopardy
 with a saved unfinished game offers **Carry on** (with team names, scores and tiles left) or **New game**. A saved game
 older than 7 days is offered too, with its date. A damaged or foreign record is ignored and removed, never crashes the
 page. If storage is unavailable (private mode, full), the game plays normally and the setup screen notes it will not
@@ -395,7 +409,9 @@ take-over does).
 - `ids`: each tile's 16-character question id from `questionId`, column by column, plus the categories and the Final's
   id. A full six-column board is about 31 × 17 + 100 ≈ 650 characters, well inside every browser's address limit.
 - **Teams are not in the link** (they are set on the night).
-- Opening it loads the bank, finds each id, and shows the preview with **Use this board**. An id that is no longer in
+- Opening it loads the bank and shows **Setup** with the Teams and Rules sections as usual, but the Board section
+  replaced by a line "Board from a link: 5 categories, Standard" and a **Discard** button (back to a normal setup).
+  **Build board** then finds each id and shows that board in the preview. An id that is no longer in
   the bank (the bank was updated) is redrawn for the same category and level, and the preview lists how many tiles
   changed ("2 questions are no longer in the bank and were replaced"). A board made in another site language is
   redrawn with the same categories, as ids are computed from the question's own text, and the preview says so.
@@ -405,10 +421,13 @@ take-over does).
 
 ## 8. Not repeating questions
 
-The browser keeps the ids of the last **1,500** questions shown on finished or abandoned boards (`bible-jeopardy:seen`,
-newest last). Board generation avoids them (3.4 step 2), so a church using one laptop sees fresh clues week after week:
-the adult pool would take about 500 boards of 25 to exhaust. A **Forget played questions** link on the setup screen
-clears the list. A link-loaded board does not check this list (it is the leader's chosen board).
+The browser keeps the ids of the last **1,500** questions whose clue was actually opened (tiles played, the Final and
+any tie-breaker), on finished or abandoned games (`bp-jeopardy-seen`, newest last). Tiles left unplayed, and boards
+only previewed, are not added: nobody saw them. Board generation avoids the list (3.4 step 2), so a church using one
+laptop gets no repeated clue for about 60 full boards — more than a year of weekly games — and the pool itself
+(13,122 adult questions) is large enough that later repeats stay rare. A **Forget played questions** link on the setup
+screen clears the list. A link-loaded board does not check this list (it is the leader's chosen board). Ids come from
+each question's own text, so a game in another site language has its own ids and is not held back by this list.
 
 ---
 
@@ -424,12 +443,13 @@ One page, three short sections, with a **Build board** button:
 
 - **Teams:** how many (2–6 stepper), each name with its dice button, starting team (Team 1 / Random).
 - **Board:** categories (**Surprise me** / **Choose categories** — the picker of 3.2 opens in a panel), columns
-  (3–6, with the rough length), difficulty (Gentle / Standard / Challenging), *For children* (forces Gentle and shows
-  choices), *Show the four choices*, testament (Both / Old / New), *Include catechism questions*.
+  (3–6, with the rough length), difficulty (Gentle / Standard / Challenging), *For children* (forces Gentle and turns
+  *Show the four choices* on; the leader may turn the choices off again), *Show the four choices*, testament
+  (Both / Old / New), *Include catechism questions*.
 - **Rules:** who answers (Take turns / Buzz in, each with a one-line explanation), *Wrong answers lose points*,
   *Daily Double*, *Final question*, timer (Off / 15 / 20 / 30 s).
 
-Settings are remembered for next time (`bible-jeopardy:settings`), team names too. A **How to play** link opens the
+Settings are remembered for next time (`bp-jeopardy-settings`), team names too. A **How to play** link opens the
 rules (9.8).
 
 ### 9.2 Preview
@@ -461,7 +481,8 @@ buttons, each with **✓ Right** and **✗ Wrong** (the choosing team's first in
 
 ### 9.5 Answer
 
-The answer large, the verse (5.3), who scored ("Team 2 +300", or "No points"), and **Back to board**.
+The answer large, the verse (5.3), who scored ("Team 2 +300", or "No points yet"), the team buttons (✓ Right and
+✗ Wrong) for every team not yet marked while no team is right (5.2 step 4), and **Back to board**.
 
 ### 9.6 Daily Double and Final
 
@@ -494,15 +515,21 @@ could not be loaded" with **Try again**. If the verse text fails, the answer scr
 | Arrows | move between tiles | — | — |
 | Enter | open tile | — | back to board |
 | Space | open tile | show answer | back to board |
-| 1–6 | — | team right | — |
-| Shift + 1–6 | — | team wrong | — |
-| Esc | leave full screen | back to board (only before anyone is marked; afterwards it is the same as Enter on the answer) | back to board |
+| 1–6 | — | team right | team right (teams not yet marked, while no team is right) |
+| Shift + 1–6 | — | team wrong | team wrong (as above) |
+| Backspace | — | back to board (only before anyone is marked; afterwards it is the same as Enter on the answer) | back to board |
+| Esc | leave full screen (the browser's own key) | outside full screen only: as Backspace | outside full screen only: back to board |
 | Z | undo | undo | undo |
 | F | full screen | full screen | full screen |
 
-Presentation clickers send Page Down / Page Up: **Page Down** acts as Space (open, show answer, back to board, in
-order), **Page Up** as Esc. Keys with Ctrl, Alt or Meta are ignored, so browser shortcuts still work. Number keys are
-ignored while a text box has focus.
+Team keys are matched by the key's position (`event.code` `Digit1`–`Digit6` and `Numpad1`–`Numpad6`), not by the
+character it types: with Shift held, the top row types "!", "@" … on an English keyboard and other symbols elsewhere,
+and on some layouts the digits themselves need Shift. While the stage is in full screen the browser takes Esc to leave
+full screen and does not pass it to the page, so Backspace (and a clicker's Page Up) is the "back" key that always
+works. Presentation clickers send Page Down / Page Up: **Page Down** acts as Space (open, show answer, back to board, in
+order), **Page Up** as Backspace. The stage handles these keys itself and stops the browser's default, so Space or
+Enter on a focused tile opens it once, not twice. Keys with Ctrl, Alt or Meta are ignored, so browser shortcuts still
+work. Every game key is ignored while a text box has focus.
 
 ### 9.11 Hub entry
 
@@ -523,6 +550,7 @@ New folder `src/pages/games/jeopardy/`; nothing else is created outside it.
 | `Setup.tsx`, `CategoryPicker.tsx` | 9.1 and the category picker of 3.2. |
 | `Preview.tsx` | 9.2. |
 | `Stage.tsx`, `Board.tsx`, `Scoreboard.tsx`, `ClueScreen.tsx`, `AnswerScreen.tsx`, `DailyDouble.tsx`, `FinalRound.tsx`, `Results.tsx` | The stage and its screens (9.3–9.7). |
+| `Verse.tsx` | The BSB verse on the answer screen, its reference link opening the reader in a new tab (`target="_blank"`, `rel="noopener"`), the reference alone when there is no link or the text fails (2.1, 5.3). |
 | `HostSheet.tsx`, `HowToPlay.tsx` | 5.4 and 9.8; both print with a print stylesheet. |
 | `categories.ts` | Category list from themes and books, candidates, offered/greyed, the surprise rule (3.2, 3.5). |
 | `generate.ts` | The ladder, filling, Daily Double and Final placement, swaps, redraws (3.3–3.7), with a seedable random function. |
@@ -531,10 +559,10 @@ New folder `src/pages/games/jeopardy/`; nothing else is created outside it.
 | `storage.ts` | Saved game, settings and seen list, with validation (7.1, 8). |
 | `link.ts` | Board link encode/decode and validation (7.2). |
 | `jeopardy.css` | Stage, sizes, print styles. |
-| Tests | `generate.test.ts`, `categories.test.ts`, `rules.test.ts`, `storage.test.ts`, `link.test.ts`, `keys.test.ts`, `JeopardyGame.test.tsx` (13). |
+| Tests | `generate.test.ts`, `categories.test.ts`, `rules.test.ts`, `storage.test.ts`, `link.test.ts`, `keys.test.ts`, `Verse.test.tsx`, `JeopardyGame.test.tsx` (13). |
 
 **Shared code is imported, never edited:** [pick.ts](../../../src/lib/live-quiz/pick.ts) and [names.ts](../../../src/lib/live-quiz/names.ts) from the live quiz,
-[themes.ts](../../../src/pages/questions/test/themes.ts) and `VerseWords` from the test page, `loadQuestionBank` from [data.ts](../../../src/lib/data.ts). The only shared
+[themes.ts](../../../src/pages/questions/test/themes.ts) from the test page, `loadQuestionBank` and `loadChapterPlain` from [data.ts](../../../src/lib/data.ts), `plainLookup` from [refs.ts](../../../src/lib/refs.ts). The only shared
 file changed is the registry entry (9.11). Each file stays under 500 lines (the workspace code standard).
 
 ---
@@ -572,16 +600,22 @@ file changed is the registry entry (9.11). Each file stays under 500 lines (the 
   8 candidates are not offered; the testament filter; the open-answer rule drops "Which of these … NOT" clues only when
   choices are hidden; catechism off by default; children's wording used when asked for. Plus one test **against the
   real bank on disk**: with default settings at least 50 themes are offered, and 200 random Standard boards of six
-  columns fill without falling short.
-- **`rules.test.ts`**: every row of 5.5 and 6 — right/wrong with penalties off and on; one mark per team per clue;
-  steals at full value; next chooser in both modes and the host override; Daily Double bet limits (0, score, 500 when
+  columns fill without falling short. The bank lives in `data/`, which git ignores, so this test skips itself when
+  [bank.json](../../../data/questions/bank.json) is absent, exactly as the live quiz's
+  [pick.test.ts](../../../src/lib/live-quiz/pick.test.ts) does.
+- **`rules.test.ts`**: every row of 5.5 and 6 — right/wrong with penalties off and on (a wrong steal penalised too);
+  one mark per team per clue; marking after Show answer, refused once a team is right; steals at full value; next chooser in both modes and the host override; Daily Double bet limits (0, score, 500 when
   the score is lower, refused above), right and wrong (penalised even with penalties off); Final bets 0..score, teams at
   or below zero bet 0; tie-breaker; undo of each kind of action, repeatedly, back to the start; score adjustment.
 - **`storage.test.ts`**: a damaged, partial, wrong-typed or foreign saved game is dropped; settings and the seen list
   round-trip; the seen list keeps the newest 1,500; storage that throws leaves the game playable.
 - **`link.test.ts`**: encode → decode gives the same board; a missing id is redrawn for the same category and level
   and counted; a link in another language redraws with the same categories; malformed links are refused.
-- **`keys.test.ts`**: the table of 9.10, including clicker keys, modifier keys ignored and keys ignored in text boxes.
+- **`keys.test.ts`**: the table of 9.10, including clicker keys, Shift + digit matched by `event.code` (a Shift+1 whose
+  `key` is "!" still marks team 1 wrong), Esc doing nothing in full screen, modifier keys ignored and keys ignored in
+  text boxes.
+- **`Verse.test.tsx`** (stubbed chapter loading): the verse text and a new-tab reference link; the reference alone with
+  no link or when loading fails.
 - **`JeopardyGame.test.tsx`** (fixture bank, stubbed verse loading): set up three teams, build and preview a board,
   start, play a right answer, a wrong answer and a steal, a Daily Double and the Final, undo once, reload mid-game and
   carry on, and reach Results with the right ranking.
@@ -622,7 +656,9 @@ file changed is the registry entry (9.11). Each file stays under 500 lines (the 
 | A reference is a long list (up to 1,679 characters in the bank) | Trimmed to 160 characters by `trimReference`. |
 | Two-part question (115 adult) | The lead-in (its question and answer) shows above the clue in smaller type, as on the test page and the live quiz. |
 | The host marks the wrong team | **Undo**, or adjust the score. |
-| The host opens the wrong tile | Esc before anyone is marked returns it to the board unplayed. |
+| The host opens the wrong tile | Backspace (or Page Up, or Esc outside full screen) before anyone is marked returns it to the board unplayed. |
+| The host does not know whether a spoken answer is right | **Show answer**, then mark the team from the answer screen (5.2 step 4). |
+| Host sheet printed during the game on a mirrored projector | The game asks first, since the print preview shows every answer (5.4). |
 | All teams are wrong | Show answer; no points (or penalties if on); the turn passes as 5.5 says. |
 | Daily Double opened by a team at zero or below | Bet up to 500 (the top value), as on television. |
 | A team at zero or below at the Final | Plays for fun with a bet of 0 (6.4). |
@@ -657,3 +693,65 @@ Read 2026-11-09.
 - This site: [live quiz design](../live-quiz/design.md) (pool rules and question selection reused),
   [verse completion design](../verse-completion/design.md) (saving, tab take-over, translation rules),
   [games hub design](../games-hub/design.md) (registry and art).
+
+---
+
+## Review
+
+Reviewed once (2026-11-09, sequence 30 step 15) against the approved spec (APPROVED-IDEAS.md entry 15), the shared
+rules (FEATURE-BUILD-RULES.md) and the real code: the games registry and its README, the live quiz's
+[pick.ts](../../../src/lib/live-quiz/pick.ts), [names.ts](../../../src/lib/live-quiz/names.ts) and
+[LeaderRoom.tsx](../../../src/pages/games/live-quiz/LeaderRoom.tsx), the test page's
+[themes.ts](../../../src/pages/questions/test/themes.ts), [engine.ts](../../../src/pages/questions/test/engine.ts) and
+[parts.tsx](../../../src/pages/questions/test/parts.tsx), `BankQuestion` and the loaders in
+[data.ts](../../../src/lib/data.ts), the other games' storage and page-title code, and the bank file itself.
+
+**What held up.** The spec is met: category boards from the question bank, built for one projected screen. Every
+shared function the design names exists with the stated behaviour (`isPlayable`, `poolOf`, `questionId` — 16
+characters from collection, question and answer — `toQuizQuestion`, `trimReference` at 160 characters, `friendlyName`,
+`checkName` with its 16-character limit, `SHELVES`, `THEMES`, `inTheme`, `loadQuestionBank`). The registry already has
+the `jeopardy` entry (coming soon, groups shelf, church-night and youth-group audiences) and its drawing uses the
+"prophets" colour, as 9.3 says. A recount of the bank matched the design: 14,916 questions (8,801 Bible quiz, 4,334
+Sunday school, 1,781 catechism), 14,622 with a verse link. No runtime AI, no money, no new data, BSB for every verse,
+catechism opt-in in line with the site's Baptist voice, and the build-rule limits (only this folder plus the registry
+entry; tests; no deploy) are all respected.
+
+**What was wrong, and what changed in the body:**
+
+1. **The verse on the answer screen could not be built as written** (2.1, 5.3, 10, 13). The design reused the test
+   page's `VerseWords`, but that component takes a full bank question while a tile keeps only the live quiz's
+   `QuizQuestion` copy, and its link opens the reader *in the same tab* — which would throw the room out of the game —
+   though the design promised a new tab. Now: a small `Verse.tsx` of the game's own, using the same data calls
+   (`loadChapterPlain`, `plainLookup`, the catalog's chapter list), with a new-tab link and its own test.
+2. **Esc could not do what the key table asked** (5.1, 9.10, 15). In full screen the browser takes Esc to leave full
+   screen and does not pass it to the page, so "Esc returns to the board" would instead have dropped the projector out
+   of full screen. Now Backspace (and a clicker's Page Up) is the "back" key; Esc is left to the browser in full screen
+   and acts as "back" only outside it.
+3. **Shift + 1–6 would not have worked** (9.10). With Shift held, the top-row keys type "!", "@" and so on, and on
+   some keyboard layouts the digits need Shift anyway. Team keys are now matched by key position (`event.code`), with a
+   test. The stage also stops the browser's default for its keys, so Space on a focused tile does not open it twice.
+4. **A host who does not know the answer had no way to judge** (5.2, 6.1, 9.5, 9.10). 5.4 says the host judges by ear,
+   but once **Show answer** was pressed no team could be marked. Now the team buttons and keys stay on the answer
+   screen for teams not yet marked, until a team is right or the host returns to the board.
+5. **Printing the host sheet mid-game would have shown every answer to the room** (5.4). The print preview appears on
+   the mirrored projector, so the in-game menu now asks for confirmation first.
+6. **A board link skipped team setup** (7.2). Opening a link went straight to the preview, though teams are not in the
+   link. It now opens Setup with the board fixed ("Board from a link"), so teams and rules are set on the night.
+7. **The "not repeating questions" promise was overstated** (8). With a list of 1,500 ids the guarantee is about 60
+   full boards, not "about 500 boards". It now also says which questions count as seen (opened clues only, not
+   unplayed or previewed tiles) and that ids differ by site language.
+8. **"For children" contradicted itself** (0 vs 9.1: choices "on by default" vs "forced"). It now turns choices on
+   and the leader may turn them off again.
+9. **The real-bank test would have failed on a fresh checkout** (13). `data/` is ignored by git, so the test now skips
+   itself when the bank file is absent, as the live quiz's test does.
+10. **Smaller precisions:** `inTheme` takes the test page's `TestQuestion` type, and the bank's `subjects` and
+    `passages` tags exist in the file but not in `BankQuestion` (2.1); the kinds are named by their codes `trivia`,
+    `lesson`, `catechism` (3.5); the open-answer filter runs on the wording actually shown (3.5); books of the other
+    testament are hidden by the testament filter, and the category picker (about 125 rows) is drawn whole with no
+    "load more" (3.2); "Wrong answers lose points" applies to steals too (6.1); the Daily Double's **Half** button
+    rounds down to a multiple of 50 (6.3); storage keys use the site's `bp-` names (`bp-jeopardy`,
+    `bp-jeopardy-settings`, `bp-jeopardy-seen`) like the other games (7.1, 8, 9.1); three edge cases added (15).
+
+**Left as designed, on purpose:** the name "Bible Jeopardy" (approved by the owner and already on the hub; 1.4 keeps the
+show's look, music and phrases out); five fixed rows; one screen with phone buzzers and a presenter window postponed
+(12); friendly team names in English in every language, as in the live quiz.
