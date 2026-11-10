@@ -27,6 +27,14 @@ ENGINES = {"flux": RECIPE, "codex": f"Codex built-in image_gen (ChatGPT login) |
 SCHEMA = ("CREATE TABLE IF NOT EXISTS pictures (key TEXT, writer TEXT, scene INTEGER, theme TEXT, file TEXT NOT NULL, "
           "prompt_sha256 TEXT NOT NULL, seed INTEGER NOT NULL, recipe TEXT NOT NULL, seconds REAL, made_at TEXT NOT NULL, "
           "PRIMARY KEY (key, writer, scene, theme))")
+# The owner's look at each picture: "ok" (moved on from it in the large view) or "flagged" (marked wrong, with an
+# optional note). A review belongs to one drawing: it counts only while made_at matches the picture's row, so a
+# redrawn picture is unreviewed again.
+REVIEWS_SCHEMA = ("CREATE TABLE IF NOT EXISTS picture_reviews (key TEXT, writer TEXT, scene INTEGER, theme TEXT, "
+                  "made_at TEXT NOT NULL, verdict TEXT NOT NULL, note TEXT NOT NULL, reviewed_at TEXT NOT NULL, "
+                  "PRIMARY KEY (key, writer, scene, theme))")
+VERDICTS = ("ok", "flagged")
+NOTE_LIMIT = 1000
 
 
 def load_themes(path: Path = THEMES_FILE) -> list[dict]:
@@ -86,6 +94,7 @@ class Pictures:
                 raise RuntimeError("The pictures table has no theme column yet; run the one-off themes migration "
                                    "(initiatives/chapter-scenes/README.md) with the Studio stopped.")
             db.execute(SCHEMA)
+            db.execute(REVIEWS_SCHEMA)
             db.execute("PRAGMA journal_mode=WAL")  # the picture maker writes while the Studio reads
 
     def theme(self, theme_id) -> dict:
@@ -102,6 +111,31 @@ class Pictures:
                        (key, writer, scene, theme, picture_name(theme, key, writer, scene), sha, seed,
                         recipe_for(self.theme(theme)),
                         seconds, made_at))
+
+    def review(self, *, theme: str, key: str, writer: str, scene: int, verdict: str, note: str = "") -> dict:
+        """Record the owner's verdict on the picture as drawn now. The note is kept only with a flag."""
+        self.theme(theme)
+        if verdict not in VERDICTS:
+            raise ValueError(f"Verdict {verdict!r}; expected one of {VERDICTS}")
+        if not isinstance(scene, int) or isinstance(scene, bool) or not isinstance(note, str) or len(note) > NOTE_LIMIT:
+            raise ValueError(f"Expected a whole scene number and a note of at most {NOTE_LIMIT} characters")
+        note = note.strip() if verdict == "flagged" else ""
+        with closing(self.store.connect()) as db, db:
+            row = db.execute("SELECT made_at FROM pictures WHERE key=? AND writer=? AND scene=? AND theme=?",
+                             (key, writer, scene, theme)).fetchone()
+            if not row:
+                raise ValueError(f"No {theme} picture for {key} {writer} scene {scene} to review")
+            db.execute("INSERT OR REPLACE INTO picture_reviews (key, writer, scene, theme, made_at, verdict, note, "
+                       "reviewed_at) VALUES (?,?,?,?,?,?,?,datetime('now'))", (key, writer, scene, theme, row[0], verdict, note))
+        return {"verdict": verdict, "note": note}
+
+    def reviews(self, theme_id: str) -> dict:
+        """{(key, writer, scene): (verdict, note)} for the theme's pictures as drawn now."""
+        with closing(self.store.connect()) as db:
+            rows = db.execute("SELECT r.key, r.writer, r.scene, r.verdict, r.note FROM picture_reviews r JOIN pictures p "
+                              "ON p.key=r.key AND p.writer=r.writer AND p.scene=r.scene AND p.theme=r.theme "
+                              "AND p.made_at=r.made_at WHERE r.theme=?", (theme_id,)).fetchall()
+        return {row[:3]: row[3:] for row in rows}
 
     def states(self, key: str | None = None, theme_ids: list[str] | None = None):
         """Every scene in every theme as a dict: theme, key, writer, scene, title, verses, text, sha, fresh. A picture
@@ -156,10 +190,14 @@ class Pictures:
                 for t in self.themes]
 
     def gallery(self, theme_id: str) -> list[list]:
-        """Every scene in the theme in Bible order: [key, writer, scene, title, first verse, last verse, full, thumb].
-        full and thumb are None for a scene whose picture is not drawn (or not fresh) yet."""
+        """Every scene in the theme in Bible order: [key, writer, scene, title, first verse, last verse, full, thumb,
+        verdict, note]. full and thumb are None for a scene whose picture is not drawn (or not fresh) yet; verdict is
+        "ok", "flagged" or None (not looked at)."""
         self.theme(theme_id)
         order = {k: i for i, k in enumerate(chapter_scenes.all_keys())}
         items = sorted(self.states(theme_ids=[theme_id]), key=lambda s: (order.get(s["key"], 0), s["writer"], s["scene"]))
+        reviews = self.reviews(theme_id)
         return [[s["key"], s["writer"], s["scene"], s["title"], *s["verses"],
-                 *(self.urls(s).values() if s["fresh"] else (None, None))] for s in items]
+                 *(self.urls(s).values() if s["fresh"] else (None, None)),
+                 *(reviews.get((s["key"], s["writer"], s["scene"]), (None, None)) if s["fresh"] else (None, None))]
+                for s in items]

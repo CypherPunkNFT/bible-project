@@ -2,7 +2,8 @@
   POST /api/pictures/start {"theme": ID}   starts chapter_pictures.py --theme=ID with the image venv's Python
   POST /api/pictures/stop                  ends the run (its whole process tree); finished pictures are kept
   GET  /api/pictures/state                 the run as the maker reports it in pictures/.run.json, checked against its lock
-  GET  /api/gallery?theme=ID               the theme's pictures in Bible order
+  GET  /api/gallery?theme=ID               the theme's pictures in Bible order, each with the owner's review
+  POST /api/pictures/review {theme, key, writer, scene, verdict: "ok"|"flagged", note}   records that review
 A run's state never depends on this process: a restarted Studio finds a run that is still going through the lock and
 the run file, and can stop it. Docs: initiatives/chapter-scenes/README.md (Themes and the gallery).
 """
@@ -136,4 +137,7 @@ def handle_post(path: str, body: dict) -> dict:
         return start(body.get("theme"))
     if path == "/api/pictures/stop":
         return stop()
+    if path == "/api/pictures/review":
+        fields = {f: body.get(f) for f in ("theme", "key", "writer", "scene", "verdict")}
+        return scene_pictures.Pictures().review(**fields, note=body.get("note") or "")
     raise ValueError(f"Unknown picture request {path!r}")

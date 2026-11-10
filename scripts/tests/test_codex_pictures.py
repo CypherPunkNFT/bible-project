@@ -110,3 +110,24 @@ def test_section_manifest_lives_in_its_folder_and_carries_the_single_run(picture
     assert [e["status"] for e in codex_pictures.load(path)] == ["pending", "pending"]
     assert codex_pictures.build_manifest(pictures, "paint", {"GEN:1"}, section=5) and \
         codex_pictures.load(codex_pictures.folder(pictures, "paint", 5) / "manifest.json") == []
+
+
+def test_review_counts_only_for_the_picture_as_drawn_now(pictures):
+    state = next(s for s in pictures.states(theme_ids=["paint"]) if s["scene"] == 0)
+    with pytest.raises(ValueError, match="No paint picture"):
+        pictures.review(theme="paint", key="PSA:117", writer="haiku", scene=0, verdict="ok")
+    drawn = dict(theme="paint", key="PSA:117", writer="haiku", scene=0, sha=state["sha"], seed=1, seconds=0.0)
+    pictures.save(**drawn, made_at="2026-11-10T10:00:00")
+    (pictures.dir / scene_pictures.picture_name("paint", "PSA:117", "haiku", 0)).parent.mkdir(parents=True)
+    (pictures.dir / scene_pictures.picture_name("paint", "PSA:117", "haiku", 0)).write_bytes(b"x")
+    assert pictures.review(theme="paint", key="PSA:117", writer="haiku", scene=0, verdict="ok", note="ignored") == \
+        {"verdict": "ok", "note": ""}
+    assert pictures.gallery("paint")[0][8:] == ["ok", ""] and pictures.gallery("paint")[1][8:] == [None, None]
+    pictures.review(theme="paint", key="PSA:117", writer="haiku", scene=0, verdict="flagged", note=" wrong hand ")
+    assert pictures.gallery("paint")[0][8:] == ["flagged", "wrong hand"]
+    # A redraw is unreviewed again.
+    pictures.save(**drawn, made_at="2026-11-11T10:00:00")
+    assert pictures.gallery("paint")[0][8:] == [None, None]
+    for bad in ({"verdict": "maybe"}, {"verdict": "ok", "scene": "0"}, {"verdict": "flagged", "note": "x" * 1001}):
+        with pytest.raises(ValueError):
+            pictures.review(**{"theme": "paint", "key": "PSA:117", "writer": "haiku", "scene": 0, **bad})

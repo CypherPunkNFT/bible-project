@@ -163,6 +163,15 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
   (its "moment") and the BSB verses. The arrow keys and on-screen arrows step through every book, not just the
   chosen one, and the page behind follows: each picture shown makes its book and chapter the page's own, so
   closing the view leaves you on the book and chapter where you stopped. Esc or a click outside closes it.
+- **Reviewing pictures** (owner 2026-11-10: "no approve button ... if I just click next, then it's good"): moving on
+  from a picture with → or ← approves it; **✗ Not right** (or the X key) flags it, with an optional note (Enter
+  saves); clicking it again undoes the flag. Closing the view approves nothing. Reviews are kept in the
+  `picture_reviews` table of `scenes.sqlite3` (`POST /api/pictures/review`) and count only for the picture as
+  drawn now: a redraw (new `made_at`) is unreviewed again. Gallery tiles show ✓ or a red ✗; the filters are All,
+  Finished, Not looked at and Flagged; the count line shows the book's approved and flagged pictures.
+  `python scripts/codex_pictures.py flagged --theme painterly-realism` lists the flagged ones with their section and note.
+- **Read in Bible Guide ↗** in the panel opens the local Bible Guide (localhost:8931) at the chapter with the scene's
+  verses highlighted (`/read/bsb/GEN/3?hl=22-24`), in a new tab.
   `GET /api/gallery?theme=ID` returns every scene; a scene not drawn yet has no picture URLs.
 - **All | Finished** (owner 2026-11-07): All lists every scene, with a dashed "Not drawn yet" tile where the theme has
   no picture; Finished lists only drawn pictures. The choice is remembered.

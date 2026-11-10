@@ -27,11 +27,11 @@ CSS = r"""
 .gallery-group{content-visibility:auto;contain-intrinsic-size:auto 320px;margin:0 0 28px}
 .gallery-group h3{font:19px/1.3 Georgia;margin:0 0 12px;color:var(--ink)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.gallery-grid button{display:block;padding:0;border:0;background:#eef0ea;border-radius:9px;overflow:hidden;cursor:zoom-in;aspect-ratio:16/9}
+.gallery-grid button{position:relative;display:block;padding:0;border:0;background:#eef0ea;border-radius:9px;overflow:hidden;cursor:zoom-in;aspect-ratio:16/9}.gallery-grid button.flagged::after,.gallery-grid button.ok::after{position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 13px system-ui;color:#fff}.gallery-grid button.flagged::after{content:'✗';background:#b3412f}.gallery-grid button.ok::after{content:'✓';background:rgba(36,82,62,.85)}.gallery-grid button.flagged{box-shadow:0 0 0 3px #b3412f}.lb-review{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}#lb-flag{border:1px solid rgba(255,255,255,.28);background:transparent;color:#f2d6d0;border-radius:18px;padding:6px 14px;font:600 13px system-ui;cursor:pointer;outline:none}#lb-flag:hover{background:rgba(179,65,47,.25)}#lb-flag.on{background:#b3412f;border-color:#b3412f;color:#fff}#lb-review-state{color:#9fb0a5;font-size:12px}#lb-note{width:100%;box-sizing:border-box;min-height:58px;margin:0 0 14px;padding:8px 10px;border:1px solid #b3412f;border-radius:6px;background:#141d18;color:#f1f4f1;font:13.5px/1.5 system-ui;resize:vertical;outline:none}
 .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
 .gallery-grid button:hover img{transform:scale(1.035)}
 #lightbox{position:fixed;inset:0;z-index:60;background:rgba(14,21,17,.9);display:flex;align-items:center;justify-content:center;padding:56px 72px}
-.lb-body{display:flex;gap:24px;align-items:center;width:100%;height:100%;min-height:0}#lightbox figure{margin:0;flex:1 1 auto;min-width:0;max-width:100%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}#lb-verses{flex:0 0 min(380px,32vw);align-self:center;max-height:calc(100vh - 112px);overflow-y:auto;background:#1c2822;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px 20px;color:#e8eee9}#lb-ref{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}#lb-text p{margin:0 0 10px;font:16px/1.7 Georgia,serif}#lb-text sup{color:#c9a85a;font:600 11px system-ui;margin-right:5px;vertical-align:2px}
+.lb-body{display:flex;gap:24px;align-items:center;width:100%;height:100%;min-height:0}#lightbox figure{margin:0;flex:1 1 auto;min-width:0;max-width:100%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}#lb-verses{flex:0 0 min(380px,32vw);align-self:center;max-height:calc(100vh - 112px);overflow-y:auto;background:#1c2822;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px 20px;color:#e8eee9}#lb-ref{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}#lb-guide{display:inline-block;margin:0 0 12px;color:#d8b86a;font-size:13px;font-weight:600;text-decoration:none;outline:none}#lb-guide:hover{text-decoration:underline}#lb-text p{margin:0 0 10px;font:16px/1.7 Georgia,serif}#lb-text sup{color:#c9a85a;font:600 11px system-ui;margin-right:5px;vertical-align:2px}
 #lightbox img{max-width:100%;max-height:calc(100vh - 112px);object-fit:contain;border-radius:8px;background:#fff;display:block}
 #lb-count{display:block;color:#9fb0a5;font-size:11px;letter-spacing:1.2px;margin-bottom:6px}#lb-title{display:block;font:22px/1.3 Georgia,serif;color:#fff;margin-bottom:4px}#lb-caption{display:block;color:#cfd8d1;font-size:13px;margin-bottom:12px}#lb-moment{margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12);color:#dfe7e1;font-size:14.5px;line-height:1.6}
 #lb-empty{width:100%;aspect-ratio:16/9;max-height:calc(100vh - 112px);border:1px dashed rgba(255,255,255,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#cfd8d1;font-size:15px}
@@ -57,12 +57,14 @@ TOP = (
     '<button class="lb-btn prev" id="lb-prev" aria-label="Previous picture">‹</button>'
     '<div class="lb-body"><figure><img id="lb-img" alt=""><div id="lb-empty" hidden>Not drawn yet</div></figure>'
     '<div id="lb-verses" role="region" aria-label="Scene and verses"><span id="lb-count"></span><b id="lb-title"></b>'
-    '<span id="lb-caption"></span><p id="lb-moment" hidden></p><span id="lb-ref"></span><div id="lb-text"></div></div></div>'
+    '<span id="lb-caption"></span><div class="lb-review" id="lb-review"><button id="lb-flag" title="Mark this picture wrong (X)">✗ Not right</button>'
+    '<span id="lb-review-state"></span></div><textarea id="lb-note" hidden placeholder="What is wrong? (optional, Enter saves)"></textarea>'
+    '<p id="lb-moment" hidden></p><span id="lb-ref"></span><a id="lb-guide" target="_blank" rel="noopener"></a><div id="lb-text"></div></div></div>'
     '<button class="lb-btn next" id="lb-next" aria-label="Next picture">›</button></div>')
 
 JS = r"""
 let themes=[],theme='',view='scenes',gallery=[],galleryFilter='all',galleryBook='',galleryAt='',lbItems=[],lbIndex=0;
-try{galleryFilter=localStorage.getItem('studio-gallery-filter')==='finished'?'finished':'all';theme=localStorage.getItem('studio-theme')||'';view=localStorage.getItem('studio-scenes-view')==='gallery'?'gallery':'scenes'}catch(e){}
+try{const f=localStorage.getItem('studio-gallery-filter');galleryFilter=['finished','unseen','flagged'].includes(f)?f:'all';theme=localStorage.getItem('studio-theme')||'';view=localStorage.getItem('studio-scenes-view')==='gallery'?'gallery':'scenes'}catch(e){}
 const themeName=id=>(themes.find(t=>t.id===id)||{}).name||id;
 const bookName=code=>(BOOT.books.find(b=>b.code===code)||{}).name||code;
 const chapterLabel=k=>{const [c,n]=k.split(':');return bookName(c)+' '+n};
@@ -78,7 +80,7 @@ function setThemes(list){const before=theme;themes=list||[];if(!themes.some(t=>t
 function setTheme(id){if(!themes.some(t=>t.id===id)||id===theme)return;theme=id;try{localStorage.setItem('studio-theme',id)}catch(e){}renderThemes();
  if(mode==='scenes'){if(view==='gallery')loadGallery();else renderScenes()}}
 async function refreshSummary(){const d=await api('/api/scenes');sceneKeys=d.keys;setThemes(d.themes);counts();renderTiles()}
-const largeItem=i=>({full:i[6],key:i[0],writer:i[1],scene:i[2],vs:i[4],ve:i[5],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+themeName(theme)});
+const largeItem=i=>({row:i,full:i[6],key:i[0],writer:i[1],scene:i[2],vs:i[4],ve:i[5],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+themeName(theme)});
 async function galleryItems(){return (await api('/api/gallery?theme='+encodeURIComponent(theme))).items}  // fresh: runs keep importing
 function framePicture(frame,s,n){const pics=s.pictures||{},cur=pics[theme];if(!cur)return;
  const img=new Image();img.loading='lazy';img.alt=s.title;img.src=cur.full;img.title='Open large';
@@ -93,17 +95,22 @@ async function loadGallery(){const body=$('gallery-body'),wanted=theme;body.repl
  try{const d=await api('/api/gallery?theme='+encodeURIComponent(wanted));if(wanted!==theme)return;gallery=d.items;renderGallery()}
  catch(e){body.replaceChildren(el('p','scenes-empty',e.message))}}
 // The page shows only the chosen book; the large view and the speed run step through every book.
+// The line above the grid: what the filter shows in the chosen book, and how much of the book is reviewed.
+let galleryShown=[0,0];
+function galleryCount(shown,drawn){if(shown!==undefined)galleryShown=[shown,drawn];[shown,drawn]=galleryShown;
+ const mine=gallery.filter(i=>i[0].split(':')[0]===galleryBook),flagged=mine.filter(i=>i[8]==='flagged').length,approved=mine.filter(i=>i[8]==='ok').length;
+ $('gallery-count').textContent=bookName(galleryBook)+' · '+(galleryFilter==='all'?shown.toLocaleString()+' scenes · '+drawn.toLocaleString()+' drawn':shown.toLocaleString()+' pictures')+' · '+approved.toLocaleString()+' approved · '+flagged.toLocaleString()+' flagged · '+themeName(theme)}
 function renderGallery(){const body=$('gallery-body'),filter=$('gallery-filter'),book=code;body.replaceChildren();filter.replaceChildren();galleryBook=book;galleryAt=key();
- [['all','All'],['finished','Finished']].forEach(([f,label])=>{const b=el('button',f===galleryFilter?'on':'',label);b.onclick=()=>{galleryFilter=f;try{localStorage.setItem('studio-gallery-filter',f)}catch(e){}renderGallery()};filter.append(b)});
- const all=galleryFilter==='finished'?gallery.filter(i=>i[6]):gallery,large=all.map(largeItem),inBook=[];
+ [['all','All'],['finished','Finished'],['unseen','Not looked at'],['flagged','Flagged']].forEach(([f,label])=>{const b=el('button',f===galleryFilter?'on':'',label);b.onclick=()=>{galleryFilter=f;try{localStorage.setItem('studio-gallery-filter',f)}catch(e){}renderGallery()};filter.append(b)});
+ const keep={all:()=>true,finished:i=>i[6],unseen:i=>i[6]&&!i[8],flagged:i=>i[8]==='flagged'}[galleryFilter];galleryButtons={};
+ const all=gallery.filter(keep),large=all.map(largeItem),inBook=[];
  all.forEach((it,n)=>{if(it[0].split(':')[0]===book)inBook.push(n)});
- const drawn=inBook.filter(n=>all[n][6]).length;
- $('gallery-count').textContent=bookName(book)+' · '+(galleryFilter==='finished'?drawn.toLocaleString()+' pictures':inBook.length.toLocaleString()+' scenes · '+drawn.toLocaleString()+' drawn')+' · '+themeName(theme);
+ galleryCount(inBook.length,inBook.filter(n=>all[n][6]).length);
  $('gallery-run').disabled=!large.length;$('gallery-run').onclick=()=>openLightbox(large,inBook.length?inBook[0]:0);
  if(!inBook.length){body.append(el('p','scenes-empty',gallery.length?'No pictures in '+bookName(book)+' yet.':'No scenes yet.'));return}
  const groups=[];inBook.forEach(n=>{const g=groups[groups.length-1];if(g&&g.key===all[n][0])g.items.push(n);else groups.push({key:all[n][0],items:[n]})});
  groups.forEach(g=>{const sec=el('section','gallery-group'),grid=el('div','gallery-grid');sec.dataset.galleryKey=g.key;sec.append(el('h3',null,chapterLabel(g.key)));
-  g.items.forEach(n=>{const it=all[n],b=el('button',it[6]?'':'blank');b.title=it[3];b.onclick=()=>openLightbox(large,n);
+  g.items.forEach(n=>{const it=all[n],b=el('button',it[6]?(it[8]||''):'blank');b.title=it[3]+(it[9]?' · flagged: '+it[9]:'');b.onclick=()=>openLightbox(large,n);galleryButtons[it[0]+'|'+it[1]+'|'+it[2]]=b;
    if(it[6]){const img=new Image();img.loading='lazy';img.decoding='async';img.alt=it[3];img.src=it[7];b.append(img)}else b.textContent='Not drawn yet · '+it[3];grid.append(b)});
   sec.append(grid);body.append(sec)})}
 // Called after a book or chapter click: a new book redraws the page, a new chapter scrolls to it.
@@ -115,7 +122,9 @@ function sceneMoment(it){if(!chapterScenes[it.key])chapterScenes[it.key]=api('/a
  return chapterScenes[it.key].then(w=>w[it.writer]?.scenes?.[it.scene]?.moment||'')}
 async function showMoment(it,request){const box=$('lb-moment');box.hidden=true;try{const text=await sceneMoment(it);if(request===verseRequest&&text){box.textContent=text;box.hidden=false}}catch(e){}}
 function chapterVerses(k){if(!chapterText[k]){const [c,n]=k.split(':');chapterText[k]=api('/api/chapter?code='+c+'&chapter='+n+'&translation=bsb').then(d=>d.verses).catch(e=>{delete chapterText[k];throw e})}return chapterText[k]}
-async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text');$('lb-ref').textContent=chapterLabel(it.key)+':'+versesLabel(it.vs,it.ve)+' · BSB';box.replaceChildren(el('p',null,'Loading verses…'));$('lb-verses').scrollTop=0;showMoment(it,request);
+async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text');$('lb-ref').textContent=chapterLabel(it.key)+':'+versesLabel(it.vs,it.ve)+' · BSB';
+ // Bible Guide (the local site) opens the whole chapter with the scene's verses highlighted and in view.
+ {const [c,n]=it.key.split(':'),g=$('lb-guide');g.href='http://localhost:8931/read/bsb/'+c+'/'+n+'?hl='+it.vs+(it.ve!==it.vs?'-'+it.ve:'');g.textContent='Read '+chapterLabel(it.key)+' in Bible Guide ↗'}box.replaceChildren(el('p',null,'Loading verses…'));$('lb-verses').scrollTop=0;showMoment(it,request);
  try{const verses=await chapterVerses(it.key);if(request!==verseRequest)return;box.replaceChildren();
   verses.forEach(v=>{const nums=String(v.number).split(/[-–]/).map(Number);if(!v.text||nums[0]>it.ve||nums.at(-1)<it.vs)return;const p=el('p');p.append(el('sup',null,String(v.number)),v.text);box.append(p)});
   if(!box.childElementCount)box.append(el('p',null,'No verse text found for this range.'))}
@@ -124,15 +133,30 @@ async function showVersesPanel(it){const request=++verseRequest,box=$('lb-text')
 // as a click on that book and chapter would, so closing the view leaves you where you stopped.
 function followLarge(it){const [c,n]=it.key.split(':');if(dirty||(c===code&&Number(n)===chapter))return;
  code=c;chapter=Number(n);render();loadSource().catch(e=>notify(e.message))}
+// Reviews: moving on from a picture approves it; only ✗ (or the X key) marks it wrong, with an optional note.
+let galleryButtons={};
+function showReview(it){const row=it.row,v=row&&it.full?row[8]:undefined,flag=$('lb-flag'),note=$('lb-note');$('lb-review').hidden=!(row&&it.full);note.hidden=v!=='flagged';
+ if(!row||!it.full)return;flag.classList.toggle('on',v==='flagged');flag.textContent=v==='flagged'?'✗ Flagged · click to undo':'✗ Not right';
+ $('lb-review-state').textContent=v==='ok'?'✓ Approved':v==='flagged'?'':'Not looked at · moving on approves it';if(document.activeElement!==note)note.value=row[9]||''}
+async function review(it,verdict,note){const row=it.row,before=[row[8],row[9]];row[8]=verdict;row[9]=verdict==='flagged'?note:'';
+ const b=galleryButtons[row[0]+'|'+row[1]+'|'+row[2]];if(b){b.classList.remove('ok','flagged');b.classList.add(verdict);b.title=row[3]+(row[9]?' · flagged: '+row[9]:'')}
+ if(lbItems[lbIndex]===it)showReview(it);galleryCount();
+ try{await api('/api/pictures/review',{theme,key:row[0],writer:row[1],scene:row[2],verdict,note:row[9]})}
+ catch(e){row[8]=before[0];row[9]=before[1];if(b){b.classList.remove('ok','flagged');if(before[0])b.classList.add(before[0])}if(lbItems[lbIndex]===it)showReview(it);galleryCount();notify('Could not save the review: '+e.message)}}
+function toggleFlag(){const it=lbItems[lbIndex];if(!it?.row||!it.full)return;if(it.row[8]==='flagged')review(it,'ok','');else{review(it,'flagged',$('lb-note').value.trim());$('lb-note').hidden=false;$('lb-note').focus()}}
+function approveOnLeave(){const it=lbItems[lbIndex];if(it?.row&&it.full&&!it.row[8])review(it,'ok','')}
+$('lb-flag').onclick=e=>{e.stopPropagation();toggleFlag()};
+$('lb-note').onkeydown=e=>{e.stopPropagation();if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('lb-note').blur()}else if(e.key==='Escape')$('lb-note').blur()};
+$('lb-note').onchange=()=>{const it=lbItems[lbIndex];if(it?.row?.[8]==='flagged')review(it,'flagged',$('lb-note').value.trim())};
 function openLightbox(items,n){lbItems=items;lbIndex=n;$('lightbox').hidden=false;showLarge()}
 function showLarge(){const it=lbItems[lbIndex],img=$('lb-img');if(it.full)img.src=it.full;else img.removeAttribute('src');img.hidden=!it.full;$('lb-empty').hidden=!!it.full;
  img.alt=it.title;$('lb-title').textContent=it.title;$('lb-caption').textContent=it.caption;$('lb-count').textContent=lbItems.length>1?(lbIndex+1).toLocaleString()+' / '+lbItems.length.toLocaleString():'';
- $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;showVersesPanel(it);followLarge(it);[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
-function step(d){if(lbItems.length<2)return;lbIndex=(lbIndex+d+lbItems.length)%lbItems.length;showLarge()}
+ $('lb-prev').hidden=$('lb-next').hidden=lbItems.length<2;showReview(it);showVersesPanel(it);followLarge(it);[lbIndex-1,lbIndex+1].forEach(j=>{if(lbItems[j]?.full)new Image().src=lbItems[j].full})}
+function step(d){if(lbItems.length<2)return;approveOnLeave();lbIndex=(lbIndex+d+lbItems.length)%lbItems.length;showLarge()}
 function closeLightbox(){$('lightbox').hidden=true;$('lb-img').removeAttribute('src')}
 $('lb-prev').onclick=e=>{e.stopPropagation();step(-1)};$('lb-next').onclick=e=>{e.stopPropagation();step(1)};$('lb-close').onclick=closeLightbox;
 $('lightbox').onclick=e=>{if(e.target.id==='lightbox'||e.target.classList.contains('lb-body'))closeLightbox()};
-document.addEventListener('keydown',e=>{if($('lightbox').hidden)return;if(e.key==='Escape')closeLightbox();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
+document.addEventListener('keydown',e=>{if($('lightbox').hidden||e.target.tagName==='TEXTAREA')return;if(e.key==='x'||e.key==='X'){e.preventDefault();toggleFlag()}else if(e.key==='Escape')closeLightbox();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
 function setView(v){view=v;try{localStorage.setItem('studio-scenes-view',v)}catch(e){}applyMode()}
 document.querySelectorAll('.view-tabs [data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
 """

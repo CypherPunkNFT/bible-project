@@ -7,6 +7,7 @@ Docs: initiatives/chapter-scenes/CODEX_IMAGES.md (the run instructions) and READ
 python scripts/codex_pictures.py manifest --theme painterly-realism --section 3   one section's scenes
 python scripts/codex_pictures.py import --theme painterly-realism --section 3     its "verified" entries into the Studio
 python scripts/codex_pictures.py status --theme painterly-realism [--section 3]
+python scripts/codex_pictures.py flagged --theme painterly-realism                 pictures the owner marked wrong
 
 Sections (2026-11-10): the chapters are cut into 7 runs that go at the same time, fixed in
 initiatives/chapter-scenes/sections.json. Each has its own folder, codex/<theme>/section-<N>/, holding its manifest,
@@ -173,9 +174,17 @@ def status(pictures: scene_pictures.Pictures, theme_id: str, section: int | None
     print(json.dumps({"manifest": tally, "in_studio_all_chapters": made}, indent=1))
 
 
+def flagged(pictures: scene_pictures.Pictures, theme_id: str) -> list[dict]:
+    """The pictures the owner marked wrong in the Studio's large view (as drawn now), in Bible order, with the
+    section each belongs to and the owner's note."""
+    sections = {key: n for n in range(1, 8) for key in section_keys(n)}
+    return [{"id": f"{row[1]}/{row[0].replace(':', '-')}-{row[2]}", "section": sections.get(row[0]), "title": row[3],
+             "note": row[9]} for row in pictures.gallery(theme_id) if row[8] == "flagged"]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("command", choices=["manifest", "import", "status"])
+    parser.add_argument("command", choices=["manifest", "import", "status", "flagged"])
     parser.add_argument("--theme", required=True, help="a themes.json id whose engine is codex")
     parser.add_argument("--pilot", action="store_true", help="manifest: only the 12 pilot chapters")
     parser.add_argument("--keys", default="", help="manifest: comma-separated chapters such as GEN:22,1SA:17")
@@ -194,6 +203,10 @@ def main() -> None:
         print(f"Manifest: {path} ({len(load(path))} pictures)")
     elif args.command == "import":
         import_verified(pictures, args.theme, args.section)
+    elif args.command == "flagged":
+        rows = flagged(pictures, args.theme)
+        print(json.dumps(rows, indent=1, ensure_ascii=False))
+        print(f"{len(rows)} flagged")
     else:
         status(pictures, args.theme, args.section)
 
