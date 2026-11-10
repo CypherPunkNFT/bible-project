@@ -1,7 +1,8 @@
 # Bible twenty questions — design
 
-**Status:** researched and designed (2026-11-09, orchestrator job e66e4660, sequence 30 step 17). Not yet reviewed:
-the next step reviews it once and appends a **Review** section; the step after builds it.
+**Status:** researched and designed (2026-11-09, orchestrator job e66e4660, sequence 30 step 17); reviewed once
+(2026-11-10, orchestrator job 2f1dd1dc, sequence 30 step 18), with the corrections applied in the body and listed in
+the **Review** section at the end. The next step builds it.
 **Spec (owner-approved, binding):** [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md) entry 16, "Bible twenty
 questions": the player thinks of a Bible character and the site asks yes/no questions and guesses, with no AI model
 running at play time. Each character carries tags; each tag has one pre-written question, generated once in advance
@@ -25,7 +26,7 @@ profile thinking in question marks). The address is **/games/twenty-questions**.
 | Spec or brief says | This design |
 |---|---|
 | Player thinks of a Bible character | A pool of **about 400 people** from the site's own people data (§3): everyone with a ruler, prophet or apostle page, everyone with a written life story, the 160 people already checked for the "Who's older?" game, and everyone named 20 or more times. Jesus is included and tagged by hand (§3.4). |
-| Characters carry tags | About **120 tags** in seven groups: who, when, role, family and people, story, places, books (§4). Every value is **yes**, **no** or **unsure**. "Unsure" is for things the Bible does not settle, or where a fair reader could answer either way. A yes or no on a story tag carries a verse that shows it. |
+| Characters carry tags | About **120 tags** in seven groups: who, when, role, family and people, story, places, books (§4). Every value is **yes**, **no** or **unsure** (plus **n/a**, set only by hand, for a question that makes no sense about Jesus). "Unsure" is for things the Bible does not settle, or where a fair reader could answer either way. A yes or no on a story tag carries a verse that shows it. |
 | One pre-written question per tag, generated once with a cheap model | One batch call writes all ~120 questions from the tag definitions. A script checks their form, and they are stored in a hand-kept file (§6). The same wording is used in both modes. |
 | Yes / no / don't know buttons | Exactly those three buttons, plus a quiet "Undo" (§8). "Don't know" never rules anyone out. |
 | Ask the tag closest to a 50/50 split of the remaining characters | Before each question the site counts, among the characters still in play, how many have the tag (yes), how many do not (no) and how many are unsure. It asks the question whose split is closest to even, counting unsure characters on both sides (§7). With no unsure characters that is exactly the spec's 50/50 rule. |
@@ -153,7 +154,8 @@ profile thinking in question marks). The address is **/games/twenty-questions**.
   site is allowed to reconsider after a wrong guess. Forgiveness has a price on thin tags: strict elimination wins
   100 % of truthful games against forgiveness's 96 %, because people who differ by a single tag are harder to
   separate. The full tag set will separate people far better, and §5.5 sets the targets the real tags must meet,
-  including check 5 (every famous person differs from everyone else on at least two tags).
+  including check 5 (every famous person is separated from everyone else by at least two tags, one answering yes
+  where the other answers no).
 
 ---
 
@@ -215,13 +217,13 @@ death, bodily resurrection, ascension, return).
 - Questions are answered as the Bible presents him. "Is your person a king?" is **yes** (John 18:37, Revelation
   19:16). "A prophet?" is **yes** (Acts 3:22, Luke 24:19). "A priest?" is **yes** (Hebrews 4:14). "Did your person
   rise from the dead?" is **yes**. "Did your person do miracles?" is **yes**.
-- Questions that make no sense about him are **unsure**, so they never rule him out. "Did your person meet Jesus?"
-  is one.
+- Questions that make no sense about him are **n/a** (§4.1), which never rules him out. "Did your person meet
+  Jesus?" is one.
 - **No tag in the whole set judges anyone's sin or salvation** (§4.6), so the game never asks a question whose
   answer about Jesus would be irreverent.
 - The guess is worded "Are you thinking of **Jesus**?", and the reveal links to the site's page on him.
-- In reverse mode Jesus can be the secret character. The answers follow the same hand-set values, and "The Bible
-  doesn't say" covers the meaningless ones.
+- In reverse mode Jesus can be the secret character. The answers follow the same hand-set values: "The Bible
+  doesn't say" for unsure ones and "That doesn't really apply" for the n/a ones.
 
 ### 3.5 Display labels
 
@@ -244,7 +246,8 @@ Every tag has, for every pool member, exactly one value:
 |---|---|---|---|
 | **yes** | Scripture shows it | A "No" from the player contradicts it | "Yes" |
 | **no** | Scripture shows it is not so, or the person is not in that part of the story at all | A "Yes" contradicts it | "No" |
-| **unsure** | The Bible does not settle it, or a fair reader could answer either way, or the question does not apply | Never contradicts anything | "The Bible doesn't say" (or, for a question that does not apply, "That doesn't really apply") |
+| **unsure** | The Bible does not settle it, or a fair reader could answer either way | Never contradicts anything | "The Bible doesn't say" |
+| **n/a** | The question makes no sense for this person ("Did your person meet Jesus?" for Jesus). Set **only in the hand file** (§3.4); the model passes never output it | Never contradicts anything (the engine treats it exactly like unsure) | "That doesn't really apply" |
 
 A yes or no value may also carry a **slip mark**: "players often get this wrong". In guess mode a slip-marked
 value is treated as **unsure**, so a common misunderstanding cannot cost the game. In reverse mode, and in the
@@ -254,9 +257,10 @@ come from the tagging passes (§5.3) and from learning (§10.4).
 
 **The truth rule for tagging.** A value records the answer **Scripture** gives to the question **as worded**,
 read the way an ordinary player would read it. It is not the answer a commentary or a tradition gives. If
-answering needs a tradition, a disputed date, or a choice between interpretations, the value is **unsure**. An
-example is "Did your person write part of the Bible?" for Moses: Jesus attributes the Law to Moses (Mark 12:26),
-but where scholars and Baptists differ on exactly what he wrote, the narrower questions stay unsure. That is the
+answering needs a tradition, a disputed date, or a choice between interpretations, the value is **unsure**. This is
+also why "Did your person write part of the Bible?" is deliberately **not** a tag: for Moses, Samuel or the Gospel
+writers the answer rests partly on tradition about authorship (§4.6). The two authorship tags ask only what the text
+itself shows: a book named after the person, and a letter that opens with their name as its writer. That is the
 site's doctrinal rule ([DOCTRINAL-FOUNDATION.md](../../../../DOCTRINAL-FOUNDATION.md)): where the Baptist Faith and
 Message is silent, do not choose.
 
@@ -275,6 +279,11 @@ Samson. Each tag has an id, a group, a one-sentence **definition** (what counts 
 - **detail:** a well-read player can answer; a child will often say "don't know".
 
 The 50/50 rule prefers everyday questions (§7.3).
+
+**People from before Israel existed.** For everyone who lived before Jacob's sons (Adam, Noah, Abraham, Sarah,
+Isaac, Rebekah, Esau and the like), both "Is your person an Israelite?" and "Is your person from another nation?"
+are **unsure**. Strictly they are not descended from Jacob, but a player thinking of Abraham will answer "No" to
+"another nation", and many will answer "Yes" to "Israelite". Jacob himself is **yes** for "Israelite".
 
 | Group | Tags (starting list) | Source |
 |---|---|---|
@@ -345,8 +354,8 @@ Compact and ids only:
 }
 ```
 
-- `v` holds one character per tag, in tag order: `y` yes, `n` no, `?` unsure, `Y` yes slip-marked, `N` no
-  slip-marked. At 400 people × 120 tags that is 48 KB of letters.
+- `v` holds one character per tag, in tag order: `y` yes, `n` no, `?` unsure, `-` n/a (hand file only), `Y` yes
+  slip-marked, `N` no slip-marked. At 400 people × 120 tags that is 48 KB of letters.
 - The whole file is about 70 KB raw and roughly 15 KB compressed.
 
 A second file, `twenty-questions-evidence.json`, maps person to tag to verse id (only where a ref exists). It is
@@ -388,8 +397,9 @@ edited by hand for tiers, additions and labels. **Checks:**
 
 - **Sex.** `s`: F means woman yes; M means woman no.
 - **Era.** `e` and `p` fill the era tags. Where they disagree, or where the NT split depends on `p`, the value is
-  left for the model to confirm (§5.3). `p` has known errors: Job is filed under the patriarchs and Esther under
-  the return.
+  left for the model to confirm (§5.3). `p` is coarse and sometimes rests on a tradition: Job is filed under the
+  patriarchs, a dating §4.6 treats as contested, so **every era tag is unsure for Job**. (Esther under "return" is
+  right: her story falls in the Persian period between the returns.)
 - **Offices.** People-pages groups and odd-one-out's yes / no / unsure values for monarch, prophet, judge, priest,
   apostle, the Twelve, king of Judah or Israel, Herod, Roman, Persian, pharaoh, writing prophet and Paul's
   companion. These are read by importing [ooo_people.py](../../../scripts/odd-one-out/ooo_people.py)'s functions
@@ -459,12 +469,24 @@ person's names. Otherwise the value drops to unsure and the case is listed.
 1. a broken `implies` or `excludes` rule (a king of Judah who is not a king; a woman who is a son of Jacob);
 2. a model value that contradicts a data value;
 3. any yes on a story, place or book tag without a valid ref;
-4. **two tier-1 people with identical values on every tag**. The site could never tell them apart. The fix is a
-   separating tag or a data correction, and the check names both people;
-5. a tier-1 person whose values differ from another pool member on **fewer than two** tags. One wrong answer would
-   then make them indistinguishable. This warns for tier 2 and fails for tier 1;
+4. **two tier-1 people that no tag separates**. The site could never tell them apart. The fix is a separating tag
+   or a data correction, and the check names both people;
+5. a tier-1 person **separated** from another pool member by **fewer than two** tags. One wrong answer would then
+   make them indistinguishable. This warns for tier 2 and fails for tier 1;
+
+   A tag **separates** two people only when one is yes and the other no, reading slip-marked values as unsure, as
+   guess mode does (§4.1). An unsure or n/a value never separates anyone, so two people who differ only by one
+   being unsure where the other is yes count as **not** separated by that tag;
 6. a tag that is yes for nobody or for everybody in the pool. It is useless, so it is removed or redefined;
 7. Jesus's values differing from the hand file.
+
+"Fails the build" here means the **tagging build**: these game checks are not part of the site's `prebuild`, and
+this feature must not add them to the shared [package.json](../../../package.json) (the "Who's older?" checks in
+[scripts/whos-older/](../../../scripts/whos-older/) work the same way: run by hand with
+`node --experimental-strip-types`). What guards the site's own `npm test` is the data test of §15, which runs the
+same simulation over the shipped file. Because the scripts import [engine.ts](../../../src/pages/games/twenty-questions/engine.ts)
+directly under Node, the engine uses only relative imports with their `.ts` extension and no `@/` alias, the way
+the "Who's older?" scripts import [pairing.ts](../../../src/pages/games/whos-older/pairing.ts).
 
 It then **plays every pool member** through the real selection code (§7), the same TypeScript module the game
 uses, and requires:
@@ -548,7 +570,8 @@ few tens of thousands of comparisons, which is instant on any phone. It lives in
 - `answers`: the list of (tag, Yes / No / Don't know).
 - `rejected`: the people already guessed wrongly.
 - For each person, **misses** = the number of answers that contradict their value. A Yes against **no**, or a No
-  against **yes**, is a miss. Unsure and slip-marked values, and every "Don't know", never count as a miss.
+  against **yes**, is a miss. Unsure, n/a and slip-marked values, values this device has softened (§10.3), and
+  every "Don't know", never count as a miss.
 
 ### 7.2 Who is "remaining"
 
@@ -566,7 +589,7 @@ For every tag not yet asked, count among the **remaining** people:
 
 - `y` = how many have yes;
 - `n` = how many have no;
-- `u` = how many are unsure (including slip-marked values).
+- `u` = how many are unsure (including n/a, slip-marked and device-softened values).
 
 Skip a tag where `y` or `n` is 0, because its answer could not change anything. A tag's **split score** is
 `max(y, n) + u`: the most people who could still be remaining after the answer. The **lowest** score is the tag
@@ -612,8 +635,8 @@ second remains. It leads to the learning screen (§10).
    a running list of who is left; that would spoil the magic and is reserved for reverse mode's helper.
 3. **Undo.** A quiet **Undo** button takes back the last answer (or the last wrong-guess reply), as many times as
    needed. Undoing is free and does not count as a turn.
-4. **A guess.** "Are you thinking of… **Ruth**?" with the person's brief line ("Moabite woman, ancestor of David and
-   Jesus") so a player who thought of the "other" Ruth-like person can tell. Buttons: **Yes!** / **No**.
+4. **A guess.** "Are you thinking of… **John the Baptist**?" with the person's brief line, so a player who thought
+   of a different John can tell at once that this is not their person. Buttons: **Yes!** / **No**.
 5. **Won.** "Got it in 9!" The person's name, short life summary (from the site's own story where there is one),
    a **Read about Ruth** link to their person page and **Play again** / **Swap: you ask the questions**. A small
    **"Your answers"** list shows each question and answer. Any answer that differed from the site's notes is
@@ -640,7 +663,7 @@ second remains. It leads to the learning screen (§10).
   answer.
 - **The answer** appears in a running log under the picker: "Is your person a king? — **No**."
   - Unsure values answer "**The Bible doesn't say**".
-  - Questions that do not apply (§3.4) answer "**That doesn't really apply**".
+  - n/a values (§4.1, set only in the hand file, §3.4) answer "**That doesn't really apply**".
   - Slip-marked values answer with the **true** value, because this is where the game teaches.
   - Each Yes or No answer from a model tag has a small "Why?" that shows the verse (loaded from the evidence file),
     so a surprising answer can be checked against Scripture.
@@ -650,7 +673,9 @@ second remains. It leads to the learning screen (§10).
     rendered above and below the visible area, rows not cards, no "load more");
   - beside each question in the picker, a thin bar showing how evenly it would split the people still possible.
   The helper teaches the 50/50 strategy without explaining any mathematics. "Still possible" uses the same engine
-  as guess mode on the answers the site has given, without forgiveness, since the site never answers wrongly.
+  as guess mode on the answers the site has given, without forgiveness, since the site never answers wrongly. It
+  reads slip-marked values as their **true** value, because the site's answers are true values too; otherwise the
+  counter would keep people the site's own answer has already ruled out.
 
 ### 9.3 Guessing
 
@@ -675,8 +700,10 @@ rooms or phones-as-buzzers. That keeps it in the hub's "solo / family" audiences
 After a loss the site asks who it was, with a search box:
 
 1. It first searches the **pool**: labels and other names, tier 1 shown first.
-2. **"Not in my list?"** then searches **all 3,054 people** in the site's people list (`loadEnglishPeople()`,
-   already used by the people pages; no new data file). Choosing one of these records a **nomination** (§10.3).
+2. **"Not in my list?"** then searches **all 3,055 people** in the site's people list (`loadEnglishPeople()` in
+   [study.ts](../../../src/lib/study.ts), already used by the people pages; no new data file). That list also
+   holds the 78 tribes and peoples, so the search drops every row with the group flag `g`. Choosing one of these
+   records a **nomination** (§10.3).
 3. **"Someone not on this list"** (an angel, a parable character, a mistake) closes politely and records nothing.
 
 **No free text is ever accepted.** There is nothing to moderate and nothing personal to store.
@@ -714,24 +741,37 @@ a weak spot.
   "disputed": ["prophet"], "result": "lost" }
 ```
 
-- Ids and letters only, no free text, no account, no cookie, no IP address stored.
+- Ids and letters only, no free text, no account, no cookie. The report row stores no IP address.
 - Cloudflare sees the request as with any page load.
-- The server checks every id against an allow-list built from the game file. It rejects anything malformed, and
-  any report whose `answers` exceed 25 or whose tags it does not know.
-- It applies the same Origin and `Sec-Fetch-Site` checks as the testimonies endpoint
-  ([testimonies.ts](../../../server/testimonies.ts) `checkOrigin`).
-- It rate-limits per connection (a few reports a minute).
+- The server checks every id against an allow-list built from the game file. It rejects anything malformed, any
+  body over a few kilobytes, and any report whose `answers` exceed 25 or whose tags it does not know.
+- It applies the same Origin and `Sec-Fetch-Site` checks as the testimonies endpoint (`checkOrigin` in
+  [testimonies.ts](../../../server/testimonies.ts)). That function is private to the testimonies file, so the new
+  handler carries its own copy of these few lines rather than editing or exporting from testimonies.ts.
+- It rate-limits the way testimonies.ts's `limited()` does: a count per hour under a **hashed** key made from the
+  action, the visitor's connection address (`CF-Connecting-IP`) and the hour, in a small limits table of its own
+  that deletes expired rows. A generous cap (about 30 reports an hour) is far above real play. The hash is the
+  only trace of the address, and it is deleted when its hour ends.
 - It writes one row to a new table `twenty_questions_reports` in the site's existing D1 database (binding `DB`,
-  [wrangler.jsonc](../../../wrangler.jsonc)), through a new migration in [migrations/](../../../migrations/).
-- A won game sends the same report with `"result": "won"`, so agreement is counted too, not only disputes.
+  [wrangler.jsonc](../../../wrangler.jsonc)), through a new migration in [migrations/](../../../migrations/)
+  (`0006_twenty_questions_reports.sql`, the next free number today, creating both tables).
+- A won game sends the same report with `"result": "won"`, so agreement is counted too, not only disputes. It is
+  sent when the player **leaves the won screen** (Play again, Swap, a link, or the page closing, using `fetch` with
+  `keepalive`), not the moment the guess is confirmed, so "Actually, that wasn't my person" (§13) can still turn it
+  into a loss without a false "won" report.
+- Reverse mode sends no report: the site's answers there come straight from its notes, so they teach it nothing.
 
 A report failing to send is silent and harmless: the game never waits for it.
 
-**This is the only part of the feature that touches shared files:** one route line in
-[site-worker.mjs](../../../server/site-worker.mjs), one migration and one handler file
-(`server/twenty-questions.ts`). If the implementation step finds that the route cannot be added without broader
-changes to the worker, it ships on-device learning plus a disabled "send" path behind one constant, and says so in
-its report. The game must work fully without the endpoint.
+**This is the only part of the feature that touches shared files:** one migration, one handler file
+(`server/twenty-questions.ts`) and one route file, `functions/api/twenty-questions/report.ts`. The site's routes
+are file-based: [site-worker.mjs](../../../server/site-worker.mjs) forwards every request to the compiled
+[functions/](../../../functions/) folder, so the worker itself needs no edit. The route file is two lines, in the
+same pattern as [contact.ts](../../../functions/api/contact.ts), which hands the request to
+`server/contact.ts`. The worker already refuses every POST to `/api/` on the temporary `workers.dev` address, so
+the test address can never write reports. The migration is **applied to the live database at release**, a step
+for whoever releases (the implementation step never deploys). Until it is applied the endpoint fails and the game
+drops reports silently. The game must work fully without the endpoint.
 
 **Cost:** rows in the D1 database the site already uses, far inside the owner's existing paid Workers plan
 allowance. No new service and no new recurring charge. One report is a few hundred bytes.
@@ -756,7 +796,8 @@ text can do that, and it records why. Scripture is the authority, not the majori
 purpose.
 
 Each update rebuilds `twenty-questions.json` with a new `version`. Device-side softened values are keyed by
-version and tag, and are dropped when the version changes. The shared file has then absorbed what the reports
+version, person and tag (softening Moses's "prophet" value does not touch anyone else's), and are dropped when the
+version changes. The shared file has then absorbed what the reports
 taught.
 
 ---
@@ -788,8 +829,8 @@ tall, and the three answer buttons sit within thumb reach at the bottom.
 
 ### 11.3 Guess
 
-"Are you thinking of…" with the name in large type, the brief line, and **Yes!** / **No**. A tier-1 person shows
-the person page's portrait if the site has one; otherwise there is no picture (no placeholder art).
+"Are you thinking of…" with the name in large type, the brief line, and **Yes!** / **No**. No picture: the site's
+person pages carry no portraits, and the game adds no placeholder art.
 
 ### 11.4 Result and lesson
 
@@ -850,7 +891,7 @@ The implementation step changes the registry entry `twenty-questions` to `status
   - the game in progress (mode, answers, rejected guesses, reverse-mode secret id and asked tags, random seed,
     game-file version);
   - the last 30 reverse-mode secrets;
-  - the device's softened values (§10.3) keyed by game-file version;
+  - the device's softened values (§10.3), keyed by game-file version, person and tag;
   - simple totals (games played, won by the site, won by the player).
 - **A reload resumes the game.** An in-progress game from an older game-file version is dropped with a one-line
   note, because the tags may have changed.
@@ -866,15 +907,15 @@ The implementation step changes the registry entry `twenty-questions` to `status
 | Player answers "Don't know" to everything | Nobody is ever ruled out, so no tag can narrow the field. After 6 straight "Don't know" answers the site says "That's all right: try a few yes or no answers if you can", then keeps going. At turn 20 it guesses the most famous people in order, which is honest and harmless. |
 | Player answers wrongly once | Forgiveness (§7.2) usually still finds them. After the game, the lesson shows the slip with its verse. |
 | Player answers wrongly twice or more | The right person may fall out of "remaining". Each wrong guess, and the lesson, still teach, and the report helps find genuinely confusing questions. |
-| Player thinks of someone not in the pool | The site eventually loses. "Not in my list?" finds them among all 3,054 people and nominates them (§10.4). |
+| Player thinks of someone not in the pool | The site eventually loses. "Not in my list?" finds them among all 3,055 people and nominates them (§10.4). |
 | Player thinks of an angel, Satan or a parable character | The start screen says "real people, not angels". If they try anyway, "Someone not on this list" ends politely (§10.1). |
 | Same-named people (John, Mary, Herod) | Distinct labels (§3.5). The guess shows the brief line, so "Mary mother of Jesus" and "Mary of Bethany" are clear. The "Who was it?" search shows both with their briefs. |
 | A person known by two names (Jacob/Israel, Saul/Paul, Simon/Peter) | One pool member, found by any of its names. The "had their name changed" tag covers it. |
 | The player's answer is reasonable but the note is stricter | That is what unsure and slip marks are for. If the tagging missed one, the lesson's "I still think your note is wrong" softens it on the device at once and feeds §10.4. |
-| Every remaining person has the same values | The site guesses them in fame order (§7.4). §5.5 check 4 makes this impossible for tier-1 pairs. |
+| No tag separates the remaining people | The site guesses them in fame order (§7.4). §5.5 check 4 makes this impossible for tier-1 pairs. |
 | The 20 turns are spent on wrong guesses after one slip | Rare, because guesses happen only when one person leads. "Keep going: 5 more" covers it (§7.5). |
 | Undo after a wrong guess | The guess and its rejection are undone together, and the person returns to play. |
-| Player taps Yes on a guess by mistake | The won screen has "Actually, that wasn't my person", which reopens the game as if they had said No. |
+| Player taps Yes on a guess by mistake | The won screen has "Actually, that wasn't my person", which reopens the game as if they had said No. The won report has not been sent yet (it goes when the player leaves the won screen, §10.3), so no false win is recorded. |
 | Reverse mode: player asks only detail questions | Fine: they get "The Bible doesn't say" more often. The helper (if on) shows how little each answer narrowed. |
 | Reverse mode: the secret is Jesus | Allowed. The hand-set values answer, and questions that do not apply say so (§3.4). |
 | Two tabs open | Each plays its own game; the last one saved wins the stored record. Not worth locking. |
@@ -915,8 +956,9 @@ The implementation step changes the registry entry `twenty-questions` to `status
 **Server (small, shared, §10.3):**
 
 - `server/twenty-questions.ts`;
-- one route line in `server/site-worker.mjs`;
-- `migrations/0006_twenty_questions_reports.sql` (or the next free number).
+- `functions/api/twenty-questions/report.ts`: the two-line route file (no edit to `server/site-worker.mjs`);
+- `migrations/0006_twenty_questions_reports.sql` (or the next free number), creating the reports table and its
+  own limits table; applied to the live database only at release.
 
 **Hub:** the registry entry change of §11.9.
 
@@ -940,27 +982,33 @@ The implementation step changes the registry entry `twenty-questions` to `status
   - Undo, including undoing a guess;
   - 20 and 25 turn limits.
 - **The simulation as a test.** A unit test runs the §5.5 simulation on a fixed small fixture (about 30 people,
-  25 tags). A build check runs it on the real file and fails below the §5.5 targets.
+  25 tags). A data test (vitest, beside the engine, like the "Who's older?" `data.test.ts`) runs it on the real
+  shipped file and fails below the §5.5 targets, so `npm test` guards it without any change to `package.json`.
 - **Data:**
   - every shipped id is a real person;
   - labels are unique;
-  - `v` strings have one letter per tag and only allowed letters;
+  - `v` strings have one letter per tag and only allowed letters, with `-` (n/a) only where the hand file sets it;
+  - no person before Jacob's sons is yes or no on "Israelite" or "another nation" (§4.2);
   - every tag question passes the form rules;
   - no verse wording is stored (the existing check covers this);
   - Jesus's values match the hand file.
 - **Reverse mode:**
   - the answer for each value kind;
-  - the "doesn't apply" wording;
+  - the "doesn't apply" wording for n/a values, and the engine treating `-` exactly like `?`;
+  - the hints counter reading slip-marked values as their true value;
   - "still possible" counts;
   - secrets avoid the last 30;
   - a wrong guess costs a turn.
 - **Learning:**
-  - softened values apply only to their version and tag;
+  - softened values apply only to their version, person and tag;
+  - a won report is sent only on leaving the won screen, and "Actually, that wasn't my person" sends none;
+  - reverse mode sends no report;
   - reset clears them;
   - report payloads contain only allowed ids and letters;
   - a failed send does not affect play.
 - **Server handler:** validation rejects unknown ids, oversized and malformed bodies, and missing or foreign
-  Origin; one valid report writes one row (run against the local D1 binding).
+  Origin; the hourly limit refuses the report over the cap; one valid report writes one row and stores no IP
+  address (run against the local D1 binding).
 - **UI:**
   - a full guess-mode game with scripted answers reaches the right person;
   - a full reverse-mode game;
@@ -1003,3 +1051,74 @@ The implementation step changes the registry entry `twenty-questions` to `status
   [Bible Games Central: Bible Who Am I](https://biblegamescentral.com/bible-who-am-i/),
   [Gathered Again: Bible Who Am I game](https://gatheredagain.com/bible-who-am-i-game/), and Amazon listings for
   "Guess Bible Who Am I" board games (24 characters).
+
+---
+
+## Review (2026-11-10, orchestrator job 2f1dd1dc, sequence 30 step 18)
+
+One critical review, as [FEATURE-BUILD-RULES.md](../../../../FEATURE-BUILD-RULES.md) asks, against the approved spec
+(entry 16 of [APPROVED-IDEAS.md](../../../../APPROVED-IDEAS.md)), those rules and the real codebase. Every
+correction below is already made in the body above; this list says what changed and why.
+
+**Checked and found right (no change):** the design meets every line of the spec: tags per character, one
+pre-written question per tag written once by a cheap model, yes / no / don't know buttons, the closest-to-50/50
+rule over the remaining characters, a reverse mode over the same fixed question set with no free typing, and the
+tagging as the main one-time work. No AI model runs at play time. Against the code: the hub entry
+`twenty-questions` and its drawing exist in [registry.ts](../../../src/pages/games/registry.ts) and
+[art/index.ts](../../../src/pages/games/art/index.ts); live games use `load: () => import(...)`; game data under
+`src/data/` is loaded with a dynamic `import()` (as "Who's older?" does); the storage key style `bp-<game>`
+matches; verse ids are `BBCCCVVV` with wording loaded through `resolveVerses` in
+[verses.ts](../../../src/lib/verses.ts), and [check-verse-wording.py](../../../scripts/check-verse-wording.py)
+scans `src/` and `data/`; the people files carry the fields named in §2; the odd-one-out label table, the people
+addresses file and the 21 people-page groups exist; "Who's older?" has 160 people with tiers; the D1 binding `DB`
+exists and the next free migration number is 0006; the quoted Deuteronomy 34:10 matches the site's BSB text.
+
+**Corrected:**
+
+1. **The report route was in the wrong place** (§10.3, §14). The design said to add "one route line" to
+   [site-worker.mjs](../../../server/site-worker.mjs). That file adds no routes: it forwards every request to the
+   [functions/](../../../functions/) folder, which the release compiles with `wrangler pages functions build`. The
+   route is now a two-line file, `functions/api/twenty-questions/report.ts`, in the pattern of
+   [contact.ts](../../../functions/api/contact.ts); the worker is not touched. Also noted: the worker already
+   refuses writes on the temporary `workers.dev` address, and the new migration must be applied to the live
+   database at release, which the implementation step does not do.
+2. **The anti-abuse checks could not be reused as written, and the privacy line overstated** (§10.3).
+   `checkOrigin` and the rate limiter in [testimonies.ts](../../../server/testimonies.ts) are private to that
+   file, and the site's limiter counts per hour, not per minute, under a hashed key built from the visitor's
+   address. The handler now carries its own copy of the origin check (testimonies.ts stays untouched, per the
+   rule to avoid shared files) and its own hourly limits table. "No IP address stored" became the accurate
+   statement: the report row stores none, and the hashed limit key is deleted when its hour ends.
+3. **"That doesn't really apply" could not be stored** (§4.1, §4.5, §3.4, §9.2). The table promised a separate
+   reverse-mode answer for questions that make no sense about a person, but the shipped letters (`y n ? Y N`)
+   had no way to record it. Added an **n/a** value, letter `-`, set only in the hand file for Jesus and treated
+   exactly like unsure by the engine.
+4. **The "can the site tell these two apart?" checks counted unsure as a difference** (§5.5 checks 4 and 5). Two
+   people where one is unsure and the other yes on every distinguishing tag would have passed, yet the game can
+   never separate them, because unsure rules nobody out. A tag now separates two people only when one is yes and
+   the other no, reading slip-marked values as unsure, as guess mode does.
+5. **People from before Israel existed would have been tagged so that honest players lose** (§4.2). By the
+   literal definition Abraham is not an Israelite and so would be yes for "from another nation", but a player
+   thinking of Abraham answers no. Both tags are now unsure for everyone before Jacob's sons, with a data test.
+6. **"Fails the build" was not how this site's game checks work** (§5.5, §15). Game checks are not in the site's
+   `prebuild`, and adding them would mean editing the shared `package.json`. The tagging checks now fail the
+   tagging build (run by hand, like the "Who's older?" scripts), and the full play simulation over the shipped
+   file runs as a vitest data test, so `npm test` guards it. The engine keeps to relative `.ts` imports so the
+   Node scripts can load it.
+7. **The device's corrections were keyed too loosely** (§10.4, §12). Softened values were "keyed by version and
+   tag", which would have softened a tag for every person at once. They are now keyed by version, person and tag.
+8. **Reverse mode's hint counter would have been wrong with slip marks** (§9.2). Reading slip-marked values as
+   unsure would keep people the site's own true answer has already ruled out; the counter now reads true values.
+9. **A mistaken "Yes!" on a guess would have sent a false "won" report** (§10.3, §13). The won report is now sent
+   only when the player leaves the won screen, so "Actually, that wasn't my person" still works cleanly. Reverse
+   mode sends no report, which the design had left unsaid.
+10. **Smaller fixes.** Guess-screen portraits removed (§11.3): the site's person pages have none. The full people
+    list has 3,055 people, not 3,054, and the "Not in my list?" search must drop the 78 tribe and nation rows it
+    also holds (§10.1, §13). The authorship example in §4.1 named a tag that is not in the list and leaned on
+    tradition; it now says why "wrote part of the Bible" is deliberately not a tag. §5.2 called Esther's period an
+    error (it is right) and left Job's contested dating to the era tags; every era tag is now unsure for Job. The
+    guess example in §8 now uses John the Baptist, a name that actually needs telling apart.
+
+**Left as designed, on purpose:** the forgiveness rule, the split score and the guess triggers are a reasonable
+first reading and the §5.5 simulation targets gate them on the real tags; changing them before that measurement
+would be guesswork. The one-time tagging run still waits for the owner's yes on the pilot's measured estimate
+(§5.6); nothing in this review changes its size or cost.
