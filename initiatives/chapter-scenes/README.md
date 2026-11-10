@@ -6,6 +6,22 @@ composed, ending in a ready-to-paste prompt for an image generator. The owner re
 Each scene's picture is then drawn on this PC (see [Pictures](#pictures)) and shown in the scene's frame. Nothing
 is published.
 
+**State (2026-11-10): one writer, one style, ready for the real picture run.** The owner kept Claude Haiku and
+Painterly realism and retired the rest:
+- **Local Qwen writer removed:** its 12 trial chapters are out of the database, the `local` command is gone from
+  `chapter_scenes.py`, and the page has no writer buttons (scene cards, gallery and captions show Haiku's scenes only).
+- **Watercolour storybook, Flat cartoon and Photographic removed:** [themes.json](themes.json) lists only Painterly
+  realism, drawn by Codex. The page has no Make pictures button. The graphics-card maker (`chapter_pictures.py`)
+  stays in the code but has no theme to draw; the old loop prompt is in [archive/](archive/).
+- **Kept, not deleted:** database backup `F:\Backups\BibleProject\chapter-scene-studio\scenes-2026-11-10-before-cleanup.sqlite3`;
+  the retired pictures (189 FLUX pictures with their small copies, the Qwen Painterly pictures and originals) in
+  `F:\Backups\BibleProject\chapter-scene-studio\retired-2026-11-10\`.
+- **Real run:** the manifest lists all 3,213 scenes (9 already drawn in the trial); the run brief is
+  [CODEX_IMAGES.md](CODEX_IMAGES.md). The trial's logs and runner are in
+  `.local/chapter-scene-studio/codex/painterly-realism/trial-2026-11-10/`.
+
+Sections below describe the pilot, the two writers and the FLUX themes as they were built; they are history now.
+
 **State (2026-11-09):** every chapter (all 1,189) has Haiku scenes: 3,213 scenes (919 chapters with 3, 186 with 2, 84
 with 1), shown in the Studio. The owner chose Haiku; the full run of the 1,177 chapters left after the trial took 17:01–19:30
 through BatchRunner (inputs `.local/chapter-scene-studio/haiku-full/items`, results `haiku-full/runs`) and cost $3.81

@@ -3,19 +3,20 @@
 Instructions for the agent that runs this job. Read all of it before doing anything. The owner pastes a short
 block that points here; this file is the whole brief.
 
-**Job right now: the trial.** Draw the 63 scenes that already have pictures in the other three styles (the 12 trial
-chapters, both writers) in the new "Painterly realism" style, verify each picture, and load it into the Studio so the
-owner can compare it side by side with the other styles. **Stop when the 63 are done.** Do not extend the manifest to
-other chapters; the owner decides on a full run after looking at the trial.
+**Job right now: the real run (owner, 2026-11-10).** Draw every scene of every Bible chapter in the "Painterly
+realism" style: 3,213 pictures, 9 already done in a trial. Verify each picture and load it into the Studio. Keep
+going until all 3,213 are in the Studio or a real blocker stops you. At the trial's pace (about 2.5 minutes per
+batch of 3) this is about 45 hours of running, so expect to hit a ChatGPT usage limit along the way. When that
+happens, stop as section 5 says; the next start carries on from the manifest.
 
 ## 1. What this project is
 
 A Bible study website project picks, for each of the 1,189 Bible chapters, 1 to 3 key scenes and writes a detailed
-picture prompt for each (3,213 scenes, written by Claude Haiku). The owner looks at them in a local web app, the
+picture prompt for each (3,213 scenes, all written by Claude Haiku). The owner looks at them in a local web app, the
 Chapter Summary Studio (http://127.0.0.1:8947: choose **Scenes** in the dark panel on the far left, then the
-**Gallery** tab, then a theme in the side panel). Each scene can be drawn in several art styles ("themes"). Three
-themes are drawn on this PC's graphics card by FLUX.3 (63 pictures each so far). The fourth, `painterly-realism`, is
-drawn instead by **headless Codex using its built-in image tool on the owner's ChatGPT login**. That is this job.
+**Gallery** tab). There is one art style ("theme"), `painterly-realism`, and it is drawn by **headless Codex using
+its built-in image tool on the owner's ChatGPT login**. That is this job. (Earlier styles drawn on the graphics card,
+and a second scene writer, were retired on 2026-11-10; ignore any mention of them in older notes.)
 
 Project root (run project commands from here): `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website`
 
@@ -23,7 +24,8 @@ Project root (run project commands from here): `D:\FortressOfSolitude\Jarvis\Pro
 |---|---|
 | Background and design (sections "Pictures" and "Themes and the gallery") | `initiatives/chapter-scenes/README.md` |
 | The theme and its style text (`"engine": "codex"`) | `initiatives/chapter-scenes/themes.json`, entry `painterly-realism` |
-| **The manifest: the 63 pictures to make, one entry each** | `.local/chapter-scene-studio/codex/painterly-realism/manifest.json` |
+| **The manifest: the 3,213 pictures to make, one entry each** | `.local/chapter-scene-studio/codex/painterly-realism/manifest.json` |
+| The trial's logs, runner and notes (for reference; do not write there, do not reuse its batch folders) | `.local/chapter-scene-studio/codex/painterly-realism/trial-2026-11-10/` |
 | Where each finished original goes (the entry's `output` field) | `.local/chapter-scene-studio/codex/painterly-realism/originals/<writer>/<BOOK>-<chapter>-<scene>.png` |
 | Per-batch logs and reports (you create these) | `.local/chapter-scene-studio/codex/painterly-realism/batches/<batch>/` |
 | Progress notes for the owner (you create and keep this) | `.local/chapter-scene-studio/codex/painterly-realism/progress.md` |
@@ -34,7 +36,8 @@ Project root (run project commands from here): `D:\FortressOfSolitude\Jarvis\Pro
 
 ## 2. The manifest
 
-Built already (63 entries, batches `b001`–`b021`, 3 each). Each entry:
+Built already: 3,213 entries in Bible order, batches `b001`–`b1071`, 3 each. The 9 trial pictures (Genesis 22,
+Exodus 14, Leviticus 16) are `in_studio` and are skipped. Each entry:
 
 | Field | Meaning |
 |---|---|
@@ -49,17 +52,21 @@ Built already (63 entries, batches `b001`–`b021`, 3 each). Each entry:
 Rules for the manifest:
 - Read it, change only those fields, and write it back **whole after every result** (write a temp file, then
   rename it over the old one). Never hand-edit `prompt`, `sha`, `output`, `id`.
-- `python scripts/codex_pictures.py manifest --theme painterly-realism --pilot` rebuilds it safely: an unchanged
-  entry keeps its run fields, and anything already in the Studio is marked `in_studio`. Use it only if the file is
-  lost or damaged.
+- `python scripts/codex_pictures.py manifest --theme painterly-realism` rebuilds it safely: an unchanged entry keeps
+  its run fields, and anything already in the Studio is marked `in_studio`. **Run it once at the start of the run**
+  (it also picks up any scene whose prompt changed), and again only if the file is lost or damaged. Never pass
+  `--pilot`.
 - `python scripts/codex_pictures.py status --theme painterly-realism` counts statuses.
 - Never run your own changes to the manifest while `codex_pictures.py import` is running. Run everything one step at
   a time.
 
 ## 3. How to call Codex (proven method)
 
-Read `D:\FortressOfSolitude\.tmp\run_headless_eden.py` first; it is the exact working invocation. Write your own
-batch runner (Python, standard library + Pillow, list-form `subprocess`) in
+Read `D:\FortressOfSolitude\.tmp\run_headless_eden.py` first; it is the exact working invocation. The trial's batch
+runner, `trial-2026-11-10\runner.py` (with `watch.py`, `finalize.py`), drew and imported 5 batches cleanly with this
+method. Read it, copy it into the theme folder (its paths are relative to its own folder, so it then points at the new
+manifest) and reuse it if it fits this brief, or write your own batch runner (Python, standard library + Pillow,
+list-form `subprocess`) in
 `.local/chapter-scene-studio/codex/painterly-realism/runner.py`, modelled on it.
 
 Executable: `C:\Users\lcladm\.vscode\extensions\openai.chatgpt-26.1021.22027-win32-x64\bin\windows-x86_64\codex.exe`.
@@ -173,10 +180,11 @@ permissions/sandbox refusal, or a usage-limit/quota message. Record the exact me
 
 ## 7. When finished
 
-Report: verified and imported / 63, any `blocked` entries with their reasons, total attempts, and these paths:
+Report: verified and imported / 3,213, any `blocked` entries with their reasons, total attempts, and these paths:
 - originals: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\originals\`
 - manifest: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\manifest.json`
 - progress: `D:\FortressOfSolitude\Jarvis\Projects\BibleProject\Website\.local\chapter-scene-studio\codex\painterly-realism\progress.md`
 
 Then tell the owner where to look: the Studio at http://127.0.0.1:8947 → **Scenes** → **Gallery**, theme **Painterly
-realism** in the side panel; each scene's card also shows a small picture per style under its frame.
+realism** in the side panel (it shows the count drawn); **Finished** shows only drawn pictures and **▶ Speed run**
+steps through them.

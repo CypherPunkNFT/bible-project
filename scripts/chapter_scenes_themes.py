@@ -1,6 +1,7 @@
-"""Themes and the gallery in the Studio's Scenes pipeline: the Themes list in the side panel (with Make pictures), the
-Scenes | Gallery tabs, the gallery grid and the large-picture view. Installed by chapter_scenes_view.py; the JS runs
-inside the same closure as the scene cards and uses its helpers (el, api, mode, cache, renderScenes, WRITERS).
+"""Themes and the gallery in the Studio's Scenes pipeline: the Themes list in the side panel (each with its picture
+count), the Scenes | Gallery tabs, the gallery grid and the large-picture view. The pictures are drawn outside the page
+(codex_pictures.py), so there is no Make pictures button. Installed by chapter_scenes_view.py; the JS runs inside the
+same closure as the scene cards and uses its helpers (el, api, mode, cache, renderScenes).
 Docs: initiatives/chapter-scenes/README.md (Themes and the gallery).
 """
 
@@ -10,11 +11,7 @@ CSS = r"""
 .theme-row:hover{border-color:#bdb59f}.theme-row.on{border-color:var(--green);background:#fff}
 .theme-row img,.theme-row .blank{width:72px;aspect-ratio:16/9;border-radius:5px;object-fit:cover;display:block;background:linear-gradient(160deg,#f1f4ed,#e2e7dc)}
 .theme-row b{display:block;font-size:13px;line-height:1.3}.theme-row small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
-.theme-run{display:flex;flex-direction:column;gap:8px;margin:12px 0 4px}
-.theme-run button{border:0;background:var(--green);color:#fff;border-radius:8px;padding:11px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
-.theme-run button.stop{background:#8a3b30}.theme-run button:disabled{background:#cfd4ca;color:#6c756d;cursor:default}
-#theme-progress{font-size:11.5px;color:var(--muted);line-height:1.55;white-space:pre-line}
-.theme-row,.theme-run button,.view-tabs button,.theme-strip button,.gallery-grid button,.lb-btn,#gallery-writers button{outline:none}
+.theme-row,.view-tabs button,.theme-strip button,.gallery-grid button,.lb-btn,#gallery-filter button{outline:none}
 .view-tabs{display:inline-flex;border:1px solid var(--line);border-radius:22px;padding:3px;background:var(--paper);margin:0 0 18px}
 .view-tabs button{border:0;background:transparent;border-radius:18px;padding:7px 20px;font:inherit;font-size:12.5px;color:var(--muted);cursor:pointer}
 .view-tabs button.on{background:var(--green);color:#fff;font-weight:600}
@@ -47,14 +44,13 @@ CSS = r"""
 
 SIDE = (
     '<div class="eyebrow">Themes</div><div class="theme-list" id="theme-list"></div>'
-    '<p class="help" id="theme-desc"></p><div class="theme-run"><button id="theme-make" disabled>Make pictures</button>'
-    '<span id="theme-progress"></span></div>')
+    '<p class="help" id="theme-desc"></p>')
 
 TOP = (
     '<div class="view-tabs" role="tablist" aria-label="Scenes view"><button data-view="scenes" class="on">Scenes</button>'
     '<button data-view="gallery">Gallery</button></div>'
     '<section id="gallery" hidden><div class="gallery-head"><div class="gallery-tools">'
-    '<div class="writer-tabs" id="gallery-filter"></div><div class="writer-tabs" id="gallery-writers"></div></div>'
+    '<div class="writer-tabs" id="gallery-filter"></div></div>'
     '<div class="gallery-tools"><span class="tiny" id="gallery-count"></span>'
     '<button id="gallery-run">▶ Speed run</button></div></div><div id="gallery-body"></div></section>'
     '<div id="lightbox" hidden><button class="lb-btn close" id="lb-close" aria-label="Close">×</button>'
@@ -64,7 +60,7 @@ TOP = (
     '<button class="lb-btn next" id="lb-next" aria-label="Next picture">›</button></div>')
 
 JS = r"""
-let themes=[],theme='',view='scenes',gallery=[],galleryPick='both',galleryFilter='all',galleryObserver=null,runTimer=null,polls=0,lastRun={running:false},lbItems=[],lbIndex=0;
+let themes=[],theme='',view='scenes',gallery=[],galleryFilter='all',galleryObserver=null,lbItems=[],lbIndex=0;
 try{galleryFilter=localStorage.getItem('studio-gallery-filter')==='finished'?'finished':'all';theme=localStorage.getItem('studio-theme')||'';view=localStorage.getItem('studio-scenes-view')==='gallery'?'gallery':'scenes'}catch(e){}
 const themeName=id=>(themes.find(t=>t.id===id)||{}).name||id;
 const bookName=code=>(BOOT.books.find(b=>b.code===code)||{}).name||code;
@@ -75,26 +71,12 @@ function renderThemes(){const box=$('theme-list');box.replaceChildren();
   if(t.sample){const i=new Image();i.alt='';i.src=t.sample;b.append(i)}else b.append(el('span','blank'));
   const words=el('span');words.append(el('b',null,t.name),el('small',null,t.made.toLocaleString()+' / '+t.total.toLocaleString()+' pictures'));b.append(words);
   b.onclick=()=>setTheme(t.id);box.append(b)});
- const t=themes.find(x=>x.id===theme);$('theme-desc').textContent=t?t.description:'';showRun(lastRun)}
+ const t=themes.find(x=>x.id===theme);$('theme-desc').textContent=t?t.description:''}
 function setThemes(list){const before=theme;themes=list||[];if(!themes.some(t=>t.id===theme))theme=themes[0]?themes[0].id:'';renderThemes();
  if(theme!==before&&mode==='scenes'&&view==='gallery')loadGallery()}
 function setTheme(id){if(!themes.some(t=>t.id===id)||id===theme)return;theme=id;try{localStorage.setItem('studio-theme',id)}catch(e){}renderThemes();
  if(mode==='scenes'){if(view==='gallery')loadGallery();else renderScenes()}}
-function showRun(r){lastRun=r||{running:false};const b=$('theme-make'),p=$('theme-progress'),t=themes.find(x=>x.id===theme);
- if(lastRun.running){b.className='stop';b.disabled=false;b.textContent='Stop';
-  const names=(lastRun.theme_names||lastRun.themes||[]).join(', ');
-  p.textContent=(lastRun.state==='starting'?'Starting':(lastRun.done||0).toLocaleString()+' of '+(lastRun.total||0).toLocaleString()+' drawn')+(names?' · '+names:'')+(lastRun.message?'\n'+lastRun.message:'');return}
- const left=t?t.total-t.made:0;b.className='';b.disabled=!t||left<=0;
- b.textContent=!t?'Make pictures':left<=0?'All '+t.total.toLocaleString()+' made':'Make '+left.toLocaleString()+' pictures';
- p.textContent=lastRun.message||''}
 async function refreshSummary(){const d=await api('/api/scenes');sceneKeys=d.keys;setThemes(d.themes);counts();renderTiles()}
-async function poll(){clearTimeout(runTimer);if(mode!=='scenes')return;
- try{const was=lastRun.running,r=await api('/api/pictures/state');showRun(r);polls++;
-  if((was&&!r.running)||(r.running&&polls%10===0)){await refreshSummary();cache={};if(view==='gallery')loadGallery();else loadScenes()}}catch(e){}
- runTimer=setTimeout(poll,lastRun.running?2000:15000)}
-$('theme-make').onclick=async()=>{const b=$('theme-make');b.disabled=true;
- try{showRun(lastRun.running?await api('/api/pictures/stop',{}):await api('/api/pictures/start',{theme}));poll()}
- catch(e){$('theme-progress').textContent=e.message;b.disabled=false}};
 function framePicture(frame,s){const pics=s.pictures||{},cur=pics[theme];if(!cur)return;
  const img=new Image();img.loading='lazy';img.alt=s.title;img.src=cur.full;img.title='Open large';
  img.onclick=()=>openLightbox([{full:cur.full,title:s.title,caption:chapterLabel(key())+':'+versesLabel(s.verse_start,s.verse_end)+' · '+themeName(theme)}],0);
@@ -104,17 +86,13 @@ function themeStrip(s){const pics=s.pictures||{},have=themes.filter(t=>pics[t.id
 async function loadGallery(){const body=$('gallery-body'),wanted=theme;galleryObserver?.disconnect();body.replaceChildren(el('p','scenes-empty','Loading pictures…'));if(!wanted)return;
  try{const d=await api('/api/gallery?theme='+encodeURIComponent(wanted));if(wanted!==theme)return;gallery=d.items;renderGallery()}
  catch(e){body.replaceChildren(el('p','scenes-empty',e.message))}}
-function renderGallery(){const body=$('gallery-body'),tabs=$('gallery-writers'),filter=$('gallery-filter');galleryObserver?.disconnect();body.replaceChildren();tabs.replaceChildren();filter.replaceChildren();
+function renderGallery(){const body=$('gallery-body'),filter=$('gallery-filter');galleryObserver?.disconnect();body.replaceChildren();filter.replaceChildren();
  [['all','All'],['finished','Finished']].forEach(([f,label])=>{const b=el('button',f===galleryFilter?'on':'',label);b.onclick=()=>{galleryFilter=f;try{localStorage.setItem('studio-gallery-filter',f)}catch(e){}renderGallery()};filter.append(b)});
- const writers=[...new Set(gallery.map(i=>i[1]))].sort(),choices=writers.length>1?['both',...writers]:writers;
- if(!choices.includes(galleryPick))galleryPick=choices[0]||'both';
- choices.forEach(w=>{const b=el('button',w===galleryPick?'on':'',w==='both'?'Both writers':WRITERS[w]||w);b.onclick=()=>{galleryPick=w;renderGallery()};tabs.append(b)});
- const byWriter=gallery.filter(i=>galleryPick==='both'||i[1]===galleryPick),drawn=byWriter.filter(i=>i[6]).length;
- const items=galleryFilter==='finished'?byWriter.filter(i=>i[6]):byWriter;
- $('gallery-count').textContent=galleryFilter==='finished'?drawn.toLocaleString()+' pictures · '+themeName(theme):byWriter.length.toLocaleString()+' scenes · '+drawn.toLocaleString()+' drawn · '+themeName(theme);
+ const drawn=gallery.filter(i=>i[6]).length,items=galleryFilter==='finished'?gallery.filter(i=>i[6]):gallery;
+ $('gallery-count').textContent=galleryFilter==='finished'?drawn.toLocaleString()+' pictures · '+themeName(theme):gallery.length.toLocaleString()+' scenes · '+drawn.toLocaleString()+' drawn · '+themeName(theme);
  $('gallery-run').disabled=!items.length;
- if(!items.length){body.append(el('p','scenes-empty',byWriter.length?'No pictures in this theme yet. Press Make pictures in the side panel.':'No scenes yet.'));return}
- const large=items.map(i=>({full:i[6],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+(WRITERS[i[1]]||i[1])+' · '+themeName(theme)}));
+ if(!items.length){body.append(el('p','scenes-empty',gallery.length?'No pictures in this theme yet.':'No scenes yet.'));return}
+ const large=items.map(i=>({full:i[6],title:i[3],caption:chapterLabel(i[0])+':'+versesLabel(i[4],i[5])+' · '+themeName(theme)}));
  $('gallery-run').onclick=()=>openLightbox(large,0);
  const groups=[];items.forEach((it,n)=>{const g=groups[groups.length-1];if(g&&g.key===it[0])g.items.push(n);else groups.push({key:it[0],items:[n]})});
  const sentinel=el('div');body.append(sentinel);let shown=0;

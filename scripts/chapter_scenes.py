@@ -1,12 +1,11 @@
-"""Key scenes for illustration, per Bible chapter: inputs, the local writer, the checks and the store.
-Docs: initiatives/chapter-scenes/README.md. Nothing here writes the chapter-summary database.
+"""Key scenes for illustration, per Bible chapter: inputs, the checks and the store. Claude Haiku writes them through
+BatchRunner (writer "haiku", all 1,189 chapters, 2026-11-09). Docs: initiatives/chapter-scenes/README.md. Nothing here
+writes the chapter-summary database.
 
 python scripts/chapter_scenes.py items --out DIR [--pilot]          one .txt per chapter, for BatchRunner
-python scripts/chapter_scenes.py local [--pilot] [--jobs 16]        local Qwen (HyperQwen :18020) writes, stored as "qwen"
 python scripts/chapter_scenes.py import --writer haiku --runs DIR   checks and stores BatchRunner results
 python scripts/chapter_scenes.py status
-Pictures of the scenes, by theme: scene_pictures.py (store) and chapter_pictures.py (maker).
-A chapter already stored for a writer is skipped; --redo writes it again.
+Pictures of the scenes, by theme: scene_pictures.py (store) and codex_pictures.py (Codex-drawn themes).
 """
 from __future__ import annotations
 
@@ -14,11 +13,7 @@ import argparse
 import json
 import re
 import sqlite3
-import sys
 import threading
-import time
-import urllib.request
-from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
 from pathlib import Path
 
@@ -27,7 +22,6 @@ import chapter_summary_studio as studio
 DOCS = studio.SITE / "initiatives" / "chapter-scenes"
 STORE = studio.SITE / ".local" / "chapter-scene-studio" / "scenes.sqlite3"
 SUMMARIES = studio.OUTPUT / "claude" / "summaries-v3.sqlite3"
-URL = "http://127.0.0.1:18020/v1/chat/completions"
 PILOT = ["GEN:22", "EXO:14", "LEV:16", "1CH:1", "1SA:17", "PSA:23", "PSA:117", "EZK:1", "MRK:4", "JHN:11", "ROM:8", "REV:21"]
 TEXT_FIELDS = ["title", "moment", "why", "viewpoint", "focal_point", "foreground", "midground", "background", "light",
                "mood", "prompt"]
@@ -177,65 +171,6 @@ def parse(text: str):
         return None
 
 
-def ask_local(system: str, messages: list[dict]) -> str:
-    body = {"model": "qwen3.8-27b", "max_tokens": 6000, "temperature": 0.4,
-            "chat_template_kwargs": {"enable_thinking": False},
-            "messages": [{"role": "system", "content": system}, *messages]}
-    request = urllib.request.Request(URL, json.dumps(body).encode("utf-8"), {"Content-Type": "application/json"})
-    with urllib.request.urlopen(request, timeout=900) as response:
-        reply = json.loads(response.read().decode("utf-8"))["choices"][0]
-    if reply.get("finish_reason") == "length":
-        raise ValueError("the answer ran past 6,000 tokens and was cut off")
-    return reply["message"]["content"]
-
-
-def write_local(key: str, system: str, summary: dict | None, store: Store) -> str:
-    """One chapter with the local model: one try, then one retry that is told what failed the checks."""
-    messages, started, error = [{"role": "user", "content": item_text(key, summary)}], time.monotonic(), ""
-    for attempt in (1, 2):
-        reply = ask_local(system, messages)
-        try:
-            scenes, notes = check(parse(reply), key)
-        except ValueError as exc:
-            error = str(exc)
-            messages += [{"role": "assistant", "content": reply},
-                         {"role": "user", "content": f"Your answer failed a check: {error}. Answer again with the "
-                                                     "complete corrected JSON only."}]
-            continue
-        store.put(key, "qwen", {"scenes": scenes, "notes": notes, "writer": "qwen", "model": "qwen3.8-27b (local, thinking off)",
-                                "attempts": attempt, "seconds": round(time.monotonic() - started, 1),
-                                "written_at": studio.now()})
-        return "ok"
-    store.fail(key, "qwen", error)
-    return f"failed: {error}"
-
-
-def run_local(keys: list[str], jobs: int) -> None:
-    urllib.request.urlopen(URL.replace("chat/completions", "models"), timeout=10).close()
-    system, notes, store = (DOCS / "scene-task.md").read_text(encoding="utf-8"), summaries(), Store()
-    failures_in_a_row, lock = [0], threading.Lock()
-
-    def one(key: str) -> None:
-        if failures_in_a_row[0] >= 3:
-            return
-        try:
-            result = write_local(key, system, notes.get(key), store)
-        except OSError as exc:
-            with lock:
-                failures_in_a_row[0] += 1
-            result = f"connection failed: {exc}"
-            store.fail(key, "qwen", result)
-        else:
-            with lock:
-                failures_in_a_row[0] = 0
-        print(f"{key}: {result}", flush=True)
-
-    with ThreadPoolExecutor(jobs) as pool:
-        list(pool.map(one, keys))
-    if failures_in_a_row[0] >= 3:
-        sys.exit("Stopped: three connection failures in a row; is HyperQwen still running on :18020?")
-
-
 def write_items(keys: list[str], out: Path) -> None:
     out.mkdir(parents=True, exist_ok=True)
     notes = summaries()
@@ -272,10 +207,8 @@ def import_runs(writer: str, runs: Path, model: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("command", choices=["items", "local", "import", "status"])
+    parser.add_argument("command", choices=["items", "import", "status"])
     parser.add_argument("--pilot", action="store_true", help="only the 12 pilot chapters")
-    parser.add_argument("--redo", action="store_true", help="write chapters already stored for this writer again")
-    parser.add_argument("--jobs", type=int, default=16)
     parser.add_argument("--out", type=Path)
     parser.add_argument("--runs", type=Path, help="BatchRunner output folder, for import")
     parser.add_argument("--writer", default="haiku")
@@ -286,11 +219,8 @@ def main() -> None:
         print(json.dumps(Store().counts(), indent=1))
     elif args.command == "items":
         write_items(keys, args.out)
-    elif args.command == "import":
-        import_runs(args.writer, args.runs, args.model)
     else:
-        done = set() if args.redo else Store().done("qwen")
-        run_local([k for k in keys if k not in done], args.jobs)
+        import_runs(args.writer, args.runs, args.model)
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ themes.json entry says "engine": "codex". This script does not call Codex. It wr
 (the manifest) and, once a picture is verified, brings it into the Studio like a FLUX picture.
 Docs: initiatives/chapter-scenes/CODEX_IMAGES.md (the run instructions) and README.md (Pictures; Themes).
 
-python scripts/codex_pictures.py manifest --theme painterly-realism --pilot   the 63 scenes of the 12 pilot chapters
+python scripts/codex_pictures.py manifest --theme painterly-realism           every scene (--pilot: the 12 pilot chapters)
 python scripts/codex_pictures.py import --theme painterly-realism            every "verified" entry into the Studio
 python scripts/codex_pictures.py status --theme painterly-realism
 
@@ -24,7 +24,7 @@ from pathlib import Path
 import chapter_scenes
 import scene_pictures
 
-RUN_FIELDS = ("status", "batch", "attempts", "session_id", "artifact", "file_sha256", "last_error")
+RUN_FIELDS = ("status", "attempts", "session_id", "artifact", "file_sha256", "last_error")
 BATCH_SIZE = 3
 
 
@@ -157,7 +157,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("command", choices=["manifest", "import", "status"])
     parser.add_argument("--theme", required=True, help="a themes.json id whose engine is codex")
-    parser.add_argument("--pilot", action="store_true", help="manifest: only the 12 pilot chapters (63 scenes)")
+    parser.add_argument("--pilot", action="store_true", help="manifest: only the 12 pilot chapters")
     parser.add_argument("--keys", default="", help="manifest: comma-separated chapters such as GEN:22,1SA:17")
     args = parser.parse_args()
     pictures = scene_pictures.Pictures()

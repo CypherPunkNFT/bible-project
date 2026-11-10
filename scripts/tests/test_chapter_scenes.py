@@ -149,9 +149,13 @@ def test_picture_route_serves_only_made_pictures(tmp_path, raw):
 
 
 def test_picture_route_finds_a_made_picture(tmp_path):
-    add_picture(make_pictures(tmp_path))
-    found = chapter_scenes_view.picture_file("/pictures/photographic/haiku/PSA-117-0.webp", tmp_path / "pictures")
-    assert found == (tmp_path / "pictures" / "photographic" / "haiku" / "PSA-117-0.webp").resolve()
+    # The route checks the real themes.json, so use its theme (2026-11-10: Painterly realism only).
+    path = tmp_path / "pictures" / "painterly-realism" / "haiku" / "PSA-117-0.webp"
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b"webp")
+    found = chapter_scenes_view.picture_file("/pictures/painterly-realism/haiku/PSA-117-0.webp", tmp_path / "pictures")
+    assert found == path.resolve()
+    assert chapter_scenes_view.picture_file("/pictures/painterly-realism/qwen/PSA-117-0.webp", tmp_path / "pictures") is None
 
 
 def test_the_lock_probe_sees_a_run_holding_the_lock(tmp_path):

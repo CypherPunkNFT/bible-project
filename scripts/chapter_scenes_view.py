@@ -67,8 +67,9 @@ APP_NEW = ('<div class="app"><nav class="primary" aria-label="Pipelines"><div cl
 SCENES_SIDE = (
     '</div><div id="scenes-side" hidden><div class="eyebrow">Your workspace</div><div class="nav">◩ <span>Scenes</span></div>'
     + themes_ui.SIDE +
-    '<div class="side-foot"><b>Writers</b><p class="help">Claude Haiku and the local Qwen model wrote the same 12 '
-    'pilot chapters. Compare them, then pick one for all 1,189.</p></div></div></aside>')
+    '<div class="side-foot"><b>How they are made</b><p class="help">Claude Haiku chose and described the scenes '
+    'for all 1,189 chapters. The pictures are drawn by Codex in a separate run; reload the page to see new ones.'
+    '</p></div></div></aside>')
 
 SCENES_TOP = (
     '<div id="scenes-top" hidden><div class="top"><div><div class="eyebrow">Scripture → Moment → Picture</div>'
@@ -91,18 +92,18 @@ WORKSPACE_NEW = (
     '<span id="scenes-foot">—</span></div></section><section class="card" id="summary-card">')
 
 JS = r"""
-(()=>{const WRITERS={haiku:'Claude Haiku',qwen:'Local Qwen'};let mode='summaries',sceneKeys={},cache={},pick='both';
-try{mode=localStorage.getItem('studio-pipeline')||'summaries';pick=localStorage.getItem('studio-writer')||'both'}catch(e){}
+(()=>{let mode='summaries',sceneKeys={},cache={};
+try{mode=localStorage.getItem('studio-pipeline')||'summaries'}catch(e){}
 if(location.hash==='#scenes'||location.hash==='#summaries')mode=location.hash.slice(1);
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
 function showVerses(a,b){let first=null;document.querySelectorAll('#scripture p').forEach(p=>{const nums=p.dataset.verse.split(/[-–]/).map(Number);const hit=nums[0]<=b&&nums.at(-1)>=a;p.classList.toggle('evidence',hit);if(hit&&!first)first=p});first?.scrollIntoView({block:'nearest'})}
 function chip(a,b){const c=el('button','verse-link',a===b?'v. '+a:'vv. '+a+'–'+b);c.title='Show these verses in the chapter';c.onclick=()=>showVerses(a,b);return c}
 function list(items,cls,fill){const ul=el('ul',cls);items.forEach(x=>{const li=el('li');fill(li,x);ul.append(li)});return ul}
-""" + themes_ui.JS + r"""function sceneCard(s,i,writer){const card=el('article','scene');
+""" + themes_ui.JS + r"""function sceneCard(s,i){const card=el('article','scene');
  const frame=el('div','scene-frame');framePicture(frame,s);
  frame.append(el('b',null,s.shot+' shot · 16:9'),el('span',null,'Picture not made yet · focal point: '+s.focal_point));card.append(frame);
  const strip=themeStrip(s);if(strip)card.append(strip);
- const eye=el('div','scene-eyebrow',i===0?'Main scene':'Scene '+(i+1));if(writer)eye.append(el('span','by',WRITERS[writer]||writer));card.append(eye);
+ card.append(el('div','scene-eyebrow',i===0?'Main scene':'Scene '+(i+1)));
  card.append(el('h3',null,s.title));const meta=el('div');meta.append(chip(s.verse_start,s.verse_end),el('span','kind',s.kind));card.append(meta);
  card.append(el('p','moment',s.moment),el('p','why',s.why));
  const dl=el('dl','comp');[['Viewpoint',s.viewpoint],['Focal point',s.focal_point],['Foreground',s.foreground],['Middle',s.midground],['Background',s.background],['Light',s.light],['Mood',s.mood]].forEach(([k,v])=>dl.append(el('dt',null,k),el('dd',null,v)));card.append(dl);
@@ -114,13 +115,10 @@ function list(items,cls,fill){const ul=el('ul',cls);items.forEach(x=>{const li=e
  head.append(el('h4',null,'Image prompt · '+s.prompt.trim().split(/\s+/).length+' words'),copy);card.append(head,el('div','prompt-box',s.prompt));return card}
 function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();const data=cache[key()];$('scenes-status').textContent='—';$('scenes-foot').textContent='—';
  if(!data){panel.append(el('p','scenes-empty','Loading scenes…'));return}
- const writers=Object.keys(data).sort();if(!writers.length){$('scenes-status').textContent='Unfinished';panel.append(el('p','scenes-empty','No scenes yet for this chapter. The pilot covers Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalms 23 and 117, Ezekiel 1, Mark 4, John 11, Romans 8 and Revelation 21; their chapter squares are underlined in gold.'));return}
- $('scenes-status').textContent='Finished · '+writers.map(w=>WRITERS[w]||w).join(' · ');
- const tabs=el('div','writer-tabs');const choices=writers.length>1?['both',...writers]:writers;if(!choices.includes(pick))pick=choices[0];
- choices.forEach(w=>{const b=el('button',w===pick?'on':'',w==='both'?'Both, scene by scene':WRITERS[w]+' · '+data[w].scenes.length);b.onclick=()=>{pick=w;try{localStorage.setItem('studio-writer',w)}catch(e){}renderScenes()};tabs.append(b)});panel.append(tabs);
- const shown=pick==='both'?writers:[pick];shown.forEach(w=>{if(data[w].notes?.length)panel.append(el('div','scene-notes',WRITERS[w]+': '+data[w].notes.join('; ')))});
- const most=Math.max(...shown.map(w=>data[w].scenes.length));for(let i=0;i<most;i++)for(const w of shown){const s=data[w].scenes[i];if(s)panel.append(sceneCard(s,i,shown.length>1?w:null))}
- $('scenes-foot').textContent=shown.map(w=>data[w].scenes.length+' from '+(WRITERS[w]||w)).join(' · ')}
+ const d=data.haiku;if(!d){$('scenes-status').textContent='Unfinished';panel.append(el('p','scenes-empty','No scenes for this chapter yet.'));return}
+ $('scenes-status').textContent='Finished';if(d.notes?.length)panel.append(el('div','scene-notes',d.notes.join('; ')));
+ d.scenes.forEach((s,i)=>panel.append(sceneCard(s,i)));
+ $('scenes-foot').textContent=d.scenes.length+(d.scenes.length===1?' scene':' scenes')}
 async function loadScenes(){const k=key();if(!cache[k]){try{cache[k]=(await api('/api/scenes?key='+encodeURIComponent(k))).writers}catch(e){cache[k]={}}}if(k===key()&&mode==='scenes')renderScenes()}
 function counts(){const done=Object.keys(sceneKeys).length;$('scenes-finished').textContent=done.toLocaleString();$('scenes-unfinished').textContent=(BOOT.books.reduce((a,b)=>a+b.chapters,0)-done).toLocaleString()}
 function applyMode(){const scenes=mode==='scenes',gal=scenes&&view==='gallery';
@@ -131,8 +129,8 @@ function applyMode(){const scenes=mode==='scenes',gal=scenes&&view==='gallery';
  document.querySelector('section.atlas.book-explorer').hidden=gal;document.querySelector('.workspace').hidden=gal;
  document.querySelectorAll('.view-tabs [data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===view));
 $('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
- document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(gal)loadGallery();else if(scenes)loadScenes();if(scenes)poll()}
-function setMode(m){mode=m;if(m!=='scenes')closeLightbox();if(m==='scenes')cache={};try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
+ document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(gal)loadGallery();else if(scenes)loadScenes()}
+function setMode(m){mode=m;if(m!=='scenes')closeLightbox();if(m==='scenes'){cache={};refreshSummary().catch(()=>{})}try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
 const baseRender=render,baseTiles=renderTiles;
 render=function(){baseRender();if(mode==='scenes')loadScenes()};
 renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
@@ -172,7 +170,7 @@ def answer(query: str) -> dict:
 
 
 # Only names scene_pictures.picture_name makes; [0-9] not \d (which also accepts other scripts' digits).
-PICTURE_PATH = re.compile(r"/pictures/([a-z0-9][a-z0-9-]{0,30})/(haiku|qwen)/(thumbs/)?[1-3A-Z]{3}-[0-9]{1,3}-[0-9]\.webp")
+PICTURE_PATH = re.compile(r"/pictures/([a-z0-9][a-z0-9-]{0,30})/(haiku)/(thumbs/)?[1-3A-Z]{3}-[0-9]{1,3}-[0-9]\.webp")
 
 
 def picture_file(raw_path: str, root: Path | None = None) -> Path | None:
