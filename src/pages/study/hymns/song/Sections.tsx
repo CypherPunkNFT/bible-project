@@ -31,14 +31,13 @@ export function BookRow({ song }: { song: HymnSong }) {
   const [shown, setShown] = useState(song.number);
   const h = song.book1.find((x) => x.n === shown) ?? song.book1[0];
   return <section className="hy-sec" id="book">
-    <Head num="03" title={<>Its place in <em>the book</em></>}>Book I of <i>Olney Hymns</i> walks through the Bible from Genesis to Revelation, one hymn per passage: {song.book1.length} hymns.
-      This is number {song.number}, the only one on 1 Chronicles. (Across all three books Newton wrote {song.olneyAuthors["John Newton"]} hymns, Cowper {song.olneyAuthors["William Cowper"]}.)
-      Hover a tick to see the hymn.</Head>
+    <Head num="03" title={<>Its place in the book</>}>{`Book I of Olney Hymns walks through the Bible from Genesis to Revelation, one hymn per passage: ${plural(song.book1.length, "{n} hymn", "{n} hymns")}.`}{" "}
+      {`This is number ${song.number}, the only one on 1 Chronicles.`}{" "}{`(Across all three books Newton wrote ${song.olneyAuthors["John Newton"]} hymns, Cowper ${song.olneyAuthors["William Cowper"]}.) Hover a tick to see the hymn.`}</Head>
     <div className="hy-book"><div className="hy-book-row" onMouseLeave={() => setShown(song.number)}>{song.book1.map((x) =>
       <button key={x.n} type="button" style={tone(x.tone)} className={x.n === song.number ? "here" : undefined} aria-label={`Hymn ${x.n}: ${x.title}`}
         onMouseEnter={() => setShown(x.n)} onFocus={() => setShown(x.n)} onClick={() => setShown(x.n)} />)}</div>
       <div className="hy-book-scale"><span>Genesis</span><span>Psalms</span><span>Prophets</span><span>Gospels</span><span>Revelation</span></div>
-      <p className="hy-book-readout" aria-live="polite"><small>No. {h.n} · {h.book} · {h.author}</small>{h.title}</p></div>
+      <p className="hy-book-readout" aria-live="polite"><small>{`No. ${h.n} · ${h.book} · ${h.author}`}</small>{h.title}</p></div>
   </section>;
 }
 
@@ -68,8 +67,8 @@ export function PlacedSquares({ song, open, num = "04" }: { song: Pick<HymnSong,
         return <a key={k} href={placedUrl(p)} className={[p.echoes.length ? "echo" : "", k === shown ? "on" : ""].join(" ").trim() || undefined} aria-label={p.label}
           onMouseEnter={() => setShown(k)} onFocus={() => setShown(k)} onClick={(e) => onClick(e, k)} />; })}</div></div>)}</div>
     {r && <div className="hy-placed-read" aria-live="polite" style={tone(r.tone)}>
-      <p className="ref">{r.label}{r.whole ? " · the whole chapter" : ""}{r.echoes.length > 0 && <em>echoed in stanza {[...new Set(r.echoes.map((e) => ROMAN[e.stanza]))].join(", ")}</em>}</p>
-      <p className="txt"><PassageVerses p={r} numbered />{" "}{r.count > r.verses.length && <span className="more">… {r.count - r.verses.length} more verses</span>}</p></div>}
-    <p className="hy-placed-key"><span><i className="k-sq" />a passage hymnals tie it to</span><span><i className="k-sq echo" />one its lines echo ({echoed})</span></p>
+      <p className="ref">{r.label}{r.whole ? " · the whole chapter" : ""}{r.echoes.length > 0 && <em>{`echoed in stanza ${[...new Set(r.echoes.map((e) => ROMAN[e.stanza]))].join(", ")}`}</em>}</p>
+      <p className="txt"><PassageVerses p={r} numbered />{" "}{r.count > r.verses.length && <span className="more">{plural(r.count - r.verses.length, "… {n} more verse", "… {n} more verses")}</span>}</p></div>}
+    <p className="hy-placed-key"><span><i className="k-sq" />a passage hymnals tie it to</span><span><i className="k-sq echo" />{`one its lines echo (${echoed})`}</span></p>
   </section>;
 }

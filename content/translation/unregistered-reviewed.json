@@ -16199,5 +16199,17 @@
    "pt"
   ],
   "why": "sequence 29 step 6 (Fortress job 899, card D56): plural:[\"{n} debate\",\"{n} debates\"] is \"{n} debate\" / \"{n} debates\" in Spanish and Portuguese, which check.py counts as still English only because both languages spell the word as English does; Haiku and Sonnet answered it the same way, and it is correct"
+ },
+ {
+  "check": "pieced",
+  "file": "src/components/sources/useSourceDirectory.ts",
+  "item": "{n}facets.json",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: Not reader text: BASE + 'facets.json' is the URL of a data file fetched by getJson, never shown on the page."
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/QuestionsPage.tsx",
+  "item": "The questions could not be loaded: {n}",
+  "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is a technical load-error message (Error.message from the loader, e.g. 'Failed to fetch'), not reader prose and not translatable; the label 'The questions could not be loaded:' is a whole sentence on its own and the error is a separate thing. As one template the value (plain lowercase English words) would not be filled, so the whole line would stay English; as pieces the label is at least translated."
  }
 ]

@@ -28,6 +28,9 @@ export function stanzaPages(stanzas: string[][]): StanzaPage[] {
 }
 
 const label = (p: StanzaPage) => (p.first === p.last ? `Stanza ${ROMAN[p.first] ?? p.first + 1}` : `Stanzas ${ROMAN[p.first] ?? p.first + 1}–${ROMAN[p.last] ?? p.last + 1}`);
+/** The pager's place line, one whole phrase: "Stanzas I–III of VII". */
+const placeOf = (p: StanzaPage, last: number) => { const all = ROMAN[last] ?? last + 1;
+  return p.first === p.last ? `Stanza ${ROMAN[p.first] ?? p.first + 1} of ${all}` : `Stanzas ${ROMAN[p.first] ?? p.first + 1}–${ROMAN[p.last] ?? p.last + 1} of ${all}`; };
 
 /** `summary`: said after the page's place, e.g. "29 echoes". */
 export function StanzaPager({ pages, summary, children }: { pages: StanzaPage[]; summary?: string; children: (page: StanzaPage, at: number) => ReactNode }) {
@@ -51,7 +54,7 @@ export function StanzaPager({ pages, summary, children }: { pages: StanzaPage[];
       <div className="hf-dots">{pages.map((p, i) =>
         <button key={p.first} type="button" className={i === at ? "on" : undefined} aria-label={label(p)} aria-current={i === at ? "true" : undefined} onClick={() => go(i)} />)}</div>
       <button type="button" className="hf-arrow" onClick={() => go(at + 1)} disabled={at === pages.length - 1} aria-label="Later stanzas"><ChevronRight size={18} strokeWidth={1.5} aria-hidden /></button>
-      <span className="hf-where" aria-live="polite">{label(page)} <small>of {ROMAN[pages[pages.length - 1].last] ?? pages[pages.length - 1].last + 1}{summary ? ` · ${summary}` : ""}</small></span>
+      <span className="hf-where" aria-live="polite">{placeOf(page, pages[pages.length - 1].last)}{summary ? <small>{` · ${summary}`}</small> : null}</span>
     </nav>
   </div>;
 }

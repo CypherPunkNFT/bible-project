@@ -107,7 +107,7 @@ export function TestimonyWorldMap({ pins, error, selectedId, onOpen }: Props) {
     {open && <div className="testimony-world-place" role="dialog" aria-label={`Testimonies shared from ${open.label}`}>
       <header><div><p className="testimony-kicker">Shared from</p><h3>{open.label}</h3></div><button type="button" aria-label="Close" onClick={() => setOpenKey("")}><X size={15} /></button></header>
       <ol>{open.people.map((person) => <li key={person.id}><button type="button" aria-pressed={person.id === selectedId} onClick={() => onOpen(person.id)}>
-        <span><strong>{person.name}</strong>{person.publishedAt && <small><time dateTime={person.publishedAt}>Shared {formatTestimonyDate(person.publishedAt)}</time></small>}</span><ArrowRight size={14} aria-hidden />
+        <span><strong>{person.name}</strong>{person.publishedAt && <small><time dateTime={person.publishedAt}>{`Shared ${formatTestimonyDate(person.publishedAt)}`}</time></small>}</span><ArrowRight size={14} aria-hidden />
       </button></li>)}</ol>
     </div>}
     <div className="testimony-zoom-controls" role="group" aria-label="Map zoom">

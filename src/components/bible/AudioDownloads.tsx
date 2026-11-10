@@ -42,7 +42,7 @@ export function AllDownloads({ books }: { books: AudioBook[] }) {
   const total = books.reduce((sum, book) => sum + bookBytes(book), 0);
   return <section className="asv-downloads" aria-labelledby="asv-downloads-title">
     <header><p className="asv-eyebrow">Take it with you</p><h2 id="asv-downloads-title">Download the audio Bible</h2>
-      <p>Every book as small audio files that play on any phone or computer, with no internet needed. {formatBytes(total)} for the whole Bible. Free to keep and share.</p></header>
+      <p>{`Every book as small audio files that play on any phone or computer, with no internet needed. ${formatBytes(total)} for the whole Bible. Free to keep and share.`}</p></header>
     <div className="asv-download-grid">{books.map(book => <details key={book.code} style={{ '--track-tone': `var(--${book.category})` } as CSSProperties}>
       <summary><i aria-hidden/>{book.title}<span>{formatBytes(bookBytes(book))}</span></summary>
       <PartLinks book={book}/>

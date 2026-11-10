@@ -89,8 +89,7 @@ export function FounderLetter() {
           <p className="lt-dear">Dear reader,</p>
           <div className="lt-body">
             <p>
-              Thank you for stopping here. I wanted you to know who is on the other side of this page. My name is {FOUNDER.first}, and I
-              build Bible Guide by myself.
+              {`Thank you for stopping here. I wanted you to know who is on the other side of this page. My name is ${FOUNDER.first}, and I build Bible Guide by myself.`}
             </p>
             <MarginNote side="right" verse={46010031} reference="1 Corinthians 10:31" />
             <p>

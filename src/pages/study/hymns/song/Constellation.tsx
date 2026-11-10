@@ -49,7 +49,7 @@ export function Constellation({ song, open, title = "Amazing grace", ringLabel =
   let reading: JSX.Element;
   if (stanzaPicked >= 0) {
     const mine = echoes.filter((e) => e.stanza === stanzaPicked);
-    reading = <><p className="k">Stanza {ROMAN[stanzaPicked]}</p><h3>{song.stanzas[stanzaPicked][0].replace(/[,;!]$/, "")}</h3>
+    reading = <><p className="k">{`Stanza ${ROMAN[stanzaPicked]}`}</p><h3>{song.stanzas[stanzaPicked][0].replace(/[,;!]$/, "")}</h3>
       <div className="st">{song.stanzas[stanzaPicked].map((line, l) => { const e = mine.find((m) => m.line === l);
         return e ? <p key={l} className="e" onClick={() => openEcho(e.i)}>{line}</p> : <p key={l}>{line}</p>; })}</div>
       {mine.length ? <div className="cn-echoes">{mine.map((e) => <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{e.ref}</b><span>“<EchoWords echo={e} />”</span></button>)}</div>
@@ -60,7 +60,7 @@ export function Constellation({ song, open, title = "Amazing grace", ringLabel =
     reading = <><p className="k">{b ? ringCount(b.refs.length) : ""}</p><h3>{bookPicked}</h3>
       <div className="cn-refs">{b?.refs.map((r) => <Link key={r.ref} to={placedUrl(r)}>{r.label}</Link>)}</div>
       {mine.length > 0 && <><p className="cn-hint">Echoed in the hymn:</p><div className="cn-echoes">{mine.map((e) =>
-        <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{e.ref} · stanza {ROMAN[e.stanza]}</b><span>“{song.stanzas[e.stanza][e.line]}”</span></button>)}</div></>}{steps}</>;
+        <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{`${e.ref} · stanza ${ROMAN[e.stanza]}`}</b><span>“{song.stanzas[e.stanza][e.line]}”</span></button>)}</div></>}{steps}</>;
   }
 
   return <div className="cn">

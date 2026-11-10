@@ -25,7 +25,7 @@ import { ThemeShelves } from "./questions/test/ThemeShelves";
 import { inTheme, THEMES, themeById } from "./questions/test/themes";
 import "./questions-page.css";
 import "./questions/questions-panels.css";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const NONE: Filters = readFilters(new URLSearchParams());
 
@@ -93,7 +93,7 @@ function ListBody({ bank }: { bank: QuestionBank }) {
     </section>
     <TestBanner bank={bank} filters={filters} theme={theme} bookNames={bookNames} />
     <details className="qp-sources">
-      <summary>Sources · {bank.collections.length} collections</summary>
+      <summary>{`Sources · ${plural(bank.collections.length, "{n} collection", "{n} collections")}`}</summary>
       <p>Answers are as each source printed them and are still to be checked. Books, Testament and topic are set by fixed word lists and the references, so a question may sit under a near topic.</p>
       <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}{c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}</li>)}</ul>
     </details>

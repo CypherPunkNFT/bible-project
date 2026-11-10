@@ -41,8 +41,8 @@ function SongStudy({ song }: { song: HymnSong }) {
       </div>
       <dl className="hy-facts">
         <div><dt>Written by</dt><dd>{song.author}<small>{song.authorDates}</small></dd></div>
-        <div><dt>Printed</dt><dd>{song.year}<small>{song.collection} · Book I, no. {song.number}</small></dd></div>
-        <div><dt>Metre</dt><dd>{song.meterName}<small>{song.meter} · {song.stanzas.length} stanzas</small></dd></div>
+        <div><dt>Printed</dt><dd>{song.year}<small>{`${song.collection} · Book I, no. ${song.number}`}</small></dd></div>
+        <div><dt>Metre</dt><dd>{song.meterName}<small>{`${song.meter} · ${plural(song.stanzas.length, "{n} stanza", "{n} stanzas")}`}</small></dd></div>
         <div><dt>In hymnals</dt><dd>{formatNumber(song.hymnals)}<small>listed at Hymnary.org</small></dd></div>
       </dl>
     </section>
@@ -78,17 +78,17 @@ function PlainHymn({ collection, hymn }: { collection: HymnCollection; hymn: Hym
         <Crumb />
         <h1>{firstLine(hymn)}{(title || words.subject) && <em>{title || words.subject}</em>}</h1>
         <p className="hy-lede">{group?.label ?? words.source.title}{words.book ? `, ${words.book}` : ""}{words.number ? `, no. ${words.number.replace(/^\d+:/, "")}` : ""}. {hymn.a}, {hymn.y}.</p>
-        {hymn.v > 0 && <div className="hp-actions"><Link className="d-go" to={passageHref(collection.books, hymn)}><BookOpen size={16} strokeWidth={1.5} aria-hidden />Read {hymn.r}</Link></div>}
+        {hymn.v > 0 && <div className="hp-actions"><Link className="d-go" to={passageHref(collection.books, hymn)}><BookOpen size={16} strokeWidth={1.5} aria-hidden />{`Read ${hymn.r}`}</Link></div>}
       </div>
       <dl className="hy-facts">
         <div><dt>Written by</dt><dd>{hymn.a}<small>{group?.who === hymn.a ? group.label : ""}</small></dd></div>
         <div><dt>Printed</dt><dd>{hymn.y}<small>{words.book || group?.short}</small></dd></div>
-        <div><dt>Metre</dt><dd>{words.meter || (hymn.m ? hymn.m.replace(/,/g, ".") : "Not recorded")}<small>{words.stanzas.length} stanzas</small></dd></div>
+        <div><dt>Metre</dt><dd>{words.meter || (hymn.m ? hymn.m.replace(/,/g, ".") : "Not recorded")}<small>{plural(words.stanzas.length, "{n} stanza", "{n} stanzas")}</small></dd></div>
         <div><dt>Written on</dt><dd>{hymn.r || "A subject"}<small>{words.refs.length > 1 ? plural(words.refs.length - 1, "and {n} more passage", "and {n} more passages") : hymn.v ? "its main passage" : words.subject}</small></dd></div>
       </dl>
     </section>
     <section className="hy-sec">
-      <Head num="01" title={<>The <em>hymn</em></>}>The words as {hymn.a.split(" ").pop()} printed them{words.refs.length ? `, on ${words.refs.join("; ")}` : ""}.</Head>
+      <Head num="01" title={<>The <em>hymn</em></>}>{words.refs.length ? `The words as ${(hymn.a.split(" ").pop() ?? hymn.a)} printed them, on ${words.refs.join("; ")}.` : `The words as ${(hymn.a.split(" ").pop() ?? hymn.a)} printed them.`}</Head>
       <div className="ec ec-plain"><div className="stanzas">{words.stanzas.map((lines, s) => <div key={s} className="stanza"><span className="rn" aria-hidden="true">{ROMAN[s] ?? s + 1}</span>
         {lines.map((line, l) => <span key={l} className="line"><span className="t">{line}</span></span>)}</div>)}</div></div>
     </section>

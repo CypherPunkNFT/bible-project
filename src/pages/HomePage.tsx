@@ -182,7 +182,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
           facts={["66 books", `${catalog.translations.length} versions`, `${languages} languages`, "343,545 cross-references"]}
           cta={{ to: resume, label: "Read the Bible", note: resumeLabel, icon: <BookOpen size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
           <p>Sixty-six books, written across some fifteen centuries by shepherds, kings, prophets and apostles, telling one story: God making himself known. Read it here in the version you love, set it beside another, or listen to it read aloud.</p>
-          <p>The reader is made for slow, attentive reading. Open any chapter in one of {catalog.translations.length} versions across {languages} languages and lay a second version beside it, line by line. Choose a verse to see the passages that echo it elsewhere in Scripture, and the places a chapter names on the map.</p>
+          <p>{`The reader is made for slow, attentive reading. Open any chapter in one of ${formatNumber(catalog.translations.length)} versions across ${formatNumber(languages)} languages and lay a second version beside it, line by line. Choose a verse to see the passages that echo it elsewhere in Scripture, and the places a chapter names on the map.`}</p>
           <p>It remembers where you stopped, so each visit picks up where the last one ended. There is nothing to sign up for and nothing to pay: the whole Bible, open to anyone.</p>
         </FeatureBlock>
         <FeatureBlock reverse tone="history" level="h3" kicker="Audio Bible" title={<>Hear <em>the Word.</em></>}
@@ -197,7 +197,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
           art={<ChaptersScene />} artTo="/library" artLabel="Explore chapters"
           facts={[`${formatNumber(CHAPTER_COUNT)} chapters`, "31,102 verses", "Progress, book by book"]}
           cta={{ to: "/library", label: "Explore chapters", note: "The whole Bible at a glance", icon: <LayoutGrid size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
-          <p>See the whole Bible at once: {formatNumber(CHAPTER_COUNT)} chapters laid end to end, from the fifty chapters of Genesis to the single page of Jude. Choose a version, find a book, and open any chapter straight from the map of the whole.</p>
+          <p>{`See the whole Bible at once: ${formatNumber(CHAPTER_COUNT)} chapters laid end to end, from the fifty chapters of Genesis to the single page of Jude. Choose a version, find a book, and open any chapter straight from the map of the whole.`}</p>
           <p>As you read, the library marks the chapters you have finished, book by book, so you can see how much of the story you have walked through and where you might go next.</p>
         </FeatureBlock>
       </section>
@@ -255,7 +255,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
       </section>
       <div className="home-ap-more" style={tint("accent")}>
         <SectionHeading level="h3" label="Connected fields · A shared foundation" title={<>There is more <em>to explore.</em></>} to="/apologetics/questions" action="The question library">Six fields of questions, each with its studies, its sources and a question to begin with.</SectionHeading>
-        <div className="home-study-grid home-field-grid">{HOME_FIELDS.map((field, i) => <Link key={field.to} to={field.to} className="home-study-card" style={tint(field.color)}><div className="home-card-meta"><span>0{i + 1} / Connected field</span><ArrowUpRight size={17} /></div><div className="home-study-art"><FieldArt index={i} /></div><h3>{field.title}</h3><p>{field.text}</p><div className="home-card-bottom"><em>{field.question}</em><ArrowRight size={16} /></div></Link>)}</div>
+        <div className="home-study-grid home-field-grid">{HOME_FIELDS.map((field, i) => <Link key={field.to} to={field.to} className="home-study-card" style={tint(field.color)}><div className="home-card-meta"><span>{`0${i + 1} / Connected field`}</span><ArrowUpRight size={17} /></div><div className="home-study-art"><FieldArt index={i} /></div><h3>{field.title}</h3><p>{field.text}</p><div className="home-card-bottom"><em>{field.question}</em><ArrowRight size={16} /></div></Link>)}</div>
         <FeatureBlock reverse tone="prophets" level="h3" kicker="Across beliefs" title={<>Understand deeply. <em>Witness clearly.</em></>}
           art={<WorldviewsScene />} artTo="/apologetics/worldviews" artLabel="Explore the worldviews"
           facts={["Christianity & Islam", "Secular thought", "Buddhism", "Hinduism"]}

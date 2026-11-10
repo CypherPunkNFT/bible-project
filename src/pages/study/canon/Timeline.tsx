@@ -42,7 +42,7 @@ function layout(tracks: HTMLElement[]) {
 export function Say({ id }: { id: string | null }) {
   const r = id ? byId.get(id) : undefined;
   return <p className="ms-say" aria-live="polite">{r
-    ? <><b>{name(r.id)}</b> · {r.date} · {r.place}. {r.title} <span className="ms-say-go">{r.kind} · open</span></>
+    ? <><b>{name(r.id)}</b> · {r.date} · {r.place}. {r.title} <span className="ms-say-go">{`${r.kind} · open`}</span></>
     : "Point at a record to read it here; click to open it."}</p>;
 }
 /** Pointer and focus handlers that report the record under them ([data-open]), and forget it when the pointer leaves. */

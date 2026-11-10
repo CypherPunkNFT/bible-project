@@ -55,10 +55,10 @@ function slice(page: HymnPageData, p: StanzaPage) {
 }
 
 function lede(page: HymnPageData) {
-  if (page.group === "psalms" && page.heading) return <>Isaac Watts's setting of {page.heading.label}, printed in {page.year} in <i>{page.collection}</i>, where he set
-    the psalms "in the language of the New Testament".</>;
+  if (page.group === "psalms" && page.heading) return `Isaac Watts's setting of ${page.heading.label}, printed in ${page.year} in ${page.collection}, where he set the psalms "in the language of the New Testament".`;
   const where = page.partLabel && page.partLabel !== page.collection ? `${page.collection}, ${page.partLabel.replace(/^Book ([IV]+) · .*/, "Book $1")}` : page.collection;
-  return <>{page.author} printed it in {page.year} in <i>{where}</i>, no. {page.number.replace(/^\d+:/, "")}{page.heading ? <>, under {page.heading.label}</> : null}.</>;
+  const book = `${where}, no. ${page.number.replace(/^\d+:/, "")}`;
+  return page.heading ? `${page.author} printed it in ${page.year} in ${book}, under ${page.heading.label}.` : `${page.author} printed it in ${page.year} in ${book}.`;
 }
 
 export function HymnFullPage({ page }: { page: HymnPageData }) {
@@ -89,7 +89,7 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
       </div>
       <dl className="hy-facts">
         <div><dt>Written by</dt><dd>{page.author}<small>{page.authorDates}</small></dd></div>
-        <div><dt>Printed</dt><dd>{page.year}<small>{page.collection} · no. {page.number.replace(/^\d+:/, "")}</small></dd></div>
+        <div><dt>Printed</dt><dd>{page.year}<small>{`${page.collection} · no. ${page.number.replace(/^\d+:/, "")}`}</small></dd></div>
         <div><dt>Metre</dt><dd>{page.meterName || page.meter || "Not recorded"}<small>{page.meterName && page.meter ? `${page.meter} · ` : ""}{plural(page.stanzas.length, "{n} stanza", "{n} stanzas")}</small></dd></div>
         {page.hymnals
           ? <div><dt>In hymnals</dt><dd>{formatNumber(page.hymnals)}<small>listed at Hymnary.org</small></dd></div>
@@ -101,8 +101,8 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
       {page.echoes.length > 0 ? <>
         <div className="hy-head"><span className="hy-num">{num()}</span><div>
           <h2>The hymn, <em>and the Scripture in it</em></h2>
-          <p>{page.stanzas.length > 1 ? plural(page.stanzas.length, "All {n} stanza", "All {n} stanzas") : "The hymn"} as {who} printed {plural(page.stanzas.length, "it", "them")}, with the verses their lines
-            echo beside them. Point at a line to join it to its verse; click to read the passage.</p>
+          <p>{page.stanzas.length > 1 ? `${plural(page.stanzas.length, "All {n} stanza", "All {n} stanzas")} as ${who} printed them, with the verses their lines echo beside them. Point at a line to join it to its verse; click to read the passage.`
+            : `The hymn as ${who} printed ${plural(page.stanzas.length, "it", "them")}, with the verses their lines echo beside them. Point at a line to join it to its verse; click to read the passage.`}</p>
           <p className="hf-key"><span><b>Shared words</b>the verse shares the line's wording</span><span><b>Echo</b>proposed by an AI model, confirmed by a separate
             check</span><span>Not the author's own notes</span></p>
         </div></div>
@@ -116,7 +116,7 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
             ringLabel="its heading or an echo comes from here" ringCount={(n) => plural(n, "{n} verse it draws on", "{n} verses it draws on")} />
         </div>}
       </> : <>
-        <Head num={num()} title={<>The <em>hymn</em></>}>The words as {who} printed them, {lines} lines.</Head>
+        <Head num={num()} title={<>The <em>hymn</em></>}>{`The words as ${who} printed them, ${plural(lines, "{n} line", "{n} lines")}.`}</Head>
         <StanzaPager pages={pages}>{(p) => <div className="ec ec-plain"><div className="stanzas">{page.stanzas.slice(p.first, p.last + 1).map((stanza, i) =>
           <div key={p.first + i} className="stanza"><span className="rn" aria-hidden="true" style={numeralStyle(ROMAN[p.first + i] ?? "")}>{ROMAN[p.first + i] ?? p.first + i + 1}</span>
             {stanza.map((line, l) => <span key={l} className="line"><span className="t">{line}</span></span>)}</div>)}</div></div>}</StanzaPager>

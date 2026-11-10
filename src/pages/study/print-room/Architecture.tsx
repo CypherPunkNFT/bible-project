@@ -32,7 +32,7 @@ function EditionNetwork() {
     </div>
     <div className="pr-network-key"><span><i/> Textual basis / influence</span><span><i className="pr-key-collation"/> Collation evidence</span><span><i className="pr-key-series"/> Editorial succession</span></div>
     <div className="pr-edge-record" id="pr-edge-record" aria-live="polite"><div><p className="pr-kicker">Selected record</p><h3>{selectedNode.label}</h3><p>{selectedNode.note}</p></div><ul>{edges.map((e,i)=><li key={i}><span>{network.nodes.find(n=>n.id===e.from)!.label} <b aria-label="to">→</b> {network.nodes.find(n=>n.id===e.to)!.label}</span><strong>{e.label}</strong><Cites ids={e.sourceIds}/></li>)}</ul></div>
-    </>}<p className="pr-note">{network.limit} Positions are schematic; spacing does not measure time.</p>
+    </>}<p className="pr-note">{network.limit} <span>Positions are schematic; spacing does not measure time.</span></p>
   </div>;
 }
 

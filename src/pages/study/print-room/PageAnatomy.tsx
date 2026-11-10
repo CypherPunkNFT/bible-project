@@ -1,6 +1,7 @@
 // Chapter 04's "Pages" view: an intro whose lifted page cycles through the six editions, three ways a page is built, and
 // the inspector, which shows one edition either as one sheet or with its three layers lifted apart. Clicking a layer
 // row opens its explanation; its Shown/Hidden switch takes it off the page. Drawings: page-anatomy.ts; styles: page-anatomy.css.
+import { formatNumber } from '@/lib/site-format';
 import { useEffect, useState, type CSSProperties } from 'react';
 import { EDITIONS, TONES, flatPage, layerSvg, sheetSvg, type AnatomyEdition } from './page-anatomy';
 import './page-anatomy.css';
@@ -77,7 +78,7 @@ function Inspector({ editionId, choose }: { editionId: string; choose: (id: stri
             <button type="button" className="pa-row-read" onClick={() => setReading(i)}><i>0{i + 1}</i><span><b>{l.label}</b><small>{l.title}</small></span></button>
             <button type="button" className="pa-row-eye" aria-pressed={visible[i]} aria-label={`Show ${l.label}`} onClick={() => toggle(i)}>{visible[i] ? 'Shown' : 'Hidden'}</button>
           </div>)}</div>
-        <div className="pa-explain" style={tone(reading)}><p className="pa-kicker">Layer {reading + 1} · {visible[reading] ? 'visible' : 'hidden'}</p>
+        <div className="pa-explain" style={tone(reading)}><p className="pa-kicker">{visible[reading] ? `Layer ${formatNumber(reading + 1)} · visible` : `Layer ${formatNumber(reading + 1)} · hidden`}</p>
           <h4>{layer.title}</h4><p>{layer.text}</p></div>
       </div>
     </div>

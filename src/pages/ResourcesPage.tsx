@@ -9,6 +9,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { StationDoor, StationStats } from "@/components/stations/Station";
 import { loadResource, useResource, type FellowshipsData, type LearningData, type LifeData } from "@/data/resources";
 import { shelfCounts } from "@/data/resources/learning-catalogue";
+import { plural } from "@/lib/site-format";
 import { RESOURCE_SECTIONS, sectionReady } from "./resources/sections";
 import { Loading } from "./resources/Shell";
 
@@ -48,7 +49,7 @@ function Section<K extends keyof Data>({ name, Page }: { name: K; Page: Componen
 /** "81 titles to download · 7 readers": the Learning shelf at a glance (ours, plus the open workbooks downloaded). */
 function learningNote() {
   const { titles, readers } = shelfCounts();
-  return `${titles} titles to download · ${readers} readers`;
+  return `${plural(titles, "{n} title to download", "{n} titles to download")} · ${plural(readers, "{n} reader", "{n} readers")}`;
 }
 
 /** What the three sections hold, counted from their data; a figure reads "…" until its file has loaded. */

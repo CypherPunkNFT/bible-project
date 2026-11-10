@@ -77,7 +77,7 @@ export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, 
         <QuestionRow key={index} n={i + 1} q={bank.questions[index]} terms={terms} testMode={testMode} bookNames={bookNames}
           meta={[bank.kinds[bank.questions[index].kind], bank.questions[index].collection, bank.questions[index].tradition, topicTitle[bank.questions[index].topic ?? ""]]} />)}</ol>
         : <p className="qp-empty">No questions match all of these. <button type="button" onClick={clear}>Clear the filters</button></p>}
-      {shown < rows.length && <div ref={sentinel} className="qp-more">Loading more of {formatNumber(rows.length)}…</div>}
+      {shown < rows.length && <div ref={sentinel} className="qp-more">{`Loading more of ${formatNumber(rows.length)}…`}</div>}
     </PillScroll>
   </div>;
 }

@@ -35,7 +35,7 @@ function PictureBody({ p }: { p: Picture }) {
   return <>
     <p className="kicker">A surviving witness</p><h2>{p.name}</h2><Figure p={p} />
     <dl className="ms-facts">{rows.map(([t, v]) => <div key={t}><dt>{t}</dt><dd>{v}</dd></div>)}</dl>
-    <p className="ms-src">Shown as a surviving copy of the kind this study discusses; it is not one of the study's eighteen records. Facts from <a href={`https://www.wikidata.org/wiki/${encodeURIComponent(p.q)}`} {...ext}>Wikidata {p.q}</a> (CC0) via the Manuscripts collection.</p>
+    <p className="ms-src">Shown as a surviving copy of the kind this study discusses; it is not one of the study's eighteen records. Facts from <a href={`https://www.wikidata.org/wiki/${encodeURIComponent(p.q)}`} {...ext}>{`Wikidata ${p.q}`}</a> (CC0) via the Manuscripts collection.</p>
   </>;
 }
 

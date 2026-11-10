@@ -5,7 +5,7 @@ import type { Directory, SourceEntry } from './types';
 import { missingIdentity, type ReviewFilter } from './dashboard-model';
 import { CollectionArt, collectionTones } from './CollectionArt';
 import './source-overview.css';
-import { formatDate, formatNumber } from "@/lib/site-format";
+import { formatDate, formatNumber, plural } from "@/lib/site-format";
 const n = (value: number) => formatNumber(value);
 export const snapshotDate = (value: string) => formatDate(new Date(value), {year:'numeric',month:'short',day:'numeric'});
 type Props = { directory: Directory; entries: SourceEntry[] | null; openCatalogue: (category?: string, review?: ReviewFilter) => void };
@@ -13,8 +13,8 @@ const tone=(color:string)=>({'--overview-tone':color} as CSSProperties);
 export function CollectionGrid({ directory, entries, openCatalogue }: Props) {
  return <div className="source-overview-collections">{directory.collections.map(c => {
  const count = entries ? entries.filter(e => e.categories.includes(c.id)).length : directory.split?.collections[c.id]?.records;
- return <button type="button" key={c.id} className="source-overview-collection" style={tone(collectionTones[c.id]??'#9badaf')} onClick={() => openCatalogue(c.id)} aria-label={'Browse collection: '+c.label}>
- <span className="source-overview-art"><CollectionArt id={c.id}/></span><span className="source-overview-collection-copy"><strong>{c.label}</strong><small>{count === undefined ? '—' : n(count)} records</small><span className="sr-only">{c.definition}</span></span><ArrowRight className="source-overview-go" size={14} aria-hidden/>
+ return <button type="button" key={c.id} className="source-overview-collection" style={tone(collectionTones[c.id]??'#9badaf')} onClick={() => openCatalogue(c.id)} aria-label={`Browse collection: ${c.label}`}>
+ <span className="source-overview-art"><CollectionArt id={c.id}/></span><span className="source-overview-collection-copy"><strong>{c.label}</strong><small>{count === undefined ? '— records' : plural(count, '{n} record', '{n} records')}</small><span className="sr-only">{c.definition}</span></span><ArrowRight className="source-overview-go" size={14} aria-hidden/>
  </button>;
  })}</div>;
 }
@@ -41,6 +41,6 @@ export function LibraryOverview({ directory, entries, scriptureCount, openCatalo
  </aside>
  <div className="source-overview-follow"><BookOpen size={22} aria-hidden/><div><h3>Follow a source</h3><p>Find the edition, inspect its origin, then read it in context.</p></div><nav aria-label="Source starting points"><button type="button" onClick={()=>openCatalogue()}>Catalogue <ArrowRight size={12} aria-hidden/></button><Link to="#scriptures">Bible editions <ArrowRight size={12} aria-hidden/></Link><Link to="#foundations">Credits & permissions <ArrowRight size={12} aria-hidden/></Link></nav></div>
  </div>
- <p className="source-snapshot">Holdings: {snapshotDate(c.measured_at)} · Catalogue: {snapshotDate(c.bibliographyUpdatedAt)}. Dated snapshots with different scopes; file and catalogue totals are not interchangeable.</p>
+ <p className="source-snapshot">{`Holdings: ${snapshotDate(c.measured_at)} · Catalogue: ${snapshotDate(c.bibliographyUpdatedAt)}. Dated snapshots with different scopes; file and catalogue totals are not interchangeable.`}</p>
  </section>;
 }

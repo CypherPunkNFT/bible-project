@@ -8,6 +8,7 @@ import type { BookTick, HymnPageData, PagePassage } from "@/lib/hymn-pages";
 import { Head } from "../song/Sections";
 import { PassageVerses, ROMAN, type OpenPassage } from "../song/parts";
 import { BibleName } from "@/components/Verse";
+import { plural } from "@/lib/site-format";
 
 const tone = (token: string) => ({ "--tone": `var(--${token || "accent"})` }) as CSSProperties;
 const readHref = (p: PagePassage) =>
@@ -15,7 +16,7 @@ const readHref = (p: PagePassage) =>
 
 function Verses({ p }: { p: PagePassage }) {
   return <><PassageVerses p={p} numbered={p.verses.length > 1} />{" "}
-    {p.count > p.verses.length && <span className="hf-more">… {p.count - p.verses.length} more verses</span>}</>;
+    {p.count > p.verses.length && <span className="hf-more">{plural(p.count - p.verses.length, "… {n} more verse", "… {n} more verses")}</span>}</>;
 }
 
 /** Where the author found it: the verse printed above the hymn, beside the stanza whose line comes closest to it. */
@@ -24,15 +25,15 @@ export function Found({ num, page, who }: { num: string; page: HymnPageData; who
   const p = h.passage, psalm = page.group === "psalms" && p.code === "PSA";
   const stanza = h.line ? page.stanzas[h.line.stanza] : null;
   return <section className="hy-sec" id="found">
-    <Head num={num} title={psalm ? <>The psalm <em>it sets</em></> : <>Where {who} <em>found it</em></>}>
+    <Head num={num} title={psalm ? <>The psalm it sets</> : <>{`Where ${who} found it`}</>}>
       {psalm ? `Watts made this hymn from ${h.label}, "in the language of the New Testament": a paraphrase, not a translation.`
         : `${who} printed the hymn under ${h.label}.`}
       {stanza ? " The line that comes closest to it is marked." : ""}</Head>
     <div className={`hy-found${stanza ? "" : " hf-single"}`}>
       <blockquote><Verses p={p} /><cite>{h.label}{p.whole ? " · its first verses" : ""} · <BibleName /></cite>
-        <Link className="hf-read" to={readHref(p)}>Read {p.ref.split(":")[0]}<ArrowRight size={14} strokeWidth={1.5} aria-hidden /></Link></blockquote>
+        <Link className="hf-read" to={readHref(p)}>{`Read ${p.ref.split(":")[0]}`}<ArrowRight size={14} strokeWidth={1.5} aria-hidden /></Link></blockquote>
       {stanza && h.line && <><span className="join" aria-hidden="true" />
-        <blockquote>{stanza.map((line, l) => <span key={l}>{l === h.line!.line ? <b>{line}</b> : line} </span>)}<cite>Stanza {ROMAN[h.line.stanza] ?? h.line.stanza + 1}</cite></blockquote></>}
+        <blockquote>{stanza.map((line, l) => <span key={l}>{l === h.line!.line ? <b>{line}</b> : line} </span>)}<cite>{`Stanza ${ROMAN[h.line.stanza] ?? h.line.stanza + 1}`}</cite></blockquote></>}
     </div>
   </section>;
 }
@@ -72,19 +73,18 @@ export function BookTicks({ num, page }: { num: string; page: HymnPageData }) {
   const count = ticks.length <= ONE_ROW ? 1 : Math.min(MOST_ROWS, Math.ceil(ticks.length / ROW));
   const size = Math.ceil(ticks.length / count);
   const rows = Array.from({ length: count }, (_, r) => ({ start: r * size, row: ticks.slice(r * size, (r + 1) * size) }));
-  const book = label.replace(/^Book ([IV]+) · (.*)$/, "Book $1 of the hymn book, “$2”,");
-  const what = page.group === "psalms" ? "Watts's psalms run from Psalm 1 to Psalm 150, several settings to many psalms"
-    : label.startsWith("Book I · On select passages") ? "Book I of Olney Hymns walks through the Bible from Genesis to Revelation, one hymn per passage"
-      : `${book} holds these hymns in this order`;
+  const part = /^Book ([IV]+) · (.*)$/.exec(label), hymns = plural(ticks.length, "{n} hymn", "{n} hymns");
+  const what = page.group === "psalms" ? `Watts's psalms run from Psalm 1 to Psalm 150, several settings to many psalms: ${hymns}.`
+    : label.startsWith("Book I · On select passages") ? `Book I of Olney Hymns walks through the Bible from Genesis to Revelation, one hymn per passage: ${hymns}.`
+      : part ? `Book ${part[1]} of the hymn book, “${part[2]}”, holds these hymns in this order: ${hymns}.` : `${label} holds these hymns in this order: ${hymns}.`;
   return <section className="hy-sec" id="book">
-    <Head num={num} title={<>Its place in <em>the book</em></>}>{what}: {ticks.length} hymns. This is number {page.number.replace(/^\d+:/, "")}.
-      Point at a tick to see the hymn; click it to open that hymn.</Head>
+    <Head num={num} title={<>Its place in the book</>}>{what}{" "}{`This is number ${page.number.replace(/^\d+:/, "")}. Point at a tick to see the hymn; click it to open that hymn.`}</Head>
     <div className="hy-book">{rows.map(({ start, row }) => <div key={start} className="hf-book-line">
       <div className="hy-book-row" onMouseLeave={() => setShown(here)}>{row.map((x, k) => { const i = start + k;
         return <button key={x.id} type="button" style={tone(x.tone)} className={i === here ? "here" : undefined} aria-label={`No. ${x.n}: ${x.t}`}
           onMouseEnter={() => setShown(i)} onFocus={() => setShown(i)} onClick={() => (i === here ? setShown(i) : navigate(`/study/hymns/${x.id}`))} />; })}</div>
       <div className="hy-book-scale">{scale(page, row, rows.length).map((s) => <span key={s}>{s}</span>)}</div></div>)}
-      <p className="hy-book-readout" aria-live="polite"><small>No. {t.n.replace(/^\d+:/, "")} · {t.a}{shown === here ? " · this hymn" : ""}</small>{t.t.replace(/[,;:]$/, "")}</p></div>
+      <p className="hy-book-readout" aria-live="polite"><small>{shown === here ? `No. ${t.n.replace(/^\d+:/, "")} · ${t.a} · this hymn` : `No. ${t.n.replace(/^\d+:/, "")} · ${t.a}`}</small>{t.t.replace(/[,;:]$/, "")}</p></div>
   </section>;
 }
 
@@ -102,5 +102,5 @@ export function PageSources({ page }: { page: HymnPageData }) {
       author's. The verses beside its lines were found in the King James wording the author read: by matching the words, or proposed by an AI model, and
       kept only when the verse's words were proved to be there and a separate check agreed. The words beside each verse are cut from the verse itself.</li>,
   ].filter(Boolean);
-  return <details className="hy-sources"><summary>Sources · {items.length}</summary><ul>{items}</ul></details>;
+  return <details className="hy-sources"><summary>{`Sources · ${items.length}`}</summary><ul>{items}</ul></details>;
 }

@@ -61,7 +61,7 @@ export function RoseWindow() {
       <g className="hm5-ring-turn" aria-hidden="true"><text className="hm5-ring-text"><textPath href={`#${id}-ring`} textLength={fixed(Math.PI * 2 * RING - 8)} lengthAdjust="spacing">{RING_WORDS}</textPath></text></g>
     </svg>
     <figcaption className={chosen ? "is-picked" : undefined} aria-live="polite">{chosen
-      ? <><strong style={tone(chosen.section)}>{chosen.name}</strong><span>{chosen.chapters} {plural(chosen.chapters, "chapter", "chapters")}</span><Link to={`/read/bsb/${chosen.code}/1`}>Read {chosen.name} 1</Link></>
+      ? <><strong style={tone(chosen.section)}>{chosen.name}</strong><span>{plural(chosen.chapters, "{n} chapter", "{n} chapters")}</span><Link to={`/read/bsb/${chosen.code}/1`}>{`Read ${chosen.name} 1`}</Link></>
       : "Thirty-nine books in the outer ring, twenty-seven within, the cross at the heart. Choose a pane to see its book."}</figcaption>
   </figure>;
 }

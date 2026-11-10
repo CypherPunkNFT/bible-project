@@ -4,6 +4,7 @@
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import type { SongEcho } from "@/lib/hymns";
 import { EchoWords, ROMAN, numeralStyle, type OpenPassage } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 /** What the echoes need of a hymn. `kind` (on the generated hymn pages) tags how an echo was found. */
 export interface EchoesHymn { stanzas: string[][]; echoes: (SongEcho & { kind?: "shared" | "echo" })[] }
@@ -76,6 +77,6 @@ export function Echoes({ song, open, closedAt, stanzaOffset = 0, showKey = true 
           onMouseEnter={() => setFocus([i])} onMouseLeave={() => setFocus([])} onClick={() => openEcho(i)}>
           <span className="ref">{e.ref}{e.kind && <i className="kind">{KIND_LABEL[e.kind]}</i>}</span><span className="w">“<EchoWords echo={e} />”</span></button>)}</div>
     </div>
-    {showKey && <p className="ec-key">{song.echoes.length} echoes in {song.stanzas.reduce((n, s) => n + s.length, 0)} lines.</p>}
+    {showKey && <p className="ec-key">{`${formatNumber(song.echoes.length)} echoes in ${formatNumber(song.stanzas.reduce((n, s) => n + s.length, 0))} lines.`}</p>}
   </>;
 }

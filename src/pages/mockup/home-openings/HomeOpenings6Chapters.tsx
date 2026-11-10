@@ -14,7 +14,7 @@ import { WALL_ROWS, WordWall } from "./HomeOpenings5";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
 import { SquareColumn, useSquareRoom } from "./HomeOpenings6Squares";
-import { formatNumber } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
@@ -120,7 +120,7 @@ function StandsForeverCopy({ resume, resumeLabel, versions, languages }: Opening
     <h1 id="home-title">God’s Word<br /><em>Stands Forever.</em></h1>
     <p className="home-hero-lead">Written over fifteen centuries by ~40 authors.<br />Carried through persecution and fire.</p>
     <div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div>
-    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.</span><span><Link to="/sources#scriptures">{versions} Bible versions · {languages} languages</Link></span></p>
+    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.</span><span><Link to="/sources#scriptures">{`${plural(versions, "{n} Bible version", "{n} Bible versions")} · ${plural(languages, "{n} language", "{n} languages")}`}</Link></span></p>
   </div>;
 }
 
@@ -149,7 +149,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
   const note = <p className="hm6-note" aria-live="polite">{chosen
     ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
-    : <>{formatNumber(stones.length)} chapters in the wall</>}</p>;
+    : <>{plural(stones.length, "{n} chapter in the wall", "{n} chapters in the wall")}</>}</p>;
   return <section ref={stage} className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
     {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, latin: LATIN, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}

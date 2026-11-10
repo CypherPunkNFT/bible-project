@@ -91,7 +91,7 @@ export function SectionBanner({ number, name, line, tone, verse, reference, to, 
     <div className="home-banner-inner home-wrap" data-ring-once={ringOnce || undefined} data-ring-play={ring.playing || undefined}>
       <div className="home-banner-title">
         <span className="home-banner-number" aria-hidden="true">{number}{onToggle && <ChevronDown className="home-banner-chevron" size={60} strokeWidth={0.9} />}</span>
-        <p className="home-banner-name"><small>Part {number}</small><strong>{name}</strong><Line line={line} glint={glint} /></p>
+        <p className="home-banner-name"><small>{`Part ${number}`}</small><strong>{name}</strong><Line line={line} glint={glint} /></p>
       </div>
       <blockquote>
         <div className="home-banner-quote"><p>{verse}</p><Link to={to}>{reference}<ArrowUpRight size={12} aria-hidden /></Link></div>

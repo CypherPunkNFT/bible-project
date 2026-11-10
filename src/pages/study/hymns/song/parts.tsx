@@ -68,14 +68,14 @@ export function PassagePanel({ content, onClose }: { content: PanelContent | nul
       {shown.line && <blockquote className="hy-panel-line">{shown.line}</blockquote>}
       <div className="hy-panel-verses">{p.verses.map((v) => <p key={v.n}><PassageVerses p={{ code: p.code, chapter: p.chapter, verses: [v] }} numbered /></p>)}</div>
       <p className="hy-panel-tr"><BibleName />.</p>
-      <Link className="hy-panel-go" to={readerUrl(p)}>Read {p.ref.split(":")[0]} in the reader <ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
+      <Link className="hy-panel-go" to={readerUrl(p)}>{`Read ${p.ref.split(":")[0]} in the reader`} <ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
     </div>}
   </aside>;
 }
 
 export function Sources({ song }: { song: HymnSong }) {
   return <details className="hy-sources"><summary>Sources · 3</summary><ul>
-    <li><b>The hymn.</b> {song.source.title}, John Newton and William Cowper, London 1779, from the Christian Classics Ethereal Library
+    <li><b>The hymn.</b> {`${song.source.title}, John Newton and William Cowper, London 1779, from the Christian Classics Ethereal Library `}
       (<a href={song.source.url} target="_blank" rel="noreferrer">{song.source.url.replace("https://", "")}</a>). {song.source.licence}.</li>
     <li><b>Where hymnals place it.</b> Hymnary.org's catalogue (<a href={song.source.hymnary} target="_blank" rel="noreferrer">hymnary.org</a>): the passages hymnal
       editors attach to it, and the number of hymnals that print it. No words were taken from Hymnary.</li>

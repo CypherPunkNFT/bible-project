@@ -20,7 +20,7 @@ export const recordHref = (id: string) => `/study/manuscripts?record=${encodeURI
 export function WitnessPhoto({ image, name }: { image: MsImage; name: string }) {
   return <figure className="sw-photo">
     <img src={image.src} width={image.w} height={image.h} alt={`${name}: a page of the manuscript`} loading="lazy" decoding="async"/>
-    <figcaption><a href={image.page} target="_blank" rel="noopener noreferrer">{image.by === 'Unknown author' ? 'Photograph' : image.by} · {image.lic} · Wikimedia Commons<span className="sr-only"> (opens in a new tab)</span></a></figcaption>
+    <figcaption><a href={image.page} target="_blank" rel="noopener noreferrer">{`${image.by === 'Unknown author' ? 'Photograph' : image.by} · ${image.lic} · Wikimedia Commons`}<span className="sr-only"> (opens in a new tab)</span></a></figcaption>
   </figure>;
 }
 
@@ -82,8 +82,8 @@ function Centuries({ index }: { index: MsIndex }) {
   const top = Math.max(...rows.map((r) => r.total));
   const [pointed, setPointed] = useState<(typeof rows)[number] | null>(null);
   const dated = rows.reduce((a, r) => a + r.total, 0);
-  const say = pointed ? <><b>{centuryName(pointed.c)}</b>: {formatNumber(pointed.total)} dated {plural(pointed.total, "copy", "copies")}{pointed.total ? ` · ${FAMILIES.filter((f) => pointed.row[f.name]).map((f) => `${f.name} ${formatNumber(pointed.row[f.name])}`).join(' · ')}` : ''}</>
-    : <>The {formatNumber(dated)} records that carry a date, by century. The scrolls end with the first century; the Greek papyri begin in the second; most copies of everything are mediaeval. Point at a century to count it.</>;
+  const say = pointed ? <><b>{centuryName(pointed.c)}</b>{`: ${plural(pointed.total, "{n} dated copy", "{n} dated copies")}${pointed.total ? ` · ${FAMILIES.filter((f) => pointed.row[f.name]).map((f) => `${f.name} ${formatNumber(pointed.row[f.name])}`).join(' · ')}` : ''}`}</>
+    : <>{`The ${formatNumber(dated)} records that carry a date, by century. The scrolls end with the first century; the Greek papyri begin in the second; most copies of everything are mediaeval. Point at a century to count it.`}</>;
   return <div className="sw-centuries">
     <div className="sw-cent-key">{FAMILIES.map((f) => <span key={f.name}><i style={{ background: f.colour }}/>{f.name}</span>)}</div>
     <div className="sw-cent-bars" role="img" aria-label={`Dated manuscript records by century: ${rows.map((r) => `${centuryName(r.c)} ${r.total}`).join(' · ')}`} onPointerLeave={() => setPointed(null)}>
@@ -102,7 +102,7 @@ export function HowClose({ index }: { index: MsIndex }) {
   const context = useMemo(() => ({ index, openRecord: (id: string) => navigate(recordHref(id)) }), [index, navigate]);
   return <section className="sw-close" aria-labelledby="sw-close-title">
     <div className="sw-count-head"><p className="sw-eyebrow">03 / How close to the writing</p><h2 id="sw-close-title">The gap between author<br/><em>and oldest copy.</em></h2>
-      <p>{closenessLead()} For most ancient books the gap is many centuries; for several New Testament books it is a few generations.</p></div>
+      <p>{closenessLead()} <span>For most ancient books the gap is many centuries; for several New Testament books it is a few generations.</span></p></div>
     <MsContext.Provider value={context}><div className="ms-root sw-close-chart"><Closeness/></div></MsContext.Provider>
   </section>;
 }
@@ -112,7 +112,7 @@ export function WhereKept({ index }: { index: MsIndex }) {
   const cities = new Set(index.data.holders.map((h) => h.city)).size;
   return <section className="sw-kept" aria-labelledby="sw-kept-title">
     <div><p className="sw-eyebrow">05 / Where they are kept now</p><h2 id="sw-kept-title">Scattered like P46,<br/><em>across three continents.</em></h2>
-      <p>{formatNumber(C.placed)} records name a library we can place on a map: {formatNumber(C.holders)} libraries, museums and monasteries in {formatNumber(cities)} cities. The largest keepers are national and university libraries that gathered manuscripts from the eastern Mediterranean over the last five centuries.</p>
+      <p>{`${formatNumber(C.placed)} records name a library we can place on a map: ${formatNumber(C.holders)} libraries, museums and monasteries in ${formatNumber(cities)} cities. The largest keepers are national and university libraries that gathered manuscripts from the eastern Mediterranean over the last five centuries.`}</p>
       <Link className="sw-text-link" to="/study/manuscripts#places">See them on the map <ArrowRight size={14}/></Link></div>
     <ol className="sw-kept-list">{holders.slice(0, 10).map((h, i) => <li key={h.id}><span>{String(i + 1).padStart(2, '0')}</span><b>{h.name}<small>{h.city}</small></b><em>{formatNumber(h.n)}</em><i style={{ width: `${(h.n / holders[0].n) * 100}%` }}/></li>)}</ol>
   </section>;
@@ -122,7 +122,7 @@ export function OpenCollection({ index }: { index: MsIndex | null }) {
   return <Link className="sw-collection" to="/study/manuscripts">
     <span className="sw-eyebrow">The collection</span>
     <h2>Every manuscript, <em>one by one.</em></h2>
-    <p>{index ? `${formatNumber(index.data.records.length)} open records` : 'Over five thousand open records'} through time and book by book, the great witnesses on one shelf, and the libraries that keep them on a map.</p>
+    <p>{index ? `${formatNumber(index.data.records.length)} open records through time and book by book, the great witnesses on one shelf, and the libraries that keep them on a map.` : 'Over five thousand open records through time and book by book, the great witnesses on one shelf, and the libraries that keep them on a map.'}</p>
     <span>Open the Manuscripts collection <ArrowRight size={17}/></span>
   </Link>;
 }

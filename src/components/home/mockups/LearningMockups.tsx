@@ -5,6 +5,7 @@ import { useId, type CSSProperties } from "react";
 import { CATALOGUE } from "@/data/resources/learning-catalogue";
 import type { Mockup } from "./types";
 import "./learning-mockups.css";
+import { plural } from "@/lib/site-format";
 
 const vars = (values: Record<string, string | number>) => values as CSSProperties;
 const delay = (seconds: number) => vars({ animationDelay: `${seconds}s` });
@@ -176,7 +177,7 @@ function TypeCaseScene() {
       <path className="ml-divider" d={range(1, 9, 1).map((c) => `M${CX + c * CW} ${CY}V${CY + 7 * CH}`).join("") + range(1, 7, 1).map((r) => `M${CX} ${CY + r * CH}H${CX + 9 * CW}`).join("")} />
       <rect className="ml-neat-frame" x={CX} y={CY} width={9 * CW} height={7 * CH} />
       <ellipse className="ml-cell-glow" cx={cx} cy={cy} rx="30" ry="20" fill={`url(#${uid}-g)`} />
-      <rect className="ml-holder" x="238" y="337" width="50" height="11" rx="1.5" /><text className="ml-tiny ml-holder-text" x="263" y="345" textAnchor="middle">{CATALOGUE.items.length} TITLES</text><path className="ml-pull" d="M253 350q10 7 20 0" />
+      <rect className="ml-holder" x="238" y="337" width="50" height="11" rx="1.5" /><text className="ml-tiny ml-holder-text" x="263" y="345" textAnchor="middle">{plural(CATALOGUE.items.length, "{n} TITLE", "{n} TITLES")}</text><path className="ml-pull" d="M253 350q10 7 20 0" />
       {READERS.map((r, ri) => <g key={r.id} style={tone(r.tint)}><Tag x={78} y={CY + ri * CH + 11} anchor="end" name={r.name.toUpperCase()} detail={r.age.toUpperCase()} /></g>)}
     </g>
     <path className="ml-route" d={arc} /><path className="ml-glow" d={route} pathLength={100} />
@@ -187,7 +188,7 @@ function TypeCaseScene() {
       {[0, 40, 80, 120].map((a, i) => <text key={a} className="ml-tiny" x={486 + i * 21.5} y="237" textAnchor="middle">{a}</text>)}
       <path className="ml-hatch" d={hatch(246, 266, 2.6, () => 488, (y) => 60 - (y % 5) * 3)} /><path className="ml-stamp" d="M540 160v16l5-4 5 4v-16" />
       <Tag x={518} y={302} anchor="middle" name={READY?.title.toUpperCase() ?? ""} detail={`${READY?.sessions ?? 8} SESSIONS · 42 PAGES`} note="A4 · US LETTER · READY" /></g>
-    <text className="hf-caption" x="300" y="408" textAnchor="middle">{CATALOGUE.items.length} TITLES · {CATALOGUE.kinds.length} KINDS · {READERS.length} READERS · ONE READY NOW</text>
+    <text className="hf-caption" x="300" y="408" textAnchor="middle">{`${plural(CATALOGUE.items.length, "{n} TITLE", "{n} TITLES")} · ${plural(CATALOGUE.kinds.length, "{n} KIND", "{n} KINDS")} · ${plural(READERS.length, "{n} READER", "{n} READERS")} · ONE READY NOW`}</text>
   </svg>;
 }
 

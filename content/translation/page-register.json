@@ -2333,6 +2333,42 @@
     "{n} public reading record",
     "{n} public reading records"
    ]
+  },
+  {
+   "file": "src/pages/ResourcesPage.tsx",
+   "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
+   "texts": [
+    "{n} title to download",
+    "{n} titles to download"
+   ]
+  },
+  {
+   "file": "src/pages/TestimoniesPage.tsx",
+   "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
+   "texts": [
+    "{n} · {n} / 100,000 characters. Paragraphs and line breaks are preserved."
+   ]
+  },
+  {
+   "file": "src/pages/study/history/CitiesDesk.tsx",
+   "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
+   "texts": [
+    "{n}: {n}. Evidence is in the record beside the section."
+   ]
+  },
+  {
+   "file": "src/pages/study/hymns/song/Sections.tsx",
+   "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
+   "texts": [
+    "(Across all three books Newton wrote {n} hymns, Cowper {n}.) Hover a tick to see the hymn."
+   ]
+  },
+  {
+   "file": "src/pages/study/hymns/song/parts.tsx",
+   "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
+   "texts": [
+    "{n}, John Newton and William Cowper, London 1779, from the Christian Classics Ethereal Library"
+   ]
   }
  ]
 }

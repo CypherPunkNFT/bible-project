@@ -35,7 +35,7 @@ export function ResourceCrumbs({ slug }: { slug: ResourceSection["slug"] }) {
 
 /** "Checked 2026-10-08 on example.org", linking to the page that was read. */
 export function Checked({ date, source }: { date: string; source: string }) {
-  return <p className="rs-checked">Checked {date} on <a href={source} target="_blank" rel="noreferrer">{hostOf(source)}</a></p>;
+  return <p className="rs-checked">{`Checked ${date} on `}<a href={source} target="_blank" rel="noreferrer">{hostOf(source)}</a></p>;
 }
 
 function hostOf(url: string) {
