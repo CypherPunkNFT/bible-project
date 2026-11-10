@@ -49,7 +49,8 @@ describe("games registry", () => {
   it("puts live games first, keeping list order within each group", () => {
     const order = gamesForHub();
     expect(order).toHaveLength(GAMES.length);
-    const firstComingSoon = order.findIndex((game) => !isLive(game));
+    const found = order.findIndex((game) => !isLive(game));
+    const firstComingSoon = found < 0 ? order.length : found; // every game live: no coming-soon group
     expect(order.slice(firstComingSoon).some(isLive)).toBe(false);
     const listOrder = (games: readonly typeof GAMES[number][]) => games.map((game) => GAMES.indexOf(game));
     for (const group of [order.slice(0, firstComingSoon), order.slice(firstComingSoon)]) {
@@ -69,7 +70,7 @@ describe("games hub", () => {
     expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(GAMES.length);
     expect(inLists("link").map((link) => link.getAttribute("href")).sort()).toEqual(live.map((game) => `/games/${game.slug}`).sort());
     expect(inLists("group")).toHaveLength(comingSoon);
-    expect(screen.getAllByText("Coming soon", { selector: ".gm-card-foot > span" })).toHaveLength(comingSoon);
+    expect(screen.queryAllByText("Coming soon", { selector: ".gm-card-foot > span" })).toHaveLength(comingSoon);
   });
 
   it("lays the games out on the shelves in order, live games first on each, and skips an empty shelf", () => {
@@ -112,10 +113,10 @@ describe("games hub", () => {
     expect(within(audiences).getAllByRole("listitem").map((item) => item.textContent)).toEqual(["Church night", "Youth group"]);
   });
 
-  it("sends the address of a game not built yet back to the hub", () => {
+  it("sends the address of a game not built yet, or of no game at all, back to the hub", () => {
+    // Once every approved game is live there is no coming-soon address left to try, so an unknown one stands in.
     const comingSoon = GAMES.find((game) => !isLive(game));
-    expect(comingSoon).toBeDefined();
-    renderAt(`/games/${comingSoon!.slug}`);
+    renderAt(`/games/${comingSoon?.slug ?? "no-such-game"}`);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bible games for");
   });
 });

@@ -358,3 +358,42 @@ sections, with optional hints (people still possible, and a bar showing how even
   the shipped file (real people, well-formed values, the early-Genesis rule, question form, Jesus's hand values, the
   allow-list in step, the simulation floor), storage and the report, the endpoint against a stand-in database, and
   whole games of both modes on the page.
+
+## Hot seat
+
+`hot-seat` ([hot-seat/HotSeatGame.tsx](hot-seat/HotSeatGame.tsx); design:
+[docs/features/hot-seat/design.md](../../../docs/features/hot-seat/design.md)) is a rapid-fire Bible quiz for one phone in
+one room, shaped like The Chase's 60-second Cash Builder. A player sits in the hot seat; someone else holds the phone,
+reads each question aloud, sees the answer, and taps Right, Wrong or Pass (arrow keys right, left and down on a
+computer, Backspace for Undo, Esc to pause). After 30, 45, 60 (default) or 90 seconds the buzzer sounds and the
+question on screen may still be finished. A recap lists every question with its answer and a reader link (new tab);
+marks can be changed until Save turn. 1 to 12 players (a name can be a team), 1 to 5 rounds, the order turned by one
+each round, players added, removed or moved to another age group between turns, standings after each turn and a final
+table with a column per round, best single turn and longest run of right answers. The setup and final standings sit in
+the site's layout; the hand-over, count-down, turn, recap and standings between turns are a fixed layer
+(`hot-seat.css`).
+
+- **Questions:** the question bank, loaded with `loadQuestionBank` (a small hook copied from Jeopardy's, so Try again
+  works). `pool.ts` keeps Bible quiz and Sunday-school questions that pass the live quiz's `isPlayable`, have no lead-in,
+  do not need their choices (Jeopardy's open-answer rule, copied) and fit 140 characters with an answer of at most 40.
+  Each is frozen once per loaded bank with the live quiz's `toQuizQuestion`. Four age groups, chosen per player:
+  Little ones (children's questions, easy, two choices read out by default), Kids (children's, easy and medium), Teens
+  and adults (all levels, two easy questions first), Bible experts (medium and hard). On the 2026-11-10 bank: 3,080,
+  4,428, 10,580 and 7,174 questions. `deal.ts` draws one at a time: never twice in a session, avoiding the phone's last
+  2,000 (its oldest let back when fewer than 200 remain), the same first four words twice in a turn and, where it can,
+  the same topic twice running.
+- **Saved on the phone** (local storage, because phones unload background tabs while the phone goes round):
+  `bp-hot-seat` (settings, last roster, best turn per group, length and answer style), `bp-hot-seat-game` (the session,
+  written after every mark and every five seconds of a turn, offered back for 12 hours; a reloaded turn comes back
+  paused with the question hidden) and `bp-hot-seat-seen` (question ids). A browser that will not save still plays and
+  says so.
+- **Reused, never edited:** the live quiz's `pick.ts` and `names.ts`, charades' `sound.ts` and `sensors.ts` (beeps,
+  buzz, wake lock), `useRowWindow` for "All questions tonight", and `site-format.ts` for counts, places and lists.
+- **Known gaps:** the game's words are written for the translation collector but show in English until a translation
+  run reaches them; in other languages the "needs choices" filter is an English pattern, and question ids differ by
+  language, so a question may repeat after a language change. Not yet tried by hand on a real phone (design section
+  11's one-minute pace check and screenshots).
+- **Checks:** the `*.test.ts(x)` files in `hot-seat/` run in `npm test`: every eligibility rule and the pool sizes on the
+  real bank (at least 1,000 per group and 300 per testament), 60 turns of 20 draws per group with no repeat, the warm-up,
+  two choices and the seen list, the session reducer and leaderboard, storage (damaged, old, tampered and blocked), and
+  whole games on the page with fake timers (pause, buzzer, idle close, recap fix, reload and Carry on, Try again).

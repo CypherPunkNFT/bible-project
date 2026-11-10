@@ -1,0 +1,179 @@
+// Hot seat: the turn itself (design §4.3, §6.4), the screen that matters most. The reader sees the question and its
+// answer and taps Right, Wrong or Pass; the next question shows at once. The clock runs from an end time on
+// performance.now(), checked five times a second, so a slow phone never gives extra time. At the buzzer the question
+// on screen may still be marked; a pause (or the page being hidden) stops the clock and hides question and answer.
+import { Check, Menu, Pause, Redo2, Undo2, X } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { plural } from "@/lib/site-format";
+import { beep, buzz } from "../charades/sound";
+import { IDLE_CLOSE_MS, scoreOf, type Mark, type Turn } from "./game";
+import { groupInfo } from "./pool";
+import { Reference } from "./Reference";
+
+const CLOCK_MS = 200;
+/** The time left is saved this often during a live turn, besides every mark and pause. */
+const SAVE_EVERY_MS = 5000;
+const FLASH_MS = 250;
+
+export interface TurnProps {
+  turn: Turn;
+  playerName: string;
+  paused: boolean;
+  sound: boolean;
+  /** Whether Resume can be offered; false while the questions are still loading after a reload. */
+  canResume: boolean;
+  /** Shown on the pause screen when Resume cannot be offered yet. */
+  waiting: ReactNode;
+  onMark: (mark: Mark, leftMs: number) => void;
+  onUndo: (leftMs: number) => void;
+  onTime: (leftMs: number) => void;
+  onTimeUp: () => void;
+  onClose: () => void;
+  onPause: (leftMs: number) => void;
+  onResume: () => void;
+  onMenu: () => void;
+}
+
+const isTyping = (target: EventTarget | null) => target instanceof HTMLElement && (target.isContentEditable || !!target.closest("input, textarea, select"));
+const KEYS: Record<string, Mark> = { ArrowRight: "right", ArrowLeft: "wrong", ArrowDown: "pass" };
+
+export function TurnScreen(props: TurnProps) {
+  const { turn, paused } = props;
+  const endAt = useRef<number | null>(null);
+  const [clock, setClock] = useState(() => performance.now());
+  const [flash, setFlash] = useState<Mark | null>(null);
+  const [announce, setAnnounce] = useState("");
+  const latest = useRef(props);
+  latest.current = props;
+  const running = !paused && turn.phase === "live";
+  const play = (kind: Parameters<typeof beep>[0]) => { if (latest.current.sound) beep(kind); };
+
+  const leftNow = () => (endAt.current === null ? latest.current.turn.leftMs : Math.max(0, endAt.current - performance.now()));
+
+  // The clock: an end time set when the turn runs, cleared when it pauses or time is up.
+  useEffect(() => {
+    if (!running) { endAt.current = null; return; }
+    const start = performance.now();
+    endAt.current = start + latest.current.turn.leftMs;
+    let lastSecond = -1;
+    let lastSave = start;
+    const timer = window.setInterval(() => {
+      const t = performance.now();
+      setClock(t);
+      const left = Math.max(0, (endAt.current ?? t) - t);
+      if (left <= 0) {
+        window.clearInterval(timer);
+        endAt.current = null;
+        if (latest.current.sound) beep("buzzer");
+        setAnnounce("Time");
+        latest.current.onTimeUp();
+        return;
+      }
+      const seconds = Math.ceil(left / 1000);
+      if (seconds <= 5 && seconds !== lastSecond && latest.current.sound) beep("tick");
+      lastSecond = seconds;
+      if (t - lastSave >= SAVE_EVERY_MS) { lastSave = t; latest.current.onTime(left); }
+    }, CLOCK_MS);
+    return () => window.clearInterval(timer);
+  }, [running]);
+
+  // After the buzzer: if the reader does nothing for 15 seconds, the open question is left unmarked (§4.3).
+  useEffect(() => {
+    if (paused || turn.phase !== "overtime") return;
+    const timer = window.setTimeout(() => latest.current.onClose(), IDLE_CLOSE_MS);
+    return () => window.clearTimeout(timer);
+  }, [paused, turn.phase]);
+
+  // A call, a notification or a locked phone: the turn pauses and the question is hidden.
+  useEffect(() => {
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden" && !latest.current.paused) latest.current.onPause(leftNow());
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", onVisibility);
+    return () => { document.removeEventListener("visibilitychange", onVisibility); window.removeEventListener("pagehide", onVisibility); };
+  });
+
+  const current = turn.questions.at(-1);
+  const open = current && current.mark === null ? current : null;
+  useEffect(() => { if (open && !paused) setAnnounce(open.q.text); }, [open, paused]);
+
+  const mark = (value: Mark) => {
+    if (paused || !open) return;
+    if (value === "right") play("correct");
+    else if (value === "pass") play("pass");
+    buzz(30);
+    setFlash(value);
+    window.setTimeout(() => setFlash(null), FLASH_MS);
+    props.onMark(value, leftNow());
+  };
+  const undo = () => { if (!paused && turn.phase === "live") props.onUndo(leftNow()); };
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.repeat || event.altKey || event.ctrlKey || event.metaKey || isTyping(event.target)) return;
+      if (event.key === "Escape") { event.preventDefault(); if (!paused) props.onPause(leftNow()); return; }
+      if (paused) return;
+      if (KEYS[event.key]) { event.preventDefault(); mark(KEYS[event.key]); }
+      else if (event.key === "Backspace") { event.preventDefault(); undo(); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }); // re-bound every render, so it always sees the current question
+
+  const left = running && endAt.current !== null ? Math.max(0, endAt.current - clock) : turn.leftMs;
+  const secondsLeft = turn.phase === "live" ? Math.ceil(left / 1000) : 0;
+  const score = scoreOf(turn.questions);
+  const canUndo = turn.phase === "live" && turn.questions.some((a) => a.mark !== null);
+
+  return <div className="hs-turn" data-flash={flash ?? undefined}>
+    <div className="hs-topbar">
+      <Clock secondsLeft={secondsLeft} total={turn.seconds} />
+      <p className="hs-score" aria-label={plural(score, "{n} point", "{n} points")}><span aria-hidden="true">✓</span> <strong>{score}</strong></p>
+      <button type="button" className="hs-icon" onClick={() => props.onPause(leftNow())} aria-label="Pause" disabled={paused}><Pause size={20} aria-hidden="true" /></button>
+    </div>
+    <p className="sr-only" aria-live="polite">{paused ? "" : announce}</p>
+    {paused ? <div className="hs-paused">
+      <h2>Paused</h2>
+      <p>The question is hidden until you carry on.</p>
+      {props.canResume ? <button type="button" className="hs-primary hs-big" onClick={props.onResume} autoFocus>Resume</button> : props.waiting}
+      <button type="button" className="hs-secondary" onClick={props.onMenu}><Menu size={16} aria-hidden="true" />Menu</button>
+    </div> : <>
+      <div className="hs-seat"><span className="hs-label">In the hot seat</span> <span className="hs-seat-name">{props.playerName}</span>
+        <span className="hs-seat-group">{groupInfo(turn.group).label}</span></div>
+      {turn.phase === "overtime" && <p className="hs-time-band" role="status">Time! Finish this question.</p>}
+      {open && <div className="hs-card">
+        <p className="hs-question">{open.q.text}</p>
+        {open.q.choices && <p className="hs-choices"><span className={open.q.choices[0] === open.q.answer ? "is-right" : undefined}>{open.q.choices[0]}</span>
+          <span className="hs-or">or</span>
+          <span className={open.q.choices[1] === open.q.answer ? "is-right" : undefined}>{open.q.choices[1]}</span><span aria-hidden="true">?</span></p>}
+        <div className="hs-answer">
+          <span className="hs-label">Answer</span>
+          <strong>{open.q.answer}</strong>
+          {open.q.full && <span className="hs-full">{open.q.full}</span>}
+          {open.q.reference && <Reference q={open.q} plain />}
+        </div>
+      </div>}
+      <div className="hs-buttons">
+        <button type="button" className="hs-undo" onClick={undo} disabled={!canUndo}><Undo2 size={16} aria-hidden="true" />Undo</button>
+        <button type="button" className="hs-mark is-wrong" onClick={() => mark("wrong")} disabled={!open}><X size={22} aria-hidden="true" />Wrong</button>
+        <button type="button" className="hs-mark is-pass" onClick={() => mark("pass")} disabled={!open}><Redo2 size={22} aria-hidden="true" />Pass</button>
+        <button type="button" className="hs-mark is-right" onClick={() => mark("right")} disabled={!open}><Check size={24} aria-hidden="true" />Right</button>
+      </div>
+    </>}
+  </div>;
+}
+
+/** Large digits inside a ring that drains once a second; the last five seconds change colour (and the digits say it too). */
+function Clock({ secondsLeft, total }: { secondsLeft: number; total: number }) {
+  const radius = 26;
+  const length = 2 * Math.PI * radius;
+  const share = Math.max(0, Math.min(1, secondsLeft / total));
+  return <div className={`hs-clock${secondsLeft <= 5 ? " is-low" : ""}`} role="timer" aria-label={plural(secondsLeft, "{n} second left", "{n} seconds left")}>
+    <svg viewBox="0 0 60 60" aria-hidden="true">
+      <circle cx="30" cy="30" r={radius} className="hs-ring-back" />
+      <circle cx="30" cy="30" r={radius} className="hs-ring" strokeDasharray={length} strokeDashoffset={length * (1 - share)} />
+    </svg>
+    <span aria-hidden="true">{secondsLeft}</span>
+  </div>;
+}

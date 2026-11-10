@@ -126,7 +126,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "family", art: GAME_ART.emojiStories,
   },
   {
-    slug: "hot-seat", status: "coming-soon", title: "Hot seat",
+    slug: "hot-seat", status: "live", load: () => import("./hot-seat/HotSeatGame"),
+    title: "Hot seat",
     description: "One player answers rapid-fire questions for sixty seconds while the group reads them off a phone.",
     audiences: ["youth-group", "family"],
     shelf: "groups", art: GAME_ART.hotSeat,
