@@ -157,7 +157,8 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
 - Scenes: the scene cards as now, with each frame showing the chosen theme's picture. Under the frame a strip of
   small thumbnails, one per theme that has this scene drawn; clicking one switches the chosen theme for the page.
 - Gallery (owner 2026-11-10): the book and chapter pickers stay at the top; the Scripture panel and scene card are
-  hidden. Under the pickers, the chosen book's pictures fill the page as a grid grouped by chapter ("1 Samuel 17"),
+  hidden. Under the pickers, the chosen book's pictures fill the page as a grid grouped by chapter ("1 Samuel 17") and,
+  within a chapter, by verse (owner 2026-11-10; the scene cards still put the main scene first),
   with a count; clicking another book redraws it, clicking a chapter scrolls to that chapter. Clicking a picture
   opens it large: picture on the left; on the right the count, title, chapter and verses, the scene's description
   (its "moment") and the BSB verses. The arrow keys and on-screen arrows step through every book, not just the

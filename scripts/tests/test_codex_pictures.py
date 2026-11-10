@@ -131,3 +131,11 @@ def test_review_counts_only_for_the_picture_as_drawn_now(pictures):
     for bad in ({"verdict": "maybe"}, {"verdict": "ok", "scene": "0"}, {"verdict": "flagged", "note": "x" * 1001}):
         with pytest.raises(ValueError):
             pictures.review(**{"theme": "paint", "key": "PSA:117", "writer": "haiku", "scene": 0, **bad})
+
+
+def test_gallery_runs_in_verse_order_within_a_chapter(tmp_path):
+    store = chapter_scenes.Store(tmp_path / "scenes.sqlite3")
+    store.put("GEN:5", "haiku", {"scenes": [dict(GOOD, title="main", verse_start=28, verse_end=29),
+                                            dict(GOOD, title="first", verse_start=3, verse_end=5)]})
+    pictures = scene_pictures.Pictures(store, THEMES)
+    assert [(i[3], i[2]) for i in pictures.gallery("paint")] == [("first", 1), ("main", 0)]
