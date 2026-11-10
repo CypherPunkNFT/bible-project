@@ -15887,5 +15887,152 @@
   "file": "src/pages/QuestionsPage.tsx",
   "item": "The questions could not be loaded: {n}",
   "why": "Fortress job 899 (sequence 29 step 6, card D56), sentence-from-pieces review: The value is a technical load-error message (Error.message from the loader, e.g. 'Failed to fetch'), not reader prose and not translatable; the label 'The questions could not be loaded:' is a whole sentence on its own and the error is a separate thing. As one template the value (plain lowercase English words) would not be filled, so the whole line would stay English; as pieces the label is at least translated."
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "9400e447d62c",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} pim\",\"{n} pims\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "601fa8f536f0",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} litra\",\"{n} litras\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "854d94c18ce4",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} mina\",\"{n} minas\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "c04900a544c1",
+  "languages": [
+   "es",
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} lepton\",\"{n} lepta\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "0be9c51e7417",
+  "languages": [
+   "es",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} seah\",\"{n} seahs\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "778245866aae",
+  "languages": [
+   "es",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} log\",\"{n} logs\"] is a biblical unit's name, which Spanish, Portuguese and Indonesian Bibles keep transliterated as English does, so check.py counts it as still English only because the spelling is the same; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "09c9770f8dc8",
+  "languages": [
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} hin\",\"{n} hins\"]: Portuguese 'him', plural 'hins', spelled as the English plural; Indonesian keeps 'hin'. Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "135f869c43dd",
+  "languages": [
+   "pt",
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} slide\",\"{n} slides\"]: 'slide' is the everyday word for a presentation slide in Brazilian Portuguese and Indonesian, so the forms are spelled as the English; correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "12552aa0a477",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural:[\"{n} kodrantes\",\"{n} kodrantes\"]: Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "e662f9e52d3d",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} stadion': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "184fed11bc59",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} beka': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "dc89c8378a36",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} kab': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "3eb83149d747",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} omer': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "92c6f45034e2",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} homer': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
+ },
+ {
+  "check": "translation",
+  "finding": "plural",
+  "item": "111d17a9d288",
+  "languages": [
+   "id"
+  ],
+  "why": "sequence 29 step 6 follow-up (Fortress job 899, card D56): plural '{n} metretes': Indonesian has one plural form and keeps the unit's transliterated name, so its 'other' form is spelled as the English singular; check.py counts it as still English only for that reason; the form is correct"
  }
 ]
