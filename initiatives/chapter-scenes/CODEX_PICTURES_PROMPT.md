@@ -30,7 +30,7 @@ Project root (run every command from here):
 | Full design and history: read the sections "Pictures" and "Themes and the gallery" first | `initiatives/chapter-scenes/README.md` |
 | The scenes (all 1,189 chapters, writer `haiku`; 12 trial chapters also have writer `qwen`) | `.local/chapter-scene-studio/scenes.sqlite3`, table `scenes` (key, writer, payload JSON with a `scenes` list; each scene's `prompt` field is what gets drawn) |
 | Picture records (one row per key, writer, scene, theme) | same database, table `pictures` |
-| The 3 themes, in drawing order, each with its style text | `initiatives/chapter-scenes/themes.json` (`watercolour-storybook`, `flat-cartoon`, `photographic`) |
+| The 3 themes, in drawing order, each with its style text | `initiatives/chapter-scenes/themes.json` (`watercolour-storybook`, `flat-cartoon`, `photographic`; a fourth, `painterly-realism`, has `"engine": "codex"` and is not yours) |
 | The picture maker (run it, do not edit it) | `scripts/chapter_pictures.py` |
 | Its store and helpers | `scripts/scene_pictures.py` |
 | The Python to run the maker with (has torch + CUDA + diffusers) | `.local/flux3-venv/Scripts/python.exe` (NOT the system Python) |
@@ -56,7 +56,7 @@ may be held by a run the owner started; that is fine.
 1. **Read state.** Read `initiatives/chapter-scenes/pictures-progress.md` if it exists. Then count what is left per
    theme with the system Python:
    ```
-   python -c "import sys;sys.path.insert(0,'scripts');import scene_pictures as sp;p=sp.Pictures();[print(t,len(p.pending([t]))) for t in p.ids]"
+   python -c "import sys;sys.path.insert(0,'scripts');import scene_pictures as sp;p=sp.Pictures();[print(t,len(p.pending([t]))) for t in p.flux_ids]"
    ```
    If every theme shows 0, write `ALL DONE` with the final counts at the top of the progress file and exit.
 
@@ -69,7 +69,7 @@ may be held by a run the owner started; that is fine.
    and its process is alive, a run is in progress (maybe the owner's). Record "a run was already going" with its
    numbers and exit. Do not kill it.
 
-4. **Run one chunk** of the first theme (in `themes.json` order) that still has pictures left:
+4. **Run one chunk** of the first theme in that list that still has pictures left (the list leaves out the "Painterly realism" theme, which Codex draws a different way; never run the maker for it):
    ```
    .local/flux3-venv/Scripts/python.exe scripts/chapter_pictures.py --theme <THEME_ID> --limit 300
    ```

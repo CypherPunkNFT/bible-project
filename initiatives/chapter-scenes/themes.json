@@ -16,5 +16,12 @@
     "name": "Photographic",
     "description": "Natural daylight, as if photographed on location. The scene prompt as written, with no style added.",
     "style": ""
+  },
+  {
+    "id": "painterly-realism",
+    "name": "Painterly realism",
+    "description": "Classical biblical painting: golden sunlight, rich natural detail, painted rather than photographic. Drawn by Codex.",
+    "engine": "codex",
+    "style": "Luminous painterly realism, classical biblical paradise painting, richly detailed natural textures, soft golden sunlight, vibrant harmonious colors, atmospheric depth, idealized beauty, subtly painted surfaces rather than photographic realism."
   }
 ]

@@ -196,7 +196,10 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=0, help="make at most this many pictures")
     args = parser.parse_args()
     pictures = scene_pictures.Pictures()
-    themes = [pictures.theme(args.theme)["id"]] if args.theme else pictures.ids
+    if args.theme and args.theme not in pictures.flux_ids:
+        pictures.theme(args.theme)  # an unknown id stops here with the list of themes
+        sys.exit(f"Theme {args.theme!r} is drawn by Codex, not by this maker: see scripts/codex_pictures.py.")
+    themes = [args.theme] if args.theme else pictures.flux_ids
     keys = {k.strip() for k in args.keys.split(",") if k.strip()}
     unknown = keys - set(chapter_scenes.all_keys())
     if unknown:

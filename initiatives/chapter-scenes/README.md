@@ -145,6 +145,13 @@ venv's Python as a child of the Studio (one at a time; the maker's own lock also
   what the gallery shows (filter and writer chips apply), with a "12 / 63" counter; ← → step through, wrapping at the
   ends. A not-drawn scene shows an empty frame in the run.
 
+**Themes drawn by Codex (2026-11-09).** A theme with `"engine": "codex"` in [themes.json](themes.json) is drawn by
+headless Codex's built-in image tool on the owner's ChatGPT login, not by FLUX: `chapter_pictures.py` skips it and
+refuses `--theme` for it, and its hash uses its own recipe. [codex_pictures.py](../../scripts/codex_pictures.py)
+writes the manifest (`.local/chapter-scene-studio/codex/<theme>/manifest.json`) and imports verified originals
+(centre-cropped to 16:9, 1344 x 768, plus the small copy). First one: **Painterly realism**, the owner's style text,
+trial on the 63 pilot scenes; run instructions in [CODEX_IMAGES.md](CODEX_IMAGES.md).
+
 **Not now:** a "New theme" form on the page, thumbnails at a smaller size (the WebP files are about 300 KB and load
 lazily), publishing anything.
 

@@ -21,6 +21,9 @@ THUMB_SIZE = (480, 270)  # 16:9 at the gallery's tile size
 # How every picture is made; part of each picture's hash, so a change here redraws them all. Keep this exact text:
 # the photographic pictures of 2026-11-07 were hashed with it.
 RECIPE = f"FLUX.3 Image Klein bf16 (unsloth mirror) | {WIDTH}x{HEIGHT} | {STEPS} steps"
+# A theme with "engine": "codex" is drawn by headless Codex's built-in image tool (ChatGPT login), not by the FLUX
+# maker; codex_pictures.py brings those pictures in. Its own recipe keeps the two kinds of hash apart.
+ENGINES = {"flux": RECIPE, "codex": f"Codex built-in image_gen (ChatGPT login) | centre-cropped to 16:9, {WIDTH}x{HEIGHT}"}
 SCHEMA = ("CREATE TABLE IF NOT EXISTS pictures (key TEXT, writer TEXT, scene INTEGER, theme TEXT, file TEXT NOT NULL, "
           "prompt_sha256 TEXT NOT NULL, seed INTEGER NOT NULL, recipe TEXT NOT NULL, seconds REAL, made_at TEXT NOT NULL, "
           "PRIMARY KEY (key, writer, scene, theme))")
@@ -38,8 +41,14 @@ def load_themes(path: Path = THEMES_FILE) -> list[dict]:
         tid = theme["id"]
         if not THEME_ID.fullmatch(tid) or tid in RESERVED or tid in seen:
             raise ValueError(f"{path.name}: theme id {tid!r} is repeated or not lowercase letters, digits and dashes")
+        if theme.get("engine", "flux") not in ENGINES:
+            raise ValueError(f"{path.name}: theme {tid!r} has engine {theme['engine']!r}; expected one of {sorted(ENGINES)}")
         seen.add(tid)
     return themes
+
+
+def recipe_for(theme: dict) -> str:
+    return ENGINES[theme.get("engine", "flux")]
 
 
 def picture_text(style: str, prompt: str) -> str:
@@ -47,8 +56,8 @@ def picture_text(style: str, prompt: str) -> str:
     return f"{style}\n\nScene: {prompt}" if style else prompt
 
 
-def picture_hash(text: str) -> str:
-    return hashlib.sha256(f"{RECIPE}\n{text}".encode("utf-8")).hexdigest()
+def picture_hash(text: str, recipe: str = RECIPE) -> str:
+    return hashlib.sha256(f"{recipe}\n{text}".encode("utf-8")).hexdigest()
 
 
 def seed_for(key: str, writer: str, scene: int) -> int:
@@ -70,6 +79,7 @@ class Pictures:
         self.dir = self.store.path.parent / "pictures"
         self.themes = themes or load_themes()
         self.ids = [t["id"] for t in self.themes]
+        self.flux_ids = [t["id"] for t in self.themes if t.get("engine", "flux") == "flux"]  # the FLUX maker's themes
         with closing(self.store.connect()) as db, db:
             columns = [row[1] for row in db.execute("PRAGMA table_info(pictures)")]
             if columns and "theme" not in columns:
@@ -89,7 +99,8 @@ class Pictures:
         with closing(self.store.connect()) as db, db:
             db.execute("INSERT OR REPLACE INTO pictures (key, writer, scene, theme, file, prompt_sha256, seed, recipe, "
                        "seconds, made_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
-                       (key, writer, scene, theme, picture_name(theme, key, writer, scene), sha, seed, RECIPE,
+                       (key, writer, scene, theme, picture_name(theme, key, writer, scene), sha, seed,
+                        recipe_for(self.theme(theme)),
                         seconds, made_at))
 
     def states(self, key: str | None = None, theme_ids: list[str] | None = None):
@@ -106,7 +117,7 @@ class Pictures:
             for k, writer, payload in rows:
                 for index, scene in enumerate(json.loads(payload)["scenes"]):
                     text = picture_text(theme["style"], scene["prompt"])
-                    sha = picture_hash(text)
+                    sha = picture_hash(text, recipe_for(theme))
                     fresh = (made.get((theme["id"], k, writer, index)) == sha
                              and (self.dir / picture_name(theme["id"], k, writer, index)).is_file())
                     yield {"theme": theme["id"], "key": k, "writer": writer, "scene": index, "title": scene["title"],

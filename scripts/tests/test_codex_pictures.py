@@ -1,0 +1,80 @@
+"""Codex-drawn themes: kept apart from the FLUX maker, listed in a manifest, imported into the Studio once verified."""
+import hashlib
+import sys
+from pathlib import Path
+
+import pytest
+from PIL import Image
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import chapter_scenes  # noqa: E402
+import codex_pictures  # noqa: E402
+import scene_pictures  # noqa: E402
+from test_chapter_scenes import GOOD  # noqa: E402
+
+THEMES = [{"id": "photographic", "name": "Photo", "description": "d", "style": ""},
+          {"id": "paint", "name": "Paint", "description": "d", "style": "Painterly.", "engine": "codex"}]
+
+
+@pytest.fixture
+def pictures(tmp_path):
+    store = chapter_scenes.Store(tmp_path / "scenes.sqlite3")
+    store.put("PSA:117", "haiku", {"scenes": [GOOD, dict(GOOD, title="second")]})
+    return scene_pictures.Pictures(store, THEMES)
+
+
+def test_codex_theme_is_not_the_flux_makers_and_has_its_own_hash(pictures):
+    assert pictures.flux_ids == ["photographic"] and pictures.ids == ["photographic", "paint"]
+    paint = next(s for s in pictures.states() if s["theme"] == "paint")
+    text = scene_pictures.picture_text("Painterly.", GOOD["prompt"])
+    assert paint["text"] == text and paint["sha"] != scene_pictures.picture_hash(text)
+    assert paint["sha"] == scene_pictures.picture_hash(text, scene_pictures.ENGINES["codex"])
+
+
+def test_unknown_engine_is_refused(tmp_path):
+    path = tmp_path / "themes.json"
+    path.write_text('[{"id": "x", "name": "X", "description": "d", "style": "", "engine": "dalle"}]', encoding="utf-8")
+    with pytest.raises(ValueError, match="engine"):
+        scene_pictures.load_themes(path)
+
+
+def test_manifest_then_verified_import_reaches_the_studio(pictures):
+    path = codex_pictures.build_manifest(pictures, "paint", None)
+    entries = codex_pictures.load(path)
+    assert [e["id"] for e in entries] == ["haiku/PSA-117-0", "haiku/PSA-117-1"]
+    assert {e["status"] for e in entries} == {"pending"} and entries[0]["prompt"].startswith("Painterly.\n\nScene: ")
+    # The runner saves a 3:2 picture and marks it verified; the second stays pending.
+    original = Path(entries[0]["output"])
+    original.parent.mkdir(parents=True)
+    Image.new("RGB", (1536, 1024), (200, 150, 90)).save(original)
+    entries[0].update(status="verified", file_sha256=hashlib.sha256(original.read_bytes()).hexdigest())
+    codex_pictures.write(path, entries)
+    codex_pictures.import_verified(pictures, "paint")
+    assert [e["status"] for e in codex_pictures.load(path)] == ["in_studio", "pending"]
+    fresh = [(s["scene"]) for s in pictures.states(theme_ids=["paint"]) if s["fresh"]]
+    assert fresh == [0]
+    with Image.open(pictures.dir / scene_pictures.picture_name("paint", "PSA:117", "haiku", 0)) as image:
+        assert image.size == (1344, 768)
+    with Image.open(pictures.dir / scene_pictures.picture_name("paint", "PSA:117", "haiku", 0, thumb=True)) as image:
+        assert image.size == scene_pictures.THUMB_SIZE
+    # Rebuilding keeps the run fields of an unchanged entry.
+    codex_pictures.build_manifest(pictures, "paint", None)
+    assert [e["status"] for e in codex_pictures.load(path)] == ["in_studio", "pending"]
+
+
+def test_a_changed_file_is_not_imported(pictures):
+    path = codex_pictures.build_manifest(pictures, "paint", None)
+    entries = codex_pictures.load(path)
+    original = Path(entries[0]["output"])
+    original.parent.mkdir(parents=True)
+    Image.new("RGB", (1536, 1024)).save(original)
+    entries[0].update(status="verified", file_sha256="0" * 64)
+    codex_pictures.write(path, entries)
+    codex_pictures.import_verified(pictures, "paint")
+    entry = codex_pictures.load(path)[0]
+    assert entry["status"] == "verified" and "SHA256" in entry["last_error"]
+
+
+def test_flux_theme_refused_by_codex_script(pictures):
+    with pytest.raises(SystemExit):
+        codex_pictures.build_manifest(pictures, "photographic", None)
