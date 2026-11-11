@@ -74,7 +74,7 @@ All run from the Website folder after the last change, in this order.
 - `npm run build`: exit 0 (twice; the second after the lobby's Easy sample, the streak's words and the star shimmer were tidied from the screenshots).
 - Play-through on the preview with Playwright at 1440 and 390, dark and light, from fresh storage and from a saved game: the help, the lobby, a full Pick Easy round with right, wrong and I don't know answers and Add to My verses, the ending with Add all missed and a card opened, the lobby with the streak, My verses with a row opened, a Medium card, Leave round through the dialog, a full Hard card with one wrong word, a reload mid-round (resumes at the same card) and the resume card in a new tab, Type with whole words partly right with a hint, word perfect and all wrong, First letters on Hard, keyboard focus on an ending, and a small phone at 360 by 640. Console errors: 0 at every size and theme. The kit was not changed.
 
-Commit: recorded below once made.
+Commit: `284e5ccaa` on `main`, "Redesign: Verse completion (from its visual audit)", pushed to origin; a second small commit records this hash in the report. Nothing was released. One honest note on the diff: the files rewritten whole (the card, result, pick, type, round, summary, start views and the stylesheet) now end their lines with a plain line feed where the originals used Windows endings, so the diff counts more lines than the words that changed.
 
 ## 6. Left for later
 
