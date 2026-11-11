@@ -1,0 +1,312 @@
+{
+ "about": "Bible twenty questions: hand corrections of values the site data gets wrong, and the hand slip list (design §4.1). Checked by tq_build.py: a correction may only name a data-owned tag, must differ from the data stage's value (else it is stale and the build fails), and carries a one-line reason. Values: [letter, reason] or [letter, reason, 'BOOK c:v' verse]. Slips: values players often get wrong; treated as unsure in guess mode, applied only where the final value is yes or no. The model passes (model.values.json) add their own slips.",
+ "values": {
+  "israelite": {
+   "israel-gen-25-26": [
+    "y",
+    "Jacob is Israel himself (design §4.2)",
+    "GEN 32:28"
+   ],
+   "jezebel-1ki-16-31": [
+    "n",
+    "daughter of the king of the Sidonians; the data marks her tribe wrongly"
+   ],
+   "herod-mat-2-1": [
+    "?",
+    "Idumean by descent, Jewish by religion: a fair reader could answer either way"
+   ],
+   "herod-mat-14-1": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ],
+   "herod-act-12-1": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ],
+   "agrippa-act-25-13": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ]
+  },
+  "foreign": {
+   "israel-gen-25-26": [
+    "n",
+    "Jacob is Israel himself (design §4.2)"
+   ],
+   "jezebel-1ki-16-31": [
+    "y",
+    "daughter of Ethbaal king of the Sidonians",
+    "1KI 16:31"
+   ],
+   "herod-mat-2-1": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ],
+   "herod-mat-14-1": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ],
+   "herod-act-12-1": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ],
+   "agrippa-act-25-13": [
+    "?",
+    "Herod's family: Idumean by descent, Jewish by religion"
+   ]
+  },
+  "era-patriarchs": {
+   "noah-gen-5-29": [
+    "?",
+    "Noah lived on after the Flood; players place him before it"
+   ],
+   "shem-gen-5-32": [
+    "n",
+    "Noah's sons belong to the Flood story, not the patriarchs'"
+   ],
+   "ham-gen-5-32": [
+    "n",
+    "Noah's sons belong to the Flood story, not the patriarchs'"
+   ],
+   "japheth-gen-5-32": [
+    "n",
+    "Noah's sons belong to the Flood story, not the patriarchs'"
+   ],
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-flood": {
+   "shem-gen-5-32": [
+    "y",
+    "Noah's sons lived through the Flood",
+    "GEN 7:13"
+   ],
+   "ham-gen-5-32": [
+    "y",
+    "Noah's sons lived through the Flood",
+    "GEN 7:13"
+   ],
+   "japheth-gen-5-32": [
+    "y",
+    "Noah's sons lived through the Flood",
+    "GEN 7:13"
+   ],
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-gospels": {
+   "moses-exo-2-10": [
+    "?",
+    "appears at the Transfiguration, but did not live then"
+   ],
+   "elijah-1ki-17-1": [
+    "?",
+    "appears at the Transfiguration, but did not live then"
+   ]
+  },
+  "met-jesus": {
+   "moses-exo-2-10": [
+    "?",
+    "spoke with Jesus at the Transfiguration (Mark 9:4), centuries after his death; the era closure says no"
+   ],
+   "elijah-1ki-17-1": [
+    "?",
+    "spoke with Jesus at the Transfiguration (Mark 9:4), centuries after his death; the era closure says no"
+   ]
+  },
+  "famous-sibling": {
+   "adam-gen-2-19": [
+    "n",
+    "the data lists Eve as a sibling; she is his wife"
+   ]
+  },
+  "in-law": {
+   "rahab-jos-2-1": [
+    "?",
+    "named in the Law only in a genealogy sense (not at all in Exodus to Deuteronomy by name); the book count is a false match"
+   ]
+  },
+  "in-poetry": {
+   "heman-1ch-6-33": [
+    "y",
+    "Psalm 88 is credited to Heman the Ezrahite in its heading",
+    "PSA 88:1"
+   ]
+  },
+  "era-exodus": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-conquest": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-judges": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-first-kings": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-divided": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  },
+  "era-exile": {
+   "job-job-1-1": [
+    "?",
+    "Job's dating is contested (design §5.2): every era tag unsure"
+   ]
+  }
+ },
+ "slips": {
+  "queen": [
+   "michal-1sa-14-49",
+   "abigail-1sa-25-3",
+   "bathsheba-2sa-11-3"
+  ],
+  "religious-leader": [
+   "paul-act-7-58"
+  ],
+  "shepherd": [
+   "abraham-gen-11-26",
+   "lot-gen-11-27",
+   "laban-gen-24-29"
+  ],
+  "twin": [
+   "thomas-mat-10-3"
+  ],
+  "name-changed": [
+   "solomon-2sa-5-14",
+   "naomi-rut-1-2",
+   "esther-est-2-7",
+   "gideon-jdg-6-11"
+  ],
+  "miracle-birth": [
+   "israel-gen-25-26",
+   "esau-gen-25-25",
+   "joseph-gen-30-24",
+   "benjamin-gen-35-18"
+  ],
+  "long-life": [
+   "enoch-gen-5-18"
+  ],
+  "miracles": [
+   "judas-mat-10-4",
+   "andrew-mat-4-18",
+   "james-mat-4-21",
+   "philip-mat-10-3",
+   "thomas-mat-10-3",
+   "matthew-mat-9-9",
+   "gideon-jdg-6-11",
+   "isaiah-2ki-19-2"
+  ],
+  "angel": [
+   "isaiah-2ki-19-2",
+   "joshua-exo-17-9"
+  ],
+  "dream": [
+   "pilate-mat-27-2"
+  ],
+  "prison": [
+   "mordecai-est-2-5",
+   "ezekiel-ezk-1-3"
+  ],
+  "killed": [
+   "ananias-act-5-1",
+   "sapphira-act-5-1",
+   "uzzah-2sa-6-3"
+  ],
+  "battle": [
+   "aaron-exo-4-14",
+   "moses-exo-2-10",
+   "deborah-jdg-4-4"
+  ],
+  "enemy": [
+   "paul-act-7-58"
+  ],
+  "betrayed": [
+   "david-rut-4-17",
+   "reuben-gen-29-32",
+   "laban-gen-24-29",
+   "cain-gen-4-1"
+  ],
+  "anointed": [
+   "absalom-2sa-3-3",
+   "cyrus-2ch-36-22"
+  ],
+  "built": [
+   "cain-gen-4-1"
+  ],
+  "animal": [
+   "rebekah-gen-22-23",
+   "abraham-gen-11-26",
+   "adam-gen-2-19",
+   "aaron-exo-4-14",
+   "peter-mat-4-18",
+   "moses-exo-2-10"
+  ],
+  "water-miracle": [
+   "aaron-exo-4-14",
+   "miriam-exo-15-20"
+  ],
+  "young": [
+   "moses-exo-2-10",
+   "isaac-gen-17-19",
+   "ishmael-gen-16-11"
+  ],
+  "met-jesus": [
+   "stephen-act-6-5",
+   "barabbas-mat-27-16"
+  ],
+  "risen-jesus": [
+   "stephen-act-6-5",
+   "ananias-act-9-10"
+  ],
+  "egypt": [
+   "mary-mat-1-16",
+   "joseph-mat-1-16",
+   "abraham-gen-11-26",
+   "sarah-gen-11-29",
+   "jeremiah-2ch-35-25",
+   "jeroboam-1ki-11-26"
+  ],
+  "babylon": [
+   "abraham-gen-11-26",
+   "manasseh-2ki-20-21"
+  ],
+  "galilee": [
+   "jonah-2ki-14-25"
+  ],
+  "sea": [
+   "silas-act-15-22",
+   "titus-2co-2-13",
+   "apollos-act-18-24"
+  ],
+  "in-gospels": [
+   "moses-exo-2-10",
+   "elijah-1ki-17-1"
+  ],
+  "in-poetry": [
+   "moses-exo-2-10"
+  ],
+  "in-revelation": [
+   "john-mat-4-21"
+  ]
+ }
+}

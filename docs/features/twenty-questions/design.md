@@ -1160,3 +1160,46 @@ Built to this design and registered live on `/games`. Where the build differs fr
    site's English build check passes and its collector registers them for translation. Two wordings changed for it:
    a person not in the game is now "*name* is a good one.", and accepting a lesson row says "Thanks for telling us."
 9. **Not built:** `learn.ts` (§10.4) waits for real reports, and the BatchRunner job files wait for the model run.
+
+## Implementation notes (2026-11-11, orchestrator job e3a0d04e, sequence 30 step 20): the model run
+
+The tagging run of §5.3–5.6 was made, replacing the hand-written story, place and book values of step 19. What was
+done and how the result compares with the targets:
+
+1. **The pool is back on §3.1's rule: 354 people, 140 in tier 1** (step 19 had hand-trimmed it to 298). The rule
+   as written plus the hand additions and the named drops in [tq_pool.py](../../../scripts/twenty-questions/tq_pool.py)
+   gives 354; nobody was dropped for being hard to separate. Tier moves are recorded with reasons in
+   [pool.source.json](../../../scripts/twenty-questions/pool.source.json).
+2. **Two Haiku-class passes and a Sonnet-class resolver ran through BatchRunner** on the owner's plan, one minimal
+   call per person per pass (354 + 354 items, 11 resolver items), with structured output against
+   [schema.json](../../../scripts/twenty-questions/model/schema.json). Each item carried the brief, the site's story,
+   the values already settled by the data, up to 150 Berean verses covering every book the person is named in, and
+   only the open tags (about 43 of 94). Pass B reversed the book order and shuffled the tags. Cost at API list price:
+   pass A $1.40, pass B $1.54, resolver $0.23, about 7 million input tokens in all, under 1 % of the month's plan.
+3. **The merge** ([tq_merge.py](../../../scripts/twenty-questions/tq_merge.py)): agreeing answers stand; one unsure
+   wins; yes against no goes to the resolver (11 tags in 9 people; it settled 10, one was then decided by an
+   implies/excludes rule); a yes needs a verse that belongs to the person
+   ([tq_refs.py](../../../scripts/twenty-questions/tq_refs.py)), or one both passes cited; a book tag is never no; a
+   family no needs a verse; a yes that breaks an implies/excludes rule drops to unsure. Of 15,225 merged values,
+   1,090 are yes, 10,646 no and 3,489 unsure; 32 yes answers were dropped to unsure for a verse that was not the
+   person's, 18 no answers kept with their verse dropped, 4 family no answers without a verse turned to unsure.
+4. **The value chain is explicit** in [tq_chain.py](../../../scripts/twenty-questions/tq_chain.py): Jesus's hand
+   file, then a hand correction of a data value ([corrections.source.json](../../../scripts/twenty-questions/corrections.source.json),
+   34 corrections, each with a reason and failing the build once stale), then a final data value, then the model.
+   The model is never asked a tag the data settles, and `check.ts`'s check 2 refuses any model value where the data
+   stage had an answer. Data gaps found while reading the model's items were closed in
+   [tq_data.py](../../../scripts/twenty-questions/tq_data.py): Israelite/foreign is locked unsure before Jacob's sons,
+   the New Testament split of the era tags, the Old-Testament-only and New-Testament-only closures, the Jesus
+   genealogy and Hebrews 11 passage values, and "saw the risen Jesus" for the Eleven.
+5. **Measured rates (truthful player, every person is the target once)**: tier 1 **96.4 %** (target 99 %), whole pool
+   **82.2 %** (97 %); "Don't know" on detail questions, tier 1, **65.7 %** (95 %); one wrong answer, tier 1,
+   **81.4 %** (85 %). Step 19's hand build measured 84.9 / 69.1 / 46.6 / 59.6 %. The data test's floors were raised
+   to 0.96 / 0.82 / 0.65 / 0.81 and the targets were not lowered.
+6. **Why the targets are still missed.** `check.ts` lists 31 well-known pairs separated by only one tag, most of them
+   people the text tells apart by family position alone (Rachel, Leah and Rebekah; Esau, Ishmael and Laban;
+   Benjamin and Reuben; Xerxes, Cyrus and Darius; Simon of Cyrene against Barabbas, Elizabeth, Nicodemus and
+   Zacchaeus). Five tier-1 people are lost even to a truthful player (Gideon, Cornelius, Barabbas, Jael, Ananias),
+   and 60 values are slip-marked. The engine's 20 turns run out before the last of a dense cluster is reached:
+   the average right guess takes 15.4 turns. Reaching 99 % needs either more distinguishing questions for those
+   clusters or a smaller tier 1, both design changes for the owner to decide, not more tagging.
+7. **Not built:** `learn.ts` (§10.4) still waits for real reports.

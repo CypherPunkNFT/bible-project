@@ -840,6 +840,22 @@
    "source": "data",
    "question": "Does a New Testament letter open with your person's name?",
    "definition": "A New Testament letter opens by naming them as its writer."
+  },
+  {
+   "id": "in-jesus-genealogy",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person named in Jesus' family tree in Matthew or Luke?",
+   "definition": "Named in the genealogy of Jesus (Matthew 1:1-17 or Luke 3:23-38)."
+  },
+  {
+   "id": "in-hebrews-11",
+   "group": "books",
+   "level": "detail",
+   "source": "data",
+   "question": "Is your person named in Hebrews 11, the chapter on faith?",
+   "definition": "Named anywhere in Hebrews 11, the New Testament chapter on faith (Abel, Enoch, Noah, Abraham, Rahab, Gideon ...)."
   }
  ]
 }

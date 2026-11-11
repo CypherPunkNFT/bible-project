@@ -15,12 +15,8 @@ sys.path.insert(0, str(SITE / "scripts" / "odd-one-out"))
 from ooo_data import load_people, load_people_pages, load_person, read_json  # noqa: E402
 
 OUT = HERE / "pool.source.json"
-DROP_UNDER = 8  # mentions; below this a person outside "Who's older?" is dropped unless kept below
-KEEP = {  # under the mention cut, but players think of them
-    "herodias-mat-14-3": "asked for John the Baptist's head", "judas-mat-10-3": "one of the Twelve",
-    "simon-mat-10-4": "one of the Twelve", "bartholomew-mat-10-3": "one of the Twelve", "jude-mat-13-55": "wrote Jude",
-    "simeon-luk-2-25": "held the baby Jesus", "matthias-act-1-23": "chosen to replace Judas", "agabus-act-11-28": "NT prophet",
-}
+# The pool is the design's rule (§3.1) plus the hand additions and the named drops below. An earlier build also cut
+# everyone outside "Who's older?" with fewer than 8 mentions (56 people); sequence 30 step 20 restored the rule.
 DROP = {  # caught by the rule, but a name players do not think of
     "heth-gen-10-15": "ancestor of the Hittites", "javan-gen-10-2": "a name in the table of nations",
     "nun-exo-33-11": "known only as Joshua's father", "nebat-1ki-11-26": "known only as Jeroboam's father",
@@ -65,6 +61,18 @@ LABELS = {  # same-named pool members get a label that tells them apart (design 
     "ananias-act-9-10": "Ananias of Damascus", "simon-mat-27-32": "Simon of Cyrene", "joseph-mat-27-57": "Joseph of Arimathea",
     "mary-luk-10-39": "Mary of Bethany", "salome-mat-20-20": "Salome (at the cross)", "simon-act-8-9": "Simon the sorcerer",
     "zebedee-mat-4-21": "Zebedee", "elkanah-1sa-1-1": "Elkanah", "obed-rut-4-17": "Obed", "hur-exo-17-10": "Hur",
+    # same-named people the restored rule (step 20) brought in
+    "ahab-1ki-16-28": "Ahab king of Israel", "ahab-jer-29-21": "Ahab the false prophet",
+    "ahaziah-1ki-22-40": "Ahaziah king of Israel", "ahaziah-2ki-8-24": "Ahaziah king of Judah",
+    "ben-hadad-1ki-15-18": "Ben-Hadad I (Asa's time)", "ben-hadad-2ki-6-24": "Ben-Hadad who besieged Samaria",
+    "ben-hadad-2ki-13-3": "Ben-Hadad III (Jehoahaz's time)", "jehu-1ki-16-1": "Jehu the prophet", "jehu-1ki-19-16": "Jehu king of Israel",
+    "oded-2ch-15-1": "Oded, father of Azariah the prophet", "oded-2ch-28-9": "Oded who freed the captives of Judah",
+    "shemaiah-1ki-12-22": "Shemaiah the prophet (Rehoboam's time)", "shemaiah-jer-29-24": "Shemaiah the false prophet in Babylon",
+    "shemaiah-neh-6-10": "Shemaiah who tried to trap Nehemiah", "uriah-2sa-11-3": "Uriah the Hittite", "uriah-jer-26-20": "Uriah the prophet",
+    "zechariah-2ch-24-20": "Zechariah the priest killed in the temple court", "zechariah-2ch-26-5": "Zechariah who instructed Uzziah",
+    "zechariah-2ki-14-29": "Zechariah king of Israel", "zechariah-ezr-5-1": "Zechariah the prophet",
+    "zechariah-luk-1-5": "Zechariah father of John the Baptist", "zedekiah-1ki-22-11": "Zedekiah the false prophet (Ahab's court)",
+    "zedekiah-2ki-24-17": "Zedekiah king of Judah", "zedekiah-jer-29-21": "Zedekiah the false prophet in Babylon",
 }
 
 
@@ -101,15 +109,13 @@ def main() -> None:
     for pid in rule_members(people, pages, whos_older) + [pid for pid in ADD if pid in people]:
         if pid in DROP or any(e["id"] == pid for e in entries):
             continue
-        if pid not in whos_older and pid not in ADD and pid not in KEEP and people[pid]["c"] < DROP_UNDER and pid not in TIER1_EXTRA:
-            continue
         tier = 1 if (whos_older.get(pid, {}).get("tier", 9) <= 2 or pid in TIER1_EXTRA) else 2
-        why = ADD.get(pid) or KEEP.get(pid) or "design rule §3.1"
+        why = ADD.get(pid) or "design rule §3.1"
         entries.append({"id": pid, "label": label_of(pid, people, whos_older, facts_labels), "tier": tier, "why": why})
     missing = [pid for pid in ADD if pid not in people]
     if missing:
         raise SystemExit(f"hand additions not found in data/study/people.json: {missing}")
-    labels = [e["label"] for e in entries]
+    labels = [e["label"].lower() for e in entries]  # the shipped data test compares labels case-insensitively
     clashes = sorted({label for label in labels if labels.count(label) > 1})
     if clashes:
         raise SystemExit(f"pool labels must be unique (design §3.5); add LABELS for: {clashes}")

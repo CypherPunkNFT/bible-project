@@ -121,10 +121,20 @@ def era_values(pid: str, person: dict, unsure_era: set) -> dict:
     return out
 
 
+# People of the Genesis eras who are Jacob, his children or later, and so may be Israelite yes or no. The same set is in
+# src/pages/games/twenty-questions/data.test.ts ("leaves Israelite and another nation unsure ..."); keep the two together.
+FROM_JACOB = {"israel-gen-25-26", "joseph-gen-30-24", "dinah-gen-30-21", "tamar-gen-38-6", "ephraim-gen-41-52", "manasseh-gen-41-51",
+              "potiphar-gen-37-36", "pharaoh-gen-37-36"}
+SONS_OF_JACOB = {"reuben-gen-29-32", "simeon-gen-29-33", "levi-gen-29-34", "judah-gen-29-35", "dan-gen-30-6", "naphtali-gen-30-8",
+                 "gad-gen-30-11", "asher-gen-30-13", "issachar-gen-30-18", "zebulun-gen-30-20", "joseph-gen-30-24", "benjamin-gen-35-18"}
+
+
 def nation_values(pid: str, person: dict, ooo_foreign) -> dict:
     """israelite / foreign. Before Jacob's sons both are unsure (design §4.2); NT tribes in the data are unreliable."""
     era, tribe = person.get("e", ""), (person.get("t") or "").lstrip(">").strip()
     nation = re.sub(r"^Tribe of ", "", tribe)
+    if era in ("Before the Flood", "Patriarchs") and pid not in FROM_JACOB and pid not in SONS_OF_JACOB:
+        return {"israelite": ("?", None), "foreign": ("?", None)}  # design §4.2: before Israel existed, both unsure
     if tribe in NATIONS or nation in NATIONS:
         return {"israelite": ("n", None), "foreign": ("y", f"people data: {nation}")}
     if era == NT or era == "Before the Flood" or "?" in tribe:
@@ -203,12 +213,43 @@ def data_values(src: PeopleFacts, pid: str, person: dict, pool_ids: set) -> dict
     values.update(reign_values(pid, person))
     values["book-named"] = (BOOK_NAMED.get(pid, "n"), "hand table: book names" if BOOK_NAMED.get(pid) == "y" else None)
     values["letter-writer"] = LETTER_WRITER.get(pid, ("n", None))
-    gospels, church = values["in-gospels"][0], [values[t][0] for t in ("in-acts", "in-letters", "in-revelation")]
     is_nt = person.get("e") == NT
-    values["era-gospels"] = (gospels, values["in-gospels"][1]) if is_nt else ("n", None)
-    values["era-church"] = (("y", None) if "y" in church else ("n", None) if set(church) == {"n"} else ("?", None)) if is_nt \
-        else ("n", None)
+    # The NT split (Jesus' life on earth / the early church) is the model's to decide for NT people (design §4.2).
+    values["era-gospels"] = ("?", None) if is_nt else ("n", None)
+    values["era-church"] = ("?", None) if is_nt else ("n", None)
+    values.update(era_closures(person))
+    values.update(passage_values(person))
+    if values["the-twelve"][0] == "y" and pid != "judas-mat-10-4":
+        # the Eleven saw the risen Jesus (Matthew 28:16-17); Matthias was chosen as a witness of the resurrection (Acts 1:22)
+        values["risen-jesus"] = ("y", 44001022 if pid == "matthias-act-1-23" else 40028016)
     return values
+
+
+# Named-in-a-passage tags, read straight from the verse list (design §4.2 "separating tags" for the early Genesis people).
+PASSAGES = {"in-jesus-genealogy": [(40001001, 40001017), (42003023, 42003038)], "in-hebrews-11": [(58011001, 58011040)]}
+
+
+def passage_values(person: dict) -> dict:
+    refs = person.get("refs") or []
+    out = {}
+    for tag, spans in PASSAGES.items():
+        hit = next((ref for ref in refs if any(lo <= ref <= hi for lo, hi in spans)), None)
+        out[tag] = ("y", hit) if hit else ("n", None)
+    return out
+
+
+# Tags settled by the era alone, so the model is never asked them (design §5.2 "about half of all values are set here").
+NT_ONLY = ("met-jesus", "risen-jesus", "baptised", "tax-collector", "religious-leader", "rome")
+OT_ONLY = ("babylon",)
+
+
+def era_closures(person: dict) -> dict:
+    era = person.get("e", "")
+    if era in ERAS and era != NT:
+        return {tag: ("n", None) for tag in NT_ONLY}
+    if era == NT:
+        return {tag: ("n", None) for tag in OT_ONLY}
+    return {}
 
 
 def load_sources() -> PeopleFacts:

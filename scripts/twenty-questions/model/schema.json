@@ -1,0 +1,22 @@
+{
+ "type": "object",
+ "properties": {
+  "tags": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": { "type": "string", "maxLength": 40 },
+     "v": { "type": "string", "enum": ["yes", "no", "unsure"] },
+     "ref": { "type": "string", "maxLength": 40 },
+     "slip": { "type": "boolean" },
+     "why": { "type": "string", "maxLength": 160 }
+    },
+    "required": ["id", "v", "ref", "slip", "why"],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": ["tags"],
+ "additionalProperties": false
+}

@@ -17,11 +17,12 @@ const index = new Map(file.tags.map((t, i) => [t.id, i]));
 const value = (personId: string, tagId: string) => file.people.find((p) => p.id === personId)!.v[index.get(tagId)!];
 
 /**
- * The simulation's results when the hand-written tags shipped (review sheet, 2026-11-10). They are below the design's
- * targets (TARGETS) because the two-pass model tagging of design §5.3 has not been run yet; until then these floors
- * stop the game from getting worse. Raise them, never lower them, when the tags improve.
+ * The simulation's results when the two-pass model tagging of design §5.3 shipped (review sheet, 2026-11-11): 96.4 %,
+ * 82.2 %, 65.7 % and 81.4 %. They are still below the design's targets (TARGETS); these floors stop the game from getting
+ * worse. Raise them, never lower them, when the tags improve. (The hand-tagged build of 2026-11-10 measured 84.9 / 69.1 /
+ * 46.6 / 59.6 %.)
  */
-const FLOORS = { truthfulTier1: 0.84, truthfulPool: 0.69, dontKnowTier1: 0.46, oneSlipTier1: 0.59 };
+const FLOORS = { truthfulTier1: 0.96, truthfulPool: 0.82, dontKnowTier1: 0.65, oneSlipTier1: 0.81 };
 
 describe("the shipped game file", () => {
   it("holds only real people from the site's list, never a tribe or a people, with unique ids and labels", () => {
