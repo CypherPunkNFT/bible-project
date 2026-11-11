@@ -1,27 +1,164 @@
-.tt-game { --tt-true: var(--resource-life, #3d6b58); --tt-lie: var(--red-letter, #b3261e); max-width: 58rem; margin: auto; padding: 2rem 1rem 5rem; color: var(--ink); overflow-wrap: anywhere; }
-.tt-game h1 { font: 450 clamp(2rem,5vw,3.5rem)/1.15 var(--font-serif); margin: 1.5rem 0 1rem; }
-.tt-game h2 { font: 450 1.6rem/1.3 var(--font-serif); margin: 1.5rem 0 1rem; }
-.tt-game h3 { font-weight: 650; }
-.tt-game p { margin: .8rem 0; line-height: 1.65; }
-.tt-game button, .tt-game input, .tt-game select, .tt-game textarea { color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: .4rem; padding: .75rem 1rem; max-width: 100%; min-height: 44px; }
-.tt-game button { margin: .5rem .5rem .5rem 0; cursor: pointer; }
-.tt-game :is(button,input,select,a,textarea):focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.tt-game button[aria-pressed=true], .tt-picked { outline: 2px solid var(--accent); outline-offset: 2px; }
-.tt-game fieldset { border-top: 1px solid var(--line); margin-top: 1.5rem; padding: 1rem 0; }
-.tt-game label { display: block; margin: .5rem 0; }
-.tt-game label input { display: block; width: 100%; }
-.tt-statements { display: grid; gap: .75rem; margin: 1rem 0; }
-.tt-game .tt-statement { width: 100%; margin: 0; padding: 1.1rem; text-align: start; font-size: 1.15rem; line-height: 1.55; border: 1px solid var(--line); border-radius: .5rem; }
-.tt-muted, .tt-game footer { color: var(--muted); }
-.tt-evidence, .tt-recap li { padding: 1rem 0; border-bottom: 1px solid var(--line); }
-/* Reveal (design 8.3): True and Made up are told apart in words and colour, never colour alone; the lie's edge is also dashed. */
-.tt-evidence.tt-true, .tt-evidence.tt-lie { padding-inline-start: .9rem; border-inline-start: 4px solid var(--tt-true); }
-.tt-evidence.tt-lie { border-inline-start: 4px dashed var(--tt-lie); }
-.tt-evidence.tt-true h3 { color: var(--tt-true); }
-.tt-evidence.tt-lie h3 { color: var(--tt-lie); }
-.tt-game blockquote { padding-inline-start: 1rem; margin: 1rem 0; border-inline-start: 2px solid var(--accent); }
-.tt-game footer { font-size: .85rem; }
+/* /games/two-truths (TwoTruthsGame.tsx): three statement cards that turn over in place at the reveal, a feedback band
+   with Next on the first screen, the ten squares and the spotted count above the round, a result card, team chips and
+   award toggles for a group, and a start screen that shows the game. The game's colour is the Acts magenta (its hub
+   colour); true is the site's life green and made up its red-letter red, in words as well as colour. Everything else is
+   the site's. Nothing waits for an animation: src/index.css cuts them to 0.01 ms under reduced motion and every state
+   below changes at once; the one looping animation (the sample card on the start screen) is switched off there. */
+.tt-game {
+  --tt-true: var(--resource-life, #3d6b58); --tt-lie: var(--red-letter, #b3261e); --tt-ease: cubic-bezier(.16, 1, .3, 1);
+  --kit-color: var(--acts); --kit-right: var(--tt-true); --kit-wrong: var(--tt-lie); --kit-radius: .8rem; --kit-surface: var(--surface); --kit-flip-stagger: 250ms;
+  max-width: 46rem; margin: auto; padding: 1.5rem 1rem 5rem; color: var(--ink); overflow-wrap: anywhere; scroll-padding-bottom: 9rem;
+}
+.tt-game h1 { font: 450 clamp(2rem, 5vw, 3.2rem)/1.1 var(--font-serif); margin: 1rem 0 .5rem; }
+.tt-game h2 { font: 450 1.4rem/1.3 var(--font-serif); margin: 1.5rem 0 .5rem; }
+.tt-game p { margin: .6rem 0; line-height: 1.6; }
 .tt-game a { text-decoration: underline; text-underline-offset: .2em; }
-.tt-game textarea { width: 100%; min-height: 8rem; }
-.tt-recap { list-style: decimal; padding-inline-start: 1.5rem; }
-@media (min-width: 768px) { .tt-group .tt-statement, .tt-group .tt-evidence { font-size: 1.75rem; } }
+.tt-muted { color: var(--muted); }
+.tt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- Buttons: one filled button in the game's colour, plain text for the rest; focus is the same lift as hover ------ */
+.tt-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.5rem; border-radius: 999px; border: 1px solid var(--acts);
+  background: var(--acts); color: var(--page); font: 600 1rem/1.2 var(--font-sans); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform .3s var(--tt-ease), box-shadow .3s var(--tt-ease), opacity .3s; }
+.tt-primary:hover, .tt-primary:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 26px -16px var(--acts); }
+.tt-primary:active { transform: translateY(0) scale(.98); transition-duration: .08s; }
+.tt-primary:disabled { opacity: .45; cursor: default; transform: none; box-shadow: none; }
+.tt-plain { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .75rem; background: none; border: 0; color: var(--muted); font: 600 .95rem/1.2 var(--font-sans);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: color .2s, text-decoration-color .2s; }
+.tt-plain:hover, .tt-plain:focus-visible { color: var(--ink); text-decoration-color: currentColor; }
+
+/* ---- The round's head: the ten squares and the spotted count, or the round number and the team chips -------------- */
+.tt-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.5rem; margin: .5rem 0 0; }
+.tt-head--group { display: grid; gap: .6rem; }
+.tt-spotted { display: inline-flex; align-items: baseline; gap: .4rem; color: var(--muted); font: 700 .68rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.tt-spotted strong { font: 500 1.6rem/1 var(--font-serif); color: var(--ink); animation: tt-pop .45s var(--tt-ease) both; }
+.tt-round-no { margin: 0; color: var(--muted); font: 700 .68rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.tt-person { margin: .75rem 0 .25rem; }
+.tt-ask { margin: 0 0 1rem; color: var(--muted); font: 500 1.05rem/1.4 var(--font-serif); font-style: italic; }
+.tt-round .kit-chip__score { font: 500 1.25rem/1 var(--font-serif); }
+
+/* ---- The statement cards: a lettered slot, the sentence, a lift and a press; at the reveal they turn over in place -- */
+.tt-cards { display: grid; gap: .8rem; margin: 0 0 1rem; }
+.tt-row { position: relative; }
+.tt-game .kit-flip__face { transition: transform .35s var(--tt-ease), border-color .35s var(--tt-ease), box-shadow .35s var(--tt-ease); }
+.tt-face { display: flex; align-items: center; gap: .9rem; width: 100%; min-height: 4.25rem; padding: .85rem 1rem; background: none; border: 0; border-radius: inherit; color: inherit;
+  font: inherit; font-size: 1.1rem; line-height: 1.5; text-align: start; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+div.tt-face { cursor: default; }
+.tt-slot { flex: 0 0 3rem; display: grid; justify-items: center; align-content: center; gap: .1rem; min-height: 2.2rem; }
+.tt-letter { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 1px solid var(--line); color: var(--muted);
+  font: 500 1.05rem/1 var(--font-serif); transition: background-color .3s var(--tt-ease), color .3s var(--tt-ease), border-color .3s var(--tt-ease); }
+.tt-text { flex: 1 1 auto; min-width: 0; }
+@media (hover: hover) { .tt-card .kit-flip__front:has(.tt-face:hover) { transform: translateY(-3px); border-color: var(--acts); box-shadow: 0 12px 28px -20px rgb(0 0 0 / .6); } }
+.tt-card .kit-flip__front:has(.tt-face:focus-visible) { transform: translateY(-3px); border-color: var(--acts); box-shadow: 0 0 0 1px var(--acts) inset; }
+.tt-card .kit-flip__front:has(.tt-face:active) { transform: translateY(0) scale(.985); transition-duration: .08s; }
+.tt-card .kit-flip__front:has(.tt-face:hover) .tt-letter, .tt-card .kit-flip__front:has(.tt-face:focus-visible) .tt-letter { color: var(--acts); border-color: var(--acts); }
+.tt-card.is-picked .kit-flip__front { border-color: var(--acts); box-shadow: 0 0 0 1px var(--acts) inset; }
+/* After the hover rule, and at least as specific, so the letter stays readable while the pointer is still over the picked card. */
+.tt-card.is-picked .kit-flip__front:has(.tt-face) .tt-letter { background: var(--acts); border-color: var(--acts); color: var(--page); }
+.tt-pick { position: absolute; top: -.65rem; right: .9rem; z-index: 1; padding: .2rem .6rem; border-radius: 999px; background: var(--acts); color: var(--page);
+  font: 700 .62rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; animation: tt-pop .4s var(--tt-ease) both; pointer-events: none; }
+.tt-back .tt-mark { font-size: 1.15rem; font-weight: 700; line-height: 1; }
+.tt-back .tt-kind { font: 700 .56rem/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; text-align: center; }
+.tt-back.is-true .tt-slot { color: var(--tt-true); }
+.tt-back.is-lie .tt-slot { color: var(--tt-lie); }
+.tt-back.is-lie s { text-decoration-color: var(--tt-lie); text-decoration-thickness: 2px; }
+.tt-game .kit-flip__back.is-wrong { border-style: dashed; }
+.tt-group .tt-face { font-size: 1.3rem; }
+@media (min-width: 768px) { .tt-group .tt-face { font-size: 1.75rem; } }
+
+/* ---- Under each turned card: the truth, and the verse folded behind one line (open for the made-up one) ------------ */
+.tt-under { padding: .3rem 0 .1rem 1rem; animation: tt-fade .4s var(--tt-ease) both; }
+.tt-truth { margin: .35rem 0 0; }
+.tt-fold > summary { list-style: none; display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; cursor: pointer; color: var(--muted); font: 600 .9rem/1.2 var(--font-sans);
+  transition: color .2s; -webkit-tap-highlight-color: transparent; }
+.tt-fold > summary::-webkit-details-marker { display: none; }
+.tt-fold > summary::before { content: ""; width: .45rem; height: .45rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform .3s var(--tt-ease); }
+.tt-fold[open] > summary::before { transform: rotate(45deg); }
+.tt-fold > summary:hover, .tt-fold > summary:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.tt-evidence { animation: tt-fade .35s var(--tt-ease) both; }
+.tt-passage { margin: .25rem 0 .75rem; padding-inline-start: .9rem; border-inline-start: 2px solid var(--accent); }
+.tt-passage p { margin: .3rem 0; }
+.tt-passage footer { color: var(--muted); font-size: .85rem; }
+.tt-alert { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .75rem; color: var(--tt-lie); }
+.tt-alert p { margin: 0; }
+
+/* ---- Locking in, and the band that rises with the verdict and Next ----------------------------------------------- */
+.tt-lockin { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1rem; margin: .25rem 0 1rem; animation: tt-rise .35s var(--tt-ease) both; }
+.tt-band { margin-top: 1rem; border-radius: var(--kit-radius) var(--kit-radius) 0 0; }
+/* Pinned at every width: when a long verse is open the band stays at the bottom of the window, so Next is always in view. */
+.tt-verdict { font: 500 1.35rem/1.2 var(--font-serif); }
+.tt-band.is-right .tt-verdict { color: var(--tt-true); }
+.tt-band.is-wrong .tt-verdict { color: var(--tt-lie); }
+.tt-about { margin: .4rem 0 0; font-size: .9rem; }
+.tt-finish { margin-top: .75rem; }
+@media (min-width: 640px) { .tt-band { border: 1px solid var(--line); border-radius: var(--kit-radius); } .tt-band.is-right { border-color: var(--tt-true); } .tt-band.is-wrong { border-color: var(--tt-lie); } }
+
+/* ---- Group awards: a chip in the team's colour that fills and ticks the moment it is tapped ------------------------ */
+.tt-awards { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .25rem; }
+.tt-award { --_team: var(--acts); display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .4rem 1rem .4rem .5rem; border-radius: 999px; border: 1px solid var(--_team);
+  background: transparent; color: var(--ink); font: 600 .95rem/1.2 var(--font-sans); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background-color .25s var(--tt-ease), color .25s var(--tt-ease), transform .3s var(--tt-ease); }
+.tt-award__mark { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 1px solid var(--_team); font-size: .85rem; font-weight: 700; line-height: 1; }
+.tt-award__score { font-variant-numeric: tabular-nums; opacity: .75; }
+.tt-award.is-on { background: var(--_team); color: var(--page); }
+.tt-award.is-on .tt-award__mark { background: var(--page); color: var(--_team); border-color: var(--page); animation: tt-pop .35s var(--tt-ease) both; }
+.tt-award:hover, .tt-award:focus-visible { transform: translateY(-2px); }
+.tt-award:active { transform: translateY(0) scale(.98); }
+
+/* ---- The start screen: the sample trio, the three numbers, Play, the group fold ----------------------------------- */
+.tt-lede { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.25rem; }
+.tt-sample { display: grid; gap: .6rem; margin: 0 0 1.25rem; max-width: 34rem; }
+.tt-sample-card { display: flex; align-items: center; gap: .9rem; min-height: 3.6rem; padding: .65rem .9rem; border: 1px solid var(--line); border-radius: var(--kit-radius); background: var(--surface); font-size: 1rem; line-height: 1.4; }
+.tt-sample > .tt-sample-card, .tt-sample-turn { animation: tt-deal .55s var(--tt-ease) both; }
+.tt-sample > :nth-child(2) { animation-delay: 80ms; }
+.tt-sample > :nth-child(3) { animation-delay: 160ms; }
+.tt-sample-turn { perspective: 900px; }
+.tt-sample-inner { position: relative; display: grid; transform-style: preserve-3d; animation: tt-turn 9s var(--tt-ease) 1.2s infinite; }
+.tt-sample-inner > .tt-sample-card { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.tt-sample-back { transform: rotateY(180deg); border-style: dashed; border-color: var(--tt-lie); background: color-mix(in srgb, var(--tt-lie) 10%, var(--surface)); }
+.tt-sample-back .tt-slot { color: var(--tt-lie); }
+.tt-sample-back s { text-decoration-color: var(--tt-lie); text-decoration-thickness: 2px; }
+@media (prefers-reduced-motion: reduce) { .tt-sample-inner { animation: none; } }
+.tt-stats { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin: 0 0 1.25rem; }
+.tt-stats div { display: grid; gap: .25rem; }
+.tt-stats dt { color: var(--muted); font: 700 .68rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.tt-stats dd { margin: 0; font: 500 1.6rem/1 var(--font-serif); font-variant-numeric: tabular-nums; }
+.tt-of { font-size: .55em; color: var(--muted); margin-inline-start: .25em; }
+.tt-play { margin: 0 0 .75rem; }
+.tt-setup { margin: .75rem 0 1.5rem; }
+.tt-setup fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: .75rem 0; }
+.tt-setup legend { padding: 0 .5rem 0 0; color: var(--muted); font: 600 .9rem/1.2 var(--font-sans); }
+.tt-setup label { display: block; margin: .6rem 0; }
+.tt-setup input, .tt-setup select { color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: .5rem; padding: .6rem .8rem; min-height: 44px; max-width: 100%; font: inherit; }
+.tt-setup label input { display: block; width: 100%; margin-top: .3rem; }
+
+/* ---- The result card: the count-up, the band line, the squares, Share, Play again, then the stories folded --------- */
+.tt-result { padding-top: 1rem; }
+.tt-score-wrap { position: relative; }
+.tt-result h1 { margin: 0; }
+.tt-band-line { font: italic 450 1.6rem/1.2 var(--font-serif); color: var(--accent); animation: tt-fade .6s var(--tt-ease) .3s both; }
+.tt-result .kit-trail { justify-content: center; }
+.tt-result .kit-hop > :nth-child(2) { animation-delay: 60ms; } .tt-result .kit-hop > :nth-child(3) { animation-delay: 120ms; } .tt-result .kit-hop > :nth-child(4) { animation-delay: 180ms; }
+.tt-result .kit-hop > :nth-child(5) { animation-delay: 240ms; } .tt-result .kit-hop > :nth-child(6) { animation-delay: 300ms; } .tt-result .kit-hop > :nth-child(7) { animation-delay: 360ms; }
+.tt-result .kit-hop > :nth-child(8) { animation-delay: 420ms; } .tt-result .kit-hop > :nth-child(9) { animation-delay: 480ms; } .tt-result .kit-hop > :nth-child(10) { animation-delay: 540ms; }
+.tt-result .kit-result__actions { align-items: center; }
+.tt-result .kit-share { justify-items: center; }
+.tt-result .kit-share__button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.5rem; border-radius: 999px; border: 1px solid var(--acts);
+  background: transparent; color: var(--ink); font: 600 1rem/1.2 var(--font-sans); cursor: pointer; transition: transform .3s var(--tt-ease), background-color .3s var(--tt-ease), color .3s var(--tt-ease); }
+.tt-result .kit-share__button:hover, .tt-result .kit-share__button:focus-visible { transform: translateY(-2px); background: var(--acts); color: var(--page); }
+.tt-result .kit-share__status:empty { display: none; }
+.tt-result .kit-share__copy { min-height: 5rem; }
+.tt-stories { margin-top: 1.5rem; }
+.tt-recap { list-style: none; margin: 0; padding: 0; }
+.tt-recap li { border-bottom: 1px solid var(--line); }
+.tt-story > summary { display: flex; width: 100%; min-height: 52px; color: var(--ink); font: 500 1.1rem/1.3 var(--font-serif); }
+.tt-dot { flex: 0 0 auto; width: .7rem; height: .7rem; border-radius: 2px; }
+.tt-dot.is-right { background: var(--tt-true); }
+.tt-dot.is-wrong { background: var(--tt-lie); }
+.tt-story-body { padding: 0 0 1rem 1.6rem; animation: tt-fade .35s var(--tt-ease) both; }
+
+@keyframes tt-pop { 0% { transform: scale(.5); opacity: 0; } 60% { transform: scale(1.15); opacity: 1; } 100% { transform: none; } }
+@keyframes tt-fade { from { opacity: 0; } }
+@keyframes tt-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes tt-deal { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes tt-turn { 0%, 40% { transform: rotateY(0); } 50%, 88% { transform: rotateY(180deg); } 100% { transform: rotateY(360deg); } }

@@ -28,12 +28,17 @@ it('uses BSB on another site language, retains the revealed score on load failur
   });
   vi.spyOn(console,'warn').mockImplementation(()=>{});
   render(<MemoryRouter><Game deck={deck}/></MemoryRouter>);
+  // The made-up statement's verse is open at first; the two true ones fold out, and each failed passage carries its own Reload.
+  await waitFor(()=>expect(screen.getAllByRole('alert')).toHaveLength(1));
+  for(const fold of document.querySelectorAll('.tt-fold:not([open]) > summary')) fireEvent.click(fold);
   await waitFor(()=>expect(screen.getAllByRole('alert')).toHaveLength(3));
-  expect(screen.getByRole('heading',{name:'You spotted it'})).toBeInTheDocument();
+  expect(screen.getAllByRole('button',{name:'Reload evidence'})).toHaveLength(3);
+  expect(document.querySelector('.kit-band__verdict')!.textContent).toContain('You spotted it');
   const before=sessionStorage.getItem(RUN_KEY);
   failed=false;
   for(const button of screen.getAllByRole('button',{name:'Reload evidence'})) fireEvent.click(button);
   await waitFor(()=>expect(screen.queryAllByRole('alert')).toHaveLength(0));
+  expect(screen.queryAllByRole('button',{name:'Reload evidence'})).toHaveLength(0);
   await waitFor(()=>expect(screen.getAllByText(/Loaded BSB evidence/).length).toBeGreaterThan(0));
   expect(sessionStorage.getItem(RUN_KEY)).toBe(before);
   for(const [slug] of vi.mocked(loadPlain).mock.calls) expect(slug).toBe('bsb');
