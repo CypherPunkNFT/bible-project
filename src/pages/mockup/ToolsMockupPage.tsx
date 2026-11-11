@@ -16,8 +16,8 @@ import "@/pages/tools/tools.css";
 const DOOR_ORDER: readonly Category[] = ["family", "prayer", "sharing", "study", "witness", "hard-times"];
 const DOOR_TITLES: Partial<Record<Category, string>> = { family: "Life events", prayer: "Prayer & home", sharing: "Sharing & churches", witness: "Your story" };
 
-// Version 2 (/tools_mockup2): the doors sit higher, and the chosen category's tiles follow at once, with no number,
-// title, text or line between, so the first tiles already show on the screen (owner, 2026-11-11).
+// Version 2 (/tools_mockup2): the doors sit higher, and the chosen category follows at once under a heading of just its
+// title and text (no number, no count), so the first tiles already show on the screen (owner, 2026-11-11).
 export default function ToolsMockupPage({ version = 1 }: { version?: 1 | 2 }) {
   const [params] = useSearchParams();
   const tools = toolsForHub();
@@ -44,8 +44,9 @@ export default function ToolsMockupPage({ version = 1 }: { version?: 1 | 2 }) {
       doors={categories.map((category) => ({ key: category.key, title: category.title, tone: DOOR_TONES[category.key], count: category.tools.length, art: DOOR_ART[category.key] }))} />
     </div>
     {version === 2
-      ? <section key={selected} className="gm-shelf hub-doors-bare" id={`tools-${selected}`} aria-label={categories[index].title}>
-        <ul className="gm-grid">{categories[index].tools.map((tool) => <li key={tool.slug}><ToolTile tool={tool} /></li>)}</ul>
+      ? <section key={selected} className="gm-shelf hub-doors-bare" id={`tools-${selected}`} aria-labelledby={`tools-${selected}-title`}>
+        <div className="gm-shelf-head hub-doors-bare-head"><div><h2 id={`tools-${selected}-title`}>{categories[index].title}</h2><p>{categories[index].text}</p></div></div>
+        <ul className="gm-grid" aria-label={categories[index].title}>{categories[index].tools.map((tool) => <li key={tool.slug}><ToolTile tool={tool} /></li>)}</ul>
       </section>
       : <CategorySection key={selected} category={categories[index]} index={index + 1} />}
   </div>;

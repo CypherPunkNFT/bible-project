@@ -12,8 +12,8 @@ import { GameTile, ShelfSection, type ShelfOfGames } from "@/pages/games/GamesPa
 import { SHELVES, gamesForHub, isLive, shelfOf } from "@/pages/games/registry";
 import "@/pages/games/games.css";
 
-// Version 2 (/games_mockup2): the doors sit higher, and the chosen shelf's tiles follow at once, with no number, title,
-// text or line between, so the first tiles already show on the screen (owner, 2026-11-11).
+// Version 2 (/games_mockup2): the doors sit higher, and the chosen shelf follows at once under a heading of just its
+// title and text (no number, no count), so the first tiles already show on the screen (owner, 2026-11-11).
 export default function GamesMockupPage({ version = 1 }: { version?: 1 | 2 }) {
   const [params] = useSearchParams();
   const games = gamesForHub();
@@ -38,8 +38,9 @@ export default function GamesMockupPage({ version = 1 }: { version?: 1 | 2 }) {
       doors={shelves.map((shelf) => ({ key: shelf.key, title: shelf.title, tone: DOOR_TONES[shelf.key], count: shelf.games.length, art: DOOR_ART[shelf.key] }))} />
     </div>
     {version === 2
-      ? <section key={selected} className="gm-shelf hub-doors-bare" id={`shelf-${selected}`} aria-label={shelves[index].title}>
-        <ul className="gm-grid">{shelves[index].games.map((game) => <li key={game.slug}><GameTile game={game} /></li>)}</ul>
+      ? <section key={selected} className="gm-shelf hub-doors-bare" id={`shelf-${selected}`} aria-labelledby={`shelf-${selected}-title`}>
+        <div className="gm-shelf-head hub-doors-bare-head"><div><h2 id={`shelf-${selected}-title`}>{shelves[index].title}</h2><p>{shelves[index].text}</p></div></div>
+        <ul className="gm-grid" aria-label={shelves[index].title}>{shelves[index].games.map((game) => <li key={game.slug}><GameTile game={game} /></li>)}</ul>
       </section>
       : <ShelfSection key={selected} shelf={shelves[index]} index={index + 1} />}
   </div>;

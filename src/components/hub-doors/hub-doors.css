@@ -19,8 +19,9 @@
 .hub-door:is(:hover, :focus-visible) strong { color: var(--tone); }
 .hub-door:focus-visible { outline: none; }
 .hub-doors + .gm-shelf { padding-top: 8px; }
-/* A section with no heading (version 2): the tiles start a little under the doors' line, on a line of their own. */
+/* Version 2's section: a little under the doors' line, headed by its title and text alone (no number, no count). */
 .hub-doors-page .hub-doors-bare { margin-top: 1.6rem; padding-top: 0; }
+.hub-doors-bare-head { grid-template-columns: minmax(0, 1fr); }
 
 .hub-doors-page.st-page { padding-top: 2rem; }
 .hub-doors-page .gm-hero .st-stats { margin-top: 1.4rem; padding-top: 0; border-top: 0; }
