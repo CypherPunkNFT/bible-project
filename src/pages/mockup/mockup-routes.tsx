@@ -146,6 +146,9 @@ export function mockupRoutes() {
     // tiles below (owner, 2026-11-11). No MOCK-UP tag: a mock-up shows only the real page.
     <Route key="tools" path="/tools_mockup" element={<ToolsMockupPage />} />,
     <Route key="games" path="/games_mockup" element={<GamesMockupPage />} />,
+    // Version 2: doors higher, no section heading, the first tiles already on the screen (owner, 2026-11-11).
+    <Route key="tools2" path="/tools_mockup2" element={<ToolsMockupPage version={2} />} />,
+    <Route key="games2" path="/games_mockup2" element={<GamesMockupPage version={2} />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }

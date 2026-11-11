@@ -19,6 +19,9 @@
 .hub-door:is(:hover, :focus-visible) strong { color: var(--tone); }
 .hub-door:focus-visible { outline: none; }
 .hub-doors + .gm-shelf { padding-top: 8px; }
+/* A section with no heading (version 2): the tiles start right under the doors, on the doors' own line. */
+.hub-doors-page .hub-doors-bare { margin-top: 0; padding-top: 0; }
+.hub-doors-bare .gm-grid { border-top: 0; }
 /* Where the page lands after a door is chosen: the section's top just under the sticky menu. */
 .hub-doors-page .gm-shelf { scroll-margin-top: calc(64px + 1.25rem); }
 
@@ -31,6 +34,11 @@
   .hub-doors-fold { display: flex; flex-direction: column; min-height: calc(100svh - 64px - 1.1rem - 1.25rem); }
   .hub-doors-fold .gm-hero { margin-block: auto; }
   .hub-doors-fold .hub-doors { margin-top: auto; padding-top: 1.5rem; }
+  /* Version 2: nothing is stretched; the doors follow the hero closely and the first tiles already show below them. */
+  .hub-doors-fold.v2 { min-height: 0; }
+  .hub-doors-fold.v2 .gm-hero { margin-block: 0; }
+  .hub-doors-fold.v2 .hub-doors { margin-top: 1.25rem; padding-top: .5rem; }
+  .hub-doors-fold.v2 .hub-door-art { height: 112px; }
   .hub-doors-page .gm-hero { align-items: stretch; }
   .hub-doors-page .gm-hero-figure { position: relative; }
   .hub-doors-page .gm-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; }

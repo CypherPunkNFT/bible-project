@@ -8,7 +8,7 @@ import { HubDoors } from "@/components/hub-doors/HubDoors";
 import { selectedDoor } from "@/components/hub-doors/door-parts";
 import { HeroArt } from "@/pages/tools/art/HeroArt";
 import { DOOR_ART, DOOR_TONES } from "@/pages/tools/art/doors";
-import { CategorySection, type CategoryOfTools } from "@/pages/tools/ToolsPage";
+import { CategorySection, ToolTile, type CategoryOfTools } from "@/pages/tools/ToolsPage";
 import { CATEGORIES, toolsForHub, isLive, type Category } from "@/pages/tools/registry";
 import "@/pages/games/games.css";
 import "@/pages/tools/tools.css";
@@ -16,7 +16,9 @@ import "@/pages/tools/tools.css";
 const DOOR_ORDER: readonly Category[] = ["family", "prayer", "sharing", "study", "witness", "hard-times"];
 const DOOR_TITLES: Partial<Record<Category, string>> = { family: "Life events", prayer: "Prayer & home", sharing: "Sharing & churches", witness: "Your story" };
 
-export default function ToolsMockupPage() {
+// Version 2 (/tools_mockup2): the doors sit higher, and the chosen category's tiles follow at once, with no number,
+// title, text or line between, so the first tiles already show on the screen (owner, 2026-11-11).
+export default function ToolsMockupPage({ version = 1 }: { version?: 1 | 2 }) {
   const [params] = useSearchParams();
   const tools = toolsForHub();
   const live = tools.filter(isLive).length;
@@ -28,7 +30,7 @@ export default function ToolsMockupPage() {
   const selected = selectedDoor(params.get("category"), categories.map((category) => category.key));
   const index = categories.findIndex((category) => category.key === selected);
   return <div className="st-page gm-page tl-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="hub-doors-fold">
+    <div className={`hub-doors-fold${version === 2 ? " v2" : ""}`}>
     <header className="gm-hero">
       <div className="gm-hero-text">
         <p className="st-kick">Tools</p>
@@ -41,6 +43,10 @@ export default function ToolsMockupPage() {
     <HubDoors param="category" label="Kinds of tool" controls={`tools-${selected}`} selected={selected}
       doors={categories.map((category) => ({ key: category.key, title: category.title, tone: DOOR_TONES[category.key], count: category.tools.length, art: DOOR_ART[category.key] }))} />
     </div>
-    <CategorySection key={selected} category={categories[index]} index={index + 1} />
+    {version === 2
+      ? <section key={selected} className="gm-shelf hub-doors-bare" id={`tools-${selected}`} aria-label={categories[index].title}>
+        <ul className="gm-grid">{categories[index].tools.map((tool) => <li key={tool.slug}><ToolTile tool={tool} /></li>)}</ul>
+      </section>
+      : <CategorySection key={selected} category={categories[index]} index={index + 1} />}
   </div>;
 }
