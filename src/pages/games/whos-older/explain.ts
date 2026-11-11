@@ -1,5 +1,6 @@
 // Who's older?: the words of the reveal (design §7). The gap shown is always the smallest the windows allow, every
 // date says "about", and a pair with an early-Genesis person prints no years at all, because theirs are not real.
+import { formatNumber } from "@/lib/site-format";
 import type { Span } from "./pairing";
 import type { Character, DataFact, PoolPair, WhosOlderData } from "./game";
 
@@ -7,7 +8,7 @@ import type { Character, DataFact, PoolPair, WhosOlderData } from "./game";
 export function formatGap(gap: number): string {
   if (gap === 1) return "1 year";
   const shown = gap > 1000 ? Math.floor(gap / 100) * 100 : gap;
-  return `${shown.toLocaleString("en-US")} years`;
+  return `${formatNumber(shown)} years`;
 }
 
 /** A historians' year: -1030 -> "1030 BC", 20 -> "AD 20". */

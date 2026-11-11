@@ -1,6 +1,7 @@
 // The study's opening: the shared trail, the gold concept line, the title with its turn, the lead, the drawing in its circle and
 // orbit with the motto, the figures bar (every number worked out by the build from the record), the outcomes and the chapters.
 import { StudyTrail } from "@/components/study/StudyTrail";
+import { formatNumber } from "@/lib/site-format";
 import { D, LD } from "./model";
 import { T } from "./parts";
 
@@ -39,7 +40,7 @@ function Hero() {
 export function Landing() {
   const f = LD.figures;
   const figures: [string, string, string][] = [
-    ["Jerusalem to the Dead Sea", `About ${f.drop.metres.toLocaleString("en-GB")} m`, `of fall in about ${f.drop.km} km, from the record's rounded heights (each marked and checked)`],
+    ["Jerusalem to the Dead Sea", `About ${formatNumber(f.drop.metres)} m`, `of fall in about ${f.drop.km} km, from the record's rounded heights (each marked and checked)`],
     ["Rain, north against south", `About ${f.rainRatio}×`, `as much in Upper Galilee as at Beersheba: long-term averages, ${f.rain[0].words} mm against ${f.rain[2].words}`],
     ["Regions read", String(f.regions), "five bands on one line from the sea, and three basins off it: a selection, not a census"],
     ["Battle places", String(f.battles), "valleys and passes where Scripture's battles return, each with what the ground explains and what it does not"],
