@@ -52,6 +52,18 @@ export const estimateMinutes = (players: number, rounds: number, seconds: number
 
 export const scoreOf = (questions: readonly Asked[]) => questions.filter((a) => a.mark === "right").length;
 
+/** Right answers in a row at the end of the marked questions (the open one does not count): the turn's flame. */
+export function currentRun(questions: readonly Asked[]): number {
+  let run = 0;
+  for (let i = questions.length - 1; i >= 0; i--) {
+    const mark = questions[i].mark;
+    if (mark === null) continue;
+    if (mark !== "right") break;
+    run++;
+  }
+  return run;
+}
+
 /** Who answers with two choices (§3.1): Little ones by default, Little ones and kids, or nobody. */
 export function styleFor(group: Group, twoChoices: TwoChoicesFor): Style {
   if (group === "little") return twoChoices === "nobody" ? "open" : "two";

@@ -1,9 +1,12 @@
-// Hot seat: the recap after a turn (design §5.2, §6.5). Every question asked with its answer and reference, a mark that
-// can be changed with a tap, and the points kept only when the reader taps Save turn.
+// Hot seat: the recap after a turn (design §5.2, §6.5). The turn as a strip of tiles that fill in green, red and amber
+// as the screen opens, the score counting up with a ribbon for a new best, then every question asked with its answer
+// and reference and a mark that can be changed with a tap (its tile changes with it). The points are kept only when
+// the reader taps Save turn, which sits in a band pinned to the bottom of a phone screen.
 import { Save } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { plural } from "@/lib/site-format";
-import { MARK_SIGNS } from "./display";
+import { FeedbackBand, NewBestRibbon, ProgressTrail, ScoreCountUp } from "../kit";
+import { MARK_SIGNS, tilesOf } from "./display";
 import { scoreOf, type Asked, type Mark, type Turn } from "./game";
 import { groupInfo } from "./pool";
 import { Reference } from "./Reference";
@@ -34,11 +37,17 @@ export function Recap({ turn, playerName, recordBefore, onFix, onSave }: Props) 
   useEffect(() => { heading.current?.focus({ preventScroll: true }); }, []);
   const score = scoreOf(turn.questions);
   const newBest = score > 0 && score > recordBefore;
+  const answered = turn.questions.filter((a) => a.mark !== null).length;
   return <section className="hs-recap" aria-label="Recap">
     <p className="hs-name" ref={heading} tabIndex={-1}>{playerName}</p>
-    <p className="hs-recap-score">{plural(score, "{n} point", "{n} points")}</p>
+    {turn.questions.length > 0 && <ProgressTrail className="hs-strip" marks={tilesOf(turn.questions)} size="1.1rem"
+      label={plural(answered, "{n} question answered", "{n} questions answered")} />}
+    <div className="hs-recap-score">
+      <ScoreCountUp value={score} label={plural(score, "{n} point", "{n} points")} className="hs-recap-count" />
+      <span className="hs-recap-unit" aria-hidden="true">{plural(score, "point", "points")}</span>
+      <NewBestRibbon when={newBest}>New best on this phone</NewBestRibbon>
+    </div>
     {newBest && <p className="hs-best">
-      <span>New best on this phone</span>
       <span className="hs-tag">{groupInfo(turn.group).label}</span>
       <span className="hs-tag">{plural(turn.seconds, "{n} second", "{n} seconds")}</span>
       <span className="hs-tag">{turn.style === "two" ? "Two choices" : "Open answers"}</span>
@@ -47,11 +56,13 @@ export function Recap({ turn, playerName, recordBefore, onFix, onSave }: Props) 
       <p className="hs-note">Tap a mark to change it.</p>
       <ol className="hs-recap-list">{turn.questions.map((asked, i) => <li key={`${asked.q.id}-${i}`} className={`hs-recap-row is-${asked.mark ?? "open"}`}>
         <button type="button" className="hs-mark-cycle" onClick={() => onFix(i)}>
-          <MarkBadge mark={asked.mark} />
+          <span key={asked.mark ?? "open"} className="hs-mark-face"><MarkBadge mark={asked.mark} /></span>
         </button>
         <AskedRow asked={asked} />
       </li>)}</ol>
     </>}
-    <button type="button" className="hs-primary hs-big" onClick={onSave}><Save size={18} aria-hidden="true" />Save turn</button>
+    <FeedbackBand open pinned="narrow" focusAction={false} className="hs-save-band"
+      verdict={<span className="hs-save-score">{plural(score, "{n} point", "{n} points")}</span>}
+      action={<button type="button" className="hs-primary hs-big" onClick={onSave}><Save size={18} aria-hidden="true" />Save turn</button>} />
   </section>;
 }

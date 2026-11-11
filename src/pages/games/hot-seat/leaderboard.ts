@@ -43,7 +43,9 @@ export function standings(s: Session): Standing[] {
   const lastPlayed = s.turns.length ? s.turns.length - 1 : -1;
   const before = lastPlayed >= 0 && !s.turns[lastPlayed].skipped ? table(s, s.turns.slice(0, lastPlayed)) : null;
   return now.map((row) => {
-    const earlier = before?.find((b) => b.player.id === row.player.id);
+    // A player still waiting for a first turn has not moved: before anyone sat they were joint first on 0, and showing
+    // them as dropped after the first turn read as a fault (visual audit, 11 November 2026).
+    const earlier = row.played > 0 ? before?.find((b) => b.player.id === row.player.id) : undefined;
     return { ...row, moved: earlier ? earlier.place - row.place : 0 };
   });
 }

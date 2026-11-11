@@ -1,8 +1,10 @@
-// Hot seat: the menu (design §6.8), a sheet over any game screen; opening it pauses a running turn. Resume, players
-// (add, remove, change group), settings (applied from the next turn), How to play and End game.
+// Hot seat: the menu (design §6.8), a sheet over any game screen; opening it pauses a running turn. Resume, How to play
+// and End game sit at the top where they are always on screen; then players (add, remove, change group) and settings
+// (applied from the next turn). End game asks first in the site's own dialog, never the browser's grey box.
 import { Trash2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { NAME_MAX } from "@/lib/live-quiz/names";
+import { ConfirmDialog } from "../kit";
 import { MAX_PLAYERS, type Session, type Settings } from "./game";
 import { GROUPS, type Group } from "./pool";
 import { GameSettings } from "./Setup";
@@ -22,6 +24,7 @@ export function MenuSheet(props: Props) {
   const { session } = props;
   const [name, setName] = useState("");
   const [group, setGroup] = useState<Group>("adults");
+  const [ending, setEnding] = useState(false);
   const close = useRef<HTMLButtonElement>(null);
   const latestClose = useRef(props.onClose);
   latestClose.current = props.onClose;
@@ -40,7 +43,11 @@ export function MenuSheet(props: Props) {
         <h2 id="hs-menu-title">Menu</h2>
         <button ref={close} type="button" className="hs-icon" onClick={props.onClose} aria-label="Close"><X size={18} aria-hidden="true" /></button>
       </div>
-      <button type="button" className="hs-primary" onClick={props.onClose}>Resume</button>
+      <div className="hs-row hs-menu-actions">
+        <button type="button" className="hs-primary" onClick={props.onClose}>Resume</button>
+        <button type="button" className="hs-secondary" onClick={props.onHow}>How to play</button>
+        <button type="button" className="hs-secondary is-danger" onClick={() => setEnding(true)}>End game</button>
+      </div>
 
       <h3>Players</h3>
       <ul className="hs-menu-players">{active.map((p) => <li key={p.id}>
@@ -62,11 +69,10 @@ export function MenuSheet(props: Props) {
       <h3>Settings</h3>
       <p className="hs-note">Changes apply from the next turn.</p>
       <GameSettings settings={session.settings} onSettings={props.onSettings} />
-
-      <div className="hs-row">
-        <button type="button" className="hs-secondary" onClick={props.onHow}>How to play</button>
-        <button type="button" className="hs-secondary is-danger" onClick={() => { if (window.confirm("End this game now? The standings so far are kept.")) props.onEnd(); }}>End game</button>
-      </div>
+      <ConfirmDialog open={ending} title="End this game now?" confirmLabel="End game" cancelLabel="Keep playing" danger
+        onConfirm={() => { setEnding(false); props.onEnd(); }} onCancel={() => setEnding(false)} className="hs-confirm">
+        <p>The standings so far are kept.</p>
+      </ConfirmDialog>
     </div>
   </div>;
 }

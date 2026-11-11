@@ -19,6 +19,7 @@ import { HowToPlay } from "./HowToPlay";
 import { MenuSheet } from "./MenuSheet";
 import { poolFor, poolSizes, poolsOf, type Group, type Pools } from "./pool";
 import { Recap } from "./Recap";
+import { BookNames } from "./book-names";
 import { Setup, type ResumeOffer, type RosterRow } from "./Setup";
 import { BetweenTurns } from "./Standings";
 import { recordKey, standings } from "./leaderboard";
@@ -51,9 +52,13 @@ export default function HotSeatGame() {
   useEffect(() => { document.title = "Hot seat · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   const { bank, failed, retry } = useBank();
   const pools = useMemo(() => (bank ? poolsOf(bank.questions) : null), [bank]);
+  // The bank's book list, so a reference is shown with its book written out ("1 Samuel 16:11", not "1 Sam 16:11").
+  const bookNames = useMemo(() => Object.fromEntries((bank?.books ?? []).map((b) => [b.code, b.name])), [bank]);
   return <div className="hs-page mx-auto max-w-3xl px-4 sm:px-6">
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
-    <Game pools={pools} status={pools ? "ready" : failed ? "failed" : "loading"} retry={retry} />
+    <BookNames.Provider value={bookNames}>
+      <Game pools={pools} status={pools ? "ready" : failed ? "failed" : "loading"} retry={retry} />
+    </BookNames.Provider>
   </div>;
 }
 

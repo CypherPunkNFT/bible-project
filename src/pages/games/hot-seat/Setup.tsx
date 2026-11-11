@@ -1,9 +1,13 @@
-// Hot seat: the setup (design §6.1), in the site's layout. Players with their age groups, the game's settings, a time
-// estimate, and Start game once the questions have loaded. A saved session under 12 hours old is offered back first.
+// Hot seat: the setup (design §6.1), in the site's layout. The players as a line-up of small cards, each dealt in as
+// it is added, with a coloured pip for its age group; the game's settings folded under one row that says the current
+// choices in words, so Start game sits on the first screen; a time estimate; and Start game once the questions have
+// loaded. A saved session under 12 hours old is offered back first.
 import { ArrowDown, ArrowUp, Play, Plus, Trash2 } from "lucide-react";
+import type { CSSProperties } from "react";
 import { formatList, plural } from "@/lib/site-format";
 import { NAME_MAX } from "@/lib/live-quiz/names";
 import { GAME_ART, GameArtImage } from "../art";
+import { MoreOptions } from "../kit";
 import { MAX_PLAYERS, ROUND_COUNTS, SECONDS, estimateMinutes, type Settings, type TwoChoicesFor } from "./game";
 import { GROUPS, MIN_POOL, type Group, type Testament } from "./pool";
 
@@ -31,6 +35,20 @@ export function GameSettings({ settings, onSettings }: { settings: Settings; onS
     <Chips label="Two choices for" options={TWO_CHOICES} value={settings.twoChoices} onPick={(twoChoices) => onSettings({ twoChoices })} />
     <Chips label="Sound" options={ON_OFF} value={settings.sound} onPick={(sound) => onSettings({ sound })} />
   </>;
+}
+
+/** The settings row's words: the current choices, each in its own element with a dot between. */
+function SettingsSummary({ settings, rounds }: { settings: Settings; rounds: number }) {
+  const testament = TESTAMENTS.find((t) => t.key === settings.testament)?.label ?? "Both";
+  return <span className="hs-settings-summary">
+    <span className="hs-settings-word">Settings</span>
+    <span className="hs-settings-now">
+      <span>{plural(settings.seconds, "{n} second", "{n} seconds")}</span>
+      <span>{testament}</span>
+      <span>{plural(rounds, "{n} round", "{n} rounds")}</span>
+      <span>{settings.sound ? "Sound on" : "Sound off"}</span>
+    </span>
+  </span>;
 }
 
 interface Props {
@@ -66,7 +84,7 @@ export function Setup(props: Props) {
   return <div className="hs-setup">
     {props.resume && <div className="hs-resume" role="region" aria-label="Saved game">
       <div>
-        <strong>Carry on tonight's game</strong>
+        <strong>Tonight's game is saved</strong>
         <p className="hs-note">{`Round ${props.resume.round} of ${props.resume.rounds}`}</p>
         {props.resume.leaders.length > 0 && <p className="hs-note"><span className="hs-label">Leading</span> <span>{formatList(props.resume.leaders)}</span></p>}
       </div>
@@ -87,7 +105,8 @@ export function Setup(props: Props) {
     <section className="hs-players" aria-labelledby="hs-players-title">
       <h2 id="hs-players-title">Players</h2>
       <p className="hs-note">A name can be a team.</p>
-      <ol className="hs-roster">{roster.map((row, i) => <li key={i} className="hs-roster-row">
+      <ol className="hs-roster">{roster.map((row, i) => <li key={i} className={`hs-roster-row hs-player-card is-${row.group}`} style={{ "--hs-i": i } as CSSProperties}>
+        <span className="hs-player-no" aria-hidden="true">{i + 1}</span>
         <input type="text" value={row.name} maxLength={NAME_MAX} placeholder={`Player ${i + 1}`} aria-label={`Name of player ${i + 1}`}
           onChange={(event) => change(i, { name: event.target.value })} />
         <select value={row.group} aria-label={`Age group of player ${i + 1}`} onChange={(event) => change(i, { group: event.target.value as Group })}>
@@ -102,17 +121,10 @@ export function Setup(props: Props) {
       <button type="button" className="hs-secondary" onClick={() => props.onRoster([...roster, { name: "", group: "adults" }])} disabled={roster.length >= MAX_PLAYERS}>
         <Plus size={16} aria-hidden="true" />Add player
       </button>
-      <dl className="hs-groups">{GROUPS.map((g) => <div key={g.key}><dt>{g.label}</dt><dd>{g.note}</dd></div>)}</dl>
       {unavailable.length > 0 && <p className="hs-note"><span>Too few questions under this testament for:</span> <span>{formatList(unavailable.map((g) => g.label))}</span></p>}
       {roster.length === 1 && <p className="hs-note">One player can play, with someone else reading. Two or more is more fun.</p>}
     </section>
 
-    <section className="hs-settings" aria-label="Game settings">
-      <GameSettings settings={settings} onSettings={props.onSettings} />
-      <Chips label="Rounds" options={ROUND_COUNTS.map((n) => ({ key: n, label: String(n) }))} value={rounds} onPick={props.onRounds} />
-    </section>
-
-    <p className="hs-estimate">{plural(estimateMinutes(roster.length, rounds, settings.seconds), "About {n} minute", "About {n} minutes")}</p>
     {!props.saving && <p className="hs-note" role="status">This browser is not saving, so a reload will lose the scores.</p>}
     {status === "failed" ? <div className="hs-cant-load" role="alert">
       <p>The questions could not be loaded.</p>
@@ -121,6 +133,15 @@ export function Setup(props: Props) {
       <button type="button" className="hs-primary hs-big" onClick={props.onStart} disabled={status !== "ready" || blocked}>
         <Play size={18} aria-hidden="true" />{status === "ready" ? "Start game" : "Loading questions…"}
       </button>
+      <p className="hs-estimate">{plural(estimateMinutes(roster.length, rounds, settings.seconds), "About {n} minute", "About {n} minutes")}</p>
     </div>}
+
+    <MoreOptions className="hs-settings" summary={<SettingsSummary settings={settings} rounds={rounds} />}>
+      <section aria-label="Game settings">
+        <GameSettings settings={settings} onSettings={props.onSettings} />
+        <Chips label="Rounds" options={ROUND_COUNTS.map((n) => ({ key: n, label: String(n) }))} value={rounds} onPick={props.onRounds} />
+        <dl className="hs-groups">{GROUPS.map((g) => <div key={g.key} className={`is-${g.key}`}><dt><span className="hs-pip" aria-hidden="true" />{g.label}</dt><dd>{g.note}</dd></div>)}</dl>
+      </section>
+    </MoreOptions>
   </div>;
 }

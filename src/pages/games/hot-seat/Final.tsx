@@ -1,10 +1,12 @@
-// Hot seat: the final standings (design §5.3, §6.7), in the site's layout. The top three in large type, the full table
-// with a column per round, the two shout-outs, and "All questions tonight": every question of the session, grouped by
-// turn, windowed with the site's useRowWindow (about 50 rows drawn above and below the screen, no "load more").
+// Hot seat: the final standings (design §5.3, §6.7), in the site's layout. A podium whose steps rise third, second,
+// first with the names on them and one burst for the winner, the full table with a column per round, the two
+// shout-outs as cards, and "All questions tonight": every question of the session, grouped by turn, windowed with the
+// site's useRowWindow (about 50 rows drawn above and below the screen, no "load more").
 import { Plus, RotateCcw, Users } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { formatList, ordinal, plural } from "@/lib/site-format";
+import { formatList, plural } from "@/lib/site-format";
 import { useRowWindow } from "@/lib/useRowWindow";
+import { Confetti, Podium, type Team } from "../kit";
 import { missedTurns, scoreOf, type Asked, type Session } from "./game";
 import { groupInfo } from "./pool";
 import { AskedRow, MarkBadge } from "./Recap";
@@ -17,24 +19,25 @@ export function Final({ session, onAnotherRound, onNewGame, onChangePlayers }: P
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { heading.current?.focus({ preventScroll: true }); }, []);
   const rows = useMemo(() => standings(session), [session]);
-  const top = [1, 2, 3].map((place) => ({ place, names: rows.filter((r) => r.place === place).map((r) => r.player.name) })).filter((t) => t.names.length);
+  const teams = useMemo<Team[]>(() => rows.map((r) => ({ id: r.player.id, name: r.player.name, score: r.total })), [rows]);
+  const played = rows.some((r) => r.played > 0);
   const shouts = shoutOuts(session);
   const missed = session.ended ? missedTurns(session) : [];
   return <section className="hs-final" aria-labelledby="hs-final-title">
     <h1 id="hs-final-title" ref={heading} tabIndex={-1}>Final standings</h1>
-    {rows.some((r) => r.played > 0) && <ol className="hs-podium">{top.map((t) => <li key={t.place}>
-      <span className="hs-podium-place">{ordinal(t.place)}</span><strong className="hs-podium-names">{formatList(t.names)}</strong>
-    </li>)}</ol>}
+    {played && <div className="hs-podium-wrap">
+      <Podium teams={teams} label="Podium" countMs={900} className="hs-podium" winnerExtra={<Confetti when count={28} reach={140} />} />
+    </div>}
     {missed.length > 0 && <p className="hs-note"><span>The game ended before these players had their turn this round:</span> <span>{formatList(missed.map((p) => p.name))}</span></p>}
+    <div className="hs-row hs-final-actions">
+      <button type="button" className="hs-primary" onClick={onAnotherRound}><Plus size={16} aria-hidden="true" />Play another round</button>
+      <button type="button" className="hs-secondary" onClick={onNewGame}><RotateCcw size={16} aria-hidden="true" />New game, same players</button>
+      <button type="button" className="hs-secondary" onClick={onChangePlayers}><Users size={16} aria-hidden="true" />Change players</button>
+    </div>
     <StandingsTable rows={rows} rounds={session.rounds} byRound />
     <div className="hs-shouts">
       <Shout title="Best single turn" shout={shouts.bestTurn} unit={(n) => plural(n, "{n} point", "{n} points")} />
       <Shout title="Longest run of right answers" shout={shouts.longestRun} unit={(n) => plural(n, "{n} in a row", "{n} in a row")} />
-    </div>
-    <div className="hs-row">
-      <button type="button" className="hs-primary" onClick={onAnotherRound}><Plus size={16} aria-hidden="true" />Play another round</button>
-      <button type="button" className="hs-secondary" onClick={onNewGame}><RotateCcw size={16} aria-hidden="true" />New game, same players</button>
-      <button type="button" className="hs-secondary" onClick={onChangePlayers}><Users size={16} aria-hidden="true" />Change players</button>
     </div>
     <AllQuestions session={session} />
   </section>;

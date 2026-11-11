@@ -46,8 +46,10 @@ describe("hot seat page", () => {
     expect(document.title).toBe("Hot seat · Games · Bible Guide");
     fireEvent.change(screen.getByRole("textbox", { name: "Name of player 1" }), { target: { value: "Anna" } });
     fireEvent.change(screen.getByRole("textbox", { name: "Name of player 2" }), { target: { value: "Ben" } });
-    fireEvent.click(within(screen.getByRole("group", { name: "Rounds" })).getByRole("button", { name: "1" }));
-    fireEvent.click(within(screen.getByRole("group", { name: "Sound" })).getByRole("button", { name: "Off" }));
+    // The settings are folded under one row (the redesign); the fold is opened to reach them.
+    fireEvent.click(screen.getByText("Settings"));
+    fireEvent.click(within(screen.getByRole("group", { name: "Rounds", hidden: true })).getByRole("button", { name: "1", hidden: true }));
+    fireEvent.click(within(screen.getByRole("group", { name: "Sound", hidden: true })).getByRole("button", { name: "Off", hidden: true }));
     vi.useFakeTimers(FAKE);
     click("Start game");
 
@@ -78,13 +80,14 @@ describe("hot seat page", () => {
 
     // The buzzer: the question on screen may still be marked, and then the recap opens.
     await advance(60_000);
-    expect(within(layer()).getByText("Time! Finish this question.")).toBeInTheDocument();
+    expect(within(layer()).getByText("Time!")).toBeInTheDocument();
     click("Right");
     expect(within(layer()).getByText("Save turn", { exact: false })).toBeInTheDocument();
-    expect(within(layer()).getByText("2 points")).toBeInTheDocument();
+    expect(within(layer()).getByRole("img", { name: "2 points" })).toBeInTheDocument(); // the score counting up
+    expect(within(layer()).getByRole("img", { name: "4 questions answered" })).toBeInTheDocument(); // the strip
     const marks = layer().querySelectorAll<HTMLButtonElement>(".hs-mark-cycle");
     fireEvent.click(marks[0]); // Right -> Wrong
-    expect(within(layer()).getByText("1 point")).toBeInTheDocument();
+    expect(within(layer()).getByRole("img", { name: "1 point" })).toBeInTheDocument();
     expect(within(layer()).getAllByRole("link", { name: /opens in a new tab/ })[0]).toHaveAttribute("target", "_blank");
     click("Save turn");
     expect(within(layer()).getByRole("heading", { name: "Standings" })).toBeInTheDocument();
@@ -95,7 +98,7 @@ describe("hot seat page", () => {
     expect(layer().querySelector(".hs-reader")?.textContent).toBe("Anna");
     await startTurn();
     await advance(60_000);
-    expect(within(layer()).getByText("Time! Finish this question.")).toBeInTheDocument();
+    expect(within(layer()).getByText("Time!")).toBeInTheDocument();
     await advance(15_000);
     expect(within(layer()).getByText("Not answered")).toBeInTheDocument();
     click("Save turn");
