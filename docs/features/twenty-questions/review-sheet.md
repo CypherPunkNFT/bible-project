@@ -30,134 +30,37 @@ Merged values by source: model 15188, resolved 10, rule 27, v=? 3489, v=n 10646,
 
 | Player | Result | Target | |
 |---|---|---|---|
-| truthfulTier1 | 96.4 % | 99.0 % | **not met** |
-| truthfulPool | 82.2 % | 97.0 % | **not met** |
-| dontKnowTier1 | 65.7 % | 95.0 % | **not met** |
-| oneSlipTier1 | 81.4 % | 85.0 % | **not met** |
+| truthfulTier1 | 100.0 % | 99.0 % | met |
+| truthfulPool | 100.0 % | 97.0 % | met |
+| dontKnowTier1 | 96.4 % | 95.0 % | met |
+| oneSlipTier1 | 88.6 % | 85.0 % | met |
 
-Average turns to a right guess (truthful player): 15.4.
+Average turns to a right guess (truthful player): 11.6.
 
 ### People not found by every player, worst first
 
 | Person | Tier | Truthful | Don't know on detail | One slip |
 |---|---|---|---|---|
-| Jacob | 1 | 18 | lost | 18 |
-| Aaron | 1 | 17 | lost | lost |
-| Saul | 1 | 13 | lost | 15 |
-| Benjamin | 1 | 19 | lost | 19 |
-| Isaac | 1 | 18 | lost | 20 |
-| Absalom | 1 | 15 | lost | lost |
-| Reuben | 1 | 20 | lost | lost |
-| Esau | 1 | 14 | lost | 18 |
-| Zedekiah king of Judah | 1 | 19 | lost | 20 |
-| Elisha | 1 | 7 | lost | 20 |
-| Job | 1 | 16 | 20 | lost |
-| Pontius Pilate | 1 | 15 | 14 | lost |
-| Gideon | 1 | lost | lost | 17 |
-| Mordecai | 1 | 16 | lost | 18 |
-| Noah | 1 | 17 | 19 | lost |
-| Jehu king of Israel | 1 | 14 | lost | 20 |
-| Laban | 1 | 19 | lost | 18 |
+| Jacob | 1 | 11 | 15 | lost |
+| Benjamin | 1 | 14 | 19 | lost |
+| Reuben | 1 | 12 | 17 | lost |
+| Esau | 1 | 13 | 20 | lost |
+| Jehu king of Israel | 1 | 11 | lost | 19 |
+| Laban | 1 | 13 | 18 | lost |
+| Esther | 1 | 17 | 17 | lost |
 | Rehoboam | 1 | 12 | lost | 18 |
-| John (son of Zebedee) | 1 | 20 | lost | 20 |
-| Lot | 1 | 20 | lost | lost |
-| Leah | 1 | 18 | lost | lost |
-| Eli | 1 | 13 | 20 | lost |
-| Rebekah | 1 | 14 | lost | 18 |
-| Ishmael son of Abraham | 1 | 19 | lost | lost |
-| Zerubbabel | 1 | 19 | lost | 18 |
-| Jephthah | 1 | 20 | lost | lost |
-| Ezra | 1 | 18 | lost | 20 |
-| Meshach | 2 | lost | lost | lost |
-| Silas | 1 | 12 | 14 | lost |
-| Cain | 1 | 15 | lost | 18 |
-| Michal | 1 | 16 | lost | 13 |
-| Artaxerxes | 2 | lost | lost | lost |
-| Abigail | 1 | 13 | lost | 17 |
-| Bathsheba | 1 | 14 | lost | 19 |
-| Miriam | 1 | 16 | lost | 20 |
-| Thomas | 1 | 17 | lost | 16 |
-| Lazarus | 1 | 18 | 20 | lost |
-| Apollos | 1 | 18 | lost | 18 |
-| Cornelius | 1 | lost | 20 | 20 |
-| Barabbas | 1 | lost | lost | lost |
-| Abel | 1 | 12 | 20 | lost |
-| Ehud | 1 | 20 | lost | lost |
-| Elizabeth | 1 | 12 | 15 | lost |
-| Jael | 1 | lost | lost | lost |
-| Nicodemus | 1 | 20 | lost | lost |
-| Eve | 1 | 14 | lost | 17 |
-| Hosea | 1 | 20 | lost | lost |
-| Zacchaeus | 1 | 19 | lost | 17 |
-| Ananias (husband of Sapphira) | 1 | lost | lost | lost |
-| Simon of Cyrene | 1 | 20 | lost | lost |
-| Zipporah | 1 | 15 | lost | 20 |
-| Habakkuk | 1 | 16 | lost | 20 |
-| Joel (prophet) | 2 | lost | lost | lost |
-| Micah (prophet) | 2 | lost | lost | lost |
-| Jairus | 2 | lost | lost | lost |
-| Potiphar | 1 | 18 | lost | lost |
-| Malachi | 2 | lost | lost | lost |
-| Obadiah (prophet) | 2 | lost | lost | lost |
-| Sapphira | 1 | 20 | lost | 20 |
-| Bartimaeus | 1 | 14 | lost | lost |
-| Eutychus | 1 | 15 | lost | 17 |
-| Joab | 1 | 18 | lost | 17 |
-| Asa | 1 | 14 | lost | 20 |
-| Naphtali | 2 | lost | lost | lost |
-| Zebulun | 2 | lost | lost | lost |
-| Asher | 2 | lost | lost | lost |
-| Simeon (son of Jacob) | 2 | lost | lost | lost |
-| Jehoiada | 1 | 9 | lost | 13 |
-| Benaiah | 2 | lost | lost | lost |
-| Jotham | 2 | lost | lost | lost |
-| Ahithophel | 2 | lost | lost | lost |
-| Darius the Great | 1 | 16 | 17 | lost |
-| Philip the evangelist | 1 | 20 | 20 | lost |
-| Jeduthun | 2 | lost | lost | lost |
-| Heman | 2 | lost | lost | lost |
-| Gehazi | 2 | lost | lost | lost |
-| Hur | 2 | lost | lost | lost |
-| Zebedee | 2 | lost | lost | lost |
-| Rezin | 2 | lost | lost | lost |
-| Uzzah | 2 | lost | lost | lost |
-| Eliphaz | 2 | lost | lost | lost |
-| Elimelech | 2 | lost | lost | lost |
-| Obed | 2 | lost | lost | lost |
-| Thaddaeus | 2 | lost | lost | lost |
-| Bildad | 2 | lost | lost | lost |
-| Ananias of Damascus | 2 | lost | lost | lost |
-| Hophni | 2 | lost | lost | lost |
-| Bartholomew | 2 | lost | lost | lost |
-| Zophar | 2 | lost | lost | lost |
-| Bernice | 2 | lost | lost | lost |
-| Gallio | 2 | lost | lost | lost |
-| Iddo | 2 | lost | lost | lost |
-| Shalmaneser | 2 | lost | lost | lost |
-| Agabus | 2 | lost | lost | lost |
-| Bar-jesus | 2 | lost | lost | lost |
-| Elon | 2 | lost | lost | lost |
-| Ibzan | 2 | lost | lost | lost |
-| Lucius | 2 | lost | lost | lost |
-| Medad | 2 | lost | lost | lost |
-| Oded, father of Azariah the prophet | 2 | lost | lost | lost |
-| Tirhakah | 2 | lost | lost | lost |
-| Orpah | 2 | lost | lost | lost |
-| Aeneas | 2 | lost | lost | lost |
-| Peninnah | 2 | lost | lost | lost |
-| Azariah | 2 | lost | lost | lost |
-| Eliezer | 2 | lost | lost | lost |
-| Eunice | 2 | lost | lost | lost |
-| Jahaziel | 2 | lost | lost | lost |
-| Lois | 2 | lost | lost | lost |
-| Manaen | 2 | lost | lost | lost |
-| Nahum | 2 | lost | lost | lost |
-| Noadiah | 2 | lost | lost | lost |
-| Oded who freed the captives of Judah | 2 | lost | lost | lost |
-| Sergius Paulus | 2 | lost | lost | lost |
-| Tola | 2 | lost | lost | lost |
-| Zephaniah | 2 | lost | lost | lost |
-| Malchus | 2 | lost | lost | lost |
+| Eli | 1 | 12 | 20 | lost |
+| Ishmael son of Abraham | 1 | 15 | lost | lost |
+| Jonah | 1 | 9 | 9 | lost |
+| Barak | 1 | 13 | 14 | lost |
+| Apollos | 1 | 13 | lost | 20 |
+| Barabbas | 1 | 13 | 16 | lost |
+| Darius the Mede | 1 | 12 | 12 | lost |
+| Matthew | 1 | 12 | 12 | lost |
+| Simon of Cyrene | 1 | 19 | 20 | lost |
+| Lydia | 1 | 11 | 13 | lost |
+| Potiphar | 1 | 13 | lost | 17 |
+| Bartimaeus | 1 | 11 | 11 | lost |
 
 ## Failures
 
@@ -192,10 +95,6 @@ Average turns to a right guess (truthful player): 15.4.
 - Simon of Cyrene and Simeon who held baby Jesus: only one tag separates them (check 5)
 - Lydia and Sapphira: only one tag separates them (check 5)
 - Jehoshaphat and Asa: only one tag separates them (check 5)
-- simulation: truthfulTier1 96.4 % is below the design's target 99.0 %
-- simulation: truthfulPool 82.2 % is below the design's target 97.0 %
-- simulation: dontKnowTier1 65.7 % is below the design's target 95.0 %
-- simulation: oneSlipTier1 81.4 % is below the design's target 85.0 %
 
 ## Warnings (a tier-1 and a tier-2 person separated by fewer than two tags)
 

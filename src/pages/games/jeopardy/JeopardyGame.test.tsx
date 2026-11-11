@@ -27,7 +27,8 @@ const renderPage = () => render(<CatalogContext.Provider value={catalog}><Memory
 
 const click = (name: string | RegExp) => fireEvent.click(screen.getByRole("button", { name }));
 const saved = () => JSON.parse(localStorage.getItem(GAME_KEY)!) as SavedGame;
-const scoreOf = (team: string) => within(screen.getByRole("list", { name: "Scores" })).getByRole("button", { name: new RegExp(`^Score of ${team}:`) }).textContent;
+// The real score is in the button's label; the digits on screen count up to it (Scoreboard.tsx).
+const scoreOf = (team: string) => /^Score of .*: (.*)\. Adjust$/.exec(within(screen.getByRole("list", { name: "Scores" })).getByRole("button", { name: new RegExp(`^Score of ${team}:`) }).getAttribute("aria-label") ?? "")?.[1];
 const tile = (col: number, row: number) => {
   const { board } = saved().game;
   return screen.getByRole("button", { name: `${board.columns[col].title}, ${board.columns[col].tiles[row].value}, open` });
@@ -111,9 +112,13 @@ describe("Bible Jeopardy page", () => {
     bet("100", true);
     bet("0", false);
 
-    expect(await screen.findByRole("heading", { name: "Results" })).toBeInTheDocument();
-    const rows = Array.from(document.querySelectorAll(".jp-place")).map((row) => row.textContent);
-    expect(rows).toEqual(["1stTeam 3300", "2ndTeam 1200", "3rdTeam 20"]);
+    // Results: the winner's name, then the podium's three steps (first, second, third) with the real scores.
+    expect(await screen.findByText("Winner")).toBeInTheDocument();
+    expect(screen.getByText("Winner").parentElement?.textContent).toBe("WinnerTeam 3");
+    const steps = Array.from(document.querySelectorAll(".kit-podium__step")).map((step) =>
+      `${step.querySelector(".kit-podium__names")?.textContent} ${step.querySelector(".kit-podium__score")?.getAttribute("data-value")}`);
+    expect(steps).toEqual(["Team 3 300", "Team 1 200", "Team 2 0"]);
+    expect(screen.queryByRole("list", { name: "Scores" })).toBeNull();
     expect((JSON.parse(localStorage.getItem(SEEN_KEY)!) as string[]).length).toBe(4);
   }, 20_000);
 });

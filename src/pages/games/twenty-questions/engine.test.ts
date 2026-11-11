@@ -65,6 +65,21 @@ describe("choosing the next question (design §7.3)", () => {
     expect(chooseTag(e, [], [0, 2], 1)).toBe(1); // n0 and n2 differ only on bit1 (and agree on the detail tag)
   });
 
+  it("counts the split over the leaders, not the forgiven near-misses, and prefers a tag that also splits those", () => {
+    // Tags x, a, b, c. After Yes to x, p0 and p1 lead; p2, p3 and p4 have one miss and are forgiven. a and c split the
+    // leaders; b splits only the near-misses; c also splits the near-misses, a does not.
+    const data: TqData = { version: "tq-halo", tags: [tag("x"), tag("a"), tag("b"), tag("c")],
+      people: [person("p0", "yyyy"), person("p1", "ynyn"), person("p2", "nyyy"), person("p3", "nynn"), person("p4", "nyyn")] };
+    const e = prepare(data), f = field(e, [q(0, "y")]);
+    expect(f.leading).toEqual([0, 1]);
+    expect(f.remaining).toEqual([0, 1, 2, 3, 4]);
+    for (let seed = 0; seed < 20; seed++) expect(chooseTag(e, [q(0, "y")], f.remaining, seed, f.leading)).toBe(3);
+    const noHaloSplit: TqData = { ...data, people: data.people.slice(0, 3) }; // only p2 forgiven: c no longer splits the near-misses better than a
+    const e2 = prepare(noHaloSplit), f2 = field(e2, [q(0, "y")]);
+    const picks = new Set(Array.from({ length: 20 }, (_, seed) => chooseTag(e2, [q(0, "y")], f2.remaining, seed, f2.leading)));
+    expect([...picks].sort()).toEqual([1, 3]);
+  });
+
   it("varies with the seed but gives the same question for the same seed and turn", () => {
     const e = prepare(binary()), everyone = e.data.people.map((_, i) => i);
     const picks = new Set(Array.from({ length: 30 }, (_, seed) => chooseTag(e, [], everyone, seed)));

@@ -23,6 +23,7 @@ import { Setup } from "./Setup";
 import { Stage } from "./Stage";
 import { browserStore, clearSeen, loadGame, loadSeen, loadSettings, saveSettings, tabId, type SavedGame } from "./storage";
 import { useGame } from "./useGame";
+import { useScrollTopOn } from "../kit";
 import "../games.css";
 import "./jeopardy.css";
 
@@ -69,6 +70,8 @@ export default function JeopardyGame() {
   // Play again deals from the finished game's board settings until the host goes back to setup.
   const [again, setAgain] = useState<BoardSettings | null>(null);
   const { game, start, dispatch, conflict, takeOver, leave } = useGame(store, tab, setSeen);
+  // A new screen opens at the top (the audit: after Build board the page landed on the footer).
+  useScrollTopOn(phase);
 
   const setSettings = (next: Settings) => { setSettingsState(next); saveSettings(store, next); setAgain(null); };
   const categories = useMemo(() => [...THEME_CATEGORIES, ...bookCategories(bank?.books ?? [])], [bank]);
@@ -133,6 +136,7 @@ export default function JeopardyGame() {
     if (!game) return;
     leave();
     discardLink();
+    setStatus("");
     setAgain(game.board.settings);
     const nextDeck = deckFor(game.board.settings);
     if (nextDeck) { setBoard(buildBoard(nextDeck, [], Math.random)); setPhase("preview"); } else setPhase("setup");
@@ -153,7 +157,7 @@ export default function JeopardyGame() {
       <button type="button" className="jp-quiet" onClick={() => { start(s); newGame(); }}>New game</button>
     </div>;
   } else if (phase === "stage" && game) {
-    body = <Stage game={game} dispatch={dispatch} autoFullscreen={startedHere} keysPaused={help || conflict} canTieBreak={Boolean(bank) && tiedForFirst(game.play).length > 1}
+    body = <Stage game={game} dispatch={dispatch} autoFullscreen={startedHere} keysPaused={help || conflict} canTieBreak={Boolean(bank) && tiedForFirst(game.play).length > 1} store={store}
       onTieBreak={tieBreak} onPlayAgain={playAgain} onNewGame={newGame} onPrintSheet={() => setPrinting("sheet")} onHelp={() => setHelp(true)}>
       {conflict && <div className="jp-confirm" role="alertdialog" aria-label="Open in another tab"><p>This game is open in another tab.</p>
         <button type="button" className="jp-primary" onClick={takeOver}>Use this tab</button></div>}
@@ -161,7 +165,7 @@ export default function JeopardyGame() {
     </Stage>;
   } else if (phase === "preview" && board && deck) {
     body = <Preview board={board} offered={deck.offered} status={status} onBack={() => { setAgain(null); setPhase("setup"); }} onStart={begin} onPrint={() => setPrinting("sheet")} onCopyLink={copyLink}
-      onNewBoard={() => setBoard(link ? boardFromLink(deck, link, language, Math.random) : buildBoard(deck, chosen ?? [], Math.random))}
+      onNewBoard={() => { setStatus(""); setBoard(link ? boardFromLink(deck, link, language, Math.random) : buildBoard(deck, chosen ?? [], Math.random)); }}
       onSwap={(index, id) => setBoard(swapColumn(deck, board, index, id, Math.random))} onRedraw={(index) => setBoard(redrawColumn(deck, board, index, Math.random))}
       onSwapFinal={() => setBoard(swapFinal(deck, board, Math.random))} />;
   } else if (failed && !bank) {

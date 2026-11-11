@@ -141,13 +141,13 @@
 .kit-handover__label { font-family: var(--font-sans); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .kit-handover__name { font-family: var(--font-serif); font-size: clamp(1.8rem, 8vw, 3rem); line-height: 1.05; color: var(--ink); }
 .kit-podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: .6rem; padding: 0; margin: 0; list-style: none; }
-.kit-podium__step { display: grid; gap: .3rem; justify-items: center; text-align: center; min-width: 0; }
+.kit-podium__step { --_team: var(--_color); display: grid; gap: .3rem; justify-items: center; text-align: center; min-width: 0; }
 .kit-podium__step:nth-child(1) { order: 2; } .kit-podium__step:nth-child(2) { order: 1; } .kit-podium__step:nth-child(3) { order: 3; }
 .kit-podium__names { font-weight: 650; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
 .kit-podium__score { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
-.kit-podium__block { width: 100%; height: var(--kit-step, 3rem); border-radius: var(--_radius) var(--_radius) 0 0; background: color-mix(in srgb, var(--_color) 22%, var(--_surface)); border: 1px solid var(--line); border-bottom: 0;
+.kit-podium__block { width: 100%; height: var(--kit-step, 3rem); border-radius: var(--_radius) var(--_radius) 0 0; background: color-mix(in srgb, var(--_team) 22%, var(--_surface)); border: 1px solid var(--line); border-bottom: 0;
   display: grid; place-items: center; font-family: var(--font-serif); font-size: 1.3rem; color: var(--ink); transform-origin: 50% 100%; animation: kit-step .6s var(--_ease) both; }
-.kit-podium__step:nth-child(1) .kit-podium__block { --kit-step: 5.5rem; animation-delay: .5s; background: color-mix(in srgb, var(--accent) 28%, var(--_surface)); }
+.kit-podium__step:nth-child(1) .kit-podium__block { --kit-step: 5.5rem; animation-delay: .5s; background: color-mix(in srgb, var(--kit-first, var(--accent)) 28%, var(--_surface)); }
 .kit-podium__step:nth-child(2) .kit-podium__block { --kit-step: 4rem; animation-delay: .25s; }
 .kit-podium__step:nth-child(3) .kit-podium__block { --kit-step: 2.75rem; animation-delay: 0s; }
 .kit-podium__step.is-empty .kit-podium__block { opacity: .35; }

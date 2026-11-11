@@ -1,6 +1,8 @@
 // Bible Jeopardy's Final question (design 6.4, 9.6): the category, with every team writing its bet on paper (the
 // projector cannot hide one); the clue with a 30-second timer the host can pause; then the answer and, one team at a
-// time from the lowest score, the host types the team's bet and marks it right or wrong.
+// time from the lowest score, the host types the team's bet and marks it right or wrong. A marked row lands large with
+// its score counting to the new value, and the next team's row deals in under it (the audit's item 6). A team at zero
+// bets nothing and says so, with no box to get wrong.
 import { Check, Pause, Play, X } from "lucide-react";
 import { useState } from "react";
 import { formatNumber } from "@/lib/site-format";
@@ -8,7 +10,7 @@ import { Choices, TimerBar } from "./ClueScreen";
 import { clueSize } from "./display";
 import { FINAL_SECONDS, type FinalClue, type Team } from "./model";
 import { finalMax, type FinalMark } from "./rules";
-import { Score } from "./Scoreboard";
+import { CountingScore, Score } from "./Scoreboard";
 import { Verse } from "./Verse";
 
 interface Props {
@@ -21,6 +23,8 @@ interface Props {
   onClue: () => void;
   onReveal: () => void;
   onMark: (team: number, bet: number, right: boolean) => void;
+  /** The Final's timer ran out. */
+  onTimeUp?: () => void;
 }
 
 function MarkRow({ team, index, onMark }: { team: Team; index: number; onMark: Props["onMark"] }) {
@@ -34,7 +38,8 @@ function MarkRow({ team, index, onMark }: { team: Team; index: number; onMark: P
     <span className="jp-final-score"><Score value={team.score} /></span>
     <label>
       <span className="sr-only">{`Bet of ${team.name}`}</span>
-      <input type="number" inputMode="numeric" min={0} max={max} value={text} aria-invalid={text !== "" && !valid} onChange={(event) => setText(event.target.value)} />
+      {max === 0 && <span className="jp-final-nothing">Bets nothing</span>}
+      <input type="number" inputMode="numeric" min={0} max={max} value={text} disabled={max === 0} aria-invalid={text !== "" && !valid} onChange={(event) => setText(event.target.value)} />
     </label>
     <button type="button" className="jp-right" disabled={!valid} onClick={() => onMark(index, bet, true)}><Check size={18} aria-hidden />Right</button>
     <button type="button" className="jp-wrong" disabled={!valid} onClick={() => onMark(index, bet, false)}><X size={18} aria-hidden />Wrong</button>
@@ -42,7 +47,21 @@ function MarkRow({ team, index, onMark }: { team: Team; index: number; onMark: P
   </li>;
 }
 
-export function FinalRound({ screen, final, choices, teams, order, marks, onClue, onReveal, onMark }: Props) {
+/** A team already marked: its result large, its score counting to the new value. */
+function LandedRow({ team, index, mark, newest }: { team: Team; index: number; mark: FinalMark; newest: boolean }) {
+  const verdict = mark.bet === 0 ? "Bet nothing" : mark.right ? `Right, +${formatNumber(mark.bet)}` : `Wrong, −${formatNumber(mark.bet)}`;
+  return <li className={`jp-final-row is-landed jp-tone-${index}${mark.bet === 0 ? " is-nothing" : mark.right ? " is-right" : " is-wrong"}${newest ? " is-newest" : ""}`}>
+    <span className="jp-team-number" aria-hidden>{formatNumber(index + 1)}</span>
+    <span className="jp-team-label">{team.name}</span>
+    <span className="jp-final-score"><span className="sr-only"><Score value={team.score} /></span><CountingScore value={team.score} ms={newest ? 900 : 0} from={mark.right ? team.score - mark.bet : team.score + mark.bet} /></span>
+    <span className={`jp-mark ${mark.bet === 0 ? "is-nothing" : mark.right ? "is-right" : "is-wrong"}`}>
+      {mark.bet === 0 ? null : mark.right ? <Check size={18} aria-hidden /> : <X size={18} aria-hidden />}
+      {verdict}
+    </span>
+  </li>;
+}
+
+export function FinalRound({ screen, final, choices, teams, order, marks, onClue, onReveal, onMark, onTimeUp }: Props) {
   const [paused, setPaused] = useState(false);
   if (screen === "final-category") {
     return <div className="jp-final">
@@ -56,7 +75,7 @@ export function FinalRound({ screen, final, choices, teams, order, marks, onClue
   if (screen === "final-clue") {
     return <div className="jp-clue">
       <p className="jp-clue-head"><span>{`Final question · ${final.title}`}</span></p>
-      <TimerBar key={final.q.id} seconds={FINAL_SECONDS} paused={paused} />
+      <TimerBar key={final.q.id} seconds={FINAL_SECONDS} paused={paused} onDone={onTimeUp} />
       <div className="jp-clue-body">
         {final.q.leadIn && <p className="jp-lead-in">{final.q.leadIn.question} <strong>{final.q.leadIn.answer}</strong></p>}
         <h2 className={`jp-clue-text ${clueSize(final.q.text)}`}>{final.q.text}</h2>
@@ -71,6 +90,8 @@ export function FinalRound({ screen, final, choices, teams, order, marks, onClue
     </div>;
   }
   const current = order.find((index) => marks[index] === null);
+  const landed = order.filter((index) => marks[index] !== null);
+  const newest = landed[landed.length - 1];
   return <div className="jp-answer">
     <p className="jp-clue-head"><span>{`Final question · ${final.title}`}</span></p>
     <p className="jp-answer-question">{final.q.text}</p>
@@ -81,15 +102,7 @@ export function FinalRound({ screen, final, choices, teams, order, marks, onClue
         const mark = marks[index];
         if (index === current) return <MarkRow key={index} team={teams[index]} index={index} onMark={onMark} />;
         if (!mark) return null;
-        return <li key={index} className={`jp-final-row jp-tone-${index}`}>
-          <span className="jp-team-number" aria-hidden>{formatNumber(index + 1)}</span>
-          <span className="jp-team-label">{teams[index].name}</span>
-          <span className="jp-final-score"><Score value={teams[index].score} /></span>
-          <span className={`jp-mark ${mark.right ? "is-right" : "is-wrong"}`}>
-            {mark.right ? <Check size={18} aria-hidden /> : <X size={18} aria-hidden />}
-            {mark.right ? `Right, +${formatNumber(mark.bet)}` : `Wrong, −${formatNumber(mark.bet)}`}
-          </span>
-        </li>;
+        return <LandedRow key={index} team={teams[index]} index={index} mark={mark} newest={index === newest} />;
       })}
     </ol>
   </div>;

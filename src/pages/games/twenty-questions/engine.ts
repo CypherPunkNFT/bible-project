@@ -114,22 +114,33 @@ export function closedTags(engine: Engine, turns: readonly Turn[]): Set<number> 
   return closed;
 }
 
-/** The 50/50 rule (design §7.3): the tag whose worst case leaves the fewest people, everyday first, seeded variety. */
-export function chooseTag(engine: Engine, turns: readonly Turn[], remaining: readonly number[], seed: number): number | null {
-  const closed = closedTags(engine, turns), scored: { tag: number; score: number; detail: boolean }[] = [];
+/**
+ * The 50/50 rule (design §7.3): the tag whose worst case leaves the fewest of the people in the lead, everyday first,
+ * seeded variety. The split is counted over the leaders (over everyone remaining while only one leads or nobody has
+ * missed yet): counting the forgiven near-misses too made a 354-person pool take 15 turns on average and lose a fifth
+ * of truthful games. Among the tags within the band, those that also best split everyone remaining are preferred,
+ * so a slipped player's real person is still narrowed down.
+ */
+export function chooseTag(engine: Engine, turns: readonly Turn[], remaining: readonly number[], seed: number, leading: readonly number[] = remaining): number | null {
+  const closed = closedTags(engine, turns), severalLead = leading.length !== 1;
+  const base = severalLead ? leading : remaining;
+  const scored: { tag: number; score: number; wide: number; detail: boolean }[] = [];
   engine.data.tags.forEach((tag, t) => {
     if (closed.has(t)) return;
-    const [y, n, u] = split(engine, engine.guess, remaining, t);
-    if (y === 0 || n === 0) return; // its answer could change nothing
-    scored.push({ tag: t, score: Math.max(y, n) + u, detail: tag.l === 1 });
+    const [y, n, u] = split(engine, engine.guess, base, t);
+    if (y === 0 || n === 0) return; // its answer could change nothing among the leaders
+    const [wy, wn, wu] = split(engine, engine.guess, remaining, t);
+    scored.push({ tag: t, score: Math.max(y, n) + u, wide: Math.max(wy, wn) + wu, detail: tag.l === 1 });
   });
   if (!scored.length) return null;
   const everyday = scored.filter((s) => !s.detail);
   const bestEveryday = Math.min(...everyday.map((s) => s.score));
-  const pool = everyday.length && bestEveryday <= 0.7 * remaining.length ? everyday : scored;
+  const pool = everyday.length && bestEveryday <= 0.7 * base.length ? everyday : scored;
   const best = Math.min(...pool.map((s) => s.score));
-  const slack = remaining.length > 40 ? Math.max(2, 0.05 * remaining.length) : 2;
-  const near = pool.filter((s) => s.score <= best + slack).sort((a, b) => a.tag - b.tag);
+  const slack = base.length > 40 ? Math.max(2, 0.05 * base.length) : 2;
+  const band = pool.filter((s) => s.score <= best + slack);
+  const bestWide = Math.min(...band.map((s) => s.wide));
+  const near = band.filter((s) => s.wide === bestWide).sort((a, b) => a.tag - b.tag);
   return near[Math.floor(seeded(seed, turns.length) * near.length)].tag;
 }
 
@@ -145,7 +156,7 @@ export function nextStep(engine: Engine, turns: readonly Turn[], seed: number, l
   if (!leading.length) return { kind: "out" };
   const famous = leading.reduce((a, b) => (engine.data.people[b].f < engine.data.people[a].f ? b : a));
   if ((leading.length === 1 && questionsAnswered(turns) >= 3) || turns.length === limit - 1) return { kind: "guess", person: famous };
-  const tag = chooseTag(engine, turns, remaining, seed);
+  const tag = chooseTag(engine, turns, remaining, seed, leading);
   return tag === null ? { kind: "guess", person: famous } : { kind: "ask", tag };
 }
 

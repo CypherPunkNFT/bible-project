@@ -1,8 +1,11 @@
 // Bible Jeopardy's scoreboard (design 9.3, 6.2): each team's number, name, colour and score along the bottom of the
 // stage; the team to choose is raised. Clicking a name makes that team choose; clicking a score opens −100 / +100 and
-// a box for an exact score. A negative score has a minus sign and the word "minus" for screen readers.
-import { useState } from "react";
+// a box for an exact score. A negative score has a minus sign and the word "minus" for screen readers. A change of
+// score counts to its new value while "+300" floats up and fades (the audit's item 2); the real number is in the
+// button's label from the first render, so readers and tests never see the counting.
+import { useEffect, useState } from "react";
 import { formatNumber } from "@/lib/site-format";
+import { useCountUp } from "../kit";
 import type { Team } from "./model";
 
 export function Score({ value }: { value: number }) {
@@ -10,12 +13,25 @@ export function Score({ value }: { value: number }) {
   return <><span aria-hidden>−{formatNumber(-value)}</span><span className="sr-only">{`minus ${formatNumber(-value)}`}</span></>;
 }
 
+/** The score as digits that count from the value they last showed to the new one; at once on first render unless
+ * `from` names where the count starts (a Final row that lands with its score already changed). */
+export function CountingScore({ value, ms = 650, from }: { value: number; ms?: number; from?: number }) {
+  const [range, setRange] = useState({ from: from ?? value, to: value });
+  useEffect(() => { setRange((old) => (old.to === value ? old : { from: old.to, to: value })); }, [value]);
+  const shown = useCountUp(range.to, ms, range.from);
+  const drawn = range.to === value ? shown : value;
+  return <span aria-hidden className={drawn !== value ? "is-counting" : ""}>{drawn < 0 ? `−${formatNumber(-drawn)}` : formatNumber(drawn)}</span>;
+}
+
+/** The last change of score that should land on the strip: a counter keeps each new one distinct from the last. */
+export interface Pulse { team: number; delta: number; n: number }
+
 interface Props {
   teams: Team[];
   chooser: number;
   /** Whether the board is showing, so "to choose" and Make … choose apply. */
   choosing: boolean;
-  last: { team: number; delta: number } | null;
+  pulse: Pulse | null;
   onChoose: (team: number) => void;
   onAdjust: (team: number, delta: number) => void;
   onSetScore: (team: number, score: number) => void;
@@ -41,10 +57,14 @@ function Adjust({ team, index, onAdjust, onSetScore, onClose }: { team: Team; in
   </div>;
 }
 
-export function Scoreboard({ teams, chooser, choosing, last, onChoose, onAdjust, onSetScore, adjusting, setAdjusting }: Props) {
+const spoken = (score: number) => (score < 0 ? `minus ${formatNumber(-score)}` : formatNumber(score));
+
+export function Scoreboard({ teams, chooser, choosing, pulse, onChoose, onAdjust, onSetScore, adjusting, setAdjusting }: Props) {
   return <ol className="jp-scoreboard" aria-label="Scores">
     {teams.map((team, index) => {
       const raised = choosing && index === chooser;
+      const hit = pulse && pulse.team === index ? pulse : null;
+      const tone = hit ? (hit.delta > 0 ? " is-up" : " is-down") : "";
       return <li key={index} className={`jp-tone-${index}${raised ? " is-choosing" : ""}`}>
         <button type="button" className="jp-team-name" title={team.name} disabled={!choosing || raised} onClick={() => onChoose(index)}
           aria-label={raised ? `${team.name}, to choose` : `Make ${team.name} choose`}>
@@ -52,11 +72,13 @@ export function Scoreboard({ teams, chooser, choosing, last, onChoose, onAdjust,
           <span className="jp-team-label">{team.name}</span>
         </button>
         {raised && <span className="jp-to-choose">to choose</span>}
-        <button type="button" className="jp-team-score" onClick={() => setAdjusting(adjusting === index ? null : index)} aria-label={`Score of ${team.name}: ${team.score < 0 ? `minus ${formatNumber(-team.score)}` : formatNumber(team.score)}. Adjust`}>
-          <Score value={team.score} />
+        {hit && <span key={`flash-${hit.n}`} className={`jp-flash${tone}`} aria-hidden />}
+        <button type="button" className={`jp-team-score${tone}`} onClick={() => setAdjusting(adjusting === index ? null : index)}
+          aria-label={`Score of ${team.name}: ${spoken(team.score)}. Adjust`}>
+          <CountingScore value={team.score} />
         </button>
-        {last && last.team === index && last.delta !== 0 && <span className={`jp-delta ${last.delta > 0 ? "is-up" : "is-down"}`} aria-hidden>
-          {last.delta > 0 ? `+${formatNumber(last.delta)}` : `−${formatNumber(-last.delta)}`}
+        {hit && <span key={`float-${hit.n}`} className={`jp-delta${tone}`} aria-hidden>
+          {hit.delta > 0 ? `+${formatNumber(hit.delta)}` : `−${formatNumber(-hit.delta)}`}
         </span>}
         {adjusting === index && <Adjust team={team} index={index} onAdjust={onAdjust} onSetScore={onSetScore} onClose={() => setAdjusting(null)} />}
       </li>;

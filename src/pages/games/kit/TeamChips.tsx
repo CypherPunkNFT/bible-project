@@ -7,6 +7,8 @@ import { scoreShares, teamTone, type Scored } from "./teams";
 
 export interface Team extends Scored {
   name: ReactNode;
+  /** The team's own colour, when a game assigns colours itself (the podium's step wears it); else teamTone(index). */
+  tone?: string;
 }
 
 export interface TeamChipsProps {

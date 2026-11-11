@@ -585,7 +585,8 @@ spec's "remaining characters" that survives a wrong answer.
 
 ### 7.3 The 50/50 rule
 
-For every tag not yet asked, count among the **remaining** people:
+For every tag not yet asked, count among the **leading** people (among everyone **remaining** while only one person
+leads, or before any answer has contradicted anyone; amended 2026-11-11, see the implementation notes of sequence 30 step 21):
 
 - `y` = how many have yes;
 - `n` = how many have no;
@@ -599,8 +600,10 @@ Choosing among the best:
 
 1. **Everyday first.** Consider detail tags only if the best everyday tag's score is worse than a 70/30 split of
    the remaining.
-2. **Variety.** Pick at random (seeded per game) among the tags within 2 of the best score, or within 5 % of the
-   remaining count when it is above 40. Games then differ without losing information (§1.3).
+2. **Variety, after a tiebreak.** Take the tags within 2 of the best score, or within 5 % of the leading count when it
+   is above 40; keep those whose split over everyone **remaining** (the same score, counted over the remaining) is the
+   lowest, so a slipped player's real person is still narrowed down; pick at random (seeded per game) among them. Games
+   then differ without losing information (§1.3).
 3. **Never** ask a tag an earlier answer already settles. `tags.source.json` keeps a small hand-made list of
    these. For example, after "Yes" to "one of the twelve apostles", "Did your person follow Jesus during his
    ministry?" is skipped. Forgiveness alone would otherwise keep such a tag splitting the field.
@@ -610,7 +613,8 @@ Choosing among the best:
 The site guesses instead of asking when any of these holds:
 
 - **only one person is leading** and at least 3 questions have been answered;
-- **no tag splits** the remaining (everyone left has the same values);
+- **no tag splits** the leading people (everyone in the lead has the same values; before the amendment of 2026-11-11 this
+  read over the remaining);
 - **the 20th turn** is reached.
 
 The guess is the leading person with the highest fame (§3.3). A guess uses up a turn, as in the traditional
@@ -1203,3 +1207,30 @@ done and how the result compares with the targets:
    the average right guess takes 15.4 turns. Reaching 99 % needs either more distinguishing questions for those
    clusters or a smaller tier 1, both design changes for the owner to decide, not more tagging.
 7. **Not built:** `learn.ts` (§10.4) still waits for real reports.
+
+## Implementation notes (2026-11-11, orchestrator job ee39c06a, sequence 30 step 21): end-to-end check
+
+1. **The accuracy gap was the engine's question choice, not the tags.** With step 20's model-tagged values the shipped
+   game lost 63 of 354 truthful games (82.2 %), nearly all by running out of 20 turns with several people still tied in
+   the lead; the average right guess took 15.4 turns of a pool whose ideal is about 9. `chooseTag` counted each tag's
+   yes/no/unsure split over the **remaining** people of §7.2, that is the leaders plus everyone forgiven one miss. For a
+   truthful player that halo never shrinks the way the leaders do, so the split scores were poor and turns were wasted.
+2. **The amendment to §7.3 and §7.4** ([engine.ts](../../../src/pages/games/twenty-questions/engine.ts) `chooseTag`):
+   the split is counted over the **leading** people (over the remaining while only one leads or nobody has missed yet).
+   The score, the everyday-first rule and the variety band are unchanged and use whole-number scores. Within the band,
+   the tags whose split over the remaining is lowest are kept before the seeded pick, so the forgiven near-misses are
+   still narrowed down. "No tag splits" in §7.4 now reads over the leaders, so value-identical leaders are guessed in
+   turn. Who remains, who leads, forgiveness, reverse mode, the lesson and saved games are untouched; a game saved before
+   the change resumes with its stored answers and may show a different next question once.
+3. **Measured (test seeds, every person the target once):** truthful tier 1 **100 %** (target 99), whole pool **100 %**
+   (97), "don't know" on detail questions **96.4 %** (95), one wrong answer **88.6 %** (85). Over 20 other seed sets the
+   minimums were 100 / 100 / 95.0 / 85.7 %. Average right guess: 11.8 turns. Alternatives measured and not taken: an
+   expected-size score and a 60/40 everyday rule were no better on average; counting over the leaders without the
+   tiebreak gave 94.3 % and 83.6 % on the last two.
+4. **The data test's floors are now the targets themselves** ([data.test.ts](../../../src/pages/games/twenty-questions/data.test.ts)
+   `FLOORS` = `TARGETS`), as the step's brief requires.
+5. **Still open in `check.ts`:** check 5 lists 31 tier-1 pairs separated by only one tag (Rachel, Leah and Rebekah; the
+   Persian kings; Simon of Cyrene against several Gospel figures). The engine now wins those games because it guesses
+   through a small tie, but one wrong answer on that tag still merges the pair. Closing them needs new separating tags
+   with values for the whole pool, a tagging run with a cost, so it is left for the owner.
+6. No tag data, pool, model value or shipped game file changed; the game file's version is unchanged.

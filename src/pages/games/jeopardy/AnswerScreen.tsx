@@ -32,7 +32,7 @@ export function AnswerScreen({ category, q, choices, teams, marks, stake, order,
     <h2 className="jp-answer-text">{q.options[q.correct]}</h2>
     {choices && <Choices q={q} reveal />}
     <Verse q={q} />
-    <p className="jp-scored" role="status">{right < 0 ? "No points yet" : stake === null ? `${teams[right].name} wins the tie-breaker` : `${teams[right].name} +${formatNumber(stake)}`}</p>
+    <p className={`jp-scored${right < 0 ? "" : " is-scored"}`} role="status">{right < 0 ? "No points yet" : stake === null ? `${teams[right].name} wins the tie-breaker` : `${teams[right].name} +${formatNumber(stake)}`}</p>
     <div className="jp-clue-foot">
       {open && <TeamMarks teams={teams} marks={marks} order={order} canMark={canMark} onMark={onMark} />}
       <button type="button" className="jp-primary" onClick={onBack}>{backLabel}</button>

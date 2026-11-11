@@ -56,8 +56,8 @@ node --experimental-strip-types scripts/twenty-questions/check.ts
 
 `check.ts` runs design §5.5's checks and the play simulation, rewrites
 [docs/features/twenty-questions/review-sheet.md](../../docs/features/twenty-questions/review-sheet.md), and exits 1 while
-any check fails. `npm test` holds the measured figures as a floor (`FLOORS` in
-[data.test.ts](../../src/pages/games/twenty-questions/data.test.ts)); raise them, never lower them, when the tags improve.
+any check fails. `npm test` holds the design's targets as the floor (`FLOORS` = `TARGETS` in
+[data.test.ts](../../src/pages/games/twenty-questions/data.test.ts)); the targets were reached on 2026-11-11 once the engine counted splits over the leading people (design §7.3); never lower them.
 
 ## Not built yet
 

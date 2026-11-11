@@ -17,12 +17,12 @@ const index = new Map(file.tags.map((t, i) => [t.id, i]));
 const value = (personId: string, tagId: string) => file.people.find((p) => p.id === personId)!.v[index.get(tagId)!];
 
 /**
- * The simulation's results when the two-pass model tagging of design §5.3 shipped (review sheet, 2026-11-11): 96.4 %,
- * 82.2 %, 65.7 % and 81.4 %. They are still below the design's targets (TARGETS); these floors stop the game from getting
- * worse. Raise them, never lower them, when the tags improve. (The hand-tagged build of 2026-11-10 measured 84.9 / 69.1 /
- * 46.6 / 59.6 %.)
+ * The floors are the design's own targets (§5.5, TARGETS). They were reached on 2026-11-11, when the engine began counting
+ * each tag's split over the people in the lead instead of over the forgiven near-misses too (design §7.3 as amended):
+ * measured 100 %, 100 %, 96.4 % and 88.6 %. (The model-tagged build of 2026-11-11 measured 96.4 / 82.2 / 65.7 / 81.4 %
+ * before that change; the hand-tagged build of 2026-11-10, 84.9 / 69.1 / 46.6 / 59.6 %.) Never lower them.
  */
-const FLOORS = { truthfulTier1: 0.96, truthfulPool: 0.82, dontKnowTier1: 0.65, oneSlipTier1: 0.81 };
+const FLOORS = { truthfulTier1: TARGETS.truthfulTier1, truthfulPool: TARGETS.truthfulPool, dontKnowTier1: TARGETS.dontKnowTier1, oneSlipTier1: TARGETS.oneSlipTier1 };
 
 describe("the shipped game file", () => {
   it("holds only real people from the site's list, never a tribe or a people, with unique ids and labels", () => {

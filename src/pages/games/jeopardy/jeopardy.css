@@ -1,7 +1,10 @@
-/* Bible Jeopardy (docs/features/bible-jeopardy/design.md 9, 14). Setup and preview sit in the page; the stage is the
-   part that goes full screen, sized from the viewport so it reads from the back of a hall. Site palette only, tiles in
-   the game's "prophets" tone; never the TV show's blue-and-gold look. Every rule is under a jp- class. */
-.jp-page { max-width: 72rem; padding-bottom: 4rem; }
+/* Bible Jeopardy (docs/features/bible-jeopardy/design.md 9, 14; docs/visual-audits/jeopardy-redesign.md). Setup and
+   preview sit in the page; the stage is the part that goes full screen, sized from the viewport so it reads from the
+   back of a hall. Site palette only, tiles in the game's "prophets" tone; never the TV show's blue-and-gold look.
+   Every rule is under a jp- class. Motion is decoration: every state changes at once, and src/index.css cuts the
+   animations below to 0.01 ms under reduced motion. No focus outline anywhere (owner, 2026-10-06): focus is a lift,
+   an edge or an underline, the same as hover. */
+.jp-page { --kit-color: var(--prophets); --kit-radius: .5rem; --jp-ease: cubic-bezier(.16, 1, .3, 1); max-width: 72rem; padding-bottom: 4rem; }
 .jp-page.is-playing { max-width: none; }
 .jp-setup, .jp-preview, .jp-resume { margin-top: 1.4rem; }
 .jp-setup-head h1, .jp-preview-head h1, .jp-resume h1 { font: 450 clamp(2rem, 4vw, 3rem)/1.1 var(--font-serif); letter-spacing: -.03em; }
@@ -11,11 +14,11 @@
 .jp-choice { margin: .9rem 0 .3rem; border: 0; padding: 0; }
 .jp-choice legend { font-weight: 600; font-size: .9rem; margin-bottom: .35rem; }
 .jp-choice > div { display: flex; flex-wrap: wrap; gap: .4rem; }
-.jp-choice label { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .85rem; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; font-size: .88rem; }
+.jp-choice label { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; padding: .35rem .95rem; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; font-size: .88rem; transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
 .jp-choice label.is-on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .jp-choice input { position: absolute; opacity: 0; pointer-events: none; }
-.jp-choice label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
-.jp-choice:disabled label { opacity: .6; cursor: default; }
+.jp-choice label:is(:hover, :focus-within) { transform: translateY(-2px); border-color: var(--accent); }
+.jp-choice:disabled label { opacity: .6; cursor: default; transform: none; }
 .jp-toggle { display: flex; gap: .6rem; align-items: flex-start; margin: .8rem 0; cursor: pointer; }
 .jp-toggle input { margin-top: .3rem; width: 1.05rem; height: 1.05rem; accent-color: var(--accent); }
 .jp-toggle strong { display: block; font-weight: 600; font-size: .92rem; }
@@ -23,50 +26,60 @@
 .jp-note { margin: 1rem 0; padding: .6rem .9rem; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); font-size: .9rem; }
 .jp-error { color: var(--red-letter); font-size: .82rem; margin-top: .25rem; flex-basis: 100%; }
 .jp-stepper { display: inline-flex; align-items: center; gap: .6rem; }
-.jp-stepper button, .jp-icon { display: inline-grid; place-items: center; min-width: 2.2rem; height: 2.2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); }
-.jp-stepper button:disabled { opacity: .45; }
+.jp-stepper button, .jp-icon { display: inline-grid; place-items: center; min-width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
+.jp-stepper button:is(:hover, :focus-visible), .jp-icon:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--accent); }
+.jp-stepper button:disabled { opacity: .45; transform: none; }
 .jp-team-names { display: grid; gap: .5rem; margin: .9rem 0; }
 .jp-team-names li { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
-.jp-team-names input { flex: 1; min-width: 10rem; max-width: 20rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); }
+.jp-team-names input { flex: 1; min-width: 10rem; max-width: 20rem; min-height: 44px; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); transition: border-color .3s var(--jp-ease); }
+.jp-team-names input:focus-visible { border-color: var(--accent); }
 .jp-team-number { display: inline-grid; place-items: center; min-width: 1.8rem; height: 1.8rem; border-radius: 999px; background: var(--team, var(--surface-2)); color: var(--team-ink, var(--ink)); font-weight: 700; font-size: .85rem; }
-.jp-primary, .jp-quiet { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: .9rem; }
+.jp-primary, .jp-quiet { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; padding: .55rem 1.2rem; border-radius: 999px; font-weight: 600; font-size: .9rem; transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease), box-shadow .3s var(--jp-ease); }
 .jp-primary { background: var(--prophets-tab); color: var(--prophets-tab-ink); border: 1px solid var(--prophets-tab); }
 .jp-primary:disabled { opacity: .5; }
 .jp-quiet { border: 1px solid var(--line); background: transparent; color: var(--ink); }
-.jp-primary:focus-visible, .jp-quiet:focus-visible, .jp-icon:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.jp-primary:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); box-shadow: 0 10px 24px -16px var(--prophets); }
+.jp-quiet:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--accent); }
 .jp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 2rem; }
 .jp-link-line { margin-bottom: .6rem; }
-.jp-tone-0 { --team: var(--history-tab); --team-ink: var(--history-tab-ink); }
-.jp-tone-1 { --team: var(--poetry-tab); --team-ink: var(--poetry-tab-ink); }
-.jp-tone-2 { --team: var(--prophets-tab); --team-ink: var(--prophets-tab-ink); }
-.jp-tone-3 { --team: var(--gospels-tab); --team-ink: var(--gospels-tab-ink); }
-.jp-tone-4 { --team: var(--acts-tab); --team-ink: var(--acts-tab-ink); }
-.jp-tone-5 { --team: var(--epistles-tab); --team-ink: var(--epistles-tab-ink); }
+.jp-tone-0 { --team: var(--history-tab); --team-ink: var(--history-tab-ink); --team-line: var(--history); }
+.jp-tone-1 { --team: var(--poetry-tab); --team-ink: var(--poetry-tab-ink); --team-line: var(--poetry); }
+.jp-tone-2 { --team: var(--prophets-tab); --team-ink: var(--prophets-tab-ink); --team-line: var(--prophets); }
+.jp-tone-3 { --team: var(--gospels-tab); --team-ink: var(--gospels-tab-ink); --team-line: var(--gospels); }
+.jp-tone-4 { --team: var(--acts-tab); --team-ink: var(--acts-tab-ink); --team-line: var(--acts); }
+.jp-tone-5 { --team: var(--epistles-tab); --team-ink: var(--epistles-tab-ink); --team-line: var(--epistles); }
 
 /* Category picker: drawn whole in a scrolling panel. */
 .jp-picker-list { max-height: 24rem; overflow-y: auto; padding: .4rem .8rem; border: 1px solid var(--line); border-radius: .5rem; }
 .jp-picker h3 { margin-top: .8rem; font: 600 .7rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .jp-picker h4 { margin-top: .5rem; font-weight: 600; font-size: .85rem; }
-.jp-picker li label { display: flex; align-items: center; gap: .5rem; padding: .2rem 0; font-size: .88rem; }
+.jp-picker li label { display: flex; align-items: center; gap: .5rem; min-height: 44px; padding: .2rem 0; font-size: .88rem; }
 .jp-pick-title { flex: 1; }
 .jp-pick-count { color: var(--muted); font-variant-numeric: tabular-nums; }
 .jp-picker li.is-greyed { opacity: .55; }
 .jp-picker li small { display: block; margin-left: 1.6rem; color: var(--muted); font-size: .75rem; }
 
-/* Preview. */
+/* Preview. On a phone the value slabs are left out: a compact list of categories with their tools. */
 .jp-preview-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
 .jp-preview-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 .jp-preview-board { display: grid; grid-template-columns: repeat(var(--jp-columns), minmax(0, 1fr)); gap: .6rem; margin-top: 1.4rem; }
-@media (max-width: 700px) { .jp-preview-board { grid-template-columns: minmax(0, 1fr); } }
 .jp-preview-column h2 { font: 600 1.05rem/1.25 var(--font-serif); min-height: 2.6em; }
 .jp-preview-column > p { color: var(--muted); font-size: .8rem; line-height: 1.5; min-height: 3em; }
 .jp-preview-column ol { display: grid; gap: .3rem; margin: .6rem 0; }
-.jp-preview-column li { padding: .5rem; border-radius: .35rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font-weight: 700; text-align: center; }
+.jp-preview-column li { padding: .5rem; border-radius: .35rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font-weight: 700; text-align: center; animation: jp-fill .5s var(--jp-ease) both; }
+.jp-preview-column li:nth-child(2) { animation-delay: 60ms; } .jp-preview-column li:nth-child(3) { animation-delay: 120ms; } .jp-preview-column li:nth-child(4) { animation-delay: 180ms; } .jp-preview-column li:nth-child(5) { animation-delay: 240ms; }
 .jp-preview-tools { display: flex; flex-wrap: wrap; gap: .3rem; }
-.jp-preview-tools .jp-quiet { padding: .3rem .7rem; font-size: .8rem; }
-.jp-preview-tools select { max-width: 100%; padding: .3rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); font-size: .8rem; }
+.jp-preview-tools .jp-quiet { min-height: 44px; padding: .3rem .8rem; font-size: .8rem; }
+.jp-preview-tools select { max-width: 100%; min-height: 44px; padding: .3rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); font-size: .8rem; }
 .jp-preview-final { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .jp-preview-final h2 { font: 600 1.05rem/1.25 var(--font-serif); }
+@media (max-width: 700px) {
+  .jp-preview-board { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
+  .jp-preview-column { padding: .6rem 0; border-bottom: 1px solid var(--line); }
+  .jp-preview-column h2, .jp-preview-column > p { min-height: 0; }
+  .jp-preview-column ol { display: none; }
+  .jp-preview-tools { margin-top: .5rem; }
+}
 .jp-resume ul { margin: .8rem 0 1.2rem; }
 .jp-resume button { margin-right: .6rem; }
 
@@ -75,20 +88,58 @@
 .jp-stage:fullscreen { min-height: 100vh; margin: 0; border-radius: 0; }
 .jp-stage-light { --page: #faf7f0; --surface: #ffffff; --surface-2: #ece4d4; --ink: #1f1b16; --muted: #5d5549; --line: #d0c5b1; --accent: #8a5a12; }
 .jp-stage-dark { --page: #12110f; --surface: #1b1916; --surface-2: #26231f; --ink: #ece6da; --muted: #b0a797; --line: #3d3830; --accent: #e0b25c; }
-.jp-stage-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.jp-stage-main { position: relative; flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.jp-screen { flex: 1; display: flex; flex-direction: column; min-height: 0; transform-origin: 0 0; }
 .jp-small-screen { display: none; }
 @media (max-width: 600px) { .jp-small-screen { display: block; color: var(--muted); font-size: .8rem; } }
+
+/* The board. */
+.jp-board-wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .jp-board { flex: 1; display: grid; grid-template-rows: auto repeat(5, minmax(0, 1fr)); gap: .8vh; }
 .jp-board-heads, .jp-board-row { display: grid; grid-template-columns: repeat(var(--jp-columns), minmax(0, 1fr)); gap: .6vw; }
 .jp-board-head { display: grid; place-items: center; min-height: 9vh; padding: .4vh .4vw; text-align: center; font: 600 clamp(.9rem, 3vh, 2.2rem)/1.15 var(--font-serif); overflow-wrap: anywhere; }
 .jp-board-head.is-mid { font-size: clamp(.85rem, 2.5vh, 1.8rem); }
 .jp-board-head.is-long { font-size: clamp(.8rem, 2.1vh, 1.5rem); }
 .jp-board-row [role="gridcell"] { display: flex; }
-.jp-tile { flex: 1; min-height: 8vh; border: 0; border-radius: .5rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font: 700 clamp(1.4rem, 7vh, 4.5rem)/1 var(--font-sans); font-variant-numeric: tabular-nums; }
-.jp-tile.is-played { background: color-mix(in srgb, var(--ink) 10%, var(--page)); cursor: default; }
-.jp-tile:focus-visible { outline: .6vh solid var(--accent); outline-offset: .3vh; }
-@media (prefers-reduced-motion: no-preference) { .jp-clue, .jp-answer, .jp-daily-double { animation: jp-open .25s ease-out; } }
-@keyframes jp-open { from { transform: scale(.96); opacity: .4; } to { transform: none; opacity: 1; } }
+.jp-tile { position: relative; flex: 1; min-height: 8vh; border: 0; border-radius: .5rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font: 700 clamp(1.4rem, 7vh, 4.5rem)/1 var(--font-sans); font-variant-numeric: tabular-nums;
+  box-shadow: inset 0 -.5vh 0 rgb(0 0 0 / .18); transition: transform .3s var(--jp-ease), box-shadow .3s var(--jp-ease), background-color .3s var(--jp-ease); }
+@media (hover: hover) { .jp-tile:not(.is-played):hover { transform: translateY(-.4vh); box-shadow: inset 0 -.5vh 0 rgb(0 0 0 / .18), 0 1.4vh 3vh -1.6vh rgb(0 0 0 / .7); } }
+.jp-tile:not(.is-played):active { transform: translateY(0) scale(.985); transition-duration: .08s; }
+/* Focus is a lift and an inner edge in the stage's gold, never an outline. */
+.jp-tile:focus-visible { transform: translateY(-.4vh); box-shadow: inset 0 0 0 .45vh var(--accent), inset 0 -.5vh 0 rgb(0 0 0 / .18); }
+.jp-tile.is-played { background: color-mix(in srgb, var(--ink) 8%, var(--page)); color: var(--accent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); cursor: default; }
+.jp-tile.is-played:focus-visible { box-shadow: inset 0 0 0 .45vh var(--accent); }
+.jp-tile.is-fading { color: var(--prophets-tab-ink); background: var(--prophets-tab); animation: jp-tile-out .42s var(--jp-ease) both; }
+.jp-tile-dd { font: 700 clamp(.8rem, 2.4vh, 1.5rem)/1 var(--font-serif); letter-spacing: .12em; opacity: .85; }
+.is-replaying .jp-tile.is-played { box-shadow: inset 0 0 0 2px var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--page)); cursor: pointer; }
+.is-replaying .jp-tile:not(.is-played) { opacity: .45; }
+/* The deal (item 7): titles drop in one by one, then the tiles fill column by column. */
+.is-dealing .jp-board-head { animation: jp-drop .55s var(--jp-ease) both; animation-delay: calc(var(--jp-i, 0) * 110ms); }
+.is-dealing .jp-tile { animation: jp-fill .45s var(--jp-ease) both; animation-delay: calc(400ms + var(--jp-i, 0) * 110ms + var(--jp-r, 0) * 45ms); }
+@keyframes jp-drop { from { opacity: 0; transform: translateY(-1.6vh); } to { opacity: 1; transform: none; } }
+@keyframes jp-fill { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes jp-tile-out { from { opacity: 1; } 60% { opacity: 1; } to { opacity: 0; } }
+/* Phone chips: one category at a time (hidden on wider screens). */
+.jp-board-tabs { display: none; }
+@media (max-width: 600px) {
+  .jp-board-tabs { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .6rem; }
+  .jp-board-tab { display: inline-grid; gap: .1rem; min-height: 44px; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); text-align: left; font-size: .8rem; transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
+  .jp-board-tab.is-on { border-color: var(--prophets); box-shadow: inset 0 0 0 1px var(--prophets); background: color-mix(in srgb, var(--prophets) 12%, var(--surface)); }
+  .jp-board-tab:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--prophets); }
+  .jp-board-tab-title { font: 600 .82rem/1.2 var(--font-serif); }
+  .jp-board-tab-left { color: var(--muted); font-size: .7rem; }
+  .jp-board-heads, .jp-board-row { grid-template-columns: minmax(0, 1fr); }
+  .jp-board-head.is-off, .jp-board-row [role="gridcell"].is-off { display: none; }
+  .jp-board-head { min-height: 0; padding: .3rem 0 .6rem; font-size: 1.5rem; }
+  .jp-board-head.is-mid, .jp-board-head.is-long { font-size: 1.3rem; }
+  .jp-tile { min-height: 56px; font-size: 2rem; }
+}
+
+/* The clue grows out of its tile (item 1) and a ghost shrinks back into it on the way back. */
+.jp-screen.is-opening { animation: jp-grow .38s var(--jp-ease) both; }
+@keyframes jp-grow { from { opacity: .5; transform: translate(var(--jp-x, 0), var(--jp-y, 0)) scale(var(--jp-sx, 1), var(--jp-sy, 1)); } to { opacity: 1; transform: none; } }
+.jp-ghost { position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: .5rem; background: var(--page); box-shadow: inset 0 0 0 3px var(--prophets-tab); transform-origin: 0 0; animation: jp-shrink .42s var(--jp-ease) both; }
+@keyframes jp-shrink { from { opacity: .95; transform: none; } 70% { opacity: .6; } to { opacity: 0; transform: translate(var(--jp-x, 0), var(--jp-y, 0)) scale(var(--jp-sx, 1), var(--jp-sy, 1)); } }
 
 /* Clue and answer. */
 .jp-clue, .jp-answer, .jp-final, .jp-daily-double, .jp-results { flex: 1; display: flex; flex-direction: column; gap: 1.6vh; }
@@ -99,90 +150,169 @@
 .jp-clue-text.is-mid { font-size: clamp(1.3rem, 5vh, 3.5rem); }
 .jp-clue-text.is-long { font-size: clamp(1.2rem, 4vh, 2.8rem); }
 .jp-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1vh 2vw; width: min(100%, 60rem); text-align: left; font-size: clamp(1rem, 3.2vh, 2.2rem); }
-.jp-choices li { display: flex; gap: .7rem; align-items: baseline; padding: .8vh 1vw; border: 1px solid var(--line); border-radius: .4rem; }
-.jp-choices li span { font-weight: 700; color: var(--muted); }
-.jp-choices li.is-right { border-color: var(--poetry); background: color-mix(in srgb, var(--poetry) 14%, transparent); }
+.jp-choices .kit-card { --kit-card-height: 0; min-height: 44px; padding: .8vh 1.2vw; border-radius: .5rem; font-size: inherit; }
+.jp-choices .kit-card__mark { font-size: 1.1em; }
+.jp-choice-letter { display: inline-block; min-width: 1.4em; margin-right: .4em; font-weight: 700; color: var(--muted); }
+.jp-choices .is-right .jp-choice-letter { color: var(--kit-right, #2f8a4f); }
 .jp-clue-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem; }
 .jp-clue-foot > .jp-primary { margin-left: auto; }
 .jp-answer > .jp-clue-foot { margin-top: auto; }
+/* The answer sits in the middle of the stage: the head keeps the top, the foot the bottom. */
+.jp-answer > .jp-clue-head { margin-bottom: auto; }
+.jp-answer > .jp-final-marks { margin-bottom: auto; }
+.jp-answer .jp-choices { margin: 0 auto; }
 .jp-marks { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
-.jp-marks li { display: flex; align-items: center; gap: .4rem; }
+.jp-marks li { display: flex; align-items: center; gap: .4rem; padding: .25rem .6rem .25rem .3rem; border-radius: 999px; transition: background-color .3s var(--jp-ease); }
+.jp-marks li.is-right { background: color-mix(in srgb, var(--kit-right, #2f8a4f) 16%, transparent); animation: jp-land .5s var(--jp-ease) both; }
+.jp-marks li.is-wrong { background: color-mix(in srgb, var(--red-letter) 14%, transparent); animation: jp-shake .45s var(--jp-ease) both; }
+.jp-marks li.is-steal .jp-right { animation: jp-invite 1.2s var(--jp-ease) 2; border-color: var(--accent); }
+@keyframes jp-land { 0% { transform: scale(.94); } 55% { transform: scale(1.06); } 100% { transform: none; } }
+@keyframes jp-shake { 0%, 100% { translate: 0; } 20%, 60% { translate: -5px 0; } 40%, 80% { translate: 5px 0; } }
+@keyframes jp-invite { 0%, 100% { transform: none; } 50% { transform: translateY(-3px); box-shadow: 0 6px 14px -8px var(--accent); } }
 .jp-team-label { max-width: 12rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
 .jp-mark-buttons { display: inline-flex; gap: .3rem; }
-.jp-right, .jp-wrong { display: inline-flex; align-items: center; gap: .25rem; padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 600; }
+.jp-right, .jp-wrong { display: inline-flex; align-items: center; gap: .25rem; min-height: 44px; padding: .35rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 600; transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
+.jp-right:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--kit-right, #2f8a4f); }
+.jp-wrong:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--red-letter); }
 .jp-right:disabled, .jp-wrong:disabled { opacity: .4; }
 .jp-mark { display: inline-flex; align-items: center; gap: .25rem; font-weight: 700; }
-.jp-mark.is-right { color: var(--poetry); }
+.jp-mark.is-right { color: var(--kit-right, #2f8a4f); }
 .jp-mark.is-wrong { color: var(--red-letter); }
-.jp-timer { position: relative; height: .8vh; min-height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
-.jp-timer > span { position: absolute; inset: 0; background: var(--prophets); transform-origin: left; transition: transform .2s linear; }
-.jp-timer.is-done { height: auto; overflow: visible; background: transparent; text-align: center; }
-.jp-timer strong { font-size: clamp(1rem, 3vh, 2rem); }
+.jp-mark.is-nothing { color: var(--muted); }
+/* The timer (item 4): the kit's bar, thick, with the seconds beside it and Time! stamped over the clue. */
+.jp-timer { --kit-timer-height: clamp(10px, 1.6vh, 18px); --kit-timer-size: clamp(1.1rem, 3.4vh, 2.4rem); --kit-color: var(--prophets); --kit-part: var(--accent); position: relative; z-index: 2; }
+.jp-timer .kit-timer__stamp { inset: auto; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 2vh; padding: .2em .8em; background: color-mix(in srgb, var(--red-letter) 14%, var(--page)); border: 2px solid var(--red-letter); border-radius: .5rem;
+  font: 600 clamp(1.8rem, 9vh, 6rem)/1 var(--font-serif); letter-spacing: -.02em; animation: jp-stamp .45s var(--jp-ease) both; }
+@keyframes jp-stamp { 0% { opacity: 0; transform: translateX(-50%) scale(1.6) rotate(-4deg); } 70% { opacity: 1; transform: translateX(-50%) scale(.96) rotate(-2deg); } 100% { opacity: 1; transform: translateX(-50%) rotate(-2deg); } }
 .jp-answer-question { color: var(--muted); font-size: clamp(.9rem, 2.6vh, 1.6rem); text-align: center; }
-.jp-answer-text { text-align: center; font: 600 clamp(1.6rem, 7vh, 5rem)/1.15 var(--font-serif); overflow-wrap: anywhere; }
+.jp-answer-text { text-align: center; font: 600 clamp(1.6rem, 7vh, 5rem)/1.15 var(--font-serif); overflow-wrap: anywhere; animation: jp-answer-in .5s var(--jp-ease) both; }
+@keyframes jp-answer-in { from { opacity: 0; transform: translateY(1.5vh) scale(.97); } to { opacity: 1; transform: none; } }
 .jp-verse { max-width: 50rem; margin: 0 auto; text-align: center; }
 .jp-verse blockquote { font: italic 400 clamp(1rem, 3vh, 1.9rem)/1.45 var(--font-serif); }
 .jp-verse figcaption { display: flex; justify-content: center; gap: .6rem; margin-top: .6vh; color: var(--muted); font-size: clamp(.85rem, 2.3vh, 1.4rem); }
 .jp-verse a { display: inline-flex; align-items: center; gap: .2rem; color: var(--accent); }
 .jp-verse-version { font-size: .8em; letter-spacing: .08em; }
-.jp-scored { text-align: center; font-weight: 700; font-size: clamp(1rem, 3vh, 2rem); }
+.jp-scored { text-align: center; font-weight: 700; font-size: clamp(1.1rem, 3.4vh, 2.4rem); }
+.jp-scored.is-scored { color: var(--kit-right, #2f8a4f); animation: jp-land .5s var(--jp-ease) both; }
 
-/* Daily Double, Final and results. */
-.jp-daily-double { justify-content: center; align-items: center; text-align: center; }
+/* Daily Double (item 3), Final (item 6) and results (item 5). */
+.jp-daily-double { position: relative; justify-content: center; align-items: center; text-align: center; }
 .jp-daily-double h2, .jp-final-category { font: 600 clamp(2rem, 10vh, 7rem)/1.05 var(--font-serif); letter-spacing: -.03em; }
 .jp-dd-team { font-size: clamp(1.1rem, 4vh, 2.6rem); font-weight: 600; }
-.jp-daily-double form { display: grid; gap: 1vh; justify-items: center; }
+.jp-dd-name { color: var(--team-line, var(--ink)); }
+.jp-daily-double form { display: grid; gap: 1vh; justify-items: center; animation: jp-answer-in .5s var(--jp-ease) both; }
+.jp-daily-double.is-splash > :not(.jp-dd-splash) { visibility: hidden; }
+.jp-dd-splash { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; gap: 2vh; border-radius: .5rem; background: var(--team, var(--prophets-tab)); color: var(--team-ink, var(--ink)); text-align: center; cursor: pointer; animation: jp-flood .35s var(--jp-ease) both; }
+.jp-dd-splash-word { font: 700 clamp(2.4rem, 14vh, 10rem)/1 var(--font-serif); letter-spacing: -.03em; animation: jp-zoom .9s var(--jp-ease) both; }
+.jp-dd-splash-team { font: 600 clamp(1.2rem, 4.5vh, 3rem)/1.1 var(--font-sans); opacity: .9; animation: jp-answer-in .6s var(--jp-ease) .45s both; }
+@keyframes jp-flood { from { opacity: 0; } to { opacity: 1; } }
+@keyframes jp-zoom { 0% { opacity: 0; transform: scale(.2); } 70% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: none; } }
 .jp-bet-row { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; }
-.jp-bet-row input, .jp-final-row input { width: 8rem; padding: .45rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1.1rem; }
-.jp-bet-row button { padding: .45rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); }
-.jp-dd-actions { display: flex; gap: .6rem; margin-top: 1vh; }
+.jp-bet-row input, .jp-final-row input { width: 8rem; min-height: 44px; padding: .45rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1.1rem; }
+.jp-bet-row input:focus-visible, .jp-final-row input:focus-visible { border-color: var(--accent); }
+.jp-bet-row button { min-height: 44px; padding: .45rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
+.jp-bet-row button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--accent); }
+.jp-dd-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1vh; }
 .jp-final { justify-content: center; align-items: center; text-align: center; }
 .jp-final-line { color: var(--muted); font-size: clamp(1rem, 3vh, 2rem); }
 .jp-final-note { max-width: 40rem; font-size: clamp(1rem, 2.8vh, 1.8rem); }
 .jp-final-marks { display: grid; gap: .6rem; width: min(100%, 52rem); margin: 0 auto; }
-.jp-final-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: .5rem; }
-.jp-final-row.is-current { border-color: var(--accent); }
+.jp-final-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: .5rem .8rem; border: 1px solid var(--line); border-left: 4px solid var(--team-line, var(--line)); border-radius: .5rem; font-size: clamp(1rem, 2.8vh, 1.7rem); }
+.jp-final-row.is-current { border-color: var(--accent); border-left-color: var(--team-line, var(--accent)); animation: jp-answer-in .45s var(--jp-ease) .25s both; }
+.jp-final-row.is-landed { animation: jp-land .5s var(--jp-ease) both; }
+.jp-final-row.is-landed.is-right { background: color-mix(in srgb, var(--kit-right, #2f8a4f) 10%, transparent); }
+.jp-final-row.is-landed.is-wrong { background: color-mix(in srgb, var(--red-letter) 9%, transparent); }
+.jp-final-row.is-landed .jp-mark { font-size: 1.15em; }
+.jp-final-row.is-newest .jp-mark { animation: jp-land .6s var(--jp-ease) both; }
+.jp-final-nothing { display: inline-block; margin-right: .5rem; color: var(--muted); font-weight: 600; }
+.jp-final-row input:disabled { display: none; }
 .jp-final-score { margin-left: auto; font-weight: 700; font-variant-numeric: tabular-nums; }
-.jp-results { align-items: center; }
-.jp-results h2 { font: 600 clamp(1.8rem, 7vh, 4rem)/1.1 var(--font-serif); }
-.jp-podium { display: grid; gap: .8vh; width: min(100%, 46rem); }
-.jp-place { display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1vh 1.2vw; border-bottom: 1px solid var(--line); font-size: clamp(1rem, 3.2vh, 2.2rem); }
-.jp-place-1 { font-size: clamp(1.2rem, 4.6vh, 3rem); font-weight: 700; }
-.jp-place small { grid-column: 2 / -1; color: var(--muted); font-size: .55em; }
+.jp-final-row .jp-right, .jp-final-row .jp-wrong { font-size: .95rem; }
+.jp-results { align-items: center; justify-content: center; gap: 2.4vh; }
+.jp-results .kit-winner__label { font-size: clamp(.8rem, 2.2vh, 1.4rem); color: var(--muted); }
+.jp-results .kit-winner__name { font-size: clamp(2.2rem, 11vh, 8rem); letter-spacing: -.03em; color: var(--team-line, var(--ink)); }
+.jp-kit-podium { width: min(100%, 56rem); --kit-radius: .5rem; }
+.jp-kit-podium .kit-podium__names { font: 600 clamp(1rem, 3vh, 2rem)/1.2 var(--font-serif); }
+.jp-kit-podium .kit-podium__name { display: block; }
+.jp-kit-podium .kit-podium__score { font: 700 clamp(1.1rem, 3.6vh, 2.6rem)/1 var(--font-sans); color: var(--ink); }
+.jp-kit-podium .kit-podium__block { position: relative; font-size: clamp(1.2rem, 4vh, 2.8rem); }
+.jp-kit-podium .kit-podium__step:nth-child(1) .kit-podium__block { --kit-step: clamp(5rem, 22vh, 14rem); }
+.jp-kit-podium .kit-podium__step:nth-child(2) .kit-podium__block { --kit-step: clamp(3.6rem, 15vh, 10rem); }
+.jp-kit-podium .kit-podium__step:nth-child(3) .kit-podium__block { --kit-step: clamp(2.6rem, 10vh, 7rem); }
+.jp-rest { display: grid; gap: .4vh; width: min(100%, 40rem); }
+.jp-place { display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: .6vh 1.2vw; border-bottom: 1px solid var(--line); font-size: clamp(1rem, 2.8vh, 1.8rem); animation: jp-answer-in .5s var(--jp-ease) both; }
 .jp-place-number { font-family: var(--font-serif); color: var(--accent); }
 .jp-place-score { font-variant-numeric: tabular-nums; }
-@media (prefers-reduced-motion: no-preference) { .jp-place { animation: jp-rise .5s ease-out both; } .jp-place-2 { animation-delay: .1s; } .jp-place-3 { animation-delay: .2s; } }
-@keyframes jp-rise { from { transform: translateY(1rem); opacity: 0; } to { transform: none; opacity: 1; } }
+.jp-tie-note { font-size: clamp(.9rem, 2.4vh, 1.4rem); }
 .jp-results-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+.jp-stage.is-results .jp-stage-foot { justify-content: flex-end; border-top: 0; }
 
-/* Scoreboard, menu and notices. */
+/* Scoreboard (item 2: the score counts and the change floats up), menu and notices. */
 .jp-stage-foot { display: flex; align-items: flex-end; gap: 1rem; margin-top: 1.4vh; padding-top: 1vh; border-top: 1px solid var(--line); }
 .jp-scoreboard { flex: 1; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; }
-.jp-scoreboard > li { position: relative; display: flex; align-items: center; gap: .5rem; padding: .4vh .6vw; border-radius: .5rem; transition: transform .2s; }
+.jp-scoreboard > li { position: relative; display: flex; align-items: center; gap: .5rem; padding: .4vh .6vw; border-radius: .5rem; transition: transform .3s var(--jp-ease), background-color .3s var(--jp-ease); }
 .jp-scoreboard > li.is-choosing { transform: translateY(-.6vh); background: color-mix(in srgb, var(--team) 14%, transparent); box-shadow: inset 0 -3px 0 var(--team); }
-.jp-team-name { display: inline-flex; align-items: center; gap: .4rem; border: 0; background: none; color: var(--ink); font-size: clamp(.9rem, 2.4vh, 1.5rem); }
+.jp-team-name { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; border: 0; background: none; color: var(--ink); font-size: clamp(.9rem, 2.4vh, 1.5rem); transition: transform .3s var(--jp-ease); }
+.jp-team-name:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); text-decoration: underline; text-underline-offset: 3px; }
 .jp-team-name .jp-team-label { max-width: 10rem; }
-.jp-to-choose { color: var(--muted); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-.jp-team-score { border: 0; background: none; color: var(--ink); font: 700 clamp(1rem, 3vh, 2rem)/1 var(--font-sans); font-variant-numeric: tabular-nums; }
-.jp-delta { font-weight: 700; font-size: .85rem; }
-.jp-delta.is-up { color: var(--poetry); }
+.jp-to-choose { color: var(--accent); font-size: clamp(.75rem, 1.9vh, 1.1rem); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.jp-team-score { position: relative; min-height: 44px; border: 0; background: none; color: var(--ink); font: 700 clamp(1rem, 3vh, 2rem)/1 var(--font-sans); font-variant-numeric: tabular-nums; transition: transform .3s var(--jp-ease); }
+.jp-team-score:is(:hover, :focus-visible) { transform: translateY(-2px); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+.jp-team-score.is-up { animation: jp-land .5s var(--jp-ease) both; }
+.jp-team-score.is-down { animation: jp-shake .45s var(--jp-ease) both; }
+.jp-flash { position: absolute; inset: 0; border-radius: .5rem; pointer-events: none; animation: jp-flash .9s var(--jp-ease) both; }
+.jp-flash.is-up { background: var(--kit-right, #2f8a4f); }
+.jp-flash.is-down { background: var(--red-letter); }
+@keyframes jp-flash { 0% { opacity: .55; } 100% { opacity: 0; } }
+.jp-delta { position: absolute; left: 100%; bottom: 35%; z-index: 4; margin-left: .3rem; font-weight: 700; font-size: clamp(1rem, 3vh, 2rem); white-space: nowrap; pointer-events: none; animation: jp-float 1.4s var(--jp-ease) both; }
+.jp-delta.is-up { color: var(--kit-right, #2f8a4f); }
 .jp-delta.is-down { color: var(--red-letter); }
-.jp-adjust { position: absolute; bottom: 100%; left: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; width: max-content; padding: .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
+@keyframes jp-float { 0% { opacity: 0; transform: translateY(.8vh); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-2.6vh); } }
+.jp-adjust { position: absolute; bottom: 100%; left: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; width: max-content; max-width: min(92vw, 30rem); padding: .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); animation: jp-answer-in .3s var(--jp-ease) both; }
 .jp-adjust form { display: flex; gap: .3rem; }
-.jp-adjust input { width: 6rem; padding: .25rem .4rem; border: 1px solid var(--line); border-radius: .3rem; background: var(--page); color: var(--ink); }
-.jp-adjust button { padding: .25rem .6rem; border: 1px solid var(--line); border-radius: 999px; background: var(--page); color: var(--ink); }
+.jp-adjust input { width: 6rem; min-height: 44px; padding: .25rem .4rem; border: 1px solid var(--line); border-radius: .3rem; background: var(--page); color: var(--ink); }
+.jp-adjust button { min-height: 44px; padding: .25rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--page); color: var(--ink); transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
+.jp-adjust button:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--accent); }
 .jp-menu-wrap { position: relative; }
-.jp-menu { position: absolute; right: 0; bottom: 110%; z-index: 6; display: grid; min-width: 13rem; padding: .3rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
-.jp-menu button { padding: .5rem .7rem; border: 0; background: none; color: var(--ink); text-align: left; border-radius: .3rem; }
+.jp-menu { position: absolute; right: 0; bottom: 110%; z-index: 6; display: grid; min-width: 13rem; padding: .3rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); animation: jp-answer-in .3s var(--jp-ease) both; }
+.jp-menu button { min-height: 44px; padding: .5rem .8rem; border: 0; background: none; color: var(--ink); text-align: left; border-radius: .3rem; }
 .jp-menu button:is(:hover, :focus-visible) { background: var(--surface-2); }
 .jp-stage-note { margin-top: .6vh; color: var(--muted); }
-.jp-confirm { position: absolute; inset: auto 1rem 5rem; z-index: 8; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: 1rem; border: 1px solid var(--accent); border-radius: .5rem; background: var(--surface); color: var(--ink); }
+.jp-confirm { position: absolute; inset: auto 1rem 5rem; z-index: 8; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: 1rem; border: 1px solid var(--accent); border-radius: .5rem; background: var(--surface); color: var(--ink); animation: jp-answer-in .3s var(--jp-ease) both; }
 .jp-page > .jp-confirm { position: static; margin-top: 1rem; }
 .jp-confirm p { flex-basis: 100%; }
 
+/* Phones: the stage fills the screen, the marks stay in reach, the scoreboard is a compact grid. */
+@media (max-width: 600px) {
+  .jp-stage { min-height: calc(100dvh - 7rem); padding: .6rem; }
+  .jp-stage-main { overflow-y: auto; }
+  .jp-clue-head, .jp-answer-question { font-size: .95rem; }
+  .jp-clue-text { font-size: 1.5rem; } .jp-clue-text.is-mid { font-size: 1.3rem; } .jp-clue-text.is-long { font-size: 1.15rem; }
+  .jp-choices { grid-template-columns: minmax(0, 1fr); gap: .4rem; font-size: 1rem; }
+  .jp-choices .kit-card { padding: .5rem .7rem; }
+  .jp-clue-foot { position: sticky; bottom: 0; z-index: 2; margin: 0 -.6rem -.6rem; padding: .6rem; background: var(--page); border-top: 1px solid var(--line); }
+  .jp-marks { gap: .3rem .6rem; }
+  .jp-marks li { width: 100%; }
+  .jp-marks .jp-mark-buttons { margin-left: auto; }
+  .jp-team-label { max-width: 7rem; }
+  .jp-scoreboard { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+  .jp-scoreboard > li { padding: .2rem .4rem; gap: .3rem; }
+  .jp-team-name { font-size: .9rem; }
+  .jp-team-name .jp-team-label { max-width: 5.5rem; }
+  .jp-team-score { font-size: 1.1rem; margin-left: auto; }
+  .jp-to-choose { display: none; }
+  .jp-scoreboard > li.is-choosing { transform: none; }
+  /* The adjuster floats over the stage above the strip, the full width of the phone, so none of it is off the screen. */
+  .jp-adjust { position: fixed; left: .6rem; right: .6rem; bottom: 6.2rem; width: auto; max-width: none; justify-content: center; }
+  .jp-answer-text { font-size: 1.8rem; }
+  .jp-daily-double h2, .jp-final-category { font-size: 2.4rem; }
+  .jp-results .kit-winner__name { font-size: 2.6rem; }
+  .jp-final-row { font-size: 1rem; }
+}
+
 /* How to play. */
 .jp-overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: color-mix(in srgb, #000 45%, transparent); }
-.jp-dialog { position: relative; width: min(100%, 36rem); max-height: 90vh; overflow-y: auto; padding: 1.6rem; border-radius: .7rem; background: var(--surface); color: var(--ink); }
+.jp-dialog { position: relative; width: min(100%, 36rem); max-height: 90vh; overflow-y: auto; padding: 1.6rem; border-radius: .7rem; background: var(--surface); color: var(--ink); animation: jp-answer-in .35s var(--jp-ease) both; }
 .jp-dialog h2 { font: 600 1.5rem/1.2 var(--font-serif); margin-bottom: .6rem; }
 .jp-dialog h3 { margin-top: 1rem; font-weight: 600; }
 .jp-dialog ul { display: grid; gap: .45rem; padding-left: 1.1rem; list-style: disc; line-height: 1.55; font-size: .92rem; }
