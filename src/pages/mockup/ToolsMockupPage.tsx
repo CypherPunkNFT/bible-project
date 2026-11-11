@@ -11,7 +11,6 @@ import { DOOR_ART, DOOR_TONES } from "@/pages/tools/art/doors";
 import { CategorySection, ToolTile, type CategoryOfTools } from "@/pages/tools/ToolsPage";
 import { CATEGORIES, toolsForHub, isLive, type Category } from "@/pages/tools/registry";
 import "@/pages/games/games.css";
-import "@/pages/tools/tools.css";
 
 const DOOR_ORDER: readonly Category[] = ["family", "prayer", "sharing", "study", "witness", "hard-times"];
 const DOOR_TITLES: Partial<Record<Category, string>> = { family: "Life events", prayer: "Prayer & home", sharing: "Sharing & churches", witness: "Your story" };

@@ -3,7 +3,7 @@
 // (registry.ts CATEGORIES; the row and its behaviour in src/components/hub-doors/), and under the doors the chosen
 // category's tools (?category=<key>, the first category by default), each tool a tile with its own picture (art/). A
 // finished tool links to its own address; one not built yet is a "Coming soon" tile with its full picture and no link.
-// tools.css only sets the three columns. The doors replaced a long page of every category (owner, 2026-11-11; the
+// Four tiles to a row, as on the games hub (owner, 2026-11-11; it had three). The doors replaced a long page of every category (owner, 2026-11-11; the
 // versions the owner chose from stay at /tools_mockup and /tools_mockup2 on the preview).
 // How to add or finish a tool: README.md beside this file.
 import { ArrowUpRight, Hourglass } from "lucide-react";
@@ -18,7 +18,6 @@ import { DOOR_ART, DOOR_TONES } from "./art/doors";
 import { HeroArt } from "./art/HeroArt";
 import { AUDIENCE_LABELS, CATEGORIES, toolsForHub, isLive, type Category, type ToolEntry } from "./registry";
 import "@/pages/games/games.css";
-import "./tools.css";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 

@@ -1,4 +1,0 @@
-/* The tools hub (ToolsPage.tsx) wears the games hub's styles (src/pages/games/games.css). The one difference: its
-   categories hold two or three tools, not four, so the grid has three columns on desktop (two on tablets and one row
-   per tool on phones, as games.css already sets below 1100px and 640px). */
-@media (min-width: 1100px) { .tl-page .gm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
