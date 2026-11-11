@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteLanguage } from "@/lib/language";
+import { useScrollTopOn } from "../kit";
 import { inSiteLanguage } from "../translated-data";
 import { Board } from "./Board";
 import { columnsFor, dealCards, drawPairs, isOffered, opensWithSpecPair, seededRng, shuffle, type PairsFile } from "./deal";
@@ -96,6 +97,9 @@ function Game({ data }: { data: PairsFile }) {
     setFinished(null);
     update(null);
   }, [update]);
+
+  // Every new screen (a board, the summary, the start) opens at the top of the page (the audit's item 1).
+  useScrollTopOn(finished ? `summary-${round}` : !game ? "start" : game.studying ? `study-${round}` : `board-${round}`);
 
   if (finished) {
     return <Summary data={data} game={finished.game} news={finished.news}

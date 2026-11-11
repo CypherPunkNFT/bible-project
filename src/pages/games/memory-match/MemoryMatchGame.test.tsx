@@ -1,6 +1,6 @@
 // Memory card match on the page: keyboard play from deal to summary, live messages, hidden face-down text, reduced
 // motion, the summary's verses and links, and the hub serving it at /games/memory-match (design section 14).
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { Suspense } from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import rawData from "@/data/memory-match/pairs.json";
@@ -156,6 +156,124 @@ describe("memory match page", () => {
     await screen.findByRole("group", { name: /^Cards/ });
     expect(JSON.parse(sessionStorage.getItem("bp-memory-match-game")!).cards).toEqual(JSON.parse(before!).cards);
     expect(cards()[0]).toHaveAccessibleName(/face up$/);
+  });
+
+  // ---- The redesign (docs/visual-audits/memory-match-redesign.md) --------------------------------------------------
+
+  it("marks a miss on both cards and turns them back on a tap on either card or on the board", async () => {
+    await deal();
+    const dealt = savedCards();
+    const who = dealt.findIndex((c) => c.kind === "who");
+    const wrong = dealt.findIndex((c) => c.kind === "story" && c.pair !== dealt[who].pair);
+    fireEvent.click(cards()[who]);
+    fireEvent.click(cards()[wrong]);
+    expect(cards()[who]).toHaveClass("is-miss");
+    expect(cards()[wrong]).toHaveClass("is-miss");
+    expect(grid()).toHaveClass("is-holding");
+    later();
+    fireEvent.click(cards()[who]); // a tap on a card already up turns the non-pair back at once, costing nothing
+    expect(cards()[who]).toHaveAccessibleName(/face down/);
+    expect(cards()[wrong]).toHaveAccessibleName(/face down/);
+    expect(screen.getByText("1 move")).toBeInTheDocument();
+    fireEvent.click(cards()[who]);
+    fireEvent.click(cards()[wrong]);
+    later();
+    fireEvent.click(grid()); // and so does a tap on the board between the cards
+    expect(cards()[wrong]).toHaveAccessibleName(/face down/);
+    expect(screen.getByText("2 moves")).toBeInTheDocument();
+  });
+
+  it("stamps a pair, then takes it off the board onto the shelf, leaving an empty slot", async () => {
+    await deal();
+    const dealt = savedCards();
+    const who = dealt.findIndex((c) => c.kind === "who");
+    const story = dealt.findIndex((c) => c.pair === dealt[who].pair && c.kind === "story");
+    const shelf = () => screen.getByRole("button", { name: /pairs? found, read them$/ });
+    expect(shelf()).toHaveAccessibleName("0 pairs found, read them");
+    expect(document.querySelectorAll(".mm-shelf__slot")).toHaveLength(6); // one slot per pair from the deal
+    expect(document.querySelectorAll(".mm-pips .kit-trail__mark")).toHaveLength(6);
+    fireEvent.click(cards()[who]);
+    fireEvent.click(cards()[story]);
+    expect(cards()[who]).toHaveAttribute("data-face", "matched"); // still on the board, stamped
+    expect(cards()[who].querySelector(".mm-card__stamp")).toBeInTheDocument();
+    expect(document.querySelector(".mm-shelf__slot.is-arriving")).toBeInTheDocument();
+    expect(document.querySelectorAll(".mm-pips .kit-trail__mark.is-right")).toHaveLength(1);
+    await waitFor(() => expect(cards()[who]).toHaveAttribute("data-face", "taken"), { timeout: 4000 });
+    expect(cards()[story]).toHaveAttribute("data-face", "taken");
+    expect(cards()[who].querySelector(".mm-card__inner")).toBeNull(); // the slot is empty
+    expect(cards()[who]).toHaveAccessibleName(/matched with/); // but still a place the arrow keys can rest on
+    expect(document.querySelector(".mm-shelf__slot.is-filled")).toBeInTheDocument();
+    expect(shelf()).toHaveAccessibleName("1 pair found, read them");
+    fireEvent.click(shelf());
+    const pair = byId.get(dealt[who].pair)!;
+    expect(screen.getByText(pair.ref)).toBeInTheDocument();
+    expect(cards()).toHaveLength(12); // the shelf's button is outside the grid
+  });
+
+  it("keeps three stars in hand until the move thresholds pass", async () => {
+    await deal();
+    const dealt = savedCards();
+    const held = () => document.querySelectorAll(".mm-held svg.is-on").length;
+    expect(held()).toBe(3);
+    const who = dealt.findIndex((c) => c.kind === "who");
+    const wrong = dealt.findIndex((c) => c.kind === "story" && c.pair !== dealt[who].pair);
+    for (let n = 0; n < 12; n += 1) { // twelve misses: past 11 moves two stars remain
+      fireEvent.click(cards()[who]);
+      fireEvent.click(cards()[wrong]);
+      later();
+      fireEvent.click(grid());
+    }
+    expect(screen.getByText("12 moves")).toBeInTheDocument();
+    expect(held()).toBe(2);
+  });
+
+  it("ends with the stars in a row, the buttons before the stories, and scrolls to the top on Play again", async () => {
+    const scrollTo = vi.fn();
+    window.scrollTo = scrollTo as unknown as typeof window.scrollTo;
+    await deal();
+    const dealt = savedCards();
+    for (const [n, card] of dealt.entries()) {
+      if (card.kind !== "who") continue;
+      fireEvent.click(cards()[n]);
+      later();
+      fireEvent.click(cards()[dealt.findIndex((c) => c.pair === card.pair && c.kind === "story")]);
+      later();
+    }
+    await screen.findByRole("heading", { level: 2, name: /^All 6 pairs/ });
+    expect(document.querySelectorAll(".mm-stars__row svg")).toHaveLength(3);
+    expect(getComputedStyle(document.querySelector(".mm-stars__row")!).display).not.toBe("block");
+    const again = screen.getByRole("button", { name: "Play again" });
+    const stories = screen.getByRole("heading", { level: 3, name: "The stories" });
+    expect(again.compareDocumentPosition(stories) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    scrollTo.mockClear();
+    fireEvent.click(again);
+    await screen.findByRole("group", { name: /^Cards/ });
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "auto" });
+    expect(screen.getByText("0 moves")).toBeInTheDocument();
+  });
+
+  it("hands the turn over with a banner and each player's chip in pass and play", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "2" }));
+    fireEvent.change(screen.getByPlaceholderText("Player 1"), { target: { value: "Theo" } });
+    fireEvent.change(screen.getByPlaceholderText("Player 2"), { target: { value: "Mia" } });
+    fireEvent.click(screen.getByRole("button", { name: "Deal the cards" }));
+    const dealt = savedCards();
+    const chips = within(screen.getByRole("list", { name: "Pairs per player" }));
+    expect(chips.getByText("Theo").closest("li")).toHaveAttribute("aria-current", "true");
+    const who = dealt.findIndex((c) => c.kind === "who");
+    const wrong = dealt.findIndex((c) => c.kind === "story" && c.pair !== dealt[who].pair);
+    fireEvent.click(cards()[who]);
+    fireEvent.click(cards()[wrong]);
+    expect(chips.getByText("Mia").closest("li")).toHaveAttribute("aria-current", "true");
+    const banner = document.querySelector(".mm-handover")!;
+    expect(banner).toHaveTextContent("You're up");
+    expect(banner).toHaveTextContent("Mia");
+    later();
+    fireEvent.click(cards()[who]); // turns the non-pair back
+    fireEvent.click(cards()[who]);
+    fireEvent.click(cards()[dealt.findIndex((c) => c.pair === dealt[who].pair && c.kind === "story")]);
+    expect(chips.getByText("Mia").closest("li")).toHaveAttribute("data-leading", "true");
   });
 
   it("is served by the games hub at its own address", async () => {

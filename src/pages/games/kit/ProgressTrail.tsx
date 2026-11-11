@@ -12,13 +12,17 @@ export interface ProgressTrailProps {
   label: string;
   /** The size of one pip, any CSS length. */
   size?: string;
+  /** A colour per mark (any CSS colour), for a game whose filled pips wear their own tones (Memory match's pair colours);
+   *  a missing entry keeps the right/wrong/part colour. */
+  tones?: readonly (string | undefined)[];
   className?: string;
 }
 
-export function ProgressTrail({ marks, shape = "squares", label, size, className = "" }: ProgressTrailProps) {
+export function ProgressTrail({ marks, shape = "squares", label, size, tones, className = "" }: ProgressTrailProps) {
   const newest = newestIndex(marks);
   const style = size ? ({ "--kit-pip": size } as CSSProperties) : undefined;
   return <div className={`kit-trail${shape === "dots" ? " kit-trail--dots" : ""}${className ? ` ${className}` : ""}`} role="img" aria-label={label} style={style}>
-    {marks.map((mark, i) => <span key={i} className={`kit-trail__mark is-${mark}${i === newest ? " is-new" : ""}`} data-mark={mark} />)}
+    {marks.map((mark, i) => <span key={i} className={`kit-trail__mark is-${mark}${i === newest ? " is-new" : ""}`} data-mark={mark}
+      style={tones?.[i] ? ({ "--kit-mark": tones[i] } as CSSProperties) : undefined} />)}
   </div>;
 }

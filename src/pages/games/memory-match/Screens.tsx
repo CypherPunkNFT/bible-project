@@ -1,5 +1,10 @@
-// Memory card match: the start screen, "See the pairs first" and the can't-load screen (design section 10).
-import { useEffect, useRef } from "react";
+// Memory card match: the start screen, "See the pairs first" and the can't-load screen (design section 10; redesign
+// from docs/visual-audits/memory-match.md, item 7). The start shows a fan of three face-down cards beside the title with
+// one turning over on a slow loop, three chip rows, and the long tail of settings under a fold so Deal sits on the
+// first phone screen. The best for the current choice shows as stars.
+import { Star } from "lucide-react";
+import { useEffect, useRef, type CSSProperties } from "react";
+import { MoreOptions } from "../kit";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
@@ -17,11 +22,30 @@ interface StartProps {
   onDeal: (study: boolean) => void;
 }
 
+/** Three face-down cards fanned beside the title; the front one turns over and back on a slow loop (CSS). */
+function CardFan() {
+  return <span className="mm-fan" aria-hidden="true">
+    <span className="mm-fan__card is-story"><span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Story</span></span></span>
+    <span className="mm-fan__card is-who"><span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Who</span></span></span>
+    <span className="mm-fan__card is-turning">
+      <span className="mm-fan__inner">
+        <span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Who</span></span>
+        <span className="mm-fan__face mm-fan__front">Daniel</span>
+      </span>
+    </span>
+  </span>;
+}
+
 export function StartScreen({ data, choice, best, settings, onChoice, onSettings, onDeal }: StartProps) {
   const offered = isOffered(data, choice.deck, choice.difficulty);
   return <div className="mm-start">
-    <h1>Memory card match</h1>
-    <p className="mm-lede">Turn over two cards at a time. Pair each person with their story.</p>
+    <div className="mm-start__head">
+      <div>
+        <h1>Memory card match</h1>
+        <p className="mm-lede">Turn over two cards at a time. Pair each person with their story.</p>
+      </div>
+      <CardFan />
+    </div>
     <fieldset className="mm-chips">
       <legend>Deck</legend>
       {data.decks.map((deck) => <button key={deck.key} type="button" aria-pressed={choice.deck === deck.key}
@@ -59,22 +83,31 @@ export function StartScreen({ data, choice, best, settings, onChoice, onSettings
           }} />
       </label>)}
     </div>}
-    <fieldset className="mm-chips">
-      <legend>Turn non-pairs back</legend>
-      <button type="button" aria-pressed={settings.turnBack === "auto"} onClick={() => onSettings({ ...settings, turnBack: "auto" })}>
-        After a moment
-      </button>
-      <button type="button" aria-pressed={settings.turnBack === "tap"} onClick={() => onSettings({ ...settings, turnBack: "tap" })}>
-        When I tap
-      </button>
-    </fieldset>
     <div className="mm-start-foot">
       <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>Deal the cards</button>
       <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
-      {best && choice.players === 1 && <span className="mm-best">
-        {`Your best here: ${plural(best.moves, "{n} move", "{n} moves")} · ${formatTime(best.timeMs)} · ${plural(best.stars, "{n} star", "{n} stars")}`}
-      </span>}
     </div>
+    {best && choice.players === 1 && <p className="mm-best">
+      <span className="mm-best__stars" aria-hidden="true">{[1, 2, 3].map((n) => <Star key={n} size={14} className={n <= best.stars ? "is-on" : undefined} />)}</span>
+      <span>{`Your best here: ${plural(best.moves, "{n} move", "{n} moves")} · ${formatTime(best.timeMs)} · ${plural(best.stars, "{n} star", "{n} stars")}`}</span>
+    </p>}
+    <MoreOptions className="mm-options" summary="More options">
+      <fieldset className="mm-chips">
+        <legend>Turn non-pairs back</legend>
+        <button type="button" aria-pressed={settings.turnBack === "auto"} onClick={() => onSettings({ ...settings, turnBack: "auto" })}>
+          After a moment
+        </button>
+        <button type="button" aria-pressed={settings.turnBack === "tap"} onClick={() => onSettings({ ...settings, turnBack: "tap" })}>
+          When I tap
+        </button>
+      </fieldset>
+      <p className="mm-note">A tap anywhere on the board turns a non-pair back sooner.</p>
+      <fieldset className="mm-chips">
+        <legend>Timer</legend>
+        <button type="button" aria-pressed={!settings.timerHidden} onClick={() => onSettings({ ...settings, timerHidden: false })}>Shown</button>
+        <button type="button" aria-pressed={settings.timerHidden} onClick={() => onSettings({ ...settings, timerHidden: true })}>Hidden</button>
+      </fieldset>
+    </MoreOptions>
   </div>;
 }
 
@@ -89,9 +122,13 @@ export function StudyScreen({ data, pairIds, onStart }: StudyProps) {
     <h1 ref={heading} tabIndex={-1}>The pairs on this board</h1>
     <p className="mm-lede">Read them through, then find them on the board. Where the cards lie stays hidden.</p>
     <ul>
-      {pairIds.map((id) => {
+      {pairIds.map((id, n) => {
         const pair = byId.get(id)!;
-        return <li key={id}><strong>{data.characters[pair.who].label}</strong> — {pair.story} · <span className="mm-ref">{pair.ref}</span></li>;
+        return <li key={id} style={{ "--i": n } as CSSProperties}>
+          <span className="mm-study__who">{data.characters[pair.who].label}</span>
+          <span className="mm-study__story">{pair.story}</span>
+          <span className="mm-ref">{pair.ref}</span>
+        </li>;
       })}
     </ul>
     <button type="button" className="mm-primary" onClick={onStart}>Start playing</button>

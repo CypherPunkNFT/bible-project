@@ -91,9 +91,10 @@
 .kit-trail__mark { width: var(--kit-pip, .8rem); height: var(--kit-pip, .8rem); border-radius: 2px; background: var(--line); transition: background-color .35s var(--_ease), transform .35s var(--_ease); }
 .kit-trail--dots .kit-trail__mark { border-radius: 50%; }
 .kit-trail__mark.is-current { background: transparent; box-shadow: 0 0 0 2px var(--_color) inset; }
-.kit-trail__mark.is-right { background: var(--_right); }
-.kit-trail__mark.is-wrong { background: var(--_wrong); }
-.kit-trail__mark.is-part { background: var(--_part); }
+/* A game may give a mark its own colour (--kit-mark, set per pip through the tones prop); the verdict colours otherwise. */
+.kit-trail__mark.is-right { background: var(--kit-mark, var(--_right)); }
+.kit-trail__mark.is-wrong { background: var(--kit-mark, var(--_wrong)); }
+.kit-trail__mark.is-part { background: var(--kit-mark, var(--_part)); }
 .kit-trail__mark.is-new { animation: kit-pop .45s var(--_ease) both; }
 
 /* ---- The result panel's pieces: score, rank, ribbon, streak, share (audits items 6 and 7) ------------------------- */
