@@ -84,7 +84,7 @@ All run from the Website folder after the last change to the code.
 
 Before any code was written the plan went through one review pass that read it as a security and correctness reviewer, a reliability reviewer and a platform reviewer in turn; its five changes (timed phases that only decorate a state already set, a finish that never waits for the flight, one tap handler, a shelf with a fixed slot per pair and one button, names in their own elements) are in the build.
 
-**Commit:** (filled in below once made).
+**Commit:** ce2c1a5ad on main, pushed to origin and accepted (a second small commit records this hash in the report). Nothing was released or deployed.
 
 ## 6. Left for later
 
