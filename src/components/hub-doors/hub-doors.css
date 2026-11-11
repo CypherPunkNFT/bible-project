@@ -19,6 +19,8 @@
 .hub-door:is(:hover, :focus-visible) strong { color: var(--tone); }
 .hub-door:focus-visible { outline: none; }
 .hub-doors + .gm-shelf { padding-top: 8px; }
+/* Where the page lands after a door is chosen: the section's top just under the sticky menu. */
+.hub-doors-page .gm-shelf { scroll-margin-top: calc(64px + 1.25rem); }
 
 .hub-doors-page.st-page { padding-top: 1.1rem; }
 .hub-doors-page .gm-hero .st-stats { margin-top: 1.4rem; padding-top: 0; border-top: 0; }
