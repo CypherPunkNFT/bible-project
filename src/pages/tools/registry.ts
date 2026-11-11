@@ -27,16 +27,17 @@ export const AUDIENCE_LABELS: Record<Audience, string> = {
 };
 
 /** The hub's categories, in page order: each tool sits in one. "study" holds the study and reference tools (sequence 41);
- * "witness" (added 2026-11-11) holds the tools for telling one's own story of faith, first the Testimony builder. */
+ * "witness" (added 2026-11-11) holds the tools for telling one's own story of faith, first the Testimony builder.
+ * Order and the short titles: the owner, 2026-11-11 (hard times last). */
 export type Category = "family" | "hard-times" | "prayer" | "sharing" | "study" | "witness";
 
 export const CATEGORIES: readonly { key: Category; title: string; text: string }[] = [
-  { key: "family", title: "Family and life events", text: "A name for a new baby and any name in Hebrew, a verse for a birthday, and passages and cards for weddings, baptisms and graduations." },
-  { key: "hard-times", title: "Hard times", text: "Comfort for someone grieving, and what the Bible says when life is heavy." },
-  { key: "prayer", title: "Prayer and the home", text: "Short prayers for the days that matter, and blessings to say and print at home." },
-  { key: "sharing", title: "Sharing and churches", text: "Send a verse to a friend, follow Advent and Lent together, or put a daily verse on a church website." },
+  { key: "family", title: "Life events", text: "A name for a new baby and any name in Hebrew, a verse for a birthday, and passages and cards for weddings, baptisms and graduations." },
+  { key: "prayer", title: "Prayer & home", text: "Short prayers for the days that matter, and blessings to say and print at home." },
+  { key: "sharing", title: "Sharing & churches", text: "Send a verse to a friend, follow Advent and Lent together, or put a daily verse on a church website." },
   { key: "study", title: "Study and reference", text: "Tools for reading the Bible closely: its measures and money in today's terms, and more to come." },
   { key: "witness", title: "Your story of faith", text: "Write your own testimony, question by question, and print it to keep, to read aloud or to share." },
+  { key: "hard-times", title: "Hard times", text: "Comfort for someone grieving, and what the Bible says when life is heavy." },
 ];
 
 interface ToolBase {

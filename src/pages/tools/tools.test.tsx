@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import ToolsPage from "./ToolsPage";
 import { AUDIENCE_LABELS, CATEGORIES, TOOLS, isLive, toolsForHub } from "./registry";
@@ -73,35 +73,53 @@ describe("tools registry", () => {
   });
 });
 
+// The hub shows one category at a time, chosen by ?category= (the first by default), so these tests open each in turn.
+const USED = CATEGORIES.filter((category) => TOOLS.some((tool) => tool.category === category.key));
+
 describe("tools hub", () => {
-  it("shows a card for every tool; live tools link to their address, the rest say coming soon", () => {
-    renderAt("/tools");
-    const lists = CATEGORIES.map((category) => screen.queryByRole("list", { name: category.title })).filter((list) => list !== null);
-    const inLists = (role: string) => lists.flatMap((list) => within(list).queryAllByRole(role));
+  it("shows a card for every tool across the categories; live tools link to their address, the rest say coming soon", () => {
+    const headings: string[] = []; const links: string[] = []; let groups = 0; let comingSoonFeet = 0;
+    for (const category of USED) {
+      const { unmount } = renderAt(`/tools?category=${category.key}`);
+      const list = screen.getByRole("list", { name: category.title });
+      headings.push(...within(list).getAllByRole("heading", { level: 3 }).map((h) => h.textContent ?? ""));
+      links.push(...within(list).queryAllByRole("link").map((link) => link.getAttribute("href") ?? ""));
+      groups += within(list).queryAllByRole("group").length;
+      comingSoonFeet += screen.queryAllByText("Coming soon", { selector: ".gm-card-foot > span" }).length;
+      unmount();
+    }
     const live = TOOLS.filter(isLive);
-    const comingSoon = TOOLS.length - live.length;
-    expect(inLists("heading")).toHaveLength(TOOLS.length);
-    expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(TOOLS.length);
-    expect(inLists("link").map((link) => link.getAttribute("href")).sort()).toEqual(live.map((tool) => tool.path).sort());
-    expect(inLists("group")).toHaveLength(comingSoon);
-    expect(screen.queryAllByText("Coming soon", { selector: ".gm-card-foot > span" })).toHaveLength(comingSoon);
+    expect(headings).toHaveLength(TOOLS.length);
+    expect(links.sort()).toEqual(live.map((tool) => tool.path).sort());
+    expect(groups).toBe(TOOLS.length - live.length);
+    expect(comingSoonFeet).toBe(TOOLS.length - live.length);
   });
 
-  it("lays the tools out in their categories in order, live tools first in each, and skips an empty category", () => {
-    renderAt("/tools");
-    const used = CATEGORIES.filter((category) => TOOLS.some((tool) => tool.category === category.key));
-    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual(used.map((category) => category.title));
-    for (const category of used) {
+  it("shows the first category by default, then the chosen one alone, live tools first in it", () => {
+    const first = renderAt("/tools");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
+    first.unmount();
+    for (const category of USED) {
+      const { unmount } = renderAt(`/tools?category=${category.key}`);
+      expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([category.title]);
       const titles = within(screen.getByRole("list", { name: category.title })).getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
-      const expected = toolsForHub().filter((tool) => tool.category === category.key).map((tool) => tool.title);
-      expect(titles).toEqual(expected);
+      expect(titles).toEqual(toolsForHub().filter((tool) => tool.category === category.key).map((tool) => tool.title));
+      unmount();
     }
   });
 
+  it("falls back to the first category for an unknown one", () => {
+    renderAt("/tools?category=no-such-category");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
+  });
+
   it("draws every tool's picture with its description for screen readers, and the hero's", () => {
-    renderAt("/tools");
-    for (const tool of TOOLS) expect(screen.getByRole("img", { name: tool.art.alt })).toBeInTheDocument();
-    expect(screen.getByRole("img", { name: /A table by a window/ })).toBeInTheDocument();
+    for (const category of USED) {
+      const { unmount } = renderAt(`/tools?category=${category.key}`);
+      for (const tool of TOOLS.filter((tool) => tool.category === category.key)) expect(screen.getByRole("img", { name: tool.art.alt })).toBeInTheDocument();
+      expect(screen.getByRole("img", { name: /A table by a window/ })).toBeInTheDocument();
+      unmount();
+    }
   });
 
   it("keeps a live card's name to its title, not its picture", () => {
@@ -109,15 +127,21 @@ describe("tools hub", () => {
     expect(screen.getByRole("link", { name: "Biblical baby names" })).toHaveAttribute("href", "/baby-names");
   });
 
-  it("jumps from the hero to each category", () => {
+  it("has a door for each category under the hero, in order; choosing one shows that category", () => {
     renderAt("/tools");
-    const jumps = within(screen.getByRole("navigation", { name: "Kinds of tool" })).getAllByRole("link");
-    expect(jumps).toHaveLength(CATEGORIES.length);
-    for (const jump of jumps) expect(document.querySelector(jump.getAttribute("href") ?? "")).not.toBeNull();
+    const doors = within(screen.getByRole("navigation", { name: "Kinds of tool" })).getAllByRole("link");
+    expect(doors.map((door) => door.textContent)).toEqual(USED.map((category) => `${category.title}${TOOLS.filter((tool) => tool.category === category.key).length}`));
+    expect(doors.map((door) => door.getAttribute("href"))).toEqual(USED.map((category) => `/tools?category=${category.key}`));
+    expect(doors[0]).toHaveAttribute("aria-current", "true");
+    fireEvent.click(doors[2]);
+    expect(doors[2]).toHaveAttribute("aria-current", "true");
+    expect(doors[0]).not.toHaveAttribute("aria-current");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[2].title]);
+    expect(document.getElementById(doors[2].getAttribute("aria-controls") ?? "")).not.toBeNull();
   });
 
   it("names who each tool is for", () => {
-    renderAt("/tools");
+    renderAt("/tools?category=sharing");
     // A live tool's card is a link (the verse widget went live in sequence 32 step 13).
     const card = screen.getByRole("link", { name: "Verse of the day for churches" });
     const audiences = within(card).getByRole("list", { name: "Who it's for" });

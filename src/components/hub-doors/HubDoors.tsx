@@ -21,7 +21,7 @@ export function HubDoors({ doors, selected, param, label, controls }: Props) {
   const scrollOnChange = useRef(false);
   const scrollToDoors = () => {
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    row.current?.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
+    row.current?.scrollIntoView?.({ behavior: still ? "auto" : "smooth", block: "start" });
   };
   useEffect(() => {
     if (!scrollOnChange.current) return;

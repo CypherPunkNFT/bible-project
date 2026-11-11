@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import GamesPage from "./GamesPage";
 import { BLANK_ART } from "./art";
@@ -59,35 +59,53 @@ describe("games registry", () => {
   });
 });
 
+// The hub shows one shelf at a time, chosen by ?shelf= (the first by default), so these tests open each in turn.
+const USED = SHELVES.filter((shelf) => GAMES.some((game) => shelfOf(game) === shelf.key));
+
 describe("games hub", () => {
-  it("shows a card for every game; live games link to their address, the rest say coming soon", () => {
-    renderAt("/games");
-    const lists = SHELVES.map((shelf) => screen.queryByRole("list", { name: shelf.title })).filter((list) => list !== null);
-    const inLists = (role: string) => lists.flatMap((list) => within(list).queryAllByRole(role));
+  it("shows a card for every game across the shelves; live games link to their address, the rest say coming soon", () => {
+    const headings: string[] = []; const links: string[] = []; let groups = 0; let comingSoonFeet = 0;
+    for (const shelf of USED) {
+      const { unmount } = renderAt(`/games?shelf=${shelf.key}`);
+      const list = screen.getByRole("list", { name: shelf.title });
+      headings.push(...within(list).getAllByRole("heading", { level: 3 }).map((h) => h.textContent ?? ""));
+      links.push(...within(list).queryAllByRole("link").map((link) => link.getAttribute("href") ?? ""));
+      groups += within(list).queryAllByRole("group").length;
+      comingSoonFeet += screen.queryAllByText("Coming soon", { selector: ".gm-card-foot > span" }).length;
+      unmount();
+    }
     const live = GAMES.filter(isLive);
-    const comingSoon = GAMES.length - live.length;
-    expect(inLists("heading")).toHaveLength(GAMES.length);
-    expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(GAMES.length);
-    expect(inLists("link").map((link) => link.getAttribute("href")).sort()).toEqual(live.map((game) => `/games/${game.slug}`).sort());
-    expect(inLists("group")).toHaveLength(comingSoon);
-    expect(screen.queryAllByText("Coming soon", { selector: ".gm-card-foot > span" })).toHaveLength(comingSoon);
+    expect(headings).toHaveLength(GAMES.length);
+    expect(links.sort()).toEqual(live.map((game) => `/games/${game.slug}`).sort());
+    expect(groups).toBe(GAMES.length - live.length);
+    expect(comingSoonFeet).toBe(GAMES.length - live.length);
   });
 
-  it("lays the games out on the shelves in order, live games first on each, and skips an empty shelf", () => {
-    renderAt("/games");
-    const used = SHELVES.filter((shelf) => GAMES.some((game) => shelfOf(game) === shelf.key));
-    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual(used.map((shelf) => shelf.title));
-    for (const shelf of used) {
+  it("shows the first shelf by default, then the chosen one alone, live games first on it", () => {
+    const first = renderAt("/games");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
+    first.unmount();
+    for (const shelf of USED) {
+      const { unmount } = renderAt(`/games?shelf=${shelf.key}`);
+      expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([shelf.title]);
       const titles = within(screen.getByRole("list", { name: shelf.title })).getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
-      const expected = gamesForHub().filter((game) => shelfOf(game) === shelf.key).map((game) => game.title);
-      expect(titles).toEqual(expected);
+      expect(titles).toEqual(gamesForHub().filter((game) => shelfOf(game) === shelf.key).map((game) => game.title));
+      unmount();
     }
   });
 
+  it("falls back to the first shelf for an unknown one", () => {
+    renderAt("/games?shelf=no-such-shelf");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
+  });
+
   it("draws every game's picture with its description for screen readers, and the hero's", () => {
-    renderAt("/games");
-    for (const game of GAMES) expect(screen.getByRole("img", { name: game.art?.alt })).toBeInTheDocument();
-    expect(screen.getByRole("img", { name: /A games table under a hanging lamp/ })).toBeInTheDocument();
+    for (const shelf of USED) {
+      const { unmount } = renderAt(`/games?shelf=${shelf.key}`);
+      for (const game of GAMES.filter((game) => shelfOf(game) === shelf.key)) expect(screen.getByRole("img", { name: game.art?.alt })).toBeInTheDocument();
+      expect(screen.getByRole("img", { name: /A games table under a hanging lamp/ })).toBeInTheDocument();
+      unmount();
+    }
   });
 
   it("keeps a live card's name to its title, not its picture", () => {
@@ -95,19 +113,26 @@ describe("games hub", () => {
     expect(screen.getByRole("link", { name: "Map quest" })).toHaveAttribute("href", "/games/map-quest");
   });
 
-  it("jumps from the hero to each shelf", () => {
+  it("has a door for each shelf under the hero, in order; choosing one shows that shelf", () => {
     renderAt("/games");
-    const jumps = within(screen.getByRole("navigation", { name: "Kinds of game" })).getAllByRole("link");
-    for (const jump of jumps) expect(document.querySelector(jump.getAttribute("href") ?? "")).not.toBeNull();
+    const doors = within(screen.getByRole("navigation", { name: "Kinds of game" })).getAllByRole("link");
+    expect(doors.map((door) => door.textContent)).toEqual(USED.map((shelf) => `${shelf.title}${GAMES.filter((game) => shelfOf(game) === shelf.key).length}`));
+    expect(doors.map((door) => door.getAttribute("href"))).toEqual(USED.map((shelf) => `/games?shelf=${shelf.key}`));
+    expect(doors[0]).toHaveAttribute("aria-current", "true");
+    fireEvent.click(doors[2]);
+    expect(doors[2]).toHaveAttribute("aria-current", "true");
+    expect(doors[0]).not.toHaveAttribute("aria-current");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[2].title]);
+    expect(document.getElementById(doors[2].getAttribute("aria-controls") ?? "")).not.toBeNull();
   });
 
   it("links the homepage quiz as the live game", () => {
-    renderAt("/games");
+    renderAt("/games?shelf=solo");
     expect(screen.getByRole("link", { name: "How well do you know the Bible?" })).toHaveAttribute("href", "/games/quiz");
   });
 
   it("names who each game is for", () => {
-    renderAt("/games");
+    renderAt("/games?shelf=groups");
     const card = screen.getByRole("link", { name: "Bible Jeopardy" });
     const audiences = within(card).getByRole("list", { name: "Who it's for" });
     expect(within(audiences).getAllByRole("listitem").map((item) => item.textContent)).toEqual(["Church night", "Youth group"]);
