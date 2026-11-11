@@ -1,0 +1,85 @@
+{
+ "about": "How /name-in-hebrew spells a name by sound (transliterate.ts). `common` gives the sounds of names whose English spelling misleads the rules, keyed by the lower-case spelling (accents kept: José is Spanish, Jose is not). Sounds: consonants b v g j d h w z zh kh t y k l m n s f p ts ch sh r th dh; vowels a e i o u ei ai oi au. `hebrew`, `aramaic` and `greek` give each sound's letters: `start`, `mid` and `end` are a vowel's letters at the start, inside and at the end of a word. Design: docs/features/name-in-hebrew/design.md.",
+ "common": {
+  "aaliyah": "a l i a", "aaron": "e r o n", "abigail": "a b i g ei l", "adrian": "ei d r i a n", "aiden": "ei d e n",
+  "alejandro": "a l e kh a n d r o", "alice": "a l i s", "amelia": "a m i l i a", "andrew": "a n d r u",
+  "anthony": "a n t o n i", "aria": "a r i a", "ariel": "a r i e l", "aubrey": "o b r i", "aurora": "o r o r a",
+  "ava": "ei v a", "avery": "ei v e r i", "bella": "b e l a", "brian": "b r ai a n", "brooklyn": "b r u k l i n",
+  "bryan": "b r ai a n", "caleb": "k ei l e b", "camila": "k a m i l a", "caroline": "k a r o l ai n",
+  "charles": "ch a r l z", "charlotte": "sh a r l o t", "chloe": "k l o i", "christian": "k r i s ch a n",
+  "christopher": "k r i s t o f e r", "claire": "k l e r", "connor": "k o n o r", "daniel": "d a n y e l",
+  "david": "d ei v i d", "dylan": "d i l a n", "eleanor": "e l e n o r", "elena": "e l ei n a", "eli": "i l ai",
+  "elijah": "e l ai j a", "eliza": "e l ai z a", "ella": "e l a", "ellie": "e l i", "emily": "e m i l i",
+  "emma": "e m a", "ethan": "i th a n", "evelyn": "e v e l i n", "ezekiel": "e z i k i e l", "ezra": "e z r a",
+  "gabriel": "g ei b r i e l", "george": "j o r j", "gianna": "j a n a", "grace": "g r ei s", "hannah": "h a n a",
+  "harper": "h a r p e r", "hazel": "h ei z e l", "henry": "h e n r i", "hudson": "h a d s o n",
+  "isaac": "ai z a k", "isabella": "i z a b e l a", "isaiah": "ai z ei a", "isla": "ai l a", "ivy": "ai v i",
+  "jacob": "j ei k o b", "james": "j ei m z", "jason": "j ei s o n", "javier": "kh a v y e r",
+  "jesse": "j e s i", "joaquín": "kh o a k i n", "joel": "j o e l", "john": "j o n", "jonathan": "j o n a th a n",
+  "jose": "kh o s e", "josé": "kh o s e", "joseph": "j o s e f", "joshua": "j o sh u a", "josiah": "j o s ai a", "juan": "kh u a n",
+  "jesús": "kh e s u s", "julian": "j u l i a n", "kai": "k ai", "kylie": "k ai l i", "leah": "l i a", "leo": "l i o",
+  "leigh": "l i", "levi": "l i v ai", "liam": "l i a m", "lily": "l i l i", "lincoln": "l i n k o n",
+  "lucas": "l u k a s", "lucy": "l u s i", "luke": "l u k", "luna": "l u n a", "madison": "m a d i s o n",
+  "malachi": "m a l a k ai", "mason": "m ei s o n", "matthew": "m a th y u", "mia": "m i a",
+  "michael": "m ai k e l", "miles": "m ai l z", "naomi": "n ei o m i", "nathan": "n ei th a n",
+  "nathaniel": "n a th a n y e l", "nevaeh": "n e v ei a", "noah": "n o a", "nora": "n o r a",
+  "olivia": "o l i v i a", "owen": "o e n", "penelope": "p e n e l o p i", "peter": "p i t e r", "phoebe": "f i b i",
+  "rachel": "r ei ch e l", "rebecca": "r e b e k a", "ruth": "r u th", "ryan": "r ai a n", "samuel": "s a m y u e l",
+  "sarah": "s e r a", "scarlett": "s k a r l e t", "sean": "sh o n", "sebastian": "s e b a s ch a n",
+  "sienna": "s y e n a", "silas": "s ai l a s", "sophia": "s o f i a", "sophie": "s o f i",
+  "stephen": "s t i v e n", "steven": "s t i v e n", "theodore": "th i o d o r", "thomas": "t o m a s",
+  "victoria": "v i k t o r i a", "violet": "v ai o l e t", "wyatt": "w ai a t", "ximena": "kh i m e n a",
+  "yvonne": "i v o n", "zoe": "z o i", "zoey": "z o i", "zoë": "z o i"
+ },
+ "hebrew": {
+  "consonants": {
+   "b": "ב", "v": "ב", "g": "ג", "j": "ג׳", "d": "ד", "h": "ה", "w": "וו", "z": "ז", "zh": "ז׳", "kh": "ח",
+   "t": "ט", "y": "י", "k": "ק", "l": "ל", "m": "מ", "n": "נ", "s": "ס", "f": "פ", "p": "פ", "ts": "צ",
+   "ch": "צ׳", "sh": "ש", "r": "ר", "th": "ת׳", "dh": "ד׳"
+  },
+  "atStart": { "v": "ו", "w": "ו" },
+  "atEnd": { "m": "ם", "n": "ן", "f": "ף", "ts": "ץ", "ch": "ץ׳" },
+  "vowels": {
+   "a": { "start": "א", "mid": "", "end": "ה" },
+   "e": { "start": "א", "mid": "", "end": "ה" },
+   "i": { "start": "אי", "mid": "י", "end": "י" },
+   "o": { "start": "או", "mid": "ו", "end": "ו" },
+   "u": { "start": "או", "mid": "ו", "end": "ו" },
+   "ei": { "start": "איי", "mid": "יי", "end": "יי" },
+   "ai": { "start": "איי", "mid": "יי", "end": "אי" },
+   "oi": { "start": "אוי", "mid": "וי", "end": "וי" },
+   "au": { "start": "או", "mid": "או", "end": "או" }
+  },
+  "between": "א"
+ },
+ "aramaic": {
+  "consonants": {
+   "b": "ב", "v": "ב", "g": "ג", "j": "ג", "d": "ד", "h": "ה", "w": "ו", "z": "ז", "zh": "ז", "kh": "ח",
+   "t": "ט", "y": "י", "k": "ק", "l": "ל", "m": "מ", "n": "נ", "s": "ס", "f": "פ", "p": "פ", "ts": "צ",
+   "ch": "צ", "sh": "ש", "r": "ר", "th": "ת", "dh": "ד"
+  },
+  "atStart": {},
+  "atEnd": {},
+  "vowels": {
+   "a": { "start": "א", "mid": "", "end": "א" },
+   "e": { "start": "א", "mid": "", "end": "א" },
+   "i": { "start": "אי", "mid": "י", "end": "י" },
+   "o": { "start": "או", "mid": "ו", "end": "ו" },
+   "u": { "start": "או", "mid": "ו", "end": "ו" },
+   "ei": { "start": "אי", "mid": "י", "end": "י" },
+   "ai": { "start": "אי", "mid": "י", "end": "י" },
+   "oi": { "start": "אוי", "mid": "וי", "end": "וי" },
+   "au": { "start": "או", "mid": "ו", "end": "ו" }
+  },
+  "between": "א"
+ },
+ "greek": {
+  "consonants": {
+   "b": "μπ", "v": "β", "g": "γκ", "j": "τζ", "d": "ντ", "h": "χ", "w": "ου", "z": "ζ", "zh": "ζ", "kh": "χ",
+   "t": "τ", "y": "ι", "k": "κ", "l": "λ", "m": "μ", "n": "ν", "s": "σ", "f": "φ", "p": "π", "ts": "τσ",
+   "ch": "τσ", "sh": "σ", "r": "ρ", "th": "θ", "dh": "δ"
+  },
+  "pairs": { "k s": "ξ", "p s": "ψ" },
+  "vowels": { "a": "α", "e": "ε", "i": "ι", "o": "ο", "u": "ου", "ei": "εϊ", "ai": "αϊ", "oi": "οϊ", "au": "αου" }
+ }
+}

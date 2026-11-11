@@ -1,15 +1,15 @@
 import { StudyTrail } from "@/components/study/StudyTrail";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Building2, Clock3, Landmark, Library, Map, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
-import EmpireMaps from './EmpireMaps';
-import RoyalComparison from './RoyalComparison';
-import { LandingArt, RestorationArt } from './EmpireArt';
-import { Map, Clock3, Building2, Users, Landmark, Library } from 'lucide-react';
-import { PowerRelationships, DateDesk, ArchiveLives, LandDebate, ResearchTrail, EvidenceLinks, expandedSources } from './CloseStudies';
-import { periods, sources, sourceById } from './evidence';
-import './empires.css';
 import './atlas-design.css';
+import { ArchiveLives, DateDesk, EvidenceLinks, LandDebate, PowerRelationships, ResearchTrail } from "./CloseStudies";
+import { expandedSources } from "./CloseStudies.shared";
+import { LandingArt, RestorationArt } from './EmpireArt';
+import EmpireMaps from './EmpireMaps';
+import './empires.css';
+import { periods, sourceById, sources } from './evidence';
+import RoyalComparison from './RoyalComparison';
 import './visual-study.css';
 
 function Citations({ids}:{ids:string[]}) {

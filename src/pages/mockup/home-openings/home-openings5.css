@@ -37,7 +37,25 @@
 .hm5-ring-text { fill: var(--accent); font: 600 15px var(--font-sans); text-transform: uppercase; }
 
 /* F: the word wall */
-.hm5-f { position: relative; flex: 1; display: grid; place-items: center; overflow: hidden; padding-block: 1.5rem; text-align: center; }
+.hm5-f { flex: 1; display: grid; place-items: center; padding-block: 1.5rem; text-align: center; }
+/* The words sit low, just above the boxes, and the line under the button is larger (owner, 2026-10-30). */
+.hm5-first:has(.hm5-f) .hm5-f { align-items: end; padding-bottom: .5rem; }
+.hm5-f .home-hero-foot { font-size: 14.5px; line-height: 1.75; }
+/* The wall runs behind the five boxes down to the bottom of the first screen (owner, 2026-10-30). */
+.home-opening.hm5-first:has(.hm5-f) { position: relative; overflow: hidden; }
+.hm5-first:has(.hm5-f) .home-doorways { position: relative; z-index: 2; }
+/* The boxes are solid, with a small soft cover of the page colour round the row, like the title's but tighter, and keep
+   their outlines (owner, 2026-10-30). They take the look and motion of the questions page's theme shelves (02,
+   ThemeShelves.tsx): one outlined box on the surface ground, and on pointing a faint wash of the box's colour, a ring
+   with a soft glow, its colour sweeping in along the top and the arrow stepping on. */
+.hm5-first:has(.hm5-f) .home-doorways { border-radius: 6px; background: var(--surface); box-shadow: 0 0 20px 12px var(--page); }
+.hm5-first:has(.hm5-f) .home-doorways > a { position: relative; background: transparent; transition: background .3s, box-shadow .3s; }
+.hm5-first:has(.hm5-f) .home-doorways > a::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--home-color); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.hm5-first:has(.hm5-f) .home-doorways > a:hover { z-index: 1; outline: none; background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--home-color) 35%, transparent), 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
+.hm5-first:has(.hm5-f) .home-doorways > a:hover::before { transform: scaleX(1); }
+.hm5-first:has(.hm5-f) .home-doorways > a:focus { outline: none; }
+.hm5-first:has(.hm5-f) .home-doorway-copy svg { transition: transform .3s; }
+.hm5-first:has(.hm5-f) .home-doorways > a:hover .home-doorway-copy svg { transform: translateX(4px); }
 .hm5-wall { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-evenly; pointer-events: none; }
 .hm5-wall-row { overflow: hidden; white-space: nowrap; }
 .hm5-wall-track { display: flex; width: max-content; animation: hm5-slide var(--speed) linear infinite; }
@@ -58,6 +76,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hm5-pane, .hm5-ring-turn, .hm5-wall-track { animation: none; }
+  .hm5-first:has(.hm5-f) .home-doorways > a, .hm5-first:has(.hm5-f) .home-doorways > a::before, .hm5-first:has(.hm5-f) .home-doorway-copy svg { transition: none; }
 }
 @media (max-width: 860px) {
   .hm5-f h1 { font-size: clamp(39px, 10.5vw, 64px); margin-block: 16px; }
@@ -65,6 +84,7 @@
   .hm5-rose svg { max-height: clamp(6rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 22rem); }
   .hm5-rose figcaption { font-size: .85rem; }
   .hm5-f .home-hero-copy > * { box-shadow: 0 0 38px 32px var(--page); }
+  .hm5-f .home-hero-foot { font-size: 12.5px; }
   .hm5-page .to-pill { bottom: calc(52px + env(safe-area-inset-bottom, 0px)); }
 }
 @media (max-width: 860px) and (max-height: 700px) {

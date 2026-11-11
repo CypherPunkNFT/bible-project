@@ -16,7 +16,9 @@ const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog
 const scenes = (file as unknown as ScenesFile).scenes;
 const render = (ui: ReactElement) => renderPlain(<CatalogContext.Provider value={catalog}>{ui}</CatalogContext.Provider>);
 const renderGame = () => render(<MemoryRouter><CharadesGame /></MemoryRouter>);
-const FAKE = { toFake: ["setTimeout", "clearTimeout", "setInterval", "clearInterval", "Date", "performance"] as const };
+const FAKE: NonNullable<Parameters<typeof vi.useFakeTimers>[0]> = {
+  toFake: ["setTimeout", "clearTimeout", "setInterval", "clearInterval", "Date", "performance"],
+};
 
 /** Moves the fake clock on in 100 ms steps, letting React render between them (each step schedules the next timer). */
 const advance = async (ms: number) => { for (let t = 0; t < ms; t += 100) await act(async () => { vi.advanceTimersByTime(Math.min(100, ms - t)); }); };

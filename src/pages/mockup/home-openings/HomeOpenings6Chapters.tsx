@@ -1,3 +1,4 @@
+import { BrickCity } from "./HomeOpenings6Chapters.shared";
 // MOCK-UP: the city of chapters, version F of /home_mockup6 (owner, 2026-10-31: "with the design of D and E do one with every
 // chapter, but we don't need to name them at all. They can be tiny little pieces, just like the first one"; then "clicking
 // that stone should update the continue button, and hitting that should take us there"). The wall is laid in nine courses of
@@ -5,16 +6,19 @@
 // outer course, then on into the next. Each stone takes its book's section colour, so the parts of the Bible run round the
 // wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible. The courses
 // appear from the outside in, as the foundations of the city (D) do (owner, 2026-10-31).
-import { ArrowRight, BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
-import { createContext, useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
-import { Link } from "react-router-dom";
 import { HOME_PATHS } from "@/components/home/collection-data";
-import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
-import { WALL_ROWS, WordWall } from "./HomeOpenings5";
-import { useBooks } from "./HomeOpenings5Art";
-import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
-import { SquareColumn, useSquareRoom } from "./HomeOpenings6Squares";
 import { plural } from "@/lib/site-format";
+import { ArrowRight, BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
+import { useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { Link } from "react-router-dom";
+import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
+import { WordWall } from "./HomeOpenings5";
+import { WALL_ROWS } from "./HomeOpenings5.shared";
+import { useBooks } from "./HomeOpenings5Art.shared";
+import { GATES } from "./HomeOpenings6City";
+import { SECTION_NAMES, stone, tone } from "./HomeOpenings6City.shared";
+import { SquareColumn } from "./HomeOpenings6Squares";
+import { useSquareRoom } from "./HomeOpenings6Squares.shared";
 
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
@@ -25,9 +29,6 @@ const perimeter = (inset: number) => 4 * (1000 - inset * 2);
 const WALL = 60, WALL_SIDE = 1000 - WALL * 2;
 const outward = (at: number) => (at === 70 ? WALL : at === 930 ? 1000 - WALL : at);
 const PEARLS = GATES.map(([x, y]) => [outward(x), outward(y)]);
-/** A mock-up can lay the chapters inside the wall as a brick wall instead of courses round it (/home_mobile_mockups, owner,
- *  2026-10-31: "they can just be stacked like bricks ... inside of the twelve pearl gates square"). False everywhere else. */
-export const BrickCity = createContext(false);
 /** The bricks: rows 25 bricks across inside the wall, every other row set half a brick over with a plain half brick at each
  *  end, as a wall is laid; the chapters run left to right, top to bottom, and any bricks left over in the last row are plain. */
 const BRICKS = { left: 84, size: 832, per: 25 };

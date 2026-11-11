@@ -1,11 +1,12 @@
-import { useEffect, useRef, type ReactNode } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowDown, X } from 'lucide-react';
-import { cities } from './evidence';
+import { useEffect, useRef, type ReactNode } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { investigations, research } from './cities-research';
+import { CitiesSectionArt, FindIllustration } from "./CitiesSectionArt";
+import { horizonLabels } from "./CitiesSectionArt.shared";
+import { cities } from './evidence';
 import { Passages, SourceLinks } from './HistoryShared';
-import { CitiesSectionArt, FindIllustration, horizonLabels } from './CitiesSectionArt';
 
 function Reveal({open,id,children}:{open:boolean;id:string;children:ReactNode}) {
   const reduced=useReducedMotion();

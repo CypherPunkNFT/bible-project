@@ -1,4 +1,5 @@
-import type {CSSProperties,ReactNode} from 'react';
+import type { ReactNode } from 'react';
+import { drawTiming } from "./centerpieces.shared";
 export type World='islam'|'buddhism'|'hinduism';
 
 /** Same complete base + drawing overlay treatment as the Teachers station. */
@@ -6,8 +7,6 @@ export function LineDrawing({children}:{children:ReactNode}){return <>
  <g className="wc-center-base">{children}</g>
  <g className="wc-center-live">{children}</g>
  </>;}
-
-export const drawTiming=(seconds:number)=>({'--wc-draw-delay':`${seconds}s`} as CSSProperties);
 
 const temple='M220 244c5-61 20-116 50-147 30 31 45 86 50 147ZM233 244c4-63 17-109 37-147 20 38 33 84 37 147M247 120h46m-50 16h54m-62 18h70m-78 20h86m-94 22h102m-109 24h116M253 97h34v-8h-34ZM250 84q20-14 40 0ZM263 72v-10h14v10m-7-10V51M202 244h136v66H202ZM251 310v-37q0-24 19-24t19 24v37M245 310v-40q0-27 25-27t25 27v40M210 252h24v47h-24ZM306 252h24v47h-24ZM174 310v-47h28m136 0h28v47M174 263l14-15 14 15m136 0 14-15 14 15M170 310h200m-212 9h224m-236 9h248';
 

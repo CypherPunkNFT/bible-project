@@ -1,12 +1,13 @@
-import {useEffect,useRef,useState,type CSSProperties} from 'react';
-import {createRoot} from 'react-dom/client';
-import {Moon,Sun,Pause,Play,Maximize2,X} from 'lucide-react';
-import {Artwork,directions,themes,names,type World} from './art';
+import { Maximize2, Moon, Pause, Play, Sun, X } from 'lucide-react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Artwork, type World } from "./art";
+import { directions, names, themes } from "./art.shared";
+import { ArtifactGrid } from './artifacts-v2';
 import './preview.css';
-import {ArtifactGrid} from './artifacts-v2';
 const worlds:World[]=['hinduism','buddhism','islam'];
 const accent=(world:World)=>world==='islam'?'var(--poetry)':`var(--worldview-${world})`;
-function App(){
+export function App(){
  const [theme,setTheme]=useState<'dark'|'light'>(new URLSearchParams(location.search).get('theme')==='light'?'light':'dark');
  const [paused,setPaused]=useState(false);
  const [expanded,setExpanded]=useState<{world:World;version:number}>({world:'hinduism',version:0});

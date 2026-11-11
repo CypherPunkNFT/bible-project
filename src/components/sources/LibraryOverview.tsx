@@ -1,13 +1,14 @@
+import { formatNumber, plural } from "@/lib/site-format";
 import { ArrowRight, BookOpen, Files, Fingerprint, FolderOpen, Library, ScanText, ShieldQuestion } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import type { CSSProperties } from 'react';
-import type { Directory, SourceEntry } from './types';
+import { Link } from 'react-router-dom';
+import { CollectionArt } from "./CollectionArt";
+import { collectionTones } from "./CollectionArt.shared";
 import { missingIdentity, type ReviewFilter } from './dashboard-model';
-import { CollectionArt, collectionTones } from './CollectionArt';
+import { snapshotDate } from "./LibraryOverview.shared";
 import './source-overview.css';
-import { formatDate, formatNumber, plural } from "@/lib/site-format";
+import type { Directory, SourceEntry } from './types';
 const n = (value: number) => formatNumber(value);
-export const snapshotDate = (value: string) => formatDate(new Date(value), {year:'numeric',month:'short',day:'numeric'});
 type Props = { directory: Directory; entries: SourceEntry[] | null; openCatalogue: (category?: string, review?: ReviewFilter) => void };
 const tone=(color:string)=>({'--overview-tone':color} as CSSProperties);
 export function CollectionGrid({ directory, entries, openCatalogue }: Props) {

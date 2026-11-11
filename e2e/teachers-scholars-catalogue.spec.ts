@@ -1,6 +1,6 @@
+import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { expect, test, type Page } from "@playwright/test";
 
 // Scholars (2026-10-08 port of design/scholars-directions/scholars/): the landing (headline, search, the scholars this
 // site is built on, the constellation of field-shaped marks, figures, jump links), 01 · the catalogue (facets with
@@ -12,15 +12,18 @@ interface Scholar { id: string; name: string; short: string; born: number; field
 interface Data { scholars: Scholar[]; fields: Record<string, string> }
 const DATA = JSON.parse(readFileSync(fileURLToPath(new URL("../src/data/teachers/scholars.json", import.meta.url)), "utf8")) as Data;
 const TOTAL = DATA.scholars.length;
-const USAGE = JSON.parse(readFileSync("content/teachers/feature-usage.json", "utf8"));
+interface UsageSource { kind: string; author: string }
+interface UsageFeature { sources: UsageSource[] }
+const USAGE: { features: UsageFeature[] } = JSON.parse(readFileSync("content/teachers/feature-usage.json", "utf8"));
 const ALIASES = JSON.parse(readFileSync("content/teachers/source-profile-aliases.json", "utf8")).aliases;
 const key = (name: string) => name.toLocaleLowerCase().replace(/\s+/g, " ").trim();
-const active = new Set<string>(USAGE.features.flatMap((f: any) => f.sources.filter((s: any) => s.kind !== "bibliography").map((s: any) => key(s.author))));
+const active = new Set<string>(USAGE.features.flatMap((f: UsageFeature) => f.sources.filter((s: UsageSource) => s.kind !== "bibliography").map((s: UsageSource) => key(s.author))));
 const USED = DATA.scholars.filter(s => [s.name, ...(ALIASES[s.id] ?? [])].some(n => active.has(key(n))));
 const byBirth = [...DATA.scholars].sort((a, b) => a.born - b.born);
-const INDEX = JSON.parse(readFileSync("content/teachers/field-shelves.json", "utf8"));
+interface PopulationEntry { profileId: string | null; fields: Record<string, unknown> }
+const INDEX: { entries: PopulationEntry[]; coverage: { withoutSubjectMatch: number } } = JSON.parse(readFileSync("content/teachers/field-shelves.json", "utf8"));
 const FULL = INDEX.entries.length + INDEX.coverage.withoutSubjectMatch;
-const inField = (field: string) => byBirth.filter(s => INDEX.entries.some((p: { profileId: string; fields: Record<string, unknown> }) => p.profileId === s.id && p.fields[field]));
+const inField = (field: string) => byBirth.filter(s => INDEX.entries.some((p: PopulationEntry) => p.profileId === s.id && p.fields[field]));
 
 const ADDRESS = "/teachers/scholars";
 const profile = (page: Page) => page.locator(".tp-scholars [role='dialog']");
@@ -152,11 +155,11 @@ test("By the numbers filters the catalogue and follows what it shows", async ({ 
   await texts.scrollIntoViewIfNeeded();
   await texts.click();
   await expect(texts).toHaveAttribute("aria-pressed", "true");
-  const textEntries = INDEX.entries.filter((p: any) => p.fields.texts);
+  const textEntries = INDEX.entries.filter((p: PopulationEntry) => p.fields.texts);
   await expect(count(page)).toHaveText(`${textEntries.length.toLocaleString()} of ${FULL.toLocaleString()} contributors`);
   await expect(page.getByRole("combobox", { name: "Entry type", exact: true })).toHaveValue("");
-  const historyEntries = INDEX.entries.filter((p: any) => p.fields.history);
-  const overlap = textEntries.filter((p: any) => p.fields.history).length;
+  const historyEntries = INDEX.entries.filter((p: PopulationEntry) => p.fields.history);
+  const overlap = textEntries.filter((p: PopulationEntry) => p.fields.history).length;
   await expect(numbers.locator('.num-row[data-facet="field"][data-value="history"] .num-n')).toHaveText(`${overlap.toLocaleString()} of ${historyEntries.length.toLocaleString()}`);
   await numbers.locator(".num-site").click();
   await expect(numbers.locator(".num-site")).toHaveAttribute("aria-pressed", "true");

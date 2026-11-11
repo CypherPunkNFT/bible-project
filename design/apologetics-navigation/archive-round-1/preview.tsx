@@ -1,13 +1,13 @@
+import { Layout } from '@/components/Layout';
+import { DEBATES, PATHS, PRACTICE, STUDIES, TOPICS, WORLDVIEWS } from '@/data/apologetics-library';
+import { CatalogProvider } from '@/lib/catalog-context';
+import ApologeticsPage from '@/pages/ApologeticsPage';
+import { CollectionArt } from '@/pages/WorldviewsPage';
+import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, ChevronDown, ChevronRight, Compass, Globe2, Grid2X2, HeartHandshake, Menu, MessageCircle, Route as RouteIcon, ScrollText, Search, ShieldCheck, X } from 'lucide-react';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, ChevronDown, ChevronRight, Compass, Globe2, Grid2X2, HeartHandshake, Menu, MessageCircle, Route as RouteIcon, ScrollText, Search, ShieldCheck, X } from 'lucide-react';
-import { Layout } from '@/components/Layout';
-import { CatalogProvider } from '@/lib/catalog-context';
-import { DEBATES, PATHS, PRACTICE, STUDIES, TOPICS, WORLDVIEWS } from '@/data/apologetics-library';
-import ApologeticsPage from '@/pages/ApologeticsPage';
-import { CollectionArt } from '@/pages/WorldviewsPage';
-import { Hub as IslamHub, Understanding, Ministry, Library, Article } from '../christianity-islam/preview';
+import { Article, Hub as IslamHub, Library, Ministry, Understanding } from '../christianity-islam/preview';
 import './preview.css';
 import './variants.css';
 
@@ -100,7 +100,7 @@ function MegaNavigation() {
   const [opened,setOpened]=useState<string|null>(location.pathname===base+'/worldviews'?'Worldviews':null);
   const ref=useRef<HTMLDivElement>(null),toggle=useRef<HTMLButtonElement|null>(null);
   const previous=useRef(location.pathname+location.search);
-  useEffect(()=>{const next=location.pathname+location.search;if(previous.current!==next)setOpened(null);previous.current=next;},[location.pathname,location.search]);
+  useEffect(()=>{const next=location.pathname+location.search;if(previous.current!==next)setOpened(null);previous.current=next;},[location.pathname,location.search,group]);
   useEffect(()=>{const outside=(e:PointerEvent)=>{if(!ref.current?.contains(e.target as Node))setOpened(null);};document.addEventListener('pointerdown',outside);return()=>document.removeEventListener('pointerdown',outside);},[]);
   const entry=main.find(d=>d.label===opened);
   return <div className="av-mega av-columns" ref={ref}>
@@ -113,7 +113,7 @@ function MegaNavigation() {
 function TreeNavigation() {
   const location=useLocation(),group=groupFor(location.pathname);
   const [mobile,setMobile]=useState(false),[expanded,setExpanded]=useState('Worldviews');
-  useEffect(()=>{setMobile(false);setExpanded(group);},[location.pathname]);
+  useEffect(()=>{setMobile(false);setExpanded(group);},[location.pathname,group]);
   const active=currentIslam(location.pathname,location.search);
   return <aside className="av-tree"><div className="av-tree-sticky"><button className="av-tree-mobile" aria-expanded={mobile} aria-controls="av-tree-links" onClick={()=>setMobile(!mobile)}><Menu size={17}/><span>Explore the library</span><strong>{group}</strong><ChevronDown size={15}/></button><div className={'av-tree-body'+(mobile?' is-open':'')} id="av-tree-links"><div className="av-tree-title"><BookOpen size={20}/><div><span className="ap-eyebrow">The library</span><p>Follow the connections.</p></div></div><nav aria-label="Apologetics library tree">{main.map((d,i)=>{const Icon=sectionIcons[i];return <div className="av-tree-group" key={d.to}><div className="av-tree-parent"><Link to={d.to} aria-current={group===d.label?'page':undefined}><Icon size={16}/>{d.label}</Link><button aria-label={'Expand '+d.label} aria-expanded={expanded===d.label} aria-controls={'tree-'+i} onClick={()=>setExpanded(expanded===d.label?'':d.label)}><ChevronRight size={13}/></button></div>{expanded===d.label&&<div className="av-tree-children" id={'tree-'+i}>{(d.label==='Worldviews'?worlds:secondary(d.label)).map(child=><div key={child.to}><Link to={child.to} aria-current={isCurrent(child,location.pathname,location.search)?'page':undefined}>{child.accent&&<i style={{background:child.accent}}/>}{child.label}</Link>{child.to===islam&&location.pathname.startsWith(islam)&&<nav aria-label="Islam study sections" className="av-tree-islam">{islamPages.map(p=><Link key={p.to} to={p.to} aria-current={p.to===active.to?'page':undefined}>{p.label}</Link>)}</nav>}</div>)}</div>}</div>;})}</nav><Link className="av-tree-source" to={base+'/sources'}><ScrollText size={15}/>The source room<ArrowUpRight size={13}/></Link></div></div></aside>;
 }
@@ -121,7 +121,7 @@ function TreeNavigation() {
 function ContextNavigation() {
   const location=useLocation(),group=groupFor(location.pathname),world=worlds.find(d=>location.pathname.startsWith(d.to));
   const [open,setOpen]=useState<number|null>(null);const ref=useRef<HTMLDivElement>(null),trigger=useRef<HTMLButtonElement|null>(null);
-  useEffect(()=>setOpen(null),[location.pathname,location.search]);
+  useEffect(()=>setOpen(null),[location.pathname,location.search,group]);
   useEffect(()=>{const outside=(e:PointerEvent)=>{if(!ref.current?.contains(e.target as Node))setOpen(null);};document.addEventListener('pointerdown',outside);return()=>document.removeEventListener('pointerdown',outside);},[]);
   const inIslam=location.pathname.startsWith(islam);
   const levels=[{label:'Apologetics',value:group,icon:ShieldCheck,links:main}, {label:group==='Worldviews'?'Across beliefs':'In this section',value:group==='Worldviews'?world?.label??'All worldviews':'Explore '+group.toLowerCase(),icon:Globe2,links:secondary(group)}, {label:inIslam?'Islam study guide':'Continue studying',value:inIslam?currentIslam(location.pathname,location.search).label:'Find your next question',icon:BookOpen,links:inIslam?islamPages:[{label:'Question library',to:base+'/questions'},{label:'Learning paths',to:base+'/paths'},{label:'The source room',to:base+'/sources'}]}];
@@ -134,7 +134,7 @@ function ColumnNavigation() {
   const toggle=useRef<HTMLButtonElement>(null);
   const [selected,setSelected]=useState(group),[world,setWorld]=useState(worlds.find(d=>location.pathname.startsWith(d.to))?.to??islam);
   const previous=useRef(location.pathname);
-  useEffect(()=>{if(previous.current!==location.pathname)setOpened(false);previous.current=location.pathname;setSelected(group);setWorld(worlds.find(d=>location.pathname.startsWith(d.to))?.to??islam);},[location.pathname]);
+  useEffect(()=>{if(previous.current!==location.pathname)setOpened(false);previous.current=location.pathname;setSelected(group);setWorld(worlds.find(d=>location.pathname.startsWith(d.to))?.to??islam);},[location.pathname,group]);
   const picked=main.find(d=>d.label===selected)??main[0];
   const worldEntry=worlds.find(d=>d.to===world)??worlds[0];
   const last=selected==='Worldviews'?(world===islam?islamPages:[{label:worldEntry.label+' collection',to:world},{label:'Examine the claims',to:world+'#comparison'},{label:'Texts behind the conversation',to:world+'#wv-context-heading'},{label:'Connected studies',to:world+'#conversation-studies'}]):[{label:'Open '+selected.toLowerCase(),to:picked.to},...secondary(selected)];
@@ -163,7 +163,7 @@ export function NavigationHeader() {
   const links=secondary(group);
   function open(){setQuery('');dialog.current?.showModal();requestAnimationFrame(()=>input.current?.focus());}
   function close(){dialog.current?.close();}
-  useEffect(()=>{close();},[location.pathname,location.search]);
+  useEffect(()=>{close();},[location.pathname,location.search,group]);
   useEffect(()=>{const key=(e:KeyboardEvent)=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(dialog.current?.open)close();else open();}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key);},[]);
   const seen=new Set<string>();
   const results=destinations.filter(d=>{const matches=(d.label+' '+(d.detail??'')).toLowerCase().includes(query.trim().toLowerCase());if(!matches||seen.has(d.to))return false;seen.add(d.to);return true;});

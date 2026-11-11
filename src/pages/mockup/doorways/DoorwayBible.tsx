@@ -1,6 +1,5 @@
 // MOCK-UP: the Bible row of the doorway design sheet (/doorways_mockup): five takes on the Bible card's drawing.
 // Owner's note: the Bible "should be nicer... longer", so it reads as a real, dignified book rather than a children's book.
-import type { DoorwayVariant } from "./doorway-types";
 
 /** A page edge as a quadratic curve: start x, y, control x, y, end x, y. */
 type Curve = readonly [number, number, number, number, number, number];
@@ -39,7 +38,7 @@ function OpenBook({ top, bottom, depth }: { top: Curve; bottom: Curve; depth: nu
   </>;
 }
 
-function TallOpen() {
+export function TallOpen() {
   const top: Curve = [44, 22, 108, 12, 160, 30], bottom: Curve = [44, 150, 108, 140, 160, 157];
   const columns = [[.1, .46], [.54, .9]].flatMap(([a, b]) => [lines(top, bottom, a, b, 15), lines(mirror(top), mirror(bottom), a, b, 15)]);
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -50,7 +49,7 @@ function TallOpen() {
   </svg>;
 }
 
-function Lectern() {
+export function Lectern() {
   const top: Curve = [70, 22, 116, 12, 160, 28], bottom: Curve = [52, 96, 108, 89, 160, 101];
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M150 140H170L167 150Q174 154 167 158L170 168H150L153 158Q146 154 153 150Z" fill="var(--surface)" stroke="currentColor" strokeOpacity=".7" />
@@ -66,7 +65,7 @@ function Lectern() {
   </svg>;
 }
 
-function Standing() {
+export function Standing() {
   const band = (t: number) => `M110 ${lerp(24, 170, t)}Q124 ${lerp(15, 164, t)} 142 ${lerp(16, 164, t)}`;
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M94 170V94A82 82 0 0 1 258 94V170" stroke="currentColor" opacity=".2" />
@@ -87,7 +86,7 @@ function Standing() {
   </svg>;
 }
 
-function GiltClosed() {
+export function GiltClosed() {
   // Top cover corners A (back left), B (back right), C (front right), D (front left); the spine is the front face D–C.
   const at = (u: number, v: number) => `${(52 + 162 * u + 62 * v).toFixed(1)} ${(50 - 32 * u + 74 * v).toFixed(1)}`;
   const spineX = (u: number) => 114 + 162 * u, spineY = (u: number) => 124 - 32 * u;
@@ -114,7 +113,7 @@ function GiltClosed() {
   </svg>;
 }
 
-function TurningPage() {
+export function TurningPage() {
   const top: Curve = [48, 42, 104, 30, 160, 50], bottom: Curve = [32, 140, 98, 131, 160, 150];
   const leaf = Array.from({ length: 10 }, (_, r) => {
     const t = .1 + r * .085, y0 = lerp(56, 146, t), x1 = lerp(216, 222, t), y1 = lerp(22, 126, t);
@@ -130,11 +129,3 @@ function TurningPage() {
     <path d="M144 46L142 172 146 167.5 150 172 152 48Z" fill="currentColor" opacity=".75" />
   </svg>;
 }
-
-export const BIBLE_DOORWAYS: DoorwayVariant[] = [
-  { name: "Tall open book", Art: TallOpen },
-  { name: "Open on the lectern", Art: Lectern },
-  { name: "Standing, closed", Art: Standing },
-  { name: "Gilt-edged, lying closed", Art: GiltClosed },
-  { name: "Turning the page", Art: TurningPage },
-];

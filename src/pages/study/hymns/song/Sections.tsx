@@ -1,10 +1,11 @@
 // The sections after the hymn itself: where Newton found it, its place in the book, and where hymnals place it
 // (approved mock-up: design/hymn-directions/shared/sections.js).
-import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
-import type { HymnSong, SongPlacedRef } from "@/lib/hymns";
-import { PassageVerses, ROMAN, placedUrl, type OpenPassage } from "./parts";
 import { BibleName } from "@/components/Verse";
+import type { HymnSong, SongPlacedRef } from "@/lib/hymns";
 import { plural } from "@/lib/site-format";
+import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
+import { PassageVerses, type OpenPassage } from "./parts";
+import { ROMAN, placedUrl } from "./parts.shared";
 
 const tone = (token: string) => ({ "--tone": `var(--${token})` }) as CSSProperties;
 

@@ -1,11 +1,10 @@
 // Three proposed drawings for the homepage "Learning materials" block: the "Moses: three forties" workbook taken apart
 // in an exploded view, a study desk from above with the open spread under a lamp, and a printer's type case holding the
 // 41 titles by reader and kind with the one ready title lifted out. Motion and hover in learning-mockups.css.
-import { useId, type CSSProperties } from "react";
 import { CATALOGUE } from "@/data/resources/learning-catalogue";
-import type { Mockup } from "./types";
-import "./learning-mockups.css";
 import { plural } from "@/lib/site-format";
+import { useId, type CSSProperties } from "react";
+import "./learning-mockups.css";
 
 const vars = (values: Record<string, string | number>) => values as CSSProperties;
 const delay = (seconds: number) => vars({ animationDelay: `${seconds}s` });
@@ -75,7 +74,7 @@ function SheetArt({ k, shade }: { k: number; shade: string }) {
     <path className="ml-answer" pathLength={1} d="M19 76c4-2 6 1 10-1s6 2 10 0 5 1 9-1" /></>;
 }
 
-function ExplodedScene() {
+export function ExplodedScene() {
   const uid = useUid(), shade = `${uid}-s`, centres = SHEETS.map((s) => corner(s.x, s.y, 46, 80)), card = { x: 490, y: 82 };
   const axis = `M${centres.map((c) => c.join(" ")).join("L")}L${corner(card.x, card.y, 46, 28).join(" ")}`;
   return <svg className="hf-scene ml-exploded" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -159,7 +158,7 @@ function Spines({ col, row, tint }: { col: number; row: number; tint: string }) 
     : <g key={t.id}><rect className="ml-spine" x={x} y={base - h} width="5.5" height={h} rx="1" /><path className="ml-rule" d={`M${x + 1} ${base - h + 3.5}h3.5M${x + 1} ${base - 3}h3.5`} /></g>; })}</g>;
 }
 
-function TypeCaseScene() {
+export function TypeCaseScene() {
   const uid = useUid(), row = READERS.findIndex((r) => r.id === READY?.audience), col = KINDS.indexOf(READY?.kind ?? ""), cy = CY + row * CH + CH / 2, cx = CX + col * CW + CW / 2;
   const arc = `M${CX + 9 * CW - 10} ${cy}C${CX + 9 * CW + 22} ${cy} ${CX + 9 * CW + 30} ${cy - 30} 474 ${cy - 38}`, route = `M${CX + 4} ${cy}H${CX + 9 * CW - 10}${arc.replace(/^M[^C]*/, "")}`;
   return <svg className="hf-scene ml-case" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -191,9 +190,3 @@ function TypeCaseScene() {
     <text className="hf-caption" x="300" y="408" textAnchor="middle">{`${plural(CATALOGUE.items.length, "{n} TITLE", "{n} TITLES")} · ${plural(CATALOGUE.kinds.length, "{n} KIND", "{n} KINDS")} · ${plural(READERS.length, "{n} READER", "{n} READERS")} · ONE READY NOW`}</text>
   </svg>;
 }
-
-export const MOCKUPS: Mockup[] = [
-  { name: "The Exploded Workbook", note: "“Moses: three forties” taken apart like an engineer's drawing: the cover, an engraved page for each forty (the palace of Egypt, the burning bush in Midian, the tents of the wilderness), the activity page and a memory-verse card lifting off along dashed assembly lines, each labelled, a light climbing through them under Deuteronomy 34:7; on hover the layers part further.", Scene: ExplodedScene },
-  { name: "The Study Desk", note: "The open spread seen from above on a wooden desk: the passage with its engraved bush and key verse on the left, three questions with room to write on the right (one being answered), seven coloured tabs for the readers from little ones to leaders, verse cards, a ribbon and a lamp whose light drifts across the page; on hover the tabs fan out and the cards spread.", Scene: DeskScene },
-  { name: "The Type Case", note: "A printer's type case holding the real catalogue, seven readers by nine kinds, one spine per title (41), with the one ready title, “Moses: three forties”, lifted out of its compartment and lit, a light running along its row to it; on hover the cover rises and the case settles.", Scene: TypeCaseScene },
-];

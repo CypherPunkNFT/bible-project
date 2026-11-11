@@ -1,10 +1,10 @@
+import joinedScripts from '@/joined-scripts.css?inline';
+import { watchShadowRoot } from '@/lib/page-translator';
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import template from './template.html?raw';
 import styles from './circles.css?inline';
-import joinedScripts from '@/joined-scripts.css?inline';
+import { createCirclesTemplate } from './create-template';
 import { mountCircles } from './runtime.mjs';
-import { watchShadowRoot } from '@/lib/page-translator';
 
 /** The approved explorer owns its SVG/reader DOM; the shadow boundary isolates its styles. */
 export default function CirclesPage() {
@@ -15,7 +15,9 @@ export default function CirclesPage() {
     const element = host.current;
     if (!element) return;
     const root = element.shadowRoot ?? element.attachShadow({ mode: 'open' });
-    root.innerHTML = `<style>${styles}${joinedScripts}</style>${template}`; // index.css does not reach a shadow root
+    const sheet = document.createElement('style');
+    sheet.textContent = styles + joinedScripts; // index.css does not reach a shadow root
+    root.replaceChildren(sheet, createCirclesTemplate(document));
     watchShadowRoot(root); // the page translator does not enter a shadow root unless it is handed one
     const controller = new AbortController();
     const oldOverflow = document.body.style.overflow;

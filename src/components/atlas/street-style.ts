@@ -21,7 +21,7 @@ export const MAP_KEY = "bible-atlas";
 export const BOUNDS: [number, number, number, number] = [-12, 8, 73, 49];
 
 /** Earth tones in place of Protomaps' default greys and cyan, to sit with the site's reading-chart colours. */
-const EARTH: Record<Theme, Partial<Flavor>> = {
+export const EARTH: Record<Theme, Partial<Flavor>> = {
   light: {
     background: "#e9e1cf", earth: "#efe7d4", water: "#a9c6cf", sand: "#eadcb8", beach: "#eadcb8",
     park_a: "#dbe2c4", park_b: "#d3dcb8", wood_a: "#d6dfbf", wood_b: "#cbd6b0", scrub_a: "#e3e2c3", scrub_b: "#dcdbb9",
@@ -78,7 +78,7 @@ function placeLayers(selectedId: string): LayerSpecification[] {
 }
 
 /** One line of English per modern label (local name when there is no English one), not English over Hebrew/Arabic. */
-function englishLabels(base: LayerSpecification[]): LayerSpecification[] {
+export function englishLabels(base: LayerSpecification[]): LayerSpecification[] {
   return base.map((layer) => {
     if (layer.type !== "symbol" || !layer.layout?.["text-field"] || layer.id.includes("shield")) return layer;
     return { ...layer, layout: { ...layer.layout, "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]] } };

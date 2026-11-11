@@ -8,13 +8,13 @@
 // The pill is for trying the openings on /home_mockup2 only (trial); the real homepage shows Figures with no pill (owner,
 // 2026-10-24: "take away the figures and centered pill option").
 // Styles: nearby-intro.css.
+import { formatNumber } from "@/lib/site-format";
 import { ArrowRight, HandHeart, LifeBuoy } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { LighthouseArt } from "./LighthouseArt";
-import { PICKED } from "./NearbyArt";
+import { PICKED } from "./NearbyArt.shared";
 import "./nearby-intro.css";
-import { formatNumber } from "@/lib/site-format";
 
 export interface Figures { cities: number; places: number; churches: number; help: number }
 

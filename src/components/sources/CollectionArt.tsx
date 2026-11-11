@@ -1,4 +1,4 @@
-export const collectionTones:Record<string,string>={sermons:'#69c7bb',scripture:'#d69c79',theology:'#a99bd6',apologetics:'#d48faf','christian-life':'#96b784',ministry:'#d7b569',history:'#83aed5',standards:'#cf9191',research:'#9badaf',cited:'#d7b569'};
+
 /** Decorative ink drawings. Source identities live in the catalogue, not this artwork. */
 export function CollectionArt({id}:{id:string}) {
  const book=<><path d="M42 50 Q68 38 96 52 Q124 38 150 50 V99 Q122 89 96 102 Q69 89 42 99Z"/><path d="M96 52V102M49 58Q71 49 87 58M49 67Q71 58 87 67M105 58Q125 49 143 58M105 67Q125 58 143 67"/></>;

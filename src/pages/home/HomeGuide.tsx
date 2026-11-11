@@ -1,14 +1,17 @@
+import { ConvictionsExtra } from "./HomeGuide.shared";
 // Homepage (live; first tried on home_mockup2): the section under the row of studies. First what the project is (the About content of the contact
 // page, its four convictions shared from AboutSections.tsx), then "Where are you starting from?": each answer glides the page
 // down to that numbered part and opens it. Styles: home-guide.css.
 // Two layouts: "columns" (home_mockup2: story in columns, then the five answers in a row) and "side" (home_mockup: the story
 // stacked on the left, the answers as rows on the right, the four convictions along the bottom).
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
+import { useContext, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { CONVICTIONS, ConvictionList } from "../contact/AboutSections";
+import { ConvictionList } from "../contact/AboutSections";
+import { CONVICTIONS } from "../contact/AboutSections.shared";
 import "../contact/contact.css";
-import { ConvictionsLongDrawing, GLORY_TEXT } from "./ConvictionsLongDrawing";
+import { ConvictionsLongDrawing } from "./ConvictionsLongDrawing";
+import { GLORY_TEXT } from "./ConvictionsLongDrawing.shared";
 import "./home-guide.css";
 
 /** Each answer either glides the home page down to its numbered part, or (the first) opens a page of its own. */
@@ -89,9 +92,6 @@ function Paths({ onChoose, withSteps }: { onChoose: (part: number) => void; with
       : <button type="button" key={path.number} className="home-guide-path" style={style} onClick={() => onChoose(path.part ?? 0)}>{inside}</button>;
   })}</div>;
 }
-
-/** Lets a mock-up (home_mockup11) put another phone version of the convictions in place of the long drawing. */
-export const ConvictionsExtra = createContext<ReactNode>(undefined);
 
 /** contactList: show the convictions exactly as on the contact page (drawings, giant numerals) instead of this section's own.
  *  number: the section's number before its label (home_mockup2). */

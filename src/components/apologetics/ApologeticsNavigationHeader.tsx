@@ -15,13 +15,14 @@ export function ApologeticsNavigationHeader() {
   const dialog=useRef<HTMLDialogElement>(null), trigger=useRef<HTMLButtonElement>(null), input=useRef<HTMLInputElement>(null), floating=useRef<HTMLButtonElement>(null);
   // When the bar scrolls up to its landing gap under the site header, a copy of its search button stays there.
   useEffect(()=>{
+    const buttonAtMount=trigger.current;
     let frame=0;
     const place=()=>{frame=0;const button=trigger.current,copy=floating.current,bar=button?.closest('.sm-container'),header=document.querySelector('[data-site-header]');if(!button||!copy||!bar||!header)return;
       const top=header.getBoundingClientRect().bottom+24,box=bar.getBoundingClientRect(),own=button.getBoundingClientRect();
       copy.hidden=box.top>=top;button.style.visibility=copy.hidden?'':'hidden';copy.style.top=top+'px';copy.style.left=own.left+'px';copy.style.width=box.right-own.left+'px';copy.style.height=own.height+2+'px';};
     const queue=()=>{if(!frame)frame=requestAnimationFrame(place);};
     place();window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue);
-    return()=>{cancelAnimationFrame(frame);if(trigger.current)trigger.current.style.visibility='';window.removeEventListener('scroll',queue);window.removeEventListener('resize',queue);};
+    return()=>{cancelAnimationFrame(frame);if(buttonAtMount)buttonAtMount.style.visibility='';window.removeEventListener('scroll',queue);window.removeEventListener('resize',queue);};
   },[location.pathname]);
   function open(){setQuery('');dialog.current?.showModal();requestAnimationFrame(()=>input.current?.focus());}
   function close(){dialog.current?.close();}

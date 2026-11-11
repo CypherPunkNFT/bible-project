@@ -36,9 +36,14 @@ def test_text_is_chunked_and_whole_book_text_is_gone():
     assert (DATA / "plain" / "kjv" / "PSA.json").exists()  # search still reads whole books
 
 
-def test_the_whole_site_stays_under_cloudflares_20000_files():
+def test_data_leaves_room_within_the_workers_asset_limit():
+    # This site moved to Workers Paid (AGENTS.md, 2026-10-19), whose limit is
+    # 100,000 assets with Wrangler >= 4.34.0, not the old 20,000-file limit.
+    # https://developers.cloudflare.com/workers/platform/limits/#static-assets
+    # Keep the existing 3,000-file reserve for non-data assets. The release
+    # preparer separately counts ALL files after packing and rejects >100,000.
     count = sum(1 for p in DATA.rglob("*") if p.is_file())
-    assert count < 17000, count
+    assert count < 100_000 - 3_000, count
 
 
 def test_cross_references_one_file_per_kjv_chapter_with_only_its_verses():

@@ -3,11 +3,11 @@
 // 6:24-25 in the reader's language's own Bible in place of the opening's words, and Joshua 1:9 from "be strong and courageous"
 // under it (owner, same day; own Bible 2026-11-02); it is the last thing before the footer. The three wise men walk along the scroll's top
 // (HomeOpenings6Caravan.tsx).
-import { Link } from "react-router-dom";
-import { BIBLE_OWN_NAMES, BLESSING_VERSES, verseWords } from "@/components/home/banner-verses";
+import { BIBLE_OWN_NAMES, BLESSING_VERSES, verseWords } from "@/components/home/banner-verses.shared";
 import { useSiteLanguage } from "@/lib/language";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { bibleName, useCurrentBible } from "@/lib/verses";
+import { Link } from "react-router-dom";
 import { ScrollArt } from "./HomeArtOpenings";
 import { ScrollCaravan } from "./HomeOpenings6Caravan";
 

@@ -1,0 +1,85 @@
+/* Blessings for the home (design 5.2, 5.3, 7.2): quiet panels, the words in Literata, verses as Scripture beneath them, and
+   a little more warmth and space on the children's pages. */
+.hb-page {max-width:56rem;margin:auto;padding:3rem 1rem 5rem;line-height:1.7;}
+.hb-page h1 {font-size:clamp(2rem,5vw,3.25rem);line-height:1.15;margin:1rem 0 1.5rem;}
+.hb-page h2 {font-size:1.4rem;line-height:1.3;margin:2rem 0 .75rem;}
+.hb-page h3 {font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;}
+.hb-page h4 {font-size:1rem;font-weight:600;margin:1rem 0 .25rem;}
+.hb-page p {margin:1rem 0;}
+.hb-page a {text-decoration:underline;text-underline-offset:3px;}
+.hb-page button,.hb-actions a {min-height:44px;display:inline-flex;align-items:center;padding:.5rem .8rem;gap:.5rem;border:1px solid currentColor;border-radius:.35rem;}
+.hb-page button:disabled {opacity:.5;cursor:not-allowed;}
+.hb-page button.hb-small {min-height:36px;padding:.25rem .6rem;font-size:.85rem;}
+.hb-page :focus-visible {outline:3px solid #8a7a52;outline-offset:3px;}
+.hb-crumbs {font-size:.9rem;opacity:.85;}
+.hb-intro {font-size:1.15rem;}
+.hb-how {border-left:3px solid #8a7a52;padding:.25rem 1rem;margin:1.5rem 0;}
+.hb-how h2 {margin-top:.5rem;font-size:1.1rem;}
+.hb-item,.hb-station {scroll-margin-top:6rem;margin:2.5rem 0;}
+.hb-panel {background:rgb(138 122 82 / 9%);border-radius:.75rem;padding:1.25rem 1.5rem;}
+.hb-panel h2 {margin-top:0;font-size:1.15rem;}
+.hb-kind {margin:0 0 .25rem!important;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600;opacity:.8;}
+.hb-words {font-family:var(--font-serif,"Literata Variable",Georgia,serif);font-size:1.2rem;line-height:1.75;margin:0 0 1rem;}
+.hb-written {white-space:pre-line;}
+.hb-featured .hb-words {font-size:clamp(1.25rem,2.6vw,1.5rem);}
+.hb-older {border:0;padding:0;}
+.hb-line {display:block;}
+.hb-stanza {display:block;height:.9rem;}
+.hb-name-token {opacity:.65;font-style:italic;}
+.hb-credit {font-size:.95rem;font-weight:600;margin:.25rem 0!important;}
+.hb-source {font-size:.85rem;opacity:.8;}
+.hb-setting {font-size:.95rem;}
+.hb-glosses {display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin:.5rem 0;font-size:.9rem;}
+.hb-glosses div {display:flex;gap:.35rem;}
+.hb-glosses dt {font-style:italic;}
+.hb-glosses dt::after {content:":";}
+.hb-glosses dd {margin:0;}
+.hb-extra {border-top:1px solid rgb(128 128 128 / 25%);margin-top:1rem;padding-top:.5rem;}
+.hb-extra .hb-words {font-size:1.05rem;}
+.hb-prompts {font-family:var(--font-serif,Georgia,serif);font-size:1.15rem;}
+.hb-mark {font-weight:600;font-family:var(--font-sans,system-ui,sans-serif);font-size:.95rem;}
+.hb-place {font-weight:400;opacity:.8;}
+.hb-together {margin-top:3rem!important;}
+.hb-rooted ul,.hb-reading,.hb-aside {list-style:none;padding:0;margin:0;}
+.hb-root {scroll-margin-top:6rem;border-bottom:1px solid rgb(128 128 128 / 22%);padding:1rem 0;}
+.hb-root blockquote {font-family:var(--font-serif,Georgia,serif);font-size:1.1rem;margin:0 0 .5rem;}
+.hb-reference {display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;font-size:.95rem;}
+.hb-note {font-size:.9rem;margin:.4rem 0 0!important;}
+.hb-context {font-size:.9rem;opacity:.85;}
+.hb-arrived {animation:hb-arrive 2.4s ease-out;}
+@keyframes hb-arrive {from {box-shadow:0 0 0 6px rgb(138 122 82 / 45%);border-radius:.75rem;} to {box-shadow:0 0 0 6px rgb(138 122 82 / 0%);}}
+@media (prefers-reduced-motion: reduce) {.hb-arrived {animation:none;}}
+.hb-actions {display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.75rem;}
+.hb-status {font-size:.85rem;}
+.hb-hint {font-size:.9rem;margin:.5rem 0!important;}
+.hb-print,.hb-message {border-top:1px solid rgb(128 128 128 / 30%);margin-top:1rem;padding-top:1rem;display:flex;flex-direction:column;gap:.75rem;align-items:flex-start;}
+.hb-choice {border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.25rem 1rem;}
+.hb-choice legend {font-weight:600;margin-bottom:.25rem;}
+.hb-field {display:block;width:100%;}
+.hb-page input[type="text"] {display:block;width:100%;max-width:28rem;padding:.6rem;background:transparent;border:1px solid currentColor;border-radius:.35rem;}
+.hb-check {display:flex;gap:.5rem;align-items:center;}
+.hb-preview {white-space:pre-wrap;font:inherit;overflow-wrap:anywhere;background:rgb(128 128 128 / 7%);padding:1rem;border-radius:.5rem;width:100%;}
+.hb-manual textarea {display:block;width:100%;min-height:9rem;background:transparent;border:1px solid currentColor;padding:1rem;}
+@media (min-width:768px) {.hb-text-message {display:none!important;}}
+.hb-set {border:1px solid rgb(128 128 128 / 35%);border-radius:.75rem;padding:1rem 1.5rem;margin:2.5rem 0;display:flex;flex-direction:column;gap:.75rem;align-items:flex-start;}
+.hb-set h2 {margin:.25rem 0 0;}
+.hb-set p {margin:0;}
+.hb-set-list {border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.25rem 1rem;width:100%;}
+.hb-set-list legend {font-weight:600;margin-bottom:.25rem;}
+.hb-more {margin-top:2.5rem;}
+.hb-more ul {padding-left:1.25rem;}
+.hb-source p {margin:.25rem 0;}
+.hb-loading,.hb-load-error {margin:1rem 0;}
+.hb-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));list-style:none;padding:0;gap:1rem;}
+.hb-grid a {display:block;padding:1rem;border:1px solid rgb(128 128 128 / 35%);border-radius:.5rem;height:100%;text-decoration:none;}
+.hb-grid strong {display:block;font-weight:600;}
+.hb-grid span {display:block;font-size:.9rem;font-family:var(--font-serif,Georgia,serif);opacity:.85;}
+.hb-group h2 {display:flex;align-items:center;gap:.5rem;}
+.hb-band {background:rgb(196 160 82 / 10%);border-radius:1rem;padding:.5rem 1.25rem 1.25rem;margin:2rem 0;}
+.hb-band .hb-grid span {font-size:1.05rem;}
+.hb-band-link {font-size:.95rem;}
+/* Children's pages: a little more space and larger words; notes for parents come after the words. */
+.hb-children .hb-item {margin:3rem 0;}
+.hb-children .hb-words {font-size:1.35rem;line-height:1.8;}
+.hb-children .hb-featured .hb-words {font-size:clamp(1.4rem,3vw,1.7rem);}
+@media (max-width:480px) {.hb-page {padding-top:1.5rem;}.hb-panel {padding:1rem;}.hb-band {padding:.5rem .9rem 1rem;}}

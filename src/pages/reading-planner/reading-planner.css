@@ -1,0 +1,78 @@
+/* The reading planner on screen (design 1) and its printed sheet (design 5). Accent: the site's poetry colour, the same
+   as its picture on the tools hub. Printed through the life-event print module (print-sheet.css hides the rest). */
+.rp-page { --rp-accent: var(--poetry); --rp-soft: color-mix(in srgb, var(--rp-accent) 8%, transparent); padding-block: 2.5rem 4rem; }
+.rp-page h1 { margin-top: .8rem; font: 450 clamp(2rem, 4.4vw, 3.1rem)/1.12 var(--font-serif); letter-spacing: -.03em; }
+.rp-page h2 { margin-top: 2.6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font: 500 1.4rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.rp-page h3 { font: 500 1rem/1.3 var(--font-serif); }
+.rp-intro { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: 1.02rem; line-height: 1.75; }
+.rp-page a { color: var(--rp-accent); text-underline-offset: 3px; }
+.rp-note { margin-top: .6rem; color: var(--muted); font-size: .85rem; }
+.rp-error { margin-top: 1.2rem; padding: .7rem 1rem; border-left: 3px solid var(--red-letter); color: var(--red-letter); }
+.rp-kept-elsewhere { margin-top: 1.2rem; padding: .7rem 1rem; border-left: 3px solid var(--rp-accent); background: var(--rp-soft); font-size: .95rem; }
+.rp-link { padding: 0; border: 0; background: none; color: var(--rp-accent); font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* The form */
+.rp-form { display: flex; flex-direction: column; gap: 1.6rem; margin-top: 2rem; }
+.rp-step { margin: 0; padding: 0; border: 0; }
+.rp-step legend { margin-bottom: .7rem; font: 500 1.15rem/1.3 var(--font-serif); }
+.rp-choices, .rp-weekdays { display: flex; flex-wrap: wrap; gap: .45rem; }
+.rp-choice, .rp-weekday { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.4rem; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; cursor: pointer; }
+.rp-weekday { min-width: 3.4rem; justify-content: center; }
+.rp-choice input, .rp-weekday input { position: absolute; opacity: 0; pointer-events: none; }
+.rp-choice:focus-within, .rp-weekday:focus-within { outline: 2px solid var(--rp-accent); outline-offset: 2px; }
+.rp-choice.is-on, .rp-weekday.is-on { border-color: var(--rp-accent); background: var(--rp-soft); color: var(--rp-accent); font-weight: 600; }
+.rp-books { margin-top: 1rem; }
+.rp-books-head { display: flex; align-items: baseline; gap: .9rem; }
+.rp-book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: .15rem .8rem; margin-top: .5rem; }
+.rp-book { display: flex; align-items: center; gap: .45rem; min-height: 2rem; font-size: .9rem; cursor: pointer; }
+.rp-book input { accent-color: var(--rp-accent); }
+.rp-fields { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1rem; }
+.rp-field { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; color: var(--muted); }
+.rp-field input, .rp-field select { min-height: 2.4rem; min-width: 9rem; padding: .35rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: var(--ink); font-size: .95rem; }
+.rp-field select option { color: #1f1b16; }
+.rp-speed { width: fit-content; margin-top: 1rem; }
+.rp-speed select { width: auto; max-width: 20rem; }
+
+/* The plan */
+.rp-span { margin-top: .8rem; font-size: 1rem; }
+.rp-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: .8rem 1.2rem; margin-top: 1rem; }
+.rp-facts dt { color: var(--muted); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+.rp-facts dd { margin-top: .15rem; font: 500 1.1rem/1.3 var(--font-serif); }
+.rp-fact-progress dd { color: var(--rp-accent); }
+.rp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.3rem; }
+.rp-button { display: inline-flex; align-items: center; min-height: 2.4rem; padding: .45rem 1rem; border: 1px solid var(--rp-accent); border-radius: 999px; background: var(--rp-accent); color: #fff; font-size: .9rem; cursor: pointer; }
+:root[data-theme="dark"] .rp-button { color: #10201e; }
+.rp-button-quiet { background: transparent; color: var(--rp-accent); }
+:root[data-theme="dark"] .rp-button-quiet { color: var(--rp-accent); }
+.rp-privacy { margin-top: 1rem; font-size: .88rem; }
+
+/* The day list: rows, not cards, windowed (useRowWindow). */
+.rp-days { margin-top: 1.4rem; overflow-anchor: none; list-style: none; padding-inline: 0; }
+.rp-day { display: grid; grid-template-columns: 2rem 8.5rem minmax(0, 1fr) auto; align-items: center; gap: .6rem; min-height: 3.25rem; padding: .45rem .3rem; border-bottom: 1px solid var(--line); }
+.rp-day.is-today { background: var(--rp-soft); }
+.rp-day.is-read .rp-day-reading { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.rp-tick input { width: 1.15rem; height: 1.15rem; accent-color: var(--rp-accent); cursor: pointer; }
+.rp-day-date { color: var(--muted); font-size: .85rem; }
+.rp-today { margin-left: .4rem; padding: .05rem .4rem; border-radius: 999px; background: var(--rp-accent); color: #fff; font-size: .7rem; }
+.rp-day-time { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+@media (max-width: 560px) {
+  .rp-day { grid-template-columns: 2rem minmax(0, 1fr) auto; grid-template-areas: "tick date time" "tick reading reading"; row-gap: .1rem; }
+  .rp-tick { grid-area: tick; }
+  .rp-day-date { grid-area: date; }
+  .rp-day-reading { grid-area: reading; }
+  .rp-day-time { grid-area: time; }
+}
+
+/* The printed sheet: Letter or A4 with a 0.45in margin, two columns, as many pages as the plan needs. */
+.rps-sheet { box-sizing: border-box; color: #1f1b16; background: #fff; font-family: "Archivo Variable", system-ui, sans-serif; }
+.rps-sheet h1 { font: 500 18pt/1.15 "Literata Variable", Georgia, serif; }
+.rps-span { margin-top: 4pt; font-size: 10pt; color: #444; }
+.rps-facts { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-top: 8pt; font-size: 8.5pt; }
+.rps-facts div { display: flex; gap: 4pt; }
+.rps-facts dt { color: #666; }
+.rps-facts dd { font-weight: 600; }
+.rps-rows { columns: 2; column-gap: 18pt; margin-top: 10pt; padding: 0; list-style: none; font-size: 8.4pt; line-height: 1.25; }
+.rps-rows > li { display: grid; grid-template-columns: 9pt 56pt minmax(0, 1fr) auto; column-gap: 4pt; padding: 2.2pt 0; border-bottom: .5pt solid #ddd; break-inside: avoid; }
+.rps-box { width: 7pt; height: 7pt; margin-top: 1pt; border: .6pt solid #333; }
+.rps-time { color: #555; }
+.rps-foot { margin-top: 10pt; font-size: 8pt; color: #555; }

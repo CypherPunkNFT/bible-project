@@ -1,16 +1,10 @@
-import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen } from 'lucide-react';
+import { useState } from 'react';
 import research from '../../../../content/academic-research/07-empires-close-studies.json';
-import { sourceById, sources } from './evidence';
 import './close-studies.css';
-import { Artifact, ArchiveScene, LandscapeArt, AuthorityArt } from './EmpireArt';
-
-export const expandedSources = research.sources;
-export function useEmpireSelection(key:string,initial:number,max:number) {
-  const [value,setValue]=useState(()=>{try{const raw=sessionStorage.getItem('empire-'+key);const n=raw===null?initial:Number(raw);return Number.isInteger(n)&&n>=0&&n<=max?n:initial;}catch{return initial;}});
-  useEffect(()=>{try{sessionStorage.setItem('empire-'+key,String(value));}catch{/* Storage can be disabled. */}},[key,value]);
-  return [value,setValue] as const;
-}
+import { expandedSources, useEmpireSelection } from "./CloseStudies.shared";
+import { ArchiveScene, Artifact, AuthorityArt, LandscapeArt } from './EmpireArt';
+import { sourceById, sources } from './evidence';
 export function EvidenceLinks({ ids }: { ids: string[] }) {
   return <div className="ie-citations">{ids.map(id => {
     const s = expandedSources.find(s => s.id === id) ?? sourceById(id);

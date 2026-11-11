@@ -6,7 +6,7 @@ import { useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent 
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
-import { CollectionArtwork, HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
+import { HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
 import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
 import { AtlasScene, TheologyScene } from "@/components/home/HomeStudyScenes";
@@ -30,15 +30,6 @@ import { HomeNearby } from "../home/HomeNearby";
 import { HomeQuiz } from "../home/HomeQuiz";
 import { HomeSources } from "../home/HomeSources";
 import { GoldMarquee } from "./home-openings/HomeOpenings";
-
-/** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
-const HOME_PATHS = [
-  { title: "Bible", to: "/bible", subtitle: "Read & compare", color: "epistles" },
-  { title: "Study", to: "/study", subtitle: "See the connections", color: "gospels" },
-  { title: "Apologetics", to: "/apologetics", subtitle: "Explore the questions", color: "history" },
-  { title: "Atlas", to: "/study/atlas", subtitle: "Enter the world", color: "poetry" },
-  { title: "Resources", to: "/resources", subtitle: "Study, gather, find help", color: "resource-life" },
-] as const;
 
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
 

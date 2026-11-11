@@ -7,6 +7,9 @@ import { sympathyPaths } from "../../src/data/sympathy";
 import { babyNamePaths, type NamesIndex } from "../../src/data/baby-names";
 import { countdownPaths } from "../../src/data/countdowns";
 import { birthdayVersePaths } from "../../src/data/birthday-verses";
+import { whenYourePaths } from "../../src/data/when-youre";
+import { occasionPrayerPaths } from "../../src/data/occasion-prayers";
+import { homeBlessingPaths } from "../../src/data/home-blessings";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
 import { WEBSITE } from "./sources.ts";
@@ -266,9 +269,21 @@ function studyAndSiteTemplates(): TemplateDef[] {
       babyNamePaths(readJson<NamesIndex>("data/baby-names/index.json").names).map((address) => single(address === "/baby-names" ? "hub" : address.slice("/baby-names/".length), address, "A baby-names page.", address))),
     one("countdowns", "site", "Countdowns", "/countdowns/<occasion>/<day>", "Daily readings and a card for each day leading up to Christmas and Easter, with a church sharing panel.", ["src/pages/countdowns/CountdownsPage.tsx"], ["src/pages/countdowns/", "src/data/countdowns/"],
       countdownPaths().map((address) => single(address === "/countdowns" ? "hub" : address.slice("/countdowns/".length), address, "A countdown page.", address))),
+    one("when-youre", "site", "What the Bible says when you're...", "/when-youre/<topic>", "Verses, passages to read and pray, a pastoral note and help from real people for someone who is hurting: anxious, grieving, afraid and more.", ["src/pages/when-youre/WhenYourePage.tsx"], ["src/pages/when-youre/", "src/data/when-youre/"],
+      whenYourePaths().map((address) => single(address === "/when-youre" ? "hub" : address.slice("/when-youre/".length), address, "A when-you're page.", address))),
+    one("occasion-prayers", "site", "Prayers for occasions", "/prayers/<occasion>", "Short prayers rooted in Scripture for surgery, a job interview, a new home, a hard conversation and more, with the verses beneath each and a way to send them.", ["src/pages/occasion-prayers/PrayersPage.tsx"], ["src/pages/occasion-prayers/", "src/data/occasion-prayers/"],
+      occasionPrayerPaths().map((address) => single(address === "/prayers" ? "hub" : address.slice("/prayers/".length), address, "A prayer page.", address))),
+    one("home-blessings", "site", "Blessings for the home", "/blessings/<page>", "House blessings, graces for the table and bedtime blessings for children: Scripture, older public-domain texts and short new words, each ready to print.", ["src/pages/home-blessings/BlessingsPage.tsx"], ["src/pages/home-blessings/", "src/data/home-blessings/"],
+      homeBlessingPaths().map((address) => single(address === "/blessings" ? "hub" : address.slice("/blessings/".length), address, "A blessings page.", address))),
+    one("occasion-verses", "site", "Occasion verse picker", "/occasion-verses?o=<occasion>", "Bible verses for every occasion, the wedding by part of the service, with a list to print and keepsake certificates.", ["src/pages/occasion-verses/OccasionVersesPage.tsx"], ["src/pages/occasion-verses/", "src/data/occasion-verses/"], [
+      single("chooser", "Occasion verse picker", "The occasions, before one is chosen.", "/occasion-verses"),
+      single("wedding", "Wedding, by part of the service", "The longest occasion, with a certificate.", "/occasion-verses?o=wedding"),
+      single("funeral", "Funeral service", "The funeral readings by part of the service.", "/occasion-verses?o=funeral"),
+    ]),
     one("birthday-verses", "site", "Birthday verses", "/birthday-verses/<month>-<day>", "A verse for every date of the year, each with a card and a message to send a friend on their birthday.", ["src/pages/birthday-verses/BirthdayVersesPage.tsx"], ["src/pages/birthday-verses/", "src/data/birthday-verses/", "src/data/occasion-verses/birthday-by-date.ts"],
       birthdayVersePaths().map((address) => single(address === "/birthday-verses" ? "hub" : address.slice("/birthday-verses/".length), address, "A birthday verses page.", address))),
     one("verse-cards", "site", "Shareable verse cards", "/verse-cards", "Make a picture of a Bible verse to post or send, in four sizes and six designs, each linking back to the verse.", ["src/pages/verse-cards/VerseCardsPage.tsx"], ["src/pages/verse-cards/", "src/lib/verse-card/", "src/components/verse-card/"]),
+    one("reading-planner", "site", "Bible reading planner", "/reading-planner","A daily Bible reading plan for any books, by a finish date or a pace, with reading times, printing and a calendar file.", ["src/pages/reading-planner/ReadingPlannerPage.tsx"], ["src/pages/reading-planner/", "src/data/reading-planner/"]),
     one("search", "site", "Search", "/search?q=<words>", "Keyword search across the Bible.", ["src/pages/SearchPage.tsx"], ["src/pages/SearchPage.tsx", "src/components/search/"], [
       single("results", "With results", "A common word.", "/search?q=grace"),
       single("none", "No results", "A word that is not in the Bible.", "/search?q=zzzzqx"),

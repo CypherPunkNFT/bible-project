@@ -1,8 +1,9 @@
 // MOCK-UP (/home_mockup11): eight phone versions of the homepage's four convictions, each far shorter than the stacked list.
 // B is the homepage's own now (pages/home/ConvictionsLongDrawing.tsx); these stay to compare against. A, B and G are native sideways scrolling, so they swipe and snap like the phone expects; the others are tabs or a swipe. Same words and
 // drawings as the real list. Styles: convictions-phone.css (.cvm-*).
+import { ConvictionsLongDrawing, Words, type Item, type RailProps } from "@/pages/home/ConvictionsLongDrawing";
+import { COUNT, ITEMS, position, useSideways } from "@/pages/home/ConvictionsLongDrawing.shared";
 import { useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
-import { ConvictionsLongDrawing, COUNT, ITEMS, position, useSideways, Words, type Item, type RailProps } from "@/pages/home/ConvictionsLongDrawing";
 
 export { ConvictionsLongDrawing };
 

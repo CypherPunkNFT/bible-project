@@ -1,7 +1,7 @@
-﻿import {useEffect, useRef, useState} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {ArrowRight, ChevronDown, Globe2} from 'lucide-react';
-import {main, worlds, islamPages, groupFor, secondary, currentIslam, useDesign} from './preview';
+﻿import { ArrowRight, ChevronDown, Globe2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { currentIslam, groupFor, islamPages, main, secondary, useDesign, worlds } from "./preview.shared";
 
 const root='/apologetics/worldviews';
 type World=(typeof worlds)[number];
@@ -28,7 +28,7 @@ function WorldviewSubmenu(){
  const world=active??worlds[0];
  const [choices,setChoices]=useState(!active);
  const selector=useRef<HTMLButtonElement>(null),popup=useRef<HTMLDivElement>(null);
- useEffect(()=>{setChoices(!active);},[location.pathname]);
+ useEffect(()=>{setChoices(!active);},[location.pathname,active]);
  useEffect(()=>{if(design!=='c'||!choices)return;const outside=(e:PointerEvent)=>{if(!popup.current?.contains(e.target as Node))setChoices(false);};document.addEventListener('pointerdown',outside);return()=>document.removeEventListener('pointerdown',outside);},[design,choices]);
  function dismiss(){setChoices(false);selector.current?.focus();}
  function key(e:React.KeyboardEvent){if(e.key==='Escape'&&choices&&active){e.stopPropagation();e.nativeEvent.stopImmediatePropagation();dismiss();}}
@@ -46,7 +46,7 @@ export function WorldviewNavigation(){
  const location=useLocation(),design=useDesign(),group=groupFor(location.pathname);
  const [opened,setOpened]=useState<string|null>(group==='Worldviews'?'Worldviews':null);
  const trigger=useRef<HTMLButtonElement|null>(null),previous=useRef(location.pathname);
- useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname]);
+ useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
  return <div className="sm-container"><nav className="sm-main" aria-label="Apologetics sections">{main.map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} aria-current={group===d.label?'page':undefined}>{d.label}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>
  {opened&&<div id="sm-panel" className="sm-panel">{opened==='Worldviews'?<WorldviewSubmenu key={design}/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{secondary(opened).map(d=><Link key={d.to} to={d.to} onClick={()=>setOpened(null)}>{d.label}<ArrowRight size={14}/></Link>)}</nav>}</div>}

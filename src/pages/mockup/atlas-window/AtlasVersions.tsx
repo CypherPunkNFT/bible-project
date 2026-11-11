@@ -3,13 +3,14 @@
 // 2 Category rail: the nine across the top, the map, the category's places listed beside it.
 // 3 Map stage: the map full width, the nine and the chosen place laid over it.
 // 4 Three columns: the nine, the map, the category's numbered places.
-import { useEffect, useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { StudyLink } from "@/pages/study/hub/shared";
 import { CATEGORIES, GROUPS, placeHref } from "@/pages/study/hub/atlas-stage/atlas-data";
 import { AtlasMap as MockMap, type Inset } from "@/pages/study/hub/atlas-stage/AtlasMap";
+import { CategoryButton, Caveat, EnterAtlas, GroupedCategories, PlaceNote } from "@/pages/study/hub/atlas-stage/parts";
+import { useAtlasChoice } from "@/pages/study/hub/atlas-stage/parts.shared";
 import { RefText } from "@/pages/study/hub/atlas-stage/RefText";
-import { Caveat, CategoryButton, EnterAtlas, GroupedCategories, PlaceNote, useAtlasChoice } from "@/pages/study/hub/atlas-stage/parts";
+import { StudyLink } from "@/pages/study/hub/shared";
+import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 import "./atlas-mock.css";
 
 /** `tone`: the colour the window is outlined in, as the two doors are in gold and orange (/study/atlas_colors_mockup).
@@ -70,5 +71,3 @@ export function AtlasV4() {
     </div>
   </div></Section>;
 }
-
-export const ATLAS_VERSIONS = [AtlasV1, AtlasV2, AtlasV3, AtlasV4];

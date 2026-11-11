@@ -60,7 +60,7 @@ export function useSourceDirectory() {
     getJson<{ entries: SourceEntry[] }>(`${BASE}${split.entries}`, controller.signal).then(data => enrich(data.entries, controller.signal))
       .catch(error => { if (!controller.signal.aborted) { console.error(error); setFailed("records"); } });
     return () => controller.abort();
-  }, [wanted, !!entries, directory, enrich]);
+  }, [wanted, entries, directory, enrich]);
   const language = useSiteLanguage();
   const [words, setWords] = useState<SourceWords | null>(null);
   useEffect(() => {

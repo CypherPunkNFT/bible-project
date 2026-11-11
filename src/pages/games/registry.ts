@@ -60,7 +60,8 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "groups", art: GAME_ART.liveQuiz,
   },
   {
-    slug: "wordle", status: "coming-soon", title: "Bible Wordle",
+    slug: "wordle", status: "live", load: () => import("./wordle/WordleGame"),
+    title: "Bible Wordle",
     description: "A daily word puzzle with a Bible word, and a score to share.",
     audiences: ["solo", "family"],
     shelf: "daily", art: GAME_ART.wordle,
@@ -93,7 +94,15 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "solo", art: GAME_ART.twentyQuestions,
   },
   {
-    slug: "map-quest", status: "coming-soon", title: "Map quest",
+    slug: "crossword", status: "live", load: () => import("./crossword/CrosswordGame"),
+    title: "Bible crossword",
+    description: "Pick a passage or theme and solve a crossword made from Bible people, places, verses and quiz questions.",
+    audiences: ["solo", "family"],
+    shelf: "daily", art: GAME_ART.crossword,
+  },
+  {
+    slug: "map-quest", status: "live", load: () => import("./map-quest/MapQuestGame"),
+    title: "Map quest",
     description: "Drop a pin where Jericho or Corinth stood: the closer the pin, the more points.",
     audiences: ["solo"],
     shelf: "daily", art: GAME_ART.mapQuest,

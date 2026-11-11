@@ -3,7 +3,7 @@
 // The emblem opens the verse written around its ring; hovering it puts that verse in the quote's place, Hebrew turning into English. Its motion is kept faint: the emblem's rings turn in place, the engraved hatch drifts a few pixels to and fro, the edge
 // rules carry a soft glow, and chosen words in the line catch the light in turn.
 import { BibleAbbr } from "@/components/Verse";
-import { RingVerseWords } from "./banner-verses";
+import { RingVerseWords } from "./BannerVerses";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";

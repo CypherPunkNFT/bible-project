@@ -1,13 +1,14 @@
+import { Chosen } from "./QuestionList.shared";
 // 03's results: the count and the chosen filters (ResultsBar, just above the list's top line, owner 2026-10-23/24), the one eye
 // beside the search, and the questions in a scroll pane (with
 // the pill-only scrollbar the owner chose for result lists), loading more as the pane reaches its end.
-import { Eye, EyeOff, Search, X } from "lucide-react";
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
-import { DIFFICULTIES, kindTone, LETTERS, searchTerms, type Filters } from "./model";
-import { Highlight, ReadLink } from "./shared";
 import { formatNumber, plural } from "@/lib/site-format";
+import { Eye, EyeOff, Search, X } from "lucide-react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { kindTone, LETTERS, searchTerms, type Filters } from "./model";
+import { Highlight, ReadLink } from "./shared";
 
 const STEP = 40;
 // Longer answers (whole catechism paragraphs) fold to a few lines until asked for.
@@ -40,19 +41,6 @@ export function EyeToggle({ testMode, setTestMode }: { testMode: boolean; setTes
   return <button type="button" className="qp-eye" aria-pressed={!testMode} aria-label={label} title={label} onClick={() => setTestMode(!testMode)}>
     {testMode ? <EyeOff size={18} strokeWidth={1.6} aria-hidden /> : <Eye size={18} strokeWidth={1.6} aria-hidden />}
   </button>;
-}
-
-/** One thing the list is narrowed to: which filter (or the theme), and it in words. */
-export interface Chosen { key: keyof Filters | "theme"; label: string }
-
-/** What the list is narrowed to: the theme or book, then the rail's choices and the search. */
-export function choiceInWords(f: Filters, bank: QuestionBank, bookNames: Record<string, string>, themeTitle?: string): Chosen[] {
-  const topic = f.topic === "none" ? "Other questions" : bank.topics.find((t) => t.id === f.topic)?.title;
-  const parts: [Chosen["key"], string | false | undefined][] = [["theme", themeTitle], ["book", f.book && (bookNames[f.book] ?? f.book)], ["topic", f.topic && topic],
-    ["testament", f.testament && (f.testament === "OT" ? "Old Testament" : "New Testament")], ["collection", f.collection],
-    ["difficulty", f.difficulty && DIFFICULTIES.find(([id]) => id === f.difficulty)?.[1]], ["choices", f.choices && "Multiple choice only"],
-    ["search", f.search.trim() && `“${f.search.trim()}”`]];
-  return parts.flatMap(([key, label]) => (label ? [{ key, label }] : []));
 }
 
 interface Props { bank: QuestionBank; rows: number[]; filters: Filters; clear: () => void; testMode: boolean; bookNames: Record<string, string>; bar: ReactNode }

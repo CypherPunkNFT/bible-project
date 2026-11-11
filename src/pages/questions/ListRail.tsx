@@ -1,3 +1,4 @@
+import { BOOK_SECTIONS, ListChoice, listFacets } from "./ListRail.shared";
 // questions_mockup 03's side rail (owner, 2026-10-23: the whole list should reflect the themes): two categories that
 // open like drawers. "By the book": Law, History, Poetry & wisdom, Prophets, Gospels & Acts, Epistles and Revelation,
 // each opening to its books. "By theme": the test page's four shelves (Lives, Stories, Teaching, Know your Bible), each
@@ -5,39 +6,14 @@
 // would give with the other choices kept. "By difficulty" (Easy, Medium, Hard) joins them the same way (owner,
 // 2026-10-24). The multiple-choice switch stays; the collection list went (owner, 2026-10-23). The topic list and
 // the Testament switch of FilterRail.tsx are not used here (the book drawers cover both Testaments).
-import { ChevronDown, X } from "lucide-react";
-import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import type { BankBook, QuestionBank } from "@/lib/data";
-import { RailGroup, Switch } from "./FilterRail";
-import { DIFFICULTIES, facetsOf, type Filters } from "./model";
-import { MIN_THEME, SHELVES } from "./test/themes";
 import { formatNumber } from "@/lib/site-format";
-
-export const BOOK_SECTIONS = [
-  { label: "Law", from: "GEN", to: "DEU" },
-  { label: "History", from: "JOS", to: "EST" },
-  { label: "Poetry & wisdom", from: "JOB", to: "SNG" },
-  { label: "Prophets", from: "ISA", to: "MAL" },
-  { label: "Gospels & Acts", from: "MAT", to: "ACT" },
-  { label: "Epistles", from: "ROM", to: "JUD" },
-  { label: "Revelation", from: "REV", to: "REV" },
-];
-
-export interface ListChoice { book: string; theme: string }
-
-/** The list's rows and the rail's counts. `members` holds each theme's questions (by index in the bank). */
-export function listFacets(bank: QuestionBank, haystacks: string[], filters: Filters, choice: ListChoice, members: Map<string, Set<number>>) {
-  const inTheme = members.get(choice.theme);
-  const keepTheme = inTheme ? (i: number) => inTheme.has(i) : undefined;
-  const base: Filters = { ...filters, topic: "", testament: "", kind: "" };
-  const chosen = facetsOf(bank.questions, haystacks, { ...base, book: choice.book }, keepTheme);
-  const anyBook = choice.book ? facetsOf(bank.questions, haystacks, { ...base, book: "" }, keepTheme).rows : chosen.rows;
-  const anyTheme = inTheme ? facetsOf(bank.questions, haystacks, { ...base, book: choice.book }).rows : chosen.rows;
-  const themeCount = new Map<string, number>();
-  for (const [id, set] of members) themeCount.set(id, anyTheme.reduce((n, i) => n + (set.has(i) ? 1 : 0), 0));
-  return { rows: chosen.rows, bookCount: chosen.counts.book, collectionCount: chosen.counts.collection, difficultyCount: chosen.counts.difficulty, anyBook, anyTheme, themeCount };
-}
+import { ChevronDown, X } from "lucide-react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { RailGroup, Switch } from "./FilterRail";
+import { DIFFICULTIES, type Filters } from "./model";
+import { MIN_THEME, SHELVES } from "./test/themes";
 
 type Facets = ReturnType<typeof listFacets>;
 

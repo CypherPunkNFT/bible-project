@@ -3,13 +3,13 @@
 // section ... can be consolidated ... visually striking for mobile ... sideways scrolls ... some kind of representation".
 // It is the real HomePage; only at phone width (640px and under) the list gives way to the version on the switcher under the section (?v=a to i).
 // Wider screens show the page unchanged. It opens at the section, since that is the only part being judged.
+import HomePage from "@/pages/HomePage";
+import { ConvictionsExtra } from "@/pages/home/HomeGuide.shared";
 import { useEffect, type ComponentType } from "react";
 import { useSearchParams } from "react-router-dom";
-import HomePage from "@/pages/HomePage";
-import { ConvictionsExtra } from "@/pages/home/HomeGuide";
 import { ConvictionsBook, ConvictionsCross, ConvictionsFolding, ConvictionsGiantNumerals, ConvictionsLongDrawing, ConvictionsLongDrawingWithMenu, ConvictionsPanels, ConvictionsRing, ConvictionsWindow } from "./home-convictions/ConvictionsPhone";
-import { VersionPill } from "./legal/VersionPill";
 import "./home-convictions/convictions-phone.css";
+import { VersionPill } from "./legal/VersionPill";
 
 const VERSIONS: { id: VersionId; name: string; Version: ComponentType }[] = [
   { id: "a", name: "Sideways panels", Version: ConvictionsPanels },

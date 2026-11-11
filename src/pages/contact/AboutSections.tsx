@@ -1,3 +1,5 @@
+import { CONVICTIONS } from "./AboutSections.shared";
+import { ART } from "./conviction-art";
 // The two sections under the contact form (approved mock-up F, 2026-10-20): 01 About the project, with four convictions
 // (glory, free, open, gathered) under giant numerals, and 02 a short letter from the founder on a ruled sheet.
 // Verses are the King James Version. Styles: contact.css (.cv-* and .lt-*).
@@ -9,22 +11,6 @@ import { Link, useLocation } from "react-router-dom";
 // The letter's two buttons: Redeemer Forge, Inc., which runs Bible Guide, and Lucas's own story at the root of the testimony tree.
 const REDEEMER_FORGE_URL = "https://redeemerforge.com";
 const FOUNDER = { name: "Lucas Campbell Saint Laurent", first: "Lucas", role: "Founder and sole developer", place: "Jacksonville, Florida" };
-
-export const ART = {
-  cross: <><path d="M60 16V84M44 34H76" strokeWidth="2" /><path className="cv-accent" d="M60 6V10M30 20L34 24M90 20L86 24M22 44H28M92 44H98M30 66L34 62M90 66L86 62" /><path className="cv-faint" d="M36 84H84" /></>,
-  bowl: <><path d="M22 52H98Q94 76 60 78Q26 76 22 52Z" /><path className="cv-accent" d="M60 46C52 38 56 28 60 20C64 28 68 38 60 46Z" /><path className="cv-faint" d="M40 34L46 40M80 34L74 40M60 10V14" /><path className="cv-faint" d="M34 84H86" /></>,
-  door: <><path d="M34 84V36A26 26 0 0 1 86 36V84" /><path className="cv-faint" d="M60 14V84" /><path className="cv-paper" d="M60 84L82 78V40Q80 22 62 14" /><path className="cv-accent" d="M38 84L18 88M86 84L104 88" /><circle className="cv-dot" cx="76" cy="54" r="2" /></>,
-  books: <><path d="M18 84H102" /><path d="M24 84V30H38V84M38 84V22H52V84" /><path className="cv-paper" d="M56 84L66 26L80 28L70 86" /><path d="M84 84V44Q92 38 100 44V84" /><path className="cv-faint" d="M28 40H34M42 34H48M28 48H34" /><path className="cv-accent" d="M66 40L76 42" /></>,
-  // Homepage mock-up only: three books upright on an unbroken shelf, a stack of three lying beside them.
-  shelf: <><path d="M14 84H106" /><path className="cv-paper" d="M22 84V30H34V84M34 84V22H48V84M48 84V36H58V84" /><path className="cv-paper" d="M62 84V74H104V84M66 74V65H100V74M64 65V57H96V65H64Z" /><path className="cv-faint" d="M25 40H31M25 74H31M37 30H45M37 74H45M51 46H55M68 79H84M70 69.5H82M68 61H80" /><path className="cv-accent" d="M37 38H45" /></>,
-};
-
-export const CONVICTIONS: { numeral: string; title: string; text: string; verse: number; reference: string; art: keyof typeof ART }[] = [
-  { numeral: "I", title: "For the glory of God.", text: "Not for attention, and not for a name. Every page is offered back to the One it is about.", verse: 46010031, reference: "1 Corinthians 10:31", art: "cross" },
-  { numeral: "II", title: "Free, always.", text: "There is no subscription and nothing to buy. What the Church received as a gift should be passed on as one.", verse: 40010008, reference: "Matthew 10:8", art: "bowl" },
-  { numeral: "III", title: "Open to everyone.", text: "Believer or skeptic, scholar or simply curious: the door is open to anyone who wants to come in.", verse: 23055001, reference: "Isaiah 55:1", art: "door" },
-  { numeral: "IV", title: "Gathered in one place.", text: "Scripture, the creeds, the teachers and the hard questions, scattered for centuries, brought into one source and linked together.", verse: 20004007, reference: "Proverbs 4:7", art: "books" },
-];
 
 function Eyebrow({ number, children, id }: { number: string; children: string; id?: string }) {
   return <p className="cv-eyebrow" id={id}><span>{number}</span> · {children}</p>;

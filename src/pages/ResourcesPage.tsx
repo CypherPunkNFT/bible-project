@@ -1,17 +1,19 @@
 import { useResourcePageTransition } from "./resources/useResourcePageTransition";
 import "./resources/resource-transitions.css";
 // /resources: a way station with three doorways (Learning materials, Fellowships, Help for life), and the three section
-// pages under it. A section is a link only once its data file exists in src/data/resources/ (learning.json,
+// pages under it. Under the doorways, a row of printables (the sermon notes sheet, /resources/sermon-notes). A section is a link only once its data file exists in src/data/resources/ (learning.json,
 // fellowships.json, life.json); until then its doorway says "In preparation" and its address returns here, so no page
 // is ever empty or invented.
+import { ArrowRight } from "lucide-react";
 import { lazy, Suspense, useEffect, type ComponentType } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import { StationDoor, StationStats } from "@/components/stations/Station";
 import { loadResource, useResource, type FellowshipsData, type LearningData, type LifeData } from "@/data/resources";
 import { shelfCounts } from "@/data/resources/learning-catalogue";
 import { plural } from "@/lib/site-format";
 import { RESOURCE_SECTIONS, sectionReady } from "./resources/sections";
 import { Loading } from "./resources/Shell";
+import "./resources/printables.css";
 
 const loadLearning = () => import("./resources/LearningPage");
 const LearningPage = lazy(loadLearning);
@@ -20,6 +22,7 @@ const loadFellowships = () => import("./resources/FellowshipsPage");
 const FellowshipsPage = lazy(loadFellowships);
 const loadLife = () => import("./resources/LifePage");
 const LifePage = lazy(loadLife);
+const SermonNotesPage = lazy(() => import("./resources/sermon-notes/SermonNotesPage"));
 
 const preloadSection = (name: "learning" | "fellowships" | "life") => Promise.all([
   ({ learning: loadLearning, fellowships: loadFellowships, life: loadLife })[name](), loadResource(name),
@@ -33,6 +36,7 @@ export default function ResourcesPage() {
     <Route path="learning/:titleId" element={<Section name="learning" Page={LearningTitlePage} />} />
     <Route path="fellowships" element={<Section name="fellowships" Page={FellowshipsPage} />} />
     <Route path="life" element={<Section name="life" Page={LifePage} />} />
+    <Route path="sermon-notes" element={<Suspense fallback={<Loading />}><SermonNotesPage /></Suspense>} />
     <Route path="*" element={<Navigate replace to="/resources" />} />
   </Routes></div>;
 }
@@ -80,5 +84,18 @@ function Station() {
       {RESOURCE_SECTIONS.map((s, i) => <StationDoor key={s.slug} index={i + 1} art={s.art} title={s.title} text={s.text} color={s.color}
         {...(sectionReady(s.slug) ? { to: `/resources/${s.slug}`, note: s.slug === "learning" ? learningNote() : "Ready to explore", action: "Open" } : { note: "Not yet published", action: "In preparation" })} />)}
     </nav>
+    <Printables />
   </div>;
+}
+
+/** Sheets to print, under the three doorways: a hairline row each, so the approved doorways stay as they are. */
+function Printables() {
+  return <section className="rs-printables" aria-label="Printables">
+    <h2 className="rs-printables-kick">Printables</h2>
+    <Link to="/resources/sermon-notes" className="rs-printable">
+      <span className="rs-printable-title">Sermon notes sheet</span>
+      <span className="rs-printable-text">A page to fill in while you listen, for adults and for children, ready to print or save as a PDF.</span>
+      <span className="rs-printable-go">Open<ArrowRight size={14} aria-hidden="true" /></span>
+    </Link>
+  </section>;
 }

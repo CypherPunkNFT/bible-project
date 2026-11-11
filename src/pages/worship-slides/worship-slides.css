@@ -1,0 +1,52 @@
+/* The worship slide maker (WorshipSlidesPage.tsx, Choices.tsx, SlideGrid.tsx). Hairlines rather than boxes, as the
+   random verse page does (src/pages/random-verse/random-verse.css); the slides themselves are the only filled shapes. */
+.ws-page h1 { margin-top: .8rem; font: 450 clamp(2.1rem, 4.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.ws-lede { max-width: 44rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: 1.05rem; line-height: 1.75; }
+
+.ws-form { display: grid; gap: .45rem; margin-top: 2rem; }
+.ws-form > label { color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ws-form-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ws-form input { flex: 1 1 16rem; min-width: 0; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: 1.05rem; }
+.ws-form input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ws-go { padding: .65rem 1.4rem; border-radius: .4rem; background: var(--accent); color: var(--page); font-weight: 600; }
+.ws-go:hover { filter: brightness(1.08); }
+.ws-examples { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .5rem; margin-top: .2rem; color: var(--muted); font-size: .85rem; }
+.ws-example { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+.ws-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem 2rem; margin-top: 1.6rem; padding: 1.2rem 0; border-block: 1px solid var(--line); }
+.ws-group { min-width: 0; }
+.ws-group legend { margin-bottom: .4rem; color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ws-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ws-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .2rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .85rem; line-height: 1.5; transition: border-color .2s, color .2s; }
+.ws-chip:hover { border-color: var(--accent); color: var(--ink); }
+.ws-chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--page); }
+.ws-swatch { width: .9rem; height: .9rem; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); border-radius: 50%; }
+.ws-switches { display: grid; gap: .3rem; font-size: .9rem; }
+.ws-switches label { display: flex; align-items: center; gap: .5rem; }
+.ws-switches input { accent-color: var(--accent); }
+
+.ws-result { margin-top: 1.4rem; }
+.ws-status { color: var(--muted); font-size: .92rem; }
+.ws-problem { padding: .6rem .9rem; border-inline-start: 2px solid var(--red-letter, #a33); font-size: .95rem; }
+.ws-retry { margin-inline-start: .5rem; color: var(--accent); text-decoration: underline; }
+.ws-downloads { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-bottom: 1rem; }
+.ws-count { margin-inline-end: auto; font: 500 1.15rem/1.2 var(--font-serif); }
+.ws-download { padding: .5rem 1.1rem; border: 1px solid var(--accent); border-radius: .4rem; color: var(--accent); font-size: .92rem; font-weight: 600; transition: background .2s, color .2s; }
+.ws-download:hover:not(:disabled) { background: var(--accent); color: var(--page); }
+.ws-download:disabled, .ws-save:disabled { opacity: .5; cursor: progress; }
+
+.ws-grid-holder { margin-top: .4rem; }
+.ws-grid-row { display: grid; gap: 16px; list-style: none; padding: 0; }
+.ws-tile { min-width: 0; }
+.ws-preview { display: block; border: 1px solid var(--line); border-radius: .3rem; }
+/* A see-through slide shows a checkerboard behind it, as picture editors do. */
+.ws-preview-clear { background: repeating-conic-gradient(#9a9a9a 0 25%, #6e6e6e 0 50%) 0 0 / 20px 20px; }
+.ws-tile-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; height: 48px; padding-top: .4rem; font-size: .85rem; }
+.ws-tile-name { overflow: hidden; color: color-mix(in srgb, var(--ink) 85%, transparent); text-overflow: ellipsis; white-space: nowrap; }
+.ws-tile-number { color: var(--muted); font-variant-numeric: tabular-nums; }
+.ws-save { flex: none; padding: .2rem .6rem; border: 1px solid var(--line); border-radius: .3rem; font-size: .8rem; transition: border-color .2s; }
+.ws-save:hover:not(:disabled) { border-color: var(--accent); }
+
+.ws-notes { max-width: 44rem; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.ws-notes h2 { font: 500 1.3rem/1.2 var(--font-serif); }
+.ws-notes ul { display: grid; gap: .5rem; margin-top: .8rem; padding-inline-start: 1.1rem; list-style: disc; color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: .93rem; line-height: 1.6; }

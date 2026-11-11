@@ -30,6 +30,8 @@ export function ExploreMore({ set, funeral = true }: { set?: SympathySet; funera
         {funeral && <li><Link to={FUNERAL_PATH}>Bible readings for a funeral</Link></li>}
         {related.map((item) => <li key={item.slug}><Link to={sympathySetPath(item)}>{item.heading}</Link></li>)}
         <li><Link to="/resources/life">Grief support near you</Link></li>
+        {set?.slug === "" && <li><Link to="/when-youre/grieving">When you're grieving yourself</Link></li>}
+        {set?.slug === "" && <li><Link to="/prayers/before-a-funeral">Prayers before a funeral</Link></li>}
         {set?.slug !== "" && <li><Link to={SYMPATHY_PATH}>All sympathy pages</Link></li>}
       </ul>
     </section>

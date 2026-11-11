@@ -1,31 +1,10 @@
+import { StanzaPage } from "./StanzaPager.shared";
 // Section 01 kept to one screen (owner, 2026-10-18): the hymn's stanzas a page at a time, never splitting a stanza, with a
 // dot per page and left and right arrows. The arrow keys turn the page while the section is in use. A hymn short enough
 // for one page shows no pager.
-import { useCallback, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ROMAN } from "../song/parts";
-
-/** Lines a page holds before the next stanza starts a new one; a hymn this long or shorter is one page. */
-const PAGE_LINES = 12, ONE_PAGE = 14;
-
-export interface StanzaPage { first: number; last: number }
-
-/** Whole stanzas, as evenly as they go: as many pages as PAGE_LINES lines a page needs, each holding about the same number of
- *  lines, so no page is left with one stanza in an empty block. */
-export function stanzaPages(stanzas: string[][]): StanzaPage[] {
-  const total = stanzas.reduce((n, s) => n + s.length, 0);
-  if (total <= ONE_PAGE) return [{ first: 0, last: stanzas.length - 1 }];
-  const target = total / Math.ceil(total / PAGE_LINES);
-  const pages: StanzaPage[] = [];
-  let first = 0, done = 0;
-  stanzas.forEach((stanza, s) => {
-    // Start a new page when this stanza would sit mostly past the current page's share of the lines.
-    if (s > first && done + stanza.length / 2 > target * (pages.length + 1)) { pages.push({ first, last: s - 1 }); first = s; }
-    done += stanza.length;
-  });
-  pages.push({ first, last: stanzas.length - 1 });
-  return pages;
-}
+import { useCallback, useState, type ReactNode } from "react";
+import { ROMAN } from "../song/parts.shared";
 
 const label = (p: StanzaPage) => (p.first === p.last ? `Stanza ${ROMAN[p.first] ?? p.first + 1}` : `Stanzas ${ROMAN[p.first] ?? p.first + 1}–${ROMAN[p.last] ?? p.last + 1}`);
 /** The pager's place line, one whole phrase: "Stanzas I–III of VII". */

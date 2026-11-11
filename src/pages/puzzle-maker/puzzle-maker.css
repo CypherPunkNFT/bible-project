@@ -1,0 +1,96 @@
+/* The puzzle maker (PuzzleMakerPage.tsx, PuzzleSheet.tsx). The form in hairlines, as the word counter's; the sheet as
+   a sheet of paper, the same on screen and in print (design §5). Print rules apply only inside the print portal, which
+   only this page's Print arms (src/pages/life-events/print-sheet.css). */
+.pm-page h1 { margin-top: .8rem; font: 450 clamp(2.1rem, 4.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.pm-lede { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: 1.05rem; line-height: 1.75; }
+
+.pm-form { display: grid; gap: 1rem 1.4rem; margin-top: 2rem; padding: 1.2rem 0; border-block: 1px solid var(--line); }
+.pm-choice { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; }
+.pm-choice legend, .pm-field > span { color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.pm-choice legend { float: left; width: 7.5rem; }
+.pm-choice label, .pm-tools label { display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; }
+.pm-choice input, .pm-tools input { accent-color: var(--accent); }
+.pm-field { display: grid; gap: .35rem; }
+.pm-field :is(input, select) { width: 100%; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: 1rem; }
+.pm-field :is(input, select):focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pm-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.pm-passage { display: grid; gap: .6rem; }
+.pm-examples { display: flex; flex-wrap: wrap; gap: .35rem; }
+.pm-chip { padding: .2rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .8rem; line-height: 1.4; transition: border-color .2s, color .2s; }
+.pm-chip:hover { border-color: var(--accent); color: var(--ink); }
+.pm-hint { color: var(--muted); font-size: .85rem; }
+.pm-go { justify-self: start; padding: .62rem 1.4rem; border-radius: .4rem; background: var(--accent); color: var(--page); font-weight: 600; }
+.pm-go:hover { filter: brightness(1.08); }
+.pm-go:disabled { opacity: .5; cursor: wait; }
+.pm-link { color: var(--accent); font-size: .85rem; text-decoration: underline; text-underline-offset: 2px; }
+
+.pm-status { display: grid; gap: .5rem; min-height: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; }
+.pm-warning, .pm-note { max-width: 46rem; padding: .6rem .9rem; border-inline-start: 2px solid var(--red-letter, #a33); color: var(--ink); }
+.pm-note { border-color: var(--accent); }
+
+.pm-result { margin-top: 1.4rem; transition: opacity .2s; }
+.pm-stale { opacity: .55; }
+.pm-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; padding-bottom: 1rem; font-size: .9rem; }
+.pm-tools > button:not(.pm-go) { padding: .5rem 1rem; border: 1px solid var(--line); border-radius: .4rem; }
+.pm-tools > button:not(.pm-go):hover { border-color: var(--accent); }
+.pm-print { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-inline-start: auto; }
+.pm-print select { padding: .3rem .5rem; border: 1px solid var(--line); border-radius: .3rem; background: var(--page); color: var(--ink); }
+.pm-preview { padding: clamp(.6rem, 3vw, 2.2rem); border-radius: .5rem; background: color-mix(in srgb, var(--line) 35%, transparent); }
+
+/* ---- The sheet ---- */
+.pm-sheet { --pm-square: 2.1rem; max-width: 46rem; margin-inline: auto; padding: clamp(1rem, 4vw, 2.6rem); background: #fff; color: #111; box-shadow: 0 1px 3px rgb(0 0 0 / .12), 0 8px 28px rgb(0 0 0 / .08); font-family: var(--font-serif); }
+.pm-sheet-head { display: grid; gap: .3rem; text-align: center; }
+.pm-sheet-kind { color: #555; font: 600 .72rem/1.2 var(--font-sans, system-ui); letter-spacing: .14em; text-transform: uppercase; }
+.pm-sheet-title { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.pm-fill { display: flex; align-items: baseline; justify-content: center; gap: .5rem; margin-top: .6rem; font-size: .9rem; }
+.pm-line { display: inline-block; width: 13rem; max-width: 40%; border-bottom: 1px solid #333; }
+.pm-line-short { width: 7rem; }
+
+/* The grid: CSS grid squares (a table cell with nothing in it has no height, so an empty crossword square vanished). */
+.pm-grid { display: grid; grid-template-columns: repeat(var(--pm-cols), minmax(0, 1fr)); width: calc(var(--pm-cols) * var(--pm-square)); max-width: 100%; margin: 1.4rem auto 0; }
+.pm-grid-row { display: contents; }
+.pm-sq { position: relative; display: grid; place-items: center; aspect-ratio: 1; min-width: 0; }
+.pm-search .pm-sq { font: 600 clamp(.7rem, 2.6vw, 1.15rem)/1 var(--font-sans, system-ui); }
+.pm-search .pm-grid { border: 1.5px solid #222; }
+.pm-search.pm-answers .pm-sq { color: #bbb; font-weight: 400; }
+.pm-search.pm-answers .pm-sq.pm-hit { color: #000; font-weight: 800; background: #e8e8e8; box-shadow: inset 0 0 0 1px #777; }
+.pm-cross .pm-box { margin: -.75px; border: 1.5px solid #222; background: #fff; }
+.pm-cross .pm-void { background: transparent; }
+.pm-n { position: absolute; top: 1px; left: 2px; font: 600 clamp(.42rem, 1.4vw, .62rem)/1 var(--font-sans, system-ui); }
+.pm-letter { font: 700 clamp(.7rem, 2.6vw, 1.15rem)/1 var(--font-sans, system-ui); }
+
+.pm-list, .pm-bank { margin-top: 1.4rem; }
+.pm-sheet h3 { margin-bottom: .45rem; font: 600 .78rem/1.2 var(--font-sans, system-ui); letter-spacing: .12em; text-transform: uppercase; text-align: center; }
+.pm-words { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1.4rem; font-size: 1rem; }
+.pm-clues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; margin-top: 1.6rem; }
+.pm-clue-list h3 { text-align: start; }
+.pm-clue-list li { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); padding: .18rem 0; font-size: .9rem; line-height: 1.45; break-inside: avoid; }
+.pm-clue-n { font-weight: 700; }
+.pm-answer { font-family: var(--font-sans, system-ui); letter-spacing: .04em; text-transform: uppercase; }
+.pm-verse { color: var(--accent); font-size: .8rem; text-decoration: underline; text-underline-offset: 2px; }
+.pm-sheet-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem .9rem; margin-top: 1.8rem; color: #666; font: .7rem/1.4 var(--font-sans, system-ui); }
+
+.pm-notes { max-width: 46rem; margin-top: 3.4rem; color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.pm-notes h2 { color: var(--ink); font: 500 1.1rem/1.3 var(--font-serif); }
+.pm-notes ul { margin-top: .5rem; padding-inline-start: 1.1rem; list-style: disc; }
+.pm-notes li + li { margin-top: .25rem; }
+.pm-notes a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 767px) {
+  .pm-row, .pm-clues { grid-template-columns: minmax(0, 1fr); }
+  .pm-choice legend { float: none; width: auto; }
+  .pm-print { margin-inline-start: 0; }
+  .pm-sheet { --pm-square: 1.6rem; }
+}
+
+@media print {
+  html.print-sheet-active .print-sheet-portal .pm-sheet { max-width: none; padding: 0; box-shadow: none; --pm-square: .42in; }
+  html.print-sheet-active .print-sheet-portal .pm-search.pm-size-large,
+  html.print-sheet-active .print-sheet-portal .pm-cross.pm-size-medium { --pm-square: .36in; }
+  html.print-sheet-active .print-sheet-portal .pm-cross.pm-size-large { --pm-square: .32in; }
+  html.print-sheet-active .print-sheet-portal .pm-grid { break-inside: avoid; }
+  html.print-sheet-active .print-sheet-portal .pm-search .pm-sq, html.print-sheet-active .print-sheet-portal .pm-letter { font-size: 12pt; }
+  html.print-sheet-active .print-sheet-portal .pm-n { font-size: 6pt; }
+  html.print-sheet-active .print-sheet-portal .pm-clue-list li { font-size: 9.5pt; }
+  html.print-sheet-active .print-sheet-portal .pm-key-page { break-before: page; }
+}

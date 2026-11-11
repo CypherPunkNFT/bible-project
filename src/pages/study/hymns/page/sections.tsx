@@ -1,14 +1,15 @@
 // The sections of a generated hymn page after the hymn itself: where the author found it (or, for a psalm, the psalm it
 // sets), the passage it draws on most when no verse is printed above it, its place in its book, and the sources. Built
 // from the approved Amazing Grace sections (../song/Sections.tsx), with every sentence filled from the hymn's data.
+import { BibleName } from "@/components/Verse";
+import type { BookTick, HymnPageData, PagePassage } from "@/lib/hymn-pages";
+import { plural } from "@/lib/site-format";
+import { ArrowRight } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import type { BookTick, HymnPageData, PagePassage } from "@/lib/hymn-pages";
 import { Head } from "../song/Sections";
-import { PassageVerses, ROMAN, type OpenPassage } from "../song/parts";
-import { BibleName } from "@/components/Verse";
-import { plural } from "@/lib/site-format";
+import { PassageVerses, type OpenPassage } from "../song/parts";
+import { ROMAN } from "../song/parts.shared";
 
 const tone = (token: string) => ({ "--tone": `var(--${token || "accent"})` }) as CSSProperties;
 const readHref = (p: PagePassage) =>

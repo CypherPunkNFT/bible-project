@@ -1,12 +1,13 @@
 // Homepage (live; first tried on home_mockup2): "Every word, traced to its source." The figures (from the dated snapshot on /sources, 7 October
 // 2026) count up once in view; each of the eight collections opens the /sources catalogue on that collection (?collection=<id>).
 // Styles: home-sources.css.
+import { CollectionArt } from "@/components/sources/CollectionArt";
+import { collectionTones } from "@/components/sources/CollectionArt.shared";
+import { formatNumber } from "@/lib/site-format";
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, HeartHandshake, Library, Mic, ScrollText, Shield, Users, type LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { CollectionArt, collectionTones } from "@/components/sources/CollectionArt";
 import "./home-sources.css";
-import { formatNumber } from "@/lib/site-format";
 
 const FIGURES = [
   { value: 160, label: "Bible editions, free to read and download" },

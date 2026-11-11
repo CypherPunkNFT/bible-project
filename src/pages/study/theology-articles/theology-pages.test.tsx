@@ -5,8 +5,8 @@ import { readFileSync } from "node:fs";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
 import { afterEach, describe, expect, it } from "vitest";
-import { cleanup, render, within } from "@testing-library/react";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { cleanup, fireEvent, render, within } from "@testing-library/react";
+import { MemoryRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { ARTICLES, SOURCES, articleHref, readerHref } from "./model";
 import TheologyPage from "./TheologyPage";
 import TheologyArticlePage from "./TheologyArticlePage";
@@ -39,6 +39,25 @@ describe("the Theology landing", () => {
 });
 
 describe("the article", () => {
+  it("keeps its hooks in order when navigation changes between missing and known articles", () => {
+    function NavigateArticles() {
+      const navigate = useNavigate();
+      return <><button onClick={() => navigate(articleHref(article.id))}>Known article</button>
+        <button onClick={() => navigate(articleHref("missing-article"))}>Missing article</button></>;
+    }
+    const screen = render(<CatalogContext.Provider value={catalog}>
+      <MemoryRouter initialEntries={[articleHref("missing-article")]}>
+        <NavigateArticles />
+        <Routes><Route path="/study/theology-articles/:id" element={<TheologyArticlePage />} /></Routes>
+      </MemoryRouter>
+    </CatalogContext.Provider>);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("There is no article at this address.");
+    fireEvent.click(screen.getByRole("button", { name: "Known article" }));
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(article.title);
+    fireEvent.click(screen.getByRole("button", { name: "Missing article" }));
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("There is no article at this address.");
+  });
+
   it("draws every part, in order, with nothing failed", () => {
     const screen = openArticle(article.id);
     const headings = [...screen.container.querySelectorAll(".th-part-head h2")].map((h) => h.textContent);

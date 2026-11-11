@@ -1,3 +1,4 @@
+import { fixed } from "./HomeOpenings7.shared";
 // MOCK-UP: four openings for /home_mockup7 (owner, 2026-10-30: "I like the city on this one, the scrolls in before, the gate, the
 // rose window, lets get more quality ones like them BUT NOT THEM just that quality and presence"). Each is one object that
 // Scripture itself describes, drawn to its own measures: the tabernacle's court (Exodus 26-27), the lampstand (Exodus 25),
@@ -15,8 +16,6 @@ export const OPENINGS_7 = [
   { id: "d", name: "Two pillars" },
 ] as const;
 export type Opening7Id = (typeof OPENINGS_7)[number]["id"];
-
-export const fixed = (value: number) => value.toFixed(1);
 
 /** The court is fifty cubits by a hundred, drawn with west at the top and the gate, east toward the sunrise, at the foot. */
 const CUBIT = 10, LEFT = 60, TOP = 50;

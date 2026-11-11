@@ -3,7 +3,7 @@ import { select } from "d3-selection";
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior, type ZoomTransform } from "d3-zoom";
 import { ArrowRight, Globe, Maximize, Minus, Plus, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { formatTestimonyDate } from "@/lib/testimonies";
+import { formatTestimonyDate } from "@/lib/testimony-date";
 import type { TestimonyPin } from "@/lib/testimony-contract";
 import { countryName, plural } from "@/lib/site-format";
 

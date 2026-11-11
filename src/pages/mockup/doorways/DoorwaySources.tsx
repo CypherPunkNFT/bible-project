@@ -1,7 +1,6 @@
 // MOCK-UP: the Sources row of the doorway design sheet (/doorways_mockup). Owner, 2026-10-31: "I like sources, it can be
 // enlarged." So the first drawing is the home page's shelf of books re-fitted to the taller frame, and the other four are
 // close relatives that keep the library feel: a two-shelf bookcase, scroll and codex, a catalogue tray, a reading lamp.
-import type { DoorwayVariant } from "./doorway-types";
 
 type Book = readonly [x: number, width: number, height: number];
 
@@ -27,7 +26,7 @@ const Dot = ({ x, y }: { x: number; y: number }) => <g><circle cx={x} cy={y} r="
 
 const SHELF: Book[] = [[32, 22, 96], [56, 28, 120], [86, 20, 86], [109, 25, 130], [136, 30, 107], [168, 23, 138], [193, 28, 101], [223, 20, 122]];
 
-function Shelf() {
+export function Shelf() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <ellipse cx="160" cy="98" rx="150" ry="72" stroke="currentColor" opacity=".25" />
     <Spines books={SHELF} base={162} band={13} />
@@ -37,7 +36,7 @@ function Shelf() {
   </svg>;
 }
 
-function Bookcase() {
+export function Bookcase() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M8 172H312" stroke="currentColor" opacity=".25" />
     <rect x="44" y="12" width="232" height="154" fill="currentColor" fillOpacity=".05" stroke="currentColor" strokeWidth="1.4" />
@@ -54,7 +53,7 @@ function Bookcase() {
   </svg>;
 }
 
-function ScrollAndCodex() {
+export function ScrollAndCodex() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M10 166H310" stroke="currentColor" strokeWidth="1.4" opacity=".55" /><path d="M40 174H280" stroke="currentColor" opacity=".2" />
     <rect x="34" y="40" width="78" height="112" fill="currentColor" fillOpacity=".07" stroke="currentColor" strokeWidth="1.2" />
@@ -75,7 +74,7 @@ function ScrollAndCodex() {
   </svg>;
 }
 
-function CatalogueTray() {
+export function CatalogueTray() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M8 166H312" stroke="currentColor" strokeWidth="1.6" />
     {[[66, 36], [74, 100]].map(([top, tab], index) => <path key={index} d={`M28 96V${top}H${tab}V${top - 7}H${tab + 22}V${top}H132V96`} fill="var(--surface)" stroke="currentColor" strokeOpacity={0.4 + index * 0.2} strokeWidth="1.2" />)}
@@ -92,7 +91,7 @@ function CatalogueTray() {
   </svg>;
 }
 
-function ReadingLamp() {
+export function ReadingLamp() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M196 54L124 152H274L230 54Z" fill="currentColor" fillOpacity=".07" />
     <path d="M196 54L124 152M230 54L274 152" stroke="currentColor" strokeDasharray="2 5" opacity=".35" />
@@ -108,11 +107,3 @@ function ReadingLamp() {
     <circle cx="213" cy="60" r="3.5" fill="currentColor" opacity=".8" />
   </svg>;
 }
-
-export const SOURCES_DOORWAYS: DoorwayVariant[] = [
-  { name: "The shelf, enlarged", Art: Shelf },
-  { name: "Two-shelf bookcase", Art: Bookcase },
-  { name: "Scroll, codex and fragment", Art: ScrollAndCodex },
-  { name: "Catalogue tray and shelf", Art: CatalogueTray },
-  { name: "Books under a reading lamp", Art: ReadingLamp },
-];

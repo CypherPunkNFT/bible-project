@@ -1,16 +1,18 @@
-import {useEffect,useRef,useState,type CSSProperties} from 'react';
-import {createRoot} from 'react-dom/client';
-import {ArrowLeft,Maximize2,Moon,Sun,Pause,Play,X} from 'lucide-react';
-import type {World} from '../worldview-art/art';
-import {Composition,Legend,variants,variantFor,selectedMain,names,themes} from './compositions';
-import {FireAltar} from './glyphs';
-import {IslamObjectGrid} from './islam-objects';
+import { ArrowLeft, Maximize2, Moon, Pause, Play, Sun, X } from 'lucide-react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { createRoot } from 'react-dom/client';
+import type { World } from '../worldview-art/art';
+import { names, themes } from '../worldview-art/art.shared';
 import '../worldview-art/preview.css';
+import { Composition, Legend } from './compositions';
+import { selectedMain, variantFor, variants } from "./compositions.shared";
+import { FireAltar } from './glyphs';
+import { IslamObjectGrid } from './islam-objects';
 import './preview.css';
 
 const worlds:World[]=['hinduism','buddhism','islam'];
 const accent=(world:World)=>world==='islam'?'var(--poetry)':`var(--worldview-${world})`;
-function App(){
+export function App(){
  const [theme,setTheme]=useState<'dark'|'light'>(new URLSearchParams(location.search).get('theme')==='light'?'light':'dark');
  const [paused,setPaused]=useState(false),[numbers,setNumbers]=useState(false);
  const [expanded,setExpanded]=useState<{world:World;version:number}>({world:'hinduism',version:0});

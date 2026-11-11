@@ -3,7 +3,6 @@
 // to show seven lit rooms, each a kind of help; and a wayfinding post with seven arms above a plaque of fifteen cities.
 // Motion rules in life-mockups.css.
 import { useId, type CSSProperties } from "react";
-import type { Mockup } from "./types";
 import "./life-mockups.css";
 
 type Pt = [number, number];
@@ -86,7 +85,7 @@ function Lighthouse({ glow }: { glow: string }) {
     <path className="mf-window" d="M119 178h7v6h-7Z" /><path className="mf-rule" d="M133 190V181h6V190M115 186H146" />
   </>;
 }
-function HarbourScene() {
+export function HarbourScene() {
   const uid = useUid(), clip = `${uid}-c`, head = `${uid}-h`, glow = `${uid}-g`;
   return <svg className="hf-scene mf-harbour" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs><Shade id={`${uid}-s`} /><Glow id={glow} /><clipPath id={clip}><path d={PLATE} /></clipPath><clipPath id={head}><path d={HEAD} /></clipPath>
@@ -164,7 +163,7 @@ function Furniture() {
     {[[334, 292, 0.8, 1], [357, 292, 0.8, 1], [380, 292, 0.8, -1], [345, 300, 1, 1], [369, 300, 1, -1]].map(([x, y, s, dir]) => <path key={x} className="mf-fill" d={chair(x - (dir * 8 * s) / 2, y, s, dir)} />)}
   </g>;
 }
-function InnScene() {
+export function InnScene() {
   const uid = useUid(), glow = `${uid}-g`;
   return <svg className="hf-scene mf-inn" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs><Shade id={`${uid}-s`} /><Glow id={glow} o={0.55} /><Ruling id={`${uid}-r`} gap={2.4} angle={90} /><Ruling id={`${uid}-x`} gap={2.2} angle={45} />
@@ -250,9 +249,3 @@ export function WayfinderScene() {
     <text className="hf-caption" x="300" y="372" textAnchor="middle">A WAY FOR EVERY BURDEN · AND ONE CLOSE TO HOME</text>
   </svg>;
 }
-
-export const MOCKUPS: Mockup[] = [
-  { name: "The Harbour Light", note: "An engraved harbour under Psalm 107:30: a lighthouse on hatched rocks sweeps its beam across seven moored boats, one per kind of help (crisis 988, pregnancy, healing after abortion, families, food, grief, recovery), each lantern lighting as the beam finds it, with fifteen city lights on the far shore; on hover the boats rise and the beam brightens.", Scene: HarbourScene },
-  { name: "The Open Inn", note: "The inn of the Good Samaritan (Luke 10:34) cut open like an old engraving: seven rooms lit in turn (a phone desk for crisis, a rocking chair, a sunrise window for healing, a nursery, a pantry, two chairs for grief, a circle of chairs for recovery), the front door open onto the road; on hover the roof lifts.", Scene: InnScene },
-  { name: "The Wayfinder", note: "A carved signpost under Matthew 11:28: seven arms, each naming a kind of help and a real service, a lantern swinging from its bracket, and a plaque listing the fifteen cities with local maps; light passes from arm to arm, and on hover the arms open outward.", Scene: WayfinderScene },
-];

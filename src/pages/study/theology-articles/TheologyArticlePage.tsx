@@ -53,9 +53,8 @@ export default function TheologyArticlePage() {
     return () => { cancelAnimationFrame(first); cancelAnimationFrame(second); };
   }, [hash, pathname]);
 
-  if (!article) return <NotInSection id={id} />;
-
   const bible = useCurrentBible();
+  if (!article) return <NotInSection id={id} />;
   const scripture = article.sections.flatMap((section) => section.body).filter((block) => block.kind === "scripture").length;
   return <div className="theology-section"><div className="th-container">
     <header className="th-hero">

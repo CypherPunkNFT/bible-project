@@ -1,0 +1,96 @@
+/* Your name in Hebrew, Greek and Aramaic (NameInHebrewPage.tsx and its parts). Hairlines rather than boxes, as the word
+   counter and the baby names pages do; three cards side by side on wide screens, one under another on phones. */
+
+/* Syriac letters: the Syriac file of Noto Sans Syriac (SIL OFL 1.1, fonts/OFL-noto-sans-syriac.txt), only for Syriac
+   code points, so only this page downloads it (16 KB) and only when Syriac is on screen. */
+@font-face {
+  font-family: "Noto Sans Syriac";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./fonts/noto-sans-syriac-syriac-400-normal.woff2") format("woff2");
+  unicode-range: U+0700-074F;
+}
+
+.nh-page { --nh-syriac: "Noto Sans Syriac", "Estrangelo Edessa", "Segoe UI Historic", sans-serif; }
+.nh-page h1 { margin-top: .8rem; font: 450 clamp(2.1rem, 4.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.nh-lede { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: 1.05rem; line-height: 1.75; }
+
+.nh-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem 1rem; align-items: end; margin-top: 2rem; padding: 1.2rem 0; border-block: 1px solid var(--line); }
+.nh-field { display: grid; gap: .35rem; }
+.nh-field > span, .nh-kind, .nh-card h3 { color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.nh-field input { width: 100%; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: 1.1rem; }
+.nh-field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.nh-go, .nh-print { padding: .62rem 1.4rem; border-radius: .4rem; background: var(--accent); color: var(--page); font-weight: 600; }
+.nh-go:hover, .nh-print:hover { filter: brightness(1.08); }
+.nh-print { margin-top: 1.6rem; }
+.nh-print:disabled { opacity: .6; }
+.nh-examples { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .35rem; }
+.nh-chip { padding: .2rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .8rem; line-height: 1.4; transition: border-color .2s, color .2s; }
+.nh-chip:hover { border-color: var(--accent); color: var(--ink); }
+.nh-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.nh-warning { margin-top: 1rem; padding: .6rem .9rem; border-inline-start: 2px solid var(--red-letter, #a33); font-size: .92rem; }
+
+.nh-result { margin-top: 1.8rem; }
+.nh-name { font: 500 clamp(1.8rem, 3.8vw, 2.6rem)/1.15 var(--font-serif); letter-spacing: -.02em; overflow-wrap: anywhere; }
+
+.nh-meanings { display: grid; gap: 1.2rem; margin-top: 1rem; }
+.nh-found h3 { font: 500 1.2rem/1.3 var(--font-serif); }
+.nh-meaning { display: grid; gap: .3rem; max-width: 46rem; font-size: .98rem; line-height: 1.6; }
+.nh-headline { font: 500 1.3rem/1.35 var(--font-serif); }
+.nh-badge { display: inline-block; margin-inline-start: .5rem; padding: .05rem .45rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 600 .68rem/1.5 var(--font-sans); letter-spacing: .04em; vertical-align: middle; }
+.nh-badge-given { border-color: var(--accent); color: var(--accent); }
+.nh-muted { color: var(--muted); font-size: .9rem; }
+.nh-headline .nh-muted { margin-inline-start: .5rem; font-family: var(--font-sans); }
+.nh-alias { color: var(--muted); font-size: .9rem; }
+.nh-caution { padding: .5rem .8rem; border-inline-start: 2px solid var(--line); color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: .92rem; }
+.nh-more { width: fit-content; color: var(--accent); font-weight: 600; }
+.nh-more:hover { text-decoration: underline; }
+.nh-none { max-width: 46rem; font-size: .98rem; line-height: 1.6; }
+
+.nh-approximate { max-width: 46rem; margin-top: 1.4rem; padding: .7rem .9rem; border-inline-start: 2px solid var(--accent); color: color-mix(in srgb, var(--ink) 88%, transparent); font-size: .9rem; line-height: 1.6; }
+
+.nh-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; margin-top: 1.6rem; }
+.nh-card { padding-top: .8rem; border-top: 1px solid var(--line); }
+.nh-card ul { display: grid; gap: 1.3rem; margin-top: .6rem; }
+.nh-spelling { display: grid; gap: .35rem; }
+.nh-sound .nh-kind { color: color-mix(in srgb, var(--muted) 85%, transparent); }
+.nh-word-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; }
+.nh-word { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.5; overflow-wrap: anywhere; }
+.nh-word-hebrew { font-family: var(--font-hebrew); }
+.nh-word-greek { font-family: var(--font-serif); }
+.nh-word-aramaic { font-family: var(--nh-syriac); }
+.nh-square bdi { font-family: var(--font-hebrew); font-size: 1.35rem; }
+.nh-square span { color: var(--muted); font-size: .8rem; }
+.nh-copy { padding: .1rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .75rem; }
+.nh-copy:hover { border-color: var(--accent); color: var(--ink); }
+.nh-letters { display: flex; flex-wrap: wrap; gap: .15rem .8rem; color: var(--muted); font-size: .78rem; }
+.nh-letter { color: var(--ink); font-size: 1.05rem; }
+.nh-card-hebrew .nh-letter, .nh-square bdi { font-family: var(--font-hebrew); }
+.nh-card-aramaic .nh-letter { font-family: var(--nh-syriac); }
+.nh-source { display: flex; flex-wrap: wrap; gap: .2rem .9rem; color: var(--muted); font-size: .76rem; }
+.nh-ref { color: var(--accent); font-weight: 600; }
+.nh-ref:hover { text-decoration: underline; }
+.nh-empty { margin-top: .6rem; color: var(--muted); font-size: .88rem; }
+
+.nh-notes { max-width: 46rem; margin-top: 3.4rem; color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.nh-notes h2 { color: var(--ink); font: 500 1.1rem/1.3 var(--font-serif); }
+.nh-notes ul { margin-top: .5rem; padding-inline-start: 1.1rem; list-style: disc; }
+.nh-notes li + li { margin-top: .25rem; }
+.nh-credit { margin-top: .9rem; font-size: .78rem; }
+
+@media (max-width: 767px) {
+  .nh-cards { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
+  .nh-form { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* The printed card (PrintCard.tsx): one page, centred, black on white. */
+.nh-sheet { width: 6.5in; margin: 0 auto; padding: .6in .5in; border: 1px solid #999; color: #111; font-family: var(--font-serif); text-align: center; }
+.nh-sheet-name { font-size: 34pt; line-height: 1.2; }
+.nh-sheet-meaning { margin-top: 6pt; font-size: 14pt; font-style: italic; }
+.nh-sheet dl { display: grid; gap: 14pt; margin-top: 24pt; }
+.nh-sheet dt { font: 600 9pt/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: #555; }
+.nh-sheet dd { margin-top: 4pt; font-size: 30pt; line-height: 1.4; }
+.nh-sheet dd[lang="he"] { font-family: var(--font-hebrew); }
+.nh-sheet-syriac { font-family: "Noto Sans Syriac", "Estrangelo Edessa", sans-serif; }
+.nh-sheet-note { margin-top: 26pt; color: #555; font: 9pt/1.4 var(--font-sans); }

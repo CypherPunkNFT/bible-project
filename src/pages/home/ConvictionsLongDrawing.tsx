@@ -1,21 +1,12 @@
+import { ITEMS, position, useSideways } from "./ConvictionsLongDrawing.shared";
 // The homepage's four convictions on phones: one long drawing behind all four, far shorter than the stacked list, which still shows on
 // wider screens. Native sideways scrolling, so it swipes and snaps like the phone expects. Owner's pick from /home_mockup11, 2026-11-01.
 // Styles: convictions-long-drawing.css (.cvm-*). The mock-up's other versions reuse the pieces exported here.
-import { useCallback, useEffect, useRef, useState, type ComponentType, type CSSProperties } from "react";
 import { Verse } from "@/components/Verse";
-import { ART, CONVICTIONS } from "@/pages/contact/AboutSections";
+import { type ComponentType } from "react";
 import "./convictions-long-drawing.css";
-
-/** For the glory of God, said a little more fully than on the contact page, so it is not the shortest of the four. */
-export const GLORY_TEXT = "Every page is offered back to the One it is about: the Almighty, the Alpha and Omega, the beginning and the ending, worthy of all praise.";
-
-export const ITEMS = CONVICTIONS.map((item, index) => ({ ...item, text: index === 0 ? GLORY_TEXT : item.text, drawing: ART[item.art === "books" ? "shelf" : item.art] }));
-export const COUNT = ITEMS.length;
 export type Item = (typeof ITEMS)[number];
 export interface RailProps { active: number; goTo: (index: number) => void }
-
-const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-export const position = (index: number) => ({ "--i": index }) as CSSProperties;
 
 export function Words({ item, title = true }: { item: Item; title?: boolean }) {
   return <>
@@ -23,35 +14,6 @@ export function Words({ item, title = true }: { item: Item; title?: boolean }) {
     <p className="cvm-text">{item.text}</p>
     <blockquote className="cvm-verse">“<Verse id={item.verse} unquoted />”<cite>{item.reference}</cite></blockquote>
   </>;
-}
-
-/** A native sideways scroller: reports the nearest item, and how far along it is as --p (0 to 3) for whatever moves with the finger. */
-export function useSideways() {
-  const track = useRef<HTMLOListElement>(null);
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const element = track.current;
-    if (!element) return;
-    let frame = 0;
-    const measure = () => {
-      frame = 0;
-      const room = element.scrollWidth - element.clientWidth;
-      const along = room > 0 ? (element.scrollLeft / room) * (COUNT - 1) : 0;
-      element.parentElement?.style.setProperty("--p", along.toFixed(3));
-      setActive(Math.round(along));
-    };
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure); };
-    element.addEventListener("scroll", onScroll, { passive: true });
-    measure();
-    return () => { element.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
-  }, []);
-  const goTo = useCallback((index: number) => {
-    const element = track.current;
-    const items = element?.querySelectorAll<HTMLElement>(":scope > li:not(.cvm-backdrop)");
-    if (!element || !items) return;
-    element.scrollTo({ left: items[index].offsetLeft - items[0].offsetLeft, behavior: reducedMotion() ? "auto" : "smooth" });
-  }, []);
-  return { track, active, goTo };
 }
 
 /** Dots over a sideways scroller: tapping one goes there; the long gold one follows the finger. */

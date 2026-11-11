@@ -1,7 +1,6 @@
 // MOCK-UP: the Atlas row of the doorway design sheet (/doorways_mockup). Owner, 2026-10-31: "I like Atlas, it can also
 // be enlarged, vertically as well." So the first drawing is today's coastline map stretched to fill the taller frame;
 // the other four keep the map, coast, marked places and grid but frame them differently.
-import type { DoorwayVariant } from "./doorway-types";
 
 const NS = { vectorEffect: "non-scaling-stroke" } as const;
 const Place = ({ x, y, big }: { x: number; y: number; big?: boolean }) => <g stroke="currentColor" strokeWidth="1.5"><circle cx={x} cy={y} r={big ? 14 : 8} opacity=".25" /><circle cx={x} cy={y} r={big ? 5 : 3} fill="currentColor" /></g>;
@@ -19,7 +18,7 @@ const Rose = ({ x, y, r }: { x: number; y: number; r: number }) => {
   </g>;
 };
 
-function CurrentEnlarged() {
+export function CurrentEnlarged() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <g stroke="currentColor" opacity=".1"><path d="M6 32H314M6 92H314M6 152H314M54 4V178M118 4V178M182 4V178M246 4V178" /><ellipse cx="160" cy="92" rx="152" ry="82" /><ellipse cx="160" cy="92" rx="120" ry="60" /></g>
     <path transform="matrix(.813 0 0 1.073 -29.9 -9.3)" {...NS} d="M58 22L152 18 184 34 198 28 232 41 260 32 292 45 316 41 343 62 374 59 411 81 413 139 381 169 306 163 278 151 238 148 196 156 158 149 132 159 76 139 54 112 79 95 106 100 129 91 141 104 161 109 183 105 198 121 237 126 275 118 304 129 337 115 343 92 319 80 295 83 277 70 252 75 230 63 205 74 183 65 171 71 145 56 104 62 82 49Z" fill="currentColor" fillOpacity=".1" stroke="currentColor" strokeOpacity=".5" />
@@ -29,7 +28,7 @@ function CurrentEnlarged() {
   </svg>;
 }
 
-function HolyLand() {
+export function HolyLand() {
   const coast = "M176 0C172 18 166 34 158 46Q148 54 154 62C150 80 144 100 138 120S128 158 122 180";
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <defs><clipPath id="atlas-holy-frame"><rect width="320" height="180" /></clipPath></defs>
@@ -49,7 +48,7 @@ function HolyLand() {
 }
 
 const FOLD_COAST = "M24 98C56 86 78 58 110 64S150 104 184 94 236 50 264 58 290 86 296 80";
-function FoldedMap() {
+export function FoldedMap() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M30 172L98 162 166 172 234 162 302 172" stroke="currentColor" opacity=".15" />
     {[0, 1, 2, 3].map((i) => {
@@ -71,7 +70,7 @@ function FoldedMap() {
   </svg>;
 }
 
-function GlobeRoutes() {
+export function GlobeRoutes() {
   const meridians = [-24, -16, -8, 0, 8, 16, 24].map((deg) => `M160 430L${(160 + 400 * Math.sin((deg * Math.PI) / 180)).toFixed(1)} ${(430 - 400 * Math.cos((deg * Math.PI) / 180)).toFixed(1)}`).join("");
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <defs><clipPath id="atlas-globe"><circle cx="160" cy="430" r="390" /></clipPath><clipPath id="atlas-globe-frame"><rect width="320" height="180" /></clipPath></defs>
@@ -92,7 +91,7 @@ function GlobeRoutes() {
   </svg>;
 }
 
-function AtlasPlate() {
+export function AtlasPlate() {
   const north = "M14 58C40 50 62 64 84 60S112 78 122 96Q130 92 126 76C134 62 156 56 180 62S226 44 252 52 290 40 306 44V12H14Z";
   const south = "M14 140C46 132 80 144 112 138S170 126 204 134 260 120 306 126V168H14Z";
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -114,11 +113,3 @@ function AtlasPlate() {
       {Array.from({ length: 12 }, (_, i) => i % 2 ? null : <g key={i}><rect x="8" y={6 + i * 14} width="6" height="14" /><rect x="306" y={6 + i * 14} width="6" height="14" /></g>)}</g>
   </svg>;
 }
-
-export const ATLAS_DOORWAYS: DoorwayVariant[] = [
-  { name: "Current, enlarged", Art: CurrentEnlarged },
-  { name: "Holy Land with compass rose", Art: HolyLand },
-  { name: "Folded paper map", Art: FoldedMap },
-  { name: "Globe with routes", Art: GlobeRoutes },
-  { name: "Old atlas plate", Art: AtlasPlate },
-];

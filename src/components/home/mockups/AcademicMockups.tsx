@@ -2,7 +2,6 @@
 // to codex to printed page; four framed witnesses threaded to Pilate's question; a tell cut open, its finds kept apart
 // from the dates read from them; and a lens on the one stroke that parts two readings. Motion in academic-mockups.css.
 import { useId, type CSSProperties } from "react";
-import type { Mockup } from "./types";
 import "./academic-mockups.css";
 
 const delay = (seconds: number) => ({ animationDelay: `${seconds}s` }) as CSSProperties;
@@ -152,7 +151,7 @@ function Printed({ shade }: { shade: string }) {
   </>;
 }
 
-function WitnessesScene() {
+export function WitnessesScene() {
   const uid = useUid(), shade = `ma-shade-${uid}`;
   const art = [<Papyrus key="p" clip={`ma-p52-${uid}`} />, <PilateStone key="s" shade={shade} />, <Sinaiticus key="c" shade={shade} />, <Printed key="k" shade={shade} />];
   return <svg className="hf-scene ma-witness-scene" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -192,7 +191,7 @@ function Find({ i }: { i: number }) {
     <path className="ma-ink" d={Array.from({ length: 15 }, (_, k) => `M${-11 + (k % 5) * 5.5} ${-7 + Math.floor(k / 5) * 7}l2.5 1.5l-2.5 1.5m0 -3v3`).join("")} /></>;
 }
 
-function TellScene() {
+export function TellScene() {
   const uid = useUid();
   const tufts = [0.1, 0.3, 0.42, 0.62, 0.78, 0.9].map((t) => { const x = cubic(150, 260, 390, 500, t), y = cubic(158, 104, 104, 150, t); return `M${x - 3} ${y - 4}L${x} ${y}L${x + 3} ${y - 5}`; }).join("");
   return <svg className="hf-scene ma-tell-scene" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -237,7 +236,7 @@ function Reading({ y, word, who, source, bar }: { y: number; word: string; who: 
   </>;
 }
 
-function ReadingsScene() {
+export function ReadingsScene() {
   const uid = useUid(), shade = `ma-shade-${uid}`, lens = `ma-lens-${uid}`;
   return <svg className="hf-scene ma-readings-scene" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs><Shade id={shade} /><clipPath id={lens}><circle cx="262" cy="214" r="54" /></clipPath></defs>
@@ -263,10 +262,3 @@ function ReadingsScene() {
     <text className="hf-caption" x="300" y="406" textAnchor="middle">ONE STROKE APART · WEIGH THE READINGS</text>
   </svg>;
 }
-
-export const MOCKUPS: Mockup[] = [
-  { name: "The Long Copy", note: "Isaiah 40:8 carried in one ruled line from the Great Isaiah Scroll through Codex Sinaiticus and the Leningrad Codex to the 1611 King James Bible, a light travelling along it; on hover the four copies lift off the timeline.", Scene: LongCopyScene },
-  { name: "Four Witnesses", note: "A two-by-two cabinet of framed witnesses (Papyrus 52, the Pilate Stone, Codex Sinaiticus, the 1611 King James Bible) threaded to a seal carrying Pilate's question from John 18:38; on hover the panels part and the seal grows.", Scene: WitnessesScene },
-  { name: "The Tell", note: "A mound cut open into four dated layers, each find on the right kept apart from the date concluded from it on the left; on hover the layers separate.", Scene: TellScene },
-  { name: "One Stroke", note: "A lens over a Greek folio at 1 Timothy 3:16, where one small bar turns “who” into “God”, with both readings on cards; on hover the lens lifts and the cards draw apart.", Scene: ReadingsScene },
-];

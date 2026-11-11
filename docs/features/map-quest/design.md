@@ -433,3 +433,18 @@ Tests to include — all as Vitest tests beside the code, so `npm test` runs the
 - The localStorage pattern in record.ts.
 - The Testimonies copy fallback.
 - The $0 cost: no new service, package, API or runtime model.
+
+---
+
+## 13. Implementation notes (sequence 31, step 3, 2026-11-07)
+
+Built as designed; the game is live at `/games/map-quest`. Where the build differs from the text above, and why:
+
+1. **Real numbers.** The filters give **387 playable places** (285 Holy Land, 102 wider world), tiers 62 / 93 / 232, eras Abraham 29, Exodus & conquest 225, Kings 160, Life of Jesus 26, Paul 59; 71 places have more than one credible site; 13 places in the Disputed sites mode. The design's "about 420" was an estimate; the build still refuses a pool under 300.
+2. **Name grouping runs before the wide-dispute filter** (§3, filters 3 and 4 swapped). Otherwise, when the famous place of a name is widely disputed and removed, a minor place of the same name would be asked in its stead, and a player who knows the famous one would be marked wrong. Now a widely disputed name leaves normal play whole.
+3. **A place's point** is OpenBible's first site when it is credible, otherwise its best-voted site (the design said first site only; a first site with negative votes would have been scored as if it were true).
+4. **The daily schedule is written by `scripts/build-map-quest-daily.ts`**, which the Python script calls, rather than by Python itself. It runs the game's own picker (`src/pages/games/map-quest/daily-rules.ts`), so the schedule file and the game's fallback past its end are one implementation, and a test checks the file is exactly what those rules give. All three outputs are swapped in together, only after both steps succeed. `daily.json` records `frozenThrough`; the rule tests check the days after it.
+5. **The 30 / 90-day windows held** without the 21-day fallback the design allowed: tier 2 has 93 places, and the picker searches each day with backtracking, preferring places unused for longest.
+6. **Epoch** is 2026-11-07, the build date, so the game has a puzzle today. The README says how to restart the numbering on the real launch day before the first release.
+7. **Disputed sites** use only OpenBible's own candidates (picked by index in `curation.json`); Jabal al Lawz and Tall el Hammam are already in OpenBible, so no hand-added coordinates were needed. The notes sit inline in each `disputed` entry rather than in a separate `disputedNotes` field. **They were drafted by this build job and await the owner's review.**
+8. **Tab title** follows the quiz page ("Map quest · Games · Bible Guide"). Place names, era names and notes are not yet translated (the collector does not read `src/data/`); recorded as a known gap in the games README.

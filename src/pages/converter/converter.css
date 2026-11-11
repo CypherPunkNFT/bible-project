@@ -1,0 +1,80 @@
+/* The biblical converter (ConverterPage.tsx). It wears the tools hub's look (games.css: hero, numbered shelves) and adds
+   only its own parts, all under cv- classes: the kind buttons, the fields, the answer line, tables between hairlines
+   (never boxes), and the example rows. Its colour is the history tone, like its drawing on the hub. */
+.cv-page { --cv: var(--history); }
+.cv-page .st-kick a { color: inherit; }
+.cv-shelf .gm-shelf-head { border-bottom: 1px solid var(--line); }
+
+.cv-kinds { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
+.cv-kinds button { min-height: 2.4rem; padding: .4rem .95rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .85rem; cursor: pointer; transition: border-color .2s, background-color .2s; }
+.cv-kinds button:is(:hover, :focus-visible) { border-color: var(--cv); }
+.cv-kinds button:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.cv-kinds button[aria-pressed="true"] { border-color: var(--cv); background: color-mix(in srgb, var(--cv) 14%, transparent); font-weight: 600; }
+
+.cv-fields { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.4rem; }
+.cv-field { display: flex; flex-direction: column; gap: .35rem; min-width: 12rem; max-width: 26rem; }
+.cv-field label { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.cv-field :is(input, select) { min-height: 2.6rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1rem; }
+.cv-field :is(input, select):focus-visible { border-color: var(--cv); outline: 2px solid color-mix(in srgb, var(--cv) 35%, transparent); outline-offset: 1px; }
+.cv-field input[aria-invalid="true"] { border-color: var(--red-letter); }
+.cv-hint { color: var(--muted); font-size: .8rem; line-height: 1.5; }
+
+.cv-result { margin-top: 1.8rem; }
+.cv-answer { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; font: 450 clamp(1.5rem, 3.4vw, 2.3rem)/1.2 var(--font-serif); letter-spacing: -.02em; }
+.cv-equals { color: var(--cv); }
+.cv-to { color: var(--cv); font-style: italic; }
+.cv-to-2::before { content: "·"; margin-right: .9rem; color: var(--muted); font-style: normal; }
+.cv-about { max-width: 46rem; margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--cv); font-size: .92rem; line-height: 1.65; }
+.cv-about > * + * { margin-top: .35rem; }
+.cv-sure { display: inline-block; color: var(--muted); font: 650 .6rem/1.4 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.cv-sure-estimate, .cv-flag { color: var(--red-letter); }
+.cv-flag { margin-left: .6rem; font: 650 .6rem/1.4 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.cv-caution { margin-top: .3rem; color: color-mix(in srgb, var(--ink) 78%, transparent); font-size: .85rem; line-height: 1.55; }
+.cv-note { margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+.cv-note q { font-style: italic; }
+.cv-quiet { margin-top: .5rem; color: var(--muted); font-size: .85rem; line-height: 1.6; }
+.cv-failed { margin-top: .8rem; color: var(--red-letter); }
+.cv-failed button { margin-left: .4rem; text-decoration: underline; }
+.cv-page a:not(.gm-jump a) { color: var(--cv); text-underline-offset: 3px; }
+.cv-page :is(.cv-table, .cv-examples, .cv-loose, .cv-note) a:hover { text-decoration: underline; }
+
+/* Tables: hairlines between rows; a phone pans them sideways inside their labelled region. */
+.cv-scroll { margin-top: 1.2rem; overflow-x: auto; }
+.cv-scroll:focus-visible { outline: 2px solid color-mix(in srgb, var(--cv) 35%, transparent); }
+.cv-table { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: .88rem; }
+.cv-table caption { padding-bottom: .5rem; color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-align: start; text-transform: uppercase; }
+.cv-table :is(th, td) { padding: .6rem .8rem .6rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); text-align: start; vertical-align: top; }
+.cv-table thead th { color: var(--muted); font: 600 .62rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.cv-table tbody th { font-weight: 600; }
+.cv-units { min-width: 52rem; }
+.cv-units td:nth-child(3) { max-width: 22rem; }
+.cv-units td:nth-child(4) { max-width: 24rem; }
+.cv-size { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cv-also { display: block; margin-top: .2rem; color: var(--muted); font-size: .75rem; font-weight: 400; }
+.cv-kind { margin-top: 2.2rem; }
+.cv-kind h3 { font: 500 1.25rem/1.3 var(--font-serif); }
+
+/* Examples: one row each between hairlines; the open one shows its sizes and verse. */
+.cv-examples { margin-top: .4rem; }
+.cv-examples > li { border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); scroll-margin-top: 5.5rem; }
+.cv-examples h3 button { display: flex; width: 100%; justify-content: space-between; gap: 1rem; padding: .85rem 0; background: none; color: var(--ink); font: 500 1.05rem/1.35 var(--font-serif); text-align: start; cursor: pointer; }
+.cv-examples h3 button::after { content: "+"; color: var(--cv); font-family: var(--font-sans); }
+.cv-examples h3 button[aria-expanded="true"]::after { content: "−"; }
+.cv-examples h3 button:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.cv-example { padding: 0 0 1.2rem; }
+.cv-parts > div { display: grid; grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); gap: .2rem 1rem; padding: .3rem 0; }
+.cv-parts dt { color: var(--muted); font-size: .85rem; }
+.cv-parts dd { font-size: .95rem; }
+.cv-quote { max-width: 46rem; margin-top: .9rem; padding-left: 1rem; border-left: 2px solid var(--cv); font: 400 1.02rem/1.7 var(--font-serif); }
+
+.cv-loose > div { display: grid; grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); gap: .2rem 1rem; padding: .5rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.cv-loose dt { font-weight: 600; }
+.cv-loose dd { color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .9rem; }
+
+.cv-sources { max-width: 50rem; margin-top: 1rem; font-size: .93rem; line-height: 1.75; }
+.cv-sources > p + p { margin-top: .9rem; }
+
+@media (max-width: 639px) {
+  .cv-field { min-width: 100%; }
+  .cv-parts > div, .cv-loose > div { grid-template-columns: 1fr; }
+}

@@ -4,15 +4,16 @@
 // Beneath, two doors: a full test (the questions page, where the test now lives) and the learning materials (owner, 2026-10-23). The owner's choice from /quiz_mockup
 // (2026-10-22): version 4's board, then version 2's card. Parts: QuizVersions.tsx, QuizParts.tsx; styles:
 // quiz-versions.css, with the drawings' strokes and motion in home-quiz.css.
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { ArrowRight, ArrowUpRight, GraduationCap, PenLine } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useMediaQuery } from "@/lib/useMediaQuery";
+import "../home-quiz.css";
 import { Tally } from "./QuizParts";
-import { QuizBar, QuizSlider, useQuizPages } from "./QuizSlider";
+import { QuizBar, QuizSlider } from "./QuizSlider";
+import { useQuizPages } from "./QuizSlider.shared";
 import { CardDeck, Tiles } from "./QuizVersions";
 import { useQuiz } from "./quiz-state";
-import "../home-quiz.css";
 import "./quiz-versions.css";
 
 export function HomeQuiz({ number }: { number?: string }) {

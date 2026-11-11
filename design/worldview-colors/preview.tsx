@@ -1,12 +1,12 @@
-import {useEffect,useRef,useState,type CSSProperties} from 'react';
-import {createRoot} from 'react-dom/client';
-import {MemoryRouter,useLocation,useNavigate} from 'react-router-dom';
-import {Moon,Sun} from 'lucide-react';
-import {WorldviewNavigation} from '@/components/apologetics/WorldviewNavigation';
-import {WorldviewHeroArt} from '@/components/apologetics/WorldviewHeroArt';
-import {IslamHeroArt} from 'existing-islam-art';
-import {colorsFor,palettes,worldIds,worldNames} from './palettes';
 import '@/components/apologetics/navigation.css';
+import { WorldviewHeroArt } from '@/components/apologetics/WorldviewHeroArt';
+import { WorldviewNavigation } from '@/components/apologetics/WorldviewNavigation';
+import { IslamHeroArt } from 'existing-islam-art';
+import { Moon, Sun } from 'lucide-react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { createRoot } from 'react-dom/client';
+import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
+import { colorsFor, palettes, worldIds, worldNames } from './palettes';
 import './preview.css';
 
 const root='/apologetics/worldviews';
@@ -33,7 +33,7 @@ function PaletteCard({index,theme,selected,onSelect}:{index:number;theme:'light'
   <div className="pc-hexes">{worldIds.map(id=><span key={id} style={{color:colors[id]}}><i style={{background:colors[id]}}/>{worldNames[id]} <code>{colors[id]}</code></span>)}</div>
  </article>;
 }
-function App(){
+export function App(){
  const params=new URLSearchParams(location.search);
  const [selected,setSelected]=useState(()=>Math.max(0,Math.min(9,(Number(params.get('p'))||1)-1)));
  const [theme,setTheme]=useState<'dark'|'light'>(params.get('theme')==='light'?'light':'dark');

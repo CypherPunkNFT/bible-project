@@ -4,13 +4,13 @@
 // The drawings live one row to a file beside this one.
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import { APOLOGETICS_DOORWAYS } from "./DoorwayApologetics";
-import { ATLAS_DOORWAYS } from "./DoorwayAtlas";
-import { ATLAS_MORE_DOORWAYS } from "./DoorwayAtlasMore";
-import { BIBLE_DOORWAYS } from "./DoorwayBible";
-import { RESOURCES_DOORWAYS } from "./DoorwayResources";
-import { SOURCES_DOORWAYS } from "./DoorwaySources";
-import { STUDY_DOORWAYS } from "./DoorwayStudy";
+import { APOLOGETICS_DOORWAYS } from "./DoorwayApologetics.shared";
+import { ATLAS_DOORWAYS } from "./DoorwayAtlas.shared";
+import { ATLAS_MORE_DOORWAYS } from "./DoorwayAtlasMore.shared";
+import { BIBLE_DOORWAYS } from "./DoorwayBible.shared";
+import { RESOURCES_DOORWAYS } from "./DoorwayResources.shared";
+import { SOURCES_DOORWAYS } from "./DoorwaySources.shared";
+import { STUDY_DOORWAYS } from "./DoorwayStudy.shared";
 import type { DoorwayVariant } from "./doorway-types";
 import "./doorways-mockup.css";
 

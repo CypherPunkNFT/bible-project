@@ -1,0 +1,15 @@
+/* The station's printables (ResourcesPage.tsx): under the three doorways, a mono label and a hairline row for each sheet,
+   words between hairlines as on the section pages, no card. Not .st-door: the doorways' styles and page slide stay theirs. */
+.rs-printables { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: .6rem 2rem; align-items: baseline; margin-top: 2.4rem; }
+.rs-printables-kick { color: var(--muted); font: 600 .6rem/1.2 "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .18em; text-transform: uppercase; }
+.rs-printable { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto; gap: .3rem 2rem; align-items: baseline; padding-block: 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: inherit; }
+.rs-printable-title { font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: -.01em; transition: color .2s; }
+.rs-printable-text { color: var(--muted); font-size: .86rem; line-height: 1.65; }
+.rs-printable-go { display: inline-flex; align-items: center; gap: .35rem; color: var(--epistles); font-size: .8rem; font-weight: 500; }
+.rs-printable:hover .rs-printable-title { color: var(--epistles); }
+.rs-printable:hover .rs-printable-go svg { transform: translateX(2px); }
+.rs-printable-go svg { transition: transform .2s; }
+
+@media (max-width: 767px) {
+  .rs-printables, .rs-printable { grid-template-columns: minmax(0, 1fr); }
+}

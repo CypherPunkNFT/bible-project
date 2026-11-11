@@ -7,6 +7,36 @@ bibleguide.io"; the lettering is the site's own Literata and Archivo (already li
 star, olive sprig, low sun and rule are line drawings made for this feature in `src/lib/verse-card/ornaments.ts`, not
 downloaded pictures. Pictures are drawn on the visitor's own device; nothing is uploaded.
 
+## Your name in Hebrew, Greek and Aramaic — registered 9 November 2026 (local preview only; nothing published)
+
+The name tool at `/name-in-hebrew` (design: [docs/features/name-in-hebrew/design.md](docs/features/name-in-hebrew/design.md)).
+Spelling by sound is rule-based code with no source. Bible spellings and meanings come from the site's own Biblical baby
+names files (registered below); [scripts/name-in-hebrew/build_name_forms.py](scripts/name-in-hebrew/build_name_forms.py)
+adds two small files from the Strong's dictionaries already in this register. One font file is new.
+
+| What | How it was used | Licence / terms | Credit on the page |
+|---|---|---|---|
+| Strong's Hebrew dictionary, Open Scriptures `HebrewStrong.xml` (already listed) | `hebrew-behind.json`: the Hebrew name behind 25 New Testament names (John: יוֹחָנָן), only entries Strong's tags as proper names, with the first word of Strong's usage as the English name (6 changed to the Berean's spelling, e.g. Nethanel); `bible-words.json`: the Hebrew of 11 Bible words people use as names (Grace חֵן) and of God's name, shown unpointed as יהוה | Text public domain; this edition **CC BY 4.0**, credit Open Scriptures | "Hebrew and Greek spellings: Strong's Concordance (Open Scriptures edition)" |
+| Strong's Greek dictionary, Ulrik Petersen's `strongsgreek.xml` (already listed) | `bible-words.json`: the Greek of those words (χάρις) | Public domain | as above |
+| **Noto Sans Syriac** 400, Syriac subset only, from npm `@fontsource/noto-sans-syriac` 5.3.0 (published 2026-07-19), file `noto-sans-syriac-syriac-400-normal.woff2`, 16,932 bytes, SHA-256 `b3cd4308cd4ea3677d722f1dddff516dace4edaa34c9a158529f76914168ba23` | Copied into `src/pages/name-in-hebrew/fonts/` with its licence (`OFL-noto-sans-syriac.txt`); loaded only by the name page and only for Syriac letters (U+0700–074F). No npm dependency was added | Font: **SIL Open Font License 1.1**, © 2022 The Noto Project Authors (may be bundled and served) | "Syriac letters: Noto Sans Syriac (SIL Open Font License)" |
+
+The four Aramaic names Scripture itself gives (Yeshua, Cephas, Thomas, Tabitha) are written by hand in
+`src/pages/name-in-hebrew/aramaic-names.json`, each with the Berean verse that names it; no Peshitta text was used or
+claimed. Verse references are to the Berean Standard Bible (already listed, public domain).
+
+## Biblical converter — registered 9 November 2026 (local preview only; nothing published)
+
+The converter at `/converter` (design: [docs/features/biblical-converter/design.md](docs/features/biblical-converter/design.md)).
+It uses no new source and downloads nothing. Every unit's modern size comes from the Berean Standard Bible's own
+footnotes, kept word for word in [src/pages/converter/units.ts](src/pages/converter/units.ts) with their verses and
+checked against the project's USFM copy by `units.test.ts`; the examples' verses are read from the Berean files the
+site already serves.
+
+| What | How it was used | Licence / terms | Credit on the page |
+|---|---|---|---|
+| Berean Standard Bible USFM footnotes (already listed, [engbsb](../sources/ebible/engbsb/)) | 37 footnotes quoted word for word as each unit's source (for example Judges 3:16, "A cubit is approximately 18 inches or 45.7 centimeters."); the ratios Scripture states (Exodus 30:13, 16:36, 38:25–26; Ezekiel 40:5, 45:11–14) | **Public domain** (dedicated 2023) | "Scripture quotations are from the Berean Standard Bible (public domain)." |
+| Berean Standard Bible plain text (already listed, `data/plain/bsb/`) | The 21 examples' verses, quoted when a reader opens one | Public domain | as above |
+
 ## Biblical baby names — registered 7 November 2026 (local preview only; nothing published)
 
 The name pages at `/baby-names` (design: [docs/features/baby-names/design.md](docs/features/baby-names/design.md)).
@@ -23,6 +53,28 @@ made. Verse wording is never copied into these files: the pages quote it from th
 | Hitchcock's *Bible Names Dictionary* (already listed, `hitchcock-xml`) | Only a closed "Older dictionary meaning" line where it differs; never a headline | Text public domain | Named on a page only when that line is shown |
 | Easton's *Illustrated Bible Dictionary* (1897), CCEL plain text (already listed, `easton-txt`) | Quoted, word for word, only in the citation of a hand-checked meaning where Strong's alone is silent or ambiguous (Esther "star", Elijah, Elisha, Matthew, Michal), and in the explanation of three names left uncertain (Mary, Miriam, Jesse); never read by the build and never a headline on its own | Text public domain | "Also cited: Easton's Illustrated Bible Dictionary (1897), public domain." on pages that cite it |
 | US Social Security Administration national baby-name file, `names.zip` | **Optional and not on this PC.** ssa.gov refused the scripted download (HTTP 403), so it is not in `scripts/fetch-sources.py`. When saved by hand to `../sources/ssa/names.zip`, the build adds "Popular today" ranks; without it that sort is hidden. Record its data year and checksum here when it is added | US government work, public domain | "US popularity: Social Security Administration, <year>" |
+
+## Bible Wordle — registered 7 November 2026 (local preview only; nothing published)
+
+The daily word game at `/games/wordle` (design: [docs/features/bible-wordle/design.md](docs/features/bible-wordle/design.md)).
+Its answers, verses and schedule are the site's own hand-made selection, checked against the Berean Standard Bible already
+listed here; the allowed guesses add one outside word list. [scripts/build-wordle.ts](scripts/build-wordle.ts) builds
+`src/data/wordle/answers.json`, `daily.json` and `guesses.json`; only those three ship.
+
+| What | How it was used | Licence / terms | Checksum |
+|---|---|---|---|
+| **ENABLE** word list ("Enhanced North American Benchmark Lexicon"), `enable1.txt`, downloaded 2026-11-07 from https://raw.githubusercontent.com/dolph/dictionary/master/enable1.txt into the project's raw sources folder, `../sources/enable/enable1.txt` from the site (172,823 words) | Its 8,636 five-letter words are most of the game's allowed guesses (9,450 in all, with the five-letter words of the BSB, WEB, KJV and ASV and every answer, minus a short block list). The build script checks the checksum and stops if the file differs. | **Public domain**; credit "ENABLE word list (public domain)" | sha256 `3f16130220645692ed49c7134e24a18504c2ca55b3c012f7290e3e77c63b1a89` |
+| Berean Standard Bible, World English Bible, King James Version, American Standard Version (already listed below) | Every answer's verse is a BSB verse containing the word; the four Bibles' five-letter words join the allowed guesses | Public domain | — |
+
+## Bible crossword — registered 9 November 2026 (local preview only; nothing published)
+
+The crossword game at `/games/crossword` (design: [docs/features/bible-crossword/design.md](docs/features/bible-crossword/design.md)).
+It adds **no new source**: [scripts/build-crossword.ts](scripts/build-crossword.ts) builds `src/data/crossword/clues.json`
+(the only file that ships) once, with no model and no network, from data already listed here: the people records
+(`data/study/people.json` and each person's file), the curated places of Map quest (`src/data/map-quest/places.json`, with
+`data/places.json` for their books), Bible Wordle's 455 words, and the question bank (`data/questions/bank.json`, trivia and
+lesson questions only). Place and word clues quote the Berean Standard Bible (public domain) with the answer blanked. The
+grid is laid out in the browser by the shared puzzle generator in `src/lib/puzzles/`, also used by the puzzle maker.
 
 ## Emoji stories — registered 9 November 2026 (local preview only; nothing published)
 
@@ -1000,6 +1052,7 @@ These sources are documented in the older source register outside the library st
 **Official channel:** [https://www.openbible.info/](https://www.openbible.info/). **Held formats:** cross-reference TSV/ZIP, geographical data and topic-score ZIP.
 **Licence/terms and credit:** Recorded cross-references/topics CC BY; geographical dataset CC BY 4.0. Credit OpenBible.info. Topic verse quotations do not inherit dataset permission.
 **Evidence:** [retained source/component records](../sources/openbible/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+**Derived for Map quest (2026-11-07):** `src/data/map-quest/places.json`, `disputed.json` and `daily.json`, built by `scripts/build-map-quest.py` from the geographical dataset (`ancient.jsonl`): place names, proposed-site coordinates and verse references, filtered and tiered for the game. They are available under their sources' terms: CC BY 4.0 (credit OpenBible.info), and ODbL 1.0 for coordinates OpenBible derived from OpenStreetMap. The game page credits "Place locations: OpenBible.info (CC BY 4.0)". The disputed-site notes in `src/data/map-quest/curation.json` are the site's own drafts, awaiting the owner's review.
 
 <a id="source-stepbible"></a>
 ### STEPBible Data
@@ -2200,3 +2253,34 @@ Page: `/study/the-medieval-church`. Old translations are quoted in short passage
 | Named as located, not read: Southern (1970), Morris (1989), Fletcher (1997), Rashdall, *The Cambridge History of the Bible*, Grønlie's Íslendingabók; second-hand: Dessens, Russell, Adam of Bremen, Thietmar | Nothing taken from those located; second-hand routes marked on the page | Reference | — |
 | Baptist Faith and Message 2000, as quoted in the site's doctrinal foundation | The site's stance, short quotations | Quoted with its name | — |
 | Berean Standard Bible (the site's own copy, registered above) | Every verse quoted and opened; each phrase checked by the build | **Public domain** (dedicated 2023) | https://berean.bible/ |
+
+## Prayers for Life's Occasions — registered 9 November 2026 (local preview only; nothing published)
+
+Pages: `/prayers` and its 32 occasion pages. Design: [docs/features/occasion-prayers/design.md](docs/features/occasion-prayers/design.md). The written prayers, their notes and the hub's words are this project's own. Nine older prayers are quoted exactly as printed, stored in `src/data/occasion-prayers/historic.ts`; a test holds each to a sha256 checksum and a word count, and holds the 1662 total under 500 words.
+
+| Source | How it was used | Licence / terms | Link |
+|---|---|---|---|
+| The Book of Common Prayer, 1662 (Church of England): the Third Collects of Morning and Evening Prayer (for Grace; for Aid against all Perils), the Second Collect of Evening Prayer (for Peace), the Collect for Purity, "Prevent us, O Lord", a prayer from the Visitation of the Sick, and the Collects for Advent 2 and Trinity 4 | Eight texts quoted whole, **449 words** in total (72 + 69 + 35 + 48 + 51 + 52 + 63 + 59), each checked word for word on 9 November 2026 against Lynda Howell's transcription | Public domain in the US. **In the UK the rights are vested in the Crown**, administered by Cambridge University Press as the Crown's patentee, which permits up to 500 words for liturgical and non-commercial educational use. Every page that shows a 1662 text prints Cambridge's acknowledgement in full; every copied or sent text ends "BCP 1662". Cambridge's page refuses automated fetches; its terms were confirmed through a search engine's copy on 9 November 2026 | https://www.cambridge.org/bibles/about/rights-and-permissions/rights-and-permissions-bcp ; transcription: https://www.eskimo.com/~lhowell/bcp1662/ |
+| St Patrick's Breastplate, English verse by Cecil Frances Alexander (1889), in C. H. H. Wright, *The Writings of Saint Patrick*, Wikisource | One stanza quoted whole (53 words), credited to Alexander | Public domain | https://en.wikisource.org/wiki/The_Writings_of_Saint_Patrick,_the_Apostle_of_Ireland/Version_of_Mrs._Alexander |
+| Berean Standard Bible (the site's own copy, registered above) | The verses under each prayer, loaded from the site's own files | **Public domain** (dedicated 2023) | https://berean.bible/ |
+
+## Blessings for the Home — registered 10 November 2026 (local preview only; nothing published)
+
+Pages: `/blessings` and its eight pages. Design: [docs/features/home-blessings/design.md](docs/features/home-blessings/design.md). The written blessings, graces, room-by-room prayers, notes and the hub's words are this project's own. Thirteen older graces and blessings are quoted exactly as printed (only the long s modernised), stored in `src/data/home-blessings/older.ts` with the printing each was checked against; a test holds each to a sha256 checksum. No text from the Book of Common Prayer is used, so the prayers feature's 500-word allowance is untouched.
+
+| Source | How it was used | Licence / terms | Link |
+|---|---|---|---|
+| Arthur Guiterman, "House Blessing", *The Mirthful Lyre* (New York: Harper, 1918), page 189 | The poem whole (12 lines), credited to Guiterman, checked on the page image 10 November 2026 | **Public domain** (published 1918) | https://archive.org/details/mirthfullyre01guitgoog |
+| "Come, Lord Jesus, be our Guest", *Little Children's Book: for Schools and Families* (Philadelphia, copyright 1885), "Grace at Meat" | Two lines, checked in the scan's text | **Public domain** (1885) | https://archive.org/details/littlechildb00unit |
+| John Cennick, "Grace before Meat", *Sacred Hymns for the Children of God* (London, 1741), page 75 | Four lines, credited to Cennick, checked on the page image | **Public domain** (1741) | https://archive.org/details/bim_eighteenth-century_sacred-hymns-for-the-chi_cennick-john_1741 |
+| "After Meat", after Cennick, in George Whitefield, *A Collection of Hymns for Social Worship*, 19th edition (London, 1774), page 170 | Four lines, checked on the page image | **Public domain** (1774) | https://archive.org/details/bim_eighteenth-century_a-collection-of-hymns-fo_whitefield-george_1774 |
+| "God is great, and God is good", *Gospel Hymns No. 4* (Toronto, 1882), number 84 | Four lines, checked in the scan's text | **Public domain** (1882) | https://archive.org/details/cihm_46977 |
+| Edith Rutter Leatham, "Thank you for the world so sweet", *Songs of Cheer for Children* (1929), number 13 | Four lines, credited to Leatham, checked in the scan's text; also in print by 1919 | **Public domain** (in print by 1919) | https://archive.org/details/songsofcheerforc00menn |
+| The Selkirk Grace, in Robert Burns, *The Cotter's Saturday Night and Other Poems* (Boston, 1895) | Four lines, checked in the scan's text | **Public domain** (traditional; 1895 printing) | https://archive.org/details/cotterssaturdayn02burn |
+| Thomas Ken, the Doxology, *A Manual of Prayers for the Use of the Scholars of Winchester College* (London, 1712), page 134 | Four lines, credited to Ken, checked on the page image | **Public domain** (1712) | https://archive.org/details/bim_eighteenth-century_a-manual-of-prayers-for-_ken-thomas_1712 |
+| Thomas Ken, An Evening Hymn, first verse, *A Manual of Prayers* (London, 1697), page 145 | Four lines, credited to Ken, checked on the page image | **Public domain** (1697) | https://archive.org/details/manualofprayersf00kent_0 |
+| Mary Lundie Duncan, "An Evening Prayer", *Memoir of Mrs. W. W. Duncan* (Edinburgh, 1841), page 274 | All three verses (the third shown on the page only), credited to Duncan, checked on the page image | **Public domain** (1841) | https://archive.org/details/memoirmrswwdunc00duncgoog |
+| Charles Wesley, "Gentle Jesus, meek and mild", first verse, *Hymns and Sacred Poems* (London, 1742), page 194 | Four lines, credited to Wesley, checked on the page image | **Public domain** (1742) | https://archive.org/details/bim_eighteenth-century_hymns-and-sacred-poems-_wesley-john_1742 |
+| Isaac Watts, "An Evening Song", verses 3 and 4, *Divine Songs*, second edition (London, 1716), page 36 | Eight lines, credited to Watts, checked on the page image | **Public domain** (1716) | https://archive.org/details/bim_eighteenth-century_divine-songs-attempted-i_watts-isaac-1674-1748_1716 |
+| "Now I lay me down to sleep", *The New England Primer* (Worcester: S. A. Howland, 1830s or 1840s); the earlier wording from *The New-England Primer Improved* (1785), page 25 | Four lines in the familiar form, the 1785 wording named in the source line | **Public domain** (19th-century and 1785 printings) | https://archive.org/details/newenglandprimer00hump |
+| Berean Standard Bible (the site's own copy, registered above) | Every verse shown, loaded from the site's own files | **Public domain** (dedicated 2023) | https://berean.bible/ |

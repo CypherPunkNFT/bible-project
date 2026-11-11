@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2023", "DOM"],
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
@@ -13,8 +13,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": ["node"]
+    "types": ["node", "bun"],
+    "jsx": "react-jsx",
+    "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["vite.config.ts", "vitest.config.ts", "tailwind.config.ts", "playwright.config.ts", "e2e", "scripts"],
+  "include": ["vite.config.ts", "vitest.config.ts", "tailwind.config.ts", "playwright.config.ts", "e2e", "scripts", "src/react-svg.d.ts"],
   "exclude": ["scripts/export-pages.ts", "scripts/pages", "scripts/design-review/inventory.ts", "scripts/design-review/site-map-*.ts", "scripts/design-review/model.ts", "scripts/design-review/sources.ts"]
 }

@@ -4,7 +4,7 @@ import type { GameArt } from "./draw";
 import { BlankScene } from "./parts";
 import { CharadesScene, EmojiStoriesScene, MemoryMatchScene, WhosOlderScene } from "./scenes-family";
 import { HotSeatScene, JeopardyScene, LiveQuizScene, TwoTruthsScene } from "./scenes-groups";
-import { MapQuestScene, OddOneOutScene, TimelineScene, WordleScene } from "./scenes-puzzles";
+import { CrosswordScene, MapQuestScene, OddOneOutScene, TimelineScene, WordleScene } from "./scenes-puzzles";
 import { QuizScene, TwentyQuestionsScene, VerseCompletionScene } from "./scenes-solo";
 
 export type { GameArt, Tone } from "./draw";
@@ -25,6 +25,7 @@ export const GAME_ART = {
   emojiStories: { Scene: EmojiStoriesScene, tone: "acts", alt: "Three round pictures, an ark, rain and a rainbow, and a blank answer" },
   hotSeat: { Scene: HotSeatScene, tone: "history", alt: "An empty chair under a lamp beside a sixty-second stopwatch" },
   oddOneOut: { Scene: OddOneOutScene, tone: "prophets", alt: "Three sheep and a goat on a hillside, the goat circled" },
+  crossword: { Scene: CrosswordScene, tone: "gospels", alt: "A crossword sheet half filled in with MOSES and MANNA, and a pencil writing in it" },
   memoryMatch: { Scene: MemoryMatchScene, tone: "poetry", alt: "Face-down cards, with Daniel and a lion turned up as a pair" },
 } as const satisfies Record<string, GameArt>;
 

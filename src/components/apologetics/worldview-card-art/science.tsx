@@ -1,6 +1,7 @@
-import {useId,type CSSProperties} from 'react';
-import {FineDetails} from './art';
-import {LineDrawing,drawTiming} from './centerpieces';
+import { useId, type CSSProperties } from 'react';
+import { FineDetails } from './art';
+import { LineDrawing } from "./centerpieces";
+import { drawTiming } from "./centerpieces.shared";
 
 type Instrument='glassware'|'dna'|'microscope'|'molecule';
 type Placement={id:Instrument;x:number;y:number;scale:number;turn?:number};

@@ -1,0 +1,12 @@
+/* The "Print this prayer" sheet (PrintPrayer.tsx, design 6.3). It lives in the print portal, hidden on screen; it flows
+   with the page margin usePrintSheet sets, so a long prayer simply runs on. */
+.op-sheet { max-width: 6.5in; color: #1f1b16; font-family: "Archivo Variable", system-ui, sans-serif; font-size: 11pt; line-height: 1.5; }
+.op-sheet h1 { font-family: "Literata Variable", Georgia, serif; font-size: 20pt; font-weight: 400; margin: 0 0 4pt; }
+.op-sheet h2 { font-size: 11pt; font-weight: 600; margin: 0 0 14pt; text-transform: uppercase; letter-spacing: .06em; }
+.op-sheet h3 { font-size: 10pt; font-weight: 600; margin: 18pt 0 6pt; }
+.op-sheet-prayer { font-family: "Literata Variable", Georgia, serif; font-size: 14pt; line-height: 1.6; white-space: pre-line; margin: 0; }
+.op-sheet-source { font-size: 10pt; margin: 8pt 0 0; }
+.op-sheet-verse { font-family: "Literata Variable", Georgia, serif; margin: 0 0 6pt; break-inside: avoid; }
+.op-sheet-verse cite { font-family: "Archivo Variable", system-ui, sans-serif; font-style: normal; font-size: 9.5pt; }
+.op-sheet footer { margin-top: 20pt; font-size: 8.5pt; }
+.op-sheet footer p { margin: 0 0 3pt; }

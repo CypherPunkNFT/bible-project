@@ -1,11 +1,12 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { formatNumber, plural } from "@/lib/site-format";
 import { ArrowRight, ChevronDown, Search } from 'lucide-react';
-import type { Directory, SourceEntry } from './types';
+import { useMemo, useState, type CSSProperties } from 'react';
+import { collectionPreviews } from './collection-previews';
+import { CollectionArt } from "./CollectionArt";
+import { collectionTones } from "./CollectionArt.shared";
 import type { ReviewFilter } from './dashboard-model';
 import { RecordDetails } from './SourceCatalogue';
-import { CollectionArt, collectionTones } from './CollectionArt';
-import { collectionPreviews } from './collection-previews';
-import { formatNumber, plural } from "@/lib/site-format";
+import type { Directory, SourceEntry } from './types';
 export function SourceCollections({directory,entries,failed,openCatalogue}:{directory:Directory;entries:SourceEntry[]|null;failed?:boolean;openCatalogue:(category?:string,review?:ReviewFilter)=>void}) {
  const [query,setQuery]=useState(''),[group,setGroup]=useState('all');
  const [expanded,setExpanded]=useState<string[]>([]),[selected,setSelected]=useState<SourceEntry|null>(null);

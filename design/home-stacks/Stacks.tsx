@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CollectionArtwork, HomeArtwork } from '@/components/home/HomeArtwork';
 import { HOME_PATHS, HOME_STUDIES, HOME_TOPICS } from '@/components/home/collection-data';
@@ -20,7 +20,8 @@ function Stack({ index }: { index: number }) {
   const lastWheel = useRef(0);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const suppressClick = useRef(false);
-  const move = (direction: number) => setActive(current => (current + direction + cards.length) % cards.length);
+  const count = cards.length;
+  const move = useCallback((direction: number) => setActive(current => (current + direction + count) % count), [count]);
   useEffect(() => {
     const element = frame.current;
     if (!element) return;
@@ -33,7 +34,7 @@ function Stack({ index }: { index: number }) {
     };
     element.addEventListener('wheel', wheel, { passive: false });
     return () => element.removeEventListener('wheel', wheel);
-  }, [cards.length]);
+  }, [move]);
   return <section className="collection-stack" style={{ '--home-color': `var(--${collection.color})` } as CSSProperties} aria-label={`${collection.title} card stack`}>
     <div className="stack-heading"><a href={collection.to}>{collection.title}<ArrowUpRight size={12} /></a><span>{String(index + 1).padStart(2, '0')}</span></div>
     <div ref={frame} className="stack-deck" tabIndex={0} aria-label={`${collection.title}: use arrow keys to browse`}

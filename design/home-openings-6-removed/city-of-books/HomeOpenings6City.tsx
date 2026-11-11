@@ -1,34 +1,18 @@
+import { SECTION_NAMES, fixed, onWall, stone, tone } from "./HomeOpenings6City.shared";
 // MOCK-UP: the city as a Bible explorer, version E of /home_mockup6 (owner, 2026-10-30: "a second version of the city where the
 // colors are actually the colors of the Bible segments that we have. And they're segmented to actually be the books of the
 // Bible. So you can click the section and then inside it'll say continue and then that book"). The wall of Revelation 21 is
 // laid in two courses: the Old Testament's 39 books outside, the New Testament's 27 within, each in its section's colour and in
 // reading order clockwise from the north-west tower. The twelve pearl gates stand in the outer wall. Choosing a book turns the
 // button at the centre into "Continue" for that book: where the reader left off in it, or else its first chapter.
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
-import { Link } from "react-router-dom";
 import { lastReadPath } from "@/lib/last-read";
+import { useState, type KeyboardEvent } from "react";
+import { Link } from "react-router-dom";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import { useBooks } from "./HomeOpenings5Art";
-
-const fixed = (value: number) => value.toFixed(1);
-export const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
-export const SECTION_NAMES: Record<string, string> = { history: "Law & history", poetry: "Poetry & wisdom", prophets: "Prophets", gospels: "Gospels & Acts", epistles: "Letters", revelation: "Revelation" };
 export const GATES = [250, 500, 750].flatMap((along) => [[along, 70], [along, 930], [70, along], [930, along]]);
 /** The two courses of the wall, as distances in from the city's edge. */
 const COURSES = [{ first: 1, last: 39, outer: 84, inner: 134 }, { first: 40, last: 66, outer: 142, inner: 184 }];
-
-/** A point on the square `inset` in from the city's edge, `share` of the way round clockwise from the north-west corner. */
-export function onWall(share: number, inset: number): [number, number] {
-  const length = 1000 - inset * 2, side = Math.min(3, Math.floor(share * 4)), along = (share * 4 - side) * length;
-  return ([[inset + along, inset], [1000 - inset, inset + along], [1000 - inset - along, 1000 - inset], [inset, 1000 - inset - along]] as [number, number][])[side];
-}
-
-/** One book's stretch of wall between two shares of the way round, turning any corner it meets. */
-export function stone(start: number, end: number, outer: number, inner: number) {
-  const shares = [start, ...[0.25, 0.5, 0.75].filter((corner) => corner > start && corner < end), end];
-  const edge = (inset: number) => shares.map((share) => onWall(share, inset));
-  return `M${[...edge(outer), ...edge(inner).reverse()].map(([x, y]) => `${fixed(x)} ${fixed(y)}`).join("L")}Z`;
-}
 
 /** Where "Continue" goes for a book: the reader's last place in it, or its first chapter. */
 function continueIn(book: { code: string; name: string }) {

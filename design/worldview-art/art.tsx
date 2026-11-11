@@ -1,12 +1,5 @@
 type World='islam'|'buddhism'|'hinduism';
 type Item='book'|'leaf'|'manuscript'|'quill'|'bowl'|'lamp'|'beads'|'conch'|'bell'|'incense'|'cushion';
-export const directions={
- islam:[{name:'Open text',detail:'An architectural arch, open text, quill and manuscript.'},{name:'Mosque & study',detail:'A compact dome and minarets with reading artifacts around them.'},{name:'Manuscript & transmission',detail:'An open book on a folding stand, with a quill and manuscript.'}],
- buddhism:[{name:'Eightfold Path',detail:'A clear eight-spoked wheel, Bodhi leaf, palm-leaf text and alms bowl.'},{name:'Learning & practice',detail:'A lighter wheel with an open text, Bodhi branch and meditation cushion.'},{name:'Teaching & community',detail:'An emphasized eight-spoked rim, alms bowl, manuscript and incense.'}],
- hinduism:[{name:'Light & devotion',detail:'A large oil lamp, text volume, conch and beads.'},{name:'Temple & tradition',detail:'A temple silhouette, bell, text volume and oil lamp.'},{name:'Gita & devotion',detail:'An open text framed by a conch, lamp and prayer beads.'}],
-};
-export const themes={islam:'Jesus · God · the cross',buddhism:'Suffering · Eightfold Path · release',hinduism:'Self · action · refuge'};
-export const names={islam:'Islam',buddhism:'Buddhism',hinduism:'Hinduism'};
 function Book({x=0,y=0,scale=1}:{x?:number;y?:number;scale?:number}){
  return <g transform={`translate(${x} ${y}) scale(${scale})`}><path d="M-73 9q37-16 73 0 36-16 73 0v66q-37-16-73 0-36-16-73 0ZM0 9v66m-58-49q23-6 43 0m-43 14q23-6 43 0m30-14q23-6 43 0m-43 14q23-6 43 0M-80 16v66q40-15 80 0 40-15 80 0V16"/></g>;
 }
@@ -41,4 +34,4 @@ export function Artwork({world,version}:{world:World;version:number}){
   </>}
  </svg>;
 }
-export type {World};
+export { World };

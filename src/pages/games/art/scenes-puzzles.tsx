@@ -1,4 +1,5 @@
-// The daily-puzzle shelf's drawings: Bible Wordle, Map quest, Timeline sort and Odd one out (style: parts.tsx).
+// The daily-puzzle shelf's drawings: Bible Wordle, Map quest, Timeline sort, Odd one out and Bible crossword (style:
+// parts.tsx).
 import type { ReactNode } from "react";
 import { at, hatch, shadow, spark } from "./draw";
 import { P, T } from "./parts";
@@ -111,5 +112,30 @@ export function OddOneOutScene() {
     <Sheep cx={40} cy={112} /><Sheep cx={90} cy={107} /><Goat cx={142} cy={100} /><Sheep cx={200} cy={109} />
     <circle className="ga-l ga-dash ga-pulse" cx={146} cy={98} r={30} />
     {[[150, 58, 3], [176, 70, 2.4]].map(([sx, sy, r], i) => <P key={i} d={spark(sx, sy, r)} c="ga-f ga-twinkle" style={at(i)} />)}
+  </>;
+}
+
+/** A crossword sheet half filled in (MOSES across, MANNA, SEA and SINAI down, ARK across) and a pencil writing in it. */
+export function CrosswordScene() {
+  const rows = ["MOSES", "A#E#I", "N#A#N", "N###.", "AR.#."];
+  const blank = new Set(["2,2", "4,2"]); // squares still to fill: the A of SEA and the K of ARK
+  const x = (col: number) => 70 + col * 20, y = (row: number) => 40 + row * 20;
+  return <>
+    <P d="M58 30H182V146H58Z" c="ga-p ga-l" />
+    <P d={hatch(60, 128, 120, 16, 3.4)} c="ga-h ga-sm-hide" />
+    {rows.flatMap((row, r) => [...row].map((letter, col) => letter === "#"
+      ? <rect key={`${r}-${col}`} className="ga-s" x={x(col) + 2} y={y(r) + 2} width={16} height={16} />
+      : <g key={`${r}-${col}`}>
+        <rect className={r === 0 || col === 0 ? "ga-t ga-f" : "ga-p ga-f"} x={x(col)} y={y(r)} width={20} height={20} />
+        {letter !== "." && !blank.has(`${r},${col}`) && <T x={x(col) + 10} y={y(r) + 11} size={11}>{letter}</T>}
+      </g>))}
+    <P d="M70 40H170V140H70Z" c="ga-l" />
+    <g className="ga-bob">
+      <P d="M163 113L167 101L201 59L209 65L175 107Z" c="ga-p ga-l" />
+      <P d="M163 113L167 101L175 107Z" c="ga-t ga-l" /><P d="M201 59L209 65L213 60L205 54Z" c="ga-s" />
+      <P d="M171 104L205 62" c="ga-f" />
+    </g>
+    <P d={shadow(120, 150, 64)} c="ga-h" />
+    {[[40, 40, 3.4], [206, 30, 2.6]].map(([sx, sy, r], i) => <P key={i} d={spark(sx, sy, r)} c="ga-f ga-twinkle" style={at(i)} />)}
   </>;
 }

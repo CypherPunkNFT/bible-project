@@ -3536,6 +3536,11 @@
   "why": "Map quest's places: names, coordinates and ids only. Place names stay as written, as on the atlas (page_data_specs.py, data/places.json)"
  },
  {
+  "check": "files",
+  "item": "src/data/crossword/clues.json",
+  "why": "Bible crossword's clues and answers (docs/features/bible-crossword/design.md §4): English in every language on purpose, as Bible Wordle's words are, because each answer's letters fill the grid and must match its clue; the start screen says so on a translated site. The game's own buttons and labels are page code and are collected"
+ },
+ {
   "check": "fields",
   "item": "src/data/odd-one-out/sets.json .books[][]",
   "why": "[reader code, book name] pairs at one path, so the codes the reader links use would be translated too; the verse references the page code builds from them keep the English book names until that code builds them from the reader's Bible (left for the page-code step, sequence 29)"
@@ -3612,6 +3617,95 @@
   "why": "the title of a published hymn (Isaac Watts), kept as published like the hymn collection's own titles"
  },
  {
+  "check": "data",
+  "file": "src/pages/baby-names/useBabyNames.ts",
+  "item": "read in English: baby-names/",
+  "why": "the Biblical baby-name pages (docs/features/baby-names/design.md): the names, their meanings and the people who bore them are English in this build, like the countdown pages; the names stay as the Berean spells them and the verses are quoted from the Berean, so the folder has no translated copy yet"
+ },
+ {
+  "check": "code-files",
+  "item": "src/pages/citation-generator/abbreviations.ts",
+  "why": "the Bible citation generator's style abbreviations (MLA, Chicago and SBL book names, MLA's month abbreviations, APA's 'Original work published'): MLA, APA, Chicago, Turabian and SBL are English-language styles, so a citation keeps them in every site language and the page shows them with translate=\"no\"; the short book names people type are lookup keys, never shown (sequence 41 step 6, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/name-in-hebrew/NameInHebrewPage.tsx",
+  "item": "Emma",
+  "why": "an example name on /name-in-hebrew (a button that spells it, shown translate=\"no\"): a person's name, spelled the same in every site language (sequence 41 step 8, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/name-in-hebrew/NameInHebrewPage.tsx",
+  "item": "Michael",
+  "why": "an example name on /name-in-hebrew (a button that spells it, shown translate=\"no\"): a person's name, spelled the same in every site language (sequence 41 step 8, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/name-in-hebrew/NameInHebrewPage.tsx",
+  "item": "Olivia",
+  "why": "an example name on /name-in-hebrew (a button that spells it, shown translate=\"no\"): a person's name, spelled the same in every site language (sequence 41 step 8, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/templates.ts",
+  "item": "\"Archivo Variable\"",
+  "why": "a CSS font-family name the worship slide maker draws its slides in; never shown to a reader (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/templates.ts",
+  "item": "\"Literata Variable\"",
+  "why": "a CSS font-family name the worship slide maker draws its slides in; never shown to a reader (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/templates.ts",
+  "item": "Arial",
+  "why": "the typeface named inside the downloaded PowerPoint file, a font name PowerPoint looks up, the same in every language (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/pptx.ts",
+  "item": "Arial",
+  "why": "the typeface named inside the downloaded PowerPoint file's theme, a font name PowerPoint looks up, the same in every language (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/pptx.ts",
+  "item": "Band",
+  "why": "an internal shape name inside the downloaded PowerPoint file's XML (the lower third's band); not text on the page or the slide (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/worship-slides/pptx.ts",
+  "item": "Line",
+  "why": "an internal shape name inside the downloaded PowerPoint file's XML (the left layout's short rule); not text on the page or the slide (sequence 41 step 11, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/games/crossword/themes.ts",
+  "item": "clue too long",
+  "why": "a reason the crossword's clue build (scripts/build-crossword.ts) and its tests give for rejecting a clue; clueProblem in themes.ts never shows it on the page (Bible crossword, job 846, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/games/crossword/themes.ts",
+  "item": "clue too short",
+  "why": "a reason the crossword's clue build (scripts/build-crossword.ts) and its tests give for rejecting a clue; clueProblem in themes.ts never shows it on the page (Bible crossword, job 846, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/games/crossword/themes.ts",
+  "item": "clue holds the answer",
+  "why": "a reason the crossword's clue build (scripts/build-crossword.ts) and its tests give for rejecting a clue; clueProblem in themes.ts never shows it on the page (Bible crossword, job 846, 2026-11-09)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/games/crossword/themes.ts",
+  "item": "clue holds most of the answer",
+  "why": "a reason the crossword's clue build (scripts/build-crossword.ts) and its tests give for rejecting a clue; clueProblem in themes.ts never shows it on the page (Bible crossword, job 846, 2026-11-09)"
+ },
+ {
   "check": "code",
   "file": "src/lib/verse-card/layout.ts",
   "item": "\"Literata Variable\", Georgia, serif",
@@ -3622,6 +3716,36 @@
   "file": "src/lib/verse-card/layout.ts",
   "item": "\"Archivo Variable\", Arial, sans-serif",
   "why": "a font list the card generator hands to the canvas (ctx.font) to draw the card; never shown on a page as text (Shareable verse cards, sequence 32 step 16, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/home-blessings/older.ts",
+  "item": "Ghost",
+  "why": "an old word in a gloss on /blessings (docs/features/home-blessings/design.md 4.3): the word exactly as the older grace or blessing prints it, shown with lang=\"en\" beside its meaning, which is collected and translated; the older texts themselves stay English in every site language (Blessings for the home, sequence 33 step 19, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/home-blessings/older.ts",
+  "item": "Manna",
+  "why": "an old word in a gloss on /blessings (docs/features/home-blessings/design.md 4.3): the word exactly as the older grace or blessing prints it, shown with lang=\"en\" beside its meaning, which is collected and translated; the older texts themselves stay English in every site language (Blessings for the home, sequence 33 step 19, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/home-blessings/older.ts",
+  "item": "Paradise",
+  "why": "an old word in a gloss on /blessings (docs/features/home-blessings/design.md 4.3): the word exactly as the older grace or blessing prints it, shown with lang=\"en\" beside its meaning, which is collected and translated; the older texts themselves stay English in every site language (Blessings for the home, sequence 33 step 19, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/home-blessings/older.ts",
+  "item": "Rejoycing",
+  "why": "an old word in a gloss on /blessings (docs/features/home-blessings/design.md 4.3): the word exactly as the older grace or blessing prints it, shown with lang=\"en\" beside its meaning, which is collected and translated; the older texts themselves stay English in every site language (Blessings for the home, sequence 33 step 19, 2026-11-10)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/home-blessings/older.ts",
+  "item": "Suffer",
+  "why": "an old word in a gloss on /blessings (docs/features/home-blessings/design.md 4.3): the word exactly as the older grace or blessing prints it, shown with lang=\"en\" beside its meaning, which is collected and translated; the older texts themselves stay English in every site language (Blessings for the home, sequence 33 step 19, 2026-11-10)"
  },
  {
   "check": "pieced",
@@ -24644,11 +24768,5 @@
   "check": "untranslated",
   "item": "a about above after again against all also am an and another any are aside as at away back be became because become been before behind being below beside besides between both but by came can cannot come comes coming could did do does doing done down during each either else even ever every few for from further gave get gets give given gives go goes going gone got had has have having he her here hers herself him himself his how however i if in into is it its itself just keep kept know known knew let lets like made make makes many may me might mine more most much must my myself near neither never no nor not now of off often on once one only onto or other others ought our ours ourselves out over own put said same saw say saying says see seen shall she should since so some such take taken than that the their theirs them themselves then there therefore these they this those though through thus till to toward towards too took two three four five six seven eight nine ten under until up upon us very was we went were what whatever when whenever where whereas wherever whether which while who whoever whole whom whose why will with within without would ye yet you your yours yourself yourselves unto thee thou thy thine hath doth indeed among around across along according thing things tell told truly surely yes",
   "why": "the puzzle maker's STOP set (src/pages/puzzle-maker/passage.ts): English words never hidden or asked in a puzzle, compared in code and never shown on a page; code data, not reader text, so it has no translation in any language (card D56 close-out, 2026-11-10)"
- },
- {
-  "check": "data",
-  "file": "src/pages/baby-names/useBabyNames.ts",
-  "item": "read in English: baby-names/",
-  "why": "the Biblical baby-name pages (docs/features/baby-names/design.md): the names, their meanings and the people who bore them are English in this build, like the countdown pages; the names stay as the Berean spells them and the verses are quoted from the Berean, so the folder has no translated copy yet"
  }
 ]

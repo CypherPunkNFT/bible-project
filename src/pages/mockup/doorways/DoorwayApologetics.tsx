@@ -1,7 +1,6 @@
 // MOCK-UP: the Apologetics row of the doorway design sheet (/doorways_mockup). Owner, 2026-10-31: "Apologetics is
 // alright." So the first drawing is today's orbit-and-cross, re-fit and enlarged to the taller frame; the other four are
 // quieter relatives on the same theme of a reasoned defence: a shield, a balance, a keystone arch and a pillar.
-import type { DoorwayVariant } from "./doorway-types";
 
 const Node = ({ x, y }: { x: number; y: number }) => <g><circle cx={x} cy={y} r="9" fill="var(--surface)" stroke="currentColor" /><circle cx={x} cy={y} r="3" fill="currentColor" /></g>;
 
@@ -12,7 +11,7 @@ const STONES = Array.from({ length: 9 }, (_, i) => {
   return `M${at(50, a0)}L${at(outer, a0)}A${outer} ${outer} 0 0 1 ${at(outer, a1)}L${at(50, a1)}A50 50 0 0 0 ${at(50, a0)}Z`;
 });
 
-function CurrentEnlarged() {
+export function CurrentEnlarged() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <circle cx="160" cy="90" r="68" stroke="currentColor" opacity=".35" /><circle cx="160" cy="90" r="46" stroke="currentColor" strokeDasharray="2 5" opacity=".5" />
     <ellipse cx="160" cy="90" rx="158" ry="46" transform="rotate(-16 160 90)" stroke="currentColor" opacity=".5" />
@@ -22,7 +21,7 @@ function CurrentEnlarged() {
   </svg>;
 }
 
-function Shield() {
+export function Shield() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <circle cx="160" cy="86" r="80" stroke="currentColor" opacity=".18" /><circle cx="160" cy="86" r="66" stroke="currentColor" strokeDasharray="2 5" opacity=".4" />
     <path d="M22 86H86M234 86H298" stroke="currentColor" opacity=".35" />{[[22, 86], [298, 86]].map(([x, y]) => <Node key={x} x={x} y={y} />)}
@@ -35,7 +34,7 @@ function Shield() {
   </svg>;
 }
 
-function Scales() {
+export function Scales() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <ellipse cx="160" cy="92" rx="150" ry="58" stroke="currentColor" opacity=".14" /><circle cx="160" cy="40" r="22" stroke="currentColor" strokeDasharray="2 5" opacity=".4" />
     <path d="M160 40V150" stroke="currentColor" strokeWidth="1.6" /><path d="M160 6V24M153 12H167" stroke="currentColor" strokeWidth="1.6" />
@@ -49,7 +48,7 @@ function Scales() {
   </svg>;
 }
 
-function Keystone() {
+export function Keystone() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M44 128A116 116 0 0 1 276 128" stroke="currentColor" opacity=".18" /><path d="M62 128A98 98 0 0 1 258 128" stroke="currentColor" strokeDasharray="2 5" opacity=".45" />
     <path d="M160 2V30" stroke="currentColor" opacity=".4" /><circle cx="160" cy="14" r="3" fill="currentColor" />
@@ -61,7 +60,7 @@ function Keystone() {
   </svg>;
 }
 
-function Pillar() {
+export function Pillar() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <circle cx="160" cy="92" r="80" stroke="currentColor" opacity=".16" /><circle cx="160" cy="92" r="62" stroke="currentColor" strokeDasharray="2 5" opacity=".4" />
     <path d="M40 92H100M220 92H280" stroke="currentColor" opacity=".35" />
@@ -75,11 +74,3 @@ function Pillar() {
     <path d="M24 176H296" stroke="currentColor" opacity=".3" />
   </svg>;
 }
-
-export const APOLOGETICS_DOORWAYS: DoorwayVariant[] = [
-  { name: "Current, enlarged", Art: CurrentEnlarged },
-  { name: "Shield of faith", Art: Shield },
-  { name: "Scales of evidence", Art: Scales },
-  { name: "Keystone arch", Art: Keystone },
-  { name: "Pillar and foundation", Art: Pillar },
-];

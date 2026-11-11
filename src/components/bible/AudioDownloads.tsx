@@ -1,13 +1,7 @@
+import type { AudioBook } from '@/lib/audio-playlist';
 import { BookOpen, Download } from 'lucide-react';
 import { useEffect, useState, type CSSProperties } from 'react';
-import type { AudioBook } from '@/lib/audio-playlist';
-
-/** "18 MB", "4.2 MB", "1.4 GB" — sizes as a download dialog shows them. */
-export function formatBytes(bytes: number): string {
-  if (bytes >= 1e9) return `${(bytes / 1e9).toFixed(1)} GB`;
-  const megabytes = bytes / 1e6;
-  return `${megabytes < 10 ? megabytes.toFixed(1) : Math.round(megabytes)} MB`;
-}
+import { formatBytes } from "./AudioDownloads.shared";
 
 const bookBytes = (book: AudioBook) => book.parts.reduce((sum, part) => sum + part.download.bytes, 0);
 

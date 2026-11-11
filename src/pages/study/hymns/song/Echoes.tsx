@@ -1,10 +1,11 @@
 // The hymn with its echoes: the stanzas set like a printed page and, beside each line that echoes a verse, that verse
 // floating in the margin, joined by a thin line. Pointing joins a line and its verse; clicking opens the passage
 // (approved mock-up: design/hymn-directions/shared/echoes.js, shown in its "compare" form).
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import type { SongEcho } from "@/lib/hymns";
-import { EchoWords, ROMAN, numeralStyle, type OpenPassage } from "./parts";
 import { formatNumber } from "@/lib/site-format";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { EchoWords, type OpenPassage } from "./parts";
+import { ROMAN, numeralStyle } from "./parts.shared";
 
 /** What the echoes need of a hymn. `kind` (on the generated hymn pages) tags how an echo was found. */
 export interface EchoesHymn { stanzas: string[][]; echoes: (SongEcho & { kind?: "shared" | "echo" })[] }

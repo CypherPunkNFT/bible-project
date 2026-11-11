@@ -1,10 +1,11 @@
 // The record sheet (approved mock-up D: js/sheet.js): any of the eighteen records, or any pictured codex, opened from any
 // section, slides in from the right. A record shows its kind, number, date, place, title, evidence, interpretation, limit,
 // the collection or passage and its sources, plus its picture where one exists, and pages to the earlier and later record.
-import { useEffect, useRef, type CSSProperties, type RefObject } from "react";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
+import { useEffect, useRef, type CSSProperties, type RefObject } from "react";
 import { CN, name, pictureFor, pictureWhat, records, tone, type CanonRecord, type Picture } from "./model";
-import { Cite, Credit, ext, PictureImg } from "./parts";
+import { Cite, Credit, PictureImg } from "./parts";
+import { ext } from "./parts.shared";
 
 export type Opened = { kind: "record"; id: string } | { kind: "picture"; q: string };
 

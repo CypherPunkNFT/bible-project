@@ -100,7 +100,7 @@ try {
   passed("the site owner's story cannot be deleted, and the test database enforces its links");
 
   const leafSubmission = payload((await newInvite(root.cookie)).token, "Leaf writer");
-  const leaf = await call<{ personId: string }>("submissions", "POST", leafSubmission); assert.equal(leaf.status, 201);
+  const leaf = await call<{ personId: string }>("submissions", "POST", leafSubmission); assert.equal(leaf.status, 201); assert.ok(leaf.cookie);
   assert.equal((await call("my-story", "POST", { ...value("Leaf writer"), version: 1 }, leaf.cookie)).status, 200);
   assert.equal((await call("reports", "POST", { personId: leaf.data.personId, reason: "Automated leaf report" })).status, 201);
   assert.equal(await count("SELECT count(*) AS count FROM testimony_locations WHERE person_id=?", leaf.data.personId), 1);
@@ -120,7 +120,7 @@ try {
   passed("deleting a story removes the person, every version, report, place, link and invitation; old access stops working");
 
   const parentSubmission = payload((await newInvite(root.cookie)).token, "Parent writer");
-  const parent = await call<{ personId: string }>("submissions", "POST", parentSubmission); assert.equal(parent.status, 201);
+  const parent = await call<{ personId: string }>("submissions", "POST", parentSubmission); assert.equal(parent.status, 201); assert.ok(parent.cookie);
   const kid = await call<{ personId: string }>("submissions", "POST", payload((await newInvite(parent.cookie)).token, "Kid writer")); assert.equal(kid.status, 201);
   assert.equal((await call("my-story", "DELETE", undefined, parent.cookie)).status, 200);
   const afterParent = (await call<TestimonyBranch>("branches?root=" + root.data.personId)).data;

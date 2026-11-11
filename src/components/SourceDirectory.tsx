@@ -5,9 +5,10 @@ import { SourceCatalogue } from "./sources/SourceCatalogue";
 import { SourceProviders } from "./sources/SourceProviders";
 import { useSourceDirectory } from "./sources/useSourceDirectory";
 
-import { LibraryOverview, snapshotDate } from './sources/LibraryOverview';
-import { matchesCatalogue, titleMatchRank, sourceView, sourceViews, type ExtraFacet, type ReviewFilter } from './sources/dashboard-model';
+import { matchesCatalogue, sourceView, sourceViews, titleMatchRank, type ExtraFacet, type ReviewFilter } from './sources/dashboard-model';
 import './sources/dashboard.css';
+import { LibraryOverview } from "./sources/LibraryOverview";
+import { snapshotDate } from "./sources/LibraryOverview.shared";
 import './sources/source-boards.css';
 import { SourceCollections } from './sources/SourceCollections';
 import { SourceReview } from './sources/SourceReview';

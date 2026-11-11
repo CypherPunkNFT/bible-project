@@ -3,7 +3,6 @@
 // house cut open to show three rooms; and a botanical plate of one tree with three numbered branches. Each shows
 // learning, fellowship and help for life together. Motion rules in overview-more.css.
 import { useId, type CSSProperties } from "react";
-import type { Mockup } from "./types";
 import "./overview-more.css";
 
 type Pt = [number, number];
@@ -109,7 +108,7 @@ function Lantern({ uid }: { uid: string }) {
     </g></g>)}
   </g>;
 }
-function SatchelScene() {
+export function SatchelScene() {
   const uid = useUid(), strap = smooth(STRAP);
   const fringe = range(0, 1.01, 0.05).map((t) => `M${f(58 - 24 * t)} ${f(192 + 126 * t)}l-6 1.5M${f(542 + 24 * t)} ${f(192 + 126 * t)}l6 1.5`).join("");
   return <svg className="hf-scene mx-satchel" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -201,7 +200,7 @@ const MAP_PINS = range(0, 15, 1).map((k): Pt => [474 + (k % 5) * 8 + ((k * 3) % 
 function Bust({ x, y, r = 6 }: { x: number; y: number; r?: number }) {
   return <><circle className="mx-fill" cx={x} cy={y} r={r} /><path className="mx-fill" d={`M${x - r * 1.7} ${y + r * 4}Q${x} ${y - r * 1.2} ${x + r * 1.7} ${y + r * 4}Z`} /></>;
 }
-function HouseScene() {
+export function HouseScene() {
   const uid = useUid();
   const tiles = range(104, 150, 7).map((y, k) => `M40 ${y}H560` + range(60 + (k % 2) * 7, 560, 14).map((x) => `M${x} ${y}v-6`).join("")).join("");
   return <svg className="hf-scene mx-house" viewBox="0 20 600 400" fill="none" aria-hidden="true">
@@ -285,7 +284,7 @@ function Specimen({ kind }: { kind: number }) {
   return <><path className="mx-stem" d="M-14 16Q0 4 12-14" /><path className="mx-leafy" d={[[-8, 9, -1], [-1, 2, 1], [5, -6, -1], [-4, 6, 1], [3, -2, -1]].map(([x, y, side]) => `M${x} ${y}q${side * 10} -2 ${side * 13} -10q${side * -9} 0 ${side * -13} 10Z`).join("")} />
     <circle className="mx-berry" cx="12" cy="-14" r="5.5" /><path className="mx-vein" d="M9-19l1.5 2l1.5-3l1.5 3l1.5-2" /></>;
 }
-function TreeScene() {
+export function TreeScene() {
   const uid = useUid(), arc = smooth([LENSES[0], [232, 140], LENSES[1], [368, 140], LENSES[2]]);
   const trunk = "M284 304C291 282 292 248 292 226Q300 218 308 226C308 248 309 282 316 304Z";
   const river = range(0, 3, 1).map((k) => `M52 ${314 + k * 4.5}` + range(0, 31, 1).map((j) => `q8 ${j % 2 ? 2 : -2} 16 0`).join("")).join("");
@@ -329,10 +328,3 @@ function TreeScene() {
     <text className="hf-caption" x="300" y="408" textAnchor="middle">THREE BRANCHES · ONE ROOT · GATHERED OCTOBER 2026</text>
   </svg>;
 }
-
-export const MOCKUPS: Mockup[] = [
-  { name: "The Pilgrim's Satchel", note: "An engraved leather haversack opened on a woven cloth with its contents laid out: the workbook Moses: three forties on a stack of others, a sealed letter of introduction to the brethren, and a lantern beside a fan of city maps, a light running the length of the shoulder strap under Psalm 121:8; on hover the bag lifts, the letter slides out and the maps fan wider.", Scene: SatchelScene },
-  { name: "The Three Lancets", note: "Three pointed stained-glass windows in a coursed stone wall, each leaded in diamond panes around a medallion (an open book, friends at a lamplit table, a lit doorway) with a ribbon and a roundel, a beam of sun crossing all three and pooling coloured light on the floor under Matthew 5:14; on hover the glass brightens and the medallions swell.", Scene: LancetsScene },
-  { name: "The House of Three Rooms", note: "A house drawn in section with its front cut away: a schoolroom with forty-one spines, a chalkboard and a little one beside a leader; a lamplit table of friends; a kitchen with a pantry of bread, a wall telephone, a pinned map of fifteen cities and a door ajar, one light walking the floor through all three under Psalm 127:1; on hover the roof lifts and the door opens wider.", Scene: HouseScene },
-  { name: "The Tree of Three Branches", note: "A botanical plate of one tree by a river, its three branches each ending in a ringed and numbered specimen (book-shaped leaves, a cluster of grapes, healing leaves with a fruit) with two pressed-leaf slips for Moses: three forties and fifteen cities, a light arcing from figure to figure under Revelation 22:2; on hover the branches lift and the specimens swell.", Scene: TreeScene },
-];

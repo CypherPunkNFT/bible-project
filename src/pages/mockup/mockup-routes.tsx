@@ -1,3 +1,5 @@
+import { MockupTag } from "./MockupTag";
+import { MOCKUPS_ENABLED } from "./mockup-routes.shared";
 // Mock-up pages: copies of real pages, opened at the page's name + "_mockup" (/home_mockup is the homepage), plus the
 // drawing gallery at /mockups. They exist only on this computer's preview: on any other host (the live site) these
 // routes are never added, so the pages cannot be opened there. A small "MOCK-UP" tag marks every one.
@@ -51,9 +53,6 @@ const TheologyDraftsMockup = lazy(() => import("./drafts/TheologyDraftsMockup"))
 const DraftReaderPage = lazy(() => import("./drafts/DraftReaderPage"));
 const AcademicDraftsMockup = lazy(() => import("./drafts/AcademicDraftsMockup"));
 const AcademicDraftReaderPage = lazy(() => import("./drafts/AcademicDraftReaderPage"));
-
-const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
-export const MOCKUPS_ENABLED = typeof window !== "undefined" && LOCAL_HOSTS.has(window.location.hostname);
 
 export function mockupRoutes() {
   if (!MOCKUPS_ENABLED) return [];
@@ -145,6 +144,3 @@ export function mockupRoutes() {
   ];
 }
 
-function MockupTag() {
-  return <div role="note" style={{ position: "fixed", left: 16, bottom: 16, zIndex: 9999, padding: "6px 12px", borderRadius: 999, background: "var(--accent)", color: "var(--page)", font: "600 11px Archivo, sans-serif", letterSpacing: ".18em", pointerEvents: "none" }}>MOCK-UP</div>;
-}

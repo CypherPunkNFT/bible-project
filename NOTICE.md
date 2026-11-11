@@ -19,7 +19,11 @@ the project's own, and keeps its publisher's terms. Full list, with checksums: [
 | Names of God list | The site owner's own selection, drawn from Torrey and Scripture | Free to use with the rest of this project |
 | Satellite imagery (NASA Blue Marble Next Generation, via GIBS) | Public domain | Credit "NASA" is appreciated |
 | Coastlines (Natural Earth, via world-atlas) | Public domain | Nothing |
+| Bible Wordle's allowed guesses: the ENABLE word list (Enhanced North American Benchmark Lexicon) | Public domain | Nothing. Credit "ENABLE word list (public domain)" is appreciated |
 | Emoji stories' emoji names and versions (`src/data/emoji-stories/emoji.json`), from Unicode's emoji-test.txt 15.1, © 2023 Unicode®, Inc. | [Unicode License v3](https://www.unicode.org/license.txt) | Keep Unicode's copyright and permission notice with the data. The puzzles, clue words and schedule are this project's own |
+| Eight collects from the Book of Common Prayer, 1662 (449 words), on the Prayers for Life's Occasions pages (`src/data/occasion-prayers/historic.ts`) | Public domain in the US. In the UK the rights are vested in the Crown; Cambridge University Press, the Crown's patentee, permits up to 500 words for liturgical and non-commercial educational use | Print on every page that shows one: "Extracts from The Book of Common Prayer, the rights in which are vested in the Crown, are reproduced by permission of the Crown's patentee, Cambridge University Press." End a copied or sent text with "BCP 1662". Stay under 500 words in total; a test fails if the site goes over |
+| One stanza of St Patrick's Breastplate in Cecil Frances Alexander's English verse (1889), same pages | Public domain | Nothing. The pages credit Alexander |
+| Thirteen older graces and blessings (Guiterman 1918, Cennick 1741, Ken, Wesley 1742, Watts, Duncan 1841, the New England Primer and others), on the Blessings for the Home pages (`src/data/home-blessings/older.ts`) | Public domain: each is quoted from a printing made before 1931, named beside it on the page | Nothing. The pages credit each author and printing |
 | Fonts: Literata, Archivo, Noto Serif Hebrew | SIL Open Font License | Keep the licence with the font files |
 
 The Westminster Leningrad Codex's words are public domain. Its word-by-word grammar tags are CC BY-SA, so the

@@ -1,8 +1,8 @@
+import { compareText, formatNumber } from "@/lib/site-format";
 import { ArrowRight, ArrowUpRight, Database, Library, Search, Wrench, X } from 'lucide-react';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { snapshotDate } from "./LibraryOverview.shared";
 import type { Directory, SourceProfile } from './types';
-import { snapshotDate } from './LibraryOverview';
-import { compareText, formatNumber } from "@/lib/site-format";
 const categories=[['all','All providers'],['library','Libraries & ministries'],['data','Scripture, study & atlas'],['software','Search tools']] as const;
 const tones={library:'#69c7bb',data:'#83aed5',software:'#a99bd6'};
 const n=(value:number|undefined)=>value===undefined?'—':formatNumber(value);

@@ -1,6 +1,7 @@
 import { ArrowLeft, RotateCcw, Type, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { formatTestimonyDate, testimonyWordCount, type TestimonyNode } from "@/lib/testimonies";
+import { formatTestimonyDate } from "@/lib/testimony-date";
+import { testimonyWordCount, type TestimonyNode } from "@/lib/testimonies";
 import { formatNumber, plural } from "@/lib/site-format";
 
 export function TestimonyReader({ person, story, error, onRetry, onClose }: {

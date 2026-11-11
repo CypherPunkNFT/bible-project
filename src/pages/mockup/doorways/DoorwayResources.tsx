@@ -1,7 +1,6 @@
 // MOCK-UP: the Resources row of the doorway design sheet (/doorways_mockup). Owner, 2026-10-31: "I don't like resources,
 // that can change." The heart over cupped hands is gone; these are five new pictures of help for the road (study, gather,
 // find help): a signpost, a road to a church, a set table, a lamp on the path and an open door.
-import type { DoorwayVariant } from "./doorway-types";
 
 const Dot = ({ x, y }: { x: number; y: number }) => <g><circle cx={x} cy={y} r="6" fill="var(--surface)" stroke="currentColor" /><circle cx={x} cy={y} r="2" fill="currentColor" /></g>;
 
@@ -11,7 +10,7 @@ const ARMS = [
   { d: "M166 96H244L256 108L244 120H166Z", x: 206, y: 111.5, label: "HELP" },
 ];
 
-function Signpost() {
+export function Signpost() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M0 134Q60 120 120 128T240 122T320 130" stroke="currentColor" opacity=".2" />
     <path d="M148 162Q100 146 26 140M172 162Q230 144 294 136" stroke="currentColor" strokeDasharray="3 5" opacity=".5" />
@@ -26,7 +25,7 @@ function Signpost() {
   </svg>;
 }
 
-function RoadToChurch() {
+export function RoadToChurch() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <circle cx="262" cy="40" r="14" stroke="currentColor" opacity=".4" /><circle cx="262" cy="40" r="23" stroke="currentColor" opacity=".14" />
     <path d="M0 116Q50 98 100 106T204 96T320 104" stroke="currentColor" opacity=".2" />
@@ -43,7 +42,7 @@ function RoadToChurch() {
   </svg>;
 }
 
-function TableSet() {
+export function TableSet() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M160 0V18" stroke="currentColor" opacity=".6" /><path d="M144 32Q160 14 176 32Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.4" />
     <circle cx="160" cy="35" r="3" fill="currentColor" opacity=".8" />
@@ -68,7 +67,7 @@ function TableSet() {
 const STARS = [[28, 24], [70, 12], [118, 30], [160, 16], [250, 20], [294, 36], [214, 8]];
 const STONES = [[248, 166, 18, 5], [226, 146, 14, 4], [211, 128, 11, 3.4], [203, 112, 8, 2.6], [200, 98, 6, 2], [200, 86, 4.5, 1.6], [201, 76, 3, 1.2]];
 
-function LampToPath() {
+export function LampToPath() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     {STARS.map(([x, y]) => <circle key={x} cx={x} cy={y} r="1.3" fill="currentColor" opacity=".5" />)}
     <path d="M0 70Q60 56 120 64T240 58T320 66" stroke="currentColor" opacity=".3" />
@@ -91,7 +90,7 @@ const VOUSSOIRS = [22.5, 45, 67.5, 112.5, 135, 157.5].map((angle) => {
   return `M${160 - 40 * cos} ${76 - 40 * sin}L${160 - 54 * cos} ${76 - 54 * sin}`;
 }).join("");
 
-function OpenDoor() {
+export function OpenDoor() {
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <g stroke="currentColor" opacity=".16">{[48, 72, 96, 120, 144].map((y, row) => <path key={y} d={`M12 ${y}H96M224 ${y}H308${[0, 1, 2].map((i) => `M${30 + i * 28 + row % 2 * 14} ${y}v24M${238 + i * 28 + row % 2 * 14} ${y}v24`).join("")}`} />)}</g>
     <path d="M10 172H310" stroke="currentColor" opacity=".35" />
@@ -109,11 +108,3 @@ function OpenDoor() {
     <path d="M150 160L120 180M170 160L210 180M192 160L250 180M144 160L96 178" stroke="currentColor" strokeDasharray="2 4" opacity=".3" />
   </svg>;
 }
-
-export const RESOURCES_DOORWAYS: DoorwayVariant[] = [
-  { name: "Signpost with three arms", Art: Signpost },
-  { name: "Road to the church on the hill", Art: RoadToChurch },
-  { name: "A table set for gathering", Art: TableSet },
-  { name: "A lamp for the path", Art: LampToPath },
-  { name: "The open door", Art: OpenDoor },
-];

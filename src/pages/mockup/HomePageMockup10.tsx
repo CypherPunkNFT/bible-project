@@ -4,17 +4,17 @@
 // give me some mockups with the variations that I liked". It is the real HomePage, unchanged, with the squares handed those
 // drawings; the four versions on the pill (?v=a to d) cover the open choices: Study 2 or 3, and Resources and Sources 3 or 1.
 // The squares' drawings stand taller, in the room the lines under the titles used to take.
-import { useSearchParams } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
-import { APOLOGETICS_DOORWAYS } from "./doorways/DoorwayApologetics";
-import { ATLAS_DOORWAYS } from "./doorways/DoorwayAtlas";
-import { BIBLE_DOORWAYS } from "./doorways/DoorwayBible";
-import { RESOURCES_DOORWAYS } from "./doorways/DoorwayResources";
-import { SOURCES_DOORWAYS } from "./doorways/DoorwaySources";
-import { STUDY_DOORWAYS } from "./doorways/DoorwayStudy";
-import { DoorwayArt } from "./home-openings/HomeOpenings6Squares";
-import { VersionPill } from "./legal/VersionPill";
+import { useSearchParams } from "react-router-dom";
+import { APOLOGETICS_DOORWAYS } from "./doorways/DoorwayApologetics.shared";
+import { ATLAS_DOORWAYS } from "./doorways/DoorwayAtlas.shared";
+import { BIBLE_DOORWAYS } from "./doorways/DoorwayBible.shared";
+import { RESOURCES_DOORWAYS } from "./doorways/DoorwayResources.shared";
+import { SOURCES_DOORWAYS } from "./doorways/DoorwaySources.shared";
+import { STUDY_DOORWAYS } from "./doorways/DoorwayStudy.shared";
 import "./home-openings/home-mockup10.css";
+import { DoorwayArt } from "./home-openings/HomeOpenings6Squares.shared";
+import { VersionPill } from "./legal/VersionPill";
 
 const VERSIONS = [
   { id: "a", name: "First picks", study: 2, resources: 3, sources: 3 },

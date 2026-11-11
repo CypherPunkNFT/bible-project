@@ -1,14 +1,15 @@
 // The constellation: the six stanzas at the centre and, on an outer ring, every book hymnal editors tie the hymn to; bright
 // lines run from a stanza to the book of the verse one of its lines echoes. Choosing a stanza or a book fills the reading
 // column beside it (approved mock-up: design/hymn-directions/shared/constellation.js).
+import type { HymnSong, SongEcho } from "@/lib/hymns";
+import { plural } from "@/lib/site-format";
 import { useMemo, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
-import type { HymnSong, SongEcho } from "@/lib/hymns";
+import { EchoWords, type OpenPassage } from "./parts";
+import { ROMAN, placedUrl } from "./parts.shared";
 
 /** What the constellation needs of a hymn: its stanzas and echoes, and the books on the outer ring. */
 export interface ConstellationHymn { stanzas: HymnSong["stanzas"]; echoes: HymnSong["echoes"]; placed: HymnSong["placed"]; author: string; year: number }
-import { EchoWords, ROMAN, placedUrl, type OpenPassage } from "./parts";
-import { plural } from "@/lib/site-format";
 
 // Geometry: a 600 × 600 stage. Books on an outer ring in Bible order, Old Testament down the left side from the top,
 // New Testament down the right; stanzas on a small inner ring.

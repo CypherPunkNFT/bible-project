@@ -1,16 +1,16 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { Layout } from '@/components/Layout';
+import { DEBATES, PATHS, STUDIES, TOPICS } from '@/data/apologetics-library';
+import { CatalogProvider } from '@/lib/catalog-context';
+import ApologeticsPage from '@/pages/ApologeticsPage';
+import { ArrowRight, ArrowUpRight, BookOpen, Search, ShieldCheck, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, ChevronDown, ChevronRight, Compass, Globe2, Grid2X2, HeartHandshake, Menu, MessageCircle, Route as RouteIcon, ScrollText, Search, ShieldCheck, X } from 'lucide-react';
-import { Layout } from '@/components/Layout';
-import { CatalogProvider } from '@/lib/catalog-context';
-import { DEBATES, PATHS, PRACTICE, STUDIES, TOPICS, WORLDVIEWS } from '@/data/apologetics-library';
-import ApologeticsPage from '@/pages/ApologeticsPage';
-import { CollectionArt } from '@/pages/WorldviewsPage';
-import { Hub as IslamHub, Understanding, Ministry, Library, Article } from '../christianity-islam/preview';
+import { Article, Hub as IslamHub, Library, Ministry, Understanding } from '../christianity-islam/preview';
 import './preview.css';
+import { DesignContext, Destination, base, guide, islamPages, main, useDesign, worlds } from "./preview.shared";
 import './variants.css';
-import {WorldviewNavigation} from './worldview-menus';
+import { WorldviewNavigation } from './worldview-menus';
 
 const designs = [
  {id:'a',name:'Replace in place',description:'The cleaned-up B: switch between worldview choices and the current collection subpages.'},
@@ -18,30 +18,7 @@ const designs = [
  {id:'c',name:'Worldview tabs',description:'All worldviews stay visible above collapsible subpages.'},
  {id:'d',name:'Expandable cards',description:'Each worldview expands its own subpages.'},
 ];
-const DesignContext=createContext('a');
-const useDesign=()=>useContext(DesignContext);
 const readDesign=()=>{const id=new URLSearchParams(window.location.search).get('d')?.toLowerCase();return designs.some(d=>d.id===id)?id!:'a';};
-
-const base = '/apologetics';
-const islam = base + '/worldviews/islam';
-const guide = islam + '/guide';
-type Destination = { label: string; to: string; detail?: string; accent?: string };
-const main: Destination[] = [
-  {label:'Explore',to:base}, {label:'Questions',to:base+'/questions'},
-  {label:'Reformed theology',to:base+'/topics/reformed'}, {label:'Historic texts',to:base+'/texts'},
-  {label:'Learning paths',to:base+'/paths'}, {label:'Worldviews',to:base+'/worldviews'},
-  {label:'Debates',to:base+'/debates'}, {label:'Practice',to:base+'/practice'}, {label:'My study',to:base+'/saved'},
-];
-const worldviewNames: Record<string,string> = {islam:'Islam',secular:'Secular thought',buddhism:'Buddhism',hinduism:'Hinduism'};
-const accents: Record<string,string> = {islam:'var(--poetry)',secular:'var(--epistles)',buddhism:'var(--accent)',hinduism:'var(--history)'};
-const worlds: Destination[] = WORLDVIEWS.map(w => ({label:worldviewNames[w.id],to:base+'/worldviews/'+w.id,accent:accents[w.id],detail:w.description}));
-const islamPages: Destination[] = [
-  {label:'Overview',to:guide,detail:'A place to begin'},
-  {label:'Understanding Islam',to:guide+'/understanding',detail:'Beliefs, texts & daily life'},
-  {label:'Ministry',to:guide+'/ministry',detail:'Friendship & conversation'},
-  {label:'Texts & studies',to:guide+'/library',detail:'Read in context'},
-  {label:'Christianity & Islam',to:islam,detail:'Examine the claims'},
-];
 const browseGroups = [
   {label:'Explore the faith',links:main.slice(0,4)},
   {label:'Across beliefs',links:worlds},
@@ -56,36 +33,10 @@ const destinations: Destination[] = [
   ...DEBATES.map(d=>({label:d.title,to:base+'/debates/'+d.id,detail:'Debate study'})),
   ...STUDIES.map(s=>({label:s.title,to:base+'/study/'+s.id,detail:'Study · '+s.summary})),
 ];
-function groupFor(path:string) {
-  if(path.startsWith(base+'/topics/reformed')) return 'Reformed theology';
-  if(path.startsWith(base+'/topics/')||path.startsWith(base+'/study/')) return 'Questions';
-  return [...main].reverse().find(x=>x.to!==base&&path.startsWith(x.to))?.label ?? (path.startsWith(base+'/sources')?'Sources':'Explore');
-}
-function secondary(group:string): Destination[] {
-  if(group==='Worldviews') return [{label:'All worldviews',to:base+'/worldviews'},...worlds];
-  if(group==='Questions') return [{label:'All questions',to:base+'/questions'},...TOPICS.map(t=>({label:t.title,to:base+'/topics/'+t.id}))];
-  if(group==='Learning paths') return [{label:'All paths',to:base+'/paths'},...PATHS.map(p=>({label:p.title,to:base+'/paths/'+p.id}))];
-  if(group==='Practice') return PRACTICE.map(p=>({label:p.label,to:base+'/practice?scenario='+p.id}));
-  if(group==='Reformed theology'||group==='Historic texts') return [{label:'Reformed questions',to:base+'/topics/reformed'},{label:'Confessions & historic texts',to:base+'/texts'},{label:'The source room',to:base+'/sources'}];
-  if(group==='Debates') return [{label:'All exchanges',to:base+'/debates'},{label:'The source room',to:base+'/sources'},{label:'Conversation practice',to:base+'/practice'}];
-  if(group==='My study'||group==='Sources') return [{label:'My study',to:base+'/saved'},{label:'The source room',to:base+'/sources'},{label:'Find a question',to:base+'/questions'}];
-  return [{label:'Start here',to:base+'/paths/begin'},{label:'Explore the questions',to:base+'/questions'},{label:'Across beliefs',to:base+'/worldviews'},{label:'The source room',to:base+'/sources'}];
-}
-
-function isCurrent(d:Destination,pathname:string,search='') {
-  const [path,query]=d.to.split('?');
-  return query?pathname===path&&search==='?'+query:pathname===path||Boolean(d.accent&&pathname.startsWith(path+'/'));
-}
-const sectionIcons=[Compass,Search,ShieldCheck,ScrollText,RouteIcon,Globe2,MessageCircle,HeartHandshake,Bookmark];
-function currentIslam(path:string,search:string) {
-  if(path.endsWith('/article'))return islamPages[['friendship','journeys','gospel','debates'].includes(new URLSearchParams(search).get('article')??'')?2:1];
-  return islamPages.find(d=>d.to===path)??islamPages[0];
-}
 export function NavigationHeader() {
-  const location=useLocation(), group=groupFor(location.pathname), design=useDesign();
+  const location=useLocation(), design=useDesign();
   const [query,setQuery]=useState('');
   const dialog=useRef<HTMLDialogElement>(null), trigger=useRef<HTMLButtonElement>(null), input=useRef<HTMLInputElement>(null);
-  const links=secondary(group);
   function open(){setQuery('');dialog.current?.showModal();requestAnimationFrame(()=>input.current?.focus());}
   function close(){dialog.current?.close();}
   useEffect(()=>{close();},[location.pathname,location.search]);
@@ -128,4 +79,4 @@ function App() {
 if (!window.location.hash.startsWith('#/')) window.history.replaceState(null,'',window.location.pathname+window.location.search+'#/apologetics/worldviews');
 createRoot(document.getElementById('root')!).render(<HashRouter><CatalogProvider><App/></CatalogProvider></HashRouter>);
 
-export {main, worlds, islamPages, groupFor, secondary, currentIslam, useDesign};
+

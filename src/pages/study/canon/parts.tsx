@@ -1,9 +1,8 @@
+import { ext } from "./parts.shared";
 // The canon study's shared pieces (approved mock-up: js/core.js): the source links under every claim, a picture's credit,
 // the note on what changed over time, and a section that keeps its own failure and opens with its line of the story.
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { imgSrc, pictureWhat, sourceById, type Picture } from "./model";
-
-export const ext = { target: "_blank", rel: "noopener" } as const;
 
 /** The source links under a claim, opening in a new tab, exactly as the research file lists them. */
 export function Cite({ ids }: { ids: string[] }) {

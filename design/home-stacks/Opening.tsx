@@ -1,51 +1,15 @@
 import { HeroStack } from './HeroStack';
-import { ArrowRight, ArrowUpRight, BookOpen, Compass, GitBranch, Map, Pause, Play } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { ArrowRight, ArrowUpRight, BookOpen } from "lucide-react";
+import { useLayoutEffect, useRef, type CSSProperties } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
-import { BibleShelf, CollectionArtwork, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
-import { HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
+import { CollectionArtwork } from "@/components/home/HomeArtwork";
+import { HOME_PATHS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
 
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
-
-function SectionHeading({ number, label, title, children, to, action }: { number: string; label: string; title: ReactNode; children: ReactNode; to: string; action: string }) {
-  return <header className="home-section-heading"><div><p className="home-eyebrow"><span>{number}</span>{label}</p><h2>{title}</h2><p>{children}</p></div><Link className="home-text-link" to={to}>{action}<ArrowUpRight size={17} aria-hidden /></Link></header>;
-}
-
-function PreviewMarquee() {
-  const [paused, setPaused] = useState(false);
-  const [copies, setCopies] = useState(2);
-  const viewport = useRef<HTMLDivElement>(null);
-  const firstGroup = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    const frame = viewport.current;
-    const group = firstGroup.current;
-    if (!frame || !group) return;
-    const measure = () => {
-      const width = group.getBoundingClientRect().width;
-      if (!width) return;
-      // Keep one complete sequence beyond the visible width at every animation phase.
-      setCopies(Math.max(2, Math.ceil(frame.clientWidth / width) + 1));
-      frame.style.setProperty("--home-marquee-shift", `${-width}px`);
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(frame);
-    observer.observe(group);
-    return () => observer.disconnect();
-  }, []);
-  return <section className="home-preview-strip" aria-label="A glimpse of the collections">
-    <div className="home-strip-heading"><span>A glimpse of what awaits</span><button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? "Play collection previews" : "Pause collection previews"}>{paused ? <Play size={13} /> : <Pause size={13} />}<span>{paused ? "Play" : "Pause"}</span></button></div>
-    <div className="home-marquee" ref={viewport} data-paused={paused}><div className="home-marquee-track">
-      {Array.from({ length: copies }, (_, copy) => <div className="home-marquee-group" ref={copy === 0 ? firstGroup : undefined} key={copy} aria-hidden={copy > 0 ? true : undefined}>
-        {HOME_PREVIEWS.map((item) => <Link key={item.to} to={item.to} tabIndex={copy ? -1 : undefined} className="home-preview" style={tint(item.color)} aria-label={item.label}><div><HomeArtwork kind={item.art} /></div><p>{item.label}<ArrowUpRight size={13} aria-hidden /></p><strong>{item.title}</strong></Link>)}
-      </div>)}
-    </div></div>
-  </section>;
-}
 
 export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();

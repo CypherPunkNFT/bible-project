@@ -1,17 +1,17 @@
-import {useEffect,useState,type CSSProperties} from 'react';
-import {createRoot} from 'react-dom/client';
-import {MemoryRouter,useLocation} from 'react-router-dom';
-import {ArrowRight,ArrowUpRight,Pause,Play} from 'lucide-react';
-import {Layout} from '@/components/Layout';
-import {ApologeticsNavigationHeader} from '@/components/apologetics/ApologeticsNavigationHeader';
-import {WORLDVIEWS} from '@/generated/apologetics';
-import {WideArtwork} from './art';
-import {ScienceArtwork} from './science';
+import { Layout } from '@/components/Layout';
+import { ApologeticsNavigationHeader } from '@/components/apologetics/ApologeticsNavigationHeader';
+import '@/components/apologetics/navigation.css';
+import '@/components/apologetics/worldview-colors.css';
+import { WORLDVIEWS } from '@/generated/apologetics';
 import '@/pages/apologetics.css';
 import '@/pages/worldviews.css';
-import '@/components/apologetics/worldview-colors.css';
-import '@/components/apologetics/navigation.css';
+import { ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react';
+import { useEffect, useState, type CSSProperties } from 'react';
+import { createRoot } from 'react-dom/client';
+import { MemoryRouter, useLocation } from 'react-router-dom';
+import { WideArtwork } from './art';
 import './preview.css';
+import { ScienceArtwork } from './science';
 
 const identities={
  islam:{accent:'var(--poetry)',theme:'Jesus · God · the cross'},
@@ -29,7 +29,7 @@ function VariantButtons({world,value,onChange}:{world:'islam'|'secular';value:nu
  </div>;
 }
 
-function App(){
+export function App(){
  const locationState=useLocation();
  const [paused,setPaused]=useState(false),[islamVersion,setIslamVersion]=useState(0),[scienceVersion,setScienceVersion]=useState(0);
  useEffect(()=>{

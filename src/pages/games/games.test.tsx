@@ -9,8 +9,8 @@ const renderAt = (path: string) => render(
 );
 
 describe("games registry", () => {
-  it("holds the quiz and the fourteen approved games, each at its own address", () => {
-    expect(GAMES).toHaveLength(15);
+  it("holds the quiz, the fourteen approved games and the Bible crossword, each at its own address", () => {
+    expect(GAMES).toHaveLength(16);
     const slugs = GAMES.map((game) => game.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
     for (const slug of slugs) expect(slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
@@ -92,7 +92,7 @@ describe("games hub", () => {
 
   it("keeps a live card's name to its title, not its picture", () => {
     renderAt("/games");
-    expect(screen.getByRole("link", { name: "Odd one out" })).toHaveAttribute("href", "/games/odd-one-out");
+    expect(screen.getByRole("link", { name: "Map quest" })).toHaveAttribute("href", "/games/map-quest");
   });
 
   it("jumps from the hero to each shelf", () => {

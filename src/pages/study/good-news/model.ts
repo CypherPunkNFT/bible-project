@@ -42,4 +42,4 @@ export function passageIds(catalog: Catalog, id: string): number[] {
     return verseIdOf(catalog, code, chapter, verse);
   });
 }
-export const hasPassage = (id: string | null): id is string => Boolean(id && Object.hasOwn(D.passages, id));
+export const hasPassage = (id: string | null): id is string => Boolean(id && Object.prototype.hasOwnProperty.call(D.passages, id));

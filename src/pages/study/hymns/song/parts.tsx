@@ -1,18 +1,13 @@
+import { readerUrl } from "./parts.shared";
 // The small shared pieces of a hymn's study page: the passage panel that slides in beside the page, the reader links,
 // and the collapsed sources line (approved mock-up: design/hymn-directions/shared/page.js).
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, X } from "lucide-react";
-import type { HymnSong, SongEcho, SongPassage, SongPlacedRef } from "@/lib/hymns";
 import { BibleName, Verse, VerseMissing } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
+import type { HymnSong, SongEcho, SongPassage } from "@/lib/hymns";
 import { firstWords, useVerses, verseIdOf } from "@/lib/verses";
-
-/** A stanza numeral's size: numerals longer than three letters (VIII, XXVIII) shrink to fit the numeral column. */
-export const numeralStyle = (label: string) => (label.length > 3 ? { fontSize: `${(4.4 / (0.47 * label.length)).toFixed(2)}rem`, top: ".2rem" } : undefined);
-
-export const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII",
-  "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX"];
+import { ArrowRight, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 /** A passage's verses in the reader's Bible. The files hold book, chapter and verse numbers only. */
 export function PassageVerses({ p, numbered, render }: { p: Pick<SongPassage, "code" | "chapter" | "verses">; numbered?: boolean; render?: (text: string) => ReactNode }) {
@@ -39,12 +34,6 @@ export function EchoWords({ echo }: { echo: SongEcho }) {
 
 export interface PanelContent { passage: SongPassage; line?: string; kicker?: string }
 export type OpenPassage = (content: PanelContent) => void;
-
-/** A passage in the reader, its verses highlighted. */
-export const readerUrl = (p: SongPassage) =>
-  `/read/kjv/${p.code}/${p.chapter}?hl=${p.verses[0].n}${p.verses.length > 1 ? `-${p.verses[p.verses.length - 1].n}` : ""}`;
-/** A passage hymnal editors tie the hymn to, in the reader: the chapter, its verses highlighted unless it is all of it. */
-export const placedUrl = (r: SongPlacedRef) => `/read/kjv/${r.code}/${r.chapter}${r.whole ? "" : `?hl=${r.ref.split(":")[1].replace("–", "-")}`}`;
 
 export function PassagePanel({ content, onClose }: { content: PanelContent | null; onClose: () => void }) {
   useEffect(() => {

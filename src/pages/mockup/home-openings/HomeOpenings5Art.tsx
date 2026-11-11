@@ -1,23 +1,14 @@
+import { useBooks } from "./HomeOpenings5Art.shared";
 // MOCK-UP: the rose window of /home_mockup5 (owner, 2026-10-30): the 66 books as panes of glass, laid out as a mirror, with the
 // marquee bent into a ring around it. Choosing a pane names its book. (The other drawings were removed on the owner's word;
 // a copy is in design/home-openings-5-removed/.)
-import { useId, useMemo, useState, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
-import { useCatalog } from "@/lib/catalog";
-import { MARQUEE } from "./HomeOpenings";
 import { plural } from "@/lib/site-format";
+import { useId, useState, type CSSProperties } from "react";
+import { Link } from "react-router-dom";
+import { MARQUEE } from "./HomeOpenings.shared";
 
 const fixed = (value: number) => value.toFixed(1);
 const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
-
-/** The 66 books in order, with their chapter counts in the Berean Standard Bible. */
-export function useBooks() {
-  const catalog = useCatalog();
-  return useMemo(() => {
-    const bible = catalog.translations.find((item) => item.slug === "bsb");
-    return catalog.books.flatMap((book) => { const chapters = bible?.books[book.code]?.length; return chapters ? [{ ...book, chapters }] : []; });
-  }, [catalog]);
-}
 
 const ROSE = 400, RING = 384;
 const polar = (radius: number, angle: number) => `${fixed(ROSE + Math.cos(angle) * radius)} ${fixed(ROSE + Math.sin(angle) * radius)}`;

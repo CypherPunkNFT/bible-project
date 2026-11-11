@@ -1,0 +1,62 @@
+/* The Scripture memory helper (ScriptureMemoryPage.tsx). It wears the tools hub's look (games.css: hero, numbered
+   shelves) and adds only its own parts, all under sm- classes: the reference field, the starter verses, the faded verse
+   with its word gaps, the step meter, the list rows and the keeping panel. Lines and hairlines, never boxes around
+   everything. Its colour is the gospels tone, like its drawing on the hub. */
+.sm-page { --sm: var(--gospels); }
+.sm-page .st-kick a { color: inherit; }
+.sm-shelf .gm-shelf-head { border-bottom: 1px solid var(--line); }
+.sm-page a:not(.gm-jump a) { color: var(--sm); text-underline-offset: 3px; }
+
+.sm-choose { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1rem 1.25rem; margin-top: 1.4rem; }
+.sm-field { display: flex; flex-direction: column; gap: .35rem; min-width: 14rem; flex: 0 1 26rem; }
+.sm-field > label, .sm-label { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.sm-label { margin-top: 1.6rem; }
+.sm-field input { min-height: 2.75rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1rem; }
+.sm-page input:focus-visible { border-color: var(--sm); outline: 2px solid color-mix(in srgb, var(--sm) 35%, transparent); outline-offset: 1px; }
+.sm-page input[aria-invalid="true"] { border-color: var(--red-letter); }
+.sm-hint { color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.sm-bad { color: var(--red-letter); font-size: .9rem; line-height: 1.5; margin-top: .6rem; }
+.sm-banner { margin-top: 1.5rem; }
+.sm-file { display: none; }
+
+.sm-primary, .sm-secondary, .sm-starters button { min-height: 2.75rem; padding: .45rem 1.1rem; border: 1px solid var(--sm); border-radius: 999px; font-size: .95rem; cursor: pointer; transition: background-color .2s, border-color .2s; }
+.sm-primary { background: var(--sm); color: var(--surface); font-weight: 600; }
+.sm-secondary, .sm-starters button { background: transparent; color: var(--ink); border-color: var(--line); }
+.sm-secondary:is(:hover, :focus-visible), .sm-starters button:is(:hover, :focus-visible) { border-color: var(--sm); }
+.sm-page button:focus-visible { outline: 2px solid color-mix(in srgb, var(--sm) 45%, transparent); outline-offset: 2px; }
+.sm-page button:disabled { opacity: .45; cursor: not-allowed; }
+.sm-link { margin-inline-start: .4rem; background: none; border: 0; padding: .3rem 0; color: var(--sm); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: .9rem; }
+.sm-starters { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+
+.sm-result { margin-top: 1.2rem; display: grid; gap: .25rem; padding-inline-start: 1rem; border-inline-start: 2px solid var(--sm); }
+.sm-practise { margin-top: 1.4rem; }
+.sm-practise-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem; }
+.sm-practise-head h3 { color: var(--sm); font: 450 clamp(1.4rem, 2.8vw, 2rem)/1.2 var(--font-serif); letter-spacing: -.02em; }
+.sm-practise-head h3:focus { outline: none; }
+.sm-step { display: inline-flex; align-items: center; gap: .6rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.sm-meter { display: inline-flex; gap: 3px; }
+.sm-meter > span { width: .9rem; height: .3rem; border-radius: 2px; background: var(--line); }
+.sm-meter > span.is-on { background: var(--sm); }
+.sm-show { margin: .8rem 0 0; }
+
+.sm-verse { margin-top: 1rem; max-width: 46rem; font: 400 clamp(1.15rem, 2.2vw, 1.45rem)/2.15 var(--font-serif); color: var(--ink); text-align: start; }
+.sm-gap { display: inline-block; min-height: 24px; padding: 0 .1em; border: 0; border-bottom: 2px solid color-mix(in srgb, var(--sm) 55%, transparent); background: color-mix(in srgb, var(--sm) 7%, transparent); border-radius: 2px; color: var(--sm); font: inherit; line-height: 1.4; vertical-align: baseline; cursor: pointer; }
+.sm-gap.is-open { background: transparent; border-bottom-style: dotted; }
+.sm-gap:disabled { opacity: 1; cursor: default; }
+
+.sm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.3rem; }
+.sm-quiet { margin-top: .8rem; max-width: 46rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.sm-tight { margin-top: .3rem; font-size: .8rem; }
+
+.sm-counts { display: flex; flex-wrap: wrap; gap: .3rem 1.5rem; margin-top: 1.2rem; color: var(--muted); font-size: .9rem; }
+.sm-rows { margin-top: .8rem; overflow-anchor: none; }
+.sm-row { border-bottom: 1px solid var(--line); }
+.sm-row-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; width: 100%; min-height: 3.5rem; padding: .6rem .2rem; background: none; border: 0; color: var(--ink); text-align: start; cursor: pointer; }
+.sm-row-head[aria-current="true"] .sm-row-ref { color: var(--sm); font-weight: 600; }
+.sm-row-ref { font: 450 1.05rem/1.3 var(--font-serif); }
+.sm-row-step, .sm-row-state { color: var(--muted); font-size: .8rem; }
+.sm-row-state { text-align: end; }
+@media (min-width: 40rem) { .sm-row-head { grid-template-columns: minmax(0, 1fr) auto 9rem 11rem; align-items: center; } }
+
+.sm-keep { margin-top: 1.2rem; }
+.sm-prose { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: .8rem; line-height: 1.65; }

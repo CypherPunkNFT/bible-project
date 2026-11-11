@@ -1,0 +1,95 @@
+/* The printed sheets (Sheets.tsx, design 6.1). True size in inches or millimetres, ink only: strokes and type, never a
+   background the browser would drop. Fixed light colours, not the theme's variables, so dark mode cannot reach the paper.
+   The card and display geometry is the life-event sheets' (life-events-sheet.css), copied rather than imported. */
+.hbs-sheet {
+  --ink-fixed: #1f1b16; --muted-fixed: #5b5246; --guide: #b9ae9c;
+  position: relative; box-sizing: border-box; width: var(--sheet-width); height: calc(var(--sheet-height) - 1px); overflow: hidden;
+  background: #fff; color: var(--ink-fixed); font-family: "Archivo Variable", system-ui, sans-serif; font-size: 10pt; line-height: 1.4;
+  color-scheme: light; text-align: center;
+}
+.hbs-sheet *, .hbs-sheet *::before, .hbs-sheet *::after { box-sizing: border-box; }
+.hbs-sheet p, .hbs-sheet h1, .hbs-sheet h2 { margin: 0; }
+.hbs-sheet + .hbs-sheet { break-before: page; }
+
+.hbs-words { font-family: "Literata Variable", Georgia, serif; display: flex; flex-direction: column; align-items: center; overflow-wrap: anywhere; max-width: 100%; }
+.hbs-line { display: block; }
+.hbs-stanza { display: block; height: 0.7em; }
+.hbs-scripture { font-style: italic; }
+.hbs-name { font-style: normal; }
+.hbs-blank { display: inline-block; width: 1.6in; border-bottom: 0.6pt solid var(--ink-fixed); vertical-align: baseline; height: 1em; }
+.hbs-heading { color: var(--muted-fixed); font-size: 9pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.hbs-credit { color: var(--muted-fixed); font-size: 9pt; font-weight: 600; letter-spacing: .04em; }
+.hbs-footer { color: var(--muted-fixed); font-size: 7.5pt; }
+.hbs-name-heading { font-family: "Literata Variable", Georgia, serif; font-size: 16pt; line-height: 1.2; }
+.hbs-name-heading.hbs-long { font-size: 13pt; }
+.hbs-family { font-family: "Literata Variable", Georgia, serif; font-size: 13pt; }
+
+/* Wall print: Letter keeps everything inside a centred 8 x 10in area, so the trimmed sheet fits a standard frame; A4 fills
+   the sheet with a margin and fits an A4 frame as it is. Words at 19pt. */
+.hbs-wall-area { position: absolute; inset: 0.5in 0.25in; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2in; padding: 0.7in; }
+.hbs-paper-a4 .hbs-wall-area { inset: 0; padding: 22mm; }
+.hbs-guides.hbs-paper-letter .hbs-wall-area { border: 0.6pt dashed var(--guide); }
+.hbs-wall .hbs-heading { font-size: 12pt; }
+.hbs-wall-words { font-size: 19pt; line-height: 1.5; }
+.hbs-wall .hbs-name-heading { font-size: 22pt; }
+.hbs-wall .hbs-name-heading.hbs-long { font-size: 18pt; }
+
+/* Cards, four to a sheet: 4.25 x 5.5in on Letter, 105 x 148mm (A6) on A4, with faint cut guides. Words at 14pt, or 18pt for
+   an item that fits 8 printed lines at 26 characters. */
+.hbs-sheet.hbs-cards { display: grid; grid-template: 1fr 1fr / 1fr 1fr; }
+.hbs-card { min-width: 0; min-height: 0; overflow: hidden; padding: 0.35in; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1in; }
+.hbs-paper-a4 .hbs-card { padding: 9mm; }
+.hbs-card .hbs-words { font-size: 14pt; line-height: 1.4; }
+.hbs-card-large .hbs-words { font-size: 18pt; line-height: 1.4; }
+.hbs-card .hbs-footer { margin-top: auto; }
+.hbs-card .hbs-heading:first-child, .hbs-card .hbs-name-heading:first-child { margin-top: auto; }
+.hbs-guides.hbs-cards::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 0.6pt dashed var(--guide); }
+.hbs-guides.hbs-cards::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 0.6pt dashed var(--guide); }
+
+/* The fill-in card: prompts with lines to write on. */
+.hbs-prompts { list-style: none; margin: 0; padding: 0; width: 100%; text-align: left; font-family: "Literata Variable", Georgia, serif; font-size: 12pt; }
+.hbs-prompts li { display: flex; flex-direction: column; gap: 0.06in; margin-bottom: 0.08in; }
+.hbs-write { display: block; height: 0.28in; border-bottom: 0.6pt solid var(--guide); }
+.hbs-colouring .hbs-prompts { font-size: 22pt; }
+.hbs-colouring .hbs-write { height: 0.5in; }
+
+/* Table card: landscape, folded once along the long middle line into a tent. The top half is turned 180 degrees so the
+   grace reads upright from both sides of the table. Words at 18pt. Its landscape @page rule is written beside the sheet
+   (tentPageRule in Sheets.tsx): Edge did not honour a named landscape page here. */
+.hbs-sheet.hbs-table-card { display: grid; grid-template-rows: 1fr 1fr; }
+.hbs-tent-face { min-height: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.12in; padding: 0.45in 1.2in; }
+.hbs-tent-face .hbs-words { font-size: 18pt; line-height: 1.4; }
+.hbs-turned { transform: rotate(180deg); }
+.hbs-guides.hbs-table-card::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 0.6pt dashed var(--guide); }
+
+/* Colouring page: a wide border of line art to colour, the words in at least 24pt in the middle, clear of the border. */
+.hbs-border { position: absolute; inset: 0.35in; }
+.hbs-border-row { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; }
+.hbs-border-top { top: 0; }
+.hbs-border-bottom { bottom: 0; }
+.hbs-border-column { position: absolute; top: 1.1in; bottom: 1.1in; display: flex; flex-direction: column; justify-content: space-between; }
+.hbs-border-left { left: 0; }
+.hbs-border-right { right: 0; }
+.hbs-motif { width: 0.95in; height: 0.95in; }
+.hbs-colouring-area { position: absolute; inset: 1.45in; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15in; }
+.hbs-colouring .hbs-words { font-size: 24pt; line-height: 1.35; }
+.hbs-colouring .hbs-name-heading { font-size: 24pt; }
+.hbs-colouring .hbs-name-heading.hbs-long { font-size: 20pt; }
+
+/* Room-by-room order: ordinary page flow with page margins and numbers, each station kept together. */
+@page hb-order { margin: 0.75in; @bottom-center { content: counter(page); font: 9pt "Archivo Variable", system-ui, sans-serif; color: #5b5246; } }
+.hbs-sheet.hbs-order { page: hb-order; height: auto; overflow: visible; padding: 0.75in; text-align: left; font-size: 11pt; line-height: 1.5; }
+.hbs-order h1 { margin-bottom: 0.1in; font: 600 20pt/1.2 "Literata Variable", Georgia, serif; }
+.hbs-order-how { color: var(--muted-fixed); margin-bottom: 0.15in !important; }
+.hbs-station { padding: 0.12in 0; border-bottom: 0.6pt solid #e4ddd0; break-inside: avoid; }
+.hbs-station h2 { margin-bottom: 0.04in; font-size: 12pt; font-weight: 650; }
+.hbs-station p { margin: 0.04in 0; }
+.hbs-place { color: var(--muted-fixed); font-weight: 400; }
+.hbs-mark { font-weight: 650; }
+.hbs-reading { font-family: "Literata Variable", Georgia, serif; }
+.hbs-reading cite { font-family: "Archivo Variable", system-ui, sans-serif; font-style: normal; font-size: 9.5pt; color: var(--muted-fixed); }
+.hbs-order .hbs-footer { margin-top: 0.2in; }
+
+@media print {
+  .print-sheet-portal .hbs-sheet.hbs-order { width: auto; padding: 0; }
+}

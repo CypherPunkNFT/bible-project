@@ -1,15 +1,14 @@
+import { pageWidth } from "./QuizSlider.shared";
 // Homepage: the twelve questions as a slider, three at a time (two on a narrow phone), in place of rows of tiles, under one bar with the score as
 // right / answered and a dot for each page (owner, 2026-10-31). It slides by swipe, or by dragging with a mouse. With a question open, the bar holds the twelve steps in place of the dots.
 import { RotateCcw } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode, type RefObject, type TouchEvent } from "react";
+import { useRef, type MouseEvent, type PointerEvent, type ReactNode, type RefObject, type TouchEvent } from "react";
 import { QUESTIONS } from "../quiz-data";
 import { Steps } from "./QuizParts";
 import type { Quiz } from "./quiz-state";
 
 /** A mouse has to move this far before a press counts as a drag and not a click on a tile. */
 const DRAG_START = 5;
-
-const pageWidth = (frame: HTMLElement) => frame.clientWidth + parseFloat(getComputedStyle(frame.firstElementChild ?? frame).columnGap || "0");
 
 /** Where a slide begun at `left` should settle: past a sixth of the way, the page turns in its direction. */
 const pageAfter = (frame: HTMLElement, left: number) => {
@@ -18,25 +17,6 @@ const pageAfter = (frame: HTMLElement, left: number) => {
   const from = Math.round(left / width);
   return Math.abs(moved) > 1 / 6 ? from + Math.sign(moved) * Math.max(1, Math.round(Math.abs(moved))) : from;
 };
-
-/** The page shown, and the moves that change it. `question` is the question whose page to open on. */
-export function useQuizPages(frame: RefObject<HTMLDivElement>, question: number, perPage: number) {
-  const pages = Math.ceil(QUESTIONS.length / perPage);
-  const start = Math.min(pages - 1, Math.floor(question / perPage));
-  const [page, setPage] = useState(start);
-  useLayoutEffect(() => {
-    setPage(start);
-    if (frame.current) frame.current.scrollLeft = start * pageWidth(frame.current);
-  }, [frame, start]);
-  const go = (next: number) => {
-    const box = frame.current;
-    if (!box) return;
-    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    box.scrollTo({ left: Math.min(pages - 1, Math.max(0, next)) * pageWidth(box), behavior: smooth ? "smooth" : "auto" });
-  };
-  const track = () => { if (frame.current) setPage(Math.round(frame.current.scrollLeft / pageWidth(frame.current))); };
-  return { page, pages, go, track };
-}
 
 export function QuizBar({ quiz, page, pages, go, nav, bar }: { quiz: Quiz; page: number; pages: number; go: (next: number) => void; nav: boolean; bar: RefObject<HTMLDivElement> }) {
   const perPage = QUESTIONS.length / pages;

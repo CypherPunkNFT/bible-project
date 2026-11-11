@@ -1,15 +1,16 @@
 import { StudyTrail } from "@/components/study/StudyTrail";
-import { useEffect, useId, useMemo, useState, type CSSProperties } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Fingerprint, Layers3, MapPin, ScanLine, X } from 'lucide-react';
-import { glossary, questions, witnesses, type Witness } from './witnesses';
 import { loadManuscripts } from '@/lib/data';
 import { useAsync } from '@/lib/useAsync';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Fingerprint, Layers3, MapPin, ScanLine, X } from 'lucide-react';
+import { useEffect, useId, useMemo, useState, type CSSProperties } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { buildIndex } from '../manuscripts/model';
 import { MsPane } from '../manuscripts/parts';
-import { HowClose, HowMuchSurvives, OpenCollection, recordHref, WhereKept, WitnessPhoto } from './Evidence';
+import { HowClose, HowMuchSurvives, OpenCollection, WhereKept, WitnessPhoto } from "./Evidence";
+import { recordHref } from "./Evidence.shared";
 import './surviving-witnesses.css';
+import { glossary, questions, witnesses, type Witness } from './witnesses';
 
 // Drawings describe formats only. They do not reproduce a manuscript's text or damage.
 function Folio({ kind = 'columns', hero = false }: { kind?: Witness['kind']; hero?: boolean }) {

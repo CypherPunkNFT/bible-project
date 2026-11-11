@@ -1,0 +1,62 @@
+.wy-page {max-width:60rem;margin:auto;padding:3rem 1rem 5rem;line-height:1.7;}
+.wy-page h1 {font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:1rem 0 2rem;}
+.wy-page h2 {font-size:1.5rem;line-height:1.3;margin:2rem 0 1rem;}
+.wy-page h3 {font-size:1.1rem;font-weight:600;}
+.wy-page p {margin:1rem 0;}
+.wy-page a {text-decoration:underline;text-underline-offset:3px;}
+.wy-page button,.wy-send a,.wy-help a {min-height:44px;display:inline-flex;align-items:center;padding:.5rem .75rem;gap:.5rem;}
+.wy-page button {border:1px solid currentColor;border-radius:.35rem;}
+.wy-help {border:1px solid #669c80;border-radius:.6rem;padding:1.25rem;margin:1.5rem 0;background:rgb(77 133 103 / 8%);}
+.wy-help h2 {margin-top:0;}
+.wy-help-entry {margin:1.25rem 0;}
+.wy-help-entry ul {padding:0;list-style:none;}
+.wy-help-entry li {margin:.4rem 0;}
+.wy-checked,.wy-context {font-size:.9rem;opacity:.85;}
+.wy-device {border-top:1px solid #669c80;padding-top:1rem;margin-top:1rem;}
+.wy-exit {position:fixed;z-index:60;right:.75rem;bottom:.75rem;max-width:calc(100vw - 1.5rem);background:var(--page,#fff);color:var(--ink,#17251d);box-shadow:0 1px 8px #0003;flex-wrap:wrap;}
+.wy-exit span {font-size:.8rem;}
+.wy-passage {scroll-margin-top:6rem;border-bottom:1px solid rgb(128 128 128 / 25%);padding:1.5rem 0;}
+.wy-passage blockquote {font-family:var(--font-serif,Georgia,serif);font-size:1.25rem;margin:0 0 1rem;}
+.wy-featured blockquote {font-size:clamp(1.4rem,3vw,1.9rem);}
+.wy-collapsed {display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.wy-believer {font-size:.85rem;margin-bottom:.5rem;}
+.wy-send {display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;}
+.wy-message,.wy-send label {width:100%;}
+.wy-message pre {white-space:pre-wrap;font:inherit;overflow-wrap:anywhere;}
+.wy-send textarea {display:block;width:100%;min-height:10rem;background:transparent;border:1px solid currentColor;padding:1rem;}
+.wy-page input {display:block;width:100%;padding:.75rem;background:transparent;border:1px solid currentColor;border-radius:.35rem;}
+.wy-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));list-style:none;padding:0;gap:1rem;}
+.wy-grid a {display:block;padding:1rem;border:1px solid rgb(128 128 128 / 35%);border-radius:.5rem;height:100%;}
+.wy-grid span {display:block;font-size:.9rem;}
+.wy-page :focus-visible {outline:3px solid #669c80;outline-offset:3px;}
+@media(min-width:768px) {.wy-text-message {display:none!important;}}
+@media(max-width:480px) {.wy-page {padding-top:1.5rem;}.wy-help {padding:1rem;}}
+.wy-crumbs {font-size:.9rem;opacity:.85;}
+.wy-intro {font-size:1.15rem;}
+.wy-contacts {list-style:none;padding:0;margin:.5rem 0;display:flex;flex-wrap:wrap;gap:.25rem .75rem;}
+.wy-contacts li {display:flex;flex-direction:column;}
+.wy-contact-value {font-weight:600;}
+.wy-contact-note,.wy-entry-label,.wy-faith {font-size:.9rem;}
+.wy-entry-label {font-weight:600;}
+.wy-checked {display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:center;}
+.wy-checked dl {display:flex;gap:.35rem;margin:0;}
+.wy-checked dd {margin:0;}
+.wy-urgent-entry {margin:1rem 0;padding-top:.75rem;border-top:1px solid rgb(102 156 128 / 40%);}
+.wy-fallback {display:flex;flex-direction:column;gap:.5rem;margin:1rem 0;font-weight:600;}
+.wy-fallback button {align-self:flex-start;}
+.wy-strip-row {margin:.5rem 0;}
+.wy-quiet {font-size:.95rem;padding:1rem;}
+.wy-quiet .wy-contacts li {flex-direction:row;gap:.5rem;align-items:center;}
+.wy-group {margin-top:1.5rem;}
+.wy-reference {font-size:.95rem;margin-top:.25rem;}
+.wy-pray-line {font-style:italic;}
+.wy-role-blessing .wy-passage {background:rgb(128 128 128 / 7%);border-radius:.6rem;padding:1.25rem;border-bottom:0;}
+.wy-person,.wy-note,.wy-foot-help,.wy-more {margin-top:2.5rem;}
+.wy-more ul {padding-left:1.25rem;}
+.wy-foot-links,.wy-foot-extra {margin:1rem 0;}
+.wy-filter label {display:block;margin-bottom:.5rem;}
+.wy-count {min-height:1.5rem;font-size:.9rem;margin-top:.5rem;}
+.wy-unknown {border-left:3px solid #669c80;padding:.5rem 1rem;margin:1rem 0;}
+.wy-grid strong {display:block;font-weight:600;}
+.wy-source {font-size:.85rem;opacity:.8;margin-top:2rem;}
+.wy-loading,.wy-load-error {margin:2rem 0;}

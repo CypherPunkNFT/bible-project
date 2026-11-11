@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "py -3.12 content/translation/english_build_check.py && node --experimental-strip-types scripts/check-site-languages.ts && npm run people-pages && py -3.12 scripts/check-verse-wording.py && npm run scholars:sources && node scripts/build-profile-work-shelves.mjs && node scripts/refresh-local-reading-catalog.mjs && node scripts/prepare-population-hosting.mjs",
-    "scholars:sources": "node scripts/collect-scholar-site-sources.mjs && python scripts/build-scholar-usage.py",
+    "scholars:sources": "node scripts/collect-scholar-site-sources.mjs && python scripts/build-scholar-usage.py && python scripts/refresh-scholar-population.py",
     "scholars:sources:check": "node scripts/collect-scholar-site-sources.mjs --check && python scripts/build-scholar-usage.py --check",
     "build": "vite build",
     "build:portable": "node scripts/build-portable.mjs",
@@ -94,6 +94,7 @@
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.10.0",
     "@testing-library/react": "16.3.3",
+    "@types/bun": "1.4.4",
     "@types/d3-geo": "3.1.1",
     "@types/d3-hierarchy": "3.1.7",
     "@types/d3-scale": "4.0.9",

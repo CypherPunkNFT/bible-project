@@ -1,6 +1,7 @@
-import {useState, type CSSProperties} from 'react';
-import {Check, Plus} from 'lucide-react';
-import {ObjectArt, names, type World} from './art';
+import { Check, Plus } from 'lucide-react';
+import { useState, type CSSProperties } from 'react';
+import { ObjectArt, type World } from "./art";
+import { names } from "./art.shared";
 
 type Artifact={number:number;id:string;name:string;description:string;approved?:boolean};
 const groups:Record<World,Artifact[]>={

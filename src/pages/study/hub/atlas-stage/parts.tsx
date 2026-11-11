@@ -1,22 +1,11 @@
+import { useAtlasChoice } from "./parts.shared";
 // The pieces of the study page's Atlas window, shared by the live window (AtlasStage) and the mock-ups that led to it
 // (/study/atlas_mockup/1-4, /study/atlas_colors_mockup, owner 2026-11-06).
-import { useState } from "react";
-import { ArrowRight, ArrowUpRight, Map as MapIcon } from "lucide-react";
 import { StudyLink } from "@/pages/study/hub/shared";
-import { CATEGORIES, GROUPS, placeHref, type AtlasCategory, type AtlasPlace } from "./atlas-data";
-import { RefText } from "./RefText";
+import { ArrowRight, ArrowUpRight, Map as MapIcon } from "lucide-react";
+import { CATEGORIES, GROUPS, placeHref, type AtlasCategory } from "./atlas-data";
 import "./atlas-stage.css";
-
-const firstPlace = (c: AtlasCategory) => (c.places.find(p => p.key === "Jerusalem") ?? c.places[0]).key;
-
-export function useAtlasChoice() {
-  const [categoryId, setCategoryId] = useState("map");
-  const category = CATEGORIES.find(c => c.id === categoryId)!;
-  const [chosenKey, setChosenKey] = useState(firstPlace(category));
-  const chosen: AtlasPlace = category.places.find(p => p.key === chosenKey) ?? category.places[0];
-  const pick = (id: string) => { const next = CATEGORIES.find(c => c.id === id)!; setCategoryId(id); setChosenKey(firstPlace(next)); };
-  return { category, chosen, pick, choose: setChosenKey };
-}
+import { RefText } from "./RefText";
 export type Choice = ReturnType<typeof useAtlasChoice>;
 
 export function CategoryButton({ c, active, pick, count = false }: { c: AtlasCategory; active: boolean; pick: (id: string) => void; count?: boolean }) {

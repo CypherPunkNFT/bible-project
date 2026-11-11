@@ -1368,11 +1368,17 @@
    ]
   },
   {
+   "file": "src/pages/study/history/CitiesSectionArt.shared.ts",
+   "why": "the cities section art's horizon labels, moved here from CitiesSectionArt.tsx by the unsaved lint refactor of 2026-11-08; one-word labels the page rules pass by, kept as screen text",
+   "texts": [
+    "Destruction",
+    "Residences"
+   ]
+  },
+  {
    "file": "src/pages/study/history/CitiesSectionArt.tsx",
    "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
    "texts": [
-    "Destruction",
-    "Residences",
     "{n}: three selected contexts. Schematic illustration, not a measured excavation. Use the horizon buttons below for the same selection."
    ]
   },
@@ -2109,6 +2115,101 @@
    ]
   },
   {
+   "file": "src/pages/study/temple/Houses.tsx",
+   "why": "the temple study's added hall row is named under the key `part`, and the caption's value (the house name) comes first, so the template rule refuses it; both kept as screen text (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Hall",
+    "{n}: what is measured, and who measures it"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/Landing.tsx",
+   "why": "a one-word figure label in a [label, value, note] tuple on the temple study's landing (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Houses"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/parts.tsx",
+   "why": "the witness tag's label, a value in a record keyed by witness kind, shown beside each record Josephus witnesses (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Josephus"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/Priests.tsx",
+   "why": "the section kicker passed to the page's Head as kicker=\"Priests\"; the collector reads one-word labels only from object keys and label/title/alt attributes (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Priests"
+   ]
+  },
+  {
+   "file": "src/pages/converter/units.ts",
+   "why": "older English names of a biblical unit (alsoCalled), shown after \"Also called:\" in the converter's tables and answer; one word, so the collector passes them by (biblical converter, sequence 41 step 1, 2026-11-09)",
+   "texts": [
+    "Cab",
+    "Didrachma",
+    "Furlong",
+    "Maneh",
+    "Mite",
+    "Penny",
+    "Pound",
+    "Rod"
+   ]
+  },
+  {
+   "file": "src/pages/converter/examples.ts",
+   "why": "the label of an example's measurement (Length, Width, Height…), passed to part() and shown beside its size; one word, so the collector passes them by (biblical converter, sequence 41 step 1, 2026-11-09)",
+   "texts": [
+    "Distance",
+    "Gold",
+    "Height",
+    "Width"
+   ]
+  },
+  {
+   "file": "src/pages/converter/ConverterPage.tsx",
+   "why": "a statistic's label in the hero, passed to StationStats as a table of [label, number] (biblical converter, sequence 41 step 1, 2026-11-09)",
+   "texts": [
+    "Examples"
+   ]
+  },
+  {
+   "file": "src/pages/word-counter/WordCounterPage.tsx",
+   "why": "a statistic's label in the count's summary, passed to StationStats as a table of [label, number]; one word, so the collector passes it by (Bible word counter, sequence 41 step 4, 2026-11-09)",
+   "texts": [
+    "Times"
+   ]
+  },
+  {
+   "file": "src/pages/random-verse/VerseCard.tsx",
+   "why": "the status line shown after Copy, passed to the copy function as an argument; one word, so the collector passes it by (random Bible verse, sequence 41 step 5, 2026-11-09)",
+   "texts": [
+    "Copied"
+   ]
+  },
+  {
+   "file": "src/pages/puzzle-maker/PuzzleMakerPage.tsx",
+   "why": "the size choices' labels, kept in a table of [value, label]; they hold numbers, so the collector passes them by (puzzle maker, sequence 41 step 12, 2026-11-09)",
+   "texts": [
+    "Small: 10 by 10 squares, 8 words",
+    "Medium: 13 by 13 squares, 12 words",
+    "Large: 15 by 15 squares, 18 words",
+    "Small: about 7 words",
+    "Medium: about 12 words",
+    "Large: about 18 words"
+   ]
+  },
+  {
+   "file": "src/pages/puzzle-maker/PuzzleSheet.tsx",
+   "why": "the crossword's clue headings, passed to ClueList as a prop, and the answer key's heading in a nested choice; the collector passes them by (puzzle maker, sequence 41 step 12, 2026-11-09)",
+   "texts": [
+    "Across",
+    "Down",
+    "Crossword: answer key"
+   ]
+  },
+  {
    "file": "src/components/apologetics/CountryPeopleGroups.tsx",
    "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
    "texts": [
@@ -2353,35 +2454,6 @@
    "why": "whole sentences rewritten from pieces (Fortress job 899, sequence 29 step 6, card D56); extract.py's template or string rule passes them by (a template that opens with a value or punctuation, or a lowercase phrase), so they are registered here, checked by the job",
    "texts": [
     "{n}, John Newton and William Cowper, London 1779, from the Christian Classics Ethereal Library"
-   ]
-  },
-  {
-   "file": "src/pages/study/temple/Houses.tsx",
-   "why": "the temple study's added hall row is named under the key `part`, and the caption's value (the house name) comes first, so the template rule refuses it; both kept as screen text (green-build job 017cf598, 2026-11-07)",
-   "texts": [
-    "Hall",
-    "{n}: what is measured, and who measures it"
-   ]
-  },
-  {
-   "file": "src/pages/study/temple/Landing.tsx",
-   "why": "a one-word figure label in a [label, value, note] tuple on the temple study's landing (green-build job 017cf598, 2026-11-07)",
-   "texts": [
-    "Houses"
-   ]
-  },
-  {
-   "file": "src/pages/study/temple/parts.tsx",
-   "why": "the witness tag's label, a value in a record keyed by witness kind, shown beside each record Josephus witnesses (green-build job 017cf598, 2026-11-07)",
-   "texts": [
-    "Josephus"
-   ]
-  },
-  {
-   "file": "src/pages/study/temple/Priests.tsx",
-   "why": "the section kicker passed to the page's Head as kicker=\"Priests\"; the collector reads one-word labels only from object keys and label/title/alt attributes (green-build job 017cf598, 2026-11-07)",
-   "texts": [
-    "Priests"
    ]
   }
  ]

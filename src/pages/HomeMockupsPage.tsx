@@ -1,15 +1,15 @@
 // Draft drawings for homepage blocks (Academic Studies and the Resources blocks), side by side, so the owner can choose one per block.
 // Not linked from the site; reached only at /mockups. Each drawing runs live and opens up on hover like the homepage.
-import type { CSSProperties } from "react";
-import { MOCKUPS as OVERVIEW } from "@/components/home/mockups/OverviewMockups";
-import { MOCKUPS as OVERVIEW_MORE } from "@/components/home/mockups/OverviewMockupsMore";
-import { MOCKUPS as LEARNING } from "@/components/home/mockups/LearningMockups";
-import { MOCKUPS as LIFE } from "@/components/home/mockups/LifeMockups";
-import { MOCKUPS as ACADEMIC } from "@/components/home/mockups/AcademicMockups";
-import type { Mockup } from "@/components/home/mockups/types";
 import "@/components/home/home-features.css";
-import "@/components/home/home-study.css";
 import "@/components/home/home-resources.css";
+import "@/components/home/home-study.css";
+import { MOCKUPS as ACADEMIC } from "@/components/home/mockups/AcademicMockups.shared";
+import { MOCKUPS as LEARNING } from "@/components/home/mockups/LearningMockups.shared";
+import { MOCKUPS as LIFE } from "@/components/home/mockups/LifeMockups.shared";
+import { MOCKUPS as OVERVIEW } from "@/components/home/mockups/OverviewMockups.shared";
+import { MOCKUPS as OVERVIEW_MORE } from "@/components/home/mockups/OverviewMockupsMore.shared";
+import type { Mockup } from "@/components/home/mockups/types";
+import type { CSSProperties } from "react";
 import "./home-mockups.css";
 
 const GROUPS: Array<{ title: string; line: string; tone: string; items: Mockup[] }> = [

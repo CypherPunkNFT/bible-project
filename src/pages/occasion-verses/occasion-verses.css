@@ -1,0 +1,92 @@
+/* The occasion verse picker (OccasionVersesPage.tsx and its parts). Hairlines rather than boxes, as the random verse and
+   word counter pages do; the Berean words are the largest thing in each row. `ov-` on screen, `ovc-` on the printed
+   certificate (fixed light colours there, so dark mode never reaches the paper). */
+.ov-page h1 { margin-top: .8rem; font: 450 clamp(2.1rem, 4.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.ov-lede { max-width: 46rem; margin-top: 1.1rem; color: color-mix(in srgb, var(--ink) 85%, transparent); font-size: 1.05rem; line-height: 1.75; }
+.ov-jump { position: sticky; top: .5rem; z-index: 2; display: inline-block; margin-top: 1rem; padding: .3rem .9rem; border: 1px solid var(--accent); border-radius: 999px; background: var(--page); color: var(--accent); font-size: .9rem; }
+
+.ov-chooser { display: grid; gap: 1.1rem; margin-top: 2rem; padding: 1.2rem 0; border-block: 1px solid var(--line); }
+.ov-group-block h2 { color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ov-group-block ul { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
+.ov-chip { display: inline-block; padding: .2rem .75rem; border: 1px solid var(--line); border-radius: 999px; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .88rem; line-height: 1.5; transition: border-color .2s, color .2s; }
+.ov-chip:hover { border-color: var(--accent); color: var(--ink); }
+.ov-chip[aria-current="page"] { border-color: var(--accent); background: var(--accent); color: var(--page); }
+
+.ov-layout { display: grid; gap: 2rem; margin-top: 2rem; }
+@media (min-width: 48rem) { .ov-layout { grid-template-columns: minmax(0, 1fr) 18rem; align-items: start; } .ov-list { position: sticky; top: 1rem; } }
+
+.ov-occasion-head h2 { font: 500 clamp(1.5rem, 3vw, 2rem)/1.2 var(--font-serif); }
+.ov-intro { max-width: 44rem; margin-top: .7rem; line-height: 1.7; }
+.ov-note { margin-top: .5rem; color: var(--muted); font-size: .92rem; }
+.ov-explainer { max-width: 44rem; margin-top: .9rem; padding: .4rem 0; border-block: 1px solid var(--line); }
+.ov-explainer summary { cursor: pointer; font-weight: 600; }
+.ov-explainer p { margin-top: .5rem; line-height: 1.65; }
+.ov-more { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: .8rem; }
+.ov-more a, .ov-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+.ov-rows { margin-top: 1.2rem; overflow-anchor: none; }
+.ov-section { padding-top: 1.6rem; }
+.ov-section h3 { font: 600 1.15rem/1.3 var(--font-serif); }
+.ov-section p { color: var(--muted); font-size: .88rem; }
+.ov-passage { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.ov-group { color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.ov-ref { color: var(--accent); font: 600 1.02rem/1.3 var(--font-serif); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ov-text { margin-top: .35rem; font: 400 1.12rem/1.6 var(--font-serif); }
+.ov-wait { margin-top: .35rem; color: var(--muted); font-size: .92rem; }
+.ov-passage .ov-note { margin-top: .35rem; }
+.ov-context { margin-top: .3rem; padding-inline-start: .7rem; border-inline-start: 2px solid var(--line); color: var(--muted); font-size: .88rem; }
+.ov-labels { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .35rem; }
+.ov-label { padding: .05rem .5rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .75rem; }
+.ov-add { display: inline-flex; align-items: center; gap: .4rem; margin-top: .5rem; font-size: .9rem; cursor: pointer; }
+.ov-problem { margin-top: 1rem; padding: .6rem .9rem; border-inline-start: 2px solid var(--red-letter, #a33); font-size: .95rem; }
+
+.ov-list h2, .ov-certificate h2, .ov-notes h2 { font: 500 1.3rem/1.2 var(--font-serif); }
+.ov-list-items { display: grid; gap: .5rem; margin-top: .8rem; }
+.ov-list-items li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.ov-list-ref { display: grid; }
+.ov-list-ref small { color: var(--muted); font-size: .78rem; }
+.ov-list-actions { display: flex; gap: .25rem; }
+.ov-list-actions button, .ov-actions button { padding: .25rem .6rem; border: 1px solid var(--line); border-radius: .4rem; font-size: .85rem; }
+.ov-list-actions button:disabled, .ov-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.ov-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.ov-actions .ov-primary, .ov-certificate .ov-primary { padding: .5rem 1.1rem; border-radius: .5rem; background: var(--accent); color: var(--page); font-weight: 600; }
+.ov-small { margin-top: .6rem; color: var(--muted); font-size: .85rem; line-height: 1.55; }
+.ov-choice { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .8rem; border: 0; padding: 0; }
+.ov-choice legend { margin-bottom: .2rem; color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.ov-choice label, .ov-check { display: inline-flex; align-items: center; gap: .35rem; font-size: .9rem; }
+.ov-check { margin-top: .5rem; }
+.ov-manual { display: grid; gap: .35rem; margin-top: .9rem; color: var(--muted); font-size: .85rem; }
+.ov-manual textarea { min-height: 6rem; padding: .5rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: .9rem; }
+.ov-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.ov-certificate { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.ov-fields { display: grid; gap: .8rem; margin-top: .9rem; max-width: 34rem; }
+.ov-field { display: grid; gap: .3rem; }
+.ov-field > span { color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.ov-field input, .ov-field select { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); color: var(--ink); font-size: 1rem; }
+.ov-certificate .ov-primary { margin-top: .9rem; }
+.ov-certificate .ov-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+.ov-notes { max-width: 46rem; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.ov-notes ul { display: grid; gap: .5rem; margin-top: .7rem; padding-inline-start: 1.1rem; list-style: disc; line-height: 1.6; }
+
+/* The printed certificate: one page, a double rule frame, centred type. */
+.ovc-sheet { box-sizing: border-box; width: var(--sheet-width); background: #fff; color: #1f1b16; color-scheme: light; font-family: "Archivo Variable", system-ui, sans-serif; text-align: center; }
+.ovc-sheet *, .ovc-sheet *::before, .ovc-sheet *::after { box-sizing: border-box; }
+.ovc-frame { display: flex; flex-direction: column; align-items: center; gap: .14in; min-height: 9.4in; padding: .55in .6in; border: 3pt double #4f6378; }
+.ovc-paper-a4 .ovc-frame { min-height: 260mm; }
+.ovc-sheet p { margin: 0; }
+.ovc-sheet h1 { margin: 0 0 .1in; font: 600 28pt/1.15 "Literata Variable", Georgia, serif; letter-spacing: .01em; }
+.ovc-name { min-width: 4.5in; padding-bottom: .04in; border-bottom: .6pt solid #b9ae9c; font: 500 22pt/1.25 "Literata Variable", Georgia, serif; }
+.ovc-label { margin-top: .1in !important; color: #4f6378; font-size: 8.5pt; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
+.ovc-line { font-size: 13pt; }
+.ovc-verse { max-width: 5.6in; margin: .2in 0 0; }
+.ovc-verse .scripture { margin: 0; font: italic 400 13pt/1.5 "Literata Variable", Georgia, serif; }
+.ovc-verse figcaption { margin-top: .06in; color: #5b5246; font-size: 10pt; }
+.ovc-facts { display: grid; grid-template-columns: auto auto; gap: .04in .2in; margin: .2in 0 0; font-size: 12pt; }
+.ovc-facts dt { color: #4f6378; font-size: 8.5pt; font-weight: 650; letter-spacing: .16em; text-align: right; text-transform: uppercase; align-self: center; }
+.ovc-facts dd { margin: 0; text-align: left; }
+.ovc-sign { margin-top: auto; padding-top: .3in; }
+.ovc-sign-line { display: block; width: 3.2in; border-bottom: .6pt solid #1f1b16; }
+.ovc-small { color: #5b5246; font-size: 8.5pt; }
+@media print { .print-sheet-portal .ovc-sheet { width: auto; } }

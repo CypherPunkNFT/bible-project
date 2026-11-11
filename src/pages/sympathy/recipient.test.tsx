@@ -19,7 +19,7 @@ describe("sympathy: the recipient card page", () => {
     expect(screen.getByText("Sent to you with sympathy.")).toBeInTheDocument();
     expect(container.querySelector(".sy-recipient-lily .sy-ornament-lily")).not.toBeNull();
     expect(screen.getByRole("link", { name: "Read it in the Bible" }).getAttribute("href")).toBe("/read/bsb/JHN/11?hl=25-25");
-    expect(screen.getByRole("link", { name: "More words of comfort" }).getAttribute("href")).toBe("/sympathy#verses");
+    expect(screen.getByRole("link", { name: "More words of comfort" }).getAttribute("href")).toBe("/when-youre/grieving");
     expect(container.querySelector(".sy-recipient-verse")?.getAttribute("lang")).toBe("en");
   });
 

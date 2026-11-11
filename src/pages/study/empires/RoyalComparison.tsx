@@ -1,5 +1,6 @@
 import { ArrowUpRight, Building2, Coins, MessagesSquare } from 'lucide-react';
-import { useEmpireSelection, EvidenceLinks, SiegeWitnesses } from './CloseStudies';
+import { EvidenceLinks, SiegeWitnesses } from "./CloseStudies";
+import { useEmpireSelection } from "./CloseStudies.shared";
 import { Artifact, CityScene, TributeArt } from './EmpireArt';
 
 type Comparison={label:string;left:string;right:string;finding:string};

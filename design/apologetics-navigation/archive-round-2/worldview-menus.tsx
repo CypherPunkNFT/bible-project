@@ -1,8 +1,8 @@
-import {useEffect, useRef, useState} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {ArrowRight, ChevronDown, ChevronLeft, Globe2} from 'lucide-react';
-import {CollectionArt} from '@/pages/WorldviewsPage';
-import {main, worlds, islamPages, groupFor, secondary, currentIslam, useDesign} from './preview';
+import { CollectionArt } from '@/pages/WorldviewsPage';
+import { ArrowRight, ChevronDown, ChevronLeft, Globe2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { currentIslam, groupFor, islamPages, main, secondary, useDesign, worlds } from "./preview.shared";
 
 const root='/apologetics/worldviews';
 type World=(typeof worlds)[number];
@@ -29,7 +29,7 @@ function WorldviewSubmenu(){
   const active=worlds.find(w=>location.pathname.startsWith(w.to));
   const [expanded,setExpanded]=useState(true),[choices,setChoices]=useState(!active),[card,setCard]=useState(active?.to??'');
   const previous=useRef(location.pathname);
-  useEffect(()=>{if(previous.current!==location.pathname){setExpanded(true);setChoices(!active);setCard(active?.to??'');}previous.current=location.pathname;},[location.pathname]);
+  useEffect(()=>{if(previous.current!==location.pathname){setExpanded(true);setChoices(!active);setCard(active?.to??'');}previous.current=location.pathname;},[location.pathname,active]);
   const world=active??worlds[0];
   if(design==='a')return <div className="sm-swap">
     {active&&<button className="sm-current" aria-expanded={!choices} aria-controls="sm-current-pages" onClick={()=>setChoices(!choices)} aria-label={choices?'Show '+active.label+' subpages':'Collapse '+active.label+' subpages and choose another worldview'}><Globe2 size={17}/><span>{active.label}</span>{choices?<ChevronLeft size={15}/>:<ChevronDown size={15}/>}</button>}
@@ -45,7 +45,7 @@ export function WorldviewNavigation(){
   const [opened,setOpened]=useState<string|null>(group==='Worldviews'?'Worldviews':null);
   const trigger=useRef<HTMLButtonElement|null>(null);
   const previous=useRef(location.pathname);
-  useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname]);
+  useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group]);
   useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
   return <div className="sm-container"><nav className="sm-main" aria-label="Apologetics sections">{main.map(d=><div key={d.to}><Link to={d.to} aria-current={group===d.label?'page':undefined}>{d.label}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>
     {opened&&<div id="sm-panel" className="sm-panel">{opened==='Worldviews'?<WorldviewSubmenu key={design}/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{secondary(opened).map(d=><Link key={d.to} to={d.to} onClick={()=>setOpened(null)}>{d.label}<ArrowRight size={14}/></Link>)}</nav>}</div>}

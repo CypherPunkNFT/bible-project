@@ -17,8 +17,8 @@ const SAFE_PATH = /^\/([A-Za-z0-9._~-]+\/)*[A-Za-z0-9._~-]*$/;
 /** Real routes (src/App.tsx and the section routers) the inventory does not list yet. The capture skips any that shows
  *  "page not found" on the live site, so a local-only page listed here is never published by mistake. */
 const NOT_IN_INVENTORY = [
-  "/listen", "/listen/asv", "/contact", "/analysis", "/teachers", "/resources", "/resources/learning", "/resources/fellowships", "/resources/life",
-  "/games", "/games/quiz",
+  "/listen", "/listen/asv", "/contact", "/analysis", "/teachers", "/resources", "/resources/learning", "/resources/fellowships", "/resources/life", "/resources/sermon-notes",
+  "/games", "/games/quiz", "/tools",
   "/study/rulers", "/study/apostles", "/study/harmony", "/study/hymns", "/study/manuscripts", "/study/theology-articles", "/study/questions",
   "/study/dead-sea-scrolls", "/study/circles", "/study/long-memory", "/study/cities-through-their-layers", "/study/cyrus-restoration-and-return",
   "/study/discoveries-biblical-record", "/study/from-discovery-to-history", "/study/from-manuscript-to-printed-bible", "/study/how-the-canon-took-shape",

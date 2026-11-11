@@ -172,7 +172,9 @@ describe("the site reads its languages from the one file", () => {
     }
     expect(css).toMatch(/@import\s+"\.\/joined-scripts\.css"/);
     expect(read("src/components/moses-page/MosesPage.tsx")).toMatch(/style\.textContent = [^;]*\bjoinedScripts\b/);
-    expect(read("src/pages/study/circles/CirclesPage.tsx")).toMatch(/<style>\$\{styles\}\$\{joinedScripts\}<\/style>/);
+    const circles = read("src/pages/study/circles/CirclesPage.tsx");
+    expect(circles).toMatch(/sheet\.textContent = styles \+ joinedScripts/);
+    expect(circles).toMatch(/root\.replaceChildren\(sheet, createCirclesTemplate\(document\)\)/);
   });
 
   // The body's clip is handed to the window and the right-to-left page still measured wider than the screen.

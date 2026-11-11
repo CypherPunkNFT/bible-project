@@ -2,7 +2,6 @@
 // the folded paper map for now and said "lets do some more", so these stay with paper maps, coastlines, marked places and
 // routes: a scroll on rollers, an atlas open at a double-page map, a pinned board with a route string, a sea chart with a
 // ship, and a folded map with a pocket compass lying on it.
-import type { DoorwayVariant } from "./doorway-types";
 
 const Pin = ({ x, y, big }: { x: number; y: number; big?: boolean }) => <g><circle cx={x} cy={y} r={big ? 8 : 5.5} fill="var(--surface)" stroke="currentColor" strokeOpacity=".7" /><circle cx={x} cy={y} r={big ? 3.2 : 2} fill="currentColor" /></g>;
 const Pins = ({ at, big }: { at: readonly (readonly [number, number])[]; big: number }) => <>{at.map(([x, y], i) => <Pin key={i} x={x} y={y} big={i === big} />)}</>;
@@ -24,7 +23,7 @@ const Rose = ({ x, y, r }: { x: number; y: number; r: number }) => {
   </g>;
 };
 
-function ScrollMap() {
+export function ScrollMap() {
   const roller = (x: number) => <g stroke="currentColor">
     <path d={`M${x + 6} 10V170`} strokeWidth="1.2" opacity=".5" />
     {[14, 166].map((y) => <ellipse key={y} cx={x + 6} cy={y} rx="5" ry="4" fill="var(--surface)" strokeOpacity=".7" />)}
@@ -47,7 +46,7 @@ function ScrollMap() {
   </svg>;
 }
 
-function OpenAtlas() {
+export function OpenAtlas() {
   const page = (dx: 1 | -1) => `M160 42Q${160 - dx * 50} 30 ${160 - dx * 130} 36V156Q${160 - dx * 50} 150 160 164Z`;
   const curve = (y: number) => `M30 ${y}Q110 ${y - 8} 160 ${y + 4}Q210 ${y - 8} 290 ${y}`;
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -68,7 +67,7 @@ function OpenAtlas() {
   </svg>;
 }
 
-function PinnedBoard() {
+export function PinnedBoard() {
   const Tack = ({ x, y }: { x: number; y: number }) => <g><circle cx={x + 1.5} cy={y + 2} r="4.5" fill="currentColor" fillOpacity=".15" /><circle cx={x} cy={y} r="4.5" fill="var(--surface)" stroke="currentColor" strokeOpacity=".75" /><circle cx={x} cy={y} r="1.8" fill="currentColor" /></g>;
   const stops = [[84, 124], [134, 100], [190, 122], [240, 102]] as const;
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -95,7 +94,7 @@ function PinnedBoard() {
   </svg>;
 }
 
-function SeaChart() {
+export function SeaChart() {
   // Coastlines only (stroked); the land fill closes each one along the frame edge without stroking it.
   const north = "M150 0C142 14 126 18 118 30S96 42 84 52 54 56 40 70 12 72 0 78";
   const south = "M150 180C160 168 178 166 190 154S220 148 232 134 270 128 284 112 310 106 320 100";
@@ -125,7 +124,7 @@ function SeaChart() {
 }
 
 const FOLD_COAST = "M26 92C52 80 74 58 102 64S140 100 170 92 214 54 254 60";
-function FoldedCompass() {
+export function FoldedCompass() {
   const ticks = Array.from({ length: 24 }, (_, i) => { const a = (i * Math.PI) / 12, r0 = i % 6 ? 18 : 15; return `M${(262 + r0 * Math.sin(a)).toFixed(1)} ${(134 - r0 * Math.cos(a)).toFixed(1)}L${(262 + 20 * Math.sin(a)).toFixed(1)} ${(134 - 20 * Math.cos(a)).toFixed(1)}`; }).join("");
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M30 172L102 162 178 172 254 162" stroke="currentColor" opacity=".15" />
@@ -150,11 +149,3 @@ function FoldedCompass() {
     <circle cx="262" cy="134" r="2" fill="currentColor" />
   </svg>;
 }
-
-export const ATLAS_MORE_DOORWAYS: DoorwayVariant[] = [
-  { name: "Map unrolled on a scroll", Art: ScrollMap },
-  { name: "Atlas open at a double-page map", Art: OpenAtlas },
-  { name: "Map pinned to a board, route string", Art: PinnedBoard },
-  { name: "Sea chart with a ship", Art: SeaChart },
-  { name: "Folded map with a pocket compass", Art: FoldedCompass },
-];

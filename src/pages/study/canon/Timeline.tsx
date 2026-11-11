@@ -1,9 +1,10 @@
+import { sayHandlers } from "./Timeline.shared";
 // "Enter the timeline" (approved mock-up D: js/timeline.js): the eighteen records on one time line, in four lanes by what
 // kind of witness each is. Each record spans only as much time as its own date says: a solid bar for a year or short span,
 // a soft bar for a century, a dashed outline where the date is debated. The long quiet stretch between 650 and 1500 is cut
 // to a marked break. Pointing at a record reads it below; clicking opens its sheet.
-import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { SectionHead } from "@/pages/study/manuscripts/parts";
+import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { byId, CN, name, tone } from "./model";
 
 // Year to a share of the plot's width: 350 BC to AD 650 takes 84%, a break, then 1500 to 1700.
@@ -44,11 +45,6 @@ export function Say({ id }: { id: string | null }) {
   return <p className="ms-say" aria-live="polite">{r
     ? <><b>{name(r.id)}</b> · {r.date} · {r.place}. {r.title} <span className="ms-say-go">{`${r.kind} · open`}</span></>
     : "Point at a record to read it here; click to open it."}</p>;
-}
-/** Pointer and focus handlers that report the record under them ([data-open]), and forget it when the pointer leaves. */
-export function sayHandlers(set: (id: string | null) => void) {
-  const pick = (e: { target: EventTarget }) => set((e.target as Element).closest<HTMLElement | SVGElement>("[data-open]")?.dataset.open ?? null);
-  return { onPointerOver: pick, onFocus: pick, onPointerLeave: () => set(null) };
 }
 
 export function Timeline({ num }: { num: string }) {

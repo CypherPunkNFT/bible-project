@@ -1,9 +1,9 @@
-import { readFileSync, readdirSync } from "node:fs";
-import { describe, expect, it } from "vitest";
-import { currentBibleSlug } from "@/lib/verses";
 import type { LanguageCode } from "@/lib/language";
 import { SITE_LANGUAGES, SOURCE_LANGUAGE, type SiteLanguage } from "@/lib/site-languages";
-import { BANNER_VERSES, BLESSING_VERSES, RING_VERSES, type BannerVerseName } from "./banner-verses";
+import { currentBibleSlug } from "@/lib/verses";
+import { readFileSync, readdirSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+import { BANNER_VERSES, BLESSING_VERSES, RING_VERSES, type BannerVerseName } from "./banner-verses.shared";
 
 const SOURCE: Record<BannerVerseName, [string, string]> = { isaiah: ["ISA", "40:8"], john: ["JHN", "5:39"], peter: ["1PE", "3:15"], galatians: ["GAL", "6:2"] };
 const RING: Record<string, [string, string]> = {

@@ -25,8 +25,9 @@ export function ResourceShell({ slug, lead, stats, note, top, children }: ShellP
   </div>;
 }
 
-/** The way back to the station and across to the sister sections (also used alone by the Learning division's doors). */
-export function ResourceCrumbs({ slug }: { slug: ResourceSection["slug"] }) {
+/** The way back to the station and across to the sister sections (also used alone by the Learning division's doors and
+ *  by pages outside the three sections, such as the sermon notes sheet, which mark none of them current). */
+export function ResourceCrumbs({ slug }: { slug?: ResourceSection["slug"] }) {
   return <nav className="tl-crumbs" aria-label="Resources sections">
     <Link to="/resources"><ArrowLeft size={14} aria-hidden="true" />Resources</Link>
     {RESOURCE_SECTIONS.filter((s) => sectionReady(s.slug)).map((s) => <Link key={s.slug} to={`/resources/${s.slug}`} aria-current={s.slug === slug ? "page" : undefined}>{s.title}</Link>)}

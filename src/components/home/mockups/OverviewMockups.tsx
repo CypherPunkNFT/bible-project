@@ -3,7 +3,6 @@
 // and legend; a traveller's map half-opened on a lamplit table; and a folding map whose panels each frame a small scene.
 // Motion rules in overview-mockups.css.
 import { useId, type CSSProperties } from "react";
-import type { Mockup } from "./types";
 import "./overview-mockups.css";
 
 type Pt = [number, number];
@@ -100,7 +99,7 @@ function SurveyDetail({ i }: { i: number }) {
     <path className="mo-lane" d={LANES.map(([a, b]) => `M${TOWNS[a][0]} ${TOWNS[a][1]}L${TOWNS[b][0]} ${TOWNS[b][1]}`).join("")} />
     {TOWNS.map(([x, y], k) => <circle key={k} className="mo-town" style={delay(k * 0.4)} cx={x} cy={y} r="2" />)}<Hill x={478} y={288} rx={16} ry={10} n={3} rot={8} /></>;
 }
-function SurveyScene() {
+export function SurveyScene() {
   const uid = useUid(), trail = smooth(SURVEY), shades = [[0.03, 0.16], [0.14, 0.05], [0.12, 0.04]];
   return <svg className="hf-scene mo-survey" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs>{shades.map(([a, b], i) => <Fold key={i} id={`${uid}-f${i}`} a={a} b={b} />)}</defs>
@@ -146,7 +145,7 @@ const CITY_UV = range(0, 16, 1).map((k): Pt => [0.14 + (k % 4) * 0.22 + ((k * 7)
 
 const TABLE = "M44 158H556Q562 158 564 164L594 338H6L36 164Q38 158 44 158Z";
 
-function LampScene() {
+export function LampScene() {
   const uid = useUid(), road = smooth(ROAD), [p0, p1, p2] = QUADS, river = smooth(RIVER);
   return <svg className="hf-scene mo-lamplit" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs><Fold id={`${uid}-a`} a={0.02} b={0.15} /><Fold id={`${uid}-b`} a={0.16} b={0.05} /><Fold id={`${uid}-c`} a={0.3} b={0.12} mid={0.2} />
@@ -257,9 +256,3 @@ export function WindowsScene() {
     <text className="hf-caption" x="300" y="406" textAnchor="middle">THREE WINDOWS · ONE ROAD BENEATH THEM</text>
   </svg>;
 }
-
-export const MOCKUPS: Mockup[] = [
-  { name: "The Surveyor's Map", note: "An engraved three-panel sheet with a piano-key border, compass rose, cartouche, contour hills, a lake, a village, fifteen towns and a legend keyed to learning, fellowship and help for life, a light walking the road between them under Isaiah 30:21; on hover the panels part and the rose turns.", Scene: SurveyScene },
-  { name: "The Lamplit Map", note: "A traveller's map half-opened on a wooden table beside an oil lamp, its right panel still lifting, lamplight walking the road past six labelled stops (Moses: three forties, Bible study and prayer, fifteen city maps) under Psalm 119:105; on hover the panel opens further and the lamp brightens.", Scene: LampScene },
-  { name: "Three Windows", note: "A folding map stood up like a screen, each panel framing a scene (an open workbook, a table of friends under a lamp, a lit doorway beside a street map of fifteen pins) with the road running beneath all three under Galatians 6:2; on hover the panels part and the door opens wider.", Scene: WindowsScene },
-];

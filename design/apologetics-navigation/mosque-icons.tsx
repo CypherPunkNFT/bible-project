@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react';
+import { useMosque } from "./mosque-icons.shared";
 
 const options=[
  {name:'Low dome',path:'M5 32h30M9 31V21h22v10M10 20c0-7 7-8 10-12 3 4 10 5 10 12H10ZM17 31v-6a3 3 0 0 1 6 0v6M20 9V6'},
@@ -10,8 +10,6 @@ const options=[
  {name:'Three domes',path:'M4 33h32M6 32V23h28v9M6 22c0-3 3-4 5-6 2 2 5 3 5 6M16 22c0-5 1-8 4-11 3 3 4 6 4 11M24 22c0-3 3-4 5-6 2 2 5 3 5 6M6 23h28M17 32v-5a3 3 0 0 1 6 0v5M20 11V8'},
  {name:'Minimal mosque',path:'M5 32h30M10 31V22h20v9M11 21c0-6 6-7 9-11 3 4 9 5 9 11M20 26v5M5 31V11M3 12l2-5 2 5M35 31V11M33 12l2-5 2 5'},
 ];
-function read(){const n=Number(new URLSearchParams(window.location.search).get('m'));return n>=1&&n<=8?n:2;}
-export function useMosque(){const [n,setN]=useState(read);useEffect(()=>{const update=()=>setN(read());window.addEventListener('mosquechange',update);window.addEventListener('popstate',update);return()=>{window.removeEventListener('mosquechange',update);window.removeEventListener('popstate',update);};},[]);return n;}
 export function MosqueIcon({variant=2,className='sm-glyph'}:{variant?:number;className?:string}){return <svg className={className} data-mosque={variant} viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={variant===4?options[3].path.replace('M22 3a3 3 0 1 0 2 5 3 3 0 0 1-2-5',''):options[variant-1].path}/>{variant===4&&<circle cx="20" cy="4" r="2.4" fill="currentColor" stroke="none"/>}</svg>;}
 export function MosqueGallery(){
  const selected=useMosque();

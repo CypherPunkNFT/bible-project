@@ -1,0 +1,77 @@
+/* The tithe calculator (TitheCalculatorPage.tsx). It wears the tools hub's look (games.css: hero, numbered shelves) and
+   adds only its own parts, all under tc- classes: the fields, the quick percentages, the figures, a table between
+   hairlines (never boxes) and the passage rows. Its colour is the history tone, like its drawing on the hub. */
+.tc-page { --tc: var(--history); }
+.tc-page .st-kick a { color: inherit; }
+.tc-shelf .gm-shelf-head { border-bottom: 1px solid var(--line); }
+
+.tc-fields { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.4rem; }
+.tc-field { display: flex; flex-direction: column; gap: .35rem; min-width: 12rem; max-width: 26rem; }
+.tc-field > label, .tc-label, .tc-other span { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tc-field :is(input, select), .tc-other input { min-height: 2.75rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1rem; }
+.tc-page :is(input, select):focus-visible { border-color: var(--tc); outline: 2px solid color-mix(in srgb, var(--tc) 35%, transparent); outline-offset: 1px; }
+.tc-page input[aria-invalid="true"] { border-color: var(--red-letter); }
+.tc-hint { color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.tc-field input[aria-invalid="true"] + .tc-hint, .tc-bad { color: var(--red-letter); }
+
+.tc-percent { max-width: none; margin-top: 1.4rem; }
+.tc-quick { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .5rem; }
+.tc-quick > button { display: inline-flex; min-height: 2.75rem; align-items: baseline; gap: .4rem; padding: .4rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .95rem; cursor: pointer; transition: border-color .2s, background-color .2s; }
+.tc-quick > button:is(:hover, :focus-visible) { border-color: var(--tc); }
+.tc-quick > button:focus-visible { outline: 2px solid color-mix(in srgb, var(--tc) 45%, transparent); outline-offset: 2px; }
+.tc-quick > button[aria-pressed="true"] { border-color: var(--tc); background: color-mix(in srgb, var(--tc) 14%, transparent); font-weight: 600; }
+.tc-tenth { color: var(--muted); font-size: .75rem; font-weight: 400; }
+.tc-other { display: flex; flex-direction: column; gap: .35rem; margin-inline-start: .5rem; }
+.tc-other input { width: 7.5rem; }
+
+.tc-result { margin-top: 1.8rem; }
+.tc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tc-prompt { color: var(--muted); font: 400 1.15rem/1.5 var(--font-serif); font-style: italic; margin-top: 1.2rem; }
+.tc-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem 2rem; }
+.tc-figures > div { min-width: 0; padding-inline-start: 1rem; border-inline-start: 2px solid var(--tc); }
+.tc-figures dt { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tc-figures dd { margin-top: .3rem; color: var(--tc); font: 450 clamp(1.5rem, 3.2vw, 2.2rem)/1.2 var(--font-serif); letter-spacing: -.02em; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.tc-quiet { margin-top: .8rem; max-width: 46rem; color: var(--muted); font-size: .85rem; line-height: 1.6; }
+.tc-tight { margin-top: .2rem; }
+.tc-failed { margin-top: .8rem; color: var(--red-letter); }
+.tc-failed button { margin-inline-start: .4rem; text-decoration: underline; }
+.tc-page a:not(.gm-jump a) { color: var(--tc); text-underline-offset: 3px; }
+.tc-page .tc-quiet a:hover { text-decoration: underline; }
+
+/* The table: hairlines between rows; a phone pans it sideways inside its labelled region. */
+.tc-scroll { margin-top: 1.2rem; overflow-x: auto; }
+.tc-scroll:focus-visible { outline: 2px solid color-mix(in srgb, var(--tc) 35%, transparent); }
+.tc-table { width: 100%; min-width: 32rem; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.tc-table caption { padding-bottom: .5rem; color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-align: start; text-transform: uppercase; }
+.tc-table :is(th, td) { padding: .6rem .8rem .6rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); text-align: start; }
+.tc-table thead th { color: var(--muted); font: 600 .62rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tc-table tbody th { font-weight: 600; }
+.tc-chosen :is(th, td) { color: var(--tc); }
+.tc-yours { margin-inline-start: .6rem; font: 650 .6rem/1.4 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+
+/* What the Bible says: prose, the two readings side by side, and the passage rows. */
+.tc-prose, .tc-prose-block { max-width: 50rem; margin-top: 1rem; font-size: .95rem; line-height: 1.75; }
+.tc-prose q { font-style: italic; }
+.tc-prose-block > p + p { margin-top: .9rem; }
+.tc-views { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.2rem 2.4rem; margin-top: 1.4rem; }
+.tc-views > section { padding-inline-start: 1rem; border-inline-start: 2px solid var(--tc); }
+.tc-views h3, .tc-passages-title { font: 500 1.2rem/1.3 var(--font-serif); }
+.tc-views p { margin-top: .5rem; font-size: .93rem; line-height: 1.7; }
+.tc-passages-title { margin-top: 2rem; }
+.tc-passages { margin-top: .4rem; }
+.tc-passages > li { border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.tc-passages h4 button { display: grid; width: 100%; grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr) auto; gap: .2rem 1rem; padding: .85rem 0; background: none; color: var(--ink); text-align: start; cursor: pointer; }
+.tc-passages h4 button::after { content: "+"; color: var(--tc); }
+.tc-passages h4 button[aria-expanded="true"]::after { content: "−"; }
+.tc-passages h4 button:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.tc-ref { font: 500 1.02rem/1.35 var(--font-serif); }
+.tc-why { color: color-mix(in srgb, var(--ink) 78%, transparent); font-size: .9rem; line-height: 1.5; }
+.tc-passage { padding: 0 0 1.2rem; }
+.tc-quote { max-width: 46rem; padding-inline-start: 1rem; border-inline-start: 2px solid var(--tc); font: 400 1.02rem/1.7 var(--font-serif); }
+
+@media (max-width: 639px) {
+  .tc-field { min-width: 100%; }
+  .tc-other { margin-inline-start: 0; }
+  .tc-passages h4 button { grid-template-columns: minmax(0, 1fr) auto; }
+  .tc-why { grid-column: 1; }
+}

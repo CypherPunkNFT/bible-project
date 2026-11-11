@@ -1,7 +1,6 @@
 import type { City } from './evidence';
 
 const kinds: Record<string,string[]> = {jericho:['burn','wall','tower'],lachish:['wall','siege','wall'],jerusalem:['reuse','house','kiln'],corinth:['church','platform','column']};
-export const horizonLabels: Record<string,string[]> = {jericho:['Destruction','Urban growth','Neolithic'],lachish:['Level II','Level III','Levels V–IV'],jerusalem:['Workshop reuse','Residences','Craft production'],corinth:['Later reuse','Roman colony','Greek & interim']};
 function Architecture({kind}:{kind:string}) {
   if(kind==='tower') return <><path className="ct-arch" d="M266 71V33q34-16 65 0v38l-32 9Z"/><path d="M299 80V43m-25 9 46 -9" fill="none" stroke="var(--ct-ochre)" strokeWidth="3"/></>;
   if(kind==='column') return <path className="ct-arch" d="M230 76V27h18v54m22 6V36h18v55m-65-64 73 18v-9l-73-18Z"/>;

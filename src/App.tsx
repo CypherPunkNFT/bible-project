@@ -33,12 +33,27 @@ const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const GamesPage = lazy(() => import("@/pages/games/GamesPage"));
+const ToolsPage = lazy(() => import("@/pages/tools/ToolsPage"));
 const LiveQuizPlayPage = lazy(() => import("@/pages/games/live-quiz/PlayPage"));
 const LifeEventsPage = lazy(() => import("@/pages/life-events/LifeEventsPage"));
 const SympathyPage = lazy(() => import("@/pages/sympathy/SympathyPage"));
 const BabyNamesPage = lazy(() => import("@/pages/baby-names/BabyNamesPage"));
 const CountdownsPage = lazy(() => import("@/pages/countdowns/CountdownsPage"));
+const WhenYourePage = lazy(() => import("@/pages/when-youre/WhenYourePage"));
+const PrayersPage = lazy(() => import("@/pages/occasion-prayers/PrayersPage"));
+const BlessingsPage = lazy(() => import("@/pages/home-blessings/BlessingsPage"));
 const HolyDaysPage = lazy(() => import("@/pages/holy-days/HolyDaysPage"));
+const ConverterPage = lazy(() => import("@/pages/converter/ConverterPage"));
+const ReadingPlannerPage = lazy(() => import("@/pages/reading-planner/ReadingPlannerPage"));
+const WordCounterPage = lazy(() => import("@/pages/word-counter/WordCounterPage"));
+const CitationPage = lazy(() => import("@/pages/citation-generator/CitationPage"));
+const TitheCalculatorPage = lazy(() => import("@/pages/tithe-calculator/TitheCalculatorPage"));
+const RandomVersePage = lazy(() => import("@/pages/random-verse/RandomVersePage"));
+const NameInHebrewPage = lazy(() => import("@/pages/name-in-hebrew/NameInHebrewPage"));
+const OccasionVersesPage = lazy(() => import("@/pages/occasion-verses/OccasionVersesPage"));
+const WorshipSlidesPage = lazy(() => import("@/pages/worship-slides/WorshipSlidesPage"));
+const ScriptureMemoryPage = lazy(() => import("@/pages/scripture-memory/ScriptureMemoryPage"));
+const PuzzleMakerPage = lazy(() => import("@/pages/puzzle-maker/PuzzleMakerPage"));
 const VerseOfTheDayPage = lazy(() => import("@/pages/verse-of-the-day/VerseOfTheDayPage"));
 const VerseCardsPage = lazy(() => import("@/pages/verse-cards/VerseCardsPage"));
 const BirthdayVersesPage = lazy(() => import("@/pages/birthday-verses/BirthdayVersesPage"));
@@ -167,13 +182,28 @@ export default function App() {
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
               <Route path="/games/*" element={<GamesPage />} />
+              <Route path="/tools/*" element={<ToolsPage />} />
               <Route path="/play" element={<LiveQuizPlayPage />} />
               <Route path="/play/:code" element={<LiveQuizPlayPage />} />
               <Route path="/life-events/*" element={<LifeEventsPage />} />
               <Route path="/sympathy/*" element={<SympathyPage />} />
               <Route path="/baby-names/*" element={<BabyNamesPage />} />
               <Route path="/countdowns/*" element={<CountdownsPage />} />
+              <Route path="/when-youre/*" element={<WhenYourePage />} />
+              <Route path="/prayers/*" element={<PrayersPage />} />
+              <Route path="/blessings/*" element={<BlessingsPage />} />
               <Route path="/holy-days" element={<HolyDaysPage />} />
+              <Route path="/converter/*" element={<ConverterPage />} />
+              <Route path="/reading-planner" element={<ReadingPlannerPage />} />
+              <Route path="/word-counter" element={<WordCounterPage />} />
+              <Route path="/citation-generator" element={<CitationPage />} />
+              <Route path="/tithe-calculator" element={<TitheCalculatorPage />} />
+              <Route path="/random-verse" element={<RandomVersePage />} />
+              <Route path="/name-in-hebrew" element={<NameInHebrewPage />} />
+              <Route path="/occasion-verses" element={<OccasionVersesPage />} />
+              <Route path="/worship-slides" element={<WorshipSlidesPage />} />
+              <Route path="/scripture-memory" element={<ScriptureMemoryPage />} />
+              <Route path="/puzzle-maker" element={<PuzzleMakerPage />} />
               <Route path="/verse-of-the-day" element={<VerseOfTheDayPage />} />
               <Route path="/verse-cards/*" element={<VerseCardsPage />} />
               <Route path="/birthday-verses/*" element={<BirthdayVersesPage />} />

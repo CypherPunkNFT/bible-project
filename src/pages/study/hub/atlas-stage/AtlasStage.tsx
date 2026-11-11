@@ -3,7 +3,8 @@
 // and orange, with version 1's full-size "Enter the full Atlas" button.
 import { useLayoutEffect, useRef, type RefObject } from "react";
 import { AtlasMap, type Inset } from "./AtlasMap";
-import { Caveat, EnterAtlas, GroupedCategories, PlaceNote, useAtlasChoice } from "./parts";
+import { Caveat, EnterAtlas, GroupedCategories, PlaceNote } from "./parts";
+import { useAtlasChoice } from "./parts.shared";
 import { RefText } from "./RefText";
 
 /** Room the map keeps clear for the panels laid over its left and right, so places are not hidden under them. */

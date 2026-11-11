@@ -1,20 +1,19 @@
+import { recordHref } from "./Evidence.shared";
 // The parts of the Surviving witnesses page drawn from the open manuscript collection (/study/manuscripts, built by
 // scripts/build-manuscripts.py): each witness's photograph, how much survives and from when, how close the copies come
 // to the writing, and where they are kept now. The page stands without them; each appears once the collection loads.
 // Choosing a manuscript anywhere here opens its record on the Manuscripts page.
+import type { MsImage, MsRecord } from '@/lib/manuscripts';
+import { plural } from "@/lib/site-format";
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useMemo, useState, type CSSProperties } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import type { MsImage, MsRecord } from '@/lib/manuscripts';
 import { Closeness } from '../manuscripts/Closeness';
 import { MsContext } from '../manuscripts/context';
 import { closenessLead } from '../manuscripts/leads';
-import { byDate, formatNumber, isDated, kindOf, mid, ordinal, type MsIndex } from '../manuscripts/model';
 import '../manuscripts/manuscripts.css';
+import { byDate, formatNumber, isDated, kindOf, mid, ordinal, type MsIndex } from '../manuscripts/model';
 import './evidence.css';
-import { plural } from "@/lib/site-format";
-
-export const recordHref = (id: string) => `/study/manuscripts?record=${encodeURIComponent(id)}`;
 
 /** A witness's own photograph, with its credit; the caller draws the schematic form when there is none. */
 export function WitnessPhoto({ image, name }: { image: MsImage; name: string }) {

@@ -1,0 +1,10 @@
+// Shared data, hooks and helpers; React components stay in their own refresh boundary.
+import "./overview-more.css";
+import { HouseScene, LancetsScene, SatchelScene, TreeScene } from "./OverviewMockupsMore";
+import type { Mockup } from "./types";
+export const MOCKUPS: Mockup[] = [
+  { name: "The Pilgrim's Satchel", note: "An engraved leather haversack opened on a woven cloth with its contents laid out: the workbook Moses: three forties on a stack of others, a sealed letter of introduction to the brethren, and a lantern beside a fan of city maps, a light running the length of the shoulder strap under Psalm 121:8; on hover the bag lifts, the letter slides out and the maps fan wider.", Scene: SatchelScene },
+  { name: "The Three Lancets", note: "Three pointed stained-glass windows in a coursed stone wall, each leaded in diamond panes around a medallion (an open book, friends at a lamplit table, a lit doorway) with a ribbon and a roundel, a beam of sun crossing all three and pooling coloured light on the floor under Matthew 5:14; on hover the glass brightens and the medallions swell.", Scene: LancetsScene },
+  { name: "The House of Three Rooms", note: "A house drawn in section with its front cut away: a schoolroom with forty-one spines, a chalkboard and a little one beside a leader; a lamplit table of friends; a kitchen with a pantry of bread, a wall telephone, a pinned map of fifteen cities and a door ajar, one light walking the floor through all three under Psalm 127:1; on hover the roof lifts and the door opens wider.", Scene: HouseScene },
+  { name: "The Tree of Three Branches", note: "A botanical plate of one tree by a river, its three branches each ending in a ringed and numbered specimen (book-shaped leaves, a cluster of grapes, healing leaves with a fruit) with two pressed-leaf slips for Moses: three forties and fifteen cities, a light arcing from figure to figure under Revelation 22:2; on hover the branches lift and the specimens swell.", Scene: TreeScene },
+];

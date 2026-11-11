@@ -1,8 +1,9 @@
-﻿import {useEffect, useRef, useState} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {ChevronDown} from 'lucide-react';
-import {MosqueIcon,useMosque} from './mosque-icons';
-import {main, worlds, islamPages, groupFor, secondary, currentIslam, useDesign} from './preview';
+﻿import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { MosqueIcon } from "./mosque-icons";
+import { useMosque } from "./mosque-icons.shared";
+import { currentIslam, groupFor, islamPages, main, secondary, useDesign, worlds } from "./preview.shared";
 
 const root='/apologetics/worldviews';
 type World=(typeof worlds)[number];
@@ -44,7 +45,7 @@ export function WorldviewNavigation(){
  const location=useLocation(),design=useDesign(),group=groupFor(location.pathname);
  const [opened,setOpened]=useState<string|null>(group==='Worldviews'?'Worldviews':null);
  const trigger=useRef<HTMLButtonElement|null>(null),previous=useRef(location.pathname);
- useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname]);
+ useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
  return <div className="sm-container"><nav className="sm-main" aria-label="Apologetics sections">{main.map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>
  {opened&&<div id="sm-panel" className="sm-panel">{opened==='Worldviews'?(new URLSearchParams(window.location.search).get('icons')==='rows'?<div className="mi-row-stack">{[1,2,4].map(n=><div className="mi-row-option" key={n} data-option={n}><span className="mi-row-number">{n}</span><WorldviewSubmenu variant={n}/></div>)}</div>:<WorldviewSubmenu key={design}/>):<nav className="sm-other-sections" aria-label={opened+' destinations'}>{secondary(opened).map(d=><Link key={d.to} to={d.to} onFocus={reveal} onClick={()=>setOpened(null)}>{d.label}</Link>)}</nav>}</div>}

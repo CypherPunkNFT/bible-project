@@ -2,7 +2,8 @@ import { select } from "d3-selection";
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior, type ZoomTransform } from "d3-zoom";
 import { ArrowRight, Maximize, Minus, Plus } from "lucide-react";
 import { Fragment, useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
-import { formatTestimonyDate, type TestimonyNode } from "@/lib/testimonies";
+import { formatTestimonyDate } from "@/lib/testimony-date";
+import { type TestimonyNode } from "@/lib/testimonies";
 
 const TONES = ["poetry", "epistles", "gospels", "history"];
 interface Position { node: TestimonyNode; left: number; top: number; depth: number }

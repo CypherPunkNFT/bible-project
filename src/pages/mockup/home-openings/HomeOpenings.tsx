@@ -1,13 +1,14 @@
+import { MARQUEE } from "./HomeOpenings.shared";
 // MOCK-UP: four openings for the homepage on /home_mockup3 (owner, 2026-10-30), built from the owner's three favourites: the
 // sun of The hope to come mock-up (design/the-hope-to-come-horizon: js/land.js RISING_SUN, js/scenes.js road), the manuscript
 // drawings of Surviving Witnesses and Manuscripts, and the gold marquee. The rest of the page stays the real homepage.
+import { HeroArt } from "@/pages/study/manuscripts/HeroArt";
+import { plural } from "@/lib/site-format";
+import "@/pages/study/manuscripts/manuscripts.css";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { useId } from "react";
 import { Link } from "react-router-dom";
-import { HeroArt } from "@/pages/study/manuscripts/HeroArt";
-import "@/pages/study/manuscripts/manuscripts.css";
 import "./home-openings.css";
-import { plural } from "@/lib/site-format";
 
 export const OPENINGS = [
   { id: "a", name: "Sunrise" },
@@ -23,9 +24,6 @@ export interface OpeningProps {
   versions: number;
   languages: number;
 }
-
-// Every phrase is the Berean Standard Bible's own wording.
-export const MARQUEE = ["In the beginning was the Word", "The Word became flesh", "Come and see", "Your word is a lamp to my feet", "Taste and see that the LORD is good", "The truth will set you free", "All Scripture is God-breathed", "Your word is truth", "Faith comes by hearing", "Always be prepared to give a defense", "Carry one another's burdens", "The word of our God stands forever", "Behold, I make all things new"];
 
 export function GoldMarquee() {
   const run = (key: string) => <div className="hm3-marquee-run" key={key}>{MARQUEE.map((words) => <span key={words}>{words}</span>)}</div>;

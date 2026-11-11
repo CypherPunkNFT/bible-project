@@ -30,7 +30,7 @@ function loadPeople() {
 
 interface Person { row: Row; d: Detail; family: number }
 
-export function peopleTemplates(): { templates: TemplateDef[]; valid: { people: string[]; special: Record<string, string[]> } } {
+export function peopleTemplates(): { templates: TemplateDef[]; valid: { people: string[]; peopleSlugs: Record<string, string>; special: Record<string, string[]> } } {
   const { rows, details, index, full } = loadPeople();
   const people: Person[] = rows.map((row) => {
     const d = details.get(row.id);

@@ -1,0 +1,70 @@
+/* The sermon notes sheet (SermonNotesPage.tsx, SermonSheet.tsx). The page wears the Resources section pages' frame
+   (crumbs and plain-type hero from teachers.css), the choices between hairlines; the sheet is a sheet of paper, the same
+   in the preview and in print. Print rules apply only inside the print portal, which only this page's Print arms
+   (src/pages/life-events/print-sheet.css). */
+.sn-page { --door: var(--epistles); }
+.sn-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2rem 3.5rem; align-items: start; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.sn-controls { display: flex; flex-direction: column; gap: 1.1rem; }
+.sn-choice { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; margin: 0; padding: 0 0 1rem; border: 0; border-bottom: 1px solid var(--line); }
+.sn-choice legend, .sn-field > span { float: left; width: 6rem; color: var(--muted); font: 600 .56rem/1.2 "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; }
+.sn-choice label { display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; font-size: .92rem; }
+.sn-choice input { accent-color: var(--door); }
+.sn-field { display: grid; gap: .45rem; }
+.sn-field > span { float: none; width: auto; }
+.sn-field input { width: 100%; padding: .4rem 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 1rem; }
+.sn-field input:focus { outline: none; border-bottom-color: var(--door); }
+.sn-hint { color: var(--muted); font-size: .82rem; line-height: 1.65; }
+.sn-print { align-self: flex-start; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1.5rem; border-radius: 999px; background: var(--door); color: var(--page, #fff); font-weight: 600; font-size: .92rem; }
+.sn-print:hover { filter: brightness(1.08); }
+.sn-print:disabled { opacity: .55; cursor: wait; }
+.sn-notice { padding: .5rem .8rem; border-inline-start: 2px solid var(--door); font-size: .86rem; overflow-wrap: anywhere; }
+.sn-small { color: var(--muted); font-size: .74rem; }
+.sn-preview { position: sticky; top: 5.5rem; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 18px 40px -26px rgb(40 28 10 / .45); }
+.sn-preview-sheet { transform-origin: top left; }
+
+/* ---- The sheet: true size, ink only, fixed light colours ---- */
+.sn-sheet {
+  --sn-ink: #1f1b16; --sn-muted: #5b5246; --sn-rule: #a69d8f; --sn-line-height: .3in;
+  box-sizing: border-box; width: var(--sheet-width); height: calc(var(--sheet-height) - 1px); overflow: hidden;
+  display: flex; flex-direction: column; gap: .16in; padding: .5in;
+  background: #fff; color: var(--sn-ink); color-scheme: light;
+  font-family: "Archivo Variable", system-ui, sans-serif; font-size: 10pt; line-height: 1.35; text-align: start;
+}
+.sn-paper-a4 { padding: 12mm; }
+.sn-sheet *, .sn-sheet *::before, .sn-sheet *::after { box-sizing: border-box; }
+.sn-sheet p, .sn-sheet h2, .sn-sheet h3 { margin: 0; }
+.sn-sheet > * { flex: none; }
+.sn-head { display: grid; gap: .1in; }
+.sn-heading { font: 400 22pt/1.1 "Literata Variable", Georgia, serif; letter-spacing: -.01em; }
+.sn-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: .25in; }
+.sn-blank { display: flex; align-items: flex-end; gap: .1in; min-width: 0; min-height: .32in; }
+.sn-label { flex: none; max-width: 60%; color: var(--sn-muted); font-size: 8.5pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.sn-write, .sn-filled { flex: 1; min-width: 0; min-height: .24in; border-bottom: .6pt solid var(--sn-rule); }
+.sn-filled { padding-bottom: .02in; font: 400 12pt/1.25 "Literata Variable", Georgia, serif; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.sn-big .sn-filled { font-size: 15pt; }
+.sn-prompt { display: flex; flex-direction: column; min-width: 0; }
+.sn-prompt h3 { color: var(--sn-ink); font-size: 9pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.sn-lines { display: flex; flex-direction: column; }
+.sn-line { flex: none; height: var(--sn-line-height); border-bottom: .6pt solid var(--sn-rule); }
+/* The growing area takes the height left on the page; its extra lines are clipped, never pushed onto a second page. */
+.sn-sheet > .sn-grow { flex: 1 1 0; min-height: 0; overflow: hidden; }
+.sn-grow .sn-lines { flex: 1; min-height: 0; overflow: hidden; }
+.sn-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .16in .3in; }
+.sn-foot { display: flex; justify-content: space-between; gap: .2in; padding-top: .06in; color: var(--sn-muted); font-size: 7.5pt; }
+
+/* Children: bigger type, wider lines, a box to draw in. */
+.sn-kids { --sn-line-height: .38in; gap: .14in; font-size: 12pt; }
+.sn-kids .sn-heading { font-size: 26pt; }
+.sn-kids .sn-label { font-size: 10pt; letter-spacing: .02em; text-transform: none; }
+.sn-kids .sn-prompt h3 { font-size: 12pt; letter-spacing: 0; text-transform: none; }
+.sn-kids .sn-filled { font-size: 14pt; }
+.sn-draw { flex: 1; min-height: 0; margin-top: .08in; border: 1.2pt solid var(--sn-ink); border-radius: .14in; }
+
+@media (max-width: 900px) {
+  .sn-grid { grid-template-columns: minmax(0, 1fr); }
+  .sn-preview { position: static; }
+}
+
+@media print {
+  html.print-sheet-active .print-sheet-portal .sn-sheet { max-height: 100vh; }
+}

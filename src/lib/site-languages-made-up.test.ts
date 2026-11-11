@@ -26,7 +26,7 @@ async function siteWithMadeUp() {
     languages: await import("./site-languages"),
     language: await import("./language"),
     verses: await import("./verses"),
-    banner: await import("@/components/home/banner-verses"),
+    banner: await import("@/components/home/banner-verses.shared"),
   };
 }
 
@@ -75,7 +75,7 @@ describe("a made-up language added to the one file", () => {
     vi.stubGlobal("fetch", vi.fn(async (url: string) => ({ ok: true, json: async () => words[url.split("/")[3]] ?? {} })));
     await siteWithMadeUp();
     const { chooseSiteLanguage } = await import("./page-translator");
-    document.body.innerHTML = "";
+    document.body.replaceChildren();
     const range = Object.assign(document.body.appendChild(document.createElement("p")), { textContent: "Numbers 6:24–25" });
     await chooseSiteLanguage("en-XA");
     expect([document.documentElement.lang, document.documentElement.dir]).toEqual(["en-XA", "ltr"]);

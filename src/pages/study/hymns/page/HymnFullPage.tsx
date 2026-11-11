@@ -2,19 +2,21 @@
 // (design/hymn-directions/a/) filled from data/hymns/pages/ by scripts/build-hymn-pages.py. The same template serves all
 // 1,227; each section appears only when the data has something for it, and the numbers follow what is shown. A hymn with
 // no heading verse and no echoes shows its words, its book and its place in the book (owner, 2026-10-17).
-import { useCallback, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import type { HymnPageData } from "@/lib/hymn-pages";
 import type { SongPlacedBook } from "@/lib/hymns";
+import { formatNumber, plural } from "@/lib/site-format";
+import { useCallback, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Constellation } from "../song/Constellation";
 import { Echoes } from "../song/Echoes";
+import { PassagePanel, type PanelContent } from "../song/parts";
+import { ROMAN, numeralStyle } from "../song/parts.shared";
 import { Head, PlacedSquares } from "../song/Sections";
-import { PassagePanel, ROMAN, numeralStyle, type PanelContent } from "../song/parts";
-import { BookTicks, Found, MainPassage, PageSources } from "./sections";
-import { StanzaPager, stanzaPages, type StanzaPage } from "./StanzaPager";
 import "../song/song.css";
 import "./page.css";
-import { formatNumber, plural } from "@/lib/site-format";
+import { BookTicks, Found, MainPassage, PageSources } from "./sections";
+import { StanzaPager } from "./StanzaPager";
+import { stanzaPages, type StanzaPage } from "./StanzaPager.shared";
 
 /** The constellation draws only up to this many stanzas on its inner ring. */
 const RING_STANZAS = 12;

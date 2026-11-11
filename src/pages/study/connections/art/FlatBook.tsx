@@ -30,7 +30,7 @@ function textLine(x: number, length: number, line: number) {
 }
 
 /** A verse marked on a page: a thread end centred on `x` with a short bar on the line. */
-function verseEnd(side: "L" | "R", line: number, x: number, section: Section): End {
+function verseEnd(_side: "L" | "R", line: number, x: number, section: Section): End {
   const y = lineY(line, x);
   return { x, y: y - 3, section, bar: `M${x - MARK / 2} ${y.toFixed(1)} h${MARK}` };
 }

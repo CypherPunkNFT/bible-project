@@ -1,0 +1,96 @@
+/* /games/wordle (WordleGame.tsx): the header with three icon buttons, the 6 × 5 board centred, the message line and the
+   keyboard within thumb reach, or the result card in its place. Fits a 360 × 640 phone without scrolling and works
+   from 320 px wide. Tile colours are Wordle's (or orange and blue in high contrast); everything else is the site's. */
+.bw-page { padding-top: 1.5rem; padding-bottom: 3rem; }
+.bw-game { --bw-correct: #538d4e; --bw-present: #b59f3b; --bw-absent: #787c7e; --bw-tile: min(3.5rem, calc((100vw - 3rem) / 5.6)); }
+:root[data-theme="dark"] .bw-game, :root:not([data-theme]) .bw-game { --bw-absent: #3a3a3c; }
+.bw-game.bw-contrast { --bw-correct: #f5793a; --bw-present: #85c0f9; }
+
+.bw-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin: .8rem 0 1rem; }
+.bw-head h1, .bw-failed h1 { font-family: var(--font-serif); font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.1; letter-spacing: -.02em; }
+.bw-date { color: var(--muted); font-size: .85rem; }
+.bw-tools { display: flex; gap: .25rem; }
+.bw-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; color: var(--ink); }
+.bw-icon:hover { background: var(--surface); }
+.bw-icon:focus-visible, .bw-key:focus-visible, .bw-button:focus-visible, .bw-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.bw-board { display: grid; gap: .35rem; justify-content: center; }
+.bw-row { display: grid; grid-template-columns: repeat(5, var(--bw-tile)); gap: .35rem; }
+.bw-tile { display: flex; align-items: center; justify-content: center; width: var(--bw-tile); height: var(--bw-tile); border: 2px solid var(--line);
+  color: var(--ink); font-size: calc(var(--bw-tile) * .55); font-weight: 700; line-height: 1; text-transform: uppercase; user-select: none; }
+.bw-filled { border-color: var(--muted); }
+.bw-tile.bw-correct, .bw-tile.bw-present, .bw-tile.bw-absent { border-color: transparent; color: #fff; }
+.bw-correct { background: var(--bw-correct); }
+.bw-present { background: var(--bw-present); }
+.bw-absent { background: var(--bw-absent); }
+.bw-turn { animation: bw-turn 500ms ease-in-out both; }
+.bw-shake { animation: bw-shake 400ms ease-in-out; }
+@keyframes bw-turn { 0% { transform: rotateX(0); } 50% { transform: rotateX(90deg); } 100% { transform: rotateX(0); } }
+@keyframes bw-shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .bw-turn, .bw-shake { animation: none; } }
+
+.bw-message { min-height: 1.6rem; margin: .7rem 0 .3rem; color: var(--ink); font-weight: 600; text-align: center; }
+.bw-hint { margin-bottom: .4rem; color: var(--muted); font-size: .9rem; text-align: center; }
+.bw-hint-button { display: block; margin: 0 auto .5rem; }
+.bw-link { color: var(--accent); font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; }
+
+.bw-keyboard { display: grid; gap: .4rem; margin-top: .4rem; }
+.bw-keys { display: flex; justify-content: center; gap: .3rem; }
+.bw-key { flex: 1 1 0; max-width: 2.75rem; min-height: 3.2rem; padding: 0; border-radius: .35rem; background: var(--surface); border: 1px solid var(--line);
+  color: var(--ink); font-size: .95rem; font-weight: 650; touch-action: manipulation; user-select: none; }
+.bw-key-wide { display: inline-flex; align-items: center; justify-content: center; flex-grow: 1.5; max-width: 4.2rem; font-size: .75rem; }
+.bw-key.bw-correct, .bw-key.bw-present, .bw-key.bw-absent { border-color: transparent; color: #fff; }
+
+.bw-button { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 2.75rem; padding: .55rem 1.2rem;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .9rem; font-weight: 600; }
+.bw-primary { border-color: var(--accent); background: var(--accent); color: var(--surface); }
+.bw-primary:hover { filter: brightness(1.06); }
+
+.bw-result { display: grid; justify-items: center; gap: .9rem; margin-top: .6rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: .75rem; text-align: center; }
+.bw-win { color: var(--muted); font-size: .95rem; }
+.bw-answer { font-family: var(--font-serif); font-size: 2.2rem; letter-spacing: .18em; line-height: 1; }
+.bw-verse { display: grid; gap: .5rem; max-width: 32rem; margin: 0; }
+.bw-verse blockquote { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.6; }
+.bw-verse mark { padding: 0 .1em; border-radius: .2em; background: color-mix(in srgb, var(--bw-correct) 30%, transparent); color: inherit; font-weight: 700; }
+.bw-verse figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem .9rem; font-size: .85rem; }
+.bw-verse cite { color: var(--muted); font-style: normal; }
+.bw-verse a, .bw-person a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.bw-person { display: grid; gap: .2rem; color: var(--muted); font-size: .88rem; }
+.bw-share { display: grid; justify-items: center; gap: .4rem; }
+.bw-toast { min-height: 1.2rem; color: var(--muted); font-size: .8rem; }
+.bw-copy { display: grid; gap: .35rem; width: min(100%, 20rem); font-size: .8rem; text-align: left; }
+.bw-copy textarea { padding: .5rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: .9rem; }
+.bw-countdown { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.bw-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; width: 100%; max-width: 24rem; text-align: center; }
+.bw-figures div { display: flex; flex-direction: column-reverse; gap: .1rem; }
+.bw-figures dd { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.1; }
+.bw-figures dt { color: var(--muted); font-size: .68rem; line-height: 1.3; }
+.bw-subhead { margin: 1rem 0 .5rem; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.bw-dist { display: grid; gap: .3rem; }
+.bw-dist li { display: grid; grid-template-columns: 1rem 1fr; align-items: center; gap: .4rem; font-size: .85rem; }
+.bw-bar { justify-self: start; min-width: 1.6rem; padding: .1rem .4rem; background: var(--bw-absent); color: #fff; text-align: right; }
+.bw-today .bw-bar { background: var(--bw-correct); }
+.bw-note { margin-top: .8rem; color: var(--muted); font-size: .82rem; }
+
+.bw-panel { width: min(92vw, 28rem); max-height: 88vh; padding: 0; border: 1px solid var(--line); border-radius: .8rem; background: var(--bg, var(--surface)); color: var(--ink); }
+.bw-panel::backdrop { background: rgb(0 0 0 / .5); }
+.bw-panel-body { display: grid; gap: .7rem; padding: 1.1rem 1.2rem 1.4rem; font-size: .92rem; line-height: 1.55; }
+.bw-panel-body header { display: flex; align-items: center; justify-content: space-between; }
+.bw-panel-body h2 { font-family: var(--font-serif); font-size: 1.4rem; }
+.bw-example { --bw-tile: 2.4rem; justify-content: start; }
+.bw-switch { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.bw-switch span { display: grid; gap: .15rem; }
+.bw-switch small { color: var(--muted); font-size: .8rem; }
+.bw-switch input { width: 2.6rem; height: 1.4rem; accent-color: var(--accent); }
+.bw-switch input:disabled { opacity: .5; cursor: not-allowed; }
+
+.bw-loading, .bw-failed { margin-top: 2rem; color: var(--muted); }
+.bw-failed { display: grid; justify-items: start; gap: .8rem; }
+
+@media (max-width: 380px) {
+  .bw-head { margin: .4rem 0 .6rem; }
+  .bw-board, .bw-row { gap: .28rem; }
+  .bw-key { min-height: 2.9rem; font-size: .85rem; }
+  .bw-keys { gap: .22rem; }
+}

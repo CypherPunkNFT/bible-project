@@ -4,7 +4,7 @@
 // the site's header and footer (App.tsx). Not indexed. A mistyped or cut-off link still shows a card, never "not found".
 import { useEffect, useMemo } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
-import { DEFAULT_CARD_KEY, passageByKey, passageKey, SYMPATHY_PATH } from "@/data/sympathy";
+import { DEFAULT_CARD_KEY, passageByKey, passageKey } from "@/data/sympathy";
 import { usePageHead } from "@/components/usePageHead";
 import { useCatalog } from "@/lib/catalog";
 import { bookByNum } from "@/lib/refs";
@@ -52,7 +52,7 @@ export function RecipientCard() {
       </div>
       <p className="sy-recipient-links">
         {book && <a href={readHref(passage, book.code)}>Read it in the Bible</a>}
-        <Link to={`${SYMPATHY_PATH}#verses`}>More words of comfort</Link>
+        <Link to="/when-youre/grieving">More words of comfort</Link>
       </p>
       <p className="sy-recipient-site">Bible Guide</p>
     </main>

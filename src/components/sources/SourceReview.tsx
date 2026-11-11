@@ -1,9 +1,9 @@
-import { useEffect, useState, type CSSProperties } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, Copy, FileQuestion, FileText, Fingerprint, FolderOpen, Link2, ListChecks, ScanText, SearchCheck, ShieldQuestion, Users } from 'lucide-react';
-import { missingIdentity, needsReview, type ReviewFilter } from './dashboard-model';
-import { snapshotDate } from './LibraryOverview';
-import type { Directory, SourceEntry } from './types';
 import { formatNumber } from "@/lib/site-format";
+import { ArrowRight, ArrowUpRight, BookOpen, Copy, FileQuestion, FileText, Fingerprint, FolderOpen, Link2, ListChecks, ScanText, SearchCheck, ShieldQuestion, Users } from 'lucide-react';
+import { useEffect, useState, type CSSProperties } from 'react';
+import { missingIdentity, needsReview, type ReviewFilter } from './dashboard-model';
+import { snapshotDate } from "./LibraryOverview.shared";
+import type { Directory, SourceEntry } from './types';
 const n=(value:number|undefined)=>value===undefined?'—':formatNumber(value);
 const assessments=[
  {title:'Text integrity',icon:ScanText,detail:'Compare the extraction with the original; inspect missing pages, broken text and OCR.'},

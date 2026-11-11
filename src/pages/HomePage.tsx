@@ -3,48 +3,39 @@
 // word wall with the six doorway squares beside it, the guide, the four parts under pointed banners, the questions, the gold
 // marquee, the sources, Close to home, and Scroll A's blessing before the footer. The city's corners have no towers (from /home_mockup8, owner, 2026-10-31). Earlier homepage: approved 2026-10-22 from
 // /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
-import { BannerVerse } from "@/components/home/banner-verses";
-import { Verse } from "@/components/Verse";
-import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Users } from "lucide-react";
-import { useContext, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { useCatalog } from "@/lib/catalog";
-import { lastReadPath } from "@/lib/last-read";
-import { useMediaQuery } from "@/lib/useMediaQuery";
-import { CollectionArtwork, HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
-import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
-import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
-import { AtlasScene, TheologyScene } from "@/components/home/HomeStudyScenes";
-import { LongCopyScene } from "@/components/home/mockups/AcademicMockups";
-import { SectionBanner } from "@/components/home/HomeBanner";
-import { FellowshipScene } from "@/components/home/HomeResourceScenes";
-import { LancetsScene } from "@/components/home/mockups/OverviewMockupsMore";
-import { DeskScene } from "@/components/home/mockups/LearningMockups";
-import { WayfinderScene } from "@/components/home/mockups/LifeMockups";
-import { DebateScene, FieldArt, WorldviewsScene } from "@/components/home/HomeApologeticsScenes";
+import { BannerVerse } from "@/components/home/BannerVerses";
 import { HOME_FIELDS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
+import "@/components/home/home-phone.css";
+import { DebateScene, FieldArt, WorldviewsScene } from "@/components/home/HomeApologeticsScenes";
+import { HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
+import { SectionBanner } from "@/components/home/HomeBanner";
+import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
+import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
+import { FellowshipScene } from "@/components/home/HomeResourceScenes";
+import { AtlasScene, TheologyScene } from "@/components/home/HomeStudyScenes";
+import { LongCopyScene } from "@/components/home/mockups/AcademicMockups";
+import { DeskScene } from "@/components/home/mockups/LearningMockups";
+import { WayfinderScene } from "@/components/home/mockups/LifeMockups";
+import { LancetsScene } from "@/components/home/mockups/OverviewMockupsMore";
+import { Verse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { lastReadPath } from "@/lib/last-read";
+import { formatNumber } from "@/lib/site-format";
+import { useMediaQuery } from "@/lib/useMediaQuery";
+import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Users } from "lucide-react";
+import { useContext, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type ReactNode, type PointerEvent as ReactPointerEvent } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import "./home/home-mockup.css";
-import { Opening6 } from "./mockup/home-openings/HomeOpenings6";
-import { ScrollBlessing } from "./mockup/home-openings/HomeOpenings6Blessing";
 import { HomeGuide } from "./home/HomeGuide";
 import { HomeNearby } from "./home/HomeNearby";
 import { HomeQuiz } from "./home/HomeQuiz";
 import { HomeSources } from "./home/HomeSources";
 import { GoldMarquee } from "./mockup/home-openings/HomeOpenings";
-import { BrickCity } from "./mockup/home-openings/HomeOpenings6Chapters";
-import "@/components/home/home-phone.css";
-import { formatNumber } from "@/lib/site-format";
-
-/** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
-const HOME_PATHS = [
-  { title: "Bible", to: "/bible", subtitle: "Read & compare", color: "epistles" },
-  { title: "Study", to: "/study", subtitle: "See the connections", color: "gospels" },
-  { title: "Apologetics", to: "/apologetics", subtitle: "Explore the questions", color: "history" },
-  { title: "Atlas", to: "/study/atlas", subtitle: "Enter the world", color: "poetry" },
-  { title: "Resources", to: "/resources", subtitle: "Study, gather, find help", color: "resource-life" },
-] as const;
+import { Opening6 } from "./mockup/home-openings/HomeOpenings6";
+import { ScrollBlessing } from "./mockup/home-openings/HomeOpenings6Blessing";
+import { BrickCity } from "./mockup/home-openings/HomeOpenings6Chapters.shared";
 
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
 
@@ -288,6 +279,9 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
           <p><Link to="/sympathy" className="underline underline-offset-4">Words of comfort and sympathy cards</Link></p>
           <p><Link to="/baby-names" className="underline underline-offset-4">Biblical baby names: meanings and the people who bore them</Link></p>
           <p><Link to="/countdowns" className="underline underline-offset-4">Advent and Lent daily readings</Link></p>
+          <p><Link to="/when-youre" className="underline underline-offset-4">What the Bible says when you're hurting</Link></p>
+          <p><Link to="/prayers" className="underline underline-offset-4">Short prayers for life's occasions</Link></p>
+          <p><Link to="/blessings" className="underline underline-offset-4">Blessings, graces and bedtime prayers for the home</Link></p>
         </FeatureBlock>
         <FeatureBlock reverse tone="epistles" level="h3" kicker="Learning materials" title={<>Study it <em>together.</em></>}
           art={<DeskScene />} artTo="/resources/learning" artLabel="Browse the learning materials"

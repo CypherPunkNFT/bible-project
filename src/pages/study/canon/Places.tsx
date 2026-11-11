@@ -2,11 +2,12 @@
 // Babylonia, placed only as precisely as each record names its place: a city as a point, a region as a soft area, a
 // disputed place with a dashed ring and a question mark. Records that name no place stand in a tray beside the map.
 // Choose a period to light up its records; then the note on what changed over time.
-import { useState, type CSSProperties } from "react";
 import { SectionHead } from "@/pages/study/manuscripts/parts";
+import { useState, type CSSProperties } from "react";
 import { CN, D, ERA_SPANS, name, records, tone, type CanonRecord } from "./model";
 import { Bridge } from "./parts";
-import { Say, sayHandlers } from "./Timeline";
+import { Say } from "./Timeline";
+import { sayHandlers } from "./Timeline.shared";
 
 const [bx, by, bw, bh] = CN.map.box;
 // Hand-placed labels where points crowd (Caesarea, Qumran and Roman Palestine sit within a few miles on this scale).

@@ -8,8 +8,8 @@ import { HebrewLineage } from './ProofSheet';
 import { PageAnatomy } from './PageAnatomy';
 import { usePrintState } from './usePrintState';
 
-const { editions, networks } = dossier;
-export type Edition = typeof editions[number];
+const { networks } = dossier;
+export type Edition = (typeof dossier.editions)[number];
 
 function EditionNetwork() {
   const [family,setFamily] = usePrintState("family",0);

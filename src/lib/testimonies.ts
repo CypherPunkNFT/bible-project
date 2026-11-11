@@ -1,5 +1,4 @@
-// Relative, not "@/lib": vite.config.ts loads this file (scripts/testimony-vite.ts) in Node, where "@" is not set up.
-import { dateFormat } from "./site-format";
+// Shared validation and data helpers: keep browser-only formatting in testimony-date.ts.
 /** Optional labels chosen by the writer, never inferred from their story. */
 export const TESTIMONY_THEMES: readonly string[] = ["An invitation", "New beginnings", "Community", "Prayer", "Questions", "Grace", "Hope", "Belonging", "Trust"];
 export const MAX_TESTIMONY_CHARACTERS = 100_000;
@@ -41,11 +40,6 @@ export function validateTestimony(input: TestimonySubmission): string | null {
   if (input.happenedWhen.trim().length > 80) return "Keep when it happened to 80 characters or fewer.";
   if (!input.publicConsent) return "Confirm that you want your story to be publicly readable.";
   return null;
-}
-
-export function formatTestimonyDate(iso: string): string {
-  if (!iso) return "Not shared";
-  return dateFormat({ month: "short", day: "numeric", year: "numeric" }).format(new Date(iso));
 }
 
 /** A parent's path, not a claim about conversion, spiritual authority or biological ancestry. */

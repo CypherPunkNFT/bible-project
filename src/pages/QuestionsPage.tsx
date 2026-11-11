@@ -8,24 +8,26 @@
 // 03's rail, ListRail.tsx, can then join the two) and carries the reader down to 03, which is always open. The test
 // banner follows the list and is set to whatever it shows. The choice is kept in the address (?book=, ?theme=), the
 // same address the test page's "Back to the questions" link writes.
+import { type QuestionBank } from "@/lib/data";
+import { formatNumber, plural } from "@/lib/site-format";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { type QuestionBank } from "@/lib/data";
-import { useQuestionBank } from "./questions/useQuestionBank";
+import "./questions-page.css";
 import { BookRing } from "./questions/BookRing";
-import { listFacets, ListRail, type ListChoice } from "./questions/ListRail";
 import { QuestionsHero, StatsBar } from "./questions/Hero";
+import { ListRail } from "./questions/ListRail";
+import { listFacets, type ListChoice } from "./questions/ListRail.shared";
 import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
-import { choiceInWords, EyeToggle, QuestionList, ResultsBar, SearchField, type Chosen } from "./questions/QuestionList";
+import { EyeToggle, QuestionList, ResultsBar, SearchField } from "./questions/QuestionList";
+import { choiceInWords, type Chosen } from "./questions/QuestionList.shared";
+import "./questions/questions-panels.css";
 import { SectionHead } from "./questions/shared";
-import { TestBanner } from "./questions/TestBanner";
 import type { TestQuestion } from "./questions/test/engine";
 import { useRecord } from "./questions/test/record";
+import { inTheme, themeById, THEMES } from "./questions/test/themes";
 import { ThemeShelves } from "./questions/test/ThemeShelves";
-import { inTheme, THEMES, themeById } from "./questions/test/themes";
-import "./questions-page.css";
-import "./questions/questions-panels.css";
-import { formatNumber, plural } from "@/lib/site-format";
+import { TestBanner } from "./questions/TestBanner";
+import { useQuestionBank } from "./questions/useQuestionBank";
 
 const NONE: Filters = readFilters(new URLSearchParams());
 

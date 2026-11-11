@@ -2,21 +2,22 @@
 // design/hymn-directions/a/); every other hymn opens the same design filled from its generated page data
 // (page/HymnFullPage.tsx, data from scripts/build-hymn-pages.py). If that data is not in this build, the plain page of
 // its words, facts and source is the fallback.
+import { loadHymnCollection, loadHymnPageBundle, loadHymnPagesIndex, loadHymnSong, loadHymnTexts } from "@/lib/data";
+import { AMAZING_GRACE, isHymnId, type HymnCollection, type HymnEntry, type HymnSong } from "@/lib/hymns";
+import { formatNumber, plural } from "@/lib/site-format";
+import { useAsync } from "@/lib/useAsync";
+import { PageStatus } from "@/pages/teachers/shared/Frame";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, BookOpen } from "lucide-react";
-import { loadHymnCollection, loadHymnPageBundle, loadHymnPagesIndex, loadHymnSong, loadHymnTexts } from "@/lib/data";
-import { useAsync } from "@/lib/useAsync";
-import { AMAZING_GRACE, isHymnId, type HymnCollection, type HymnEntry, type HymnSong } from "@/lib/hymns";
-import { PageStatus } from "@/pages/teachers/shared/Frame";
 import { firstLine, groupsById, passageHref } from "./model";
+import { HymnFullPage } from "./page/HymnFullPage";
 import { Constellation } from "./song/Constellation";
 import { Echoes } from "./song/Echoes";
 import { BookRow, Found, Head, PlacedSquares } from "./song/Sections";
-import { PassagePanel, ROMAN, Sources, type PanelContent } from "./song/parts";
-import { HymnFullPage } from "./page/HymnFullPage";
+import { PassagePanel, Sources, type PanelContent } from "./song/parts";
+import { ROMAN } from "./song/parts.shared";
 import "./song/song.css";
-import { formatNumber, plural } from "@/lib/site-format";
 
 function Crumb() {
   return <p className="hy-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/theology?area=life">Living the Christian Life</Link><span>/</span><Link to="/study/hymns">Hymns</Link></p>;

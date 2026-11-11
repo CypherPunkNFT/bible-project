@@ -3,19 +3,19 @@
 // row opens its explanation; its Shown/Hidden switch takes it off the page. Drawings: page-anatomy.ts; styles: page-anatomy.css.
 import { formatNumber } from '@/lib/site-format';
 import { useEffect, useState, type CSSProperties } from 'react';
-import { EDITIONS, TONES, flatPage, layerSvg, sheetSvg, type AnatomyEdition } from './page-anatomy';
+import { EDITIONS, TONES, type AnatomyEdition } from './page-anatomy';
 import './page-anatomy.css';
+import { AnatomyFlatPage, AnatomyLayerArt, AnatomySheet } from './PageAnatomyArt';
 
 const ALL = [true, true, true];
 const tone = (i: number) => ({ '--tone': TONES[i] }) as CSSProperties;
-const svg = (markup: string) => ({ __html: markup });
 
 /** Three plates, one per layer, stacked in 3D; the top plate is the main text. */
 function Stack({ edition, visible }: { edition: AnatomyEdition; visible: boolean[] }) {
   return <>
     <div className="pa-stack">{edition.layers.map((layer, i) =>
       <div key={i} className="pa-plate" data-layer={i} data-off={!visible[i] || undefined} style={{ '--i': 2 - i, '--tone': TONES[i] } as CSSProperties}
-        dangerouslySetInnerHTML={svg(sheetSvg(layerSvg(layer, i), false))}/>).reverse()}</div>
+        ><AnatomySheet back={false}><AnatomyLayerArt layer={layer} index={i}/></AnatomySheet></div>).reverse()}</div>
     <ol className="pa-legend">{edition.layers.map((layer, i) =>
       <li key={i} style={tone(i)} data-off={!visible[i] || undefined}><b>0{i + 1}</b>{layer.label}</li>)}</ol>
   </>;
@@ -52,7 +52,6 @@ function Inspector({ editionId, choose }: { editionId: string; choose: (id: stri
   useEffect(() => { setVisible(ALL); setReading(0); }, [edition.id]);
   const toggle = (i: number) => { setVisible(v => v.map((on, j) => j === i ? !on : on)); setReading(i); };
   // In the one-sheet view a hidden layer stays in the markup, marked off, so it fades rather than vanishing.
-  const flat = flatPage(edition).replace(/data-layer="(\d)"/g, (match, i: string) => visible[+i] ? match : `${match} data-off="true"`);
   const layer = edition.layers[reading];
   return <section className="pa-inspect" id="pa-inspect" aria-labelledby="pa-inspect-title">
     <div className="pa-inspect-head">
@@ -67,7 +66,7 @@ function Inspector({ editionId, choose }: { editionId: string; choose: (id: stri
     <div className="pa-panel">
       <div className="pa-art" data-view={view} data-focus={focus} onPointerLeave={() => setFocus('')}
         onPointerOver={event => setFocus((event.target as Element).closest<HTMLElement>('.pa-plate')?.dataset.layer ?? '')}>
-        {view === 'a' ? <div className="pa-flat" dangerouslySetInnerHTML={svg(flat)}/> : <Stack edition={edition} visible={visible}/>}
+        {view === 'a' ? <div className="pa-flat"><AnatomyFlatPage edition={edition} visible={visible}/></div> : <Stack edition={edition} visible={visible}/>}
         <p className="pa-art-meta"><span>{edition.place}</span><span>{edition.langs}</span></p>
       </div>
       <div className="pa-read" aria-live="polite">
@@ -120,7 +119,7 @@ export function PageAnatomy({ editionId, choose }: { editionId: string; choose: 
       <p className="pa-kicker">Three ways a page is built</p>
       <h2 id="pa-ways-title">Same book, <em>different architecture</em></h2>
       <ol>{WAYS.map(([id, color, kind, title, text]) => <li key={id} style={{ '--tone': color } as CSSProperties}>
-        <span className="pa-card-kind">{kind}</span><div className="pa-thumb" dangerouslySetInnerHTML={svg(flatPage(EDITIONS.find(e => e.id === id)!))}/>
+        <span className="pa-card-kind">{kind}</span><div className="pa-thumb"><AnatomyFlatPage edition={EDITIONS.find(e => e.id === id)!}/></div>
         <strong>{title}</strong><small>{text}</small></li>)}</ol>
     </section>
     <Inspector editionId={editionId} choose={choose}/>

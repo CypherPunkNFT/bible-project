@@ -1,6 +1,5 @@
 // MOCK-UP: the Study row of the doorway design sheet (/doorways_mockup): five takes on the Study card's drawing.
 // Owner's note: "study, I don't know", so the first keeps today's four-Gospels idea refit to the taller frame and the other four try new ones.
-import type { DoorwayVariant } from "./doorway-types";
 
 const GOSPELS = ["MATTHEW", "MARK", "LUKE", "JOHN"];
 /** Chapters in each of the 66 books, Genesis to Revelation (1,189 in all). */
@@ -9,7 +8,7 @@ const CHAPTERS = [50, 40, 27, 36, 34, 24, 21, 4, 31, 24, 22, 25, 29, 36, 10, 13,
 const STARTS = CHAPTERS.reduce<number[]>((acc, n) => [...acc, acc[acc.length - 1] + n], [0]);
 const chapterX = (chapter: number) => 16 + (chapter / 1189) * 288;
 
-function Converging() {
+export function Converging() {
   const ys = [32, 68, 112, 148];
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
     <path d="M10 172L74 96 104 126 140 86 196 166M190 166L246 100 272 124 312 84" stroke="currentColor" strokeOpacity=".1" />
@@ -24,7 +23,7 @@ function Converging() {
   </svg>;
 }
 
-function CrossReferences() {
+export function CrossReferences() {
   const arcs = Array.from({ length: 46 }, (_, i) => {
     const a = (i * 7919 + 97) % 1189, b = (i * 104729 + 331) % 1189;
     return [chapterX(Math.min(a, b)), chapterX(Math.max(a, b))];
@@ -41,7 +40,7 @@ function CrossReferences() {
   </svg>;
 }
 
-function AnnotatedPage() {
+export function AnnotatedPage() {
   const lengths = [104, 104, 104, 70, 104, 104, 104, 104, 46, 104, 104, 104, 104, 82, 104];
   const cards = [[14, "CONTEXT"], [70, "WORD"], [126, "CROSS-REF"]] as const;
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -62,7 +61,7 @@ function AnnotatedPage() {
   </svg>;
 }
 
-function Magnifier() {
+export function Magnifier() {
   const [cx, cy, r] = [198, 80, 44];
   const big = [-28, -14, 0, 14, 28].map((dy) => { const half = Math.sqrt(r * r - dy * dy) - 9; return `M${(cx - half).toFixed(1)} ${cy + dy}H${(cx + half).toFixed(1)}`; });
   const rows = Array.from({ length: 13 }, (_, i) => 38 + i * 8.6);
@@ -83,7 +82,7 @@ function Magnifier() {
   </svg>;
 }
 
-function Desk() {
+export function Desk() {
   const rows = Array.from({ length: 11 }, (_, i) => 52 + i * 8.4);
   const script = [0, 1, 2, 4, 5, 7, 8, 9].map((i, k) => `M222 ${54 + i * 11}q3-2.5 6 0${"t6 0".repeat(5 + (k * 5) % 6)}`);
   return <svg viewBox="0 0 320 180" fill="none" aria-hidden="true">
@@ -109,11 +108,3 @@ function Desk() {
     </g>
   </svg>;
 }
-
-export const STUDY_DOORWAYS: DoorwayVariant[] = [
-  { name: "Four Gospels, one Christ", Art: Converging },
-  { name: "Cross-reference arcs", Art: CrossReferences },
-  { name: "Annotated page", Art: AnnotatedPage },
-  { name: "Magnifier on the text", Art: Magnifier },
-  { name: "Desk: Bible and notebook", Art: Desk },
-];

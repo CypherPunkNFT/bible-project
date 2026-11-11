@@ -4,7 +4,7 @@ import { chooseSiteLanguage } from "./page-translator";
 afterEach(() => {
   vi.unstubAllGlobals();
   window.history.pushState({}, "", "/");
-  document.body.innerHTML = "";
+  document.body.replaceChildren();
 });
 
 const FILES: Record<string, Record<string, string>> = {

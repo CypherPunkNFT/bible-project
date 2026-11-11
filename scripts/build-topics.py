@@ -18,8 +18,6 @@ import sys
 import zlib
 from pathlib import Path
 
-import numpy as np
-
 WEBSITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WEBSITE / "scripts"))
 from bible.books import BOOK_NUMBER, OSIS_TO_CODE, verse_id  # noqa: E402
@@ -183,6 +181,9 @@ def plain(value) -> str:
 
 def related_studies(topics: list[dict], model) -> None:
     """Each topic's closest published studies by meaning (same model as meaning search), above RELATED_MIN."""
+    # Only the embedding step needs NumPy; parsing the source texts does not.
+    import numpy as np
+
     studies = []
     for path in sorted(STUDIES.glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))

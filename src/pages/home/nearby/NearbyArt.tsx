@@ -3,11 +3,10 @@
 // right drawing"). From the first four the owner chose the village; the second four are in its spirit with no chapel
 // ("lets do another set of 4 but no chapels now"), then four about community rather than buildings ("focused on community not buidings"). Built from the morning's own parts (art-parts.tsx), so they share its
 // palette and its slow living motion.
-import type { ComponentType } from "react";
 import { Church, Cloud, Fire, Flock, Foreground, Frame, Ground, House, Person, Ripples, Tree } from "./art-parts";
 
 /** The owner's pick from the first four: a village around its church, a river catching the light. */
-function Village() {
+export function Village() {
   return <Frame>
     <Cloud x={10} y={18} s={0.62} kind="mid" /><Cloud x={200} y={26} s={0.8} kind="near" /><Cloud x={150} y={4} s={0.45} kind="small" />
     <Flock x={70} y={44} s={0.66} delay={-20} />
@@ -25,7 +24,7 @@ function Village() {
 }
 
 /** Families on blankets on a hill under a great tree, a basket between them, a child flying a kite. */
-function Picnic() {
+export function Picnic() {
   return <Frame>
     <Cloud x={150} y={14} s={0.62} kind="far" /><Cloud x={228} y={34} s={0.42} kind="small" />
     <Flock x={120} y={50} s={0.6} delay={-12} />
@@ -45,7 +44,7 @@ function Picnic() {
 }
 
 /** People walking a path together through the fields, hand in hand, more of them further along. */
-function Walking() {
+export function Walking() {
   const hands = (y: number, xs: number[], s: number) => xs.slice(1).map((x, i) => `M${xs[i] + 5 * s} ${y - 12 * s}L${x - 5 * s} ${y - 12 * s}`).join("");
   return <Frame>
     <Cloud x={14} y={20} s={0.7} kind="near" /><Cloud x={196} y={14} s={0.8} kind="mid" />
@@ -64,7 +63,7 @@ function Walking() {
 }
 
 /** A circle of people seated around a fire by the lake, its flame flickering and sparks rising. */
-function Fireside() {
+export function Fireside() {
   return <Frame>
     <Cloud x={20} y={16} s={0.6} kind="far" /><Cloud x={204} y={24} s={0.56} kind="small" />
     <Flock x={150} y={44} s={0.55} delay={-22} />
@@ -81,7 +80,7 @@ function Fireside() {
 }
 
 /** A long table set in a meadow, people seated along it, bread and cups, lights strung between two trees. */
-function LongTable() {
+export function LongTable() {
   const bulbs = Array.from({ length: 9 }, (_, i) => { const t = (i + 1) / 10, u = 1 - t; return [u * u * 52 + 2 * t * u * 140 + t * t * 228, u * u * 98 + 2 * t * u * 132 + t * t * 98]; });
   return <Frame>
     <Cloud x={88} y={10} s={0.6} kind="mid" /><Cloud x={176} y={26} s={0.42} kind="small" />
@@ -98,17 +97,3 @@ function LongTable() {
     <Foreground line="M8 192Q57 181 93 193Q121 201 159 194Q219 181 272 190" />
   </Frame>;
 }
-
-export const PICKED = { id: "village", name: "The village", Art: Village,
-  note: "Your pick from the first four: houses gathered around their church in a valley, lights in the windows, smoke rising, the river catching the church's light." };
-
-export const NEARBY_ART: { id: string; name: string; note: string; Art: ComponentType }[] = [
-  { id: "picnic", name: "The picnic", Art: Picnic,
-    note: "Families on blankets on a hill under a great tree, a basket between them, and a child flying a kite that sways in the wind." },
-  { id: "walking", name: "Walking together", Art: Walking,
-    note: "People walking a path through the fields hand in hand, a child between them, more of them further along the way." },
-  { id: "fireside", name: "Around the fire", Art: Fireside,
-    note: "A circle of people seated around a fire by the lake, the flame flickering, sparks rising, its glow on the water behind." },
-  { id: "long-table", name: "The long table", Art: LongTable,
-    note: "A long table set in a meadow, people seated all along it with bread and cups, lights strung between two trees twinkling above." },
-];
