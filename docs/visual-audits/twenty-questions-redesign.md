@@ -79,7 +79,7 @@ All run from the Website folder after the last change, with the native runtimes.
 
 Two notes on method. Playwright's own click (move the mouse, wait, scroll into view, retry) fought the answer buttons' hover lift and scrolled the page under the sticky header, so the play-through sends the click event straight to the buttons the way a tap does; a real click in the browser, checked by hand in the same run, does not scroll. The phone screenshots are a desktop browser at 390 wide, so the "No" button in some of them still wears its mouse-hover edge; on a phone, where there is no mouse, that style no longer applies.
 
-**Commit:** recorded below once made.
+**Commit:** 21ec6b510 on main, pushed to origin (the hash is recorded in a small follow-up commit). Nothing released or deployed.
 
 ## 6. Left for later
 
