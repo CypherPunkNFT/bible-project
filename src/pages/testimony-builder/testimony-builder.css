@@ -1,0 +1,101 @@
+/* The Testimony builder (TestimonyBuilderPage.tsx). It wears the tools hub's look (games.css: hero, numbered shelves)
+   and adds only its own parts, all under tb- classes: the hero verse, the two-column writing layout with its question
+   list, the open question with its guidance, example and answer box, the sheet's actions and the sheet itself, on screen
+   and on paper. Lines and hairlines, never boxes around everything. Its colour is the acts tone, like its drawing. */
+.tb-page { --tb: var(--acts); }
+.tb-page .st-kick a { color: inherit; }
+.tb-shelf .gm-shelf-head { border-bottom: 1px solid var(--line); }
+.tb-page a:not(.gm-jump a) { color: var(--tb); text-underline-offset: 3px; }
+
+.tb-verse { min-height: 6.5rem; margin-top: 1.4rem; max-width: 32rem; }
+.tb-verse blockquote { margin: 0; padding-inline-start: 1rem; border-inline-start: 2px solid var(--tb); font: 400 1.05rem/1.7 var(--font-serif); color: var(--ink); }
+.tb-verse-ref { margin-top: .5rem; color: var(--muted); font-size: .85rem; }
+
+.tb-banner { margin-top: 1.5rem; }
+.tb-bad { color: var(--red-letter); font-size: .9rem; line-height: 1.5; margin-top: .6rem; }
+.tb-quiet { margin-top: .8rem; max-width: 46rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.tb-status { min-height: 1.4rem; margin-top: .8rem; color: var(--ink); font-size: .9rem; line-height: 1.5; }
+.tb-status:empty { margin-top: 0; }
+.tb-file { display: none; }
+
+.tb-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin-top: 1.4rem; align-items: start; }
+@media (min-width: 48rem) {
+  .tb-layout { grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 3rem; }
+  .tb-side { position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow: auto; order: 2; }
+  .tb-side details > summary { display: none; }
+  .tb-side details { display: contents; }
+}
+.tb-progress { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tb-side summary { cursor: pointer; padding: .6rem 0; color: var(--ink); font-size: .95rem; }
+.tb-side summary::marker { color: var(--tb); }
+
+.tb-list { margin-top: .8rem; }
+.tb-list-part + .tb-list-part { margin-top: 1rem; }
+.tb-list-part h3 { color: var(--muted); font: 600 .62rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tb-list ol { margin-top: .3rem; }
+.tb-list-item { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; align-items: center; gap: .5rem; width: 100%; min-height: 2.75rem; padding: .35rem .2rem; background: none; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); text-align: start; font-size: .92rem; cursor: pointer; }
+.tb-list-item:is(:hover, :focus-visible) .tb-list-name { color: var(--tb); }
+.tb-list-item[aria-current="step"] .tb-list-name { color: var(--tb); font-weight: 600; }
+.tb-list-item[aria-current="step"] .tb-list-num { color: var(--tb); }
+.tb-list-num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: .8rem; }
+.tb-list-mark { color: var(--tb); font-size: .85rem; }
+.tb-list-item.is-done .tb-list-num { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--tb) 50%, transparent); }
+
+.tb-question { max-width: 46rem; }
+.tb-place { color: var(--muted); font: 600 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tb-question-title { margin-top: .5rem; color: var(--ink); font: 450 clamp(1.3rem, 2.6vw, 1.8rem)/1.25 var(--font-serif); letter-spacing: -.02em; }
+.tb-question-title:focus { outline: none; }
+.tb-question-title label { cursor: text; }
+.tb-guidance { margin-top: .9rem; display: grid; gap: .55rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .95rem; line-height: 1.65; }
+.tb-guidance .tb-quiet { margin-top: 0; }
+.tb-example { margin-top: 1rem; padding: .6rem 1rem; border-inline-start: 2px solid color-mix(in srgb, var(--tb) 55%, transparent); }
+.tb-example summary { cursor: pointer; color: var(--tb); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.tb-example-text { margin-top: .6rem; color: var(--muted); font: italic 400 .98rem/1.65 var(--font-serif); }
+
+.tb-box, .tb-line { display: block; width: 100%; margin-top: 1.2rem; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font: 400 1rem/1.6 var(--font-serif); }
+.tb-box { min-height: 12rem; max-height: 60vh; resize: vertical; field-sizing: content; overflow: auto; }
+.tb-line { min-height: 2.75rem; }
+.tb-page :is(input, textarea, select):focus-visible { border-color: var(--tb); outline: 2px solid color-mix(in srgb, var(--tb) 35%, transparent); outline-offset: 1px; }
+.tb-page :is(input, textarea)[readonly] { opacity: .8; }
+.tb-counter { min-height: 1.2rem; margin-top: .35rem; color: var(--muted); font-size: .8rem; text-align: end; }
+
+.tb-nav, .tb-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.3rem; }
+.tb-primary, .tb-secondary { min-height: 2.75rem; padding: .45rem 1.1rem; border: 1px solid var(--tb); border-radius: 999px; font-size: .95rem; cursor: pointer; transition: background-color .2s, border-color .2s; }
+.tb-primary { background: var(--tb); color: var(--surface); font-weight: 600; }
+.tb-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+.tb-secondary:is(:hover, :focus-visible) { border-color: var(--tb); }
+.tb-page button:focus-visible { outline: 2px solid color-mix(in srgb, var(--tb) 45%, transparent); outline-offset: 2px; }
+.tb-page button:disabled { opacity: .45; cursor: not-allowed; }
+.tb-link { background: none; border: 0; padding: .3rem .2rem; color: var(--tb); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: .9rem; }
+.tb-paper { display: inline-flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .85rem; }
+.tb-paper select { min-height: 2.75rem; padding: .3rem .6rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font-size: 1rem; }
+.tb-by-hand { display: block; width: 100%; max-width: 46rem; margin-top: .8rem; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); font: 400 .9rem/1.5 var(--font-serif); }
+
+.tb-prose { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: .8rem; line-height: 1.65; }
+.tb-prose h3 { margin-top: .6rem; font: 450 1.25rem/1.3 var(--font-serif); }
+.tb-points { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: .7rem; padding-inline-start: 1.4rem; line-height: 1.65; list-style: decimal; }
+.tb-points li::marker { color: var(--tb); font-weight: 600; }
+
+/* The sheet on screen: a quiet page of its own, the same type the printout uses. */
+.tb-preview { margin-top: 1.6rem; max-width: 46rem; padding: 2rem clamp(1rem, 4vw, 2.5rem); border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); }
+.tb-sheet { overflow-wrap: anywhere; }
+.tb-sheet-title { font: 500 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
+.tb-sheet-by { margin-top: .4rem; color: var(--muted); font-size: .95rem; }
+.tb-sheet-section { margin-top: 1.9rem; }
+.tb-sheet-heading { color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.tb-sheet-text { margin-top: .5rem; font: 400 1.02rem/1.7 var(--font-serif); color: var(--ink); white-space: pre-line; }
+.tb-sheet-text + .tb-sheet-text { margin-top: .85rem; }
+.tb-sheet-foot { margin-top: 2.6rem; padding-top: .8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+
+/* On paper (print-sheet.css hides everything but the portal while html.print-sheet-active): black on white, the page
+   margin set by usePrintSheet, each heading kept with its first paragraph. */
+@media print {
+  html.print-sheet-active .tb-print { color: #1b1917; background: #fff; font-size: 11.5pt; }
+  html.print-sheet-active .tb-print .tb-sheet { max-width: 42em; margin: 0 auto; }
+  html.print-sheet-active .tb-print .tb-sheet-title { font: 500 24pt/1.15 var(--font-serif); color: #1b1917; }
+  html.print-sheet-active .tb-print .tb-sheet-by { color: #5c5650; }
+  html.print-sheet-active .tb-print .tb-sheet-heading { color: #5c5650; }
+  html.print-sheet-active .tb-print .tb-sheet-text { color: #1b1917; font-size: 11.5pt; line-height: 1.6; }
+  html.print-sheet-active .tb-print .tb-sheet-keep { break-inside: avoid; }
+  html.print-sheet-active .tb-print .tb-sheet-foot { color: #5c5650; border-top-color: #d9d4cc; }
+}

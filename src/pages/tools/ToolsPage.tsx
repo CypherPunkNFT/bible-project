@@ -1,5 +1,5 @@
 // /tools: the tools hub. Built like the games hub (src/pages/games/GamesPage.tsx) and with its styles (games.css, the
-// gm- classes), so the two read as one design: a hero with the tools-table drawing, then the tools in four categories
+// gm- classes), so the two read as one design: a hero with the tools-table drawing, then the tools in their categories
 // (registry.ts CATEGORIES), each tool a tile with its own picture (art/). A finished tool links to its own address; one
 // not built yet is a "Coming soon" tile with its full picture and no link. tools.css only sets the three columns.
 // How to add or finish a tool: README.md beside this file.

@@ -1,7 +1,7 @@
 # Tools
 
 The tools hub at `/tools` (linked from the main menu as **Tools**, beside **Games**). It lists every approved non-game
-tool for parents, families and pastors (BibleProject/APPROVED-IDEAS.md, 2026-11-07), grouped into four categories.
+tool for parents, families and pastors (BibleProject/APPROVED-IDEAS.md, 2026-11-07), grouped into categories.
 Every tool is one entry in [registry.ts](registry.ts); the hub ([ToolsPage.tsx](ToolsPage.tsx)) draws its cards from
 that list, so adding or finishing a tool never touches the page layout or the menu. It is built like the games hub
 ([../games/README.md](../games/README.md)): same tiles, same drawings, same counts.
@@ -36,7 +36,7 @@ churches) update by themselves. Leave its `category` and `art` lines as they are
 | `title` | The card's heading. |
 | `description` | One line, at most 140 characters, shown on the card. |
 | `audiences` | Who it is for, one or more of `"parents"`, `"families"`, `"churches"`, `"anyone"` (shown as Parents, Families, Churches and pastors, Anyone). |
-| `category` | Which of the hub's categories it sits in: `"family"` (Family and life events), `"hard-times"` (Hard times), `"prayer"` (Prayer and the home), `"sharing"` (Sharing and churches) or `"study"` (Study and reference, added 2026-11-09 for sequence 41's study tools, first the biblical converter). Titles and one-line descriptions: `CATEGORIES` in [registry.ts](registry.ts). Tools in one category must have different colours (a test checks it), and there are seven, so a full category sends the next tool to another. |
+| `category` | Which of the hub's categories it sits in: `"family"` (Family and life events), `"hard-times"` (Hard times), `"prayer"` (Prayer and the home), `"sharing"` (Sharing and churches), `"study"` (Study and reference, added 2026-11-09 for sequence 41's study tools, first the biblical converter) or `"witness"` (Your story of faith, added 2026-11-11 for the Testimony builder; a new category also needs a door in `art/doors.tsx` and a place in the mock-up's `DOOR_ORDER`, or the typecheck fails). Titles and one-line descriptions: `CATEGORIES` in [registry.ts](registry.ts). Tools in one category must have different colours (a test checks it), and there are seven, so a full category sends the next tool to another. |
 | (picture) | A tool built after the first ten may keep its drawing in its own folder and import it into the registry (the converter's is `src/pages/converter/art.tsx`, described in `converter-art.ts`), so parallel builds never share a drawing file. |
 | `art` | Its picture: `TOOL_ART.<name>` from [art/index.ts](art/index.ts). |
 

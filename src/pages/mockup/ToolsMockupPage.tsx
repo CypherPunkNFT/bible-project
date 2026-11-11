@@ -13,8 +13,8 @@ import { CATEGORIES, toolsForHub, isLive, type Category } from "@/pages/tools/re
 import "@/pages/games/games.css";
 import "@/pages/tools/tools.css";
 
-const DOOR_ORDER: readonly Category[] = ["family", "prayer", "sharing", "study", "hard-times"];
-const DOOR_TITLES: Partial<Record<Category, string>> = { family: "Life events", prayer: "Prayer & home", sharing: "Sharing & churches" };
+const DOOR_ORDER: readonly Category[] = ["family", "prayer", "sharing", "study", "witness", "hard-times"];
+const DOOR_TITLES: Partial<Record<Category, string>> = { family: "Life events", prayer: "Prayer & home", sharing: "Sharing & churches", witness: "Your story" };
 
 export default function ToolsMockupPage() {
   const [params] = useSearchParams();

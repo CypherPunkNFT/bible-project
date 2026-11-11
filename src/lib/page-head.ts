@@ -78,6 +78,7 @@ export const ROUTE_TITLES: Record<string, string> = {
   "/worship-slides": "Worship Slide Maker: Bible Verses as PowerPoint Slides and Pictures",
   "/scripture-memory": "Scripture Memory Helper: Learn a Bible Verse by Heart, Day by Day",
   "/puzzle-maker": "Bible Puzzle Maker: Printable Word Searches and Crosswords",
+  "/testimony-builder": "Testimony Builder: Write and Print Your Christian Testimony",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
   "/privacy": "Privacy Policy",

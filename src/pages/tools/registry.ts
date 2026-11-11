@@ -11,6 +11,7 @@ import { RANDOM_VERSE_ART } from "@/pages/random-verse/art";
 import { MEMORY_ART } from "@/pages/scripture-memory/memory-art";
 import { PUZZLE_MAKER_ART } from "@/pages/puzzle-maker/art";
 import { READING_PLANNER_ART } from "@/pages/reading-planner/planner-art";
+import { TESTIMONY_ART } from "@/pages/testimony-builder/testimony-art";
 import { TITHE_ART } from "@/pages/tithe-calculator/tithe-art";
 import { WORD_COUNTER_ART } from "@/pages/word-counter/art";
 import { WORSHIP_SLIDES_ART } from "@/pages/worship-slides/art";
@@ -25,8 +26,9 @@ export const AUDIENCE_LABELS: Record<Audience, string> = {
   anyone: "Anyone",
 };
 
-/** The hub's categories, in page order: each tool sits in one. "study" holds the study and reference tools (sequence 41). */
-export type Category = "family" | "hard-times" | "prayer" | "sharing" | "study";
+/** The hub's categories, in page order: each tool sits in one. "study" holds the study and reference tools (sequence 41);
+ * "witness" (added 2026-11-11) holds the tools for telling one's own story of faith, first the Testimony builder. */
+export type Category = "family" | "hard-times" | "prayer" | "sharing" | "study" | "witness";
 
 export const CATEGORIES: readonly { key: Category; title: string; text: string }[] = [
   { key: "family", title: "Family and life events", text: "A name for a new baby and any name in Hebrew, a verse for a birthday, and passages and cards for weddings, baptisms and graduations." },
@@ -34,6 +36,7 @@ export const CATEGORIES: readonly { key: Category; title: string; text: string }
   { key: "prayer", title: "Prayer and the home", text: "Short prayers for the days that matter, and blessings to say and print at home." },
   { key: "sharing", title: "Sharing and churches", text: "Send a verse to a friend, follow Advent and Lent together, or put a daily verse on a church website." },
   { key: "study", title: "Study and reference", text: "Tools for reading the Bible closely: its measures and money in today's terms, and more to come." },
+  { key: "witness", title: "Your story of faith", text: "Write your own testimony, question by question, and print it to keep, to read aloud or to share." },
 ];
 
 interface ToolBase {
@@ -210,6 +213,13 @@ export const TOOLS: readonly ToolEntry[] = [
     description: "Printable Bible word searches and crosswords from any passage or theme, with an answer key.",
     audiences: ["parents", "families", "churches"],
     category: "sharing", art: PUZZLE_MAKER_ART,
+  },
+  {
+    slug: "testimony-builder", status: "live", path: "/testimony-builder",
+    title: "Testimony builder",
+    description: "Eighteen guided questions, with examples, turn your story of coming to Christ into a testimony sheet to print, copy or download.",
+    audiences: ["anyone", "churches"],
+    category: "witness", art: TESTIMONY_ART,
   },
 ];
 

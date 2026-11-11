@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { doorFrame } from "@/components/hub-doors/door-parts";
 import type { Category } from "../registry";
 
-export const DOOR_TONES: Record<Category, string> = { family: "history", "hard-times": "prophets", prayer: "epistles", sharing: "poetry", study: "gospels" };
+export const DOOR_TONES: Record<Category, string> = { family: "history", "hard-times": "prophets", prayer: "epistles", sharing: "poetry", study: "gospels", witness: "acts" };
 
 export const DOOR_ART: Record<Category, ReactNode> = {
   // a house whose door holds a heart: family and the events of a life
@@ -43,5 +43,13 @@ export const DOOR_ART: Record<Category, ReactNode> = {
     <path d="M58 70h70a8 8 0 0 1 0 16H58a8 8 0 0 1 0-16Z" /><path d="M66 86v60h62" /><path d="M128 146a8 8 0 0 0 0-16H66" opacity=".7" />
     <path d="M78 100h40M78 112h34M78 124h26" opacity=".7" />
     <circle cx="124" cy="112" r="20" fill="var(--page)" fillOpacity=".55" /><circle cx="124" cy="112" r="20" /><path d="M138 126l18 18" strokeWidth="3" /><path d="M114 112h20M124 102v20" opacity=".55" />
+  </g>),
+  // an open hand holding out a written page: a testimony offered to someone else
+  witness: doorFrame(<g>
+    <path d="M70 60h58l8 8v70H70Z" fill="var(--page)" fillOpacity=".7" /><path d="M70 60h58l8 8v70H70Z" /><path d="M128 60v8h8" opacity=".7" />
+    <path d="M82 80h24M82 92h40M82 102h36M82 112h40M82 122h28" opacity=".7" />
+    <path d="M103 74c-4-3-6-7-3-10 2-1 3 0 3 1 0-1 1-2 3-1 3 3 1 7-3 10Z" fill="currentColor" fillOpacity=".18" />
+    <path d="M60 150c0-12 6-18 16-20l16-3c6-1 10 2 10 6s-4 6-10 7l-12 2" /><path d="M66 128c-4 4-6 10-6 18" opacity=".55" />
+    <path d="M102 133c10-2 20-4 30-4 4 0 6 2 6 5s-2 5-6 6l-30 6" /><path d="M44 158h112" opacity=".45" />
   </g>),
 };

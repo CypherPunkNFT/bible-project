@@ -54,6 +54,7 @@ const OccasionVersesPage = lazy(() => import("@/pages/occasion-verses/OccasionVe
 const WorshipSlidesPage = lazy(() => import("@/pages/worship-slides/WorshipSlidesPage"));
 const ScriptureMemoryPage = lazy(() => import("@/pages/scripture-memory/ScriptureMemoryPage"));
 const PuzzleMakerPage = lazy(() => import("@/pages/puzzle-maker/PuzzleMakerPage"));
+const TestimonyBuilderPage = lazy(() => import("@/pages/testimony-builder/TestimonyBuilderPage"));
 const VerseOfTheDayPage = lazy(() => import("@/pages/verse-of-the-day/VerseOfTheDayPage"));
 const VerseCardsPage = lazy(() => import("@/pages/verse-cards/VerseCardsPage"));
 const BirthdayVersesPage = lazy(() => import("@/pages/birthday-verses/BirthdayVersesPage"));
@@ -204,6 +205,7 @@ export default function App() {
               <Route path="/worship-slides" element={<WorshipSlidesPage />} />
               <Route path="/scripture-memory" element={<ScriptureMemoryPage />} />
               <Route path="/puzzle-maker" element={<PuzzleMakerPage />} />
+              <Route path="/testimony-builder" element={<TestimonyBuilderPage />} />
               <Route path="/verse-of-the-day" element={<VerseOfTheDayPage />} />
               <Route path="/verse-cards/*" element={<VerseCardsPage />} />
               <Route path="/birthday-verses/*" element={<BirthdayVersesPage />} />
