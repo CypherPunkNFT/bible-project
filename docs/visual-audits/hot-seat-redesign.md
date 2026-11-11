@@ -109,7 +109,7 @@ All from the Website folder, on 11 November 2026, after the last change:
 - **The English check:** `py -3.12 content/translation/english_build_check.py`: 0 unregistered texts, 0 new, every language net 0.
 - **The build:** `npm run build` passed twice (once before the play-through, once after the fixes it showed), about six minutes each; the preview served the new build.
 - **The play-through:** Playwright from the Website's own copy, at 1440 and 390, dark and light, from a fresh browser and from a reload mid-turn: the start page, How to play, three players, the settings fold, the hand-over, the count-down, right, wrong, pass, undo, keyboard marks, three in a row, focus by Tab, the last five seconds, the buzzer, the recap, a changed mark, Save turn, the standings, a pause, the menu, the End game dialog, two choices, the resume offer, Carry on, the final standings and the night's questions, plus the phone turned sideways. No console errors in any of the four runs; the console showed only the headless browser's wake-lock refusal, as the audit's did.
-- **Commit:** on `main`, hash recorded below once made.
+- **Commit:** `a6027b0ab` on `main`, "Redesign: Hot seat (from its visual audit)", pushed to `origin main`; this line was added in a second small commit on the report alone.
 
 The mechanical test runner decides the final verdict, not this account.
 
