@@ -1,9 +1,13 @@
-// Odd one out: what the player sees after answering (design section 7). The reason, one line for each of the four
-// with a verse, the key verse in the reader's Bible, and anything else that also singles out the same answer.
+// Odd one out: what the player sees after answering (design section 7), split for the kit's feedback band. The
+// Verdict (right or wrong, and the odd one's name when the pick was wrong) sits in the band's row beside Next; the
+// Reading folds in under it: the reason in one large sentence, then, under a "Why" fold, one line for each of the
+// four with a verse, the key verse in the reader's Bible, and anything else that singles out the same answer. The
+// Ring is the hub drawing's circle round the goat, drawn round the odd card. Words: fixed phrases and names stand in
+// their own elements, so the translation check passes.
 import { Check, X } from "lucide-react";
-import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { BibleAbbr, Verse } from "@/components/Verse";
+import { MoreOptions } from "../kit";
 import { headline, itemRef, joinNames, shownLabel, verseHref, verseLabel, type SetEntry, type SetsFile } from "./game";
 
 /** The reason in one sentence; `inline` for places that take only phrasing content (a summary row). */
@@ -13,20 +17,31 @@ export function Headline({ data, set, inline = false }: { data: SetsFile; set: S
   return inline ? <span className="oo-headline">{body}</span> : <p className="oo-headline">{body}</p>;
 }
 
-interface RevealProps { data: SetsFile; set: SetEntry; order: readonly string[]; pick: string | null }
+/** The band's verdict: a tick and "Right!", or a cross and "Not quite" with the odd one named on its own line. */
+export function Verdict({ right, oddLabel }: { right: boolean; oddLabel: string }) {
+  return <div className="oo-verdict">
+    <h2 className={right ? "oo-result is-right" : "oo-result is-wrong"}>
+      {right ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
+      <span>{right ? "Right!" : "Not quite"}</span>
+    </h2>
+    {!right && <p className="oo-verdict-who"><strong>{oddLabel}</strong> <span>was the odd one out</span></p>}
+  </div>;
+}
 
-/** The full explanation; the heading takes focus after an answer (design 10, accessibility). */
-export const Reveal = forwardRef<HTMLHeadingElement, RevealProps>(function Reveal({ data, set, order, pick }, ref) {
-  const right = pick === set.odd;
+/** A hand-drawn ring that draws itself round the odd card (the hub's goat, circled). Decoration only. */
+export function Ring() {
+  return <svg className="oo-ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <ellipse cx="50" cy="50" rx="48" ry="46" pathLength={1} vectorEffect="non-scaling-stroke" />
+  </svg>;
+}
+
+interface LinesProps { data: SetsFile; set: SetEntry; order: readonly string[] }
+
+/** The four lines with their verses, the key verse, and "Also true". */
+export function Lines({ data, set, order }: LinesProps) {
   const rule = data.rules[set.rule];
   const oddLabel = shownLabel(data, set, set.odd);
-  return <section className="oo-reveal" aria-labelledby={`oo-result-${set.id}`}>
-    <h3 id={`oo-result-${set.id}`} ref={ref} tabIndex={-1} className={right ? "oo-result is-right" : "oo-result is-wrong"}>
-      {right ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
-      {pick === null ? <>The odd one out was <strong>{oddLabel}</strong></>
-        : right ? "Right!" : <>Not quite: the odd one out was <strong>{oddLabel}</strong></>}
-    </h3>
-    <Headline data={data} set={set} />
+  return <div className="oo-lines-block">
     <ul className="oo-lines">
       {order.map((id) => {
         const item = data.items[id];
@@ -44,5 +59,15 @@ export const Reveal = forwardRef<HTMLHeadingElement, RevealProps>(function Revea
       <footer><Link to={verseHref(data, ...rule.keyRef)}>{verseLabel(data, ...rule.keyRef)}</Link> <BibleAbbr /></footer>
     </blockquote>}
     {set.also?.length ? <p className="oo-also"><span>Also true:</span> {oddLabel} {joinNames(set.also)}.</p> : null}
-  </section>;
-});
+  </div>;
+}
+
+/** The band's reading: the reason large, then the rest under "Why". */
+export function Reading({ data, set, order }: LinesProps) {
+  return <div className="oo-reading">
+    <Headline data={data} set={set} />
+    <MoreOptions className="oo-why" summary="Why">
+      <Lines data={data} set={set} order={order} />
+    </MoreOptions>
+  </div>;
+}

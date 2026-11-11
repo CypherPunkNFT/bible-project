@@ -90,22 +90,45 @@ export function playablePool(data: SetsFile, choice: Choice, difficulty: Difficu
   return data.sets.filter((set) => set.difficulty === difficulty && isAvailable(data, set.kind, difficulty));
 }
 
+/** Two sets clash in one round when they have the same answer or share three of their four (the audit's repeats). */
+export function clashes(a: SetEntry, b: SetEntry): boolean {
+  if (a.odd === b.odd) return true;
+  return a.items.filter((id) => b.items.includes(id)).length >= 3;
+}
+
+/**
+ * Takes up to `want` sets from `candidates` in order, skipping any that clash with one already chosen, then, when the
+ * rule leaves the round short, the skipped ones in their original order: a round is always as long as the pool allows.
+ */
+export function spread(candidates: readonly SetEntry[], chosen: readonly SetEntry[], want: number): SetEntry[] {
+  const taken: SetEntry[] = [];
+  const skipped: SetEntry[] = [];
+  for (const set of candidates) {
+    if (taken.length >= want) break;
+    if ([...chosen, ...taken].some((other) => clashes(set, other))) skipped.push(set);
+    else taken.push(set);
+  }
+  return [...taken, ...skipped].slice(0, want);
+}
+
 /**
  * Ten set ids for a round. Sets seen recently are skipped until the pool runs out, then the oldest seen come back
- * first. A new player's first Easy People round opens with the owner's example (Peter, John, Paul, James).
+ * first; freshness outranks everything else. Within the fresh and then the stale, sets that would repeat an answer
+ * or three of the same four in one round are left for later (spread). A new player's first Easy People round opens
+ * with the owner's example (Peter, John, Paul, James).
  */
 export function buildRound(data: SetsFile, choice: Choice, difficulty: Difficulty, seen: readonly string[], rng: Rng,
   firstRun = false): string[] {
   const pool = playablePool(data, choice, difficulty);
   const seenAt = new Map(seen.map((id, index) => [id, index]));
-  const fresh = shuffle(pool.filter((set) => !seenAt.has(set.id)), rng).map((set) => set.id);
-  const stale = pool.filter((set) => seenAt.has(set.id))
-    .sort((a, b) => (seenAt.get(a.id) ?? 0) - (seenAt.get(b.id) ?? 0)).map((set) => set.id);
-  let ids = [...fresh, ...stale].slice(0, ROUND_LENGTH);
-  if (firstRun && opensWithExample(data, choice, difficulty)) {
-    ids = [data.first, ...ids.filter((id) => id !== data.first)].slice(0, ROUND_LENGTH);
-  }
-  return ids;
+  const opener = firstRun && opensWithExample(data, choice, difficulty) ? pool.find((set) => set.id === data.first) : undefined;
+  const rest = pool.filter((set) => set !== opener);
+  const fresh = shuffle(rest.filter((set) => !seenAt.has(set.id)), rng);
+  const stale = rest.filter((set) => seenAt.has(set.id)).sort((a, b) => (seenAt.get(a.id) ?? 0) - (seenAt.get(b.id) ?? 0));
+  let chosen: SetEntry[] = opener ? [opener] : [];
+  chosen = [...chosen, ...spread(fresh, chosen, ROUND_LENGTH - chosen.length)];
+  chosen = [...chosen, ...spread(stale, chosen, ROUND_LENGTH - chosen.length)];
+  return chosen.map((set) => set.id);
 }
 
 /** Whether rounds of this kind and difficulty are the ones the owner's example can open. */
@@ -163,4 +186,27 @@ export function verseHref(data: SetsFile, ref: number, end?: number): string {
   const code = data.books[book - 1]?.[0] ?? "GEN";
   const last = end && end !== ref ? `-${splitRef(end).verse}` : "";
   return `/read/bsb/${code}/${chapter}?hl=${verse}${last}`;
+}
+
+/** The share text: the score, the round, the ten squares and the address; never a name, so it spoils nothing. */
+export const SHARE_ADDRESS = "bibleguide.io/games/odd-one-out";
+export function shareLines(choice: Choice, difficulty: Difficulty, score: number, squares: string): string {
+  return [`Odd one out: ${score} of ${ROUND_LENGTH}`, `${CHOICE_LABELS[choice]} · ${DIFFICULTY_LABELS[difficulty]}`, squares, SHARE_ADDRESS].join("\n");
+}
+
+/** The title a round's score earns, by its share of ten. */
+export const RANKS = [
+  { from: 0, title: "Keep looking" },
+  { from: 0.4, title: "A good eye" },
+  { from: 0.7, title: "Hard to fool" },
+  { from: 1, title: "Nothing gets past you" },
+] as const;
+
+/** Why some levels are greyed for a choice, in one fixed line; null when every level is open. */
+export function levelsNote(data: SetsFile, choice: Choice): string | null {
+  const open = DIFFICULTIES.filter((d) => isAvailable(data, choice, d));
+  if (open.length === DIFFICULTIES.length) return null;
+  if (open.length === 2) return "Easy and Medium for now: Hard needs more puzzles.";
+  if (open.length === 1) return "Easy only for now: the other levels need more puzzles.";
+  return "No puzzles at any level yet.";
 }

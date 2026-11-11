@@ -1,7 +1,7 @@
 // Odd one out: the game's logic and what it keeps on the device (design sections 9, 12 and 14).
 import setsJson from "@/data/odd-one-out/sets.json";
-import { ROUND_LENGTH, buildRound, headline, isAvailable, joinNames, playablePool, poolFor, scoreRound, seededRng,
-  shuffle, verseHref, verseLabel, type SetsFile } from "./game";
+import { CHOICES, DIFFICULTIES, ROUND_LENGTH, buildRound, clashes, headline, isAvailable, joinNames, levelsNote, playablePool,
+  poolFor, scoreRound, seededRng, shareLines, shuffle, spread, verseHref, verseLabel, type SetEntry, type SetsFile } from "./game";
 import { readBest, readRound, readSeen, rememberSeen, saveBest, takeOpener, type RoundState, type Store } from "./storage";
 
 const data = setsJson as unknown as SetsFile;
@@ -31,8 +31,60 @@ describe("odd one out rounds", () => {
     const pool = poolFor(data, "person", "easy").map((s) => s.id);
     const seen = pool.slice(0, pool.length - 4);
     const ids = buildRound(data, "person", "easy", seen, seededRng(4));
-    expect(ids.slice(0, 4).sort()).toEqual(pool.slice(-4).sort());
-    expect(ids.slice(4)).toEqual(seen.slice(0, 6));
+    expect(ids.slice(0, 4).sort()).toEqual(pool.slice(-4).sort()); // the fresh four first, whatever they share
+    const stale = ids.slice(4);
+    expect(stale).toHaveLength(6);
+    const ages = stale.map((id) => seen.indexOf(id));
+    expect(ages.every((age) => age >= 0)).toBe(true);
+    expect(ages).toEqual([...ages].sort((a, b) => a - b)); // oldest seen first
+    expect(Math.max(...ages)).toBeLessThan(6 + 6); // only a clash lets a slightly newer set in
+  });
+
+  it("never repeats an answer or three of the same four in one round where the pool allows it", () => {
+    const byId = new Map(data.sets.map((s) => [s.id, s]));
+    for (const choice of CHOICES) {
+      for (const difficulty of DIFFICULTIES) {
+        if (!isAvailable(data, choice, difficulty)) continue;
+        for (let seed = 0; seed < 60; seed += 1) {
+          const sets = buildRound(data, choice, difficulty, [], seededRng(seed), seed % 2 === 0).map((id) => byId.get(id)!);
+          expect(new Set(sets.map((s) => s.id)).size).toBe(ROUND_LENGTH);
+          for (let a = 0; a < sets.length; a += 1) {
+            for (let b = a + 1; b < sets.length; b += 1) expect(clashes(sets[a], sets[b])).toBe(false);
+          }
+        }
+      }
+    }
+  });
+
+  it("keeps the opener first and lets no later set clash with it", () => {
+    const byId = new Map(data.sets.map((s) => [s.id, s]));
+    const sets = buildRound(data, "person", "easy", [], seededRng(7), true).map((id) => byId.get(id)!);
+    expect(sets[0].id).toBe(data.first);
+    expect(sets.slice(1).some((s) => clashes(s, sets[0]))).toBe(false);
+  });
+
+  it("spreads greedily and falls back to the skipped sets, so a round is never short", () => {
+    const mk = (id: string, items: string[], odd: string): SetEntry =>
+      ({ id, kind: "person", difficulty: "easy", items, odd, rule: "r", polarity: "members-share" });
+    const a = mk("a", ["1", "2", "3", "4"], "4");
+    const b = mk("b", ["1", "2", "3", "5"], "5"); // shares 1, 2, 3 with a
+    const c = mk("c", ["6", "7", "8", "4"], "4"); // the same answer as a
+    const d = mk("d", ["9", "10", "11", "12"], "12");
+    expect(clashes(a, b)).toBe(true);
+    expect(clashes(a, c)).toBe(true);
+    expect(clashes(a, d)).toBe(false);
+    expect(spread([a, b, c, d], [], 3).map((s) => s.id)).toEqual(["a", "d", "b"]);
+    expect(spread([a, b, c, d], [], 4).map((s) => s.id)).toEqual(["a", "d", "b", "c"]);
+    expect(spread([b, c], [a], 2).map((s) => s.id)).toEqual(["b", "c"]);
+    const seeds = [seededRng(11), seededRng(11)];
+    expect(buildRound(data, "mixed", "medium", [], seeds[0])).toEqual(buildRound(data, "mixed", "medium", [], seeds[1]));
+  });
+
+  it("writes the share text without a name and says why levels are greyed", () => {
+    expect(shareLines("person", "easy", 7, "🟩🟩🟥")).toBe(["Odd one out: 7 of 10", "People · Easy", "🟩🟩🟥", "bibleguide.io/games/odd-one-out"].join("\n"));
+    expect(levelsNote(data, "person")).toBeNull();
+    expect(levelsNote(data, "book")).toMatch(/for now/);
+    expect(levelsNote({ ...data, sets: [] }, "mixed")).toMatch(/No puzzles/);
   });
 
   it("mixes only kinds that are offered on their own", () => {

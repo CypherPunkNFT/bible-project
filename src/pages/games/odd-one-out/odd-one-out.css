@@ -1,76 +1,169 @@
-/* /games/odd-one-out (OddOneOutGame.tsx): mobile first, the site's colour tokens in both themes. Four large choices in
-   a 2×2 grid (one column below 360px); long names wrap, never truncate. Right and wrong always carry a mark and a word
-   as well as a colour. */
-.oo-page { padding-top: 2rem; padding-bottom: 4rem; }
+/* /games/odd-one-out (OddOneOutGame.tsx): the game's own look over the kit's behaviour (../kit/kit.css), in its hub
+   colour, the prophets' blue. Mobile first, the site's tokens in both themes. Four cards in a two-by-two grid (one
+   column below 360px); long names wrap, never truncate. Right is green and wrong is red, each always with a mark and a
+   word as well as a colour; the blue carries the game: the prompt, the lift on hover and focus, the buttons, the odd
+   name in the reason. No focus outline: focus is the card's own lift and edge. Every state is set at once; the
+   animations only decorate it (src/index.css cuts them to 0.01 ms under reduced motion, and the delays are zeroed
+   below). One card shape, no boxes round boxes: the play area is layout only, and the band is a bar, not a panel. */
+.oo-page {
+  --oo-blue: var(--prophets);
+  --oo-right: var(--resource-life, #3d6b58);
+  --oo-wrong: var(--red-letter);
+  --oo-ease: cubic-bezier(.16, 1, .3, 1);
+  --kit-color: var(--oo-blue);
+  --kit-right: var(--oo-right);
+  --kit-wrong: var(--oo-wrong);
+  --kit-radius: 1rem;
+  --kit-ease: var(--oo-ease);
+  padding-top: 2rem; padding-bottom: 4rem;
+}
 .oo-loading { margin-top: 2rem; color: var(--muted); }
 
-.oo-start h1, .oo-prompt { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
-.oo-prompt { font-size: clamp(1.4rem, 4vw, 1.9rem); margin-top: .9rem; }
-.oo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-.oo-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.4rem; border: 0; padding: 0; }
-.oo-chips legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
-.oo-chips button { padding: .45rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .2s, background-color .2s; }
-.oo-chips button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--ink); font-weight: 600; }
+/* ---- Buttons and chips ---------------------------------------------------------------------------------------- */
+.oo-primary, .oo-secondary { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: .65rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform .35s var(--oo-ease), border-color .35s var(--oo-ease), box-shadow .35s var(--oo-ease); }
+.oo-primary { background: var(--oo-blue); color: var(--page); }
+.oo-primary:disabled { cursor: not-allowed; opacity: .5; }
+.oo-secondary { border: 1px solid var(--line); color: var(--ink); }
+.oo-primary:not(:disabled):is(:hover, :focus-visible), .oo-secondary:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--oo-blue); box-shadow: 0 10px 20px -16px rgb(0 0 0 / .6); }
+.oo-primary:active, .oo-secondary:active { transform: translateY(0); }
+.oo-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.3rem; border: 0; padding: 0; }
+.oo-chips legend { width: 100%; margin-bottom: .45rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.oo-chips button { min-height: 44px; padding: .5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .35s var(--oo-ease), background-color .35s var(--oo-ease), transform .35s var(--oo-ease); }
+.oo-chips button:not(:disabled):is(:hover, :focus-visible) { border-color: var(--oo-blue); transform: translateY(-2px); }
+.oo-chips button[aria-pressed="true"] { border-color: var(--oo-blue); background: color-mix(in srgb, var(--oo-blue) 14%, transparent); color: var(--ink); font-weight: 600; }
 .oo-chips button:disabled { cursor: not-allowed; opacity: .45; }
 .oo-note { margin-top: .9rem; color: var(--muted); font-size: .85rem; }
-.oo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.8rem; }
-.oo-primary, .oo-secondary { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
-.oo-primary { background: var(--accent); color: var(--page); }
-.oo-primary:disabled { cursor: not-allowed; opacity: .5; }
-.oo-secondary { border: 1px solid var(--line); }
+.oo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.6rem; }
 .oo-best { color: var(--muted); font-size: .85rem; }
+.oo-best b { color: var(--ink); font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; }
 
-.oo-progress { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: 1.4rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
-.oo-kind { padding: 0 .55rem; border: 1px solid var(--line); border-radius: 999px; }
-.oo-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; margin-top: 1.2rem; }
-.oo-choice { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; min-height: 5.2rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); color: var(--ink); text-align: left; transition: border-color .2s, transform .2s; }
-.oo-choice:not([aria-disabled="true"]):hover { border-color: var(--accent); }
-.oo-choice:not([aria-disabled="true"]):active { transform: scale(.98); }
-.oo-choice[aria-disabled="true"] { cursor: default; }
-.oo-choice-key { color: var(--muted); font: 600 .7rem/1 var(--font-sans); }
-.oo-choice-name { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.25; overflow-wrap: anywhere; }
-.oo-choice-mark { font-size: .78rem; font-weight: 600; }
-.oo-choice.is-odd { border: 2px solid var(--gospels); }
-.oo-choice.is-odd .oo-choice-mark { color: var(--gospels); }
-.oo-choice.is-wrong { border: 2px dashed var(--red-letter); }
-.oo-choice.is-wrong .oo-choice-mark { color: var(--red-letter); }
-.oo-choice.is-dim { opacity: .65; }
+/* ---- The start screen: the game shown, a ring that keeps looking ---------------------------------------------- */
+.oo-start h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
+.oo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.oo-sample { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; max-width: 24rem; margin-top: 1.3rem; }
+.oo-sample .oo-choice.kit-card { --kit-card-height: 5rem; padding: 1.7rem .9rem .7rem; }
+.oo-sample .oo-choice-name { font-size: 1.15rem; }
+.oo-sample .oo-sample-ring { top: -6px; left: -6px; width: calc(50% - .35rem + 12px); height: calc(50% - .35rem + 12px); stroke-dashoffset: 0; animation: oo-search 14s var(--oo-ease) infinite; }
+@keyframes oo-search {
+  0%, 18% { transform: translate(0, 0) rotate(-2deg); }
+  25%, 43% { transform: translate(calc(100% + .7rem - 12px), 0) rotate(2deg); }
+  50%, 68% { transform: translate(calc(100% + .7rem - 12px), calc(100% + .7rem - 12px)) rotate(-2deg); }
+  75%, 93% { transform: translate(0, calc(100% + .7rem - 12px)) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(-2deg); }
+}
 
-.oo-reveal { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.oo-result { display: flex; align-items: center; gap: .5rem; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.3; outline: none; }
-.oo-result.is-right svg { color: var(--gospels); }
-.oo-result.is-wrong svg { color: var(--red-letter); }
-.oo-headline { margin-top: .7rem; font-size: 1rem; line-height: 1.65; }
-.oo-lines { display: grid; gap: .55rem; margin-top: 1rem; }
-.oo-lines li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; padding: .55rem .75rem; border-left: 2px solid var(--line); font-size: .9rem; line-height: 1.5; }
-.oo-lines li.is-odd { border-left-color: var(--gospels); background: color-mix(in srgb, var(--gospels) 7%, transparent); }
+/* ---- The track: ten squares, the count, the kind, the score that pops, the streak ------------------------------ */
+.oo-play { outline: none; min-height: calc(100svh - 9rem); } /* the header, the back link and the page padding: the footer waits below the fold */
+.oo-track { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-top: 1.2rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+.oo-trail.kit-trail { flex-wrap: nowrap; }
+.oo-kind { padding: .1rem .6rem; border: 1px solid color-mix(in srgb, var(--oo-blue) 55%, var(--line)); border-radius: 999px; color: var(--oo-blue); animation: kit-fade .4s var(--oo-ease) both; }
+.oo-score { display: inline-flex; align-items: baseline; gap: .4rem; }
+.oo-score-n { display: inline-block; color: var(--ink); font-family: var(--font-serif); font-size: 1.35rem; line-height: 1; letter-spacing: 0; animation: kit-pop .45s var(--oo-ease) both; }
+.oo-streak.kit-streak { letter-spacing: 0; font-size: .9rem; }
+.oo-leave { margin-inline-start: auto; min-height: 44px; padding: 0 .4rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .3s var(--oo-ease), text-decoration-color .3s var(--oo-ease); }
+.oo-leave:is(:hover, :focus-visible) { color: var(--ink); text-decoration-color: var(--oo-blue); }
+.oo-dialog-note { color: var(--muted); font-size: .92rem; line-height: 1.5; }
+
+.oo-prompt { margin-top: .7rem; font-family: var(--font-serif); font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.15; letter-spacing: -.02em; }
+
+/* ---- The four cards: a key in one corner, the stamp's place in the other, the name large ------------------------ */
+.oo-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: 1.1rem; }
+.oo-choice.kit-card { --kit-card-height: 7.5rem; align-items: stretch; padding: 2.1rem 1rem .9rem; overflow: visible; }
+.oo-choice .kit-card__body { display: flex; flex-direction: column; justify-content: flex-end; min-height: 100%; }
+.oo-choice-key { position: absolute; top: .65rem; left: .7rem; display: grid; place-items: center; width: 1.4rem; height: 1.4rem; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font: 650 .68rem/1 var(--font-sans); transition: border-color .35s var(--oo-ease), color .35s var(--oo-ease); }
+.oo-choice:is(:hover, :focus-visible) .oo-choice-key { border-color: var(--oo-blue); color: var(--oo-blue); }
+.oo-choice-name { font-family: var(--font-serif); font-size: clamp(1.15rem, 4.8vw, 1.5rem); line-height: 1.2; overflow-wrap: anywhere; hyphens: auto; }
+.oo-stamp { position: absolute; top: .55rem; right: .6rem; display: inline-flex; align-items: center; gap: .25rem; padding: .18rem .55rem; border: 1.5px solid currentColor; border-radius: 999px; background: var(--surface); font: 700 .66rem/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; transform: rotate(-4deg); animation: kit-pop .45s var(--oo-ease) both; }
+.oo-stamp.is-right { color: var(--oo-right); }
+.oo-stamp.is-wrong { color: var(--oo-wrong); }
+.oo-choice.is-right { border-width: 2px; }
+.oo-choice.is-right .oo-choice-key { border-color: var(--oo-right); color: var(--oo-right); }
+.oo-choice.is-wrong .oo-choice-key { border-color: var(--oo-wrong); color: var(--oo-wrong); }
+.oo-choice.is-faded { opacity: .7; transform: translateY(3px) scale(.985); }
+.oo-choice.is-faded:hover { transform: translateY(3px) scale(.985); }
+/* After a wrong pick the true odd one lifts a beat later; the delay is zeroed under reduced motion below. */
+.oo-choice.is-late .oo-stamp, .oo-choice.is-late .oo-ring { animation-delay: .3s; }
+.oo-ring { position: absolute; top: -6px; left: -6px; width: calc(100% + 12px); height: calc(100% + 12px); overflow: visible; pointer-events: none; fill: none; stroke: var(--oo-right); stroke-width: 2; stroke-linecap: round; transform: rotate(-2deg); }
+.oo-ring ellipse { stroke-dasharray: 1; stroke-dashoffset: 0; animation: oo-draw .7s var(--oo-ease) both; }
+@keyframes oo-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* ---- The band: the verdict and Next, the reason large, the rest under "Why" ----------------------------------- */
+.oo-band.kit-band { margin-top: 1.2rem; border-radius: var(--kit-radius) var(--kit-radius) 0 0; }
+.oo-band .kit-band__row { align-items: center; }
+.oo-verdict { display: grid; gap: .15rem; }
+.oo-result { display: flex; align-items: center; gap: .45rem; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.2; font-weight: 500; }
+.oo-result.is-right svg { color: var(--oo-right); }
+.oo-result.is-wrong svg { color: var(--oo-wrong); }
+.oo-verdict-who { font-size: .95rem; line-height: 1.4; }
+.oo-verdict-who strong { color: var(--oo-blue); }
+/* The open fold never takes the whole screen: the band stays a bar with the cards peeking above it. */
+.oo-band .kit-band__details { max-height: 45vh; max-height: 45svh; overflow-y: auto; overscroll-behavior: contain; }
+@media (min-width: 640px) { .oo-band .kit-band__details { max-height: 22rem; } }
+.oo-reading .oo-headline { margin: 0; font-family: var(--font-serif); font-size: clamp(1.1rem, 3.4vw, 1.4rem); line-height: 1.4; }
+.oo-reading .oo-headline strong { color: var(--oo-blue); font-weight: 600; }
+.oo-why.kit-options { margin-top: .5rem; }
+.oo-why > summary { color: var(--oo-blue); font-size: .9rem; }
+.oo-lines { display: grid; gap: .5rem; }
+.oo-lines li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; padding: .35rem .75rem; border-left: 2px solid var(--line); font-size: .9rem; line-height: 1.5; }
+.oo-lines li.is-odd { border-left-color: var(--oo-right); }
 .oo-line-name { font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .oo-line-brief { flex-basis: 100%; color: var(--muted); }
 .oo-line-ref { color: var(--accent); font-size: .82rem; }
-.oo-tag { padding: 0 .5rem; border-radius: 999px; background: var(--gospels); color: var(--page); font-size: .7rem; font-weight: 600; }
-.oo-key { margin-top: 1.1rem; padding: .8rem 1rem; border-radius: .7rem; background: var(--surface-2); }
+.oo-tag { padding: 0 .5rem; border-radius: 999px; background: var(--oo-right); color: var(--page); font-size: .7rem; font-weight: 600; }
+.oo-key { margin-top: .9rem; padding: .2rem 0 .2rem .9rem; border-left: 2px solid color-mix(in srgb, var(--oo-blue) 60%, var(--line)); }
 .oo-key p { font-family: var(--font-serif); font-size: .98rem; line-height: 1.65; }
-.oo-key footer { margin-top: .4rem; font-size: .8rem; color: var(--muted); }
+.oo-key footer { margin-top: .3rem; font-size: .8rem; color: var(--muted); }
 .oo-key footer a { color: var(--accent); }
-.oo-also { margin-top: .9rem; font-size: .9rem; line-height: 1.6; }
+.oo-also { margin-top: .8rem; font-size: .9rem; line-height: 1.6; }
 .oo-also span { color: var(--muted); font-weight: 600; }
-.oo-next { margin-top: 1.4rem; }
 
-.oo-summary h2 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.6rem, 5vw, 2.2rem); outline: none; }
-.oo-summary-stats { margin-top: .4rem; color: var(--muted); font-size: .9rem; }
-.oo-summary-list { display: grid; gap: .5rem; margin-top: 1.3rem; }
-.oo-summary-list details { border: 1px solid var(--line); border-radius: .8rem; padding: .7rem .9rem; }
-.oo-summary-list summary { display: grid; grid-template-columns: auto 1fr; gap: .2rem .6rem; cursor: pointer; list-style: none; }
+/* ---- The summary: the trail, the count-up, the rank, then the ten rows as lines ------------------------------- */
+.oo-summary { margin-top: 1.6rem; }
+.oo-result-panel.kit-result { gap: .9rem; }
+.oo-result-panel .kit-result__head { position: relative; }
+.oo-summary-title { font-family: var(--font-sans); font-size: .72rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); outline: none; }
+.oo-summary-trail.kit-trail, .oo-summary-trail > .kit-trail { justify-content: center; }
+.oo-summary-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1.4rem; color: var(--muted); font-size: .9rem; }
+.oo-stat { display: inline-flex; align-items: baseline; gap: .45rem; }
+.oo-stat b, .oo-stat .kit-streak { color: var(--ink); font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; }
+.oo-result-panel .kit-result__actions { align-items: flex-start; }
+.oo-share.kit-share { display: inline-grid; justify-items: center; }
+.oo-share .kit-share__copy { width: min(100%, 22rem); min-height: 8rem; }
+.oo-share .kit-share__button { min-height: 44px; padding: .65rem 1.4rem; border: 1px solid var(--line); border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform .35s var(--oo-ease), border-color .35s var(--oo-ease); }
+.oo-share .kit-share__button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--oo-blue); }
+.oo-share .kit-share__status:empty { display: none; }
+.oo-summary-list { display: grid; margin-top: .6rem; }
+.oo-summary-list li { border-top: 1px solid var(--line); }
+.oo-summary-list details { padding: .7rem .2rem; }
+.oo-summary-list summary { display: grid; grid-template-columns: auto 1fr; gap: .2rem .6rem; min-height: 44px; cursor: pointer; list-style: none; }
 .oo-summary-list summary::-webkit-details-marker { display: none; }
 .oo-summary-list summary svg { margin-top: .2rem; }
+.oo-summary-list summary svg[aria-label="Right"] { color: var(--oo-right); }
+.oo-summary-list summary svg[aria-label="Wrong"] { color: var(--oo-wrong); }
 .oo-summary-four { font-weight: 600; font-size: .9rem; }
 .oo-summary-list summary .oo-headline { grid-column: 2; margin-top: 0; color: var(--muted); font-size: .85rem; }
-.oo-summary-list .oo-reveal { margin-top: .8rem; padding-top: .8rem; }
+.oo-summary-list summary .oo-headline strong { color: var(--ink); }
+.oo-summary-list .oo-lines-block { margin-top: .6rem; padding-left: 1.6rem; }
 
+/* ---- Small screens, sideways phones, reduced motion ---------------------------------------------------------- */
 @media (max-width: 359px) {
   .oo-choices { grid-template-columns: 1fr; }
+  .oo-choice.kit-card { --kit-card-height: 4.4rem; padding: .7rem 7rem .7rem 2.6rem; }
+  .oo-choice-key { top: 50%; transform: translateY(-50%); }
+  .oo-stamp { top: 50%; transform: translateY(-50%) rotate(-4deg); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .oo-page { padding-top: 1rem; }
+  .oo-play { min-height: 0; }
+  .oo-choices { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
+  .oo-choice.kit-card { --kit-card-height: 5.5rem; padding: 1.9rem .7rem .7rem; }
+  .oo-choice-name { font-size: 1.05rem; }
+  .oo-prompt { font-size: 1.3rem; }
+  .oo-sample { max-width: 20rem; }
+  .oo-band.kit-band--always { position: static; margin-top: .8rem; } /* sideways, a pinned band would cover all four cards */
+  .oo-reading .oo-headline { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .oo-chips button, .oo-choice { transition: none; }
-  .oo-choice:not([aria-disabled="true"]):active { transform: none; }
+  .oo-choice.is-late .oo-stamp, .oo-choice.is-late .oo-ring, .oo-choice.kit-card { animation-delay: 0s !important; }
+  .oo-sample-ring { animation: none; }
 }
