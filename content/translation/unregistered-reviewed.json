@@ -24650,5 +24650,605 @@
   "file": "src/pages/baby-names/useBabyNames.ts",
   "item": "read in English: baby-names/",
   "why": "the Biblical baby-name pages (docs/features/baby-names/design.md): the names, their meanings and the people who bore them are English in this build, like the countdown pages; the names stay as the Berean spells them and the verses are quoted from the Berean, so the folder has no translated copy yet"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Board.tsx",
+  "item": "Pairs found {n} of {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Board.tsx",
+  "item": "{n}'s turn",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Screens.tsx",
+  "item": "Player {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Screens.tsx",
+  "item": "Your best here: {n} moves · {n} · {n} {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Screens.tsx",
+  "item": "{n} · {n} cards",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Summary.tsx",
+  "item": "About {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Summary.tsx",
+  "item": "New best time: {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/memory-match/Summary.tsx",
+  "item": "New best: {n} moves",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/odd-one-out/OddOneOutGame.tsx",
+  "item": "Score {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/odd-one-out/Screens.tsx",
+  "item": "Best streak: {n} · Your best for {n}, {n}: {n} of 10",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/odd-one-out/Screens.tsx",
+  "item": "Not enough {n} puzzles at this level yet: pick another level.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/odd-one-out/Screens.tsx",
+  "item": "You scored {n} of {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/odd-one-out/Screens.tsx",
+  "item": "Your best here: {n} of 10",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/whos-older/Round.tsx",
+  "item": "Score {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/whos-older/Round.tsx",
+  "item": "Streak {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/whos-older/Screens.tsx",
+  "item": "Continue ({n})",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/games/whos-older/Screens.tsx",
+  "item": "Your best {n}: {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Closing.tsx",
+  "item": "Sources · {n}, of which {n} are quoted and still to be checked",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Closing.tsx",
+  "item": "Still open in the research · {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Closing.tsx",
+  "item": "{n}: read on its publisher's own site, which this page names but does not link.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Councils.tsx",
+  "item": "The full record of {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Creed.tsx",
+  "item": "Quotations checked word for word against the site's held text of {n}.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Sheet.tsx",
+  "item": "Also argued: {n}.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/Sheet.tsx",
+  "item": "Read {n}:{n} in the Berean reader",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/early-church/parts.tsx",
+  "item": "Checked word for word against {n}, held on this site.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Closing.tsx",
+  "item": "named in the research as “{n}”",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Closing.tsx",
+  "item": "{n}The research gives no web address for these works, so none is linked.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Sheet.tsx",
+  "item": "Read {n}:{n} in the Berean reader",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Sheet.tsx",
+  "item": "Station {n} ·",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Stations.tsx",
+  "item": "Station {n} ·",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Stations.tsx",
+  "item": "{n} records · {n} passages",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Track.tsx",
+  "item": "About {n} BC",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Track.tsx",
+  "item": "Solomon's fourth year · about {n} BC",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Track.tsx",
+  "item": "The {n} knots stand for the record's {n} generations and are spaced evenly as a drawing convention, not as a length for each generation. The track runs on to {n} BC, past the record's {n}, so the gates' low dating is drawn whole.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Track.tsx",
+  "item": "{n} · about {n} BC",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/exodus-to-solomon/Track.tsx",
+  "item": "{n} · from {n} BC",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Claims.tsx",
+  "item": "Claim · {n} / {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Climb.tsx",
+  "item": "Jericho · about {n} m",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Climb.tsx",
+  "item": "Jerusalem · about {n} m",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Rain.tsx",
+  "item": "{n} mm",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Roads.tsx",
+  "item": "Road · {n} / {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "A west-to-east cross-section of the land at Jerusalem, from the shore near Jaffa at 0 m up to Jerusalem at {n} m, down to the Dead Sea at {n} m, and up onto the plateau. The list of points beside it says the same.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "Height stretched about {n} times against distance, so the climb can be seen. Straight lines join the record's eight rounded points; the ground between them is not drawn. Today's ground: the coast and the Dead Sea's shore have moved since biblical times.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "West ← · → East · {n} km",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "{n} here:",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "{n} km",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Slice.tsx",
+  "item": "{n} · {n} km from the sea · about {n} m",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Water.tsx",
+  "item": "Water · {n} / {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/land/Water.tsx",
+  "item": "{n} verses · evidence, inference, limit",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/medieval/Crusade.tsx",
+  "item": "{n} A filled disc: a witness used here. A dash: none found for this page, which is not the same as none written.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/medieval/School.tsx",
+  "item": "Ages {n} to {n}, drawn to scale.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/medieval/School.tsx",
+  "item": "{n}. The arcs tie each objection to its reply.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/medieval/School.tsx",
+  "item": "“{n}”, as {n} renders it.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Books.tsx",
+  "item": "Sources · {n}, each with what was read of it",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Books.tsx",
+  "item": "{n}, drawn hatched, second",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Books.tsx",
+  "item": "{n}, drawn solid, first",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Sheet.tsx",
+  "item": "Berean Standard Bible · {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Sheet.tsx",
+  "item": "Early witness · {n}{n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-books/Synopsis.tsx",
+  "item": "· {n}. The line joins the same words; it has no arrow, because it shows a link and not which way it ran.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Lattice.tsx",
+  "item": "Crossed by: {n}.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Sheet.tsx",
+  "item": "Herod's family · {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Sheet.tsx",
+  "item": "Read {n}:{n} in the Berean reader",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Witnesses.tsx",
+  "item": "AD {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Witnesses.tsx",
+  "item": "{n} · about {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/nt-history/Witnesses.tsx",
+  "item": "· record {n} of {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/ot-books/Closing.tsx",
+  "item": "The editor's open questions · {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/ot-books/Sheet.tsx",
+  "item": "And {n} more verses, in the reader.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Closing.tsx",
+  "item": "Every source · {n} works{n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Closing.tsx",
+  "item": "None is shown here: no licence is settled for any of the {n}.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Closing.tsx",
+  "item": "Since that note was written, the build has counted from the held Hebrew and Berean: the twenty-two letters of each drawn alphabet poem, Psalm 119's {n} verses, Lamentations 3's {n}, and Genesis 1's {n} verdicts.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Letters.tsx",
+  "item": "Each slot is the first word of its {n} in the Leningrad text, read by the build; ² marks a letter found in the verse's second word. Verse numbers are the Berean's, and each opens the Berean reader.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Letters.tsx",
+  "item": "Verse {n} begins with {n} again.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Letters.tsx",
+  "item": "Verse {n} closes the poem with an extra {n}, outside the alphabet.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Lines.tsx",
+  "item": "Lowth: {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Sheet.tsx",
+  "item": "Berean Standard Bible{n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Sheet.tsx",
+  "item": "Outside source · {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Sheet.tsx",
+  "item": "Read {n}:{n} in the Berean reader",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Threads.tsx",
+  "item": "Genesis 1, verse by verse. The Berean says “good” in exactly these {n} verses, and the Hebrew has טוב in the same {n}; in verse 31 the Hebrew adds מאד, “very”.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/Threads.tsx",
+  "item": "Judges, chapter by chapter. Searching the whole Berean book finds the first line in these {n} verses only and the second in these {n}; the Hebrew holds the same words in each. In 19:1 the Hebrew turns them round: “and a king there was none in Israel”.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/poetry/parts.tsx",
+  "item": "In the Hebrew {n}:{n}, because the title is its verse 1",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Houses.tsx",
+  "item": "500 cubits, about {n} m",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Houses.tsx",
+  "item": "Scale: 50 cubits, about {n} m",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Houses.tsx",
+  "item": "The Mishnah's square, {n} cubits a side",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Houses.tsx",
+  "item": "When each house stood · {n} to {n}",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Houses.tsx",
+  "item": "{n}: what is measured, and who measures it",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Landing.tsx",
+  "item": "A dashed line is inferred and says so. A missing measurement is left as a gap. {n} passages carry an editor's check mark; {n} are still open.",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/Sheet.tsx",
+  "item": "Read {n}:{n} in the Berean reader",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "pieced",
+  "file": "src/pages/study/temple/World.tsx",
+  "item": "{n} · type, not to scale",
+  "why": "release 2026-11-11 deferral: a sentence built from pieces in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the line reads English-ordered in the other languages until that chat commits its whole-sentence form; then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/Board.tsx",
+  "item": "{n} === 1 ? \"move\" : \"moves\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/Screens.tsx",
+  "item": "{n} === 1 ? \"Just me\" : {n}",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/Screens.tsx",
+  "item": "{n} === 1 ? \"star\" : \"stars\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/Summary.tsx",
+  "item": "{n} === 1 ? \"pair\" : \"pairs\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/Summary.tsx",
+  "item": "{n} === 1 ? \"star\" : \"stars\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/memory-match/game.ts",
+  "item": "{n} === 1 ? \"pair\" : \"pairs\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/odd-one-out/game.ts",
+  "item": "{n} <= 1 ? {n}.join(\"\") : `${{n}.slice(0, -1).join(\", \")} and ${{n}}`",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/whos-older/Screens.tsx",
+  "item": "{n} === 1 ? \"The one you missed\" : \"The ones you missed\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/games/whos-older/WhosOlderGame.tsx",
+  "item": "{n} === 1 ? \"heart\" : \"hearts\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/study/land/Climb.tsx",
+  "item": "{n} === 1 ? `True scale: a fall of about ${{n} - {n}} m in about ${{n} - {n}} km, one metre up drawn the same as one metre along. Drawn true, the road barely tilts.` : `The same road with the height stretched ${{n}} times, so the fall can be seen.`",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/study/nt-books/Sheet.tsx",
+  "item": "{n} === 1 ? \"one verse\" : `${{n}} verses`",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
+ },
+ {
+  "check": "plural",
+  "file": "src/pages/study/poetry/Letters.tsx",
+  "item": "{n} > 1 ? `group of ${{n}} verses` : \"verse\"",
+  "why": "release 2026-11-11 deferral: a hand-written plural in a page another chat committed after the 7 November release and was still editing on 2026-11-11 (this file had unsaved edits in the main tree, so the main build left it to that chat). Shipped as written, so the other languages get the English choice of form until that chat commits plural(); then this ruling can be dropped. Not 'right as it is': a deferral recorded by the release (card D56 close-out)"
  }
 ]
