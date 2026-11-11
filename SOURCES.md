@@ -138,6 +138,10 @@ What the app adds, all free to use and ship inside an app:
 | `d3-geo` 3.1.1 | The globe and flat map of the Muslim world on the Islam page (map projections only), as on the site | ISC |
 | `expo-file-system` 58.0.12, `expo-sharing` 58.0.20 | Saving the Scholars page's source index as a CSV file and handing it to the phone's share sheet, where the site downloads it | MIT |
 | `@shopify/react-native-skia` 2.14.0 (the version Expo SDK 58 pairs with; added 2026-10-30) | Drawing the Connections page's cross-reference arcs, 141,709 faint strokes whose colour builds up where they cross, as the site's canvas draws them. Adds about 3–4 MB to the Android download | MIT |
+| `d3-hierarchy` 3.1.2 (added 2026-11-11) | Laying out the Testimonies page's invitation tree, with the same library and spacing the site uses | ISC |
+| `qrcode` 1.5.4 (added 2026-11-11) | Drawing an invitation's QR code on the Testimonies page, with the same library and settings the site uses (level M, four modules of margin) | MIT |
+| `expo-clipboard` ~58.0.4 (added 2026-11-11) | "Copy link" for an invitation or private access link on the Testimonies page, where the site uses the browser's clipboard | MIT |
+| `expo-crypto` ~58.0.7 (added 2026-11-11) | Random bytes for a new private access key on the Testimonies page, where the site uses the browser's crypto | MIT |
 
 Second round (2026-10-24): the Library, the reader's extras and Listen use the site's own registered data
 (chapter figures, AI chapter summaries, OpenBible.info cross-references, places, topics, hymns, who ruled),
