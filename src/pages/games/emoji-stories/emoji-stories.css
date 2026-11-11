@@ -1,114 +1,243 @@
-/* /games/emoji-stories (EmojiStoriesGame.tsx): mobile first, the site's colour tokens in both themes. Emoji are text in
-   the device's own emoji font; at 320px a row of five or six wraps to rows of three. Right, close and wrong always
-   carry a word as well as a colour. */
-.es-page { padding-top: 2rem; padding-bottom: 4rem; }
+/* /games/emoji-stories (EmojiStoriesGame.tsx): mobile first, the site's colour tokens in both themes. Redesigned from
+   the visual audit (docs/visual-audits/emoji-stories.md): the game's colour is the hub's Acts tone, set on the kit's
+   variables so the kit's cards, band, trail and chips settle in it; right is the kit's green (the audit found the old
+   lavender). Emoji are text in the device's own emoji font, dealt in on soft tiles sized by how many the story has, so
+   a five- or six-emoji story stays on one line at 390px. Every state changes at once; the motion only decorates it. */
+.es-page {
+  --es-color: var(--acts);
+  --es-ease: cubic-bezier(.16, 1, .3, 1);
+  --es-tile: color-mix(in srgb, var(--acts) 7%, var(--surface));
+  --kit-color: var(--acts); --kit-radius: .9rem; --kit-surface: var(--surface); --kit-ease: var(--es-ease);
+  padding-top: 2rem; padding-bottom: 4rem;
+}
 .es-title { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
 .es-heading { margin-top: 1.4rem; font-family: var(--font-serif); font-size: clamp(1.3rem, 4vw, 1.8rem); line-height: 1.2; }
 .es-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .es-muted { margin-top: .6rem; color: var(--muted); font-size: .88rem; }
 .es-progress { margin-top: 1.2rem; color: var(--muted); font: 600 .75rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
-.es-home { margin-top: 1rem; }
+.es-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.es-secondary.es-home { display: flex; width: max-content; margin-top: 1rem; }
+.es-link-button { min-height: 44px; padding: 0 .2rem; color: var(--es-color); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
-.es-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem .6rem; margin-top: 1.2rem; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
-.es-tile { display: inline-flex; flex-direction: column; align-items: center; min-width: 3.4rem; }
-.es-glyph { font-size: 2.2rem; line-height: 1.2; }
-.es-row-large .es-glyph { font-size: 3rem; }
-.es-missing { max-width: 5.5rem; color: var(--muted); font: .7rem/1.2 var(--font-sans); text-align: center; overflow-wrap: anywhere; }
-.es-room .es-row-large .es-glyph { font-size: clamp(3rem, 22vh, 9rem); }
-.es-room .es-row-large .es-tile { animation: es-fade .35s ease-out; }
-@keyframes es-fade { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .es-room .es-row-large .es-tile { animation: none; } }
-@media (min-width: 640px) { .es-row-large .es-glyph { font-size: 4rem; } }
-@media (max-width: 360px) { .es-row-many { display: grid; grid-template-columns: repeat(3, auto); justify-content: center; } }
+/* ---- Buttons: the game's colour, 44px tall, focus shown by a lift and an edge (the site has no outline) ----------- */
+.es-primary, .es-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .55rem 1.25rem; border-radius: 999px; font-weight: 600; font-size: .92rem;
+  transition: transform .3s var(--es-ease), box-shadow .3s var(--es-ease), border-color .3s var(--es-ease), opacity .3s var(--es-ease); }
+.es-primary { background: var(--es-color); color: var(--page); }
+.es-primary:disabled { cursor: not-allowed; opacity: .5; }
+.es-secondary { border: 1px solid var(--line); margin-top: .9rem; }
+.es-primary:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); box-shadow: 0 10px 22px -16px rgb(0 0 0 / .6), 0 0 0 1px var(--es-color) inset; }
+.es-secondary:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--es-color); }
+.es-primary:not(:disabled):active, .es-secondary:not(:disabled):active { transform: translateY(0) scale(.98); transition-duration: .08s; }
 
-.es-example { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem; margin-top: .4rem; }
-.es-example .es-row { margin-top: .4rem; justify-content: flex-start; }
-.es-example p { font-family: var(--font-serif); font-size: 1.05rem; }
+/* ---- The emoji row: soft tiles dealt in left to right, sized by the story's count so the order never wraps -------- */
+.es-row-box { container-type: inline-size; margin-top: 1.2rem; }
+.es-row { display: flex; flex-wrap: nowrap; justify-content: center; align-items: flex-start; gap: .5rem; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+.es-tile { --_w: calc((100cqi - (var(--es-n, 4) - 1) * .5rem) / var(--es-n, 4)); display: inline-flex; flex: 0 1 var(--_w); flex-direction: column; align-items: center; justify-content: center; gap: .15rem;
+  width: var(--_w); max-width: 5.6rem; padding: .5rem .2rem .35rem; border-radius: .9rem; background: var(--es-tile);
+  animation: es-deal .5s var(--es-ease) both; animation-delay: calc(var(--es-i, 0) * 90ms); }
+.es-glyph { font-size: min(2.2rem, calc(var(--_w) * .62)); line-height: 1.2; }
+.es-row-large .es-tile { max-width: 7rem; }
+.es-row-large .es-glyph { font-size: min(3rem, calc(var(--_w) * .64)); }
+@media (min-width: 640px) { .es-row-large .es-glyph { font-size: min(4rem, calc(var(--_w) * .64)); } }
+.es-word { display: block; min-height: 1.3em; max-width: 100%; color: var(--muted); font: 500 .72rem/1.3 var(--font-sans); text-align: center; overflow-wrap: anywhere; opacity: 0; transition: opacity .4s var(--es-ease); }
+.es-row.has-words .es-word { opacity: 1; }
+.es-row-large .es-word { font-size: .78rem; }
+.es-missing { max-width: 100%; color: var(--muted); font: .68rem/1.2 var(--font-sans); text-align: center; overflow-wrap: anywhere; }
+.es-glyph-empty { display: inline-block; width: 1.1em; height: 1.1em; margin: .05em 0; border: 2px dashed var(--line); border-radius: .25em; }
+.es-tile-wait { background: transparent; box-shadow: 0 0 0 1px var(--line) inset; opacity: .6; animation: none; }
+.es-glyph-wait { display: inline-block; width: .45em; height: .45em; border-radius: 50%; background: var(--line); }
+.es-room .es-row-large .es-tile { max-width: 13rem; padding: .8rem .3rem .5rem; border-radius: 1.2rem; }
+.es-room .es-row-large .es-glyph { font-size: min(9rem, 22vh, calc(var(--_w) * .66)); }
+.es-room .es-row-large .es-word { font-size: clamp(.8rem, 2vw, 1.1rem); }
+@keyframes es-deal { from { opacity: 0; transform: translateY(8px) scale(.92); } to { opacity: 1; transform: none; } }
+
+/* ---- Start: the example as a live puzzle, three modes, the settings behind one fold -------------------------------- */
+.es-example { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: .6rem; }
+.es-example .es-row-box { flex: 1 1 14rem; max-width: 22rem; margin-top: 0; }
+.es-example .es-row { justify-content: flex-start; }
+.es-example .es-tile { animation: es-deal .5s var(--es-ease) both, es-breathe 9s var(--es-ease) infinite; animation-delay: calc(var(--es-i, 0) * 90ms), calc(1.2s + var(--es-i, 0) * 1.4s); }
+@keyframes es-breathe { 0%, 8%, 100% { transform: none; } 4% { transform: translateY(-4px); } }
+.es-example-answer { flex: 0 1 16rem; min-height: 3rem; animation-delay: .5s; }
+.es-example-answer.kit-card { padding: .55rem .9rem; }
 .es-cards { display: grid; gap: 1rem; margin-top: 1.6rem; }
 @media (min-width: 720px) { .es-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.es-card { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.1rem; border-top: 1px solid var(--line); }
+.es-card { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.1rem 0 .4rem; border-top: 2px solid var(--es-color); }
 .es-card h2 { font-family: var(--font-serif); font-size: 1.2rem; }
 .es-card p { font-size: .92rem; line-height: 1.55; }
+.es-card .es-muted { margin-top: 0; }
 .es-card .es-primary { margin-top: auto; }
 .es-chips, .es-switch { display: flex; flex-wrap: wrap; gap: .4rem; margin: .3rem 0 0; padding: 0; border: 0; }
 .es-chips legend, .es-switch legend { width: 100%; margin-bottom: .4rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
-.es-chips button, .es-switch button { padding: .35rem .85rem; border: 1px solid var(--line); border-radius: 999px; font-size: .86rem; }
-.es-chips button[aria-pressed="true"], .es-switch button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
+.es-chips button, .es-switch button { min-height: 44px; padding: .35rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .86rem; transition: border-color .3s var(--es-ease), transform .3s var(--es-ease), background-color .3s var(--es-ease); }
+.es-chips button:not(:disabled):is(:hover, :focus-visible), .es-switch button:not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--es-color); }
+.es-chips button[aria-pressed="true"], .es-switch button[aria-pressed="true"] { border-color: var(--es-color); background: color-mix(in srgb, var(--es-color) 14%, transparent); font-weight: 600; }
 .es-chips button:disabled, .es-switch button:disabled { cursor: not-allowed; opacity: .45; }
-.es-switch { margin-top: 1.6rem; }
+.es-switch { margin-top: 1.2rem; }
+.es-settings { margin-top: 1.4rem; }
+.es-settings > summary { justify-content: space-between; }
+.es-settings-now { font-weight: 500; font-size: .85rem; }
+.es-settings .es-chips { margin-top: 1rem; }
 .es-how { margin-top: 1.4rem; color: var(--muted); font-size: .92rem; line-height: 1.6; }
-.es-how summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.es-how summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--ink); font-weight: 600; }
 .es-how p { margin-top: .5rem; }
 
-.es-primary, .es-secondary { display: inline-flex; align-items: center; gap: .45rem; padding: .6rem 1.2rem; border-radius: 999px; font-weight: 600; font-size: .92rem; }
-.es-primary { background: var(--accent); color: var(--page); }
-.es-primary:disabled { cursor: not-allowed; opacity: .5; }
-.es-secondary { border: 1px solid var(--line); margin-top: .9rem; }
-
-.es-hints { display: grid; gap: .45rem; margin-top: 1rem; padding-left: 1.2rem; font-size: .95rem; list-style: decimal; }
+/* ---- The round: ten squares and the score, the hints as plain lines, the coins, the hint button ----------------- */
+.es-topline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; margin-top: 1.2rem; }
+.es-score { display: inline-flex; align-items: baseline; gap: .45rem; margin: 0; }
+.es-score-label { color: var(--muted); font: 600 .7rem/1 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.es-score-number { display: inline-block; font-family: var(--font-serif); font-size: 1.5rem; line-height: 1; font-variant-numeric: tabular-nums; animation: es-pop .45s var(--es-ease) both; }
+@keyframes es-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: none; } }
+.es-hints { display: grid; gap: .5rem; margin-top: 1rem; padding-left: 0; font-size: .95rem; list-style: none; }
+.es-hints li { padding: .2rem 0 .2rem .9rem; border-left: 2px solid var(--es-color); animation: es-slide .45s var(--es-ease) both; }
+.es-hints strong { color: var(--muted); font: 650 .7rem/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; margin-right: .3rem; }
+@keyframes es-slide { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
 .es-words { display: inline-flex; flex-wrap: wrap; gap: .2rem .9rem; margin-top: .3rem; }
 .es-reveal .es-words { display: flex; margin-top: .8rem; }
+.es-hint-row { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: .3rem; }
+.es-hint-row .es-secondary { margin-top: .9rem; }
+.es-coins { display: inline-flex; gap: .3rem; margin-top: .9rem; }
+.es-coin { width: .85rem; height: .85rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent); transition: transform .35s var(--es-ease), opacity .35s var(--es-ease), background-color .35s var(--es-ease); }
+.es-coin.is-spent { background: transparent; box-shadow: 0 0 0 1px var(--line) inset; transform: scale(.8); opacity: .7; }
 
-.es-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: 1.2rem; }
-@media (max-width: 360px) { .es-choices { grid-template-columns: 1fr; } }
-.es-choice { display: flex; flex-direction: column; align-items: flex-start; gap: .3rem; min-height: 4.2rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); color: var(--ink); text-align: left; overflow-wrap: anywhere; }
-.es-choice:not(:disabled):hover { border-color: var(--accent); }
-.es-choice:disabled { opacity: .55; cursor: default; }
-.es-choice-key { color: var(--muted); font: 600 .7rem/1 var(--font-sans); }
+/* ---- The answer cards: the kit's card in the game's colour, a serif number top left, the title beneath ------------ */
+.es-choices { --kit-card-height: 5.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: 1.2rem; }
+@media (min-width: 640px) { .es-choices { --kit-card-height: 4.6rem; } }
+.es-choice.kit-card { align-items: stretch; padding: .7rem 2.1rem .7rem .85rem; }
+.es-choice .kit-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.es-choice-key { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font: 500 .8rem/1 var(--font-serif); transition: border-color .3s var(--es-ease), color .3s var(--es-ease); }
+.es-choice:is(:hover, :focus-visible) .es-choice-key, .es-choice.is-right .es-choice-key { border-color: var(--es-color); color: var(--ink); }
+.es-choice.is-right .es-choice-key { border-color: var(--kit-right, #2f8a4f); }
+.es-choice-title { font-size: .95rem; line-height: 1.35; overflow-wrap: anywhere; }
+.es-choice .kit-card__mark { position: absolute; top: .65rem; right: .75rem; font-size: 1.1rem; }
+.es-choice.is-picked.is-wrong { box-shadow: 0 0 0 1px var(--kit-wrong, var(--red-letter)) inset; }
+/* The answer lights a beat after the pick, so the eye goes to the card that was pressed first; a decoration only. */
+.es-choices.is-revealed .es-choice.is-right:not(.is-picked) { transition-delay: .25s; }
+.es-choices.is-revealed .es-choice.is-right:not(.is-picked) .kit-card__mark { animation-delay: .25s; }
+.es-choice:disabled { opacity: 1; }
+.es-choice.is-faded { opacity: .45; }
 .es-choice-note { color: var(--red-letter); font-size: .78rem; }
+.es-choice-note.is-close, .es-feedback.is-close, .es-close-note { color: var(--accent); }
+.es-choice.is-close.is-wrong { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); animation: none; }
+.es-choice.is-close.is-wrong .kit-card__mark { color: var(--accent); }
 
+/* ---- Typing: the search box and its suggestions ---------------------------------------------------------------- */
 .es-type { position: relative; margin-top: 1.2rem; }
 .es-type label { display: block; margin-bottom: .4rem; font-weight: 600; }
 .es-type-row { display: flex; gap: .5rem; }
-.es-type input { flex: 1; min-width: 0; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); }
+.es-type input { flex: 1; min-width: 0; min-height: 44px; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); transition: border-color .3s var(--es-ease); }
+.es-type input:focus-visible { border-color: var(--es-color); }
 .es-options { position: absolute; z-index: 5; left: 0; right: 0; margin-top: .3rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--page); box-shadow: 0 8px 24px rgb(0 0 0 / .12); }
-.es-options li { padding: .55rem .8rem; cursor: pointer; }
-.es-options li.is-active, .es-options li:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.es-options li { min-height: 44px; display: flex; align-items: center; padding: .55rem .8rem; cursor: pointer; }
+.es-options li.is-active, .es-options li:hover { background: color-mix(in srgb, var(--es-color) 14%, transparent); }
 .es-type-note, .es-feedback { min-height: 1.3em; margin-top: .5rem; color: var(--muted); font-size: .88rem; }
 
-.es-reveal { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+/* ---- The band and the reveal: verdict, points and Next in the band, the reading in the flow below ---------------- */
+.es-band { margin-top: 1rem; border-radius: .9rem; border: 1px solid var(--line); }
+.es-band.kit-band--narrow { border-left: 0; border-right: 0; border-radius: 0; }
+@media (max-width: 639px) { .es-band.kit-band--narrow { margin-left: -1rem; margin-right: -1rem; } }
+.es-band .kit-band__verdict { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; }
+.es-band-word { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; }
+.es-band.is-right .es-band-word { color: var(--kit-right, #2f8a4f); }
+.es-band.is-wrong .es-band-word { color: var(--red-letter); }
+.es-band.is-part .es-band-word { color: var(--accent); }
+.es-band-points { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+.es-reveal { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); animation: es-slide-up .45s var(--es-ease) both; }
+@keyframes es-slide-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .es-reveal h2 { margin-top: .3rem; font-family: var(--font-serif); font-size: clamp(1.4rem, 4vw, 1.9rem); }
 .es-verdict { font-weight: 700; }
-.es-reveal.is-right .es-verdict, .es-mark-right { color: var(--gospels); }
+.es-reveal.is-right .es-verdict, .es-mark-right { color: var(--kit-right, #2f8a4f); }
 .es-reveal.is-close .es-verdict { color: var(--accent); }
 .es-reveal.is-wrong .es-verdict, .es-mark-wrong { color: var(--red-letter); }
+.es-reveal.is-shown .es-verdict { color: var(--muted); font: 600 .75rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
 .es-picked { color: var(--muted); font-size: .9rem; }
 .es-verse { margin-top: 1rem; padding-left: 1rem; border-left: 3px solid var(--line); font-family: var(--font-serif); line-height: 1.6; }
 .es-verse footer { margin-top: .3rem; color: var(--muted); font: .8rem var(--font-sans); }
 .es-links { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: .9rem; }
-.es-links a { text-decoration: underline; text-underline-offset: 3px; }
-.es-points { margin-top: .8rem; font-weight: 600; }
-.es-reveal > .es-primary { margin-top: 1rem; }
+.es-links a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 3px; transition: color .3s var(--es-ease); }
+.es-links a:is(:hover, :focus-visible) { color: var(--es-color); }
 
+/* ---- The Daily: guess rows on screen from the start, each turning to its colour; the stats; Share ----------------- */
+.es-slots { display: grid; gap: .4rem; margin-top: .8rem; padding: 0; list-style: none; }
+.es-slot { display: flex; align-items: center; gap: .6rem; min-height: 44px; padding: .5rem .8rem; border-radius: .7rem; border: 1px dashed var(--line); color: var(--ink); font-size: .95rem; }
+.es-slot.is-empty { color: var(--muted); }
+.es-slot.is-next { border-color: var(--es-color); border-style: solid; }
+.es-slot-number { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; flex: 0 0 auto; border-radius: 50%; border: 1px solid var(--line); color: var(--muted); font: 500 .75rem/1 var(--font-serif); }
+.es-slot-title { flex: 1 1 auto; min-width: 0; font-weight: 600; }
+.es-slot-word { flex: 0 0 auto; font-size: .8rem; }
+.es-slot:not(.is-empty) { border-style: solid; transform-origin: 50% 50%; animation: es-turn .55s var(--es-ease) both; }
+.es-slot.is-wrong { border-color: var(--red-letter); background: color-mix(in srgb, var(--red-letter) 12%, var(--surface)); }
+.es-slot.is-wrong .es-slot-word, .es-slot.is-wrong .es-slot-number { color: var(--red-letter); border-color: var(--red-letter); }
+.es-slot.is-close { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+.es-slot.is-close .es-slot-word, .es-slot.is-close .es-slot-number { color: var(--accent); border-color: var(--accent); }
+.es-slot.is-right { border-color: var(--kit-right, #2f8a4f); background: color-mix(in srgb, var(--kit-right, #2f8a4f) 14%, var(--surface)); }
+.es-slot.is-right .es-slot-word, .es-slot.is-right .es-slot-number { color: var(--kit-right, #2f8a4f); border-color: var(--kit-right, #2f8a4f); }
+@keyframes es-turn { 0% { transform: rotateX(-90deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
 .es-stats { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-top: 1rem; }
+.es-stats > div { animation: es-slide-up .5s var(--es-ease) both; }
+.es-stats > div:nth-child(2) { animation-delay: .08s; } .es-stats > div:nth-child(3) { animation-delay: .16s; } .es-stats > div:nth-child(4) { animation-delay: .24s; } .es-stats > div:nth-child(5) { animation-delay: .32s; }
 .es-stats dt { color: var(--muted); font-size: .75rem; }
-.es-stats dd { font-weight: 700; }
-.es-share { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1rem; }
-.es-share textarea { width: 100%; padding: .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
-.es-banner { margin-top: .8rem; padding: .6rem .8rem; border: 1px solid var(--accent); border-radius: .6rem; }
-.es-banner button { text-decoration: underline; }
+.es-stats dd { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500; }
+.es-share { margin-top: 1rem; }
+.es-share .kit-share__button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; width: max-content; padding: .55rem 1.25rem; border-radius: 999px; background: var(--es-color); color: var(--page); font-weight: 600; font-size: .92rem; transition: transform .3s var(--es-ease), box-shadow .3s var(--es-ease); }
+.es-share .kit-share__button:is(:hover, :focus-visible) { transform: translateY(-2px); box-shadow: 0 10px 22px -16px rgb(0 0 0 / .6), 0 0 0 1px var(--es-color) inset; }
+.es-banner { margin-top: .8rem; padding: .6rem .8rem; border: 1px solid var(--es-color); border-radius: .6rem; }
+.es-banner button { min-height: 44px; text-decoration: underline; }
 
-.es-end-list { display: grid; gap: .4rem; margin-top: 1rem; }
-.es-end-list > li > button { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .8rem; width: 100%; padding: .5rem 0; border-bottom: 1px solid var(--line); text-align: left; }
+/* ---- The round's end: the kit's result card, then the ten puzzles as fold-outs --------------------------------- */
+.es-end { margin-top: 1.6rem; }
+.es-end-score { position: relative; display: inline-block; padding: .4rem 1rem; }
+.es-end-best { margin-top: .2rem; }
+.es-end .kit-result__actions .es-secondary { margin-top: 0; }
+.es-end .kit-result__reading .es-share { justify-items: center; }
+.es-end .kit-share__status { text-align: center; }
+.es-end-list { display: grid; gap: .4rem; margin-top: 1.2rem; }
+.es-end-list > li > button { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .8rem; width: 100%; min-height: 44px; padding: .5rem 0; border-bottom: 1px solid var(--line); text-align: left; transition: color .3s var(--es-ease); }
+.es-end-list > li > button:focus-visible { color: var(--es-color); }
+@media (hover: hover) { .es-end-list > li > button:hover { color: var(--es-color); } }
 .es-end-emoji { font-size: 1.2rem; }
 .es-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
 .es-actions .es-secondary { margin-top: 0; }
 
+/* ---- The room: the page as the stage, large tiles, lettered cards, the leader's row along the bottom, the tally ---- */
 .es-room { min-height: 70vh; display: flex; flex-direction: column; background: var(--page); }
-.es-room:fullscreen { padding: 2rem; }
-.es-room-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: 1rem; padding-left: 1.4rem; font-size: clamp(1rem, 3vw, 1.6rem); list-style: decimal; }
+.es-room:fullscreen { padding: 2rem; overflow-y: auto; }
+.es-room-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; }
+.es-room-top .es-progress { margin-top: 1.2rem; }
+.es-room-chips { margin-top: 1rem; }
+.es-room-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: 1.2rem; padding: 0; list-style: none; --kit-card-height: 5rem; }
+@media (min-width: 640px) { .es-room-choices { --kit-card-height: 6rem; } .es-room-choices .es-choice-title { font-size: clamp(1rem, 2.2vw, 1.5rem); } }
+.es-room-card .es-choice-key { width: 1.9rem; height: 1.9rem; font-size: 1rem; }
 .es-room-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: 1.4rem; }
-.es-room-controls button:not(.es-primary) { padding: .55rem 1rem; border: 1px solid var(--line); border-radius: 999px; }
+.es-room-controls button { min-height: 44px; }
+.es-room-controls button:not(.es-primary) { padding: .55rem 1rem; border: 1px solid var(--line); border-radius: 999px; transition: transform .3s var(--es-ease), border-color .3s var(--es-ease); }
+.es-room-controls button:not(.es-primary):not(:disabled):is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--es-color); }
 .es-room-controls button:disabled { opacity: .45; cursor: default; }
 .es-keys { font-size: .78rem; }
+@media (hover: none) and (pointer: coarse) { .es-keys { display: none; } }
 .es-room:focus:not(:focus-visible) { outline: none; }
-.es-room .es-hints { font-size: clamp(1.2rem, 3.4vw, 2rem); gap: .7rem; }
+.es-room .es-hints { font-size: clamp(1.1rem, 3vw, 1.7rem); gap: .7rem; }
+.es-room .es-hints strong { font-size: .8rem; }
+.es-award { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.es-award-button { --_team: var(--es-color); display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; padding: .45rem 1rem .45rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink);
+  transition: transform .3s var(--es-ease), border-color .3s var(--es-ease), background-color .3s var(--es-ease); }
+.es-award-button::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; background: var(--_team); flex: 0 0 auto; }
+.es-award-button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--_team); }
+.es-award-button[aria-pressed="true"] { border-color: var(--_team); background: color-mix(in srgb, var(--_team) 18%, var(--surface)); }
+.es-award-button[aria-pressed="true"] .es-award-word::after { content: " ✓"; }
+.es-award-name { font-weight: 600; }
+.es-award-word { color: var(--muted); font-size: .85rem; }
+.es-teams { margin-top: 1rem; color: var(--muted); font-size: .9rem; }
+.es-teams > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--muted); font-weight: 600; }
+.es-teams > summary:is(:hover, :focus-visible) { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.es-team-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; padding: 0; list-style: none; }
+.es-team-list input { min-height: 44px; width: 11rem; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); transition: border-color .3s var(--es-ease); }
+.es-team-list input:focus-visible { border-color: var(--es-color); }
+.es-teams .es-secondary { margin-top: .6rem; }
+.es-room-end .es-winner { margin-top: 1.2rem; }
+.es-room-end .es-room-chips { margin-top: 1.2rem; }
 
-.es-glyph-empty { display: inline-block; width: 1.1em; height: 1.1em; margin: .05em 0; border: 2px dashed var(--line); border-radius: .25em; }
-.es-choice-note.is-close, .es-feedback.is-close, .es-close-note { color: var(--accent); }
-.es-slots { display: grid; gap: .3rem; margin-top: .6rem; padding-left: 1.4rem; font-size: .9rem; list-style: decimal; }
-.es-slots li span { margin-left: .4rem; font-size: .8rem; }
-.es-slots li.is-wrong span { color: var(--red-letter); }
-.es-slots li.is-close span { color: var(--accent); }
-.es-slots li.is-right span { color: var(--gospels); }
-.es-slots li.is-empty { color: var(--muted); }
+/* ---- Reduced motion: the site cuts durations; the delays and the loops are cut here, so nothing waits or flickers --- */
+@media (prefers-reduced-motion: reduce) {
+  .es-page *, .es-page *::before, .es-page *::after { animation-delay: 0s !important; transition-delay: 0s !important; }
+  .es-example .es-tile { animation: none; }
+}

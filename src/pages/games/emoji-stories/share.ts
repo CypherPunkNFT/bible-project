@@ -1,7 +1,8 @@
 // Right, close or wrong (design §6.4) and the Daily's spoiler-free share line (§8.1). The line shows the puzzle's emoji,
 // never the answer, so it invites friends to play.
-import { sharePerson } from "./deal";
-import { maxGuesses, type DailyRecord } from "./storage";
+import { trailText, type TrailMark } from "../kit/trail";
+import { points, ROUND_LENGTH, sharePerson } from "./deal";
+import { maxGuesses, type DailyRecord, type RoundPuzzle } from "./storage";
 import type { Story } from "./types";
 
 export type Verdict = "right" | "close" | "wrong";
@@ -49,4 +50,25 @@ export async function shareResult(text: string): Promise<ShareOutcome> {
     console.warn("Emoji stories: the clipboard is blocked, showing the text to copy:", error);
     return "manual";
   }
+}
+
+/** A Practice puzzle's mark on the progress trail: green right without a hint, amber right with one, red wrong; the
+ * puzzle being played is "current" and the ones to come are empty. */
+export function practiceMarks(puzzles: readonly Pick<RoundPuzzle, "id" | "pick" | "hints" | "revealed">[], at: number, over: boolean): TrailMark[] {
+  return Array.from({ length: Math.max(ROUND_LENGTH, puzzles.length) }, (_, index) => {
+    const puzzle = puzzles[index];
+    if (!puzzle) return "empty";
+    if (puzzle.revealed) return puzzle.pick !== puzzle.id ? "wrong" : points(true, puzzle.hints) === 3 ? "right" : "part";
+    return index === at && !over ? "current" : "empty";
+  });
+}
+
+/** The Practice round's share line (new in the redesign; the Daily's line above is unchanged): the score, the ten
+ * squares, the address. No titles, so it never spoils a puzzle. */
+export function practiceShareText(puzzles: readonly Pick<RoundPuzzle, "id" | "pick" | "hints" | "revealed">[], score: number): string {
+  return [
+    `Emoji stories · Practice ${score}/${ROUND_LENGTH * 3}`,
+    trailText(practiceMarks(puzzles, puzzles.length, true)),
+    "bibleguide.io/games/emoji-stories",
+  ].join("\n");
 }

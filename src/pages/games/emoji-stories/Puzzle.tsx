@@ -1,32 +1,51 @@
-// The puzzle's parts (design §11.2): the emoji row, the hints opened so far, and the two ways to answer — four choice
-// buttons (keys 1–4) or a search box over the game's own list of stories (the WAI-ARIA combobox pattern).
-import { useEffect, useId, useMemo, useState, type KeyboardEvent } from "react";
+// The puzzle's parts (design §11.2, redesigned from the visual audit): the emoji dealt in on soft tiles with their
+// passage words appearing under them in place, the hints opened so far as plain lines, and the two ways to answer:
+// four answer cards (keys 1–4) that stay on screen and settle right, wrong or faded once picked, or a search box over
+// the game's own list of stories (the WAI-ARIA combobox pattern).
+import { useEffect, useId, useMemo, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { useCatalog } from "@/lib/catalog";
 import { bookByCode } from "@/lib/refs";
+import { AnswerCard } from "../kit";
 import { isSearchable, suggest, type SearchEntry } from "./answer-match";
 import { missingEmoji } from "./emoji-support";
 import { booksOf } from "./passage";
+import { choiceState } from "./rules";
 import type { EmojiInfo, Story } from "./types";
 
-export function EmojiRow({ story, emoji, shown, large = false }: { story: Story; emoji: Record<string, EmojiInfo>; shown?: number; large?: boolean }) {
-  const list = story.emoji.slice(0, shown ?? story.emoji.length).map(([char]) => char);
+export function EmojiRow({ story, emoji, shown, large = false, words = false }: {
+  story: Story;
+  emoji: Record<string, EmojiInfo>;
+  /** How many clues are showing (the room); the rest are kept as empty places so the row never changes size. */
+  shown?: number;
+  large?: boolean;
+  /** Show each emoji's passage word under its tile (hint 2 and the reveal). */
+  words?: boolean;
+}) {
+  const count = shown ?? story.emoji.length;
+  const list = story.emoji.slice(0, count).map(([char]) => char);
   const key = list.join(" ");
   const missing = useMemo(() => missingEmoji(key ? key.split(" ") : []), [key]);
   const name = (char: string) => emoji[char]?.name ?? "emoji";
+  const style = { "--es-n": story.emoji.length } as CSSProperties;
   return (
-    <div className={`es-row${large ? " es-row-large" : ""}${list.length > 4 ? " es-row-many" : ""}`} role="group" aria-label={`Clues: ${list.map(name).join(", ")}`} translate="no">
-      {list.map((char, index) => (
-        <span key={`${index}-${char}`} className="es-tile" role="img" aria-label={name(char)}>
-          {missing.has(char)
-            ? <><span className="es-glyph es-glyph-empty" aria-hidden="true" /><small className="es-missing" aria-hidden="true">{name(char)}</small></>
-            : <span className="es-glyph" aria-hidden="true">{char}</span>}
-        </span>
-      ))}
+    <div className="es-row-box" style={style}>
+      <div className={`es-row${large ? " es-row-large" : ""}${words ? " has-words" : ""}`} role="group" aria-label={`Clues: ${list.map(name).join(", ")}`} translate="no">
+        {story.emoji.map(([char, word], index) => index < count ? (
+          <span key={`${index}-${char}`} className="es-tile" role="img" aria-label={name(char)} style={{ "--es-i": index } as CSSProperties}>
+            {missing.has(char)
+              ? <><span className="es-glyph es-glyph-empty" aria-hidden="true" /><small className="es-missing" aria-hidden="true">{name(char)}</small></>
+              : <span className="es-glyph" aria-hidden="true">{char}</span>}
+            <span className="es-word" aria-hidden={!words || undefined}>{words ? word : ""}</span>
+          </span>
+        ) : (
+          <span key={`${index}-wait`} className="es-tile es-tile-wait" aria-hidden="true"><span className="es-glyph es-glyph-wait" /><span className="es-word" /></span>
+        ))}
+      </div>
     </div>
   );
 }
 
-/** The passage words under each emoji: hint 2, and the reveal's key. */
+/** The passage words beside each emoji, for a reveal shown without its row (the round-end fold-outs). */
 export function ClueWords({ story }: { story: Story }) {
   return (
     <ul className="es-words">
@@ -44,7 +63,7 @@ export function Hints({ story, opened }: { story: Story; opened: number }) {
   return (
     <ol className="es-hints" aria-label="Hints">
       <li><strong>Where:</strong> {books.join(" and ")} · {story.testament === "old" ? "Old Testament" : "New Testament"}</li>
-      {opened >= 2 && <li><strong>The pictures:</strong> <ClueWords story={story} /></li>}
+      {opened >= 2 && <li><strong>The pictures:</strong> each word is now under its picture.</li>}
       {opened >= 3 && <li><strong>Who:</strong> {story.who}</li>}
     </ol>
   );
@@ -53,7 +72,7 @@ export function Hints({ story, opened }: { story: Story; opened: number }) {
 const isTyping = (target: EventTarget | null): boolean =>
   target instanceof HTMLElement && (target.isContentEditable || !!target.closest("input, textarea, select"));
 
-export function Choices({ ids, byId, onPick, tried = [], close = [], disabled = false }: {
+export function Choices({ ids, byId, onPick, tried = [], close = [], disabled = false, answer, pick = null, revealed = false }: {
   ids: readonly string[];
   byId: ReadonlyMap<string, Story>;
   onPick: (id: string) => void;
@@ -61,27 +80,37 @@ export function Choices({ ids, byId, onPick, tried = [], close = [], disabled = 
   /** Tried stories that share a person with the answer (§6.4): marked in amber, in words. */
   close?: readonly string[];
   disabled?: boolean;
+  /** The answer's id, the pick and whether the puzzle is revealed: the cards stay on screen and settle in place. */
+  answer?: string;
+  pick?: string | null;
+  revealed?: boolean;
 }) {
+  const locked = disabled || revealed;
   useEffect(() => {
     const onKey = (event: globalThis.KeyboardEvent) => {
-      if (disabled || event.repeat || event.altKey || event.ctrlKey || event.metaKey || isTyping(event.target)) return;
+      if (locked || event.repeat || event.altKey || event.ctrlKey || event.metaKey || isTyping(event.target)) return;
       const id = ids[Number(event.key) - 1];
       if (id && !tried.includes(id)) onPick(id);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [ids, onPick, tried, disabled]);
+  }, [ids, onPick, tried, locked]);
   return (
-    <div className="es-choices" role="group" aria-label="Choose the story">
-      {ids.map((id, index) => (
-        <button key={id} type="button" className="es-choice" disabled={disabled || tried.includes(id)} onClick={() => onPick(id)}>
-          <span className="es-choice-key" aria-hidden="true">{index + 1}</span>
-          <span>{byId.get(id)?.title}</span>
-          {tried.includes(id) && (close.includes(id)
-            ? <span className="es-choice-note is-close">Right person, different story</span>
-            : <span className="es-choice-note">Not this one</span>)}
-        </button>
-      ))}
+    <div className={`es-choices${revealed ? " is-revealed" : ""}`} role="group" aria-label="Choose the story">
+      {ids.map((id, index) => {
+        const state = choiceState(id, answer ?? "", pick, revealed, tried);
+        const isClose = tried.includes(id) && close.includes(id);
+        return (
+          <AnswerCard key={id} index={index} state={state} className={`es-choice${isClose ? " is-close" : ""}${id === pick ? " is-picked" : ""}`}
+            disabled={locked || tried.includes(id)} onClick={() => { if (!locked && !tried.includes(id)) onPick(id); }}>
+            <span className="es-choice-key" aria-hidden="true">{index + 1}</span>
+            <span className="es-choice-title">{byId.get(id)?.title}</span>
+            {tried.includes(id) && !revealed && (isClose
+              ? <span className="es-choice-note is-close">Right person, different story</span>
+              : <span className="es-choice-note">Not this one</span>)}
+          </AnswerCard>
+        );
+      })}
     </div>
   );
 }

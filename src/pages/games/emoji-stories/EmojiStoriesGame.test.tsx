@@ -50,7 +50,7 @@ describe("emoji stories page", () => {
   it("opens on the start screen with Noah's example, today's number and the three ways to play", async () => {
     renderGame();
     expect(await screen.findByRole("heading", { level: 1, name: "Emoji stories" })).toBeInTheDocument();
-    expect(screen.getByText(`= ${byId.get("noah-flood")!.title}`)).toBeInTheDocument();
+    expect(within(document.querySelector(".es-example") as HTMLElement).getByText(byId.get("noah-flood")!.title)).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Today's puzzle #4" })).toBeInTheDocument();
     for (const name of ["Play today's puzzle", "Start practice", "Start a room round"]) expect(screen.getByRole("button", { name })).toBeEnabled();
   });
@@ -122,7 +122,7 @@ describe("emoji stories page", () => {
     fireEvent.keyDown(document.body, { key: "ArrowRight" });
     expect(tiles()).toHaveLength(Math.min(3, story.emoji.length));
     fireEvent.click(screen.getByRole("button", { name: "Show choices" }));
-    expect(screen.getByText(story.title, { selector: ".es-room-choices li" })).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Choices" })).getByText(story.title)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Reveal" }));
     expect(await screen.findByRole("heading", { level: 2, name: story.title })).toHaveFocus();
     expect(tiles()).toHaveLength(story.emoji.length);
@@ -232,6 +232,58 @@ describe("emoji stories page", () => {
     next.focus();
     fireEvent.click(next, { detail: 0 });
     expect(screen.getByRole("button", { name: "Next clue" })).toBeInTheDocument();
+  });
+
+  it("keeps the four cards on screen after an answer, lights the right one, marks the wrong pick and ignores keys 1 to 4", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "Choices" }));
+    fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
+    const puzzle = round().puzzles[0];
+    const wrongId = puzzle.choices.find((id) => id !== puzzle.id)!;
+    const cards = () => within(screen.getByRole("group", { name: "Choose the story" })).getAllByRole("button");
+    expect(cards()).toHaveLength(4);
+    expect(cards().every((card) => card.getAttribute("data-state") === "idle")).toBe(true);
+    fireEvent.keyDown(window, { key: String(puzzle.choices.indexOf(wrongId) + 1) });
+    expect(await screen.findByRole("heading", { level: 2, name: byId.get(puzzle.id)!.title })).toHaveFocus();
+    const states = Object.fromEntries(cards().map((card) => [card.textContent, card.getAttribute("data-state")]));
+    expect(states[`${puzzle.choices.indexOf(wrongId) + 1}${byId.get(wrongId)!.title}✗`]).toBe("wrong");
+    expect(states[`${puzzle.choices.indexOf(puzzle.id) + 1}${byId.get(puzzle.id)!.title}✓`]).toBe("right");
+    expect(Object.values(states).filter((state) => state === "faded")).toHaveLength(2);
+    expect(screen.getByText("Not this time")).toBeInTheDocument();
+    expect(screen.getByText("0 points")).toBeInTheDocument();
+    fireEvent.keyDown(window, { key: String(puzzle.choices.indexOf(puzzle.id) + 1) });
+    expect(round().puzzles[0].pick).toBe(wrongId);
+    expect(screen.getByRole("img", { name: "1 of 10" }).querySelectorAll("[data-mark=wrong]")).toHaveLength(1);
+    expect(screen.getByRole("button", { name: "Next puzzle" })).toBeInTheDocument();
+  });
+
+  it("keeps a room's tally in the page only: a team added, awarded a story with one tap, undone with another, and named the winner", async () => {
+    renderGame("/games/emoji-stories?play=room");
+    fireEvent.click(await screen.findByText("Teams"));
+    fireEvent.click(screen.getByRole("button", { name: "Add a team" }));
+    fireEvent.click(screen.getByRole("button", { name: "Add a team" }));
+    fireEvent.change(screen.getByLabelText("Team 1 name"), { target: { value: "Lions" } });
+    fireEvent.click(screen.getByRole("button", { name: "Reveal" }));
+    const award = () => within(screen.getByRole("group", { name: "Who got it" })).getAllByRole("button");
+    expect(award()).toHaveLength(2);
+    expect(award()[0]).toHaveTextContent("Lions");
+    expect(award()[1]).toHaveTextContent("Team 2");
+    fireEvent.click(award()[0]);
+    expect(award()[0]).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(award()[0]);
+    expect(award()[0]).toHaveAttribute("aria-pressed", "false");
+    fireEvent.click(award()[0]);
+    expect(within(screen.getByRole("list", { name: "Teams" })).getAllByRole("listitem")[0]).toHaveTextContent("Lions1");
+    expect(sessionStorage.getItem(ROUND_KEY)).toBeNull();
+    expect(localStorage.getItem(DEVICE_KEY) ?? "").not.toContain("Lions");
+    for (let n = 1; n <= 10; n++) {
+      fireEvent.click(screen.getByRole("button", { name: n === 10 ? "Finish" : "Next story" }));
+      if (n < 10) fireEvent.click(screen.getByRole("button", { name: "Reveal" }));
+    }
+    expect(screen.getByText("Winner")).toBeInTheDocument();
+    expect(screen.getByText("Lions", { selector: ".kit-winner__name bdi" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Another round" }));
+    expect(within(screen.getByRole("list", { name: "Teams" })).getAllByRole("listitem")).toHaveLength(2);
   });
 
   it("is served by the games hub at its own address", async () => {

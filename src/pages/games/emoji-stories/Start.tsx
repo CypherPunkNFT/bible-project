@@ -1,5 +1,7 @@
-// The start screen (design §11.1): the owner's example drawn as a live puzzle, then Today's puzzle, Practice and Show
-// a room, the way to answer, and how to play.
+// The start screen (design §11.1, redesigned from the visual audit): the owner's example drawn as a live puzzle on
+// tiles with its answer as a settled card, then Today's puzzle, Practice and Show a room with their buttons on the
+// first phone screen, the settings (difficulty, stories from, the way to answer) behind one fold, and how to play.
+import { AnswerCard, MoreOptions } from "../kit";
 import { AnswerSwitch } from "./DailyScreen";
 import type { GameData } from "./data";
 import { DIFFICULTIES, TESTAMENTS, filterKey, isOffered, type Difficulty, type Filter, type TestamentFilter } from "./deal";
@@ -10,6 +12,7 @@ import { currentStreak, type AnswerMode, type Device } from "./storage";
 const EXAMPLE = "noah-flood";
 const DIFFICULTY_LABELS: Record<Difficulty, string> = { easy: "Easy", mixed: "Mixed", hard: "Hard" };
 const TESTAMENT_LABELS: Record<TestamentFilter, string> = { both: "Both", old: "Old Testament", new: "New Testament" };
+const ANSWER_LABELS: Record<AnswerMode, string> = { choices: "Choices", typing: "Typing" };
 
 function TodayCard({ device, today, onDaily }: { device: Device; today: number; onDaily: () => void }) {
   const record = device.daily?.n === today ? device.daily : null;
@@ -43,6 +46,7 @@ export function Start({ data, device, today, filter, answer, stored, onFilter, o
 }) {
   const example = data.byId.get(EXAMPLE);
   const offered = isOffered(data.stories, filter);
+  const best = device.best[filterKey(filter)];
   return (
     <div className="es-start">
       <h1 className="es-title">Emoji stories</h1>
@@ -50,7 +54,9 @@ export function Start({ data, device, today, filter, answer, stored, onFilter, o
       {example && (
         <div className="es-example">
           <EmojiRow story={example} emoji={data.emoji} />
-          <p>{`= ${example.title}`}</p>
+          <AnswerCard interactive={false} state="right" className="es-choice es-example-answer">
+            <span className="es-choice-title">{example.title}</span>
+          </AnswerCard>
         </div>
       )}
       <div className="es-cards">
@@ -58,23 +64,8 @@ export function Start({ data, device, today, filter, answer, stored, onFilter, o
         <article className="es-card">
           <h2>Practice</h2>
           <p>Rounds of ten puzzles. Three points for each one you get without a hint.</p>
-          <fieldset className="es-chips">
-            <legend>Difficulty</legend>
-            {DIFFICULTIES.map((difficulty) => (
-              <button key={difficulty} type="button" aria-pressed={filter.difficulty === difficulty} onClick={() => onFilter({ ...filter, difficulty })}>
-                {DIFFICULTY_LABELS[difficulty]}
-              </button>
-            ))}
-          </fieldset>
-          <fieldset className="es-chips">
-            <legend>Stories from</legend>
-            {TESTAMENTS.map((testament) => (
-              <button key={testament} type="button" aria-pressed={filter.testament === testament} disabled={!isOffered(data.stories, { ...filter, testament })} onClick={() => onFilter({ ...filter, testament })}>
-                {TESTAMENT_LABELS[testament]}
-              </button>
-            ))}
-          </fieldset>
-          {device.best[filterKey(filter)] !== undefined && <p className="es-muted">{`Best with these settings: ${device.best[filterKey(filter)]} of 30`}</p>}
+          {best !== undefined && <p className="es-muted">{`Best with these settings: ${best} of 30`}</p>}
+          {!offered && <p className="es-muted">Not enough stories with these settings. Change them below.</p>}
           <button type="button" className="es-primary" disabled={!offered} onClick={onPractice}>Start practice</button>
         </article>
         <article className="es-card">
@@ -83,7 +74,26 @@ export function Start({ data, device, today, filter, answer, stored, onFilter, o
           <button type="button" className="es-primary" disabled={!offered} onClick={onRoom}>Start a room round</button>
         </article>
       </div>
-      <AnswerSwitch mode={answer} onAnswer={onAnswer} />
+      <MoreOptions className="es-settings" defaultOpen={!offered}
+        summary={<><span>Settings</span><span className="es-settings-now" aria-hidden="true">{[DIFFICULTY_LABELS[filter.difficulty], TESTAMENT_LABELS[filter.testament], ANSWER_LABELS[answer]].join(" · ")}</span></>}>
+        <fieldset className="es-chips">
+          <legend>Difficulty</legend>
+          {DIFFICULTIES.map((difficulty) => (
+            <button key={difficulty} type="button" aria-pressed={filter.difficulty === difficulty} onClick={() => onFilter({ ...filter, difficulty })}>
+              {DIFFICULTY_LABELS[difficulty]}
+            </button>
+          ))}
+        </fieldset>
+        <fieldset className="es-chips">
+          <legend>Stories from</legend>
+          {TESTAMENTS.map((testament) => (
+            <button key={testament} type="button" aria-pressed={filter.testament === testament} disabled={!isOffered(data.stories, { ...filter, testament })} onClick={() => onFilter({ ...filter, testament })}>
+              {TESTAMENT_LABELS[testament]}
+            </button>
+          ))}
+        </fieldset>
+        <AnswerSwitch mode={answer} onAnswer={onAnswer} />
+      </MoreOptions>
       {!stored && <p className="es-muted">Your scores and streak cannot be remembered on this device.</p>}
       <details className="es-how">
         <summary>How to play</summary>

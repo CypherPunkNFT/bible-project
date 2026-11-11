@@ -2,14 +2,17 @@
 // Loads the three data files, keeps the device record and the round in progress, and switches between the start
 // screen, the Daily, a Practice round, its end, and a room round. ?play=daily|practice|room opens a mode directly.
 import { ArrowLeft } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { formatList, plural } from "@/lib/site-format";
 import { useSiteLanguage } from "@/lib/language";
+import { useScrollTopOn, WinnerLine } from "../kit";
 import { msUntilMidnight } from "./daily";
 import { DailyPlay } from "./DailyScreen";
 import { gameData, type GameData } from "./data";
 import { choicesFor, dealRound, filterKey, isOffered, remember, roundScore, type Filter } from "./deal";
-import { RoomPlay } from "./Room";
+import { RoomChips, RoomPlay } from "./Room";
+import { roomRows, type RoomTeam } from "./rules";
 import { RoundPlay } from "./Round";
 import { RoundEnd } from "./RoundEnd";
 import { Start } from "./Start";
@@ -47,7 +50,7 @@ export default function EmojiStoriesGame() {
     <div className="es-page mx-auto max-w-3xl px-4 sm:px-6">
       <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
       {data ? <Game data={data} /> : failed ? (
-        <p className="es-muted">The puzzles could not be loaded. <button type="button" onClick={() => setAttempt((n) => n + 1)}>Try again</button></p>
+        <p className="es-muted">The puzzles could not be loaded. <button type="button" className="es-link-button" onClick={() => setAttempt((n) => n + 1)}>Try again</button></p>
       ) : <p className="es-muted" role="status">Loading the puzzles…</p>}
     </div>
   );
@@ -85,6 +88,13 @@ export function Game({ data }: { data: GameData }) {
   const [dailyNumber, setDailyNumber] = useState(today);
   const [newDay, setNewDay] = useState(false);
   const [view, setView] = useState<View>(() => (round ? "round" : params.get("play") === "daily" ? "daily" : "start"));
+  // The room's team tally lives here, in the page only, so it survives "Another round" and is never stored (§8.3).
+  const [teams, setTeams] = useState<RoomTeam[]>([]);
+  // A round restored from a reload: its result screen must not count up or celebrate again, and it has no "best before".
+  const restored = useRef(round?.over ?? false);
+  const bestBefore = useRef(0);
+  // Every new screen opens at the top (the audit's phone fault): the view, the puzzle and the round's end are the key.
+  useScrollTopOn(`${view}:${round?.mode ?? ""}:${round?.at ?? -1}:${round?.over ?? false}`);
 
   const save = useCallback((next: Device) => {
     setStored(writeDevice(local, next));
@@ -128,6 +138,8 @@ export function Game({ data }: { data: GameData }) {
       clues: mode === "room" ? 1 : 0, choicesShown: false, revealed: false,
     }));
     const next: Round = { mode, filter: chosen, puzzles, at: 0, over: false, recorded: false };
+    restored.current = false;
+    bestBefore.current = device.best[filterKey(chosen)] ?? 0;
     save({ ...device, recent: remember(device.recent, [ids[0]]) });
     saveRound(session, mode === "practice" ? next : null);
     setRound(next);
@@ -148,21 +160,38 @@ export function Game({ data }: { data: GameData }) {
   }
   if (view === "round" && round) {
     if (round.over && round.mode === "practice") {
-      return <RoundEnd round={round} byId={data.byId} best={device.best[filterKey(round.filter)] ?? 0} onAgain={() => startRound("practice", round.filter)} onHome={() => changeRound(null)} />;
+      const best = restored.current ? device.best[filterKey(round.filter)] ?? 0 : bestBefore.current;
+      return <RoundEnd round={round} byId={data.byId} best={best} fresh={!restored.current} onAgain={() => startRound("practice", round.filter)} onHome={() => changeRound(null)} />;
     }
     if (round.over) {
-      return <section className="es-end"><h2 className="es-heading">That was the last story of the round.</h2>
-        <p className="es-actions"><button type="button" className="es-primary" onClick={() => startRound("room", round.filter)}>Another round</button>
-          <button type="button" className="es-secondary" onClick={() => changeRound(null)}>Back to the start</button></p></section>;
+      return <RoomEnd teams={teams} onAgain={() => startRound("room", round.filter)} onHome={() => { setTeams([]); changeRound(null); }} />;
     }
     return <>
-      <button type="button" className="es-secondary es-home" onClick={() => changeRound(null)}>Stop this round</button>
+      <button type="button" className="es-secondary es-home" onClick={() => { setTeams([]); changeRound(null); }}>Stop this round</button>
       {round.mode === "room"
-        ? <RoomPlay data={data} round={round} onChange={changeRound} />
+        ? <RoomPlay data={data} round={round} teams={teams} onChange={changeRound} onTeams={setTeams} />
         : <RoundPlay data={data} round={round} answer={practiceAnswer} onChange={changeRound} />}
     </>;
   }
   return <Start data={data} device={device} today={today} filter={filter} answer={practiceAnswer} stored={stored}
     onFilter={setFilter} onAnswer={setAnswer} onDaily={() => { setNewDay(false); setDailyNumber(today); setView("daily"); }}
     onPractice={() => startRound("practice")} onRoom={() => startRound("room")} />;
+}
+
+/** The room's last screen: the winner (or the tied winners) and the tally when teams kept score, else the old line. */
+function RoomEnd({ teams, onAgain, onHome }: { teams: readonly RoomTeam[]; onAgain: () => void; onHome: () => void }) {
+  const rows = roomRows(teams);
+  const top = Math.max(0, ...rows.map((row) => row.score));
+  const names = top > 0 ? rows.filter((row) => row.score === top).map((row) => row.name) : [];
+  return (
+    <section className="es-end es-room-end" aria-labelledby="es-room-end-title">
+      <h2 id="es-room-end-title" className="es-heading">That was the last story of the round.</h2>
+      {names.length > 0 && <WinnerLine name={<bdi>{formatList(names)}</bdi>} label={plural(names.length, "Winner", "Winners")} className="es-winner" />}
+      {rows.length > 0 && <RoomChips teams={teams} />}
+      <p className="es-actions">
+        <button type="button" className="es-primary" onClick={onAgain}>Another round</button>
+        <button type="button" className="es-secondary" onClick={onHome}>Back to the start</button>
+      </p>
+    </section>
+  );
 }
