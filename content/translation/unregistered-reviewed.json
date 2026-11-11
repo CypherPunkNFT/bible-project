@@ -24635,19 +24635,6 @@
   "why": "each folder belongs to a game or page another chat is still building (timeline, twenty questions, two truths, emoji stories, verse of the day, verse completion, charades, baby names); each needs a collecting rule in extract.py (code) and a paid translation run, or a files ruling if its English is meant to stay, decided with that chat. Outside this step's $1.50"
  },
  {
-  "check": "waiting",
-  "job": "27",
-  "finding": "chunks",
-  "item": "the collected backlog left untranslated by sequence 29 step 7, Fortress job 900, card D56",
-  "chunks": {
-   "1865": "4ec2aa2f3dc6713f573bbd8858a5b7fd69cf7719366353f94e9dcbc32fd02042",
-   "1869": "31b3cf0745f5ca9095047c893e96a93a5017c2fcb73d1b8210d70dc216e6fa3a",
-   "1870": "364032a64b54f8820f0d6b162aedd7ebf365aeb34c2331248ddc2c4ac1dea872",
-   "1871": "917361b5605cb800c2ae816e5e58896180b4101272cc6033e489548d26c845e5"
-  },
-  "why": "collected page text other chats added (prayers, verse packs, games, holy days, a reading-level word list) that the step's $1.50 could not also pay for: chunks 1851-1855, 1862-1864, 1866-1868, 1872-1874 were translated in its two runs. Their 1,490 strings a language (303 + 400 + 391 + 396) cost about $0.55 to $0.65 at list price with translate_new.py, within card D56's $2.95 left; one string of chunk 1871 is a list of English stop words ('a about above after ...') for the reading-level tool, which should be ruled as code data, not translated"
- },
- {
   "check": "code",
   "file": "src/pages/puzzle-maker/passage.ts",
   "item": "a about above after again against all also am an and another any are aside as at away back be became because become been before behind being below beside besides between both but by came can cannot come comes coming could did do does doing done down during each either else even ever every few for from further gave get gets give given gives go goes going gone got had has have having he her here hers herself him himself his how however i if in into is it its itself just keep kept know known knew let lets like made make makes many may me might mine more most much must my myself near neither never no nor not now of off often on once one only onto or other others ought our ours ourselves out over own put said same saw say saying says see seen shall she should since so some such take taken than that the their theirs them themselves then there therefore these they this those though through thus till to toward towards too took two three four five six seven eight nine ten under until up upon us very was we went were what whatever when whenever where whereas wherever whether which while who whoever whole whom whose why will with within without would ye yet you your yours yourself yourselves unto thee thou thy thine hath doth indeed among around across along according thing things tell told truly surely yes",
