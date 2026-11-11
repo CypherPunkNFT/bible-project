@@ -8,7 +8,9 @@ import type { Reading } from "./tilt";
 export const READING_WAIT_MS = 1000;
 export const READINGS_STOPPED_MS = 3000;
 
-type PermissionResult = "granted" | "denied" | "not-needed";
+/** "unknown": the browser threw or rejected instead of answering (a tap not counted, no sensor behind the prompt); the
+ * one-second reading check decides, and no refusal is reported. */
+type PermissionResult = "granted" | "denied" | "not-needed" | "unknown";
 type OrientationWithPermission = typeof DeviceOrientationEvent & { requestPermission?: () => Promise<"granted" | "denied"> };
 type LockableOrientation = ScreenOrientation & { lock?: (orientation: string) => Promise<void> };
 
@@ -56,9 +58,10 @@ function requestPermission(): Promise<PermissionResult> {
   const request = (window.DeviceOrientationEvent as OrientationWithPermission | undefined)?.requestPermission;
   if (typeof request !== "function") return Promise.resolve("not-needed");
   try {
-    return request.call(window.DeviceOrientationEvent).then((answer) => (answer === "granted" ? "granted" : "denied"), () => "denied");
+    // Only a plain "denied" is a refusal: Chromium answers "prompt" where it never asked, which proves nothing.
+    return request.call(window.DeviceOrientationEvent).then((answer) => (answer === "granted" ? "granted" : answer === "denied" ? "denied" : "unknown"), () => "unknown");
   } catch {
-    return Promise.resolve("denied"); // a browser that throws instead of asking: treated as a refusal
+    return Promise.resolve("unknown"); // a browser that throws instead of asking: nobody refused anything
   }
 }
 

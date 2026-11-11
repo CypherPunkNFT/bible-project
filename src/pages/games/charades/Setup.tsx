@@ -1,9 +1,12 @@
-// Family charades: the start screen (design §7.1). Every choice is a row of chips; the deck chips too small for the age
-// group are disabled with the reason. Start runs the Start tap (CharadesGame.tsx, §5.4).
+// Family charades: the start screen (design §7.1, redesigned from the visual audit). The game shows itself first: a
+// tilted sample card beside the title, cycling slowly through real scenes, with Start right under it, so a phone sees
+// the button on its first screen. The deck choices follow; the long tail (controls, sound, pictures, teams) folds
+// behind one "More options" row that names the current choices. Start runs the Start tap (CharadesGame.tsx, §5.4).
 import { Play } from "lucide-react";
-import type { ReactNode } from "react";
-import { GAME_ART, GameArtImage } from "../art";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { MoreOptions, prefersReducedMotion, teamTone } from "../kit";
 import { AGE_GROUPS, DIFFICULTIES, deckOffered, usesDifficulty, type DeckKey, type Scene, type ScenesFile } from "./deck";
+import { SAMPLE_MS, sampleTitles } from "./display";
 import { MAX_TEAM_NAME, ROUND_SECONDS, TEAM_COUNTS, TURN_COUNTS } from "./game";
 import type { Controls, Mode, Settings } from "./storage";
 
@@ -19,6 +22,8 @@ interface Props {
   saving: boolean;
   notice: string | null;
   starting: boolean;
+  /** A round is up or starting: the sample card stops cycling behind it. */
+  still?: boolean;
   onSettings: (change: Partial<Settings>) => void;
   onTeams: (teams: TeamSetup) => void;
   onStart: () => void;
@@ -38,19 +43,20 @@ function Chips<T extends string | number>({ label, options, value, onPick, disab
 
 const onOff = [{ key: "on", label: "On" }, { key: "off", label: "Off" }] as const;
 
-export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, starting, onSettings, onTeams, onStart }: Props) {
+export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, starting, still = false, onSettings, onTeams, onStart }: Props) {
   const scenes: Scene[] = file.scenes;
   const { mode, ageGroup, deck } = settings;
   const decks: { key: DeckKey; label: string }[] = [{ key: "everything", label: "Everything" }, ...file.themes.map((t) => ({ key: t.key, label: t.title }))];
   const controls = tiltKnown ? settings.controls[mode] : "buttons";
   const setTeamCount = (count: number) => onTeams({ ...teams, names: Array.from({ length: count }, (_, i) => teams.names[i] ?? `Team ${i + 1}`) });
+  const deckTitle = decks.find((d) => d.key === deck)?.label ?? "Everything";
   return <div className="ch-setup">
     <div className="ch-hero">
-      <div>
+      <div className="ch-hero-text">
         <h1>Family charades</h1>
         <p className="ch-lede">Hold the phone to your forehead, everyone acts out the Bible scene, and you guess.</p>
       </div>
-      <GameArtImage art={GAME_ART.charades} className="ch-hero-art" />
+      <SampleCard titles={sampleTitles(scenes)} deckTitle={deckTitle} still={still} />
     </div>
 
     <fieldset className="ch-modes">
@@ -61,30 +67,59 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
         </button>)}
     </fieldset>
 
+    {notice && <p className="ch-notice" role="status">{notice}</p>}
+    <div className="ch-start">
+      <button type="button" className="ch-primary ch-go" onClick={onStart} disabled={starting}><Play size={18} aria-hidden="true" />Start</button>
+      <p className="ch-best">{saving ? `Best in ${settings.seconds[ageGroup]} seconds: ${best}` : "Best scores are not saved on this device"}</p>
+    </div>
+
     <Chips label="Who's playing?" options={AGE_GROUPS} value={ageGroup} onPick={(key) => onSettings({ ageGroup: key, deck: deckOffered(scenes, key, deck) ? deck : "everything" })} />
     <Chips label="Deck" options={decks} value={deck} onPick={(key) => onSettings({ deck: key })} disabled={(key) => !deckOffered(scenes, ageGroup, key)} />
     {usesDifficulty(settings) && <Chips label="Difficulty" options={DIFFICULTIES} value={settings.difficulty} onPick={(key) => onSettings({ difficulty: key })} />}
     <Chips label="Round length" options={ROUND_SECONDS.map((s) => ({ key: s, label: `${s} s` }))} value={settings.seconds[ageGroup]}
       onPick={(key) => onSettings({ seconds: { ...settings.seconds, [ageGroup]: key } })} />
-    {tiltKnown && <Chips label="Controls" options={[{ key: "tilt" as Controls, label: "Tilt and buttons" }, { key: "buttons" as Controls, label: "Buttons only" }]}
-      value={controls} onPick={(key) => onSettings({ controls: { ...settings.controls, [mode]: key } })} />}
-    <div className="ch-row">
-      <Chips label="Sound" options={onOff} value={settings.sound ? "on" : "off"} onPick={(key) => onSettings({ sound: key === "on" })} />
-      <Chips label="Pictures" options={onOff} value={settings.pictures[ageGroup] ? "on" : "off"}
-        onPick={(key) => onSettings({ pictures: { ...settings.pictures, [ageGroup]: key === "on" } })} />
-      <Chips label="Teams" options={onOff} value={teams.on ? "on" : "off"} onPick={(key) => onTeams({ ...teams, on: key === "on" })} />
-    </div>
-    {teams.on && <TeamFields teams={teams} onTeams={onTeams} onCount={setTeamCount} />}
+
+    <MoreOptions className="ch-more" defaultOpen={teams.on} summary={<>
+      <span>More options</span>
+      <span className="ch-more-now">
+        {tiltKnown && <span>{controls === "tilt" ? "Tilt and buttons" : "Buttons only"}</span>}
+        <span>{settings.sound ? "Sound on" : "Sound off"}</span>
+        <span>{settings.pictures[ageGroup] ? "Pictures on" : "Pictures off"}</span>
+        <span>{teams.on ? "Teams on" : "Teams off"}</span>
+      </span>
+    </>}>
+      {tiltKnown && <Chips label="Controls" options={[{ key: "tilt" as Controls, label: "Tilt and buttons" }, { key: "buttons" as Controls, label: "Buttons only" }]}
+        value={controls} onPick={(key) => onSettings({ controls: { ...settings.controls, [mode]: key } })} />}
+      <div className="ch-row">
+        <Chips label="Sound" options={onOff} value={settings.sound ? "on" : "off"} onPick={(key) => onSettings({ sound: key === "on" })} />
+        <Chips label="Pictures" options={onOff} value={settings.pictures[ageGroup] ? "on" : "off"}
+          onPick={(key) => onSettings({ pictures: { ...settings.pictures, [ageGroup]: key === "on" } })} />
+        <Chips label="Teams" options={onOff} value={teams.on ? "on" : "off"} onPick={(key) => onTeams({ ...teams, on: key === "on" })} />
+      </div>
+      {teams.on && <TeamFields teams={teams} onTeams={onTeams} onCount={setTeamCount} />}
+    </MoreOptions>
 
     <details className="ch-how">
       <summary>How to play</summary>
       <HowTo mode={mode} />
     </details>
+  </div>;
+}
 
-    {notice && <p className="ch-notice" role="status">{notice}</p>}
-    <div className="ch-start">
-      <button type="button" className="ch-primary ch-go" onClick={onStart} disabled={starting}><Play size={18} aria-hidden="true" />Start</button>
-      <p className="ch-best">{saving ? `Best in ${settings.seconds[ageGroup]} seconds: ${best}` : "Best scores are not saved on this device"}</p>
+/** The game, shown before it is played: a scene card tilted on the page, its title changing slowly. Decorative. */
+function SampleCard({ titles, deckTitle, still }: { titles: string[]; deckTitle: string; still: boolean }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (still || titles.length < 2 || prefersReducedMotion()) return;
+    const timer = window.setInterval(() => setIndex((i) => (i + 1) % titles.length), SAMPLE_MS);
+    return () => window.clearInterval(timer);
+  }, [still, titles.length]);
+  const title = titles[index % Math.max(1, titles.length)] ?? "";
+  return <div className="ch-sample" aria-hidden="true">
+    <div className="ch-sample-card">
+      <span className="ch-sample-deck">{deckTitle}</span>
+      <span key={title} className="ch-sample-title">{title}</span>
+      <span className="ch-sample-foot">✓ ✓ ✓</span>
     </div>
   </div>;
 }
@@ -94,8 +129,8 @@ function TeamFields({ teams, onTeams, onCount }: { teams: TeamSetup; onTeams: (t
     <Chips label="How many teams" options={TEAM_COUNTS.map((n) => ({ key: n, label: String(n) }))} value={teams.names.length} onPick={onCount} />
     <Chips label="Turns each" options={TURN_COUNTS.map((n) => ({ key: n, label: String(n) }))} value={teams.turnsEach} onPick={(n) => onTeams({ ...teams, turnsEach: n })} />
     <div className="ch-team-names">
-      {teams.names.map((name, i) => <label key={i}>
-        <span>{`Team ${i + 1} name`}</span>
+      {teams.names.map((name, i) => <label key={i} style={{ "--ch-team": teamTone(i) } as CSSProperties}>
+        <span><i className="ch-team-dot" aria-hidden="true" />{`Team ${i + 1} name`}</span>
         <input type="text" value={name} maxLength={MAX_TEAM_NAME} autoComplete="off"
           onChange={(e) => onTeams({ ...teams, names: teams.names.map((n, j) => (j === i ? e.target.value : n)) })} />
       </label>)}

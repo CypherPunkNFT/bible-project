@@ -1,10 +1,11 @@
 // Family charades: the round itself, drawn as a fixed layer over the page (design §7.2–§7.5): get ready, the 3-2-1
 // countdown, the card, the answer feedback, the pause sheet and "Time's up!". Tilt, buttons and keys all answer at
 // once (§5.1). The clock runs from an end time on performance.now() (game.ts), checked five times a second.
-import { Check, EyeOff, Pause, Redo2 } from "lucide-react";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
+import { plural } from "@/lib/site-format";
 import type { Scene } from "./deck";
-import { advance, answer, leftMs, pause, resume, startRound, stopRound, tick, type Round } from "./game";
+import { advance, answer, leftMs, pause, resume, scoreOf, startRound, stopRound, tick, type Round } from "./game";
+import { Live, type Leaving } from "./Live";
 import { READINGS_STOPPED_MS, leaveFullscreen, releaseWakeLock, requestWakeLock, screenAngle, useOrientation } from "./sensors";
 import { beep, buzz } from "./sound";
 import type { Mode } from "./storage";
@@ -25,6 +26,8 @@ export interface RoundProps {
   sound: boolean;
   littleOnes: boolean;
   teamName: string | null;
+  /** The deck's title, written small at the top of the card. */
+  deckTitle: string;
   /** Why tilt is off this round, from the Start tap's check (§5.4), shown on the get-ready screen. */
   notice: string | null;
   onSound: (on: boolean) => void;
@@ -47,6 +50,9 @@ export function RoundLayer(props: RoundProps) {
   const [round, setRoundState] = useState<Round | null>(null);
   const [clock, setClock] = useState(now);
   const [feedback, setFeedback] = useState<"correct" | "pass" | null>(null);
+  /** The card just answered, sliding off in the direction of the tilt while the flood shows (decoration only). */
+  const [leaving, setLeaving] = useState<Leaving | null>(null);
+  const feedbackTimer = useRef(0);
   const [hidden, setHidden] = useState(false);
   const [tiltLost, setTiltLost] = useState(false);
   const [resuming, setResuming] = useState(false);
@@ -98,14 +104,18 @@ export function RoundLayer(props: RoundProps) {
     setRound(next);
     if (!byTilt) detector.current = afterAnswer(t);
     setFeedback(mark);
+    if (current.current) setLeaving({ id: current.current, mark });
     play(mark);
     buzz();
-    window.setTimeout(() => {
+    window.clearTimeout(feedbackTimer.current);
+    feedbackTimer.current = window.setTimeout(() => {
       setFeedback(null);
+      setLeaving(null);
       awaitingNext.current = true;
       if (!tiltOnRef.current) nextScene(); // with tilt, the next scene waits for the phone to be upright again
     }, FEEDBACK_MS);
   }, [end, nextScene]);
+  useEffect(() => () => window.clearTimeout(feedbackTimer.current), []);
 
   const go = useCallback(() => {
     const started = startRound(order, seconds, now(), storyOf);
@@ -119,6 +129,10 @@ export function RoundLayer(props: RoundProps) {
     const current = roundRef.current;
     if (!current || current.phase !== "paused") return;
     setResuming(false);
+    // A pause inside an answer's feedback: the flood and the leaving card are over, the next scene comes now.
+    window.clearTimeout(feedbackTimer.current);
+    setFeedback(null);
+    setLeaving(null);
     setRound(resume(current, now()));
     if (awaitingNext.current || !current.current) nextScene();
   }, [nextScene]);
@@ -176,6 +190,7 @@ export function RoundLayer(props: RoundProps) {
   const pauseNow = useCallback(() => {
     const current = roundRef.current;
     if (stageRef.current !== "live" || !current || current.phase !== "playing") return;
+    window.clearTimeout(feedbackTimer.current);
     setRound(pause(current, now()));
     leaveFullscreen();
   }, []);
@@ -213,13 +228,14 @@ export function RoundLayer(props: RoundProps) {
   const paused = round?.phase === "paused";
   return <div ref={layer} className="ch-layer" role="dialog" aria-modal="true" aria-label="Family charades round" tabIndex={-1} data-mode={mode}>
     {stage === "ready" && <Ready {...props} tilt={tiltOn} onStart={beginCountdown} />}
-    {stage === "countdown" && <div className="ch-countdown" aria-live="assertive"><span>{COUNTDOWN[count] || "Go!"}</span></div>}
-    {stage === "live" && round && !paused && <Live {...props} round={round} clock={clock} feedback={feedback} hidden={hidden} tiltOn={tiltOn}
+    {stage === "countdown" && <div className="ch-countdown" aria-live="assertive"><span key={count} className="ch-count-digit">{COUNTDOWN[count] || "Go!"}</span></div>}
+    {stage === "live" && round && !paused && <Live {...props} round={round} clock={clock} feedback={feedback} leaving={leaving} hidden={hidden} tiltOn={tiltOn}
       tiltLost={tilt && tiltLost} turn={turn} onAnswer={(mark) => respond(mark, false)} onPause={pauseNow} onHide={() => setHidden((h) => !h)} />}
     {stage === "live" && paused && <PauseSheet sound={sound} resuming={resuming} onResume={askResume}
       onStop={() => { const current = roundRef.current; if (current) end(stopRound(current, now())); }} onSound={props.onSound} />}
     {stage === "ending" && <div className="ch-ending" role="status">
       <strong>{round?.ended === "deck" ? "You got through the whole deck!" : "Time's up!"}</strong>
+      <span className="ch-ending-score">{plural(round ? scoreOf(round.rows) : 0, "{n} scene", "{n} scenes")}</span>
     </div>}
   </div>;
 }
@@ -240,8 +256,8 @@ function useLayerFocus(layer: RefObject<HTMLDivElement>) {
 
 function Ready({ mode, tilt, littleOnes, teamName, notice, onStart }: RoundProps & { onStart: () => void }) {
   return <div className="ch-ready">
-    {teamName && <p className="ch-team-turn">{`${teamName}'s turn`}</p>}
-    {notice && <p className="ch-notice" role="status">{notice}</p>}
+    {teamName && <p className="ch-team-turn"><span className="ch-ready-team">{teamName}</span><span>Your turn</span></p>}
+    <PhoneDrawing mode={mode} />
     {mode === "guess" && tilt ? <>
       <h2>Hold the phone to your forehead, screen facing out.</h2>
       <p>Tip down when you get it. Tip up to pass.</p>
@@ -253,77 +269,21 @@ function Ready({ mode, tilt, littleOnes, teamName, notice, onStart }: RoundProps
       {mode === "act" && littleOnes && <p>Can't read it yet? Look at the picture, or ask a grown-up to whisper it.</p>}
       <button type="button" className="ch-primary ch-go" onClick={onStart} autoFocus>Start round</button>
     </>}
+    {notice && <p className="ch-notice ch-ready-notice" role="status">{notice}</p>}
   </div>;
 }
 
-interface LiveProps extends RoundProps {
-  round: Round; clock: number; feedback: "correct" | "pass" | null; hidden: boolean; tiltOn: boolean; tiltLost: boolean; turn: number;
-  onAnswer: (mark: "correct" | "pass") => void; onPause: () => void; onHide: () => void;
-}
-
-function Live({ scenes, round, clock, feedback, hidden, tiltOn, tiltLost, turn, pictures, mode, onAnswer, onPause, onHide }: LiveProps) {
-  const scene = round.current ? scenes.get(round.current) : undefined;
-  const secondsLeft = Math.ceil(leftMs(round, clock) / 1000);
-  const score = round.rows.filter((r) => r.mark === "correct").length;
-  const big = !tiltOn;
-  return <div className="ch-live" data-feedback={feedback ?? undefined}>
-    <div className="ch-card" data-turn={turn}>
-      <div className="ch-card-inner">
-        <span className={`ch-timer${secondsLeft <= 10 ? " is-low" : ""}`} aria-label={`${secondsLeft} seconds left`}>{secondsLeft}</span>
-        <span className="ch-score" aria-label={`Score ${score}`}>{score}</span>
-        {feedback ? <p className="ch-feedback" aria-live="polite">{feedback === "correct" ? "✓ Correct!" : "↷ Pass"}</p>
-          : scene && !hidden ? <SceneCard scene={scene} picture={pictures} />
-          : hidden ? <p className="ch-hidden-note">Card hidden</p> : null}
-      </div>
-    </div>
-    {tiltLost && <p className="ch-tilt-lost" role="status">Tilt stopped; use the buttons</p>}
-    <div className={`ch-answer${big ? " is-big" : ""}`}>
-      <button type="button" className="ch-pass" onClick={() => onAnswer("pass")} disabled={!!feedback || !scene}><Redo2 size={20} aria-hidden="true" />Pass</button>
-      <button type="button" className="ch-got" onClick={() => onAnswer("correct")} disabled={!!feedback || !scene}><Check size={20} aria-hidden="true" />Got it</button>
-    </div>
-    <div className="ch-tools">
-      {mode === "act" && <button type="button" className="ch-tool" aria-pressed={hidden} onClick={onHide}><EyeOff size={16} aria-hidden="true" />{hidden ? "Show card" : "Hide card"}</button>}
-      <button type="button" className="ch-tool" onClick={onPause} aria-label="Pause"><Pause size={16} aria-hidden="true" /></button>
-    </div>
-  </div>;
-}
-
-/** The scene as large as fits in three lines, never below 28 px (§7.3). Not a live region: it is never read aloud by itself. */
-function SceneCard({ scene, picture }: { scene: Scene; picture: boolean }) {
-  const box = useRef<HTMLDivElement>(null);
-  const title = useRef<HTMLHeadingElement>(null);
-  useFitText(box, title, scene.id);
-  return <div ref={box} className="ch-scene">
-    {picture && scene.picture && <span className="ch-picture" aria-hidden="true">{scene.picture}</span>}
-    <h2 ref={title} className="ch-title">{scene.title}</h2>
-  </div>;
-}
-
-const MIN_TEXT_PX = 28;
-const MAX_TEXT_PX = 160;
-
-/** Largest font size between 28 px and the cap at which the title fits its box in at most three lines. */
-function useFitText(box: RefObject<HTMLElement>, text: RefObject<HTMLElement>, key: string) {
-  useLayoutEffect(() => {
-    const fit = () => {
-      const el = text.current;
-      const area = box.current;
-      if (!el || !area) return;
-      let low = MIN_TEXT_PX;
-      let high = MAX_TEXT_PX;
-      const fits = (size: number) => {
-        el.style.fontSize = `${size}px`;
-        const lines = el.scrollHeight / (size * 1.15);
-        return lines <= 3.2 && el.scrollWidth <= area.clientWidth + 1 && el.scrollHeight <= area.clientHeight;
-      };
-      if (!area.clientWidth) { el.style.fontSize = ""; return; } // no layout (tests): the CSS size stands
-      while (high - low > 1) { const mid = Math.floor((low + high) / 2); if (fits(mid)) low = mid; else high = mid; }
-      el.style.fontSize = `${low}px`;
-    };
-    fit();
-    window.addEventListener("resize", fit);
-    return () => window.removeEventListener("resize", fit);
-  }, [box, text, key]);
+/** A small line drawing of the phone held up, breathing slowly while the room gets ready. Decorative. */
+function PhoneDrawing({ mode }: { mode: Mode }) {
+  return <svg className="ch-ready-drawing" viewBox="0 0 120 80" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="60" cy="46" r="16" />
+      <path d="M38 80 q22 -18 44 0" />
+      {mode === "guess"
+        ? <g className="ch-ready-phone"><rect x="47" y="14" width="26" height="16" rx="3" /><path d="M52 22 h16" strokeDasharray="2 3" /></g>
+        : <g className="ch-ready-phone"><rect x="86" y="30" width="16" height="28" rx="3" /><path d="M86 50 l-12 -6" /><path d="M22 58 l12 -6" /></g>}
+    </g>
+  </svg>;
 }
 
 function PauseSheet({ sound, resuming, onResume, onStop, onSound }: { sound: boolean; resuming: boolean; onResume: () => void; onStop: () => void; onSound: (on: boolean) => void }) {

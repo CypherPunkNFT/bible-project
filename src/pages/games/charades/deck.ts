@@ -119,6 +119,19 @@ export function deal(dealer: Dealer, storyOf: (id: string) => string | undefined
   return { id: again, dealer: { ...dealer, cursor: dealer.order.length, passed: rest } };
 }
 
+/** How many cards the round can still deal: the fresh scenes ahead whose story has not been dealt (one per story), plus
+ * the passed scenes that come back. Drawn on the card so the room can feel the deck shrinking. */
+export function cardsLeft(dealer: Dealer, storyOf: (id: string) => string | undefined): number {
+  const stories = new Set(dealer.stories);
+  let fresh = 0;
+  for (let i = dealer.cursor; i < dealer.order.length; i++) {
+    const story = storyOf(dealer.order[i]);
+    if (story) { if (stories.has(story)) continue; stories.add(story); }
+    fresh++;
+  }
+  return fresh + dealer.passed.length;
+}
+
 /** Records the answer to the scene on screen: a pass goes to the bottom of the pile, a correct one leaves it. */
 export function answerScene(dealer: Dealer, id: string, mark: "correct" | "pass"): Dealer {
   return mark === "correct" ? { ...dealer, correct: [...dealer.correct, id] } : { ...dealer, passed: [...dealer.passed, id] };

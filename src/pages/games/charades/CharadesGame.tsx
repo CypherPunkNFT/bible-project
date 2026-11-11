@@ -20,6 +20,9 @@ const loadScenes = () => import("@/data/charades/scenes.json").then((module) => 
 
 export const TILT_DENIED = "Tilt is off because motion access was not allowed. You can play with the buttons, or reload the page and allow it.";
 export const TILT_SILENT = "This device isn't sending tilt here, so use the buttons.";
+/** The browser threw or rejected instead of asking (a desktop with the prompt but no sensor, a tap iPhone did not count):
+ * nobody refused anything, so no blame and no "Buttons only" next time. */
+export const TILT_UNAVAILABLE = "Tilt isn't available here, so use the buttons.";
 
 export default function CharadesGame() {
   useEffect(() => { document.title = "Family charades · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
@@ -45,7 +48,7 @@ export default function CharadesGame() {
 }
 
 type Screen = "setup" | "handover" | "recap" | "final";
-interface RoundSetup { key: number; order: string[]; seconds: Seconds; tilt: boolean; notice: string | null; settings: Settings; teamName: string | null }
+interface RoundSetup { key: number; order: string[]; seconds: Seconds; tilt: boolean; notice: string | null; settings: Settings; teamName: string | null; deckTitle: string }
 interface RecapState { rows: Row[]; ended: EndReason; leftMs: number; bestBefore: number; seconds: Seconds; teamName: string | null }
 
 /** Saved settings, with a deck that has become too small falling back to Everything and a failed tilt check starting on buttons. */
@@ -94,15 +97,17 @@ function Game({ file }: { file: ScenesFile }) {
         if (permission === "denied") notice = TILT_DENIED;
         else {
           tilt = await waitForReading();
-          if (!tilt) notice = TILT_SILENT;
-          if (savedRef.current.tiltFailed === tilt) setSaved({ ...savedRef.current, tiltFailed: !tilt });
+          if (!tilt) notice = permission === "unknown" ? TILT_UNAVAILABLE : TILT_SILENT;
+          // A device that answered the prompt but sends nothing is remembered; an unanswered prompt proves nothing.
+          if ((tilt || permission !== "unknown") && savedRef.current.tiltFailed === tilt) setSaved({ ...savedRef.current, tiltFailed: !tilt });
         }
       }
       if (!mounted.current) return;
       setStarting(false);
       const seconds = s.seconds[s.ageGroup];
       const order = dealOrder(poolFor(file.scenes, s), savedRef.current.recent, cryptoRandom);
-      setRound({ key: Date.now(), order, seconds, tilt, notice, settings: s, teamName: game ? game.teams[teamOnTurn(game)] : null });
+      const deckTitle = file.themes.find((t) => t.key === s.deck)?.title ?? "Everything";
+      setRound({ key: Date.now(), order, seconds, tilt, notice, settings: s, teamName: game ? game.teams[teamOnTurn(game)] : null, deckTitle });
     })();
   };
 
@@ -156,16 +161,16 @@ function Game({ file }: { file: ScenesFile }) {
   const pool = poolFor(file.scenes, settings);
   return <>
     {screen === "setup" && <Setup file={file} settings={settings} teams={teams} tiltKnown={tiltKnown()} best={bestFor(saved, settings.seconds[settings.ageGroup])}
-      saving={saving} notice={pool.length ? null : "This deck has no scenes."} starting={starting}
+      saving={saving} notice={pool.length ? null : "This deck has no scenes."} starting={starting} still={starting || !!round}
       onSettings={changeSettings} onTeams={setTeams} onStart={startFromSetup} />}
     {screen === "handover" && teamGame && <HandOver game={teamGame} starting={starting} onReady={() => begin(teamGame)} onChangeDeck={changeDeck} />}
     {screen === "final" && teamGame && <FinalStandings game={teamGame} onNewGame={newGame} onChangeDeck={changeDeck} />}
     {screen === "recap" && recap && <Recap scenes={scenes} rows={recap.rows} ended={recap.ended} leftMs={recap.leftMs}
-      newBest={scoreOf(recap.rows) > recap.bestBefore} teamName={recap.teamName}
+      newBest={scoreOf(recap.rows) > recap.bestBefore} bestBefore={recap.bestBefore} teamName={recap.teamName}
       nextLabel={teamGame ? (gameOver(teamGame) ? "Final standings" : "Next team") : null}
       onFix={fix} onNext={next} onChangeDeck={changeDeck} />}
     {round && <RoundLayer key={round.key} scenes={scenes} order={round.order} seconds={round.seconds} mode={round.settings.mode} tilt={round.tilt}
       pictures={round.settings.pictures[round.settings.ageGroup]} sound={settings.sound} littleOnes={round.settings.ageGroup === "little"}
-      teamName={round.teamName} notice={round.notice} onSound={(on) => changeSettings({ sound: on })} onEnd={endRound} />}
+      teamName={round.teamName} deckTitle={round.deckTitle} notice={round.notice} onSound={(on) => changeSettings({ sound: on })} onEnd={endRound} />}
   </>;
 }

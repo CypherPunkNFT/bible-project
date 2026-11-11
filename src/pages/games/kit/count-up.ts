@@ -22,8 +22,11 @@ export function useCountUp(to: number, ms = 900, from = 0): number {
       return;
     }
     let frame = 0;
-    const start = performance.now();
+    // The frame clock and performance.now() share an origin in browsers; where they do not (jsdom hands frames a
+    // different clock), a first frame "before" the start would hold the count at zero, so the start moves to it.
+    let start = performance.now();
     const tick = (now: number) => {
+      if (now < start) start = now;
       const progress = (now - start) / ms;
       setShown(countAt(from, to, progress));
       if (progress < 1) frame = window.requestAnimationFrame(tick);

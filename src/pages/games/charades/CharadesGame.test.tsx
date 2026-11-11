@@ -9,7 +9,7 @@ import file from "@/data/charades/scenes.json";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
 import GamesPage from "../GamesPage";
-import CharadesGame, { TILT_DENIED, TILT_SILENT } from "./CharadesGame";
+import CharadesGame, { TILT_DENIED, TILT_SILENT, TILT_UNAVAILABLE } from "./CharadesGame";
 import type { ScenesFile } from "./deck";
 
 const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
@@ -18,6 +18,7 @@ const render = (ui: ReactElement) => renderPlain(<CatalogContext.Provider value=
 const renderGame = () => render(<MemoryRouter><CharadesGame /></MemoryRouter>);
 const FAKE: NonNullable<Parameters<typeof vi.useFakeTimers>[0]> = {
   toFake: ["setTimeout", "clearTimeout", "setInterval", "clearInterval", "Date", "performance"],
+  shouldClearNativeTimers: true, // the setup's sample card starts its interval before the clock is faked
 };
 
 /** Moves the fake clock on in 100 ms steps, letting React render between them (each step schedules the next timer). */
@@ -133,6 +134,38 @@ describe("family charades page", () => {
     expect(within(layer()).getByText(/Tap Got it or Pass/)).toBeInTheDocument();
   });
 
+  it.each([["throws", () => Promise.reject(new Error("NotAllowedError"))], ["answers prompt", () => Promise.resolve("prompt")]])(
+    "blames nobody when the motion prompt %s and nothing arrives, and does not switch to Buttons only", async (_how, permission) => {
+    installOrientation(permission);
+    await openSetup();
+    vi.useFakeTimers(FAKE);
+    fireEvent.click(screen.getByRole("button", { name: "Start" }));
+    await flush();
+    await advance(1000);
+    await flush();
+    expect(within(layer()).getByText(TILT_UNAVAILABLE)).toBeInTheDocument();
+    expect(within(layer()).queryByText(TILT_DENIED)).not.toBeInTheDocument();
+    expect(JSON.parse(localStorage.getItem("bp-charades") ?? "{}").tiltFailed).toBeFalsy(); // nothing saved, or not marked
+  });
+
+  it("shows the deck's name and the cards left on the card, and the ticks for scenes got", async () => {
+    await openSetup();
+    vi.useFakeTimers(FAKE);
+    fireEvent.click(screen.getByRole("button", { name: "Start" }));
+    await flush();
+    fireEvent.click(within(layer()).getByRole("button", { name: "Start round" }));
+    await advance(3600);
+    expect(within(layer()).getByText("Everything")).toBeInTheDocument();
+    const foot = within(layer()).getByText(/cards? left$/);
+    const before = Number(foot.textContent!.replace(/\D/g, ""));
+    expect(before).toBeGreaterThan(1);
+    expect(within(layer()).getByRole("timer", { name: /seconds left/ })).toBeInTheDocument();
+    fireEvent.click(within(layer()).getByRole("button", { name: "Got it" }));
+    await advance(700);
+    expect(Number(within(layer()).getByText(/cards? left$/).textContent!.replace(/\D/g, ""))).toBe(before - 1);
+    expect(within(layer()).getByText("Everything").closest(".ch-card-head")!.querySelectorAll(".ch-tick")).toHaveLength(1);
+  });
+
   it("falls back to buttons after a second with no readings, and starts on Buttons only next time", async () => {
     installOrientation();
     const view = await openSetup();
@@ -167,7 +200,9 @@ describe("family charades page", () => {
     expect(await screen.findByRole("heading", { level: 1, name: "Pass the phone to your next guesser" })).toBeInTheDocument();
     expect(screen.getByText("Eagles", { selector: ".ch-handover-team" })).toBeInTheDocument();
     expect(screen.getByText("Turn 1 of 2")).toBeInTheDocument();
-    expect(screen.getAllByRole("listitem").map((li) => li.textContent)).toEqual(["1Lions5", "2Eagles0"]);
+    const chips = within(screen.getByRole("list", { name: "Teams" })).getAllByRole("listitem");
+    expect(chips.map((li) => li.textContent)).toEqual(["Lions5", "Eagles0"]);
+    expect(chips[1]).toHaveAttribute("aria-current", "true"); // Eagles are up
   });
 
   it("is served by the games hub at its own address", async () => {
