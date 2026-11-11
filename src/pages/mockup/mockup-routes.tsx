@@ -53,6 +53,8 @@ const TheologyDraftsMockup = lazy(() => import("./drafts/TheologyDraftsMockup"))
 const DraftReaderPage = lazy(() => import("./drafts/DraftReaderPage"));
 const AcademicDraftsMockup = lazy(() => import("./drafts/AcademicDraftsMockup"));
 const AcademicDraftReaderPage = lazy(() => import("./drafts/AcademicDraftReaderPage"));
+const ToolsMockupPage = lazy(() => import("./ToolsMockupPage"));
+const GamesMockupPage = lazy(() => import("./GamesMockupPage"));
 
 export function mockupRoutes() {
   if (!MOCKUPS_ENABLED) return [];
@@ -140,6 +142,10 @@ export function mockupRoutes() {
     // The study page with a numbered title over each section (doors, Atlas, questions) and no people cards (owner, 2026-11-06).
     <Route key="study-sections" path="/study/sections_mockup" element={<StudyHub titled />} />,
     <Route key="study-atlas-colors-compare" path="/study/atlas_colors_compare/:version" element={<AtlasColorsComparePage />} />,
+    // The tools and games hubs with category doors under the hero, like the study hub's, and only the chosen category's
+    // tiles below (owner, 2026-11-11). No MOCK-UP tag: a mock-up shows only the real page.
+    <Route key="tools" path="/tools_mockup" element={<ToolsMockupPage />} />,
+    <Route key="games" path="/games_mockup" element={<GamesMockupPage />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }

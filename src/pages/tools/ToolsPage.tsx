@@ -23,7 +23,7 @@ export default function ToolsPage() {
   </Routes>;
 }
 
-interface CategoryOfTools { key: Category; title: string; text: string; tools: ToolEntry[] }
+export interface CategoryOfTools { key: Category; title: string; text: string; tools: ToolEntry[] }
 
 function ToolsHub() {
   const tools = toolsForHub();
@@ -49,7 +49,7 @@ function ToolsHub() {
   </div>;
 }
 
-function CategorySection({ category, index }: { category: CategoryOfTools; index: number }) {
+export function CategorySection({ category, index }: { category: CategoryOfTools; index: number }) {
   const titleId = `tools-${category.key}-title`;
   const live = category.tools.filter(isLive).length;
   const ready = live === 0 ? "all coming soon" : live === category.tools.length ? "all ready to use" : `${live} ready to use`;
@@ -65,7 +65,7 @@ function CategorySection({ category, index }: { category: CategoryOfTools; index
   </section>;
 }
 
-function ToolTile({ tool }: { tool: ToolEntry }) {
+export function ToolTile({ tool }: { tool: ToolEntry }) {
   const id = `tool-${tool.slug}`;
   const live = isLive(tool);
   const body = <>

@@ -27,7 +27,7 @@ export default function GamesPage() {
   </Routes>;
 }
 
-interface ShelfOfGames { key: Shelf; title: string; text: string; games: GameEntry[] }
+export interface ShelfOfGames { key: Shelf; title: string; text: string; games: GameEntry[] }
 
 function GamesHub() {
   useEffect(() => { document.title = "Bible Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
@@ -54,7 +54,7 @@ function GamesHub() {
   </div>;
 }
 
-function ShelfSection({ shelf, index }: { shelf: ShelfOfGames; index: number }) {
+export function ShelfSection({ shelf, index }: { shelf: ShelfOfGames; index: number }) {
   const titleId = `shelf-${shelf.key}-title`;
   const live = shelf.games.filter(isLive).length;
   const ready = live === 0 ? "all coming soon" : live === shelf.games.length ? "all ready to play" : `${live} ready to play`;
@@ -70,7 +70,7 @@ function ShelfSection({ shelf, index }: { shelf: ShelfOfGames; index: number }) 
   </section>;
 }
 
-function GameTile({ game }: { game: GameEntry }) {
+export function GameTile({ game }: { game: GameEntry }) {
   const id = `game-${game.slug}`;
   const live = isLive(game);
   const art = game.art ?? BLANK_ART;
