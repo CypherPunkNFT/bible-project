@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
+import { useScrollTopOn } from "../kit";
 import { TURNS, pickSecret, prepare, type Engine, type TqData } from "./engine";
 import { GuessMode } from "./GuessMode";
 import { ReverseMode } from "./ReverseMode";
@@ -83,6 +84,8 @@ function Play({ engine }: { engine: Engine }) {
   const quit = useCallback(() => { setGame(null); setPlaying(false); }, [setGame]);
 
   const game = saved.game;
+  // A new screen opens at the top of the page, not where the last button was (a phone's start button sits below the fold).
+  useScrollTopOn(`${playing && game ? `${game.mode}-${game.seed}-${game.over ?? "on"}` : "start"}`);
   if (!playing || !game) {
     return <Start engine={engine} saved={saved} dropped={initial.dropped} onGuess={startGuess} onReverse={startReverse}
       onResume={game ? () => setPlaying(true) : null} onReset={() => commit({ ...saved, softened: [] })} />;

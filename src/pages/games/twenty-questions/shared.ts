@@ -3,6 +3,7 @@
 // answers differ from the notes (design §10.2), the name search (§10.1) and the question sections (§9.2).
 import { useEffect, useState } from "react";
 import { split, type Answer, type Engine, type ReverseAnswer, type TqPerson, type Turn } from "./engine";
+import type { Mood } from "./Thinker";
 
 const SHOWN = 8;
 
@@ -63,4 +64,19 @@ export const REVERSE_WORDS: Record<ReverseAnswer, string> = { yes: "Yes", no: "N
 export function evenness(engine: Engine, people: readonly number[], tag: number): number {
   const [yes, no] = split(engine, engine.truth, people, tag);
   return yes + no ? (2 * Math.min(yes, no)) / (yes + no) : 0;
+}
+
+/** The thinker's mood after the last turn: a tick for Yes, a cross for No or a wrong guess, a wobble for Don't know,
+ *  and the hard-thinking dots once fifteen questions are answered (Thinker.tsx). */
+export function moodAfter(last: Turn | undefined, questionsSoFar: number): Mood {
+  if (!last) return "idle";
+  if (last.kind === "g") return "no";
+  if (last.answer === "d") return "dunno";
+  if (questionsSoFar >= 15) return "hard";
+  return last.answer === "y" ? "yes" : "no";
+}
+
+/** The lesson's next card: the first difference neither accepted nor disputed; -1 when they are all done. */
+export function nextToReview(ids: readonly string[], accepted: readonly string[], disputed: readonly string[]): number {
+  return ids.findIndex((id) => !accepted.includes(id) && !disputed.includes(id));
 }

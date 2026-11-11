@@ -40,7 +40,7 @@ function playAs(person: number, answerWith: (word: "Yes" | "No" | "Don't know") 
     const heading = screen.getByRole("heading", { level: 1 });
     if (/^Got it|^You win/.test(heading.textContent ?? "")) return heading.textContent;
     if (screen.queryByText("Are you thinking of…")) {
-      fireEvent.click(button(heading.textContent === `${engine.data.people[person].label}?` ? "Yes!" : "No"));
+      fireEvent.click(button(heading.textContent === `${engine.data.people[person].label}?` ? "Yes, that's them!" : "No"));
       continue;
     }
     if (screen.queryByRole("button", { name: /I give up/ })) { fireEvent.click(button(/I give up/)); continue; }
@@ -57,7 +57,8 @@ describe("guess mode", () => {
     renderGame();
     fireEvent.click(await screen.findByRole("button", { name: "I think, you guess" }));
     expect(screen.getByText("Turn 1 of 20")).toBeInTheDocument();
-    expect(playAs(findable)).toBe(`Got it in ${simulate(engine, findable, SEED)}!`);
+    playAs(findable);
+    expect(screen.getByRole("heading", { level: 1, name: `Got it in ${simulate(engine, findable, SEED)}!` })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: `Read about ${engine.data.people[findable].label}` })).toBeInTheDocument();
     expect(reports).toHaveLength(0);
     fireEvent.click(button("Play again"));
@@ -92,8 +93,11 @@ describe("guess mode", () => {
     fireEvent.click(within(screen.getByRole("list", { name: "People in the game" })).getAllByRole("button")[0]);
     expect(screen.getByRole("heading", { name: "It was Moses." })).toBeInTheDocument();
     const lesson = screen.getByRole("region", { name: "Where we disagreed" });
+    expect(within(lesson).getByText("1 of 1")).toBeInTheDocument();
     fireEvent.click(within(lesson).getByRole("button", { name: "I still think your note is wrong" }));
     expect(within(lesson).getByRole("status")).toHaveTextContent("will not count it against you again");
+    expect(within(lesson).queryByRole("button", { name: "Oh, I see" })).not.toBeInTheDocument();
+    expect(within(lesson).getByText("Thanks: this helps the game get better.")).toBeInTheDocument();
     expect(JSON.parse(localStorage.getItem("bp-twenty-questions")!).softened[engine.data.version]).toHaveLength(1);
     fireEvent.click(button("Play again"));
     expect(reports).toEqual([expect.objectContaining({ who: "moses-exo-2-10", result: "lost", disputed: [expect.any(String)] })]);
@@ -110,6 +114,22 @@ describe("guess mode", () => {
     expect(screen.getByText("Turn 3 of 20")).toBeInTheDocument();
     fireEvent.click(button("Undo"));
     expect(screen.getByText("Turn 2 of 20")).toBeInTheDocument();
+  });
+
+  it("asks before quitting, in a dialog that keeps the letter keys quiet", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "I think, you guess" }));
+    fireEvent.click(button("Quit"));
+    fireEvent.keyDown(window, { key: "y" });
+    expect(screen.getByText("Turn 1 of 20")).toBeInTheDocument();
+    fireEvent.click(button("Keep playing"));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    fireEvent.keyDown(window, { key: "y" });
+    expect(screen.getByText("Turn 2 of 20")).toBeInTheDocument();
+    fireEvent.click(button("Quit"));
+    fireEvent.click(button("Yes, quit"));
+    expect(screen.getByRole("button", { name: "I think, you guess" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Continue your game" })).not.toBeInTheDocument();
   });
 
   it("resumes the game in progress after a reload", async () => {
@@ -139,13 +159,14 @@ describe("reverse mode", () => {
     expect(screen.getByText("Turn 2 of 20")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("checkbox", { name: "Show hints" }));
-    expect(screen.getByRole("button", { name: /People still possible: \d+/ })).toBeInTheDocument();
+    expect(screen.getByText(/People still possible: \d+/)).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "People still possible" }).querySelectorAll(".tq-suspect").length).toBeGreaterThan(0);
 
     const wrong = engine.data.people.find((p, i) => i !== secret && p.t === 1 && !p.label.startsWith(name.slice(0, 3)))!;
     fireEvent.click(button("Make a guess"));
     fireEvent.change(screen.getByLabelText("Who is it?"), { target: { value: wrong.label } });
     fireEvent.click(within(screen.getByRole("list", { name: "People in the game" })).getByRole("button", { name: new RegExp(`^${wrong.label}`) }));
-    expect(within(screen.getByRole("list", { name: "Answers so far" })).getByText(`No, it isn't ${wrong.label}.`)).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Answers so far" })).getByText(wrong.label, { selector: "s" })).toBeInTheDocument();
     expect(screen.getByText("Turn 3 of 20")).toBeInTheDocument();
 
     fireEvent.click(button("Make a guess"));

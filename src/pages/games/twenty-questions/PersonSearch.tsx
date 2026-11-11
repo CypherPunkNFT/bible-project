@@ -44,7 +44,7 @@ export function PersonSearch({ engine, label, wider = false, onPick, onCancel }:
         <span className="tq-result-name">{engine.data.people[p].label}</span>
         <span className="tq-result-brief">{engine.data.people[p].b}</span>
       </button></li>)}
-      {!found.length && <li className="tq-empty">Nobody in the game by that name.</li>}
+      {!found.length && <li className="tq-empty">{wider ? "Nobody in the game by that name yet. Check the spelling, or look further down." : "Nobody in the game by that name."}</li>}
     </ul>}
     {wider && <div className="tq-wider">
       {others === null && <button type="button" className="tq-quiet" onClick={() => setOthers("loading")}>Not in my list?</button>}
@@ -54,7 +54,7 @@ export function PersonSearch({ engine, label, wider = false, onPick, onCancel }:
         {more.map((r) => <li key={r.id}><button type="button" onClick={() => onPick({ kind: "other", id: r.id, label: r.n })}>
           <span className="tq-result-name">{r.n}</span><span className="tq-result-brief">{r.b}</span>
         </button></li>)}
-        {!more.length && <li className="tq-empty">No one else by that name either.</li>}
+        {!more.length && <li className="tq-empty">Not among everyone else in the Bible either.</li>}
       </ul>}
       <button type="button" className="tq-quiet" onClick={() => onPick({ kind: "none" })}>Someone not on this list</button>
     </div>}

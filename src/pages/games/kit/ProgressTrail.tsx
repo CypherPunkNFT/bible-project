@@ -1,6 +1,7 @@
 // The progress trail (the audits' item 5, ten games): one square or dot per round, filled green, red or amber as each
 // is answered, the newest popping. It replaces the small grey "3 OF 10" captions, and the same marks make the share
-// grid (trailText in trail.ts). The label is the game's own words (a counted phrase from plural()).
+// grid (trailText in trail.ts). The label is the game's own words (a counted phrase from plural()). Each mark carries its
+// index as --kit-i, so a game can stagger a wave over the marks (Twenty questions fills them gold one after another).
 import type { CSSProperties } from "react";
 import { newestIndex, type TrailMark } from "./trail";
 
@@ -23,6 +24,6 @@ export function ProgressTrail({ marks, shape = "squares", label, size, tones, cl
   const style = size ? ({ "--kit-pip": size } as CSSProperties) : undefined;
   return <div className={`kit-trail${shape === "dots" ? " kit-trail--dots" : ""}${className ? ` ${className}` : ""}`} role="img" aria-label={label} style={style}>
     {marks.map((mark, i) => <span key={i} className={`kit-trail__mark is-${mark}${i === newest ? " is-new" : ""}`} data-mark={mark}
-      style={tones?.[i] ? ({ "--kit-mark": tones[i] } as CSSProperties) : undefined} />)}
+      style={{ "--kit-i": i, ...(tones?.[i] ? { "--kit-mark": tones[i] } : {}) } as CSSProperties} />)}
   </div>;
 }

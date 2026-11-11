@@ -1,6 +1,8 @@
 // Bible twenty questions, reverse mode: the fixed question list in its seven sections, with a search box that only
 // filters it (design §9.2). Asked questions stay in place, greyed, with their answer. With hints on, each open
-// question carries a thin bar showing how evenly it would split the people still possible.
+// question carries a thin bar showing how evenly it would split the people still possible, with the same told in words
+// for readers who cannot see it. The list is no longer a scroll box of its own on phones: the page scrolls, and the
+// newest answer lands in the band at the bottom of the screen (ReverseMode.tsx).
 import { useId, useMemo, useState } from "react";
 import type { Engine, ReverseAnswer } from "./engine";
 import { GROUPS, REVERSE_WORDS, evenness, fold } from "./shared";
@@ -39,6 +41,7 @@ export function QuestionPicker({ engine, answers, possible, disabled, onAsk }: P
               {answer && <span className="tq-pick-answer">{REVERSE_WORDS[answer]}</span>}
               {bar !== null && <span className="tq-split" title="How evenly this question splits the people still possible">
                 <span style={{ width: `${Math.round(bar * 100)}%` }} />
+                <span className="sr-only">{bar >= 0.8 ? "Splits them almost in half" : bar >= 0.4 ? "Splits them unevenly" : "Rules out few"}</span>
               </span>}
             </button>
           </li>;
