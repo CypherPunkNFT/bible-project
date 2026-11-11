@@ -6,7 +6,7 @@ import {build} from 'esbuild';
 
 const root=path.resolve(import.meta.dirname,'..');process.chdir(root);
 const inputs={};
-const hash=file=>{const raw=fs.readFileSync(file);inputs[file]=createHash('sha256').update(raw).digest('hex');return raw.toString('utf8').replace(/^\uFEFF/,'');};
+const hash=(file,name=file)=>{const raw=fs.readFileSync(file);inputs[name]=createHash('sha256').update(raw).digest('hex');return raw.toString('utf8').replace(/^\uFEFF/,'');};
 const read=file=>JSON.parse(hash(file));
 hash('scripts/collect-scholar-site-sources.mjs');
 const definitions=[
@@ -50,7 +50,7 @@ function objects(value,result=[]){
 }
 async function loadModule(file){
  const result=await build({entryPoints:[file],bundle:true,write:false,format:'esm',platform:'node',metafile:true,logLevel:'silent'});
- for(const input of Object.keys(result.metafile.inputs))if(fs.existsSync(input))hash(input.replaceAll('\\','/'));
+ for(const input of Object.keys(result.metafile.inputs))if(fs.existsSync(input)){const file=input.replaceAll('\\','/');hash(file,file.replace(/^(\.\.\/)+node_modules\//,'node_modules/'));}  // a release worktree reaches node_modules through a link, which esbuild resolves to ../../node_modules/...; the recorded name stays node_modules/... so the population snapshot's input hashes match
  return import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
 }
 function referenceIds(value,ids=new Set()){

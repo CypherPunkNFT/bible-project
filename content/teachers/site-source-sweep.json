@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Source directories imported by live pages, plus verified chart data inputs. Institution labels identify source providers when no named author is recorded. Bibliographic access limits are retained; holdings and incidental name mentions are excluded.",
   "inputs": {
-    "scripts/collect-scholar-site-sources.mjs": "8ead6885cd745ba1bc9bae521ecab2728dc33c1b43eb6eaac9ce3b781638ac13",
+    "scripts/collect-scholar-site-sources.mjs": "b996c79b6a3e701cad00a01fc76e7ec6af3a5a207f9f92898cd8b84c8de772a1",
     "src/pages/study/witnesses/SurvivingWitnessesPage.tsx": "a49a920da309b449d660a794910bb7532280a3a1fd1b81e09e8e96ce4dc8f095",
     "src/pages/study/witnesses/witnesses.ts": "394cf7181781c5844207f3637fade7d76195eae5e22eb11c689d20c33f5e4ef3",
     "src/pages/study/passages/PassageManuscriptsPage.tsx": "5e46704bee3b6fe913a3abf6c2caf2eb676bfdf15fb16da08c75f669d55724e1",
