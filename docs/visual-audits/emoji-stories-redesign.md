@@ -75,7 +75,7 @@ What the play-through measured, beyond the screenshots:
 - **The keyboard works as before**: 1 to 4 picks, Enter moves on, the room's arrow, Space, H, C and N still do their jobs, and a pick after the reveal changes nothing.
 - **A reload mid-round restores the puzzle** without moving focus or counting the answer again.
 
-Commit on `main`: recorded below once made.
+Commit on `main`: `d64c1a6a4ff5d46ecc25dc867788f49f9ca730e7`, "Redesign: Emoji stories (from its visual audit)".
 
 ## 6. Left for later
 
