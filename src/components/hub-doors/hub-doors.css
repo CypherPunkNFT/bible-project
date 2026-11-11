@@ -1,28 +1,37 @@
 /* A hub's category doors (HubDoors.tsx): the study hub's subject-door look (src/pages/study/hub/hub.css, .subject-door)
-   without its page scoping. The doors sit in one row on a bottom line (--doors = how many); the chosen one is underlined
-   in its tone, its drawing lit; on phones the row scrolls sideways. No focus outline: the tone and the underline mark focus. */
-.hub-doors { display: grid; grid-template-columns: repeat(var(--doors, 5), minmax(0, 1fr)); gap: 18px; margin-top: 40px; padding-top: 12px; border-bottom: 1px solid var(--line); }
-.hub-door { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 9px 8px 16px; text-align: center; color: var(--ink); text-decoration: none; transition: color .2s; }
+   without its page scoping, and without the numbers and arrows (owner, 2026-11-11). The doors sit in one row on a bottom
+   line (--doors = how many); the chosen one is underlined in its tone, its drawing lit; on phones the row scrolls
+   sideways. No focus outline: the tone and the underline mark focus.
+
+   .hub-doors-page: a hub whose doors must show without scrolling (owner, 2026-11-11). The hero starts just under the
+   menu, the stats lose their line, and the drawing on the right is sized to the words beside it: its top at the kicker,
+   its bottom at the stats. */
+.hub-doors { display: grid; grid-template-columns: repeat(var(--doors, 5), minmax(0, 1fr)); gap: 18px; margin-top: 22px; padding-top: 6px; border-bottom: 1px solid var(--line); }
+.hub-door { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 4px 8px 14px; text-align: center; color: var(--ink); text-decoration: none; transition: color .2s; }
 .hub-door::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--tone); transform: scaleX(0); transition: transform .25s; }
 .hub-door.selected { color: var(--tone); }
 .hub-door.selected::after { transform: scaleX(1); }
-.hub-door-num { font-size: 10px; letter-spacing: .14em; color: var(--tone); opacity: .85; }
-.hub-door-art { width: 100%; max-width: 200px; height: 170px; color: var(--tone); opacity: .72; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--tone) 9%, transparent)); transition: opacity .2s, transform .3s, filter .25s; }
-.hub-door strong { min-height: 52px; font-size: 19px; font-weight: 600; line-height: 1.35; }
-.hub-door-count { font-size: 11px; color: var(--tone); line-height: 1.6; }
-.hub-door-arrow { margin-top: 10px; font-size: 20px; color: var(--tone); opacity: .8; transition: transform .2s, opacity .2s; }
+.hub-door-art { width: 100%; max-width: 200px; height: 128px; color: var(--tone); opacity: .72; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--tone) 9%, transparent)); transition: opacity .2s, transform .3s, filter .25s; }
+.hub-door strong { display: inline-flex; align-items: baseline; justify-content: center; gap: .45em; margin-top: 6px; font-size: 18px; font-weight: 600; line-height: 1.3; }
+.hub-door-count { font-size: 11px; font-weight: 600; color: var(--tone); font-variant-numeric: tabular-nums; }
 .hub-door:is(:hover, :focus-visible, .selected) .hub-door-art { opacity: 1; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--tone) 22%, transparent)); }
 .hub-door:is(:hover, :focus-visible) .hub-door-art { transform: translateY(-6px); }
 .hub-door:is(:hover, :focus-visible) strong { color: var(--tone); }
-.hub-door:is(:hover, :focus-visible) .hub-door-arrow { transform: translateY(3px); opacity: 1; }
-.hub-door.selected .hub-door-arrow { opacity: 1; }
 .hub-door:focus-visible { outline: none; }
 .hub-doors + .gm-shelf { padding-top: 8px; }
+
+.hub-doors-page.st-page { padding-top: 1.1rem; }
+.hub-doors-page .gm-hero .st-stats { margin-top: 1.4rem; padding-top: 0; border-top: 0; }
+@media (min-width: 900px) {
+  .hub-doors-page .gm-hero { align-items: stretch; }
+  .hub-doors-page .gm-hero-figure { position: relative; }
+  .hub-doors-page .gm-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; }
+}
 @media (max-width: 1000px) { .hub-doors { gap: 5px; } .hub-door strong { font-size: 15px; } }
 @media (max-width: 700px) {
-  .hub-doors { display: flex; gap: 9px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--line) transparent; margin-top: 28px; }
+  .hub-doors { display: flex; gap: 9px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
   .hub-door { flex: 0 0 142px; scroll-snap-align: start; padding-inline: 4px; }
-  .hub-door-art { height: 120px; }
+  .hub-door-art { height: 110px; }
   .hub-door strong { font-size: 16px; }
 }
-@media (prefers-reduced-motion: reduce) { .hub-door, .hub-door::after, .hub-door-art, .hub-door-arrow { transition: none; } .hub-door:is(:hover, :focus-visible) .hub-door-art { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hub-door, .hub-door::after, .hub-door-art { transition: none; } .hub-door:is(:hover, :focus-visible) .hub-door-art { transform: none; } }

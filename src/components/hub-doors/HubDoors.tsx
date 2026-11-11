@@ -1,7 +1,8 @@
-// A hub's category doors: one numbered door per category in a row under the hero, like the study hub's subject doors
+// A hub's category doors: one door per category in a row under the hero, like the study hub's subject doors
 // (src/pages/study/hub/StudyBranch.tsx), so a reader sees every kind of thing the hub holds before scrolling. A door is a
 // link that sets a search parameter (?category=<key> on the tools hub, ?shelf=<key> on the games hub); the hub shows
-// that category's tiles under the row. Arrow keys, Home and End move between doors. Used by the tools and games hubs.
+// that category's tiles under the row. Each door is its drawing and its title with the count beside it; no numbers and
+// no arrows (owner, 2026-11-11). Arrow keys, Home and End move between doors. Used by the tools and games hubs.
 import { useRef, type CSSProperties, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "./hub-doors.css";
@@ -31,11 +32,8 @@ export function HubDoors({ doors, selected, param, label, controls }: Props) {
           : event.key === "Home" ? 0 : event.key === "End" ? last : null;
         if (next !== null) { event.preventDefault(); refs.current[next]?.focus(); }
       }}>
-      <span className="hub-door-num" aria-hidden="true">0{i + 1}</span>
       {door.art}
-      <strong>{door.title}</strong>
-      <span className="hub-door-count">{door.count}</span>
-      <span className="hub-door-arrow" aria-hidden="true">↓</span>
+      <strong>{door.title}<span className="hub-door-count">{door.count}</span></strong>
     </Link>)}
   </nav>;
 }

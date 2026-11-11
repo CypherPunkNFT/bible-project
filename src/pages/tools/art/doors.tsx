@@ -22,18 +22,21 @@ export const DOOR_ART: Record<Category, ReactNode> = {
     <path d="M100 100c-3 5-4 8-4 11a4 4 0 0 0 8 0c0-3-1-6-4-11Z" opacity=".8" />
     <path d="M66 96h-9M143 96h-9M72 72l-6-6m62 6 6-6" opacity=".5" />
   </g>),
-  // hands folded over an open book: prayer at home
+  // praying hands under a roof: prayer at home
   prayer: doorFrame(<g>
-    <path d="M58 136c10-6 26-8 42-2 16-6 32-4 42 2v22c-10-6-26-8-42-2-16-6-32-4-42 2Z" /><path d="M100 134v24" opacity=".6" />
-    <path d="M100 124c-8-12-10-30-6-46 2-8 8-10 10-2 2-8 8-6 10 2 4 16 2 34-6 46" />
-    <path d="M94 76c-4-8-12-10-16 0-2 6 2 22 10 34M106 76c4-8 12-10 16 0 2 6-2 22-10 34" />
-    <path d="M100 52v8M80 60l4 6m32-6-4 6" opacity=".55" />
+    <path d="M44 96 100 48l56 48" /><path d="M54 88v70h92V88" opacity=".7" /><path d="M126 58V50h10v16" />
+    <path d="M100 76c-9 10-15 26-15 44v30h30v-30c0-18-6-34-15-44Z" fill="currentColor" fillOpacity=".12" />
+    <path d="M100 76v74" opacity=".55" /><path d="M85 110c-5 2-8 6-8 12v14M115 110c5 2 8 6 8 12v14" />
+    <path d="M85 120c-3-6-3-12 0-18M115 120c3-6 3-12 0-18" opacity=".55" /><path d="M85 150h30" />
+    <path d="M44 158h112" opacity=".45" />
   </g>),
-  // a verse card leaving as a paper plane: sharing
+  // a church beside an envelope that is sending: Scripture shared with friends and churches
   sharing: doorFrame(<g>
-    <path d="M54 82h72v58H54Z" /><path d="M66 98h48M66 110h40M66 122h28" opacity=".7" />
-    <path d="M118 64 158 96l-22 8-6 20-8-18-22-4Z" fill="currentColor" fillOpacity=".14" /><path d="M136 104 158 96" /><path d="M130 86l-10 16" opacity=".7" />
-    <path d="M44 150h116" opacity=".45" />
+    <path d="M52 150V106l22-20 22 20v44" /><path d="M74 60v26" strokeWidth="1.6" /><path d="M66 68h16" strokeWidth="1.6" />
+    <path d="M64 150v-18h20v18" opacity=".8" /><path d="M66 118h4v8h-4Zm12 0h4v8h-4Z" opacity=".6" />
+    <path d="M96 112h60v38H96Z" fill="var(--page)" fillOpacity=".7" /><path d="M96 112h60v38H96Z" /><path d="M96 112l30 22 30-22" /><path d="M96 150l22-20M156 150l-22-20" opacity=".6" />
+    <path d="M132 96c6-8 14-12 24-12M136 84c7-9 17-14 28-14" opacity=".55" />
+    <path d="M44 158h112" opacity=".45" />
   </g>),
   // a magnifying glass over a scroll: study and reference
   study: doorFrame(<g>

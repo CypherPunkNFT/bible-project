@@ -1,7 +1,7 @@
 // /games_mockup: the games hub with shelf doors under the hero in place of the pill links, like the study hub's subject
 // doors, and only the chosen shelf's games under them (owner, 2026-11-11: "must also do the same for games"). Hero,
 // shelves and tiles are the real page's own (src/pages/games/GamesPage.tsx); only the doors are new. No MOCK-UP tag: a
-// mock-up shows only the real page.
+// mock-up shows only the real page. The hero is tighter so the doors show without scrolling (owner, 2026-11-11).
 import { useSearchParams } from "react-router-dom";
 import { StationStats } from "@/components/stations/Station";
 import { HubDoors } from "@/components/hub-doors/HubDoors";
@@ -21,7 +21,7 @@ export default function GamesMockupPage() {
     .filter((shelf) => shelf.games.length > 0);
   const selected = selectedDoor(params.get("shelf"), shelves.map((shelf) => shelf.key));
   const index = shelves.findIndex((shelf) => shelf.key === selected);
-  return <div className="st-page gm-page mx-auto max-w-7xl px-4 sm:px-6">
+  return <div className="st-page gm-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="gm-hero">
       <div className="gm-hero-text">
         <p className="st-kick">Games</p>
