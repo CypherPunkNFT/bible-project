@@ -1,7 +1,7 @@
 // Bible crossword's rules on the real clue file: every offered choice makes a valid puzzle, the same seed makes the
 // same one, and check, reveal and the moves behave as the design says (design §4, §8).
 import clues from "@/data/crossword/clues.json";
-import { activeWord, candidates, fitSpec, isSolved, offeredBooks, makeLayout, stepFrom, toPuzzle, verseHref, verseLabel, wordAt, wrongIn, type CluesFile,
+import { activeWord, applyLetters, candidates, clock, fitSpec, isConfirmed, isFilled, isSolved, offeredBooks, makeLayout, stepFrom, toPuzzle, verseHref, verseLabel, wordAt, wrongIn, type CluesFile,
   type Puzzle } from "./game";
 import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, poolOf } from "./themes";
 import { seededRandom } from "@/lib/puzzles";
@@ -104,5 +104,40 @@ describe("playing", () => {
   it("links a clue's verse into the reader", () => {
     expect(verseLabel(data, 43006059)).toBe("John 6:59");
     expect(verseHref(data, 43006059)).toBe("/read/bsb/JHN/6?hl=59");
+  });
+});
+
+describe("the play helpers added by the redesign", () => {
+  const layout = makeLayout(data, { source: { theme: "whole" }, level: "easy", size: "small" }, 11)!;
+  const puzzle = toPuzzle(data, layout)!;
+  const word = puzzle.words[0];
+  const base = { stamp: data.stamp, spec: { source: { theme: "whole" as const }, level: "easy" as const, size: "small" as const }, layout,
+    letters: puzzle.cells.map(() => ""), revealed: [], wrong: [], checks: 0, right: [], seconds: 0 };
+
+  it("drops a square from the wrong and confirmed lists when its letter changes, and keeps the rest", () => {
+    const [a, b] = word.cells;
+    const game = { ...base, letters: base.letters.map((l, i) => (i === a || i === b ? "X" : l)), wrong: [a], right: [b] };
+    const letters = [...game.letters];
+    letters[a] = "";
+    const next = applyLetters(game, letters);
+    expect(next.wrong).toEqual([]);
+    expect(next.right).toEqual([b]);
+    expect(next.letters[a]).toBe("");
+    expect(applyLetters(game, game.letters)).toEqual({ ...game, letters: game.letters });
+  });
+
+  it("knows a filled word and a confirmed one", () => {
+    const letters = base.letters.map((l, i) => (word.cells.includes(i) ? "A" : l));
+    expect(isFilled(word, base.letters)).toBe(false);
+    expect(isFilled(word, letters)).toBe(true);
+    expect(isConfirmed(word, new Set(word.cells.slice(1)), new Set())).toBe(false);
+    expect(isConfirmed(word, new Set(word.cells.slice(1)), new Set([word.cells[0]]))).toBe(true);
+  });
+
+  it("reads the clock in minutes and seconds", () => {
+    expect(clock(0)).toBe("0:00");
+    expect(clock(65)).toBe("1:05");
+    expect(clock(754.9)).toBe("12:34");
+    expect(clock(-3)).toBe("0:00");
   });
 });

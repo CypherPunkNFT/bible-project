@@ -14,13 +14,38 @@ const layout = makeLayout(data, spec, 4)!;
 const puzzle = toPuzzle(data, layout)!;
 const letters = emptyLetters(puzzle);
 letters[puzzle.words[0].cells[0]] = puzzle.words[0].entry.a[0];
-const saved: Saved = { spec, game: { stamp: data.stamp, spec, layout, letters, revealed: [puzzle.words[0].cells[1]], wrong: [], checks: 2 }, solved: 3 };
+const saved: Saved = {
+  spec, game: { stamp: data.stamp, spec, layout, letters, revealed: [puzzle.words[0].cells[1]], wrong: [], checks: 2, right: [puzzle.words[0].cells[0]], seconds: 95 },
+  solved: 3, best: { small: 80 },
+};
 
 describe("crossword storage", () => {
   it("brings back the game, choices and solved count", () => {
     const store = memory();
     writeSaved(store, saved);
     expect(readSaved(store, data, puzzleOf)).toEqual(saved);
+  });
+
+  it("loads a save from before the redesign: no confirmed squares, an unknown time, no best times", () => {
+    const store = memory();
+    const old: Record<string, unknown> = { ...saved.game! };
+    delete old.right;
+    delete old.seconds;
+    store.raw.set("bp-crossword", JSON.stringify({ spec, game: old, solved: 3 }));
+    expect(readSaved(store, data, puzzleOf)).toEqual({ spec, game: { ...old, right: [], seconds: null }, solved: 3, best: {} });
+  });
+
+  it("keeps only confirmed squares whose letter is still the answer's, and only sound best times", () => {
+    const store = memory();
+    const wrongLetter = puzzle.words[0].cells[0];
+    const game = { ...saved.game!, letters: letters.map((l, i) => (i === wrongLetter ? (l === "Z" ? "Q" : "Z") : l)), seconds: -4 };
+    store.raw.set("bp-crossword", JSON.stringify({ spec, game, solved: 3, best: { small: 0, medium: "9", large: 12.5, huge: 3 } }));
+    const read = readSaved(store, data, puzzleOf);
+    expect(read.game?.right).toEqual([]);
+    expect(read.game?.seconds).toBeNull();
+    expect(read.best).toEqual({});
+    store.raw.set("bp-crossword", JSON.stringify({ spec, solved: 0, best: null }));
+    expect(readSaved(store, data, puzzleOf).best).toEqual({});
   });
 
   it("drops a game from another build of the clues", () => {
@@ -45,8 +70,8 @@ describe("crossword storage", () => {
   it("ignores corrupt or missing storage", () => {
     const store = memory();
     store.raw.set("bp-crossword", "{not json");
-    expect(readSaved(store, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0 });
-    expect(readSaved(null, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0 });
+    expect(readSaved(store, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0, best: {} });
+    expect(readSaved(null, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0, best: {} });
     const full: Store = { getItem: () => null, setItem: () => { throw new Error("full"); } };
     expect(() => writeSaved(full, saved)).not.toThrow();
   });

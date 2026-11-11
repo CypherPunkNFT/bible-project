@@ -3,6 +3,7 @@
 // src/lib/puzzles, the one the Tools page's printable puzzle maker uses too.
 import { generateCrossword, seededRandom, shuffled, wordCells, type Direction } from "@/lib/puzzles";
 import { LEVELS, MIN_SHARE, SIZES, SIZE_GRID, isOffered, poolOf, type ClueEntry, type Level, type Size, type Source } from "./themes";
+import type { PlayState } from "./storage";
 
 export interface CluesFile { stamp: string; books: [string, string][]; entries: ClueEntry[] }
 
@@ -158,3 +159,25 @@ export const offeredBooks = (data: CluesFile) =>
 
 /** A seed for a new puzzle. */
 export const freshSeed = (): number => Math.floor(Math.random() * 2 ** 31);
+
+// ---- Play helpers added by the redesign (docs/visual-audits/crossword-redesign.md) ---------------------------------
+
+/** The letters after a change, with every square that changed dropped from the wrong and the confirmed lists, so a
+ *  tick never outlives the letter that earned it. */
+export function applyLetters(game: PlayState, letters: readonly string[]): PlayState {
+  const changed = new Set(letters.flatMap((letter, cell) => (letter !== game.letters[cell] ? [cell] : [])));
+  return { ...game, letters: [...letters], wrong: game.wrong.filter((cell) => !changed.has(cell)), right: game.right.filter((cell) => !changed.has(cell)) };
+}
+
+/** A word with a letter in every square. */
+export const isFilled = (word: PuzzleWord, letters: readonly string[]): boolean => word.cells.every((cell) => letters[cell] !== "");
+
+/** A word every square of which a check confirmed or a reveal showed: the one that earns a tick. */
+export const isConfirmed = (word: PuzzleWord, right: ReadonlySet<number>, revealed: ReadonlySet<number>): boolean =>
+  word.cells.every((cell) => right.has(cell) || revealed.has(cell));
+
+/** Minutes and seconds as a clock reads them: 4:07, 12:30. */
+export function clock(seconds: number): string {
+  const whole = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
+}

@@ -18,9 +18,16 @@ export interface PlayState {
   revealed: number[];
   wrong: number[];
   checks: number;
+  /** Squares a check confirmed right (they leave the list when retyped). Missing in saves from before the redesign. */
+  right: number[];
+  /** Seconds spent on the puzzle, or null for a save from before the clock existed (no best time is recorded then). */
+  seconds: number | null;
 }
 
-export interface Saved { spec: Spec; game: PlayState | null; solved: number }
+/** The quickest clean solve (no letters revealed) per size, in seconds. */
+export type BestTimes = Partial<Record<Size, number>>;
+
+export interface Saved { spec: Spec; game: PlayState | null; solved: number; best: BestTimes }
 
 export const DEFAULT_SPEC: Spec = { source: { theme: "whole" }, level: "easy", size: "small" };
 
@@ -36,6 +43,7 @@ export function browserStore(): Store | null {
 const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
 const isIndexList = (value: unknown, below: number): value is number[] =>
   Array.isArray(value) && value.every((n) => Number.isInteger(n) && n >= 0 && n < below);
+const isCount = (value: unknown): value is number => Number.isSafeInteger(value) && (value as number) >= 0;
 
 function readSource(value: unknown): Source | null {
   if (!isRecord(value)) return null;
@@ -69,8 +77,24 @@ export function readGame(value: unknown, data: CluesFile, toPuzzle: (layout: Lay
   const squares = puzzle.cells.length;
   const letters = value.letters;
   if (!Array.isArray(letters) || letters.length !== squares || !letters.every((l, i) => (l === "" || /^[A-Z]$/.test(l as string)) && (l === "" || puzzle.cells[i] !== null))) return null;
-  if (!isIndexList(value.revealed, squares) || !isIndexList(value.wrong, squares) || !Number.isInteger(value.checks) || (value.checks as number) < 0) return null;
-  return { stamp: data.stamp, spec, layout, letters: letters as string[], revealed: value.revealed, wrong: value.wrong, checks: value.checks as number };
+  if (!isIndexList(value.revealed, squares) || !isIndexList(value.wrong, squares) || !isCount(value.checks)) return null;
+  const typed = letters as string[];
+  // Fields added by the redesign fall back on their own, so a save from before it still loads: no confirmed squares,
+  // and an unknown time. A confirmed square whose letter is no longer the answer's is dropped rather than trusted.
+  const right = isIndexList(value.right, squares) ? value.right.filter((cell) => typed[cell] !== "" && typed[cell] === puzzle.cells[cell]) : [];
+  const seconds = isCount(value.seconds) ? value.seconds : null;
+  return { stamp: data.stamp, spec, layout, letters: typed, revealed: value.revealed, wrong: value.wrong, checks: value.checks, right, seconds };
+}
+
+/** The best times that are whole, positive seconds under a known size; anything else is left out. */
+export function readBest(value: unknown): BestTimes {
+  if (!isRecord(value)) return {};
+  const best: BestTimes = {};
+  for (const size of SIZES) {
+    const seconds = Object.prototype.hasOwnProperty.call(value, size) ? value[size] : undefined;
+    if (isCount(seconds) && seconds > 0) best[size] = seconds;
+  }
+  return best;
 }
 
 function readRaw(store: Store | null): Record<string, unknown> {
@@ -88,7 +112,8 @@ export function readSaved(store: Store | null, data: CluesFile, toPuzzle: (layou
   return {
     spec: readSpec(raw.spec) ?? DEFAULT_SPEC,
     game: readGame(raw.game, data, toPuzzle),
-    solved: Number.isInteger(raw.solved) && (raw.solved as number) >= 0 ? (raw.solved as number) : 0,
+    solved: isCount(raw.solved) ? raw.solved : 0,
+    best: readBest(raw.best),
   };
 }
 

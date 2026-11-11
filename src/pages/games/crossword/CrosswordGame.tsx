@@ -6,7 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteLanguage } from "@/lib/language";
-import { emptyLetters, fitSpec, freshSeed, makeLayout, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
+import { useScrollTopOn } from "../kit";
+import { emptyLetters, fitSpec, freshSeed, isSolved, makeLayout, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
 import { Play } from "./Play";
 import { CantLoad, StartScreen } from "./Screens";
 import { browserStore, readSaved, writeSaved, type PlayState, type Saved } from "./storage";
@@ -33,6 +34,10 @@ export default function CrosswordGame() {
   </div>;
 }
 
+/** A clean solve (nothing revealed) with a known time beats the size's best when it is quicker. */
+const beatsBest = (saved: Saved, game: PlayState): boolean =>
+  game.revealed.length === 0 && game.seconds !== null && game.seconds > 0 && (saved.best[game.spec.size] ?? Infinity) > game.seconds;
+
 function Game({ data }: { data: CluesFile }) {
   const store = useMemo(() => browserStore(), []);
   const puzzleOf = useCallback((layout: Layout) => toPuzzle(data, layout), [data]);
@@ -42,30 +47,46 @@ function Game({ data }: { data: CluesFile }) {
   });
   const [playing, setPlaying] = useState(saved.game !== null);
   const [noPuzzle, setNoPuzzle] = useState(false);
+  const [bestAtStart, setBestAtStart] = useState(saved.best); // the ribbon shows when a solve beats this
   const english = useSiteLanguage() === "en";
   const puzzle = useMemo(() => (saved.game ? puzzleOf(saved.game.layout) : null), [saved.game, puzzleOf]);
+  // A new screen opens at the top of the page (the audit's "landing in the wrong place" on a phone).
+  useScrollTopOn(playing && saved.game ? saved.game.layout : "start");
 
   const save = useCallback((next: Saved) => { setSaved(next); writeSaved(store, next); }, [store]);
 
-  const start = useCallback((spec: Spec) => {
-    const layout = makeLayout(data, spec, freshSeed());
+  const start = useCallback((spec: Spec, prepared?: Layout | null) => {
+    const layout = prepared ?? makeLayout(data, spec, freshSeed());
     const made = layout && toPuzzle(data, layout);
     if (!layout || !made) { setNoPuzzle(true); setPlaying(false); return; }
     setNoPuzzle(false);
-    save({ ...saved, spec, game: { stamp: data.stamp, spec, layout, letters: emptyLetters(made), revealed: [], wrong: [], checks: 0 } });
+    setBestAtStart(saved.best);
+    save({ ...saved, spec, game: { stamp: data.stamp, spec, layout, letters: emptyLetters(made), revealed: [], wrong: [], checks: 0, right: [], seconds: 0 } });
     setPlaying(true);
   }, [data, saved, save]);
 
+  // Changes go through the latest saved state, so a late write (the clock on leaving the page) can never put back
+  // letters that were typed over or a puzzle that was dropped in the meantime.
   const change = useCallback((game: PlayState) => {
-    const solvedBefore = puzzle !== null && saved.game !== null && puzzle.cells.every((a, i) => a === null || saved.game!.letters[i] === a);
-    const solvedNow = puzzle !== null && puzzle.cells.every((a, i) => a === null || game.letters[i] === a);
-    save({ ...saved, game, solved: saved.solved + (solvedNow && !solvedBefore ? 1 : 0) });
-  }, [puzzle, saved, save]);
+    setSaved((prev) => {
+      if (!prev.game || prev.game.layout !== game.layout) return prev;
+      const made = puzzleOf(game.layout);
+      const solvedBefore = made !== null && isSolved(made, prev.game.letters);
+      const solvedNow = made !== null && isSolved(made, game.letters);
+      const first = solvedNow && !solvedBefore;
+      const best = first && beatsBest(prev, game) ? { ...prev.best, [game.spec.size]: game.seconds! } : prev.best;
+      const next = { ...prev, game, solved: prev.solved + (first ? 1 : 0), best };
+      writeSaved(store, next);
+      return next;
+    });
+  }, [puzzleOf, store]);
+
+  const newBest = saved.game !== null && saved.best[saved.game.spec.size] !== bestAtStart[saved.game.spec.size];
 
   if (!playing || !saved.game || !puzzle) {
-    return <StartScreen data={data} spec={saved.spec} solved={saved.solved} englishNote={!english} failed={noPuzzle}
-      onSpec={(spec) => { setNoPuzzle(false); save({ ...saved, spec }); }} onPlay={() => start(saved.spec)} />;
+    return <StartScreen data={data} spec={saved.spec} solved={saved.solved} best={saved.best} englishNote={!english} failed={noPuzzle}
+      onSpec={(spec) => { setNoPuzzle(false); save({ ...saved, spec }); }} onPlay={(layout) => start(saved.spec, layout)} />;
   }
-  return <Play key={JSON.stringify(saved.game.layout)} data={data} game={saved.game} puzzle={puzzle} onChange={change}
+  return <Play key={JSON.stringify(saved.game.layout)} data={data} game={saved.game} puzzle={puzzle} newBest={newBest} onChange={change}
     onNew={() => start(saved.game!.spec)} onChoices={() => { save({ ...saved, game: null }); setPlaying(false); }} />;
 }
