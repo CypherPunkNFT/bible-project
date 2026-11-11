@@ -64,9 +64,7 @@ All run from the Website folder on 11 November 2026, after the last change:
 - The English check (`py -3.12 content/translation/english_build_check.py`): 0 unregistered texts, 0 new.
 - The build (`npm run build`, native): passed; the preview shows this build.
 - Played on the preview with Playwright at 1440 by 900 and 390 by 844, dark and light, from a fresh browser (the How to play panel opens) and from a browser that had seen it: a win in three, a refused short row and an unknown word, a loss in six with the hint, Statistics, Settings with high contrast, the Share button by keyboard and by click, closing and reopening the result with Escape and Show result, and a 360 by 640 phone. No console errors in any run.
-- Commit on main: see the line below the list.
-
-Commit: recorded in the follow-up line at the end of this file.
+- Commit on main: d022cf7d6, "Redesign: Bible Wordle (from its visual audit)", pushed to origin and accepted. (This line was added in a small follow-up commit, since the hash is only known after the first.)
 
 ## Left for later
 
