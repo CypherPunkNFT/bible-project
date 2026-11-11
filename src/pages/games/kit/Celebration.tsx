@@ -2,20 +2,21 @@
 // short burst of gold-and-cream confetti at one focal point, once, as the design rules allow. Confetti is drawn when
 // `when` turns true and taken down after the burst; under reduced motion no pieces are drawn at all (the hop is CSS
 // and shrinks to nothing on its own). Put <Confetti> inside an element with position: relative; it flies from its centre.
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type HTMLAttributes, type ReactNode } from "react";
 import { confettiPieces } from "./confetti";
 import { motionMs } from "./env";
 
-export interface HopWaveProps {
+export interface HopWaveProps extends HTMLAttributes<HTMLDivElement> {
   /** True starts the wave; children get their stagger from --kit-i, set here in order. */
   when: boolean;
   children: ReactNode;
   className?: string;
 }
 
-/** Wraps a row; when `when` is true every child hops in turn (Wordle's winning row). Children are keyed by position. */
-export function HopWave({ when, children, className = "" }: HopWaveProps) {
-  return <div className={`${when ? "kit-hop" : ""}${className ? ` ${className}` : ""}`.trim() || undefined} data-hop={when ? "true" : "false"}>{children}</div>;
+/** Wraps a row; when `when` is true every child hops in turn (Wordle's winning row). Children are keyed by position.
+ * Any other attribute (a role, a label) goes on the row itself, so the wrapper can be the row. */
+export function HopWave({ when, children, className = "", ...rest }: HopWaveProps) {
+  return <div className={`${when ? "kit-hop" : ""}${className ? ` ${className}` : ""}`.trim() || undefined} data-hop={when ? "true" : "false"} {...rest}>{children}</div>;
 }
 
 export interface ConfettiProps {

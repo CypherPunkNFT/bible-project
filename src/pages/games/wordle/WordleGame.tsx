@@ -2,9 +2,7 @@
 // One five-letter Bible word a day for everyone, six tries, a verse with the answer and a score to share. Every screen
 // is state inside this one page (the hub gives a game one address). The answers, the schedule and the allowed guesses
 // are built ahead of time (scripts/build-wordle.ts) and loaded only here; the hand-kept curation file never is.
-import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import type { Answers } from "./daily";
 import type { WordleSchedule } from "./daily-rules";
 import { Play, type WordleData } from "./Play";
@@ -36,7 +34,6 @@ export default function WordleGame() {
     return () => { live = false; };
   }, [attempt]);
   return <div className="bw-page mx-auto max-w-xl px-4 sm:px-6">
-    <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
     {failed
       ? <div className="bw-failed" role="alert">
           <h1>Bible Wordle</h1>

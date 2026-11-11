@@ -4,6 +4,10 @@
 import { MAX_TRIES, WORD_LENGTH, outcomeOf } from "./evaluate";
 
 export interface TodayRecord { n: number; guesses: string[]; hard: boolean; hint: boolean }
+/** One finished puzzle, for the last-seven-days row (added with the redesign; older records simply have none). */
+export interface RecentDay { n: number; won: boolean }
+/** How many finished puzzles the record remembers for the row. */
+export const RECENT_KEPT = 14;
 export interface WordleRecord {
   v: 1;
   played: number;
@@ -16,6 +20,8 @@ export interface WordleRecord {
   lastDone: number;
   /** Wins in 1, 2, … 6 tries. */
   dist: number[];
+  /** The last few finished puzzles, oldest first, each once. */
+  recent: RecentDay[];
   today: TodayRecord | null;
   settings: { hard: boolean; contrast: boolean };
   seenHelp: boolean;
@@ -25,7 +31,7 @@ export const STORAGE_KEY = "bp-wordle";
 
 export const emptyRecord = (): WordleRecord => ({
   v: 1, played: 0, won: 0, streak: 0, bestStreak: 0, lastWon: 0, lastDone: 0, dist: Array.from({ length: MAX_TRIES }, () => 0),
-  today: null, settings: { hard: false, contrast: false }, seenHelp: false,
+  recent: [], today: null, settings: { hard: false, contrast: false }, seenHelp: false,
 });
 
 const count = (value: unknown): number => (typeof value === "number" && Number.isFinite(value) && value >= 0 ? Math.floor(value) : 0);
@@ -38,6 +44,17 @@ function parseToday(value: unknown): TodayRecord | null {
   return { n: count(v.n), guesses: v.guesses.filter(isGuess).slice(0, MAX_TRIES), hard: v.hard === true, hint: v.hint === true };
 }
 
+/** The recent days from anything stored: sound entries only, each puzzle once, oldest first, the last RECENT_KEPT. */
+function parseRecent(value: unknown): RecentDay[] {
+  if (!Array.isArray(value)) return [];
+  const byN = new Map<number, boolean>();
+  for (const item of value) {
+    const v = record(item);
+    if (v && count(v.n) >= 1 && typeof v.won === "boolean") byN.set(count(v.n), v.won);
+  }
+  return [...byN.entries()].sort((a, b) => a[0] - b[0]).slice(-RECENT_KEPT).map(([n, won]) => ({ n, won }));
+}
+
 /** A stored value, whatever its shape, as a sound record. */
 export function parseRecord(raw: unknown): WordleRecord {
   const v = record(raw);
@@ -47,7 +64,7 @@ export function parseRecord(raw: unknown): WordleRecord {
   const played = count(v.played);
   return {
     v: 1, played, won: Math.min(count(v.won), played), streak: count(v.streak), bestStreak: Math.max(count(v.bestStreak), count(v.streak)),
-    lastWon: count(v.lastWon), lastDone: count(v.lastDone), dist, today: parseToday(v.today),
+    lastWon: count(v.lastWon), lastDone: count(v.lastDone), dist, recent: parseRecent(v.recent), today: parseToday(v.today),
     settings: { hard: settings?.hard === true, contrast: settings?.contrast === true }, seenHelp: v.seenHelp === true,
   };
 }
@@ -102,7 +119,8 @@ export function finishToday(value: WordleRecord, n: number, answer: string): Wor
   if (!today || today.n !== n || n <= value.lastDone) return value;
   const outcome = outcomeOf(today.guesses, answer);
   if (outcome === "playing") return value;
-  const next = { ...value, played: value.played + 1, lastDone: n };
+  const recent = [...value.recent.filter((day) => day.n !== n), { n, won: outcome === "won" }].slice(-RECENT_KEPT);
+  const next = { ...value, played: value.played + 1, lastDone: n, recent };
   if (outcome === "won") {
     const streak = value.lastWon === n - 1 ? value.streak + 1 : 1;
     const dist = value.dist.map((bar, i) => (i === today.guesses.length - 1 ? bar + 1 : bar));

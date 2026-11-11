@@ -1,5 +1,5 @@
 // The player's record (design §8): rebuilt safely from anything stored, guesses saved once, each puzzle counted once.
-import { STORAGE_KEY, currentStreak, emptyRecord, finishToday, parseRecord, readRecord, recordGuess, setHard, startToday, withHint, writeRecord, type WordleRecord } from "./storage";
+import { RECENT_KEPT, STORAGE_KEY, currentStreak, emptyRecord, finishToday, parseRecord, readRecord, recordGuess, setHard, startToday, withHint, writeRecord, type WordleRecord } from "./storage";
 
 const play = (record: WordleRecord, n: number, guesses: string[], answer: string): WordleRecord => {
   let next = startToday(record, n);
@@ -17,6 +17,19 @@ describe("bible wordle record", () => {
     expect(parsed.bestStreak).toBe(3);
     expect(parsed.today).toEqual({ n: 4, guesses: ["faith", "grace"], hard: true, hint: false });
     expect(parsed.settings).toEqual({ hard: false, contrast: true });
+  });
+
+  it("keeps the last few finished days, each once, oldest first, and ignores nonsense", () => {
+    const won = play(emptyRecord(), 3, ["faith"], "faith");
+    const lost = play(won, 4, ["bread", "water", "light", "stone", "grace", "peace"], "thorn");
+    expect(lost.recent).toEqual([{ n: 3, won: true }, { n: 4, won: false }]);
+    expect(finishToday(lost, 4, "thorn").recent).toHaveLength(2); // a day counted once
+    const parsed = parseRecord({ recent: [{ n: 9, won: true }, { n: 2, won: false }, { n: 9, won: false }, { n: "x", won: true }, { n: 5, won: 1 }, 7] });
+    expect(parsed.recent).toEqual([{ n: 2, won: false }, { n: 9, won: false }]);
+    expect(parseRecord({ recent: "none" }).recent).toEqual([]);
+    const many = parseRecord({ recent: Array.from({ length: 40 }, (_, i) => ({ n: i + 1, won: i % 2 === 0 })) });
+    expect(many.recent).toHaveLength(RECENT_KEPT);
+    expect(many.recent[0].n).toBe(40 - RECENT_KEPT + 1);
   });
 
   it("starts afresh from damaged storage, and says so when the browser blocks it", () => {

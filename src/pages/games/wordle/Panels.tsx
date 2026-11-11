@@ -1,13 +1,13 @@
 // How to play, Statistics and Settings (design §9.2, §9.4, §9.5), each a native <dialog>: Escape closes it, focus moves
 // into it and goes back to the button that opened it.
 import { X } from "lucide-react";
-import { useEffect, useRef, type ReactNode } from "react";
-import { formatNumber } from "@/lib/site-format";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { formatDate, formatNumber } from "@/lib/site-format";
 import { siteLanguage } from "@/lib/language";
 import { SOURCE_LANGUAGE } from "@/lib/site-languages";
 import { markLabel } from "./text";
 import { MAX_TRIES, type Mark } from "./evaluate";
-import { currentStreak, type WordleRecord } from "./storage";
+import { currentStreak, type RecentDay, type WordleRecord } from "./storage";
 
 export type PanelName = "help" | "stats" | "settings";
 
@@ -53,18 +53,35 @@ export function HelpPanel({ onClose }: { onClose: () => void }) {
   </Panel>;
 }
 
-interface StatsProps { record: WordleRecord; available: boolean; todayN: number; wonTries: number | null; onClose: () => void }
+interface StatsProps { record: WordleRecord; available: boolean; todayN: number; wonTries: number | null; dateOf?: (n: number) => Date; onClose: () => void }
 
-export function StatsPanel({ record, available, todayN, wonTries, onClose }: StatsProps) {
+/** The last seven days as squares: green for a win, grey for a loss, empty for a day with no record. */
+function RecentDays({ recent, todayN, dateOf }: { recent: readonly RecentDay[]; todayN: number; dateOf?: (n: number) => Date }) {
+  const byN = new Map(recent.map((day) => [day.n, day.won]));
+  const days = Array.from({ length: 7 }, (_, i) => todayN - 6 + i).filter((n) => n >= 1);
+  return <ol className="bw-days" aria-label="Last seven days">
+    {days.map((n) => {
+      const won = byN.get(n);
+      return <li key={n} className={`bw-day${won === undefined ? "" : won ? " bw-correct" : " bw-absent"}`}>
+        {dateOf && <span aria-hidden="true">{formatDate(dateOf(n), { weekday: "narrow" })}</span>}
+        <span className="sr-only">{won === undefined ? "Not played" : won ? "Solved" : "Missed"}</span>
+      </li>;
+    })}
+  </ol>;
+}
+
+export function StatsPanel({ record, available, todayN, wonTries, dateOf, onClose }: StatsProps) {
   const percent = record.played ? Math.round((record.won / record.played) * 100) : 0;
   const most = Math.max(1, ...record.dist);
   return <Panel title="Statistics" onClose={onClose}>
     <StatFigures record={record} percent={percent} streak={currentStreak(record, todayN)} />
+    <h3 className="bw-subhead">Last seven days</h3>
+    <RecentDays recent={record.recent} todayN={todayN} dateOf={dateOf} />
     <h3 className="bw-subhead">Guess distribution</h3>
     <ol className="bw-dist">
       {record.dist.slice(0, MAX_TRIES).map((wins, i) => <li key={i} className={wonTries === i + 1 ? "bw-today" : undefined}>
         <span>{formatNumber(i + 1)}</span>
-        <span className="bw-bar" style={{ width: `${Math.max(8, (wins / most) * 100)}%` }}>{formatNumber(wins)}</span>
+        <span className="bw-bar" style={{ width: `${Math.max(10, (wins / most) * 100)}%`, "--kit-i": i } as CSSProperties}><span>{formatNumber(wins)}</span></span>
       </li>)}
     </ol>
     {!available && <p className="bw-note">Your stats can't be saved in this browser.</p>}

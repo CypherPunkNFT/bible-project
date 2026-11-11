@@ -1,49 +1,82 @@
-// The result card (design §9.3), in place of the keyboard once the day's game is over: the answer, the verse it comes
-// from in the BSB with the word marked, who the person is, the share button, a short summary and the countdown.
-import { Share2 } from "lucide-react";
-import { Fragment, useEffect, useState } from "react";
+// The result panel (design §9.3), rising where the keyboard was once the day's game is over (a sheet over the lower
+// half of a phone screen): the cheer or "The word was", the answer in five green tiles, the verse it comes from in the
+// BSB with the word marked, who the person is, a preview of the share grid above the Share button, the streak and the
+// figures, and the countdown. Close returns to the board; the Show result button under the board brings it back.
+import { X } from "lucide-react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Verse } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
 import { bookByNum, formatRange, splitId } from "@/lib/refs";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 import { loadPersonDetail } from "@/lib/study";
+import { Confetti, ResultPanel, ShareButton, StreakFlame } from "../kit";
 import type { AnswerEntry } from "./daily";
 import { msUntilMidnight } from "./daily";
+import type { Mark } from "./evaluate";
 import { StatFigures } from "./Panels";
-import { shareResult } from "./share";
-import { currentStreak, type WordleRecord } from "./storage";
+import type { WordleRecord } from "./storage";
 import { WIN_LINES } from "./text";
 import { splitOnWord } from "./verse-match";
 
 interface ResultProps {
-  n: number;
   answer: string;
   entry: AnswerEntry;
-  tries: number;
+  /** The played rows' marks, the same rows the share text is made of. */
+  rows: readonly (readonly Mark[])[];
   won: boolean;
-  shareText: () => string;
+  shareText: string;
   record: WordleRecord;
+  streak: number;
+  /** A win this sitting: one short burst over the answer. */
+  celebrate: boolean;
+  /** Move focus into the panel when it appears (not at a plain reload). */
+  focus: boolean;
   now: Date;
   /** The next puzzle number when the day has turned since this one opened, else null. */
   next: number | null;
   onNext: () => void;
   onStats: () => void;
+  onClose: () => void;
 }
 
-export function Result({ n, answer, entry, tries, won, shareText, record, now, next, onNext, onStats }: ResultProps) {
+export function Result({ answer, entry, rows, won, shareText, record, streak, celebrate, focus, now, next, onNext, onStats, onClose }: ResultProps) {
   const percent = record.played ? Math.round((record.won / record.played) * 100) : 0;
-  return <section className="bw-result" aria-labelledby="bw-result-title">
-    {won ? <p className="bw-win">{WIN_LINES[tries - 1]?.label}</p> : <p className="bw-win">The word was</p>}
-    <h2 id="bw-result-title" className="bw-answer">{answer.toUpperCase()}</h2>
-    <VerseCard answer={answer} entry={entry} />
-    <ShareButton text={shareText} />
-    <StatFigures record={record} percent={percent} streak={currentStreak(record, n)} />
-    <button type="button" className="bw-link" onClick={onStats}>See all statistics</button>
-    {next !== null
-      ? <button type="button" className="bw-button bw-primary" onClick={onNext}>{`Play #${formatNumber(next)}`}</button>
-      : <Countdown now={now} />}
+  const close = useRef<HTMLButtonElement>(null);
+  useEffect(() => { if (focus) close.current?.focus(); }, [focus]);
+  return <section className="bw-result" role="dialog" aria-modal="false" aria-labelledby="bw-result-title">
+    <button ref={close} type="button" className="bw-icon bw-result-close" onClick={onClose} aria-label="Close"><X size={18} aria-hidden="true" /></button>
+    <ResultPanel
+      trail={<Grid rows={rows} />}
+      actions={<ShareButton text={shareText} preview={false} game="Bible Wordle" className="bw-share" />}
+      reading={<>
+        <StatFigures record={record} percent={percent} streak={streak} />
+        <button type="button" className="bw-link" onClick={onStats}>See all statistics</button>
+        {next !== null
+          ? <button type="button" className="bw-button bw-primary" onClick={onNext}>{`Play #${formatNumber(next)}`}</button>
+          : <Countdown now={now} />}
+      </>}>
+      {won ? <p className="bw-cheer">{WIN_LINES[rows.length - 1]?.label}</p> : <p className="bw-win">The word was</p>}
+      <h2 id="bw-result-title" className="bw-answer">
+        <span className="sr-only">{answer.toUpperCase()}</span>
+        <span className="bw-answer-tiles" aria-hidden="true">
+          {[...answer].map((letter, i) => <span key={i} className="bw-answer-tile" style={{ "--kit-i": i } as CSSProperties}>{letter.toUpperCase()}</span>)}
+          <Confetti when={celebrate && won} count={20} reach={110} />
+        </span>
+      </h2>
+      {streak >= 2 && <StreakFlame className="bw-result-flame" count={streak} label={plural(streak, "{n} day in a row", "{n} days in a row")} />}
+      <VerseCard answer={answer} entry={entry} />
+    </ResultPanel>
   </section>;
+}
+
+/** The share grid as coloured squares, exactly the rows the share text carries; no letters, so nothing is given away. */
+function Grid({ rows }: { rows: readonly (readonly Mark[])[] }) {
+  return <div className="bw-grid" aria-hidden="true">
+    {rows.map((row, r) => <div key={r} className="bw-grid-row">
+      {row.map((mark, i) => <span key={i} className={`bw-square bw-${mark}`} />)}
+    </div>)}
+  </div>;
 }
 
 function VerseCard({ answer, entry }: { answer: string; entry: AnswerEntry }) {
@@ -74,26 +107,6 @@ function PersonLine({ slug, id, name }: { slug: string; id: string; name: string
     {line && <span>{line}</span>}
     <Link to={`/people/${slug}`}>{`More about ${name}`}</Link>
   </p>;
-}
-
-/** Share, copy, or show the text to copy when neither works. */
-function ShareButton({ text }: { text: () => string }) {
-  const [state, setState] = useState<"idle" | "copied" | "manual">("idle");
-  const [shown, setShown] = useState("");
-  const share = async () => {
-    const value = text();
-    setShown(value);
-    const outcome = await shareResult(value);
-    setState(outcome === "copied" ? "copied" : outcome === "manual" ? "manual" : "idle");
-  };
-  return <div className="bw-share">
-    <button type="button" className="bw-button bw-primary" onClick={() => { void share(); }}><Share2 size={16} aria-hidden="true" /><span>Share</span></button>
-    <span role="status" className="bw-toast">{state === "copied" ? "Copied" : ""}</span>
-    {state === "manual" && <label className="bw-copy">
-      <span>Copying is blocked in this browser. Select the text and copy it.</span>
-      <textarea readOnly value={shown} rows={8} autoFocus onFocus={(event) => event.currentTarget.select()} />
-    </label>}
-  </div>;
 }
 
 /** "Next puzzle in 05:12:33", from the clock every second, so a tab that was asleep is right. */

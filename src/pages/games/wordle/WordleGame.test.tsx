@@ -152,6 +152,47 @@ describe("bible wordle page", () => {
     }
   });
 
+  it("keeps the hint lamp dark until the third guess, and the keyboard learns each row", async () => {
+    await open(new Date(2026, 10, 8, 10));
+    const lamp = screen.getByRole("button", { name: "Show a hint" });
+    expect(lamp).toHaveAttribute("aria-disabled", "true");
+    fireEvent.click(lamp);
+    expect(screen.queryByText("A person in the Bible")).toBeNull();
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").today.hint).toBe(false);
+    for (const word of ["bread", "water", "light"]) play(word);
+    expect(screen.getByRole("button", { name: "Show a hint" })).toHaveAttribute("aria-disabled", "false");
+    const keyboard = screen.getByRole("group", { name: "Keyboard" });
+    expect(within(keyboard).getByRole("button", { name: "T is in the word, wrong spot" })).toBeInTheDocument();
+    expect(within(keyboard).getByRole("button", { name: "B is not in the word" })).toBeInTheDocument();
+  });
+
+  it("closes the result back to the board with Escape, brings it back with Show result, and keeps the share grid letter-free", async () => {
+    await open(new Date(2026, 10, 8, 10));
+    play("north");
+    play("thorn");
+    const result = screen.getByRole("dialog", { name: "THORN" });
+    expect(result.querySelector(".bw-grid")?.textContent).toBe("");
+    expect(result.querySelectorAll(".bw-grid .bw-square")).toHaveLength(10);
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("dialog", { name: "THORN" })).toBeNull();
+    expect(screen.queryByRole("group", { name: "Keyboard" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Show result" }));
+    expect(screen.getByRole("dialog", { name: "THORN" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Close" })).toHaveFocus();
+  });
+
+  it("shows the last seven days in Statistics, today's in green", async () => {
+    await open(new Date(2026, 10, 8, 10));
+    play("thorn");
+    fireEvent.click(screen.getByRole("button", { name: "See all statistics" }));
+    const days = within(screen.getByRole("dialog", { name: "Statistics", hidden: true })).getByRole("list", { name: "Last seven days", hidden: true });
+    const items = within(days).getAllByRole("listitem", { hidden: true });
+    expect(items).toHaveLength(2); // puzzle #1 and #2 only exist so far
+    expect(items[1]).toHaveClass("bw-correct");
+    expect(items[1]).toHaveTextContent("Solved");
+    expect(items[0]).toHaveTextContent("Not played");
+  });
+
   it("says when the first puzzle is, before it", async () => {
     vi.setSystemTime(new Date(2026, 10, 6, 10));
     renderAt("/games/wordle");
@@ -164,7 +205,7 @@ describe("bible wordle page", () => {
     await act(async () => { vi.setSystemTime(new Date(2026, 10, 9, 0, 0, 5)); await new Promise((resolve) => setTimeout(resolve, 1100)); });
     expect(screen.getByRole("heading", { level: 2, name: "THORN" })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Play #3" }));
-    expect(screen.getByText(/^#3 · /)).toBeInTheDocument();
+    expect(screen.getByText(/^#3 · Monday/)).toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "THORN" })).toBeNull();
   });
 });
