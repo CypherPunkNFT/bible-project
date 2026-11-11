@@ -77,3 +77,5 @@ The commit hash is recorded at the end of this file.
 - **Sound.** The shared brief allows a soft sound on the pin drop and the bullseye; none is added, because no other redesigned game has one yet and a first sound should be a decision for the whole hub.
 - **The map that cannot load, before this step.** The old game only showed its "couldn't load" panel when the piece list answered with an HTTP error; a dropped connection left a blank map for ever. That is fixed here (a failed square with no land three seconds later now shows the panel), and [StreetAtlasMap.tsx](../../src/components/atlas/StreetAtlasMap.tsx) has the same older rule. It is outside this game and was left alone.
 - **Twenty questions tests.** Two of its data tests fail against another job's uncommitted files; that job owns them.
+
+- Commit: 2a87f0ef1 on main, "Redesign: Map quest (from its visual audit)", pushed to origin. This note itself is a second small commit.
