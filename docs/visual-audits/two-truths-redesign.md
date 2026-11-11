@@ -88,7 +88,7 @@ All run from the Website folder after the last change to the game's files, in th
 
 Tests changed: the game's component tests now look for the cards, the lock-in button, the band, the folds, the trail, the ribbon and the winner line instead of the old headings and article list; the share-helper test was removed with the helper it tested, since sharing now goes through the kit's own tested button. No threshold was lowered.
 
-**Commit:** on `main`, "Redesign: Two truths and a lie (from its visual audit)"; the hash is recorded in the line below once the commit exists.
+**Commit:** on `main`, "Redesign: Two truths and a lie (from its visual audit)"; the hash is `a6603c8cc` (this hash line was added in a second small commit, since the hash cannot be known before the first).
 
 ## 6. Left for later
 
