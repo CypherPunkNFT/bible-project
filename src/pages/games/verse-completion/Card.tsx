@@ -1,7 +1,8 @@
-// One card of a round (design §10.2–§10.3): the reference, the shown opening, a line per hidden word, the answer area
-// for the mode, then the whole passage with every hidden word marked. The card waits only for its own book; Pick waits
-// for the decoys' books too, so the right option is never briefly shown alone.
-import { useEffect, useMemo, useState } from "react";
+// One card of a round (design §10.2–§10.3): the reference, the shown opening, then a gap for every hidden word, as wide
+// as the word. The gaps are the game: in Hard and First letters each word lands in its own gap as it is given, in Whole
+// words the gaps dim as the typed answer reaches them, and the result fills every gap with its marked word. The card
+// waits only for its own book; Pick waits for the decoys' books too, so the right option is never briefly shown alone.
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { plural } from "@/lib/site-format";
 import type { Catalog } from "@/lib/types";
 import { verseReference } from "@/lib/verses";
@@ -77,6 +78,29 @@ async function prepare(props: CardProps): Promise<Ready> {
   return ready;
 }
 
+/** A gap as wide as its word, so the verse keeps its shape; `--vc-len` is the word's letter count. */
+export function Gap({ word, state = "" }: { word: Pick<Word, "key">; state?: string }) {
+  return <span className={`vc-gap${state ? ` ${state}` : ""}`} aria-hidden="true" style={{ "--vc-len": Math.max(2, word.key.length) } as CSSProperties} />;
+}
+
+/** The verse while it is being played: the opening, then for each hidden word the word already given (right or
+ * missed), the active gap, a gap the typed answer has reached, or a plain gap. */
+function PlayVerse({ opening, hidden, given, reach, active }: { opening: string; hidden: readonly Word[]; given: readonly Mark[]; reach: number; active: boolean }) {
+  return <p className="vc-verse">
+    {opening}
+    {hidden.map((word, i) => {
+      const mark = given[i];
+      if (mark) {
+        return <span key={i} className={`vc-fill${mark.verdict === "exact" ? "" : " is-missed"}`}>
+          {word.text}{mark.verdict !== "exact" && <span className="sr-only"> (missed)</span>}
+        </span>;
+      }
+      const state = active && i === given.length ? "is-next" : i < reach ? "is-reached" : "";
+      return <Gap key={i} word={word} state={state} />;
+    })}
+  </p>;
+}
+
 export function Card(props: CardProps) {
   const { catalog, passage, settings, level } = props;
   const [ready, setReady] = useState<Ready | null>(null);
@@ -84,7 +108,14 @@ export function Card(props: CardProps) {
   const [attempt, setAttempt] = useState(0);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [chosen, setChosen] = useState<number | null>(null);
+  const [given, setGiven] = useState<Mark[]>([]);
+  const [reach, setReach] = useState(0);
   const reference = verseReference(catalog, passage.from, passage.to);
+
+  useEffect(() => { // the site's floating correction button steps aside on a small phone while a card is open
+    document.body.classList.add("vc-playing");
+    return () => document.body.classList.remove("vc-playing");
+  }, []);
 
   useEffect(() => {
     let live = true;
@@ -136,21 +167,23 @@ export function Card(props: CardProps) {
   }
   const opening = ready.text.slice(0, ready.list[split].start);
   const unavailable = ready.choices?.some((choice) => choice === null);
-  return <section className="vc-card" aria-labelledby="vc-ref">
+  const pick = settings.answer === "pick";
+  const fillsInPlace = (pick && level === "hard") || (!pick && settings.style === "letters");
+  return <section className="vc-card is-play" aria-labelledby="vc-ref">
     <h2 id="vc-ref" className="vc-ref">{reference}</h2>
-    <p className="vc-verse">{opening}<span className="vc-gaps" aria-hidden="true">{hidden.map((_, i) => <span key={i} className="vc-gap" />)}</span></p>
+    <PlayVerse opening={opening} hidden={hidden} given={given} reach={reach} active={fillsInPlace && !unavailable} />
     <p className="sr-only">{plural(hidden.length, "{n} word to complete", "{n} words to complete")}</p>
     {unavailable ? <div>
       <p className="vc-note">This verse can't be played word by word.</p>
       <button type="button" className="vc-secondary" onClick={props.onSkip} disabled={props.saving}>Skip</button>
     </div>
-      : settings.answer === "pick" && ready.endings ? <PickEnding options={ready.endings.options} right={ready.endings.right} chosen={chosen}
+      : pick && ready.endings ? <PickEnding options={ready.endings.options} right={ready.endings.right} chosen={chosen}
         onChoose={(i) => { setChosen(i); const right = i === ready.endings!.right; finish({ marks: hidden.map(() => ({ verdict: right ? "exact" : "wrong", credit: right ? 1 : 0 })), extras: [], accuracy: right ? 100 : 0, perfect: false }); }} />
-        : settings.answer === "pick" && ready.choices ? <PickWords hidden={hidden} choices={ready.choices as WordChoice[]} onDone={(marks) => finish(fromMarks(marks))} />
-          : settings.style === "letters" ? <TypeLetters hidden={hidden} onDone={(marks) => finish(fromMarks(marks))} onDontKnow={dontKnow} />
+        : pick && ready.choices ? <PickWords hidden={hidden} choices={ready.choices as WordChoice[]} onProgress={setGiven} onDone={(marks) => finish(fromMarks(marks))} />
+          : settings.style === "letters" ? <TypeLetters hidden={hidden} onProgress={setGiven} onDone={(marks) => finish(fromMarks(marks))} onDontKnow={dontKnow} />
             : <TypeWords context={{ hidden, opening: ready.list.slice(0, split), reference: referenceParts(catalog, passage), vocabulary: ready.vocabulary! }}
-              onDone={(result, hints) => finish(result, { hints })} onDontKnow={() => dontKnow()} />}
-    {settings.answer === "pick" && !unavailable && <button type="button" className="vc-link vc-dont" onClick={() => dontKnow()}>I don't know</button>}
+              onReach={setReach} onDone={(result, hinted) => finish(result, { hints: hinted.size, hinted })} onDontKnow={() => dontKnow()} />}
+    {pick && !unavailable && <button type="button" className="vc-link vc-dont" onClick={() => dontKnow()}>I don't know</button>}
   </section>;
 }
 

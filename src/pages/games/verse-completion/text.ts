@@ -35,6 +35,25 @@ export const VERDICTS: Record<Verdict, { label: string; symbol: string }> = {
   missing: { label: "Missed", symbol: "○" },
 };
 
+/** A hinted word is shown, not typed: its own mark in the result (display only; it still scores as wrong, §3.1). */
+export const SHOWN_MARK = { label: "Shown with a hint", symbol: "◇" };
+
+/** The verdict words in the band after a card, by stars. */
+export const BAND_LINES: readonly { label: string }[] = [
+  { label: "Not this time" },
+  { label: "Getting there" },
+  { label: "Nearly there" },
+  { label: "Right!" },
+];
+
+/** The round's title by its share of the stars possible (the kit's RankLine). */
+export const ROUND_RANKS: readonly { from: number; title: string }[] = [
+  { from: 0, title: "Keep going" },
+  { from: 0.4, title: "Good round" },
+  { from: 0.7, title: "Well remembered" },
+  { from: 1, title: "Word perfect round!" },
+];
+
 export const STAR_LINES: readonly { label: string }[] = [
   { label: "No stars" },
   { label: "One star" },
@@ -44,6 +63,7 @@ export const STAR_LINES: readonly { label: string }[] = [
 
 export const LEGENDS = {
   answer: { label: "Answer" },
+  mode: { label: "How you answer" },
   typing: { label: "Typing" },
   difficulty: { label: "Difficulty" },
   from: { label: "Verses from" },

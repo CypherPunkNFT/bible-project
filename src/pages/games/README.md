@@ -189,9 +189,17 @@ and only whole words mark a verse Memorised. Saved in the browser under `bp-vers
 - **Adding or retiring a passage:** add a row to `curation.json` and rebuild. Once live, never delete a row: mark it
   `"retired": true`, so saved progress never points at nothing. Any change of wording, rules or pool changes the pool's
   stamp, which drops a saved round in progress (passage progress is kept).
+- **Look (redesigned 2026-11-11 from its visual audit, [docs/visual-audits/verse-completion-redesign.md](../../../docs/visual-audits/verse-completion-redesign.md)):**
+  the hidden words are gaps as wide as the words and the words land in them (word by word in Hard and First letters,
+  all at once on the result, staggered by `landDelayMs` in [verse-completion/view.ts](verse-completion/view.ts)); the
+  three endings are the kit's `AnswerCard`; the verdict, the stars and Next ride in the kit's `FeedbackBand`; the
+  round header is a `ProgressTrail`; the ending is a `ResultPanel` with `ScoreCountUp`, `RankLine`, `StreakFlame` and
+  `Confetti`; Leave round and Clear my progress use `ConfirmDialog`. The game's look is `verse-completion.css`
+  (colour: the Gospels' lavender).
 - **Known gaps:** the verses and the matching rules are English (BSB) in every language; the help says so.
 - **Checks:** the `*.test.ts(x)` files in `verse-completion/` run in `npm test`, including `data.test.ts`, which rebuilds
-  the pool from `curation.json` and fails if `pool.json` differs.
+  the pool from `curation.json` and fails if `pool.json` differs, and `view.test.ts` for the trail, the title share,
+  the landing delays, the hinted "shown" mark and the word-key guard.
 
 ## Bible Jeopardy
 

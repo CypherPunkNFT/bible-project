@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Catalog } from "@/lib/types";
 import { useRowWindow } from "@/lib/useRowWindow";
 import { formatDate, formatNumber } from "@/lib/site-format";
+import { ConfirmDialog } from "../kit";
 import { verseReference } from "@/lib/verses";
 import { isDue, type Progress } from "./boxes";
 import { passageText } from "./load";
@@ -51,6 +52,7 @@ export function MyVerses(props: MyVersesProps) {
   const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<Sort>("due");
   const [open, setOpen] = useState<string | null>(null);
+  const [clearing, setClearing] = useState(false);
   const mine = useMemo(() => Object.entries(passages).filter(([, progress]) => progress.box > 0), [passages]);
   const due = mine.filter(([, progress]) => isDue(progress, today)).length;
   const memorised = mine.filter(([, progress]) => progress.memorised).length;
@@ -75,7 +77,10 @@ export function MyVerses(props: MyVersesProps) {
       </div>
       <Rows {...props} rows={rows} open={open} onOpen={(id) => setOpen(open === id ? null : id)} version={`${filter}|${sort}|${rows.length}|${open}`} />
     </>}
-    <button type="button" className="vc-link vc-clear" onClick={() => { if (window.confirm("Clear all your Verse completion progress in this browser?")) props.onClear(); }}>Clear my progress</button>
+    <button type="button" className="vc-link vc-clear" onClick={() => setClearing(true)}>Clear my progress</button>
+    <ConfirmDialog open={clearing} title="Clear all your Verse completion progress in this browser?" confirmLabel="Yes, clear it" danger onCancel={() => setClearing(false)} onConfirm={() => { setClearing(false); props.onClear(); }}>
+      <p className="vc-note">Your saved verses, boxes and streak will be gone.</p>
+    </ConfirmDialog>
   </div>;
 }
 

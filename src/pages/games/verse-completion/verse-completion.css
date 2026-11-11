@@ -1,80 +1,212 @@
-/* /games/verse-completion (VerseCompletionGame.tsx): mobile first, the site's colour tokens in both themes. Every word
-   state has its own symbol and words besides its colour. Verse text is at least 1.25rem on phones and every button is at
-   least 44px tall. Under reduced motion nothing shakes. */
-.vc-page { --vc-tone: var(--accent); --vc-right: var(--resource-life, #3d6b58); --vc-wrong: #b4442f; padding-top: 2rem; padding-bottom: 5rem; }
+/* /games/verse-completion (VerseCompletionGame.tsx): the game's own look over the kit's behaviour (../kit/kit.css), in
+   its hub colour, the Gospels' lavender. Mobile first, the site's tokens in both themes. The verse is the one card;
+   its hidden words are gaps as wide as the words, and the words land in them. Every word state carries a symbol and
+   words besides its colour; verse text is at least 1.25rem on phones; every button is at least 44px tall. No focus
+   outline: focus is a control's own lift and edge. Every state is set at once and the motion only decorates it
+   (src/index.css cuts durations to 0.01 ms under reduced motion; the delays are zeroed at the foot of this file). */
+.vc-page {
+  --vc-tone: var(--gospels);
+  --vc-right: var(--resource-life, #3d6b58);
+  --vc-wrong: var(--red-letter, #b4442f);
+  --vc-part: var(--epistles);
+  --vc-gold: #c9962b;
+  --vc-ease: cubic-bezier(.16, 1, .3, 1);
+  --kit-color: var(--vc-tone);
+  --kit-right: var(--vc-right);
+  --kit-wrong: var(--vc-wrong);
+  --kit-part: var(--vc-part);
+  --kit-radius: 1rem;
+  --kit-ease: var(--vc-ease);
+  padding-top: 2rem; padding-bottom: 4rem;
+}
 .vc-loading { margin-top: 2rem; color: var(--muted); }
 .vc-start h1, .vc-summary h1, .vc-mine h1 { margin-top: 1.4rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.15; letter-spacing: -.02em; }
 .vc-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .vc-note { margin-top: .6rem; color: var(--muted); font-size: .9rem; line-height: 1.5; }
-.vc-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; margin-top: 1rem; }
-.vc-streak { display: inline-flex; align-items: center; gap: .35rem; font-weight: 600; }
 .vc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.1rem; }
-.vc-primary, .vc-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .6rem 1.3rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
-.vc-primary { background: var(--accent); color: var(--page); }
+.vc-actions.is-tight { margin-top: .7rem; }
+
+/* ---- Buttons: lift on hover and focus, press on tap ------------------------------------------------------------- */
+.vc-primary, .vc-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .6rem 1.3rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
+  transition: transform .35s var(--vc-ease), border-color .35s var(--vc-ease), box-shadow .35s var(--vc-ease); }
+.vc-primary { background: var(--vc-tone); color: var(--page); }
+.vc-primary.is-big { padding: .75rem 2.2rem; font-size: 1.05rem; }
 .vc-secondary { border: 1px solid var(--line); }
-.vc-secondary[aria-pressed="true"] { border-color: var(--vc-right); }
-.vc-primary:disabled, .vc-secondary:disabled { opacity: .45; cursor: not-allowed; }
-.vc-link { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; color: var(--accent); font-size: .92rem; font-weight: 600; }
+.vc-secondary[aria-pressed="true"] { border-color: var(--vc-right); color: var(--vc-right); }
+.vc-primary:is(:hover, :focus-visible), .vc-secondary:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--vc-tone); box-shadow: 0 10px 20px -16px rgb(0 0 0 / .6); }
+.vc-primary:active, .vc-secondary:active { transform: translateY(0) scale(.98); }
+.vc-primary:disabled, .vc-secondary:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+.vc-link { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; color: var(--vc-tone); font-size: .92rem; font-weight: 600; text-underline-offset: 3px; }
+.vc-link:is(:hover, :focus-visible) { text-decoration: underline; }
 .vc-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; border: 0; padding: 0; }
-.vc-chips legend { width: 100%; margin-bottom: .45rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
-.vc-chips button { display: flex; flex-direction: column; align-items: flex-start; min-height: 44px; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 1rem; font-size: .92rem; text-align: left; }
-.vc-chips button[aria-pressed="true"] { border-color: var(--vc-tone); background: color-mix(in srgb, var(--vc-tone) 12%, transparent); font-weight: 650; }
-.vc-chip-text { color: var(--muted); font-size: .78rem; font-weight: 400; }
-.vc-chip { min-height: 44px; padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; }
-.vc-chip[aria-pressed="true"] { border-color: var(--vc-right); font-weight: 600; }
+.vc-chips legend, .vc-levels legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.vc-chips button { min-height: 44px; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .92rem; transition: transform .3s var(--vc-ease), border-color .3s var(--vc-ease), background-color .3s var(--vc-ease); }
+.vc-chips button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--vc-tone); }
+.vc-chips button[aria-pressed="true"] { border-color: var(--vc-tone); background: color-mix(in srgb, var(--vc-tone) 14%, transparent); font-weight: 650; }
+.vc-chip { min-height: 44px; padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; transition: border-color .3s var(--vc-ease); }
+.vc-chip[aria-pressed="true"] { border-color: var(--vc-right); color: var(--vc-right); font-weight: 600; }
 
-/* A card */
-.vc-round-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; }
-.vc-card { margin-top: 1rem; padding: 1.1rem 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+/* ---- The lobby: badges, the resume card, the two-way switch, the level cards ----------------------------------- */
+.vc-badges { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.6rem; margin-top: 1.1rem; }
+.vc-ring { display: inline-flex; align-items: center; gap: .7rem; min-height: 56px; padding: .2rem .6rem .2rem .2rem; border-radius: 999px; text-align: left; transition: transform .35s var(--vc-ease), background-color .35s var(--vc-ease); }
+.vc-ring:is(:hover, :focus-visible) { transform: translateY(-2px); background: color-mix(in srgb, var(--vc-tone) 10%, transparent); }
+.vc-ring-dial { position: relative; display: grid; place-items: center; width: 56px; height: 56px; }
+.vc-ring-dial svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.vc-ring-dial circle { fill: none; stroke-width: 3.5; }
+.vc-ring-dial .is-track { stroke: var(--line); }
+.vc-ring-dial .is-fill { stroke: var(--vc-tone); stroke-linecap: round; transition: stroke-dashoffset .9s var(--vc-ease); }
+.vc-ring-count { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.vc-ring-words { display: grid; gap: .1rem; }
+.vc-ring-title { font-weight: 650; color: var(--vc-tone); font-size: .95rem; }
+.vc-ring-line { color: var(--muted); font-size: .8rem; }
+.vc-ring-line.is-due { color: var(--ink); font-weight: 600; }
+.vc-streak { display: inline-flex; align-items: center; gap: .5rem; }
+.vc-streak .kit-streak { font-family: var(--font-serif); font-size: 1.4rem; }
+.vc-streak-words { color: var(--muted); font-size: .8rem; }
+.vc-resume { display: grid; gap: .15rem; min-height: 60px; padding: .7rem 1.2rem; border: 1px solid var(--vc-tone); border-radius: var(--kit-radius); background: color-mix(in srgb, var(--vc-tone) 12%, var(--surface)); text-align: left;
+  transition: transform .35s var(--vc-ease), box-shadow .35s var(--vc-ease); animation: vc-deal .55s var(--vc-ease) both; }
+.vc-resume:is(:hover, :focus-visible) { transform: translateY(-3px); box-shadow: 0 12px 24px -18px rgb(0 0 0 / .6); }
+.vc-resume-title { font-weight: 650; color: var(--vc-tone); }
+.vc-resume-line { color: var(--muted); font-size: .85rem; }
+.vc-switch { display: inline-flex; margin-top: 1.4rem; padding: .2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.vc-switch button { min-height: 40px; padding: .4rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; color: var(--muted); transition: background-color .35s var(--vc-ease), color .35s var(--vc-ease), transform .35s var(--vc-ease); }
+.vc-switch button:is(:hover, :focus-visible) { color: var(--ink); transform: translateY(-1px); }
+.vc-switch button[aria-pressed="true"] { background: var(--vc-tone); color: var(--page); }
+.vc-levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin-top: 1.3rem; border: 0; padding: 0; }
+.vc-level { display: grid; align-content: start; gap: .25rem; min-height: 44px; padding: .8rem .85rem .9rem; border: 1px solid var(--line); border-radius: var(--kit-radius); background: var(--surface); text-align: left;
+  transition: transform .35s var(--vc-ease), border-color .35s var(--vc-ease), box-shadow .35s var(--vc-ease), background-color .35s var(--vc-ease); animation: vc-deal .55s var(--vc-ease) both; }
+@media (hover: hover) { .vc-level:hover { transform: translateY(-3px); border-color: var(--vc-tone); box-shadow: 0 12px 24px -18px rgb(0 0 0 / .6); } }
+.vc-level:focus-visible { transform: translateY(-3px); border-color: var(--vc-tone); box-shadow: 0 0 0 1px var(--vc-tone) inset; }
+.vc-level:active { transform: translateY(0) scale(.985); }
+.vc-level[aria-pressed="true"] { border-color: var(--vc-tone); box-shadow: 0 0 0 1px var(--vc-tone) inset; background: color-mix(in srgb, var(--vc-tone) 9%, var(--surface)); }
+.vc-level-name { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.1; }
+.vc-level-text { color: var(--muted); font-size: .76rem; line-height: 1.4; min-height: 2.8em; }
+.vc-sample { display: block; margin-top: .55rem; padding-top: .55rem; border-top: 1px dashed var(--line); font-family: var(--font-serif); font-size: .8rem; line-height: 1.6; color: var(--muted); overflow: hidden; max-height: 5em; }
+.vc-sample .vc-gap { height: .13rem; margin: 0 .1rem; width: min(calc(var(--vc-len, 4) * .3em), 3em); }
+@media (max-width: 480px) {
+  .vc-levels { grid-template-columns: 1fr; }
+  .vc-level { grid-template-columns: 5.5rem 1fr; grid-template-areas: "name text" "sample sample"; align-items: start; }
+  .vc-level-name { grid-area: name; } .vc-level-text { grid-area: text; min-height: 0; } .vc-sample { grid-area: sample; max-height: 3.3em; }
+}
+
+/* ---- A round: the trail, the stars so far, the card ------------------------------------------------------------- */
+.vc-round-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; }
+.vc-trail { --kit-pip: .55rem; --kit-pip-gap: .3rem; flex: 1 1 auto; }
+.vc-trail .kit-trail__mark { width: auto; flex: 1 1 0; max-width: 2.4rem; height: var(--kit-pip); border-radius: 999px; }
+.vc-trail.is-done { --kit-pip: .7rem; justify-content: center; }
+.vc-trail.is-done .kit-trail__mark { flex: 0 0 auto; width: 1.4rem; }
+.vc-sofar { display: inline-flex; align-items: center; gap: .25rem; color: var(--vc-gold); font-weight: 650; font-variant-numeric: tabular-nums; }
+.vc-sofar svg { fill: currentColor; }
+.vc-card { position: relative; margin-top: 1rem; padding: 1.1rem 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: var(--kit-radius); background: var(--surface); animation: vc-deal .5s var(--vc-ease) both; }
+.vc-card.is-result { animation: none; }
 .vc-ref { color: var(--vc-tone); font: 650 .8rem/1.2 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
-.vc-verse { margin-top: .7rem; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.65; overflow-wrap: anywhere; }
-.vc-verse.is-small { font-size: 1.05rem; }
+.vc-verse { margin-top: .7rem; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.75; overflow-wrap: anywhere; }
+.vc-verse.is-small { font-size: 1.05rem; line-height: 1.6; }
 @media (min-width: 640px) { .vc-verse { font-size: 1.45rem; } }
-.vc-gaps { display: inline; }
-.vc-gap { display: inline-block; width: 1.6rem; height: .2rem; margin: 0 .18rem; border-radius: 2px; background: var(--line); vertical-align: middle; }
-.vc-endings { display: flex; flex-direction: column; gap: .6rem; margin-top: 1rem; }
-.vc-ending { display: flex; align-items: flex-start; gap: .5rem; min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: .8rem; text-align: left; font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.45; }
-.vc-ending.is-right { border-color: var(--vc-right); background: color-mix(in srgb, var(--vc-right) 12%, transparent); }
-.vc-ending.is-wrong { border-color: var(--vc-wrong); background: color-mix(in srgb, var(--vc-wrong) 10%, transparent); }
-.vc-ending.is-other { opacity: .6; }
-.vc-ending svg { flex: none; margin-top: .3rem; }
-.vc-built { min-height: 2rem; margin-top: .8rem; font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.6; }
-.vc-placed.is-missed { color: var(--vc-wrong); text-decoration: line-through; }
-.vc-cursor { color: var(--muted); }
-.vc-word-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
-.vc-word { display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 52px; padding: .5rem; border: 1px solid var(--line); border-radius: .8rem; font-size: 1.05rem; font-weight: 600; overflow-wrap: anywhere; }
-.vc-key { color: var(--muted); font-size: .72rem; font-weight: 500; }
-.vc-word.is-shake { border-color: var(--vc-wrong); animation: vc-shake .3s; }
-@keyframes vc-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
-@media (prefers-reduced-motion: reduce) { .vc-word.is-shake { animation: none; } }
-.vc-type, .vc-letters { margin-top: 1rem; }
-.vc-label { display: block; margin-bottom: .4rem; color: var(--muted); font-size: .85rem; font-weight: 600; }
-.vc-input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--page); color: var(--ink); font-size: 1.1rem; line-height: 1.5; resize: vertical; }
-.vc-letter { max-width: 8rem; text-align: center; }
-.vc-dont { margin-top: .6rem; }
 
-/* The result */
-.vc-mark { position: relative; border-radius: .2rem; }
-.vc-symbol { margin: 0 .15rem 0 .05rem; font-family: var(--font-sans); font-size: .7em; vertical-align: super; }
+/* The gaps: one per hidden word, as wide as the word; the next one to fill breathes slowly. */
+.vc-gap { display: inline-block; width: min(calc(var(--vc-len, 4) * .5em), 6.5em); height: .16rem; margin: 0 .22rem; border-radius: 2px; background: color-mix(in srgb, var(--vc-tone) 40%, var(--line)); vertical-align: baseline; transition: background-color .35s var(--vc-ease), opacity .35s var(--vc-ease); }
+.vc-gap.is-next { background: var(--vc-tone); animation: vc-breathe 2.4s ease-in-out infinite; }
+.vc-gap.is-reached { background: var(--vc-tone); opacity: .35; }
+.vc-fill { display: inline; animation: vc-land .45s var(--vc-ease) both; }
+.vc-fill.is-missed { color: var(--vc-wrong); text-decoration: underline wavy; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+@keyframes vc-breathe { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: .45; transform: scaleY(1.8); } }
+@keyframes vc-land { from { opacity: 0; transform: translateY(.5em); } to { opacity: 1; transform: none; } }
+@keyframes vc-deal { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+
+/* Pick: the three endings are kit cards in the serif; Hard's words are a strip of tiles. */
+.vc-endings { display: grid; gap: .6rem; margin-top: 1.1rem; }
+.vc-ending { --kit-card-height: 3.5rem; font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.45; }
+.vc-ending .kit-card__mark { font-size: 1.1rem; }
+.vc-words, .vc-letters, .vc-type { margin-top: 1rem; }
+.vc-count { margin: 0; color: var(--muted); font: 600 .72rem/1 var(--font-sans); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.vc-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; margin-top: .6rem; }
+.vc-tile { position: relative; display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 56px; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--page);
+  font-family: var(--font-serif); font-size: 1.15rem; overflow-wrap: anywhere; box-shadow: 0 2px 0 var(--line); animation: vc-deal .4s var(--vc-ease) both;
+  transition: transform .3s var(--vc-ease), border-color .3s var(--vc-ease), box-shadow .3s var(--vc-ease); }
+@media (hover: hover) { .vc-tile:hover { transform: translateY(-3px); border-color: var(--vc-tone); } }
+.vc-tile:focus-visible { transform: translateY(-3px); border-color: var(--vc-tone); box-shadow: 0 2px 0 var(--vc-tone); }
+.vc-tile:active { transform: translateY(1px); box-shadow: none; }
+.vc-tile.is-shake { border-color: var(--vc-wrong); color: var(--vc-wrong); animation: vc-shake .4s var(--vc-ease); }
+.vc-key { position: absolute; top: .3rem; left: .45rem; color: var(--muted); font: 600 .62rem/1 var(--font-sans); }
+@keyframes vc-shake { 0%, 100% { translate: 0; } 20%, 60% { translate: -5px 0; } 40%, 80% { translate: 5px 0; } }
+
+/* Type: the box lives in the card, under the verse, in the serif; its buttons sit above it, clear of a phone keyboard. */
+.vc-label { display: block; color: var(--muted); font-size: .85rem; font-weight: 600; }
+.vc-input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--page); color: var(--ink); font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.55; resize: vertical; transition: border-color .3s var(--vc-ease); }
+.vc-input:focus { border-color: var(--vc-tone); }
+.vc-input::placeholder { color: var(--muted); opacity: .7; font-size: .95rem; font-family: var(--font-sans); }
+.vc-type .vc-input { margin-top: .7rem; }
+.vc-letter-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .4rem .8rem; }
+.vc-letter-row .vc-label { grid-column: 1 / -1; }
+.vc-letter { max-width: 7rem; text-align: center; font-size: 1.5rem; }
+.vc-dont { margin-top: .4rem; }
+
+/* ---- The result: every word lands in its gap, marked; the band carries the stars, the verdict and Next ------------ */
+.vc-mark { display: inline-block; white-space: nowrap; border-radius: .25rem; animation: vc-land .45s var(--vc-ease) both; animation-delay: var(--vc-land, 0ms); }
+.vc-symbol { margin-left: .08em; font-family: var(--font-sans); font-size: .62em; font-weight: 700; vertical-align: .55em; }
 .vc-mark.is-exact .vc-symbol { color: var(--vc-right); }
 .vc-mark.is-typo { text-decoration: underline dotted; text-underline-offset: .2em; }
-.vc-mark.is-near { background: color-mix(in srgb, var(--vc-tone) 14%, transparent); }
+.vc-mark.is-typo .vc-symbol { color: var(--vc-right); }
+.vc-mark.is-near { background: color-mix(in srgb, var(--vc-part) 22%, transparent); }
+.vc-mark.is-near .vc-symbol { color: var(--vc-part); }
 .vc-mark.is-wrong, .vc-mark.is-missing { background: color-mix(in srgb, var(--vc-wrong) 14%, transparent); }
 .vc-mark.is-wrong .vc-symbol, .vc-mark.is-missing .vc-symbol { color: var(--vc-wrong); }
-.vc-typed { margin-right: .25rem; color: var(--muted); font-size: .85em; }
-.vc-score { display: flex; align-items: center; gap: .7rem; margin-top: .9rem; }
-.vc-stars { display: inline-flex; gap: .15rem; color: var(--line); }
-.vc-stars .is-on { color: #c9962b; fill: currentColor; }
-.vc-perfect { padding: .15rem .55rem; border: 1px solid var(--vc-right); border-radius: 999px; color: var(--vc-right); font-size: .78rem; font-weight: 650; }
+.vc-mark.is-shown { background: color-mix(in srgb, var(--vc-tone) 16%, transparent); }
+.vc-mark.is-shown .vc-symbol { color: var(--vc-tone); }
+.vc-typed { color: var(--muted); font-size: .8em; }
+.vc-card.is-result.is-right { border-color: color-mix(in srgb, var(--vc-right) 55%, var(--line)); }
+.vc-card.is-result.is-wrong { border-color: color-mix(in srgb, var(--vc-wrong) 45%, var(--line)); }
+.vc-band { margin-top: .8rem; border-radius: var(--kit-radius); border: 1px solid var(--line); animation: vc-deal .45s var(--vc-ease) both; animation-delay: var(--vc-landed, 0ms); }
+.vc-band .kit-band__row { align-items: center; }
+.vc-verdict { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; }
+.vc-verdict-words { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500; line-height: 1.2; }
+.vc-band.is-right .vc-verdict-words { color: var(--vc-right); }
+.vc-band.is-wrong .vc-verdict-words { color: var(--vc-wrong); }
+.vc-stars { position: relative; display: inline-flex; gap: .15rem; color: var(--line); }
+.vc-stars .is-on { color: var(--vc-gold); fill: currentColor; }
+.vc-stars.is-live .is-on { animation: vc-star .5s var(--vc-ease) both; animation-delay: calc(var(--vc-landed, 0ms) + var(--vc-i, 0) * 160ms); }
+.vc-stars.is-full::after { content: ""; position: absolute; inset: -.3rem; border-radius: 999px; pointer-events: none;
+  background: linear-gradient(100deg, rgb(201 150 43 / 0) 30%, rgb(201 150 43 / .4) 50%, rgb(201 150 43 / 0) 70%); background-size: 250% 100%;
+  animation: vc-shimmer .9s ease-out both; animation-delay: calc(var(--vc-landed, 0ms) + 560ms); opacity: 0; }
+@keyframes vc-star { 0% { transform: scale(.3); opacity: 0; } 60% { transform: scale(1.3); opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes vc-shimmer { 0% { opacity: 1; background-position: 120% 0; } 100% { opacity: 0; background-position: -30% 0; } }
 .vc-change { margin-top: .6rem; font-weight: 600; }
+@media (max-width: 639px) {
+  .vc-band { margin: .8rem -1rem 0; border-radius: var(--kit-radius) var(--kit-radius) 0 0; border-bottom: 0; }
+  .vc-band .kit-band__details { max-height: 32vh; overflow-y: auto; }
+  body.vc-playing .correction { opacity: .6; transform: scale(.8); transform-origin: 100% 100%; }
+}
+@media (max-width: 639px) and (max-height: 700px) { body.vc-playing .correction { visibility: hidden; } }
 
-/* Summary and My verses */
-.vc-total { margin-top: .8rem; font-size: 1.15rem; font-weight: 650; }
+/* ---- The ending: the kit's result panel in the game's clothes --------------------------------------------------- */
+.vc-summary { margin-top: 1rem; }
+.vc-summary h1 { margin-top: .6rem; }
+.vc-rank { margin-top: -.2rem; }
+.vc-total { position: relative; display: inline-flex; align-items: center; gap: .5rem; margin-top: .2rem; --kit-score-size: clamp(3rem, 10vw, 4.2rem); }
+.vc-total-star { color: var(--vc-gold); fill: currentColor; }
+.vc-flame { font-size: 1.05rem; }
+.vc-dealt { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .6rem; margin-top: .6rem; padding: 0; list-style: none; }
+.vc-dealt-card { position: relative; display: grid; gap: .3rem; padding: .7rem .85rem .8rem; border: 1px solid var(--line); border-left-width: 4px; border-radius: .8rem; background: var(--surface); animation: vc-deal .5s var(--vc-ease) both; animation-delay: calc(var(--kit-i, 0) * 50ms); }
+.vc-dealt-card.is-right { border-left-color: var(--vc-right); }
+.vc-dealt-card.is-part { border-left-color: var(--vc-part); }
+.vc-dealt-card.is-wrong, .vc-dealt-card.is-skipped { border-left-color: var(--vc-wrong); }
+.vc-dealt-card.is-all { border-left-color: var(--vc-tone); background: color-mix(in srgb, var(--vc-tone) 10%, var(--surface)); }
+.vc-dealt-card.is-open { grid-column: 1 / -1; }
+.vc-dealt-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem .8rem; width: 100%; min-height: 44px; text-align: left; transition: transform .3s var(--vc-ease); }
+button.vc-dealt-head:is(:hover, :focus-visible) { transform: translateX(3px); }
+.vc-dealt-ref { font-weight: 650; }
+.vc-dealt-count { display: grid; place-items: center; min-width: 2rem; height: 2rem; padding: 0 .5rem; border-radius: 999px; background: var(--vc-tone); color: var(--page); font-weight: 700; }
+.vc-dealt-card .vc-chip { justify-self: start; }
+.vc-dealt-card .vc-verse { margin-top: .4rem; }
+
+/* ---- My verses ------------------------------------------------------------------------------------------------- */
 .vc-rows { margin-top: 1rem; overflow-anchor: none; }
 .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
 .vc-row.is-mine { display: block; }
 .vc-row-ref { min-width: 10rem; font-weight: 600; }
-.vc-row-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem; width: 100%; min-height: 44px; text-align: left; }
+.vc-row-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem; width: 100%; min-height: 44px; text-align: left; transition: transform .3s var(--vc-ease); }
+.vc-row-head:is(:hover, :focus-visible) { transform: translateX(3px); }
 .vc-row-box, .vc-row-due { color: var(--muted); font-size: .85rem; }
 .vc-row-body { padding: .3rem 0 .6rem; }
 .vc-meter { display: inline-flex; gap: .2rem; }
@@ -84,10 +216,16 @@
 .vc-tools select { margin-left: .4rem; min-height: 44px; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--page); color: var(--ink); }
 .vc-clear { margin-top: 2rem; }
 
-/* How to play */
+/* ---- How to play ----------------------------------------------------------------------------------------------- */
 .vc-help-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgb(0 0 0 / .45); }
-.vc-help { width: min(34rem, 100%); max-height: 90vh; overflow: auto; padding: 1.3rem 1.4rem; border-radius: 1rem; background: var(--page); color: var(--ink); }
+.vc-help { width: min(34rem, 100%); max-height: 90vh; overflow: auto; padding: 1.3rem 1.4rem; border-radius: 1rem; background: var(--page); color: var(--ink); animation: vc-deal .4s var(--vc-ease) both; }
 .vc-help h2 { font-family: var(--font-serif); font-size: 1.5rem; }
 .vc-help ul { margin: .8rem 0 0 1.1rem; list-style: disc; line-height: 1.55; }
 .vc-help li + li { margin-top: .35rem; }
 .vc-help .vc-primary { margin-top: 1.1rem; }
+
+/* src/index.css shortens durations under reduced motion but not delays, so every stagger is zeroed here too. */
+@media (prefers-reduced-motion: reduce) {
+  .vc-mark, .vc-band, .vc-stars .is-on, .vc-stars.is-full::after, .vc-tile, .vc-level, .vc-dealt-card { animation-delay: 0s !important; }
+  .vc-gap.is-next { animation: none; }
+}

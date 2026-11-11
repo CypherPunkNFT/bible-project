@@ -62,7 +62,6 @@ beforeEach(() => {
   localStorage.clear();
   sessionStorage.clear();
   vi.spyOn(window, "scrollTo").mockImplementation(() => {});
-  vi.spyOn(window, "confirm").mockImplementation(() => true);
 });
 afterEach(() => { vi.restoreAllMocks(); });
 
@@ -72,7 +71,7 @@ describe("verse completion page", () => {
     choose("Play");
     for (let card = 1; card <= 10; card++) {
       const passage = await currentPassage();
-      expect(screen.getByText(new RegExp(`^Round · ${card} of 10$`))).toBeInTheDocument();
+      expect(screen.getByRole("img", { name: `Round · ${card} of 10` })).toBeInTheDocument();
       if (card === 2) {
         await screen.findByRole("group", { name: "Choose the ending" }, { timeout: 5000 });
         choose("I don't know");
@@ -89,7 +88,7 @@ describe("verse completion page", () => {
       choose("Next");
     }
     expect(await screen.findByRole("heading", { name: "Round finished" })).toBeInTheDocument();
-    expect(screen.getByText("Stars: 27 out of 30")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Stars: 27 out of 30" })).toBeInTheDocument();
     expect(saved().totals).toEqual({ rounds: 1, cards: 10, stars: 27 });
     expect(saved().days.streak).toBe(1);
   }, 60_000);
@@ -107,7 +106,7 @@ describe("verse completion page", () => {
         view.unmount();
         renderPage();
         expect((await currentPassage()).id).toBe(passage.id);
-        expect(screen.getByText(/^Round · 4 of 10$/)).toBeInTheDocument();
+        expect(screen.getByRole("img", { name: "Round · 4 of 10" })).toBeInTheDocument();
       }
       const box = await screen.findByLabelText("Type the rest of the verse", {}, { timeout: 5000 });
       const words = textOf(passage);
@@ -118,7 +117,7 @@ describe("verse completion page", () => {
       expect(screen.getAllByText(/words right/).length).toBeGreaterThan(0);
       choose("Next");
     }
-    expect(await screen.findByText("Stars: 30 out of 30")).toBeInTheDocument();
+    expect(await screen.findByRole("img", { name: "Stars: 30 out of 30" })).toBeInTheDocument();
     expect(saved().settings).toMatchObject({ answer: "type", style: "words", level: "medium" });
   }, 60_000);
 
@@ -134,6 +133,7 @@ describe("verse completion page", () => {
     fireEvent.input(input, { target: { value: keys.map((key) => key[0]).join("") } });
     expect(await screen.findByLabelText("Three stars")).toBeInTheDocument();
     choose("Leave round");
+    choose("Yes, leave"); // the site-styled confirm, not the browser's
     await waitFor(() => expect(saved().round).toBeNull());
 
     choose("Pick");

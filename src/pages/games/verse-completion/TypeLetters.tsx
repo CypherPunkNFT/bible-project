@@ -1,6 +1,7 @@
-// Type with first letters: one key per hidden word reveals it, struck through when the letter was wrong (design §5.2).
-// Keys are read from the input's text, not keydown, because many Android keyboards report every key as code 229. Text
-// still being composed by an input method waits for compositionend and is taken once. A scored word cannot be undone.
+// Type with first letters: one key per hidden word reveals it in its own gap in the verse (the card draws the words
+// from onProgress), struck through when the letter was wrong (design §5.2). Keys are read from the input's text, not
+// keydown, because many Android keyboards report every key as code 229. Text still being composed by an input method
+// waits for compositionend and is taken once. A scored word cannot be undone.
 import { useRef, useState } from "react";
 import type { Mark } from "./match";
 import { normalize, firstLetter, type Word } from "./words";
@@ -8,9 +9,16 @@ import { normalize, firstLetter, type Word } from "./words";
 /** The letters and digits of what was typed, in order: spaces and punctuation are not tries. */
 const lettersOf = (text: string): string[] => normalize(text).join("").split("");
 
-export function TypeLetters({ hidden, onDone, onDontKnow }: { hidden: readonly Word[]; onDone: (marks: Mark[]) => void; onDontKnow: (marks: Mark[]) => void }) {
-  const [marks, setMarks] = useState<Mark[]>([]);
+interface TypeLettersProps {
+  hidden: readonly Word[];
+  onProgress: (marks: Mark[]) => void;
+  onDone: (marks: Mark[]) => void;
+  onDontKnow: (marks: Mark[]) => void;
+}
+
+export function TypeLetters({ hidden, onProgress, onDone, onDontKnow }: TypeLettersProps) {
   const [said, setSaid] = useState("");
+  const [position, setPosition] = useState(0);
   const composing = useRef(false);
   const state = useRef<{ marks: Mark[]; done: boolean }>({ marks: [], done: false });
 
@@ -26,24 +34,22 @@ export function TypeLetters({ hidden, onDone, onDontKnow }: { hidden: readonly W
       setSaid(`${word.key}, ${right ? "right" : "missed"}`);
     }
     state.current.marks = next;
-    setMarks(next);
+    setPosition(next.length);
+    onProgress(next);
     if (next.length === hidden.length) { state.current.done = true; onDone(next); }
   };
 
   return <div className="vc-letters">
-    <p className="vc-built" aria-label="The ending so far">
-      {marks.map((mark, i) => <span key={i} className={mark.verdict === "exact" ? "vc-placed" : "vc-placed is-missed"}>
-        {hidden[i].text}{mark.verdict !== "exact" && <span className="sr-only"> (missed)</span>}
-      </span>)}
-      <span className="vc-cursor" aria-hidden="true">▁</span>
-    </p>
-    <label className="vc-label" htmlFor="vc-letter">Type the first letter of the next word</label>
-    <input id="vc-letter" className="vc-input vc-letter" type="text" autoFocus inputMode="text"
-      autoComplete="off" autoCorrect="off" autoCapitalize="none" spellCheck={false} enterKeyHint="next"
-      onCompositionStart={() => { composing.current = true; }}
-      onCompositionEnd={(event) => { composing.current = false; take(event.data ?? event.currentTarget.value, event.currentTarget); }}
-      onInput={(event) => { if (!composing.current) take(event.currentTarget.value, event.currentTarget); }} />
-    <div className="vc-actions">
+    <div className="vc-letter-row">
+      <label className="vc-label" htmlFor="vc-letter">Type the first letter of the next word</label>
+      <input id="vc-letter" className="vc-input vc-letter" type="text" autoFocus inputMode="text"
+        autoComplete="off" autoCorrect="off" autoCapitalize="none" spellCheck={false} enterKeyHint="next"
+        onCompositionStart={() => { composing.current = true; }}
+        onCompositionEnd={(event) => { composing.current = false; take(event.data ?? event.currentTarget.value, event.currentTarget); }}
+        onInput={(event) => { if (!composing.current) take(event.currentTarget.value, event.currentTarget); }} />
+      <span className="vc-count" aria-hidden="true">{`${Math.min(position + 1, hidden.length)} / ${hidden.length}`}</span>
+    </div>
+    <div className="vc-actions is-tight">
       <button type="button" className="vc-link" onClick={() => { if (!state.current.done) { state.current.done = true; onDontKnow(state.current.marks); } }}>I don't know</button>
     </div>
     <p className="sr-only" aria-live="polite">{said}</p>
