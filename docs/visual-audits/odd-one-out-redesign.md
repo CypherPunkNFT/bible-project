@@ -79,7 +79,7 @@ All run from the Website folder after the last change, in this order.
 - `npm run build`: exit 0 (three times; the later two after the ring on the start screen, the cap on the open fold, the sideways band and the share copy box were tidied from the screenshots).
 - Play-through on the preview with Playwright at 1440 by 900 and 390 by 844, dark and light, from a cleared browser and from a saved game: the start and the greyed levels, a right answer, the fold open, Next by Enter, a wrong answer, focus by Tab, an answer by number key, mid-play, a reload mid-round (focus stays on the page body, the answered puzzle comes back), the last puzzle and See results, the summary with a row opened, Share with the clipboard blocked, Play again, Leave round, a Mixed Medium round, a Places Hard round, 320 wide and a sideways phone. Console errors: 0 in all four passes. Measured on the phone: Next from 547 to 591 after a right answer and 560 to 604 after a wrong one on an 844-tall screen, page scroll 0 after every Next and after Play again, the open fold capped so the band ends at the screen's bottom with Next at 394, cards 120 pixels tall before and after answering, chips and buttons 44 pixels, no sideways scroll at any width. The kit was not changed, so its tests were not needed.
 
-Commit: COMMIT_PLACEHOLDER
+Commit: `b0e7a27e2238438e22cab3c8b1b81ffa7eb9a072` on `main`, "Redesign: Odd one out (from its visual audit)", pushed to origin; a second small commit records this hash in the report and restores LF line endings in four files my edits had left as CRLF. Nothing was released.
 
 ## 6. Left for later
 
