@@ -106,7 +106,13 @@ date (saved in the browser under `bp-map-quest`), and a Disputed sites mode. All
   hand-kept `curation.json`. Run it by hand after changing curation; it never changes a past or current daily puzzle.
 - **Daily epoch:** puzzle #1 is `2026-11-07` (the build date). To start the numbering on the real launch day instead,
   delete `daily.json` and run the script with `--epoch YYYY-MM-DD` before the first release; after launch, never.
-- **Map:** the atlas's own map file and MapLibre, drawn blank (`quest-style.ts`); no new service or cost.
+- **Map:** the atlas's own map file and MapLibre, drawn blank (`quest-style.ts`); no new service or cost. The game lifts
+  the dark theme's land, deepens its sea and draws a coastline in its own style (`QUEST_EARTH`), never in the atlas's
+  `EARTH`; Beginner's water names are the game's own labels (`water-names.ts`), since the tiles' lake labels never
+  appear at the era views. The pin and the true site are HTML markers (`QuestMap.tsx`); the reveal line draws itself
+  out over half a second from the pin; the summary passes every result as `summary` and the map goes still.
+- **Redesign (2026-11-11):** [docs/visual-audits/map-quest-redesign.md](../../../docs/visual-audits/map-quest-redesign.md);
+  uses the kit's trail, band, count-up, result panel, rank line, streak flame, share button and confetti.
 - **Known gaps:** place names, era names and the disputed-site notes are English in every language (the translation
   collector does not read `src/data/map-quest/`); the disputed-site notes are drafts awaiting the owner's review.
 - **Checks:** the `*.test.ts(x)` files beside the code run in `npm test`; `npm run test:data` adds the Python filter tests.

@@ -1,12 +1,14 @@
 // /games/map-quest: Map quest (BibleProject/APPROVED-IDEAS.md entry 17; design: docs/features/map-quest/design.md).
 // A Bible place is named, the player drops a pin on a blank map, and the closer the pin the more points. Every screen is
 // state inside this one page (the hub gives a game one address); the chosen mode is mirrored in ?play= so a refresh or
-// a shared link reopens it. The Daily Five is saved in this browser as it is played.
+// a shared link reopens it. The Daily Five is saved in this browser as it is played. The game's colour is the hub's
+// poetry teal, set here for the kit's pieces (map-quest.css) while the pin and the bullseye keep the site's gold.
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { DAILY } from "./data";
 import { dailyGame, disputedGame, pickFromResult, playParams, practiceGame, readPlay, resultsFromPicks, type Game, type Mode, type Result } from "./game";
+import { useScrollTopOn } from "../kit";
 import { Home } from "./Home";
 import { useNow } from "./use-now";
 import { Play } from "./Play";
@@ -23,6 +25,7 @@ export default function MapQuestGame() {
   const [stats, setStats] = useState<Stats>(readStats);
   const [session, setSession] = useState<Session | null>(null);
   const now = useNow();
+  useScrollTopOn(session?.round ?? 0); // a game started from the foot of the home opens at the top, map first
 
   // Every change re-reads what is stored first, so a second tab's pins are never overwritten.
   const update = (change: (fresh: Stats) => Stats) => {

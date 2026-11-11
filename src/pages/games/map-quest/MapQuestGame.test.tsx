@@ -10,10 +10,12 @@ import { PLACE_BY_ID } from "./data";
 
 let pinAt: [number, number] = [0, 0];
 vi.mock("./QuestMap", () => ({
-  QuestMap: ({ onPin, onFail, reveal }: { onPin: (pin: [number, number]) => void; onFail: () => void; reveal: unknown }) => <div>
-    <button type="button" disabled={!!reveal} onClick={() => onPin(pinAt)}>Stand-in map</button>
-    <button type="button" onClick={onFail}>Break the map</button>
-  </div>,
+  QuestMap: ({ onPin, onFail, reveal, summary }: { onPin: (pin: [number, number]) => void; onFail: () => void; reveal: unknown; summary?: unknown[] }) => summary
+    ? <ul aria-label="Stand-in summary map">{summary.map((_, i) => <li key={i}>pin</li>)}</ul>
+    : <div>
+      <button type="button" disabled={!!reveal} onClick={() => onPin(pinAt)}>Stand-in map</button>
+      <button type="button" onClick={onFail}>Break the map</button>
+    </div>,
 }));
 vi.mock("@/components/Verse", () => ({ Verse: ({ id }: { id: number }) => <span>{`verse ${id}`}</span> }));
 
@@ -57,18 +59,43 @@ describe("map quest page", () => {
   it("plays a practice round: Confirm waits for a pin, an exact pin scores 1,000", async () => {
     await renderAt("/games/map-quest");
     fireEvent.click(await screen.findByRole("button", { name: "Start practice" }));
-    expect(screen.getByText("Place 1 of 5")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Place 1 of 5" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Confirm" })).toBeDisabled();
     answerExactly();
     expect(screen.getByText(/0 km \(0 mi\) away, 1,000 points/)).toBeInTheDocument();
     for (let place = 2; place <= 5; place++) {
       fireEvent.click(screen.getByRole("button", { name: "Next place" }));
-      expect(screen.getByText(`Place ${place} of 5`)).toBeInTheDocument();
+      expect(screen.getByRole("img", { name: `Place ${place} of 5` })).toBeInTheDocument();
       answerExactly();
     }
     fireEvent.click(screen.getByRole("button", { name: "See your score" }));
     expect(screen.getByRole("heading", { name: "5,000 of 5,000 points" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Play again" })).toBeInTheDocument();
+    expect(screen.getByText("Best round")).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Stand-in summary map" })).getAllByText("pin")).toHaveLength(5);
+  });
+
+  it("shows the first-pin hint until a pin is dropped, and enables Confirm once one is", async () => {
+    await renderAt("/games/map-quest?play=practice&level=beginner&era=all");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    expect(screen.getByText("Tap the map to drop a pin, then drag it to adjust.")).toBeInTheDocument();
+    pinAt = [35, 32];
+    fireEvent.click(screen.getByRole("button", { name: "Stand-in map" }));
+    expect(screen.queryByText("Tap the map to drop a pin, then drag it to adjust.")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Confirm" })).toBeEnabled();
+  });
+
+  it("reopens a finished Daily Five straight on the summary, with all five pins on the map", async () => {
+    const first = await renderAt("/games/map-quest?play=daily");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    for (let place = 1; place <= 5; place++) {
+      answerExactly();
+      if (place < 5) fireEvent.click(screen.getByRole("button", { name: "Next place" }));
+    }
+    first.unmount();
+    await renderAt("/games/map-quest?play=daily");
+    expect(await screen.findByRole("heading", { name: "5,000 of 5,000 points" })).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Stand-in summary map" })).getAllByText("pin")).toHaveLength(5);
   });
 
   it("saves the Daily Five as it is played, and resumes it after a reload", async () => {
@@ -79,18 +106,20 @@ describe("map quest page", () => {
     await renderAt("/games/map-quest");
     expect(await screen.findByRole("button", { name: "Resume (1 of 5)" })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Resume (1 of 5)" }));
-    expect(screen.getByText("Place 2 of 5")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Place 2 of 5" })).toBeInTheDocument();
   });
 
   it("finishes the Daily Five once, then shows the result and the share button on the home card", async () => {
     await renderAt("/games/map-quest?play=daily");
-    await screen.findByText("Place 1 of 5");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
     for (let place = 1; place <= 5; place++) {
       answerExactly();
       fireEvent.click(screen.getByRole("button", { name: place === 5 ? "See your score" : "Next place" }));
     }
     expect(screen.getByRole("heading", { name: "5,000 of 5,000 points" })).toBeInTheDocument();
-    expect(screen.getByText("Streak: 1 day")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Streak: 1 day" })).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Stand-in summary map" })).getAllByText("pin")).toHaveLength(5);
+    expect(screen.getByText("Cartographer")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Back to the game home" }));
     expect(screen.getByText("Puzzle #3 done: 5,000 of 5,000 points.")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Share" })).toBeInTheDocument();
