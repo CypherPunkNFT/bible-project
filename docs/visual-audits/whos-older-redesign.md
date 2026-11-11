@@ -65,7 +65,7 @@ All run from the Website folder after the last change, in this order.
 - `npm run build`: exit 0 (four times; the later ones after the strip's bracket, the result bars and the year labels on narrow bars were tidied from the screenshots).
 - Play-through on the preview with Playwright at 1440 and 390, dark and light, fresh and from a saved game: start, Relaxed open, a Streak run by tap and by keyboard through the five-in-a-row milestone to a miss, the result card, Share with the clipboard blocked, a reload mid-run and Continue, a Relaxed Easy run to the last heart, the light theme, and a game that cannot load. Console errors: 0 at both sizes. The kit was not changed, so its tests were not needed.
 
-Commit: recorded below once made.
+Commit: `797ab41782e29e2d2284bcbd35ec8e23baeade83` on `main`, "Redesign: Who's older? (from its visual audit)", pushed to origin; a second small commit records this hash in the report. Nothing was released.
 
 ## 6. Left for later
 
