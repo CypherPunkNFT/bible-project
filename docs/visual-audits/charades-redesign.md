@@ -82,7 +82,7 @@ All run from the Website folder on 11 November 2026, after the last change:
 - **Build** (`npm run build`): passed; the preview served the new build for every screenshot.
 - **Play-through on the preview with Playwright** at 1440 and 390, dark and light, from a fresh browser: the start screen, Act it, teams on, How to play, get ready, the countdown, the first card, Got it, Pass, the keyboard arrows, Pause and Resume, the last ten and five seconds, Time's up, the recap, a mark fixed, Act it with the picture, Hide card, a two-team game through the hand-over, a reload at the hand-over, the final standings, and Tab focus on the start screen. The browser console showed no errors in any run.
 - **Kit change:** the score count-up now starts from the first frame's own clock when that clock runs behind the page clock (the headless test browser's does), so a recap counted in a test no longer sticks at zero; every existing kit test passes unchanged.
-- **Commit:** _(filled in below once committed)_
+- **Commit:** `9ac89e0c0` on `main`, "Redesign: Family charades (from its visual audit)", staging only the game folder, the kit count-up file, this report and the after-screenshots (a small follow-up commit records this hash). Pushed to `origin main` if the push was accepted; the live site is not released by this work.
 
 ## 6. Left for later
 
