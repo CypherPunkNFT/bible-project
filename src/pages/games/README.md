@@ -430,3 +430,53 @@ the site's layout; the hand-over, count-down, turn, recap and standings between 
   real bank (at least 1,000 per group and 300 per testament), 60 turns of 20 draws per group with no repeat, the warm-up,
   two choices and the seen list, the session reducer and leaderboard, storage (damaged, old, tampered and blocked), and
   whole games on the page with fake timers (pause, buzzer, idle close, recap fix, reload and Carry on, Try again).
+
+## Kit
+
+`kit/` ([kit/index.ts](kit/index.ts)) is the behaviour several games share, built first for the redesign sequence
+([docs/visual-audits/REDESIGN-BRIEF.md](../../../docs/visual-audits/REDESIGN-BRIEF.md) section 5) and named from the
+pieces the sixteen visual audits ask for again and again
+([docs/visual-audits/README.md](../../../docs/visual-audits/README.md), "What several games share"; the plain-words list
+with each game's expected pieces is [docs/visual-audits/KIT.md](../../../docs/visual-audits/KIT.md)). It carries
+**behaviour, not look**: hooks, small components and keyframes. The kit imports no game and touches neither
+`games.css` nor `GamesPage.tsx`; a game imports from `./kit` (or `../kit`), which brings in `kit.css` once.
+
+**How a game sets its look.** The game sets CSS variables on its own root and the kit's pieces move, tint and settle
+in them, so two games never look alike: `--kit-color` (its hub book colour, e.g. `var(--gospels)`), `--kit-right` and
+`--kit-wrong` (defaults: one green, `var(--red-letter)`; the audits found two games marking right answers in lavender,
+so the kit's default is the one rule), `--kit-part` (partly right, default `var(--epistles)`), `--kit-surface`,
+`--kit-radius`, `--kit-ease` (default the hub's `cubic-bezier(.16, 1, .3, 1)`), and per piece `--kit-card-height`,
+`--kit-pip`, `--kit-score-size`, `--kit-timer-height`, `--kit-ring`. Every class is prefixed `kit-`; a game adds its
+own class through `className` and styles it in its own stylesheet. **Every state change happens at once** and the
+animation only decorates it; `src/index.css` cuts animations to 0.01 ms under reduced motion and nothing in the kit
+waits for one to end. No piece draws a focus outline: focus is the same lift and edge as hover. Words: the kit's own
+labels are plain literals (Next is the game's; the kit has Share, Copied, Copy this, New best, Winner, You're up,
+More options, Cancel); names, answers and counts come in as slots or as `plural()` labels, so the English check passes.
+
+| Piece | What it does | Asked for by |
+|---|---|---|
+| `AnswerCard` ([kit/AnswerCard.tsx](kit/AnswerCard.tsx)) | A button card that deals in with a stagger (`index`), lifts on hover and keyboard focus, presses on tap, and settles `selected`, `right` (tint, tick), `wrong` (tint, dashed edge, shake) or `faded`; fixed `min-height` so a mark never jumps the row; `interactive={false}` for a question or scene card. | quiz, two-truths, emoji-stories, odd-one-out, verse-completion, whos-older, jeopardy, hot-seat, charades, twenty-questions (10) |
+| `FlipCard` ([kit/FlipCard.tsx](kit/FlipCard.tsx)) | Turns a card over in place on the `x` or `y` axis; two faces, so the back's tint (`tone`) appears exactly at the half-turn; the back's words are mounted only once `flipped`, so a face-down answer cannot be read. | wordle (the early-colour fault), timeline, two-truths, jeopardy, memory-match, quiz (6) |
+| `FeedbackBand` ([kit/FeedbackBand.tsx](kit/FeedbackBand.tsx)) | Slides up when `open` with the `verdict` (a live region kept in the page), the `action` (Next, Save turn, Play again) inside it and the reading folded under; sticky to the bottom of a phone screen (`pinned="narrow"`, `"always"`, `"never"`); moves focus to the action on opening. | two-truths, odd-one-out, emoji-stories, verse-completion, whos-older, map-quest, timeline, quiz, hot-seat, memory-match (10) |
+| `useScrollTopOn(key, scroller?)` ([kit/scroll.ts](kit/scroll.ts)) | Scrolls to the top when the screen key changes, never on first mount. | odd-one-out, memory-match, emoji-stories, jeopardy, two-truths, crossword, map-quest (7) |
+| `ProgressTrail` + `trailMarks`, `trailText`, `newestIndex` ([kit/ProgressTrail.tsx](kit/ProgressTrail.tsx), [kit/trail.ts](kit/trail.ts)) | One square or dot per round, `right`/`wrong`/`part`/`current`/`empty`, the newest popping; `trailText` writes the same marks as the share grid (a game passes its own squares, e.g. Wordle's contrast ones). | quiz, two-truths, emoji-stories, odd-one-out, verse-completion, twenty-questions, map-quest, hot-seat, memory-match, crossword (10) |
+| `ScoreCountUp` + `useCountUp`, `countAt` ([kit/ScoreCountUp.tsx](kit/ScoreCountUp.tsx), [kit/count-up.ts](kit/count-up.ts)) | The score counting up from zero, time-based so it lands exactly; the real value is in the page from the first render, the digits are decoration; at once under reduced motion. | every game's end screen (16) |
+| `ResultPanel`, `RankLine` + `rankFor`, `NewBestRibbon` ([kit/ResultPanel.tsx](kit/ResultPanel.tsx), [kit/rank.ts](kit/rank.ts)) | The end screen's shell (head, trail, actions, reading) so a phone ending fits one screen; the rank line in the hub's gold italic from the game's own title table; a ribbon that pops for a new best. | every game (16) |
+| `StreakFlame` + `useGrew` ([kit/StreakFlame.tsx](kit/StreakFlame.tsx), [kit/grew.ts](kit/grew.ts)) | A flame that lights from two in a row (`litFrom`) and pulses only when the streak grows. | quiz, wordle, verse-completion, live-quiz, whos-older, timeline, map-quest (7) |
+| `ShareButton` + `shareText` ([kit/ShareButton.tsx](kit/ShareButton.tsx), [kit/share.ts](kit/share.ts)) | Share with a preview of the game's own text; the share sheet, else the clipboard (Copied), else a box to copy from (Copy this); the status clears after a moment and when the text changes. Same `ShareOutcome` as Wordle's `share.ts`. | wordle, timeline, two-truths, emoji-stories, map-quest, quiz and every game with a share line |
+| `TimerBar` + `timerTone`, `timeShare` ([kit/TimerBar.tsx](kit/TimerBar.tsx), [kit/timer.ts](kit/timer.ts)) | A thick bar or ring that drains from the game's own clock, amber then red and pulsing for the last `warnAt` seconds, the number beside it, a `stamp` (Time!) that lands over the top when time is up; `quiet` for a long count. | live-quiz, jeopardy, charades, hot-seat, crossword (5) |
+| `TeamChips`, `WinnerLine`, `HandOver`, `Podium` + `placeTeams`, `podiumSteps`, `scoreShares`, `teamTone` ([kit/TeamChips.tsx](kit/TeamChips.tsx), [kit/Podium.tsx](kit/Podium.tsx), [kit/teams.ts](kit/teams.ts)) | A colour chip per team (the seven book colours in turn) with a bar that grows against the leader and the team whose turn it is lifted; the winner's name under a Winner label; the hand-over card (You're up, the name very large); a podium rising third, second, first, a shared place on one step. Places follow Hot seat's competition rule. | live-quiz, jeopardy, charades, hot-seat, two-truths, memory-match, emoji-stories (7) |
+| `HopWave`, `Confetti` + `confettiPieces` ([kit/Celebration.tsx](kit/Celebration.tsx), [kit/confetti.ts](kit/confetti.ts)) | A hop wave across a row's children, and one short gold-and-cream burst from the centre of its parent, once, taken down after; no pieces at all under reduced motion. | wordle, timeline, quiz, live-quiz, jeopardy, crossword, map-quest, whos-older, twenty-questions, memory-match (10) |
+| `MoreOptions` ([kit/MoreOptions.tsx](kit/MoreOptions.tsx)) | One disclosure row that folds the long tail of settings so Play sits on the first phone screen. | thirteen of the sixteen start screens |
+| `ConfirmDialog` ([kit/ConfirmDialog.tsx](kit/ConfirmDialog.tsx)) | A site-styled confirm on a native `<dialog>` (Wordle's panel pattern), focus back to the opener. | verse-completion, hot-seat, crossword (3) |
+| `prefersReducedMotion`, `motionMs`, `hasWindow`, `KIT_EASE` ([kit/env.ts](kit/env.ts)) | The one place the kit reads the window and the motion preference. | all |
+
+Not in the kit: drag and drop (only Timeline sort drags, and no other audit asked for it), and Verse completion's
+word-by-word fill and Jeopardy's tile that grows into the clue, which are not flips and belong to those games.
+
+- **Extending it:** a game step may add a prop or a piece, keeping every existing prop working, and runs the kit's tests
+  and those of every game that imports it. Keep this table true.
+- **Checks:** `npx vitest run src/pages/games/kit` ([kit/pure.test.ts](kit/pure.test.ts): every pure function;
+  [kit/cards.test.tsx](kit/cards.test.tsx) and [kit/result.test.tsx](kit/result.test.tsx): every component on the page,
+  including the band's focus, the count-up's frames, the burst under reduced motion and the dialog's focus return);
+  `npx eslint src/pages/games/kit`; the English check.

@@ -1,0 +1,191 @@
+/* The games kit: behaviour, not look. Every colour, radius and face comes from a --kit-* variable the game sets on
+   its own root (its hub colour as --kit-color, its radius, its type); the kit only moves, tints and settles. Defaults
+   sit on each piece's root, so a game that sets only --kit-color still works. Reduced motion needs nothing here:
+   src/index.css cuts every animation and transition to 0.01 ms, and no state below waits for one to end.
+
+   The variables a game sets:
+     --kit-color    its colour (the hub's book colour)         default var(--accent)
+     --kit-right    a right answer                             default a green
+     --kit-wrong    a wrong answer                             default var(--red-letter)
+     --kit-part     partly right (a star short, a near miss)   default var(--epistles)
+     --kit-surface  a card's face                              default var(--surface)
+     --kit-radius   a card's corners                           default .9rem
+     --kit-ease     the easing                                 default the hub's cubic-bezier(.16, 1, .3, 1)
+     --kit-i        an item's place in its row, for staggers   set per card by the components                        */
+
+.kit-card, .kit-flip, .kit-band, .kit-trail, .kit-score, .kit-rank, .kit-ribbon, .kit-streak, .kit-share, .kit-hop,
+.kit-confetti, .kit-chips, .kit-winner, .kit-podium, .kit-handover, .kit-timer, .kit-dialog, .kit-options {
+  --_color: var(--kit-color, var(--accent));
+  --_right: var(--kit-right, #2f8a4f);
+  --_wrong: var(--kit-wrong, var(--red-letter));
+  --_part: var(--kit-part, var(--epistles));
+  --_surface: var(--kit-surface, var(--surface));
+  --_radius: var(--kit-radius, .9rem);
+  --_ease: var(--kit-ease, cubic-bezier(.16, 1, .3, 1));
+}
+
+/* ---- The answer card: deals in, lifts, presses, settles right or wrong (audits item 1) ---------------------------- */
+.kit-card {
+  position: relative; display: flex; align-items: center; gap: .75rem; width: 100%; min-height: var(--kit-card-height, 3.25rem);
+  padding: .8rem 1rem; border: 1px solid var(--line); border-radius: var(--_radius); background: var(--_surface); color: var(--ink);
+  font: inherit; text-align: start; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  transition: transform .35s var(--_ease), border-color .35s var(--_ease), box-shadow .35s var(--_ease), background-color .35s var(--_ease), opacity .35s var(--_ease);
+  animation: kit-deal .55s var(--_ease) both; animation-delay: calc(var(--kit-i, 0) * 60ms);
+}
+.kit-card--still { cursor: default; }
+@media (hover: hover) { .kit-card:not(.kit-card--still):hover { transform: translateY(-3px); border-color: var(--_color); box-shadow: 0 10px 24px -18px rgb(0 0 0 / .55); } }
+/* Focus is the same lift and edge as hover: the site has no focus outline (owner, 2026-10-06). */
+.kit-card:focus-visible { transform: translateY(-3px); border-color: var(--_color); box-shadow: 0 0 0 1px var(--_color) inset; }
+.kit-card:not(.kit-card--still):active { transform: translateY(0) scale(.985); transition-duration: .08s; }
+.kit-card.is-selected { border-color: var(--_color); box-shadow: 0 0 0 1px var(--_color) inset; }
+.kit-card.is-right { border-color: var(--_right); background: color-mix(in srgb, var(--_right) 14%, var(--_surface)); }
+.kit-card.is-wrong { border-style: dashed; border-color: var(--_wrong); background: color-mix(in srgb, var(--_wrong) 10%, var(--_surface)); animation: kit-shake .45s var(--_ease); }
+.kit-card.is-faded { opacity: .45; }
+.kit-card.is-right, .kit-card.is-wrong, .kit-card.is-faded { cursor: default; }
+.kit-card.is-right:hover, .kit-card.is-wrong:hover, .kit-card.is-faded:hover { transform: none; box-shadow: none; }
+.kit-card__body { flex: 1 1 auto; min-width: 0; }
+.kit-card__mark { flex: 0 0 auto; width: 1.5rem; text-align: center; font-weight: 700; line-height: 1; animation: kit-pop .4s var(--_ease) both; }
+.is-right > .kit-card__mark { color: var(--_right); }
+.is-wrong > .kit-card__mark { color: var(--_wrong); }
+
+@keyframes kit-deal { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes kit-shake { 0%, 100% { translate: 0; } 20%, 60% { translate: -5px 0; } 40%, 80% { translate: 5px 0; } }
+@keyframes kit-pop { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.18); opacity: 1; } 100% { transform: none; } }
+
+/* ---- The flip card: turns over in place; the back's colour shows only past the half-turn (audits item 2) ------------- */
+.kit-flip { perspective: 900px; animation: kit-deal .55s var(--_ease) both; animation-delay: calc(var(--kit-i, 0) * 60ms); }
+.kit-flip__inner { position: relative; display: grid; transform-style: preserve-3d; transition: transform .6s var(--_ease); }
+.kit-flip--y.is-flipped .kit-flip__inner { transform: rotateY(180deg); }
+.kit-flip--x.is-flipped .kit-flip__inner { transform: rotateX(180deg); }
+.kit-flip__face { grid-area: 1 / 1; min-width: 0; border: 1px solid var(--line); border-radius: var(--_radius); background: var(--_surface); color: var(--ink);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.kit-flip--y .kit-flip__back { transform: rotateY(180deg); }
+.kit-flip--x .kit-flip__back { transform: rotateX(180deg); }
+.kit-flip__back.is-right { border-color: var(--_right); background: color-mix(in srgb, var(--_right) 16%, var(--_surface)); }
+.kit-flip__back.is-wrong { border-color: var(--_wrong); background: color-mix(in srgb, var(--_wrong) 12%, var(--_surface)); }
+.kit-flip__back.is-part { border-color: var(--_part); background: color-mix(in srgb, var(--_part) 18%, var(--_surface)); }
+
+/* ---- The feedback band: slides up with the verdict and the Next button inside (audits item 3) --------------------- */
+.kit-band { position: relative; border-top: 1px solid var(--line); background: var(--_surface); color: var(--ink);
+  padding: .9rem 1rem calc(.9rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -24px rgb(0 0 0 / .6); animation: kit-rise .45s var(--_ease) both; }
+.kit-band.is-right { border-top-color: var(--_right); background: color-mix(in srgb, var(--_right) 10%, var(--_surface)); }
+.kit-band.is-wrong { border-top-color: var(--_wrong); background: color-mix(in srgb, var(--_wrong) 8%, var(--_surface)); }
+.kit-band.is-part { border-top-color: var(--_part); background: color-mix(in srgb, var(--_part) 12%, var(--_surface)); }
+.kit-band--always { position: sticky; bottom: 0; z-index: 5; }
+@media (max-width: 639px) { .kit-band--narrow { position: sticky; bottom: 0; z-index: 5; } }
+.kit-band__row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.kit-band__verdict { flex: 1 1 auto; min-width: 0; font-weight: 650; }
+.kit-band__verdict:empty { display: none; }
+.kit-band__action { flex: 0 0 auto; }
+.kit-band__action button { min-height: 44px; }
+.kit-band__details { margin-top: .75rem; animation: kit-fade .4s var(--_ease) both; }
+@keyframes kit-rise { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: none; } }
+@keyframes kit-fade { from { opacity: 0; } }
+
+/* ---- The progress trail: one pip per round, the newest pops (audits item 5) ---------------------------------------- */
+.kit-trail { display: flex; flex-wrap: wrap; align-items: center; gap: var(--kit-pip-gap, .35rem); }
+.kit-trail__mark { width: var(--kit-pip, .8rem); height: var(--kit-pip, .8rem); border-radius: 2px; background: var(--line); transition: background-color .35s var(--_ease), transform .35s var(--_ease); }
+.kit-trail--dots .kit-trail__mark { border-radius: 50%; }
+.kit-trail__mark.is-current { background: transparent; box-shadow: 0 0 0 2px var(--_color) inset; }
+.kit-trail__mark.is-right { background: var(--_right); }
+.kit-trail__mark.is-wrong { background: var(--_wrong); }
+.kit-trail__mark.is-part { background: var(--_part); }
+.kit-trail__mark.is-new { animation: kit-pop .45s var(--_ease) both; }
+
+/* ---- The result panel's pieces: score, rank, ribbon, streak, share (audits items 6 and 7) ------------------------- */
+.kit-score { font-family: var(--font-serif); font-size: var(--kit-score-size, clamp(3rem, 10vw, 4.5rem)); font-weight: 500; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.kit-score__of { font-size: .35em; color: var(--muted); margin-inline-start: .3em; }
+.kit-rank { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--accent); animation: kit-fade .6s var(--_ease) both; }
+.kit-ribbon { display: inline-block; padding: .2rem .7rem; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent);
+  font-family: var(--font-sans); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; animation: kit-pop .5s var(--_ease) both; }
+.kit-streak { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); font-variant-numeric: tabular-nums; transition: color .35s var(--_ease); }
+.kit-streak.is-lit { color: var(--ink); }
+.kit-streak__flame { display: inline-block; opacity: .35; transform-origin: 50% 90%; transition: opacity .35s var(--_ease); }
+.kit-streak.is-lit .kit-streak__flame { opacity: 1; animation: kit-pulse .6s var(--_ease); }
+.kit-share { display: grid; gap: .5rem; }
+.kit-share__preview { margin: 0; padding: .6rem .8rem; border: 1px dashed var(--line); border-radius: var(--_radius); background: var(--_surface); color: var(--muted);
+  font: inherit; font-size: .9rem; line-height: 1.5; white-space: pre-wrap; }
+.kit-share__copy { width: 100%; min-height: 6rem; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: var(--_radius); background: var(--_surface); color: var(--ink); font: inherit; }
+.kit-share__status { min-height: 1.3rem; font-size: .9rem; color: var(--muted); }
+@keyframes kit-pulse { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+/* ---- The celebration: a hop wave across the children, one burst at one point (audits item 10) -------------------- */
+.kit-hop > * { animation: kit-hop .6s var(--_ease) both; animation-delay: calc(var(--kit-i, 0) * 70ms); }
+@keyframes kit-hop { 0%, 100% { transform: none; } 40% { transform: translateY(-14px); } 70% { transform: translateY(3px); } }
+.kit-confetti { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.kit-confetti__piece { position: absolute; left: 50%; top: 50%; width: 7px; height: 11px; border-radius: 1px; background: var(--accent); opacity: 0;
+  animation: kit-burst .9s var(--_ease) both; animation-delay: calc(var(--kit-delay, 0) * 1s); }
+.kit-confetti__piece.is-cream { background: var(--page); border: 1px solid var(--accent); }
+@keyframes kit-burst { 0% { opacity: 1; transform: translate(-50%, -50%) rotate(0); } 100% { opacity: 0; transform: translate(calc(-50% + var(--kit-dx)), calc(-50% + var(--kit-dy))) rotate(var(--kit-turn)); } }
+
+/* ---- Teams: chips with bars, the winner line, the hand-over card, the podium (audits item 9) --------------------- */
+.kit-chips { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0; list-style: none; }
+.kit-chip { --_team: var(--_color); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .5rem; min-height: 44px; padding: .4rem .8rem;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--_surface); color: var(--ink); font: inherit; transition: border-color .35s var(--_ease), transform .35s var(--_ease); }
+.kit-chip.is-leading { border-color: var(--_team); }
+.kit-chip.is-up { transform: translateY(-2px); border-color: var(--_team); box-shadow: 0 0 0 1px var(--_team) inset; }
+.kit-chip__dot { width: .7rem; height: .7rem; border-radius: 50%; background: var(--_team); }
+.kit-chip__name { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kit-chip__score { font-variant-numeric: tabular-nums; }
+.kit-chip__bar { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: var(--_team); transform-origin: 0 50%; transform: scaleX(var(--kit-share, 0)); transition: transform .6s var(--_ease); }
+.kit-winner { display: grid; gap: .2rem; text-align: center; }
+.kit-winner__label { font-family: var(--font-sans); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.kit-winner__name { position: relative; font-family: var(--font-serif); font-size: clamp(1.6rem, 6vw, 2.4rem); line-height: 1.1; color: var(--ink); animation: kit-pop .5s var(--_ease) both; }
+.kit-handover { display: grid; gap: .35rem; justify-items: center; text-align: center; padding: 1.2rem 1rem; border: 1px solid var(--line); border-radius: var(--_radius); background: var(--_surface);
+  border-top: 3px solid var(--_team, var(--_color)); animation: kit-deal .5s var(--_ease) both; }
+.kit-handover__label { font-family: var(--font-sans); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.kit-handover__name { font-family: var(--font-serif); font-size: clamp(1.8rem, 8vw, 3rem); line-height: 1.05; color: var(--ink); }
+.kit-podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: .6rem; padding: 0; margin: 0; list-style: none; }
+.kit-podium__step { display: grid; gap: .3rem; justify-items: center; text-align: center; min-width: 0; }
+.kit-podium__step:nth-child(1) { order: 2; } .kit-podium__step:nth-child(2) { order: 1; } .kit-podium__step:nth-child(3) { order: 3; }
+.kit-podium__names { font-weight: 650; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.kit-podium__score { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
+.kit-podium__block { width: 100%; height: var(--kit-step, 3rem); border-radius: var(--_radius) var(--_radius) 0 0; background: color-mix(in srgb, var(--_color) 22%, var(--_surface)); border: 1px solid var(--line); border-bottom: 0;
+  display: grid; place-items: center; font-family: var(--font-serif); font-size: 1.3rem; color: var(--ink); transform-origin: 50% 100%; animation: kit-step .6s var(--_ease) both; }
+.kit-podium__step:nth-child(1) .kit-podium__block { --kit-step: 5.5rem; animation-delay: .5s; background: color-mix(in srgb, var(--accent) 28%, var(--_surface)); }
+.kit-podium__step:nth-child(2) .kit-podium__block { --kit-step: 4rem; animation-delay: .25s; }
+.kit-podium__step:nth-child(3) .kit-podium__block { --kit-step: 2.75rem; animation-delay: 0s; }
+.kit-podium__step.is-empty .kit-podium__block { opacity: .35; }
+@keyframes kit-step { from { transform: scaleY(0); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ---- The timer: a thick bar or ring that drains, amber then red, with a stamp when time is up (audits item 8) ------ */
+.kit-timer { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .7rem; }
+.kit-timer__track { height: var(--kit-timer-height, 10px); border-radius: 999px; background: color-mix(in srgb, var(--line) 70%, transparent); overflow: hidden; }
+.kit-timer__fill { height: 100%; border-radius: inherit; background: var(--_color); transform-origin: 0 50%; transform: scaleX(var(--kit-left, 1)); transition: transform .3s linear, background-color .4s var(--_ease); }
+.kit-timer__ring { width: var(--kit-ring, 3.5rem); height: var(--kit-ring, 3.5rem); transform: rotate(-90deg); }
+.kit-timer__ring circle { fill: none; stroke-width: 4; stroke-linecap: round; }
+.kit-timer__ring .is-track { stroke: color-mix(in srgb, var(--line) 70%, transparent); }
+.kit-timer__ring .is-left { stroke: var(--_color); transition: stroke-dashoffset .3s linear, stroke .4s var(--_ease); }
+.kit-timer__number { font-variant-numeric: tabular-nums; font-weight: 650; font-size: var(--kit-timer-size, 1.25rem); color: var(--ink); min-width: 2ch; text-align: end; }
+.kit-timer.is-amber .kit-timer__fill, .kit-timer.is-amber .is-left { background: var(--_part); stroke: var(--_part); }
+.kit-timer.is-red .kit-timer__fill, .kit-timer.is-red .is-left { background: var(--_wrong); stroke: var(--_wrong); }
+.kit-timer.is-red .kit-timer__number { color: var(--_wrong); animation: kit-pulse 1s var(--_ease) infinite; }
+.kit-timer.is-over .kit-timer__fill { transform: scaleX(0); }
+.kit-timer--quiet .kit-timer__number { font-weight: 500; color: var(--muted); animation: none; }
+.kit-timer__stamp { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; color: var(--_wrong);
+  background: color-mix(in srgb, var(--_surface) 85%, transparent); border-radius: var(--_radius); animation: kit-pop .4s var(--_ease) both; pointer-events: none; }
+
+/* ---- The confirm dialog and the options fold (audits items 12 and 11) --------------------------------------------- */
+.kit-dialog { padding: 0; border: 1px solid var(--line); border-radius: var(--_radius); background: var(--_surface); color: var(--ink); max-width: min(92vw, 26rem); box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
+.kit-dialog::backdrop { background: rgb(0 0 0 / .45); }
+.kit-dialog__body { display: grid; gap: .9rem; padding: 1.3rem 1.3rem 1.1rem; animation: kit-deal .35s var(--_ease) both; }
+.kit-dialog__title { margin: 0; font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500; }
+.kit-dialog__actions { display: flex; justify-content: flex-end; gap: .6rem; flex-wrap: wrap; }
+.kit-dialog__actions button { min-height: 44px; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; cursor: pointer;
+  transition: transform .3s var(--_ease), border-color .3s var(--_ease); }
+.kit-dialog__actions button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--_color); }
+.kit-dialog__actions .is-confirm { background: var(--_color); border-color: var(--_color); color: var(--page); }
+.kit-dialog__actions .is-danger { background: var(--_wrong); border-color: var(--_wrong); color: #fff; }
+.kit-options > summary { display: flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; list-style: none; color: var(--muted); font-weight: 600; transition: color .3s var(--_ease); }
+.kit-options > summary::-webkit-details-marker { display: none; }
+.kit-options > summary:is(:hover, :focus-visible) { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.kit-options > summary::after { content: ""; width: .5rem; height: .5rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .3s var(--_ease); }
+.kit-options[open] > summary::after { transform: rotate(-135deg); }
+.kit-options__body { margin-top: .75rem; animation: kit-fade .35s var(--_ease) both; }
+
+/* ---- The result panel's shell: head, trail, actions, then the reading, so a phone ending fits one screen ---------- */
+.kit-result { display: grid; gap: 1rem; justify-items: center; text-align: center; }
+.kit-result__head { display: grid; gap: .5rem; justify-items: center; }
+.kit-result__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+.kit-result__actions button, .kit-result__actions a { min-height: 44px; }
+.kit-result__reading { width: 100%; text-align: start; }
