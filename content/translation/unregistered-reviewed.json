@@ -22173,14 +22173,6 @@
    "Num": [
     "pt"
    ],
-   "OLD": [
-    "ar",
-    "es",
-    "hi",
-    "id",
-    "pt",
-    "zh"
-   ],
    "OPENING": [
     "ar",
     "es",
@@ -22266,14 +22258,6 @@
     "zh"
    ],
    "min": [
-    "ar",
-    "es",
-    "hi",
-    "id",
-    "pt",
-    "zh"
-   ],
-   "results": [
     "ar",
     "es",
     "hi",
@@ -24668,5 +24652,10 @@
   "file": "src/pages/puzzle-maker/passage.ts",
   "item": "a about above after again against all also am an and another any are aside as at away back be became because become been before behind being below beside besides between both but by came can cannot come comes coming could did do does doing done down during each either else even ever every few for from further gave get gets give given gives go goes going gone got had has have having he her here hers herself him himself his how however i if in into is it its itself just keep kept know known knew let lets like made make makes many may me might mine more most much must my myself near neither never no nor not now of off often on once one only onto or other others ought our ours ourselves out over own put said same saw say saying says see seen shall she should since so some such take taken than that the their theirs them themselves then there therefore these they this those though through thus till to toward towards too took two three four five six seven eight nine ten under until up upon us very was we went were what whatever when whenever where whereas wherever whether which while who whoever whole whom whose why will with within without would ye yet you your yours yourself yourselves unto thee thou thy thine hath doth indeed among around across along according thing things tell told truly surely yes",
   "why": "the puzzle maker's STOP set: the common words of English never hidden or asked in a puzzle, compared against the passage's words in code and never shown on a page; code data, not reader text (card D56 close-out, 2026-11-10, after sequence 29 step 7 asked for this ruling). Taken out of chunk 1871 for the same reason"
+ },
+ {
+  "check": "untranslated",
+  "item": "a about above after again against all also am an and another any are aside as at away back be became because become been before behind being below beside besides between both but by came can cannot come comes coming could did do does doing done down during each either else even ever every few for from further gave get gets give given gives go goes going gone got had has have having he her here hers herself him himself his how however i if in into is it its itself just keep kept know known knew let lets like made make makes many may me might mine more most much must my myself near neither never no nor not now of off often on once one only onto or other others ought our ours ourselves out over own put said same saw say saying says see seen shall she should since so some such take taken than that the their theirs them themselves then there therefore these they this those though through thus till to toward towards too took two three four five six seven eight nine ten under until up upon us very was we went were what whatever when whenever where whereas wherever whether which while who whoever whole whom whose why will with within without would ye yet you your yours yourself yourselves unto thee thou thy thine hath doth indeed among around across along according thing things tell told truly surely yes",
+  "why": "the puzzle maker's STOP set (src/pages/puzzle-maker/passage.ts): English words never hidden or asked in a puzzle, compared in code and never shown on a page; code data, not reader text, so it has no translation in any language (card D56 close-out, 2026-11-10)"
  }
 ]
