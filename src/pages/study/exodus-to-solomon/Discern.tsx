@@ -9,7 +9,7 @@ import { Head, Prose } from "./parts";
 export function Invented() {
   const v = D.inventionView;
   return <>
-    <Head num="05" kicker="Invented?" title="Others' view." turn="And the answer." lead={<Checked text={v.head} />} />
+    <Head num="05" kicker={<>Invented?</>} title="Others' view." turn="And the answer." lead={<Checked text={v.head} />} />
     <div className="xs-invented">
       <article><p className="xs-kicker">Their view, in their terms</p><p><Prose text={v.theirs} /></p></article>
       <span className="xs-turn" aria-hidden="true" />
@@ -35,7 +35,7 @@ function Test({ claim }: { claim: Claim }) {
 
 export function Claims() {
   return <>
-    <Head num="06" kicker="Claims" title="Four things often said." turn="One test each." lead="Each claim is set against the records above. Answer the question before reading what the sources can carry." />
+    <Head num="06" kicker={<>Claims</>} title="Four things often said." turn="One test each." lead="Each claim is set against the records above. Answer the question before reading what the sources can carry." />
     <div className="xs-claims">{D.claims.map((c) => <article key={c.id} className="xs-claim">
       <blockquote><Checked text={c.claim} /></blockquote>
       <h3><Checked text={c.head} /></h3>

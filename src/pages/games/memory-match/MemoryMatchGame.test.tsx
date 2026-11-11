@@ -97,7 +97,7 @@ describe("memory match page", () => {
     const pair = byId.get(dealt[who].pair)!;
     expect(live()).toContain(`A pair: ${plain(data.characters[pair.who].label)} and ${plain(pair.story)}. 1 of 6 pairs found.`);
     expect(cards()[who]).toHaveAccessibleName(`${plain(data.characters[pair.who].label)}, matched with ${plain(pair.story)}`);
-    expect(screen.getByText("2")).toBeInTheDocument(); // two moves
+    expect(screen.getByText("2 moves")).toBeInTheDocument();
   });
 
   it("keeps face-down words out of the page", async () => {

@@ -236,7 +236,7 @@ The headline and the lines are filled in from `rules.json` phrases plus the item
 - **Headline, `members-share`:** "**Paul** was not with Jesus during his ministry. Peter, John and James were among the Twelve Jesus chose."
 - **Headline, `odd-only`:** "**The Jordan** is the only river. Bethel, Hebron and Shiloh are towns."
 - **Per-item line:** label, then the site's one-line `brief`, then the verse reference that proves the rule fact for that item (`facts[item]`, else the item's first reference). Each line links to the item's page.
-- **Key verse:** `rules[rule].keyQuote`, quoted from the BSB at build time (one short quote, at most two verses).
+- **Key verse:** `rules[rule].keyRef` (one short quote, at most two verses). The build checks the BSB holds it; the page shows its words from the reader's Bible through `<Verse>` (2026-11-07: the site's rule that data files hold verse ids, never wording, `scripts/check-verse-wording.py`, so `keyQuote` is no longer written).
 - **"Also true":** when §6.3 finds tier-1 or tier-2 properties that single out the same odd item, one extra line names them: "Paul is also the only one who …". A player who chose the right item for a different reason is told they were right.
 
 ### 5.6 Prototype evidence (real site data, this job)

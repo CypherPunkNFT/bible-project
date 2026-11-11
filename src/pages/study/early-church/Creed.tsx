@@ -20,7 +20,7 @@ export function Creed() {
         <div className="ek-thread-notes">
           <p><b>What follows</b> <Prose text={s.inference} /></p>
           <p><b>Where it stops</b> <Prose text={s.limit} /></p>
-          {titles.length > 0 && <p className="ek-held">Quotations checked word for word against the site's held text of {titles.join(", ")}.</p>}
+          {titles.length > 0 && <p className="ek-held">{`Quotations checked word for word against the site's held text of ${titles.join(", ")}.`}</p>}
           <Cite ids={s.sources} />
         </div>
       </li>;

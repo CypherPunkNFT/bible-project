@@ -40,9 +40,14 @@ export const D = record as unknown as {
   verses: { label: string; code: string; chapter: number; verse: number }[]; checkNotes: unknown;
 };
 
-export type Verse = { code: string; chapter: number; verse: number; text: string };
-export type Word = [string, 0 | 1 | 2] | [string, 0 | 1 | 2, 1];
-export type Column = { ref: string; book: string; verses: { label: string; n: number; words: Word[] }[] };
+/** A verse the page names: its words come from the reader's Bible (src/lib/verses.ts), never from this file. */
+export type Verse = { code: string; chapter: number; verse: number };
+/** A synopsis verse: a level for each word of the Berean's text (0 none, 1 one other column, 2 every column) and the
+ *  places of the tied words. The page cuts the Berean's words as the build did (WORD) and lays these over them. */
+export type Level = 0 | 1 | 2;
+export type Column = { ref: string; book: string; verses: { label: string; n: number; levels: Level[]; tie: number[] }[] };
+/** One word with the space after it, the same cut as tokens() in scripts/build-nt-books-study.py. */
+export const WORD = /\S+\s*/g;
 export type Bar = { from: number; to: number; soft: boolean; words: string; side: "evangelical" | "critical" | "one" };
 export const NB = generated as unknown as {
   recordHash: string; verses: Record<string, Verse>; refs: Record<string, string[]>;
@@ -213,8 +218,6 @@ export function sectionOf(book: string): "gospels" | "epistles" | "revelation" {
   if (["Matthew", "Mark", "Luke", "John", "Acts"].includes(book)) return "gospels";
   return book === "Revelation" ? "revelation" : "epistles";
 }
-
-export const SIDE_WORD = { evangelical: "Most often argued by evangelical scholars", critical: "The common critical range", one: "The range given" } as const;
 
 /** What was read of a source, in the words the citation shows. */
 export function readingTag(status: string): string {

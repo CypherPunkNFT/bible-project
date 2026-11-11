@@ -23,7 +23,8 @@ export class LsSection extends Component<{ id: string; resetKey?: string; childr
   }
 }
 
-export function Head({ num, kicker, title, turn, lead }: { num: string; kicker: string; title: string; turn: string; lead: ReactNode }) {
+/** `kicker` is a node so a one-word kicker can be written between tags (<>Rain</>), where the translation collector reads it. */
+export function Head({ num, kicker, title, turn, lead }: { num: string; kicker: ReactNode; title: string; turn: string; lead: ReactNode }) {
   return <header className="ls-head"><p className="ls-kicker"><b>{num}</b> · {kicker}</p><h2 tabIndex={-1}>{title} <em>{turn}</em></h2><div className="ls-headlead">{lead}</div></header>;
 }
 

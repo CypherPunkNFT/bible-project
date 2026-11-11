@@ -10,7 +10,7 @@ function Neighbours() {
   const cited = new Map(D.neighbours.map((n) => [n.study, n.cited]));
   return <ul className="xs-neighbours">{XS.neighbours.map((n) => <li key={n.study}>
     {n.route ? <Link to={n.route}>{n.siteTitle} <span aria-hidden="true">→</span></Link> : <span className="xs-unbuilt">{n.siteTitle || <Checked text={n.study} />}</span>}
-    {n.siteTitle && n.siteTitle !== n.study.replace(/ \(\d+\)$/, "") && <small>named in the research as “{n.study}”</small>}
+    {n.siteTitle && n.siteTitle !== n.study.replace(/ \(\d+\)$/, "") && <small>{`named in the research as “${n.study}”`}</small>}
     {!n.route && <small>no page yet</small>}
     <p><Prose text={cited.get(n.study) ?? ""} /></p>
   </li>)}</ul>;
@@ -35,7 +35,7 @@ export function Closing() {
         <ul className="xs-trail">{D.readingTrail.map((t) => <li key={t.work}><Checked text={t.work} /><small><Checked text={t.answers} /></small><small className="xs-tagline"><Checked text={t.read} /></small></li>)}</ul>
         <h3>Sources named in the research</h3>
         <ul className="xs-sources">{D.sources.map((s) => <li key={s.id}><Checked text={s.title} /> <span className="xs-tagline">· {readingTag(s.status)}</span></li>)}</ul>
-        <p className="xs-caption">{D.sources.every((s) => s.status === "located") && "Every source is located, not read: each view given to a named scholar is still to be checked against that scholar's own pages. "}The research gives no web address for these works, so none is linked. <Checked text={D.picturesNote} /> No picture is shown until its licence is settled.</p>
+        <p className="xs-caption">{D.sources.every((s) => s.status === "located") && <>Every source is located, not read: each view given to a named scholar is still to be checked against that scholar's own pages. </>}The research gives no web address for these works, so none is linked. <Checked text={D.picturesNote} /> No picture is shown until its licence is settled.</p>
       </div>
     </div>
     <div className="xs-closing">

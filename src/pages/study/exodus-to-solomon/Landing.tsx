@@ -1,6 +1,7 @@
 // The study's opening: the shared trail, the gold concept line, the title with its turn, the drawing and motto, the figures
 // bar with what each count stands on, the outcomes, the question, the chapters and the site's stance, said once.
 import { StudyTrail } from "@/components/study/StudyTrail";
+import { formatNumber } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { D, XS } from "./model";
 import { Prose, Refs } from "./parts";
@@ -44,11 +45,11 @@ function Hero() {
 
 export function Landing() {
   const { counts } = XS;
-  const figures: [string, string, string][] = [
-    ["Spans", String(counts.spans), "numbers in Scripture: every exodus date is built from them"],
-    ["Nails", String(counts.nails), "outside records that fix a point, Merneptah and Shoshenq"],
-    ["Stations", String(counts.stations), "Egypt to Solomon, in the Bible's own order"],
-    ["Records read", String(counts.records), "finds and readings across the six stations: a selection, not a census of the period's sites"],
+  const figures: { label: string; value: number; note: string }[] = [
+    { label: "Spans", value: counts.spans, note: "numbers in Scripture: every exodus date is built from them" },
+    { label: "Nails", value: counts.nails, note: "outside records that fix a point, Merneptah and Shoshenq" },
+    { label: "Stations", value: counts.stations, note: "Egypt to Solomon, in the Bible's own order" },
+    { label: "Records read", value: counts.records, note: "finds and readings across the six stations: a selection, not a census of the period's sites" },
   ];
   return <>
     <div className="xs-intro">
@@ -61,7 +62,7 @@ export function Landing() {
       </div>
       <Hero />
     </div>
-    <dl className="xs-figures">{figures.map(([name, value, note]) => <div key={name}><dt>{name}</dt><dd>{value}</dd><small>{note}</small></div>)}</dl>
+    <dl className="xs-figures">{figures.map(({ label, value, note }) => <div key={label}><dt>{label}</dt><dd>{formatNumber(value)}</dd><small>{note}</small></div>)}</dl>
     <div className="xs-outcomes"><p className="xs-kicker">By the end you can</p><ul>{D.outcomes.map((o) => <li key={o}><Prose text={o} /></li>)}</ul></div>
     <p className="xs-question"><Checked text={D.question} /></p>
     <nav className="xs-chapters" aria-label="On this page">{CHAPTERS.map(([id, name], i) => <a key={id} href={`#${id}`}><b>{String(i + 1).padStart(2, "0")}</b>{name}</a>)}</nav>

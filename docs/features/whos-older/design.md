@@ -14,7 +14,7 @@
 - **The core promise: a pair is only ever asked when its order is certain.** Every person carries a deliberately wide window for when they could have been born, wide enough to cover every dating system the site already recognises. Two people are paired only if their windows do not overlap, or if a verse states the order outright ("Aaron was eighty-three", Exodus 7:7). Uncertainty therefore never needs special handling: a person whose dates are uncertain has a wide window, so they are automatically paired only with people far away in time. Job, whose dates nobody knows, can meet Esther or Peter, never Moses.
 - **The data is a new hand-kept chronology file** of about 180 well-known people, built from the Bible's own numbers and the site's existing king and prophet pages. Those pages already carry reign dates in four or five dating systems. A build script checks the file against the site's people data, family links and periods, and against a second, independent dataset (Theographic). It writes a review sheet for the owner.
 - **Scoring is a streak**, as in the Higher Lower Game: Streak mode ends at the first miss. Relaxed mode, for families, gives three hearts. The best streak of each mode is kept in the browser. Difficulty rises with the streak, from pairs a thousand years apart to parent and child.
-- **No running cost.** There are no model calls at runtime and no new services. The explanations are templates plus hand-written lines, and the quotes come from the site's own Berean Standard Bible text.
+- **No running cost.** There are no model calls at runtime and no new services. The explanations are templates plus hand-written lines, and the quotes come from the site's own Bible text, in the reader's current Bible (src/lib/verses.ts).
 
 ---
 
@@ -54,7 +54,7 @@ Similar sites report that higher-or-lower streaks of about 15 are typical and 30
 | [src/data/people-pages/](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) rulers files | Every king of Israel and Judah, the Herods, Rome, Persia, Assyria and Babylon, with reign `order`, predecessor and successor, Judah's ages at accession, and **reign dates in several systems**: Scripture's numbers, Thiele as revised by McFall (main), Albright, Galil, Young and Ussher | **Yes**: the site's best dated material. Policy in [METHODOLOGY.md §3](Jarvis/Projects/BibleProject/Research/People/METHODOLOGY.md): *dates are reconstructions, never Scripture; always "about"; show the range where systems differ by more than 3 years.* This design follows that policy. |
 | people-pages prophets files | Each prophet's `kings` list: "in the days of Uzziah…", with verses | **Yes, through the kings' dates.** It anchors a prophet's working years. |
 | Theographic Bible Metadata ([held copy](Jarvis/Projects/BibleProject/sources/theographic/), CC BY-SA 4.0) | People.csv lists 3,069 people, but **only 75 have a birth year** and 64 a death year. Its `minYear`/`maxYear` columns are the years of the first and last verse naming the person, not a lifespan: Aaron's runs to AD 64 because Hebrews mentions him. 450 dated events, 268 people. One Ussher-type chronology (Adam born 4004 BC). | **No.** The site's methodology already rules it out as a source of dates ("usable only as a cross-check of event order"). Used here the same way, in the build's cross-check report only, and never shipped, which also keeps its share-alike licence out of the game. |
-| [data/text/bsb/](Jarvis/Projects/BibleProject/Website/data/text/bsb/) | Berean Standard Bible text | Quotes in the reveal, filled in at build time. |
+| [data/text/bsb/](Jarvis/Projects/BibleProject/Website/data/text/bsb/) | Berean Standard Bible text | Read at build time to check every quoted span has words; the file keeps only verse ids, and the reveal shows the words in the reader's current Bible. |
 | [people-slugs.json](Jarvis/Projects/BibleProject/Website/src/data/people-slugs.json) | Readable addresses (`/people/moses`) | Links from the reveal. |
 
 **Conclusion:** no existing file can decide "who came first" safely on its own. Mention counts also fail as a fame signal for New Testament people: Nehemiah has 5 mentions and Timothy 24. The game needs its own small, hand-kept, checked chronology. The site already holds most of the raw material for it.
@@ -97,7 +97,7 @@ The game asks about order **as the Bible tells it**. The "How we date people" pa
 | `src/data/whos-older/characters.source.json` | **hand-kept** | The pool: one entry per person (§4.2) |
 | `src/data/whos-older/order-facts.source.json` | **hand-kept** | Pairs whose order a verse states outright (§4.3) |
 | `src/data/whos-older/blocked-pairs.source.json` | **hand-kept** | Pairs that must never be asked even if the windows seem to allow it (§4.5) |
-| `src/data/whos-older/whos-older.json` | **generated**, "do not edit" header | What the game loads: characters with labels, briefs and links; all facts, including parent facts derived from the family links; BSB quotes; a hash stamp |
+| `src/data/whos-older/whos-older.json` | **generated**, "do not edit" header | What the game loads: characters with labels, briefs and links; all facts, including parent facts derived from the family links, each with its verse ids (no verse wording); a hash stamp |
 | `docs/features/whos-older/review-sheet.md` | **generated** | The owner's review sheet: every person's window beside the other sources, every fact, every warning (§4.6) |
 | `scripts/build-whos-older.ts` | script | Reads the three source files plus the site data and writes both generated files. Run by hand after editing a source file, like Map quest's builder. It **fails** on any contradiction. |
 
@@ -308,7 +308,7 @@ The band follows the reason `orderOf` gives: a pair with a fact is banded by the
 3. **The reason, one sentence:**
    - windows: *"Even on the dating systems that bring them closest, Abraham was born at least 660 years before David."* Gaps over 1,000 years are rounded down to the hundred: "at least 1,200 years".
    - windows, when either person is `shown: false`: no number of years is printed, since the internal bounds are not real years. The sentence is *"In the Bible's own order, Noah lived long before Peter."* The two `when` lines below it give the generations.
-   - fact: the fact's `why`, then the BSB quote of its first verse span in quotation marks, with a link to the verse (`/read/bsb/EXO/7?hl=7`).
+   - fact: the fact's `why`, then the first verse span quoted in the reader's current Bible, in quotation marks, captioned with that Bible's short name, with a link to the verse (`/read/bsb/EXO/7?hl=7`).
 4. **Each person's line:** name (linked to the person page), the `when` line, and the people.json one-line brief.
 5. A small link: **"Something look wrong? Tell us"**, to the site's existing [contact page](Jarvis/Projects/BibleProject/Website/src/App.tsx) (`/contact`). This is Wikitrivia's lesson: let players flag doubtful data.
 6. **Next** (also Enter or Space). The reveal never advances by itself.
@@ -318,7 +318,7 @@ The band follows the reason `orderOf` gives: a pair with a fact is banded by the
 - The gap shown is the *minimum*: the distance the two windows leave even when every uncertainty is pushed to bring them together. The game never says "David was born in 1040 BC".
 - Every absolute date says "about" and gives a range where systems differ by more than 3 years, following [METHODOLOGY.md](Jarvis/Projects/BibleProject/Research/People/METHODOLOGY.md).
 - Wide windows are explained in the `when` line ("the range covers both the early and the late date for the Exodus"), so a player sees *why* a date is fuzzy.
-- Quotes are BSB. The per-person `story`, `article` and `short` texts quote the KJV and are never used.
+- Quotes are in the reader's current Bible (the Berean for English); the build checks each quoted span against the Berean. The per-person `story`, `article` and `short` texts quote the KJV and are never used.
 
 ### 7.3 Run-over recap
 
@@ -386,7 +386,7 @@ No change to shared components, the router, the menu or other games.
 
 - **pairing.test.ts:** every row of the §5.2 verdict table, including the six "never asked" rows. Strictness: touching windows (`hi == lo`) is not certain. `null` edges never prove order. Blocked pairs beat facts. Exclusions. `yearsBetween` across the BC/AD line (10 BC to AD 15 is 24) and a year 0 rejected. The bands, including a tier-2 pair 1,000 years apart being Medium (not Hard), a fact pair banded by its fact, and two `shown: false` people.
 - **explain.test.ts:** gap rounding; a pair with a `shown: false` person prints no number of years.
-- **data.test.ts** (on the generated file): ids exist in `people.json` and are not groups. No excluded people. Unique labels. Windows valid; no year 0; every `shown: false` window ends before Abraham's earliest year. Facts agree with windows, no two facts point opposite ways, and the facts contain no loop. Every quote is non-empty. At least 8 partners per person. At least 300 pairs per band. **An independent second check**, written separately from `orderOf`: for 2,000 random pool pairs, if `orderOf` returns an order, then either a fact exists or the windows are disjoint. Nothing else may produce an order.
+- **data.test.ts** (on the generated file): ids exist in `people.json` and are not groups. No excluded people. Unique labels. Windows valid; no year 0; every `shown: false` window ends before Abraham's earliest year. Facts agree with windows, no two facts point opposite ways, and the facts contain no loop. Every quoted span has Berean words. At least 8 partners per person. At least 300 pairs per band. **An independent second check**, written separately from `orderOf`: for 2,000 random pool pairs, if `orderOf` returns an order, then either a fact exists or the windows are disjoint. Nothing else may produce an order.
 - **game.test.ts:** the ramp by round number, no repeated pair, the stayer leaves after two rounds, fall back to a lower band then a fresh pair, Streak ends on a miss, Relaxed ends on the third miss, a double tap is ignored. **Side balance:** over 1,000 seeded rounds the left card is right between 40% and 60% of the time, including runs where the stayer comes before everyone.
 - **storage.test.ts:** best score kept per mode; a resumed run; an ended run stays ended after reload; a reload before answering brings back the same pair; a saved run with an old stamp is dropped while best scores stay; storage unavailable means play without saving and no crash.
 - **WhosOlderGame.test.tsx:** start, play a scripted round with a fixed random seed, reveal text and verse link, run-over screen, share falling back to the copy box.

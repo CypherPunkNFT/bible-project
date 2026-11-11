@@ -1,12 +1,15 @@
 // The shared pieces of How the Old Testament books were written: a section that keeps its own failure, the two-beat
 // headline, research text with its check notes and its references made into buttons, the three parts of a record, the
-// three layers' tags, a quoted verse and the site's own word.
-import { Component, Fragment, type ErrorInfo, type ReactNode } from "react";
+// three layers' tags, a quoted verse in the reader's Bible and the site's own word.
+import { Component, type ErrorInfo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { BibleName, Verse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { verseIdOf } from "@/lib/verses";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { plainText } from "@/pages/study/check-notes/checked";
 import { useOpenSheet } from "./context";
-import { findReferences, NEIGHBOURS, REFS } from "./model";
+import { findReferences, NEIGHBOURS, REFS, type Ref } from "./model";
 
 export class ObSection extends Component<{ id: string; resetKey?: string; children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -92,13 +95,20 @@ export function ThreeParts({ evidence, inference, limit, labels = ["What the evi
   </dl>;
 }
 
-/** A verse in the Berean's own words, from the generated data, with its reference opening the sheet. */
+/** A reference's verses in the reader's Bible, from the first verse to the last (a range may cross chapters). */
+export function RefVerses({ refer, max, numbered }: { refer: Ref; max?: number; numbered?: boolean | "chapter" }) {
+  const catalog = useCatalog();
+  const from = verseIdOf(catalog, refer.code, refer.chapter, refer.verse), to = verseIdOf(catalog, refer.code, refer.toChapter, refer.toVerse);
+  return <Verse from={from} to={to} max={max} numbered={numbered} />;
+}
+
+/** A verse in the reader's Bible, with its reference opening the sheet. */
 export function VerseQuote({ refKey }: { refKey: string }) {
   const ref = REFS.get(refKey);
-  if (!ref) { console.error(`How the Old Testament books were written: verse "${refKey}" is not in the generated data`); return null; }
+  if (!ref || ref.verse === 0) { console.error(`How the Old Testament books were written: verse "${refKey}" is not a verse in the generated data`); return null; }
   return <blockquote className="ob-verse">
-    <p>{ref.lines.map(([, verse, text], i) => <Fragment key={verse}>{i > 0 && " "}{text}</Fragment>)}</p>
-    <cite><RefButton refKey={refKey}>{refKey}</RefButton> · Berean Standard Bible</cite>
+    <p><RefVerses refer={ref} /></p>
+    <cite><RefButton refKey={refKey}>{refKey}</RefButton> · <BibleName /></cite>
   </blockquote>;
 }
 

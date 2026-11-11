@@ -3,8 +3,10 @@
 
 Reads the research record, removes its check-note markers ({{check:cN}} and {{/check}}) and then:
 - finds every Bible reference in the page's strings (a book of the 66 from the site's own book table, then chapter:verse,
-  a range, "; ch:v" continuations after it, or a chapter alone) and takes each verse reference's Berean text from
-  data/text/bsb, refusing a reference the Berean does not have or a range that runs backwards;
+  a range, "; ch:v" continuations after it, or a chapter alone) and reads each verse reference's Berean text from
+  data/text/bsb, refusing a reference the Berean does not have or a range that runs backwards. The text is checked in
+  memory only: the data file holds each reference's bounds (and how many verses past the sheet's first SHEET_VERSES it
+  runs), never its words; the page shows the words in the reader's own Bible (src/lib/verses.ts);
 - refuses a quotation marked as the Berean ("…" (Isaiah 1:1 · BSB)), a listed phrase, an Isaiah line or a Daniel verse
   that is not word for word in the Berean at its reference;
 - refuses a link to another study that is not one of the site's own addresses, and a source address that is not https;
@@ -345,7 +347,8 @@ def collect_refs(record: dict, strings: list[tuple[str, str]], berean: Berean) -
             if key in refs:
                 continue
             lines = berean.span(f"{path}: {key}", code, bounds)
-            entry = {"code": code, **bounds, "lines": lines[:SHEET_VERSES]}
+            # Bounds only: the words come from the reader's Bible. span() has proved every verse exists in the Berean.
+            entry = {"code": code, **bounds}
             if len(lines) > SHEET_VERSES:
                 entry["more"] = len(lines) - SHEET_VERSES
             refs[key] = entry
@@ -360,7 +363,7 @@ def build_data(record: dict, raw: bytes, berean: Berean, collections: str, neigh
     quotations = check_inline_quotations(record, strings, berean)
     links = check_links(record, strings, neighbours, collections)
     data = {"recordHash": hashlib.sha256(raw).hexdigest(), "books": NAMES, "chapters": {code: len(berean.book(code)) for code in RULER_BOOKS},
-            "neighbours": links, "quotationsChecked": quotations, "refs": collect_refs(record, strings, berean)}
+            "neighbours": links, "quotationsChecked": quotations, "sheetVerses": SHEET_VERSES, "refs": collect_refs(record, strings, berean)}
     text = json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n"
     size = len(text.encode("utf-8"))
     if size > BUDGET_BYTES:

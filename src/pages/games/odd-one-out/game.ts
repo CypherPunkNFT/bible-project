@@ -1,6 +1,7 @@
 // Odd one out: the game's pure logic (docs/features/odd-one-out/design.md, sections 7 and 9). Rounds, shuffling,
 // scoring, freshness and the words of the reveal; the sets themselves are built ahead of time by
 // scripts/build-odd-one-out.py into src/data/odd-one-out/sets.json. Nothing here touches the page.
+import { formatList } from "@/lib/site-format";
 
 export type Kind = "person" | "place" | "book";
 export type Choice = Kind | "mixed";
@@ -21,7 +22,6 @@ export interface RuleEntry {
   oddOnly?: string;
   others?: string;
   keyRef?: [number, number];
-  keyQuote?: string;
 }
 
 export interface ItemEntry { kind: Kind; label: string; brief: string; href: string; ref: number }
@@ -127,10 +127,8 @@ export function scoreRound(results: readonly boolean[]): { score: number; bestSt
 /** What the button says: a seed set may give a bare name where the other three make it clear. */
 export const shownLabel = (data: SetsFile, set: SetEntry, id: string) => set.labels?.[id] ?? data.items[id].label;
 
-/** "and"-joined list: "Peter, John and James". */
-export function joinNames(names: readonly string[]): string {
-  return names.length <= 1 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
-}
+/** "and"-joined list in the site's language: "Peter, John, and James". */
+export const joinNames = (names: readonly string[]): string => formatList(names);
 
 /** The reason, in two parts: the odd item's phrase and the sentence about the other three (design 5.5). */
 export function headline(data: SetsFile, set: SetEntry): { odd: string; oddPhrase: string; rest: string } {

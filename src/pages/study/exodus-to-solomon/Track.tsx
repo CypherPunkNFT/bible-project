@@ -43,14 +43,14 @@ function Chart({ exodus, stay }: { exodus: Exodus | null; stay: Stay | null }) {
         <path d={`M${mid - half} ${TRACK.top + 9}V${bottom - 6}L${mid} ${bottom + 4}L${mid + half} ${bottom - 6}V${TRACK.top + 9}Z`} />
         <text x={mid - 4} y={bottom + 18} textAnchor="end">{n.name} · {spanWord(n.spans[0])}</text></g>; })}
     <g className="xs-peg"><path d={`M${x(peg)} ${TRACK.top + 18}V${TRACK.line}`} /><circle cx={x(peg)} cy={ROW.count} r={3.2} />
-      <text x={x(peg) - 8} y={TRACK.top + 14} textAnchor="end">Solomon's fourth year · about {peg} BC</text></g>
+      <text x={x(peg) - 8} y={TRACK.top + 14} textAnchor="end">{`Solomon's fourth year · about ${peg} BC`}</text></g>
     {EXODI.map((which) => { const end = XS.cords.exodus[which]; const weight = weightOf(which, exodus); const y = ROW[which];
       return <g key={which} className={`xs-cord ${weight}`}>
         <Strand from={peg} to={end} y={y} weight={weight} />
         {which === "measure" && knots(peg, end, XS.cords.generations).map((kx) => <circle key={kx} className="xs-knot" cx={kx} cy={y + 2} r={2.1} />)}
         <path className="xs-about" d={`M${x(end) + 7} ${y - 8}H${x(end)}V${y + 8}H${x(end) + 7}`} />
         <path className="xs-plumb" d={`M${x(end)} ${y + 8}V${bottom}`} />
-        <text className="xs-cord-label" x={x(end) + 10} y={y - 8}>{which === "count" ? "480 as a count" : `480 as ${XS.cords.generations} generations`} · about {end} BC</text>
+        <text className="xs-cord-label" x={x(end) + 10} y={y - 8}>{which === "count" ? `480 as a count · about ${end} BC` : `480 as ${XS.cords.generations} generations · about ${end} BC`}</text>
       </g>; })}
     {EXODI.map((which) => STAYS.map((reading) => { const hang = hangOf(which, reading); const y = ROW.hang[which][reading];
       const weight: Weight = exodus && exodus !== which ? "aside" : weightOf(reading, stay);
@@ -58,7 +58,7 @@ function Chart({ exodus, stay }: { exodus: Exodus | null; stay: Stay | null }) {
         <Strand from={hang.egypt[1]} to={hang.egypt[0]} y={y} weight={weight} />
         {hang.canaan && <Strand from={hang.canaan[1]} to={hang.canaan[0]} y={y} weight={weight} canaan />}
         <circle className="xs-knot" cx={x(hang.egypt[0])} cy={y} r={2.4} />
-        <text className="xs-cord-label" x={x(hang.egypt[1]) - 6} y={y - 4} textAnchor="end">{reading === "egypt" ? "430 in Egypt" : "215 in Egypt, 215 before it in Canaan"} · from {hang.egypt[1]} BC</text>
+        <text className="xs-cord-label" x={x(hang.egypt[1]) - 6} y={y - 4} textAnchor="end">{reading === "egypt" ? `430 in Egypt · from ${hang.egypt[1]} BC` : `215 in Egypt, 215 before it in Canaan · from ${hang.egypt[1]} BC`}</text>
       </g>; }))}
     {bars.map((b) => <g key={b.id} className="xs-bar-group"><title>{`${b.name}: ${b.spans.map(spanWord).join(" or ")}`}</title>
       {b.spans.map(([start, end], i) => <rect key={start} className={`xs-bar${i > 0 ? " alt" : ""}`} x={x(start)} y={laneY(b.lane) + 12} width={Math.max(3, x(end) - x(start))} height={11} rx={2} />)}
@@ -74,7 +74,7 @@ function Falls({ exodus }: { exodus: Exodus | null }) {
   return <div className="xs-falls">
     <h3>Where each date falls</h3>
     <table>
-      <thead><tr><th scope="col">Range, on the ground or in an outside record</th>{EXODI.map((w) => <th key={w} scope="col" className={exodus && exodus !== w ? "aside" : ""}>About {XS.cords.exodus[w]} BC</th>)}</tr></thead>
+      <thead><tr><th scope="col">Range, on the ground or in an outside record</th>{EXODI.map((w) => <th key={w} scope="col" className={exodus && exodus !== w ? "aside" : ""}>{`About ${XS.cords.exodus[w]} BC`}</th>)}</tr></thead>
       <tbody>{rows.map((r) => <tr key={r.key}><th scope="row">{r.name}{r.alt ? ", low dating" : ""} <small>{spanWord(r.span)}</small></th>
         {EXODI.map((w) => <td key={w} className={exodus && exodus !== w ? "aside" : ""}>{RELATION_WORD[relation(XS.cords.exodus[w], r.span)]}</td>)}</tr>)}</tbody>
     </table>
@@ -118,7 +118,7 @@ export function Track({ exodus, stay, onChange }: { exodus: Exodus | null; stay:
     <div className="xs-key">
       <p><Prose text={D.timeline.key} /></p>
       <p><Prose text={D.reach[2]} /> The bracket at a cord's end marks "about": its peg, Solomon's fourth year, is itself a reckoning (Old Testament chronology).</p>
-      <p>{measure && <Checked text={measure.note} />} The {XS.cords.generations} knots stand for the record's {XS.cords.generations} generations and are spaced evenly as a drawing convention, not as a length for each generation. The track runs on to {XS.chart.drawnTo} BC, past the record's {XS.chart.to}, so the gates' low dating is drawn whole.</p>
+      <p>{measure && <Checked text={measure.note} />} {`The ${XS.cords.generations} knots stand for the record's ${XS.cords.generations} generations and are spaced evenly as a drawing convention, not as a length for each generation.`} {`The track runs on to ${XS.chart.drawnTo} BC, past the record's ${XS.chart.to}, so the gates' low dating is drawn whole.`}</p>
     </div>
     <Ladder exodus={exodus} stay={stay} />
     <Falls exodus={exodus} />

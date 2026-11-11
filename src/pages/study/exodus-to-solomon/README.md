@@ -40,8 +40,10 @@ opening a check note closes the record sheet and the other way round. Escape clo
   (unused by any other study when this was built); route [route.ts](route.ts), picked up by study-page-routes.ts.
 - Check notes: the page is wrapped in the shared `CheckNotesProvider`; every research string goes through `Checked`/`Prose`;
   `plainText` for titles and labels; the build's `plain()` strips markers before any comparison. No marker or note was edited.
-- The verse sheet shows the Berean's words **and its own footnotes**, so Exodus 12:40 shows "MT; SP in Canaan and Egypt;
-  LXX in Egypt and Canaan" and 1 Kings 6:1 shows "Hebrew; LXX four hundred and fortieth".
+- The data holds verse ids (book, chapter, verse) and the Berean's footnotes, never a verse's words: the build reads and checks
+  the words in memory, and the sheet shows them in the reader's current Bible (`VerseAt`, captioned with `BibleName`;
+  src/lib/verses.ts). It keeps the Berean's **own footnotes**, labelled as the Berean's, so Exodus 12:40 shows "MT; SP in
+  Canaan and Egypt; LXX in Egypt and Canaan" and 1 Kings 6:1 shows "Hebrew; LXX four hundred and fortieth".
 
 ## What the build script refuses
 
@@ -64,7 +66,7 @@ leaving the site.
 
 ## What the checks prove, and what they do not
 
-They prove the references exist, the verse words are the site's Berean, the cords' arithmetic (966 + 480 = 1446; 215 × 2 = 430)
+They prove the references exist, the quotations and cord numbers match the site's Berean, the cords' arithmetic (966 + 480 = 1446; 215 × 2 = 430)
 and that each bar sits where the record's own words put it. They do **not** prove any reading of the numbers, any scholar's
 date, or any identification right: every source in the record is "located, not read", and the page says so.
 

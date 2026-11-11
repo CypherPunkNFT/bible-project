@@ -2,29 +2,46 @@
 // marked word by word, and the tie (the same words in each column) drawn across them. A tie has no arrow: it shows a link,
 // never its direction. Then the five layers of Synoptic material, drawn as three overlapping rings that are not to scale.
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from "react";
-import { D, NB, findCase, findLayer, type Case, type Column, type Word } from "./model";
+import { Verse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { verseIdOf } from "@/lib/verses";
+import { D, NB, WORD, findCase, findLayer, type Case, type Column, type Level } from "./model";
 import { Head, RefButton, Text, ThreeParts } from "./parts";
 
 type Change = (values: Record<string, string | null>) => void;
 
 const LEVEL_CLASS = ["", "nb-w1", "nb-w2"];
 
-function Words({ words }: { words: Word[] }) {
+/** The Berean's words of one verse, each marked with the level the build counted for it. The words are the reader's file,
+ *  cut as the build cut them; if the count ever differs, the verse is shown unmarked rather than marked wrongly. */
+function Words({ text, label, levels, tie }: { text: string; label: string; levels: Level[]; tie: number[] }) {
+  const words = text.match(WORD) ?? [];
+  if (words.length !== levels.length) {
+    console.error(`How the New Testament books were written: ${label} has ${words.length} words, the build counted ${levels.length}`);
+    return <>{text}</>;
+  }
+  const tied = new Set(tie);
   return <>{words.map((word, w) => {
-    const [text, level] = word, tie = word.length > 2, shown = text.trimEnd(), space = text.slice(shown.length);
-    const className = [LEVEL_CLASS[level], tie ? "nb-tie" : ""].filter(Boolean).join(" ");
-    return <span key={w}>{className ? <span className={className} data-tie={tie ? "" : undefined}>{shown}</span> : shown}{space}</span>;
+    const level = levels[w], isTie = tied.has(w), shown = word.trimEnd(), space = word.slice(shown.length);
+    const className = [LEVEL_CLASS[level], isTie ? "nb-tie" : ""].filter(Boolean).join(" ");
+    return <span key={w}>{className ? <span className={className} data-tie={isTie ? "" : undefined}>{shown}</span> : shown}{space}</span>;
   })}</>;
 }
 
 /** One column in four parts (its head, the verses before the tie, the tied verse, the verses after), so that the tied
  *  verses of every column start on the same line, as a printed synopsis sets its parallels. */
 function ColumnText({ column, index }: { column: Column; index: number }) {
-  const tied = Math.max(0, column.verses.findIndex((v) => v.words.some((w) => w.length > 2)));
+  const catalog = useCatalog();
+  const tied = Math.max(0, column.verses.findIndex((v) => v.tie.length > 0));
   const long = column.verses.length > 5;
-  const verse = (v: Column["verses"][number], i: number) => <span key={v.label} className={long && Math.abs(i - tied) > 1 ? "nb-far" : undefined}>
-    <sup>{v.n}</sup><Words words={v.words} />{" "}
-  </span>;
+  // The synopsis compares the Berean's own English, so its words are the Berean's whatever Bible the reader has chosen.
+  const verse = (v: Column["verses"][number], i: number) => {
+    const at = NB.verses[v.label];
+    return <span key={v.label} className={long && Math.abs(i - tied) > 1 ? "nb-far" : undefined}>
+      {at ? <Verse id={verseIdOf(catalog, at.code, at.chapter, at.verse)} bible="bsb" numbered
+        render={(text) => <Words text={text} label={v.label} levels={v.levels} tie={v.tie} />} /> : <sup>{v.n}</sup>}{" "}
+    </span>;
+  };
   const style = { "--c": index + 1 } as CSSProperties;
   return <div className="nb-col" data-col={index}>
     <p className="nb-part r1 nb-col-head" style={style}><span>{column.book}</span> <RefButton refKey={column.ref} /></p>
@@ -83,7 +100,7 @@ function Synopsis({ chosen }: { chosen: Case }) {
       {path && <svg className="nb-tieline" aria-hidden="true"><path d={path} /><path className="nb-tieline-run" d={path} /></svg>}
     </div>
     <figcaption>
-      <p className="nb-tie-note"><span className="nb-tie">{synopsis.tie.words}</span> · {synopsis.tie.note}. The line joins the same words; it has no arrow, because it shows a link and not which way it ran.</p>
+      <p className="nb-tie-note"><span className="nb-tie">{synopsis.tie.words}</span> · {synopsis.tie.note}. <span>The line joins the same words; it has no arrow, because it shows a link and not which way it ran.</span></p>
       <ul className="nb-key" aria-label="How the shared words are marked">
         <li><span className="nb-w2">Solid underline</span> the same run of four or more words in every column</li>
         {synopsis.columns.length > 2 && <li><span className="nb-w1">Dotted underline</span> the same run in one other column only</li>}

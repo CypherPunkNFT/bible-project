@@ -32,7 +32,7 @@ export function Ai() {
   const debate = debateById.get("ai")!;
   const record = recordOf("conquest", "ai");
   return <>
-    <Head num="03" kicker="Ai" title="Two hills." turn="One name." lead={<Prose text="Joshua 8:28 says Joshua burned Ai and left it a ruin. Two hills about a kilometre apart are each proposed as the place. The ground at each is real; which one the text means is a judgment." />} />
+    <Head num="03" kicker={<>Ai</>} title="Two hills." turn="One name." lead={<Prose text="Joshua 8:28 says Joshua burned Ai and left it a ruin. Two hills about a kilometre apart are each proposed as the place. The ground at each is real; which one the text means is a judgment." />} />
     <div className="xs-ai">{debate.views.map((v, i) => <article key={v.name}>
       <Hill broad={i === 0} />
       <h3><Checked text={v.name} /></h3>

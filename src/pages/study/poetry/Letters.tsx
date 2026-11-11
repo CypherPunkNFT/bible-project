@@ -3,6 +3,7 @@
 // and 4 stand side by side so the order of ayin and pe can be seen. Then Lamentations 5, which keeps the number and drops the
 // order, and the poem at the edge of the list.
 import { Link } from "react-router-dom";
+import { plural } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { bereanVerse, D, owns, P, readerHref, type Column } from "./model";
 import { Head, Prose, ThreeParts } from "./parts";
@@ -28,8 +29,8 @@ function LetterColumn({ column, narrow }: { column: Column; narrow: boolean }) {
         </Link>
       </>}
     </li>)}</ol>
-    {column.repeats.map((r) => <p key={r.verse} className="hpn-slot-extra">Verse {bereanVerse(column, r.verse)} begins with {nameOf(r.letter)} again.</p>)}
-    {column.extra && <p className="hpn-slot-extra">Verse {bereanVerse(column, column.extra.verse)} closes the poem with an extra {nameOf(column.extra.letter)}, outside the alphabet.</p>}
+    {column.repeats.map((r) => <p key={r.verse} className="hpn-slot-extra">{`Verse ${bereanVerse(column, r.verse)} begins with ${nameOf(r.letter)} again.`}</p>)}
+    {column.extra && <p className="hpn-slot-extra">{`Verse ${bereanVerse(column, column.extra.verse)} closes the poem with an extra ${nameOf(column.extra.letter)}, outside the alphabet.`}</p>}
   </div>;
 }
 
@@ -55,7 +56,11 @@ export function Letters({ poem, onChange }: { poem: number; onChange: (values: R
         {columns.length > 0 && <div className={`hpn-columns${columns.length > 1 ? " hpn-columns-many" : ""}`}>
           {columns.map((c) => <LetterColumn key={c.label} column={c} narrow={columns.length > 1} />)}
         </div>}
-        {columns.length > 0 && <p className="hpn-caption">Each slot is the first word of its {columns[0].unit === "half" ? "half-line" : columns[0].per > 1 ? `group of ${columns[0].per} verses` : "verse"} in the Leningrad text, read by the build; ² marks a letter found in the verse's second word. Verse numbers are the Berean's, and each opens the Berean reader.</p>}
+        {columns.length > 0 && <p className="hpn-caption">
+          <span>{columns[0].unit === "half" ? "Each slot is the first word of its half-line in the Leningrad text, read by the build."
+            : plural(columns[0].per, "Each slot is the first word of its verse in the Leningrad text, read by the build.", "Each slot is the first word of its group of {n} verses in the Leningrad text, read by the build.")}</span>
+          {" "}<span>A ² marks a letter found in the verse's second word. Verse numbers are the Berean's, and each opens the Berean reader.</span>
+        </p>}
         {notDrawn && <p className="hpn-caption">{notDrawn}</p>}
       </div>
     </div>

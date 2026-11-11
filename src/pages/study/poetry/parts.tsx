@@ -1,9 +1,13 @@
 // The page's shared pieces: a section that keeps its own failure, the section head, research text with its check notes and
 // its Bible references made into buttons, the three parts of a record, source citations, and the Hebrew-beside-Berean
-// verse: line beside line where the build divided it, the whole verse beside the whole verse where it did not.
+// verse: line beside line where the build divided it, the whole verse beside the whole verse where it did not. The page is
+// about the Berean's own lines, so its words come from the Berean's file whatever the reader's language (bible="bsb").
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { Verse as BibleVerse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { verseIdOf } from "@/lib/verses";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
-import { byKey, firstOf, readingTag, refByKey, sourceById, splitHeadline, type Pair, type Verse } from "./model";
+import { bereanLines, byKey, firstOf, readingTag, refByKey, sourceById, splitHeadline, type Pair, type Verse } from "./model";
 import { useOpen } from "./open";
 
 export class HpnSection extends Component<{ id: string; resetKey?: string; children: ReactNode }, { failed: boolean }> {
@@ -108,7 +112,13 @@ function litEnglish(lines: string[], words: string[] = []): ReactNode[] {
 /** The note that the Hebrew numbers a verse differently, when a psalm's title is its own verse there. */
 function HebrewNumber({ verse }: { verse: Verse }) {
   if (!verse.hebrewVerse) return null;
-  return <small className="hpn-hebnum">In the Hebrew {verse.chapter}:{verse.hebrewVerse}, because the title is its verse 1</small>;
+  return <small className="hpn-hebnum">{`In the Hebrew ${verse.chapter}:${verse.hebrewVerse}, because the title is its verse 1`}</small>;
+}
+
+/** The Berean's words for a verse, shown some way (`render`): the Berean whatever the reader's language. */
+function Berean({ verse, render }: { verse: Verse; render: (text: string) => ReactNode }) {
+  const catalog = useCatalog();
+  return <BibleVerse id={verseIdOf(catalog, verse.code, verse.chapter, verse.verse)} bible="bsb" render={render} />;
 }
 
 /** One verse in both languages: line beside line when the build divided the Hebrew, the whole verse beside the whole otherwise. */
@@ -117,30 +127,35 @@ export function VersePair({ label, verseKey, lit, litEn, caption = true }: { lab
   if (!found) return null;
   const { verse, pair } = found;
   const litSet = new Set(lit ?? []);
-  // A verse shown whole is one run of words, so its Berean lines are joined with a space.
-  const english = litEnglish(pair ? pair.rows.map((r) => r.en) : [verse.lines.join(" ")], litEn);
   return <figure className={`hpn-pair${pair ? "" : " hpn-pair-whole"}`}>
     {(caption || verse.hebrewVerse) && <figcaption>{caption && label && <RefButton label={label} />}<HebrewNumber verse={verse} /></figcaption>}
-    {pair ? <Lines pair={pair} english={english} lit={litSet} psalm={verse.code === "PSA"} /> : <div className="hpn-rows">
-      <p className="hpn-row"><span className="hpn-en">{english}</span>{verse.hebrew && <Hebrew text={verse.hebrew} lit={litSet} />}</p>
+    {pair ? <Lines verse={verse} pair={pair} litEn={litEn} lit={litSet} psalm={verse.code === "PSA"} /> : <div className="hpn-rows">
+      {/* A verse shown whole is one run of words. */}
+      <p className="hpn-row"><span className="hpn-en"><Berean verse={verse} render={(text) => litEnglish([text], litEn)} /></span>{verse.hebrew && <Hebrew text={verse.hebrew} lit={litSet} />}</p>
     </div>}
     {!verse.hebrew && <small className="hpn-nohe">New Testament: written in Greek; the Berean alone is shown.</small>}
   </figure>;
 }
 
-function Lines({ pair, english, lit, psalm }: { pair: Pair; english: ReactNode[]; lit: Set<number>; psalm: boolean }) {
+function Lines({ verse, pair, litEn, lit, psalm }: { verse: Verse; pair: Pair; litEn?: string[]; lit: Set<number>; psalm: boolean }) {
   let from = pair.title ? pair.title.he.split(" ").length : 0;
+  const title = pair.title;
+  // The lit English words are found row after row, the heading left out, so each row lights its share of them.
+  const rowWords = (index: number) => (text: string) => {
+    const lines = bereanLines(text, verse.breaks);
+    return litEnglish(pair.rows.map((r) => lines[r.line] ?? ""), litEn)[index];
+  };
   return <div className="hpn-rows">
-    {pair.title && <p className="hpn-title">
+    {title && <p className="hpn-title">
       <span className="hpn-title-tag">{psalm ? "Title · in the Hebrew, part of verse 1" : "Heading"}</span>
-      <span className="hpn-en">{pair.title.en}</span>
-      <Hebrew text={pair.title.he} lit={lit} />
+      <span className="hpn-en">{title.en ?? <Berean verse={verse} render={(text) => bereanLines(text, verse.breaks)[title.line ?? 0]} />}</span>
+      <Hebrew text={title.he} lit={lit} />
     </p>}
     {pair.rows.map((row, i) => {
       const start = from;
       from += row.he ? row.he.split(" ").length : 0;
       return <p key={i} className={`hpn-row${i % 2 ? " hpn-row-b" : ""}`}>
-        <span className="hpn-en">{english[i]}</span>
+        <span className="hpn-en"><Berean verse={verse} render={rowWords(i)} /></span>
         {row.he ? <Hebrew text={row.he} from={start} lit={lit} /> : <span className="hpn-he-none">No line here in the Leningrad text</span>}
       </p>;
     })}

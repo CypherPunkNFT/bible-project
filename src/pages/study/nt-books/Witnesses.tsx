@@ -19,7 +19,8 @@ function Thread({ openValue }: { openValue: string | null }) {
         <button type="button" data-opener={key} aria-haspopup="dialog" aria-pressed={openValue === key} onClick={() => open?.openWitness(w.id)}>
           <span className="nb-thread-who">{plainText(w.who)}</span>
           <span className="nb-thread-when">{plainText(w.when)}</span>
-          <small>{lost ? "Own work lost" : "Own words survive"}{kept ? " · kept in Eusebius's Church History" : ""}</small>
+          <small>{lost ? (kept ? "Own work lost · kept in Eusebius's Church History" : "Own work lost")
+            : (kept ? "Own words survive · kept in Eusebius's Church History" : "Own words survive")}</small>
         </button>
       </li>;
     })}

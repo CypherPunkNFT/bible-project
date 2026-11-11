@@ -1,7 +1,9 @@
 // The record sheet: one record or one verse. It opens from the right, the same way as on every study, keeps the three parts
-// of a record apart, shows a verse in the Berean with a link to read it in the reader, and closes on Escape.
+// of a record apart, shows a verse in the reader's current Bible (named under it) with a link to read it in its chapter, and
+// closes on Escape.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BibleName, VerseAt } from "@/components/Verse";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { kindLabel, readerHref, type Openable } from "./model";
 import { Cite, StudyLink, T, ThreeParts, VerseRefs } from "./parts";
@@ -9,9 +11,9 @@ import { Cite, StudyLink, T, ThreeParts, VerseRefs } from "./parts";
 function Body({ opened }: { opened: Openable }) {
   if (opened.kind === "verse") {
     return <>
-      <p className="ls-kicker">Berean Standard Bible</p>
+      <p className="ls-kicker"><BibleName /></p>
       <h2>{opened.label}</h2>
-      <blockquote className="ls-verse ls-verse-big"><p>{opened.verse.text}</p></blockquote>
+      <blockquote className="ls-verse ls-verse-big"><p><VerseAt verse={opened.verse} /></p></blockquote>
       <p><Link to={readerHref(opened.verse)} className="ls-back">Read it in its chapter →</Link></p>
     </>;
   }

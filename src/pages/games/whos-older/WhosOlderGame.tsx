@@ -5,16 +5,17 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteLanguage } from "@/lib/language";
+import { plural } from "@/lib/site-format";
 import { explain } from "./explain";
 import { MILESTONES, answer, buildPool, current, endsRun, newRun, next, pairOf, score, streakNow, type Difficulty, type Mode,
   type Pool, type Run, type WhosOlderData } from "./game";
 import { Reveal } from "./Reveal";
 import { RoundView } from "./Round";
 import { CantLoad, RunOver, StartScreen } from "./Screens";
-import { browserStore, canSave, readSaved, saveBest, saveRun, type Best } from "./storage";
 import { withEnglishLabels } from "./pairing";
-import "../games.css";
+import { browserStore, canSave, readSaved, saveBest, saveRun, type Best } from "./storage";
 import { inSiteLanguage } from "../translated-data";
+import "../games.css";
 import "./whos-older.css";
 
 const loadData = () => import("@/data/whos-older/whos-older.json").then(async (module) => {
@@ -118,7 +119,7 @@ function Play({ pool, run, onPick, onNext }: { pool: Pool; run: Run; onPick: (id
   const shownScore = run.mode === "streak" ? streakNow(pool, run) : score(pool, run);
   const status = !answered ? undefined
     : run.mode === "streak" ? (ended ? `Run over — streak of ${score(pool, run)}` : `Streak ${shownScore}`)
-    : `${run.hearts} ${run.hearts === 1 ? "heart" : "hearts"} left`;
+    : plural(run.hearts, "{n} heart left", "{n} hearts left");
   const milestone = answered && correct ? MILESTONES[streakNow(pool, run)] : undefined;
   const announcement = !answered ? "" : `${correct ? "Right!" : "Not this time."} ${explain(pair).text}`;
 

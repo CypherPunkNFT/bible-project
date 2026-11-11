@@ -1,18 +1,21 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { bsbWords } from "@/lib/bsb-for-tests";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
-import { bereanVerse, D, findKind, findOpened, findPoem, findTest, findTool, findWord, P, readerHref, refByKey, versesOf } from "./model";
+import { verseIdOf } from "@/lib/verses";
+import { bereanLines, bereanVerse, D, findKind, findOpened, findPoem, findTest, findTool, findWord, P, readerHref, refByKey, versesOf } from "./model";
 import PoetryPage from "./PoetryPage";
 import { path } from "./route";
 
 const RECORD = "content/academic-research/13-hebrew-poetry-and-biblical-narrative.json";
 const HOSTILE = ["__proto__", "constructor", "toString", "", "<script>", "ref:", "source:", "ref:__proto__", "source:constructor", "ref:Psalm 999:1", "0", "12", "-1", "1e9", "7.5"];
-const normal = (text: string) => text.replace(/[“”"‘’']/g, "").replace(/\s+/g, " ").trim().toLowerCase();
+const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+/** A verse as the reader's <Verse> hands it to the page (src/lib/verses.ts). */
+const readerWords = (text: string) => text.replace(/^¶\s*/, "").replace(/\s+/g, " ").trim();
 const held = new Map<string, Record<string, string>>();
 /** The site's Leningrad Hebrew for a verse, without the marks the page does not show: the paragraph signs (a lone פ or ס) and the inverted nun (׆) of Psalm 107. */
 function wlcWords(code: string, chapter: number, verse: number): string {
@@ -28,13 +31,21 @@ describe("Hebrew poetry and biblical narrative: its data", () => {
     const raw = readFileSync(RECORD, "utf8").replace(/\r\n/g, "\n");
     expect(P.recordHash).toBe(createHash("sha256").update(raw, "utf8").digest("hex"));
   });
-  it("carries every verse in the Berean's own words and, in the Old Testament, the Leningrad Hebrew's", () => {
+  it("names every verse by an id the Berean holds, with line breaks inside its words, and holds the Leningrad Hebrew", () => {
     const verses = Object.values(P.verses);
     expect(verses.length).toBeGreaterThan(100);
+    expect(JSON.stringify(P)).not.toContain('"lines"');
     let hebrew = 0;
     for (const v of verses) {
       const where = `${v.code} ${v.chapter}:${v.verse}`;
-      expect(normal(v.lines.join(" ")), where).toBe(normal(bsbWords(v)));
+      expect(verseIdOf(catalog, v.code, v.chapter, v.verse), where).toBeGreaterThan(0);
+      const words = readerWords(bsbWords(v));
+      expect(words, where).not.toBe("");
+      v.breaks.forEach((at, i) => expect(at, where).toBeGreaterThan(i ? v.breaks[i - 1] : 0));
+      expect(v.breaks.every((at) => at < words.split(" ").length), where).toBe(true);
+      const lines = bereanLines(words, v.breaks);
+      expect(lines.every(Boolean), where).toBe(true);
+      expect(lines.join(" "), where).toBe(words);
       if (v.hebrew) {
         hebrew++;
         expect(v.hebrew, where).toBe(wlcWords(v.code, v.chapter, v.hebrewVerse ?? v.verse));
@@ -49,10 +60,15 @@ describe("Hebrew poetry and biblical narrative: its data", () => {
       const { rows, title } = P.pairs[key];
       const verse = P.verses[key];
       expect([title?.he, ...rows.map((r) => r.he)].filter(Boolean).join(" "), key).toBe(verse.hebrew);
-      const english = rows.map((r) => r.en).join(" ");
-      expect([english, `${title?.en} ${english}`], key).toContain(verse.lines.join(" "));
+      // Every Berean line stands once, in order: a heading that is the verse's own first line, then one per row.
+      const named = [...(title?.line === undefined ? [] : [title.line]), ...rows.map((r) => r.line)];
+      expect(named, key).toEqual(Array.from({ length: verse.breaks.length + 1 }, (_, i) => i));
+      // Only a psalm's title carries words of its own: the Berean's superscription, which is no verse.
+      expect(Boolean(title?.en) && verse.code !== "PSA", key).toBe(false);
       expect(rows.length, key).toBeGreaterThanOrEqual(2);
     }
+    expect(P.pairs["PRO 10:1"].title?.line).toBe(0);
+    expect(bereanLines(readerWords(bsbWords(P.verses["PRO 10:1"])), P.verses["PRO 10:1"].breaks)[0]).toBe("The proverbs of Solomon:");
     expect(P.pairs["PSA 145:13"].rows.filter((r) => r.he === null)).toHaveLength(2);
   });
   it("supplies every verse label the page uses", () => {
@@ -105,12 +121,20 @@ describe("Hebrew poetry and biblical narrative: its data", () => {
   });
 });
 
-const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
 const page = (at = path) => render(
   <CatalogContext.Provider value={catalog}>
     <MemoryRouter initialEntries={[at]}><Routes><Route path={path} element={<PoetryPage />} /></Routes></MemoryRouter>
   </CatalogContext.Provider>,
 );
+
+// The verse words come from the Bible files (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
+const WAIT = { timeout: 10_000 };
 
 describe("Hebrew poetry and biblical narrative: the page", () => {
   afterEach(cleanup);
@@ -122,14 +146,18 @@ describe("Hebrew poetry and biblical narrative: the page", () => {
       expect(container.querySelector(`#${id} .hpn-failed`), id).toBeNull();
     }
   });
-  it("sets the Hebrew right to left beside the Berean, line by line", () => {
+  it("sets the Hebrew right to left beside the Berean, line by line", async () => {
     const { container } = page();
     const rows = container.querySelectorAll("#lines .hpn-row");
     expect(rows.length).toBeGreaterThan(1);
     const hebrew = rows[0].querySelector(".hpn-he")!;
     expect(hebrew.getAttribute("dir")).toBe("rtl");
     expect(hebrew.getAttribute("lang")).toBe("he");
-    expect(rows[0].querySelector(".hpn-en")).not.toBeNull();
+    // The first kind's first verse: each row shows its own Berean line, read from the Berean's file at the build's offsets.
+    const first = versesOf(D.parallelism.kinds.find((k) => k.id === "restate")!.examples[0])[0];
+    const lines = bereanLines(readerWords(bsbWords(first)), first.breaks);
+    await waitFor(() => expect(rows[0].querySelector(".hpn-en")?.textContent).toBe(lines[0]), WAIT);
+    expect(rows[1].querySelector(".hpn-en")?.textContent).toBe(lines[1]);
   });
   it("draws Psalm 145 by default with its missing nun, and another poem from the address", () => {
     const { container } = page();
@@ -141,12 +169,16 @@ describe("Hebrew poetry and biblical narrative: the page", () => {
     expect(again.container.querySelector(".hpn-kind[aria-pressed='true']")?.textContent).toContain(D.parallelism.kinds.find((k) => k.id === "restate")!.name.replace(/\*/g, "").slice(0, 8));
     expect(again.container.querySelector(".hpn-strip-frame[aria-pressed='true']")?.textContent).toContain(D.storyteller.tools.find((t) => t.id === "gaps")!.name.slice(0, 8));
   });
-  it("opens a reference's Hebrew and Berean in the sheet and closes on Escape", () => {
+  it("opens a reference's Hebrew and Berean in the sheet and closes on Escape", async () => {
     const { container } = page();
-    fireEvent.click(within(container.querySelector("#lines")!).getAllByRole("button", { name: /^Psalm|^Genesis|^Isaiah|^Proverbs/ })[0]);
+    const button = within(container.querySelector("#lines")!).getAllByRole("button", { name: /^Psalm|^Genesis|^Isaiah|^Proverbs/ })[0];
+    fireEvent.click(button);
     const sheet = container.querySelector(".ms-sheet.open:not(.chk-panel)")!;
     expect(sheet).not.toBeNull();
     expect(sheet.querySelector(".hpn-he[dir='rtl']")).not.toBeNull();
+    const shown = versesOf(button.textContent!)[0];
+    const firstLine = bereanLines(readerWords(bsbWords(shown)), shown.breaks)[0];
+    await waitFor(() => expect(sheet.textContent).toContain(firstLine), WAIT);
     fireEvent.keyDown(window, { key: "Escape" });
     expect(container.querySelector(".ms-sheet.open:not(.chk-panel)")).toBeNull();
   });

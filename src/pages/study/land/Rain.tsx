@@ -1,13 +1,13 @@
 // 03 · Rain: the year as one bar, October to September, with the record's three rains on it; the fall of rain from north to
 // south in the record's own figures; Deuteronomy 11 beside a drawing of the Nile; then wind, dew, drought, the storm god and
 // prayer for rain, each a record in three parts.
-import { D, LD, MONTH_SHORT, phraseByLabel, rainSpan } from "./model";
+import { D, LD, monthsShort, phraseByLabel, rainSpan } from "./model";
 import { Head, Opener, StudyLink, T, ThreeParts, VerseRef, VerseRefs } from "./parts";
 
 function YearBar() {
   return <figure className="ls-year">
     <div className="ls-year-bar" role="img" aria-label={`The rainy season: ${D.climate.rains.map((r) => `${r.name}, ${r.months}`).join("; ")}. May to September is dry.`}>
-      {MONTH_SHORT.map((m, i) => <span key={m} className="ls-month" style={{ gridColumn: `${i + 1}` }}>{m}</span>)}
+      {monthsShort().map((m, i) => <span key={i} className="ls-month" style={{ gridColumn: `${i + 1}` }}>{m}</span>)}
       {D.climate.rains.map((r, i) => {
         const span = rainSpan(r.months);
         return span && <span key={r.id} className={`ls-rain ls-rain-${i}`} style={{ gridColumn: `${span.from + 1} / ${span.to + 1}` }}>{r.name}</span>;
@@ -24,7 +24,7 @@ function Gradient() {
     <ul>{LD.figures.rain.map((r) => <li key={r.id}>
       <span className="ls-grad-place">{r.place}</span>
       <span className="ls-grad-bar" aria-hidden="true"><i style={{ width: `${(r.mm / max) * 100}%` }} /></span>
-      <span className="ls-grad-mm">{r.words} mm</span>
+      <span className="ls-grad-mm">{`${r.words} mm`}</span>
     </li>)}</ul>
     <figcaption className="ls-caption">Average yearly rainfall, north to south and west to east, in the record's rounded figures. Long-term averages: the
       years averaged are not yet printed (the record asks for them before publishing).</figcaption>
@@ -45,9 +45,9 @@ function Nile() {
 export function Rain() {
   const eg = D.egyptAndCanaan;
   const more = D.faith.items.filter((f) => f.id === "rain-and-gods" || f.id === "prayer-for-rain");
-  const parts = [["Winds", D.climate.winds], ["Dew", D.climate.dew], ["Drought", D.climate.drought]] as const;
+  const parts = [{ label: "Winds", part: D.climate.winds }, { label: "Dew", part: D.climate.dew }, { label: "Drought", part: D.climate.drought }];
   return <>
-    <Head num="03" kicker="Rain" title="Rain from the sky." turn="Not from the river." lead={<p><T text={D.climate.lead} /></p>} />
+    <Head num="03" kicker={<>Rain</>} title="Rain from the sky." turn="Not from the river." lead={<p><T text={D.climate.lead} /></p>} />
     <YearBar />
     <div className="ls-rains">{D.climate.rains.map((r) => <div key={r.id}><h3>{r.name} <small>{r.months}</small></h3><ThreeParts evidence={r.evidence} inference={r.inference} limit={r.limit} /></div>)}</div>
     <div className="ls-two">
@@ -63,7 +63,7 @@ export function Rain() {
         <VerseRefs labels={eg.verses} />
       </div>
     </div>
-    <div className="ls-trio">{parts.map(([name, part]) => <div key={name}><h3>{name}</h3><ThreeParts {...part} /></div>)}</div>
+    <div className="ls-trio">{parts.map(({ label, part }) => <div key={label}><h3>{label}</h3><ThreeParts {...part} /></div>)}</div>
     <VerseRefs labels={D.climate.verses} />
     <ul className="ls-list">{more.map((f) => <li key={f.id}><Opener openKey={`faith:${f.id}`}><span className="ls-card-t">{f.name}</span><span className="ls-card-v">Open the record →</span></Opener></li>)}</ul>
     <StudyLink title="The farming year (29)" />

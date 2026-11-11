@@ -13,7 +13,9 @@ export type TableRow = { book: string; part: string; says: string; tradition: st
 export type TestItem = { question: string; options: { text: string; right: boolean; why: string }[] };
 export type Claim = ThreePart & { claim: string; test?: TestItem };
 export type Source = { id: string; title: string; kind: string; status: string; answers: string; read: string; url?: string };
-export type Ref = { code: string; chapter: number; verse: number; toChapter: number; toVerse: number; lines: [number, number, string][]; more?: number };
+/** A reference's bounds (verse 0: whole chapters). Its words come from the reader's Bible (src/lib/verses.ts), never from
+ *  this file; `more` counts the Berean's verses past the sheet's first `sheetVerses`. */
+export type Ref = { code: string; chapter: number; verse: number; toChapter: number; toVerse: number; more?: number };
 
 export const R = record as unknown as {
   title: string; turn: string; premise: string; question: string; outcomes: string[]; boundaries: { in: string; out: string[] };
@@ -31,7 +33,7 @@ export const R = record as unknown as {
   sources: Source[]; checkNotes: unknown[];
 };
 export const DATA = generated as unknown as {
-  recordHash: string; books: string[]; chapters: Record<string, number>; neighbours: Record<string, string>; quotationsChecked: number; refs: Record<string, Ref>;
+  recordHash: string; books: string[]; chapters: Record<string, number>; neighbours: Record<string, string>; quotationsChecked: number; sheetVerses: number; refs: Record<string, Ref>;
 };
 
 export const REFS = new Map<string, Ref>(Object.entries(DATA.refs));

@@ -14,7 +14,7 @@ function Cell({ event, side }: { event: CrusadeEvent; side: { id: string; name: 
   const has = witnessSides(event).has(side.id);
   return <td role="cell" className={has ? "has" : ""}>
     <svg viewBox="-8 -8 16 16" width="14" height="14" aria-hidden="true">{has ? <circle r="6" /> : <path d="M-4 0H4" />}</svg>
-    <span className="mv-sr">{has ? `${side.name}: a witness survives` : `${side.name}: none used`}</span>
+    <span className="mv-sr">{has ? `${side.name} have a surviving witness here` : `${side.name} have no witness used here`}</span>
   </td>;
 }
 
@@ -52,7 +52,7 @@ export function Crusade({ eventId, onChange }: { eventId: string | null; onChang
   return <>
     <Head num="05" kicker="Crusade and inquisition" title={<>Written down by more than one side.<em> Read each witness.</em></>} lead={<T text={D.crusade.lead} />} />
     <div className="mv-crusade">
-      <div><Grid chosen={event} onChoose={(id) => onChange({ event: id })} /><p className="mv-caption">{D.crusade.sidesNote} A filled disc: a witness used here. A dash: none found for this page, which is not the same as none written.</p></div>
+      <div><Grid chosen={event} onChoose={(id) => onChange({ event: id })} /><p className="mv-caption">{D.crusade.sidesNote} <span>A filled disc: a witness used here. A dash: none found for this page, which is not the same as none written.</span></p></div>
       <Record event={event} />
     </div>
     <aside className="mv-debate"><p className="mv-kicker">{D.crusade.debate.head}</p><p className="mv-para"><T text={D.crusade.debate.text} /></p><Cite ids={D.crusade.debate.sources} /></aside>

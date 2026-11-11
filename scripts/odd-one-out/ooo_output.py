@@ -33,7 +33,8 @@ def rule_entry(rule: Rule, bible: Bible) -> dict:
     if rule.odd_only:
         entry |= {"oddOnly": rule.odd_only, "others": rule.others}
     if rule.key_ref:
-        entry |= {"keyRef": list(rule.key_ref), "keyQuote": bible.quote(*rule.key_ref)}
+        bible.quote(*rule.key_ref)  # refuses a key verse the BSB lacks; the page shows its words from the reader's Bible
+        entry |= {"keyRef": list(rule.key_ref)}
     return entry
 
 

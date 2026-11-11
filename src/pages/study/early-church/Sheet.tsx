@@ -1,7 +1,8 @@
-// The one sheet: a record, with its three parts kept apart, or a Bible reference with its Berean words. It opens from the right,
+// The one sheet: a record, with its three parts kept apart, or a Bible reference with its words in the reader's Bible. It opens from the right,
 // the same way as on every study, and closes on Escape.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BibleName, VerseAt } from "@/components/Verse";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { plainText } from "@/pages/study/check-notes/checked";
@@ -11,19 +12,20 @@ import { Cite, Links, Prose, QuoteLine, Refs, ThreeParts } from "./parts";
 function Body({ item }: { item: Opened }) {
   if (item.kind === "ref") {
     return <>
-      <p className="ek-kicker">Berean Standard Bible</p>
+      <p className="ek-kicker"><BibleName /></p>
       <h2>{item.label}</h2>
-      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="ek-verse"><p>{v.text}</p>
-        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>Read {v.chapter}:{v.verse} in the Berean reader <span aria-hidden="true">→</span></Link></cite></blockquote>)}
+      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="ek-verse"><p><VerseAt verse={v} /></p>
+        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>{`Read ${v.chapter}:${v.verse} in the Berean reader`} <span aria-hidden="true">→</span></Link></cite></blockquote>)}
     </>;
   }
   const { record: r, part, path } = item;
   const alternatives = EC.alternatives[r.id] ?? [];
+  const argued = alternatives.map((a) => a.holder).join("; ");
   return <>
     <p className="ek-kicker">{part.n} · {plainText(part.title)}</p>
     <h2><Checked text={r.name} /></h2>
     <p className="ek-sheet-meta"><Checked text={r.when} /> · <Checked text={r.where} /><small><Checked text={r.kind} /></small></p>
-    {alternatives.length > 0 && <p className="ek-sheet-alt">Also argued: {alternatives.map((a) => a.holder).join("; ")}.</p>}
+    {alternatives.length > 0 && <p className="ek-sheet-alt">{`Also argued: ${argued}.`}</p>}
     {r.question && <p className="ek-question"><Prose text={r.question} /></p>}
     {r.quote && <QuoteLine words={r.quote.words} source={r.quote.source} reference={r.quote.ref} path={path} held={EC.held[`${path}.quote.words`]?.[0]?.title} />}
     <ThreeParts evidence={r.evidence} inference={r.inference} limit={r.limit} />

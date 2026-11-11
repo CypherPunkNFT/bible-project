@@ -90,10 +90,11 @@ export function ladder(exodus: Exodus | null, stay: Stay | null): LadderRow[] {
     if (exodus && exodus !== which) continue;
     const view = D.debates[0].views[which === "count" ? 0 : 1];
     rows.push({ years: [XS.cords.exodus[which]], label: `Exodus: ${view.name}`, kind: "cord" });
+    const begins = view.name.split(",")[0].toLowerCase();
     for (const reading of ["egypt", "canaan"] as Stay[]) {
       if (stay && stay !== reading) continue;
       const hang = hangOf(which, reading);
-      rows.push({ years: [hang.egypt[0]], label: `${reading === "egypt" ? "430 years in Egypt" : "About 215 years in Egypt"}: the stay begins (${view.name.split(",")[0].toLowerCase()})`, kind: "cord" });
+      rows.push({ years: [hang.egypt[0]], label: reading === "egypt" ? `430 years in Egypt: the stay begins (${begins})` : `About 215 years in Egypt: the stay begins (${begins})`, kind: "cord" });
     }
   }
   for (const bar of D.timeline.ground) for (const span of XS.bars[bar.id] ?? []) rows.push({ years: span, label: bar.name, kind: "ground" });

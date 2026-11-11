@@ -1,10 +1,10 @@
 // 01 · The slice: one line across the land at Jerusalem, drawn from the record's eight points with straight lines between them
 // and its height stretch printed. The list of points is the interface; the drawing repeats it for a pointer, out of the tab
 // order. Three thin bands beneath share the slice's width: rain, roads and water at each point. Below, the eight regions.
-import { BAND_NAME, D, groundPath, LAYER_AT, LAYER_RECORD, LAYERS, openName, SLICE, sliceX, sliceY, slicePath, STRETCH, type Layer, type Point, firstSentence } from "./model";
+import { BAND_NAME, D, groundPath, labelsByKey, LAYER_AT, LAYER_RECORD, LAYERS, openName, SLICE, sliceX, sliceY, slicePath, STRETCH, type Layer, type Point, firstSentence } from "./model";
 import { Head, Opener, T, VerseRefs } from "./parts";
 
-const LAYER_NAME: Record<Layer, string> = { rain: "Rain", roads: "Roads", water: "Water" };
+const LAYER_NAME = labelsByKey<Layer>([{ key: "rain", label: "Rain" }, { key: "roads", label: "Roads" }, { key: "water", label: "Water" }]);
 const LAYER_NOTE: Record<Layer, string> = {
   rain: "Long-term averages in the record's own rounded figures; it gives none for the other points. Single years swing widely.",
   roads: "Which road passes each point, placed by this page from the record's road and point descriptions.",
@@ -27,7 +27,7 @@ function Drawing({ at, onPick }: { at: Point; onPick: (id: string) => void }) {
         <text x={x} y={y - 14} textAnchor="middle" className="ls-svg-label">{p.elevation} m</text>
       </g>;
     })}
-    <text x={SLICE.right} y={SLICE.height - 12} textAnchor="end" className="ls-svg-small">West ← · → East · {pts[pts.length - 1].km} km</text>
+    <text x={SLICE.right} y={SLICE.height - 12} textAnchor="end" className="ls-svg-small">{`West ← · → East · ${pts[pts.length - 1].km} km`}</text>
   </svg>;
 }
 
@@ -50,24 +50,22 @@ export function Slice({ at, layer, onChange }: { at: Point; layer: Layer; onChan
     <Head num="01" kicker="The slice" title="A hundred kilometres." turn="Five lands." lead={<p><T text={D.transect.lead} /></p>} />
     <div className="ls-slice">
       <figure className="ls-slice-fig">
-        <p className="ls-sr">A west-to-east cross-section of the land at Jerusalem, from the shore near Jaffa at 0 m up to Jerusalem at {ridge.elevation} m,
-          down to the Dead Sea at {deadsea.elevation} m, and up onto the plateau. The list of points beside it says the same.</p>
+        <p className="ls-sr">{`A west-to-east cross-section of the land at Jerusalem, from the shore near Jaffa at 0 m up to Jerusalem at ${ridge.elevation} m, down to the Dead Sea at ${deadsea.elevation} m, and up onto the plateau. The list of points beside it says the same.`}</p>
         <Drawing at={at} onPick={(id) => onChange({ at: id })} />
-        <figcaption className="ls-caption">Height stretched about {STRETCH} times against distance, so the climb can be seen. Straight lines join the
-          record's eight rounded points; the ground between them is not drawn. Today's ground: the coast and the Dead Sea's shore have moved since biblical times.</figcaption>
+        <figcaption className="ls-caption">{`Height stretched about ${STRETCH} times against distance, so the climb can be seen. Straight lines join the record's eight rounded points. The ground between them is not drawn. Today's ground: the coast and the Dead Sea's shore have moved since biblical times.`}</figcaption>
         <Bands at={at} layer={layer} onLayer={(l) => onChange({ layer: l })} />
       </figure>
       <ol className="ls-points" aria-label="Points along the slice, west to east">
         {pts.map((p) => <li key={p.id}><button type="button" aria-pressed={p.id === at.id} className={p.id === at.id ? "is-on" : ""} onClick={() => onChange({ at: p.id })}>
-          <span className="ls-pt-km">{p.km} km</span><span className="ls-pt-name">{p.name}</span><span className="ls-pt-band">{BAND_NAME[p.band]} · {p.elevation} m</span>
+          <span className="ls-pt-km">{`${p.km} km`}</span><span className="ls-pt-name">{p.name}</span><span className="ls-pt-band">{BAND_NAME[p.band]} · {p.elevation} m</span>
         </button></li>)}
       </ol>
     </div>
     <div className="ls-at" aria-live="polite">
-      <p className="ls-kicker">{BAND_NAME[at.band]} · {at.km} km from the sea · about {at.elevation} m{at.elevationCheck && <> <T text={at.elevationCheck} /></>}{at.distanceCheck && <T text={at.distanceCheck} />}</p>
+      <p className="ls-kicker">{BAND_NAME[at.band]} · {`${at.km} km from the sea · about ${at.elevation} m`}{at.elevationCheck && <> <T text={at.elevationCheck} /></>}{at.distanceCheck && <T text={at.distanceCheck} />}</p>
       <h3>{at.name}</h3>
       <p className="ls-para"><T text={at.note} /></p>
-      <p className="ls-para"><b>{LAYER_NAME[layer]} here:</b> {here ?? "nothing the record gives for this point"}. <span className="ls-muted">{LAYER_NOTE[layer]}</span></p>
+      <p className="ls-para"><b>{`${LAYER_NAME[layer]} here:`}</b> {here ?? "nothing the record gives for this point"}. <span className="ls-muted">{LAYER_NOTE[layer]}</span></p>
       {LAYER_RECORD[layer].length > 0 && <p className="ls-chips">{LAYER_RECORD[layer].map((key) => <Opener key={key} openKey={key}>{openName(key)} →</Opener>)}</p>}
       <VerseRefs labels={at.verses ?? []} />
     </div>
@@ -80,7 +78,7 @@ export function Slice({ at, layer, onChange }: { at: Point; layer: Layer; onChan
     <h3 className="ls-subhead">Eight regions <em>five on this line, three off it</em></h3>
     <ul className="ls-regions">{D.regions.map((r, i) => <li key={r.id}>
       <Opener openKey={`region:${r.id}`}>
-        <span className="ls-card-k">{String(i + 1).padStart(2, "0")} / {String(D.regions.length).padStart(2, "0")} · {pts.some((p) => p.band === r.band) ? "on the slice" : "off the slice"}</span>
+        <span className="ls-card-k">{String(i + 1).padStart(2, "0")} / {String(D.regions.length).padStart(2, "0")} · {pts.some((p) => p.band === r.band) ? "On the slice" : "Off the slice"}</span>
         <RegionMark band={r.band ?? ""} />
         <span className="ls-card-t">{r.name}</span>
         <span className="ls-card-d">{firstSentence(r.where ?? "")}</span>

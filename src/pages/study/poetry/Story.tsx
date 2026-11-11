@@ -1,6 +1,7 @@
 // 05 The storyteller: the seven tools as a strip of story frames, the one for what is left unsaid drawn empty. The chosen
 // tool shows its key verses in Hebrew and Berean, whole verse beside whole verse (these are prose, so there are no lines to
 // pair), and its three parts. Then the art-and-history panel: Alter and Sternberg side by side, the site's view as its own.
+import { plural } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { D, toolById, type Item } from "./model";
 import { useOpen } from "./open";
@@ -22,7 +23,7 @@ function Pace({ item }: { item: Item }) {
   return <div className="hpn-pace">{rows.map(([from, to, n]) => <p key={from}>
     <span><RefButton label={from} /> to <RefButton label={to} /></span>
     <span className="hpn-pace-bar" style={{ width: `${(n / most) * 100}%` }} />
-    <small>{n} verses</small>
+    <small>{plural(n, "{n} verse", "{n} verses")}</small>
   </p>)}
   </div>;
 }

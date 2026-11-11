@@ -26,6 +26,10 @@ Its words: [the research record](../../../../content/academic-research/41-how-th
   order; `--check` ignores Windows line endings; chapter-only references ("Deuteronomy 34", "Isaiah 40–55") are
   checked against the chapters the Berean has; a range longer than 40 verses is shown in part with the rest left to
   the Bible reader, instead of failing the build.
+- The data file holds no verse's words (the site's rule, `src/lib/verses.ts`): the build reads and checks the Berean
+  text in memory and writes each reference's bounds only (book, chapter and verse to chapter and verse, and how many
+  verses past the sheet's first 40 a long range runs). The page shows the words in the reader's own Bible, captioned
+  with that Bible's name.
 - The record's table has five parts, not three: Torah, Former Prophets, Latter Prophets, The Twelve and Writings.
   Two of its five claims carry no self-test (the claim that JEDP is a finding, and the Cyrus claim); the page shows
   a test only where the record has one.
@@ -45,7 +49,7 @@ Its words: [the research record](../../../../content/academic-research/41-how-th
 | [Ruler.tsx](Ruler.tsx) | The signature drawing: one ruler of chapters per book, marks above and below the line, and the same marks as a list. |
 | [Landing.tsx](Landing.tsx) | Trail, gold concept line, title and turn, drawing (scroll, stylus, clay tablet) with its motto, four figures with captions, outcomes, the site's stance. |
 | [Pentateuch.tsx](Pentateuch.tsx), [Documentary.tsx](Documentary.tsx), [Isaiah.tsx](Isaiah.tsx), [Daniel.tsx](Daniel.tsx), [Darius.tsx](Darius.tsx), [BookTable.tsx](BookTable.tsx), [Claims.tsx](Claims.tsx), [Closing.tsx](Closing.tsx) | Sections 01 to 08, in the design note's order and with its headlines. |
-| [Sheet.tsx](Sheet.tsx) | The record sheet (the shared sliding shell): a verse in the Berean, a record in its three parts, a test for sources, a dated view. |
+| [Sheet.tsx](Sheet.tsx) | The record sheet (the shared sliding shell): a verse in the reader's Bible, a record in its three parts, a test for sources, a dated view. |
 | [parts.tsx](parts.tsx), [context.ts](context.ts) | Section boundary, two-beat headline, the three layers' tags, research text through `<Checked>` with its references as buttons, three parts, quoted verse, the site's word, views. |
 | [ot-books.css](ot-books.css) | Every class under `ob-` (checked unused elsewhere). Light and dark from the site's tokens; reduced motion; phones. |
 | [ot-books-data.json](ot-books-data.json) | Written by [build-ot-books-study.py](../../../../scripts/build-ot-books-study.py); never edited by hand. |
@@ -70,13 +74,13 @@ book speaks, II later readers remember, III a modern reconstruction, always in t
   in its verse; an inline Berean quotation changed ("written by the men of Hezekiah"); a study link that leaves the
   site (https://example.com); a study link to an address the site does not have; a source address that is not https;
   a test with two supported answers; a check marker with no note. The true record passes.
-- `npx vitest run src/pages/study/ot-books`: 17 tests. The data is not stale (the record's hash); the page's reference
+- `npx vitest run src/pages/study/ot-books`: 18 tests. The data is not stale (the record's hash); the page's reference
   finder and the script's find exactly the same 127 references; names that are not references stay words ("John J.
-  Collins", "Bava Batra 14b–15a", "Sirach 48:22–25"); every reference has Berean words and a Berean reader address;
+  Collins", "Bava Batra 14b–15a", "Sirach 48:22–25"); every reference is held as bounds only, the Berean has both its ends, and it has a Berean reader address;
   study links stay inside the site; every ruler mark sits inside its ruler and opens a record; a mark is anchored only
   where the record itself points; junk in the address falls back; 39 books in 36 rows in both orders, the Hebrew order
-  grouped by part. Render: the heading and all eight sections draw; a verse reference opens the sheet in the Berean's
-  words and Escape closes it; a ruler mark opens its record; a highlighted passage opens its check note and closes the
+  grouped by part. Render: the heading and all eight sections draw; a verse reference opens the sheet in the reader's
+  Bible and Escape closes it; a long range shows its first 40 verses numbered by chapter and counts the rest; a ruler mark opens its record; a highlighted passage opens its check note and closes the
   record sheet (one sheet at a time), and Escape closes it; a row opens from the address.
 - `npx eslint --max-warnings 0 src/pages/study/ot-books`: passes. `tsc -p tsconfig.app.json`: no errors in this folder.
 - The preview was rebuilt with `node scripts/build-portable.mjs --preserve-output` (never by hand) and the page opened

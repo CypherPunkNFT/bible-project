@@ -18,9 +18,9 @@ function Test({ claim }: { claim: Claim }) {
 
 export function Claims() {
   return <>
-    <Head num="07" kicker="Claims" title="Four things often said." turn="One test each." lead={<p>Each claim is set against the text and the ground, then handed to you as a question.</p>} />
+    <Head num="07" kicker={<>Claims</>} title="Four things often said." turn="One test each." lead={<p>Each claim is set against the text and the ground, then handed to you as a question.</p>} />
     <div className="ls-claims">{D.claims.map((c, i) => <article key={c.id} className="ls-claim">
-      <p className="ls-card-k">Claim · {String(i + 1).padStart(2, "0")} / {String(D.claims.length).padStart(2, "0")}</p>
+      <p className="ls-card-k">{`Claim · ${String(i + 1).padStart(2, "0")} / ${String(D.claims.length).padStart(2, "0")}`}</p>
       <h3><T text={c.claim} /></h3>
       <p className="ls-claim-head"><T text={c.head} /></p>
       <ThreeParts evidence={c.evidence} inference={c.inference} limit={c.limit} />

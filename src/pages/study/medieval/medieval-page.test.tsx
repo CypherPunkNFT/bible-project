@@ -47,7 +47,7 @@ describe("The medieval church: the page", () => {
     const table = container.querySelector(".mv-crugrid")!;
     expect([...table.querySelectorAll("thead th")].map((th) => th.textContent)).toEqual(["Event", "Latin", "Greek", "Jewish", "Muslim", "Accused"]);
     expect(table.querySelectorAll("tbody td").length).toBe(D.crusade.events.length * D.crusade.sides.length);
-    for (const td of table.querySelectorAll("tbody td")) expect(td.querySelector(".mv-sr")?.textContent).toMatch(/witness survives|none used/);
+    for (const td of table.querySelectorAll("tbody td")) expect(td.querySelector(".mv-sr")?.textContent).toMatch(/have a surviving witness here|have no witness used here/);
   });
   it("opens a check note from a highlighted passage, and closes it on Escape", () => {
     const { container } = page(`${HREF}?step=chalcedon`);

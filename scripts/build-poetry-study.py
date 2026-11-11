@@ -12,8 +12,13 @@ Berean (data/text/bsb) and the site's Leningrad Hebrew (data/text/wlc), and refu
 - a shape the page draws over the Hebrew (the folds of Genesis 9:6 and Isaiah 6:10, the returning words, the flood's
   day-counts, the alphabet columns, the figures) is not in the held text;
 - a link the page makes leaves the site or names an address the site does not route.
+- the reader's Berean (data/plain/bsb, the words the page shows through <Verse bible="bsb">) does not hold exactly the same
+  words as the held Berean lines at a verse, so that cutting it at the written word offsets would not give those lines.
 Check marks ({{check:cN}}…{{/check}}) are removed before any text is compared. That proves the wording, the references and
 that each drawn shape is in the text; it does not prove that any reading of a pattern is right.
+
+The file holds no Berean wording (src/lib/verses.ts): each verse is its book, chapter and verse with `breaks`, the word
+offsets where its second and later poetic lines begin, and each paired row names its line by number. The Hebrew stays.
 
 Usage: python scripts/build-poetry-study.py [--site <Website folder>] [--check]
   --check builds in memory and fails if the file on disk differs (stale or missing); it writes nothing.
@@ -638,6 +643,63 @@ def acrostics(texts: Texts, record: dict) -> dict:
             "lamentations5": [{"verse": v, "letter": l} for v, l, _ in lam5], "psalm119": psalm119[0], "lamentations3": lam3}
 
 
+def reader_text(text: str) -> str:
+    """A verse as the reader's <Verse> hands it to the page (src/lib/verses.ts clean): a leading ¶ dropped, runs of
+    whitespace made one space. Characters Python counts as whitespace and JavaScript does not are refused, not guessed."""
+    if re.search("[\x1c-\x1f\x85]", text):
+        fail(f"the reader's Berean holds a separator character JavaScript does not count as space: {text!r}")
+    return re.sub(r"\s+", " ", re.sub(r"^¶\s*", "", text)).strip()
+
+
+def line_breaks(site: Path, verses: dict[str, dict]) -> dict[str, list[int]]:
+    """For each verse, the word offsets in the reader's Berean where its second and later lines begin. Refuses unless the
+    reader's words are exactly the held lines' words, read at the exact "chapter:verse" key (never a merged one)."""
+    books: dict[str, dict] = {}
+    out = {}
+    for key, verse in verses.items():
+        code = verse["code"]
+        if code not in books:
+            books[code] = json.loads((site / "data/plain/bsb" / f"{code}.json").read_text(encoding="utf-8"))
+        raw = books[code].get(f"{verse['chapter']}:{verse['verse']}")
+        if not isinstance(raw, str):
+            fail(f"{key}: the reader's Berean (data/plain/bsb/{code}.json) has no entry {verse['chapter']}:{verse['verse']}")
+        words = reader_text(raw).split(" ")
+        lines = [line.split(" ") for line in verse["lines"]]
+        if any(not line or "" in line for line in lines) or [w for line in lines for w in line] != words:
+            fail(f"{key}: the reader's Berean is not the held Berean lines word for word. Reader: {reader_text(raw)!r} Lines: {verse['lines']}")
+        breaks, at = [], 0
+        for line in lines[:-1]:
+            at += len(line)
+            breaks.append(at)
+        if any(not 0 < b < len(words) for b in breaks) or breaks != sorted(set(breaks)):
+            fail(f"{key}: line breaks {breaks} do not fall strictly inside its {len(words)} words")
+        out[key] = breaks
+    return out
+
+
+def without_wording(data: dict, breaks: dict[str, list[int]]) -> dict:
+    """The data as written: verses by id with their line offsets, paired rows by line number, no Berean verse wording."""
+    verses = {}
+    for key, verse in data["verses"].items():
+        verses[key] = {name: value for name, value in verse.items() if name != "lines"} | {"breaks": breaks[key]}
+    pairs = {}
+    for key, pair in data["pairs"].items():
+        count = len(data["verses"][key]["lines"])
+        out: dict = {}
+        first = 0
+        if "title" in pair:
+            if data["verses"][key]["code"] == "PSA":
+                out["title"] = pair["title"]  # the Berean's superscription over the psalm: chapter heading, not verse wording
+            else:
+                out["title"] = {"he": pair["title"]["he"], "line": 0}
+                first = 1
+        out["rows"] = [{"line": first + i, "he": row["he"]} for i, row in enumerate(pair["rows"])]
+        if first + len(pair["rows"]) != count or any(data["verses"][key]["lines"][r["line"]] != pair["rows"][i]["en"] for i, r in enumerate(out["rows"])):
+            fail(f"paired verse {key}: its rows do not name its {count} Berean lines in order")
+        pairs[key] = out
+    return data | {"verses": verses, "pairs": pairs}
+
+
 def routes(site: Path) -> set[str]:
     found = set(re.findall(r'path="([^"]+)"', (site / "src/App.tsx").read_text(encoding="utf-8")))
     for route in (site / "src/pages/study").glob("*/route.ts"):
@@ -694,6 +756,7 @@ def build_data(site: Path) -> str:
     data["counts"] = {"letters": len(ALPHABET), "poems": len(record["acrostics"]["poems"]), "psalm119": data["acrostics"]["psalm119"],
                       "verdicts": data["threads"]["verdicts"], "quotations": quotations}
     data["links"] = check_links(site, record, raw.decode("utf-8") + json.dumps(data, ensure_ascii=False))
+    data = without_wording(data, line_breaks(site, collector.verses))
     text = json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
     if len(text.encode("utf-8")) > BUDGET_BYTES:
         fail(f"the data is {len(text.encode('utf-8'))} bytes, over the {BUDGET_BYTES} budget")

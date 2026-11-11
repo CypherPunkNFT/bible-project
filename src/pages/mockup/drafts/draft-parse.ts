@@ -143,9 +143,27 @@ export function parseDraft(markdown: string, fallbackTitle: string, values: Reco
   const leadAt = doc.lead ? -1 : doc.intro.findIndex(block => block.kind === "para");
   if (leadAt >= 0) doc.lead = (doc.intro.splice(leadAt, 1)[0] as { text: string }).text;
   doc.sections = starts.map((start, n) => shapeSection(sectionHead(body[start].replace(/^##\s+/, "").trim()), parseBlocks(body.slice(start + 1, starts[n + 1] ?? body.length), rewritten)));
+  if (rewritten) liftOpeningFields(doc);
   splitPlainClose(doc);
   uniqueIds(doc.sections);
   return doc;
+}
+
+/** A rewritten draft may open with an unnumbered part before its Lead (Fear, anxiety and despair puts "## Help first",
+ *  the crisis lines, above everything). The top fields written inside such a part still belong to the page. */
+function liftOpeningFields(doc: DraftDoc) {
+  const firstNumbered = doc.sections.findIndex(section => section.number);
+  for (const section of doc.sections.slice(0, firstNumbered < 0 ? doc.sections.length : firstNumbered)) {
+    section.blocks = section.blocks.filter(block => {
+      if (block.kind !== "field" || !TOP_FIELDS.has(block.label)) return true;
+      if (block.label === "Concepts" && doc.concepts.length === 0) doc.concepts = block.text.split(/\s*·\s*/).filter(Boolean);
+      else if (block.label === "Motto") doc.motto ??= block.text;
+      else if (block.label === "Lead") doc.lead ??= block.text;
+      else if (block.label === "Selection") doc.selection ??= block.text;
+      else if (block.label === "QuestionsLead") doc.questionsLead ??= block.text;
+      return false;
+    });
+  }
 }
 
 /** Plain drafts end their last reading with a closing paragraph after its prompts, or with an unnumbered part:

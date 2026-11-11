@@ -21,8 +21,13 @@ const LABEL: Record<string, [number, number, "start" | "end"]> = {
 function CouncilMap({ chosen }: { chosen: EcRecord }) {
   const { width, height, paths, places } = EC.map;
   const outside = outsideOf(chosen.id);
+  const name = chosen.name ? plainText(chosen.name) : "";
+  const regions = places.filter((p) => outside.has(p.kind)).map((p) => p.label).join(", ");
+  const label = outside.size
+    ? `A map from the Aegean to Persia. ${name} is marked among the four council cities. The regions whose churches did not receive it are marked: ${regions}.`
+    : `A map from the Aegean to Persia. ${name} is marked among the four council cities. Every family of churches named here receives it.`;
   return <figure className="ek-map">
-    <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`A map from the Aegean to Persia. ${chosen.name ? plainText(chosen.name) : ""} is marked among the four council cities; ${outside.size ? `the regions whose churches did not receive it are marked: ${places.filter((p) => outside.has(p.kind)).map((p) => p.label).join(", ")}` : "every family of churches named here receives it"}.`}>
+    <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label}>
       {paths.map((d, i) => <path key={i} className="ek-land" d={d} />)}
       {places.map((p) => {
         const [dx, dy, anchor] = LABEL[p.id] ?? [8, 4, "start"];
@@ -72,7 +77,7 @@ export function Councils({ chosen, onChoose }: { chosen: EcRecord; onChoose: (id
         {chosen.today && <p className="ek-para"><b>Who did not receive it, today: </b><Prose text={chosen.today} /></p>}
         <Links links={chosen.links} path={path} />
         <button type="button" className="ek-open" data-opener={`rec:${chosen.id}`} aria-haspopup="dialog" onClick={() => open(`rec:${chosen.id}`)}>
-          The full record of {plainText(chosen.name)} <span aria-hidden="true">→</span></button>
+          {`The full record of ${plainText(chosen.name)}`} <span aria-hidden="true">→</span></button>
       </div>
       <CouncilMap chosen={chosen} />
     </div>

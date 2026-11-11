@@ -23,7 +23,7 @@ recommended direction of its three. The owner had not chosen, so the choice can 
 | [Councils.tsx](Councils.tsx) | Four council markers; the chosen council's question, decided words and who did not receive it; a small map; the reception band. |
 | [Creed.tsx](Creed.tsx) | How a creed came, four steps on one thread, and the site's stance once in its own panel. |
 | [Closing.tsx](Closing.tsx) | Four claims, each with a self-test, and Where it stops (confused words, reach, reading trail, all 38 sources, open research questions, closing question, way back). |
-| [Sheet.tsx](Sheet.tsx) | The one sheet: a record with its three parts kept apart, or a reference with its Berean words. |
+| [Sheet.tsx](Sheet.tsx) | The one sheet: a record with its three parts kept apart, or a reference with its words in the reader's current Bible (`VerseAt`, captioned with `BibleName`). |
 | [parts.tsx](parts.tsx), [open.ts](open.ts) | Shared pieces: section error boundary, two-beat heads, prose with check notes and verse buttons, note dots, links, citations. |
 | [early-church.css](early-church.css) | All classes under `.ek-` (unused elsewhere: checked by grep). Tone: the Epistles colour, for a church first known by its letters. |
 | [early-church.test.tsx](early-church.test.tsx) | 21 tests: data and render. |
@@ -88,7 +88,7 @@ ways. **All 19 were refused**, each with a message naming the place:
 ## What the checks prove, and what they do not
 
 - **Proved:**
-  - every verse shown is the site's Berean, word for word;
+  - every verse the page names is in the site's Berean (the data holds only its book, chapter and verse; the words come from the reader's Bible);
   - every reference exists;
   - the nine held-text quotations match the site's copies;
   - every drawn date stands on the record's own words;

@@ -5,13 +5,12 @@
 import { BANDS, allPairs, buildIndex, pairKey, type Band, type Fact, type Order, type Person, type Span, type Tier } from "./pairing";
 
 export interface Character extends Person { tag: string; when: string; brief: string; href: string; tier: Tier }
-export interface DataFact extends Fact { quote?: string }
 export interface WhosOlderData {
   stamp: string;
   sources: string;
   books: Record<string, [string, string]>;
   characters: Character[];
-  facts: DataFact[];
+  facts: Fact[];
   blocked: [string, string][];
 }
 

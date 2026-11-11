@@ -1,12 +1,25 @@
 // Who's older? on the page: start, a scripted round from a fixed seed, the reveal with its verse, the run-over screen,
 // sharing that falls back to the copy box, and the hub serving the game at /games/whos-older.
-import { fireEvent, render, screen, within } from "@testing-library/react";
-import { Suspense } from "react";
+import { readFileSync } from "node:fs";
+import { fireEvent, render as renderPlain, screen, within, type RenderOptions } from "@testing-library/react";
+import { Suspense, type ReactElement } from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import data from "@/data/whos-older/whos-older.json";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import GamesPage from "../GamesPage";
 import { buildPool, current, newRun, pairOf, type WhosOlderData } from "./game";
 import WhosOlderGame from "./WhosOlderGame";
+
+// The deciding verse's words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
+const render = (ui: ReactElement, options?: RenderOptions) => renderPlain(<CatalogContext.Provider value={catalog}>{ui}</CatalogContext.Provider>, options);
 
 const pool = buildPool(data as unknown as WhosOlderData);
 const renderGame = () => render(<MemoryRouter><WhosOlderGame /></MemoryRouter>);
@@ -43,7 +56,7 @@ describe("who's older page", () => {
     fireEvent.click(screen.getByRole("button", { name: "Continue (streak 0)" }));
     fireEvent.click(card("Adam"));
     expect(await screen.findByText("Scripture says Adam was formed first, and Eve was made from his side.")).toBeInTheDocument();
-    expect(screen.getByText(/For Adam was formed first, and then Eve\./)).toBeInTheDocument();
+    expect(await screen.findByText(/For Adam was formed first, and then Eve\./)).toBeInTheDocument(); // in the reader's Bible
     expect(screen.getByRole("link", { name: "1 Timothy 2:13" })).toHaveAttribute("href", "/read/bsb/1TI/2?hl=13");
   });
 

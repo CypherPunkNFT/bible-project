@@ -2,6 +2,7 @@
 // Turning cards, matching, moves, turns in pass and play, stars and the timer's sums. Nothing here waits for an
 // animation: the page runs timers whose lengths match the CSS, so the rules are the same with reduced motion, in tests
 // and in background tabs (design 11).
+import { plural } from "@/lib/site-format";
 import type { Card, Difficulty, PairsFile } from "./deal";
 
 export interface GameState {
@@ -97,10 +98,10 @@ export function ranking(state: GameState): Standing[] {
 export function winnerLine(standings: readonly Standing[]): string {
   const winners = standings.filter((s) => s.place === 1);
   const pairs = winners[0]?.pairs ?? 0;
-  const unit = pairs === 1 ? "pair" : "pairs";
-  if (winners.length === 1) return `${winners[0].name} wins with ${pairs} ${unit}`;
+  const count = plural(pairs, "{n} pair", "{n} pairs");
+  if (winners.length === 1) return `${winners[0].name} wins with ${count}`;
   const names = `${winners.slice(0, -1).map((w) => w.name).join(", ")} and ${winners[winners.length - 1].name}`;
-  return `${names} share the win, with ${pairs} ${unit} each`;
+  return `${names} share the win, with ${count} each`;
 }
 
 /** Moves for three and two stars: ceil(1.75 × pairs) and ceil(2.5 × pairs) (design 9). */

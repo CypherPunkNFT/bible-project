@@ -11,7 +11,7 @@ export function Roads({ battleId, onChange }: { battleId: string | null; onChang
     <Head num="05" kicker="Roads and battles" title="Few ways in." turn="The same valleys, again." lead={<p><T text={D.roads.lead} /></p>} />
     <ul className="ls-roads">{D.roads.items.map((r, i) => <li key={r.id}>
       <Opener openKey={`road:${r.id}`}>
-        <span className="ls-card-k">Road · {String(i + 1).padStart(2, "0")} / {String(D.roads.items.length).padStart(2, "0")}</span>
+        <span className="ls-card-k">{`Road · ${String(i + 1).padStart(2, "0")} / ${String(D.roads.items.length).padStart(2, "0")}`}</span>
         <span className="ls-card-t">{r.name}</span>
         <span className="ls-card-d">{firstSentence(r.evidence)}</span>
         <span className="ls-card-v">Open the record →</span>

@@ -3,7 +3,7 @@
 // the words easily confused, what the page reaches and does not, the site's own word, where to go next, the sources, and
 // the question to carry.
 import { Link } from "react-router-dom";
-import { ACADEMIC_BACK, AXIS, D, LINK_HREF, NB, SIDE_WORD, axisShare, findRow, readingTag, sectionOf, type Bar } from "./model";
+import { ACADEMIC_BACK, AXIS, D, LINK_HREF, NB, axisShare, findRow, readingTag, sectionOf, type Bar } from "./model";
 import { Head, Quote, Text } from "./parts";
 
 type Change = (values: Record<string, string | null>) => void;
@@ -32,8 +32,8 @@ function Table({ rowId, onChange }: { rowId: string | null; onChange: Change }) 
       {lit === row.book && row.home && <span className="nb-row-home"><Text text={row.home} /></span>}
     </li>)}</ol>
     <ul className="nb-key" aria-label="How the dates are drawn">
-      <li><span className="nb-swatch evangelical" />{SIDE_WORD.evangelical}, drawn solid, first</li>
-      <li><span className="nb-swatch critical" />{SIDE_WORD.critical}, drawn hatched, second</li>
+      <li><span className="nb-swatch evangelical" />Most often argued by evangelical scholars, drawn solid, first</li>
+      <li><span className="nb-swatch critical" />The common critical range, drawn hatched, second</li>
       <li><span className="nb-swatch one" />One range, or two views the record does not rank</li>
       <li><span className="nb-swatch one soft" />“About” or “before”: a soft bar about five years wide</li>
     </ul>
@@ -72,7 +72,7 @@ function Closing() {
       </li>;
     })}</ul>
     <details className="nb-sources">
-      <summary>Sources · {D.sources.length}, each with what was read of it</summary>
+      <summary>{`Sources · ${D.sources.length}, each with what was read of it`}</summary>
       <ul>{D.sources.map((s) => <li key={s.id}>
         <p className="nb-source-title"><Text text={s.title} /><small>{s.kind} · {readingTag(s.status)}</small></p>
         <p><i><Text text={s.answers} /></i> <Text text={s.read} /></p>

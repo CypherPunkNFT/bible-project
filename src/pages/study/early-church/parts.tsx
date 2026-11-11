@@ -91,7 +91,7 @@ export function QuoteLine({ words, source, reference, path, held }: { words: str
   return <figure className="ek-quote">
     <blockquote><Checked text={words} /></blockquote>
     <figcaption><Checked text={reference} /><NoteDot path={`${path}.quote.ref`} />
-      {held ? <small className="ek-held">Checked word for word against {held}, held on this site.</small>
+      {held ? <small className="ek-held">{`Checked word for word against ${held}, held on this site.`}</small>
         : isUnchecked(source) ? <small>From {known ? <Checked text={known.title} /> : "a named translation"}; to be checked word for word before release.</small> : null}
     </figcaption>
   </figure>;

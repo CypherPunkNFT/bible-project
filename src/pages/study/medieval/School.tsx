@@ -42,7 +42,7 @@ function Ladder() {
     <h3 className="mv-subhead">The road to that lectern</h3>
     <div className="mv-agescale" aria-hidden="true">{ages.map((a) => <span key={a} style={{ left: `${ageShare(a) * 100}%` }}>{a}</span>)}</div>
     <ol>{D.ladder.steps.map((s) => <Rung key={s.id} step={s} />)}</ol>
-    <p className="mv-caption">Ages {LADDER_AGES.from} to {LADDER_AGES.to}, drawn to scale. <T text={D.ladder.note} /> Solid bars are the statute's, hatched bars are worked back. Its translation has “twenty” where other accounts of the same rule give twenty-one.</p>
+    <p className="mv-caption">{`Ages ${LADDER_AGES.from} to ${LADDER_AGES.to}, drawn to scale.`} <T text={D.ladder.note} /> Solid bars are the statute's, hatched bars are worked back. Its translation has “twenty” where other accounts of the same rule give twenty-one.</p>
   </div>;
 }
 
@@ -56,7 +56,7 @@ export function School({ partId, onChange }: { partId: string | null; onChange: 
       <Article part={part} onPart={(id) => onChange({ part: id })} />
       <PartRecord part={part} />
     </div>
-    <p className="mv-caption">{D.article.cite}. The arcs tie each objection to its reply. <T text={D.abelard.text} /> “{D.abelard.quote}”, as {abelard?.title.includes("W. J. Lewis") ? "W. J. Lewis" : "its translator"} renders it.</p>
+    <p className="mv-caption">{D.article.cite}. <span>The arcs tie each objection to its reply.</span> <T text={D.abelard.text} /> {`As ${abelard?.title.includes("W. J. Lewis") ? "W. J. Lewis" : "its translator"} renders it: “${D.abelard.quote}”.`}</p>
     <div className="mv-schoolgrid">
       <Ladder />
       <div>

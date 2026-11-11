@@ -11,6 +11,8 @@ Reads the research record (content/academic-research/38-israel-from-the-exodus-t
 - a ground bar or an outside record (a nail) runs backwards, leaves the chart, or disagrees with the record's own words for it
   ("about 1550 BC" must fall inside the bar; a bar said to be "13th century" must lie inside that century);
 - a link the page makes leaves the site or names an address the site does not route.
+The verse words are read and checked in memory; the file holds each verse's book, chapter and verse and its Berean
+footnotes, never its words (the page shows them in the reader's Bible, src/lib/verses.ts).
 Check marks ({{check:cN}}…{{/check}}) are removed before any text is compared. That proves references, quotations, the
 cords' arithmetic and that the bars match the record's words; it does not prove any reading, date or scholar's view right.
 
@@ -374,7 +376,8 @@ def build_data(site: Path) -> str:
         "cords": cords,
         "bars": bars,
         "chart": chart,
-        "verses": verses,
+        # Verse ids and the Berean's footnotes only: the words were checked above and the page shows them in the reader's Bible.
+        "verses": {name: {key: verse[key] for key in ("code", "chapter", "verse", "notes")} for name, verse in verses.items()},
         "refs": refs,
         "links": {},
         "neighbours": [],

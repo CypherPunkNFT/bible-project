@@ -1,14 +1,13 @@
 // Who's older?: the words of the reveal (design §7). The gap shown is always the smallest the windows allow, every
 // date says "about", and a pair with an early-Genesis person prints no years at all, because theirs are not real.
-import { formatNumber } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 import type { Span } from "./pairing";
-import type { Character, DataFact, PoolPair, WhosOlderData } from "./game";
+import type { Character, PoolPair, WhosOlderData } from "./game";
 
 /** "1 year", "660 years", "at least 1,200 years": over 1,000 the gap is rounded down to the hundred. */
 export function formatGap(gap: number): string {
-  if (gap === 1) return "1 year";
   const shown = gap > 1000 ? Math.floor(gap / 100) * 100 : gap;
-  return `${formatNumber(shown)} years`;
+  return plural(shown, "{n} year", "{n} years");
 }
 
 /** A historians' year: -1030 -> "1030 BC", 20 -> "AD 20". */
@@ -30,16 +29,16 @@ export const shortName = (label: string) => label.replace(/\s*\(.*\)$/, "");
 export interface Explanation {
   /** The reason, one sentence. */
   text: string;
-  /** The deciding verse, quoted in the BSB, for a hand-kept fact. */
-  quote?: { text: string; span: Span };
+  /** The deciding verse span (verse ids), for a hand-kept fact; its words come from the reader's Bible. */
+  verse?: Span;
 }
 
 export function explain(pair: PoolPair): Explanation {
   const first = shortName(pair.first.label);
   const second = shortName(pair.second.label);
   if (pair.reason.kind === "fact") {
-    const fact = pair.reason.fact as DataFact;
-    return fact.quote ? { text: fact.why, quote: { text: fact.quote, span: fact.refs[0] } } : { text: fact.why };
+    const { fact } = pair.reason;
+    return !fact.derived && fact.refs.length ? { text: fact.why, verse: fact.refs[0] } : { text: fact.why };
   }
   if (!pair.first.shown || !pair.second.shown) return { text: `In the Bible's own order, ${first} lived long before ${second}.` };
   return { text: `Even on the dating systems that bring them closest, ${first} was born at least ${formatGap(pair.reason.gap)} before ${second}.` };

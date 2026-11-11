@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { bsbWords } from "@/lib/bsb-for-tests";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
@@ -23,10 +23,14 @@ describe("Israel from the exodus to Solomon: its data", () => {
     const raw = readFileSync(RECORD).toString("utf8").replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
     expect(XS.recordHash).toBe(createHash("sha256").update(raw, "utf8").digest("hex"));
   });
-  it("carries every verse in the Berean's own words", () => {
+  it("names every verse by its place, never its words, and each is in the Berean", () => {
     const verses = Object.values(XS.verses);
     expect(verses.length).toBeGreaterThan(40);
-    for (const v of verses) expect(normal(v.text)).toBe(normal(bsbWords(v)));
+    for (const v of verses) {
+      expect(Object.keys(v).sort()).toEqual(["chapter", "code", "notes", "verse"]);
+      expect(normal(bsbWords(v)).length, `${v.code} ${v.chapter}:${v.verse}`).toBeGreaterThan(0);
+    }
+    expect(normal(bsbWords(XS.verses["1KI 6:1"]))).toContain("four hundred and eightieth");
   });
   it("supplies every verse label the page uses", () => {
     const used = [...D.stance.verses, ...D.stations.flatMap((s) => s.verses), "1 Kings 6:1", "Exodus 12:40", "Judges 11:26", "1 Kings 9:15", "Joshua 8:28"];
@@ -84,6 +88,13 @@ describe("Israel from the exodus to Solomon: its data", () => {
 });
 
 const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+// The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
 const page = (at = "/study/israel-from-the-exodus-to-solomon") => render(
   <CatalogContext.Provider value={catalog}>
     <MemoryRouter initialEntries={[at]}><Routes><Route path="/study/israel-from-the-exodus-to-solomon" element={<ExodusSolomonPage />} /></Routes></MemoryRouter>
@@ -102,11 +113,12 @@ describe("Israel from the exodus to Solomon: the page", () => {
     expect(container.querySelectorAll(".xs-strand.open").length).toBeGreaterThan(0);
     expect(container.querySelector(".xs-strand.chosen")).toBeNull();
   });
-  it("opens a reference's Berean words and footnote in the sheet and closes on Escape", () => {
+  it("opens a reference's words and the Berean's footnote in the sheet and closes on Escape", async () => {
     const { container } = page();
     fireEvent.click(within(container.querySelector("#cords .xs-choices")!).getAllByRole("button", { name: "Exodus 12:40" })[0]);
     const sheet = container.querySelector(".ms-sheet.open:not(.chk-panel)")!;
-    expect(sheet.textContent).toContain(XS.verses["EXO 12:40"].text.slice(0, 30));
+    await waitFor(() => expect(sheet.textContent).toContain(bsbWords(XS.verses["EXO 12:40"]).slice(0, 30)));
+    expect(sheet.textContent).toContain("Berean Standard Bible");
     expect(sheet.textContent).toContain("LXX in Egypt and Canaan");
     fireEvent.keyDown(window, { key: "Escape" });
     expect(container.querySelector(".ms-sheet.open:not(.chk-panel)")).toBeNull();

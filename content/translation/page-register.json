@@ -2354,6 +2354,35 @@
    "texts": [
     "{n}, John Newton and William Cowper, London 1779, from the Christian Classics Ethereal Library"
    ]
+  },
+  {
+   "file": "src/pages/study/temple/Houses.tsx",
+   "why": "the temple study's added hall row is named under the key `part`, and the caption's value (the house name) comes first, so the template rule refuses it; both kept as screen text (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Hall",
+    "{n}: what is measured, and who measures it"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/Landing.tsx",
+   "why": "a one-word figure label in a [label, value, note] tuple on the temple study's landing (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Houses"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/parts.tsx",
+   "why": "the witness tag's label, a value in a record keyed by witness kind, shown beside each record Josephus witnesses (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Josephus"
+   ]
+  },
+  {
+   "file": "src/pages/study/temple/Priests.tsx",
+   "why": "the section kicker passed to the page's Head as kicker=\"Priests\"; the collector reads one-word labels only from object keys and label/title/alt attributes (green-build job 017cf598, 2026-11-07)",
+   "texts": [
+    "Priests"
+   ]
   }
  ]
 }

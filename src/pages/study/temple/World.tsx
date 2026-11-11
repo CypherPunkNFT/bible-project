@@ -25,7 +25,7 @@ export function World() {
     <ul className="tw-sites">
       {p.sites.map((s) => <li key={s.id}>
         <TypeMark kind={TD.types[s.id] === "broad" ? "broad" : "long"} />
-        <p className="tw-site-type">{TD.types[s.id] === "broad" ? "Broad room" : "Long house, rooms in a line"} · type, not to scale</p>
+        <p className="tw-site-type">{TD.types[s.id] === "broad" ? "Broad room · type, not to scale" : "Long house, rooms in a line · type, not to scale"}</p>
         <h3><Checked text={s.name} /></h3>
         <Tags kinds={tagsOf(`site:${s.id}`)} />
         <p className="tw-site-says"><Prose text={s.inference} /></p>

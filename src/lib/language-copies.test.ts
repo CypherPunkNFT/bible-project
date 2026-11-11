@@ -63,7 +63,9 @@ describe("the English copies", () => {
   });
 });
 
-describe("writing the language copies", () => {
+// These write every page's copy in every language to disk (about 200 files a test): about a second alone, past vitest's
+// default 5 s when the whole suite runs at once on a busy Windows disk (seen 2026-11-07).
+describe("writing the language copies", { timeout: 30_000 }, () => {
   const site = () => {
     const root = mkdtempSync(path.join(tmpdir(), "language-copies-"));
     temporary.push(root);

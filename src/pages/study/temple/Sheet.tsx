@@ -1,7 +1,8 @@
 // The one sheet: a record (a parallel site, a find, a priests' record, a record of AD 70) in its three parts with its witnesses,
-// or a Bible reference with its Berean words. It opens from the right, as on every study, and closes on Escape.
+// or a Bible reference with its words in the reader's Bible. It opens from the right, as on every study, and closes on Escape.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BibleName, VerseAt } from "@/components/Verse";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { readerHref, titleOf, type Opened } from "./model";
@@ -10,10 +11,10 @@ import { Refs, Tags, ThreeParts } from "./parts";
 function Body({ item }: { item: Opened }) {
   if (item.kind === "ref") {
     return <>
-      <p className="tw-kicker">Berean Standard Bible</p>
+      <p className="tw-kicker"><BibleName /></p>
       <h2>{item.label}</h2>
-      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="tw-verse"><p><sup>{v.verse}</sup> {v.text}</p>
-        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>Read {v.chapter}:{v.verse} in the Berean reader <span aria-hidden="true">→</span></Link></cite></blockquote>)}
+      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="tw-verse"><p><sup>{v.verse}</sup> <VerseAt verse={v} /></p>
+        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>{`Read ${v.chapter}:${v.verse} in the Berean reader`} <span aria-hidden="true">→</span></Link></cite></blockquote>)}
     </>;
   }
   return <>

@@ -37,8 +37,17 @@ describe("every draft reads as a study page", () => {
 
   it("reads the opening tagline of the plain drafts as their motto", () => {
     const mottos = drafts.filter(d => d.doc.concepts.length === 0 && d.doc.motto).map(d => d.item.number);
-    expect(mottos).toEqual(expect.arrayContaining([2, 8, 12, 13]));
-    expect(drafts.find(d => d.item.number === 2)?.doc.motto).toBe("Receiving one another. Caring for one another. Growing together in Christ.");
+    // Draft 2 (Life together) was rewritten with Concepts and a Motto field on 2026-11-06, so it left this list.
+    expect(mottos).toEqual(expect.arrayContaining([7, 8, 10, 12, 13]));
+    expect(drafts.find(d => d.item.number === 8)?.doc.motto).toBe("Stand fast in liberty. By love serve one another.");
+  });
+
+  it("reads the Lead and Selection a rewritten draft writes below an opening help section", () => {
+    const fear = drafts.find(d => d.item.number === 56)!.doc;
+    expect(fear.lead).toMatch(/^Some of the darkest words ever spoken to God are in the Bible\./);
+    expect(fear.selection).toMatch(/^This is a selection, not a census\./);
+    expect(fear.sections[0].title).toBe("Help first");
+    expect(fear.sections[0].blocks.some(block => block.kind === "field" && ["Lead", "Selection"].includes(block.label))).toBe(false);
   });
 
   it("keeps the motto, questions and close of the rewritten drafts", () => {

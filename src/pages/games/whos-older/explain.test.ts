@@ -31,11 +31,11 @@ describe("explain", () => {
     expect(text).not.toMatch(/\d/);
   });
 
-  it("uses a fact's own sentence, with its quote and first verse", () => {
+  it("uses a fact's own sentence, with its first verse span", () => {
     const fact = { first: "aaron", second: "moses", kind: "stated-age" as const, refs: [[2_007_007, 2_007_007]] as [number, number][],
-      why: "Aaron was three years older than Moses.", quote: "Moses was eighty years old and Aaron was eighty-three" };
+      why: "Aaron was three years older than Moses." };
     const pair: PoolPair = { first: character("aaron", "Aaron", -1578, -1291), second: character("moses", "Moses", -1575, -1288), reason: { kind: "fact", fact }, band: "hard" };
-    expect(explain(pair)).toEqual({ text: fact.why, quote: { text: fact.quote, span: [2_007_007, 2_007_007] } });
+    expect(explain(pair)).toEqual({ text: fact.why, verse: [2_007_007, 2_007_007] });
   });
 });
 

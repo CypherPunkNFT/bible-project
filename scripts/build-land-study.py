@@ -9,6 +9,10 @@ out the page's figures from the record's own numbers, and checks every rainfall 
 the small map of section 06 from the Natural Earth coast (world-atlas) and the site's places data (OpenBible.info), with
 fixed sites only: a proposed site is never given coordinates. Every link must be one of the site's own routes.
 
+The Berean's words are checked in memory only: the data holds each verse's book, chapter and verse, never its words, and
+the page shows the words from the reader's current Bible (src/lib/verses.ts). The short quotations the page sets as the
+Berean's own wording ("phrases") are kept.
+
 That proves the references, the quotations and the arithmetic; it does not prove any reading of the ground. A failure stops
 the build and writes nothing.
 
@@ -384,10 +388,13 @@ def assemble(site: Path, raw: bytes, phrases=PHRASES, links=LINKS, fixed=FIXED, 
     record = json.loads(raw)
     check_shape(record)
     verses = read_verses(record, site)
+    quoted = check_phrases(verses, phrases)
+    # The Berean's words are read and checked here, in memory, and never written: the page shows each verse's words from
+    # the reader's current Bible by its id (src/lib/verses.ts), so the data holds only where each verse is.
     data = {
         "recordHash": hashlib.sha256(raw).hexdigest(),
-        "verses": verses,
-        "phrases": check_phrases(verses, phrases),
+        "verses": {label: {key: verse[key] for key in ("code", "chapter", "verse")} for label, verse in verses.items()},
+        "phrases": quoted,
         "links": build_links(record, site, links),
         "figures": figures(record),
         "map": build_map(record, site, fixed, rings),

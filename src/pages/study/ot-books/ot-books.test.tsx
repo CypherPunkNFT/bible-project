@@ -1,8 +1,11 @@
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { createHash } from "node:crypto";
 import { readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import { bsbWords } from "@/lib/bsb-for-tests";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import { plainText } from "@/pages/study/check-notes/checked";
 import {
   bareBook, booksCovered, CRITERION_AT, DANIEL_SELF, DATA, DEFAULT_BOOK, findOpened, findOrder, findReferences, findRow, findRuler, HEBREW_ORDER,
@@ -44,10 +47,13 @@ describe("How the Old Testament books were written: its data", () => {
     expect(findReferences("(7:2; 8:1)", "Daniel").map((f) => f.key)).toEqual(["Daniel 7:2", "Daniel 8:1"]);
     expect(findReferences("(7:2; 8:1)")).toEqual([]);
   });
-  it("gives every reference its Berean words, and opens every one in the Berean reader", () => {
+  it("names every reference by its bounds, never its words; the Berean has both ends; each opens in the Berean reader", () => {
     for (const [key, ref] of REFS) {
-      if (ref.verse > 0) expect(ref.lines.length, key).toBeGreaterThan(0);
-      for (const [, , text] of ref.lines) expect(text.length, key).toBeGreaterThan(3);
+      expect(Object.keys(ref).filter((k) => !["code", "chapter", "verse", "toChapter", "toVerse", "more"].includes(k)), key).toEqual([]);
+      if (ref.verse > 0) {
+        expect(bsbWords({ code: ref.code, chapter: ref.chapter, verse: ref.verse }).length, key).toBeGreaterThan(3);
+        expect(bsbWords({ code: ref.code, chapter: ref.toChapter, verse: ref.toVerse }).length, key).toBeGreaterThan(3);
+      }
       expect(readerHref(ref), key).toMatch(/^\/read\/bsb\/[A-Z0-9]{3}\/\d+(\?hl=\d+-\d+)?$/);
     }
     expect(readerHref(REFS.get("Exodus 17:14")!)).toBe("/read/bsb/EXO/17?hl=14-14");
@@ -113,7 +119,15 @@ describe("How the Old Testament books were written: the address", () => {
 });
 
 describe("How the Old Testament books were written: the page", () => {
-  const page = (at = routePath) => render(<MemoryRouter initialEntries={[at]}><OtBooksPage /></MemoryRouter>);
+  // The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+  const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+  beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+    const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+    try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+    catch { return new Response("missing", { status: 404 }); }
+  }));
+  afterAll(() => vi.unstubAllGlobals());
+  const page = (at = routePath) => render(<CatalogContext.Provider value={catalog}><MemoryRouter initialEntries={[at]}><OtBooksPage /></MemoryRouter></CatalogContext.Provider>);
   const openSheet = () => document.querySelector<HTMLElement>(".ob-root .ms-sheet.open:not(.chk-panel)");
 
   it("opens with the standard heading and every section", () => {
@@ -123,14 +137,22 @@ describe("How the Old Testament books were written: the page", () => {
     expect(document.querySelectorAll(".ob-ruler")).toHaveLength(3);
     expect(document.querySelector(".ob-failed")).toBeNull();
   });
-  it("opens a verse in the sheet in the Berean's words, and closes it on Escape", () => {
+  it("opens a verse in the sheet in the reader's Bible, and closes it on Escape", async () => {
     page();
     fireEvent.click(screen.getAllByRole("button", { name: "Exodus 17:14" })[0]);
     const sheet = openSheet();
     expect(sheet).not.toBeNull();
-    expect(within(sheet!).getAllByText(/Write this on a scroll as a reminder/)[0]).toBeTruthy();
+    expect((await within(sheet!).findAllByText(/Write this on a scroll as a reminder/))[0]).toBeTruthy();
+    expect(sheet!.textContent).toContain("Berean Standard Bible");
     act(() => { fireEvent.keyDown(window, { key: "Escape" }); });
     expect(openSheet()).toBeNull();
+  });
+  it("shows a long range's first verses across its chapters, numbered by chapter, and counts the rest", async () => {
+    page(`/study/how-the-old-testament-books-were-written?open=${encodeURIComponent("v:Ezra 7:27–9:15")}`);
+    const sheet = openSheet()!;
+    await waitFor(() => expect(sheet.querySelectorAll(".ob-sheet-verses sup")).toHaveLength(DATA.sheetVerses));
+    expect(sheet.querySelector(".ob-sheet-verses sup")?.textContent).toBe("7:27");
+    expect(sheet.textContent).toContain("And 13 more verses, in the reader.");
   });
   it("opens a ruler mark's record from the list", () => {
     page();

@@ -20,7 +20,7 @@ export class XsSection extends Component<{ id: string; resetKey?: string; childr
   }
 }
 
-export function Head({ num, kicker, title, turn, lead }: { num: string; kicker: string; title: string; turn: string; lead?: ReactNode }) {
+export function Head({ num, kicker, title, turn, lead }: { num: string; kicker: ReactNode; title: string; turn: string; lead?: ReactNode }) {
   return <header className="xs-head"><p className="xs-kicker"><b>{num}</b> · {kicker}</p><h2>{title} <em>{turn}</em></h2>{lead && <p>{lead}</p>}</header>;
 }
 

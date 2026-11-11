@@ -93,8 +93,14 @@ and `example`; the page uses one name per part instead, so each part keeps its o
 
 [build-poetry-study.py](../../../../scripts/build-poetry-study.py) reads the research record, the site's Berean
 ([data/text/bsb](../../../../data/text/bsb/)) and the site's Leningrad Hebrew ([data/text/wlc](../../../../data/text/wlc/)),
-and writes [poetry-data.json](poetry-data.json) (94,382 bytes): 175 verses under 115 references, 24 verses divided line
-beside line, 11 alphabet columns. It refuses to write if the record's Hebrew or Berean for a listed verse is not exactly
+and writes [poetry-data.json](poetry-data.json) (73,064 bytes since 2026-11-07): 175 verses under 115 references, 24 verses
+divided line beside line, 11 alphabet columns. The file holds no Berean wording (the site rule in
+[verses.ts](../../../lib/verses.ts)): each verse is its book, chapter and verse with `breaks`, the word offsets where its
+second and later poetic lines begin, and each paired row names its Berean line by number. The page shows the words from
+the Berean's own file ([data/plain/bsb](../../../../data/plain/bsb/)) through `<Verse bible="bsb">`, in every language,
+because the page is about the Berean's lines; the build refuses unless that file holds exactly the held Berean lines' words
+at each verse, so cutting it at the offsets gives those lines. A psalm title keeps the Berean's superscription, which is a
+chapter heading, not verse wording. The Hebrew is still written into the file. It refuses to write if the record's Hebrew or Berean for a listed verse is not exactly
 the held text, if a Hebrew verse number is wrong, if a quotation is not word for word the Berean, if a reference does not
 exist, if a line division would end where the Hebrew does not pause or would not join back into the verse, if a psalm
 title does not match the Berean's superscription, if any computed fact the page states (the alphabet columns, the seven
@@ -117,7 +123,8 @@ Nothing on disk was changed; the record and the held texts were altered only ins
 
 ## What the checks prove, and what they do not
 
-They prove that every verse shown is the site's own Berean and Leningrad text, that each divided verse joins back into
+They prove that every verse shown is the site's own Berean (read from its file at the build's line offsets) and Leningrad
+text, that each divided verse joins back into
 the whole verse in both languages, and that each count and lit word on the page was found in those texts. They do not
 prove that a division is the best reading of the accents (it is the build's, and the page says so), that the scholars'
 views are summarised fairly (every outside source is "located, not read" in the record), or anything about manuscripts

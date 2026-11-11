@@ -70,7 +70,7 @@ describe("odd one out shuffling and scoring", () => {
     const first = data.sets.find((s) => s.id === data.first)!;
     const { odd, oddPhrase, rest } = headline(data, first);
     expect(`${odd} ${oddPhrase}. ${rest}`).toMatch(/^Paul was not with Jesus during his ministry\. (Peter|John|James), .+ and .+ followed Jesus during his ministry\.$/);
-    expect(joinNames(["Peter", "John", "James"])).toBe("Peter, John and James");
+    expect(joinNames(["Peter", "John", "James"])).toBe("Peter, John, and James");
   });
 
   it("names and links verses the way the reader expects", () => {

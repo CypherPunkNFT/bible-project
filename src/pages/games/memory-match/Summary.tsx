@@ -4,6 +4,7 @@
 import { Star } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
+import { plural } from "@/lib/site-format";
 import { useVerseTable } from "@/lib/verses";
 import type { PairsFile } from "./deal";
 import { formatTime, isSolo, pairCount, ranking, stars, winnerLine, type GameState } from "./game";
@@ -32,13 +33,13 @@ export function Summary({ data, game, news, onAgain, onChange }: SummaryProps) {
     {solo ? <>
       <p className="mm-stars">
         <span aria-hidden="true">{[1, 2, 3].map((n) => <Star key={n} size={22} className={n <= earned ? "is-on" : undefined} />)}</span>
-        <span>{earned} {earned === 1 ? "star" : "stars"}</span>
+        <span>{plural(earned, "{n} star", "{n} stars")}</span>
       </p>
-      {news?.newMoves && <p className="mm-record">New best: {game.moves} moves</p>}
-      {news?.newTime && <p className="mm-record">New best time: {formatTime(game.elapsedMs)}</p>}
+      {news?.newMoves && <p className="mm-record">{`New best: ${plural(game.moves, "{n} move", "{n} moves")}`}</p>}
+      {news?.newTime && <p className="mm-record">{`New best time: ${formatTime(game.elapsedMs)}`}</p>}
     </> : <ol className="mm-ranking">
       {ranking(game).map((standing, n) => <li key={standing.name + n}>
-        <span className="mm-place">{standing.place}</span> {standing.name}: {standing.pairs} {standing.pairs === 1 ? "pair" : "pairs"}
+        <span className="mm-place">{standing.place}</span> {`${standing.name}: ${plural(standing.pairs, "{n} pair", "{n} pairs")}`}
       </li>)}
     </ol>}
     <h3 className="mm-stories-title">The stories</h3>
@@ -52,8 +53,8 @@ export function Summary({ data, game, news, onAgain, onChange }: SummaryProps) {
           {quote ? <blockquote><p>“{quote}”</p><footer>{pair.keyVerse}</footer></blockquote>
             : <p className="mm-key-ref">{pair.keyVerse}</p>}
           <p className="mm-story-links">
-            <Link to={pair.readerHref}>Read {pair.ref}</Link>
-            {character.href && <Link to={character.href}>About {character.label}</Link>}
+            <Link to={pair.readerHref}>{`Read ${pair.ref}`}</Link>
+            {character.href && <Link to={character.href}>{`About ${character.label}`}</Link>}
           </p>
         </li>;
       })}

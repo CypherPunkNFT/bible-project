@@ -20,14 +20,14 @@ export function Closing() {
     <p className="ob-kicker ob-gap">A reading trail</p>
     <ol className="ob-trail">{R.trail.map((t) => <li key={t.work}><b><Txt text={t.work} /></b><span><Txt text={t.answers} /></span><small><Txt text={t.read} /></small></li>)}</ol>
     <details className="ob-fold">
-      <summary>Sources · {R.sources.length}</summary>
+      <summary>{`Sources · ${R.sources.length}`}</summary>
       <ul>{R.sources.map((s) => <li key={s.id}>
         {s.url ? <a href={s.url} {...ext}>{s.title}<span aria-hidden="true"> ↗</span></a> : <b>{s.title}</b>} <small>{s.kind} · {readingTag(s.status)}</small>
         <p><Txt text={s.answers} /> <Txt text={s.read} /></p>
       </li>)}</ul>
     </details>
     {OPEN_QUESTIONS.length > 0 && <details className="ob-fold">
-      <summary>The editor's open questions · {OPEN_QUESTIONS.length}</summary>
+      <summary>{`The editor's open questions · ${OPEN_QUESTIONS.length}`}</summary>
       <p className="ob-caption">Left by the research run. A dot opens the note on what was found since.</p>
       <ul>{OPEN_QUESTIONS.map((q, i) => <li key={i}><Checked text={q} /></li>)}</ul>
     </details>}

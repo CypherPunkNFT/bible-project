@@ -5,7 +5,8 @@ import dossier from "../../../../content/academic-research/38-israel-from-the-ex
 import generated from "./exodus-to-solomon-data.json";
 import { plainText } from "@/pages/study/check-notes/checked";
 
-export type Verse = { code: string; chapter: number; verse: number; text: string; notes: string[] };
+/** A verse by its place, with the Berean's own footnotes; its words come from the reader's Bible (src/lib/verses.ts). */
+export type Verse = { code: string; chapter: number; verse: number; notes: string[] };
 export type Record3 = { id: string; title: string; evidence: string; inference: string; limit: string };
 export type Station = { id: string; num: number; name: string; headline: string; verses: string[]; lead: string; records: Record3[] };
 export type View = { name: string; held: string; forIt?: string; against?: string; wouldShow?: string; note?: string };

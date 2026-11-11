@@ -5,7 +5,7 @@ import { sp, type SympathySet } from "./types";
 export const HOPE_WITH_GRIEF =
   "Paul does not say \"do not grieve\", but \"do not grieve like the rest, who are without hope\". Christians grieve, and grieve with hope.";
 const MOTHERS_COMFORT = "God's words to his people, picturing his own comfort as a mother's. Read for a mother, it honours both.";
-const PSALM_116_15 = "\"Precious in the sight of the LORD is the death of His saints\": the death of his people is costly to God, and he does not treat it lightly.";
+const PSALM_116_15 = "The psalm says “Precious in the sight of the LORD is the death of His saints”: the death of his people is costly to God, and he does not treat it lightly.";
 const SONG_8 = "The love of husband and wife, \"as strong as death\": words that honour a marriage and the grief of losing the one you loved. They say nothing about marriage after death.";
 const PARENT_TOPICS = [{ slug: "death-of-saints", title: "The Death of Saints" }, { slug: "hope", title: "Hope" }];
 const CHILD_TOPICS = [{ slug: "consolation-in-affliction", title: "Consolation in Affliction" }, { slug: "weeping", title: "Weeping" }];

@@ -1,8 +1,9 @@
 // The one sheet: a record (era step, witness, trial hearing, Paul's fixed point), a ruler of Herod's family, or a Bible reference
-// with its Berean words. It opens from the right, the same way as on every study, keeps a record's three parts apart, and closes
+// with its words in the reader's Bible. It opens from the right, the same way as on every study, keeps a record's three parts apart, and closes
 // on Escape.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BibleName, VerseAt } from "@/components/Verse";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { plainText } from "@/pages/study/check-notes/checked";
@@ -12,16 +13,16 @@ import { Cite, Prose, Refs, ThreeParts } from "./parts";
 function Body({ item }: { item: Opened }) {
   if (item.kind === "ref") {
     return <>
-      <p className="nh-kicker">Berean Standard Bible</p>
+      <p className="nh-kicker"><BibleName /></p>
       <h2>{item.label}</h2>
-      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="nh-verse"><p>{v.text}</p>
-        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>Read {v.chapter}:{v.verse} in the Berean reader <span aria-hidden="true">→</span></Link></cite></blockquote>)}
+      {item.verses.map((v) => <blockquote key={`${v.code}${v.chapter}:${v.verse}`} className="nh-verse"><p><VerseAt verse={v} /></p>
+        <cite><Link to={readerHref(v.code, v.chapter, v.verse)}>{`Read ${v.chapter}:${v.verse} in the Berean reader`} <span aria-hidden="true">→</span></Link></cite></blockquote>)}
     </>;
   }
   if (item.kind === "herod") {
     const h = item.herod;
     return <>
-      <p className="nh-kicker">Herod's family · {h.title}</p>
+      <p className="nh-kicker">{`Herod's family · ${h.title}`}</p>
       <h2>{h.name}</h2>
       <p className="nh-sheet-line"><b>Ruled:</b> <Prose text={h.ruled} /></p>
       <p className="nh-sheet-line"><b>Territory:</b> <Prose text={h.territory} /></p>

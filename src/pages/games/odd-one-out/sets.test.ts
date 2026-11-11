@@ -1,6 +1,7 @@
 // Odd one out: checks on the shipped sets (design section 12), including the independent second solver (6.7). The
 // solver is written from the design's text, not ported from scripts/odd-one-out/ooo_check.py, and it never reads a
 // set's rule, polarity or "also" fields: from the fact table alone it finds every item some property singles out.
+import { bsbWords } from "@/lib/bsb-for-tests";
 import factsTable from "@/data/odd-one-out/facts-table.json";
 import setsJson from "@/data/odd-one-out/sets.json";
 import { CHOICES, DIFFICULTIES, isAvailable, shownLabel, type SetEntry, type SetsFile } from "./game";
@@ -88,7 +89,11 @@ describe("odd one out sets", () => {
     for (const rule of Object.values(data.rules)) {
       if (!rule.keyRef) continue;
       expect(rule.keyRef.every(validVerse)).toBe(true);
-      expect(rule.keyQuote?.length).toBeGreaterThan(10);
+      // The words come from the reader's Bible at play time; the Berean must hold every key verse.
+      for (let ref = rule.keyRef[0]; ref <= rule.keyRef[1]; ref++) {
+        const verse = { code: data.books[Math.floor(ref / 1_000_000) - 1][0], chapter: Math.floor(ref / 1000) % 1000, verse: ref % 1000 };
+        expect(bsbWords(verse).length, String(ref)).toBeGreaterThan(10);
+      }
     }
   });
 

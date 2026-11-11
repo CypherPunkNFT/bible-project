@@ -1,11 +1,12 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { bsbWords } from "@/lib/bsb-for-tests";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
+import { verseIdOf } from "@/lib/verses";
 import { plainText } from "@/pages/study/check-notes/checked";
 import { axisYear, D, DEFAULT_FEAST, DEFAULT_HOUSE, findFeast, findFind, findHouse, findOpened, findScale, metres, readerHref, refByKey, TD, versesOf } from "./model";
 import TemplePage from "./TemplePage";
@@ -14,6 +15,7 @@ import { path } from "./route";
 const RECORD = "content/academic-research/44-the-temple-and-israels-worship.json";
 const HOSTILE = ["__proto__", "constructor", "toString", "hasOwnProperty", "", "<script>", "ref:", "find:__proto__", "ref:Exodus 99:1", "site:nowhere", "1e9"];
 const normal = (text: string) => text.replace(/[“”"‘’']/g, "").replace(/\s+/g, " ").trim().toLowerCase();
+const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
 
 describe("The temple and Israel's worship: its data", () => {
   it("is routed at its own address", () => {
@@ -25,10 +27,15 @@ describe("The temple and Israel's worship: its data", () => {
     const raw = readFileSync(RECORD, "utf8").replace(/\r\n/g, "\n");
     expect(TD.recordHash).toBe(createHash("sha256").update(raw, "utf8").digest("hex"));
   });
-  it("carries every verse in the Berean's own words", () => {
+  it("names every verse by an id the Berean holds, and holds no verse wording", () => {
     const verses = Object.values(TD.verses);
     expect(verses.length).toBeGreaterThan(150);
-    for (const v of verses) expect(normal(v.text), `${v.code} ${v.chapter}:${v.verse}`).toBe(normal(bsbWords(v)));
+    for (const v of verses) {
+      const where = `${v.code} ${v.chapter}:${v.verse}`;
+      expect(Object.keys(v).sort(), where).toEqual(["chapter", "code", "verse"]);
+      expect(verseIdOf(catalog, v.code, v.chapter, v.verse), where).toBeGreaterThan(0);
+      expect(bsbWords(v), where).not.toBe("");
+    }
   });
   it("supplies every verse label the page uses", () => {
     const used = [...D.stance.verses, ...D.houses.flatMap((h) => h.verses), ...D.priesthood.records.flatMap((r) => r.verses), ...D.feasts.list.flatMap((f) => f.nt),
@@ -39,7 +46,7 @@ describe("The temple and Israel's worship: its data", () => {
   it("draws Scripture's numbers as Scripture gives them", () => {
     const shape = (id: string) => TD.plans.find((p) => p.id === id)!;
     expect([shape("sol-house").w, shape("sol-house").h]).toEqual([60, 20]);
-    expect(normal(versesOf("1 Kings 6:2")[0].text)).toContain("sixty cubits long, twenty cubits wide");
+    expect(normal(bsbWords(versesOf("1 Kings 6:2")[0]))).toContain("sixty cubits long, twenty cubits wide");
     expect([shape("sol-inner").w, shape("sol-inner").h]).toEqual([20, 20]);
     expect([shape("tab-court").w, shape("tab-court").h]).toEqual([100, 50]);
     expect(shape("tab-tent").kind).toBe("inferred");
@@ -54,7 +61,7 @@ describe("The temple and Israel's worship: its data", () => {
   it("lists the twenty-four divisions with Abijah eighth, from the Berean", () => {
     expect(TD.divisions).toHaveLength(24);
     expect(TD.divisions[7].name).toBe("Abijah");
-    for (const d of TD.divisions) expect(versesOf("1 Chronicles 24:7–18").map((v) => v.text).join(" ")).toContain(d.name);
+    for (const d of TD.divisions) expect(versesOf("1 Chronicles 24:7–18").map((v) => bsbWords(v)).join(" ")).toContain(d.name);
   });
   it("places only stated feasts, and marks the argued ones", () => {
     expect(TD.feasts.map((f) => f.id)).toEqual(D.feasts.list.map((f) => f.id));
@@ -89,7 +96,14 @@ describe("The temple and Israel's worship: its data", () => {
   });
 });
 
-const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+// The verse words come from the reader's Bible files (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
+
 const page = (at = "/study/the-temple-and-israels-worship") => render(
   <CatalogContext.Provider value={catalog}>
     <MemoryRouter initialEntries={[at]}><Routes><Route path="/study/the-temple-and-israels-worship" element={<TemplePage />} /></Routes></MemoryRouter>
@@ -108,11 +122,12 @@ describe("The temple and Israel's worship: the page", () => {
     expect(container.querySelectorAll(".chk-mark").length).toBeGreaterThan(30);
     expect(container.querySelector("a[href^='http']")).toBeNull();
   });
-  it("opens a reference's Berean words in the sheet and closes on Escape", () => {
+  it("opens a reference's words in the sheet and closes on Escape", async () => {
     const { container } = page();
     fireEvent.click(within(container.querySelector("#houses")!).getAllByRole("button", { name: "1 Kings 6:2" })[0]);
     const sheet = container.querySelector(".ms-sheet.open:not(.chk-panel)")!;
-    expect(sheet.textContent).toContain(TD.verses["1KI 6:2"].text.slice(0, 30));
+    await waitFor(() => expect(sheet.textContent).toContain(bsbWords(TD.verses["1KI 6:2"]).slice(0, 30)), { timeout: 10_000 });
+    expect(sheet.textContent).toContain("Berean Standard Bible");
     fireEvent.keyDown(window, { key: "Escape" });
     expect(container.querySelector(".ms-sheet.open:not(.chk-panel)")).toBeNull();
   });

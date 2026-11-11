@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { bsbWords } from "@/lib/bsb-for-tests";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
@@ -13,7 +13,6 @@ import { path } from "./route";
 
 const RECORD = "content/academic-research/43-new-testament-history.json";
 const HOSTILE = ["__proto__", "constructor", "toString", "", "<script>", "ref:", "step:__proto__", "ref:Luke 99:1", "herod:nobody", "1e9"];
-const normal = (text: string) => text.replace(/[“”"‘’']/g, "").replace(/\s+/g, " ").trim().toLowerCase();
 
 describe("New Testament history: its data", () => {
   it("is routed at its own address", () => {
@@ -23,10 +22,13 @@ describe("New Testament history: its data", () => {
     const raw = readFileSync(RECORD, "utf8").replace(/\r\n/g, "\n");
     expect(NH.recordHash).toBe(createHash("sha256").update(raw, "utf8").digest("hex"));
   });
-  it("carries every verse in the Berean's own words", () => {
+  it("names every verse by its place, never its words, and the Berean has each one", () => {
     const verses = Object.values(NH.verses);
     expect(verses.length).toBeGreaterThan(50);
-    for (const v of verses) expect(normal(v.text)).toBe(normal(bsbWords(v)));
+    for (const v of verses) {
+      expect(Object.keys(v).sort()).toEqual(["chapter", "code", "verse"]);
+      expect(bsbWords(v), `${v.code} ${v.chapter}:${v.verse}`).toBeTruthy();
+    }
   });
   it("supplies every verse label the page uses", () => {
     const used = [...D.stance.verses, ...D.paul.verses, ...D.herods.rows.flatMap((h) => h.nt), ...D.eras.flatMap((e) => e.steps.flatMap((s) => s.verses ?? [])), ...NH.anchors.flatMap((a) => a.verses)];
@@ -82,6 +84,13 @@ describe("New Testament history: its data", () => {
 });
 
 const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+// The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
 const page = (at = "/study/new-testament-history") => render(
   <CatalogContext.Provider value={catalog}>
     <MemoryRouter initialEntries={[at]}><Routes><Route path="/study/new-testament-history" element={<NtHistoryPage />} /></Routes></MemoryRouter>
@@ -98,11 +107,12 @@ describe("New Testament history: the page", () => {
       expect(container.querySelector(`#${id} .nh-failed`), id).toBeNull();
     }
   });
-  it("opens a reference's Berean words in the sheet and closes on Escape", () => {
+  it("opens a reference's words in the sheet, in the reader's Bible, and closes on Escape", async () => {
     const { container } = page();
     fireEvent.click(within(container.querySelector("#lattice")!).getAllByRole("button", { name: "Luke 3:1" })[0]);
     const sheet = container.querySelector(".ms-sheet.open:not(.chk-panel)")!;
-    expect(sheet.textContent).toContain(NH.verses["LUK 3:1"].text.slice(0, 30));
+    await waitFor(() => expect(sheet.textContent).toContain(bsbWords(NH.verses["LUK 3:1"]).slice(0, 30)));
+    expect(sheet.textContent).toContain("Berean Standard Bible");
     fireEvent.keyDown(window, { key: "Escape" });
     expect(container.querySelector(".ms-sheet.open:not(.chk-panel)")).toBeNull();
   });

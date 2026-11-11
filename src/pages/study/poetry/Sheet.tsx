@@ -12,21 +12,21 @@ import { Prose, VersePair } from "./parts";
 function Body({ item }: { item: Opened }) {
   if (item.kind === "ref") {
     return <>
-      <p className="hpn-kicker">Berean Standard Bible{item.verses.some((v) => v.hebrew) ? " · Leningrad Hebrew" : ""}</p>
+      <p className="hpn-kicker">{item.verses.some((v) => v.hebrew) ? "Berean Standard Bible · Leningrad Hebrew" : "Berean Standard Bible"}</p>
       <h2>{item.label}</h2>
       {item.verses.map((v) => {
         const key = `${v.code} ${v.chapter}:${v.verse}`;
         return <div key={key} className="hpn-sheet-verse">
           {item.verses.length > 1 && <p className="hpn-sheet-num">{v.chapter}:{v.verse}</p>}
           <VersePair verseKey={key} caption={false} />
-          <Link to={readerHref(v.code, v.chapter, v.verse)}>Read {v.chapter}:{v.verse} in the Berean reader <span aria-hidden="true">→</span></Link>
+          <Link to={readerHref(v.code, v.chapter, v.verse)}>{`Read ${v.chapter}:${v.verse} in the Berean reader`} <span aria-hidden="true">→</span></Link>
         </div>;
       })}
     </>;
   }
   const s = item.source;
   return <>
-    <p className="hpn-kicker">Outside source · {readingTag(s.status)}</p>
+    <p className="hpn-kicker">{`Outside source · ${readingTag(s.status)}`}</p>
     <h2><Checked text={s.title} /></h2>
     <p className="hpn-sheet-line"><b>Kind:</b> <Checked text={s.kind} /></p>
     <p className="hpn-sheet-line"><b>The question it answers here:</b> <Prose text={s.answers} /></p>

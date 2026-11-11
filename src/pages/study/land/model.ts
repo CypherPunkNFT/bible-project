@@ -3,6 +3,7 @@
 // in a Map, so an unknown value (or one like "__proto__") falls back to the default, and nothing here throws while the page loads.
 import dossier from "../../../../content/academic-research/40-the-land-of-the-bible.json";
 import generated from "./land-data.json";
+import { formatDate } from "@/lib/site-format";
 import { plainText } from "@/pages/study/check-notes/checked";
 
 export type Band = "coast" | "shephelah" | "hills" | "rift" | "east";
@@ -15,7 +16,8 @@ export type Disputed = { id: string; name: string; verses: string[]; evidence: s
 export type TestItem = { question: string; options: { text: string; right: boolean; why: string }[] };
 export type Claim = { id: string; claim: string; head: string; evidence: string; inference: string; limit: string; verses: string[]; sources: string[]; test: TestItem };
 export type Source = { id: string; title: string; url: string; kind: string; status: string; answers: string; read: string };
-export type Verse = { code: string; chapter: number; verse: number; text: string };
+/** Where a verse is; its words come from the reader's current Bible (src/lib/verses.ts), never from this data. */
+export type Verse = { code: string; chapter: number; verse: number };
 
 export const D = dossier as unknown as {
   title: string; premise: string; question: string; outcomes: string[]; boundaries: { in: string; out: string[] };
@@ -37,7 +39,11 @@ export const LD = generated as unknown as {
 };
 
 export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
-export const BAND_NAME: Record<Band, string> = { coast: "Coast", shephelah: "Low hills", hills: "Ridge", rift: "Rift", east: "Plateau" };
+/** Short names keyed for the code, each written under `label` so the translation collector registers it. */
+export const labelsByKey = <K extends string>(items: { key: K; label: string }[]): Record<K, string> =>
+  Object.fromEntries(items.map((item) => [item.key, item.label])) as Record<K, string>;
+export const BAND_NAME = labelsByKey<Band>([{ key: "coast", label: "Coast" }, { key: "shephelah", label: "Low hills" }, { key: "hills", label: "Ridge" },
+  { key: "rift", label: "Rift" }, { key: "east", label: "Plateau" }]);
 export const DEFAULT_POINT = "ridge";
 export const LAYERS = ["rain", "roads", "water"] as const;
 export type Layer = (typeof LAYERS)[number];
@@ -51,8 +57,10 @@ const layerSet = new Map(LAYERS.map((l) => [l, l]));
 
 /** Every record the sheet can open, by its address key ("region:coast"). */
 export type Openable = { kind: "region" | "road" | "water" | "battle" | "trade" | "faith"; item: Item } | { kind: "verse"; label: string; verse: Verse };
-const KIND_LABEL = { region: "Region", road: "Road", water: "Water", battle: "Battle place", trade: "Trade", faith: "Faith and the land" } as const;
-export const kindLabel = (kind: keyof typeof KIND_LABEL): string => KIND_LABEL[kind];
+type Kind = Exclude<Openable["kind"], "verse">;
+const KIND_LABEL = labelsByKey<Kind>([{ key: "region", label: "Region" }, { key: "road", label: "Road" }, { key: "water", label: "Water" },
+  { key: "battle", label: "Battle place" }, { key: "trade", label: "Trade" }, { key: "faith", label: "Faith and the land" }]);
+export const kindLabel = (kind: Kind): string => KIND_LABEL[kind];
 const records = new Map<string, Openable>();
 for (const item of D.regions) records.set(`region:${item.id}`, { kind: "region", item });
 for (const item of D.roads.items) records.set(`road:${item.id}`, { kind: "road", item });
@@ -133,13 +141,15 @@ export function climbLine(width: number, stretch: number, from: Point, to: Point
 export const LAYER_AT: Record<Layer, Record<string, string>> = {
   rain: Object.fromEntries(LD.figures.rain.filter((r) => pointById.has(r.id)).map((r) => [r.id, `${r.words} mm`])),
   roads: { plain: "Coastal road", shephelah: "Climbing roads", ridge: "Ridge road", wilderness: "Climbing roads", jericho: "Climbing roads", plateau: "King's Highway" },
-  water: { plain: "Wells", shephelah: "Wells", ridge: "Spring · cisterns", wilderness: "Cisterns", jericho: "Spring" },
+  water: labelsByKey([{ key: "plain", label: "Wells" }, { key: "shephelah", label: "Wells" }, { key: "ridge", label: "Spring · cisterns" },
+    { key: "wilderness", label: "Cisterns" }, { key: "jericho", label: "Spring" }]),
 };
 export const LAYER_RECORD: Record<Layer, string[]> = { rain: [], roads: ["road:coastal", "road:ascents", "road:ridge", "road:kings"], water: ["water:springs", "water:wells", "water:cisterns"] };
 
 // The rain year, October to May, as twelve-month positions from October. A season's months come from the record's words.
 const MONTHS = ["october", "november", "december", "january", "february", "march", "april", "may", "june", "july", "august", "september"];
-export const MONTH_SHORT = ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"];
+/** The twelve months' short names from October, in the site's language ("Oct" in English), written when called. */
+export const monthsShort = (): string[] => [9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8].map((month) => formatDate(Date.UTC(2001, month, 15), { month: "short", timeZone: "UTC" }));
 export function rainSpan(months: string): { from: number; to: number } | null {
   const words = months.toLowerCase().split(/\s+to\s+/).map((w) => MONTHS.indexOf(w.trim()));
   if (words.length !== 2 || words.some((w) => w < 0) || words[1] < words[0]) return null;

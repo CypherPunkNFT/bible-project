@@ -3,6 +3,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import data from "@/data/whos-older/whos-older.json";
+import { bsbWords } from "@/lib/bsb-for-tests";
 import { buildPool, random, type WhosOlderData } from "./game";
 import { EXCLUDED_IDS, buildIndex, orderOf, pairKey } from "./pairing";
 
@@ -51,7 +52,14 @@ describe("the generated file", () => {
       expect(seen.has(`${f.second}>${f.first}`), `${f.first} / ${f.second} point both ways`).toBe(false);
       seen.add(`${f.first}>${f.second}`);
       after.set(f.first, [...(after.get(f.first) ?? []), f.second]);
-      if (f.quote !== undefined) expect(f.quote.trim(), `${f.first} / ${f.second} quote`).not.toBe("");
+      // The reveal quotes a hand fact's first span in the reader's Bible; the Berean must hold words for it.
+      if (!f.derived) {
+        const [start, end] = f.refs[0];
+        const code = file.books[String(Math.floor(start / 1_000_000))][0];
+        for (let id = start; id <= end; id++) {
+          expect(bsbWords({ code, chapter: Math.floor(id / 1000) % 1000, verse: id % 1000 }).trim(), `${f.first} / ${f.second} quote`).not.toBe("");
+        }
+      }
       expect(f.why.trim()).not.toBe("");
     }
     const state = new Map<string, "open" | "done">();

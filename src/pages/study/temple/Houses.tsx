@@ -1,6 +1,7 @@
 // 01 Four houses: the plans laid over one another at one scale, centred on the inner room, with the chosen house lit; its
 // measurements in cubits with metric estimates; its record in three parts. Then the site's stance, and the houses on a straight
 // line of time (the tabernacle not placed). Every number drawn is the build script's, checked against the record and the Berean.
+import { formatNumber } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { axisYear, D, findHouse, metres, tagsOf, TD, yearWord, type House, type Shape } from "./model";
 import { Head, Prose, RefButton, Refs, Tags, ThreeParts } from "./parts";
@@ -25,7 +26,7 @@ function ClosePlan({ chosen }: { chosen: string }) {
     {lit.map((p) => <text key={p.id} className="tw-plan-label" x={p.x + p.w - 1} y={p.y + p.h - 1.4} textAnchor="end">{p.part}{p.kind === "inferred" ? " · inferred" : ""}</text>)}
     <rect className="tw-room" x="-1.2" y="-1.2" width="2.4" height="2.4" />
     <path className="tw-axis" d={`M-30 ${CLOSE.y + CLOSE.h - 5}h50`} />
-    <text className="tw-axis-t" x="-30" y={CLOSE.y + CLOSE.h - 1.4}>Scale: 50 cubits, about {metres(50)} m</text>
+    <text className="tw-axis-t" x="-30" y={CLOSE.y + CLOSE.h - 1.4}>{`Scale: ${formatNumber(50)} cubits, about ${metres(50)} m`}</text>
     <text className="tw-axis-t" x={CLOSE.x + CLOSE.w - 2} y={CLOSE.y + 2.6} textAnchor="end">east →</text>
   </svg>;
 }
@@ -38,14 +39,14 @@ function WidePlan() {
   return <svg className="tw-plan" viewBox="-20 -40 780 580" role="img"
     aria-label={`The Mishnah's square of ${square.w} cubits beside the tabernacle's court of ${court.w} by ${court.h} and Solomon's house of ${house.w} by ${house.h}, at one scale.`}>
     <rect className="tw-shape tw-k-mishnah on" x="0" y="0" width={square.w} height={square.h} />
-    <text className="tw-plan-label tw-big" x="250" y="250" textAnchor="middle">The Mishnah's square, {square.w} cubits a side</text>
+    <text className="tw-plan-label tw-big" x="250" y="250" textAnchor="middle">{`The Mishnah's square, ${square.w} cubits a side`}</text>
     <text className="tw-plan-label tw-big" x="250" y="280" textAnchor="middle">where the house stood in it is not drawn</text>
     <rect className="tw-shape tw-k-scripture on" x="560" y="0" width={court.w} height={court.h} />
     <text className="tw-plan-label tw-big" x="560" y="80">Tabernacle court</text>
     <rect className="tw-shape tw-k-scripture on" x="560" y="130" width={house.w} height={house.h} />
     <text className="tw-plan-label tw-big" x="560" y="182">Solomon's house</text>
     <path className="tw-axis" d="M0 525h500" />
-    <text className="tw-axis-t tw-big" x="0" y="560">0</text><text className="tw-axis-t tw-big" x="500" y="560" textAnchor="end">500 cubits, about {metres(500)} m</text>
+    <text className="tw-axis-t tw-big" x="0" y="560">0</text><text className="tw-axis-t tw-big" x="500" y="560" textAnchor="end">{`500 cubits, about ${metres(500)} m`}</text>
   </svg>;
 }
 
@@ -63,7 +64,7 @@ function rowsFor(house: House): Row[] {
 
 function Measures({ house }: { house: House }) {
   return <table className="tw-measures">
-    <caption>{house.name}: what is measured, and who measures it</caption>
+    <caption>{`${house.name}: what is measured, and who measures it`}</caption>
     <thead><tr><th scope="col">Part</th><th scope="col">Cubits</th><th scope="col">Metres, an estimate</th><th scope="col">Witness</th></tr></thead>
     <tbody>{rowsFor(house).map((r) => <tr key={r.part}><th scope="row">{r.part}</th><td>{r.size}</td><td>{r.metric}</td>
       <td>{r.kind}{r.verse && <> · <RefButton label={r.verse} /></>}</td></tr>)}</tbody>
@@ -123,7 +124,7 @@ export function TimeStrip() {
   const at = (year: number) => ((axisYear(year) - axisYear(from)) / span) * 100;
   const ticks = [-1500, -1000, -500, 1];
   return <figure className="tw-time">
-    <figcaption className="tw-kicker">When each house stood · {yearWord(from)} to {yearWord(to)}</figcaption>
+    <figcaption className="tw-kicker">{`When each house stood · ${yearWord(from)} to ${yearWord(to)}`}</figcaption>
     <ol>
       {rows.map((r) => <li key={r.id} className={`tw-time-row tw-time-${r.kind}`}>
         <span className="tw-time-name">{r.name}</span>

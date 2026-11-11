@@ -1,11 +1,12 @@
-// The temple and Israel's worship: the research record, the generated data (scripts/build-temple-study.py: the Berean verses,
+// The temple and Israel's worship: the research record, the generated data (scripts/build-temple-study.py: the verses by id,
 // the plans' measurements, the divisions, the feasts' places, the witness tags), and the address values the page accepts.
 // Every address value is looked up in a Map or a fixed set, so an unknown one falls back and nothing here throws while loading.
 import dossier from "../../../../content/academic-research/44-the-temple-and-israels-worship.json";
 import generated from "./temple-data.json";
 import { plainText } from "@/pages/study/check-notes/checked";
 
-export type Verse = { code: string; chapter: number; verse: number; text: string };
+/** A verse by book, chapter and verse; its words come from the reader's Bible (src/lib/verses.ts). */
+export type Verse = { code: string; chapter: number; verse: number };
 export type Three = { evidence: string; inference: string; limit: string };
 export type House = Three & { id: string; name: string; num: number; verses: string[] };
 export type Site = Three & { id: string; name: string };

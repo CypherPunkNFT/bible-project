@@ -1,8 +1,9 @@
 // Odd one out: what the player sees after answering (design section 7). The reason, one line for each of the four
-// with a verse, the key verse in the BSB, and anything else that also singles out the same answer.
+// with a verse, the key verse in the reader's Bible, and anything else that also singles out the same answer.
 import { Check, X } from "lucide-react";
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { headline, itemRef, joinNames, shownLabel, verseHref, verseLabel, type SetEntry, type SetsFile } from "./game";
 
 /** The reason in one sentence; `inline` for places that take only phrasing content (a summary row). */
@@ -38,9 +39,9 @@ export const Reveal = forwardRef<HTMLHeadingElement, RevealProps>(function Revea
         </li>;
       })}
     </ul>
-    {rule.keyRef && rule.keyQuote && <blockquote className="oo-key">
-      <p>“{rule.keyQuote}”</p>
-      <footer><Link to={verseHref(data, ...rule.keyRef)}>{verseLabel(data, ...rule.keyRef)}</Link> <span>BSB</span></footer>
+    {rule.keyRef && <blockquote className="oo-key">
+      <p>“<Verse from={rule.keyRef[0]} to={rule.keyRef[1]} unquoted />”</p>
+      <footer><Link to={verseHref(data, ...rule.keyRef)}>{verseLabel(data, ...rule.keyRef)}</Link> <BibleAbbr /></footer>
     </blockquote>}
     {set.also?.length ? <p className="oo-also"><span>Also true:</span> {oddLabel} {joinNames(set.also)}.</p> : null}
   </section>;

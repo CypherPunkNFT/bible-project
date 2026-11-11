@@ -19,7 +19,7 @@ function Test({ claim }: { claim: Claim }) {
 
 export function Claims() {
   return <>
-    <Head kicker="Claims" title="Four things often said. One test each." lead="Each claim is set against the records above. Answer the question before reading what the sources can carry." />
+    <Head kicker={<>Claims</>} title="Four things often said. One test each." lead="Each claim is set against the records above. Answer the question before reading what the sources can carry." />
     <div className="ek-claims">{D.claims.map((c) => <article key={c.id} className="ek-claim">
       <blockquote><Checked text={c.claim} /></blockquote>
       <h3><Checked text={c.head} /></h3>
@@ -62,12 +62,12 @@ export function Closing() {
           return s ? <li key={t.source}><Checked text={s.title} /> <span className="ek-tag">· {readingTag(s.status)}</span><small><Checked text={t.answers} /></small></li> : null;
         })}</ul>
         <details className="ek-more">
-          <summary>Sources · {D.sources.length}, of which {EC.unchecked.length} are quoted and still to be checked</summary>
+          <summary>{`Sources · ${D.sources.length} (quoted and still to be checked: ${EC.unchecked.length})`}</summary>
           <ul className="ek-trail">{D.sources.map((s) => <SourceLine key={s.id} id={s.id} />)}</ul>
-          {external.length > 0 && <p className="ek-caption">{external.map((s) => plainText(s.title)).join("; ")}: read on its publisher's own site, which this page names but does not link.</p>}
+          {external.length > 0 && <p className="ek-caption">{`Read on the publisher's own site, which this page names but does not link: ${external.map((s) => plainText(s.title)).join("; ")}.`}</p>}
         </details>
         <details className="ek-more">
-          <summary>Still open in the research · {D.openQuestions.length}</summary>
+          <summary>{`Still open in the research · ${D.openQuestions.length}`}</summary>
           <ul className="ek-reach">{D.openQuestions.map((q) => <li key={plainText(q)}><Prose text={q} /></li>)}</ul>
         </details>
         <p className="ek-caption">The research record names no pictures, so none are shown.</p>

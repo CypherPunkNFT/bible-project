@@ -6,7 +6,8 @@ import dossier from "../../../../content/academic-research/43-new-testament-hist
 import generated from "./nt-history-data.json";
 import { plainText } from "@/pages/study/check-notes/checked";
 
-export type Verse = { code: string; chapter: number; verse: number; text: string };
+/** A verse the page names: its words come from the reader's Bible (src/lib/verses.ts), never from this file. */
+export type Verse = { code: string; chapter: number; verse: number };
 export type Step = { id: string; title: string; when: string; evidence: string; inference: string; limit: string; verses?: string[]; sources: string[] };
 export type Era = { id: string; title: string; when: string; lead: string; steps: Step[] };
 export type Herod = { id: string; name: string; title: string; ruled: string; territory: string; nt: string[]; note: string };

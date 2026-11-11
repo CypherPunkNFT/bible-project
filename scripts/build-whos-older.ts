@@ -35,7 +35,6 @@ export interface Character {
   id: string; label: string; tag: string; tier: Tier; lo: number | null; hi: number | null; shown: boolean;
   when: string; brief: string; href: string;
 }
-interface OutFact extends Fact { quote?: string }
 
 const errors: string[] = [];
 const warnings: SheetWarning[] = [];
@@ -225,15 +224,17 @@ if (errors.length) {
   process.exit(1);
 }
 
-// The quotes: the first span of each hand fact, in the BSB.
-const outFacts: OutFact[] = finalFacts.map((f) => {
+// The quotes: the first span of each hand fact. The game shows its words in the reader's own Bible (src/lib/verses.ts),
+// so the file keeps only the verse ids; the Berean text is read here only to check the span has words to quote.
+const outFacts: Fact[] = finalFacts.map((f) => {
   if (f.derived) return f;
   const [start, end] = f.refs[0];
   if (end - start >= QUOTE_MAX_VERSES || Math.floor(start / 1000) !== Math.floor(end / 1000)) {
     errors.push(`fact ${f.first} > ${f.second}: the first span ${start}-${end} is quoted, so it must be at most ${QUOTE_MAX_VERSES} verses in one chapter`);
   }
   const quote = Array.from({ length: end - start + 1 }, (_, n) => bsb.verse(start + n)).filter(Boolean).join(" ");
-  return { ...f, quote };
+  if (!quote.trim()) errors.push(`fact ${f.first} > ${f.second}: the first span ${start}-${end} has no BSB words to quote`);
+  return f;
 });
 if (errors.length) { console.error(`who's older:\n- ${errors.join("\n- ")}`); process.exit(1); }
 

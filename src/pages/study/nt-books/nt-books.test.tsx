@@ -1,15 +1,18 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { afterEach, describe, expect, it } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { bsbWords } from "@/lib/bsb-for-tests";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import { plainText } from "@/pages/study/check-notes/checked";
 import NtBooksPage from "./NtBooksPage";
 import { path } from "./route";
 import {
   AXIS, D, DEFAULT_CASE, DEFAULT_GOSPEL, DEFAULT_LAYER, DEFAULT_LETTER, DEFAULT_STAGE, LINK_HREF, MAPS, NB, SCRIBED, SIGNED, findCase, findClaim,
-  findGospel, findLayer, findLetter, findOpened, findRow, findStage, findView, isLost, readerHref, refsIn, refsWritten, versesOf,
+  WORD, findGospel, findLayer, findLetter, findOpened, findRow, findStage, findView, isLost, readerHref, refsIn, refsWritten, versesOf,
 } from "./model";
 
 const RECORD = "content/academic-research/42-how-the-new-testament-books-were-written.json";
@@ -38,8 +41,9 @@ describe("How the New Testament books were written: its data", () => {
       for (const key of refsIn(text, owner)) expect(versesOf(key).length, key).toBeGreaterThan(0);
     }
   });
-  it("holds the Berean text of every verse it names", () => {
-    for (const labels of Object.values(NB.refs)) for (const label of labels) expect(NB.verses[label]?.text, label).toBeTruthy();
+  it("names every verse by its place, never its words, and the Berean has each one", () => {
+    for (const labels of Object.values(NB.refs)) for (const label of labels) expect(bsbWords(NB.verses[label]), label).toBeTruthy();
+    for (const verse of Object.values(NB.verses)) expect(Object.keys(verse).sort()).toEqual(["chapter", "code", "verse"]);
     for (const v of D.verses) expect(NB.verses[v.label]?.code, v.label).toBe(v.code);
     expect(NB.refs["Luke 1:1–4"]).toEqual(D.synoptic.verses);
   });
@@ -47,7 +51,17 @@ describe("How the New Testament books were written: its data", () => {
     for (const item of D.synoptic.cases) {
       const synopsis = NB.synopsis[item.id];
       expect(synopsis.columns.map((c) => c.ref)).toEqual(item.passages);
-      for (const column of synopsis.columns) expect(column.verses.some((v) => v.words.some((w) => w.length > 2)), column.ref).toBe(true);
+      for (const column of synopsis.columns) expect(column.verses.some((v) => v.tie.length > 0), column.ref).toBe(true);
+    }
+  });
+  it("gives each synopsis verse one level for each of the Berean's words, and ties the tie's own words", () => {
+    for (const item of D.synoptic.cases) {
+      const { columns, tie } = NB.synopsis[item.id];
+      for (const column of columns) for (const v of column.verses) {
+        const words = bsbWords(NB.verses[v.label]).match(WORD) ?? [];
+        expect(v.levels, v.label).toHaveLength(words.length);
+        if (v.tie.length) expect(v.tie.map((i) => words[i]).join("").trim(), v.label).toContain(tie.words.split(" ")[1]);
+      }
     }
   });
   it("draws every book once, in order, as ranges inside the axis", () => {
@@ -117,9 +131,17 @@ describe("How the New Testament books were written: its address", () => {
 
 describe("How the New Testament books were written: the page", () => {
   afterEach(cleanup);
-  const open = (search = "") => render(<MemoryRouter initialEntries={[`${path}${search}`]}>
-    <Routes><Route path={path} element={<NtBooksPage />} /></Routes>
-  </MemoryRouter>);
+  // The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+  const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+  beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+    const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+    try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+    catch { return new Response("missing", { status: 404 }); }
+  }));
+  afterAll(() => vi.unstubAllGlobals());
+  const open = (search = "") => render(<CatalogContext.Provider value={catalog}>
+    <MemoryRouter initialEntries={[`${path}${search}`]}><Routes><Route path={path} element={<NtBooksPage />} /></Routes></MemoryRouter>
+  </CatalogContext.Provider>);
 
   it("opens with the standard heading and every section", () => {
     const { container } = open();
@@ -136,12 +158,19 @@ describe("How the New Testament books were written: the page", () => {
     fireEvent.click(screen.getByRole("button", { name: /Mark first, without Q/ }));
     expect(container.querySelector(".nb-view")?.textContent).toContain("Austin Farrer");
   });
-  it("opens a reference's verses in the sheet, and Escape closes it", () => {
+  it("marks the shared words of the synopsis on the Berean's own words", async () => {
+    const { container } = open();
+    await waitFor(() => expect(container.querySelector(".nb-tied [data-tie]")?.textContent).toBeTruthy());
+    expect(container.querySelector(".nb-col-text")?.textContent).not.toBe("");
+    expect([...container.querySelectorAll(".nb-tied [data-tie]")].map((el) => el.textContent).join(" ")).toContain("paralytic");
+  });
+  it("opens a reference's verses in the sheet, and Escape closes it", async () => {
     const { container } = open();
     fireEvent.click(container.querySelector<HTMLElement>(".nb-col-head .nb-ref")!);
-    const sheet = container.querySelector(".ms-sheet.open:not(.chk-panel)");
-    expect(sheet?.textContent).toContain("Mark 2:1–12");
-    expect(sheet?.textContent).toContain("He said to the paralytic");
+    const sheet = () => container.querySelector(".ms-sheet.open:not(.chk-panel)");
+    expect(sheet()?.textContent).toContain("Mark 2:1–12");
+    await waitFor(() => expect(sheet()?.textContent).toContain("He said to the paralytic"));
+    expect(sheet()?.textContent).toContain("Berean Standard Bible · 12 verses");
     fireEvent.keyDown(window, { key: "Escape" });
     expect(container.querySelector(".ms-sheet.open:not(.chk-panel)")).toBeNull();
   });

@@ -1,20 +1,22 @@
-// The record sheet: a verse in the Berean, a verse's own witness, a record in its three parts, a test for sources, or a
+// The record sheet: a verse in the reader's Bible, a verse's own witness, a record in its three parts, a test for sources, or a
 // dated view. It opens from the right, the same way as on every study, and closes on Escape.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BibleName } from "@/components/Verse";
+import { plural } from "@/lib/site-format";
 import { plainText } from "@/pages/study/check-notes/checked";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
-import { bookOf, readerHref, REFS, type Opened } from "./model";
-import { Para, ThreeParts, Txt, VerseQuote } from "./parts";
+import { bookOf, DATA, readerHref, REFS, type Opened } from "./model";
+import { Para, RefVerses, ThreeParts, Txt, VerseQuote } from "./parts";
 
 function VerseBody({ refKey }: { refKey: string }) {
   const ref = REFS.get(refKey)!, many = ref.toChapter > ref.chapter;
   return <>
-    <p className="ob-kicker">Berean Standard Bible</p>
+    <p className="ob-kicker"><BibleName /></p>
     <h2>{refKey}</h2>
     {ref.verse === 0 ? <p className="ob-para">{many ? "Whole chapters: read them in the Bible reader." : "A whole chapter: read it in the Bible reader."}</p>
-      : <div className="ob-sheet-verses">{ref.lines.map(([c, v, text]) => <p key={`${c}:${v}`}><sup>{many ? `${c}:${v}` : v}</sup> {text}</p>)}</div>}
-    {ref.more ? <p className="ob-caption">And {ref.more} more verses, in the reader.</p> : null}
+      : <div className="ob-sheet-verses"><p><RefVerses refer={ref} max={DATA.sheetVerses} numbered={many ? "chapter" : true} /></p></div>}
+    {ref.more ? <p className="ob-caption">{plural(ref.more, "And one more verse, in the reader.", "And {n} more verses, in the reader.")}</p> : null}
     <Link className="ob-go" to={readerHref(ref)}>Read it in the Berean <span aria-hidden="true">→</span></Link>
   </>;
 }

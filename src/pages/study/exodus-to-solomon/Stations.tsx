@@ -1,5 +1,6 @@
 // 02 Six stations: Egypt to Solomon, in the Bible's own order. Six cards of one anatomy; choosing one shows its passage, its
 // lead and its records, and each record opens in the sheet with its three parts kept apart.
+import { plural } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { D, recordKey, type Station } from "./model";
 import { useOpen } from "./open";
@@ -26,7 +27,7 @@ function Panel({ station, openKey }: { station: Station; openKey: string | null 
   const open = useOpen();
   return <div className="xs-station" aria-live="polite">
     <div className="xs-station-head">
-      <p className="xs-kicker">Station {String(station.num).padStart(2, "0")} · <Checked text={station.name} /></p>
+      <p className="xs-kicker">{`Station ${String(station.num).padStart(2, "0")}`} · <Checked text={station.name} /></p>
       <h3><Checked text={station.headline} /></h3>
       <p className="xs-para"><Prose text={station.lead} /></p>
       <Refs labels={station.verses} lead="The passages" />
@@ -47,7 +48,7 @@ export function Stations({ station, openKey, onChange }: { station: Station; ope
         <span className="xs-card-top"><small>{String(s.num).padStart(2, "0")} / {String(D.stations.length).padStart(2, "0")}</small><Miniature id={s.id} /></span>
         <strong><Checked text={s.name} /></strong>
         <em><Checked text={s.headline} /></em>
-        <span className="xs-card-parts">{s.records.length} records · {s.verses.length} passages</span>
+        <span className="xs-card-parts">{`${plural(s.records.length, "{n} record", "{n} records")} · ${plural(s.verses.length, "{n} passage", "{n} passages")}`}</span>
         <span className="xs-card-go">Read the station <span aria-hidden="true">→</span></span>
       </button>
     </li>)}</ul>

@@ -1,7 +1,8 @@
 // How the New Testament books were written: the shared pieces. A section that keeps its own failure, the headline in two
 // beats, reading text with its check marks and its references (each reference opens its verses in the sheet), the three
-// parts of a record, sources with what was read of each, a verse quoted from the build's Berean, and views with their holders.
+// parts of a record, sources with what was read of each, a verse quoted in the reader's Bible, and views with their holders.
 import { Component, useContext, type ErrorInfo, type ReactNode } from "react";
+import { BibleName, VerseAt } from "@/components/Verse";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { readingTag, sourceById, splitRefs, versesOf, type Holder } from "./model";
 import { OpenContext } from "./open-context";
@@ -66,13 +67,13 @@ export function Cite({ ids }: { ids: string[] }) {
   })}</ul>;
 }
 
-/** A verse or passage quoted from the build's Berean, with the reference that opens it. */
+/** A verse or passage quoted in the reader's Bible, with the reference that opens it. */
 export function Quote({ refKey }: { refKey: string }) {
   const verses = versesOf(refKey);
   if (!verses.length) { console.error(`How the New Testament books were written: "${refKey}" is not in the generated data`); return null; }
   return <blockquote className="nb-verse">
-    <p>{verses.map(({ label, verse }, i) => <span key={label}>{i > 0 && " "}{verses.length > 1 && <sup>{verse.verse}</sup>}{verse.text}</span>)}</p>
-    <cite><RefButton refKey={refKey} />, Berean Standard Bible</cite>
+    <p>{verses.map(({ label, verse }, i) => <span key={label}>{i > 0 && " "}{verses.length > 1 && <sup>{verse.verse}</sup>}<VerseAt verse={verse} /></span>)}</p>
+    <cite><RefButton refKey={refKey} />, <BibleName /></cite>
   </blockquote>;
 }
 

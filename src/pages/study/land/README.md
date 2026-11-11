@@ -15,7 +15,8 @@ build script: [build-land-study.py](../../../../scripts/build-land-study.py).
   the owner (2026-11-07: "build these pages as soon as we can, and then I'll edit it") say build now. Built now; every
   source is shown as "located, not read", as the record says.
 - The record names 117 verses across its sections (48 in its top-level list, 69 more inside sections; its own note
-  says the build should add those). All 117 exist in the site's Berean; the build takes each verse's text from there.
+  says the build should add those). All 117 exist in the site's Berean; the build checks each verse there, in memory, and writes only its book, chapter
+  and verse (the page shows the words from the reader's current Bible; see the 2026-11-07 evening section below).
 - The record's gloss "watered 'by foot'" (Deuteronomy 11:10) is not the Berean's wording, which says "irrigated on
   foot". The page quotes the Berean; the record's words are left as written for the owner to decide.
 - The record's link titles "The peoples around Israel (35)", "Archaeology and the Bible (06)" and "The Bible and the
@@ -56,7 +57,7 @@ the file differs by a byte (it never writes); `--selftest` tries wrong inputs in
 
 - `npx vitest run src/pages/study/land`: 1 file, 17 tests passed. They check: the data was built from this record
   (record hash only; changes to the Berean, places or coast data are caught by the build's `--check`, not by this test);
-  every verse the record names anywhere has Berean text; every quotation stands word for word in its verse and every
+  every verse the record names anywhere has a place in the data and words in the Berean; every quotation stands word for word in its verse and every
   "up"/"down" line says so; the figures follow from the record's numbers; the slice states its stretch and the climb is
   drawn at true scale; no proposed site is a point and each disputed site has two rings; links stay inside the site and
   no source gets a link while its address is empty; unknown address values (including `__proto__`) fall back; route.ts
@@ -158,3 +159,21 @@ file; the build's `--check` does.
 - Preview served from dist/: GET /study/the-land-of-the-bible returned 200; in the browser the title is "The land of the
   Bible · Bible Guide", the h1 "The land of the Bible", all nine sections drew (landing, slice, climb, rain, water, roads,
   places, claims, stops), none failed, and the console had no messages.
+
+## Verse ids and registered English (2026-11-07, evening)
+
+Two prebuild checks failed on this folder. What changed:
+
+- **Verse words.** The site rule (src/lib/verses.ts) is that data holds verse ids, never verse words. The build still reads
+  every verse from data/text/bsb and runs every check (references, record phrases, the page's quotations, the self-tests)
+  in memory, but land-data.json now holds only `{code, chapter, verse}` for each verse (11,370 bytes, was 31,022). The
+  sheet shows a verse with `<VerseAt>` in the reader's current Bible and names it with `<BibleName />`. The short "up" and
+  "down" lines of section 02 and the Deuteronomy 11 lines of section 03 are still the Berean's own words, checked by the
+  build, and stay captioned as the Berean. `scripts/check-verse-wording.py` no longer lists this folder.
+- **English the translation collector skipped.** One-word labels (band, layer, kind and water names, Winds/Dew/Drought)
+  now sit under a `label` key; one-word kickers are written between tags; sentences built around values are one template
+  each; the month names come from `formatDate` in the site's language; the landing figure uses `formatNumber`; the verse
+  count on the water cards uses `plural()`; the climb's two captions are given by the caller, not chosen by `stretch === 1`.
+  Visible wording changes: "on/off the slice" capitalised (shown in capitals anyway), the slice caption's semicolon is a
+  full stop, and the water cards read "evidence, inference and limit". `content/translation/english_build_check.py`
+  lists nothing in this folder, with no hand registrations or rulings needed.

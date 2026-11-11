@@ -2,6 +2,7 @@
 // player's pairs), the grid with one tab stop and arrow-key movement by the dealt columns, a polite live region, and
 // the "Pairs found" list under the grid. Timers here match the CSS durations; the rules themselves live in game.ts.
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { formatNumber, plural } from "@/lib/site-format";
 import { HOLD_MS, typedBacks, type PairsFile } from "./deal";
 import { Card, type CardFace } from "./Card";
 import { capitalise, cardText, clockRead, clockStart, clockStop, flip, foundCount, formatTime, hasStarted, isFinished,
@@ -146,14 +147,14 @@ export function Board({ data, game, settings, onChange, onSettings, onFinish, on
   return <section className={`mm-play is-${game.difficulty}`} aria-label="Memory card match board">
     <div className="mm-bar">
       {solo ? <>
-        <span><strong>{game.moves}</strong> {game.moves === 1 ? "move" : "moves"}</span>
+        <span>{plural(game.moves, "{n} move", "{n} moves")}</span>
         {settings.timerHidden ? null : <span className="mm-timer" aria-label={`Time ${formatTime(elapsed)}`}>{formatTime(elapsed)}</span>}
         <button type="button" className="mm-link" onClick={() => onSettings({ ...settings, timerHidden: !settings.timerHidden })}>
           {settings.timerHidden ? "Show timer" : "Hide timer"}
         </button>
-        <span>Pairs found {foundCount(game)} of {pairCount(game)}</span>
+        <span>{`Pairs found ${formatNumber(foundCount(game))} of ${formatNumber(pairCount(game))}`}</span>
       </> : <>
-        <span className="mm-turn">{game.players[game.turn]}'s turn</span>
+        <span className="mm-turn">{`${game.players[game.turn]}'s turn`}</span>
         <ul className="mm-scores" aria-label="Pairs per player">
           {game.players.map((name, n) => <li key={name + n} className={n === game.turn ? "is-turn" : undefined}>
             {name}: <strong>{totals[n]}</strong>

@@ -1,10 +1,13 @@
 import { createHash } from "node:crypto";
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { Suspense } from "react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import { bsbWords } from "@/lib/bsb-for-tests";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import { plainText } from "@/pages/study/check-notes/checked";
 import { climbLine, D, DEFAULT_POINT, findLayer, findOpened, findPoint, LD, linkFor, phraseByLabel, rainSpan, readerHref, safeUrl, STRETCH, verseByLabel } from "./model";
 import * as route from "./route";
@@ -12,6 +15,15 @@ import LandPage from "./LandPage";
 
 const RECORD = "content/academic-research/40-the-land-of-the-bible.json";
 const FOLDER = "src/pages/study/land";
+const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+// The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
+
 const BAD = ["__proto__", "constructor", "toString", "region:", "region:nope", "verse:", "verse:Luke 99:1", "verse:__proto__", "", "<script>", "verse"];
 
 function allVerseLabels(node: unknown, found: Set<string>): Set<string> {
@@ -31,15 +43,20 @@ describe("The land of the Bible: its data", () => {
     const raw = readFileSync(resolve(RECORD));
     expect(LD.recordHash).toBe(createHash("sha256").update(raw).digest("hex"));
   });
-  it("has a Berean text for every verse the record names, anywhere in it", () => {
+  it("has a place for every verse the record names, anywhere in it, and the Berean has words there; the data holds no words", () => {
     const labels = allVerseLabels(D, new Set());
     expect(labels.size).toBeGreaterThan(100);
-    for (const label of labels) expect(verseByLabel.get(label)?.text, label).toBeTruthy();
+    for (const label of labels) {
+      const verse = verseByLabel.get(label);
+      expect(verse, label).toBeDefined();
+      expect(Object.keys(verse!).sort(), label).toEqual(["chapter", "code", "verse"]);
+      expect(bsbWords(verse!), label).toBeTruthy();
+    }
   });
   it("quotes only words that stand in the Berean verse, and each 'up' or 'down' line says so", () => {
     const even = (s: string) => s.replace(/[’‘]/g, "'").replace(/[“”]/g, '"');
     for (const [label, p] of phraseByLabel) {
-      expect(even(verseByLabel.get(label)!.text), label).toContain(p.phrase);
+      expect(even(bsbWords(verseByLabel.get(label)!)), label).toContain(p.phrase);
       if (p.way) expect(p.phrase, label).toMatch(new RegExp(`\\b${p.way}\\b`));
     }
   });
@@ -105,7 +122,9 @@ describe("The land of the Bible: its address", () => {
 });
 
 function page(at = "/study/the-land-of-the-bible") {
-  return render(<MemoryRouter initialEntries={[at]}><Suspense fallback={null}><LandPage /></Suspense></MemoryRouter>);
+  return render(<CatalogContext.Provider value={catalog}>
+    <MemoryRouter initialEntries={[at]}><Suspense fallback={null}><LandPage /></Suspense></MemoryRouter>
+  </CatalogContext.Provider>);
 }
 
 describe("The land of the Bible: the page", () => {
@@ -118,12 +137,13 @@ describe("The land of the Bible: the page", () => {
     expect(container.querySelectorAll("[data-proposed]").length).toBe(LD.map.rings.length);
     expect(container.textContent).not.toContain("{{check:");
   });
-  it("opens a verse in the sheet and closes it on Escape", () => {
+  it("opens a verse in the sheet, in the reader's Bible, and closes it on Escape", async () => {
     const { container } = page();
     fireEvent.click(within(container.querySelector("#climb")!).getAllByRole("button", { name: "Luke 10:30" })[0]);
     const sheet = container.querySelector(".ls-sheet")!;
     expect(sheet.classList.contains("open")).toBe(true);
-    expect(sheet.textContent).toContain(verseByLabel.get("Luke 10:30")!.text);
+    await waitFor(() => expect(sheet.textContent).toContain(bsbWords(verseByLabel.get("Luke 10:30")!)));
+    expect(sheet.textContent).toContain("Berean Standard Bible");
     act(() => { fireEvent.keyDown(window, { key: "Escape" }); });
     expect(container.querySelector(".ls-sheet")!.classList.contains("open")).toBe(false);
   });

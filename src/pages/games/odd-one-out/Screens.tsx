@@ -36,10 +36,10 @@ export function StartScreen({ data, choice, difficulty, best, onChoice, onDiffic
           title={open ? undefined : "Not enough puzzles at this level yet"}>{DIFFICULTY_LABELS[d]}</button>;
       })}
     </fieldset>
-    {!playable && <p className="oo-note">Not enough {CHOICE_LABELS[choice].toLowerCase()} puzzles at this level yet: pick another level.</p>}
+    {!playable && <p className="oo-note">{`Not enough ${CHOICE_LABELS[choice].toLowerCase()} puzzles at this level yet: pick another level.`}</p>}
     <div className="oo-start-foot">
       <button type="button" className="oo-primary" disabled={!playable} onClick={onPlay}>Play</button>
-      {best !== undefined && <span className="oo-best">Your best here: {best} of 10</span>}
+      {best !== undefined && <span className="oo-best">{`Your best here: ${best} of 10`}</span>}
     </div>
   </div>;
 }
@@ -54,8 +54,8 @@ export function SummaryScreen({ data, round, best, onAgain, onChange }: SummaryP
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { heading.current?.focus(); }, []);
   return <div className="oo-summary">
-    <h2 ref={heading} tabIndex={-1} id="oo-summary-heading">You scored {score} of {sets.length}</h2>
-    <p className="oo-summary-stats">Best streak: {bestStreak} · Your best for {CHOICE_LABELS[round.choice]}, {DIFFICULTY_LABELS[round.difficulty]}: {best} of 10</p>
+    <h2 ref={heading} tabIndex={-1} id="oo-summary-heading">{`You scored ${score} of ${sets.length}`}</h2>
+    <p className="oo-summary-stats">{`Best streak: ${bestStreak} · Your best for ${CHOICE_LABELS[round.choice]}, ${DIFFICULTY_LABELS[round.difficulty]}: ${best} of 10`}</p>
     <ol className="oo-summary-list">
       {sets.map((set, n) => <li key={set.id}>
         <details>

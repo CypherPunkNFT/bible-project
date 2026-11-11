@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { bsbWords } from "@/lib/bsb-for-tests";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
@@ -23,10 +23,14 @@ describe("The early church: its data", () => {
     const raw = readFileSync(RECORD, "utf8").replace(/\r\n/g, "\n");
     expect(EC.recordHash).toBe(createHash("sha256").update(raw, "utf8").digest("hex"));
   });
-  it("carries every verse in the Berean's own words", () => {
+  it("names every verse by its place, never its words, and each is in the Berean", () => {
     const verses = Object.values(EC.verses);
     expect(verses.length).toBeGreaterThanOrEqual(D.parts.length);
-    for (const v of verses) expect(normal(v.text)).toBe(normal(bsbWords(v)));
+    for (const v of verses) {
+      expect(Object.keys(v).sort()).toEqual(["chapter", "code", "verse"]);
+      expect(normal(bsbWords(v)).length, `${v.code} ${v.chapter}:${v.verse}`).toBeGreaterThan(0);
+    }
+    expect(normal(bsbWords(EC.verses["JHN 1:14"]))).toContain("the word became flesh");
   });
   it("supplies every verse label the page uses", () => {
     const used = [...D.creedPath.steps.flatMap((s) => s.verses), ...D.parts.flatMap((p) => p.records.flatMap((r) => r.verses))];
@@ -100,6 +104,13 @@ describe("The early church: its data", () => {
 });
 
 const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
+// The verse words come from the reader's Bible (data/plain/<bible>/<book>.json), read here from disk.
+beforeAll(() => vi.stubGlobal("fetch", async (url: string) => {
+  const file = `data/${String(url).replace(/^\/data\//, "").replace(/\?.*$/, "")}`;
+  try { return new Response(readFileSync(file, "utf8"), { headers: { "content-type": "application/json" } }); }
+  catch { return new Response("missing", { status: 404 }); }
+}));
+afterAll(() => vi.unstubAllGlobals());
 const page = (at = "/study/the-early-church") => render(
   <CatalogContext.Provider value={catalog}>
     <MemoryRouter initialEntries={[at]}><Routes><Route path="/study/the-early-church" element={<EarlyChurchPage />} /></Routes></MemoryRouter>
@@ -124,12 +135,13 @@ describe("The early church: the page", () => {
     expect(container.querySelector(".ek-chart")?.getAttribute("aria-hidden")).toBe("true");
     expect(container.querySelector(".ek-chart")?.getAttribute("focusable")).toBe("false");
   });
-  it("opens a reference's Berean words in the sheet and closes on Escape", () => {
+  it("opens a reference's words in the sheet and closes on Escape", async () => {
     const { container } = page("/study/the-early-church?drawer=councils");
     fireEvent.click(container.querySelector("[data-opener='rec:chalcedon']")!);
     const sheet = recordSheet(container)!;
     fireEvent.click(within(sheet as HTMLElement).getByRole("button", { name: "John 1:14" }));
-    expect(recordSheet(container)!.textContent).toContain(EC.verses["JHN 1:14"].text.slice(0, 30));
+    await waitFor(() => expect(recordSheet(container)!.textContent).toContain(bsbWords(EC.verses["JHN 1:14"]).slice(0, 30)));
+    expect(recordSheet(container)!.textContent).toContain("Berean Standard Bible");
     fireEvent.keyDown(window, { key: "Escape" });
     expect(recordSheet(container)).toBeNull();
   });

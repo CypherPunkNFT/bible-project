@@ -3,6 +3,7 @@
 // studies nearby; the closing question and the way back to Academic studies.
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { plural } from "@/lib/site-format";
 import { Checked } from "@/pages/study/check-notes/CheckNotes";
 import { plainText } from "@/pages/study/check-notes/checked";
 import { D, owns, P, readingTag, sourceById, type Claim } from "./model";
@@ -42,6 +43,7 @@ export function Claims() {
 
 export function Closing() {
   const named = [...D.links.academic, ...D.links.theology];
+  const works = plural(D.sources.length, "{n} work", "{n} works");
   return <>
     <div className="hpn-close">
       <div>
@@ -49,7 +51,7 @@ export function Closing() {
         <dl className="hpn-words">{D.confusedWords.map((w) => <div key={plainText(w.word)}><dt><Checked text={w.word} /></dt><dd><Prose text={w.note} /></dd></div>)}</dl>
         <h3 className="hpn-sub">How far this page reaches</h3>
         <ul className="hpn-reach">{D.reach.map((r) => <li key={plainText(r)}><Prose text={r} /></li>)}{D.boundaries.out.map((o) => <li key={plainText(o)}><Prose text={o} /></li>)}</ul>
-        <p className="hpn-caption">Since that note was written, the build has counted from the held Hebrew and Berean: the twenty-two letters of each drawn alphabet poem, Psalm 119's {P.acrostics.psalm119} verses, Lamentations 3's {P.acrostics.lamentations3}, and Genesis 1's {P.threads.verdicts} verdicts.</p>
+        <p className="hpn-caption">{`Since that note was written, the build has counted from the held Hebrew and Berean: the twenty-two letters of each drawn alphabet poem, Psalm 119's ${P.acrostics.psalm119} verses, Lamentations 3's ${P.acrostics.lamentations3}, and Genesis 1's ${P.threads.verdicts} verdicts.`}</p>
       </div>
       <div>
         <h3 className="hpn-sub">{D.timeline.head}</h3>
@@ -60,10 +62,10 @@ export function Closing() {
           const s = sourceById.get(t.source);
           return s ? <li key={t.source}><SourceButton id={t.source} whole /><small><Prose text={t.why} /></small></li> : null;
         })}</ul>
-        <details className="hpn-sources"><summary>Every source · {D.sources.length} works{D.sources.every((s) => s.status === "located") ? `, each ${readingTag("located")}` : ""}</summary>
+        <details className="hpn-sources"><summary>{D.sources.every((s) => s.status === "located") ? `Every source · ${works}, each ${readingTag("located")}` : `Every source · ${works}`}</summary>
           <ul>{D.sources.map((s) => <li key={s.id}><SourceButton id={s.id} whole /></li>)}</ul>
         </details>
-        <p className="hpn-caption"><Prose text={D.pictures.note} /> None is shown here: no licence is settled for any of the {D.pictures.candidates.length}.</p>
+        <p className="hpn-caption"><Prose text={D.pictures.note} /> <span>{`None is shown here: no licence is settled for any of the ${D.pictures.candidates.length}.`}</span></p>
       </div>
     </div>
     <nav className="hpn-near" aria-label="Studies nearby">

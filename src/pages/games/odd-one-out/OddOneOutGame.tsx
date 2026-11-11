@@ -121,9 +121,9 @@ function Puzzle({ data, round, onAnswer, onNext }: PuzzleProps) {
   const announcement = !answered ? "" : pick === set.odd ? "Right!" : `Not quite: the odd one out was ${shownLabel(data, set, set.odd)}.`;
   return <div className="oo-puzzle">
     <div className="oo-progress">
-      <span>{round.index + 1} of {round.ids.length}</span>
+      <span>{`${round.index + 1} of ${round.ids.length}`}</span>
       <span className="oo-kind">{CHOICE_LABELS[set.kind]}</span>
-      <span>Score {score}</span>
+      <span>{`Score ${score}`}</span>
     </div>
     <h1 className="oo-prompt">Which one doesn't belong?</h1>
     <div className="oo-choices" role="group" aria-label="The four choices">

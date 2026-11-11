@@ -13,6 +13,7 @@ Reads the research record (content/academic-research/21-the-early-church.json) a
 - a figure in the opening bar disagrees with what it counts, or the reception rows' words are not in the council records;
 - the two accounts of 312 are not sentences of the Milvian Bridge record;
 - a link the page makes leaves the site or names an address the site does not route (an empty route is kept as "no link").
+The verse words are read and checked in memory; the file holds each verse's book, chapter and verse, never its words.
 Check marks ({{check:cN}}…{{/check}}) are removed before any text is compared. That proves references, quotations and the record's
 shape; it does not prove any reading or any date right, and it cannot check the early writers, whose texts are not held.
 
@@ -513,7 +514,8 @@ def build_data(site: Path) -> str:
         "reception": check_reception(record),
         "map": build_map(site, record),
         "unchecked": [s["id"] for s in record["sources"] if s["status"] == "check"],
-        "verses": verses,
+        # Verse ids only: the words were checked above and the page shows them in the reader's Bible (src/lib/verses.ts).
+        "verses": {name: {key: verse[key] for key in ("code", "chapter", "verse")} for name, verse in verses.items()},
         "refs": refs,
         "routes": check_links(site, record),
     }

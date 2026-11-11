@@ -1,13 +1,17 @@
-// Hebrew poetry and biblical narrative: the research record, the generated verses (Berean lines and Leningrad Hebrew),
+// Hebrew poetry and biblical narrative: the research record, the generated verses (ids with the word offsets of their Berean
+// lines, and the Leningrad Hebrew; the Berean's words come from the reader's Bible files, src/lib/verses.ts),
 // the Hebrew-beside-Berean pairs, the folds, threads and alphabet columns (scripts/build-poetry-study.py), and the address
 // values the page accepts. Every address value is looked up in a Map, so an unknown one falls back to the default and
 // nothing here throws while the page loads.
 import dossier from "../../../../content/academic-research/13-hebrew-poetry-and-biblical-narrative.json";
 import generated from "./poetry-data.json";
 
-export type Verse = { code: string; chapter: number; verse: number; lines: string[]; hebrew: string | null; hebrewVerse?: number };
-export type Row = { en: string; he: string | null };
-export type Pair = { title?: { he: string; en: string }; rows: Row[] };
+/** `breaks`: the word offsets in the Berean's verse where its second and later poetic lines begin (checked by the build). */
+export type Verse = { code: string; chapter: number; verse: number; breaks: number[]; hebrew: string | null; hebrewVerse?: number };
+/** `line`: which of the verse's Berean lines stands beside this Hebrew line. */
+export type Row = { line: number; he: string | null };
+/** A psalm title carries the Berean's superscription (`en`, a chapter heading, not verse wording); another heading is a line of the verse. */
+export type Pair = { title?: { he: string; en?: string; line?: number }; rows: Row[] };
 export type Item = { id: string; name: string; examples: string[]; look: string; evidence: string; inference: string; limit: string; lowth?: string };
 export type View = { who: string; held: string; source?: string };
 export type Reader = View & { id: string; note?: string };
@@ -79,6 +83,15 @@ export function firstOf(label: string): { key: string; verse: Verse; pair?: Pair
 export function byKey(key: string): { key: string; verse: Verse; pair?: Pair } | null {
   const verse = owns(P.verses, key) ? P.verses[key] : undefined;
   return verse ? { key, verse, pair: owns(P.pairs, key) ? P.pairs[key] : undefined } : null;
+}
+
+/** The Berean's verse cut into its poetic lines at the build's word offsets: always one line more than there are breaks.
+ * Words the offsets do not fit (a Bible file changed since the build) all go to the first line, so none is lost. */
+export function bereanLines(text: string, breaks: number[]): string[] {
+  const words = text.split(" ");
+  const fits = breaks.every((at, i) => at > (i ? breaks[i - 1] : 0) && at < words.length);
+  if (!fits) return [text, ...breaks.map(() => "")];
+  return [0, ...breaks].map((from, i) => words.slice(from, i < breaks.length ? breaks[i] : words.length).join(" "));
 }
 
 /** "Said once. *Said again, sharper.*" → the plain part and the gold turn. */

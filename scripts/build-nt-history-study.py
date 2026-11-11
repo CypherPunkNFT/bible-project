@@ -11,6 +11,8 @@ Reads the research record (content/academic-research/43-new-testament-history.js
 - an anchor (a line the lattice draws across the reigns) has years its record text does not state, or a ruler the verse names
   was not in office at every year of the anchor, or a disputed date (the birth, the cross, Luke 3:1) is not drawn twice;
 - a link the page makes leaves the site or names an address the site does not route.
+Every verse's text is read from the Berean and checked in memory; the data file holds only each verse's book, chapter and
+verse, and the page shows the words in the reader's own Bible (src/lib/verses.ts).
 Check marks ({{check:cN}}…{{/check}}) are removed before any text is compared. That proves references, quotations and the shape of
 the record; it does not prove any reading or any reckoning right.
 
@@ -355,7 +357,8 @@ def build_data(site: Path) -> str:
         "kinds": {row_id: row_kind(row) for row_id, row in rows.items()},
         "anchors": anchors,
         "paul": check_paul(record),
-        "verses": verses,
+        # Ids only: the words come from the reader's Bible. The text was read and checked above, in memory.
+        "verses": {name: {k: verse[k] for k in ("code", "chapter", "verse")} for name, verse in verses.items()},
         "refs": refs,
         "links": {},
     }

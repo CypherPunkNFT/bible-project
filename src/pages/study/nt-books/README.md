@@ -25,16 +25,20 @@ point.
 `--prove-refusals` makes wrong inputs in memory and shows each is refused.
 
 What it does:
-- Takes the text of every verse the page shows from the site's Berean (`data/text/bsb`): the record's own list of 45
+- Reads the text of every verse the page shows from the site's Berean (`data/text/bsb`): the record's own list of 45
   verses, every reference written in the record's prose (69 of them, from "Mark 2:10" to "Acts 16:10–17; 20:5–15;
   21:1–18; 27:1–28:16"), the reference table's bracketed references read against the row's book ("Romans … (16:22)"),
-  and the six synopsis passages. 235 verses in all. The record itself quotes no verse (its `versesNote` says so); the
-  page quotes only what the build supplies.
+  and the six synopsis passages. 235 verses in all. The record itself quotes no verse (its `versesNote` says so). The
+  checks below use that text in memory; the data file holds only each verse's book, chapter and verse, and the page
+  shows the words in the reader's own Bible (`src/lib/verses.ts`), captioned with that Bible's name.
 - Checks every quotation the record sets beside a reference against the Berean at that reference (7 such quotations).
 - Marks the shared wording of each synopsis case word by word: a word sits in a run of four words that every other
   column also has (strong), that some other column has (faint), or neither. The tie (the narrator's aside "said to the
   paralytic"; the Baptist's "brood of vipers, who warned you to flee from the coming wrath?"; "THE KING OF THE JEWS") is
-  checked word for word in each verse it ties. This compares the Berean's English, and the page says so.
+  checked word for word in each verse it ties. This compares the Berean's English, and the page says so. The data file
+  holds no words here either: for each synopsis verse a level per word and the places of the tied words. The page
+  always shows the synopsis in the Berean, cuts its words the same way, and lays the levels over them; the build checks
+  that the reader's file (`data/plain/bsb`) holds each synopsis verse exactly as the levels were counted.
 - Reads each reference-table date as ranges by a stated rule, never as points: "50s–60s" is 50–69; "80–90" is 80–90;
   "early 60s" 60–64; "mid-60s" 63–67; "about 57" a soft bar 55–59; "before 70" a soft bar 60–70; "early second
   century" 100–130; Philemon "with Colossians" takes Colossians' bar. Where the date has " / ", the first range is the
@@ -79,13 +83,14 @@ Every one of nine wrong inputs was refused, and nothing was written:
 |---|---|
 | `python scripts/build-nt-books-study.py` then `--check` | data current, exit 0 (prints the one known Acts 1:1 note) |
 | `--prove-refusals` | all nine wrong inputs refused, nothing written |
-| `npx vitest run src/pages/study/nt-books` | 15 tests passed |
+| `npx vitest run src/pages/study/nt-books` | 17 tests passed |
 | `npx eslint --max-warnings 0 src/pages/study/nt-books` | no warnings, exit 0 |
 | `node scripts/build-portable.mjs --preserve-output` | exit 0; the page is served from the built site at http://127.0.0.1:8931/study/how-the-new-testament-books-were-written |
 | Browser, 1440 / 390 / 320 wide, light and dark (six runs) | no console errors or warnings; nothing of this page past the right edge; the first synopsis reference opens its verses in the sheet, focus moves into it, Escape closes it and focus returns to that reference; a highlighted passage opens its check note and Escape closes it |
 
 What the tests cover: the data was built from the record as it stands now (its hash); every reference written in
-the record resolves and has Berean text; every synopsis column holds its tie; all twenty-seven books appear once, in
+the record resolves to verses the Berean has, and the data holds no verse's words; every synopsis column holds its tie,
+and each synopsis verse has one level per Berean word; all twenty-seven books appear once, in
 order, with every bar inside the axis and taken from the row's own date words; links stay inside the site and use
 the record's titles; every map arrow joins two of its own nodes; an address asking for something unknown falls back
 to the default view; the page draws every section with no failed section and no raw check marker; a case chosen in

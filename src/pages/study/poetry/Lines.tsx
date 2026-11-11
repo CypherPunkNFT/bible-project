@@ -16,7 +16,7 @@ export function Lines({ kind, onChange }: { kind: string; onChange: (values: Rec
           onClick={() => onChange({ kind: k.id })}>
           <b>{String(i + 1).padStart(2, "0")}</b>
           <span>{k.name}</span>
-          <small>Lowth: {k.lowth}</small>
+          <small><span>Lowth</span>: {k.lowth}</small>
         </button>)}
       </div>
       <div className="hpn-kind-body" aria-live="polite">

@@ -2,6 +2,7 @@
 // is reckoned), and the chosen New Testament anchor as a line crossing them. The anchor list and the rulers list are the keyboard
 // path; the drawing repeats them for a pointer and stays out of the tab order.
 import { Fragment } from "react";
+import { formatList } from "@/lib/site-format";
 import { atPath, D, findAnchor, NH, rangeWord, type Anchor, type Row } from "./model";
 import { AXIS_YEARS, CHART, lattice, rowSpans, touchedBy, yearEndX, yearMidX, yearX, type Placed } from "./geometry";
 import { Head, Prose, Refs } from "./parts";
@@ -89,6 +90,7 @@ export function Lattice({ anchorId, ruler, onChange }: { anchorId: string | null
   const anchor = findAnchor(anchorId);
   const lit = new Set(touchedBy(anchor).map((r) => r.id));
   const pickRuler = (id: string) => onChange({ ruler: ruler?.id === id ? null : id });
+  const crossing = ruler ? NH.anchors.filter((a) => touchedBy(a).some((r) => r.id === ruler.id)).map((a) => a.title) : [];
   return <>
     <Head num="01" kicker="The lattice of reigns" title="Seven names." turn="One year."
       lead={<>Luke names seven people to fix one year (Luke 3:1–2). Choose an anchor: a line crosses the reigns, and every ruler it meets lights. Then ask whether that ruler's own date is fixed or reckoned.</>} />
@@ -113,8 +115,8 @@ export function Lattice({ anchorId, ruler, onChange }: { anchorId: string | null
       </li>)}</ul>
     </div>)}</div>
     {ruler && <p className="nh-ruler-note"><b>{ruler.name}</b>, {rowYears(ruler)}: {KIND_WORD[NH.kinds[ruler.id] ?? "reckoned"]}.{ruler.note && <> {ruler.note}</>}{" "}
-      {NH.anchors.filter((a) => touchedBy(a).some((r) => r.id === ruler.id)).length
-        ? <>Crossed by: {NH.anchors.filter((a) => touchedBy(a).some((r) => r.id === ruler.id)).map((a) => a.title).join(", ")}.</>
+      {crossing.length
+        ? <>{`Crossed by: ${formatList(crossing)}.`}</>
         : <>No anchor on this page crosses this bar.</>}</p>}
     <p className="nh-caption">Bars come from the research record's timeline. Solid or hatched is this page's reading of the record: a bar is hatched when the record gives its years as “about”, as two dates, as ranges or as open-ended. Each anchor's years are the record's own words, checked by the page's build.</p>
   </>;

@@ -265,11 +265,16 @@ export function familyBranch(people: FamilyPerson[], edges: FamilyEdge[], root: 
     }
     return combined;
   };
+  // A person or branch tied (by marriage or a second parent) to someone in another
+  // family goes to the edge of its own box nearest them; everyone else keeps order.
+  const sides = new Map<string | FamilyCluster, number>();
+  const toEdges = <T extends string | FamilyCluster,>(items: T[]) => [...items.filter(item => (sides.get(item) ?? 0) < 0), ...items.filter(item => !sides.get(item)), ...items.filter(item => (sides.get(item) ?? 0) > 0)];
+  const initialMembers = new Map(clusters.map(c => [c, c.members])), measured = new Map(clusters.map(c => [c, c.width]));
   const arrange = (cluster: FamilyCluster): Shape => {
-    cluster.members = centered(cluster.members, id => memberWidths.get(id)!);
+    cluster.members = toEdges(centered(initialMembers.get(cluster)!, id => memberWidths.get(id)!));
     const shape = pack(cluster.members.map(id => {
       const node = placed.get(id)!;
-      const branches = centered(owned.get(id) ?? [], child => child.width);
+      const branches = toEdges(centered(owned.get(id) ?? [], child => measured.get(child)!));
       const descendants = pack(branches.map(arrange), 64);
       const childCenters = branches.map(c => c.x + c.width / 2);
       node.x = childCenters.length ? (Math.min(...childCenters) + Math.max(...childCenters)) / 2 - 76 : -76;
@@ -281,7 +286,30 @@ export function familyBranch(people: FamilyPerson[], edges: FamilyEdge[], root: 
     shape.boxes.push(cluster);
     return shape;
   };
-  pack(centered(roots.sort((a, b) => a.x - b.x), c => c.width).map(arrange), 64);
+  const rootOrder = centered(roots.sort((a, b) => a.x - b.x), c => c.width);
+  pack(rootOrder.map(arrange), 64);
+  // Classic layout only: read each side from the neutral layout above, then place the
+  // families once more. Root boxes (no visible parents) are parked by packing, so exert no pull.
+  if (!orderedGenerations) {
+    const links = new Map<string, string[]>(), parked = new Set(roots.flatMap(c => c.members));
+    for (const e of visibleEdges) { links.set(e.from, [...(links.get(e.from) ?? []), e.to]); links.set(e.to, [...(links.get(e.to) ?? []), e.from]); }
+    const lineOf = (id: string): string[] => [id, ...(owned.get(id) ?? []).flatMap(c => c.members.flatMap(lineOf))];
+    const side = (ids: string[], family: string[], ignore: string[], boxes: FamilyCluster[]) => {
+      const inside = new Set(family);
+      const outside = ids.flatMap(id => links.get(id) ?? []).filter(other => !inside.has(other) && !ignore.includes(other) && !parked.has(other)).map(other => placed.get(other)!.x + 72);
+      if (!outside.length) return 0;
+      const target = outside.reduce((a, b) => a + b, 0) / outside.length;
+      return target < Math.min(...boxes.map(c => c.x)) ? -1 : target > Math.max(...boxes.map(c => c.x + c.width)) ? 1 : 0;
+    };
+    for (const cluster of clusters) {
+      const family = cluster.members.flatMap(lineOf);
+      for (const id of cluster.members) {
+        sides.set(id, side(lineOf(id), family, cluster.parents, [cluster]));
+        for (const branch of owned.get(id) ?? []) sides.set(branch, side(branch.members.flatMap(lineOf), lineOf(id), [id], owned.get(id)!));
+      }
+    }
+    pack(rootOrder.map(arrange), 64);
+  }
   // Decide tiers AFTER horizontal allocation: a high headcount alone does not
   // make a sparse generation crowded. Alternate families in their visible order.
   bandTop = 24;

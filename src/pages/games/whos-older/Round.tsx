@@ -19,8 +19,8 @@ export const RoundView = forwardRef<HTMLButtonElement, RoundProps>(function Roun
   return <div className="wo-round">
     <div className="wo-status">
       <span>{run.mode === "streak" ? "Streak" : "Relaxed"}</span>
-      {run.mode === "streak" ? <span>Streak {shownScore}</span> : <>
-        <span>Score {shownScore}</span>
+      {run.mode === "streak" ? <span>{`Streak ${shownScore}`}</span> : <>
+        <span>{`Score ${shownScore}`}</span>
         <span className="wo-hearts" aria-label={`${run.hearts} of ${HEARTS} hearts left`}>
           {Array.from({ length: HEARTS }, (_, n) => <Heart key={n} size={15} aria-hidden="true" className={n < run.hearts ? "is-full" : "is-empty"} />)}
         </span>

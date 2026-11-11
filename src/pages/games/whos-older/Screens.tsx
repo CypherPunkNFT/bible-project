@@ -1,6 +1,7 @@
 // Who's older?: the start screen, the run-over screen and the can't-load screen (design §8.1, §8.4).
 import { Copy, RotateCcw, Share2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { plural } from "@/lib/site-format";
 import { DIFFICULTIES, DIFFICULTY_LABELS, missedRounds, pairOf, type Difficulty, type Mode, type Pool, type Run } from "./game";
 import { explain } from "./explain";
 import { Reveal } from "./Reveal";
@@ -23,7 +24,7 @@ export function StartScreen({ best, saving, resume, resumeScore, onPlay, onResum
     <h1>Who's older?</h1>
     <p className="wo-lede">Two Bible people. Tap the one who lived first.</p>
     {resume && <button type="button" className="wo-primary wo-continue" onClick={onResume}>
-      Continue ({resume.mode === "streak" ? `streak ${resumeScore}` : `score ${resumeScore}`})
+      {resume.mode === "streak" ? `Continue (streak ${resumeScore})` : `Continue (score ${resumeScore})`}
     </button>}
     <div className="wo-modes">
       <div className="wo-mode">
@@ -65,7 +66,7 @@ export function RunOver({ pool, run, best, newBest, onAgain, onStart }: OverProp
   return <div className="wo-over">
     <h1 ref={heading} tabIndex={-1}>{run.mode === "streak" ? `Streak of ${score}` : `${score} right`}</h1>
     {newBest && score > 0 && <p className="wo-new-best">New best!</p>}
-    <p className="wo-over-best">Your best {run.mode === "streak" ? "streak" : "in Relaxed"}: {best[run.mode]}</p>
+    <p className="wo-over-best">{run.mode === "streak" ? `Your best streak: ${best.streak}` : `Your best in Relaxed: ${best.relaxed}`}</p>
     <div className="wo-start-foot">
       <button type="button" className="wo-primary" onClick={onAgain}><RotateCcw size={15} aria-hidden="true" />Play again</button>
       <button type="button" className="wo-secondary" onClick={share}><Share2 size={15} aria-hidden="true" />Share</button>
@@ -83,7 +84,7 @@ function Missed({ pool, run }: { pool: Pool; run: Run }) {
   const missed = missedRounds(pool, run);
   if (!missed.length) return null;
   return <section className="wo-missed">
-    <h2>{missed.length === 1 ? "The one you missed" : "The ones you missed"}</h2>
+    <h2>{plural(missed.length, "The one you missed", "The ones you missed")}</h2>
     <ol>
       {missed.map((round) => {
         const pair = pairOf(pool, round)!;

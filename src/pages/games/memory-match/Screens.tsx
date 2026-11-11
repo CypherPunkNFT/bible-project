@@ -1,6 +1,7 @@
 // Memory card match: the start screen, "See the pairs first" and the can't-load screen (design section 10).
 import { useEffect, useRef } from "react";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
+import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
 import type { Best, Settings } from "./storage";
 
@@ -35,7 +36,7 @@ export function StartScreen({ data, choice, best, settings, onChoice, onSettings
         const ok = isOffered(data, choice.deck, difficulty);
         return <button key={difficulty} type="button" aria-pressed={choice.difficulty === difficulty} disabled={!ok}
           title={ok ? undefined : "Not enough pairs yet"} onClick={() => onChoice({ ...choice, difficulty })}>
-          {DIFFICULTY_LABELS[difficulty]} · {BOARD_PAIRS[difficulty] * 2} cards
+          {`${DIFFICULTY_LABELS[difficulty]} · ${plural(BOARD_PAIRS[difficulty] * 2, "{n} card", "{n} cards")}`}
           {!ok && <span className="sr-only"> (not enough pairs yet)</span>}
         </button>;
       })}
@@ -44,13 +45,13 @@ export function StartScreen({ data, choice, best, settings, onChoice, onSettings
       <legend>Players</legend>
       {[1, 2, 3, 4].map((n) => <button key={n} type="button" aria-pressed={choice.players === n}
         onClick={() => onChoice({ ...choice, players: n })}>
-        {n === 1 ? "Just me" : n}
+        {plural(n, "Just me", "{n}")}
       </button>)}
     </fieldset>
     {choice.players > 1 && <div className="mm-names">
       {Array.from({ length: choice.players }, (_, n) => <label key={n}>
-        <span>Player {n + 1}</span>
-        <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={`Player ${n + 1}`}
+        <span>{`Player ${formatNumber(n + 1)}`}</span>
+        <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={`Player ${formatNumber(n + 1)}`}
           onChange={(event) => {
             const names = [...choice.names];
             names[n] = event.target.value;
@@ -71,7 +72,7 @@ export function StartScreen({ data, choice, best, settings, onChoice, onSettings
       <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>Deal the cards</button>
       <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
       {best && choice.players === 1 && <span className="mm-best">
-        Your best here: {best.moves} moves · {formatTime(best.timeMs)} · {best.stars} {best.stars === 1 ? "star" : "stars"}
+        {`Your best here: ${plural(best.moves, "{n} move", "{n} moves")} · ${formatTime(best.timeMs)} · ${plural(best.stars, "{n} star", "{n} stars")}`}
       </span>}
     </div>
   </div>;

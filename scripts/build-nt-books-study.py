@@ -2,13 +2,17 @@
 """Build src/pages/study/nt-books/nt-books-data.json for /study/how-the-new-testament-books-were-written.
 
 Reads the research record (content/academic-research/42-how-the-new-testament-books-were-written.json) and the site's
-Berean (data/text/bsb). It takes the text of every verse the page shows from the Berean: the record's own verse list,
+Berean (data/text/bsb). It reads the text of every verse the page shows from the Berean: the record's own verse list,
 every reference written in the record's prose (both "Mark 2:10" and, in the reference table, "(16:22)" read against the
-row's book), and the synopsis passages. It refuses the build, writing nothing, when:
+row's book), and the synopsis passages. It checks that text in memory and writes only each verse's book, chapter and verse:
+the page shows the words from the reader's own Bible (src/lib/verses.ts). The synopsis is about the Berean's own English,
+so for each of its verses it writes a level per word and the tied words' places, which the page lays over the Berean's
+words as the reader's file (data/plain/bsb) holds them. It refuses the build, writing nothing, when:
   - a reference does not exist in the Berean, or a passage runs backwards;
   - a quotation set beside a reference is not word for word in the Berean at that reference (one known mismatch in the
     record is listed in KNOWN_NOT_BEREAN, so it is reported, and the list itself fails once the record changes);
   - a tie in the synopsis is not word for word in each verse it ties;
+  - a synopsis verse in the reader's file (data/plain/bsb) is not word for word the verse the levels were counted on;
   - a link leaves the site or names an address the site does not have;
   - the reference table does not hold the twenty-seven books once each in canonical order, or a date in it cannot be
     read as a range;
@@ -306,8 +310,26 @@ def mark_shared(columns: list[dict], tie: dict) -> None:
                         tie_cells.add(index)
                     offset += len(tok)
         for vi, v in enumerate(columns[ci]["verses"]):
-            v["words"] = [[tok, level[i]] + ([1] if i in tie_cells else []) for i, (cvi, tok) in enumerate(cells) if cvi == vi]
+            places = [i for i, (cvi, _) in enumerate(cells) if cvi == vi]
+            v["levels"] = [level[i] for i in places]
+            v["tie"] = [n for n, i in enumerate(places) if i in tie_cells]
             del v["text"]
+
+
+def check_reader_file(site: Path, columns: list[dict]) -> None:
+    """The page cuts each synopsis verse into words as src/lib/verses.ts gives it from data/plain/bsb: it must be the same
+    text, so each level falls on the word it was counted for."""
+    for column in columns:
+        code = CODE[column["book"]]
+        path = site / "data/plain/bsb" / f"{code}.json"
+        if not path.is_file():
+            fail(f"expected the reader's Berean file {path}: it is not there")
+        plain_book = json.loads(path.read_text(encoding="utf-8"))
+        for v in column["verses"]:
+            chapter = v["label"].rsplit(" ", 1)[1].split(":")[0]
+            held = re.sub(r"\s+", " ", re.sub(r"^¶\s*", "", plain_book.get(f"{chapter}:{v['n']}", ""))).strip()
+            if held != v["text"]:
+                fail(f"synopsis {v['label']}: the reader's file holds {held[:80]!r}, the levels were counted on {v['text'][:80]!r}")
 
 
 def build_synopsis(record: dict, bsb: Path, verses: dict) -> dict:
@@ -320,6 +342,7 @@ def build_synopsis(record: dict, bsb: Path, verses: dict) -> dict:
         tied = [v["label"] for c in columns for v in c["verses"] if v["label"] in tie["verses"]]
         if sorted(tied) != sorted(tie["verses"]):
             fail(f"synopsis case {case['id']}: the tie names {tie['verses']}, the passages hold {tied}")
+        check_reader_file(bsb.parents[2], columns)
         mark_shared(columns, tie)
         out[case["id"]] = {"columns": columns, "tie": {"words": tie["words"], "note": tie["note"]}}
     return out
@@ -468,7 +491,8 @@ def build_data(record: dict, raw: bytes, site: Path) -> tuple[dict, list[dict]]:
     reported, checked = check_quotations(record, verses, refs)
     data = {
         "recordHash": hashlib.sha256(raw).hexdigest(),
-        "verses": dict(sorted(verses.items())),
+        # Ids only: the words come from the reader's Bible. The text was read and checked above, in memory.
+        "verses": {name: {k: verse[k] for k in ("code", "chapter", "verse")} for name, verse in sorted(verses.items())},
         "refs": dict(sorted(refs.items())),
         "synopsis": synopsis,
         "table": build_table(record),

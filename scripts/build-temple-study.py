@@ -12,7 +12,10 @@ Reads the research record (content/academic-research/44-the-temple-and-israels-w
 - a feast's place on the year strip is not stated in its record (a month and day), or a find's place on the platform is not
   named in its record, or a plan type for a parallel site is not in that site's record;
 - the two accounts of Titus's council are not two marked sentences, Josephus's and then Severus's;
-- a link the page makes leaves the site or names an address the site does not route.
+- a link the page makes leaves the site or names an address the site does not route;
+- the reader's Berean (data/plain/bsb, the words the sheet shows) does not read exactly as the held Berean at a verse.
+The file holds no verse wording (src/lib/verses.ts): each verse is its book, chapter and verse, and the page shows the words
+from the reader's own Bible. Every check above still reads the Berean's words, in memory.
 Check marks ({{check:cN}}...{{/check}}) are removed before any text is compared. This proves references, quotations, the numbers
 drawn and the shape of the record; it does not prove a reconstruction right.
 
@@ -166,6 +169,29 @@ class Berean:
         if not text:
             fail(f"{where}: the Berean has no {code} {chapter}:{verse}")
         return text
+
+
+def reader_text(text: str) -> str:
+    """A verse as the reader's <Verse> hands it to the page (src/lib/verses.ts clean): a leading ¶ dropped, runs of
+    whitespace made one space."""
+    return re.sub(r"\s+", " ", re.sub(r"^¶\s*", "", text)).strip()
+
+
+def verse_ids(site: Path, verses: dict, reader_books: dict | None = None) -> dict:
+    """The verses as written: book, chapter and verse only. Refuses unless the reader's Berean, read at the exact
+    "chapter:verse" key, is the held Berean's text, so the words the sheet shows are the words every check read.
+    `reader_books` replaces whole books of the reader's Berean (the self-test's wrong inputs)."""
+    books = dict(reader_books or {})
+    out = {}
+    for key, verse in verses.items():
+        code = verse["code"]
+        if code not in books:
+            books[code] = json.loads((site / "data/plain/bsb" / f"{code}.json").read_text(encoding="utf-8"))
+        raw = books[code].get(f"{verse['chapter']}:{verse['verse']}")
+        if not isinstance(raw, str) or reader_text(raw) != verse["text"]:
+            fail(f"{key}: the reader's Berean (data/plain/bsb/{code}.json) reads {raw!r}, the held Berean {verse['text']!r}")
+        out[key] = {"code": code, "chapter": verse["chapter"], "verse": verse["verse"]}
+    return out
 
 
 def verse_text(runs: list) -> str:
@@ -411,7 +437,7 @@ def timeline(record: dict) -> None:
             fail(f"timeline row {row['id']}: {row['start']} to {row['end']} runs backwards or leaves {line['from']} to {line['to']}")
 
 
-def assemble(site: Path, raw: bytes, shapes=SHAPES, divisions=DIVISIONS, feasts=FEASTS, links=LINKS) -> str:
+def assemble(site: Path, raw: bytes, shapes=SHAPES, divisions=DIVISIONS, feasts=FEASTS, links=LINKS, reader_books=None) -> str:
     raw = raw.replace(b"\r\n", b"\n")
     record = json.loads(raw)
     catalog = json.loads((site / "data/catalog.json").read_text(encoding="utf-8"))
@@ -449,7 +475,7 @@ def assemble(site: Path, raw: bytes, shapes=SHAPES, divisions=DIVISIONS, feasts=
         "finds": finds,
         "types": types,
         "tags": witness_tags(record, pattern),
-        "verses": verses,
+        "verses": verse_ids(site, verses, reader_books),
         "refs": refs,
         "links": {},
     }
@@ -486,6 +512,9 @@ def selftest(site: Path, raw: bytes, out: Path) -> None:
     def quote(r: dict) -> None:
         r["fall"]["scripture"] += " “Not one stone will be left on another” (Mark 13:2 · BSB)."
 
+    kings = json.loads((site / "data/plain/bsb/1KI.json").read_text(encoding="utf-8"))
+    kings_changed = {"1KI": {**kings, "6:2": kings["6:2"].replace("sixty", "seventy")}}
+
     cases = [
         ("a quotation one word off the Berean (Mark 13:2)", lambda: assemble(site, changed(quote))),
         ("a verse that does not exist (Exodus 27:99)", lambda: assemble(site, changed(lambda r: r["houses"][0].update(evidence=r["houses"][0]["evidence"] + " (Exodus 27:99)")))),
@@ -503,6 +532,7 @@ def selftest(site: Path, raw: bytes, out: Path) -> None:
         ("a link to a route the site does not have", lambda: assemble(site, raw, links={**LINKS, "The farming year": "/study/no-such-study"})),
         ("a link to a study the record never names", lambda: assemble(site, raw, links={**LINKS, "Egypt beside Israel": "/study/egypt-beside-israel"})),
         ("a timeline bar that runs backwards", lambda: assemble(site, changed(lambda r: r["timeline"]["rows"][1].update(start=-500, end=-966)))),
+        ("the reader's Berean reading otherwise than the held Berean (1 Kings 6:2)", lambda: assemble(site, raw, reader_books=kings_changed)),
     ]
     failures = 0
     for name, run in cases:

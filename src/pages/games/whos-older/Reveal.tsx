@@ -1,21 +1,22 @@
 // Who's older?: what the player sees after answering (design §7.1): the verdict, the timeline, the reason in one
-// sentence (with the deciding verse in the BSB when a verse decides it), each person's dates and brief, and a way to
+// sentence (with the deciding verse, in the reader's Bible, when a verse decides it), each person's dates and brief, and a way to
 // report a doubtful pair. It never moves on by itself.
 import { Check, X } from "lucide-react";
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { explain, verseHref, verseLabel } from "./explain";
 import type { PoolPair, WhosOlderData } from "./game";
 import { Timeline } from "./Timeline";
 
 /** The reason, one sentence, with its verse when there is one. */
 export function Reason({ data, pair }: { data: WhosOlderData; pair: PoolPair }) {
-  const { text, quote } = explain(pair);
+  const { text, verse } = explain(pair);
   return <>
     <p className="wo-reason">{text}</p>
-    {quote && <blockquote className="wo-quote">
-      <p>“{quote.text}”</p>
-      <footer><Link to={verseHref(data, quote.span)}>{verseLabel(data, quote.span)}</Link> <span>BSB</span></footer>
+    {verse && <blockquote className="wo-quote">
+      <p>“<Verse from={verse[0]} to={verse[1]} unquoted />”</p>
+      <footer><Link to={verseHref(data, verse)}>{verseLabel(data, verse)}</Link> <BibleAbbr /></footer>
     </blockquote>}
   </>;
 }

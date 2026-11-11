@@ -63,7 +63,8 @@ export function Landing() {
         <li><Tag kind="rabbinic" /> written down by rabbis more than a century after the fall</li>
         <li><Tag kind="ground" /> a find, with its place where one is recorded</li>
       </ul>
-      <p className="tw-caption">A dashed line is inferred and says so. A missing measurement is left as a gap. {counts.checks} passages carry an editor's check mark; {counts.open} are still open.</p>
+      <p className="tw-caption"><span>A dashed line is inferred and says so. A missing measurement is left as a gap.</span>{" "}
+        <span>{`${counts.checks} passages carry an editor's check mark, and ${counts.open} are still open.`}</span></p>
     </div>
     <nav className="tw-chapters" aria-label="On this page">{CHAPTERS.map(([id, name], i) => <a key={id} href={`#${id}`}><b>{String(i + 1).padStart(2, "0")}</b>{name}</a>)}</nav>
   </>;

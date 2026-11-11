@@ -21,7 +21,7 @@ export const CIRCUMSTANCE_SETS: SympathySet[] = [
       "These Bible verses for the loss of a friend, brother or sister are for anyone grieving someone who walked beside them through life, and for those who want to write to them. Scripture honours friendship: David wept for Jonathan, and Jesus wept at the tomb of his friend Lazarus. There are short verses for a card and passages to read, with a label on any verse that speaks of a believer's hope. Each is in the Berean Standard Bible with a line on why it fits.",
     passages: [
       sp("PSA 34:18", "card", "God's nearness to the brokenhearted, for anyone who has lost a companion."),
-      sp("PRO 17:17", "card", "A friend loves at all times, and a brother is born for adversity."),
+      sp("PRO 17:17", "card", "Love that holds at all times, and family born for the hard days."),
       sp("2SA 1:26a", "card", "David's grief for his friend Jonathan.", {
         part: "I grieve for you, Jonathan, my brother. You were delightful to me;",
         context: "David's lament for his friend Jonathan, with whom he had made a covenant of friendship (1 Samuel 18:3).",
@@ -79,7 +79,7 @@ export const CIRCUMSTANCE_SETS: SympathySet[] = [
       sp("ROM 8:18", "card", "Present sufferings not worth comparing with the glory to come.", { believer: true }),
       sp("PSA 116:15", "card", "The death of God's people is precious to him.", {
         believer: true,
-        context: "\"Precious in the sight of the LORD is the death of His saints\": the death of his people is costly to God, and he does not treat it lightly.",
+        context: "The psalm says “Precious in the sight of the LORD is the death of His saints”: the death of his people is costly to God, and he does not treat it lightly.",
       }),
       sp("PHP 1:21-23", "card", "To live is Christ and to die is gain: Paul's longing to be with Christ.", { believer: true }),
       sp("REV 21:4", "card", "No more death, mourning, crying or pain.", { later: true }),

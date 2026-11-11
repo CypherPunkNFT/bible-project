@@ -5,7 +5,8 @@ import dossier from "../../../../content/academic-research/21-the-early-church.j
 import generated from "./early-church-data.json";
 import { plainText } from "@/pages/study/check-notes/checked";
 
-export type Verse = { code: string; chapter: number; verse: number; text: string };
+/** A verse by its place; its words come from the reader's Bible (src/lib/verses.ts). */
+export type Verse = { code: string; chapter: number; verse: number };
 export type LinkItem = { title: string; route: string };
 export type Quote = { words: string; source: string; ref: string };
 export type EcRecord = {
