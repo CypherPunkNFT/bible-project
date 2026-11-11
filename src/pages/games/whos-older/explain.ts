@@ -10,17 +10,28 @@ export function formatGap(gap: number): string {
   return plural(shown, "{n} year", "{n} years");
 }
 
+/** The timeline strip's bracket: "at least 558 years", rounded like formatGap. */
+export function gapLabel(gap: number): string {
+  const shown = gap > 1000 ? Math.floor(gap / 100) * 100 : gap;
+  return plural(shown, "at least {n} year", "at least {n} years");
+}
+
 /** A historians' year: -1030 -> "1030 BC", 20 -> "AD 20". */
 export const formatYear = (year: number) => (year < 0 ? `${-year} BC` : `AD ${year}`);
+
+/** The years of a closed window: "1090–1030 BC", "AD 55–60", "55 BC – AD 20". */
+export function yearSpan(lo: number, hi: number): string {
+  if (lo < 0 && hi < 0) return `${-lo}–${formatYear(hi)}`;
+  if (lo > 0) return `AD ${lo}–${hi}`;
+  return `${formatYear(lo)} – ${formatYear(hi)}`;
+}
 
 /** "born about 1090–1030 BC", "born about 55 BC – AD 20", "born before about 650 BC". */
 export function windowText(person: Pick<Character, "lo" | "hi">): string {
   const { lo, hi } = person;
   if (hi === null) return lo === null ? "date unknown" : `born after about ${formatYear(lo)}`;
   if (lo === null) return `born before about ${formatYear(hi)}`;
-  if (lo < 0 && hi < 0) return `born about ${-lo}–${formatYear(hi)}`;
-  if (lo > 0) return `born about AD ${lo}–${hi}`;
-  return `born about ${formatYear(lo)} – ${formatYear(hi)}`;
+  return `born about ${yearSpan(lo, hi)}`;
 }
 
 /** A label without its bracketed qualifier, for sentences: "Zechariah (priest)" -> "Zechariah". */

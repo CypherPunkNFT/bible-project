@@ -1,7 +1,9 @@
 // Who's older?: the pool, the run (a plain object, so it can be saved and resumed) and dealing (design §6).
 // Streak ends at the first miss; Relaxed has three hearts. "One stays": the right-hand person moves left and a new
 // challenger arrives, chosen so the left card is the answer about half the time. Everything random comes from a
-// seed kept in the run, so a reload deals exactly the same.
+// seed kept in the run, so a reload deals exactly the same. A person with no real earliest year (early Genesis, or an
+// open edge like Job) is the answer against everyone, so they never stay on for a second round (the audit's giveaway):
+// the other card stays instead, unless it had already stayed, and then a fresh pair is dealt.
 import { BANDS, allPairs, buildIndex, pairKey, type Band, type Fact, type Order, type Person, type Span, type Tier } from "./pairing";
 
 export interface Character extends Person { tag: string; when: string; brief: string; href: string; tier: Tier }
@@ -125,6 +127,9 @@ function context(rounds: readonly Round[], strict: boolean): DealContext {
   };
 }
 
+/** True for a person the game never prints an earliest year for: they are always the one who came first. */
+export const alwaysFirst = (person: Pick<Character, "shown" | "lo">) => !person.shown || person.lo === null;
+
 /** A challenger for the person who stays, or null when none is left in this band or below. */
 function challenger(pool: Pool, stayer: string, band: Band, ctx: DealContext, rng: Rng): Round | null {
   const preferAfter = rng.next() < 0.5; // the stayer (left) is the answer when the challenger came after
@@ -154,6 +159,16 @@ function freshPair(pool: Pool, band: Band, ctx: DealContext, rng: Rng): Round | 
   return null;
 }
 
+/** The right-hand person stays; when they are a giveaway, the left-hand one stays instead, unless they already stayed. */
+export function whoStays(pool: Pool, rounds: readonly Round[]): string | null {
+  const last = rounds[rounds.length - 1];
+  if (!last) return null;
+  if (!alwaysFirst(pool.byId.get(last.right)!)) return last.right;
+  const before = rounds[rounds.length - 2];
+  const leftStayed = !!before && (last.left === before.right || last.left === before.left);
+  return leftStayed || alwaysFirst(pool.byId.get(last.left)!) ? null : last.left;
+}
+
 function deal(pool: Pool, run: Run): Run {
   const rng = new Rng(run.seed);
   const n = run.rounds.length + 1;
@@ -162,7 +177,8 @@ function deal(pool: Pool, run: Run): Run {
   let round: Round | null = null;
   for (const strict of [true, false]) { // if a small pool runs dry, the eight-round person gap gives way first
     const ctx = context(run.rounds, strict);
-    round = (last && challenger(pool, last.right, band, ctx, rng)) || freshPair(pool, band, ctx, rng);
+    const stayer = last ? whoStays(pool, run.rounds) : null;
+    round = (stayer && challenger(pool, stayer, band, ctx, rng)) || freshPair(pool, band, ctx, rng);
     if (round) break;
   }
   if (!round) { // every pair has been used: allow repeats rather than stop

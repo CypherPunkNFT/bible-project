@@ -1,106 +1,209 @@
-/* /games/whos-older (WhosOlderGame.tsx): mobile first, the site's colour tokens in both themes. Two large cards side by
-   side, stacked under 640px; on phones the reveal slides up as a sheet over them. Right and wrong always carry an icon
-   and a word as well as a colour. */
-.wo-page { --wo-right: var(--resource-life, #3d6b58); --wo-wrong: var(--red-letter); padding-top: 2rem; padding-bottom: 4rem; }
+/* /games/whos-older (WhosOlderGame.tsx): the game's own look over the kit's behaviour (../kit/kit.css), in the game's
+   hub colour, the epistles' gold. Mobile first, the site's tokens in both themes. Two tall cards side by side at every
+   width with the hourglass between them; the reveal is the kit's band, pinned to the bottom of a phone screen with Next
+   inside it. Right and wrong always carry an icon and a word as well as a colour. No focus outline: focus is the
+   card's own lift and edge. Every state is set at once; the animations only decorate it (src/index.css cuts them to
+   0.01 ms under reduced motion). */
+.wo-page {
+  --wo-gold: var(--epistles);
+  --wo-right: var(--resource-life, #3d6b58);
+  --wo-wrong: var(--red-letter);
+  --wo-ease: cubic-bezier(.16, 1, .3, 1);
+  --kit-color: var(--wo-gold);
+  --kit-right: var(--wo-right);
+  --kit-wrong: var(--wo-wrong);
+  --kit-radius: 1.1rem;
+  --kit-ease: var(--wo-ease);
+  padding-top: 2rem; padding-bottom: 4rem;
+}
 .wo-loading { margin-top: 2rem; color: var(--muted); }
 
-.wo-start h1, .wo-over h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
+/* ---- Buttons ------------------------------------------------------------------------------------------------- */
+.wo-primary, .wo-secondary { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: .65rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform .35s var(--wo-ease), border-color .35s var(--wo-ease), box-shadow .35s var(--wo-ease); }
+.wo-primary { background: var(--wo-gold); color: var(--page); }
+.wo-secondary { border: 1px solid var(--line); color: var(--ink); }
+.wo-primary:is(:hover, :focus-visible), .wo-secondary:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--wo-gold); box-shadow: 0 10px 20px -16px rgb(0 0 0 / .6); }
+.wo-primary:active, .wo-secondary:active { transform: translateY(0); }
+
+/* ---- The start screen: the game shown, one row of modes ------------------------------------------------------ */
+.wo-start h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
 .wo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.wo-sample { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .9rem; align-items: center; max-width: 26rem; margin-top: 1.4rem; }
+.wo-sample .wo-card { --kit-card-height: 8.5rem; min-height: 8.5rem; padding: 1rem .8rem; }
+.wo-sample .wo-card:nth-child(1) { animation: kit-deal .55s var(--wo-ease) both, wo-breathe 7s var(--wo-ease) 1s infinite; }
+.wo-sample .wo-card:nth-child(2) { animation: kit-deal .55s var(--wo-ease) .06s both, wo-breathe 7s var(--wo-ease) 4.5s infinite; }
+.wo-sample .wo-medallion { width: 2.6rem; height: 2.6rem; font-size: 1.2rem; }
+.wo-sample .wo-card-name { font-size: 1.25rem; }
 .wo-continue { margin-top: 1.4rem; }
-.wo-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin-top: 1.4rem; }
-.wo-mode { display: flex; flex-direction: column; align-items: flex-start; gap: .45rem; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); }
+.wo-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.2rem 2rem; margin-top: 1.4rem; }
+.wo-mode { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding-top: .9rem; border-top: 1px solid var(--line); }
 .wo-mode p { color: var(--muted); font-size: .9rem; line-height: 1.5; }
-.wo-mode .wo-best { color: var(--ink); font-size: .82rem; font-weight: 600; }
-.wo-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; border: 0; padding: 0; }
+.wo-mode .wo-best { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); font-size: .82rem; font-weight: 600; }
+.wo-mode .wo-best > span:first-child { color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.wo-mode .kit-streak, .wo-best-n { font-family: var(--font-serif); font-size: 1.4rem; line-height: 1; }
+.wo-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; border: 0; padding: 0; }
 .wo-chips legend { width: 100%; margin-bottom: .4rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
-.wo-chips button { padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; font-size: .88rem; transition: border-color .2s; }
-.wo-chips button:hover { border-color: var(--accent); }
+.wo-chips button { min-height: 44px; padding: .5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .35s var(--wo-ease), transform .35s var(--wo-ease); }
+.wo-chips button:is(:hover, :focus-visible) { border-color: var(--wo-gold); transform: translateY(-2px); }
+.wo-note { margin-top: 1rem; color: var(--muted); font-size: .85rem; }
 .wo-how { margin-top: 1.6rem; font-size: .92rem; line-height: 1.6; }
-.wo-how summary { cursor: pointer; color: var(--accent); font-weight: 600; }
-.wo-how p { margin-top: .5rem; color: var(--muted); }
-.wo-primary, .wo-secondary { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
-.wo-primary { background: var(--accent); color: var(--page); }
-.wo-secondary { border: 1px solid var(--line); }
-.wo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: 1.4rem; }
-.wo-note { display: flex; align-items: center; gap: .35rem; margin-top: .7rem; color: var(--muted); font-size: .85rem; }
+.wo-how summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--wo-gold); font-weight: 600; }
+.wo-how p { margin-top: .3rem; color: var(--muted); }
 
-.wo-status { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; margin-top: 1.4rem; color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
-.wo-hearts { display: inline-flex; gap: .2rem; }
-.wo-hearts .is-full { color: var(--wo-wrong); fill: currentColor; }
-.wo-hearts .is-empty { opacity: .4; }
-.wo-question { margin-top: .9rem; font-family: var(--font-serif); font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.2; }
-.wo-hint { margin-top: .25rem; color: var(--muted); font-size: .9rem; }
-.wo-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: 1.2rem; }
-.wo-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; min-height: 8rem; padding: 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); color: var(--ink); text-align: left; transition: border-color .2s, transform .2s; }
-.wo-card:not([aria-disabled="true"]):hover { border-color: var(--accent); }
-.wo-card:not([aria-disabled="true"]):active { transform: scale(.98); }
-.wo-card[aria-disabled="true"] { cursor: default; }
-.wo-card-key { color: var(--muted); font: 600 .7rem/1 var(--font-sans); }
-.wo-card-name { font-family: var(--font-serif); font-size: clamp(1.3rem, 4vw, 1.7rem); line-height: 1.2; overflow-wrap: anywhere; }
-.wo-card-tag { color: var(--muted); font-size: .88rem; }
-.wo-card-mark { display: inline-flex; align-items: center; gap: .3rem; margin-top: auto; font-size: .8rem; font-weight: 650; }
-.wo-card.is-answer { border: 2px solid var(--wo-right); }
-.wo-card.is-answer .wo-card-mark { color: var(--wo-right); }
-.wo-card.is-wrong { border: 2px dashed var(--wo-wrong); }
-.wo-card.is-wrong .wo-card-mark { color: var(--wo-wrong); }
-.wo-card.is-chosen { box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 12%, transparent); }
-.wo-card.is-dim { opacity: .65; }
+/* ---- The scoreboard: a large streak with its flame, or the score and three hearts that break ------------------ */
+.wo-play { outline: none; }
+.wo-score { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.1rem; margin-top: 1.3rem; min-height: 2.2rem; }
+.wo-score-mode { color: var(--muted); font: 650 .68rem/1.3 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.wo-streak, .wo-points { font-family: var(--font-serif); font-size: 1.9rem; line-height: 1; }
+.wo-streak.kit-streak { color: var(--ink); gap: .4rem; }
+.wo-streak .kit-streak__flame { font-size: 1.3rem; }
+.wo-points { display: inline-flex; align-items: baseline; gap: .5rem; }
+.wo-points-label { color: var(--muted); font: 650 .68rem/1.3 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.wo-hearts { display: inline-flex; gap: .3rem; }
+.wo-hearts svg { color: var(--wo-wrong); fill: currentColor; transition: opacity .4s var(--wo-ease), transform .4s var(--wo-ease); }
+.wo-hearts .is-lost { color: var(--muted); fill: none; opacity: .45; transform: scale(.85); }
+.wo-hearts .is-breaking { animation: wo-break .7s var(--wo-ease) both; }
+@keyframes wo-break { 0% { transform: scale(1.3) rotate(0); opacity: 1; } 35% { transform: scale(1.15) rotate(-14deg); } 70% { transform: scale(.8) rotate(10deg); opacity: .5; } 100% { transform: scale(.85) rotate(0); opacity: .45; } }
 
-.wo-sheet { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.wo-result { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-family: var(--font-serif); font-size: 1.4rem; line-height: 1.3; outline: none; }
+.wo-question { margin-top: .5rem; font-family: var(--font-serif); font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.2; }
+.wo-hint { margin-top: .2rem; color: var(--muted); font-size: .88rem; }
+
+/* ---- The two cards and the hourglass between them -------------------------------------------------------------- */
+.wo-cards { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: stretch; margin-top: 1.1rem; }
+.wo-cards > .wo-card:nth-child(1) { grid-column: 1; }
+.wo-cards > .wo-cards-glass { grid-column: 2; grid-row: 1; align-self: center; }
+.wo-cards > .wo-card:nth-child(2) { grid-column: 3; }
+.wo-card.kit-card { --kit-card-height: 15rem; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; padding: 1.4rem 1rem 1.2rem; text-align: center; }
+.wo-card .kit-card__body { display: flex; flex-direction: column; align-items: center; gap: .3rem; width: 100%; }
+.wo-card-key { position: absolute; top: .65rem; left: .7rem; display: grid; place-items: center; width: 1.4rem; height: 1.4rem; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font: 650 .68rem/1 var(--font-sans); transition: border-color .35s var(--wo-ease), color .35s var(--wo-ease); }
+.wo-card:is(:hover, :focus-visible) .wo-card-key { border-color: var(--wo-gold); color: var(--wo-gold); }
+.wo-medallion { display: grid; place-items: center; width: 3.4rem; height: 3.4rem; margin-bottom: .4rem; border: 1px solid color-mix(in srgb, var(--wo-gold) 55%, var(--line)); border-radius: 50%; background: color-mix(in srgb, var(--wo-gold) 12%, var(--surface)); color: var(--wo-gold); font-family: var(--font-serif); font-size: 1.6rem; line-height: 1; transition: background-color .4s var(--wo-ease), border-color .4s var(--wo-ease), color .4s var(--wo-ease); }
+.wo-card.is-right .wo-medallion { border-color: var(--wo-right); background: color-mix(in srgb, var(--wo-right) 18%, var(--surface)); color: var(--wo-right); }
+.wo-card.is-wrong .wo-medallion { border-color: var(--wo-wrong); background: color-mix(in srgb, var(--wo-wrong) 14%, var(--surface)); color: var(--wo-wrong); }
+.wo-card-name { font-family: var(--font-serif); font-size: clamp(1.35rem, 4.4vw, 2rem); line-height: 1.15; letter-spacing: -.01em; overflow-wrap: anywhere; hyphens: auto; }
+.wo-card-qualifier { color: var(--muted); font-size: .8rem; line-height: 1.3; }
+.wo-card-tag { color: var(--muted); font-size: .88rem; line-height: 1.35; }
+/* The kit's mark becomes a stamp in the card's top corner: it pops in and sits at a slight angle. */
+.wo-card .kit-card__mark { position: absolute; top: .7rem; right: .7rem; display: inline-flex; align-items: center; gap: .25rem; width: auto; padding: .28rem .55rem; border: 1.5px solid currentColor; border-radius: .4rem; font: 700 .64rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; transform: rotate(-6deg); animation: wo-stamp .45s var(--wo-ease) both; }
+@keyframes wo-stamp { 0% { transform: rotate(-6deg) scale(1.8); opacity: 0; } 60% { transform: rotate(-6deg) scale(.95); opacity: 1; } 100% { transform: rotate(-6deg) scale(1); } }
+/* One stays: the right-hand person slides into the left slot, the one who held on settles, the challenger arrives. */
+.wo-card.is-slid { animation: wo-slide .6s var(--wo-ease) both; }
+.wo-card.is-held { animation: wo-settle .5s var(--wo-ease) both; }
+.wo-card.is-arrived { animation: wo-arrive .6s var(--wo-ease) .12s both; }
+@keyframes wo-slide { from { transform: translateX(calc(100% + 2.6rem)); } to { transform: none; } }
+@keyframes wo-settle { 0% { transform: translateY(-6px); } 100% { transform: none; } }
+@keyframes wo-arrive { from { opacity: 0; transform: translateX(2.4rem); } to { opacity: 1; transform: none; } }
+.wo-milestone { position: absolute; left: 50%; top: 50%; z-index: 2; max-width: 90%; padding: .5rem 1rem; border: 1px solid var(--wo-gold); border-radius: 999px; background: var(--surface); color: var(--wo-gold); font: 650 .85rem/1.3 var(--font-sans); text-align: center; white-space: nowrap; box-shadow: 0 14px 30px -18px rgb(0 0 0 / .6); transform: translate(-50%, -50%); animation: wo-rise-in .6s var(--wo-ease) both; }
+@keyframes wo-rise-in { from { opacity: 0; transform: translate(-50%, -20%) scale(.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+
+/* The hourglass: the sand trickles over seven seconds, then the glass turns over, so it never stops. */
+.wo-glass { width: 2.2rem; height: auto; color: var(--wo-gold); overflow: visible; animation: wo-turn 7s var(--wo-ease) infinite; transform-origin: 50% 50%; }
+.wo-glass-frame { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+.wo-glass-bulb { fill: color-mix(in srgb, var(--wo-gold) 6%, transparent); stroke: currentColor; stroke-width: .9; stroke-linejoin: round; }
+.wo-sand { fill: currentColor; opacity: .8; }
+.wo-sand-top { transform-origin: 12px 19.5px; animation: wo-sand-top 7s linear infinite; }
+.wo-sand-bottom { transform-origin: 12px 36.5px; animation: wo-sand-bottom 7s linear infinite; }
+.wo-sand-stream { animation: wo-stream 7s linear infinite; }
+@keyframes wo-sand-top { 0% { transform: scaleY(1); } 88% { transform: scaleY(0); } 100% { transform: scaleY(0); } }
+@keyframes wo-sand-bottom { 0% { transform: scaleY(.05); } 88% { transform: scaleY(1); } 100% { transform: scaleY(1); } }
+@keyframes wo-stream { 0%, 85% { opacity: .8; } 90%, 100% { opacity: 0; } }
+@keyframes wo-turn { 0%, 90% { transform: rotate(0); } 100% { transform: rotate(180deg); } }
+.wo-play.is-answered .wo-glass, .wo-play.is-answered .wo-sand { animation-play-state: paused; }
+@keyframes wo-breathe { 0%, 100% { transform: none; } 50% { transform: translateY(-4px); } }
+
+/* ---- The band: verdict and Next in the row, the reading under it --------------------------------------------- */
+.wo-band.kit-band { margin-top: 1.4rem; border-radius: var(--kit-radius) var(--kit-radius) 0 0; }
+.wo-verdict { display: grid; gap: .15rem; }
+.wo-result { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; font-family: var(--font-serif); font-size: 1.4rem; line-height: 1.25; font-weight: 500; outline: none; }
 .wo-result.is-right svg { color: var(--wo-right); }
 .wo-result.is-wrong svg { color: var(--wo-wrong); }
-.wo-result-status { color: var(--muted); font: 600 .78rem/1.3 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
-.wo-milestone { margin-top: .5rem; padding: .45rem .8rem; border-radius: .6rem; background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; font-size: .9rem; animation: wo-pop .4s ease-out; }
-.wo-verdict { margin-top: .6rem; font-size: 1rem; }
-.wo-reason { margin-top: .8rem; font-size: 1rem; line-height: 1.65; }
-.wo-quote { margin-top: .9rem; padding: .8rem 1rem; border-radius: .7rem; background: var(--surface-2); }
-.wo-quote p { font-family: var(--font-serif); font-size: .98rem; line-height: 1.65; }
-.wo-quote footer { margin-top: .4rem; color: var(--muted); font-size: .8rem; }
-.wo-quote footer a { color: var(--accent); }
-.wo-lines { display: grid; gap: .55rem; margin-top: 1rem; }
-.wo-lines li { display: flex; flex-direction: column; gap: .15rem; padding: .55rem .75rem; border-left: 2px solid var(--line); font-size: .9rem; line-height: 1.5; }
+.wo-result-status { color: var(--muted); font: 600 .72rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.wo-verdict-who { font-size: .95rem; color: var(--ink); font-weight: 400; }
+.wo-verdict-who strong { font-weight: 650; }
+.wo-reading { display: grid; gap: .8rem; }
+.wo-reason { font-size: .98rem; line-height: 1.6; }
+.wo-quote { padding: .7rem .9rem .6rem; border-left: 2px solid var(--wo-gold); background: color-mix(in srgb, var(--wo-gold) 6%, transparent); }
+.wo-quote p { font-family: var(--font-serif); font-size: .98rem; line-height: 1.6; }
+.wo-quote footer { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
+.wo-quote footer a { color: var(--wo-gold); }
+.wo-more > summary { display: flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; list-style: none; color: var(--muted); font-size: .88rem; font-weight: 600; transition: color .3s var(--wo-ease); }
+.wo-more > summary::-webkit-details-marker { display: none; }
+.wo-more > summary::after { content: ""; width: .45rem; height: .45rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .3s var(--wo-ease); }
+.wo-more[open] > summary::after { transform: rotate(-135deg); }
+.wo-more > summary:is(:hover, :focus-visible) { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.wo-lines { display: grid; gap: .55rem; margin-top: .3rem; }
+.wo-lines li { display: flex; flex-direction: column; gap: .15rem; padding: .5rem .75rem; border-left: 2px solid var(--line); font-size: .9rem; line-height: 1.5; }
 .wo-line-name { font-weight: 650; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .wo-line-brief { color: var(--muted); }
-.wo-report { margin-top: .9rem; font-size: .82rem; }
-.wo-report a { color: var(--accent); }
-.wo-next { margin-top: 1.2rem; }
+.wo-report { margin-top: .8rem; color: var(--muted); font-size: .8rem; }
+.wo-report a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.wo-report a:is(:hover, :focus-visible) { color: var(--wo-gold); }
 
-.wo-timeline { position: relative; margin-top: 1rem; padding: .7rem .2rem .2rem; }
-.wo-lane { position: relative; height: 2.9rem; }
-.wo-bar { position: absolute; top: .2rem; height: .7rem; border-radius: 999px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent) 15%, color-mix(in srgb, var(--accent) 70%, transparent) 85%, transparent); filter: blur(.6px); }
-.wo-lane-1 .wo-bar { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--prophets) 70%, transparent) 15%, color-mix(in srgb, var(--prophets) 70%, transparent) 85%, transparent); }
-.wo-bar.is-open { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent) 70%, transparent); }
-.wo-bar-label { position: absolute; top: 1.05rem; white-space: nowrap; font-size: .78rem; }
-.wo-bar-label span { color: var(--muted); }
-.wo-axis { display: flex; justify-content: space-between; margin-top: .2rem; padding-top: .25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+/* ---- The timeline strip: thick bars that draw in, years at their ends, the gap bracketed ---------------------- */
+.wo-timeline { display: grid; gap: .3rem; padding-top: .2rem; }
+.wo-lane { display: grid; grid-template-columns: 7rem minmax(0, 1fr); align-items: start; gap: .6rem; }
+.wo-lane-name { padding-top: .05rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .82rem; font-weight: 650; line-height: 1.3; }
+.wo-track { position: relative; height: 2rem; }
+.wo-bar { position: absolute; top: .15rem; height: .72rem; min-width: .6rem; border-radius: 999px; background: var(--wo-gold); transform-origin: 0 50%; animation: wo-draw .6s var(--wo-ease) both; }
+.wo-lane-1 .wo-bar { background: color-mix(in srgb, var(--ink) 42%, var(--surface)); animation-delay: .12s; }
+.wo-bar.is-open { background: linear-gradient(90deg, transparent, var(--wo-gold) 55%); border-radius: 0 999px 999px 0; }
+.wo-year { position: absolute; top: 1.05rem; color: var(--muted); font-size: .72rem; line-height: 1.2; white-space: nowrap; animation: kit-fade .5s var(--wo-ease) .35s both; }
+.wo-year-end { transform: translateX(-100%); }
+.wo-gap { position: relative; height: 1.4rem; margin-left: 7.6rem; }
+.wo-gap-line { position: absolute; top: .1rem; display: flex; align-items: center; justify-content: center; gap: .35rem; height: 1.1rem; border-left: 1px solid color-mix(in srgb, var(--muted) 70%, transparent); border-right: 1px solid color-mix(in srgb, var(--muted) 70%, transparent); animation: wo-draw .6s var(--wo-ease) .3s both; transform-origin: 0 50%; }
+.wo-gap-line::before, .wo-gap-line::after { content: ""; flex: 1 1 0; min-width: 0; border-top: 1px dashed color-mix(in srgb, var(--muted) 70%, transparent); }
+.wo-gap-label { flex: 0 0 auto; color: var(--wo-gold); font: 650 .7rem/1.2 var(--font-sans); letter-spacing: .04em; white-space: nowrap; animation: kit-fade .5s var(--wo-ease) .55s both; }
+@keyframes wo-draw { from { transform: scaleX(0); } to { transform: none; } }
 
-.wo-over-best { margin-top: .4rem; color: var(--muted); font-size: .92rem; }
-.wo-new-best { display: inline-block; margin-top: .6rem; padding: .3rem .8rem; border-radius: 999px; background: var(--accent); color: var(--page); font-weight: 700; font-size: .85rem; animation: wo-pop .5s ease-out; }
-.wo-copy { display: grid; gap: .3rem; margin-top: .8rem; font-size: .85rem; }
-.wo-copy textarea { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); font: inherit; }
-.wo-missed { margin-top: 2rem; }
+/* ---- The result card --------------------------------------------------------------------------------------------- */
+.wo-over.kit-result { margin-top: 1.6rem; }
+/* The result's head is centred by the kit and would shrink to its widest line; full width keeps the bars' lane open. */
+.wo-over .kit-result__head { width: 100%; }
+.wo-over-kicker { color: var(--muted); font: 650 .72rem/1.3 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; outline: none; }
+.wo-over-score { position: relative; }
+.wo-over .kit-score { font-size: clamp(4rem, 14vw, 6rem); color: var(--wo-gold); }
+.wo-rank { font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; color: var(--muted); animation: kit-fade .6s var(--wo-ease) .3s both; }
+.wo-bestbar { display: grid; gap: .35rem; width: min(100%, 22rem); margin-top: .4rem; }
+.wo-bestbar-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 2.5rem; align-items: center; gap: .6rem; font-size: .8rem; }
+.wo-bestbar-row > span { color: var(--muted); text-align: start; font: 650 .66rem/1.2 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.wo-bestbar-row > i { display: block; height: .55rem; border-radius: 999px; background: var(--wo-gold); transform-origin: 0 50%; transform: scaleX(var(--wo-share, 0)); animation: wo-grow .9s var(--wo-ease) .2s both; }
+.wo-bestbar-row.is-best > i { background: color-mix(in srgb, var(--ink) 30%, var(--surface)); animation-delay: .4s; }
+.wo-bestbar-row > b { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; text-align: end; font-variant-numeric: tabular-nums; }
+@keyframes wo-grow { from { transform: scaleX(0); } to { transform: scaleX(var(--wo-share, 0)); } }
+.wo-share.kit-share { width: min(100%, 24rem); }
+.wo-share .kit-share__button { min-height: 44px; padding: .6rem 1.3rem; border: 1px solid var(--line); border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform .35s var(--wo-ease), border-color .35s var(--wo-ease); }
+.wo-share .kit-share__button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--wo-gold); }
+.wo-missed { margin-top: 1.2rem; }
 .wo-missed h2 { font-family: var(--font-serif); font-size: 1.3rem; }
-.wo-missed ol { display: grid; gap: .5rem; margin-top: .8rem; }
-.wo-missed details { border: 1px solid var(--line); border-radius: .8rem; padding: .7rem .9rem; }
-.wo-missed summary { display: grid; grid-template-columns: auto 1fr; gap: .2rem .6rem; cursor: pointer; list-style: none; font-size: .92rem; }
-.wo-missed summary::-webkit-details-marker { display: none; }
-.wo-missed summary svg { margin-top: .2rem; color: var(--wo-wrong); }
-.wo-missed-reason { grid-column: 2; color: var(--muted); font-size: .85rem; }
-.wo-missed .wo-reveal { margin-top: .8rem; }
+.wo-missed ol { display: grid; gap: 1.2rem; margin-top: .8rem; }
+.wo-missed li { padding-top: .9rem; border-top: 1px solid var(--line); }
+.wo-missed-head { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-bottom: .6rem; font-size: .95rem; }
+.wo-missed-head svg { color: var(--wo-wrong); }
+.wo-missed-head strong { font-weight: 650; }
 
-@keyframes wo-pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes wo-slide { from { transform: translateY(100%); } to { transform: translateY(0); } }
-
+/* ---- Phones ----------------------------------------------------------------------------------------------------- */
 @media (max-width: 639px) {
-  .wo-cards { grid-template-columns: 1fr; }
-  .wo-card { min-height: 6rem; }
-  .wo-sheet { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; max-height: 78vh; overflow-y: auto; margin: 0; padding: 1.1rem 1.1rem 1.4rem; border-top: 1px solid var(--line); border-radius: 1.1rem 1.1rem 0 0; background: var(--page); box-shadow: 0 -10px 30px color-mix(in srgb, var(--ink) 18%, transparent); animation: wo-slide .25s ease-out; }
-  .wo-bar-label { white-space: normal; max-width: 60%; }
-  .wo-lane { height: 3.6rem; }
+  .wo-page { padding-top: 1.2rem; }
+  .wo-score { margin-top: .9rem; }
+  .wo-cards { gap: .6rem; }
+  .wo-card.kit-card { --kit-card-height: 11.5rem; padding: 1.3rem .6rem 1rem; }
+  .wo-card-name { font-size: clamp(1.1rem, 5.4vw, 1.5rem); }
+  .wo-card-tag { font-size: .78rem; }
+  .wo-medallion { width: 2.8rem; height: 2.8rem; font-size: 1.3rem; }
+  .wo-card .kit-card__mark { top: .5rem; right: .4rem; padding: .22rem .4rem; font-size: .58rem; }
+  .wo-glass { width: 1.7rem; }
+  .wo-milestone { white-space: normal; }
+  .wo-band.kit-band { margin-top: 1rem; margin-inline: -1rem; padding-inline: 1rem; }
+  /* The band may never grow past the screen: the reading scrolls inside it and the row with Next stays in reach. */
+  .wo-band .kit-band__details { max-height: calc(100dvh - 15rem); overflow-y: auto; }
+  .wo-result { font-size: 1.2rem; }
+  .wo-lane { grid-template-columns: 5.2rem minmax(0, 1fr); gap: .45rem; }
+  .wo-lane-name { font-size: .74rem; white-space: normal; overflow-wrap: anywhere; line-height: 1.2; }
+  .wo-gap { margin-left: 5.65rem; }
+  .wo-year { font-size: .68rem; }
+  .wo-sample { max-width: 100%; gap: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wo-card, .wo-chips button { transition: none; }
-  .wo-card:not([aria-disabled="true"]):active { transform: none; }
-  .wo-sheet, .wo-milestone, .wo-new-best { animation: none; }
+  .wo-glass, .wo-sand, .wo-sample .wo-card { animation: none; }
+  .wo-card.is-slid, .wo-card.is-held, .wo-card.is-arrived, .wo-bar, .wo-gap-line, .wo-bestbar-row > i, .wo-hearts .is-breaking, .wo-milestone, .wo-card .kit-card__mark { animation: none; }
 }

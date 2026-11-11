@@ -1,7 +1,7 @@
 // Who's older?: dealing and the run (design §6): the ramp, no repeats, "one stays", the band fallbacks, how each mode
 // ends, the locked first tap, and a left card that is right only about half the time.
 import data from "@/data/whos-older/whos-older.json";
-import { answer, bandFor, buildPool, current, endsRun, newRun, next, pairOf, score, streakNow, type Character, type Pool, type Run, type WhosOlderData } from "./game";
+import { alwaysFirst, answer, bandFor, buildPool, current, endsRun, newRun, next, pairOf, score, streakNow, whoStays, type Character, type Pool, type Run, type WhosOlderData } from "./game";
 import { pairKey } from "./pairing";
 
 const pool = buildPool(data as unknown as WhosOlderData);
@@ -46,9 +46,11 @@ describe("dealing", () => {
     let stayed = 0;
     for (let i = 1; i < long.rounds.length; i++) {
       const [before, now] = [long.rounds[i - 1], long.rounds[i]];
-      if (now.left === before.right) stayed++;
+      const giveaway = alwaysFirst(pool.byId.get(before.right)!);
+      if (now.left === before.right || (giveaway && now.left === before.left)) stayed++;
       else expect([now.left, now.right], `round ${i + 1} is a fresh pair`).not.toContain(before.right); // no partner left for the stayer
-      expect([now.left, now.right], `round ${i + 1}`).not.toContain(before.left);
+      if (!giveaway) expect([now.left, now.right], `round ${i + 1}`).not.toContain(before.left);
+      if (i >= 2) for (const id of [now.left, now.right]) expect([before.left, before.right].includes(id) && [long.rounds[i - 2].left, long.rounds[i - 2].right].includes(id), `${id} in three rounds running at ${i + 1}`).toBe(false);
     }
     expect(stayed / (long.rounds.length - 1)).toBeGreaterThan(0.75);
   });
@@ -60,21 +62,45 @@ describe("dealing", () => {
   it("puts the answer on the left about half the time, even when a stayer came before everyone", () => {
     let left = 0;
     let total = 0;
-    const adam = "adam-gen-2-19";
+    const abraham = "abraham-gen-11-26";
     const count = (run: Run) => { for (const r of run.rounds) { total++; if (pairOf(pool, r)!.first.id === r.left) left++; } };
     for (const seed of [1, 2, 3, 4]) count(playRight(pool, newRun(pool, "streak", "mixed", seed), 200));
     for (const seed of [5, 6, 7, 8]) count(playRight(pool, newRun(pool, "relaxed", "hard", seed), 50));
-    for (const seed of [9, 10, 11, 12]) { // Adam, who comes before everyone, as the stayer of round 2
-      const partner = pool.partners.get(adam)!.medium[seed]!;
-      const other = partner.first.id === adam ? partner.second.id : partner.first.id;
-      let run: Run = { stamp: pool.data.stamp, mode: "streak", difficulty: "mixed", seed, rounds: [{ left: other, right: adam, pick: adam }], hearts: 3, over: false };
+    for (const seed of [9, 10, 11, 12]) { // Abraham, who comes before nearly everyone, as the stayer of round 2
+      const partner = pool.partners.get(abraham)!.medium[seed]!;
+      const other = partner.first.id === abraham ? partner.second.id : partner.first.id;
+      let run: Run = { stamp: pool.data.stamp, mode: "streak", difficulty: "mixed", seed, rounds: [{ left: other, right: abraham, pick: abraham }], hearts: 3, over: false };
       run = next(pool, run);
-      expect(current(run).left).toBe(adam);
+      expect(current(run).left).toBe(abraham);
       count(playRight(pool, run, 50));
     }
     expect(total).toBeGreaterThanOrEqual(1000);
     expect(left / total).toBeGreaterThan(0.4);
     expect(left / total).toBeLessThan(0.6);
+  });
+});
+
+describe("the giveaways (the audit's note)", () => {
+  it("never keeps Adam, Eve or Job on as the left card: the other person stays instead", () => {
+    for (const id of ["adam-gen-2-19", "eve-gen-3-20", "job-job-1-1"]) {
+      expect(alwaysFirst(pool.byId.get(id)!), id).toBe(true);
+      const partner = pool.partners.get(id)!.easy.concat(pool.partners.get(id)!.medium, pool.partners.get(id)!.hard).find((p) => !alwaysFirst(p.first.id === id ? p.second : p.first))!;
+      const other = partner.first.id === id ? partner.second.id : partner.first.id;
+      const run: Run = { stamp: pool.data.stamp, mode: "relaxed", difficulty: "hard", seed: 21, rounds: [{ left: other, right: id, pick: id }], hearts: 3, over: false };
+      expect(whoStays(pool, run.rounds)).toBe(other);
+      const dealt = current(next(pool, run));
+      expect(dealt.left, id).toBe(other);
+      expect(dealt.right, id).not.toBe(id);
+    }
+    expect(alwaysFirst(pool.byId.get("moses-exo-2-10")!)).toBe(false);
+  });
+
+  it("deals a fresh pair when the other person had already stayed, so nobody stays three rounds", () => {
+    const rounds = [{ left: "moses-exo-2-10", right: "david-rut-4-17", pick: "moses-exo-2-10" }, { left: "david-rut-4-17", right: "adam-gen-2-19", pick: "adam-gen-2-19" }];
+    expect(whoStays(pool, rounds)).toBeNull();
+    const dealt = current(next(pool, { stamp: pool.data.stamp, mode: "streak", difficulty: "mixed", seed: 4, rounds, hearts: 3, over: false }));
+    expect([dealt.left, dealt.right]).not.toContain("david-rut-4-17");
+    expect([dealt.left, dealt.right]).not.toContain("adam-gen-2-19");
   });
 });
 
