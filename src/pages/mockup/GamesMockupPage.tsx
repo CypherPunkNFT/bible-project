@@ -22,6 +22,7 @@ export default function GamesMockupPage() {
   const selected = selectedDoor(params.get("shelf"), shelves.map((shelf) => shelf.key));
   const index = shelves.findIndex((shelf) => shelf.key === selected);
   return <div className="st-page gm-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
+    <div className="hub-doors-fold">
     <header className="gm-hero">
       <div className="gm-hero-text">
         <p className="st-kick">Games</p>
@@ -33,6 +34,7 @@ export default function GamesMockupPage() {
     </header>
     <HubDoors param="shelf" label="Kinds of game" controls={`shelf-${selected}`} selected={selected}
       doors={shelves.map((shelf) => ({ key: shelf.key, title: shelf.title, tone: DOOR_TONES[shelf.key], count: shelf.games.length, art: DOOR_ART[shelf.key] }))} />
+    </div>
     <ShelfSection key={selected} shelf={shelves[index]} index={index + 1} />
   </div>;
 }

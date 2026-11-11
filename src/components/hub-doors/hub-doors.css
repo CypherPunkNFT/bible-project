@@ -22,7 +22,13 @@
 
 .hub-doors-page.st-page { padding-top: 1.1rem; }
 .hub-doors-page .gm-hero .st-stats { margin-top: 1.4rem; padding-top: 0; border-top: 0; }
+/* .hub-doors-fold holds the hero and the doors: on a screen wide enough for one row of doors it is the height of the
+   window under the menu, the doors' line just above the bottom edge and the hero centred in the room above (owner,
+   2026-11-11: "the bar below the category icons can be just above the bottom of the page"). */
 @media (min-width: 900px) {
+  .hub-doors-fold { display: flex; flex-direction: column; min-height: calc(100svh - 64px - 1.1rem - 1.25rem); }
+  .hub-doors-fold .gm-hero { margin-block: auto; }
+  .hub-doors-fold .hub-doors { margin-top: auto; padding-top: 1.5rem; }
   .hub-doors-page .gm-hero { align-items: stretch; }
   .hub-doors-page .gm-hero-figure { position: relative; }
   .hub-doors-page .gm-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; }

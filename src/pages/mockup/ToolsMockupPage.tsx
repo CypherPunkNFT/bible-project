@@ -28,6 +28,7 @@ export default function ToolsMockupPage() {
   const selected = selectedDoor(params.get("category"), categories.map((category) => category.key));
   const index = categories.findIndex((category) => category.key === selected);
   return <div className="st-page gm-page tl-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
+    <div className="hub-doors-fold">
     <header className="gm-hero">
       <div className="gm-hero-text">
         <p className="st-kick">Tools</p>
@@ -39,6 +40,7 @@ export default function ToolsMockupPage() {
     </header>
     <HubDoors param="category" label="Kinds of tool" controls={`tools-${selected}`} selected={selected}
       doors={categories.map((category) => ({ key: category.key, title: category.title, tone: DOOR_TONES[category.key], count: category.tools.length, art: DOOR_ART[category.key] }))} />
+    </div>
     <CategorySection key={selected} category={categories[index]} index={index + 1} />
   </div>;
 }
