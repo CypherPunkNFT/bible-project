@@ -87,7 +87,7 @@ Run from the Website folder on 11 November 2026, in this order, all passing:
 - The English check (`py -3.12 content/translation/english_build_check.py`): 0 unregistered texts, 0 new in every net.
 - `npm run build`: passed twice (once before the screenshot fixes, once after).
 - Playwright play-through on the preview at 1440 and 390, dark and light, from fresh storage and from a saved game: start, a wrong letter checked, reveals, mid play, the clue sheet, the confirm dialogs, a reload mid-puzzle, a helped solve, a clean solve, the light theme. No console errors at either size.
-- Commit: (recorded below once made).
+- Commit: 66adb9723 on main, "Redesign: Bible crossword (from its visual audit)", pushed to origin. This note itself is a second small commit.
 
 ## 6. Left for later
 
