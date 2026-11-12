@@ -87,7 +87,7 @@ All run on 11 November 2026 after the last change.
 
 The play-through script lives outside the site at `C:\FortressOrchestrator\workspaces\667d38ebaaad47cfa53ac1860e583e5f\playthrough.667d38eb.mjs`; it drives the preview on port 8931 against a local room server on port 8928.
 
-Commit: _(recorded below once made)_.
+Commit: `a94519678` on main (the hash recorded in a second commit, as the report itself is in the first).
 
 ## 6. Left for later
 
