@@ -1,10 +1,14 @@
 /* Homepage Bible and Study openings: intro copy beside a drawing that loops gently and opens up on hover.
    Loops run only while the drawing is on screen ([data-live]); everything holds still under reduced motion. */
-.hf-intro { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: 56px; align-items: center; }
+/* Wide: the copy and its tail (facts, call to action) in one column beside the drawing; under 900 the drawing sits
+   between the copy and the tail (the owner, 2026-11-11: the graphic above the fact pills on the tablet). */
+.hf-intro { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); grid-template-areas: "copy art" "tail art"; column-gap: 56px; row-gap: 0; align-items: center; }
 .hf-intro + .hf-intro { margin-top: 104px; }
 .hf-intro + .home-study-grid { margin-top: 44px; }
-.hf-intro[data-reverse] { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); }
-.hf-intro[data-reverse] .hf-art { order: -1; }
+.hf-intro[data-reverse] { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-areas: "art copy" "art tail"; }
+.hf-copy { grid-area: copy; align-self: end; }
+.hf-tail { grid-area: tail; align-self: start; }
+.hf-art { grid-area: art; }
 .hf-copy h3 { font-size: clamp(27px, 2.7vw, 39px); line-height: 1.2; margin: 16px 0 22px; }
 .hf-copy h3 em { color: var(--home-color); }
 .hf-copy h2 { margin: 16px 0 22px; }
@@ -158,10 +162,11 @@
 @keyframes hf-sheen { 0%, 60% { transform: translateX(0); } 100% { transform: translateX(450%); } }
 
 @media (max-width: 900px) {
-  .hf-intro, .hf-intro[data-reverse] { grid-template-columns: 1fr; gap: 20px; }
-  .hf-intro[data-reverse] .hf-art { order: 0; }
+  .hf-intro, .hf-intro[data-reverse] { grid-template-columns: 1fr; grid-template-areas: "copy" "art" "tail"; gap: 20px; }
   .hf-intro + .hf-intro { margin-top: 64px; }
   .hf-art { max-width: 560px; margin-inline: auto; width: 100%; }
+  .hf-copy > p:not(.home-eyebrow) { max-width: none; }
+  .hf-facts { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hf-scene *, .hf-bookmark::after { animation: none !important; }

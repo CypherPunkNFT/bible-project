@@ -43,10 +43,12 @@ export function FeatureBlock({ kicker, title, level = "h2", reverse, tone, facts
       <p className="home-eyebrow">{kicker}</p>
       <Heading>{title}</Heading>
       {children}
+    </div>
+    <Link className="hf-art" to={artTo} aria-label={artLabel} ref={ref} data-live={visible || undefined}>{art}</Link>
+    <div className="hf-tail">
       <ul className="hf-facts">{facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
       {cta && <CallToAction {...cta} />}
     </div>
-    <Link className="hf-art" to={artTo} aria-label={artLabel} ref={ref} data-live={visible || undefined}>{art}</Link>
   </div>;
 }
 
