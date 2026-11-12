@@ -7,6 +7,7 @@ import { verifyBuiltContent } from "./content/compile.ts";
 import { addressLanguages, LANGUAGE_ADDRESSES_RELEASED } from "../src/lib/language-addresses.ts";
 import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
+import { splitReleaseFiles } from "./release-splits.mjs";
 import { packPersonFiles } from "./pack-person-files.ts";
 import { assertTranslatedFilesUnderLimit, packLanguageFiles, splitQuestionBanks } from "./pack-language-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
@@ -48,6 +49,10 @@ await cp(built, site, { recursive: true, filter: (source) => ![localDesk, ...lan
 stage("Build copied");
 await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
 stage("Population hosting");
+// The scholars index and the source directory ship split, as build:portable does (scripts/release-splits.mjs; was a
+// hand step after prepare until 2026-11-12).
+console.log("Release splits:", splitReleaseFiles(site));
+stage("Scholars index and source directory split");
 console.log('Release build assets:',await pruneReleaseAssets(site));
 stage("Code files pruned");
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
