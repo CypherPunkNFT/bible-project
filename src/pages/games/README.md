@@ -169,6 +169,16 @@ BSB verse and the reason each card follows the one before. Saved in the browser 
   where it goes (or its ▲ ▼ buttons), or Enter/Space, the arrow keys and Escape. Every route ends in `move()`
   (`sortable.ts`). The long-press drag must be tried by hand on iOS Safari and Android Chrome; if either cancels it,
   remove the long-press and keep the grip and tap routes.
+- **Look (redesigned 2026-11-11 from [its visual audit](../../../docs/visual-audits/timeline.md); report:
+  [timeline-redesign.md](../../../docs/visual-audits/timeline-redesign.md)):** a lobby with a fanned stack for the Daily,
+  three card stacks for the levels and era chips on a line (`Screens.tsx`); a board with a rail down the left, "Creation"
+  to "The early church", cards of one height with a faint motif from the label's words (`motif.ts`, `MotifIcon.tsx`) and
+  a dashed outline where a dragged card will land (`SortList.tsx`); after a Check a right card turns over to its date
+  (one after another), a wrong one shakes, and joined neighbours get a "together" bridge; the tries are four small card
+  backs from the kit's `FlipCard`. The ending is the kit's `ResultPanel` with the grid as `ProgressTrail` rows,
+  `ShareButton`, `StreakFlame` and `Confetti` first, then the true order as rows that open (`Result.tsx`, `Reveal.tsx`).
+  The card itself is one button through its turn (the kit's `FlipCard` is two faces round a div), so that turn lives in
+  `timeline.css` with the kit's keyframes.
 - **Known gaps:** labels, dating lines and reasons are English in every language (the help panel says so).
 - **Checks:** the `*.test.ts(x)` files in `timeline/` run in `npm test`, including an independent check of 2,000 dealt
   rounds, every Daily rule over the whole schedule plus a year of fallback days, and puzzle numbers across

@@ -13,6 +13,7 @@ import { CantLoad, StartScreen } from "./Screens";
 import { browserStore, canSave, isDone, readSaved, streakOn, writeSaved, type Saved } from "./storage";
 import { prepare, type Loaded, type TimelineData } from "./text";
 import "../games.css";
+import "../kit";
 import "./timeline.css";
 
 const loadAll = () => Promise.all([
@@ -39,13 +40,20 @@ export default function TimelineGame() {
     return () => { live = false; };
   }, [attempt]);
   return <div className="tl-page mx-auto max-w-3xl px-4 sm:px-6">
-    <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
-    {failed ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />
-      : ready ? <Game loaded={ready.loaded} daily={ready.daily} /> : <p className="tl-loading">Loading the events…</p>}
+    {failed ? <><TopNav /><CantLoad onRetry={() => setAttempt((n) => n + 1)} /></>
+      : ready ? <Game loaded={ready.loaded} daily={ready.daily} /> : <><TopNav /><p className="tl-loading">Loading the events…</p></>}
   </div>;
 }
 
 type Screen = "start" | "daily" | "practice";
+
+/** The links above the game, in one row with room between them (the audit found "All games" and "Game home" run together). */
+function TopNav({ onHome }: { onHome?: () => void }) {
+  return <nav className="tl-nav" aria-label="Game">
+    <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
+    {onHome && <button type="button" className="tl-link" onClick={onHome}>Game home</button>}
+  </nav>;
+}
 
 function Game({ loaded, daily }: { loaded: Loaded; daily: Daily }) {
   const store = useMemo(() => browserStore(), []);
@@ -90,7 +98,7 @@ function Game({ loaded, daily }: { loaded: Loaded; daily: Daily }) {
 
   const resume = saved.round?.mode === "practice" && !saved.round.checked ? saved.round
     : saved.round?.mode === "daily" && saved.round.n === n && ids && !isDone(saved.daily.results[n]) ? saved.round : null;
-  const home = <button type="button" className="tl-link" onClick={() => go("start")}>Game home</button>;
+  const home = <TopNav onHome={() => go("start")} />;
 
   if (screen === "daily" && ids) {
     return <>{home}<DailyPlay key={n} loaded={loaded} n={n} ids={ids} saved={saved} onSave={save} onPractice={() => openPractice(saved)} /></>;
@@ -101,6 +109,7 @@ function Game({ loaded, daily }: { loaded: Loaded; daily: Daily }) {
       onNext={() => startPractice(round.level, round.era, saved)} /></>;
   }
   return <>
+    <TopNav />
     {notice && <p className="tl-note" role="alert">{notice}</p>}
     <StartScreen dailyNumber={ids ? n : null} dailyDone={isDone(saved.daily.results[n])} streak={streakOn(saved, n)} saved={saved} saving={saving}
       resume={resume} onDaily={() => go("daily")} onPractice={(level, era) => startPractice(level, era, saved)}

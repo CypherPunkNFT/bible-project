@@ -1,6 +1,7 @@
 // Timeline sort: the data the game loads and the words of the reveal (design §8.3, §8.4). The gap shown is always the
 // smallest any dating system allows, every year says "about", and early-Genesis events never print a year.
-import { formatGap, formatYear, verseHref, verseLabel } from "../whos-older/explain";
+import { formatGap, formatYear, verseHref, verseLabel, yearSpan } from "../whos-older/explain";
+import { motifOf, type Motif } from "./motif";
 import { buildOrderIndex, type Explanation, type OrderFact, type OrderIndex, type Span, type Step, type TimelineEvent } from "./order";
 
 export interface EventEntry extends TimelineEvent {
@@ -66,3 +67,21 @@ export function barOf(event: EventEntry, axis: { lo: number; hi: number }): { le
   const left = ((lo - axis.lo) / span) * 100;
   return { left, width: Math.max(1.5, ((hi - lo) / span) * 100), open: event.lo === null || event.hi === null };
 }
+
+/** The short date on a card's back once it is in its right place: the years, and which word goes before them (the
+ * component writes the word, so the check of on-screen English sees it as its own label). Early Genesis has no years. */
+export interface When { kind: "about" | "by" | "from" | "early"; years: string }
+export function whenOf(event: Pick<EventEntry, "shown" | "lo" | "hi">): When {
+  if (!event.shown) return { kind: "early", years: "" };
+  if (event.lo !== null && event.hi !== null) return { kind: "about", years: event.lo === event.hi ? formatYear(event.lo) : yearSpan(event.lo, event.hi) };
+  if (event.hi !== null) return { kind: "by", years: formatYear(event.hi) };
+  if (event.lo !== null) return { kind: "from", years: formatYear(event.lo) };
+  return { kind: "early", years: "" };
+}
+
+/** What a card on the board shows: its words, the faint drawing in its corner and the date for its back. */
+export interface CardFace { label: string; motif: Motif; when: When }
+export const cardOf = (loaded: Loaded, id: string): CardFace => {
+  const event = loaded.byId.get(id)!;
+  return { label: event.label, motif: motifOf(event.label), when: whenOf(event) };
+};

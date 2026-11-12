@@ -69,15 +69,74 @@ describe("timeline sort page", () => {
     expect(order()).toEqual(truth);
     fireEvent.click(check());
 
-    const reveal = screen.getByRole("region", { name: /Solved in 2!/ });
+    // The result comes first: the cheer, the score once, Share; the true order is the reading below it.
+    const banner = screen.getByRole("heading", { level: 2, name: "Solved it!" });
+    expect(banner).toHaveFocus();
+    expect(screen.getAllByText(/2\/4/)).toHaveLength(1);
+    const share = screen.getByRole("button", { name: "Share" });
+    const reveal = screen.getByRole("region", { name: "The true order" });
+    expect(share.compareDocumentPosition(reveal) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(reveal.querySelector(".tl-truth")).toHaveClass("kit-hop"); // the winning rows hop in a wave
+    const grid = screen.getByRole("img", { name: "2 tries" }); // the share grid on screen: one row per try, all six green on the last
+    expect(grid.querySelectorAll(".kit-trail")).toHaveLength(2);
+    expect(grid.querySelectorAll(".kit-trail")[1].querySelectorAll(".kit-trail__mark.is-right")).toHaveLength(6);
+    fireEvent.click(screen.getAllByText(/^[A-Z].*/, { selector: ".tl-step-title" })[0]); // a row opens to its verse
     await waitFor(() => expect(reveal.querySelector(".tl-quote [translate='no']")).toHaveAttribute("lang", "en"));
     expect(reveal.querySelector(".tl-quote [translate='no']")!.textContent!.length).toBeGreaterThan(10);
     expect(within(reveal).getAllByRole("link").some((link) => link.getAttribute("href")!.startsWith("/read/bsb/"))).toBe(true);
     expect(within(reveal).getByRole("link", { name: "Tell us" })).toHaveAttribute("href", "/contact");
-    fireEvent.click(within(reveal).getByRole("button", { name: "Share" }));
-    const box = await screen.findByRole("textbox", { name: /Select and copy/ });
-    expect((box as HTMLTextAreaElement).value).toMatch(new RegExp(`^Timeline sort #${N} 2/4\\n`));
+    fireEvent.click(share);
+    const box = await screen.findByRole("textbox", { name: "Text to copy" });
+    expect((box as HTMLTextAreaElement).value).toMatch(new RegExp(`^Timeline sort #${N} 2/4\n`));
     expect((box as HTMLTextAreaElement).value).not.toMatch(new RegExp(loaded.byId.get(truth[0])!.label));
+  });
+
+  it("marks the first try: right cards turn over to their dates, wrong ones shake, joins carry their word", async () => {
+    renderAt("/games/timeline?play=daily");
+    await screen.findByRole("heading", { name: new RegExp(`Today's timeline #${N}`) });
+    expect(screen.getByRole("img", { name: "Try 1 of 4" }).querySelectorAll(".kit-flip.is-flipped")).toHaveLength(0);
+    keyboardMove(order().indexOf(truth[0]), 0); // the earliest card into the first slot: at least one right place
+    fireEvent.click(check());
+    expect(screen.getByRole("img", { name: "Try 2 of 4" }).querySelectorAll(".kit-flip.is-flipped")).toHaveLength(1);
+    const right = document.querySelectorAll(".tl-item.is-right");
+    expect(right.length).toBeGreaterThan(0);
+    expect(right[0].querySelector(".tl-face--back")).toHaveTextContent(/Right place/);
+    expect(right[0].querySelector(".tl-face--back .tl-when")).toHaveTextContent(/About|By|From|Early Genesis/);
+    expect(document.querySelectorAll(".tl-item.is-wrong").length).toBe(6 - right.length);
+    document.querySelectorAll(".tl-join").forEach((join) => expect(join).toHaveTextContent("together"));
+  });
+
+  it("takes the first tap after a drag by the grip (the audit's ignored tap)", async () => {
+    const { container } = renderAt("/games/timeline?play=daily");
+    await screen.findByRole("heading", { name: new RegExp(`Today's timeline #${N}`) });
+    class TestPointerEvent extends MouseEvent {
+      pointerId: number; pointerType: string;
+      constructor(type: string, init: PointerEventInit = {}) { super(type, init); this.pointerId = init.pointerId ?? 0; this.pointerType = init.pointerType ?? "mouse"; }
+    }
+    vi.stubGlobal("PointerEvent", TestPointerEvent);
+    fireEvent.pointerDown(container.querySelectorAll(".tl-grip")[0], { pointerId: 1, pointerType: "mouse", button: 0, clientX: 5, clientY: 10 });
+    fireEvent.pointerMove(window, { pointerId: 1, pointerType: "mouse", clientX: 5, clientY: 300 });
+    fireEvent.pointerUp(window, { pointerId: 1, pointerType: "mouse", clientX: 5, clientY: 300 });
+    fireEvent.click(cards()[2]); // the very next tap lifts a card
+    expect(cards()[2]).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("opens on a lobby: the puzzle's fanned stack, three level stacks and era chips, Play on the first screen", async () => {
+    renderAt();
+    await screen.findByRole("button", { name: `Play #${N}` });
+    expect(document.querySelectorAll(".tl-fan-card")).toHaveLength(6);
+    expect(document.querySelector(".tl-fan-number")).toHaveTextContent(`#${N}`);
+    const levels = within(screen.getByRole("group", { name: "Level" })).getAllByRole("button");
+    expect(levels).toHaveLength(3);
+    expect(levels[2].querySelectorAll(".tl-stack-cards span")).toHaveLength(7);
+    const eras = within(screen.getByRole("group", { name: "Part of the story" })).getAllByRole("button");
+    expect(eras).toHaveLength(9);
+    expect(eras[0]).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(eras[7]);
+    fireEvent.click(levels[0]);
+    fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
+    expect(cards()).toHaveLength(4);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Easy · Life of Jesus/);
   });
 
   it("moves a card by tapping it and then the card whose place it should take", async () => {
@@ -141,7 +200,10 @@ describe("timeline sort page", () => {
     keyboardMove(0, 4);
     fireEvent.click(check());
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(/of 10 pairs in order/);
-    fireEvent.click(screen.getByRole("button", { name: /Next round/ }));
+    expect(screen.getByRole("img", { name: /stars? of 3/ })).toBeInTheDocument();
+    const next = screen.getByRole("button", { name: /Next round/ });
+    expect(next.compareDocumentPosition(screen.getByRole("region", { name: "The true order" })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy(); // Next before the reading
+    fireEvent.click(next);
     expect(cards()).toHaveLength(5);
   });
 });

@@ -1,14 +1,14 @@
-// Timeline sort's screens around play (design §10.1, §10.5): the start screen with today's puzzle and Practice, the
-// Daily result with its share and countdown, and the message when the data cannot load.
-import { CalendarDays, Dumbbell, Play, RotateCcw, Share2 } from "lucide-react";
-import { useState } from "react";
+// Timeline sort's screens around play (design §10.1; redesigned from docs/visual-audits/timeline.md, item 5): a lobby,
+// not a settings page. Today's puzzle is a small fanned stack of six face-down cards with its number and the streak
+// flame; the Practice levels are three card stacks of four, five and seven cards to tap; the part of the Bible is a row
+// of era chips along a thin line. The fold "How we order events" and the message when the data cannot load stay.
+import { Play, RotateCcw } from "lucide-react";
+import { useState, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
-import { useNow } from "../map-quest/use-now";
-import { msUntilMidnight } from "./daily";
+import { StreakFlame } from "../kit";
 import { LEVEL_KEYS, LEVELS, type EraChoice, type Level } from "./deal";
 import { ERAS } from "./order";
-import { DAILY_TRIES, shareResult, shareText, type ShareOutcome } from "./share";
-import { distribution, type DailyResult, type Round, type Saved } from "./storage";
+import type { Round, Saved } from "./storage";
 
 interface StartProps {
   dailyNumber: number | null;
@@ -22,6 +22,17 @@ interface StartProps {
   onResume: () => void;
 }
 
+const FAN = 6;
+
+/** A fanned stack of face-down cards, the top one carrying the puzzle's number. Decoration: the button beside it speaks. */
+function Fan({ number, done }: { number: number | null; done: boolean }) {
+  return <span className={`tl-fan${done ? " is-done" : ""}`} aria-hidden="true">
+    {Array.from({ length: FAN }, (_, i) => <span key={i} className="tl-fan-card" style={{ "--kit-i": i } as CSSProperties}>
+      {i === FAN - 1 && number !== null && <span className="tl-fan-number">{`#${formatNumber(number)}`}</span>}
+    </span>)}
+  </span>;
+}
+
 export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, resume, onDaily, onPractice, onResume }: StartProps) {
   const [level, setLevel] = useState<Level>(saved.practice.level);
   const [era, setEra] = useState<EraChoice>(saved.practice.era);
@@ -31,31 +42,39 @@ export function StartScreen({ dailyNumber, dailyDone, streak, saved, saving, res
     {resume && <button type="button" className="tl-primary tl-continue" onClick={onResume}>
       <Play size={15} aria-hidden="true" />{resume.mode === "daily" ? "Continue your daily timeline" : "Continue your practice round"}
     </button>}
-    <div className="tl-modes">
-      <section className="tl-mode" aria-labelledby="tl-daily-title">
-        <h2 id="tl-daily-title"><CalendarDays size={18} aria-hidden="true" />Today's timeline</h2>
-        <p>Six events, the same for everyone today. Four tries, with ticks and links to help between them.</p>
-        {dailyNumber !== null && <button type="button" className="tl-primary" onClick={onDaily}>
-          {dailyDone ? "Done — see your result" : `Play #${formatNumber(dailyNumber)}`}
-        </button>}
-        <p className="tl-best">{`Streak ${formatNumber(streak)} · best ${formatNumber(saved.daily.best)}`}</p>
+    <div className="tl-lobby">
+      <section className="tl-mode tl-mode--daily" aria-labelledby="tl-daily-title">
+        <Fan number={dailyNumber} done={dailyDone} />
+        <div className="tl-mode-body">
+          <h2 id="tl-daily-title">Today's timeline</h2>
+          <p>Six events, the same for everyone today. Four tries, with ticks and links to help between them.</p>
+          {dailyNumber !== null && <button type="button" className="tl-primary" onClick={onDaily}>
+            {dailyDone ? "Done — see your result" : `Play #${formatNumber(dailyNumber)}`}
+          </button>}
+          <p className="tl-best">
+            <StreakFlame count={streak} label={plural(streak, "{n} day in a row", "{n} days in a row")} />
+            <span>{`Best ${formatNumber(saved.daily.best)}`}</span>
+          </p>
+        </div>
       </section>
-      <section className="tl-mode" aria-labelledby="tl-practice-title">
-        <h2 id="tl-practice-title"><Dumbbell size={18} aria-hidden="true" />Practice</h2>
+      <section className="tl-mode tl-mode--practice" aria-labelledby="tl-practice-title">
+        <h2 id="tl-practice-title">Practice</h2>
         <p>One round at a time, scored by how many pairs of cards you put the right way round.</p>
-        <fieldset className="tl-chips">
-          <legend>Level</legend>
-          {LEVEL_KEYS.map((key) => <button key={key} type="button" aria-pressed={level === key} onClick={() => setLevel(key)}>
-            <span>{LEVELS[key].title}</span>{" · "}<span>{plural(LEVELS[key].cards, "{n} card", "{n} cards")}</span></button>)}
-        </fieldset>
-        <label className="tl-era">Part of the story
-          <select value={era} onChange={(event) => setEra(event.target.value as EraChoice)}>
-            <option value="all">All of the Bible</option>
-            {ERAS.map((option) => <option key={option.key} value={option.key}>{option.title}</option>)}
-          </select>
-        </label>
+        <div className="tl-stacks" role="group" aria-label="Level">
+          {LEVEL_KEYS.map((key) => <button key={key} type="button" className="tl-stack" aria-pressed={level === key} onClick={() => setLevel(key)}>
+            <span className="tl-stack-cards" aria-hidden="true">
+              {Array.from({ length: LEVELS[key].cards }, (_, i) => <span key={i} style={{ "--kit-i": i } as CSSProperties} />)}
+            </span>
+            <span className="tl-stack-name">{LEVELS[key].title}</span>
+            <span className="tl-stack-count">{plural(LEVELS[key].cards, "{n} card", "{n} cards")}</span>
+          </button>)}
+        </div>
+        <div className="tl-eras" role="group" aria-label="Part of the story">
+          <button type="button" className="tl-era" aria-pressed={era === "all"} onClick={() => setEra("all")}>All of the Bible</button>
+          {ERAS.map((option) => <button key={option.key} type="button" className="tl-era" aria-pressed={era === option.key} onClick={() => setEra(option.key)}>{option.title}</button>)}
+        </div>
         <button type="button" className="tl-primary" onClick={() => onPractice(level, era)}>Start practice</button>
-        <p className="tl-best">{`Best perfect streak at this level: ${formatNumber(saved.practice.bestPerfect[level])}`}</p>
+        <p className="tl-best"><span>Best perfect streak at this level</span> <strong>{formatNumber(saved.practice.bestPerfect[level])}</strong></p>
       </section>
     </div>
     <details className="tl-how">
@@ -74,40 +93,5 @@ export function CantLoad({ onRetry }: { onRetry: () => void }) {
     <h1>Timeline sort</h1>
     <p className="tl-lede" role="alert">The events could not be loaded. Check your connection and try again.</p>
     <button type="button" className="tl-primary" onClick={onRetry}><RotateCcw size={15} aria-hidden="true" />Try again</button>
-  </div>;
-}
-
-const clock = (ms: number) => {
-  const total = Math.max(0, Math.floor(ms / 1000));
-  return [Math.floor(total / 3600), Math.floor(total / 60) % 60, total % 60].map((part) => String(part).padStart(2, "0")).join(":");
-};
-
-interface DoneProps { n: number; result: DailyResult; truth: readonly string[]; saved: Saved; streak: number; onPractice: () => void }
-
-/** The end of a Daily (§10.5): result, share, streaks, the spread of tries and the countdown to tomorrow. */
-export function DailyDone({ n, result, truth, saved, streak, onPractice }: DoneProps) {
-  const now = useNow();
-  const [outcome, setOutcome] = useState<ShareOutcome | null>(null);
-  const text = shareText(n, result.tries, truth, result.solved);
-  const { solvedIn, missed } = distribution(saved);
-  const most = Math.max(1, ...solvedIn, missed);
-  return <div className="tl-done">
-    <p className="tl-done-result">{result.solved ? `Solved in ${result.tries.length}/${DAILY_TRIES}` : `Not this time: X/${DAILY_TRIES}`}</p>
-    <div className="tl-done-actions">
-      <button type="button" className="tl-primary" onClick={() => { void shareResult(text).then(setOutcome); }}><Share2 size={15} aria-hidden="true" />Share</button>
-      <button type="button" className="tl-secondary" onClick={onPractice}>Practice now</button>
-    </div>
-    {outcome === "copied" && <p className="tl-note" role="status">Copied: paste it anywhere.</p>}
-    {outcome === "manual" && <label className="tl-copy">Select and copy your result
-      <textarea readOnly value={text} rows={text.split("\n").length} onFocus={(event) => event.currentTarget.select()} /></label>}
-    <dl className="tl-stats">
-      <div><dt>Streak</dt><dd>{formatNumber(streak)}</dd></div>
-      <div><dt>Best streak</dt><dd>{formatNumber(saved.daily.best)}</dd></div>
-      <div><dt>Next puzzle in</dt><dd>{clock(msUntilMidnight(now))}</dd></div>
-    </dl>
-    <ul className="tl-spread" aria-label="Your results so far">
-      {[...solvedIn.map((count, i) => ({ key: String(i + 1), count })), { key: "X", count: missed }].map(({ key, count }) =>
-        <li key={key}><span>{key}</span><span className="tl-spread-bar" style={{ width: `${Math.max(6, (count / most) * 100)}%` }}>{formatNumber(count)}</span></li>)}
-    </ul>
   </div>;
 }

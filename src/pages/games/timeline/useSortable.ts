@@ -20,6 +20,8 @@ interface Session {
   middles: number[];
   height: number;
   dragging: boolean;
+  /** Started on the grip: the click that follows a drop lands on the grip, not the card, so no tap needs eating. */
+  fromHandle: boolean;
   timer: number | null;
   element: HTMLElement;
 }
@@ -57,7 +59,7 @@ export function useSortable({ count, disabled, onMove }: { count: number; disabl
     session.current = null;
     try { if (s.element.hasPointerCapture?.(s.pointerId)) s.element.releasePointerCapture(s.pointerId); } catch { /* already released */ }
     if (s.dragging) {
-      suppressClick.current = true; // the click that follows a drop is not a tap
+      if (!s.fromHandle) suppressClick.current = true; // the click that follows a drop on the card itself is not a tap
       const { target } = targetOf(s);
       if (commit && target !== s.from) onMove(s.from, target);
     }
@@ -86,10 +88,11 @@ export function useSortable({ count, disabled, onMove }: { count: number; disabl
 
   const start = useCallback((event: ReactPointerEvent<HTMLElement>, from: number, fromHandle: boolean) => {
     if (disabled || session.current || (event.pointerType === "mouse" && event.button !== 0)) return; // one pointer at a time
+    suppressClick.current = false; // a new gesture: a stale flag from an earlier drop must not eat this tap (the audit's fault)
     const middles = items.current.slice(0, count).map((item) => { const r = item?.getBoundingClientRect(); return r ? r.top + r.height / 2 + window.scrollY : 0; });
     const rect = items.current[from]?.getBoundingClientRect();
     const s: Session = { pointerId: event.pointerId, from, startY: event.clientY, startX: event.clientX, startScroll: window.scrollY, pointerY: event.clientY,
-      middles, height: (rect?.height ?? 56) + 8, dragging: false, timer: null, element: event.currentTarget };
+      middles, height: (rect?.height ?? 56) + 8, dragging: false, fromHandle, timer: null, element: event.currentTarget };
     session.current = s;
     if (fromHandle) { event.preventDefault(); begin(s); return; }
     if (event.pointerType !== "mouse") {
