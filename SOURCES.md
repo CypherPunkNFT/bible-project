@@ -142,6 +142,7 @@ What the app adds, all free to use and ship inside an app:
 | `qrcode` 1.5.4 (added 2026-11-11) | Drawing an invitation's QR code on the Testimonies page, with the same library and settings the site uses (level M, four modules of margin) | MIT |
 | `expo-clipboard` ~58.0.4 (added 2026-11-11) | "Copy link" for an invitation or private access link on the Testimonies page, where the site uses the browser's clipboard | MIT |
 | `expo-crypto` ~58.0.7 (added 2026-11-11) | Random bytes for a new private access key on the Testimonies page, where the site uses the browser's crypto | MIT |
+| `minisearch` 7.2.0 and `stemmer` 2.0.1 (added 2026-11-12) | The Apologetics question library's word search, the same two libraries and settings the site's search uses (whole words, English word forms, one wrong letter forgiven on longer words) | MIT |
 
 Second round (2026-10-24): the Library, the reader's extras and Listen use the site's own registered data
 (chapter figures, AI chapter summaries, OpenBible.info cross-references, places, topics, hymns, who ruled),
