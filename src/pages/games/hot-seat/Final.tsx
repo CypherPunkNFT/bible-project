@@ -17,7 +17,8 @@ interface Props { session: Session; onAnotherRound: () => void; onNewGame: () =>
 
 export function Final({ session, onAnotherRound, onNewGame, onChangePlayers }: Props) {
   const heading = useRef<HTMLHeadingElement>(null);
-  useEffect(() => { heading.current?.focus({ preventScroll: true }); }, []);
+  // The layer that held the game kept the page's scroll where setup left it; the standings start at the top of the page.
+  useEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, []);
   const rows = useMemo(() => standings(session), [session]);
   const teams = useMemo<Team[]>(() => rows.map((r) => ({ id: r.player.id, name: r.player.name, score: r.total })), [rows]);
   const played = rows.some((r) => r.played > 0);

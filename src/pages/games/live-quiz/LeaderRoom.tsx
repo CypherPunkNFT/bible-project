@@ -107,6 +107,10 @@ export function LeaderRoom({ host, bank, onLeave }: { host: SavedHost; bank: Que
     if (sound && (phase === "answer" || phase === "reveal")) play(phase === "reveal" ? "reveal" : "open");
   }, [phase, sound]);
 
+  // The ended message is far shorter than the stage it replaces, so bring the page back to the top to show it.
+  const closed = socket.status === "closed";
+  useEffect(() => { if (closed) window.scrollTo({ top: 0 }); }, [closed]);
+
   const playAgain = () => {
     if (!view || !bank) return;
     const pool = poolFor(bank, host.filters, host.theme);

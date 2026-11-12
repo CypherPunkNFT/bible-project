@@ -77,11 +77,12 @@ describe("crossword page", () => {
   });
 
   it("shows the words filled and the clock, and keeps the time in the save", async () => {
+    renderGame();
+    // Wait for the clues' dynamic import on real timers: one setImmediate was not always enough when the whole games folder ran at once.
+    const theme = await screen.findByRole("button", { name: "Jesus & the Gospels" });
     vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout", "setInterval", "clearInterval", "Date", "performance"] });
     try {
-      renderGame();
-      await act(async () => { await new Promise((resolve) => setImmediate(resolve)); }); // the clues' dynamic import settles
-      fireEvent.click(screen.getByRole("button", { name: "Jesus & the Gospels" }));
+      fireEvent.click(theme);
       fireEvent.click(screen.getByRole("button", { name: "Small" }));
       fireEvent.click(screen.getByRole("button", { name: "Make my crossword" }));
       expect(screen.getByRole("img", { name: "0 words filled" })).toBeInTheDocument();
