@@ -1,4 +1,5 @@
 import type { Translation } from "./types";
+import { compareText } from "./site-format";
 
 /**
  * How versions are grouped everywhere they are listed (owner, 2026-10-03, reshaped 2026-11-11): the English
@@ -191,7 +192,7 @@ export function groupVersions(translations: Translation[]): GroupedVersions[] {
   return VERSION_GROUPS.map((group) => {
     const members = translations.filter((t) => groupOf(t.lang).id === group.id);
     const extra = [...new Set(members.map((t) => t.lang).filter((l) => !group.langs.includes(l)))]
-      .sort((a, b) => languageName(a).localeCompare(languageName(b), "en"));
+      .sort((a, b) => compareText(languageName(a), languageName(b)));
     const langs = [...group.langs, ...extra];
     const sections = group.byLanguage
       ? langs
