@@ -59,7 +59,7 @@ All run from the Website folder after the last change to the code.
 
 The kit was not changed. Before any code was written the plan went through one review pass that read it as a security and correctness reviewer, a reliability reviewer and a platform reviewer in turn; its changes (a turn that is purely a decoration of a state already set, a drop that never swallows a tap from a new gesture, names in their own element, one fixed card height) are in the build.
 
-**Commit:** recorded below once made. Nothing was released or deployed.
+**Commit:** 8a1ba1ad6 on main, pushed to origin and accepted, followed by 73b87863a (the same work with six files' line endings put back to LF) and a small commit recording these hashes in this report. Nothing was released or deployed.
 
 ## 6. Left for later
 
