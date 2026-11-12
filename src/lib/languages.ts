@@ -1,9 +1,10 @@
 import type { Translation } from "./types";
 
 /**
- * How versions are grouped everywhere they are listed (owner, 2026-10-03): the English versions by name; the
- * original and ancient languages (Hebrew, Greek, Latin); then translations into other languages, in the owner's
- * order. Shared by the Library's versions list, the Versions page, the reader's version menu and the charts.
+ * How versions are grouped everywhere they are listed (owner, 2026-10-03, reshaped 2026-11-11): the English
+ * versions by name; the ancient languages (Hebrew, Greek, Latin); the twelve most spoken languages after English,
+ * most speakers first; then every other translation, by language name. Shared by the Library's versions list, the
+ * Versions page, the reader's version menu, the citation generator and the charts.
  */
 const LANGUAGE: Record<string, string> = {
   en: "English",
@@ -149,7 +150,7 @@ const LANGUAGE: Record<string, string> = {
 };
 
 export interface VersionGroup {
-  id: "english" | "original" | "translations";
+  id: "english" | "original" | "top" | "translations";
   title: string;
   langs: string[];
   /** Show each language as a sub-heading (not needed for English). */
@@ -158,15 +159,18 @@ export interface VersionGroup {
 
 export const VERSION_GROUPS: VersionGroup[] = [
   { id: "english", title: "English", langs: ["en", "enm"], byLanguage: false },
-  { id: "original", title: "Original and ancient languages", langs: ["he", "grc", "la"], byLanguage: true },
-  // The owner's first five, then the languages added later by number of speakers.
-  { id: "translations", title: "Translations", langs: ["es", "ar", "zh-Hans", "fr", "de", "hi", "pt", "ru", "ja", "vi", "fa", "it"], byLanguage: true },
+  { id: "original", title: "Ancient languages", langs: ["he", "grc", "la"], byLanguage: true },
+  // The twelve most spoken languages after English, by total speakers (Ethnologue 2026: Mandarin Chinese, Hindi,
+  // Spanish, Arabic, French, Bengali, Portuguese, Indonesian, Urdu, Russian, German, Japanese).
+  { id: "top", title: "Top 12 languages", langs: ["zh-Hans", "hi", "es", "ar", "fr", "bn", "pt", "id", "ur", "ru", "de", "ja"], byLanguage: true },
+  // Every other language, by its English name (see groupVersions).
+  { id: "translations", title: "Other translations", langs: [], byLanguage: true },
 ];
 
 export const languageName = (code: string): string => LANGUAGE[code] ?? code;
 
 /** Each version group's colour: the versions timeline, its legend and the Versions page's language list. */
-export const GROUP_COLOR: Record<VersionGroup["id"], string> = { english: "var(--history)", original: "var(--prophets)", translations: "var(--gospels)" };
+export const GROUP_COLOR: Record<VersionGroup["id"], string> = { english: "var(--history)", original: "var(--prophets)", top: "var(--epistles)", translations: "var(--gospels)" };
 
 /** A language the table does not know yet counts as a translation, so a new version is never hidden. */
 export const groupOf = (lang: string): VersionGroup =>
@@ -179,11 +183,16 @@ export interface GroupedVersions {
   sections: { lang: string | null; label: string | null; versions: Translation[] }[];
 }
 
-/** The versions arranged by group, then by language in the group's order, keeping catalogue order within each. */
+/**
+ * The versions arranged by group, then by language in the group's order (languages the group does not name follow,
+ * by their English names), keeping catalogue order within each language.
+ */
 export function groupVersions(translations: Translation[]): GroupedVersions[] {
   return VERSION_GROUPS.map((group) => {
     const members = translations.filter((t) => groupOf(t.lang).id === group.id);
-    const langs = [...group.langs, ...new Set(members.map((t) => t.lang).filter((l) => !group.langs.includes(l)))];
+    const extra = [...new Set(members.map((t) => t.lang).filter((l) => !group.langs.includes(l)))]
+      .sort((a, b) => languageName(a).localeCompare(languageName(b), "en"));
+    const langs = [...group.langs, ...extra];
     const sections = group.byLanguage
       ? langs
           .map((lang) => ({ lang, label: languageName(lang), versions: members.filter((t) => t.lang === lang) }))

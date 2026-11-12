@@ -1,18 +1,19 @@
 // The Versions page's heading drawing: a shelf of Bibles in line art, each spine banded in its version group's colour
 // and marked with a letter of its own script, lifting from the shelf in turn on a slow loop. The shelf edge doubles as
 // a timeline. Still under reduced motion (editions.css).
-import { GROUP_COLOR } from "@/lib/languages";
+import { GROUP_COLOR, type VersionGroup } from "@/lib/languages";
 
-/** Spines left to right, one letter per script: width, height, the letter on it and its group. */
-const SPINES: { w: number; h: number; letter: string; group: "english" | "original" | "translations" }[] = [
+/** Spines left to right, one letter per script: width, height, the letter on it and its group (the five scripts after
+ *  the Latin one are all top-12 languages, so they wear that group's band). */
+const SPINES: { w: number; h: number; letter: string; group: VersionGroup["id"] }[] = [
   { w: 23, h: 92, letter: "א", group: "original" },
   { w: 22, h: 84, letter: "Ω", group: "original" },
   { w: 25, h: 100, letter: "A", group: "english" },
-  { w: 23, h: 104, letter: "文", group: "translations" },
-  { w: 22, h: 90, letter: "ع", group: "translations" },
-  { w: 21, h: 82, letter: "Я", group: "translations" },
-  { w: 24, h: 96, letter: "अ", group: "translations" },
-  { w: 22, h: 88, letter: "あ", group: "translations" },
+  { w: 23, h: 104, letter: "文", group: "top" },
+  { w: 22, h: 90, letter: "ع", group: "top" },
+  { w: 21, h: 82, letter: "Я", group: "top" },
+  { w: 24, h: 96, letter: "अ", group: "top" },
+  { w: 22, h: 88, letter: "あ", group: "top" },
 ];
 const SHELF = 132;
 

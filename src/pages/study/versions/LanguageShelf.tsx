@@ -13,7 +13,7 @@ const NATIVE: Record<string, string> = {
 };
 
 /** How the first figure names each group: "17 English · 7 original & ancient · 136 translations". */
-const GROUP_WORDS = { english: "English", original: "original & ancient", translations: "translations" };
+const GROUP_WORDS = { english: "English", original: "ancient", top: "top 12 languages", translations: "other translations" };
 
 /** Where an edition opens: its first book at its first chapter. */
 const readerPath = (t: Translation) => {

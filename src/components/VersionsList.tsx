@@ -23,8 +23,8 @@ function testaments(catalog: Catalog, t: Translation): string {
 }
 
 /**
- * Every version in a list seven rows tall: English by name, then the original and ancient languages, then
- * translations into other languages (each language a sub-heading). The frame stays fixed while its contents
+ * Every version in a list seven rows tall: English by name, then the ancient languages, the top 12 languages and
+ * every other translation (each language a sub-heading). The frame stays fixed while its contents
  * scroll, with the current group heading pinned inside the frame.
  */
 export function VersionsList() {

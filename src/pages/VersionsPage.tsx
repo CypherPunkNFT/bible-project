@@ -8,7 +8,6 @@ import { ScriptureDownload } from "@/components/ScriptureDownload";
 import { useCatalog } from "@/lib/catalog";
 import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
 import { NUMBERING_LABEL } from "@/lib/numbering";
-import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
 import { cn, formatNumber } from "@/lib/utils";
 
@@ -119,19 +118,7 @@ export default function VersionsPage() {
       </div>
 
 
-      <section className="mt-10 grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-line bg-surface p-5">
-          <h2 className="font-serif text-2xl font-semibold">The seven colours</h2>
-          <p className="mt-1 text-sm text-muted">Everything on this site is coloured by the sections of a Bible reading chart.</p>
-          <ul className="mt-4 space-y-2">
-            {SECTIONS.map((s) => (
-              <li key={s.id} className="flex items-center gap-3 text-sm">
-                <span className="h-4 w-8 rounded" style={{ background: sectionColor(s.id) }} aria-hidden />
-                <strong>{s.name}</strong> <span className="text-muted">{s.span}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <section className="mt-10">
         <div className="rounded-2xl border border-line bg-surface p-5 text-sm">
           <h2 className="font-serif text-2xl font-semibold">Sources and credits</h2>
           <ul className="mt-4 space-y-3">
