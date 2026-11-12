@@ -8,6 +8,7 @@ import type { UrgentTopic } from "@/data/when-youre/help";
 import { plural } from "@/lib/site-format";
 import { filterOccasions } from "./filter";
 import { SourceLines } from "./OccasionPage";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 /** The first words of the featured prayer, for the card. */
 function firstWords(text: string, count = 12): string {
@@ -39,6 +40,7 @@ export function Hub() {
   const count = result.unmatched ? 0 : result.occasions.length;
   return (
     <article className="op-hub">
+      <ToolsBackLink />
       <h1>Prayers for Life's Occasions</h1>
       <p className="op-intro">
         Short prayers for the moments that matter, before surgery, a job interview, a new home or a hard conversation, each rooted in Scripture and easy to send to someone you love.

@@ -1,0 +1,5 @@
+/* The "All tools" link at the top of every tool page (ToolsBackLink.tsx): the games' .gm-back look, with room under it
+   for the title that follows. */
+.tools-back { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: .9rem; color: var(--muted); font-size: .8rem; text-decoration: none; transition: color .2s; }
+.tools-back:hover { color: var(--ink); }
+.tools-back:focus-visible { outline: none; color: var(--ink); }

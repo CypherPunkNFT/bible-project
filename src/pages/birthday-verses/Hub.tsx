@@ -8,6 +8,7 @@ import { DateChooser } from "./DateChooser";
 import { MONTH_SLUGS, PICKER_BIRTHDAY_PATH, datePath, monthDates, monthPath, todayOf } from "./dates";
 import { dateName, monthName } from "./format";
 import { birthdayPassage, passageReference } from "./verse";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export function Hub({ notice }: { notice?: string }) {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export function Hub({ notice }: { notice?: string }) {
   const [chosen, setChosen] = useState(today);
   return (
     <article className="bv-page mx-auto max-w-5xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>Birthday Bible Verses: A Verse for Every Day of the Year</h1>
       <p className="bv-intro">Choose a birthday to see its verse, then send it as a card or a message.</p>
       {notice && <p className="bv-notice" role="alert">{notice}</p>}

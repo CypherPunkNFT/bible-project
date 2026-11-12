@@ -3,7 +3,7 @@
 // meaning from the site's Biblical baby names (bible-spelling.ts). Everything runs in the browser: the name lives only
 // in the address (?name=David, so a result can be shared) and is never stored or sent. README.md beside this file.
 import { useEffect, useMemo, useState, type FormEvent } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import type { NameDocument } from "@/data/baby-names";
 import { useNamesIndex } from "@/pages/baby-names/useBabyNames";
 import { bibleCards, findInBible, joinCards, soundCards, wantsSound, wordCards, type Cards, type Found } from "./bible-spelling";
@@ -16,6 +16,7 @@ import { useNameFiles } from "./useNameFiles";
 import { WORD_TEXT } from "./word-texts";
 import "@/components/stations/stations.css";
 import "./name-in-hebrew.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export const NAME_IN_HEBREW_PATH = "/name-in-hebrew";
 const EXAMPLES = ["David", "Sarah", "John", "Mary", "Jesus", "Peter", "Emma", "Olivia", "Michael", "Grace"];
@@ -65,7 +66,7 @@ export default function NameInHebrewPage() {
   return (
     <div className="st-page nh-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Your name in Hebrew, Greek and Aramaic</h1>
         <p className="nh-lede">Type a name to see it written in Hebrew, in Greek, and in Aramaic, the language Jesus spoke, in Syriac and square letters. If it is a name from the Bible, you also see how Scripture writes it and what it means.</p>
       </header>

@@ -11,6 +11,7 @@ import { passageReference } from "./passage";
 import { PackPage } from "./PackPage";
 import "./life-events.css";
 import "./life-events-sheet.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export default function LifeEventsPage() {
   return (
@@ -37,6 +38,7 @@ function LifeEventsHub() {
   };
   return (
     <div className="le-page le-hub mx-auto max-w-6xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>Bible Verses for Life's Big Moments</h1>
       <p className="le-intro">
         Chosen Bible passages for weddings, new babies, baptisms, graduations and the other big days of life, each with a free card you can print at home.

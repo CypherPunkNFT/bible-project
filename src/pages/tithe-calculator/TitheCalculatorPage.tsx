@@ -3,7 +3,6 @@
 // (02), what the Bible says about giving (03) and how the page keeps what is typed private (04). Nothing typed is
 // sent or stored: it lives in this page's state and is gone when the page is closed or reloaded.
 import { useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
 import { GameArtImage } from "@/pages/games/art/parts";
 import { Calculator, PercentTable } from "./Calculator";
 import { START, parseAmount, parsePercent, type Entry } from "./giving";
@@ -11,6 +10,7 @@ import { Scripture } from "./Scripture";
 import { TITHE_ART } from "./tithe-art";
 import "@/pages/games/games.css";
 import "./tithe-calculator.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 function Shelf({ id, index, title, text, children }: { id: string; index: string; title: string; text: string; children: ReactNode }) {
   return <section className="gm-shelf tc-shelf" id={id} aria-labelledby={`${id}-title`}>
@@ -29,7 +29,7 @@ export default function TitheCalculatorPage() {
   return <div className="st-page gm-page tc-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="gm-hero">
       <div className="gm-hero-text">
-        <p className="st-kick"><Link to="/tools">Tools</Link></p>
+        <ToolsBackLink />
         <h1>Tithe and giving calculator:<br /><span>a tenth, or the share you choose.</span></h1>
         <p className="gm-lede">Type what you earn and how often, and see what a tithe, or any percentage you choose, comes to each week, each month and each year. It all happens on this page: nothing you type is sent anywhere or saved.</p>
         <nav className="gm-jump" aria-label="On this page">

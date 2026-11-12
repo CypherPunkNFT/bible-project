@@ -8,6 +8,7 @@ import { formatNumber, plural } from "@/lib/site-format";
 import { useRowWindow } from "@/lib/useRowWindow";
 import { applyFilters, hasPopularity, lettersWithNames, readFilters, writeFilters, type Filters, type ListVariant } from "./name-filter";
 import { useNamesIndex } from "./useBabyNames";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 const ROW_ESTIMATE = 64;
 const LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -41,7 +42,7 @@ export function NameList({ variant }: { variant: ListVariant }) {
 }
 
 function ListFrame({ title, children }: { title: string; children: ReactNode }) {
-  return <div className="bn-page mx-auto max-w-5xl px-4 sm:px-6"><h1>{title}</h1>{children}</div>;
+  return <div className="bn-page mx-auto max-w-5xl px-4 sm:px-6"><ToolsBackLink /><h1>{title}</h1>{children}</div>;
 }
 
 function LoadedList({ variant, index }: { variant: ListVariant; index: NamesIndex }) {

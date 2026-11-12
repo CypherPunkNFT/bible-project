@@ -13,6 +13,7 @@ import { QuietHelp, UrgentHelp } from "./Help";
 import { SourceLine } from "./TopicPage";
 import { useHelpDirectory } from "./useHelpDirectory";
 import { useFeatureHead } from "./useFeatureHead";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 function TopicCard({ topic }: { topic: WhenTopic }) {
   const catalog = useCatalog();
@@ -38,6 +39,7 @@ export function Hub({ unknown = false }: { unknown?: boolean }) {
   const count = result.unmatched ? 0 : result.topics.length;
   return (
     <article className="wy-hub">
+      <ToolsBackLink />
       <h1>What the Bible Says When You're…</h1>
       {unknown && (
         <div className="wy-unknown" role="status">

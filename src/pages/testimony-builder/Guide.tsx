@@ -1,4 +1,4 @@
-// Shelf 04, writing it well (design §3.4): what makes a testimony worth reading, what to do with it, and where it can
+// Writing it well (design §3.4): what makes a testimony worth reading, what to do with it, and where it can
 // go next: the testimony tree on this site, with its limits said plainly so a person knows what to shorten.
 import { Link } from "react-router-dom";
 

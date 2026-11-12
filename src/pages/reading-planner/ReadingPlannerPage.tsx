@@ -17,6 +17,7 @@ import { PlanSheet } from "./PlanSheet";
 import { toggleDay, useKeptPlan } from "./storage";
 import { dayLabel, duration, fullDate, roughNumber, rowDate } from "./text";
 import "./reading-planner.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 const CHAPTER_WORDS = WORDS as ChapterWords;
 const BOOK_CODES = new Set(Object.keys(CHAPTER_WORDS));
@@ -112,6 +113,7 @@ export default function ReadingPlannerPage() {
   return (
     <article className="rp-page mx-auto max-w-5xl px-4 sm:px-6">
       <header className="rp-head">
+        <ToolsBackLink />
         <h1>Bible reading planner</h1>
         <p className="rp-intro">Plan your Bible reading day by day: choose the books, then a finish date or a daily pace in chapters, minutes or pages. See how long each day takes, print the plan or add it to your calendar.</p>
       </header>

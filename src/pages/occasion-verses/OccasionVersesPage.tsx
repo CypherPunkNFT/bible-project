@@ -25,6 +25,7 @@ import "@/components/stations/stations.css";
 import "@/pages/sympathy/sympathy.css";
 import "@/pages/sympathy/sympathy-sheet.css";
 import "./occasion-verses.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export const PRINT_ADDRESS = "bibleguide.io/occasion-verses";
 const LIST_TITLE = "Bible readings";
@@ -110,7 +111,7 @@ export default function OccasionVersesPage() {
   return (
     <div className="st-page ov-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Occasion verse picker</h1>
         <p className="ov-lede">Bible verses for weddings, baptisms, confirmations, birthdays, new babies, graduations, funerals and every big day in between, in the Berean Standard Bible. Choose an occasion, see its passages by the part of the service they suit, gather the ones you want into a list to copy or print, and print a keepsake certificate for a baptism, a dedication, a profession of faith or a wedding.</p>
         {keys.length > 0 && <a href="#our-list" className="ov-jump">{plural(keys.length, "Our list ({n})", "Our list ({n})")}</a>}

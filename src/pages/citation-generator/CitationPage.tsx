@@ -11,6 +11,7 @@ import { buildNameIndex, MAX_REFERENCE, parseReference, type Reference } from ".
 import { citeIn, htmlText, plainText, STYLES, type PrintedBible, type StyleId } from "./styles";
 import "@/components/stations/stations.css";
 import "./citation-generator.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export const CITATION_PATH = "/citation-generator";
 const DEFAULT_REFERENCE = "John 3:16";
@@ -51,7 +52,7 @@ export default function CitationPage() {
   return (
     <div className="st-page cg-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Bible citation generator</h1>
         <p className="cg-lede">Type a Bible reference, pick the version you read and the style your school or publisher asks for, and copy the citation, written the way MLA, APA, Chicago, Turabian or SBL wants it.</p>
       </header>

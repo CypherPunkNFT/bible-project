@@ -15,6 +15,7 @@ import { cleanTitle, freshSeed, MAX_REF, MAX_TITLE, readSettings, settingsParams
 import { useSheet } from "./useSheet";
 import "@/components/stations/stations.css";
 import "./puzzle-maker.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export const PUZZLE_MAKER_PATH = "/puzzle-maker";
 const EXAMPLES = ["Psalm 23", "Genesis 1", "Exodus 20:1-17", "Ruth 1", "Luke 2:1-20", "John 3", "1 Corinthians 13"];
@@ -92,7 +93,7 @@ export default function PuzzleMakerPage() {
   return (
     <div className="st-page pm-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Puzzle maker</h1>
         <p className="pm-lede">Make a word search or a crossword from any Bible passage or theme, ready to print for a class, a family evening or a long car ride, with its answer key. The words and clues come from the Berean Standard Bible.</p>
       </header>

@@ -1,10 +1,12 @@
-/* The Testimony builder (TestimonyBuilderPage.tsx). It wears the tools hub's look (games.css: hero, numbered shelves)
+/* The Testimony builder (TestimonyBuilderPage.tsx). It wears the tools hub's look (games.css: hero, shelves without their numbers)
    and adds only its own parts, all under tb- classes: the hero verse, the two-column writing layout with its question
    list, the open question with its guidance, example and answer box, the sheet's actions and the sheet itself, on screen
    and on paper. Lines and hairlines, never boxes around everything. Its colour is the acts tone, like its drawing. */
 .tb-page { --tb: var(--acts); }
 .tb-page .st-kick a { color: inherit; }
-.tb-shelf .gm-shelf-head { border-bottom: 1px solid var(--line); }
+.tb-shelf .gm-shelf-head { grid-template-columns: minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+/* Next, and Read your testimony, scroll to a heading: it and the line above it stay clear of the site's header. */
+.tb-shelf .gm-shelf-head h2, .tb-question-title { scroll-margin-top: calc(64px + 2.75rem + env(safe-area-inset-top, 0px)); }
 .tb-page a:not(.gm-jump a) { color: var(--tb); text-underline-offset: 3px; }
 
 .tb-verse { min-height: 6.5rem; margin-top: 1.4rem; max-width: 32rem; }
@@ -73,6 +75,7 @@
 
 .tb-prose { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: .8rem; line-height: 1.65; }
 .tb-prose h3 { margin-top: .6rem; font: 450 1.25rem/1.3 var(--font-serif); }
+.tb-notes { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .tb-points { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: .7rem; padding-inline-start: 1.4rem; line-height: 1.65; list-style: decimal; }
 .tb-points li::marker { color: var(--tb); font-weight: 600; }
 

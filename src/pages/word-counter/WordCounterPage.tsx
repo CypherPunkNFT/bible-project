@@ -3,7 +3,7 @@
 // typed stays in the address bar (?q=, so a count can be shared) and is never stored or sent. How it counts: count.ts.
 // README.md beside this file.
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { StationStats } from "@/components/stations/Station";
 import { useCatalog } from "@/lib/catalog";
 import { isNewTestament } from "@/lib/sections";
@@ -14,6 +14,7 @@ import { bibleBooks, loadBible, type LoadedBible } from "./load";
 import { VerseList } from "./VerseList";
 import "@/components/stations/stations.css";
 import "./word-counter.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export const WORD_COUNTER_PATH = "/word-counter";
 const EXAMPLES = ["love", "do not be afraid", "grace", "LORD", "faith", "Son of Man", "amen", "rejoice"];
@@ -80,7 +81,7 @@ export default function WordCounterPage() {
   return (
     <div className="st-page wc-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Bible word counter</h1>
         <p className="wc-lede">How many times does a word or phrase appear in the Bible? Type one, and see the count for the whole Bible and for every book, with each verse it is in, quoted from the Berean Standard Bible and linked to the reader.</p>
       </header>

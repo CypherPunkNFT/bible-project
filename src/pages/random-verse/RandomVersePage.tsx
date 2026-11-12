@@ -3,7 +3,7 @@
 // and the choices live only in the address (?v=JHN.3.16&from=nt&theme=hope), so a verse can be shared as a link, and
 // nothing is stored or sent. How it picks: pick.ts. README.md beside this file.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { plural } from "@/lib/site-format";
 import { useAsync } from "@/lib/useAsync";
@@ -15,6 +15,7 @@ import { VERSE_COUNTS } from "./verse-counts";
 import { VerseCard, type VerseState } from "./VerseCard";
 import "@/components/stations/stations.css";
 import "./random-verse.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 interface Choice { from: From; theme: Theme | undefined }
 
@@ -76,7 +77,7 @@ export default function RandomVersePage() {
   return (
     <div className="st-page rv-page mx-auto max-w-4xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Random Bible verse</h1>
         <p className="rv-lede">One tap for a verse from the Berean Standard Bible. Draw from the whole Bible, one Testament or one book, or choose a theme such as hope, peace or courage. Copy it, share it, or open it in the reader to see where it sits.</p>
       </header>

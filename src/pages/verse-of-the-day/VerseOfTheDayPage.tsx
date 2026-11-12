@@ -6,6 +6,7 @@ import { cardPagePath, keyFromReadPath } from "@/lib/verse-card/links";
 import { Builder } from "./Builder";
 import { WidgetBox, type ShownDay } from "./Preview";
 import "./verse-of-the-day.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 const TODAY_ATTRIBUTES = { "data-style": "card" };
 
@@ -56,6 +57,7 @@ export default function VerseOfTheDayPage() {
   const [today, setToday] = useState<ShownDay | null>(null);
   return (
     <article className="vd-page mx-auto max-w-4xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>Bible verse of the day</h1>
       <WidgetBox className="vd-today" attributes={TODAY_ATTRIBUTES} onDay={setToday} />
       {today && <p className="vd-chapter"><a href={today.read}>Read the chapter</a>{keyFromReadPath(today.read) && <> · <a href={cardPagePath(keyFromReadPath(today.read)!)}>Make a card of this verse</a></>}</p>}

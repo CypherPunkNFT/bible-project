@@ -19,6 +19,7 @@ import { choosePassage, loadPassage, passageAllowed } from "./verse";
 import { VerseList } from "./VerseList";
 import "@/pages/games/games.css";
 import "./scripture-memory.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 function Shelf({ id, index, title, text, children }: { id: string; index: string; title: string; text: string; children: ReactNode }) {
   return <section className="gm-shelf sm-shelf" id={id} aria-labelledby={`${id}-title`}>
@@ -167,7 +168,7 @@ export default function ScriptureMemoryPage() {
   return <div className="st-page gm-page sm-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="gm-hero">
       <div className="gm-hero-text">
-        <p className="st-kick"><Link to="/tools">Tools</Link></p>
+        <ToolsBackLink />
         <h1>Scripture memory helper:<br /><span>a few words fewer each day.</span></h1>
         <p className="gm-lede">Choose a verse and say it aloud once a day. Each day a few more of its words fade from the page, until you can say the whole verse by heart. Your verses are kept only in this browser: no account and no tracking.</p>
         <nav className="gm-jump" aria-label="On this page">

@@ -3,7 +3,7 @@
 // (templates.ts): no AI, no generated pictures, no server, nothing stored. The reference and the choices live only in
 // the address (?ref=Psalm+23&layout=left), so a set of slides can be sent as a link. README.md beside this file.
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { plural } from "@/lib/site-format";
 import { useAsync } from "@/lib/useAsync";
@@ -20,6 +20,7 @@ import { makeSlides } from "./slides";
 import { byId, FONTS, SHAPES, SIZES, THEMES } from "./templates";
 import "@/components/stations/stations.css";
 import "./worship-slides.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 const EXAMPLES = ["Psalm 23", "Isaiah 40:28-31", "John 1:1-5", "Romans 8:31-39", "1 Corinthians 13:4-8", "Philippians 4:4-7"];
 
@@ -114,7 +115,7 @@ export default function WorshipSlidesPage() {
   return (
     <div className="st-page ws-page mx-auto max-w-5xl px-4 sm:px-6">
       <header>
-        <Link to="/tools" className="st-kick">Tools</Link>
+        <ToolsBackLink />
         <h1>Worship slide maker</h1>
         <p className="ws-lede">Turn any verse or passage of the Berean Standard Bible into clean slides for a service, a small group or a livestream. Choose a layout, a font and a background, then download the slides as pictures or as a PowerPoint file.</p>
       </header>

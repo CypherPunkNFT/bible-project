@@ -7,9 +7,9 @@ import { answeredCount, browserStore, clearStored, readRecord, readStored, write
 
 export const SAVE_DELAY_MS = 500;
 
-export const NOT_SAVED = "Your latest changes could not be saved in this browser, perhaps because its storage is full. Save a draft file to keep them.";
+export const NOT_SAVED = "Your latest changes could not be saved in this browser, perhaps because its storage is full. Save a draft, under Download your testimony, to keep them.";
 export const NEWER = "Your draft was saved by a newer version of Bible Guide, so this page shows it but will not change it. Reload the page to keep writing.";
-export const NO_STORE = "This browser is not letting the page save, so your draft lasts only while this page is open. Save a draft file to keep it.";
+export const NO_STORE = "This browser is not letting the page save, so your draft lasts only while this page is open. Save a draft, under Download your testimony, to keep it.";
 export const CHANGED_ELSEWHERE = "Your draft was changed in another tab. The answer you are writing here is kept and will be saved over it.";
 export const CLEARED_ELSEWHERE = "Your draft was cleared in another tab.";
 

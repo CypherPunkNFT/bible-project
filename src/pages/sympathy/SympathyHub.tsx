@@ -13,6 +13,7 @@ import { PassageList } from "./PassageList";
 import { ExploreMore, LoadState, SourceLine } from "./parts";
 import { scrollToMaker, useScrollToHash } from "./scroll";
 import { useSympathyPassages } from "./useSympathyPassages";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 function WritingGuide() {
   return (
@@ -47,6 +48,7 @@ export function SympathyHub() {
   };
   return (
     <article className="sy-page sy-hub mx-auto max-w-5xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>{HUB_SET.heading}</h1>
       <p className="sy-intro">{HUB_SET.intro}</p>
       <section className="sy-losses" aria-labelledby="sy-losses-title">

@@ -1,5 +1,6 @@
-// Shelf 02, the finished testimony (design §3.2, §5 and §9): the actions (Print with a paper choice, Copy, Download as
-// text, Download as a web page), a status line that says what happened, the box to copy by hand when the browser blocks
+// Download your testimony (design §3.2, §5 and §9): the actions (Print with a paper choice, Copy, Download as text,
+// Download as a web page, then the draft as a file: Save a draft, Open a draft, Start over, from KeepPanel.tsx), a status
+// line that says what happened to the sheet and one for the draft, the box to copy by hand when the browser blocks
 // the clipboard or has no downloads, the sheet on screen, and the same sheet in the print portal on <body>. Printing
 // is gated as the other sheets gate it: hidden in in-app browsers, held until the sheet's fonts have loaded.
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
@@ -10,6 +11,7 @@ import { PrintPortal } from "@/pages/life-events/PrintPortal";
 import { canPrint, defaultPaper, useFontsReady, usePrintSheet, type Paper } from "@/pages/life-events/print-sheet";
 import { SHEET_FACES } from "@/pages/sympathy/print-setup";
 import { copyText, download } from "./files";
+import { DraftButtons } from "./KeepPanel";
 import { SheetView } from "./SheetView";
 import { hasStory, pageFileName, sheetHtml, sheetPage, sheetSections, sheetText, textFileName, type Say } from "./sheet";
 import type { Answers } from "./storage";
@@ -25,6 +27,9 @@ const DOWNLOADED_PAGE = "Saved as a web page in your downloads. It opens in any 
 
 interface SheetPanelProps {
   answers: Answers;
+  answered: number;
+  onReplace: (answers: Answers) => void;
+  onClear: () => void;
 }
 
 /** The site's words for a fixed sentence, or the English when the language has none. */
@@ -33,7 +38,7 @@ const translator = (): Say => {
   return (text) => phrase(text, language) ?? text;
 };
 
-export function SheetPanel({ answers }: SheetPanelProps) {
+export function SheetPanel({ answers, answered, onReplace, onClear }: SheetPanelProps) {
   const settled = useDeferredValue(answers);
   const ready = hasStory(settled);
   const dated = formatDate(Date.now(), { dateStyle: "long" });
@@ -44,6 +49,8 @@ export function SheetPanel({ answers }: SheetPanelProps) {
   const { print } = usePrintSheet(paper, PAGE_MARGIN);
   const [status, setStatus] = useState<string | null>(null);
   const [byHand, setByHand] = useState(false);
+  // The draft's own line: a draft opened from a file changes the answers, which would wipe it from the sheet's line.
+  const [draftLine, setDraftLine] = useState<string | null>(null);
 
   // A new testimony is a new thing to copy: an old "Copied" would mislead.
   useEffect(() => { setStatus(null); setByHand(false); }, [settled]);
@@ -85,8 +92,10 @@ export function SheetPanel({ answers }: SheetPanelProps) {
       <button type="button" className="tb-secondary" disabled={!ready} onClick={() => void copy()}>Copy</button>
       <button type="button" className="tb-secondary" disabled={!ready} onClick={saveText}>Download as text</button>
       <button type="button" className="tb-secondary" disabled={!ready} onClick={savePage}>Download as a web page</button>
+      <DraftButtons answers={answers} answered={answered} onReplace={onReplace} onClear={onClear} onLine={setDraftLine} />
     </div>
     <p className="tb-status" role="status">{status ?? ""}</p>
+    <p className="tb-status" role="status">{draftLine ?? ""}</p>
     {byHand && <textarea className="tb-by-hand" readOnly aria-label="Your testimony as text" value={sheetText(sheet)} rows={12} ref={(box) => box?.select()} />}
     <section className="tb-preview" aria-label="Your testimony sheet">
       {ready

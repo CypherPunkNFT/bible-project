@@ -6,6 +6,7 @@ import { countdownPath } from "./message";
 import { SourceLine } from "./parts";
 import { currentRun, stateOf, until } from "./season";
 import { useToday } from "./useToday";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 function When({ occasion, todayN }: { occasion: Occasion; todayN: number }) {
   if (occasion.target.kind === "chosen") return <span className="cd-hub-when">Choose your own date</span>;
@@ -22,6 +23,7 @@ export function CountdownsHub() {
   const todayN = useToday();
   return (
     <article className="cd-page cd-hub mx-auto max-w-5xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>{COUNTDOWNS_HEADING}</h1>
       <p className="cd-intro">{COUNTDOWNS_INTRO}</p>
       <section aria-labelledby="cd-hub-title">

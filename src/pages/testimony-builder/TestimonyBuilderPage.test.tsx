@@ -25,7 +25,7 @@ function renderPage() {
 }
 
 const saved = () => JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null");
-const write = () => screen.getByRole("region", { name: "Write" });
+const write = () => screen.getByRole("region", { name: "Write your testimony" });
 const sheet = () => screen.getByRole("region", { name: "Your testimony sheet" });
 const box = (question = QUESTIONS[0].text) => screen.getByLabelText(question);
 const settle = async () => { await act(async () => { await vi.advanceTimersByTimeAsync(SAVE_DELAY_MS + 50); }); };
@@ -229,7 +229,7 @@ describe("keeping the draft", () => {
     vi.stubGlobal("URL", Object.assign(Object.create(URL), { createObjectURL: vi.fn((blob: Blob) => { blobs.push(blob); return "blob:draft"; }), revokeObjectURL: vi.fn() }));
     vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => undefined);
     renderPage();
-    fireEvent.click(screen.getByRole("button", { name: "Save a draft file" }));
+    fireEvent.click(screen.getByRole("button", { name: "Save a draft" }));
     expect(blobs).toHaveLength(1);
     expect(blobs[0].type).toBe("application/json");
     expect(screen.getByText(/saved as a file in your downloads/)).toBeInTheDocument();

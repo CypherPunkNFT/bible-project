@@ -3,7 +3,7 @@
 // its source (03), and where the numbers come from (04). Nothing is sent or stored: the page works in the browser
 // from its own tables, and loads only the Berean verses a reader opens.
 import { useEffect, useState, type ReactNode } from "react";
-import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { StationStats } from "@/components/stations/Station";
 import { formatNumber } from "@/lib/site-format";
 import { GameArtImage } from "@/pages/games/art/parts";
@@ -16,6 +16,7 @@ import { BIBLE_UNITS } from "./units";
 import { UnitTables } from "./UnitTables";
 import "@/pages/games/games.css";
 import "./converter.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export default function ConverterPage() {
   return <Routes>
@@ -43,7 +44,7 @@ function ConverterHome() {
   return <div className="st-page gm-page cv-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="gm-hero">
       <div className="gm-hero-text">
-        <p className="st-kick"><Link to="/tools">Tools</Link></p>
+        <ToolsBackLink />
         <h1>Biblical converter:<br /><span>cubits, shekels and talents today.</span></h1>
         <p className="gm-lede">How big was Noah's ark? What was a talent worth? Turn the Bible's lengths, weights, money and measures into today's units, with the Berean's own notes as the source and every estimate marked.</p>
         <StationStats items={[["Bible units", BIBLE_UNITS.length], ["Examples", EXAMPLES.length], ["Estimates marked", estimates]]} />

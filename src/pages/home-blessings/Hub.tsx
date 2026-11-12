@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { BLESSING_PAGES, GROUPS, OLDER_TEXTS, pagePath, type BlessingPage } from "@/data/home-blessings";
 import { Ornament } from "@/pages/life-events/Ornament";
 import { SourceLines } from "./BlessingPage";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 /** The first words of a page's featured item, for its card. */
 export function firstLine(page: BlessingPage): string {
@@ -34,6 +35,7 @@ function PageCard({ page }: { page: BlessingPage }) {
 export function Hub() {
   return (
     <article className="hb-hub">
+      <ToolsBackLink />
       <h1>Blessings for the Home</h1>
       <p className="hb-intro">
         Words to bless your home, give thanks at the table and pray with your children at bedtime: blessings from Scripture, graces families have said for centuries, and short new ones, every one ready to print.

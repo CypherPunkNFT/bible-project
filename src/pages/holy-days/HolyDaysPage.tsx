@@ -11,6 +11,7 @@ import { DayRow } from "./DayRow";
 import { HOLY_DAYS, TRADITION_LABELS } from "./days";
 import { longDate, monthName, weekdayDate, yearText } from "./format";
 import "./holy-days.css";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 const clampYear = (year: number) => Math.min(LAST_YEAR, Math.max(FIRST_YEAR, year));
 
@@ -126,6 +127,7 @@ export default function HolyDaysPage() {
 
   return (
     <article className="hd-page mx-auto max-w-4xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>Holy days calendar</h1>
       <p className="hd-intro">
         The dates of Easter in the Western and Orthodox churches, Lent, Advent, Pentecost and the feasts God gave Israel,

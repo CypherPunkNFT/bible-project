@@ -8,6 +8,7 @@ import { referenceOf } from "./load";
 import { QUICK_KEYS } from "./quick";
 import { readReference } from "./reference";
 import { useTodayVerse } from "./today";
+import { ToolsBackLink } from "@/components/tools-back/ToolsBackLink";
 
 export function StartPage({ notice }: { notice?: string }) {
   const catalog = useCatalog();
@@ -23,6 +24,7 @@ export function StartPage({ notice }: { notice?: string }) {
   };
   return (
     <article className="vcp-page mx-auto max-w-4xl px-4 sm:px-6">
+      <ToolsBackLink />
       <h1>Bible verse cards</h1>
       <p className="vcp-lede">Make a picture of a Bible verse to post or send, in the Berean Standard Bible. Every card links back to the verse.</p>
       {notice && <p className="vcp-notice" role="alert">{notice}</p>}

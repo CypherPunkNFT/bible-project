@@ -35,21 +35,23 @@ questions (`BibleProject/Testimony/INTERVIEW.md`).
   file or a self-contained web page (no script, a policy that forbids one). Every text run is escaped, the person's
   words carry `translate="no"` and `dir="auto"`, and the fixed words go through the page translator so a translated
   site's files match its screen.
-- **Keeping** ([KeepPanel.tsx](KeepPanel.tsx), [files.ts](files.ts)): Save a draft file
-  (`bible-guide-testimony-draft-YYYY-MM-DD.json`, the answers only), Open a draft file (at most 1 MB, must be a draft
-  from this page, replaces the draft after asking), Start over (asks first), and the plain truth about browser storage.
+- **The draft as a file** ([KeepPanel.tsx](KeepPanel.tsx), [files.ts](files.ts)), as buttons in the sheet's action row
+  next to Download as a web page (owner, 2026-11-11; there is no Keep your draft shelf and the shelves carry no
+  numbers): Save a draft (`bible-guide-testimony-draft-YYYY-MM-DD.json`, the answers only), Open a draft (at most 1 MB,
+  must be a draft from this page, replaces the draft after asking), Start over (asks first); the plain truth about
+  browser storage closes the page under Writing it well.
 - **The hero** quotes Mark 5:19 from the Berean (verse id only, loaded through the converter's `useVerseText` with
   its Retry), with a link to the reader.
 
 | File | What is in it |
 |---|---|
-| [TestimonyBuilderPage.tsx](TestimonyBuilderPage.tsx) | The page: hero and verse, the four shelves, which question is open. |
+| [TestimonyBuilderPage.tsx](TestimonyBuilderPage.tsx) | The page: hero and verse, the three shelves (Write your testimony, Download your testimony, Writing it well), which question is open. |
 | [questions.ts](questions.ts) | The eighteen prompts and their limits. |
 | [lines.ts](lines.ts) | The counted sentences ("Question 7 of 18", "7 of 18 answered", the counter), whole, through `plural()`. |
 | [QuestionForm.tsx](QuestionForm.tsx), [QuestionList.tsx](QuestionList.tsx) | The open question and the list of all of them. |
 | [useDraft.ts](useDraft.ts), [storage.ts](storage.ts) | The draft in the page and in the browser; draft files. |
 | [sheet.ts](sheet.ts), [SheetView.tsx](SheetView.tsx), [SheetPanel.tsx](SheetPanel.tsx) | The finished sheet as text, HTML and on screen or paper, and its actions. |
-| [KeepPanel.tsx](KeepPanel.tsx), [files.ts](files.ts), [Guide.tsx](Guide.tsx) | Keeping the draft; downloads, copying and reading a file; writing it well. |
+| [KeepPanel.tsx](KeepPanel.tsx), [files.ts](files.ts), [Guide.tsx](Guide.tsx) | The draft as a file (its buttons and notes); downloads, copying and reading a file; writing it well. |
 | [art.tsx](art.tsx), [testimony-art.ts](testimony-art.ts) | Its picture on the tools hub, in the acts colour. |
 | [testimony-builder.css](testimony-builder.css) | Its styles (`tb-` classes), on screen and in print. |
 
