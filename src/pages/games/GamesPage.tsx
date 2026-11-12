@@ -1,7 +1,7 @@
 // /games: the games hub, and each live game at its own address (/games/<slug>). The hub is a hero with the games-table
 // drawing, then one door per shelf (registry.ts SHELVES; the row and its behaviour in src/components/hub-doors/), and
-// under the doors the chosen shelf's games (?shelf=<key>, the first shelf by default), each game a tile with its own
-// picture (art/). A game not built yet is a "Coming soon" tile with its full picture and no link; its address returns
+// under the doors every shelf's games in order, or the chosen shelf's alone (?shelf=<key>; clicking its door again shows
+// all), each game a tile with its own picture (art/). A game not built yet is a "Coming soon" tile with its full picture and no link; its address returns
 // here, as unpublished Resources sections do. Tiles sit between hairlines like the stations' doorways, never in boxes
 // (the owner's call). The doors replaced a long page of every shelf (owner, 2026-11-11; the versions the owner chose
 // from stay at /games_mockup and /games_mockup2 on the preview).
@@ -45,7 +45,7 @@ function GamesHub() {
   const shelves: ShelfOfGames[] = SHELVES.map((shelf) => ({ ...shelf, games: games.filter((game) => shelfOf(game) === shelf.key) }))
     .filter((shelf) => shelf.games.length > 0);
   const selected = selectedDoor(params.get("shelf"), shelves.map((shelf) => shelf.key));
-  const shown = shelves.find((shelf) => shelf.key === selected) ?? shelves[0];
+  const shown = shelves.find((shelf) => shelf.key === selected) ?? null;
   return <div className="st-page gm-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
     <div className="hub-doors-fold v2">
     <header className="gm-hero">
@@ -57,10 +57,13 @@ function GamesHub() {
       </div>
       <div className="gm-hero-figure"><HeroArt /></div>
     </header>
-    <HubDoors param="shelf" label="Kinds of game" controls={`shelf-${shown.key}`} selected={shown.key}
+    <HubDoors param="shelf" label="Kinds of game" controls="game-shelves" selected={shown?.key ?? null}
       doors={shelves.map((shelf) => ({ key: shelf.key, title: shelf.title, tone: DOOR_TONES[shelf.key], count: shelf.games.length, art: DOOR_ART[shelf.key] }))} />
     </div>
-    <ShelfSection key={shown.key} shelf={shown} plain />
+    <div id="game-shelves">
+      {shown ? <ShelfSection key={shown.key} shelf={shown} plain />
+        : shelves.map((shelf) => <ShelfSection key={shelf.key} shelf={shelf} plain />)}
+    </div>
   </div>;
 }
 

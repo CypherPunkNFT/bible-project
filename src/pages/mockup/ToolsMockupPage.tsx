@@ -26,7 +26,8 @@ export default function ToolsMockupPage({ version = 1 }: { version?: 1 | 2 }) {
   const categories: CategoryOfTools[] = DOOR_ORDER.map((key) => CATEGORIES.find((category) => category.key === key)!)
     .map((category) => ({ ...category, title: DOOR_TITLES[category.key] ?? category.title, tools: tools.filter((tool) => tool.category === category.key) }))
     .filter((category) => category.tools.length > 0);
-  const selected = selectedDoor(params.get("category"), categories.map((category) => category.key));
+  // The mock-ups keep the look the owner chose from: the first category by default, a click on the chosen door changes nothing.
+  const selected = selectedDoor(params.get("category"), categories.map((category) => category.key)) ?? categories[0].key;
   const index = categories.findIndex((category) => category.key === selected);
   return <div className="st-page gm-page tl-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
     <div className={`hub-doors-fold${version === 2 ? " v2" : ""}`}>
@@ -39,7 +40,7 @@ export default function ToolsMockupPage({ version = 1 }: { version?: 1 | 2 }) {
       </div>
       <div className="gm-hero-figure"><HeroArt /></div>
     </header>
-    <HubDoors param="category" label="Kinds of tool" controls={`tools-${selected}`} selected={selected}
+    <HubDoors param="category" label="Kinds of tool" controls={`tools-${selected}`} selected={selected} toggle={false}
       doors={categories.map((category) => ({ key: category.key, title: category.title, tone: DOOR_TONES[category.key], count: category.tools.length, art: DOOR_ART[category.key] }))} />
     </div>
     {version === 2

@@ -6,7 +6,7 @@
    .hub-doors-page: a hub whose doors must show without scrolling (owner, 2026-11-11). The hero starts just under the
    menu, the stats lose their line, and the drawing on the right is sized to the words beside it: its top at the kicker,
    its bottom at the stats. */
-.hub-doors { display: grid; grid-template-columns: repeat(var(--doors, 5), minmax(0, 1fr)); gap: 18px; margin-top: 22px; padding-top: 6px; border-bottom: 1px solid var(--line); scroll-margin-top: calc(64px + 1.5rem); }
+.hub-doors { display: grid; grid-template-columns: repeat(var(--doors, 5), minmax(0, 1fr)); gap: 18px; margin-top: 22px; padding-top: 6px; border-bottom: 1px solid var(--line); }
 .hub-door { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 4px 8px 14px; text-align: center; color: var(--ink); text-decoration: none; transition: color .2s; }
 .hub-door::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--tone); transform: scaleX(0); transition: transform .25s; }
 .hub-door.selected { color: var(--tone); }
@@ -18,9 +18,11 @@
 .hub-door:is(:hover, :focus-visible) .hub-door-art { transform: translateY(-6px); }
 .hub-door:is(:hover, :focus-visible) strong { color: var(--tone); }
 .hub-door:focus-visible { outline: none; }
-.hub-doors + .gm-shelf { padding-top: 8px; }
-/* Version 2's section: a little under the doors' line, headed by its title and text alone (no number, no count). */
+/* Version 2's section: a little under the doors' line, headed by its title and text alone (no number, no count). With
+   no door chosen every category follows, each the usual shelf gap below the one before. */
 .hub-doors-page .hub-doors-bare { margin-top: 1.6rem; padding-top: 0; }
+.hub-doors-page .hub-doors-bare + .hub-doors-bare { margin-top: 4.2rem; }
+@media (max-width: 639px) { .hub-doors-page .hub-doors-bare + .hub-doors-bare { margin-top: 3rem; } }
 .hub-doors-bare-head { grid-template-columns: minmax(0, 1fr); }
 
 .hub-doors-page.st-page { padding-top: 2rem; }

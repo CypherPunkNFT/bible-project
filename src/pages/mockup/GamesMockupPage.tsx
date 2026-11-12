@@ -21,7 +21,8 @@ export default function GamesMockupPage({ version = 1 }: { version?: 1 | 2 }) {
   const forGroups = games.filter((game) => game.audiences.some((a) => a === "youth-group" || a === "church-night")).length;
   const shelves: ShelfOfGames[] = SHELVES.map((shelf) => ({ ...shelf, games: games.filter((game) => shelfOf(game) === shelf.key) }))
     .filter((shelf) => shelf.games.length > 0);
-  const selected = selectedDoor(params.get("shelf"), shelves.map((shelf) => shelf.key));
+  // The mock-ups keep the look the owner chose from: the first shelf by default, a click on the chosen door changes nothing.
+  const selected = selectedDoor(params.get("shelf"), shelves.map((shelf) => shelf.key)) ?? shelves[0].key;
   const index = shelves.findIndex((shelf) => shelf.key === selected);
   return <div className="st-page gm-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
     <div className={`hub-doors-fold${version === 2 ? " v2" : ""}`}>
@@ -34,7 +35,7 @@ export default function GamesMockupPage({ version = 1 }: { version?: 1 | 2 }) {
       </div>
       <div className="gm-hero-figure"><HeroArt /></div>
     </header>
-    <HubDoors param="shelf" label="Kinds of game" controls={`shelf-${selected}`} selected={selected}
+    <HubDoors param="shelf" label="Kinds of game" controls={`shelf-${selected}`} selected={selected} toggle={false}
       doors={shelves.map((shelf) => ({ key: shelf.key, title: shelf.title, tone: DOOR_TONES[shelf.key], count: shelf.games.length, art: DOOR_ART[shelf.key] }))} />
     </div>
     {version === 2

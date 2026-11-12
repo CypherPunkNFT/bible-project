@@ -1,9 +1,9 @@
 // Shared pieces of a hub's doors (HubDoors.tsx), kept apart from the component so fast refresh keeps working.
 import type { ReactNode } from "react";
 
-/** The door to show: the one named by the search parameter, or the first. */
-export function selectedDoor<K extends string>(value: string | null, keys: readonly K[]): K {
-  return keys.find((key) => key === value) ?? keys[0];
+/** The chosen door: the one named by the search parameter, or null (none chosen: the hub shows every category). */
+export function selectedDoor<K extends string>(value: string | null, keys: readonly K[]): K | null {
+  return keys.find((key) => key === value) ?? null;
 }
 
 /** The frame every door drawing shares: a 200 x 215 box, strokes in currentColor (the door's tone), two faint rings. */

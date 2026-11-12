@@ -1,7 +1,8 @@
 // /tools: the tools hub. Built like the games hub (src/pages/games/GamesPage.tsx) and with its styles (games.css, the
 // gm- classes), so the two read as one design: a hero with the tools-table drawing, then one door per category
-// (registry.ts CATEGORIES; the row and its behaviour in src/components/hub-doors/), and under the doors the chosen
-// category's tools (?category=<key>, the first category by default), each tool a tile with its own picture (art/). A
+// (registry.ts CATEGORIES; the row and its behaviour in src/components/hub-doors/), and under the doors every category's
+// tools in order, or the chosen category's alone (?category=<key>; clicking its door again shows all), each tool a tile
+// with its own picture (art/). A
 // finished tool links to its own address; one not built yet is a "Coming soon" tile with its full picture and no link.
 // Four tiles to a row, as on the games hub (owner, 2026-11-11; it had three). The doors replaced a long page of every category (owner, 2026-11-11; the
 // versions the owner chose from stay at /tools_mockup and /tools_mockup2 on the preview).
@@ -39,7 +40,7 @@ function ToolsHub() {
   const categories: CategoryOfTools[] = CATEGORIES.map((category) => ({ ...category, tools: tools.filter((tool) => tool.category === category.key) }))
     .filter((category) => category.tools.length > 0);
   const selected = selectedDoor(params.get("category"), categories.map((category) => category.key));
-  const shown = categories.find((category) => category.key === selected) ?? categories[0];
+  const shown = categories.find((category) => category.key === selected) ?? null;
   return <div className="st-page gm-page tl-page hub-doors-page mx-auto max-w-7xl px-4 sm:px-6">
     <div className="hub-doors-fold v2">
     <header className="gm-hero">
@@ -51,10 +52,13 @@ function ToolsHub() {
       </div>
       <div className="gm-hero-figure"><HeroArt /></div>
     </header>
-    <HubDoors param="category" label="Kinds of tool" controls={`tools-${shown.key}`} selected={shown.key}
+    <HubDoors param="category" label="Kinds of tool" controls="tools-categories" selected={shown?.key ?? null}
       doors={categories.map((category) => ({ key: category.key, title: category.title, tone: DOOR_TONES[category.key], count: category.tools.length, art: DOOR_ART[category.key] }))} />
     </div>
-    <CategorySection key={shown.key} category={shown} plain />
+    <div id="tools-categories">
+      {shown ? <CategorySection key={shown.key} category={shown} plain />
+        : categories.map((category) => <CategorySection key={category.key} category={category} plain />)}
+    </div>
   </div>;
 }
 

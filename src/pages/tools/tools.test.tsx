@@ -73,7 +73,7 @@ describe("tools registry", () => {
   });
 });
 
-// The hub shows one category at a time, chosen by ?category= (the first by default), so these tests open each in turn.
+// The hub lists every category until a door is chosen (?category=); the per-category tests open each on its own.
 const USED = CATEGORIES.filter((category) => TOOLS.some((tool) => tool.category === category.key));
 
 describe("tools hub", () => {
@@ -95,10 +95,10 @@ describe("tools hub", () => {
     expect(comingSoonFeet).toBe(TOOLS.length - live.length);
   });
 
-  it("shows the first category by default, then the chosen one alone, live tools first in it", () => {
-    const first = renderAt("/tools");
-    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
-    first.unmount();
+  it("lists every category by default, then the chosen one alone, live tools first in it", () => {
+    const all = renderAt("/tools");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual(USED.map((category) => category.title));
+    all.unmount();
     for (const category of USED) {
       const { unmount } = renderAt(`/tools?category=${category.key}`);
       expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([category.title]);
@@ -108,9 +108,9 @@ describe("tools hub", () => {
     }
   });
 
-  it("falls back to the first category for an unknown one", () => {
+  it("lists every category for an unknown one", () => {
     renderAt("/tools?category=no-such-category");
-    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[0].title]);
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual(USED.map((category) => category.title));
   });
 
   it("draws every tool's picture with its description for screen readers, and the hero's", () => {
@@ -127,17 +127,21 @@ describe("tools hub", () => {
     expect(screen.getByRole("link", { name: "Biblical baby names" })).toHaveAttribute("href", "/baby-names");
   });
 
-  it("has a door for each category under the hero, in order; choosing one shows that category", () => {
+  it("has a door for each category under the hero, in order, none chosen; choosing one shows that category alone, choosing it again shows all", () => {
     renderAt("/tools");
     const doors = within(screen.getByRole("navigation", { name: "Kinds of tool" })).getAllByRole("link");
     expect(doors.map((door) => door.textContent)).toEqual(USED.map((category) => `${category.title}${TOOLS.filter((tool) => tool.category === category.key).length}`));
     expect(doors.map((door) => door.getAttribute("href"))).toEqual(USED.map((category) => `/tools?category=${category.key}`));
-    expect(doors[0]).toHaveAttribute("aria-current", "true");
+    for (const door of doors) expect(door).not.toHaveAttribute("aria-current");
     fireEvent.click(doors[2]);
     expect(doors[2]).toHaveAttribute("aria-current", "true");
+    expect(doors[2]).toHaveAttribute("href", "/tools");
     expect(doors[0]).not.toHaveAttribute("aria-current");
     expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([USED[2].title]);
     expect(document.getElementById(doors[2].getAttribute("aria-controls") ?? "")).not.toBeNull();
+    fireEvent.click(doors[2]);
+    for (const door of doors) expect(door).not.toHaveAttribute("aria-current");
+    expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual(USED.map((category) => category.title));
   });
 
   it("names who each tool is for", () => {
