@@ -20,6 +20,8 @@ All five checks were run from the Website folder on 2026-11-11, over the whole g
 - **Hot seat, on a phone:** the final standings opened about two thousand pixels down the page, in the site's footer, so the player saw links instead of the podium. The game had kept the page's scroll from the setup screen behind its full-screen layer; the standings now bring the page back to the top the moment they open. This was found by the play-through and confirmed by measuring the page: the heading sat 1,930 pixels above the screen.
 - **Live youth-group quiz, leader's screen on a phone:** the "This game has ended" message had the same symptom, because the ended screen is far shorter than the stage it replaces. The page now returns to the top when the room closes. (The leader's screen is meant for a laptop or projector, and says so on a phone, so this was a small one.)
 
+**Commit:** `d738db2b7` on `main`, "Games redesign: whole-hub checks, play-through of all sixteen games and the owner's report", pushed to origin and accepted; this hash line was added in a small second commit. Nothing was released or deployed.
+
 **Bigger things noticed and not fixed here** are listed in section 6, with the ones each step left for later in section 4.
 
 ## 2. Playing every game
