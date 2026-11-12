@@ -68,10 +68,10 @@ All run from the Website folder after the last change, in this order.
 - `npm run typecheck`: exit 0.
 - `npx eslint src/pages/games/quiz --max-warnings 0`: 0 errors, 0 warnings.
 - The English check (`py -3.12 content/translation/english_build_check.py`): 0 unregistered texts, 0 new, every language net 0 new.
-- `npm run build`: exit 0, twice (the second after the settled answer cards' pointer edge, the faded cards, the seal over the tile's word and the phone card scrolling to the top were tidied from the first screenshots).
+- `npm run build`: exit 0, five times (the later ones after the settled answer cards' pointer edge, the faded cards, the seal over the tile's word, the phone card scrolling to the top clear of the site's header, and the Start again button's place being held were tidied from the screenshots).
 - Play-through on the preview with Playwright at 1440 by 900 and 390 by 844, dark and light, from a cleared browser: the start, a tile opened (the card growing), a right answer mid-turn and settled, Next, a wrong answer, two answers by key with the streak lit, the board mid-play, a reload keeping the round, Carry on to the end with one more miss, the ending counting up and settled, Share pressed, the finished board, keyboard focus on a tile, Start again's dialog and the restart. Console errors: 0 in all four passes. Measured: no sideways scroll at either width (document width equal to the screen); Play all twelve 180 by 44; the tiles 220 by 308 on the desktop and 174 by 218 on the phone; the answer cards 340 by 72 and 159 by 64; the close button 44 by 44; Next 160 by 44, at 639 on the desktop screen and 676 on the phone's 844 (inside the first screen after every answer); the Share button 44 tall; the page's scroll 0 after a right answer on the desktop; the keyboard lands on the question when it opens and on a tile after Tab on the board.
 
-Commit: (recorded below once made).
+Commit: `663b9b222` on `main`, "Redesign: How well do you know the Bible? (from its visual audit)", pushed to `origin main` (accepted without force). The report's hash line was added in a small follow-up commit.
 
 ## 6. Left for later
 
