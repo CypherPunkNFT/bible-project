@@ -1,0 +1,214 @@
+/* /games/quiz (QuizGame.tsx): the games-page quiz's own look over the kit's behaviour (../kit/kit.css). Its hub colour
+   is the Revelation crimson: the edge a tile or an answer takes on hover and focus, the open mark on the trail, the
+   Play button. Right stays gold and missed stays the quiz's red-brown, as on the homepage, so a finished board reads
+   the same way there and here. The homepage's own files are not touched; the drawings' strokes come from
+   src/pages/home-quiz.css (.qs-scene). One card shape (the tile, the question card, the answer card), no boxes round
+   boxes; one soft light behind the drawing is the only glow, plus a moment's gold on the answer that landed. No focus
+   outline: focus is the lift and the edge. Every state is set at once; the motion only decorates it, and
+   src/index.css cuts it to 0.01 ms under reduced motion (the staggers are zeroed below). */
+.qz-page {
+  --qz-color: var(--revelation);
+  --qz-right: var(--accent);
+  --qz-wrong: #a4473a;
+  --qz-ease: cubic-bezier(.16, 1, .3, 1);
+  --kit-color: var(--qz-color);
+  --kit-right: var(--qz-right);
+  --kit-wrong: var(--qz-wrong);
+  --kit-radius: 16px;
+  --kit-ease: var(--qz-ease);
+  --home-color: var(--qz-color);
+  padding-bottom: 5rem;
+}
+:root[data-theme="dark"] .qz-page { --qz-wrong: #d47767; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .qz-page { --qz-wrong: #d47767; } }
+
+/* ---- The head: title, start again ------------------------------------------------------------------------------- */
+.qz-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem 2.5rem; margin-top: 1.5rem; }
+.qz-head h1 { margin: 14px 0 0; font: 400 clamp(30px, 3.4vw, 50px)/1.1 var(--font-serif); letter-spacing: -.02em; }
+.qz-head h1 em { color: var(--accent); }
+.qz-restart { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted);
+  font: 600 .72rem var(--font-sans); letter-spacing: .12em; text-transform: uppercase; transition: color .3s var(--qz-ease), border-color .3s var(--qz-ease), transform .3s var(--qz-ease); }
+.qz-restart[data-hidden] { visibility: hidden; }
+.qz-restart:is(:hover, :focus-visible) { color: var(--ink); border-color: var(--qz-color); transform: translateY(-2px); }
+.qz-dialog-note { margin: 0; color: var(--muted); font-size: .95rem; }
+.qz-stage { margin-top: 2rem; }
+.qz-more { margin: 3rem 0 0; color: var(--muted); font-size: .9rem; }
+.qz-more a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); transition: text-decoration-color .3s var(--qz-ease); }
+.qz-more a:is(:hover, :focus-visible) { text-decoration-color: var(--qz-color); }
+
+/* ---- Buttons: Play in the game's crimson, the quiet ones outlined --------------------------------------------- */
+.qz-play, .qz-secondary, .qz-next { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; padding: .6rem 1.4rem; border-radius: 999px; font: 600 .95rem var(--font-sans);
+  transition: transform .35s var(--qz-ease), box-shadow .35s var(--qz-ease), border-color .35s var(--qz-ease); }
+.qz-play { background: var(--qz-color); color: var(--page); padding-inline: 1.6rem; font-size: 1rem; }
+.qz-next { background: var(--qz-color); color: var(--page); font-size: .9rem; }
+.qz-secondary { border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.qz-play:is(:hover, :focus-visible), .qz-next:is(:hover, :focus-visible), .qz-secondary:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--qz-color); box-shadow: 0 12px 24px -18px rgb(0 0 0 / .6); }
+.qz-play:active, .qz-next:active, .qz-secondary:active { transform: translateY(0); }
+
+/* ---- The board: Play all twelve, then the twelve tiles that become the scorecard (audit items 5 and 6) -------- */
+.qz-start { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.2rem; }
+.qz-start-or { color: var(--muted); font-size: .92rem; }
+.qz-tiles { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 1.6rem 0 0; padding: 0; }
+.qz-tiles > li { min-width: 0; animation: qz-deal .55s var(--qz-ease) both; animation-delay: calc(var(--qz-i, 0) * 45ms); }
+.qz-tile { position: relative; display: flex; flex-direction: column; width: 100%; aspect-ratio: 5 / 7; padding: 14px 14px 16px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
+  color: var(--ink); text-align: start; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  transition: transform .4s var(--qz-ease), border-color .4s var(--qz-ease), box-shadow .4s var(--qz-ease), opacity .4s var(--qz-ease); }
+.qz-tile:is(:hover, :focus-visible) { transform: translateY(-4px); border-color: var(--qz-color); box-shadow: 0 24px 40px -28px rgb(0 0 0 / .5); }
+.qz-tile:active { transform: translateY(-1px) scale(.985); transition-duration: .08s; }
+/* The drawing redraws itself under the pointer or the keyboard: the same stroke animation as its first drawing-in. */
+.qz-tile:is(:hover, :focus-visible) .qs-scene :is(path, rect, circle, ellipse):not(.qs-dots):not(.qs-stream) { animation-name: qz-redraw; }
+.qz-tile-top { display: flex; justify-content: space-between; gap: 8px; font: 600 9.5px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.qz-tile-top span:first-child { color: var(--qz-color); }
+.qz-tile-art { flex: 1; min-height: 0; display: grid; place-items: center; color: var(--accent); transition: color .4s var(--qz-ease); }
+.qz-tile-art .qs-scene { width: 100%; max-height: 140px; overflow: visible; }
+.qz-tile-ask { display: -webkit-box; height: calc(3 * 1.35em); overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; font: 400 15px/1.35 var(--font-serif); color: var(--ink); }
+.qz-tile[data-state="right"] { border-color: var(--qz-right); background: color-mix(in srgb, var(--qz-right) 10%, var(--surface)); }
+.qz-tile[data-state="right"] .qz-tile-top span:last-child { color: var(--qz-right); }
+.qz-tile[data-state="wrong"] { opacity: .72; border-color: color-mix(in srgb, var(--qz-wrong) 45%, var(--line)); }
+.qz-tile[data-state="wrong"] .qz-tile-art { color: var(--muted); }
+.qz-tile[data-state="wrong"] .qz-tile-top span:last-child { color: var(--qz-wrong); }
+.qz-tile[data-state="wrong"]:is(:hover, :focus-visible) { opacity: 1; }
+.qz-seal { position: absolute; right: 12px; top: 10px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--qz-right); color: var(--page); animation: qz-pop .45s var(--qz-ease) both; }
+.qz-ribbon { position: absolute; right: -34px; top: 14px; width: 120px; padding: 3px 0; background: var(--qz-wrong); color: #fff; font: 700 8.5px/1.2 var(--font-sans); letter-spacing: .18em; text-transform: uppercase; text-align: center; transform: rotate(45deg); transform-origin: 50% 50%; }
+.qz-tile { overflow: clip; }
+/* Once answered, the seal or the ribbon says it; the word stays for screen readers only. */
+.qz-tile[data-state] .qz-tile-top span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- The question card: grows from its tile; the picture turns over, the answers deal in (audit items 1, 3, 5) --- */
+.qz-card { position: relative; scroll-margin-top: 90px; padding: 18px clamp(18px, 3vw, 32px) 28px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); transform-origin: 0 0; animation: qz-in .5s var(--qz-ease) both; }
+.qz-card.is-growing { animation: qz-grow .6s var(--qz-ease) both; }
+.qz-card-top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto auto; align-items: center; gap: 12px 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.qz-count { font: 600 11px var(--font-sans); letter-spacing: .16em; color: var(--muted); }
+.qz-trail { --kit-pip: .85rem; --kit-pip-gap: .3rem; }
+.qz-trail .kit-trail__mark { border-radius: 3px; }
+.qz-streak { font: 600 .85rem var(--font-sans); }
+.qz-streak:not(.is-lit) { opacity: .45; }
+.qz-score { position: relative; display: flex; align-items: baseline; gap: .4rem; margin: 0; }
+.qz-score-n { display: inline-block; font: 400 1.9rem/1 var(--font-serif); color: var(--qz-right); font-variant-numeric: tabular-nums; }
+.qz-score-n.is-bumped { animation: qz-bump .45s var(--qz-ease); }
+.qz-score > span { font: 600 9.5px var(--font-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.qz-plus { position: absolute; left: 0; top: 0; color: var(--qz-right); font: 600 1rem var(--font-sans); animation: qz-float .9s var(--qz-ease) both; pointer-events: none; }
+.qz-close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); transition: border-color .3s var(--qz-ease), transform .3s var(--qz-ease); }
+.qz-close:is(:hover, :focus-visible) { border-color: var(--qz-color); transform: translateY(-2px); }
+.qz-card-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 56px); align-items: start; margin-top: 24px; }
+
+/* The picture: the drawing under a giant faded number, one soft light behind it; the verse on the back. */
+.qz-picture { --kit-radius: 20px; min-height: 420px; }
+.qz-picture .kit-flip__inner { min-height: inherit; }
+.qz-picture .kit-flip__face { display: grid; place-items: center; min-height: 420px; overflow: hidden; }
+.qz-picture .kit-flip__front { color: var(--accent); border-color: transparent; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 14%, transparent), transparent), color-mix(in srgb, var(--accent) 5%, var(--page)); }
+.qz-face { position: relative; display: grid; place-items: center; width: 100%; height: 100%; }
+.qz-face .qs-scene { position: relative; width: 82%; overflow: visible; }
+.qz-num { position: absolute; left: 22px; top: 6px; font: 400 130px/1 var(--font-serif); letter-spacing: -.05em; color: color-mix(in srgb, var(--accent) 12%, transparent); pointer-events: none; }
+.qz-picture .kit-flip__back { padding: clamp(24px, 3vw, 44px); color: var(--page); }
+.qz-picture .kit-flip__back.is-right { border: 2px solid var(--qz-right); background: linear-gradient(155deg, color-mix(in srgb, var(--qz-right) 80%, #000), var(--qz-right)); }
+.qz-picture .kit-flip__back.is-wrong { border: 2px solid var(--qz-wrong); background: linear-gradient(155deg, color-mix(in srgb, var(--qz-wrong) 70%, #000), color-mix(in srgb, var(--qz-wrong) 85%, var(--qz-right))); }
+.qz-verse { margin: 0; font: 400 clamp(19px, 1.9vw, 26px)/1.4 var(--font-serif); }
+.qz-verse cite { display: block; margin-top: 14px; font: 600 11px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; font-style: normal; opacity: .8; }
+
+/* The question and its four answer cards. */
+.qz-main { display: flex; flex-direction: column; min-width: 0; animation: qz-in .6s var(--qz-ease) both; }
+.qz-meta { display: flex; justify-content: space-between; gap: 16px; margin: 0; font: 600 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.qz-meta span:last-child { color: var(--qz-color); }
+.qz-ask { margin: 16px 0 0; font: 400 clamp(26px, 2.6vw, 38px)/1.15 var(--font-serif); letter-spacing: -.02em; }
+.qz-answers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+.qz-answer { --kit-card-height: 72px; align-items: flex-end; padding: 12px 14px 12px 14px; border-radius: 16px; background: var(--page); font: 400 1.15rem/1.25 var(--font-serif); }
+.qz-answer .kit-card__body { display: flex; align-items: flex-end; gap: .75rem; }
+.qz-letter { flex: none; font: 400 1.6rem/1 var(--font-serif); color: var(--qz-color); opacity: .55; transition: opacity .3s var(--qz-ease), color .3s var(--qz-ease); }
+.qz-answer:is(:hover, :focus-visible) .qz-letter { opacity: 1; }
+.qz-option { min-width: 0; padding-bottom: .1em; }
+.qz-answer.is-right { color: var(--ink); }
+.qz-answer.is-right .qz-letter { color: var(--qz-right); opacity: 1; }
+.qz-answer.is-right.is-landed { animation: qz-swell .7s var(--qz-ease); }
+.qz-answer.is-right:not(.is-landed) { animation: qz-pulse 1.1s var(--qz-ease) 2; }
+.qz-answer.is-wrong .qz-letter { color: var(--qz-wrong); opacity: 1; }
+.qz-answer.is-wrong .qz-option { text-decoration: line-through; text-decoration-thickness: 1px; }
+.qz-answer.is-faded .qz-letter { opacity: .35; }
+/* The deal-in keyframe's final opacity would hold a faded card at full strength, and the kit's hover edge would turn a
+   settled card crimson under a pointer still resting on it: settled cards keep their own edge and fade. */
+.qz-answer.is-faded { animation: none; }
+.qz-answer.is-right:is(:hover, :focus-visible) { border-color: var(--qz-right); }
+.qz-answer.is-wrong:is(:hover, :focus-visible) { border-color: var(--qz-wrong); }
+.qz-answer.is-faded:is(:hover, :focus-visible) { border-color: var(--line); }
+
+/* The band: the verdict and Next, the reason and the way to the chapter folded under. */
+.qz-band { margin-top: 18px; border-radius: 16px; border: 1px solid var(--line); border-top-width: 1px; }
+.qz-band.is-right { border-color: color-mix(in srgb, var(--qz-right) 45%, var(--line)); background: color-mix(in srgb, var(--qz-right) 9%, var(--surface)); }
+.qz-band.is-wrong { border-color: color-mix(in srgb, var(--qz-wrong) 45%, var(--line)); background: color-mix(in srgb, var(--qz-wrong) 8%, var(--surface)); }
+.qz-verdict { font: 500 1.05rem var(--font-serif); }
+.qz-band.is-right .qz-verdict { color: var(--qz-right); }
+.qz-band.is-wrong .qz-verdict > span { color: var(--qz-wrong); }
+.qz-band.is-wrong .qz-verdict strong { font-weight: 500; color: var(--ink); }
+.qz-why { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.qz-read { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; margin-top: .2rem; color: var(--ink); font: 600 .8rem var(--font-sans); letter-spacing: .06em; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); transition: text-decoration-color .3s var(--qz-ease); }
+.qz-read:is(:hover, :focus-visible) { text-decoration-color: var(--qz-color); }
+
+/* ---- The ending: the score counts up, a rank, the verdict verse, the twelve marks, share (audit item 4) --------- */
+.qz-result { padding: clamp(24px, 4vw, 48px) clamp(18px, 3vw, 32px); border: 1px solid var(--line); border-radius: 28px; background: var(--surface); animation: qz-in .5s var(--qz-ease) both; }
+.qz-result-score { position: relative; --kit-score-size: clamp(4rem, 12vw, 6.5rem); color: var(--qz-right); }
+.qz-result-score .kit-score { color: var(--qz-right); }
+.qz-rank { font-size: 1.5rem; }
+.qz-result-streak { display: inline-flex; align-items: center; gap: .6rem; margin: 0; color: var(--muted); font: 600 .72rem var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.qz-verdict-title { max-width: 26ch; margin: 1.2rem 0 0; font: 400 clamp(26px, 3vw, 40px)/1.15 var(--font-serif); letter-spacing: -.02em; }
+.qz-verdict-verse { max-width: 46ch; margin: .9rem auto 0; font: 400 1.1rem/1.5 var(--font-serif); color: var(--ink); }
+.qz-verdict-verse cite { display: block; margin-top: .6rem; font: 600 11px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; font-style: normal; color: var(--muted); }
+.qz-result-trail { display: flex; justify-content: center; }
+.qz-result .kit-result__trail { margin-top: .4rem; }
+.qz-result .kit-result__reading { max-width: 24rem; margin-inline: auto; }
+.qz-share .kit-share__preview { text-align: center; }
+.qz-share .kit-share__button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; width: 100%; padding: .6rem 1.4rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font: 600 .95rem var(--font-sans);
+  transition: transform .35s var(--qz-ease), border-color .35s var(--qz-ease); }
+.qz-share .kit-share__button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--qz-color); }
+
+/* ---- Motion ----------------------------------------------------------------------------------------------------- */
+@keyframes qz-deal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes qz-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes qz-grow { from { opacity: .5; transform: translate(var(--qz-from-x, 0px), var(--qz-from-y, 0px)) scale(var(--qz-from-sx, .9), var(--qz-from-sy, .9)); } to { opacity: 1; transform: none; } }
+@keyframes qz-pop { from { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.15); opacity: 1; } to { transform: none; } }
+@keyframes qz-bump { 0% { transform: scale(1); } 40% { transform: scale(1.3); } 100% { transform: scale(1); } }
+@keyframes qz-float { 0% { opacity: 0; transform: translate(-.2rem, .6rem); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(-.2rem, -1.6rem); } }
+@keyframes qz-swell { 0% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--qz-right) 0%, transparent); } 35% { transform: scale(1.035); box-shadow: 0 0 0 6px color-mix(in srgb, var(--qz-right) 28%, transparent), 0 0 28px color-mix(in srgb, var(--qz-right) 45%, transparent); } 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } }
+@keyframes qz-pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--qz-right) 35%, transparent); } }
+@keyframes qz-redraw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .qz-tiles > li, .qz-answer { animation-delay: 0s !important; } }
+
+/* ---- Narrower screens ------------------------------------------------------------------------------------------ */
+@media (max-width: 1100px) { .qz-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .qz-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .qz-card-body { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .qz-picture, .qz-picture .kit-flip__face { min-height: 220px; }
+  .qz-num { font-size: 90px; }
+  .qz-face .qs-scene { width: 60%; max-height: 190px; }
+}
+@media (max-width: 639px) {
+  .qz-head h1 { font-size: 30px; }
+  .qz-stage { margin-top: 1.4rem; }
+  .qz-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.2rem; }
+  .qz-tile { padding: 12px 12px 14px; aspect-ratio: 4 / 5; }
+  .qz-tile-ask { font-size: 14px; height: calc(2 * 1.35em); -webkit-line-clamp: 2; }
+  .qz-tile-art .qs-scene { max-height: 96px; }
+  .qz-card { padding: 14px 14px 18px; border-radius: 22px; }
+  .qz-card-top { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "count trail close" "streak score score"; gap: 10px 12px; }
+  .qz-count { grid-area: count; }
+  .qz-trail { grid-area: trail; --kit-pip: .6rem; --kit-pip-gap: .22rem; }
+  .qz-close { grid-area: close; }
+  .qz-streak { grid-area: streak; }
+  .qz-score { grid-area: score; justify-self: end; }
+  .qz-picture, .qz-picture .kit-flip__face { min-height: 150px; }
+  .qz-num { font-size: 72px; left: 12px; top: 2px; }
+  .qz-face .qs-scene { width: 52%; max-height: 130px; }
+  .qz-picture .kit-flip__back { padding: 16px 18px; }
+  .qz-verse { font-size: 16px; }
+  .qz-verse cite { margin-top: 8px; }
+  .qz-ask { font-size: 23px; margin-top: 10px; }
+  .qz-answers { gap: 10px; margin-top: 14px; }
+  .qz-answer { --kit-card-height: 64px; padding: 10px 12px; font-size: 1.05rem; }
+  .qz-letter { font-size: 1.4rem; }
+  .qz-band { margin-top: 14px; border-radius: 16px 16px 0 0; margin-inline: -14px; margin-bottom: -18px; }
+  .qz-band .kit-band__details { max-height: 32vh; overflow: auto; }
+  .qz-result { padding: 24px 16px; border-radius: 22px; }
+  .qz-result .kit-result__actions { width: 100%; }
+  .qz-result .kit-result__actions > * { flex: 1 1 40%; }
+}
+@media (max-width: 360px) { .qz-answers { grid-template-columns: minmax(0, 1fr); } .qz-answer { --kit-card-height: 56px; } }

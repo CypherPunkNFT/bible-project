@@ -90,8 +90,17 @@ named for screen readers. Its counts come from the registry, so making a game li
 
 ## The live game today
 
-`quiz` ([quiz/QuizGame.tsx](quiz/QuizGame.tsx)) is the homepage's twelve-question quiz (`src/pages/home/HomeQuiz.tsx`),
-unchanged, on its own page with a link back to the hub. The homepage itself is untouched.
+`quiz` ([quiz/QuizGame.tsx](quiz/QuizGame.tsx)) is the homepage's twelve-question quiz rebuilt as a game for this page
+(the redesign sequence, step 17; report: [docs/visual-audits/quiz-redesign.md](../../../docs/visual-audits/quiz-redesign.md)).
+It reads the questions, verdicts and drawings from `src/pages/quiz-data.ts` and `src/pages/QuizScenes.tsx` and keeps
+their rules and scoring, but has its own state ([quiz/state.ts](quiz/state.ts)), rules on top
+([quiz/game.ts](quiz/game.ts): the streak by answer order, the trail marks, the rank titles, the share text), storage
+([quiz/storage.ts](quiz/storage.ts): the round for the tab under `bp-quiz-round`, the best under `bp-quiz-best`), screens
+([quiz/Board.tsx](quiz/Board.tsx) with Play all twelve and the tiles as the scorecard, [quiz/Card.tsx](quiz/Card.tsx)
+growing from its tile with the kit's flip card, answer cards, trail, streak flame and feedback band,
+[quiz/Result.tsx](quiz/Result.tsx) with the kit's result panel and share) and look ([quiz/quiz.css](quiz/quiz.css), hub
+colour Revelation crimson, right gold, missed red-brown). Keys A to D and 1 to 4 answer. Nothing under
+`src/pages/home/` is touched: the homepage quiz looks exactly as it did.
 
 ## Map quest
 
