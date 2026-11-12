@@ -1,11 +1,13 @@
 // The leader's first screen (design.md 5.1, 3.3): what the quiz covers, with the live count of matching questions, the
 // room's settings, and Create room. The questions are drawn here, in the leader's browser, and sent with the create
 // request; the room never sees the bank.
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import type { QuestionBank } from "@/lib/data";
 import { COUNTS, DEFAULT_COUNT, DEFAULT_FILTERS, MIN_GAME, drawGame, type Level, type PickFilters } from "@/lib/live-quiz/pick";
 import { DEFAULT_SETTINGS, TIMERS, type RoomSettings, type Timer } from "@/lib/live-quiz/protocol";
 import { plural } from "@/lib/site-format";
+import { MoreOptions } from "../kit";
+import { Mark } from "./parts";
 import { THEMES } from "@/pages/questions/test/themes";
 import { createRoom, poolFor } from "./leader";
 import type { SavedHost } from "./saved";
@@ -93,24 +95,29 @@ export function Setup({ bank, onCreated }: { bank: QuestionBank; onCreated: (hos
       <Field label="For children (6–11)">
         <Choices name="children" value={filters.children} options={[{ id: false, label: "Off" }, { id: true, label: "On: children's questions and wording" }]} onChange={setChildren} />
       </Field>
-      <Field label="Theme, testament or book">
-        <div className="lq-choices">
-          <select className="lq-select" aria-label="Theme" value={themeId} onChange={(e) => setThemeId(e.target.value)}>
-            <option value="">Any theme</option>
-            {THEMES.map((theme) => <option key={theme.id} value={theme.id}>{theme.title}</option>)}
-          </select>
-          <select className="lq-select" aria-label="Testament" value={filters.testament} onChange={(e) => update({ testament: e.target.value as PickFilters["testament"], book: "" })}>
-            <option value="">Both testaments</option><option value="OT">Old Testament</option><option value="NT">New Testament</option>
-          </select>
-          <select className="lq-select" aria-label="Book" value={filters.book} onChange={(e) => update({ book: e.target.value })}>
-            <option value="">Any book</option>
-            {books.map((book) => <option key={book.code} value={book.code}>{book.name}</option>)}
-          </select>
+      <MoreOptions className="lq-more">
+        <div className="lq-fields">
+          <Field label="Theme, testament or book">
+            <div className="lq-choices">
+              <select className="lq-select" aria-label="Theme" value={themeId} onChange={(e) => setThemeId(e.target.value)}>
+                <option value="">Any theme</option>
+                {THEMES.map((theme) => <option key={theme.id} value={theme.id}>{theme.title}</option>)}
+              </select>
+              <select className="lq-select" aria-label="Testament" value={filters.testament} onChange={(e) => update({ testament: e.target.value as PickFilters["testament"], book: "" })}>
+                <option value="">Both testaments</option><option value="OT">Old Testament</option><option value="NT">New Testament</option>
+              </select>
+              <select className="lq-select" aria-label="Book" value={filters.book} onChange={(e) => update({ book: e.target.value })}>
+                <option value="">Any book</option>
+                {books.map((book) => <option key={book.code} value={book.code}>{book.name}</option>)}
+              </select>
+            </div>
+          </Field>
+          <SettingsFields settings={settings} onChange={setSettings} />
         </div>
-      </Field>
-      <SettingsFields settings={settings} onChange={setSettings} />
+      </MoreOptions>
     </div>
     <aside className="lq-summary" aria-live="polite">
+      <Sample />
       <strong>{plural(pool.length, "{n} question", "{n} questions")}</strong>
       <span className="lq-note">match these choices.</span>
       {pool.length < count && pool.length >= MIN_GAME && <p className="lq-warn">{`Only ${pool.length} questions match: play ${pool.length}, or widen the choices.`}</p>}
@@ -120,5 +127,17 @@ export function Setup({ bank, onCreated }: { bank: QuestionBank; onCreated: (hos
       </button>
       {error && <p className="lq-error" role="alert">{error}</p>}
     </aside>
+  </div>;
+}
+
+/** A small picture of the game itself above Create room: a screen with four answer tiles and phones held up to vote,
+ * the tiles breathing in turn so the page has one living detail. */
+function Sample() {
+  return <div className="lq-sample" aria-hidden="true">
+    <div className="lq-sample-screen">
+      <span className="lq-sample-q" />
+      <div className="lq-sample-grid">{[0, 1, 2, 3].map((i) => <span key={i} className="lq-option lq-sample-tile" data-i={i} style={{ "--lq-i": i } as CSSProperties}><Mark index={i} /></span>)}</div>
+    </div>
+    <div className="lq-sample-phones">{[0, 1, 2].map((i) => <span key={i} className="lq-sample-phone" data-i={i} style={{ "--lq-i": i } as CSSProperties} />)}</div>
   </div>;
 }

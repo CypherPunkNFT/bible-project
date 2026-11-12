@@ -2,10 +2,12 @@
 // outside /games so it can be read off a projector and typed with one thumb. It loads no question bank: the questions
 // arrive over the socket. Steps: code, name, then the game's screens (PlayerScreens.tsx).
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { prefersReducedMotion } from "../kit";
 import { useNavigate, useParams } from "react-router-dom";
 import { friendlyName } from "@/lib/live-quiz/names";
 import { CLOSE, isRoomCode, type ClientMessage, type PlayerView, type RoomInfo, type ServerMessage } from "@/lib/live-quiz/protocol";
-import { PlayerScreen } from "./PlayerScreens";
+import { PlayerLayer } from "./PlayerScreens";
+import { Badge } from "./parts";
 import { isRemoved, markRemoved, savedPlayer, savePlayer } from "./saved";
 import { useRoomSocket } from "./useRoomSocket";
 import "./live-quiz.css";
@@ -45,21 +47,42 @@ function CodeStep({ error, onCode }: { error?: string; onCode: (code: string) =>
   return <form onSubmit={submit}>
     <h1>Join a live quiz</h1>
     <label htmlFor="lq-code" className="lq-note">Game code from the screen</label>
-    <input id="lq-code" className="lq-input" inputMode="numeric" autoComplete="off" pattern="[0-9 ]*" maxLength={7} value={code}
+    <input id="lq-code" className="lq-input lq-code-input" inputMode="numeric" autoComplete="off" pattern="[0-9 ]*" maxLength={7} value={code}
       onChange={(e) => setCode(e.target.value)} placeholder="123 456" />
     {error && <p className="lq-error" role="alert">{error}</p>}
     <button type="submit" className="lq-button" disabled={code.replace(/\D/g, "").length !== 6}>Join</button>
   </form>;
 }
 
+const SPIN_MS = 550;
+const SPIN_STEP_MS = 70;
+
+/** "Spin again" spins the words like a slot machine: the real name is chosen at once; the cycling words over it are
+ * decoration, hidden from readers, and skipped when the reader asked for less motion. */
+function useSpin(picked: string): string | null {
+  const [shown, setShown] = useState<string | null>(null);
+  const spins = useRef(0);
+  useEffect(() => {
+    if (spins.current++ === 0 || prefersReducedMotion()) return;
+    const tick = setInterval(() => setShown(friendlyName()), SPIN_STEP_MS);
+    const stop = setTimeout(() => { clearInterval(tick); setShown(null); }, SPIN_MS);
+    return () => { clearInterval(tick); clearTimeout(stop); };
+  }, [picked]);
+  return shown;
+}
+
 function NameStep({ info, error, busy, onName }: { info: RoomInfo; error?: string; busy: boolean; onName: (name: string) => void }) {
   const [typed, setTyped] = useState("");
   const [picked, setPicked] = useState(() => friendlyName());
   const [spins, setSpins] = useState(0);
+  const spinning = useSpin(picked);
   if (info.names === "picker") {
-    return <div>
+    return <div className="lq-picker">
       <h1>Your name for this game</h1>
-      <p className="lq-big">{picked}</p>
+      <p className="lq-big lq-picked" data-spinning={spinning ? "true" : undefined}>
+        <Badge name={picked} size={34} />
+        <span className="lq-name"><span className={spinning ? "sr-only" : undefined}>{picked}</span>{spinning && <span aria-hidden="true">{spinning}</span>}</span>
+      </p>
       <button type="button" className="lq-button lq-quiet" disabled={spins >= PICKER_SPINS} onClick={() => { setPicked(friendlyName()); setSpins((n) => n + 1); }}>
         {`Spin again (${PICKER_SPINS - spins} left)`}
       </button>
@@ -70,7 +93,7 @@ function NameStep({ info, error, busy, onName }: { info: RoomInfo; error?: strin
   return <form onSubmit={(event) => { event.preventDefault(); onName(typed); }}>
     <h1>Your name</h1>
     <label htmlFor="lq-name" className="lq-note">Shown on the big screen</label>
-    <input id="lq-name" className="lq-input lq-name" maxLength={16} autoComplete="off" value={typed} onChange={(e) => setTyped(e.target.value)} />
+    <input id="lq-name" className="lq-input lq-name-input" maxLength={16} autoComplete="off" value={typed} onChange={(e) => setTyped(e.target.value)} />
     {error && <p className="lq-error" role="alert">{error}</p>}
     <button type="submit" className="lq-button" disabled={busy || !typed.trim()}>Join the game</button>
   </form>;
@@ -162,6 +185,11 @@ export default function PlayPage() {
     socket.send({ t: "answer", index: view.index, choice });
   };
 
+  const banners = <>
+    {game && view && socket.status === "reconnecting" && <p className="lq-warn">Reconnecting…</p>}
+    {notice && <p className="lq-warn" role="status">{notice}</p>}
+  </>;
+
   const body = (() => {
     if (socket.status === "unsupported") return <p className="lq-big">This browser can't join live games.</p>;
     if (step.at === "code") return <CodeStep error={step.error} onCode={(code) => { navigate(`/play/${code}`, { replace: true }); setStep({ at: "checking", code }); }} />;
@@ -175,13 +203,13 @@ export default function PlayPage() {
       if (nameError) return <NameStep info={step.info} error={nameError} busy={false} onName={retryName} />;
       return <p className="lq-big">{socket.status === "reconnecting" ? "Reconnecting…" : "Joining…"}</p>;
     }
-    return <PlayerScreen view={view} offset={socket.offset} pending={pending} onAnswer={answer} />;
+    // The game itself plays in a fixed layer over the page, so the site's header and floating button are out of reach.
+    return <PlayerLayer view={view} offset={socket.offset} pending={pending} onAnswer={answer}>{banners}</PlayerLayer>;
   })();
 
   return <div className="lq-page">
     <div className="lq-phone">
-      {game && view && socket.status === "reconnecting" && <p className="lq-warn">Reconnecting…</p>}
-      {notice && <p className="lq-warn" role="status">{notice}</p>}
+      {!view && banners}
       {body}
     </div>
   </div>;
