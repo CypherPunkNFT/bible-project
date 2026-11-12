@@ -2880,24 +2880,6 @@
   "why": "Job 27 (stage 5's sign-off) fixes or rules each one. Known since stage 4 and kept in english-baseline.json so they do not block the build; no stage 5 job owned them (stage 5 review, item 1). Fixing one means changing the page code so the whole sentence is one string, then translating it Sequence 29 step 6 (Fortress job 899, card D56) rewrote or ruled the rest; the keys left are in page files another chat had unsaved edits in on 2026-11-10, so they wait for that work to be committed."
  },
  {
-  "check": "waiting",
-  "job": "27",
-  "finding": "translation-english",
-  "item": "chunks with most sentences still in English",
-  "keys": {
-   "1166": [
-    "id"
-   ],
-   "1167": [
-    "es"
-   ],
-   "1689": [
-    "id"
-   ]
-  },
-  "why": "Job 27 ruled the chunks whose English left is only titles and names. These remain, each with a real fault: 1167 (es) and 1166 (id) hold Spanish inside the English source ('Traducido por Arthur West Haddan', 'Rosh Hashanah con the Early Israelites'), strings the site no longer shows, from the studies batch S8, so the chunks need collecting again from today's English; 1690 (pt) leaves five words in English ('Printing Materials', 'Layer', 'visible', 'polyglot', 'Stop-Press Variants'); 1713 (pt) keeps 'Benedict XVI' (Bento XVI); 1714 (hi) keeps object names ('Babylonian Chronicle', 'Black Obelisk'); 1689 (id) keeps book abbreviations ('{n} Pet', Indonesian 'Ptr') and manuscript names. Correcting them costs plan allowance and waits for a quote"
- },
- {
   "check": "in-progress",
   "item": "check.py findings in chunk files not yet committed (another chat's unsaved work)",
   "why": "the translation chats keep a chunk or its translations saved but uncommitted for minutes to hours while they work on it; without this, one chat's half-done work would fail every other chat's quick check. Such findings are still listed (as in progress) and are counted as unexplained under --sign-off, and any other ruling that explains them is used first. Remove this entry to count them always"
@@ -24767,5 +24749,32 @@
   "check": "untranslated",
   "item": "a about above after again against all also am an and another any are aside as at away back be became because become been before behind being below beside besides between both but by came can cannot come comes coming could did do does doing done down during each either else even ever every few for from further gave get gets give given gives go goes going gone got had has have having he her here hers herself him himself his how however i if in into is it its itself just keep kept know known knew let lets like made make makes many may me might mine more most much must my myself near neither never no nor not now of off often on once one only onto or other others ought our ours ourselves out over own put said same saw say saying says see seen shall she should since so some such take taken than that the their theirs them themselves then there therefore these they this those though through thus till to toward towards too took two three four five six seven eight nine ten under until up upon us very was we went were what whatever when whenever where whereas wherever whether which while who whoever whole whom whose why will with within without would ye yet you your yours yourself yourselves unto thee thou thy thine hath doth indeed among around across along according thing things tell told truly surely yes",
   "why": "the puzzle maker's STOP set (src/pages/puzzle-maker/passage.ts): English words never hidden or asked in a puzzle, compared in code and never shown on a page; code data, not reader text, so it has no translation in any language (card D56 close-out, 2026-11-10)"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1166",
+  "languages": [
+   "id"
+  ],
+  "why": "chat f350929d (the translation progress readout), 2026-11-11: the three strings check.py counts as unchanged are lists of Wikipedia article titles ('Road to Canossa', 'Saxon Wars', 'University of Bologna'...), kept as published like every title in a sources list (the brief; ruling 592 for chunk 1083 is the same case). The waiting ruling that held this chunk said the Spanish inside its English source is no longer shown by the site; nothing here needs translating money"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1167",
+  "languages": [
+   "es"
+  ],
+  "why": "chat f350929d (the translation progress readout), 2026-11-11: the two strings check.py counts as unchanged are a book title with its author ('The Universities of Europe in the Middle Ages, de Rashdall') and a citation list ('John Peckham'; 'A Manual of Councils...'; 'Magna Carta, Canon Law and Pastoral Care'), kept as published. The first string's English source already reads in Spanish (studies batch S8) and the site no longer shows it, as the waiting ruling that held this chunk recorded; a correction round cannot change it and nothing here needs translating money"
+ },
+ {
+  "check": "translation",
+  "finding": "english",
+  "item": "1689",
+  "languages": [
+   "id"
+  ],
+  "why": "chat f350929d (the translation progress readout), 2026-11-11: the one string check.py counts as unchanged is a museum's name and shelfmark ('Kansas City, Missouri, The Nelson-Atkins Museum of Art, KG {n}'), kept as published; ruling 595 rules the same string for Portuguese"
  }
 ]
