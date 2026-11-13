@@ -77,7 +77,11 @@
 .vc-start-head h1 { margin-top: 0; }
 .vc-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--vc-tone); }
 .vc-from { margin-top: 1.4rem; }
-@media (min-width: 1184px) { .mm-tiles.vc-from { --mm-most: 9; --mm-cols: 9; } } /* all nine sources in one row */
+/* From 900px: two rows, four then five (owner, 2026-11-13), each tile as large as Timeline sort's (five across 45rem). */
+@media (min-width: 900px) {
+  .mm-tiles.vc-from { grid-template-columns: repeat(5, calc((45rem - 4 * var(--mm-gap)) / 5)); }
+  .vc-from .mm-tile:nth-of-type(5) { grid-column-start: 1; }
+}
 .vc-start-line { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .9rem 1.6rem; margin-top: 1.2rem; }
 .vc-start-line > .vc-chips, .vc-start-line > .vc-actions { margin-top: 0; }
 .vc-start-line > .vc-chips legend { width: auto; }
