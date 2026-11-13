@@ -5,6 +5,7 @@
   "name": "bible-project-live-quiz-dev",
   "main": "server/live-quiz/dev-worker.ts",
   "compatibility_date": "2026-10-04",
-  "durable_objects": { "bindings": [{ "name": "LIVE_QUIZ", "class_name": "LiveQuizRoom" }] },
-  "migrations": [{ "tag": "live-quiz-v1", "new_sqlite_classes": ["LiveQuizRoom"] }]
+  // Also serves team play's rooms (docs/features/team-play/design.md) under /api/team-room/*.
+  "durable_objects": { "bindings": [{ "name": "LIVE_QUIZ", "class_name": "LiveQuizRoom" }, { "name": "TEAM_ROOM", "class_name": "TeamRoom" }] },
+  "migrations": [{ "tag": "live-quiz-v1", "new_sqlite_classes": ["LiveQuizRoom"] }, { "tag": "team-room-v1", "new_sqlite_classes": ["TeamRoom"] }]
 }

@@ -2,8 +2,8 @@
 // story, like Daniel and the lions' den (docs/features/memory-match/design.md); a place and what happened there; and the
 // two halves of a well-known verse. The cards are checked and built ahead of time (scripts/build-memory-match.py) and
 // loaded only on this page, one version at a time; a verse board's words are fetched from the BSB when it is dealt.
-// Solo play counts moves; two to four people can take turns on one phone. The board in progress survives Back and
-// reload in this tab.
+// Solo play counts moves; two to four people can take turns on one phone, or play as teams from a phone each while the
+// board shows on a big screen (docs/features/team-play/design.md). The board in progress survives Back and reload in this tab.
 import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -16,6 +16,8 @@ import { columnsFor, dealCards, drawPairs, isOffered, opensWithSpecPair, seededR
 import { newGame, pairCount, stars, type GameState } from "./game";
 import { CantLoad, StartScreen, StudyScreen, type Choice } from "./Screens";
 import { Summary, type RecordNews } from "./Summary";
+import { JoinStrip, Lobby } from "../team-play/Lobby";
+import { distinctNames, useMemoryTeams } from "./useTeams";
 import { bestKey, browserStore, readBest, readGame, readSeen, readSettings, readVersion, rememberSeen, saveBest, saveGame,
   savedGameVersion, saveSettings, saveVersion, takeOpener, type Settings, type Store } from "./storage";
 import { versesAsPairs, withVerseText, type VersesFile } from "./verse-cards";
@@ -106,6 +108,7 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
   const [dealFailed, setDealFailed] = useState(false);
   const alive = useRef(true);
   useEffect(() => () => { alive.current = false; }, []);
+  const teams = useMemoryTeams(session, Boolean(game), { game: finished?.game ?? game, board, round, finished: Boolean(finished) });
 
   const update = useCallback((next: GameState | null) => { setGame(next); saveGame(session, next); }, [session]);
   const changeSettings = useCallback((next: Settings) => { setSettings(next); saveSettings(local, next); }, [local]);
@@ -121,8 +124,8 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
   /** Lays out a drawn board whose words are in hand. */
   const start = useCallback((c: Choice, study: boolean, ids: string[], filled: PairsFile, rng: () => number) => {
     rememberSeen(local, ids);
-    const players = c.players > 1
-      ? Array.from({ length: c.players }, (_, n) => c.names[n]?.trim() || `Player ${n + 1}`) : ["You"];
+    const named = Array.from({ length: c.players }, (_, n) => c.names[n]?.trim() || `${c.phones ? "Team" : "Player"} ${n + 1}`);
+    const players = c.players > 1 ? (c.phones ? distinctNames(named) : named) : ["You"];
     const columns = columnsFor(c.difficulty, isNarrow());
     setBoard(filled);
     setFinished(null);
@@ -133,6 +136,12 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
 
   const deal = useCallback(async (c: Choice, study: boolean) => {
     if (!isOffered(data, c.deck, c.difficulty) || dealing) return;
+    if (c.phones && c.players > 1) {
+      const names = distinctNames(Array.from({ length: c.players }, (_, n) => c.names[n]?.trim() || `Team ${n + 1}`));
+      if (!(await teams.open(names)) || !alive.current) return;
+    } else if (teams.room) {
+      teams.close();
+    }
     const rng = seededRng(Date.now());
     const opener = opensWithSpecPair(data, c.deck, c.difficulty) && takeOpener(local);
     const ids = drawPairs(data, c.deck, c.difficulty, readSeen(local), rng, opener);
@@ -150,7 +159,7 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
     if (!alive.current) return;
     setDealing(false);
     start(c, study, ids, filled, rng);
-  }, [data, dealing, fetches, local, prepare, start]);
+  }, [data, dealing, fetches, local, prepare, start, teams]);
 
   const finish = useCallback((done: GameState) => {
     let news: RecordNews | null = null;
@@ -166,36 +175,45 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
 
   /** Same deck, difficulty and players, new cards. */
   const again = useCallback((from: GameState) => deal({ deck: from.deck, difficulty: from.difficulty,
-    players: from.players.length, names: from.players.length > 1 ? from.players : [] }, false), [deal]);
+    players: from.players.length, names: from.players.length > 1 ? from.players : [], phones: Boolean(teams.room) }, false), [deal, teams.room]);
 
   const backToStart = useCallback((from: GameState) => {
     onChoice({ ...choice, deck: from.deck, difficulty: from.difficulty, players: from.players.length });
     setFinished(null);
     update(null);
-  }, [choice, onChoice, update]);
+    teams.close();
+  }, [choice, onChoice, update, teams]);
 
   // Every new screen (a board, the summary, the start) opens at the top of the page (the audit's item 1).
   useScrollTopOn(finished ? `summary-${round}` : !game ? "start" : game.studying ? `study-${round}` : `board-${round}`);
 
   const shown = board ?? data;
+  const strip = teams.room && <JoinStrip code={teams.room.code} teams={teams.host.teams} status={teams.host.socket.status} onFree={teams.host.free} />;
   if (finished) {
-    return <Summary data={shown} version={version} game={finished.game} news={finished.news}
+    return <>{strip}<Summary data={shown} version={version} game={finished.game} news={finished.news}
       onAgain={() => void again(finished.game)}
-      onChange={() => backToStart(finished.game)} />;
+      onChange={() => backToStart(finished.game)} /></>;
   }
   if (!game) {
     return <StartScreen data={data} version={version} onVersion={onVersion} choice={choice}
       best={best[bestKey(recordDeck(version.key, choice.deck), choice.difficulty)]} settings={settings}
       onChoice={onChoice} onSettings={changeSettings} onDeal={(study) => void deal(choice, study)}
-      dealing={dealing} dealFailed={dealFailed} />;
+      dealing={dealing} dealFailed={dealFailed} teamError={teams.error} />;
   }
   if (!board) return <p className="mm-loading">Loading the cards…</p>;
+  if (teams.room && teams.lobby) {
+    return <Lobby code={teams.room.code} teams={teams.host.teams} status={teams.host.socket.status} onFree={teams.host.free}>
+      <button type="button" className="mm-primary" onClick={teams.startPlay}>Start the game</button>
+      <button type="button" className="mm-link" onClick={() => backToStart(game)}>Cancel</button>
+    </Lobby>;
+  }
   if (game.studying) {
     const ids = studyOrder.length ? studyOrder : [...new Set(game.cards.map((card) => card.pair))];
-    return <StudyScreen data={board} pairIds={ids} onStart={() => update({ ...game, studying: false })} />;
+    return <>{strip}<StudyScreen data={board} pairIds={ids} onStart={() => update({ ...game, studying: false })} /></>;
   }
-  return <Board key={round} data={board} version={version} game={game} settings={settings} onChange={update}
+  // With team phones a non-pair always turns back by itself: "when I tap" would wait for a tap on the laptop (Review 10).
+  return <>{strip}<Board key={round} data={board} version={version} game={game} settings={teams.room ? { ...settings, turnBack: "auto" } : settings} onChange={update}
     onSettings={changeSettings} onFinish={finish}
     onRestart={() => void again(game)}
-    onQuit={() => backToStart(game)} />;
+    onQuit={() => backToStart(game)} remote={teams.room ? teams.remote : undefined} /></>;
 }

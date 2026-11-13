@@ -198,7 +198,7 @@ const dataPlugin: Plugin = {
 
 // The live quiz's room server (npm run live-quiz:dev, wrangler on 8928; docs/features/live-quiz/design.md 6.4), behind both
 // the dev server and the preview, since the owner's one preview address (8931) is vite preview from this config.
-const liveQuizProxy = { "/api/live-quiz": { target: "http://127.0.0.1:8928", ws: true } };
+const liveQuizProxy = { "/api/live-quiz": { target: "http://127.0.0.1:8928", ws: true }, "/api/team-room": { target: "http://127.0.0.1:8928", ws: true } };
 
 export default defineConfig({
   // The scratch folders hold millions of snapshot files (.local alone 2.46M, 2026-10-21); watching them grew each dev

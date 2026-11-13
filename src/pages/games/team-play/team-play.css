@@ -1,0 +1,47 @@
+/* Team play (docs/features/team-play/design.md): the big screen's join panel and strip (.tp-lobby, .tp-strip) and the
+   phones' pages (.tp-phone). Built from the site's tokens; each team wears its kit tone through --_team. */
+
+.tp-lobby { display: grid; gap: 1.1rem; margin: 1rem 0 2rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.tp-lobby-join { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; }
+.tp-join { margin: 0; font-size: clamp(1.05rem, 2vw, 1.6rem); }
+.tp-join b, .tp-strip-join b { color: var(--accent); }
+.tp-code { margin: .3rem 0 .4rem; font-family: var(--font-sans); font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 800; letter-spacing: .06em; line-height: 1; font-variant-numeric: tabular-nums; }
+.tp-qr { width: clamp(9rem, 17vw, 15rem); height: auto; padding: .6rem; border-radius: .6rem; background: #fff; }
+.tp-hint, .tp-note { margin: 0; color: var(--muted); font-size: .95rem; }
+.tp-note { color: var(--ink); font-weight: 600; }
+.tp-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+.tp-teams { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.tp-teams.is-compact { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tp-team { display: flex; align-items: center; gap: .55rem; min-height: 48px; padding: .5rem .8rem; border: 1px solid var(--line); border-left: 4px solid var(--_team); border-radius: .6rem; background: var(--page); }
+.is-compact .tp-team { min-height: 0; padding: .2rem .55rem; font-size: .85rem; }
+.is-compact .tp-team-state { display: none; }
+.tp-dot { flex: none; width: .7rem; height: .7rem; border-radius: 50%; border: 2px solid var(--_team); }
+.tp-team[data-state="held"] .tp-dot { background: var(--_team); }
+.tp-team[data-state="away"] .tp-dot { border-style: dashed; }
+.tp-team-name { font-weight: 700; }
+.tp-team-state { margin-left: auto; color: var(--muted); font-size: .85rem; }
+.tp-free { padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: .8rem; cursor: pointer; }
+.is-compact .tp-free { margin-left: .2rem; }
+.tp-free:hover { color: var(--ink); border-color: var(--ink); }
+
+.tp-strip { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin: .4rem 0 .8rem; font-size: .9rem; }
+.tp-strip-join { margin: 0; }
+.tp-strip-code { font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+
+/* ---- Phones ------------------------------------------------------------------------------------------------------ */
+.tp-phone { display: flex; flex-direction: column; gap: .9rem; max-width: 34rem; min-height: 70vh; margin: 0 auto; padding: 1rem 0 2rem; }
+.tp-phone h1 { margin: 0; font-family: var(--font-serif); font-size: 1.6rem; }
+.tp-phone-bar { display: flex; align-items: center; gap: .5rem; padding: .55rem .8rem; border-radius: .6rem; background: var(--_team, var(--accent)); color: #fff; font-weight: 700; }
+.tp-phone-bar small { margin-left: auto; font-weight: 500; opacity: .9; }
+.tp-code-input { width: 100%; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); font-family: var(--font-sans); font-size: 2.6rem; font-weight: 800; letter-spacing: .25em; text-align: center; font-variant-numeric: tabular-nums; }
+.tp-code-input::placeholder { color: var(--muted); opacity: .35; }
+.tp-button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; width: 100%; min-height: 52px; padding: .8rem 1rem; border: 0; border-radius: .7rem; background: var(--accent); color: #fff; font-size: 1.1rem; font-weight: 700; cursor: pointer; }
+.tp-button[disabled] { opacity: .45; cursor: default; }
+.tp-button.is-quiet { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.tp-pick { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.tp-pick button { display: flex; align-items: center; gap: .7rem; width: 100%; min-height: 60px; padding: .7rem 1rem; border: 1px solid var(--line); border-left: 6px solid var(--_team); border-radius: .7rem; background: var(--surface); color: var(--ink); font-size: 1.2rem; font-weight: 700; text-align: left; cursor: pointer; }
+.tp-pick button[disabled] { opacity: .5; cursor: default; }
+.tp-pick small { margin-left: auto; color: var(--muted); font-size: .85rem; font-weight: 500; }
+.tp-big { margin: auto 0; text-align: center; font-size: 1.4rem; line-height: 1.4; }
+.tp-error { margin: 0; padding: .6rem .8rem; border-radius: .6rem; background: var(--surface); border: 1px solid var(--line); }

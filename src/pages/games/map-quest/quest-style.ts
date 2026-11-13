@@ -41,6 +41,8 @@ export interface RevealShape {
   color?: string;
   /** A river, sea, valley or region (design §16): drawn whole in the colour, with no site dot. */
   area?: AreaShape;
+  /** The pin's own colour (a team's, in team play); ink when missing, as in a solo game. */
+  pinColor?: string;
 }
 
 export interface RevealFeatures { line: FeatureCollection<Geometry>; sites: FeatureCollection<Geometry>; pins: FeatureCollection<Geometry>; areas: FeatureCollection<Geometry> }
@@ -65,7 +67,7 @@ export function revealFeatures(reveal: RevealShape | readonly RevealShape[] | nu
       type: "Feature", geometry: { type: "LineString", coordinates: [[...shape.pin], [...alongLine(shape.pin, shape.scored, progress)]] }, properties: { color: colorOf(shape) } })) },
     sites: { type: "FeatureCollection", features: reveals.flatMap((shape) => shape.area ? [] : [
       ...shape.others.map((at) => point(at, { scored: false, color: colorOf(shape) })), point(shape.scored, { scored: true, color: colorOf(shape) })]) },
-    pins: { type: "FeatureCollection", features: reveals.map((shape) => point(shape.pin, { color: colorOf(shape) })) },
+    pins: { type: "FeatureCollection", features: reveals.map((shape) => point(shape.pin, { color: colorOf(shape), ...(shape.pinColor ? { pinColor: shape.pinColor } : {}) })) },
     areas: { type: "FeatureCollection", features: reveals.flatMap((shape) => shape.area ? [{ type: "Feature" as const, geometry: shape.area, properties: { color: colorOf(shape) } }] : []) },
   };
 }
@@ -102,7 +104,7 @@ function revealLayers(): LayerSpecification[] {
     { id: "mq-line", type: "line", source: "mq-line", layout: { "line-cap": "round" },
       paint: { "line-color": ["get", "color"], "line-width": 2.5, "line-opacity": 0.9, "line-dasharray": [1.2, 1.6] } },
     { id: "mq-pins", type: "circle", source: "mq-pins",
-      paint: { "circle-radius": 5, "circle-color": ink, "circle-stroke-color": surface, "circle-stroke-width": 2 } },
+      paint: { "circle-radius": 5, "circle-color": ["coalesce", ["get", "pinColor"], ink], "circle-stroke-color": surface, "circle-stroke-width": 2 } },
     { id: "mq-other", type: "circle", source: "mq-sites", filter: ["!", ["get", "scored"]],
       paint: { "circle-radius": 7, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": ["get", "color"], "circle-stroke-width": 2 } },
     { id: "mq-scored", type: "circle", source: "mq-sites", filter: ["get", "scored"],

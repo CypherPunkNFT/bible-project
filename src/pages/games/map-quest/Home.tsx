@@ -1,6 +1,7 @@
 // The game home (design §9, screen 1; the audit's item 6): the Daily Five card with the hub's map engraving, the
 // puzzle number and the five slots; practice with its level and era as rows of pills; the Disputed sites mode; the
-// player's numbers with the streak's flame; and the credits.
+// player's numbers with the streak's flame; and the credits. The Team game card starts a big-screen game with a phone
+// per team, at the level and era chosen under Practice (docs/features/team-play/design.md).
 import { useState } from "react";
 import { formatDate, formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
@@ -20,9 +21,13 @@ interface Props {
   onDaily: () => void;
   onPractice: (level: Level, era: Era) => void;
   onDisputed: () => void;
+  /** Starts a team game; resolves to an error sentence, or null once it has started. */
+  onTeams: (level: Level, era: Era, names: string[]) => Promise<string | null>;
 }
 
-export function Home({ stats, now, onDaily, onPractice, onDisputed }: Props) {
+const TEAM_COUNTS = [2, 3, 4, 5, 6];
+
+export function Home({ stats, now, onDaily, onPractice, onDisputed, onTeams }: Props) {
   const [level, setLevel] = useState<Level>("beginner");
   const [era, setEra] = useState<Era>("all");
   const todayN = DAILY.numberOn(now);
@@ -59,6 +64,7 @@ export function Home({ stats, now, onDaily, onPractice, onDisputed }: Props) {
         <p>Places whose location scholars still debate, such as Mount Sinai and Sodom. Every proposed site counts: you score against the nearest one.</p>
         <button type="button" className="mq-button" onClick={onDisputed}>Play disputed sites</button>
       </section>
+      <TeamCard onStart={(names) => onTeams(level, era, names)} levelLabel={LEVEL_TEXT[level].label} eraLabel={ERA_TEXT[era].label} />
     </div>
     <dl className="mq-stats" aria-label="Your Daily Five record">
       <div><dt>Played</dt><dd>{formatNumber(stats.played)}</dd></div>
@@ -67,6 +73,41 @@ export function Home({ stats, now, onDaily, onPractice, onDisputed }: Props) {
       <div><dt>Best score</dt><dd>{formatNumber(stats.best)}</dd></div>
     </dl>
   </div>;
+}
+
+/** A team game: the places on this screen (a laptop on a projector), and each team pins on its own phone. */
+function TeamCard({ onStart, levelLabel, eraLabel }: { onStart: (names: string[]) => Promise<string | null>; levelLabel: string; eraLabel: string }) {
+  const [count, setCount] = useState(2);
+  const [names, setNames] = useState<string[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const start = async () => {
+    setBusy(true);
+    setError(null);
+    const typed = Array.from({ length: count }, (_, n) => names[n]?.trim() || `Team ${n + 1}`);
+    const seen = new Set<string>();
+    const distinct = typed.map((name, n) => (seen.has(name.toLowerCase()) ? `Team ${n + 1}` : (seen.add(name.toLowerCase()), name)));
+    const failure = await onStart(distinct);
+    setBusy(false);
+    setError(failure);
+  };
+  return <section className="mq-card" aria-labelledby="mq-teams">
+    <h2 id="mq-teams">Team game</h2>
+    <p>{`For a group: the places show on this screen, and each team drops its pin on its own phone. ${levelLabel}, ${eraLabel.toLowerCase()}, as chosen under Practice.`}</p>
+    <fieldset className="mq-pills">
+      <legend>Teams</legend>
+      {TEAM_COUNTS.map((value) => <label key={value} className={`mq-pill${count === value ? " is-on" : ""}`}>
+        <input type="radio" name="mq-teams" value={value} checked={count === value} onChange={() => setCount(value)} />
+        <span>{formatNumber(value)}</span>
+      </label>)}
+    </fieldset>
+    <div className="mq-team-names">
+      {Array.from({ length: count }, (_, n) => <input key={n} type="text" maxLength={20} aria-label={`Team ${n + 1} name`} placeholder={`Team ${n + 1}`}
+        value={names[n] ?? ""} onChange={(event) => { const next = [...names]; next[n] = event.target.value; setNames(next); }} />)}
+    </div>
+    {error && <p className="mq-pill-note" role="alert">{error}</p>}
+    <button type="button" className="mq-button mq-primary" disabled={busy} onClick={() => void start()}>{busy ? "Opening…" : "Start a team game"}</button>
+  </section>;
 }
 
 /** The five slots on the Daily card: today's picks so far in their colours, the next one ringed. */

@@ -35,6 +35,7 @@ const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const GamesPage = lazy(() => import("@/pages/games/GamesPage"));
 const ToolsPage = lazy(() => import("@/pages/tools/ToolsPage"));
 const LiveQuizPlayPage = lazy(() => import("@/pages/games/live-quiz/PlayPage"));
+const TeamJoinPage = lazy(() => import("@/pages/games/team-play/TeamJoinPage"));
 const LifeEventsPage = lazy(() => import("@/pages/life-events/LifeEventsPage"));
 const SympathyPage = lazy(() => import("@/pages/sympathy/SympathyPage"));
 const BabyNamesPage = lazy(() => import("@/pages/baby-names/BabyNamesPage"));
@@ -187,6 +188,8 @@ export default function App() {
               <Route path="/tools/*" element={<ToolsPage />} />
               <Route path="/play" element={<LiveQuizPlayPage />} />
               <Route path="/play/:code" element={<LiveQuizPlayPage />} />
+              <Route path="/team" element={<TeamJoinPage />} />
+              <Route path="/team/:code" element={<TeamJoinPage />} />
               <Route path="/life-events/*" element={<LifeEventsPage />} />
               <Route path="/sympathy/*" element={<SympathyPage />} />
               <Route path="/baby-names/*" element={<BabyNamesPage />} />

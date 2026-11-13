@@ -14,7 +14,8 @@ import type { Best, Settings } from "./storage";
 import { Tile } from "./TileIcons";
 import { VERSIONS, type Version, type VersionKey } from "./versions";
 
-export interface Choice { deck: string; difficulty: Difficulty; players: number; names: string[] }
+/** `phones`: with two or more players, each plays from its own phone (team play, docs/features/team-play/design.md). */
+export interface Choice { deck: string; difficulty: Difficulty; players: number; names: string[]; phones?: boolean }
 
 interface StartProps {
   data: PairsFile;
@@ -29,6 +30,8 @@ interface StartProps {
   /** Verses: the board's words are being fetched, or could not be. */
   dealing?: boolean;
   dealFailed?: boolean;
+  /** Team phones: why the room could not be opened. */
+  teamError?: string | null;
 }
 
 /** The front card of the fan turns over to show one of the version's who cards. */
@@ -49,7 +52,7 @@ function CardFan({ version }: { version: Version }) {
 }
 
 export function StartScreen({ data, version, onVersion, choice, best, settings, onChoice, onSettings, onDeal, dealing = false,
-  dealFailed = false }: StartProps) {
+  dealFailed = false, teamError = null }: StartProps) {
   const offered = isOffered(data, choice.deck, choice.difficulty) && !dealing;
   return <div className="mm-start">
     <div className="mm-start__head">
@@ -92,6 +95,11 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
           {plural(n, "Just me", "{n}")}
         </button>)}
       </fieldset>
+      {choice.players > 1 && <fieldset className="mm-chips">
+        <legend>Play on</legend>
+        <button type="button" aria-pressed={!choice.phones} onClick={() => onChoice({ ...choice, phones: false })}>One screen</button>
+        <button type="button" aria-pressed={Boolean(choice.phones)} onClick={() => onChoice({ ...choice, phones: true })}>A phone per team</button>
+      </fieldset>}
       <div className="mm-start-foot">
         <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>{dealing ? "Dealing…" : "Deal the cards"}</button>
         <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
@@ -99,8 +107,8 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
     </div>
     {choice.players > 1 && <div className="mm-names">
       {Array.from({ length: choice.players }, (_, n) => <label key={n}>
-        <span>{`Player ${formatNumber(n + 1)}`}</span>
-        <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={`Player ${formatNumber(n + 1)}`}
+        <span>{`${choice.phones ? "Team" : "Player"} ${formatNumber(n + 1)}`}</span>
+        <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={`${choice.phones ? "Team" : "Player"} ${formatNumber(n + 1)}`}
           onChange={(event) => {
             const names = [...choice.names];
             names[n] = event.target.value;
@@ -109,6 +117,7 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
       </label>)}
     </div>}
     {dealFailed && <p className="mm-note" role="alert">The verses didn't load. Check the connection and deal again.</p>}
+    {teamError && <p className="mm-note" role="alert">{teamError}</p>}
     {best && choice.players === 1 && <p className="mm-best">
       <span className="mm-best__stars" aria-hidden="true">{[1, 2, 3].map((n) => <Star key={n} size={14} className={n <= best.stars ? "is-on" : undefined} />)}</span>
       <span>{`Your best here: ${plural(best.moves, "{n} move", "{n} moves")} · ${formatTime(best.timeMs)} · ${plural(best.stars, "{n} star", "{n} stars")}`}</span>

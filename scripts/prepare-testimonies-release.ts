@@ -104,6 +104,8 @@ for (const file of ["site-worker.mjs", "byte-ranges.mjs"]) await cp(path.join("s
 // The live quiz's room (docs/features/live-quiz/design.md 6.3): its Durable Object and the game code it imports from
 // src/lib/live-quiz/, bundled into one file beside site-worker.mjs, which re-exports it.
 await build({ entryPoints: ["server/live-quiz/room.ts"], bundle: true, format: "esm", platform: "neutral", external: ["cloudflare:workers"], outfile: path.join(worker, "live-quiz-room.mjs"), logLevel: "warning" });
+// Team play's room (docs/features/team-play/design.md), bundled the same way.
+await build({ entryPoints: ["server/team-room/room.ts"], bundle: true, format: "esm", platform: "neutral", external: ["cloudflare:workers"], outfile: path.join(worker, "team-room.mjs"), logLevel: "warning" });
 stage("Worker compiled");
 await cp("public/_headers", path.join(site, "_headers"));
 // The atlas map (STREET_ATLAS.md): its manifest, the current version's 24 MiB pieces, label fonts and icons.
@@ -141,9 +143,10 @@ if (databaseId) {
     assets: { directory: "./site", binding: "ASSETS", not_found_handling: "single-page-application", html_handling: "auto-trailing-slash", run_worker_first: [...routes.include, "/atlas-tiles/*", "/circles/*"] },
     vars: { PUBLIC_SITE_URL: siteUrl.origin },
     d1_databases: [{ binding: "DB", database_name: "bible-testimonies", database_id: databaseId, migrations_dir: "./migrations" }],
-    // The live quiz's rooms, one Durable Object per game code (worker/live-quiz-room.mjs).
-    durable_objects: { bindings: [{ name: "LIVE_QUIZ", class_name: "LiveQuizRoom" }] },
-    migrations: [{ tag: "live-quiz-v1", new_sqlite_classes: ["LiveQuizRoom"] }],
+    // The live quiz's rooms and team play's rooms, one Durable Object per game code (worker/live-quiz-room.mjs,
+    // worker/team-room.mjs). Migrations only ever gain entries: the first tag is already applied on the live Worker.
+    durable_objects: { bindings: [{ name: "LIVE_QUIZ", class_name: "LiveQuizRoom" }, { name: "TEAM_ROOM", class_name: "TeamRoom" }] },
+    migrations: [{ tag: "live-quiz-v1", new_sqlite_classes: ["LiveQuizRoom"] }, { tag: "team-room-v1", new_sqlite_classes: ["TeamRoom"] }],
   };
   await writeFile(path.join(directory, "wrangler.jsonc"), JSON.stringify(config, null, 2) + "\n");
 }

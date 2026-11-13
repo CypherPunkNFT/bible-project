@@ -236,3 +236,27 @@
   .mq-rows li { grid-template-columns: 1.6rem minmax(0, 1fr) auto; }
   .mq-rows li > span:nth-child(3) { display: none; }
 }
+
+/* Team game (TeamGame.tsx, TeamPhone.tsx; docs/features/team-play/design.md section 5): the big screen's place, clock,
+   pins, reveal and standings, and the phone's question line. Each team wears its kit tone through --_team. */
+.mq-team { display: grid; gap: 1rem; margin: 1rem 0 2rem; }
+.mq-team-count { margin: 0; color: var(--muted); font-size: 1rem; }
+.mq-team-ask { margin: 0; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 3.6rem); line-height: 1.1; }
+.mq-team-ask span { color: var(--poetry); }
+.mq-team-clock { margin: 0; font-family: var(--font-sans); font-size: clamp(3rem, 9vw, 6rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.mq-team-note { margin: 0; font-size: 1.1rem; }
+.mq-team-pins, .mq-team-results, .mq-team-standings { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.mq-team-pins { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+.mq-team-pins li, .mq-team-results li, .mq-team-standings li { display: flex; align-items: center; gap: .7rem; padding: .55rem .9rem; border: 1px solid var(--line); border-left: 5px solid var(--_team); border-radius: .6rem; background: var(--surface); font-size: clamp(1rem, 1.8vw, 1.35rem); }
+.mq-team-pins b, .mq-team-results b, .mq-team-standings b { margin-left: auto; }
+.mq-team-pins li[data-pinned="false"] b { color: var(--muted); font-weight: 500; }
+.mq-team-pins li[data-pinned="true"] { background: color-mix(in srgb, var(--_team) 14%, var(--surface)); }
+.mq-team-results li span:nth-child(2) { color: var(--muted); font-size: .9em; }
+.mq-team-place { min-width: 1.6rem; font-weight: 800; color: var(--_team); }
+.mq-team-map .mq-map { height: clamp(320px, 55vh, 600px); }
+.mq-team-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.mq-team-names { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: .4rem; }
+.mq-team-names input { min-width: 0; padding: .45rem .6rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--page); color: var(--ink); }
+.mq-team-phone-ask { margin: 0; font-size: 1.3rem; }
+.mq-team-phone-ask b { color: var(--poetry); }
+.tp-phone .mq-map { height: clamp(300px, 55vh, 520px); }

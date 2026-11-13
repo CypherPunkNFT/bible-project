@@ -3,7 +3,8 @@
 // grid with one tab stop and arrow-key movement by the dealt columns, a polite live region, and New cards / Quit. The
 // rules live in game.ts and change at once on every tap; everything timed here (a pair settling, then flying to the
 // shelf; a hand-over banner) only decorates a state already committed, and is 0 ms under reduced motion.
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent,
+  type MutableRefObject } from "react";
 import { ConfirmDialog, HandOver, motionMs, prefersReducedMotion, teamTone } from "../kit";
 import { HOLD_MS, typedBacks, type PairsFile } from "./deal";
 import { Card, type CardFace } from "./Card";
@@ -35,7 +36,13 @@ interface BoardProps {
   onFinish: (game: GameState) => void;
   onRestart: () => void;
   onQuit: () => void;
+  /** Team phones (docs/features/team-play/design.md, Review 9): the board puts a function here that takes a tap from
+   *  a player's phone; it is applied like a click, only on that player's turn. */
+  remote?: MutableRefObject<RemoteFlip | null>;
 }
+
+/** A tap sent from player `player`'s phone on card `index`. */
+export type RemoteFlip = (player: number, index: number) => void;
 
 /** The newest pair, still on the board: showing its faces (settle), then flying up to its shelf slot. */
 interface Fresh { pair: string; phase: "settle" | "fly" }
@@ -60,7 +67,37 @@ function useDecorationTimers() {
   }, []);
 }
 
-export function Board({ data, version, game, settings, onChange, onSettings, onFinish, onRestart, onQuit }: BoardProps) {
+/**
+ * Phones' taps (team play, Review 9). They queue, and are applied one per render, against the game as it now is: two
+ * that arrive together never both read the same old board. A tap from a player whose turn it is not, or one the rules
+ * ignore, is dropped; one that lands during the second card's turn waits for it to finish. The handle belongs to this
+ * board only, so a fresh board (New cards) never replays an old tap.
+ */
+function useRemoteFlips(remote: MutableRefObject<RemoteFlip | null> | undefined, game: GameState, tap: (index: number) => void,
+  lockUntil: MutableRefObject<number>) {
+  const queue = useRef<{ player: number; index: number }[]>([]);
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    if (!remote) return;
+    remote.current = (player, index) => { queue.current.push({ player, index }); setTick((n) => n + 1); };
+    return () => { remote.current = null; };
+  }, [remote]);
+  useEffect(() => {
+    while (queue.current.length) {
+      const wait = lockUntil.current - Date.now();
+      if (wait > 0) {
+        const timer = window.setTimeout(() => setTick((n) => n + 1), wait + 10);
+        return () => window.clearTimeout(timer);
+      }
+      const next = queue.current.shift()!;
+      if (next.player !== game.turn || flip(game, next.index).event.type === "ignored") continue;
+      tap(next.index); // commits a new game; the next render takes the next tap
+      return;
+    }
+  }, [game, tick, tap, lockUntil]);
+}
+
+export function Board({ data, version, game, settings, onChange, onSettings, onFinish, onRestart, onQuit, remote }: BoardProps) {
   const visible = usePageVisible();
   const reduced = useMemo(() => prefersReducedMotion(), []);
   const solo = isSolo(game);
@@ -175,6 +212,8 @@ export function Board({ data, version, game, settings, onChange, onSettings, onF
       commit(state);
     }
   }, [game, data, pairsById, solo, closeCards, commit, onFinish, doTurnBack, takePair, later]);
+
+  useRemoteFlips(remote, game, tap, lockUntil);
 
   /** A tap on the board between the cards turns a showing non-pair back. */
   const tapBoard = (event: MouseEvent<HTMLDivElement>) => {

@@ -1,0 +1,17 @@
+/* Memory card match on a team phone (TeamPhone.tsx). Fits Hard's six columns on a 360px phone: the words are small
+   and wrap, and each face-down card shows its number. */
+.mmp { display: grid; gap: .8rem; }
+.mmp-turn { margin: 0; padding: .6rem .8rem; border-radius: .6rem; background: var(--surface); border: 1px solid var(--line); font-weight: 700; text-align: center; }
+.mmp-turn.is-mine { background: var(--_team, var(--accent)); border-color: transparent; color: #fff; font-size: 1.15rem; }
+.mmp-grid { display: grid; grid-template-columns: repeat(var(--mmp-cols, 4), minmax(0, 1fr)); gap: .3rem; }
+.mmp-card { display: flex; align-items: center; justify-content: center; min-height: 3.6rem; padding: .2rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); cursor: pointer; overflow: hidden; }
+.mmp-card[data-s="d"]:not([disabled]) { background: var(--accent); border-color: transparent; color: #fff; }
+.mmp-card[data-s="u"] { border: 2px solid var(--accent); background: var(--page); }
+.mmp-card[data-s="f"] { border-color: var(--_team); background: color-mix(in srgb, var(--_team) 14%, var(--page)); opacity: .75; }
+.mmp-card[data-sent] { outline: 0; transform: scale(.94); opacity: .6; }
+.mmp-card[disabled] { cursor: default; }
+.mmp-num { font-weight: 700; font-variant-numeric: tabular-nums; }
+.mmp-text { font-size: .62rem; line-height: 1.15; text-align: center; hyphens: manual; overflow-wrap: anywhere; }
+.mmp-scores { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.mmp-scores li { padding: .2rem .6rem; border-radius: 999px; border: 1px solid var(--line); border-left: 4px solid var(--_team); font-size: .85rem; }
+.mmp-scores li[data-turn="true"] { border-color: var(--_team); font-weight: 700; }

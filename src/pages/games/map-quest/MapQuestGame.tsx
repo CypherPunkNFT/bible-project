@@ -3,6 +3,8 @@
 // state inside this one page (the hub gives a game one address); the chosen mode is mirrored in ?play= so a refresh or
 // a shared link reopens it. The Daily Five is saved in this browser as it is played. The game's colour is the hub's
 // poetry teal, set here for the kit's pieces (map-quest.css) while the pin and the bullseye keep the site's gold.
+// The team game (docs/features/team-play/design.md) puts the places on a big screen while each team pins on its own
+// phone; its round is saved in this tab, so a reload of the big screen carries on (team.ts).
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -14,6 +16,9 @@ import { useNow } from "./use-now";
 import { Play } from "./Play";
 import type { Era, Level } from "./pools";
 import { finishDaily, playingNow, readStats, recordHint, recordPick, recordStart, startDaily, writeStats, type Playing, type Stats } from "./storage";
+import { createTeamRoom } from "../team-play/host";
+import { TeamGame } from "./TeamGame";
+import { newTeamRound, readTeamRound, saveTeamRound, type TeamRound } from "./team";
 import "../games.css";
 import "./map-quest.css";
 
@@ -25,6 +30,20 @@ export default function MapQuestGame() {
   const [params, setParams] = useSearchParams();
   const [stats, setStats] = useState<Stats>(readStats);
   const [session, setSession] = useState<Session | null>(null);
+  const [teamRound, setTeamRound] = useState<TeamRound | null>(readTeamRound);
+  const updateTeam = (round: TeamRound | null) => { setTeamRound(round); saveTeamRound(round); };
+  /** Opens a room for these teams; resolves to an error sentence for the leader, or null once the lobby shows. */
+  const startTeams = async (level: Level, era: Era, names: string[]): Promise<string | null> => {
+    try {
+      const room = await createTeamRoom("map-quest", names);
+      setParams({}, { replace: true });
+      setSession(null);
+      updateTeam(newTeamRound(room, level, era));
+      return null;
+    } catch (failure) {
+      return failure instanceof Error ? failure.message : String(failure);
+    }
+  };
   const now = useNow();
   useScrollTopOn(session?.round ?? 0); // a game started from the foot of the home opens at the top, map first
 
@@ -75,17 +94,20 @@ export default function MapQuestGame() {
     if (game?.mode === "daily" && game.n) update((fresh) => finishDaily(fresh, game.n!));
   };
 
-  return <div className={`mq-page mx-auto max-w-5xl px-4 sm:px-6${session ? " is-wide" : ""}`}>
+  return <div className={`mq-page mx-auto max-w-5xl px-4 sm:px-6${session || teamRound ? " is-wide" : ""}`}>
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
     <header className="mq-head">
       <h1>Map quest</h1>
-      {session && <button type="button" className="mq-link" onClick={home}>Game home</button>}
+      {session && !teamRound && <button type="button" className="mq-link" onClick={home}>Game home</button>}
     </header>
-    {session
+    {teamRound
+      ? <TeamGame round={teamRound} onChange={updateTeam} onEnd={() => updateTeam(null)}
+          onAgain={() => updateTeam(newTeamRound(teamRound.room, teamRound.level, teamRound.era))} />
+      : session
       ? <Play key={session.round} game={session.game} resume={session.resume} playing={session.playing} stats={stats} now={now} onConfirm={onConfirm} onStart={onStart} onHint={onHint} onFinish={onFinish}
           onAgain={() => start(session.game.mode, session.game.level, session.game.era)} onHome={home} />
       : <Home stats={stats} now={now} onDaily={() => start("daily", "expert", "all")} onPractice={(level, era) => start("practice", level, era)}
-          onDisputed={() => start("disputed", "expert", "all")} />}
+          onDisputed={() => start("disputed", "expert", "all")} onTeams={startTeams} />}
     <footer className="mq-credits">
       <p>Place locations: OpenBible.info (CC BY 4.0). Map: © OpenStreetMap contributors, Protomaps.</p>
     </footer>
