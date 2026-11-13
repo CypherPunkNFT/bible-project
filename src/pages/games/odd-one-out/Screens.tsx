@@ -1,13 +1,16 @@
-// Odd one out: the start screen, the round summary and the can't-load screen (design section 10), in the look of the
-// redesign: a sample deal of four cards, chips at a thumb's size, and a result card that
-// counts up over the trail of ten with Play again and Share beside it; the ten rows stay below for anyone re-reading.
+// Odd one out: the start screen, the round summary and the can't-load screen (design section 10). The start screen
+// follows the Bible crossword's (owner, 2026-11-12: "make this the standard"): the hub's drawing beside the title, the
+// four choices as cards with their own line drawing, the levels as pills, and Play under a hairline. The summary is a
+// result card that counts up over the trail of ten with Play again and Share beside it; the ten rows stay below.
 import { Check, RotateCcw, X } from "lucide-react";
 import { useContext, useEffect, useRef } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
-import { AnswerCard, Confetti, HopWave, NewBestRibbon, ProgressTrail, RankLine, ResultPanel, ScoreCountUp, ShareButton,
+import { Confetti, HopWave, NewBestRibbon, ProgressTrail, RankLine, ResultPanel, ScoreCountUp, ShareButton,
   StreakFlame, trailMarks, trailText } from "../kit";
 import { CHOICES, CHOICE_LABELS, DIFFICULTIES, DIFFICULTY_LABELS, RANKS, ROUND_LENGTH, isAvailable, levelsNote, scoreRound,
   shareLines, shownLabel, type Choice, type Difficulty, type SetsFile } from "./game";
+import { GAME_ART, GameArtImage } from "../art";
+import { ChoiceIcon } from "./ChoiceIcons";
 import { OddExtrasContext } from "./extras";
 import { Headline, Lines } from "./Reveal";
 import type { RoundState } from "./storage";
@@ -29,22 +32,22 @@ export function StartScreen({ data, choice, difficulty, best, focusTitle = false
   const note = levelsNote(data, choice);
   const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (focusTitle) title.current?.focus({ preventScroll: true }); }, [focusTitle]);
-  const sample = data.sets.find((set) => set.id === data.first) ?? data.sets[0];
   const extras = useContext(OddExtrasContext);
   return <div className="oo-start">
-    <h1 ref={title} tabIndex={-1}>Odd one out</h1>
-    <p className="oo-lede">Four names. One doesn't belong. Can you see why?</p>
-    {extras.startArt ? extras.startArt(data) : sample && <div className="oo-sample" aria-hidden="true">
-      {sample.items.map((id, n) => <AnswerCard key={id} index={n} interactive={false} className="oo-choice oo-sample-card">
-        <span className="oo-choice-key">{n + 1}</span>
-        <span className="oo-choice-name">{shownLabel(data, sample, id)}</span>
-      </AnswerCard>)}
-    </div>}
-    <fieldset className="oo-chips">
+    <div className="oo-start-head">
+      <GameArtImage art={GAME_ART.oddOneOut} className="oo-art" />
+      <div>
+        <h1 ref={title} tabIndex={-1}>Odd one out</h1>
+        <p className="oo-lede">Four names. One doesn't belong. Can you see why?</p>
+      </div>
+    </div>
+    {extras.startArt?.(data)}
+    <fieldset className="oo-shelf">
       <legend>What</legend>
       {CHOICES.map((c) => {
         const open = DIFFICULTIES.some((d) => isAvailable(data, c, d));
-        return <button key={c} type="button" aria-pressed={c === choice} disabled={!open} onClick={() => onChoice(c)}>{CHOICE_LABELS[c]}</button>;
+        return <button key={c} type="button" className="oo-pick" aria-pressed={c === choice} disabled={!open} onClick={() => onChoice(c)}>
+          <ChoiceIcon choice={c} /><span>{CHOICE_LABELS[c]}</span></button>;
       })}
     </fieldset>
     <fieldset className="oo-chips">

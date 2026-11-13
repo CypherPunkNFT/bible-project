@@ -26,23 +26,36 @@
 .oo-secondary { border: 1px solid var(--line); color: var(--ink); }
 .oo-primary:not(:disabled):is(:hover, :focus-visible), .oo-secondary:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--oo-blue); box-shadow: 0 10px 20px -16px rgb(0 0 0 / .6); }
 .oo-primary:active, .oo-secondary:active { transform: translateY(0); }
-.oo-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.3rem; border: 0; padding: 0; }
-.oo-chips legend { width: 100%; margin-bottom: .45rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.oo-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; border: 0; padding: 0; }
+.oo-chips legend, .oo-shelf legend { width: 100%; margin-bottom: .55rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .oo-chips button { min-height: 44px; padding: .5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .35s var(--oo-ease), background-color .35s var(--oo-ease), transform .35s var(--oo-ease); }
 .oo-chips button:not(:disabled):is(:hover, :focus-visible) { border-color: var(--oo-blue); transform: translateY(-2px); }
 .oo-chips button[aria-pressed="true"] { border-color: var(--oo-blue); background: color-mix(in srgb, var(--oo-blue) 14%, transparent); color: var(--ink); font-weight: 600; }
 .oo-chips button:disabled { cursor: not-allowed; opacity: .45; }
 .oo-note { margin-top: .9rem; color: var(--muted); font-size: .85rem; }
-.oo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.6rem; }
+.oo-start-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .oo-best { color: var(--muted); font-size: .85rem; }
 .oo-best b { color: var(--ink); font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; }
 
-/* ---- The start screen: the game shown, four sample cards ------------------------------------------------------ */
-.oo-start h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
-.oo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-.oo-sample { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; max-width: 24rem; margin-top: 1.3rem; }
-.oo-sample .oo-choice.kit-card { --kit-card-height: 5rem; padding: 1.7rem .9rem .7rem; }
-.oo-sample .oo-choice-name { font-size: 1.15rem; }
+/* ---- The start screen, the Bible crossword's standard (owner, 2026-11-12): the hub's drawing beside the title, the
+   four choices as cards with their own line drawing (ChoiceIcons.tsx), the levels as pills, Play under a hairline. -- */
+.oo-start { max-width: 52rem; }
+.oo-start-head { display: flex; align-items: center; gap: 1.2rem; margin-top: 1rem; }
+.oo-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--oo-blue); }
+.oo-start h1 { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
+.oo-lede { margin-top: .5rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.oo-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.2rem, 1fr)); gap: .5rem; margin-top: 1.4rem; border: 0; padding: 0; }
+.oo-shelf legend { grid-column: 1 / -1; }
+.oo-pick { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .55rem; min-height: 44px; padding: .5rem .65rem; border: 1px solid var(--line);
+  border-radius: .7rem; background: var(--surface); color: var(--ink); text-align: start; font-size: .84rem; line-height: 1.25; cursor: pointer;
+  transition: transform .35s var(--oo-ease), border-color .35s var(--oo-ease), box-shadow .35s var(--oo-ease), background-color .35s var(--oo-ease); }
+@media (hover: hover) { .oo-pick:not(:disabled):hover { transform: translateY(-2px); border-color: var(--oo-blue); } .oo-pick:not(:disabled):hover .oo-icon { transform: scale(1.08); } }
+.oo-pick:focus-visible { transform: translateY(-2px); border-color: var(--oo-blue); box-shadow: 0 0 0 1px var(--oo-blue) inset; outline: none; }
+.oo-pick:not(:disabled):active { transform: translateY(0) scale(.98); }
+.oo-pick[aria-pressed="true"] { border-color: var(--oo-blue); background: color-mix(in srgb, var(--oo-blue) 12%, var(--surface)); font-weight: 600; box-shadow: 0 0 0 1px var(--oo-blue) inset; }
+.oo-pick:disabled { cursor: not-allowed; opacity: .45; }
+.oo-icon { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; color: var(--oo-blue); transition: transform .35s var(--oo-ease); }
+@media (max-width: 559px) { .oo-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---- The track: ten squares, the count, the kind, the score that pops, the streak ------------------------------ */
 .oo-play { outline: none; min-height: calc(100svh - 9rem); } /* the header, the back link and the page padding: the footer waits below the fold */
@@ -148,7 +161,6 @@
   .oo-choice.kit-card { --kit-card-height: 5.5rem; padding: 1.9rem .7rem .7rem; }
   .oo-choice-name { font-size: 1.05rem; }
   .oo-prompt { font-size: 1.3rem; }
-  .oo-sample { max-width: 20rem; }
   .oo-band.kit-band--always { position: static; margin-top: .8rem; } /* sideways, a pinned band would cover all four cards */
   .oo-reading .oo-headline { font-size: 1rem; }
 }

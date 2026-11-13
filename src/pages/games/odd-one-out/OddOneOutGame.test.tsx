@@ -26,13 +26,14 @@ const scoreShown = () => document.querySelector(".oo-score")?.getAttribute("data
 beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 
 describe("odd one out page", () => {
-  it("shows a sample deal on the start screen that gives nothing away", async () => {
+  it("opens on the crossword's start screen: the drawing by the title, four choice cards with drawings, Play below", async () => {
     renderGame();
     await screen.findByRole("button", { name: "Play" });
-    const sample = document.querySelector(".oo-sample")!;
-    expect(sample.querySelectorAll(".oo-choice")).toHaveLength(4);
-    expect(sample.querySelector(".is-right, .oo-stamp")).toBeNull();
-    expect(sample.querySelector("button")).toBeNull();
+    expect(document.querySelector(".oo-start-head .oo-art")).not.toBeNull();
+    const cards = [...document.querySelectorAll<HTMLButtonElement>(".oo-shelf .oo-pick")];
+    expect(cards.map((card) => card.textContent)).toEqual(["People", "Places", "Books", "Mixed"]);
+    cards.forEach((card) => expect(card.querySelector("svg.oo-icon")).not.toBeNull());
+    expect(document.querySelector(".oo-start-foot .oo-primary")).not.toBeNull();
   });
 
   it("opens a new player's first round with Peter, John, Paul, James and explains the answer", async () => {
