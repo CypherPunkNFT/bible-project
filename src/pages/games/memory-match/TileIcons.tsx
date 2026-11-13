@@ -1,7 +1,9 @@
-// Memory card match: the start screen's tile drawings, for the versions and their decks, in the crossword's theme-tile
-// standard (owner, 2026-11-12: "make it this standard for choosing subgame"). Line art on a 24-unit square with round
-// ends, in the game's colour; most are the crossword's own drawings (crossword/ThemeIcons.tsx), so the games read alike.
-import type { ReactNode } from "react";
+// Memory card match: the start screen's tiles for the versions and their decks, drawn like What came first?'s (owner,
+// 2026-11-12: "the what cards need to be like these"): a line drawing in an arched window, in its own book colour. Most
+// drawings and colours are the crossword's own (crossword/ThemeIcons.tsx, themes.ts), so the games read alike.
+import type { CSSProperties, ReactNode } from "react";
+import { P } from "../art/parts";
+import "../art/game-art.css";
 
 const DRAWINGS = {
   // The versions. People: two figures.
@@ -34,7 +36,34 @@ const DRAWINGS = {
 
 export type TileIconKey = keyof typeof DRAWINGS;
 
-export function TileIcon({ name }: { name: TileIconKey }) {
-  return <svg className="mm-tile__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor"
-    strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{DRAWINGS[name]}</svg>;
+/** Each drawing's book colour (the site's section palette), the same as the crossword gives the same drawing. */
+const TONES: Record<TileIconKey, string> = {
+  people: "poetry", places: "history", verses: "revelation", book: "epistles", sunrise: "poetry", tablets: "history",
+  crown: "revelation", scroll: "prophets", lyre: "acts", fish: "gospels", quill: "epistles", veil: "acts", seed: "poetry",
+};
+
+/** The tile's colour, as the --mm-tone its drawing, edge and short line use. */
+const toneOf = (name: TileIconKey) => ({ "--mm-tone": `var(--${TONES[name]})` }) as CSSProperties;
+
+/** What came first?'s tile art (owner, 2026-11-12): the drawing standing in the hub's faint arched window
+ *  (../art/game-art.css), scaled from its 24-unit square into the 120×80 arch. Decorative: the tile's name says it. */
+function TileArt({ name }: { name: TileIconKey }) {
+  return <svg className="ga-art mm-tile__art" viewBox="0 0 120 80" aria-hidden="true" focusable="false">
+    <path className="ga-arch" d="M30 74V40A30 30 0 0 1 90 40V74Z" />
+    <path className="ga-arch-line" d="M34 74V41A26 26 0 0 1 86 41V74" />
+    <P d="M12 74H108" c="ga-f" />
+    <svg x={39} y={22} width={42} height={42} viewBox="0 0 24 24" overflow="visible" fill="none" stroke="currentColor"
+      strokeWidth=".9" strokeLinecap="round" strokeLinejoin="round">{DRAWINGS[name]}</svg>
+  </svg>;
+}
+
+interface TileProps { icon: TileIconKey; name: string; subtitle: string; pressed: boolean; onClick: () => void }
+
+/** A version or deck tile: the drawing in its arch, the name, and a short line under it that the button's name leaves out. */
+export function Tile({ icon, name, subtitle, pressed, onClick }: TileProps) {
+  return <button type="button" className="mm-tile" style={toneOf(icon)} aria-pressed={pressed} onClick={onClick}>
+    <TileArt name={icon} />
+    <span className="mm-tile__name">{name}</span>
+    {subtitle && <span className="mm-tile__note" aria-hidden="true">{subtitle}</span>}
+  </button>;
 }

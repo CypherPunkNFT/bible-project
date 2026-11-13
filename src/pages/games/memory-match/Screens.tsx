@@ -10,7 +10,7 @@ import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficult
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
 import type { Best, Settings } from "./storage";
-import { TileIcon } from "./TileIcons";
+import { Tile } from "./TileIcons";
 import { VERSIONS, type Version, type VersionKey } from "./versions";
 
 export interface Choice { deck: string; difficulty: Difficulty; players: number; names: string[] }
@@ -60,16 +60,17 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
     </div>
     <fieldset className="mm-tiles">
       <legend>Match</legend>
-      {VERSIONS.map((item) => <button key={item.key} type="button" className="mm-tile" aria-pressed={version.key === item.key}
-        onClick={() => onVersion(item.key)}><TileIcon name={item.key} /><span>{item.chip}</span></button>)}
+      {VERSIONS.map((item) => <Tile key={item.key} icon={item.key} name={item.chip} subtitle={item.subtitle}
+        pressed={version.key === item.key} onClick={() => onVersion(item.key)} />)}
     </fieldset>
     <fieldset className="mm-tiles">
       <legend>Deck</legend>
-      {data.decks.map((deck) => <button key={deck.key} type="button" className="mm-tile" aria-pressed={choice.deck === deck.key}
-        onClick={() => onChoice({ ...choice, deck: deck.key,
-          difficulty: isOffered(data, deck.key, choice.difficulty) ? choice.difficulty : "easy" })}>
-        <TileIcon name={version.deckIcons[deck.key] ?? "book"} /><span>{deck.title}</span>
-      </button>)}
+      {data.decks.map((deck) => {
+        const tile = version.decks[deck.key] ?? { icon: "book", subtitle: "" };
+        return <Tile key={deck.key} icon={tile.icon} name={deck.title} subtitle={tile.subtitle} pressed={choice.deck === deck.key}
+          onClick={() => onChoice({ ...choice, deck: deck.key,
+            difficulty: isOffered(data, deck.key, choice.difficulty) ? choice.difficulty : "easy" })} />;
+      })}
     </fieldset>
     <fieldset className="mm-chips">
       <legend>How hard</legend>

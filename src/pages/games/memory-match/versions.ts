@@ -15,39 +15,63 @@ export interface Side {
   emblem: EmblemKey;
 }
 
+export interface DeckTile { icon: TileIconKey; subtitle: string }
+
 export interface Version {
   key: VersionKey;
-  /** The start screen's chip. */
+  /** The start screen's tile: its name and the short line under it. */
   chip: string;
+  subtitle: string;
   lede: string;
   /** The end screen's heading over the pairs. */
   reading: string;
   sides: { who: Side; story: Side };
-  /** The start screen's tile drawing for each of the version's decks, by deck key (TileIcons.tsx). */
-  deckIcons: Record<string, TileIconKey>;
+  /** The start screen's tile for each of the version's decks, by deck key: its drawing (TileIcons.tsx) and the short
+   *  line under its name. */
+  decks: Record<string, DeckTile>;
   /** The end screen's link to the who card's own page, when it has one. */
   aboutLink?: (label: string) => string;
 }
 
 export const VERSIONS: readonly Version[] = [
   {
-    key: "people", chip: "People and stories", lede: "Turn over two cards at a time. Pair each person with their story.",
+    key: "people", chip: "People and stories", subtitle: "Who did what?", lede: "Turn over two cards at a time. Pair each person with their story.",
     reading: "The stories", aboutLink: (label) => `About ${label}`,
     sides: { who: { label: "Who", art: "who", emblem: "bust" }, story: { label: "Story", art: "story", emblem: "book" } },
-    deckIcons: { mixed: "book", beginnings: "sunrise", "judges-kings": "crown", prophets: "scroll", women: "veil", jesus: "fish",
-      church: "quill", parables: "seed" },
+    decks: {
+      mixed: { icon: "book", subtitle: "From every deck" },
+      beginnings: { icon: "sunrise", subtitle: "Adam to Joshua" },
+      "judges-kings": { icon: "crown", subtitle: "Joshua to the kings" },
+      prophets: { icon: "scroll", subtitle: "Elijah to Nehemiah" },
+      women: { icon: "veil", subtitle: "Genesis to Acts" },
+      jesus: { icon: "fish", subtitle: "In the four Gospels" },
+      church: { icon: "quill", subtitle: "Acts and the letters" },
+      parables: { icon: "seed", subtitle: "Stories Jesus told" },
+    },
   },
   {
-    key: "places", chip: "Places and events", lede: "Turn over two cards at a time. Pair each place with what happened there.",
+    key: "places", chip: "Places and events", subtitle: "What happened where?", lede: "Turn over two cards at a time. Pair each place with what happened there.",
     reading: "The places", aboutLink: (label) => `${label} on the map`,
     sides: { who: { label: "Place", art: "place", emblem: "pin" }, story: { label: "Event", art: "event", emblem: "spark" } },
-    deckIcons: { mixed: "book", beginnings: "tablets", "land-kings": "crown", jesus: "fish", church: "quill" },
+    decks: {
+      mixed: { icon: "book", subtitle: "From every deck" },
+      beginnings: { icon: "tablets", subtitle: "Ararat to Mount Nebo" },
+      "land-kings": { icon: "crown", subtitle: "Joshua to Nehemiah" },
+      jesus: { icon: "fish", subtitle: "In the four Gospels" },
+      church: { icon: "quill", subtitle: "Acts and Revelation" },
+    },
   },
   {
-    key: "verses", chip: "Verses", lede: "Turn over two cards at a time. Pair the start of each verse with its end.",
+    key: "verses", chip: "Verses", subtitle: "How does it end?", lede: "Turn over two cards at a time. Pair the start of each verse with its end.",
     reading: "The verses",
     sides: { who: { label: "Begins", art: "begins", emblem: "open" }, story: { label: "Ends", art: "ends", emblem: "close" } },
-    deckIcons: { mixed: "book", psalms: "lyre", "law-prophets-wisdom": "scroll", gospels: "fish", letters: "quill" },
+    decks: {
+      mixed: { icon: "book", subtitle: "From every deck" },
+      psalms: { icon: "lyre", subtitle: "Songs and prayers" },
+      "law-prophets-wisdom": { icon: "scroll", subtitle: "The rest of the Old Testament" },
+      gospels: { icon: "fish", subtitle: "Matthew to John" },
+      letters: { icon: "quill", subtitle: "Romans to Revelation" },
+    },
   },
 ];
 

@@ -105,7 +105,7 @@ describe("the start screen's tiles", () => {
     const files = { people, places, verses } as const;
     for (const version of VERSIONS) {
       const keys = files[version.key].decks.map((deck) => deck.key);
-      expect(Object.keys(version.deckIcons).sort(), version.key).toEqual([...keys].sort());
+      expect(Object.keys(version.decks).sort(), version.key).toEqual([...keys].sort());
     }
   });
 });

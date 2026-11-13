@@ -69,18 +69,24 @@
 @keyframes mm-fan-turn { 0%, 32% { transform: rotateY(0); } 48%, 78% { transform: rotateY(180deg); } 94%, 100% { transform: rotateY(360deg); } }
 @media (max-width: 479px) { .mm-fan { width: 6.4rem; height: 5.2rem; } .mm-fan__card { left: 1.2rem; width: 3.4rem; height: 4.5rem; } .mm-fan__front { font-size: .85rem; } }
 
-/* The version and deck tiles ("Match", "Deck"), the crossword's theme-tile standard (owner, 2026-11-12): a line drawing beside the name,
-   the one chosen outlined and tinted in the game's colour. */
-.mm-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.2rem, 1fr)); gap: .5rem; margin-top: 1.2rem; border: 0; padding: 0; }
+/* The version and deck tiles ("Match", "Deck"), drawn like What came first?'s (owner, 2026-11-12): the drawing in an
+   arched window in the tile's own book colour (--mm-tone), the name centred in the serif, a short line under it. Three
+   to a row on a phone, four on a tablet, six from 900px. */
+.mm-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: 1.2rem; border: 0; padding: 0; }
+@media (min-width: 560px) { .mm-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; } }
+@media (min-width: 900px) { .mm-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .mm-tiles legend { grid-column: 1 / -1; margin-bottom: .55rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
-.mm-tile { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .55rem; min-height: 44px; padding: .5rem .65rem; border: 1px solid var(--line);
-  border-radius: .7rem; background: var(--surface); color: var(--ink); text-align: start; font-size: .84rem; line-height: 1.25; cursor: pointer;
-  transition: transform .35s var(--mm-ease), border-color .35s var(--mm-ease), box-shadow .35s var(--mm-ease), background-color .35s var(--mm-ease); }
-@media (hover: hover) { .mm-tile:hover { transform: translateY(-2px); border-color: var(--mm-color); } .mm-tile:hover .mm-tile__icon { transform: scale(1.08); } }
-.mm-tile:focus-visible { transform: translateY(-2px); border-color: var(--mm-color); box-shadow: 0 0 0 1px var(--mm-color) inset; outline: none; }
+.mm-tile { --game: color-mix(in srgb, var(--mm-tone) 62%, var(--muted)); display: flex; flex-direction: column; align-items: center; gap: .15rem; min-height: 44px;
+  padding: .9rem .6rem 1rem; border: 1px solid var(--line); border-radius: 1.1rem; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink);
+  text-align: center; cursor: pointer; outline: none; transition: transform .4s var(--mm-ease), border-color .4s var(--mm-ease), background-color .4s var(--mm-ease), box-shadow .4s var(--mm-ease); }
+.mm-tile:is(:hover, :focus-visible) { --game: var(--mm-tone); transform: translateY(-3px); border-color: color-mix(in srgb, var(--mm-tone) 55%, var(--line)); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .7); }
 .mm-tile:active { transform: translateY(0) scale(.98); }
-.mm-tile[aria-pressed="true"] { border-color: var(--mm-color); background: color-mix(in srgb, var(--mm-color) 12%, var(--surface)); font-weight: 600; box-shadow: 0 0 0 1px var(--mm-color) inset; }
-.mm-tile__icon { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; color: var(--mm-color); transition: transform .35s var(--mm-ease); }
+.mm-tile[aria-pressed="true"] { --game: var(--mm-tone); border-color: var(--mm-tone); background: color-mix(in srgb, var(--mm-tone) 11%, var(--surface)); }
+.mm-tile__art { width: 100%; max-width: 8.5rem; margin-bottom: .2rem; }
+.mm-tile__name { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; line-height: 1.2; }
+.mm-tile__note { color: var(--muted); font-size: .78rem; line-height: 1.35; }
+.mm-tile[aria-pressed="true"] .mm-tile__note { color: color-mix(in srgb, var(--mm-tone) 70%, var(--ink)); }
+@media (max-width: 559px) { .mm-tile { padding: .6rem .3rem .7rem; border-radius: .9rem; } .mm-tile__name { font-size: .9rem; } .mm-tile__note { display: none; } }
 .mm-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; border: 0; padding: 0; }
 .mm-chips legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .mm-chips button { min-height: 44px; padding: .45rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .25s var(--mm-ease), background-color .25s var(--mm-ease), transform .25s var(--mm-ease); }
