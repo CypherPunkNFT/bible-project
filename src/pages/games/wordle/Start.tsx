@@ -1,30 +1,43 @@
-// Bible Wordle's start page, laid out like What came first?'s and the crossword's (owner, 2026-11-12: "make Wordle
-// like What came first"): the game's drawing beside the title, one row of Normal and Hard with the gold button after
-// them, and the player's figures under it. There is one word a day, so there are no category tiles. Nothing listens to
-// the keyboard here: the puzzle's typing starts only once the board is open.
+// Bible Wordle's start page, laid out like What came first?'s and the crossword's (owner, 2026-11-12): the game's
+// drawing beside the title; the kinds of word as cards like Memory card match's (owner, 2026-11-13), Mixed being the
+// day's word for everyone; one row of Normal and Hard with the gold button after them; the chosen kind's figures under
+// it. Nothing listens to the keyboard here: typing starts only once the board is open.
 import { ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { formatDate, formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
-import type { Daily } from "./daily";
 import { outcomeOf } from "./evaluate";
+import { KindArt } from "./KindArt";
+import { KINDS, kindInfo, type Kind } from "./kinds";
 import { StatFigures } from "./Panels";
-import { currentStreak, readRecord, setHard, startToday, writeRecord } from "./storage";
+import { currentStreak, readRecord, setHard, startToday, writeRecord, type WordleRecord } from "./storage";
 
-interface StartProps { n: number; answer: string; daily: Daily; onPlay: () => void }
+interface StartProps {
+  kind: Kind;
+  onKind: (kind: Kind) => void;
+  /** The chosen kind's record (storage.ts). */
+  storageKey: string;
+  /** "#7 · Friday, 13 November": today's puzzle, shown for Mixed. */
+  dayLine: string;
+  /** The puzzle number the chosen kind is on, from its record. */
+  numberFor: (record: WordleRecord) => number;
+  wordAt: (n: number) => string;
+  onPlay: (n: number) => void;
+}
 
-export function Start({ n, answer, daily, onPlay }: StartProps) {
-  const [saved, setSaved] = useState(() => { const read = readRecord(); return { ...read, record: startToday(read.record, n) }; });
-  const { record } = saved;
-  const guesses = record.today?.n === n ? record.today.guesses : [];
-  const hard = record.today?.n === n ? record.today.hard : record.settings.hard;
-  const outcome = outcomeOf(guesses, answer);
-  const label = outcome !== "playing" ? "See today's result" : guesses.length > 0 ? "Carry on" : "Play";
+export function Start({ kind, onKind, storageKey, dayLine, numberFor, wordAt, onPlay }: StartProps) {
+  const [, setChanged] = useState(0); // bumped after Hard is chosen, so the page draws again from the saved record
+  const record = readRecord(storageKey).record;
+  const n = numberFor(record);
+  const today = record.today?.n === n ? record.today : null;
+  const guesses = today?.guesses ?? [];
+  const hard = today?.hard ?? record.settings.hard;
+  const done = guesses.length > 0 && outcomeOf(guesses, wordAt(n)) !== "playing";
+  const label = done ? "See today's result" : guesses.length > 0 ? "Carry on" : "Play";
   const chooseHard = (on: boolean) => {
-    const fresh = readRecord();
-    const next = setHard(startToday(fresh.available ? fresh.record : record, n), n, on);
-    setSaved({ record: next, available: fresh.available && writeRecord(next) });
+    const fresh = readRecord(storageKey);
+    writeRecord(setHard(startToday(fresh.record, n), n, on), storageKey);
+    setChanged((count) => count + 1);
   };
   const percent = record.played ? Math.round((record.won / record.played) * 100) : 0;
   return <div className="bw-start">
@@ -33,9 +46,17 @@ export function Start({ n, answer, daily, onPlay }: StartProps) {
       <GameArtImage art={GAME_ART.wordle} className="bw-art" />
       <div>
         <h1>Bible Wordle</h1>
-        <p className="bw-lede">Guess the day's five-letter Bible word in six tries. A new word every day.</p>
-        <p className="bw-start-date">{`#${formatNumber(n)} · ${formatDate(daily.dateOf(n), { weekday: "long", day: "numeric", month: "long" })}`}</p>
+        <p className="bw-lede">Guess the five-letter Bible word in six tries.</p>
+        <p className="bw-start-date">{kind === "mixed" ? dayLine : `${kindInfo(kind).label} · ${n}`}</p>
       </div>
+    </div>
+    <div className="bw-kinds" role="group" aria-label="What to play">
+      {KINDS.map((item) => <button key={item.key} type="button" className="bw-kind" aria-pressed={item.key === kind}
+        style={{ "--bw-tone": `var(--${item.tone})` } as CSSProperties} onClick={() => onKind(item.key)}>
+        <KindArt kind={item.key} />
+        <span className="bw-kind-name">{item.label}</span>
+        <span className="bw-kind-note" aria-hidden="true">{item.note}</span>
+      </button>)}
     </div>
     <div className="bw-start-row">
       <fieldset className="bw-chips">
@@ -43,10 +64,10 @@ export function Start({ n, answer, daily, onPlay }: StartProps) {
         <button type="button" aria-pressed={!hard} disabled={guesses.length > 0} onClick={() => chooseHard(false)}>Normal</button>
         <button type="button" aria-pressed={hard} disabled={guesses.length > 0} onClick={() => chooseHard(true)}>Hard</button>
       </fieldset>
-      <button type="button" className="bw-button bw-primary bw-start-play" onClick={onPlay}>{label}</button>
+      <button type="button" className="bw-button bw-primary bw-start-play" onClick={() => onPlay(n)}>{label}</button>
     </div>
-    <p className="bw-start-note">{guesses.length > 0
-      ? "Hard mode can only be changed before today's first guess."
+    <p className="bw-start-note">{guesses.length > 0 && !done
+      ? "Hard mode can only be changed before this word's first guess."
       : "Hard: letters you have found must be used in every later guess."}</p>
     {record.played > 0 && <StatFigures record={record} percent={percent} streak={currentStreak(record, n)} />}
   </div>;

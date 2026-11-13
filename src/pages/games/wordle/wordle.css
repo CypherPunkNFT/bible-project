@@ -200,6 +200,25 @@
 .bw-start h1 { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
 .bw-lede { margin-top: .5rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .bw-start-date { margin-top: .4rem; color: var(--muted); font-size: .85rem; }
+/* The kinds of word as cards like Memory card match's and What came first?'s (owner, 2026-11-13): an arched drawing in
+   the card's own book colour, the name centred in the serif, its line under it. Four to a row on a phone and a tablet
+   (the last row centred), all seven in one row from 900px, where the row steps out of the page column symmetrically. */
+.bw-kinds { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: 1.6rem; }
+.bw-kind { --game: color-mix(in srgb, var(--bw-tone) 62%, var(--muted)); flex: 0 0 calc((100% - 3 * .5rem) / 4); display: flex; flex-direction: column; align-items: center; gap: .15rem;
+  min-height: 44px; padding: .6rem .3rem .7rem; border: 1px solid var(--line); border-radius: .9rem; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink);
+  text-align: center; cursor: pointer; outline: none; transition: transform .4s var(--bw-ease), border-color .4s var(--bw-ease), background-color .4s var(--bw-ease), box-shadow .4s var(--bw-ease); }
+.bw-kind:is(:hover, :focus-visible) { --game: var(--bw-tone); transform: translateY(-3px); border-color: color-mix(in srgb, var(--bw-tone) 55%, var(--line)); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .7); }
+.bw-kind:active { transform: translateY(0) scale(.98); }
+.bw-kind[aria-pressed="true"] { --game: var(--bw-tone); border-color: var(--bw-tone); background: color-mix(in srgb, var(--bw-tone) 11%, var(--surface)); }
+.bw-kind-art { width: 100%; max-width: 8.5rem; margin-bottom: .2rem; }
+.bw-kind-name { font-family: var(--font-serif); font-size: .92rem; font-weight: 600; line-height: 1.2; }
+.bw-kind-note { display: none; color: var(--muted); font-size: .76rem; line-height: 1.35; }
+.bw-kind[aria-pressed="true"] .bw-kind-note { color: color-mix(in srgb, var(--bw-tone) 70%, var(--ink)); }
+@media (min-width: 560px) { .bw-kinds { gap: .75rem; } .bw-kind { flex-basis: calc((100% - 3 * .75rem) / 4); padding: .9rem .6rem 1rem; border-radius: 1.1rem; } .bw-kind-name { font-size: 1.05rem; } .bw-kind-note { display: block; } }
+@media (min-width: 900px) {
+  .bw-kinds { --bw-kinds-w: min(62rem, calc(100vw - 2rem)); flex-wrap: nowrap; width: var(--bw-kinds-w); margin-inline: calc((100% - var(--bw-kinds-w)) / 2); }
+  .bw-kind { flex: 1 1 0; min-width: 0; }
+}
 .bw-start-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.6rem; }
 .bw-start-row > .bw-start-play { align-self: flex-end; min-height: 48px; padding: .7rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
 @media (max-width: 559px) { .bw-start-row > .bw-start-play { width: 100%; } }

@@ -5,11 +5,11 @@
 // already changed, and under reduced motion the timers are zero.
 import { ArrowLeft, BarChart3, CircleHelp, Lightbulb, Settings } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { formatDate, formatList, formatNumber, plural } from "@/lib/site-format";
 import { motionMs, prefersReducedMotion, StreakFlame } from "../kit";
 import { Board, REVEAL_MS } from "./Board";
-import { createDaily, type AnswerEntry, type Answers, type Daily } from "./daily";
+import { createDaily, type AnswerEntry, type Answers } from "./daily";
 import type { WordleSchedule } from "./daily-rules";
 import { evaluate, guessSet, keyMarks, outcomeOf, refusalFor, type Refusal } from "./evaluate";
 import { Keyboard, type KeyName } from "./Keyboard";
@@ -17,7 +17,8 @@ import { HelpPanel, SettingsPanel, StatsPanel, type PanelName } from "./Panels";
 import { Result } from "./Result";
 import { Start } from "./Start";
 import { shareText } from "./share";
-import { currentStreak, finishToday, markHelpSeen, readRecord, recordGuess, setContrast, setHard, startToday, STORAGE_KEY, withHint, writeRecord,
+import { KINDS, asKind, kindInfo, kindNumber, kindOrder, kindWord, type Kind } from "./kinds";
+import { currentStreak, finishToday, kindKey, markHelpSeen, readRecord, recordGuess, setContrast, setHard, startToday, STORAGE_KEY, withHint, writeRecord,
   type WordleRecord } from "./storage";
 import { CATEGORY_HINT, markLabel, WIN_LINES } from "./text";
 
@@ -52,46 +53,82 @@ export function Play({ data }: { data: WordleData }) {
   const allowed = useMemo(() => guessSet(data.guesses.words), [data]);
   const [n, setN] = useState(() => daily.numberOn(new Date())); // fixed for this game: one opened before midnight finishes as that day's
   const now = useNow();
-  /** The start page shows once per visit; "Play #n" for the next day goes straight to its board. */
+  const [params, setParams] = useSearchParams();
+  const kind = asKind(params.get("c"));
+  const choose = (next: Kind) => setParams(next === "mixed" ? {} : { c: next }, { replace: true });
+  /** The start page shows until Play; the next day or the next word goes straight to its board. */
   const [entered, setEntered] = useState(false);
+  /** The word a kind is on, set when its board opens. */
+  const [kindN, setKindN] = useState(1);
+  const orders = useMemo(() => new Map(KINDS.flatMap((item) => (item.key === "mixed" ? [] : [[item.key, kindOrder(data.answers, item.key)] as const]))), [data]);
   if (n < 1) return <p className="bw-message">{`Bible Wordle begins on ${formatDate(daily.dateOf(1), { day: "numeric", month: "long", year: "numeric" })}.`}</p>;
   const answer = daily.wordFor(n);
   const entry = answer ? data.answers[answer] : undefined;
   if (!answer || !entry) return <p className="bw-message" role="alert">The puzzle could not be loaded.</p>;
   const today = daily.numberOn(now);
-  if (!entered) return <Start n={n} answer={answer} daily={daily} onPlay={() => setEntered(true)} />;
-  return <Puzzle key={n} n={n} answer={answer} entry={entry} daily={daily} allowed={allowed} now={now}
-    next={today > n ? today : null} onNext={() => setN(daily.numberOn(new Date()))} />;
+  const dayLine = (style: "long" | "short") =>
+    `#${formatNumber(n)} · ${formatDate(daily.dateOf(n), { weekday: style, day: "numeric", month: style })}`;
+  const order = kind === "mixed" ? [] : orders.get(kind) ?? [];
+  const wordAt = (at: number) => (kind === "mixed" ? answer : kindWord(order, at) ?? "");
+  if (!entered) {
+    return <Start kind={kind} onKind={choose} storageKey={kind === "mixed" ? STORAGE_KEY : kindKey(kind)} dayLine={dayLine("long")}
+      numberFor={(record) => (kind === "mixed" ? n : kindNumber(record))} wordAt={wordAt}
+      onPlay={(at) => { setKindN(at); setEntered(true); }} />;
+  }
+  const back = () => setEntered(false);
+  if (kind === "mixed") {
+    return <Puzzle key={`mixed:${n}`} storageKey={STORAGE_KEY} n={n} answer={answer} entry={entry} allowed={allowed} now={now}
+      lines={[dayLine("long"), dayLine("short")]} dateOf={daily.dateOf} next={today > n ? today : null} nextLabel={`Play #${formatNumber(today)}`}
+      onNext={() => setN(daily.numberOn(new Date()))} onBack={back} />;
+  }
+  const word = wordAt(kindN);
+  const wordEntry = word ? data.answers[word] : undefined;
+  if (!wordEntry) return <p className="bw-message" role="alert">The puzzle could not be loaded.</p>;
+  const line = `${kindInfo(kind).label} · ${formatNumber(kindN)}`;
+  return <Puzzle key={`${kind}:${kindN}`} storageKey={kindKey(kind)} n={kindN} answer={word} entry={wordEntry} allowed={allowed} now={now}
+    lines={[line, line]} shareLabel={`${kindInfo(kind).label} ${formatNumber(kindN)}`} next={kindN + 1} nextLabel="Next word"
+    onNext={() => setKindN(kindN + 1)} onBack={back} />;
 }
 
-interface PuzzleProps { n: number; answer: string; entry: AnswerEntry; daily: Daily; allowed: ReadonlySet<string>; now: Date; next: number | null; onNext: () => void }
+interface PuzzleProps {
+  /** Where this board's record lives: the day's, or a kind's (kinds.ts). */
+  storageKey: string;
+  n: number; answer: string; entry: AnswerEntry; allowed: ReadonlySet<string>; now: Date;
+  /** The line under the title, long and short: "#7 · Friday, 13 November", or "People · 3". */
+  lines: [string, string];
+  /** For the share text in place of "#n". */
+  shareLabel?: string;
+  /** The day's dates, for the stats' last-seven-days row; a kind has none. */
+  dateOf?: (n: number) => Date;
+  next: number | null; nextLabel: string; onNext: () => void; onBack: () => void;
+}
 interface Saved { record: WordleRecord; available: boolean }
 
 /** The stored record and a way to change it that re-reads storage first, so another tab's guesses are never overwritten. */
-function useRecord(n: number) {
-  const [saved, setSaved] = useState<Saved>(() => { const read = readRecord(); return { ...read, record: startToday(read.record, n) }; });
+function useRecord(n: number, key: string) {
+  const [saved, setSaved] = useState<Saved>(() => { const read = readRecord(key); return { ...read, record: startToday(read.record, n) }; });
   const savedRef = useRef(saved);
   const update = useCallback((change: (record: WordleRecord) => WordleRecord): WordleRecord => {
-    const fresh = readRecord();
+    const fresh = readRecord(key);
     // After a failed write, storage is stale even when reads still succeed (for example at quota).
     const available = savedRef.current.available && fresh.available;
     const next = change(startToday(available ? fresh.record : savedRef.current.record, n));
-    const value = { record: next, available: available && writeRecord(next) };
+    const value = { record: next, available: available && writeRecord(next, key) };
     savedRef.current = value;
     setSaved(value);
     return next;
-  }, [n]);
+  }, [n, key]);
   useEffect(() => {
     const onStorage = (event: StorageEvent) => {
-      if (event.key !== STORAGE_KEY) return;
-      const read = readRecord();
+      if (event.key !== key) return;
+      const read = readRecord(key);
       const value = { ...read, record: startToday(read.record, n) };
       savedRef.current = value;
       setSaved(value);
     };
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
-  }, [n]);
+  }, [n, key]);
   return [saved, update] as const;
 }
 
@@ -106,8 +143,13 @@ function useFadingMessage(): [string, (text: string) => void] {
   return [message, setMessage];
 }
 
-function Puzzle({ n, answer, entry, daily, allowed, now, next, onNext }: PuzzleProps) {
-  const [saved, update] = useRecord(n);
+/** A change to the shared settings (colours, How to play seen) made on a kind's board also reaches the day's record. */
+function alsoForTheDay(key: string, change: (record: WordleRecord) => WordleRecord) {
+  if (key !== STORAGE_KEY) writeRecord(change(readRecord().record));
+}
+
+function Puzzle({ storageKey, n, answer, entry, allowed, now, lines, shareLabel, dateOf, next, nextLabel, onNext, onBack }: PuzzleProps) {
+  const [saved, update] = useRecord(n, storageKey);
   const today = saved.record.today?.n === n ? saved.record.today : null;
   const guesses = useMemo(() => today?.guesses ?? [], [today]);
   const hard = today?.hard ?? saved.record.settings.hard;
@@ -129,7 +171,10 @@ function Puzzle({ n, answer, entry, daily, allowed, now, next, onNext }: PuzzleP
   const justPlayed = useRef(false);
   const [panel, setPanel] = useState<PanelName | null>(() => (saved.record.seenHelp ? null : "help"));
 
-  useEffect(() => { update((record) => (record.seenHelp ? record : markHelpSeen(record))); }, [update]);
+  useEffect(() => {
+    update((record) => (record.seenHelp ? record : markHelpSeen(record)));
+    alsoForTheDay(storageKey, markHelpSeen);
+  }, [update, storageKey]);
 
   // The row's turn: the keyboard colours and the game goes on once it is over.
   useEffect(() => {
@@ -208,18 +253,18 @@ function Puzzle({ n, answer, entry, daily, allowed, now, next, onNext }: PuzzleP
   const rows = useMemo(() => guesses.map((guess) => evaluate(guess, answer)), [guesses, answer]);
   // The keyboard learns a row only once that row has turned.
   const marks = useMemo(() => keyMarks(revealing === null ? guesses : guesses.slice(0, revealing), answer), [guesses, revealing, answer]);
-  const share = shareText({ n, rows, won: outcome === "won", hard, hint: today?.hint ?? false, dark: document.documentElement.dataset.theme !== "light", contrast });
+  const share = shareText({ n, label: shareLabel, rows, won: outcome === "won", hard, hint: today?.hint ?? false, dark: document.documentElement.dataset.theme !== "light", contrast });
   const streak = currentStreak(saved.record, n);
   const hintReady = guesses.length >= HINT_AFTER;
   const openResult = () => { setResultFocus(true); setResultOpen(true); };
 
   return <div className={`bw-game${contrast ? " bw-contrast" : ""}${outcome === "playing" ? " bw-live" : ""}`}>
     <header className="bw-head">
-      <Link className="bw-back" to="/games"><ArrowLeft size={18} aria-hidden="true" /><span className="bw-back-text">All games</span></Link>
+      <button type="button" className="bw-back" onClick={onBack}><ArrowLeft size={18} aria-hidden="true" /><span className="bw-back-text">Choose a word</span></button>
       <div className="bw-title">
         <h1>Bible Wordle</h1>
-        <p className="bw-date">{`#${formatNumber(n)} · ${formatDate(daily.dateOf(n), { weekday: "long", day: "numeric", month: "long" })}`}</p>
-        <p className="bw-date-short" aria-hidden="true">{`#${formatNumber(n)} · ${formatDate(daily.dateOf(n), { weekday: "short", day: "numeric", month: "short" })}`}</p>
+        <p className="bw-date">{lines[0]}</p>
+        <p className="bw-date-short" aria-hidden="true">{lines[1]}</p>
         {streak > 0 && <StreakFlame className="bw-flame" count={streak} label={plural(streak, "{n} day in a row", "{n} days in a row")} />}
       </div>
       <div className="bw-tools">
@@ -244,15 +289,15 @@ function Puzzle({ n, answer, entry, daily, allowed, now, next, onNext }: PuzzleP
       </>}
     </div>
     {showResult && <Result answer={answer} entry={entry} rows={rows} won={outcome === "won"} shareText={share} record={saved.record} streak={streak}
-      celebrate={celebrate} focus={resultFocus} now={now} next={next} onNext={onNext} onStats={() => setPanel("stats")}
+      celebrate={celebrate} focus={resultFocus} now={now} next={next} nextLabel={nextLabel} onNext={onNext} onStats={() => setPanel("stats")}
       onClose={() => setResultOpen(false)} />}
     {finished && settled && !resultOpen && <div className="bw-reopen">
       <button type="button" className="bw-button bw-primary" onClick={openResult} autoFocus={resultFocus}>Show result</button>
     </div>}
     {!finished && <Keyboard marks={marks} onKey={pressKey} />}
     {panel === "help" && <HelpPanel onClose={() => setPanel(null)} />}
-    {panel === "stats" && <StatsPanel record={saved.record} available={saved.available} todayN={n} wonTries={outcome === "won" ? guesses.length : null} dateOf={daily.dateOf} onClose={() => setPanel(null)} />}
+    {panel === "stats" && <StatsPanel record={saved.record} available={saved.available} todayN={n} wonTries={outcome === "won" ? guesses.length : null} dateOf={dateOf} onClose={() => setPanel(null)} />}
     {panel === "settings" && <SettingsPanel hard={hard} hardLocked={guesses.length > 0} contrast={contrast} onClose={() => setPanel(null)}
-      onHard={(on) => update((record) => setHard(record, n, on))} onContrast={(on) => update((record) => setContrast(record, on))} />}
+      onHard={(on) => update((record) => setHard(record, n, on))} onContrast={(on) => { update((record) => setContrast(record, on)); alsoForTheDay(storageKey, (record) => setContrast(record, on)); }} />}
   </div>;
 }

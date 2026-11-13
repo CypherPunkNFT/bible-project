@@ -28,6 +28,8 @@ export interface WordleRecord {
 }
 
 export const STORAGE_KEY = "bp-wordle";
+/** Each kind of word other than Mixed keeps its own record of the same shape (kinds.ts), its "today" the word under way. */
+export const kindKey = (kind: string) => `${STORAGE_KEY}:${kind}`;
 
 export const emptyRecord = (): WordleRecord => ({
   v: 1, played: 0, won: 0, streak: 0, bestStreak: 0, lastWon: 0, lastDone: 0, dist: Array.from({ length: MAX_TRIES }, () => 0),
@@ -69,11 +71,16 @@ export function parseRecord(raw: unknown): WordleRecord {
   };
 }
 
-/** The stored record, and whether this browser lets the game keep one (a private window or blocked storage does not). */
-export function readRecord(): { record: WordleRecord; available: boolean } {
+/** The stored record, and whether this browser lets the game keep one (a private window or blocked storage does not).
+ *  A kind's record not yet started takes the day's record's settings, so Hard and the colours carry over. */
+export function readRecord(key = STORAGE_KEY): { record: WordleRecord; available: boolean } {
   let text: string | null;
   try {
-    text = localStorage.getItem(STORAGE_KEY);
+    text = localStorage.getItem(key);
+    if (text === null && key !== STORAGE_KEY) {
+      const main = readRecord().record;
+      return { record: { ...emptyRecord(), settings: main.settings, seenHelp: main.seenHelp }, available: true };
+    }
   } catch (error) {
     console.warn("Bible Wordle: this browser does not let the game read its saved record:", error);
     return { record: emptyRecord(), available: false };
@@ -87,9 +94,9 @@ export function readRecord(): { record: WordleRecord; available: boolean } {
 }
 
 /** Saves the record; false when the browser refused (storage blocked or full). */
-export function writeRecord(value: WordleRecord): boolean {
+export function writeRecord(value: WordleRecord, key = STORAGE_KEY): boolean {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value));
     return true;
   } catch (error) {
     console.warn("Bible Wordle: the record could not be saved in this browser:", error);

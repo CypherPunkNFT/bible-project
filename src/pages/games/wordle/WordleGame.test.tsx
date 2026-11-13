@@ -7,7 +7,10 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { CatalogContext } from "@/lib/catalog";
 import type { Catalog } from "@/lib/types";
 import GamesPage from "../GamesPage";
-import { STORAGE_KEY } from "./storage";
+import answersJson from "@/data/wordle/answers.json";
+import type { Answers } from "./daily";
+import { KINDS, kindOrder } from "./kinds";
+import { kindKey, STORAGE_KEY } from "./storage";
 
 vi.mock("@/components/Verse", () => ({ Verse: ({ id }: { id: number }) => <span>{`verse ${id}`}</span> }));
 vi.mock("@/lib/study", async (original) => ({ ...(await original<typeof import("@/lib/study")>()), loadPersonDetail: () => Promise.resolve({ b: "Commander of Saul's army" }) }));
@@ -218,5 +221,27 @@ describe("bible wordle page", () => {
     fireEvent.click(screen.getByRole("button", { name: "Play #3" }));
     expect(screen.getByText(/^#3 · Monday/)).toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "THORN" })).toBeNull();
+  });
+
+  it("plays a kind's words one after another on their own record, and goes back to the cards", async () => {
+    vi.setSystemTime(new Date(2026, 10, 8, 10));
+    const order = kindOrder(answersJson as unknown as Answers, "place");
+    renderAt("/games/wordle?c=place");
+    await screen.findByRole("heading", { level: 1, name: "Bible Wordle" }, LOADED);
+    const cards = within(screen.getByRole("group", { name: "What to play" })).getAllByRole("button");
+    expect(cards.map((card) => card.querySelector(".bw-kind-name")?.textContent)).toEqual(KINDS.map((kind) => kind.label));
+    expect(screen.getByRole("button", { name: "Places" })).toHaveAttribute("aria-pressed", "true");
+    await enter();
+    fireEvent.click(within(await screen.findByRole("dialog", { name: "How to play" }, LOADED)).getByRole("button", { name: "Close" }));
+    expect(document.querySelector(".bw-date")?.textContent).toBe("Places · 1");
+    play(order[0]);
+    expect(screen.getByRole("heading", { level: 2, name: order[0].toUpperCase() })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next word" }));
+    expect(document.querySelector(".bw-date")?.textContent).toBe("Places · 2");
+    expect(JSON.parse(localStorage.getItem(kindKey("place")) ?? "{}").won).toBe(1);
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").played ?? 0).toBe(0); // the day's record is untouched
+    fireEvent.click(screen.getByRole("button", { name: "Choose a word" }));
+    expect(screen.getByRole("button", { name: "Places" })).toHaveAttribute("aria-pressed", "true");
+    expect(document.querySelector(".bw-start-date")?.textContent).toBe("Places · 2");
   });
 });

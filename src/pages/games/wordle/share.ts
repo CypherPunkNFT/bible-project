@@ -6,6 +6,8 @@ export const SHARE_ADDRESS = "bibleguide.io/games/wordle";
 
 export interface ShareInput {
   n: number;
+  /** A kind's word ("People 3") in place of the day's "#n". */
+  label?: string;
   rows: readonly (readonly Mark[])[];
   won: boolean;
   hard: boolean;
@@ -22,10 +24,10 @@ export function squareFor(mark: Mark, dark: boolean, contrast: boolean): string 
   return dark ? "⬛" : "⬜";
 }
 
-export function shareText({ n, rows, won, hard, hint, dark, contrast }: ShareInput): string {
+export function shareText({ n, label, rows, won, hard, hint, dark, contrast }: ShareInput): string {
   const score = `${won ? rows.length : "X"}/${MAX_TRIES}${hard ? "*" : ""}${hint ? " 💡" : ""}`;
   const grid = rows.map((row) => row.map((mark) => squareFor(mark, dark, contrast)).join("")).join("\n");
-  return `Bible Wordle #${n} ${score}\n${grid}\n${SHARE_ADDRESS}`;
+  return `Bible Wordle ${label ?? `#${n}`} ${score}\n${grid}\n${SHARE_ADDRESS}`;
 }
 
 /** shared / copied: done. cancelled: the player closed the share sheet. manual: show the text to select and copy. */

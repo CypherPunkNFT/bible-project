@@ -33,14 +33,16 @@ interface ResultProps {
   /** Move focus into the panel when it appears (not at a plain reload). */
   focus: boolean;
   now: Date;
-  /** The next puzzle number when the day has turned since this one opened, else null. */
+  /** The next puzzle number when the day has turned since this one opened (or a kind's next word), else null. */
   next: number | null;
+  /** The next button's words: "Play #8", or "Next word" for a kind. */
+  nextLabel: string;
   onNext: () => void;
   onStats: () => void;
   onClose: () => void;
 }
 
-export function Result({ answer, entry, rows, won, shareText, record, streak, celebrate, focus, now, next, onNext, onStats, onClose }: ResultProps) {
+export function Result({ answer, entry, rows, won, shareText, record, streak, celebrate, focus, now, next, nextLabel, onNext, onStats, onClose }: ResultProps) {
   const percent = record.played ? Math.round((record.won / record.played) * 100) : 0;
   const close = useRef<HTMLButtonElement>(null);
   useEffect(() => { if (focus) close.current?.focus(); }, [focus]);
@@ -53,7 +55,7 @@ export function Result({ answer, entry, rows, won, shareText, record, streak, ce
         <StatFigures record={record} percent={percent} streak={streak} />
         <button type="button" className="bw-link" onClick={onStats}>See all statistics</button>
         {next !== null
-          ? <button type="button" className="bw-button bw-primary" onClick={onNext}>{`Play #${formatNumber(next)}`}</button>
+          ? <button type="button" className="bw-button bw-primary" onClick={onNext}>{nextLabel}</button>
           : <Countdown now={now} />}
       </>}>
       {won ? <p className="bw-cheer">{WIN_LINES[rows.length - 1]?.label}</p> : <p className="bw-win">The word was</p>}
