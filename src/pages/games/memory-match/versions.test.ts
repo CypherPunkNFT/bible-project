@@ -20,6 +20,7 @@ function checkBoard(data: PairsFile, ids: string[], difficulty: Difficulty, labe
   expect(pairs.every(Boolean), `${label}: an unknown pair`).toBe(true);
   expect(pairs.length, label).toBe(BOARD_PAIRS[difficulty]);
   expect(new Set(pairs.map((p) => p.who)).size, `${label}: the same ${data === places ? "place" : "verse"} twice`).toBe(pairs.length);
+  expect(new Set(pairs.map((p) => data.characters[p.who].first)).size, `${label}: a shared first name (Caesarea)`).toBe(pairs.length);
   for (const a of pairs) {
     if (difficulty === "hard") expect(a.notOnHard, `${label}: ${a.id} is not for Hard`).not.toBe(true);
     for (const b of pairs) if (a !== b) expect(a.notWith.includes(b.who), `${label}: ${a.who} must not meet ${b.who}`).toBe(false);

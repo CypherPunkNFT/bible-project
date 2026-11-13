@@ -845,3 +845,9 @@ The owner asked for more ways to play beyond a person and their story, and confi
 - The verses file ships verse ids and split points only (the site keeps no verse wording in its data). When a Verses board is dealt, its twelve or fewer verses are fetched from the BSB and split in the browser (`verse-cards.ts`) exactly as the build split them (`mm_verses.py`); `versions.test.ts` checks every shipped verse against the build's review sheet. If the verses cannot be fetched, the start screen says so and the deal can be tried again.
 - Best records for Places and Verses are kept apart from the people version's (`places/<deck>`, `verses/<deck>`); the people version keeps its old keys.
 - Review sheets: `docs/features/memory-match/places-review-sheet.md` and `verses-review-sheet.md`.
+- Categories, like the people version's decks, each offered at every difficulty: Places by period of the story
+  (Genesis and the Exodus 16 · The land and the kings 18 · Where Jesus went 19 · The early church 16; Berea and Caesarea
+  were added so the last has enough places for Hard), set per event in `scripts/memory-match/places.json`. Verses by part
+  of the Bible, decided by the book (`deck_of` in `mm_verses.py`): Psalms 30 · Law, Prophets and Wisdom 33 · The Gospels
+  30 · The letters 34. The Law and the Prophets and the wisdom books share one category because apart each was too small
+  for Medium or Hard.

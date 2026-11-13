@@ -10,8 +10,14 @@ import pytest
 
 SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS / "memory-match"))
-from mm_build import BuildError, Sources, content_words, first_name, make_id  # noqa: E402
-from mm_pairs import document, load_characters, load_pairs  # noqa: E402
+from mm_build import (
+    BuildError,
+    Sources,
+    content_words,
+    first_name,
+    make_id,
+)
+from mm_pairs import document, load_characters, load_pairs
 
 BUILD = SCRIPTS / "build-memory-match.py"
 SITE = SCRIPTS.parent
@@ -219,3 +225,13 @@ def test_check_detects_changed_output(tmp_path, monkeypatch):
     assert module.stale_outputs({stale: "{}"}) == []
     assert module.stale_outputs({stale: '{"changed": true}'}) == [stale]
     assert module.stale_outputs({tmp_path / "missing.json": "{}"}) == [tmp_path / "missing.json"]
+
+
+@pytest.mark.parametrize(("book", "testament", "deck"), [
+    ("PSA", "ot", "psalms"), ("PRO", "ot", "law-prophets-wisdom"), ("GEN", "ot", "law-prophets-wisdom"),
+    ("ISA", "ot", "law-prophets-wisdom"), ("JHN", "nt", "gospels"), ("ROM", "nt", "letters"), ("REV", "nt", "letters"),
+])
+def test_a_verse_category_follows_its_book(book: str, testament: str, deck: str) -> None:
+    from mm_verses import VERSE_DECKS, deck_of
+    assert deck_of(book, testament) == deck
+    assert deck in {key for key, _ in VERSE_DECKS}

@@ -13,10 +13,31 @@ import json
 import re
 from dataclasses import dataclass, field
 
-from mm_build import BOOK_NUM, SITE, BuildError, Sources, content_words, read_json, show_ref
+from mm_build import (
+    BOOK_NUM,
+    SITE,
+    BuildError,
+    Sources,
+    content_words,
+    read_json,
+    show_ref,
+)
 from mm_pairs import deck_pools
 
-VERSE_DECKS = [("old-testament", "Old Testament"), ("new-testament", "New Testament")]
+# The categories, by part of the Bible: a verse's book decides its category (deck_of). The Law, the Prophets and the
+# wisdom books share one category: apart, each had too few verses for Medium or Hard.
+VERSE_DECKS = [("psalms", "Psalms"), ("law-prophets-wisdom", "Law, Prophets and Wisdom"), ("gospels", "The Gospels"),
+               ("letters", "The letters")]
+GOSPELS = {"MAT", "MRK", "LUK", "JHN"}
+
+
+def deck_of(book: str, testament: str) -> str:
+    """The category of a verse in this book; testament is verse completion's "ot" or "nt"."""
+    if book == "PSA":
+        return "psalms"
+    if testament == "ot":
+        return "law-prophets-wisdom"
+    return "gospels" if book in GOSPELS else "letters"
 POOL = SITE / "src" / "data" / "verse-completion" / "pool.json"
 MAX_HALF = 48  # characters in either half; longer halves make a card too tall on a phone
 MAX_HALF_HARD = 40  # Hard deals 24 cards, so its verses are shorter still
@@ -108,8 +129,8 @@ def load_verses(sources: Sources, excluded: dict[str, str]) -> tuple[list[VerseP
             left_out.append((passage["id"], f"a half of {longest} characters"))
             continue
         key = "mv-" + hashlib.sha1(str(vid).encode()).hexdigest()[:6]
-        deck = "old-testament" if passage["testament"] == "ot" else "new-testament"
-        pairs.append(VersePair(key, key, vid, book, chapter, number, passage["tier"], [deck], split, first, second,
+        pairs.append(VersePair(key, key, vid, book, chapter, number, passage["tier"], [deck_of(book, passage["testament"])],
+                               split, first, second,
                                longest <= MAX_HALF_HARD))
     unknown = set(excluded) - {p["id"] for p in read_json(POOL)["passages"]}
     if unknown:

@@ -6,9 +6,11 @@ of it. Places per deck and difficulty (a dash: hidden, too few):
 
 | Deck | Easy (6) | Medium (9) | Hard (12) |
 |---|---|---|---|
-| Mixed | 25 | 53 | 61 |
-| Old Testament | 11 | 28 | 32 |
-| New Testament | 14 | 28 | 32 |
+| Mixed | 25 | 55 | 63 |
+| Genesis and the Exodus | 10 | 14 | 16 |
+| The land and the kings | 10 | 14 | 16 |
+| Where Jesus went | 11 | 18 | 18 |
+| The early church | 10 | 12 | 16 |
 
 | # | Place | Event | Passage | Key verse | Tier | Never with |
 |---|---|---|---|---|---|---|
@@ -79,3 +81,5 @@ of it. Places per deck and difficulty (a dash: hidden, too few):
 | 65 | Troas | a boy fell from a window | Acts 20:6–12 | Acts 20:9 | 3 | — |
 | 66 | Malta | a viper on Paul's hand | Acts 28:1–5 | Acts 28:3 | 2 | — |
 | 67 | Patmos | John's vision on an island | Revelation 1:9–11 | Revelation 1:9 | 2 | — |
+| 68 | Berea | examined the Scriptures daily | Acts 17:10–11 | Acts 17:11 | 2 | — |
+| 69 | Caesarea | Peter met Cornelius | Acts 10:24–25 | Acts 10:24 | 2 | — |

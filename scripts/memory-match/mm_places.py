@@ -12,10 +12,29 @@ import hashlib
 import json
 import re
 
-from mm_build import SHY, BuildError, Sources, bare, content_words, first_name, reader_href, show_ref, verse_id
-from mm_pairs import Character, Pair, check_pair, check_shared_names, deck_pools, symmetric_not_with
+from mm_build import (
+    SHY,
+    BuildError,
+    Sources,
+    bare,
+    content_words,
+    first_name,
+    reader_href,
+    show_ref,
+    verse_id,
+)
+from mm_pairs import (
+    Character,
+    Pair,
+    check_pair,
+    check_shared_names,
+    deck_pools,
+    symmetric_not_with,
+)
 
-PLACE_DECKS = [("old-testament", "Old Testament"), ("new-testament", "New Testament")]
+# The categories, by period of the story; each event in places.json names its own.
+PLACE_DECKS = [("beginnings", "Genesis and the Exodus"), ("land-kings", "The land and the kings"),
+               ("jesus", "Where Jesus went"), ("church", "The early church")]
 DECK_KEYS = [key for key, _ in PLACE_DECKS]
 # Words of a place label that are not its name: "The Valley of Elah" is named by "Elah".
 GENERIC = {"the", "mount", "sea", "valley", "of", "river"}

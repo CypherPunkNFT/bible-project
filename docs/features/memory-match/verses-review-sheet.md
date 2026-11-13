@@ -7,8 +7,10 @@ Verses per deck and difficulty:
 | Deck | Easy (6) | Medium (9) | Hard (12) |
 |---|---|---|---|
 | Mixed | 56 | 96 | 72 |
-| Old Testament | 29 | 49 | 36 |
-| New Testament | 27 | 47 | 36 |
+| Psalms | 14 | 23 | 20 |
+| Law, Prophets and Wisdom | 15 | 26 | 16 |
+| The Gospels | 11 | 24 | 21 |
+| The letters | 16 | 23 | 15 |
 
 | # | Verse | First card | Second card | Tier | Hard | Never with |
 |---|---|---|---|---|---|---|
