@@ -191,3 +191,25 @@
   .bw-key { font-size: .85rem; }
   .bw-keys { gap: .22rem; }
 }
+
+/* ---- Start page (Start.tsx), like What came first?'s and the crossword's (owner, 2026-11-12): the drawing beside the
+   title, Normal and Hard with the gold button after them, the figures under. No focus outline: focus lifts, as hover. */
+.bw-start { --bw-ease: cubic-bezier(.16, 1, .3, 1); padding-bottom: 2rem; }
+.bw-start-head { display: flex; align-items: center; gap: 1.2rem; margin-top: 1rem; }
+.bw-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--epistles); }
+.bw-start h1 { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
+.bw-lede { margin-top: .5rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.bw-start-date { margin-top: .4rem; color: var(--muted); font-size: .85rem; }
+.bw-start-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.6rem; }
+.bw-start-row > .bw-start-play { align-self: flex-end; min-height: 48px; padding: .7rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
+@media (max-width: 559px) { .bw-start-row > .bw-start-play { width: 100%; } }
+.bw-chips { display: flex; flex-wrap: wrap; gap: .45rem; border: 0; padding: 0; margin: 0; }
+.bw-chips legend { width: 100%; margin-bottom: .55rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.bw-chips button { display: inline-flex; align-items: center; min-height: 44px; padding: .45rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink);
+  font-size: .9rem; outline: none; transition: transform .35s var(--bw-ease), border-color .35s var(--bw-ease), background-color .35s var(--bw-ease); }
+@media (hover: hover) { .bw-chips button:not(:disabled):hover { transform: translateY(-2px); border-color: var(--accent); } }
+.bw-chips button:focus-visible { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.bw-chips button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); font-weight: 600; }
+.bw-chips button:disabled { cursor: not-allowed; opacity: .45; }
+.bw-start-note { margin-top: .8rem; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.bw-start .bw-figures { margin-top: 1.6rem; }

@@ -1,5 +1,5 @@
-// Today's puzzle on screen (design §3, §8, §9): the header with its three panels, the board, the message pill, the
-// hint lamp and the keyboard or, once the game is over, the result panel. Every guess is saved the moment it is played,
+// Today's puzzle on screen (design §3, §8, §9), after the start page (Start.tsx): the header with its three panels,
+// the board, the message pill, the hint lamp and the keyboard or, once the game is over, the result panel. Every guess is saved the moment it is played,
 // so a reload brings the same board back; without storage the game plays the same and only the stats are not kept.
 // Nothing here waits for an animation: the row's turn, the hop and the panel's rise only decorate state that has
 // already changed, and under reduced motion the timers are zero.
@@ -15,6 +15,7 @@ import { evaluate, guessSet, keyMarks, outcomeOf, refusalFor, type Refusal } fro
 import { Keyboard, type KeyName } from "./Keyboard";
 import { HelpPanel, SettingsPanel, StatsPanel, type PanelName } from "./Panels";
 import { Result } from "./Result";
+import { Start } from "./Start";
 import { shareText } from "./share";
 import { currentStreak, finishToday, markHelpSeen, readRecord, recordGuess, setContrast, setHard, startToday, STORAGE_KEY, withHint, writeRecord,
   type WordleRecord } from "./storage";
@@ -51,11 +52,14 @@ export function Play({ data }: { data: WordleData }) {
   const allowed = useMemo(() => guessSet(data.guesses.words), [data]);
   const [n, setN] = useState(() => daily.numberOn(new Date())); // fixed for this game: one opened before midnight finishes as that day's
   const now = useNow();
+  /** The start page shows once per visit; "Play #n" for the next day goes straight to its board. */
+  const [entered, setEntered] = useState(false);
   if (n < 1) return <p className="bw-message">{`Bible Wordle begins on ${formatDate(daily.dateOf(1), { day: "numeric", month: "long", year: "numeric" })}.`}</p>;
   const answer = daily.wordFor(n);
   const entry = answer ? data.answers[answer] : undefined;
   if (!answer || !entry) return <p className="bw-message" role="alert">The puzzle could not be loaded.</p>;
   const today = daily.numberOn(now);
+  if (!entered) return <Start n={n} answer={answer} daily={daily} onPlay={() => setEntered(true)} />;
   return <Puzzle key={n} n={n} answer={answer} entry={entry} daily={daily} allowed={allowed} now={now}
     next={today > n ? today : null} onNext={() => setN(daily.numberOn(new Date()))} />;
 }

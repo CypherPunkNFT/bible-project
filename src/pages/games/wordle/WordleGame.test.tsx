@@ -27,12 +27,18 @@ function play(word: string) {
   fireEvent.keyDown(window, { key: "Enter" });
 }
 
-/** Opens the game on a date, past the How to play panel a first visit shows. */
+/** Leaves the start page for the board, by whichever name its button has today. */
+async function enter() {
+  fireEvent.click(await screen.findByRole("button", { name: /^(Play|Carry on|See today's result)$/ }, LOADED));
+}
+
+/** Opens the game on a date, past the start page and the How to play panel a first visit shows. */
 async function open(date: Date) {
   vi.setSystemTime(date);
   const firstVisit = !JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").seenHelp;
   const page = renderAt("/games/wordle");
   await screen.findByRole("heading", { level: 1, name: "Bible Wordle" }, LOADED);
+  await enter();
   if (firstVisit) {
     const help = await screen.findByRole("dialog", { name: "How to play" }, LOADED);
     fireEvent.click(within(help).getByRole("button", { name: "Close" }));
@@ -54,10 +60,15 @@ describe("bible wordle page", () => {
   });
   afterEach(() => { vi.useRealTimers(); window.matchMedia = savedMatchMedia; });
 
-  it("opens from the hub's address with How to play on the first visit, and today's number and date", async () => {
+  it("opens from the hub's address on a start page, then How to play on the first visit, and today's number and date", async () => {
     vi.setSystemTime(new Date(2026, 10, 8, 10));
     renderAt("/games/wordle");
     expect(await screen.findByRole("heading", { level: 1, name: "Bible Wordle" }, LOADED)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Normal" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: "Hard" }));
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").settings.hard).toBe(true);
+    expect(screen.queryByRole("group", { name: "Row 1" })).toBeNull(); // no board, so no typing, until Play
+    await enter();
     expect(await screen.findByRole("dialog", { name: "How to play" }, LOADED)).toBeVisible();
     expect(screen.getByText(/^#2 · Sunday, 8 November|^#2 · Sunday, November 8/)).toBeInTheDocument();
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").seenHelp).toBe(true);
