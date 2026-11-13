@@ -24821,5 +24821,59 @@
   "check": "files",
   "item": "src/data/memory-match/verses.json",
   "why": "Memory card match, Verses version: verse ids and split points only; the card words are the Bible's own, looked up per board in the site's Bible (verse-cards.ts). Its only prose is its deck titles, which the page shows as written (it reads no translated copy of this file), so they stay English until the page reads one"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "721f10aaa13f",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "bac3b0074cac",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "9e633e416157",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "2ff424d3a744",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "6c7a435b4a77",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "c4e470d7abdc",
+  "languages": [
+   "ar"
+  ],
+  "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
  }
 ]
