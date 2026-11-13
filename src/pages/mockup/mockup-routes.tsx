@@ -150,12 +150,8 @@ export function mockupRoutes() {
     // Version 2: doors higher, no section heading, the first tiles already on the screen (owner, 2026-11-11).
     <Route key="tools2" path="/tools_mockup2" element={<ToolsMockupPage version={2} />} />,
     <Route key="games2" path="/games_mockup2" element={<GamesMockupPage version={2} />} />,
-    // Odd one out with the player's deck of odd ones out as the start screen's moving picture, four ways: the wallet,
-    // the carousel, where and when, the collection (owner, 2026-11-12).
-    <Route key="odd-deck" path="/games/odd-one-out_mockup" element={<OddDeckMockup version={1} />} />,
-    <Route key="odd-deck2" path="/games/odd-one-out_mockup2" element={<OddDeckMockup version={2} />} />,
-    <Route key="odd-deck3" path="/games/odd-one-out_mockup3" element={<OddDeckMockup version={3} />} />,
-    <Route key="odd-deck4" path="/games/odd-one-out_mockup4" element={<OddDeckMockup version={4} />} />,
+    // Odd one out with a stack of the odd ones' cards on the screen during play, in the game only (owner, 2026-11-12).
+    <Route key="odd-deck" path="/games/odd-one-out_mockup" element={<OddDeckMockup />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }

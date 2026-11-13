@@ -1,16 +1,19 @@
 // The stack on the screen while a round is played (owner, 2026-11-12: "a stacking stack on the screen so you could see
 // their cards as we play the game"). Each answer drops that puzzle's odd one onto the pile beside the puzzle; it stays
 // there, newest on top at full face, the earlier ones stacked behind it with their name strips showing. A tap on a
-// strip brings that card to the top until the next one lands. On a phone the pile sits above the question as a row of
-// cards overlapping like a hand, newest on the right; tapping one opens its full face under the row.
-import { useEffect, useMemo, useState } from "react";
+// strip brings that card to the top until the next one lands. On a phone the cards sit above the question side by side,
+// two short lines each (name; era, kind of place or kind of book), scrolling sideways with the newest on the right and
+// brought into view as it lands; tapping one opens its full face under the row (owner, 2026-11-12: no overlap).
+import { useEffect, useMemo, useRef, useState } from "react";
 import { headline, type SetsFile } from "@/pages/games/odd-one-out/game";
 import type { RoundState } from "@/pages/games/odd-one-out/storage";
 import { formatNumber } from "@/lib/site-format";
 import { CardEdge, DeckCard } from "./DeckCard";
-import { CARDS, useDeck, type CardData, type Kept } from "./deck";
+import { CARDS, eraLabel, useDeck, type CardData, type Kept } from "./deck";
 
 interface Landed { card: CardData; kept: Kept }
+
+const detail = (card: CardData) => (card.kind === "person" ? eraLabel(card.era) : card.kind === "place" ? card.type : card.genre);
 
 function landedCards(data: SetsFile, round: RoundState): Landed[] {
   const byId = new Map(data.sets.map((set) => [set.id, set]));
@@ -30,7 +33,11 @@ export function PlayStack({ data, round }: { data: SetsFile; round: RoundState }
   const landed = useMemo(() => landedCards(data, round), [data, round]);
   const [chosen, setChosen] = useState<string | null>(null);
   const newest = landed[0]?.card.id;
-  useEffect(() => { setChosen(null); }, [newest]); // a new card landing always shows on top
+  const hand = useRef<HTMLDivElement>(null);
+  useEffect(() => { // a new card landing always shows on top, and on a phone scrolls into view
+    setChosen(null);
+    hand.current?.scrollTo({ left: hand.current.scrollWidth, behavior: "smooth" });
+  }, [newest]);
   const top = landed.find((entry) => entry.card.id === chosen) ?? landed[0];
   const behind = landed.filter((entry) => entry !== top);
   const spotted = landed.filter((entry) => entry.kept.spotted).length;
@@ -53,13 +60,13 @@ export function PlayStack({ data, round }: { data: SetsFile; round: RoundState }
         </button>)}
         <DeckCard key={top.card.id} card={top.card} kept={top.kept} className={`od-play-top${top.card.id === newest && !chosen ? " is-new" : ""}`} />
       </div>
-      {/* Phone: the hand. */}
-      <div className="od-play-hand">
+      {/* Phone: one row of short cards, scrolling sideways. */}
+      <div className="od-play-hand" ref={hand}>
         {landed.slice().reverse().map((entry) => <button key={entry.card.id} type="button"
           className={`od-play-mini${entry === top ? " is-on" : ""}${entry.card.id === newest ? " is-new" : ""}`}
           style={{ "--sec": `var(--${entry.card.top.sec})` } as React.CSSProperties}
           onClick={() => setChosen(entry === top && chosen ? null : entry.card.id)} aria-label={`Show ${entry.card.name}`}>
-          <span>{entry.card.name}</span>
+          <b>{entry.card.name}</b><span>{detail(entry.card)}</span>
         </button>)}
       </div>
       {chosen && <DeckCard key={`hand-${top.card.id}`} card={top.card} kept={top.kept} className="od-play-handcard" />}

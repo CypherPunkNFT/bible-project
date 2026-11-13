@@ -1,7 +1,7 @@
 // The Odd one out deck (mock-ups, owner 2026-11-12): every odd one out a player meets becomes a card they keep, with
 // one sentence, the book that names it most, how many verses name it, its era, map point or place in the canon, and
 // why it was the odd one. Cards are in cards.json (scripts/mockup_odd_deck_cards.py); the deck itself is kept in this
-// browser. A first visit is given a small deck from real sets, so the mock-up never opens empty.
+// browser.
 import { useSyncExternalStore } from "react";
 import { headline, type SetEntry, type SetsFile } from "@/pages/games/odd-one-out/game";
 import { PEOPLE_PERIODS } from "@/lib/people-periods";
@@ -62,21 +62,6 @@ export function keep(data: SetsFile, set: SetEntry, spotted: boolean): CardData 
     : { id: set.odd, why: whyOf(data, set), spotted, at: Date.now() };
   write([entry, ...kept.filter((other) => other.id !== set.odd)]);
   return card;
-}
-
-/** A first visit gets twelve cards from real sets, four of each kind, so the mock-up shows a deck at once. */
-export function seedOnce(data: SetsFile) {
-  if (kept.length > 0) return;
-  const picked: Kept[] = [];
-  const counts = { person: 0, place: 0, book: 0 };
-  for (const set of data.sets) {
-    const card = CARDS.get(set.odd);
-    if (!card || counts[card.kind] >= 4 || picked.some((entry) => entry.id === card.id)) continue;
-    counts[card.kind] += 1;
-    picked.push({ id: card.id, why: whyOf(data, set), spotted: picked.length % 3 !== 2, at: Date.now() - picked.length * 3_600_000 });
-    if (picked.length === 12) break;
-  }
-  write(picked);
 }
 
 export const kindLabel = (kind: CardData["kind"]) => (kind === "person" ? "Person" : kind === "place" ? "Place" : "Book");
