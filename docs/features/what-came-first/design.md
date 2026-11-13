@@ -3,7 +3,7 @@
 **Feature:** the game Who's older? ([/games/whos-older](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/)) becomes **What came first?** at `/games/what-came-first`, with eight categories of "firsts" plus Mixed, approved by the owner on 2026-11-12.
 **Brief:** [BRIEF.md](Jarvis/Projects/BibleProject/Website/docs/features/what-came-first/BRIEF.md). It wins over this document wherever they disagree.
 **Shape and rules inherited from:** [Who's older? design](Jarvis/Projects/BibleProject/Website/docs/features/whos-older/design.md) (its sections 3–5 are the "certain pairs only" model), [its redesign](Jarvis/Projects/BibleProject/Website/docs/visual-audits/whos-older-redesign.md), [design/README.md](Jarvis/Projects/BibleProject/Website/design/README.md), [games README](Jarvis/Projects/BibleProject/Website/src/pages/games/README.md), [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md), the site's [AGENTS.md](Jarvis/Projects/BibleProject/Website/AGENTS.md).
-**Written:** 2026-11-12, sequence 48 step 1 (research and design). Step 2 reviews this document once and appends a "Review" section; step 3 curates and checks the data; step 4 builds the game. No code was written in this step.
+**Written:** 2026-11-12, sequence 48 step 1 (research and design). **Reviewed:** 2026-11-12, step 2: corrections are made in the body and listed, with reasons, in the "Review" section at the end. Step 3 curates and checks the data; step 4 builds the game. No code was written in either step.
 
 ---
 
@@ -55,9 +55,9 @@ Read in this step, from the live working tree.
 | Source | What it holds | Use |
 |---|---|---|
 | [timeline.json](Jarvis/Projects/BibleProject/Website/src/data/timeline/timeline.json), built by [build-timeline.ts](Jarvis/Projects/BibleProject/Website/scripts/build-timeline.ts) from three source files | 248 events, each with `lo`/`hi` years, `shown`, era, tier, `dating` line, verse spans, linked people; 1,453 order facts with verse and reason (`close` marks a generation or less apart); 47 contested pairs. Its `explain()` accepts two-step chains through a third event | What happened first (§4.2). Counted in this step: **28,067 of the 30,628 possible pairs are certain by one direct link** (1,453 by a fact, 26,614 by windows), before this game's own extra blocks |
-| [people-pages rulers-*.json](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) (10 files) | 111 rulers: judges, the united kingdom, Israel (19), Judah (20), Egypt (9), Assyria and Babylon (9), Persia (10, including governors and queens), the Herods (6), Rome (11), neighbours (9). Each has `order`, `predecessor`, `successor`, `synchronisms` with verse spans, and `dates`: one entry per dating system (Thiele as revised by McFall, Albright, Ussher, Galil or Young stored as `other`, and a Scripture entry with no years) | Who ruled first (§4.3). **Note:** these files store BC years as positive and AD years as negative (Augustus `27` to `-14`), the reverse of the games' historians' numbering. The build converts them |
+| [people-pages rulers-*.json](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) (10 files) | 112 rulers: judges (15), the united kingdom (4), Israel (19), Judah (20), Egypt (9), Assyria and Babylon (9), Persia (10, including governors and queens), the Herods (6), Rome (11), neighbours (9). Each has `order`, `predecessor`, `successor`, `synchronisms` with verse spans, and `dates`, a list of entries whose `system` is only ever `bible` (no years), `thiele-mcfall`, `albright`, `ussher` or `other`. **Only the kings of Israel and Judah and the united kingdom carry the three named systems.** Every foreign, Persian and New Testament ruler has only `other` entries (one to four, by different authors or identifications); Hazael, Hiram, Rezin and one Ben-hadad are dated on the main system alone; 25 rulers have no years at all (Joshua to Samuel among the judges, four pharaohs, So, Mesha, Lysanias, Candace and others). `predecessor` and `successor` are not always symmetric (Samuel names Saul as successor; Saul names no predecessor) | Who ruled first (§4.3). **Note:** these files store BC years as positive and AD years as negative (Augustus `27` to `-14`), the reverse of the games' historians' numbering. The build converts them |
 | [src/data/who-ruled/](Jarvis/Projects/BibleProject/Website/src/data/who-ruled/) (one file per book) | Which rulers are named in each chapter, with the span of their account | Cross-check only: every ruler in the category must have an account span, used as a fallback verse |
-| [places.json](Jarvis/Projects/BibleProject/Website/src/data/map-quest/places.json) | Map quest's 387 places, with id, name, coordinates, tier | Journeys (§4.5): a stop links to its Map quest place when one matches, for the place name and a future map strip. Present: almost all of Paul's stops, Rameses, Succoth, Elim, Hazeroth, Ezion-geber, Shechem, Bethel, Hebron, Haran and others. **Hazard:** one "Antioch" only, while Paul's journeys need Antioch of Syria and Pisidian Antioch apart |
+| [places.json](Jarvis/Projects/BibleProject/Website/src/data/map-quest/places.json) | Map quest's 387 places, with id, name, coordinates, tier | Journeys (§4.5): a stop links to its Map quest place when one matches, for the place name. Present: almost all of Paul's stops, Rameses, Succoth, Elim, Hazeroth, Ezion-geber, Shechem, Bethel, Hebron, Haran and others. **Hazard:** one "Antioch" only, while Paul's journeys need Antioch of Syria and Pisidian Antioch apart |
 | `data/catalog.json` (read by `loadBooks` in [site-data.ts](Jarvis/Projects/BibleProject/Website/scripts/whos-older/site-data.ts)) and the site's verse ids (`book × 1,000,000 + chapter × 1,000 + verse`, Genesis = 1 … Revelation = 66) | The 66-book Protestant order, already the site's numbering | Which comes first in your Bible (§4.7), generated |
 | The question bank, [content/questions/](Jarvis/Projects/BibleProject/Website/content/questions/) | About 5,000 questions | Read-only. Step 3 may search it for Bible Firsts candidates; it never changes it |
 
@@ -104,7 +104,7 @@ Every category's generated file has the same outer shape, so one loader, one tra
 ```jsonc
 {
   "about": "Generated by scripts/build-what-came-first.ts …; do not edit.",
-  "stamp": "3f9a…",                 // hash of this file's inputs; a saved run made from another stamp is dropped (§7)
+  "stamp": "3f9a…",                 // hash of the rest of this file's own content, as whos-older.json's is (translated copies carry it unchanged and are matched by it); a saved run made from another stamp is dropped (§7)
   "category": "ruled",
   "books": { "11": ["1KI", "1 Kings"] },     // reader codes and names for verse links, as whos-older.json has
   "items": [ /* §5.1 */ ],
@@ -138,7 +138,13 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
       "reason": "The order of what God made in the Creation week is left out of this game (owner, 2026-11-12)." },
     { "a": ["water-into-wine", "officials-son", "calms-storm", "feeding-5000", "walking-on-water", "lazarus-raised"],
       "b": ["water-into-wine", "officials-son", "calms-storm", "feeding-5000", "walking-on-water", "lazarus-raised"],
-      "reason": "Which of Jesus's miracles came first is left out (owner, 2026-11-12); his first sign is a Bible First instead." }
+      "reason": "Which of Jesus's miracles came first is left out (owner, 2026-11-12); his first sign is a Bible First instead." },
+    { "a": ["nile-to-blood", "passover"], "b": ["nile-to-blood", "passover"],
+      "reason": "The order of the plagues is left out of this game (owner, 2026-11-12)." }
+  ],
+  "blocked": [                                                         // single pairs, each with its reason
+    { "a": "hezekiah-reopens-temple", "b": "samaria-falls", "reason": "Rests on Hezekiah's first year: 729 BC counting a shared reign, but 715 BC on Albright's dates, after Samaria fell." },
+    { "a": "anointing-bethany", "b": "entry-jerusalem", "reason": "John puts the anointing the day before the entry (John 12:1, 12) but Matthew and Mark tell the Bethany anointing after it (Matthew 26:6; Mark 14:3)." }
   ]
 }
 ```
@@ -147,9 +153,10 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
   - **Timeline's 47 contested pairs**, carried over: for example Enoch taken against Noah's birth (the Hebrew and Samaritan texts of Genesis 5 disagree), Ezra's arrival against Nehemiah's (Ezra's "Artaxerxes" may be the first or the second), the war with Benjamin against each judge's story.
   - **The Creation week:** God creating the heavens and the earth, Adam formed and Eve made, against each other. These three still meet later events (the Flood, Babel), because that is not a question about the days of Creation. Adam before Eve stays in category 1, where it already is.
   - **Jesus's miracles against each other** (the six miracle events in the list today). A miracle against a non-miracle event (Jesus's baptism, the Last Supper) stays, because that is not "which miracle came first". Step 3 re-reads the event list and adds any other miracle of Jesus to the group; the build fails if an event whose label has Jesus healing, feeding, raising, calming or walking on water is outside the group.
-  - **The plagues:** the only plague event today is the Passover night, with no other plague to pair it with. The build fails if an event naming a plague is added later without a blocked group.
-- **Checks the build runs:** every id in `events.source.json` exists in `timeline.json`; each blocked group would otherwise produce at least one pair (else a notice that it is dead weight); the miracle and plague guards; at least 8 partners per event after blocking (an event below 8 is dropped with a notice); at least 300 pairs per difficulty band; facts and windows never contradict (Timeline's build already checks this; repeated here because this build reads the generated file).
-- **Realistic count:** about 245 events and about **28,000 pairs**; the new blocks remove about 18 (three Creation pairs, fifteen miracle pairs).
+  - **The plagues:** two plague events exist today, `nile-to-blood` (the first plague) and `passover` (the death of the firstborn, the tenth), and Timeline holds an order fact between them, so without a block this game would ask the order of the plagues. They are one blocked group. Each still meets non-plague events (the Exodus, the Red Sea crossing), because that is not a question about the order of the plagues. The build fails if an event naming a plague (blood, frogs, gnats, flies, livestock, boils, hail, locusts, darkness, firstborn) is outside the group.
+  - **Two single pairs whose order is honestly disputed**, found in this step's review of Timeline's facts: Hezekiah reopening the temple against the fall of Samaria (the fact needs Thiele's shared reign; Albright's 715 BC puts Samaria first), and Mary's anointing at Bethany against the entry into Jerusalem (John's "next day" against Matthew and Mark, who tell it afterwards). Both are in `blocked`. Reviewed and kept: Ezra's reading of the Law after Nehemiah's wall and before Nehemiah's second visit (Nehemiah 7:73–8:2 and 8:9 set it there, with Nehemiah present: the Bible's own order, which is what the game asks); the fishermen's call after John's arrest (Mark 1:14–16 states it); Daniel taken before the statue dream (whichever way "the second year" of Daniel 2:1 is read, Daniel was already there). Timeline has no event for the writing of any book and none for Paul's visits to Jerusalem or Galatians, so neither dispute can reach this category.
+- **Checks the build runs:** every id in `events.source.json` exists in `timeline.json`; each blocked group would otherwise produce at least one pair (else a notice that it is dead weight); the miracle and plague guards; no event whose label names the writing of a book (the brief's exclusion, guarded for future Timeline events); at least 8 partners per event after blocking (an event below 8 is dropped with a notice); at least 300 pairs per difficulty band; facts and windows never contradict (Timeline's build already checks this; repeated here because this build reads the generated file).
+- **Realistic count:** about 245 events and about **28,000 pairs**; the new blocks remove about 21 (three Creation pairs, fifteen miracle pairs, one plague pair, two single pairs).
 - **Bands:** Easy = windows, both tier 1, at least 400 years apart; Medium = both tier 1–2 and at least 100 years apart, or a fact between two tier-1 events not marked `close`; Hard = everything else (every `close` fact, every tier-3 event).
 
 ### 4.3 Who ruled first? (category 3)
@@ -157,10 +164,11 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 - **"First":** began to rule first: the first year counted as the ruler's, as co-regent or alone. Judges count from when they began to judge, governors from when they took office.
 - **Data source:** the site's ruler pages ([rulers-*.json](Jarvis/Projects/BibleProject/Website/src/data/people-pages/)), read through [site-data.ts](Jarvis/Projects/BibleProject/Website/scripts/whos-older/site-data.ts) `loadPeoplePages`. The hand-kept file `rulers.source.json` names which rulers are in the pool, their card label and tag, tier, any extra order facts, and the blocked pairs. **The windows are computed by the build from the pages, never typed by hand**, so they cannot drift from what the ruler pages say.
 - **How a ruler's window is set (the build's rule):**
-  1. Take every system's `from` year on the ruler's page (Thiele–McFall, Albright, Ussher, Galil or Young). These include co-regency starts where a system dates one (Thiele's Jehoram of Judah from 854 BC while his father Jehoshaphat still reigned).
-  2. Also take, in each system, the **predecessor's last year** on the same throne, because that is where a sole reign begins when another system counts a co-regency.
-  3. The window is the smallest and largest of all of these. A ruler whose page has no years (the judges, the unnamed pharaohs) has **no window** and can only be paired through order facts.
+  1. Take the `from` year of **every dated entry** on the ruler's page, whatever its `system` (foreign and New Testament rulers carry only `other` entries, so entries are never matched system by system) (Thiele–McFall, Albright, Ussher, Galil or Young). These include co-regency starts where a system dates one (Thiele's Jehoram of Judah from 854 BC while his father Jehoshaphat still reigned).
+  2. Also take **every `to` year of the predecessor** on the same throne (the predecessor named on either page, since the links are not always given both ways), because that is where a sole reign begins when another system counts a co-regency.
+  3. The window is the smallest and largest of all of these, **then widened by one year at each end**: regnal years straddle calendar years, and many foreign rulers rest on one estimate, so two rulers one year apart (Sargon 722 BC, Merodach-baladan 721 BC) must not be asked. A ruler whose page has no years (Joshua to Samuel among the judges, the unnamed pharaohs) has **no window** and can only be paired through order facts.
   4. Convert to historians' numbering (the pages store BC positive and AD negative).
+  5. **A ruler dated on one system only is left out** unless step 3 gives it a window that covers the other systems, with reasoning. Today that is Hazael, Hiram and Rezin (dated "on the main system's dates" only, which runs about 40 years later than Ussher; Rezin's year is his first mention in Assyrian records, not his accession; Hiram against David is the known problem of 2 Samuel 5:11).
 - **Hand-kept file shape** (`rulers.source.json`):
 
 ```jsonc
@@ -183,6 +191,7 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
   - **Jehoram of Judah and Joram of Israel** are never asked: 2 Kings 1:17 and 8:16 give synchronisms in opposite directions (the co-regency of Jehoshaphat and Jehoram), and their windows overlap.
   - **Joash of Israel and Amaziah of Judah** *are* asked: 2 Kings 14:1 states it, and every system puts Joash first (798, 801 and 841 BC against 796, 800 and 839 BC), though their windows overlap.
   - Same-year starts (Rehoboam and Jeroboam I; Archelaus, Herod Antipas and Philip the tetrarch, all 4 BC) have touching windows and no fact, so they are never asked.
+  - **Ish-bosheth and David** are never asked. The pages make Ish-bosheth David's predecessor, but both began in the year of Saul's death on Thiele–McFall (1010 BC) and on Ussher (1055 BC), and 2 Samuel 2:10–11 gives Ish-bosheth two years against David's seven and a half in Hebron, so when Ish-bosheth's reign began is uncertain. The succession fact fails the rule; blocked by name so the build's refusal is answered with a reason.
 - **Other blocked pairs and cautions (seed list for step 3):**
 
 | Pair | Reason |
@@ -191,23 +200,26 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 | Samson against Jephthah, Ibzan, Elon, Abdon and Eli | Judges 10:7 has the Philistine and Ammonite oppressions begin together, and many chronologies overlap Samson with Jephthah's successors and with Eli. Samson pairs only with judges before Jephthah and with the kings |
 | Shamgar against Deborah | Judges 3:31 says "After Ehud came Shamgar", but Judges 5:6 places Shamgar's days alongside Jael's, so his order against Deborah is unclear |
 | Artaxerxes (caution, not a block) | His page carries a second system (404 BC, Artaxerxes II) because of the Ezra 7:7 dispute. The card is Nehemiah's Artaxerxes (Nehemiah 2:1, Artaxerxes I, 465/464 BC). The source file filters his window to the Artaxerxes I systems and the review sheet says why; any pair that would flip under Artaxerxes II is blocked |
+| Ahasuerus against Darius and against Artaxerxes | The page dates him as Xerxes I only ("If Xerxes I"), but the site's own notes record other identifications: Ussher makes Esther's Ahasuerus Darius I, Josephus makes the Ahasuerus of Ezra 4:6 Cambyses (before Darius), and the Greek Esther makes him Artaxerxes. Against Darius and against Artaxerxes the order changes with the identification. He stays paired with Cyrus and earlier, and with Nehemiah and later, where every identification agrees |
+| Herod the Great and Augustus | Augustus's page dates him from the title in 27 BC, but Octavian ruled from 43 or 31 BC, before Herod was made king (40 BC) or took Jerusalem (37 BC). "Began to rule" has two answers |
+| Herod Agrippa II and Felix | Felix's page dates his governorship from AD 52, but Tacitus has him already governing Samaria under Cumanus from about AD 48, when Agrippa II was given Chalcis (AD 48–50) |
 | Nebuchadnezzar and Belshazzar (caution) | Daniel 5:2 calls Nebuchadnezzar Belshazzar's "father", which many read as "predecessor". The windows settle the order (605 against about 553 BC); no "parent" fact may be added for it, as Who's older? also decided |
 | Tiberius (caution) | Luke 3:1's "fifteenth year of Tiberius" is counted from AD 14 or from a co-regency from AD 11/12; the window spans both |
 
 - **The pool (candidates for step 3; every name has a ruler page on the site):**
-  - **Leaders and judges (no years; facts only):** Moses, Joshua, Othniel, Ehud, Deborah, Gideon, Abimelech, Tola, Jair, Jephthah, Ibzan, Elon, Abdon, Samson, Eli, Samuel; Shamgar only if step 3 finds him a page or a people id. Among themselves they pair only by the "after him" verses (Judges 3:31; 4:1; 8:33–9:1; 10:1, 3; 12:8, 11, 13; 1 Samuel 4:18 with 7:15). Against every king, foreign ruler and NT ruler they pair through one `stated` fact each: all of them began before Saul (1 Samuel 8:1–5; 10:1). Moses before Joshua (Deuteronomy 34:9; Joshua 1:1–2); Joshua before Othniel (Judges 1:1 with 3:9). These facts are stored once per judge against Saul and expanded by the build to every later ruler, and that expansion is listed on the review sheet: it is the one place a fact reaches more than its own pair, and it is safe only because every later ruler began after Saul (checked against every system's window).
+  - **Leaders and judges (no years; facts only):** Moses, Joshua, Othniel, Ehud, Deborah, Gideon, Abimelech, Tola, Jair, Jephthah, Ibzan, Elon, Abdon, Samson, Eli, Samuel; Shamgar only if step 3 finds him a page or a people id. Among themselves they pair only by the "after him" verses (Judges 3:31; 4:1; 8:33–9:1; 10:1, 3; 12:8, 11, 13; 1 Samuel 4:18 with 7:15). Against every king, foreign ruler and NT ruler they pair through one `stated` fact each: all of them began before Saul (1 Samuel 8:1–5; 10:1). Moses before Joshua (Deuteronomy 34:9; Joshua 1:1–2); Joshua before Othniel (Judges 1:1 with 3:9). These facts are stored once per judge against Saul and expanded by the build to every ruler **whose window lies wholly after Saul's** (on every system), and that expansion is listed on the review sheet: it is the one place a fact reaches more than its own pair. A ruler with no window (the pharaohs of Joseph's day, the oppression and the Exodus) is never reached by the expansion: those three came before the judges.
   - **United kingdom:** Saul, Ish-bosheth, David, Solomon.
   - **Israel (19):** Jeroboam I, Nadab, Baasha, Elah, Zimri, Omri, Ahab, Ahaziah, Joram, Jehu, Jehoahaz, Jehoash, Jeroboam II, Zechariah, Shallum, Menahem, Pekahiah, Pekah, Hoshea.
   - **Judah (20):** Rehoboam, Abijah, Asa, Jehoshaphat, Jehoram, Ahaziah, Athaliah, Joash, Amaziah, Uzziah, Jotham, Ahaz, Hezekiah, Manasseh, Amon, Josiah, Jehoahaz, Jehoiakim, Jehoiachin, Zedekiah.
-  - **Egypt:** the pharaoh of Joseph's day, the pharaoh of the oppression, the pharaoh of the Exodus (no years; facts Exodus 1:8 and 2:23), Solomon's father-in-law, Shishak, So, Tirhakah, Necho, Hophra.
+  - **Egypt:** the pharaoh of Joseph's day, the pharaoh of the oppression, the pharaoh of the Exodus (no years; facts Exodus 1:8 and 2:23; each is kept only if it reaches the partner minimum through facts, and step 3 may find it does not), Shishak, Tirhakah, Necho, Hophra. Solomon's father-in-law and So have no years and no verse that orders them against anyone, so they are left out.
   - **Assyria and Babylon:** Tiglath-pileser, Shalmaneser, Sargon, Sennacherib, Esarhaddon, Merodach-baladan, Nebuchadnezzar, Evil-merodach, Belshazzar.
-  - **Persia:** Cyrus, Darius the Mede, Darius the Persian, Ahasuerus (Xerxes), Artaxerxes; governors Zerubbabel, Nehemiah and Gedaliah. Vashti and Esther are queens consort, not rulers, and are left out.
-  - **Neighbours:** Hiram of Tyre, Hazael, Rezin. Mesha only if step 3 finds a window or fact. The three Ben-hadads are left out (no years, one name).
+  - **Persia:** Cyrus, Darius the Mede, Darius I (the page `darius-ezr-4-5`: Ezra 4–6, Haggai, Zechariah), Ahasuerus (Xerxes, with the blocks above), Artaxerxes; governors Nehemiah and Gedaliah. **Zerubbabel is left out:** his page's start is the return from exile, not a term of office (Sheshbazzar was Cyrus's governor, Ezra 5:14, and Zerubbabel is first called governor in Darius's second year, Haggai 1:1), so when he "began to govern" is unknown. Vashti and Esther are queens consort, not rulers, and are left out.
+  - **Neighbours:** none in the first release. Hiram, Hazael and Rezin are dated on one system only (window rule 5); Mesha and the three Ben-hadads have no usable years.
   - **Herods:** Herod the Great, Archelaus, Herod Antipas, Philip the tetrarch, Herod Agrippa I, Agrippa II.
   - **Rome:** Augustus, Quirinius (wide window: AD 6 or the debated earlier term), Tiberius, Pontius Pilate, Claudius, Sergius Paulus, Gallio, Felix, Nero, Porcius Festus. Lysanias and Candace have no years and are left out.
-- **Labels:** repeated names are qualified on both sides so Who's older?'s clash rule (§5.3 there) passes: "Ahaziah of Israel" and "Ahaziah of Judah", "Jehoahaz of Israel" and "Jehoahaz of Judah", "Jehoash of Israel" and "Joash of Judah", "Joram of Israel" and "Jehoram of Judah", "Jeroboam I" and "Jeroboam II", "Darius the Mede" and "Darius the Persian", the Herods by their full names, "Pharaoh (Joseph's day)", "Pharaoh (the oppression)", "Pharaoh (the Exodus)", "Pharaoh (Solomon's father-in-law)". The king Zechariah is "Zechariah, king of Israel", so he can never be read as the prophet.
+- **Labels:** repeated names are qualified on both sides so Who's older?'s clash rule (§5.3 there) passes: "Ahaziah of Israel" and "Ahaziah of Judah", "Jehoahaz of Israel" and "Jehoahaz of Judah", "Jehoash of Israel" and "Joash of Judah", "Joram of Israel" and "Jehoram of Judah", "Jeroboam I" and "Jeroboam II", "Darius the Mede" and "Darius (Ezra 6)" (never "Darius the Persian": that is Nehemiah 12:22's name for a later king, most likely Darius II), the Herods by their full names, "Pharaoh (Joseph's day)", "Pharaoh (the oppression)", "Pharaoh (the Exodus)". The king Zechariah is "Zechariah, king of Israel", so he can never be read as the prophet.
 - **Checks the build runs:** every id has a ruler page (or, for a governor without one, a people id and an anchor verse); the window rule above; the succession and synchronism rule (fatal); the judges' expansion check; facts never contradict and contain no loop; every fact verse has Berean words; the clash rule; at least 8 partners per ruler (else dropped with a notice); at least 200 pairs per band (this category is smaller than people).
-- **Realistic count:** about **105 rulers**. Most kings of Israel and Judah meet most foreign and NT rulers by windows, so roughly **4,000–4,500 pairs**; the judges add a few hundred through their facts.
+- **Realistic count:** about **100 rulers** (after this review left out six with no honest window). Most kings of Israel and Judah meet most foreign and NT rulers by windows, so roughly **4,000–4,500 pairs**; the judges add a few hundred through their facts.
 - **Bands:** Easy = windows, both tier 1, at least 300 years apart (David and Nebuchadnezzar); Medium = windows at least 50 years apart with both tier 1–2, or a succession between two tier-1 rulers (David and Solomon); Hard = everything else (synchronisms, close successions, judges among themselves, tier 3).
 
 ### 4.4 What was built first? (category 4)
@@ -244,14 +256,14 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 | Jacob's pillar at Bethel | Genesis 28:18 | Jacob's flight; before his altar at Shechem (33:20) and his altar at Bethel (35:7) |
 | Pithom and Rameses, the store cities | Exodus 1:11 | Before the Exodus; hand window over the early and late Exodus dates |
 | The golden calf | Exodus 32:4 | Before the Tabernacle (Exodus 40:17, set up in the second year) and the ark of the covenant (made in Exodus 37:1, after the calf) |
-| The ark of the covenant | Exodus 37:1–9 | Before the Tabernacle was set up (Exodus 40:20–21 puts the ark in it) |
+| The ark of the covenant | Exodus 37:1–9 | After the calf. **Blocked against the Tabernacle**: the Tabernacle's parts are made first in the telling (Exodus 36), the ark after (37:1), all the work is finished and brought to Moses together (39:32–43), and Deuteronomy 10:3 tells Moses making an ark when he cut the second tablets; "finished first" has no single answer |
 | The Tabernacle | Exodus 40:17 | First day of the first month of the second year |
 | The bronze serpent | Numbers 21:8–9 | Fortieth year (after Aaron's death, Numbers 20:28–21:4) |
 | The memorial stones at Gilgal | Joshua 4:20 | After the Jordan crossing |
-| Joshua's altar on Mount Ebal | Joshua 8:30 | After Ai |
+| Joshua's altar on Mount Ebal | Joshua 8:30 | After the Jordan crossing. Its `when` must not say "after Ai" as settled: the Greek text and a Qumran copy place this passage elsewhere in Joshua; every placement is after the crossing and before Joshua 22 |
 | The altar by the Jordan ("Witness") | Joshua 22:10, 34 | End of the conquest |
 | Gideon's altar "The LORD Is Peace" | Judges 6:24 | Gideon's call; before his ephod (8:27) |
-| Micah's idol | Judges 17:4 | **Blocked against every judge's item**: Judges 17–21 is not tied to any judge (the same reason Timeline blocks the war with Benjamin) |
+| Micah's idol | Judges 17:4 | **Blocked against every judge's item and against the altar by the Jordan (Joshua 22)**: Judges 17–21 is not tied to any judge (the same reason Timeline blocks the war with Benjamin), and Phinehas is still serving (Judges 20:28) while the Danites have not yet taken their land (Judges 18:1; compare Joshua 19:47), so it may reach back to the end of Joshua's days. It pairs with items before the Jordan crossing and from Samuel on (the idol stood "the whole time the house of God was in Shiloh", Judges 18:31) |
 | Samuel's stone "Ebenezer" | 1 Samuel 7:12 | Samuel's judgeship, before Saul |
 | Saul's first altar | 1 Samuel 14:35 ("the first altar he built to the LORD") | Saul's reign |
 | David's palace | 2 Samuel 5:11 | David's reign; Hiram's craftsmen |
@@ -261,9 +273,9 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 | Jeroboam's golden calves at Bethel and Dan | 1 Kings 12:28–29 | Jeroboam I's accession |
 | Samaria, built by Omri | 1 Kings 16:24 | Omri's reign |
 | Ahab's temple of Baal in Samaria | 1 Kings 16:32 | Ahab's reign |
-| Ahab's ivory house | 1 Kings 22:39 | Ahab's reign. **Blocked against his temple of Baal**: no verse orders them |
+| Ahab's ivory house | 1 Kings 22:39 | Ahab's reign |
 | Jericho rebuilt by Hiel | 1 Kings 16:34 | Ahab's days |
-| Elijah's altar on Mount Carmel | 1 Kings 18:31–32 | Ahab's reign. **Blocked against the other Ahab-reign items** |
+| Elijah's altar on Mount Carmel | 1 Kings 18:31–32 | Ahab's reign. **The four Ahab-reign items (the temple of Baal, the ivory house, Hiel's Jericho, Elijah's altar) are all blocked against each other**: no verse orders them |
 | Ahaz's altar copied from Damascus | 2 Kings 16:10–11 | Ahaz's reign, after Tiglath-pileser took Damascus |
 | Hezekiah's tunnel | 2 Kings 20:20; 2 Chronicles 32:30 | Hezekiah's reign |
 | Nebuchadnezzar's golden image | Daniel 3:1 | Nebuchadnezzar's reign |
@@ -272,7 +284,7 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 | Nehemiah's wall | Nehemiah 6:15 | Finished in 52 days, Artaxerxes I's twentieth year (445/444 BC) |
 | Herod's Temple | John 2:20 ("forty-six years") | Herod the Great's rebuilding, begun about 20/19 BC and still under way in Jesus's ministry (John 2:20). By the "finished first" rule its window runs from about 20 BC to its completion in the AD 60s; it is later than every other item either way, so the long window costs no pairs. Its `when` line says so |
 
-- **What is blocked and why:** items in one reign that no verse orders (Ahab's three); anything from Judges 17–21 against the judges' items; the tower of Babel against Noah's altar if step 3 finds the windows tie them (both early Genesis: as in the Timeline game, two `shown: false` items never prove order by their invented bounds, so only facts decide between them).
+- **What is blocked and why:** items in one reign that no verse orders (Ahab's four); the ark of the covenant against the Tabernacle; Micah's idol against the judges' items and the altar by the Jordan; the tower of Babel against Noah's altar if step 3 finds the windows tie them (both early Genesis: as in the Timeline game, two `shown: false` items never prove order by their invented bounds, so only facts decide between them).
 - **Checks the build runs:** every anchor resolves (event, ruler or person exists); computed windows are recorded on the review sheet beside the anchor; facts agree with windows, never contradict, no loop; every verse has Berean words; labels unique; at least 6 partners per item (smaller pool); at least 100 pairs per band.
 - **Realistic count:** about **35–40 items**, roughly **550–650 pairs**: most items are centuries apart.
 - **Bands:** Easy = windows, both tier 1, at least 400 years apart (Noah's ark and Solomon's Temple); Medium = at least 100 years or a fact between tier-1 items; Hard = the rest.
@@ -309,12 +321,12 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 |---|---|---|
 | Paul, first journey (Acts 13:4–14:26) | Seleucia 13:4, Salamis 13:5, Paphos 13:6, Perga 13:13, Pisidian Antioch 13:14, Iconium 13:51, Lystra 14:8, Derbe 14:20, Attalia 14:25 | Origin Antioch of Syria left out. "Pisidian Antioch" needs its own stop name; Map quest has one "Antioch", so link it to whichever Antioch that place is and give the other its own name |
 | Paul, second journey (Acts 15:36–18:22) | Derbe 16:1, Lystra 16:1, Troas 16:8, Samothrace 16:11, Neapolis 16:11, Philippi 16:12, Amphipolis 17:1, Apollonia 17:1, Thessalonica 17:1, Berea 17:10, Athens 17:15, Corinth 18:1, Ephesus 18:19, Caesarea 18:22 | Derbe and Lystra arrive in one verse (16:1, "came to Derbe and then to Lystra" in the Berean): keep only if step 3 confirms the wording orders them, else block. Cenchreae is a departure only. "Syria and Cilicia" (15:41) is a region summary, left out |
-| Paul, third journey (Acts 18:23–21:17) | Ephesus 19:1, Macedonia 20:1, Greece 20:2, Troas 20:6, Assos 20:13, Mitylene 20:14, Chios 20:15, Samos 20:15, Miletus 20:15, Cos 21:1, Rhodes 21:1, Patara 21:1, Tyre 21:3, Ptolemais 21:7, Caesarea 21:8, Jerusalem 21:17 | "Galatia and Phrygia" (18:23) is a summary, left out. Regions (Macedonia, Greece) only if step 3 is content to show regions as "places" |
-| Paul, voyage to Rome (Acts 27:1–28:16) | Sidon 27:3, Myra 27:5, Cnidus 27:7, Fair Havens 27:8, Cauda 27:16, Malta 28:1, Syracuse 28:12, Rhegium 28:13, Puteoli 28:13, Forum of Appius 28:15, Three Taverns 28:15, Rome 28:16 | Origin Caesarea left out. Forum of Appius and Three Taverns are where the brothers *came to meet* Paul (28:15); keep only if step 3 reads the verse as placing Paul there in that order, else block the pair |
+| Paul, third journey (Acts 18:23–21:17) | Ephesus 19:1, Troas 20:6 (first arrival possibly earlier, see hazards), Assos 20:13, Mitylene 20:14, Chios 20:15, Samos 20:15, Miletus 20:15, Cos 21:1, Rhodes 21:1, Patara 21:1, Tyre 21:3, Ptolemais 21:7, Caesarea 21:8, Jerusalem 21:17 | "Galatia and Phrygia" (18:23) is a summary, left out. **Macedonia and Greece are left out**: besides being regions, their first arrival on this journey is disputed. Paul's own letters put Troas before Macedonia (2 Corinthians 2:12–13), and his "third" coming to Corinth (2 Corinthians 12:14; 13:1) is usually read as a short visit from Ephesus before Acts 20:1–2, so "Macedonia or Greece?" and "Troas or Macedonia?" have no single answer. Troas stays: whichever arrival is first, it falls after Ephesus and before Assos |
+| Paul, voyage to Rome (Acts 27:1–28:16) | Sidon 27:3, Myra 27:5, Cnidus 27:7, Fair Havens 27:8, Malta 28:1, Syracuse 28:12, Rhegium 28:13, Puteoli 28:13, Forum of Appius 28:15, Three Taverns 28:15, Rome 28:16 | Origin Caesarea left out. Cauda is left out: the ship only passed it (27:16, "passing to the lee"). Forum of Appius and Three Taverns are where the brothers came to meet Paul (28:15), named in one breath: **that one pair is blocked**; each is still asked against the other stops, since both lie after Puteoli and before Rome |
 | Israel in the wilderness (Exodus 12–19; Numbers 10–33) | Succoth, Etham, Pi-hahiroth (the sea), Marah, Elim, the Wilderness of Sin, Rephidim, Mount Sinai, Kibroth-hattaavah, Hazeroth, Ezion-geber, Mount Hor, the plains of Moab | Origin Rameses left out. **Kadesh left out**: Israel is at Kadesh early (the spies, Numbers 13:26) and again late (Numbers 20:1; 33:36), and Numbers 33 lists only the late stop. **Moseroth and Bene-jaakan left out**: Deuteronomy 10:6 and Numbers 33:30–31 give them in opposite orders. The card's traveller is "Israel" |
 | Abraham (Genesis 11:31–22:19) | Haran 11:31, Shechem 12:6, Bethel and Ai 12:8, Egypt 12:10, Hebron (Mamre) 13:18, Gerar 20:1, Beersheba 21:31–33, Moriah 22:2–9 | Origin Ur left out. Bethel revisited (13:3): first arrival 12:8 counts. **Beersheba against Gerar**: Gerar 20:1, then the Beersheba covenant 21:31; keep, with the verses |
 | Jacob (Genesis 28–46) | Bethel 28:19, Haran 29:4, Mahanaim 32:2, Penuel 32:30, Succoth 33:17, Shechem 33:18, Bethel again (not a card), Bethlehem road (Ephrath) 35:19, Hebron (Mamre) 35:27, Egypt 46:6 | Origin Beersheba left out (28:10). Bethel's first arrival is 28:19 |
-| Elijah (1 Kings 17–19) | the brook Cherith 17:3–5, Zarephath 17:10, Mount Carmel 18:20, Jezreel 18:46, Beersheba 19:3, Horeb 19:8, Abel-meholah (Elisha's call, 19:16–19) | Abel-meholah is where Elisha lived; 19:19 does not name the place. Keep only if step 3 is content with "found Elisha" wording; else leave out |
+| Elijah (1 Kings 17–19) | the brook Cherith 17:3–5, Zarephath 17:10, Mount Carmel 18:20, Jezreel 18:46, Beersheba 19:3, Horeb 19:8 | Abel-meholah is left out: it is Elisha's home (19:16), but 19:19 does not say where Elijah found him, so no verse places Elijah there |
 | Elijah and Elisha's last walk (2 Kings 2:1–8) | Bethel 2:2, Jericho 2:4, the Jordan 2:6–8 | Origin Gilgal left out. Small (3 stops, 3 pairs) |
 | The ark of the covenant (1 Samuel 4–7; 2 Samuel 6) | Ebenezer (the battle, 4:1–11), Ashdod 5:1, Gath 5:8, Ekron 5:10, Beth-shemesh 6:12, Kiriath-jearim 7:1, the house of Obed-edom 2 Samuel 6:10–11, the City of David 6:12 | Origin Shiloh left out. The traveller is a thing; the heading reads "Where did the ark of the covenant go first?" **Owner's call** whether a non-person traveller is welcome (§13) |
 | Joseph (Genesis 37) | Shechem 37:14, Dothan 37:17, Egypt 37:28 | Origin Hebron left out. Small |
@@ -334,7 +346,7 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 - **Data source:** new hand-kept file `died.source.json`. People ids from the Who's older? pool where the person is there. A death window is set by one of:
   - `age`: the person's Who's older? birth window plus their age at death stated in Scripture (Abraham 175, Genesis 25:7; Isaac 180, 35:28; Jacob 147, 47:28; Joseph 110, 50:26; Moses 120, Deuteronomy 34:7; Aaron 123, Numbers 33:39; Joshua 110, Joshua 24:29);
   - `anchor`: a Timeline event or ruler window (Saul's death is the end of his reign; Stephen's death is the Timeline event of his stoning);
-  - `lifespan`: birth window plus 0–120 years, for someone whose age is unknown but whose birth window exists;
+  - `lifespan`: birth window plus 0–130 years, for someone whose age is unknown but whose birth window exists, **only for people born after the Exodus** (the longest recorded life after Moses is Jehoiada's 130 years, 2 Chronicles 24:15). Before that, lives ran far longer (Isaac 180, Jacob 147, Ishmael 137, Sarah 127), so a capped lifespan would invent an order: Rebekah's death against Isaac's is not settled by any verse, and a 120-year cap would wrongly make her die first. Anyone born earlier needs `age`, an `anchor` or a `hand` window with its reasoning, or is paired only by facts;
   - `hand`, with reasoning.
 - **Order facts** carry the close pairs that windows cannot separate, each with its verse:
 
@@ -385,11 +397,11 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 
 - **"First":** earlier in the 66-book Protestant order (§3). No disputes, so no blocked list.
 - **Data source:** generated **at run time**, with no data file: the 66 books in the site's own numbering (Genesis 1 … Revelation 66, the same numbers as every verse id), with each book's name as the reader's current Bible names it, through the site's catalogue helpers (`useCatalog`, `bookByNum` in [refs.ts](Jarvis/Projects/BibleProject/Website/src/lib/refs.ts)). Translation therefore needs nothing new: book names are already the reader's Bible's.
-- **Item:** `{ id: "MIC", label: "Micah", position: 33, tag: "Prophets" }`. The tag is the book's section in the site's library (Law, History, Poetry, Prophets, Gospels, Acts, Epistles, Revelation). **Review question for step 2:** the section is a strong hint (Law always before Prophets); this design shows it, because finding a book by its section is exactly what the brief says this category teaches.
+- **Item:** `{ id: "MIC", label: "Micah", position: 33, tag: "Prophets" }`. The tag is the book's section in the site's library (Law, History, Poetry, Prophets, Gospels, Acts, Epistles, Revelation). The section is a strong hint (Law always before Prophets). The review kept it: finding a book by its section is what the brief says this category teaches, and the Hard band (books 1–5 apart, nearly always in one section) gets no help from it. The owner may still choose no tag (§13).
 - **Checks (in the tests, since there is no build step):** exactly 66 items with positions 1–66, no gaps; names come from the catalogue; no apocryphal book (the catalogue's numbers above 66 are excluded, as `loadBooks` already does).
 - **Count:** 66 books, **2,145 pairs**.
 - **Bands:** Easy = different testaments, or at least 20 books apart; Medium = 6–19 apart in one testament; Hard = 1–5 apart (Nahum and Habakkuk, Philippians and Colossians).
-- **Reveal:** "Micah is book 33 and Nahum book 34" with a small shelf strip (§9.3), and a link to open the book in the reader.
+- **Reveal:** "Micah is book 33 and Nahum book 34", and a link to open the book in the reader (§9.3).
 
 ### 4.8 Bible Firsts (category 8)
 
@@ -403,6 +415,7 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
   "questions": [
     { "id": "first-king-israel", "question": "Who was the first king of Israel?", "tier": 1,
       "answer": "Saul", "options": ["David", "Samuel", "Ish-bosheth"],      // 2 or 3 wrong options, hand-written
+      "never": ["Abimelech"],                                               // optional: names that are defensible answers, so never an option
       "refs": [[9010001, 9010001], [9010024, 9010024]],
       "why": "Samuel anointed Saul, and the people shouted 'Long live the king!'",
       "answerId": "saul-1sa-9-2" }                                          // optional link to a person, place or book
@@ -417,32 +430,31 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 | Question | Answer | Verse |
 |---|---|---|
 | Who was the first man? | Adam | 1 Corinthians 15:45 ("The first man Adam"); Genesis 2:7 |
-| Who was the first person to die? | Abel | Genesis 4:8 |
+| Whose death is the first one the Bible tells? | Abel | Genesis 4:8 (Scripture does not say no one died before him, so the question asks what the text shows) |
 | Who built the first city named in the Bible? | Cain | Genesis 4:17 |
-| In whose days did people begin to call on the name of the LORD? | Enosh | Genesis 4:26 |
+| After whose birth does Genesis say people began to call on the name of the LORD? | Enosh | Genesis 4:26 (asked by birth, not "in whose days": Adam and Seth were alive then too). Seth and Adam are never options |
 | Who was the father of all who play the harp and flute? | Jubal | Genesis 4:21 |
-| Who was the first to be a mighty one on the earth? | Nimrod | Genesis 10:8; 1 Chronicles 1:10 |
 | Which bird did Noah send out first? | A raven | Genesis 8:7 |
 | Who was Jacob's firstborn son? | Reuben | Genesis 29:32; 49:3 |
-| Who was the first king of Israel? | Saul | 1 Samuel 10:1, 24 |
+| Who was the first king of Israel? | Saul | 1 Samuel 10:1, 24; Acts 13:21. Abimelech is never an option (Judges 9:22 says he "reigned over Israel" three years) |
 | Who was the first king of the ten northern tribes? | Jeroboam | 1 Kings 12:20 |
 | Who was Judah's first king after the kingdom split? | Rehoboam | 1 Kings 12:17; 14:21 |
 | Whom did the LORD raise up as the first deliverer in the book of Judges? | Othniel | Judges 3:9 |
-| Who was Israel's first high priest? | Aaron | Exodus 28:1; Hebrews 5:4 |
+| Who was Israel's first high priest? | Aaron | Exodus 28:1; Hebrews 5:4. Melchizedek is never an option |
 | What was the first of Jesus's signs? | Turning water into wine at Cana | John 2:11 |
 | Whom did Andrew first find and bring to Jesus? | His brother Simon | John 1:41 |
 | Which apostle does Matthew name first in his list of the Twelve? | Simon Peter | Matthew 10:2 ("first, Simon") |
-| Who reached Jesus's empty tomb first, in John's account? | the other disciple, whom Jesus loved | John 20:4 |
+| When Peter and the other disciple ran to the tomb, who reached it first? | the other disciple, whom Jesus loved | John 20:4 (asked about the two runners only: Mary Magdalene had come first, 20:1) |
 | Which is the first and greatest commandment, Jesus said? | Love the Lord your God with all your heart, soul and mind | Matthew 22:37–38 |
 | Which is the first commandment with a promise? | Honour your father and mother | Ephesians 6:2 |
 | Where were the disciples first called Christians? | Antioch | Acts 11:26 |
-| Through whose household did God first visit the Gentiles, as Peter told the council? | Cornelius | Acts 15:7, 14 with Acts 10 |
-| Who was the first believer baptised in Philippi? | Lydia | Acts 16:14–15 |
+| Through whose household did God first visit the Gentiles, as James told the council? | Cornelius | Acts 15:14 (James recalling Simon Peter's account, 15:7) with Acts 10. The Ethiopian official (Acts 8) is never an option: whether he was a Gentile is debated |
+| Whose baptism in Philippi does Acts tell first? | Lydia | Acts 16:14–15 (Acts does not call her the first; it tells her baptism before the jailer's) |
 | Who was the first of the church to be killed for his faith in the book of Acts? | Stephen | Acts 7:59–60; 8:1 — **wording matters**: "the first Christian martyr" is a traditional title; the question asks only what Acts shows |
 
-- **Left out, and why (recorded in the file):** "Who first saw the risen Jesus?" (Mark 16:9 states it, but that verse is in the longer ending whose place in Mark is disputed, and the other gospels do not settle it); "the first prophet" (Abraham is the first called one, Genesis 20:7, but "first" there is only first mention); anything on the days of Creation or the order of the plagues (owner); "the first apostle to die" (Acts records only James's death, 12:2; "first" would be inference).
-- **Checks the build runs:** every question has 2 or 3 wrong options, all different from the answer and from each other; every verse has Berean words; no question duplicates another's answer and wording; `answerId`, if given, exists.
-- **Realistic count:** **about 25 questions** in the first release. Bible Firsts has no pairs, so it is dealt by question (§6.3).
+- **Left out, and why (recorded in the file):** "Who first saw the risen Jesus?" (Mark 16:9 states it, but that verse is in the longer ending whose place in Mark is disputed, and the other gospels do not settle it); "the first prophet" (Abraham is the first called one, Genesis 20:7, but "first" there is only first mention); "the first mighty one on the earth" (Nimrod: the Berean reads "began to be a mighty one", Genesis 10:8, with no "first", and Genesis 6:4 names "mighty men of old" before the Flood); anything on the days of Creation or the order of the plagues (owner); "the first apostle to die" (Acts records only James's death, 12:2; "first" would be inference).
+- **Checks the build runs:** every question has 2 or 3 wrong options, all different from the answer and from each other and from its `never` names; every verse has Berean words; no question duplicates another's answer and wording; `answerId`, if given, exists.
+- **Realistic count:** **about 20–25 questions** in the first release (22 candidates above after this review). Bible Firsts has no pairs, so it is dealt by question (§6.3).
 - **Bands:** the question's `tier` (1 Easy, 2 Medium, 3 Hard).
 
 ### 4.9 Counts at a glance (estimates; step 3 reports the real ones)
@@ -451,12 +463,12 @@ Windows follow Who's older? §4.2.1: the smallest and largest year over **every*
 |---|---|---|---|
 | 1 Who lived first? | 160 (existing) | 10,789 pairs | 9 pairs (existing) |
 | 2 What happened first? | about 245 | about 28,000 pairs | Timeline's 47 contested, plus the Creation-week and miracle groups |
-| 3 Who ruled first? | about 105 | about 4,000–4,500 pairs | seed list §4.3 plus every failing succession or synchronism |
+| 3 Who ruled first? | about 100 | about 4,000–4,500 pairs | seed list §4.3 plus every failing succession or synchronism |
 | 4 What was built first? | 35–40 | about 550–650 pairs | a handful (§4.4) |
-| 5 Where did they go first? | 110–120 stops in about 14 journeys | about 600 pairs | Kadesh, Moseroth/Bene-jaakan, unclear summaries |
+| 5 Where did they go first? | 110–120 stops in about 14 journeys | about 600 pairs | Kadesh, Moseroth/Bene-jaakan, Macedonia/Greece on the third journey, Forum of Appius against Three Taverns, unclear summaries |
 | 6 Who died first? | about 45 | about 700–800 pairs | §4.6 |
 | 7 Which comes first in your Bible? | 66 | 2,145 pairs | none |
-| 8 Bible Firsts | about 25 questions | 25 questions | the left-out list |
+| 8 Bible Firsts | about 20–25 questions | 20–25 questions | the left-out list |
 
 ---
 
@@ -513,14 +525,14 @@ Each category adds its own display fields in its adapter (Who lived first's `tag
 
 ### 5.3 Per-category pieces
 
-`src/pages/games/what-came-first/categories.ts` lists the eight categories in pill order. Each entry has: `key`; pill name; heading and the line under it (§3); its book-colour tone (§9.5); `format: "pair" | "choice"`; `rules` (§5.2); `bandOf(order)` (the bands in §4); `load()` (its data through `inSiteLanguage`, or the catalogue for books); and the words for the reveal's strip ("born", "began to reign", "finished", "died", "reached"). Each category's adapter (`categories/<key>.ts`, a few dozen lines) turns its generated file into items. Adding a ninth category later means one adapter, one entry and one data file.
+`src/pages/games/what-came-first/categories.ts` lists the eight categories in pill order. Each entry has: `key`; pill name; heading and the line under it (§3); its book-colour tone (§9.5); `format: "pair" | "choice"`; `rules` (§5.2); `bandOf(order)` (the bands in §4); `load()` (its data through `inSiteLanguage`, or the catalogue for books); and its reveal sentences. **Each category writes its own whole sentences** ("…was born at least … before …", "…began to reign at least … before …"), each one template string with only names and numbers inside `${…}`: a shared sentence with the category's verb spliced in is a "sentence built from pieces", which the translation check refuses. Likewise the strip's bar words ("Born", "Began to reign", "Finished", "Died") are written per category with a capital, or between tags, never as bare lower-case strings. The pill name and heading strings sit under keys the translation collector reads (`label`, `short`, `heading`, `subtitle`), so they are registered rather than flagged. Each category's adapter (`categories/<key>.ts`, a few dozen lines) turns its generated file into items. Adding a ninth category later means one adapter, one entry and one data file.
 
 ### 5.4 What happens to the old folder
 
 Other games import the old folder's helpers, and other builds read its data (§2.1), so:
 
 - **Stay where they are, unchanged:** [pairing.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/pairing.ts), [explain.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/explain.ts) and their tests, [data.test.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/data.test.ts), all of [src/data/whos-older/](Jarvis/Projects/BibleProject/Website/src/data/whos-older/), [build-whos-older.ts](Jarvis/Projects/BibleProject/Website/scripts/build-whos-older.ts) and [scripts/whos-older/](Jarvis/Projects/BibleProject/Website/scripts/whos-older/). The folder becomes "Who lived first's model".
-- **Shrinks:** [game.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/game.ts) keeps only Who lived first's types (`Character`, `WhosOlderData`, `PoolPair`) and `buildPool`, which `explain.ts` and `data.test.ts` use; the run and the dealer move to the new folder and are generalised there.
+- **Shrinks:** [game.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/game.ts) keeps only Who lived first's types (`Character`, `WhosOlderData`, `PoolPair`), `buildPool` and `random`, which `explain.ts`, `explain.test.ts` and `data.test.ts` import (`data.test.ts` must keep passing unchanged, and it imports `random`); the run and the dealer move to the new folder and are generalised there.
 - **Move** with `git mv` (so their history follows) into `src/pages/games/what-came-first/`: the page, Round, Reveal, Screens, Timeline (becomes Strip), Hourglass, view.ts, share.ts, storage.ts, the stylesheet and their tests. The stylesheet keeps its `wo-` class names, so the approved look carries over without a rewrite; new classes use `wcf-`.
 
 ---
@@ -581,14 +593,14 @@ One key, `bp-what-came-first`:
 
 A Bible Firsts round stores the question id and the order its options were shown in (indexes, not words, so a language change cannot break it); the pick is an index into that order. The run is saved when each round is dealt and after each answer, exactly as now, so a reload brings back the same unanswered round and can neither undo a miss nor skip one.
 
-A saved run is resumed only if **every** category in `stamps` still has that stamp; otherwise it is dropped and the bests stay. To check that, the page loads the data of the categories named in the saved run before it shows Continue.
+A saved run is resumed only if **every** category in `stamps` still has that stamp; otherwise it is dropped and the bests stay. To check that, the page loads the data of the categories named in the saved run before it shows Continue. Books has no data file, so its stamp is a fixed string held in code (changed only if the book list's shape ever changes).
 
 ### 7.2 Migration from Who's older?
 
 On the first read, if `bp-what-came-first` is missing or unreadable and `bp-whos-older` holds a valid save:
 
 1. `best.lived` = the old `best` (`streak` and `relaxed` as they are).
-2. The old `run`, if it is still valid against Who lived first's data (the same checks as today's `parseRun`), becomes a run with `choice: "lived"`, `stamps: { lived: <old stamp> }`, and every round tagged `category: "lived"`. Because this job does not change `whos-older.json`, its stamp is unchanged and the run resumes on the same pair.
+2. The old `run`, if it has the old shape, is copied **as it is** into a run with `choice: "lived"`, `stamps: { lived: <old stamp> }`, and every round tagged `category: "lived"`. The migration does not load any data to judge it: the ordinary resume check (§7.1) does that later, against Who lived first's data, exactly as today's `parseRun` does, and drops it if it no longer fits. So migration stays a pure, instant step that works whichever pill the player opens on. Because this job does not change `whos-older.json`, its stamp is unchanged and the run resumes on the same pair.
 3. `choice` = `"lived"`.
 4. The new key is written at once. **The old key is never written or deleted**, so going back to an older build of the site still finds it; and since migration runs only when the new key is missing, it never runs twice.
 
@@ -616,17 +628,17 @@ React Router ranks this exact path above `/games/*`, so it wins wherever it sits
 ### 8.3 Registry and hub entry
 
 - In [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts), the `whos-older` entry is replaced **in the same position** on the family shelf: `slug: "what-came-first"`, `load: () => import("./what-came-first/WhatCameFirstGame")`, `title: "What came first?"`, description *"Two people, events, kings, places or books: tap the one that came first. Eight kinds of round, or all mixed."*, audiences and shelf unchanged, `art: GAME_ART.whatCameFirst`.
-- In [art/index.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/art/index.ts), only the entry's key is renamed from `whosOlder` to `whatCameFirst`. The drawing (`WhosOlderScene`: two portraits and an hourglass) and its tone stay, and so does its alt text, because the picture itself has not changed and the alt describes the picture. A new drawing is left to the owner (§13).
+- In [art/index.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/art/index.ts), only the entry changes: its key is renamed from `whosOlder` to `whatCameFirst`, and its alt text follows the new game, as the brief asks, while still describing the unchanged picture: *"Two portraits, an old patriarch and a young king, with an hourglass between: which came first?"*. The drawing (`WhosOlderScene`: two portraits and an hourglass) and its tone stay. A new drawing is left to the owner (§13).
 - [games README](Jarvis/Projects/BibleProject/Website/src/pages/games/README.md): the "Who's older?" section becomes "What came first?", with the categories, the data files, the build command and the shared-file warnings of §5.4.
 
 ### 8.4 The phone app's tile
 
 The app's games page draws its tiles from [games-hub.json](Jarvis/Projects/BibleProject/App/src/data/site/games-hub.json), which is **generated** from the website's committed registry and art index. In order:
 
-1. Commit the website's registry and art index change first: the app's generator refuses uncommitted site edits.
+1. Commit the website's changes first (registry, art index and `language-packs.ts` at least): the app's generator refuses uncommitted edits to the registry and art index, and the parity fingerprint records what the website has committed.
 2. In `App/`, run `python scripts/sync-site-content.py`. It rewrites the tile (slug, title, description, `path: "/games/what-came-first"`, tone, alt) and the app's mirrored copy of `language-packs.ts` (§8.5).
-3. In [art.ts](Jarvis/Projects/BibleProject/App/src/components/games-hub/art.ts), the map key `'whos-older'` becomes `'what-came-first'`. The captured drawings are reused under the new slug's names (`git mv` of `games-whos-older.ts` and `games-whos-older-phone.ts` to `games-what-came-first*.ts`, imports renamed); if [capture-site-art.mjs](Jarvis/Projects/BibleProject/App/scripts/capture-site-art.mjs) names files by slug and is the expected way, re-capture instead.
-4. Re-record the parity fingerprint of the games page as [site_parity.py](Jarvis/Projects/BibleProject/App/scripts/site_parity.py)'s header describes, because `registry.ts` is in its list.
+3. In [art.ts](Jarvis/Projects/BibleProject/App/src/components/games-hub/art.ts), the map key `'whos-older'` becomes `'what-came-first'`. The captured drawings in `App/src/components/site/art/` are reused under the new slug's names (`git mv` of `games-whos-older.ts` and `games-whos-older-phone.ts` to `games-what-came-first.ts` and `games-what-came-first-phone.ts`, imports renamed). The drawing has not changed, so no re-capture is needed; [capture-site-art.mjs](Jarvis/Projects/BibleProject/App/scripts/capture-site-art.mjs) names its output by its `--name` option, so a later re-capture would use `--name games-what-came-first`.
+4. The same sync (`npm run sync:site`) re-records the parity fingerprint of the games page in `App/src/data/site-parity.json`, as [site_parity.py](Jarvis/Projects/BibleProject/App/scripts/site_parity.py)'s header describes: its `/games` list holds both `registry.ts` and `art/index.ts`, so both edits change it.
 5. `npm run check:site` in `App/` must pass, and the build report records its output.
 
 ### 8.5 Translation
@@ -665,8 +677,8 @@ The verdict band, the "Came first" stamp, the fold "More about them" and the rep
 | Category | Strip | Reason sentence |
 |---|---|---|
 | People, events, rulers, buildings, deaths | Today's timeline strip: two thick bars, years under their ends, the dashed bracket "at least N years". Bars labelled with the category's word: "born", "about", "began to reign", "finished", "died". Early-Genesis items: no years, "earlier" and "later", as now | Windows: *"Even on the dating systems that bring them closest, Solomon's Temple was finished at least 400 years before Nehemiah's wall."* Fact: the fact's `why`, then the verse quoted in the reader's Bible with its link |
-| Journeys | **Route strip:** the journey's stops as dots along one line in arrival order, the two asked stops filled and named, the others small and unnamed, the origin as an open ring at the start | *"On his second journey, Paul reached Troas (Acts 16:8) before Philippi (16:12)."* with the first arrival verse quoted |
-| Books | **Shelf strip:** 66 thin ticks with a gap between the testaments, the two books' ticks raised and named, their numbers under them | *"Micah is book 33 of 66; Nahum is book 34."* with a link to open each book in the reader |
+| Journeys | No strip (no years to draw) | *"On his second journey, Paul reached Troas (Acts 16:8) before Philippi (16:12)."* with the first arrival verse quoted |
+| Books | No strip | *"Micah is book 33 of 66; Nahum is book 34."* with a link to open each book in the reader |
 | Bible Firsts | No strip. The right answer card is marked, a wrong pick marked as wrong | The question's `why`, then its verse quoted in the reader's Bible |
 
 ### 9.4 Run over
@@ -701,7 +713,7 @@ The result card as now, titled with the category ("Who ruled first? — streak o
 | `src/pages/games/what-came-first/pool.ts` | Pairs by band and partners, generalised from Who's older?'s `buildPool` |
 | `src/pages/games/what-came-first/game.ts` | Run, dealing, the giveaway rule, Bible Firsts dealing, Mixed (§6) |
 | `src/pages/games/what-came-first/explain.ts` | Reason sentences per category and reason kind; reuses Who's older?'s gap and year helpers |
-| `src/pages/games/what-came-first/CategoryPills.tsx`, `ChoiceRound.tsx`, `Strip.tsx` | The pills, the Bible Firsts round, the three strips |
+| `src/pages/games/what-came-first/CategoryPills.tsx`, `ChoiceRound.tsx` | The pills and the Bible Firsts round. The year strip is today's `Timeline.tsx`, moved and renamed `Strip.tsx` (§10.2) |
 
 ### 10.2 Moved (`git mv`) from `src/pages/games/whos-older/` into `src/pages/games/what-came-first/`, then generalised
 
@@ -711,7 +723,7 @@ The result card as now, titled with the category ("Who ruled first? — streak o
 
 | File | Change |
 |---|---|
-| `src/pages/games/whos-older/game.ts` | Keeps only Who lived first's types and `buildPool` (§5.4) |
+| `src/pages/games/whos-older/game.ts` | Keeps only Who lived first's types, `buildPool` and `random` (§5.4) |
 | [registry.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/registry.ts) | Only the entry (§8.3) |
 | [art/index.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/art/index.ts) | Only the entry's key (§8.3) |
 | [App.tsx](Jarvis/Projects/BibleProject/Website/src/App.tsx) | One forward route (§8.2) |
@@ -728,8 +740,8 @@ Every other game (the Timeline game included, though this game reads its data); 
 ## 11. Tests (for step 3 and step 4)
 
 - **order.test.ts:** each step of `orderOf` (§5.2) in isolation: group mismatch is `null`; clash on and off; blocked beats a fact; a fact beats windows; positions; strict windows (touching is not certain); open edges prove nothing; two `shown: false` items prove nothing unless `hiddenBoundsProve`. **Parity with Who's older?:** for every pair of the 160 people, the new function with the `lived` rules gives the same answer as `whos-older/pairing.ts` `orderOf`.
-- **data.test.ts** (one block per generated file): ids unique; labels unique within the category; every fact's verse span has Berean words; facts agree with windows, never contradict, no loop; every blocked pair names two real items; at least the partner and band minimums of §4; and **an independent second check**, written separately from `orderOf`, over 2,000 random pairs per category: if an order is returned, then a fact exists, or the windows are strictly apart, or both items have positions in one group. Category-specific: no Creation-week pair and no miracle-against-miracle pair among the events; no excluded or never-card person among rulers and deaths; every journey stop shares its group with its partner and no journey's origin is a stop; Bible Firsts options all differ from the answer.
-- **rulers.test.ts:** the window rule on real pages (Jehoram of Judah's window includes Thiele's 854 BC co-regency start and the sole-reign start after Jehoshaphat); the BC/AD conversion (Augustus `27` → −27, Tiberius `-14` → 14); Ahab and Jehoshaphat never asked; Pekah and Pekahiah never asked; Joash of Israel before Amaziah asked, by its synchronism; Rehoboam and Jeroboam I never asked.
+- **data.test.ts** (one block per generated file): ids unique; labels unique within the category; every fact's verse span has Berean words; facts agree with windows, never contradict, no loop; every blocked pair names two real items; at least the partner and band minimums of §4; and **an independent second check**, written separately from `orderOf`, over 2,000 random pairs per category: if an order is returned, then a fact exists, or the windows are strictly apart, or both items have positions in one group. Category-specific: no Creation-week pair, no miracle-against-miracle pair and no plague-against-plague pair among the events, and neither of the two single blocked pairs (Hezekiah's temple and Samaria; the anointing and the entry); no excluded or never-card person among rulers and deaths; every journey stop shares its group with its partner and no journey's origin is a stop; Bible Firsts options all differ from the answer, and none is on the question's `never` list (Abimelech, Melchizedek, Seth, Adam, the Ethiopian official, Mary Magdalene, as §4.8 names them).
+- **rulers.test.ts:** the window rule on real pages (Jehoram of Judah's window includes Thiele's 854 BC co-regency start and the sole-reign start after Jehoshaphat); the BC/AD conversion (Augustus `27` → −27, Tiberius `-14` → 14); Ahab and Jehoshaphat never asked; Pekah and Pekahiah never asked; Joash of Israel before Amaziah asked, by its synchronism; Rehoboam and Jeroboam I never asked; Ish-bosheth and David never asked; Herod the Great and Augustus never asked; Sargon and Merodach-baladan never asked (one year apart, inside the one-year widening); no ruler from one system only (Hazael, Hiram, Rezin) in the pool; the judges' expansion never reaches a ruler without a window.
 - **books.test.ts:** 66 items, positions 1–66, names from the catalogue, the bands of §4.7.
 - **game.test.ts** (moved and extended): everything it checks today, run for Who lived first; plus: Journeys' stayer always gets a same-journey challenger; the general giveaway rule (Genesis and Revelation never stay); Bible Firsts never repeats a question and ends complete when all are used; Mixed never deals one category three times running nor Bible Firsts twice running; Mixed has no stayer; side balance 40–60% over 1,000 seeded rounds in every pair category.
 - **storage.test.ts** (moved and extended): bests per category and mode; a saved Mixed run resumes; a run with any changed stamp is dropped while bests stay; **migration**: an old `bp-whos-older` save with bests and a mid-run becomes Who lived first's bests and run, resumes on the same pair, writes the new key, leaves the old key byte-for-byte as it was, and does not run again on the next read; corrupt old data migrates nothing and breaks nothing; storage unavailable still plays.
@@ -763,7 +775,7 @@ Every other game (the Timeline game included, though this game reads its data); 
 4. **The hub picture.** The tile keeps Who's older?'s drawing (two portraits and an hourglass). A drawing that says "events, kings, places and books" would be a job of its own.
 5. **Which category opens first** for a new player: Who lived first (this design, because the game grew from it) or Mixed.
 6. **Bible Firsts' end.** A Streak run in Bible Firsts ends after about 25 questions as a complete run. The owner may prefer more questions before release; the category is accepted smaller rather than padded (brief §2).
-7. **Regions as journey stops** (Macedonia, Greece on Paul's third journey): kept only if the owner is content for a region to stand as a "place".
+7. ~~Regions as journey stops~~: settled by the review. Macedonia and Greece are left out of Paul's third journey, because their order against Troas and each other is disputed (§4.5), so no region is a stop.
 
 ---
 
@@ -800,7 +812,7 @@ Every other game (the Timeline game included, though this game reads its data); 
 ## 15. Cost
 
 - **Runtime:** none. No model, no API, no new service. Static JSON loaded only when a category is played.
-- **One-time:** curating about 105 rulers (mostly computed), 35–40 buildings, about 14 journeys, about 45 deaths and about 25 Bible Firsts is reading work for step 3, from Scripture and the site's own pages. **No model batch is needed.** If step 3 wants a cheap model to draft `when` lines, it must use the workspace's [BatchRunner](Jarvis/Tools/BatchRunner/README.md) rules (pilot, minimal context, owner's approval of the estimate first); this design does not require it.
+- **One-time:** curating about 100 rulers (mostly computed), 35–40 buildings, about 14 journeys, about 45 deaths and about 25 Bible Firsts is reading work for step 3, from Scripture and the site's own pages. **No model batch is needed.** If step 3 wants a cheap model to draft `when` lines, it must use the workspace's [BatchRunner](Jarvis/Tools/BatchRunner/README.md) rules (pilot, minimal context, owner's approval of the estimate first); this design does not require it.
 - **Licences:** Scripture quotations from the Berean Standard Bible, already used site-wide; the ruler pages' dates are the site's own research; no new source.
 
 ---
@@ -814,3 +826,72 @@ Every other game (the Timeline game included, though this game reads its data); 
 - The site's ruler pages: [src/data/people-pages/](Jarvis/Projects/BibleProject/Website/src/data/people-pages/); places: [places.json](Jarvis/Projects/BibleProject/Website/src/data/map-quest/places.json).
 - The app's hub sync: [site_games_hub.py](Jarvis/Projects/BibleProject/App/scripts/site_games_hub.py), [sync-site-content.py](Jarvis/Projects/BibleProject/App/scripts/sync-site-content.py), [site_parity.py](Jarvis/Projects/BibleProject/App/scripts/site_parity.py).
 - Scripture: the verses cited in §4, to be checked against the Berean Standard Bible by step 3's build.
+
+---
+
+## Review
+
+**Step 2 of sequence 48, 2026-11-12.** I reviewed the design once, critically, against the [brief](Jarvis/Projects/BibleProject/Website/docs/features/what-came-first/BRIEF.md), [FEATURE-BUILD-RULES.md](Jarvis/Projects/BibleProject/FEATURE-BUILD-RULES.md) and the real code and data. I opened every file the design names. I also checked the data it relies on: [timeline.json](Jarvis/Projects/BibleProject/Website/src/data/timeline/timeline.json)'s events, facts and contested pairs; all ten [rulers-*.json](Jarvis/Projects/BibleProject/Website/src/data/people-pages/) pages; the key verses in the site's Berean text; Who's older?'s [storage.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/storage.ts), [game.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/game.ts) and [explain.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/whos-older/explain.ts); [App.tsx](Jarvis/Projects/BibleProject/Website/src/App.tsx); [translated-data.ts](Jarvis/Projects/BibleProject/Website/src/pages/games/translated-data.ts); [english_build_check.py](Jarvis/Projects/BibleProject/Website/content/translation/english_build_check.py) and its language nets; and the app's [site_games_hub.py](Jarvis/Projects/BibleProject/App/scripts/site_games_hub.py), [site_parity.py](Jarvis/Projects/BibleProject/App/scripts/site_parity.py), [sync-site-content.py](Jarvis/Projects/BibleProject/App/scripts/sync-site-content.py), [capture-site-art.mjs](Jarvis/Projects/BibleProject/App/scripts/capture-site-art.mjs) and [art.ts](Jarvis/Projects/BibleProject/App/src/components/games-hub/art.ts). Every correction below is already made in the body above.
+
+### Corrections that protect the "certain order only" promise
+
+| # | Where | What changed | Why |
+|---|---|---|---|
+| 1 | §4.2 | **The plagues are now blocked.** `nile-to-blood` and `passover` form one blocked group, and the plague guard names all ten plagues | The design said the Passover night was the only plague event. In fact Timeline also has "The Nile turns to blood" and an order fact between the two ("the first plague … the death of the firstborn was the last"). As written, the game would have asked the order of the plagues, which the owner ruled out |
+| 2 | §4.2 | Hezekiah reopening the temple against the fall of Samaria is blocked | Timeline's fact needs Thiele's shared reign (Hezekiah from 729 BC). On Albright's dates, which that event's own dating line lists, Hezekiah began in 715 BC, after Samaria fell |
+| 3 | §4.2 | Mary's anointing at Bethany against the entry into Jerusalem is blocked | John says the entry came "the next day" (John 12:12). Matthew and Mark tell the Bethany anointing after the entry (Matthew 26:6; Mark 14:3). That is a real difference in the gospels' order |
+| 4 | §4.2 | The review checks are written down, with what was kept and why | The brief asked for Ezra and Nehemiah, the gospels' order, Paul's visits and the Exodus date to be checked. Ezra reading the Law after Nehemiah's wall is kept, because Nehemiah 8 sets it there with Nehemiah present. The fishermen's call after John's arrest is kept, because Mark 1:14–16 states it. Timeline has no event for the writing of any book, and none for Paul's visits to Jerusalem or for Galatians. Every event around the Exodus already has a window that covers both the early and the late date. A guard now stops a "book was written" event from ever slipping in |
+| 5 | §2.2, §4.3 | The way a ruler's window is set is rewritten: take the `from` of every dated entry and every `to` of the predecessor, then widen by one year at each end | The design matched dates "system by system". The pages have only `thiele-mcfall`, `albright`, `ussher` and `other`, and every foreign and New Testament ruler has only `other` entries, so that matching was undefined for them. Predecessor links are not always given both ways. Some rulers rest on one estimate and sit one year apart, for example Sargon in 722 BC and Merodach-baladan in 721 BC |
+| 6 | §4.3 | Hazael, Hiram and Rezin are left out. A ruler dated on one system only is out unless step 3 gives it a window with reasoning | Their pages give only the main system's dates, which run about 40 years after Ussher's. Rezin's year is his first mention in Assyrian records, not when he began to reign. Hiram against David is the known chronological problem of 2 Samuel 5:11 |
+| 7 | §4.3 | Ish-bosheth and David are blocked | The pages make Ish-bosheth David's predecessor, but both began in the same year on both dated systems. 2 Samuel 2:10–11 gives two years against seven and a half, so their order of starting is uncertain |
+| 8 | §4.3 | Herod the Great and Augustus are blocked, and so are Herod Agrippa II and Felix | Augustus's page dates him from his title in 27 BC, but Octavian ruled from 43 or 31 BC, before Herod became king. Tacitus has Felix already governing Samaria around AD 48, when Agrippa II was given Chalcis |
+| 9 | §4.3 | Ahasuerus is blocked against Darius and against Artaxerxes | The page dates him as Xerxes only, but the site's own notes record other identifications. Ussher makes him Darius I, Josephus makes the Ahasuerus of Ezra 4:6 Cambyses, and the Greek Esther makes him Artaxerxes. Each one changes those two orders |
+| 10 | §4.3 | The card says "Darius (Ezra 6)", never "Darius the Persian" | "Darius the Persian" is Nehemiah 12:22's name for a later king, most likely Darius II. The page `darius-ezr-4-5` is Darius I |
+| 11 | §4.3 | Zerubbabel is left out | His page's start year is the return from exile, not when he became governor. Sheshbazzar was Cyrus's governor (Ezra 5:14), and Zerubbabel is first called governor in Darius's second year (Haggai 1:1). As written, he would wrongly have been asked as "before Darius" |
+| 12 | §4.3 | The judges' "began before Saul" fact now reaches only rulers whose whole window is after Saul's. Solomon's father-in-law and So are left out | As first written, the expansion reached "every later ruler", which would have taken in the pharaohs, who have no years. Solomon's father-in-law and So have no years and no verse that orders them against anyone |
+| 13 | §4.4 | The ark of the covenant is blocked against the Tabernacle | The Tabernacle's parts are made first in the telling (Exodus 36), the ark after (37:1). Everything is finished and brought to Moses together (39:32–43). Deuteronomy 10:3 has Moses making an ark when he cut the second tablets. So "finished first" has no single answer |
+| 14 | §4.4 | Micah's idol is also blocked against the altar by the Jordan (Joshua 22) | Phinehas is still serving in Judges 20:28, and the Danites had not yet taken their land (Judges 18:1). Judges 17–21 may reach back to the end of Joshua's days |
+| 15 | §4.4 | All four items from Ahab's reign are blocked against each other. The Mount Ebal altar's `when` line must not say "after Ai" as if settled | The design named three Ahab items and missed Hiel's Jericho. The Ebal passage sits in different places in the Hebrew, Greek and Qumran texts. Every placement is after the Jordan crossing, so its pairs are safe, but "after Ai" is not settled |
+| 16 | §4.5 | Macedonia and Greece are dropped from Paul's third journey, and Troas stays | Paul's own letters put Troas before Macedonia (2 Corinthians 2:12–13). A visit to Corinth from Ephesus (2 Corinthians 12:14; 13:1) probably came before Acts 20:1–2. So those orders are disputed. This also settles the step 1 question about whether a region can be a stop |
+| 17 | §4.5 | Cauda is dropped. Forum of Appius against Three Taverns is blocked, and both stay against the other stops | The ship only passed Cauda (Acts 27:16, "passing to the lee"). Acts 28:15 names Forum of Appius and Three Taverns together as where the brothers met Paul |
+| 18 | §4.5 | Abel-meholah is dropped from Elijah's journey | It is Elisha's home (1 Kings 19:16), but 19:19 does not say where Elijah found him |
+| 19 | §4.6 | The lifespan rule for unknown ages is now 0–130 years, and only for people born after the Exodus | A 120-year cap is wrong for the patriarchs: Isaac lived 180 years, Jacob 147, Ishmael 137 and Sarah 127. It would, for example, have made Rebekah die before Isaac, which no verse says |
+| 20 | §4.8 | Nimrod is removed and added to the left-out list | The Berean says he "began to be a mighty one" (Genesis 10:8), with no "first". Genesis 6:4 names "mighty men of old" before the Flood |
+| 21 | §4.8 | Five questions are reworded: Abel's death, Enosh, the two disciples at the tomb, Lydia and Cornelius. A `never` list per question bans wrong options that a player could defend: Abimelech, Melchizedek, Seth, Adam, the Ethiopian official and Mary Magdalene | Each old wording had a second defensible answer or claimed more than the verse says. Mary Magdalene reached the tomb before both disciples (John 20:1). Adam and Seth were alive "at that time" (Genesis 4:26). Abimelech "reigned over Israel" (Judges 9:22). Acts 15:14 is James speaking, not Peter. Acts never calls Lydia "the first" |
+
+### Corrections to the build plan (the code and the checks)
+
+| # | Where | What changed | Why |
+|---|---|---|---|
+| 22 | §5.4, §10.3 | The old `game.ts` also keeps `random` | Who's older?'s `data.test.ts` must pass unchanged, and it imports `random` from `game.ts` along with `buildPool` |
+| 23 | §7.2 | Migration copies the old saved run as it is and lets the normal resume check judge it later | As written, migration would have needed Who lived first's data loaded at that moment (today's `parseRun` needs the pool), even when the player opens on another category. Old best scores carry over as before. The old key is still never written or deleted |
+| 24 | §7.1 | Books gets a fixed stamp held in code | A saved Mixed run records a stamp for each category, and Books has no data file to take one from |
+| 25 | §4.0 | The stamp is a hash of the file's own content, as `whos-older.json`'s is | The translation loader matches a translated copy to its English file by that stamp. A "hash of the inputs" would not do that |
+| 26 | §5.3 | Each category writes whole reveal sentences, and the bar words are capitalised. Pill and heading text sits under keys the translation collector reads | The English build check refuses "sentences built from pieces", such as one sentence with "born" or "died" swapped in. It also flags bare lower-case strings and text under keys it does not collect |
+| 27 | §8.3 | The hub picture's alt text now names the new game and still describes the same picture | The brief says the tile's text, picture alt and art key all follow the new game. The design had kept the alt unchanged |
+| 28 | §8.4 | The app steps now give the real paths and order: commit the website first, then run `npm run sync:site`, which re-records `site-parity.json` and copies `language-packs.ts`; rename the two captured drawings in `App/src/components/site/art/`; no re-capture | Checked against the app's scripts. The parity list for `/games` holds both `registry.ts` and `art/index.ts`. The hub generator requires the address to be `/games/<slug>` and refuses uncommitted registry or art edits. The capture script names its files by `--name`. With these steps `npm run check:site` has what it needs to pass |
+| 29 | §4.7, §9.3, §10.1 | The new route strip and shelf strip are removed. Journeys and Books show the reason sentence and the verse or book link. Only today's year strip remains | These were extra features (the brief asks for the smallest thing). The brief's reveal ("the right answer, when known, how sure, the verse") needs neither, and two fewer pieces make the one-phone-screen promise easier to keep. The note about a "future map strip" is also gone |
+| 30 | §11 | The tests cover every new block: plagues, the two single event pairs, Ish-bosheth and David, Herod and Augustus, Sargon and Merodach-baladan, no one-system rulers, the judges' expansion, and the `never` lists | So step 3 and step 4 prove each correction |
+
+### Checked and found sound (no change)
+
+- **Old best scores and runs.** The old key `bp-whos-older` holds `{version: 1, best: {streak, relaxed}, run}`. The new game copies it once into Who lived first's slot. The data file `whos-older.json` is unchanged, so its stamp and any saved run still match.
+- **The old address.** [App.tsx](Jarvis/Projects/BibleProject/Website/src/App.tsx) already forwards two other addresses with `Navigate`, and its React Router (6.30.1) ranks the exact path `/games/whos-older` above `/games/*`. No sitemap or prerender list names a game address, so nothing else needs the new one.
+- **Translation.** `inSiteLanguage` and the `GAME_DATA` rows in extract.py work as the design describes. `PACKED_ELSEWHERE` is read only by the language packer.
+- **Other games, the hub and the question bank.** Outside this game's own files, only Timeline, its build, the Two truths build, the Twenty questions pool, the translation registration, the games README, the registry and the art index refer to Who's older?. The design keeps the shared files where they are and changes only the registry entry and the art entry. Nothing writes to the question bank.
+- **Doctrine.** Nothing conflicts with the Baptist Faith and Message 2000. Jesus is never a card; Enoch and Elijah are never "deaths"; quotations are the Berean's, shown through [verses.ts](Jarvis/Projects/BibleProject/Website/src/lib/verses.ts). Bible Firsts contains no tradition-only firsts: there is no "first Christian", no "first church building", and Stephen is asked about only as Acts shows him.
+- **Scope.** Apart from the two strips removed above, every piece serves the eight categories, Mixed, the forward or the saved scores. The `?c=` address is what lets the old address open Who lived first.
+
+### Left for the owner
+
+The step 1 questions still stand, except the one about regions, which the review settled (correction 16):
+1. Whether the ark of the covenant may be a "traveller" (§13 point 1).
+2. Whether a book's card shows its section (§13 point 2). The review recommends keeping it.
+3. Stephen's wording: the careful phrasing, or the familiar "first Christian martyr" (§13 point 3).
+4. Keep the hub picture, or have a new one drawn (§13 point 4).
+5. Which category opens first for a new player (§13 point 5).
+6. Whether about 20–25 Bible Firsts questions is enough (§13 point 6). The review's removals bring the candidates to 22.
+
+One new point from this review:
+
+7. **Who ruled first is about 100 rulers, not 105.** Hiram, Hazael, Rezin, Zerubbabel, Solomon's father-in-law and So are left out because no honest window or verse orders them. If the owner wants any of them back, step 3 can give that one a hand-set window that covers every dating system, with its reasoning on the review sheet.
