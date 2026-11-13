@@ -32,10 +32,28 @@
 @media (hover: hover) { .cw-theme:hover .cw-icon { transform: scale(1.08); } }
 .cw-size-icon rect, .cw-shape rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
 .cw-size-icon rect.is-block, .cw-shape rect.is-block { fill: var(--cw-block); stroke: none; }
-.cw-book small, .cw-carry-card small { display: block; margin-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 400; }
-.cw-book[aria-pressed="true"] small { color: var(--ink); font-weight: 600; }
+.cw-carry-card small { display: block; margin-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 400; }
 /* A gold dot on a card or book tile with an unfinished puzzle put aside. */
 .cw-saved-dot { position: absolute; top: .4rem; right: .4rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent); }
+/* The theme tiles, drawn like What came first?'s (owner, 2026-11-12): an arched window with the theme's drawing in its
+   own book colour, the name centred in the serif, a short line under it. Equal columns only: three to a row on a phone,
+   four on a tablet, two rows of six from 900px, where the row steps out of the page column symmetrically. */
+.cw-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+@media (min-width: 560px) { .cw-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; } }
+@media (min-width: 900px) { .cw-tiles { --cw-tiles-w: min(62rem, calc(100vw - 2rem)); grid-template-columns: repeat(6, minmax(0, 1fr)); width: var(--cw-tiles-w); margin-inline: calc((100% - var(--cw-tiles-w)) / 2); } }
+.cw-tile { --game: color-mix(in srgb, var(--cw-tone) 62%, var(--muted)); position: relative; display: flex; flex-direction: column; align-items: center; gap: .15rem; min-height: 44px;
+  padding: .9rem .6rem 1rem; border: 1px solid var(--line); border-radius: 1.1rem; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink);
+  text-align: center; cursor: pointer; outline: none; transition: transform .4s var(--cw-ease), border-color .4s var(--cw-ease), background-color .4s var(--cw-ease), box-shadow .4s var(--cw-ease); }
+.cw-tile:is(:hover, :focus-visible) { --game: var(--cw-tone); transform: translateY(-3px); border-color: color-mix(in srgb, var(--cw-tone) 55%, var(--line)); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .7); }
+.cw-tile:active { transform: translateY(0) scale(.98); }
+.cw-tile[aria-pressed="true"] { --game: var(--cw-tone); border-color: var(--cw-tone); background: color-mix(in srgb, var(--cw-tone) 11%, var(--surface)); }
+.cw-tile-art { width: 100%; max-width: 8.5rem; margin-bottom: .2rem; }
+.cw-tile-art .cw-icon { width: 100%; height: 100%; color: inherit; stroke-width: .9; }
+.cw-tile-name { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; line-height: 1.2; }
+.cw-tile-note { color: var(--muted); font-size: .78rem; line-height: 1.35; }
+.cw-tile[aria-pressed="true"] .cw-tile-note { color: color-mix(in srgb, var(--cw-tone) 70%, var(--ink)); }
+.cw-tile .cw-saved-dot { top: .6rem; right: .6rem; }
+@media (max-width: 559px) { .cw-tile { padding: .6rem .3rem .7rem; border-radius: .9rem; } .cw-tile-name { font-size: .9rem; } .cw-tile-note { display: none; } }
 /* Carry on: the unfinished puzzles, above the themes. */
 .cw-carry { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
 .cw-carry-title { display: block; font-weight: 600; }

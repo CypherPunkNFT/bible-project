@@ -4,7 +4,7 @@
 // and the hub's engraving sits beside the title. Owner, 2026-11-12: each theme card carries its own line drawing,
 // "Or one book" opens a window of every book (BookPicker.tsx), and unfinished puzzles wait under "Carry on".
 import { Clock, Trophy } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, type Level, type Size } from "./themes";
@@ -12,6 +12,10 @@ import { allBooks, clock, fitSpec, freshSeed, makeLayout, sameSource, toPuzzle, 
 import type { BestTimes, PlayState } from "./storage";
 import { BookPicker } from "./BookPicker";
 import { ThemeIcon } from "./ThemeIcons";
+import { TILE_TONES, ThemeTileArt } from "./ThemeTileArt";
+
+/** A theme tile's book colour, as the --cw-tone its drawing and pressed edge use. */
+const tone = (id: string) => ({ "--cw-tone": `var(--${TILE_TONES[id]})` }) as CSSProperties;
 
 // Under `label:`, where the translation collector reads one-word names.
 const LEVEL_LABELS: Record<Level, { label: string }> = { easy: { label: "Easy" }, medium: { label: "Medium" }, hard: { label: "Hard" } };
@@ -101,14 +105,16 @@ export function StartScreen({ data, spec, shelf, solved, best, englishNote, fail
       </div>
     </div>
     <CarryOn data={data} shelf={shelf} onResume={onResume} />
-    <fieldset className="cw-shelf">
+    <fieldset className="cw-shelf cw-tiles">
       <legend>Theme</legend>
-      {THEMES.map((theme) => <button key={theme.id} type="button" className="cw-theme" aria-pressed={sameSource(spec.source, { theme: theme.id })}
-        onClick={() => choose({ ...spec, source: { theme: theme.id } })}><ThemeIcon id={theme.id} /><span>{theme.title}</span>
+      {THEMES.map((theme) => <button key={theme.id} type="button" className="cw-tile" style={tone(theme.id)} aria-pressed={sameSource(spec.source, { theme: theme.id })}
+        onClick={() => choose({ ...spec, source: { theme: theme.id } })}><ThemeTileArt id={theme.id} /><span className="cw-tile-name">{theme.title}</span>
+        <span className="cw-tile-note" aria-hidden="true">{theme.note}</span>
         {hasSaved(theme.id) && <span className="cw-saved-dot" aria-hidden="true" />}</button>)}
-      <button type="button" className="cw-theme cw-book" aria-pressed={chosenBook !== null} aria-haspopup="dialog" onClick={() => setPicking(true)}>
-        <ThemeIcon id="book" />
-        <span>Or one book{chosenBook !== null && <small>{books[chosenBook - 1]?.name}</small>}</span>
+      <button type="button" className="cw-tile cw-book" style={tone("book")} aria-pressed={chosenBook !== null} aria-haspopup="dialog" onClick={() => setPicking(true)}>
+        <ThemeTileArt id="book" />
+        <span className="cw-tile-name">Or one book</span>
+        <span className="cw-tile-note">{chosenBook !== null ? books[chosenBook - 1]?.name : "Any one of the 66"}</span>
         {savedBooks.size > 0 && <span className="cw-saved-dot" aria-hidden="true" />}
       </button>
     </fieldset>

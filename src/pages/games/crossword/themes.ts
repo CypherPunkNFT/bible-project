@@ -30,6 +30,8 @@ export interface ClueEntry {
 export interface Theme {
   id: string;
   title: string;
+  /** The short line under the title on its start-screen tile. */
+  note: string;
   /** First and last book number, inclusive. */
   books?: readonly [number, number];
   /** Question-bank topic whose questions also belong. */
@@ -38,17 +40,17 @@ export interface Theme {
 }
 
 export const THEMES: readonly Theme[] = [
-  { id: "whole", title: "Whole Bible" },
-  { id: "beginnings", title: "Creation & the patriarchs", books: [1, 1], topic: "beginnings" },
-  { id: "exodus", title: "Moses & the Exodus", books: [2, 5], topic: "exodus" },
-  { id: "kingdom", title: "Judges & kings", books: [6, 17], topic: "kingdom" },
-  { id: "wisdom", title: "Psalms & wisdom", books: [18, 22], topic: "wisdom" },
-  { id: "prophets", title: "Prophets & exile", books: [23, 39], topic: "prophets" },
-  { id: "jesus", title: "Jesus & the Gospels", books: [40, 43], topic: "jesus" },
-  { id: "church", title: "The early church & letters", books: [44, 66], topic: "church" },
-  { id: "people", title: "People", kind: "person" },
-  { id: "places", title: "Places", kind: "place" },
-  { id: "verses", title: "Words from verses", kind: "verse" },
+  { id: "whole", title: "Whole Bible", note: "Genesis to Revelation" },
+  { id: "beginnings", title: "Creation & the patriarchs", note: "Genesis", books: [1, 1], topic: "beginnings" },
+  { id: "exodus", title: "Moses & the Exodus", note: "Exodus to Deuteronomy", books: [2, 5], topic: "exodus" },
+  { id: "kingdom", title: "Judges & kings", note: "Joshua to Esther", books: [6, 17], topic: "kingdom" },
+  { id: "wisdom", title: "Psalms & wisdom", note: "Job to Song of Songs", books: [18, 22], topic: "wisdom" },
+  { id: "prophets", title: "Prophets & exile", note: "Isaiah to Malachi", books: [23, 39], topic: "prophets" },
+  { id: "jesus", title: "Jesus & the Gospels", note: "Matthew to John", books: [40, 43], topic: "jesus" },
+  { id: "church", title: "The early church & letters", note: "Acts to Revelation", books: [44, 66], topic: "church" },
+  { id: "people", title: "People", note: "Names from every book", kind: "person" },
+  { id: "places", title: "Places", note: "Towns, lands and seas", kind: "place" },
+  { id: "verses", title: "Words from verses", note: "Key words from Scripture", kind: "verse" },
 ];
 
 export const LEVELS: readonly Level[] = ["easy", "medium", "hard"];
