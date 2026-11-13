@@ -84,19 +84,21 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
       </div>
     </div>
 
-    <fieldset className="ch-modes">
-      <legend className="sr-only">How to play</legend>
-      {([["guess", "Guess it", "Phone on your forehead. Everyone else acts, you guess."], ["act", "Act it", "Classic charades. Read the phone, act it out, the group guesses."]] as const)
-        .map(([key, title, text]) => <button key={key} type="button" className="ch-mode" aria-pressed={mode === key} onClick={() => onSettings({ mode: key as Mode })}>
-          <strong>{title}</strong><span>{text}</span>
-        </button>)}
-    </fieldset>
-
-    <fieldset className="mm-tiles ch-ages" style={evenRows(AGE_GROUPS.length)}>
-      <legend>Who's playing?</legend>
-      {AGE_GROUPS.map(({ key }) => <Tile key={key} {...AGE_TILES[key]} said pressed={ageGroup === key}
-        onClick={() => onSettings({ ageGroup: key, deck: deckOffered(scenes, key, deck) ? deck : "everything" })} />)}
-    </fieldset>
+    {/* The mode stands beside who's playing, under its own heading (owner, 2026-11-13). */}
+    <div className="ch-pair">
+      <fieldset className="mm-tiles ch-ages" style={evenRows(AGE_GROUPS.length)}>
+        <legend>Who's playing?</legend>
+        {AGE_GROUPS.map(({ key }) => <Tile key={key} {...AGE_TILES[key]} said pressed={ageGroup === key}
+          onClick={() => onSettings({ ageGroup: key, deck: deckOffered(scenes, key, deck) ? deck : "everything" })} />)}
+      </fieldset>
+      <fieldset className="ch-modes">
+        <legend>Mode</legend>
+        {([["guess", "Guess it", "Phone on your forehead. Everyone else acts, you guess."], ["act", "Act it", "Classic charades. Read the phone, act it out, the group guesses."]] as const)
+          .map(([key, title, text]) => <button key={key} type="button" className="ch-mode" aria-pressed={mode === key} onClick={() => onSettings({ mode: key as Mode })}>
+            <strong>{title}</strong><span>{text}</span>
+          </button>)}
+      </fieldset>
+    </div>
     <fieldset className="mm-tiles" style={evenRows(decks.length)}>
       <legend>Deck</legend>
       {decks.map(({ key, label }) => {
