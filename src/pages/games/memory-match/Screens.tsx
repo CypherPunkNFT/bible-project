@@ -5,6 +5,7 @@
 import { Star } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { MoreOptions } from "../kit";
+import { CardBack } from "./CardArt";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
@@ -25,11 +26,11 @@ interface StartProps {
 /** Three face-down cards fanned beside the title; the front one turns over and back on a slow loop (CSS). */
 function CardFan() {
   return <span className="mm-fan" aria-hidden="true">
-    <span className="mm-fan__card is-story"><span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Story</span></span></span>
-    <span className="mm-fan__card is-who"><span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Who</span></span></span>
+    <span className="mm-fan__card is-story"><span className="mm-fan__face mm-fan__back"><CardBack kind="story" /></span></span>
+    <span className="mm-fan__card is-who"><span className="mm-fan__face mm-fan__back"><CardBack kind="who" /></span></span>
     <span className="mm-fan__card is-turning">
       <span className="mm-fan__inner">
-        <span className="mm-fan__face mm-fan__back"><span className="mm-card__type">Who</span></span>
+        <span className="mm-fan__face mm-fan__back"><CardBack kind="who" /></span>
         <span className="mm-fan__face mm-fan__front">Daniel</span>
       </span>
     </span>

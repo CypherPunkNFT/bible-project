@@ -6,6 +6,7 @@
 import type { CSSProperties, KeyboardEvent } from "react";
 import { forwardRef } from "react";
 import type { Card as CardSpec } from "./deal";
+import { CardBack, Emblem } from "./CardArt";
 import { spoken } from "./game";
 import { toneColor } from "./tones";
 
@@ -49,7 +50,6 @@ export const Card = forwardRef<HTMLButtonElement, CardProps>(function Card(props
   const { card, face, text, partner, typed, missed, flying, row, column, index, tone, focusable, onFlip, onKeyDown, onFocus } = props;
   const shown = face === "up" || face === "matched";
   const style = { "--pair": toneColor(tone), "--i": index } as CSSProperties;
-  const back = typed ? (card.kind === "who" ? "Who" : "Story") : "";
   const classes = [`mm-card is-${card.kind}`, shown ? "is-up" : "", face === "matched" ? "is-matched" : "", face === "taken" ? "is-taken" : "",
     face === "closing" ? "is-closing" : "", typed ? "is-typed" : "", missed ? "is-miss" : "", flying ? "is-flying" : ""].filter(Boolean).join(" ");
   return <span className="mm-slot" style={style}>
@@ -58,12 +58,13 @@ export const Card = forwardRef<HTMLButtonElement, CardProps>(function Card(props
       aria-disabled={face === "matched" || face === "taken" || face === "up" ? true : undefined}
       tabIndex={focusable ? 0 : -1} onClick={onFlip} onKeyDown={onKeyDown} onFocus={onFocus}>
       {face !== "taken" && <span className="mm-card__inner" aria-hidden="true">
-        <span className="mm-card__face mm-card__back">{back && <span className="mm-card__type">{back}</span>}</span>
+        <span className="mm-card__face mm-card__back"><CardBack kind={typed ? card.kind : null} /></span>
         <span className="mm-card__face mm-card__front">
           {text !== null && face !== "down" && <>
+            <span className="mm-card__pip is-top"><Emblem kind={card.kind} /></span>
             <span className="mm-card__kind">{card.kind === "who" ? "Who" : "Story"}</span>
             <span className="mm-card__text">{text}</span>
-            {face === "matched" && <span className="mm-card__stamp">✓</span>}
+            {face === "matched" ? <span className="mm-card__stamp">✓</span> : <span className="mm-card__pip is-bottom"><Emblem kind={card.kind} /></span>}
           </>}
         </span>
       </span>}
