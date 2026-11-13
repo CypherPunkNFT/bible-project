@@ -487,3 +487,76 @@ The owner asked for hints shown as circles on the map, more of them on easier le
   distance points − 150 per hint − the clock, never below 0.
 - **Daily Five:** the clock's start is saved with the place being played (`today.playing`, which also holds the hints
   taken), so a reload neither resets it nor gives back hints; each saved pin keeps its `seconds`.
+
+## 16. Rivers, seas, valleys and regions (owner, 2026-11-12)
+
+The owner asked for more places. On 2026-11-12 the game had 400: 387 in normal play (Beginner 62, Standard 155,
+Expert all 387) and 13 in Disputed sites. Of OpenBible's 1,342 places, the biggest groups left out were:
+- 392 places that are not a point: regions, rivers, seas, valleys, gates;
+- 327 places whose location scholars don't agree on well enough.
+
+The owner approved adding rivers, seas, valleys and mountains, and regions, each scored by its shape. The bar for
+uncertain locations stays where it is.
+
+### Research findings
+- **The shapes are already on disk.** OpenBible's download (`sources/openbible-geo/.../geometry/`, CC BY 4.0) holds
+  745 shape files, and `data/geometry.jsonl` describes each one. Nothing new needs downloading.
+- **Coverage.** Of the 216 rivers, seas, landforms and regions that pass the same location and verse bars as the
+  point places, 176 have a real shape:
+
+  | Kind | Candidates | With a shape | Shape types |
+  |---|---|---|---|
+  | Rivers, seas, brooks, pools | 43 | 29 | 19 river paths from OpenStreetMap (Jordan, Nile, Euphrates, Tigris, Kidron, Arnon, Jabbok); 4 polygons (Sea of Galilee, Red Sea); rough outlines (Salt Sea, Great Sea) |
+  | Valleys and mountains | 39 | 27 | rough outlines (Jordan Valley, Valley of Elah, Mount Lebanon), valley paths (Sorek, Zered, Arnon), confidence bands (Mount Seir) |
+  | Regions | 134 | 120 | 77 confidence bands (Egypt, Moab, Edom, Ammon, Gilead, Galilee, Assyria, Babylonia, Canaan), 37 rough outlines, 6 other |
+
+  The other 40 have only a single point or a rough circle, so they stay out.
+- **Confidence bands.** For 77 regions, OpenBible stacks up to 9 nested outlines. Each outline is the area some share
+  of reference atlases agree on, from 10% (the widest) to 90% (the core). The game uses the **50% outline**: the land
+  most atlases agree belongs to the region. If a region has no band that reaches 50%, it uses the innermost one.
+- **Size.** OpenBible's simplified shapes have about 100 points each, so 176 of them come to about 150 KB raw, roughly
+  40 KB compressed. They load with the first round, the same way `verses.json` does.
+- **Quality check.** A test render (Moab east of the Dead Sea, Gilead north of it, the Jordan from the Sea of Galilee
+  to the Dead Sea, Egypt along the Nile, Babylonia on the lower Euphrates) matched standard Bible atlases.
+- **Licence.** OpenBible is CC BY 4.0 and the game already credits it. The river paths come from OpenStreetMap
+  (ODbL), which the map's credit line already names.
+
+### How it plays
+- **Scoring.** The distance is measured from the pin to the shape, not to a point. A pin inside a region or sea, or
+  within 3 km of a river or valley line, gets the full 1,000; a pin outside loses points by its distance to the
+  nearest edge, on the usual curve. Hints and the clock work as before.
+- **Reveal.** The answer shows the shape itself: a filled outline for a region or sea, a traced line for a river or
+  valley, and a dashed line from the pin to the nearest edge.
+- **Hint circles.** The circles hold OpenBible's own point inside the region or on the river, so each one always
+  covers part of the shape.
+- **No giveaways.** The blank map already draws rivers and lakes but no names or borders. Beginner's water names
+  hide the name of the water being asked about (asking "Salt Sea" never shows "Dead Sea").
+- **Names.** These use the Bible's names (Salt Sea, Great Sea, Chinnereth). A name that matches a town already in the
+  game is marked as the region, for example "Samaria (region)". Of two places with the same name, the one Scripture
+  names most is kept, as with towns.
+- **Levels.** These follow the same rule as towns: the best-known ones (the Jordan, Nile, Euphrates, Dead Sea, Sea of
+  Galilee, Egypt, Moab, Edom, Assyria, Babylonia, Canaan, Galilee) join Beginner's curated list, 5 or more verses
+  makes a place Standard, and the rest are Expert. Eras come from the verses, as for towns.
+- **Daily Five.** Puzzles already published keep their places. Shapes can come up in future days, through the same
+  schedule rules.
+
+### Built (2026-11-12)
+- **Places:** normal play went from 387 to 545 (Beginner 75, Standard 232, Expert 545), plus the 13 disputed sites.
+  158 of them are shapes: 130 areas (regions and seas) and 28 lines (rivers and valleys). Nine vague or symbolic names
+  were left out through curation.json's `exclude`.
+- **Build:** [map_quest_areas.py](../../../scripts/map_quest_areas.py) reads the shapes and
+  [build-map-quest.py](../../../scripts/build-map-quest.py) writes them to `src/data/map-quest/shapes.json`: 100 KB,
+  27 KB compressed, bundled with the game like places.json. Each shape place keeps a point on its shape in
+  places.json, used by the hint circles and the Daily Five spacing rule. For a region that point is OpenBible's own
+  point when it lies inside the 50% outline; for a river it is the vertex nearest OpenBible's point. The Nile's middle
+  vertex would have been in Sudan, off the map's opening view.
+- **Game:** [area.ts](../../../src/pages/games/map-quest/area.ts) scores a pin by its distance to the shape. On the
+  reveal the map draws the shape in the result's colour (`mq-areas`) instead of a site dot, and frames all of it.
+  Beginner's water names leave out the water being asked (`placeId` in water-names.ts).
+- **Daily Five:** puzzles up to two days ahead stayed as they were; later days were picked again, now drawing on the
+  shapes too.
+- **Checked:**
+  - 79 Map quest tests pass, and the type check, lint, English check and build all pass;
+  - Playwright on the preview: Sea of Galilee, the Euphrates and Canaan reveal correctly on desktop and phone;
+  - a pin inside Egypt scored 0 km;
+  - no console errors.

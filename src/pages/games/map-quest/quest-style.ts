@@ -9,6 +9,7 @@ import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 import { BOUNDS, EARTH, MAP_KEY, englishLabels, tilesBase } from "@/components/atlas/street-style";
 import type { Theme } from "@/lib/theme";
 import type { LonLat } from "./geo";
+import type { AreaShape } from "./area";
 import { circleRing, type HintCircle } from "./hints";
 import { WATER_NAMES, waterNameFeatures } from "./water-names";
 
@@ -38,9 +39,11 @@ export interface RevealShape {
   others: readonly LonLat[];
   /** Any CSS colour; the line and the scored dot wear it (the accent when missing). */
   color?: string;
+  /** A river, sea, valley or region (design §16): drawn whole in the colour, with no site dot. */
+  area?: AreaShape;
 }
 
-export interface RevealFeatures { line: FeatureCollection<Geometry>; sites: FeatureCollection<Geometry>; pins: FeatureCollection<Geometry> }
+export interface RevealFeatures { line: FeatureCollection<Geometry>; sites: FeatureCollection<Geometry>; pins: FeatureCollection<Geometry>; areas: FeatureCollection<Geometry> }
 
 const empty = (): FeatureCollection<Geometry> => ({ type: "FeatureCollection", features: [] });
 
@@ -52,7 +55,7 @@ export const alongLine = (from: LonLat, to: LonLat, progress: number): LonLat =>
 
 /** The shapes for one reveal or for several; `progress` below 1 draws the lines only part of the way. */
 export function revealFeatures(reveal: RevealShape | readonly RevealShape[] | null, progress = 1): RevealFeatures {
-  if (!reveal) return { line: empty(), sites: empty(), pins: empty() };
+  if (!reveal) return { line: empty(), sites: empty(), pins: empty(), areas: empty() };
   const reveals: readonly RevealShape[] = Array.isArray(reveal) ? (reveal as readonly RevealShape[]) : [reveal as RevealShape];
   const point = (at: LonLat, properties: Record<string, unknown>) => ({ type: "Feature" as const, geometry: { type: "Point" as const, coordinates: [...at] }, properties });
   const fallback = css("--accent") || "#b5562d";
@@ -60,9 +63,10 @@ export function revealFeatures(reveal: RevealShape | readonly RevealShape[] | nu
   return {
     line: { type: "FeatureCollection", features: reveals.map((shape) => ({
       type: "Feature", geometry: { type: "LineString", coordinates: [[...shape.pin], [...alongLine(shape.pin, shape.scored, progress)]] }, properties: { color: colorOf(shape) } })) },
-    sites: { type: "FeatureCollection", features: reveals.flatMap((shape) => [
+    sites: { type: "FeatureCollection", features: reveals.flatMap((shape) => shape.area ? [] : [
       ...shape.others.map((at) => point(at, { scored: false, color: colorOf(shape) })), point(shape.scored, { scored: true, color: colorOf(shape) })]) },
     pins: { type: "FeatureCollection", features: reveals.map((shape) => point(shape.pin, { color: colorOf(shape) })) },
+    areas: { type: "FeatureCollection", features: reveals.flatMap((shape) => shape.area ? [{ type: "Feature" as const, geometry: shape.area, properties: { color: colorOf(shape) } }] : []) },
   };
 }
 
@@ -79,6 +83,15 @@ function hintLayers(): LayerSpecification[] {
     { id: "mq-hint-fill", type: "fill", source: "mq-hints", paint: { "fill-color": teal, "fill-opacity": ["case", ["get", "newest"], 0.16, 0.07] } },
     { id: "mq-hint-edge", type: "line", source: "mq-hints", layout: { "line-join": "round" },
       paint: { "line-color": teal, "line-width": ["case", ["get", "newest"], 2.5, 1.5], "line-opacity": ["case", ["get", "newest"], 0.95, 0.55], "line-dasharray": [2, 1.5] } },
+  ];
+}
+
+/** The river, sea, valley or region of an answer: a soft wash with a firm edge, or a firm line for a river. */
+function areaLayers(): LayerSpecification[] {
+  return [
+    { id: "mq-area-fill", type: "fill", source: "mq-areas", filter: ["==", ["geometry-type"], "Polygon"], paint: { "fill-color": ["get", "color"], "fill-opacity": 0.22 } },
+    { id: "mq-area-edge", type: "line", source: "mq-areas", layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": ["get", "color"], "line-opacity": 0.95, "line-width": ["case", ["==", ["geometry-type"], "LineString"], 4, 2] } },
   ];
 }
 
@@ -117,9 +130,11 @@ function waterNameLayers(flavor: Flavor): LayerSpecification[] {
   }));
 }
 
-/** The whole style for one theme; `beginner` shows water names; `reveal` and `hints` are drawn in from the start, so a
- *  theme switch (which replaces the style) keeps the answer and the hint circles on the map. */
-export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealShape | readonly RevealShape[] | null = null, hints: readonly HintCircle[] = []): StyleSpecification {
+/** The whole style for one theme; `beginner` shows water names (less `hiddenWater`, the place being asked); `reveal`
+ *  and `hints` are drawn in from the start, so a theme switch (which replaces the style) keeps the answer and the hint
+ *  circles on the map. */
+export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealShape | readonly RevealShape[] | null = null, hints: readonly HintCircle[] = [],
+  hiddenWater?: string): StyleSpecification {
   const base = tilesBase();
   const earthy = { ...namedFlavor(theme), ...EARTH[theme], ...QUEST_EARTH[theme] } as Flavor;
   const flavor: Flavor = { ...earthy, landcover: { ...earthy.landcover!, urban_area: earthy.earth } }; // modern towns drawn as open land
@@ -131,12 +146,13 @@ export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealS
     sources: {
       world: { type: "vector", tiles: [`pmtiles://${MAP_KEY}/{z}/{x}/{y}`], bounds: BOUNDS, minzoom: 0, maxzoom: WORLD_MAX_ZOOM,
         attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> · <a href="https://protomaps.com">Protomaps</a>' },
-      "mq-water-names": { type: "geojson", data: waterNameFeatures() },
+      "mq-water-names": { type: "geojson", data: waterNameFeatures(hiddenWater) },
+      "mq-areas": { type: "geojson", data: features.areas },
       "mq-hints": { type: "geojson", data: hintFeatures(hints) },
       "mq-line": { type: "geojson", data: features.line },
       "mq-sites": { type: "geojson", data: features.sites },
       "mq-pins": { type: "geojson", data: features.pins },
     },
-    layers: [...basemap, coastLayer(theme), ...(beginner ? waterNameLayers(flavor) : []), ...hintLayers(), ...revealLayers()],
+    layers: [...basemap, coastLayer(theme), ...(beginner ? waterNameLayers(flavor) : []), ...hintLayers(), ...areaLayers(), ...revealLayers()],
   };
 }

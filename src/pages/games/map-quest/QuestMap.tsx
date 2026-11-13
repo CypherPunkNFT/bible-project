@@ -18,6 +18,7 @@ import type { LonLat } from "./geo";
 import { boundsOf, clampPadding } from "./frame";
 import { circleBox, type HintCircle } from "./hints";
 import { QUEST_MAX_ZOOM, buildQuestStyle, hintFeatures, revealFeatures, type RevealShape } from "./quest-style";
+import { waterNameFeatures } from "./water-names";
 
 // The atlas registers the same reader privately (StreetAtlasMap.tsx); importing it would pull the whole atlas in, so the
 // game repeats those lines. Both point at the same file, so whichever registered last serves the other page correctly.
@@ -50,6 +51,7 @@ function setData(map: MapLibreMap, shapes: RevealShape | readonly RevealShape[] 
   (map.getSource("mq-line") as GeoJSONSource | undefined)?.setData(features.line);
   (map.getSource("mq-sites") as GeoJSONSource | undefined)?.setData(features.sites);
   (map.getSource("mq-pins") as GeoJSONSource | undefined)?.setData(features.pins);
+  (map.getSource("mq-areas") as GeoJSONSource | undefined)?.setData(features.areas);
 }
 
 /** The pin's element: MapLibre moves the outer box, so everything that animates is inside it. */
@@ -103,11 +105,13 @@ interface Props {
   summary?: readonly RevealShape[];
   onFail: () => void;
   label: string;
+  /** The place being asked: Beginner's water names leave its name out (design §16). */
+  asked?: string;
 }
 
 const NO_HINTS: readonly HintCircle[] = [];
 
-export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = NO_HINTS, revealPadding, summary, onFail, label }: Props) {
+export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = NO_HINTS, revealPadding, summary, onFail, label, asked }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const markerRef = useRef<Marker | null>(null);
@@ -122,6 +126,8 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
   const onFailRef = useRef(onFail);
   const beginnerRef = useRef(beginner);
   const viewRef = useRef(view);
+  const askedRef = useRef(asked);
+  askedRef.current = asked;
   revealRef.current = reveal;
   hintsRef.current = hints;
   summaryRef.current = summary;
@@ -150,7 +156,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
       addPmtilesProtocol();
       const bounds = (stillMap && boundsOf(summaryRef.current!)) || viewRef.current;
       map = new MapLibreMap({
-        container: container.current, style: buildQuestStyle(currentTheme(), beginnerRef.current, shapes(), hintsRef.current), bounds,
+        container: container.current, style: buildQuestStyle(currentTheme(), beginnerRef.current, shapes(), hintsRef.current, askedRef.current), bounds,
         fitBoundsOptions: stillMap ? { padding: 36, maxZoom: 7 } : undefined,
         maxBounds: BOUNDS, maxZoom: QUEST_MAX_ZOOM, renderWorldCopies: false, attributionControl: false,
         interactive: !stillMap, keyboard: !stillMap,
@@ -197,9 +203,14 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
   }, []);
 
   useEffect(() => {
-    if (themeVersion > 0 || beginnerRef.current !== beginner) mapRef.current?.setStyle(buildQuestStyle(currentTheme(), beginner, shapes(), hintsRef.current));
+    if (themeVersion > 0 || beginnerRef.current !== beginner) mapRef.current?.setStyle(buildQuestStyle(currentTheme(), beginner, shapes(), hintsRef.current, askedRef.current));
     beginnerRef.current = beginner;
   }, [themeVersion, beginner]);
+
+  // A new place: Beginner's water names show again, less the one being asked.
+  useEffect(() => {
+    (mapRef.current?.getSource("mq-water-names") as GeoJSONSource | undefined)?.setData(waterNameFeatures(asked));
+  }, [asked]);
 
   // A new place: back to its opening view.
   // viewKey stands for the place (view itself may be a new array on every render).
@@ -256,7 +267,8 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
     if (!map || still) return;
     if (!reveal) { sync.current(); return; }
     const color = reveal.color ?? "var(--accent)";
-    siteRef.current = new Marker({ element: siteElement(color), anchor: "center" }).setLngLat([...reveal.scored]).addTo(map);
+    // A river or region is its own answer, drawn whole; a town gets the breathing site marker.
+    if (!reveal.area) siteRef.current = new Marker({ element: siteElement(color), anchor: "center" }).setLngLat([...reveal.scored]).addTo(map);
     const drawMs = motionMs(LINE_DRAW_MS);
     if (drawMs === 0) setData(map, reveal, 1);
     else {

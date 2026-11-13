@@ -1,6 +1,7 @@
 // One game of Map quest, whichever kind: the Daily Five, a practice round (level and era), or Disputed sites. The page
 // turns a game into screens; everything that decides what is asked and how it scores lives here, where tests reach it.
-import { DAILY, DISPUTED, PLACES, PLACE_BY_ID } from "./data";
+import { nearestOnShape, type AreaShape } from "./area";
+import { DAILY, DISPUTED, PLACES, PLACE_BY_ID, SHAPES } from "./data";
 import type { LonLat } from "./geo";
 import { ERAS, LEVELS, pickRound, practicePool, sitesOf, type DisputedPlace, type Era, type Level, type QuestPlace } from "./pools";
 import { timePenalty } from "./clock";
@@ -21,6 +22,8 @@ export interface Question {
   atlas: boolean;
   note?: string;
   source?: string;
+  /** A river, sea, valley or region: the pin is scored by its distance to this shape (design §16). */
+  shape?: AreaShape;
 }
 
 /** `hints`: hint circles taken (each HINT_COST points off); `seconds`: time taken; `timeOff`: the points the clock took. */
@@ -42,6 +45,7 @@ export interface Game {
 
 export const questionFromPlace = (place: QuestPlace): Question => ({
   id: place.id, name: place.name, sites: sitesOf(place), verse: place.verse, verseCount: place.verseCount, atlas: place.atlas,
+  ...(place.shape && SHAPES[place.id] ? { shape: SHAPES[place.id] } : {}),
 });
 
 export const questionFromDisputed = (place: DisputedPlace): Question => ({
@@ -49,9 +53,9 @@ export const questionFromDisputed = (place: DisputedPlace): Question => ({
   verse: place.verse, verseCount: place.verseCount, atlas: PLACE_BY_ID.get(place.id)?.atlas ?? false, note: place.note, source: place.source,
 });
 
-/** A pin scored against the nearest of the question's sites, less HINT_COST per hint circle and the clock's penalty. */
+/** A pin scored against the nearest of the question's sites (or its shape), less HINT_COST per hint circle and the clock's penalty. */
 export function scorePin(question: Question, pin: LonLat, { hints = 0, seconds = 0, level = "expert" }: Costs = {}): Result {
-  const { site, km } = nearestSite(pin, question.sites);
+  const { site, km } = question.shape ? nearestOnShape(pin, question.shape) : nearestSite(pin, question.sites);
   const timeOff = timePenalty(seconds, level);
   return { question, pin, site, km, points: Math.max(0, scoreForDistance(km) - hints * HINT_COST - timeOff), hints, seconds, timeOff };
 }

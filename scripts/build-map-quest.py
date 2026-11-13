@@ -7,7 +7,8 @@ sites (a pin is scored against the nearest), so it reads the raw ancient.jsonl t
   py -3.12 scripts/build-map-quest.py --epoch 2026-11-07  (first build only) the date of Daily Five puzzle #1
 
 Writes src/data/map-quest/places.json, disputed.json, verses.json (every verse naming each place, for the round's
-Scripture panel) and, through scripts/build-map-quest-daily.ts, daily.json.
+Scripture panel), shapes.json (the rivers, seas, valleys and regions, §16; map_quest_areas.py) and, through
+scripts/build-map-quest-daily.ts, daily.json.
 Hand-kept choices live in src/data/map-quest/curation.json. All three outputs are swapped in together, only after
 every step succeeded. Run by hand when the data or curation changes (not part of prebuild). Reads files only.
 """
@@ -26,9 +27,17 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.opendata import osis_to_id, read_places  # noqa: E402
 from bible.paths import SOURCES  # noqa: E402
+from map_quest_areas import (  # noqa: E402
+    CLASH_WORD,
+    ShapeError,
+    anchor_point,
+    area_places,
+)
 
 SITE = Path(__file__).resolve().parents[1]
 RAW = SOURCES / "openbible-geo" / "Bible-Geocoding-Data-main" / "data" / "ancient.jsonl"
+GEOMETRY_FILE = RAW.parent / "geometry.jsonl"
+GEOMETRY_DIR = RAW.parent.parent / "geometry"
 OUT = SITE / "src" / "data" / "map-quest"
 JOURNEYS = SITE / "src" / "data" / "letters" / "paul-letters.json"
 DAILY_SCRIPT = SITE / "scripts" / "build-map-quest-daily.ts"
@@ -91,20 +100,28 @@ def verse_ids(row: dict) -> list[int]:
     return sorted(ids)
 
 
+def is_point(types: set[str]) -> bool:
+    """A town, hill, spring or the like: something a single point stands for."""
+    return bool(types & POINT_TYPES) and not types - POINT_TYPES - {"special"}
+
+
+def located(row: dict) -> bool:
+    """The first proposed site has a point, and the credible sites carry CREDIBLE_TOTAL votes between them."""
+    sites = candidates(row)
+    first = (row.get("identifications") or [{}])[0]
+    if not sites or sites[0]["index"] != 0 or not first.get("resolutions"):
+        return False  # no point for the first proposed site: the atlas skips these too
+    return sum(site["votes"] for site in credible(sites)) >= CREDIBLE_TOTAL
+
+
 def read_candidates(rows: list[dict]) -> list[dict]:
     """Filters 1-2 (§3): point-like places with a credible location and at least one verse."""
     kept = []
     for row in rows:
-        types = set(row.get("types") or [])
-        if not types & POINT_TYPES or types - POINT_TYPES - {"special"}:
+        if not is_point(set(row.get("types") or [])) or not located(row):
             continue
         sites = candidates(row)
-        first = (row.get("identifications") or [{}])[0]
-        if not sites or sites[0]["index"] != 0 or not first.get("resolutions"):
-            continue  # no point for the first proposed site: the atlas skips these too
         good = credible(sites)
-        if sum(site["votes"] for site in good) < CREDIBLE_TOTAL:
-            continue
         verses = verse_ids(row)
         if not verses:
             continue
@@ -176,7 +193,8 @@ class CurationError(ValueError):
     pass
 
 
-def playable_places(rows: list[dict], curation: dict, atlas_ids: set[str], journeys: set[str]) -> list[dict]:
+def playable_places(rows: list[dict], curation: dict, atlas_ids: set[str], journeys: set[str],
+                    shape_ids: frozenset[str] = frozenset()) -> list[dict]:
     """Filters 1-6 and the record shape of §3."""
     excluded = set(curation.get("exclude", []))
     forced = set(curation.get("forceDisputed", []))
@@ -187,7 +205,7 @@ def playable_places(rows: list[dict], curation: dict, atlas_ids: set[str], journ
     beginner = {entry["id"]: entry.get("verse") for entry in curation.get("beginner", [])}
     by_id = {p["id"]: p for p in places}
     for place_id in beginner:
-        if place_id not in by_id:
+        if place_id not in by_id and place_id not in shape_ids:
             raise CurationError(f"curation.json beginner id {place_id!r} is not a playable place (filtered out by §3); remove it or fix the data")
     records = []
     for place in sorted(places, key=lambda p: p["id"]):
@@ -205,6 +223,32 @@ def playable_places(rows: list[dict], curation: dict, atlas_ids: set[str], journ
             "atlas": place["id"] in atlas_ids, "verses": verses,
         })
     return records
+
+
+def shape_places(found: list[dict], curation: dict, towns: list[dict], atlas_ids: set[str]) -> tuple[list[dict], dict[str, dict]]:
+    """§16: the rivers, seas, valleys and regions as place records (same levels, eras and scope rules as the towns),
+    and their shapes by id. A name a town already has gets its kind added, e.g. "Samaria (region)"."""
+    beginner = {entry["id"]: entry.get("verse") for entry in curation.get("beginner", [])}
+    town_names = {town["name"] for town in towns}
+    records, shapes = [], {}
+    for place in found:
+        verses = place["verses"]
+        verse = beginner.get(place["id"]) or verses[0]
+        if verse not in verses:
+            raise CurationError(f"curation.json beginner verse {verse} for {place['id']!r} does not name the place; expected one of {verses[:8]}")
+        lon, lat = anchor_point(place["shape"], place["hint"])
+        if not inside(BOUNDS, lon, lat):
+            continue
+        name = place["name"] if place["name"] not in town_names else f"{place['name']} ({CLASH_WORD[place['kind']]})"
+        records.append({
+            "id": place["id"], "name": name, "lon": lon, "lat": lat, "alts": [],
+            "tier": 1 if place["id"] in beginner else 2 if len(verses) >= STANDARD_VERSES else 3,
+            "scope": "holy" if inside(HOLY_BOX, lon, lat) else "wider", "eras": era_tags(verses, False),
+            "verseCount": len(verses), "verse": verse, "atlas": place["id"] in atlas_ids,
+            "shape": "area" if place["shape"]["type"] == "Polygon" else "line", "verses": verses,
+        })
+        shapes[place["id"]] = place["shape"]
+    return records, shapes
 
 
 def disputed_places(rows: list[dict], curation: dict) -> list[dict]:
@@ -248,6 +292,13 @@ def report(places: list[dict], disputed: list[dict]) -> None:
     print("tiers: " + ", ".join(f"{t}: {count(lambda p, t=t: p['tier'] == t)}" for t in (1, 2, 3)))
     print("eras: " + ", ".join(f"{e}: {count(lambda p, e=e: e in p['eras'])}" for e in ("abraham", "exodus", "kingdoms", "jesus", "paul")))
     print(f"with more than one credible site: {count(lambda p: bool(p['alts']))}; disputed-mode places: {len(disputed)}")
+    print(f"shapes: {count(lambda p: p.get('shape') == 'area')} areas, {count(lambda p: p.get('shape') == 'line')} lines")
+
+
+def write_shapes(path: Path, shapes: dict[str, dict]) -> None:
+    """One shape per line, like the other outputs."""
+    body = ",\n".join(f"{json.dumps(place_id)}:{json.dumps(shapes[place_id], separators=(',', ':'))}" for place_id in sorted(shapes))
+    path.write_text(f"{{\n{body}\n}}\n", encoding="utf-8")
 
 
 def write_lines(path: Path, records: list[dict]) -> None:
@@ -278,9 +329,13 @@ def main() -> int:
     curation = json.loads((OUT / "curation.json").read_text(encoding="utf-8"))
     atlas_ids = {place["id"] for place in read_places(RAW)}
     try:
-        places = playable_places(rows, curation, atlas_ids, journey_ids(JOURNEYS))
+        found = area_places(rows, GEOMETRY_FILE, GEOMETRY_DIR, is_point=is_point, located=located, verse_ids=verse_ids,
+                            excluded=set(curation.get("exclude", [])))
+        towns = playable_places(rows, curation, atlas_ids, journey_ids(JOURNEYS), frozenset(place["id"] for place in found))
+        areas, shapes = shape_places(found, curation, towns, atlas_ids)
+        places = sorted(towns + areas, key=lambda p: p["id"])
         disputed = disputed_places(rows, curation)
-    except CurationError as error:
+    except (CurationError, ShapeError) as error:
         print(f"map quest: {error}", file=sys.stderr)
         return 1
     report(places, disputed)
@@ -289,8 +344,9 @@ def main() -> int:
         print("map quest: refusing to write: " + "; ".join(problems), file=sys.stderr)
         return 1
     verses = split_verses(places, disputed)
-    staged = {name: OUT / f".{name}.new" for name in ("places.json", "disputed.json", "verses.json", "daily.json")}
+    staged = {name: OUT / f".{name}.new" for name in ("places.json", "disputed.json", "verses.json", "shapes.json", "daily.json")}
     write_verses(staged["verses.json"], verses)
+    write_shapes(staged["shapes.json"], shapes)
     write_lines(staged["places.json"], places)
     write_lines(staged["disputed.json"], disputed)
     command = ["node", "--experimental-strip-types", "--no-warnings", str(DAILY_SCRIPT),

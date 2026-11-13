@@ -32,6 +32,15 @@ describe("the reveal's shapes", () => {
     expect(many.pins.features).toHaveLength(3);
     expect(many.sites.features).toHaveLength(6);
   });
+
+  it("draws a river or region whole in the result's colour, with no site dot", () => {
+    const area = { type: "LineString" as const, coordinates: [[35.5, 31], [35.5, 33]] };
+    const features = revealFeatures({ ...shape, others: [], area });
+    expect(features.areas.features).toHaveLength(1);
+    expect(features.areas.features[0]).toMatchObject({ geometry: area, properties: { color: "#123456" } });
+    expect(features.sites.features).toHaveLength(0);
+    expect(revealFeatures(shape).areas.features).toHaveLength(0);
+  });
 });
 
 describe("the padding around a framed answer", () => {
@@ -51,5 +60,12 @@ describe("the Beginner water names", () => {
     expect(features).toHaveLength(WATER_NAMES.length);
     expect(features.map((f) => f.properties?.name)).toContain("Sea of Galilee");
     for (const f of features) expect(typeof f.properties?.from).toBe("number");
+  });
+
+  it("leaves out the water being asked, so Beginner never names the answer", () => {
+    const galilee = WATER_NAMES.find((water) => water.name === "Sea of Galilee")!;
+    const names = waterNameFeatures(galilee.placeId).features.map((f) => f.properties?.name);
+    expect(names).not.toContain("Sea of Galilee");
+    expect(names).toHaveLength(WATER_NAMES.length - 1);
   });
 });

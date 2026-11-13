@@ -135,7 +135,7 @@ export function Play({ game, resume, playing, stats, now, onConfirm, onStart, on
           <Link className="mq-button" to="/games">All games</Link>
         </div>
       : <div className={`mq-stage${revealed ? " is-revealed" : ""}`}>
-          <QuestMap key={mapKey} view={ERA_VIEWS[game.era]} viewKey={`${index}`} beginner={game.mode === "practice" && game.level === "beginner"}
+          <QuestMap key={mapKey} view={ERA_VIEWS[game.era]} viewKey={`${index}`} beginner={game.mode === "practice" && game.level === "beginner"} asked={question.id}
             pin={pin} onPin={drop} hints={shownHints} onFail={() => setMapFailed(true)} label={`Map. Drop a pin where ${question.name} stood. With a keyboard, move the map and press Enter to pin the centre.`}
             reveal={revealed ? shapeOf(revealed) : null} revealPadding={wide ? DESKTOP_PADDING : PHONE_PADDING} />
           {!revealed && <div className="mq-dock">

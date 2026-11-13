@@ -16,6 +16,9 @@ export interface QuestPlace extends DailyPlace {
   verse: number;
   /** The atlas has this place, so "Open in atlas" can link to it. */
   atlas: boolean;
+  /** A river or valley ("line") or a region or sea ("area"), scored against its shape in shapes.json (design §16);
+   *  lon/lat is then a point on the shape, used for hint circles and the daily schedule. */
+  shape?: "area" | "line";
 }
 
 export interface DisputedSite { name: string; lon: number; lat: number }
