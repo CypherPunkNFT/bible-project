@@ -110,18 +110,18 @@ describe("map quest page", () => {
     expect(screen.getByText(/0 km \(0 mi\) away, 850 points/)).toBeInTheDocument();
   });
 
-  it("runs a clock on each place that takes points off, the whole 300 once time is up", async () => {
+  it("runs a clock on each place that takes points off, the whole 100 on Beginner once time is up", async () => {
     await renderAt("/games/map-quest?play=practice&level=beginner&era=all");
     await screen.findByRole("img", { name: "Place 1 of 5" });
     expect(screen.getByRole("timer", { name: "90 seconds left on the clock" })).toBeInTheDocument();
     vi.setSystemTime(new Date(2026, 10, 9, 10, 0, 45));
     answerExactly();
-    expect(screen.getByText(/0 km \(0 mi\) away, 850 points/)).toBeInTheDocument();
+    expect(screen.getByText(/0 km \(0 mi\) away, 950 points/)).toBeInTheDocument();
     expect(screen.getByText("45 seconds")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next place" }));
     vi.setSystemTime(new Date(2026, 10, 9, 10, 10));
     answerExactly();
-    expect(screen.getByText(/0 km \(0 mi\) away, 700 points/)).toBeInTheDocument();
+    expect(screen.getByText(/0 km \(0 mi\) away, 900 points/)).toBeInTheDocument();
   });
 
   it("keeps the Daily Five's clock running through a reload", async () => {

@@ -480,8 +480,9 @@ The owner asked for hints shown as circles on the map, more of them on easier le
   OpenBible's keeps all their verses), loaded on first use. Long lists draw only the rows near the panel's scroll
   position (`useRowWindow`).
 - **Clock** (`clock.ts`): 90 seconds on Beginner, 60 on Standard, 45 on Expert (so the Daily Five and Disputed sites).
-  Points come off evenly as the seconds pass, up to 300 when time runs out; running out does not end the place, the
-  pin just carries the whole 300. The strip above the map shows the kit's draining bar, the seconds left ("Time!" at
+  Points come off evenly as the seconds pass, up to the level's most when time runs out: 100 on Beginner, 200 on
+  Standard, 300 on Expert (owner, 2026-11-12). Running out does not end the place; the pin just carries that whole
+  penalty. The strip above the map shows the kit's draining bar, the seconds left ("Time!" at
   zero) and the points the clock has taken so far; the answer card shows the seconds and the points taken. Scoring:
   distance points − 150 per hint − the clock, never below 0.
 - **Daily Five:** the clock's start is saved with the place being played (`today.playing`, which also holds the hints
