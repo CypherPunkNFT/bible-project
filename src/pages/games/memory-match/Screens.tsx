@@ -6,6 +6,7 @@ import { Star } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { MoreOptions } from "../kit";
 import { CardBack } from "./CardArt";
+import { evenRows } from "./even-rows";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
@@ -58,12 +59,12 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
       </div>
       <CardFan key={version.key} version={version} />
     </div>
-    <fieldset className="mm-tiles">
+    <fieldset className="mm-tiles" style={evenRows(VERSIONS.length)}>
       <legend>Match</legend>
       {VERSIONS.map((item) => <Tile key={item.key} icon={item.key} name={item.chip} subtitle={item.subtitle}
         pressed={version.key === item.key} onClick={() => onVersion(item.key)} />)}
     </fieldset>
-    <fieldset className="mm-tiles">
+    <fieldset className="mm-tiles" style={evenRows(data.decks.length)}>
       <legend>Deck</legend>
       {data.decks.map((deck) => {
         const tile = version.decks[deck.key] ?? { icon: "book", subtitle: "" };
@@ -72,24 +73,30 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
             difficulty: isOffered(data, deck.key, choice.difficulty) ? choice.difficulty : "easy" })} />;
       })}
     </fieldset>
-    <fieldset className="mm-chips">
-      <legend>How hard</legend>
-      {DIFFICULTIES.map((difficulty) => {
-        const ok = isOffered(data, choice.deck, difficulty);
-        return <button key={difficulty} type="button" aria-pressed={choice.difficulty === difficulty} disabled={!ok}
-          title={ok ? undefined : "Not enough pairs yet"} onClick={() => onChoice({ ...choice, difficulty })}>
-          {`${DIFFICULTY_LABELS[difficulty]} · ${plural(BOARD_PAIRS[difficulty] * 2, "{n} card", "{n} cards")}`}
-          {!ok && <span className="sr-only"> (not enough pairs yet)</span>}
-        </button>;
-      })}
-    </fieldset>
-    <fieldset className="mm-chips">
-      <legend>Players</legend>
-      {[1, 2, 3, 4].map((n) => <button key={n} type="button" aria-pressed={choice.players === n}
-        onClick={() => onChoice({ ...choice, players: n })}>
-        {plural(n, "Just me", "{n}")}
-      </button>)}
-    </fieldset>
+    <div className="mm-start__line">
+      <fieldset className="mm-chips">
+        <legend>How hard</legend>
+        {DIFFICULTIES.map((difficulty) => {
+          const ok = isOffered(data, choice.deck, difficulty);
+          return <button key={difficulty} type="button" aria-pressed={choice.difficulty === difficulty} disabled={!ok}
+            title={ok ? undefined : "Not enough pairs yet"} onClick={() => onChoice({ ...choice, difficulty })}>
+            {`${DIFFICULTY_LABELS[difficulty]} · ${plural(BOARD_PAIRS[difficulty] * 2, "{n} card", "{n} cards")}`}
+            {!ok && <span className="sr-only"> (not enough pairs yet)</span>}
+          </button>;
+        })}
+      </fieldset>
+      <fieldset className="mm-chips">
+        <legend>Players</legend>
+        {[1, 2, 3, 4].map((n) => <button key={n} type="button" aria-pressed={choice.players === n}
+          onClick={() => onChoice({ ...choice, players: n })}>
+          {plural(n, "Just me", "{n}")}
+        </button>)}
+      </fieldset>
+      <div className="mm-start-foot">
+        <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>{dealing ? "Dealing…" : "Deal the cards"}</button>
+        <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
+      </div>
+    </div>
     {choice.players > 1 && <div className="mm-names">
       {Array.from({ length: choice.players }, (_, n) => <label key={n}>
         <span>{`Player ${formatNumber(n + 1)}`}</span>
@@ -101,10 +108,6 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
           }} />
       </label>)}
     </div>}
-    <div className="mm-start-foot">
-      <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>{dealing ? "Dealing…" : "Deal the cards"}</button>
-      <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
-    </div>
     {dealFailed && <p className="mm-note" role="alert">The verses didn't load. Check the connection and deal again.</p>}
     {best && choice.players === 1 && <p className="mm-best">
       <span className="mm-best__stars" aria-hidden="true">{[1, 2, 3].map((n) => <Star key={n} size={14} className={n <= best.stars ? "is-on" : undefined} />)}</span>

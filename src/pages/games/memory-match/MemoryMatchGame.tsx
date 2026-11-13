@@ -19,7 +19,7 @@ import { Summary, type RecordNews } from "./Summary";
 import { bestKey, browserStore, readBest, readGame, readSeen, readSettings, readVersion, rememberSeen, saveBest, saveGame,
   savedGameVersion, saveSettings, saveVersion, takeOpener, type Settings, type Store } from "./storage";
 import { versesAsPairs, withVerseText, type VersesFile } from "./verse-cards";
-import { recordDeck, versionOf, type Version, type VersionKey } from "./versions";
+import { VERSIONS, recordDeck, versionOf, type Version, type VersionKey } from "./versions";
 import "../games.css";
 import "./memory-match.css";
 
@@ -37,25 +37,30 @@ const FIRST_CHOICE: Choice = { deck: "mixed", difficulty: "easy", players: 1, na
 /** Narrow screens get fewer columns; decided once, when the cards are dealt (design 8). */
 const isNarrow = () => typeof window !== "undefined" && !!window.matchMedia?.("(max-width: 639px)").matches;
 
-interface Loaded { version: VersionKey; data: PairsFile }
-
 export default function MemoryMatchGame() {
   useEffect(() => { document.title = "Memory card match · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   const local = useMemo(() => browserStore("local"), []);
   const session = useMemo(() => browserStore("session"), []);
   const [version, setVersion] = useState<VersionKey>(() => savedGameVersion(session) ?? readVersion(local));
   const [choice, setChoice] = useState<Choice>(FIRST_CHOICE);
-  const [loaded, setLoaded] = useState<Loaded | null>(null);
-  const [failed, setFailed] = useState(false);
+  // Every version's cards load together and stay, so switching version shows its start screen at once (owner,
+  // 2026-11-13: a switch "shouldn't flash anything").
+  const [files, setFiles] = useState<Partial<Record<VersionKey, PairsFile>>>({});
+  const [failed, setFailed] = useState<ReadonlySet<VersionKey>>(new Set());
   const [attempt, setAttempt] = useState(0);
   const language = useSiteLanguage(); // another language reads its copy; the board in play keeps its pair ids
   useEffect(() => {
     let live = true;
-    setFailed(false);
-    LOADERS[version]().then((data) => { if (live) setLoaded({ version, data }); })
-      .catch((error) => { console.warn(`Memory match: the ${version} cards did not load:`, error); if (live) setFailed(true); });
+    setFailed(new Set());
+    for (const { key } of VERSIONS) {
+      LOADERS[key]().then((data) => { if (live) setFiles((loaded) => ({ ...loaded, [key]: data })); })
+        .catch((error) => {
+          console.warn(`Memory match: the ${key} cards did not load:`, error);
+          if (live) setFailed((keys) => new Set(keys).add(key));
+        });
+    }
     return () => { live = false; };
-  }, [attempt, language, version]);
+  }, [attempt, language]);
 
   const chooseVersion = useCallback((next: VersionKey) => {
     setVersion(next);
@@ -63,10 +68,10 @@ export default function MemoryMatchGame() {
     setChoice((c) => ({ ...c, deck: "mixed" })); // every version's decks start with Mixed
   }, [local]);
 
-  const ready = loaded?.version === version ? loaded.data : null;
+  const ready = files[version] ?? null;
   return <div className="mm-page mx-auto max-w-4xl px-3 sm:px-6">
     <Link className="gm-back" to="/games"><ArrowLeft size={14} aria-hidden="true" />All games</Link>
-    {failed ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />
+    {!ready && failed.has(version) ? <CantLoad onRetry={() => setAttempt((n) => n + 1)} />
       : ready ? <Game key={version} data={ready} version={versionOf(version)} onVersion={chooseVersion} choice={choice}
         onChoice={setChoice} local={local} session={session} />
         : <p className="mm-loading">Loading the cards…</p>}
