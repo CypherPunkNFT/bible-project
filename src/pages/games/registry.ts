@@ -108,11 +108,11 @@ export const GAMES: readonly GameEntry[] = [
     shelf: "daily", art: GAME_ART.mapQuest,
   },
   {
-    slug: "whos-older", status: "live", load: () => import("./whos-older/WhosOlderGame"),
-    title: "Who's older?",
-    description: "Two Bible characters appear: tap the one who lived first.",
+    slug: "what-came-first", status: "live", load: () => import("./what-came-first/WhatCameFirstGame"),
+    title: "What came first?",
+    description: "Two people, events, kings, places or books: tap the one that came first. Eight kinds of round, or all mixed.",
     audiences: ["solo", "family"],
-    shelf: "family", art: GAME_ART.whosOlder,
+    shelf: "family", art: GAME_ART.whatCameFirst,
   },
   {
     slug: "charades", status: "live", load: () => import("./charades/CharadesGame"),

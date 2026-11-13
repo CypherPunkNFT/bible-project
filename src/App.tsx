@@ -182,6 +182,7 @@ export default function App() {
               <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
+              <Route path="/games/whos-older" element={<Navigate to="/games/what-came-first?c=lived" replace />} />
               <Route path="/games/*" element={<GamesPage />} />
               <Route path="/tools/*" element={<ToolsPage />} />
               <Route path="/play" element={<LiveQuizPlayPage />} />

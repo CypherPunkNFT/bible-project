@@ -1,12 +1,13 @@
-// Who's older?: the redesigned view's pure rules (view.ts): the strip's bars, years and bracket; who stayed; the
-// result's title; the sample pair; the qualifier line; and the gap label's words.
-import data from "@/data/whos-older/whos-older.json";
-import { gapLabel, yearSpan } from "./explain";
-import { buildPool, pairOf, type WhosOlderData } from "./game";
-import { qualifier, reachedTitle, samplePair, stayedFrom, strip } from "./view";
+// What came first?: the view's pure rules (view.ts, Who's older?'s redesign): the strip's bars, years and bracket; who
+// stayed; the result's title; the sample pair; the qualifier line; the gap label's words; each category's window words.
+import { gapLabel, yearSpan } from "../whos-older/explain";
+import { pairOf } from "./game";
+import { englishPools } from "./test-pools";
+import { hasStrip, qualifier, reachedTitle, samplePair, stayedFrom, strip, windowNote } from "./view";
 
-const pool = buildPool(data as unknown as WhosOlderData);
-const pair = (a: string, b: string) => pairOf(pool, { left: a, right: b })!;
+const pools = englishPools();
+const pool = pools.lived!;
+const pair = (a: string, b: string) => pairOf(pools, { category: "lived", left: a, right: b, pick: null })!;
 
 describe("the timeline strip", () => {
   it("draws two bars with years at their ends and a bracket for the least gap between them", () => {
@@ -66,11 +67,11 @@ describe("the words", () => {
 
 describe("the round's motion and the ending", () => {
   it("knows whether the left card slid over from the right, held on, or is fresh", () => {
-    const a = { left: "x", right: "y", pick: "y" };
+    const a = { category: "lived" as const, left: "x", right: "y", pick: "y" };
     expect(stayedFrom([a])).toBeNull();
-    expect(stayedFrom([a, { left: "y", right: "z", pick: null }])).toBe("right");
-    expect(stayedFrom([a, { left: "x", right: "z", pick: null }])).toBe("left");
-    expect(stayedFrom([a, { left: "p", right: "q", pick: null }])).toBeNull();
+    expect(stayedFrom([a, { category: "lived" as const, left: "y", right: "z", pick: null }])).toBe("right");
+    expect(stayedFrom([a, { category: "lived" as const, left: "x", right: "z", pick: null }])).toBe("left");
+    expect(stayedFrom([a, { category: "lived" as const, left: "p", right: "q", pick: null }])).toBeNull();
   });
   it("titles the result with the highest milestone reached", () => {
     expect(reachedTitle(4)).toBeUndefined();
@@ -80,5 +81,23 @@ describe("the round's motion and the ending", () => {
   });
   it("shows Moses and Paul on the start screen", () => {
     expect(samplePair(pool).map((p) => p.label)).toEqual(["Moses", "Paul"]);
+  });
+});
+
+describe("each category's strip", () => {
+  it("draws a strip only where the items have years, with each category's own words", () => {
+    expect(["lived", "happened", "ruled", "built", "died"].every((k) => hasStrip(k as never))).toBe(true);
+    expect(hasStrip("went") || hasStrip("books")).toBe(false);
+    expect(windowNote("ruled", { lo: -971, hi: -930 })).toBe("began to reign about 971–930 BC");
+    expect(windowNote("died", { lo: null, hi: -1000 })).toBe("died before about 1000 BC");
+    expect(windowNote("built", { lo: 20, hi: 30 })).toBe("built about AD 20–30");
+  });
+
+  it("gives another category a sample from its own data", () => {
+    for (const key of ["happened", "ruled", "built", "went", "died", "books"] as const) {
+      const [a, b] = samplePair(pools[key]!);
+      expect(pools[key]!.byKey.size).toBeGreaterThan(0);
+      expect(a.id).not.toBe(b.id);
+    }
   });
 });

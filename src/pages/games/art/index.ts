@@ -19,7 +19,7 @@ export const GAME_ART = {
   jeopardy: { Scene: JeopardyScene, tone: "prophets", alt: "A board of category tiles worth 100 to 400 on an easel" },
   twentyQuestions: { Scene: TwentyQuestionsScene, tone: "poetry", alt: "A head in profile thinking in question marks, with Yes and No buttons" },
   mapQuest: { Scene: MapQuestScene, tone: "poetry", alt: "A map of the Holy Land coast with a dashed route and a pin" },
-  whosOlder: { Scene: WhosOlderScene, tone: "epistles", alt: "Two portraits, an old patriarch and a young king, with an hourglass between" },
+  whatCameFirst: { Scene: WhosOlderScene, tone: "epistles", alt: "Two portraits, an old patriarch and a young king, with an hourglass between: which came first?" },
   charades: { Scene: CharadesScene, tone: "revelation", alt: "A player miming with a phone on their forehead while others guess" },
   twoTruths: { Scene: TwoTruthsScene, tone: "acts", alt: "Three cards: two ticked true, and one hiding a mask" },
   emojiStories: { Scene: EmojiStoriesScene, tone: "acts", alt: "Three round pictures, an ark, rain and a rainbow, and a blank answer" },

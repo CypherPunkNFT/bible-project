@@ -3504,6 +3504,46 @@
  },
  {
   "check": "files",
+  "item": "src/data/what-came-first/events.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds events.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/rulers.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds ruled.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/built.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds built.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/journeys.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds journeys.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/died.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds died.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/firsts.source.json",
+  "why": "a build input no page reads: scripts/build-what-came-first.ts builds firsts.json from it, and the game shows only that file, whose texts extract.py GAME_DATA collects"
+ },
+ {
+  "check": "files",
+  "item": "src/data/what-came-first/books.json",
+  "why": "the 66 book names as the site's catalogue gives them, which What came first? shows as Bible book names, like the other games' book lists; extract.py never collects book lists"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/what-came-first/journeys.json .journeys[].origin",
+  "why": "never shown to a reader: where each journey set out from, kept for the review sheet; the game never pairs or prints it"
+ },
+ {
+  "check": "files",
   "item": "src/data/odd-one-out/facts-table.json",
   "why": "read only by the odd-one-out test suite's independent solver (src/pages/games/odd-one-out/sets.test.ts); no page shows it"
  },

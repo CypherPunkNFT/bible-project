@@ -1,4 +1,4 @@
-/* /games/whos-older (WhosOlderGame.tsx): the game's own look over the kit's behaviour (../kit/kit.css), in the game's
+/* /games/what-came-first (WhatCameFirstGame.tsx), Who's older?'s approved look carried over: the game's own look over the kit's behaviour (../kit/kit.css), in the game's
    hub colour, the epistles' gold. Mobile first, the site's tokens in both themes. Two tall cards side by side at every
    width with the hourglass between them; the reveal is the kit's band, pinned to the bottom of a phone screen with Next
    inside it. Right and wrong always carry an icon and a word as well as a colour. No focus outline: focus is the
@@ -206,4 +206,45 @@
 @media (prefers-reduced-motion: reduce) {
   .wo-glass, .wo-sand, .wo-sample .wo-card { animation: none; }
   .wo-card.is-slid, .wo-card.is-held, .wo-card.is-arrived, .wo-bar, .wo-gap-line, .wo-bestbar-row > i, .wo-hearts .is-breaking, .wo-milestone, .wo-card .kit-card__mark { animation: none; }
+}
+
+/* ---- What came first?: the pills, the kind's accent, Bible Firsts' answers ------------------------------------
+   One room, eight accents: a category's book-colour tone (--wcf-tone) marks only its pill, its Mixed chip and a thin
+   rule under its heading. Pills are buttons in one group, all visible, never a dropdown; focus is the lift and edge. */
+.wcf-pills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: 1.3rem; }
+@media (min-width: 640px) { .wcf-pills { display: flex; flex-wrap: wrap; } }
+.wcf-pill { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .9rem; font-weight: 600; outline: none; transition: border-color .35s var(--wo-ease), transform .35s var(--wo-ease), background-color .35s var(--wo-ease), color .35s var(--wo-ease); }
+.wcf-pill:is(:hover, :focus-visible) { border-color: var(--wcf-tone); transform: translateY(-2px); }
+.wcf-pill[aria-pressed="true"] { border-color: var(--wcf-tone); background: color-mix(in srgb, var(--wcf-tone) 16%, var(--surface)); color: var(--ink); }
+.wcf-pill[aria-pressed="true"]::before { content: ""; display: inline-block; width: .5rem; height: .5rem; margin-right: .45rem; border-radius: 50%; background: var(--wcf-tone); vertical-align: .08em; }
+.wcf-chosen { margin-top: 1rem; padding-bottom: .35rem; border-bottom: 2px solid var(--wcf-tone); font-family: var(--font-serif); font-size: 1.25rem; width: fit-content; }
+.wcf-heading { margin-top: .4rem; }
+.wcf-heading .wo-hint { padding-bottom: .35rem; border-bottom: 2px solid color-mix(in srgb, var(--wcf-tone) 70%, transparent); width: fit-content; }
+.wcf-chip { display: inline-block; margin-top: .3rem; padding: .2rem .6rem; border-radius: 999px; background: color-mix(in srgb, var(--wcf-tone) 16%, var(--surface)); color: var(--wcf-tone); font: 650 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.wcf-asked { font-size: clamp(1.3rem, 4.2vw, 1.85rem); }
+.wcf-heading:has(.wcf-asked) { padding-bottom: .35rem; border-bottom: 2px solid color-mix(in srgb, var(--wcf-tone) 70%, transparent); }
+.wcf-code { font: 700 .82rem/1 var(--font-sans); letter-spacing: .06em; }
+.wo-card.wcf-phrase .wo-card-name { font-size: clamp(1.05rem, 3.2vw, 1.4rem); line-height: 1.25; hyphens: manual; overflow-wrap: break-word; }
+.wcf-answers { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; margin-top: 1.1rem; }
+@media (min-width: 640px) { .wcf-answers { grid-template-columns: repeat(4, minmax(0, 1fr)); } .wcf-answers.is-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.wo-card.wcf-answer.kit-card { --kit-card-height: 7rem; min-height: 7rem; padding: 1.4rem .7rem .9rem; }
+.wo-card.wcf-answer .kit-card__body { justify-content: center; padding-inline: 1.1rem; }
+/* The sample face-off keeps the round's order: card, hourglass, card. */
+.wo-sample > .wo-card:nth-child(1) { grid-column: 1; }
+.wo-sample > .wo-cards-glass { grid-column: 2; grid-row: 1; }
+.wo-sample > .wo-card:nth-child(2) { grid-column: 3; }
+.wo-card.wcf-answer .wo-card-name { font-size: clamp(1rem, 3vw, 1.3rem); line-height: 1.25; hyphens: manual; overflow-wrap: break-word; }
+.wcf-sample-q { max-width: 34rem; margin-top: 1.3rem; }
+.wcf-sample-ask { font-family: var(--font-serif); font-size: 1.15rem; }
+.wcf-sample-q .wcf-answers { margin-top: .7rem; }
+.wcf-sample-q .wo-card.wcf-answer.kit-card { --kit-card-height: 4.2rem; min-height: 4.2rem; padding: .7rem; opacity: .75; }
+.wo-continue .wcf-name { font-weight: 700; }
+.wo-continue .wcf-name::after { content: "·"; margin-left: .45rem; }
+.wcf-open { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: .6rem; font-size: .9rem; }
+.wcf-open a { color: var(--wo-gold); font-weight: 600; }
+.wcf-over-kind { color: var(--muted); font: 650 .7rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 639px) {
+  .wo-card.wcf-answer.kit-card { --kit-card-height: 5.6rem; min-height: 5.6rem; padding: 1.2rem .5rem .7rem; }
+  .wo-card.wcf-phrase .wo-card-name { font-size: clamp(.92rem, 4.2vw, 1.1rem); }
+  .wcf-pill { padding: .45rem .5rem; font-size: .85rem; }
 }

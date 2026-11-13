@@ -147,6 +147,20 @@ GAME_DATA = [
      set(), set()),
     (RESOURCE_KIND, "src/data/memory-match/pairs.json", False, ("characters",), {
         ".characters.*.label", ".decks[].title", ".pairs[].story"}, set(), set()),
+    # What came first? (sequence 48): the cards, tags, dates and reasons of each kind of round, and the Bible Firsts
+    # questions. Who lived first reads whos-older.json above; the 66 books keep the catalogue's names (books.json).
+    (RESOURCE_KIND, "src/data/what-came-first/events.json", False, (), {
+        ".items[].label", ".items[].dating", ".facts[].why"}, set(), set()),
+    (RESOURCE_KIND, "src/data/what-came-first/ruled.json", False, (), {
+        ".items[].label", ".items[].tag", ".items[].when", ".facts[].why", ".beforeSaul.why"}, set(), set()),
+    (RESOURCE_KIND, "src/data/what-came-first/built.json", False, (), {
+        ".items[].label", ".items[].tag", ".items[].when", ".facts[].why"}, set(), set()),
+    (RESOURCE_KIND, "src/data/what-came-first/journeys.json", False, (), {
+        ".journeys[].traveller", ".journeys[].title", ".items[].label"}, set(), set()),
+    (RESOURCE_KIND, "src/data/what-came-first/died.json", False, (), {
+        ".items[].label", ".items[].tag", ".items[].when", ".facts[].why"}, set(), set()),
+    (RESOURCE_KIND, "src/data/what-came-first/firsts.json", False, (), {
+        ".questions[].question", ".questions[].answer", ".questions[].options[]", ".questions[].why"}, set(), set()),
 ]
 RESOURCES += GAME_DATA
 
