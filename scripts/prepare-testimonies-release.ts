@@ -11,6 +11,7 @@ import { splitReleaseFiles } from "./release-splits.mjs";
 import { packPersonFiles } from "./pack-person-files.ts";
 import { assertTranslatedFilesUnderLimit, packLanguageFiles, splitQuestionBanks } from "./pack-language-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
+import { assertPublishedBibles } from "./published-bibles.mjs";
 import { LIST_FOLDER, phraseFolders, preparePhraseLists } from "./phrase-lists.mjs";
 import { assertOnlyReleasedTranslations, assertTranslationsComplete, packTranslatedPeople, unreleasedTranslationEntries } from "./release-translations.ts";
 import { assertFullCheckPassed } from "./full-check-gate.mjs";
@@ -27,6 +28,9 @@ if (databaseId && (!/^[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}$/i.test(databaseId)
 // BUILT_SITE: a finished build when dist/ could not be swapped (the preview server holds it open).
 const built = process.env.BUILT_SITE ?? "dist";
 await stat(path.join(built, "index.html")); await stat("data/catalog.json"); await stat("data/topics/chapters/GEN.json"); // chapters: scripts/build-chapter-topics.py
+// The phone app's Bible downloads (data/bibles/v1, App/scripts/publish-bibles.py): every version with a whole file.
+const publishedBibles = assertPublishedBibles(path.resolve("data"));
+console.log(`Bible downloads: ${publishedBibles.versions} versions, ${(publishedBibles.bytes / 1e6).toFixed(1)} MB`);
 // The translation pre-release check (scripts/prerelease-gate.mjs): no English left unregistered, the English build check
 // and the quick check pass. Then the full check must have read exactly this build and data and judge it clean.
 assertPreReleaseCheckPassed();

@@ -57,7 +57,7 @@
     "pretest:portable": "npm run content:build",
     "test:portable": "npm run test:content && npm run test:release && node scripts/test-portable.mjs",
     "test:e2e": "playwright test",
-    "test:release": "node --experimental-strip-types --test scripts/release-translations.test.ts scripts/full-check-gate.test.mjs scripts/pack-language-files.test.ts scripts/prerelease-gate.test.mjs"
+    "test:release": "node --experimental-strip-types --test scripts/release-translations.test.ts scripts/full-check-gate.test.mjs scripts/pack-language-files.test.ts scripts/prerelease-gate.test.mjs scripts/published-bibles.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "5.3.0",
