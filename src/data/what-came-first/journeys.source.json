@@ -1,0 +1,309 @@
+{
+  "about": "Hand-kept source for What came first? (Where did they go first?). Built by scripts/build-what-came-first.ts into journeys.json; edit here, then rebuild.",
+  "journeys": [
+    {
+      "id": "paul-1",
+      "traveller": "Paul",
+      "travellerId": "paul-act-7-58",
+      "title": "First journey",
+      "span": [[44013001, 44014026]],
+      "origin": { "place": "Antioch of Syria", "refs": [[44013001, 44013003]] },
+      "stops": [
+        { "id": "paul-1-seleucia", "place": "Seleucia", "placeId": "a6d306d", "arrive": [[44013004, 44013004]], "match": "Seleucia", "tier": 3 },
+        { "id": "paul-1-salamis", "place": "Salamis", "placeId": "afa863b", "arrive": [[44013005, 44013005]], "match": "Salamis", "tier": 3 },
+        { "id": "paul-1-paphos", "place": "Paphos", "placeId": "a314765", "arrive": [[44013006, 44013006]], "match": "Paphos", "tier": 3 },
+        { "id": "paul-1-perga", "place": "Perga", "placeId": "aff04b8", "arrive": [[44013013, 44013013]], "match": "Perga", "tier": 3 },
+        { "id": "paul-1-pisidian-antioch", "place": "Pisidian Antioch", "placeId": null, "arrive": [[44013014, 44013014]], "match": "Pisidian Antioch", "tier": 2 },
+        { "id": "paul-1-iconium", "place": "Iconium", "placeId": "ae425aa", "arrive": [[44013051, 44013051]], "match": "Iconium", "tier": 2 },
+        { "id": "paul-1-lystra", "place": "Lystra", "placeId": "af0719d", "arrive": [[44014008, 44014008]], "match": "Lystra", "tier": 2 },
+        { "id": "paul-1-derbe", "place": "Derbe", "placeId": "aa401a9", "arrive": [[44014020, 44014021]], "match": "Derbe", "tier": 2 },
+        { "id": "paul-1-attalia", "place": "Attalia", "placeId": "ac744c1", "arrive": [[44014025, 44014025]], "match": "Attalia", "tier": 3 }
+      ]
+    },
+    {
+      "id": "paul-2",
+      "traveller": "Paul",
+      "travellerId": "paul-act-7-58",
+      "title": "Second journey",
+      "span": [[44015036, 44018022]],
+      "origin": { "place": "Antioch of Syria", "refs": [[44015035, 44015035]] },
+      "stops": [
+        { "id": "paul-2-derbe", "place": "Derbe", "placeId": "aa401a9", "arrive": [[44016001, 44016001]], "match": "Derbe", "tier": 2 },
+        { "id": "paul-2-lystra", "place": "Lystra", "placeId": "af0719d", "arrive": [[44016001, 44016001]], "match": "Lystra", "tier": 2, "sameVerse": "Acts 16:1 reads 'Paul came to Derbe and then to Lystra'." },
+        { "id": "paul-2-troas", "place": "Troas", "placeId": "a91c509", "arrive": [[44016008, 44016008]], "match": "Troas", "tier": 2 },
+        { "id": "paul-2-samothrace", "place": "Samothrace", "placeId": "a68750d", "arrive": [[44016011, 44016011]], "match": "Samothrace", "tier": 3 },
+        { "id": "paul-2-neapolis", "place": "Neapolis", "placeId": "a6a7150", "arrive": [[44016011, 44016011]], "match": "Neapolis", "tier": 3, "sameVerse": "Acts 16:11 reads 'We sailed from Troas straight to Samothrace, and the following day on to Neapolis'." },
+        { "id": "paul-2-philippi", "place": "Philippi", "placeId": "a49e1d0", "arrive": [[44016012, 44016012]], "match": "Philippi", "tier": 1 },
+        { "id": "paul-2-amphipolis", "place": "Amphipolis", "placeId": "a4bdea7", "arrive": [[44017001, 44017001]], "match": "Amphipolis", "tier": 3 },
+        { "id": "paul-2-apollonia", "place": "Apollonia", "placeId": "ab20df9", "arrive": [[44017001, 44017001]], "match": "Apollonia", "tier": 3 },
+        { "id": "paul-2-thessalonica", "place": "Thessalonica", "placeId": "afa9d8e", "arrive": [[44017001, 44017001]], "match": "Thessalonica", "tier": 2, "sameVerse": "Acts 17:1 reads 'When they had passed through Amphipolis and Apollonia, they came to Thessalonica'." },
+        { "id": "paul-2-berea", "place": "Berea", "placeId": "a62fe31", "arrive": [[44017010, 44017010]], "match": "Berea", "tier": 2 },
+        { "id": "paul-2-athens", "place": "Athens", "placeId": "a1fe6e7", "arrive": [[44017015, 44017015]], "match": "Athens", "tier": 1 },
+        { "id": "paul-2-corinth", "place": "Corinth", "placeId": "a6f437a", "arrive": [[44018001, 44018001]], "match": "Corinth", "tier": 1 },
+        { "id": "paul-2-ephesus", "place": "Ephesus", "placeId": "a5feb15", "arrive": [[44018019, 44018019]], "match": "Ephesus", "tier": 1 },
+        { "id": "paul-2-caesarea", "place": "Caesarea", "placeId": "a58735e", "arrive": [[44018022, 44018022]], "match": "Caesarea", "tier": 2 }
+      ]
+    },
+    {
+      "id": "paul-3",
+      "traveller": "Paul",
+      "travellerId": "paul-act-7-58",
+      "title": "Third journey",
+      "span": [[44018023, 44021017]],
+      "origin": { "place": "Antioch of Syria", "refs": [[44018022, 44018023]] },
+      "stops": [
+        { "id": "paul-3-ephesus", "place": "Ephesus", "placeId": "a5feb15", "arrive": [[44019001, 44019001]], "match": "Ephesus", "tier": 1 },
+        { "id": "paul-3-troas", "place": "Troas", "placeId": "a91c509", "arrive": [[44020006, 44020006]], "match": "Troas", "tier": 2 },
+        { "id": "paul-3-assos", "place": "Assos", "placeId": "a0a2ca7", "arrive": [[44020013, 44020014]], "match": "Assos", "tier": 3 },
+        { "id": "paul-3-mitylene", "place": "Mitylene", "placeId": "a33910d", "arrive": [[44020014, 44020014]], "match": "Mitylene", "tier": 3 },
+        { "id": "paul-3-samos", "place": "Samos", "placeId": "acf6ec0", "arrive": [[44020015, 44020015]], "match": "Samos", "tier": 3 },
+        { "id": "paul-3-miletus", "place": "Miletus", "placeId": "a55027d", "arrive": [[44020015, 44020015]], "match": "Miletus", "tier": 2, "sameVerse": "Acts 20:15 reads 'The day after that we arrived at Samos, and on the following day we came to Miletus'." },
+        { "id": "paul-3-cos", "place": "Cos", "placeId": "a398e5d", "arrive": [[44021001, 44021001]], "match": "Cos", "tier": 3 },
+        { "id": "paul-3-rhodes", "place": "Rhodes", "placeId": "a4218ee", "arrive": [[44021001, 44021001]], "match": "Rhodes", "tier": 2, "sameVerse": "Acts 21:1 reads 'we sailed directly to Cos, and the next day on to Rhodes'." },
+        { "id": "paul-3-patara", "place": "Patara", "placeId": "ade301b", "arrive": [[44021001, 44021001]], "match": "Patara", "tier": 3, "sameVerse": "Acts 21:1 reads 'the next day on to Rhodes, and from there to Patara'." },
+        { "id": "paul-3-tyre", "place": "Tyre", "placeId": "a160272", "arrive": [[44021003, 44021003]], "match": "Tyre", "tier": 2 },
+        { "id": "paul-3-ptolemais", "place": "Ptolemais", "placeId": "abc2af0", "arrive": [[44021007, 44021007]], "match": "Ptolemais", "tier": 3 },
+        { "id": "paul-3-caesarea", "place": "Caesarea", "placeId": "a58735e", "arrive": [[44021008, 44021008]], "match": "Caesarea", "tier": 2 },
+        { "id": "paul-3-jerusalem", "place": "Jerusalem", "placeId": "a15257a", "arrive": [[44021017, 44021017]], "match": "Jerusalem", "tier": 1 }
+      ]
+    },
+    {
+      "id": "paul-4",
+      "traveller": "Paul",
+      "travellerId": "paul-act-7-58",
+      "title": "Voyage to Rome",
+      "span": [[44027001, 44028016]],
+      "origin": { "place": "Caesarea", "refs": [[44025006, 44025006]] },
+      "stops": [
+        { "id": "paul-4-sidon", "place": "Sidon", "placeId": "a98e4d7", "arrive": [[44027003, 44027003]], "match": "Sidon", "tier": 2 },
+        { "id": "paul-4-myra", "place": "Myra", "placeId": "aa4b3e2", "arrive": [[44027005, 44027005]], "match": "Myra", "tier": 3 },
+        { "id": "paul-4-fair-havens", "place": "Fair Havens", "placeId": "aae626a", "arrive": [[44027008, 44027008]], "match": "Fair Havens", "tier": 3 },
+        { "id": "paul-4-malta", "place": "Malta", "placeId": "a57835d", "arrive": [[44028001, 44028001]], "match": "Malta", "tier": 2 },
+        { "id": "paul-4-syracuse", "place": "Syracuse", "placeId": "a1e3697", "arrive": [[44028012, 44028012]], "match": "Syracuse", "tier": 3 },
+        { "id": "paul-4-rhegium", "place": "Rhegium", "placeId": "a63bb26", "arrive": [[44028013, 44028013]], "match": "Rhegium", "tier": 3 },
+        { "id": "paul-4-puteoli", "place": "Puteoli", "placeId": "a4488e9", "arrive": [[44028013, 44028013]], "match": "Puteoli", "tier": 3, "sameVerse": "Acts 28:13 reads 'came to Rhegium. After one day, a south wind came up, and on the second day we arrived at Puteoli'." },
+        { "id": "paul-4-forum-of-appius", "place": "Forum of Appius", "placeId": "a121d5e", "arrive": [[44028015, 44028015]], "match": "Forum of Appius", "tier": 3 },
+        { "id": "paul-4-three-taverns", "place": "Three Taverns", "placeId": "afef438", "arrive": [[44028015, 44028015]], "match": "Three Taverns", "tier": 3 },
+        { "id": "paul-4-rome", "place": "Rome", "placeId": "afc8e7a", "arrive": [[44028016, 44028016]], "match": "Rome", "tier": 1 }
+      ]
+    },
+    {
+      "id": "israel-wilderness",
+      "traveller": "Israel",
+      "travellerId": null,
+      "title": "In the wilderness",
+      "span": [[2012037, 2019002], [4010011, 4022001], [4033005, 4033049]],
+      "origin": { "place": "Rameses", "refs": [[2012037, 2012037]] },
+      "stops": [
+        { "id": "israel-wilderness-succoth", "place": "Succoth", "placeId": null, "arrive": [[2012037, 2012037]], "match": "Succoth", "tier": 2 },
+        { "id": "israel-wilderness-etham", "place": "Etham", "placeId": null, "arrive": [[2013020, 2013020]], "match": "Etham", "tier": 3 },
+        { "id": "israel-wilderness-pi-hahiroth", "place": "Pi-hahiroth", "placeId": null, "arrive": [[2014009, 2014009]], "match": "Pi-hahiroth", "tier": 3 },
+        { "id": "israel-wilderness-marah", "place": "Marah", "placeId": null, "arrive": [[2015023, 2015023]], "match": "Marah", "tier": 2 },
+        { "id": "israel-wilderness-elim", "place": "Elim", "placeId": "a2410c1", "arrive": [[2015027, 2015027]], "match": "Elim", "tier": 2 },
+        { "id": "israel-wilderness-desert-of-sin", "place": "the Desert of Sin", "placeId": null, "arrive": [[2016001, 2016001]], "match": "Desert of Sin", "tier": 3 },
+        { "id": "israel-wilderness-rephidim", "place": "Rephidim", "placeId": null, "arrive": [[2017001, 2017001]], "match": "Rephidim", "tier": 2 },
+        { "id": "israel-wilderness-mount-sinai", "place": "Mount Sinai", "placeId": null, "arrive": [[2019001, 2019002]], "match": "Sinai", "tier": 1 },
+        { "id": "israel-wilderness-kibroth-hattaavah", "place": "Kibroth-hattaavah", "placeId": null, "arrive": [[4033016, 4033016]], "match": "Kibroth-hattaavah", "tier": 3 },
+        { "id": "israel-wilderness-hazeroth", "place": "Hazeroth", "placeId": "a1b6474", "arrive": [[4033017, 4033017]], "match": "Hazeroth", "tier": 3 },
+        { "id": "israel-wilderness-ezion-geber", "place": "Ezion-geber", "placeId": "a8e53d5", "arrive": [[4033035, 4033035]], "match": "Ezion-geber", "tier": 3 },
+        { "id": "israel-wilderness-mount-hor", "place": "Mount Hor", "placeId": null, "arrive": [[4033037, 4033037]], "match": "Mount Hor", "tier": 2 },
+        { "id": "israel-wilderness-oboth", "place": "Oboth", "placeId": null, "arrive": [[4033043, 4033043]], "match": "Oboth", "tier": 3 },
+        { "id": "israel-wilderness-iye-abarim", "place": "Iye-abarim", "placeId": null, "arrive": [[4033044, 4033044]], "match": "Iye-abarim", "tier": 3 },
+        { "id": "israel-wilderness-plains-of-moab", "place": "the plains of Moab", "placeId": null, "arrive": [[4033048, 4033048]], "match": "plains of Moab", "tier": 2 }
+      ]
+    },
+    {
+      "id": "abraham",
+      "traveller": "Abraham",
+      "travellerId": "abraham-gen-11-26",
+      "title": "From Ur to Moriah",
+      "span": [[1011031, 1022019]],
+      "origin": { "place": "Ur of the Chaldeans", "refs": [[1011031, 1011031]] },
+      "stops": [
+        { "id": "abraham-haran", "place": "Haran", "placeId": "a6d9af3", "arrive": [[1011031, 1011031]], "match": "Haran", "tier": 2 },
+        { "id": "abraham-shechem", "place": "Shechem", "placeId": "adf74d4", "arrive": [[1012006, 1012006]], "match": "Shechem", "tier": 2 },
+        { "id": "abraham-bethel-ai", "place": "between Bethel and Ai", "placeId": null, "arrive": [[1012008, 1012008]], "match": "Bethel", "tier": 2 },
+        { "id": "abraham-egypt", "place": "Egypt", "placeId": null, "arrive": [[1012010, 1012010]], "match": "Egypt", "tier": 1 },
+        { "id": "abraham-hebron", "place": "Hebron", "placeId": "a85151a", "arrive": [[1013018, 1013018]], "match": "Hebron", "tier": 2 },
+        { "id": "abraham-gerar", "place": "Gerar", "placeId": "a3f5814", "arrive": [[1020001, 1020001]], "match": "Gerar", "tier": 2 },
+        { "id": "abraham-beersheba", "place": "Beersheba", "placeId": "ad2f6c2", "arrive": [[1021031, 1021033]], "match": "Beersheba", "tier": 2 },
+        { "id": "abraham-moriah", "place": "Moriah", "placeId": null, "arrive": [[1022009, 1022009]], "match": "place God had designated", "tier": 2 }
+      ]
+    },
+    {
+      "id": "jacob",
+      "traveller": "Jacob",
+      "travellerId": "israel-gen-25-26",
+      "title": "From Beersheba to Egypt",
+      "span": [[1028010, 1046006]],
+      "origin": { "place": "Beersheba", "refs": [[1028010, 1028010]] },
+      "stops": [
+        { "id": "jacob-bethel", "place": "Bethel", "placeId": "a64f355", "arrive": [[1028019, 1028019]], "match": "Bethel", "tier": 2 },
+        { "id": "jacob-haran", "place": "Haran", "placeId": "a6d9af3", "arrive": [[1029004, 1029004]], "match": "Haran", "tier": 2 },
+        { "id": "jacob-mahanaim", "place": "Mahanaim", "placeId": "ae5bfe9", "arrive": [[1032002, 1032002]], "match": "Mahanaim", "tier": 3 },
+        { "id": "jacob-peniel", "place": "Peniel", "placeId": "a8a9ff9", "arrive": [[1032030, 1032031]], "match": "Peniel", "tier": 2 },
+        { "id": "jacob-succoth", "place": "Succoth", "placeId": "a0905b5", "arrive": [[1033017, 1033017]], "match": "Succoth", "tier": 3 },
+        { "id": "jacob-shechem", "place": "Shechem", "placeId": "adf74d4", "arrive": [[1033018, 1033018]], "match": "Shechem", "tier": 2 },
+        { "id": "jacob-rachels-grave", "place": "Rachel's grave, on the way to Ephrath", "placeId": null, "arrive": [[1035019, 1035020]], "match": "Ephrath", "tier": 2 },
+        { "id": "jacob-mamre", "place": "Mamre", "placeId": "aeb9e97", "arrive": [[1035027, 1035027]], "match": "Mamre", "tier": 2 },
+        { "id": "jacob-egypt", "place": "Egypt", "placeId": null, "arrive": [[1046006, 1046006]], "match": "Egypt", "tier": 1 }
+      ]
+    },
+    {
+      "id": "elijah",
+      "traveller": "Elijah",
+      "travellerId": "elijah-1ki-17-1",
+      "title": "Drought, Carmel and Horeb",
+      "span": [[11017001, 11019009]],
+      "origin": { "place": "Ahab's court", "refs": [[11017001, 11017001]] },
+      "stops": [
+        { "id": "elijah-cherith", "place": "the Brook of Cherith", "placeId": null, "arrive": [[11017005, 11017005]], "match": "Cherith", "tier": 3 },
+        { "id": "elijah-zarephath", "place": "Zarephath", "placeId": "a6fa2d3", "arrive": [[11017010, 11017010]], "match": "Zarephath", "tier": 2 },
+        { "id": "elijah-mount-carmel", "place": "Mount Carmel", "placeId": "a3e21c6", "arrive": [[11018019, 11018021]], "match": "Mount Carmel", "tier": 1 },
+        { "id": "elijah-jezreel", "place": "Jezreel", "placeId": "ae0bf4a", "arrive": [[11018046, 11018046]], "match": "Jezreel", "tier": 2 },
+        { "id": "elijah-beersheba", "place": "Beersheba", "placeId": "ad2f6c2", "arrive": [[11019003, 11019003]], "match": "Beersheba", "tier": 2 },
+        { "id": "elijah-horeb", "place": "Horeb", "placeId": null, "arrive": [[11019008, 11019009]], "match": "Horeb", "tier": 2 }
+      ]
+    },
+    {
+      "id": "elijah-elisha",
+      "traveller": "Elijah and Elisha",
+      "travellerId": "elijah-1ki-17-1",
+      "title": "The last walk",
+      "span": [[12002001, 12002011]],
+      "origin": { "place": "Gilgal", "refs": [[12002001, 12002001]] },
+      "stops": [
+        { "id": "elijah-elisha-bethel", "place": "Bethel", "placeId": "a64f355", "arrive": [[12002002, 12002002]], "match": "Bethel", "tier": 2 },
+        { "id": "elijah-elisha-jericho", "place": "Jericho", "placeId": "a231f80", "arrive": [[12002004, 12002004]], "match": "Jericho", "tier": 1 },
+        { "id": "elijah-elisha-jordan", "place": "the Jordan", "placeId": null, "arrive": [[12002007, 12002007]], "match": "Jordan", "tier": 1 }
+      ]
+    },
+    {
+      "id": "ark",
+      "traveller": "the ark of the covenant",
+      "travellerId": null,
+      "title": "From Shiloh to the City of David",
+      "span": [[9004001, 9007002], [10006001, 10006017]],
+      "origin": { "place": "Shiloh", "refs": [[9004003, 9004004]] },
+      "stops": [
+        { "id": "ark-ebenezer", "place": "Ebenezer", "placeId": null, "arrive": [[9004003, 9004005], [9004001, 9004001]], "match": "camp", "tier": 3 },
+        { "id": "ark-ashdod", "place": "Ashdod", "placeId": "a30c937", "arrive": [[9005001, 9005002]], "match": "Ashdod", "tier": 2 },
+        { "id": "ark-gath", "place": "Gath", "placeId": "a18873f", "arrive": [[9005008, 9005009]], "match": "Gath", "tier": 2 },
+        { "id": "ark-ekron", "place": "Ekron", "placeId": "a3fc47a", "arrive": [[9005010, 9005010]], "match": "Ekron", "tier": 3 },
+        { "id": "ark-beth-shemesh", "place": "Beth-shemesh", "placeId": "a3b5b53", "arrive": [[9006014, 9006014]], "match": "Beth-shemesh", "tier": 2 },
+        { "id": "ark-kiriath-jearim", "place": "Kiriath-jearim", "placeId": "a9bba61", "arrive": [[9007001, 9007002]], "match": "Kiriath-jearim", "tier": 2 },
+        { "id": "ark-nacon", "place": "the threshing floor of Nacon", "placeId": null, "arrive": [[10006006, 10006006]], "match": "Nacon", "tier": 3 },
+        { "id": "ark-obed-edom", "place": "the house of Obed-edom", "placeId": null, "arrive": [[10006010, 10006011]], "match": "Obed-edom", "tier": 3 },
+        { "id": "ark-city-of-david", "place": "the City of David", "placeId": null, "arrive": [[10006012, 10006012]], "match": "City of David", "tier": 2 }
+      ]
+    },
+    {
+      "id": "joseph",
+      "traveller": "Joseph",
+      "travellerId": "joseph-gen-30-24",
+      "title": "Sent to his brothers",
+      "span": [[1037012, 1037036]],
+      "origin": { "place": "the Valley of Hebron", "refs": [[1037014, 1037014]] },
+      "stops": [
+        { "id": "joseph-shechem", "place": "Shechem", "placeId": "adf74d4", "arrive": [[1037014, 1037014]], "match": "Shechem", "tier": 2 },
+        { "id": "joseph-dothan", "place": "Dothan", "placeId": "ab635e4", "arrive": [[1037017, 1037017]], "match": "Dothan", "tier": 3 },
+        { "id": "joseph-egypt", "place": "Egypt", "placeId": null, "arrive": [[1037036, 1037036]], "match": "Egypt", "tier": 1 }
+      ]
+    },
+    {
+      "id": "philip",
+      "traveller": "Philip the evangelist",
+      "travellerId": "philip-act-6-5",
+      "title": "From Samaria to Caesarea",
+      "span": [[44008004, 44008040]],
+      "origin": { "place": "Jerusalem", "refs": [[44008001, 44008001]] },
+      "stops": [
+        { "id": "philip-samaria", "place": "Samaria", "placeId": null, "arrive": [[44008005, 44008005]], "match": "Samaria", "tier": 2 },
+        { "id": "philip-gaza-road", "place": "the desert road to Gaza", "placeId": null, "arrive": [[44008026, 44008027]], "match": "Gaza", "tier": 2 },
+        { "id": "philip-azotus", "place": "Azotus", "placeId": null, "arrive": [[44008040, 44008040]], "match": "Azotus", "tier": 3 },
+        { "id": "philip-caesarea", "place": "Caesarea", "placeId": "a58735e", "arrive": [[44008040, 44008040]], "match": "Caesarea", "tier": 2, "sameVerse": "Acts 8:40 reads 'Philip appeared at Azotus and traveled through that region, preaching the gospel in all the towns until he came to Caesarea'." }
+      ]
+    },
+    {
+      "id": "peter",
+      "traveller": "Peter",
+      "travellerId": "peter-mat-4-18",
+      "title": "Lydda, Joppa and Caesarea",
+      "span": [[44009032, 44010024]],
+      "origin": { "place": "travelling throughout Judea, Galilee and Samaria", "refs": [[44009031, 44009032]] },
+      "stops": [
+        { "id": "peter-lydda", "place": "Lydda", "placeId": null, "arrive": [[44009032, 44009032]], "match": "Lydda", "tier": 3 },
+        { "id": "peter-joppa", "place": "Joppa", "placeId": "ae023a9", "arrive": [[44009038, 44009039]], "match": "Joppa", "tier": 2 },
+        { "id": "peter-caesarea", "place": "Caesarea", "placeId": "a58735e", "arrive": [[44010024, 44010024]], "match": "Caesarea", "tier": 2 }
+      ]
+    },
+    {
+      "id": "david",
+      "traveller": "David",
+      "travellerId": "david-rut-4-17",
+      "title": "Fleeing Saul",
+      "span": [[9019010, 9027007]],
+      "origin": { "place": "Saul's court", "refs": [[9019010, 9019010]] },
+      "stops": [
+        { "id": "david-naioth", "place": "Naioth in Ramah", "placeId": null, "arrive": [[9019018, 9019018]], "match": "Naioth", "tier": 3 },
+        { "id": "david-nob", "place": "Nob", "placeId": "afdda14", "arrive": [[9021001, 9021001]], "match": "Nob", "tier": 3 },
+        { "id": "david-gath", "place": "Gath", "placeId": "a18873f", "arrive": [[9021010, 9021010]], "match": "Gath", "tier": 3 },
+        { "id": "david-adullam", "place": "the cave of Adullam", "placeId": "af82614", "arrive": [[9022001, 9022001]], "match": "Adullam", "tier": 3 },
+        { "id": "david-mizpeh-of-moab", "place": "Mizpeh of Moab", "placeId": null, "arrive": [[9022003, 9022003]], "match": "Mizpeh", "tier": 3 },
+        { "id": "david-hereth", "place": "the forest of Hereth", "placeId": null, "arrive": [[9022005, 9022005]], "match": "Hereth", "tier": 3 },
+        { "id": "david-keilah", "place": "Keilah", "placeId": "ad9df93", "arrive": [[9023005, 9023005]], "match": "Keilah", "tier": 3 },
+        { "id": "david-wilderness-of-ziph", "place": "the Wilderness of Ziph", "placeId": null, "arrive": [[9023014, 9023015]], "match": "Ziph", "tier": 3 },
+        { "id": "david-wilderness-of-maon", "place": "the Wilderness of Maon", "placeId": null, "arrive": [[9023024, 9023025]], "match": "Maon", "tier": 3 },
+        { "id": "david-en-gedi", "place": "En-gedi", "placeId": null, "arrive": [[9023029, 9023029]], "match": "En-gedi", "tier": 3 },
+        { "id": "david-ziklag", "place": "Ziklag", "placeId": "a0ed7ff", "arrive": [[9027005, 9027007]], "match": "Ziklag", "tier": 3 }
+      ]
+    }
+  ],
+  "blocked": [
+    { "journey": "paul-2", "a": "paul-2-amphipolis", "b": "paul-2-apollonia", "reason": "Acts 17:1 names the two together ('passed through Amphipolis and Apollonia') without saying which came first." },
+    { "journey": "paul-4", "a": "paul-4-forum-of-appius", "b": "paul-4-three-taverns", "reason": "Acts 28:15 names the two together as where the brothers came to meet Paul ('as far as the Forum of Appius and the Three Taverns') without ordering them." }
+  ],
+  "leftOut": [
+    { "name": "Cyprus (Paul's first journey)", "reason": "The island as a whole (Acts 13:4); its stops, Salamis and Paphos, are cards instead." },
+    { "name": "Pisidia and Pamphylia (Paul's first journey)", "reason": "Regions passed through on the way back (Acts 14:24), not single places." },
+    { "name": "Syria and Cilicia (Paul's second journey)", "reason": "A region summary (Acts 15:41)." },
+    { "name": "Phrygia and Galatia (Paul's second journey)", "reason": "A region summary (Acts 16:6)." },
+    { "name": "Mysia (Paul's second journey)", "reason": "They passed by it (Acts 16:8)." },
+    { "name": "Iconium (Paul's second journey)", "reason": "Acts 16:2 says only that the brothers there spoke well of Timothy; no verse says Paul came there on this journey." },
+    { "name": "Cenchrea (Paul's second journey)", "reason": "Named only for the head-shaving before Paul sailed (Acts 18:18); no verse tells an arrival, and it is a departure point." },
+    { "name": "Jerusalem (Paul's second journey)", "reason": "Acts 18:22 in the Greek says only that Paul 'went up and greeted the church'; the city is supplied by the translation, so the stop is not certain." },
+    { "name": "Galatia and Phrygia (Paul's third journey)", "reason": "A region summary (Acts 18:23)." },
+    { "name": "Macedonia and Greece (Paul's third journey)", "reason": "Regions, and their first arrival on this journey is disputed: Paul's letters put Troas before Macedonia (2 Corinthians 2:12-13) and a visit to Corinth from Ephesus probably came before Acts 20:1-2." },
+    { "name": "Philippi (Paul's third journey)", "reason": "Named only as the port Paul sailed from (Acts 20:6); when he first reached it in Macedonia is not told, and Troas may have come first (2 Corinthians 2:12-13)." },
+    { "name": "Chios (Paul's third journey)", "reason": "The ship only arrived 'opposite Chios' (Acts 20:15); it did not put in." },
+    { "name": "Cyprus (Paul's third journey)", "reason": "Only sighted and passed (Acts 21:3)." },
+    { "name": "Cyprus (Paul's voyage to Rome)", "reason": "The ship only sailed to the lee of it (Acts 27:4)." },
+    { "name": "Cnidus (Paul's voyage to Rome)", "reason": "The ship only 'arrived off Cnidus' and the wind kept it from putting in (Acts 27:7)." },
+    { "name": "Crete and Salmone (Paul's voyage to Rome)", "reason": "Sailed along, to the lee of Crete and opposite Salmone (Acts 27:7); Fair Havens is the stop there." },
+    { "name": "Phoenix (Paul's voyage to Rome)", "reason": "The harbour they hoped to reach and never did (Acts 27:12)." },
+    { "name": "Cauda (Paul's voyage to Rome)", "reason": "The ship only passed it (Acts 27:16, 'passing to the lee')." },
+    { "name": "Kadesh (Israel in the wilderness)", "reason": "Israel is at Kadesh early (the spies, Numbers 13:26) and again late (Numbers 20:1; 33:36), and Numbers 33 lists only the late stop." },
+    { "name": "Moseroth and Bene-jaakan (Israel in the wilderness)", "reason": "Deuteronomy 10:6 and Numbers 33:30-31 give them in opposite orders." },
+    { "name": "Taberah (Israel in the wilderness)", "reason": "Named in the story (Numbers 11:3) but not in the Numbers 33 itinerary, so whether it is a separate stop before Kibroth-hattaavah is not certain." },
+    { "name": "The Desert of Shur and the Wilderness of Paran (Israel in the wilderness)", "reason": "Wide regions rather than camps; Israel was in Paran at more than one time (Numbers 10:12; 12:16; 13:26)." },
+    { "name": "The Red Sea camp (Israel in the wilderness)", "reason": "Numbers 33:10 has Israel camp by the Red Sea after Elim, which a player would confuse with the crossing at Pi-hahiroth." },
+    { "name": "Stops after Iye-abarim (Israel in the wilderness)", "reason": "Numbers 21:12-20 (Zered, the Arnon, Beer, Mattanah, Nahaliel, Bamoth) and Numbers 33:45-47 (Dibon-gad, Almon-diblathaim, the mountains of Abarim) name different places, so how they interleave is not certain." },
+    { "name": "Other camps known only from Numbers 33 (Israel in the wilderness)", "reason": "Dophkah, Alush, Rithmah to Abronah, Zalmonah and Punon are very obscure names from the list alone; Jotbathah also appears in Deuteronomy 10:7 on a route that may be a different trip. Left out to keep the journey certain and playable." },
+    { "name": "The Negev and the land of Canaan (Abraham)", "reason": "Regions (Genesis 12:5, 12:9; 13:1; 20:1)." },
+    { "name": "Dan and Hobah (Abraham)", "reason": "A pursuit to rescue Lot (Genesis 14:14-15), not a place Abraham went to live or camp; 'Dan' is also the later name of the town." },
+    { "name": "The hill country of Gilead, Galeed and Mizpah (Jacob)", "reason": "Gilead is a region (Genesis 31:25), and the heap there has two names, Galeed and Mizpah (31:47-49), which would make a confusing card." },
+    { "name": "The ford of the Jabbok (Jacob)", "reason": "A river crossing on the way to Peniel (Genesis 32:22); Peniel is the stop there." },
+    { "name": "The Tower of Eder (Jacob)", "reason": "Jacob pitched his tent beyond it (Genesis 35:21), not at it." },
+    { "name": "Goshen (Jacob)", "reason": "Part of Egypt (Genesis 46:28); Egypt is the stop." },
+    { "name": "Abel-meholah (Elijah)", "reason": "It is Elisha's home (1 Kings 19:16), but 19:19 does not say where Elijah found him, so no verse places Elijah there." },
+    { "name": "Samaria (Elijah)", "reason": "1 Kings 18:2 says the famine was severe in Samaria; it does not place Elijah there." },
+    { "name": "The Desert of Damascus (Elijah)", "reason": "Only commanded (1 Kings 19:15); no verse tells Elijah going there." },
+    { "name": "Baale of Judah, the house of Abinadab (the ark of the covenant)", "reason": "The same place as Kiriath-jearim (1 Samuel 7:1; 2 Samuel 6:2-3), not a new stop." },
+    { "name": "The towns between Azotus and Caesarea (Philip)", "reason": "An unnamed summary (Acts 8:40)." },
+    { "name": "Jonathan's meeting place (David fleeing Saul)", "reason": "1 Samuel 20 names no town for where David met Jonathan." },
+    { "name": "The stronghold (David fleeing Saul)", "reason": "Not named (1 Samuel 22:4-5); it is unclear whether it is Adullam or a place in Moab." },
+    { "name": "Horesh and the hill of Hachilah (David fleeing Saul)", "reason": "Spots inside the Wilderness of Ziph (1 Samuel 23:15, 19; 26:1-3), which is the stop." },
+    { "name": "The Wilderness of Paran (David fleeing Saul)", "reason": "1 Samuel 25:1 reads Paran in the Hebrew but Maon in the Greek, so the stop is not certain." },
+    { "name": "Carmel (David fleeing Saul)", "reason": "Nabal's town (1 Samuel 25:2); no verse places David in it." }
+  ]
+}

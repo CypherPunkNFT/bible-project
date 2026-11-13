@@ -1,0 +1,13 @@
+{
+  "about": "Hand-kept source for What came first? (What happened first?). The events, their windows and order facts are the Timeline sort game's (src/data/timeline/timeline.json, never changed here); this file holds only this game's own exclusions and blocks. Built by scripts/build-what-came-first.ts into events.json; edit here, then rebuild.",
+  "excluded": [],
+  "blockedGroups": [
+    { "name": "the Creation week", "ids": ["creation", "adam-formed", "eve-made"], "reason": "The order of what God made in the Creation week is left out of this game (owner, 2026-11-12)." },
+    { "name": "Jesus's miracles", "ids": ["water-into-wine", "officials-son", "calms-storm", "feeding-5000", "walking-on-water", "lazarus-raised"], "reason": "Which of Jesus's miracles came first is left out (owner, 2026-11-12): the gospels often do not settle the order. His first sign (John 2:11) is a Bible First instead." },
+    { "name": "the plagues", "ids": ["nile-to-blood", "passover"], "reason": "The order of the plagues is left out of this game (owner, 2026-11-12)." }
+  ],
+  "blocked": [
+    { "a": "hezekiah-reopens-temple", "b": "samaria-falls", "reason": "Rests on Hezekiah's first year: 729 BC counting a shared reign with Ahaz (Thiele), but 715 BC on Albright's dates, after Samaria fell." },
+    { "a": "anointing-bethany", "b": "entry-jerusalem", "reason": "John puts the anointing the day before the entry (John 12:1, 12), but Matthew and Mark tell the Bethany anointing after it (Matthew 26:6; Mark 14:3)." }
+  ]
+}

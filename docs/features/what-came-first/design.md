@@ -895,3 +895,13 @@ The step 1 questions still stand, except the one about regions, which the review
 One new point from this review:
 
 7. **Who ruled first is about 100 rulers, not 105.** Hiram, Hazael, Rezin, Zerubbabel, Solomon's father-in-law and So are left out because no honest window or verse orders them. If the owner wants any of them back, step 3 can give that one a hand-set window that covers every dating system, with its reasoning on the review sheet.
+
+### Settled by the owner (2026-11-12, after the review)
+
+The owner answered the open points; [BRIEF.md](Jarvis/Projects/BibleProject/Website/docs/features/what-came-first/BRIEF.md) section 4a and [firsts-additions.md](Jarvis/Projects/BibleProject/Website/docs/features/what-came-first/firsts-additions.md) hold the decisions, and they win over §13 above:
+1. **The ark of the covenant's journey is in** Where did they go first, as its own journey (§13 point 1). Step 3's data keeps it.
+2. **Stephen's question says "the first Christian martyr"** (Acts 7:59–60, 8:1, 22:20) (§13 point 3). Step 3 reworded it.
+3. **A new player opens on Mixed** (§13 point 5). A player arriving from the old /games/whos-older link still lands on Who lived first. This is for step 4.
+4. **Bible Firsts:** first "launch with what passes the checks, no padding" (§13 point 6); then the owner added 36 questions of their own, with the wrong answers to use, taking the category to 61. Creation was ruled out as a category to play, not as a theme, so questions on Genesis 1–3 are welcome. Step 3 added all 36; [data-report.md](Jarvis/Projects/BibleProject/Website/docs/features/what-came-first/data-report.md) lists the few wording changes the verse checks called for.
+
+Still open: whether a book's card shows its section (§13 point 2) and the hub picture (§13 point 4).
