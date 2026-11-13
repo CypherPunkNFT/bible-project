@@ -6,7 +6,7 @@ import { friendlyName } from "@/lib/live-quiz/names";
 import { formatNumber, plural } from "@/lib/site-format";
 import { CategoryPicker } from "./CategoryPicker";
 import type { Category } from "./categories";
-import { nameProblem } from "./display";
+import { teamNameProblem } from "./display";
 import { COLUMN_COUNTS, MAX_TEAMS, MIN_TEAMS, TIMERS, type Settings } from "./model";
 
 export interface SetupProps {
@@ -61,7 +61,7 @@ function Teams({ settings, set }: { settings: Settings; set: (over: Partial<Sett
       <button type="button" disabled={names.length >= MAX_TEAMS} onClick={() => resize(names.length + 1)} aria-label="One more team">+</button>
     </div>
     <ol className="jp-team-names">{names.map((name, index) => {
-      const problem = nameProblem(name);
+      const problem = teamNameProblem(names, index);
       return <li key={index} className={`jp-tone-${index}`}>
         <span className="jp-team-number" aria-hidden>{formatNumber(index + 1)}</span>
         <input type="text" value={name} maxLength={24} aria-label={`Name of team ${index + 1}`} aria-invalid={problem !== null} onChange={(event) => rename(index, event.target.value)} />

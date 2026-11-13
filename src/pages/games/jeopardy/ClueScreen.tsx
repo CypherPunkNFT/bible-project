@@ -23,13 +23,15 @@ interface MarksProps {
   teams: Team[];
   marks: Mark[];
   order: number[];
+  /** The team that answers first (the choosing team in Take turns), marked on its row until it is marked. */
+  first?: number | null;
   canMark: (team: number) => boolean;
   onMark: (team: number, right: boolean) => void;
 }
 
 /** Each team's Right and Wrong buttons; a marked team shows its mark instead. After a wrong answer the teams that may
  * still answer are invited to steal. */
-export function TeamMarks({ teams, marks, order, canMark, onMark }: MarksProps) {
+export function TeamMarks({ teams, marks, order, first = null, canMark, onMark }: MarksProps) {
   const stealing = marks.includes("wrong") && !marks.includes("right");
   return <ol className="jp-marks" aria-label="Mark a team">
     {order.map((index) => {
@@ -40,6 +42,7 @@ export function TeamMarks({ teams, marks, order, canMark, onMark }: MarksProps) 
       return <li key={index} className={`jp-tone-${index}${state}`}>
         <span className="jp-team-number" aria-hidden>{formatNumber(index + 1)}</span>
         <span className="jp-team-label" title={team.name}>{team.name}</span>
+        {index === first && mark === null && <span className="jp-first-tag">Answers first</span>}
         {mark === "right" ? <span className="jp-mark is-right"><Check size={18} aria-hidden />Right</span>
           : mark === "wrong" ? <span className="jp-mark is-wrong"><X size={18} aria-hidden />Wrong</span>
           : <span className="jp-mark-buttons">

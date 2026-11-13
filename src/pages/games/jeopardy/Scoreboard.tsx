@@ -42,6 +42,9 @@ interface Props {
 
 function Adjust({ team, index, onAdjust, onSetScore, onClose }: { team: Team; index: number } & Pick<Props, "onAdjust" | "onSetScore"> & { onClose: () => void }) {
   const [exact, setExact] = useState(String(team.score));
+  // The box follows the score however it changed (a mark or Undo while the panel is open), so Set never restores an
+  // old number and wipes out points just won.
+  useEffect(() => { setExact(String(team.score)); }, [team.score]);
   const parsed = Number(exact);
   const valid = exact.trim() !== "" && Number.isInteger(parsed) && Math.abs(parsed) <= 1_000_000;
   // The exact box follows the −100 / +100 buttons, so a later Set never undoes them.

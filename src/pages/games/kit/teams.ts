@@ -5,13 +5,17 @@
 export interface Scored {
   id: string;
   score: number;
+  /** A tie-breaker won: beats an equal score without one (Bible Jeopardy). */
+  edge?: number;
 }
+
+const beats = (other: Scored, row: Scored) => other.score > row.score || (other.score === row.score && (other.edge ?? 0) > (row.edge ?? 0));
 
 export type Placed<T extends Scored> = T & { place: number };
 
 /** Each row with its place, most points first; equal scores share a place and keep their given order. */
 export function placeTeams<T extends Scored>(rows: readonly T[]): Placed<T>[] {
-  const placed = rows.map((row, index) => ({ row: { ...row, place: 1 + rows.filter((other) => other.score > row.score).length }, index }));
+  const placed = rows.map((row, index) => ({ row: { ...row, place: 1 + rows.filter((other) => beats(other, row)).length }, index }));
   return placed.sort((a, b) => a.row.place - b.row.place || a.index - b.index).map((entry) => entry.row);
 }
 

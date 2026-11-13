@@ -23,7 +23,7 @@ export function Results({ play, teams, canTieBreak, onTieBreak, onPlayAgain, onN
   const winner = play.tie?.winner ?? null;
   const first = places[0];
   const tied = first && first.teams.length > 1;
-  const rows = teams.map((team, index) => ({ id: String(index), name: team.name, score: team.score, tone: teamTone(index, KIT_TONES) }));
+  const rows = teams.map((team, index) => ({ id: String(index), name: team.name, score: team.score, tone: teamTone(index, KIT_TONES), edge: index === winner ? 1 : 0 }));
   const rest = places.filter((place) => place.place > 3);
   return <div className={`jp-results${first ? ` jp-tone-${first.teams[0]}` : ""}`}>
     <WinnerLine className="jp-winner" label={tied ? "Tied for first" : "Winner"} name={first ? formatList(first.teams.map((index) => teams[index].name)) : ""}>

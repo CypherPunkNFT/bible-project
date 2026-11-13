@@ -18,7 +18,7 @@ import { boardFromLink, decodeBoard, encodeBoard } from "./link";
 import type { Board, BoardSettings, Settings } from "./model";
 import { Preview } from "./Preview";
 import { newGame as newGameState, tiedForFirst } from "./rules";
-import { nameProblem } from "./display";
+import { teamNameProblem } from "./display";
 import { Setup } from "./Setup";
 import { Stage } from "./Stage";
 import { browserStore, clearSeen, loadGame, loadSeen, loadSettings, saveSettings, tabId, type SavedGame } from "./storage";
@@ -92,7 +92,7 @@ export default function JeopardyGame() {
 
   const themesOffered = deck ? deck.offered.filter((category) => category.kind === "theme").length : 0;
   const chosenOffered = deck && chosen ? deck.offered.filter((category) => chosen.includes(category.id)).length : 0;
-  const badName = settings.teamNames.some((name) => nameProblem(name) !== null);
+  const badName = settings.teamNames.some((_, index) => teamNameProblem(settings.teamNames, index) !== null);
   const blocked = !bank ? "Loading the questions…" : badName ? "Fix the team names first." : !link && themesOffered < 3 && chosenOffered < 3
     ? "Fewer than 3 categories have enough questions with these settings. Try both testaments, catechism questions, or turning For children off." : null;
 

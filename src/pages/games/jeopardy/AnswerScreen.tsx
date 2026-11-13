@@ -17,24 +17,26 @@ interface Props {
   /** What the right team scored: the tile's value or the bet; null for a tie-breaker, which scores nothing. */
   stake: number | null;
   order: number[];
+  first?: number | null;
   canMark: (team: number) => boolean;
   onMark: (team: number, right: boolean) => void;
   onBack: () => void;
   backLabel?: string;
 }
 
-export function AnswerScreen({ category, q, choices, teams, marks, stake, order, canMark, onMark, onBack, backLabel = "Back to board" }: Props) {
+export function AnswerScreen({ category, q, choices, teams, marks, stake, order, first = null, canMark, onMark, onBack, backLabel = "Back to board" }: Props) {
   const right = marks.indexOf("right");
   const open = right < 0 && order.some(canMark);
+  const nobody = right < 0 && !open && marks.includes("wrong") ? "Nobody got it right" : "No points yet";
   return <div className="jp-answer">
     <p className="jp-clue-head"><span>{category}</span></p>
     <p className="jp-answer-question">{q.text}</p>
     <h2 className="jp-answer-text">{q.options[q.correct]}</h2>
     {choices && <Choices q={q} reveal />}
     <Verse q={q} />
-    <p className={`jp-scored${right < 0 ? "" : " is-scored"}`} role="status">{right < 0 ? "No points yet" : stake === null ? `${teams[right].name} wins the tie-breaker` : `${teams[right].name} +${formatNumber(stake)}`}</p>
+    <p className={`jp-scored${right < 0 ? "" : " is-scored"}`} role="status">{right < 0 ? nobody : stake === null ? `${teams[right].name} wins the tie-breaker` : `${teams[right].name} +${formatNumber(stake)}`}</p>
     <div className="jp-clue-foot">
-      {open && <TeamMarks teams={teams} marks={marks} order={order} canMark={canMark} onMark={onMark} />}
+      {open && <TeamMarks teams={teams} marks={marks} order={order} first={first} canMark={canMark} onMark={onMark} />}
       <button type="button" className="jp-primary" onClick={onBack}>{backLabel}</button>
     </div>
   </div>;

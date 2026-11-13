@@ -43,8 +43,8 @@ export interface StageProps {
 const isTyping = (target: EventTarget | null) => target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
 const isControl = (target: EventTarget | null) => target instanceof HTMLElement && target.closest("button, a, summary") !== null && target.closest("[data-spot]") === null;
 
-function announcement(game: Game): string {
-  const last = game.play.last;
+/** The spoken line for the change that just landed; nothing after Undo, so an older change is never read as new. */
+function announcement(game: Game, last: Pulse | null): string {
   if (!last || last.delta === 0) return "";
   const team = game.play.teams[last.team];
   const score = team.score < 0 ? `minus ${formatNumber(-team.score)}` : formatNumber(team.score);
@@ -132,7 +132,12 @@ export function Stage(props: StageProps) {
     seenLength.current = historyLength;
     seenChange.current = lastChange;
     if (grew && fresh && lastChange && lastChange.delta !== 0) setPulse((old) => ({ team: lastChange.team, delta: lastChange.delta, n: (old?.n ?? 0) + 1 }));
+    else if (!grew) setPulse(null);
   }, [historyLength, lastChange]);
+  // The scoreboard is hidden on the results; clear the last flash so it does not replay when it comes back (Undo, a
+  // tie-breaker).
+  const onResults = play.screen === "results";
+  useEffect(() => { if (onResults) setPulse(null); }, [onResults]);
 
   const cue = (kind: Cue) => { if (soundsOn) playSound(kind); };
   const toggleSounds = () => { const next = !soundsOn; setSoundsOn(next); saveSoundsOn(props.store ?? null, next); if (next) { unlockSound(); playSound("tick"); } };
@@ -177,12 +182,19 @@ export function Stage(props: StageProps) {
 
   const replayingRef = useRef(replaying);
   replayingRef.current = replaying;
-  const latest = useRef({ props, focus, openTile, toggleFullscreen, back, mark });
-  latest.current = { props, focus, openTile, toggleFullscreen, back, mark };
+  const overlay = menu || confirm !== null || adjusting !== null;
+  const closeOverlays = () => { setMenu(false); setConfirm(null); setAdjusting(null); };
+  const latest = useRef({ props, focus, openTile, toggleFullscreen, back, mark, overlay, closeOverlays });
+  latest.current = { props, focus, openTile, toggleFullscreen, back, mark, overlay, closeOverlays };
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const { props: current, focus: spot, openTile: open, toggleFullscreen: fullscreen, back: goBack, mark: markTeam } = latest.current;
       if (current.keysPaused || event.repeat) return;
+      // While the menu, a confirm box or a score panel is open, the game's keys wait; Esc closes it.
+      if (latest.current.overlay) {
+        if (event.key === "Escape") { event.preventDefault(); latest.current.closeOverlays(); }
+        return;
+      }
       if ((event.key === "Enter" || event.key === " ") && isControl(event.target)) return;
       const screen = current.game.play.screen;
       const command = keyCommand(event, { screen, fullscreen: Boolean(document.fullscreenElement), typing: isTyping(event.target) });
@@ -206,6 +218,7 @@ export function Stage(props: StageProps) {
   // front made a host mark the wrong row).
   const order = dailyDouble ? [play.chooser] : play.teams.map((_, index) => index);
   const may = (team: number) => canMark(game, team);
+  const first = settings.answering === "turns" && !dailyDouble ? play.chooser : null;
 
   let screen;
   if (play.screen === "board") {
@@ -215,10 +228,10 @@ export function Stage(props: StageProps) {
     screen = <DailyDouble key={`${play.open?.col}-${play.open?.row}`} team={team.name} teamIndex={play.chooser} score={team.score} onBet={(amount) => dispatch({ type: "bet", amount })} onBack={back} />;
   } else if (play.screen === "clue" && tile && column) {
     screen = <ClueScreen category={column.title} value={tile.value} q={tile.q} choices={settings.choices} timer={settings.timer} bet={dailyDouble ? play.bet : null}
-      marks={{ teams: play.teams, marks: play.marks, order, canMark: may, onMark: mark }} onReveal={() => dispatch({ type: "reveal" })} onTimeUp={timeUp} />;
+      marks={{ teams: play.teams, marks: play.marks, order, first, canMark: may, onMark: mark }} onReveal={() => dispatch({ type: "reveal" })} onTimeUp={timeUp} />;
   } else if (play.screen === "answer" && tile && column) {
     screen = <AnswerScreen category={column.title} q={tile.q} choices={settings.choices} teams={play.teams} marks={play.marks}
-      stake={dailyDouble ? play.bet ?? 0 : tile.value} order={order} canMark={may} onMark={mark} onBack={back} />;
+      stake={dailyDouble ? play.bet ?? 0 : tile.value} order={order} first={first} canMark={may} onMark={mark} onBack={back} />;
   } else if ((play.screen === "final-category" || play.screen === "final-clue" || play.screen === "final-answer") && board.final) {
     screen = <FinalRound screen={play.screen} final={board.final} choices={settings.choices} teams={play.teams} order={play.finalOrder} marks={play.finalMarks}
       onClue={() => dispatch({ type: "final-clue" })} onReveal={() => dispatch({ type: "final-reveal" })} onMark={finalMark} onTimeUp={timeUp} />;
@@ -272,7 +285,7 @@ export function Stage(props: StageProps) {
         {menu && <GameMenu items={items} onClose={() => setMenu(false)} />}
       </div>
     </div>
-    <p className="sr-only" aria-live="polite">{announcement(game)}</p>
+    <p className="sr-only" aria-live="polite">{announcement(game, pulse)}</p>
     {props.children}
   </div>;
 }

@@ -42,7 +42,10 @@ export function keyCommand(press: KeyPress, context: KeyContext): KeyCommand | n
   if (key === "f" || key === "F" || press.code === "KeyF") return { type: "fullscreen" };
   const clue = CLUE_SCREENS.includes(screen);
   const answer = ANSWER_SCREENS.includes(screen);
-  const team = teamOfCode(press.code);
+  // With Num Lock on, Windows reports Shift + a number-pad key as that key's other job (End, an arrow) with Shift let go,
+  // so it looks like a plain press; such a press marks nobody rather than marking the team right.
+  const numpadOtherJob = press.code.startsWith("Numpad") && !/^[0-9]$/.test(key);
+  const team = numpadOtherJob ? null : teamOfCode(press.code);
   if (team !== null) return clue || answer ? { type: "mark", team, right: !press.shiftKey } : null;
   if (screen === "board") {
     const move = MOVES[key];

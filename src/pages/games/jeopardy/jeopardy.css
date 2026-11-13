@@ -169,6 +169,7 @@
 @keyframes jp-land { 0% { transform: scale(.94); } 55% { transform: scale(1.06); } 100% { transform: none; } }
 @keyframes jp-shake { 0%, 100% { translate: 0; } 20%, 60% { translate: -5px 0; } 40%, 80% { translate: 5px 0; } }
 @keyframes jp-invite { 0%, 100% { transform: none; } 50% { transform: translateY(-3px); box-shadow: 0 6px 14px -8px var(--accent); } }
+.jp-first-tag { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 .jp-team-label { max-width: 12rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
 .jp-mark-buttons { display: inline-flex; gap: .3rem; }
 .jp-right, .jp-wrong { display: inline-flex; align-items: center; gap: .25rem; min-height: 44px; padding: .35rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 600; transition: transform .3s var(--jp-ease), border-color .3s var(--jp-ease); }
