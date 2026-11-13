@@ -1,5 +1,5 @@
 // The page itself (design §13): a Pick round and a Type round played to the summary, I don't know, adding a passage to
-// My verses, a reload mid-round that resumes at the same card, and the first-visit help. The BSB is read from disk.
+// My verses, a reload mid-round that resumes at the same card, and How to play opening only when asked. The BSB is read from disk.
 import fs from "node:fs";
 import path from "node:path";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
@@ -54,7 +54,7 @@ const choose = (name: RegExp | string) => fireEvent.click(screen.getByRole("butt
 
 async function openGame() {
   const view = renderPage();
-  fireEvent.click(await screen.findByRole("button", { name: "Got it" }, { timeout: 5000 }));
+  await screen.findByRole("button", { name: "Play" }, { timeout: 5000 });
   return view;
 }
 
@@ -66,6 +66,16 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); });
 
 describe("verse completion page", () => {
+  it("opens How to play only from its link, never by itself (owner, 2026-11-13)", async () => {
+    await openGame();
+    expect(screen.queryByRole("dialog")).toBeNull();
+    for (const name of ["Whole Bible", "Old Testament", "New Testament"]) expect(screen.getByRole("button", { name })).toBeInTheDocument();
+    choose("How to play");
+    expect(screen.getByRole("dialog", { name: "How to play" })).toBeInTheDocument();
+    choose("Got it");
+    expect(screen.queryByRole("dialog")).toBeNull();
+  });
+
   it("plays a Pick round at Easy to the summary, with I don't know and Add to My verses on the way", async () => {
     await openGame();
     choose("Play");

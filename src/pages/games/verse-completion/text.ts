@@ -20,10 +20,11 @@ export const LEVELS: readonly { value: Level; label: string; text: string }[] = 
   { value: "hard", label: "Hard", text: "Every verse in the game, only the opening words shown" },
 ];
 
+/** Where the verses come from, as picture tiles (Start.tsx): the drawing and short line each tile shows. */
 export const TESTAMENTS = [
-  { value: "all", label: "Whole Bible" },
-  { value: "ot", label: "Old Testament" },
-  { value: "nt", label: "New Testament" },
+  { value: "all", label: "Whole Bible", icon: "book", note: "Genesis to Revelation" },
+  { value: "ot", label: "Old Testament", icon: "tablets", note: "Genesis to Malachi" },
+  { value: "nt", label: "New Testament", icon: "cross", note: "Matthew to Revelation" },
 ] as const;
 
 /** Each word state has its own symbol and words, never colour alone (§6.5). */

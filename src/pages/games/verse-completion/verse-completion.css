@@ -39,7 +39,7 @@
 .vc-link { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; color: var(--vc-tone); font-size: .92rem; font-weight: 600; text-underline-offset: 3px; }
 .vc-link:is(:hover, :focus-visible) { text-decoration: underline; }
 .vc-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; border: 0; padding: 0; }
-.vc-chips legend, .vc-levels legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.vc-chips legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .vc-chips button { min-height: 44px; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .92rem; transition: transform .3s var(--vc-ease), border-color .3s var(--vc-ease), background-color .3s var(--vc-ease); }
 .vc-chips button:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--vc-tone); }
 .vc-chips button[aria-pressed="true"] { border-color: var(--vc-tone); background: color-mix(in srgb, var(--vc-tone) 14%, transparent); font-weight: 650; }
@@ -72,22 +72,18 @@
 .vc-switch button { min-height: 40px; padding: .4rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; color: var(--muted); transition: background-color .35s var(--vc-ease), color .35s var(--vc-ease), transform .35s var(--vc-ease); }
 .vc-switch button:is(:hover, :focus-visible) { color: var(--ink); transform: translateY(-1px); }
 .vc-switch button[aria-pressed="true"] { background: var(--vc-tone); color: var(--page); }
-.vc-levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin-top: 1.3rem; border: 0; padding: 0; }
-.vc-level { display: grid; align-content: start; gap: .25rem; min-height: 44px; padding: .8rem .85rem .9rem; border: 1px solid var(--line); border-radius: var(--kit-radius); background: var(--surface); text-align: left;
-  transition: transform .35s var(--vc-ease), border-color .35s var(--vc-ease), box-shadow .35s var(--vc-ease), background-color .35s var(--vc-ease); animation: vc-deal .55s var(--vc-ease) both; }
-@media (hover: hover) { .vc-level:hover { transform: translateY(-3px); border-color: var(--vc-tone); box-shadow: 0 12px 24px -18px rgb(0 0 0 / .6); } }
-.vc-level:focus-visible { transform: translateY(-3px); border-color: var(--vc-tone); box-shadow: 0 0 0 1px var(--vc-tone) inset; }
-.vc-level:active { transform: translateY(0) scale(.985); }
-.vc-level[aria-pressed="true"] { border-color: var(--vc-tone); box-shadow: 0 0 0 1px var(--vc-tone) inset; background: color-mix(in srgb, var(--vc-tone) 9%, var(--surface)); }
-.vc-level-name { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.1; }
-.vc-level-text { color: var(--muted); font-size: .76rem; line-height: 1.4; min-height: 2.8em; }
-.vc-sample { display: block; margin-top: .55rem; padding-top: .55rem; border-top: 1px dashed var(--line); font-family: var(--font-serif); font-size: .8rem; line-height: 1.6; color: var(--muted); overflow: hidden; max-height: 5em; }
-.vc-sample .vc-gap { height: .13rem; margin: 0 .1rem; width: min(calc(var(--vc-len, 4) * .3em), 3em); }
-@media (max-width: 480px) {
-  .vc-levels { grid-template-columns: 1fr; }
-  .vc-level { grid-template-columns: 5.5rem 1fr; grid-template-areas: "name text" "sample sample"; align-items: start; }
-  .vc-level-name { grid-area: name; } .vc-level-text { grid-area: text; min-height: 0; } .vc-sample { grid-area: sample; max-height: 3.3em; }
-}
+/* The start screen, like the other games' (owner, 2026-11-13): the drawing beside the title, the sources of verses as
+   Memory card match's picture tiles (../memory-match/tiles.css), and Difficulty, Play and How to play on one line. It
+   widens as Memory card match's does, so the tiles stand at their full size. */
+@media (min-width: 900px) { .vc-page:has(> .vc-start) { max-width: 74rem; } }
+@media (min-width: 1184px) { .vc-start .mm-tile { padding-inline: .6rem; } .vc-start .mm-tile__name { font-size: 1.05rem; } }
+.vc-start-head { display: flex; align-items: center; gap: 1.2rem; margin-top: 1rem; }
+.vc-start-head h1 { margin-top: 0; }
+.vc-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--vc-tone); }
+.vc-from { margin-top: 1.4rem; }
+.vc-start-line { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .9rem 1.6rem; margin-top: 1.2rem; }
+.vc-start-line > .vc-chips, .vc-start-line > .vc-actions { margin-top: 0; }
+.vc-start-line > .vc-chips legend { width: auto; }
 
 /* ---- A round: the trail, the stars so far, the card ------------------------------------------------------------- */
 .vc-round-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; }
@@ -226,6 +222,6 @@ button.vc-dealt-head:is(:hover, :focus-visible) { transform: translateX(3px); }
 
 /* src/index.css shortens durations under reduced motion but not delays, so every stagger is zeroed here too. */
 @media (prefers-reduced-motion: reduce) {
-  .vc-mark, .vc-band, .vc-stars .is-on, .vc-stars.is-full::after, .vc-tile, .vc-level, .vc-dealt-card { animation-delay: 0s !important; }
+  .vc-mark, .vc-band, .vc-stars .is-on, .vc-stars.is-full::after, .vc-tile, .vc-dealt-card { animation-delay: 0s !important; }
   .vc-gap.is-next { animation: none; }
 }

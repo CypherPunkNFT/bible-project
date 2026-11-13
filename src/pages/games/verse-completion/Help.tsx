@@ -1,4 +1,5 @@
-// How to play (design §10.6): opened by itself on the first visit, afterwards from the start screen. Escape closes it.
+// How to play (design §10.6): opened only from the start screen's link, never by itself (owner, 2026-11-13). Escape
+// closes it.
 import { useEffect, useRef } from "react";
 import { HELP_LINES } from "./text";
 

@@ -45,8 +45,6 @@ export default function VerseCompletionGame() {
 }
 
 type Screen = "start" | "round" | "verses";
-/** The famous verse the start screen's level cards show with its gaps: John 3:16. */
-const SAMPLE_ID = "jhn-3-16";
 type Change = (record: VerseRecord) => VerseRecord;
 
 /** The stored record and the one way to change it: re-read what is stored, change it, write it back (§9). */
@@ -85,7 +83,7 @@ function Game({ pool, catalog }: { pool: Pool; catalog: Catalog }) {
   const today = calendarDay(new Date());
   const round = record.round;
   const [screen, setScreen] = useState<Screen>(() => (round && round.owner === tab ? "round" : "start"));
-  const [help, setHelp] = useState(() => !record.seenHelp);
+  const [help, setHelp] = useState(false); // only from the How to play link (owner, 2026-11-13: never by itself)
   const [notice, setNotice] = useState("");
 
   const go = (next: Screen) => { setScreen(next); window.scrollTo?.({ top: 0 }); };
@@ -106,7 +104,6 @@ function Game({ pool, catalog }: { pool: Pool; catalog: Catalog }) {
   const mine = Object.values(record.passages).filter((progress) => progress.box > 0);
   const counts = { verses: mine.length, due: dueQueue(pool.passages, record.passages, today).length, memorised: mine.filter((progress) => progress.memorised).length };
   const streak = shownStreak(record.days, today);
-  const sample = byId.get(SAMPLE_ID);
   const closeHelp = useCallback(() => { setHelp(false); save((base) => (base.seenHelp ? base : { ...base, seenHelp: true })); }, [save]);
 
   let body;
@@ -121,7 +118,7 @@ function Game({ pool, catalog }: { pool: Pool; catalog: Catalog }) {
       onClear={() => { clear(); go("start"); }} onBack={() => go("start")} />;
   } else {
     const resume = round && !round.finished ? { at: round.done.length + 1, total: round.ids.length } : null;
-    body = <Start catalog={catalog} sample={sample} settings={record.settings} saving={saving} streak={streak} counts={counts} resume={resume} notice={notice}
+    body = <Start settings={record.settings} saving={saving} streak={streak} counts={counts} resume={resume} notice={notice}
       onSettings={(settings) => save((base) => ({ ...base, settings }))} onPlay={() => play(record.settings)} onReview={review}
       onResume={() => { save((base) => takeOver(base, tab)); go("round"); }} onMyVerses={() => go("verses")} onHelp={() => setHelp(true)} />;
   }
