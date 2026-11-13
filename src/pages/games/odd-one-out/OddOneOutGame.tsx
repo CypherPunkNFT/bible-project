@@ -5,7 +5,7 @@
 // deal in, press and settle, the odd one edged green with its stamp, a trail of ten squares, and the verdict in the kit's band
 // with Next inside it, pinned to the bottom of a phone screen. Every state changes at once; the motion only decorates.
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteLanguage } from "@/lib/language";
 import { formatNumber, plural } from "@/lib/site-format";
@@ -14,6 +14,7 @@ import { AnswerCard, ConfirmDialog, FeedbackBand, ProgressTrail, StreakFlame, tr
 import { inSiteLanguage } from "../translated-data";
 import { CHOICE_LABELS, DIFFICULTY_LABELS, buildRound, isAvailable, opensWithExample, seededRng, shownLabel, shuffle,
   type Choice, type Difficulty, type SetsFile } from "./game";
+import { OddExtrasContext } from "./extras";
 import { Reading, Verdict } from "./Reveal";
 import { CantLoad, StartScreen, SummaryScreen, type Ending } from "./Screens";
 import { bestKey, browserStore, readBest, readRound, readSeen, rememberSeen, saveBest, saveRound, takeOpener,
@@ -60,6 +61,7 @@ function Game({ data }: { data: SetsFile }) {
   // The puzzle a reload or Back brought back already answered: its band must not move focus or scroll.
   const restored = useRef(round && round.index < round.ids.length && round.picks[round.index] !== null ? round.ids[round.index] : null);
   const update = useCallback((next: RoundState | null) => { setRound(next); saveRound(session, next); }, [session]);
+  const extras = useContext(OddExtrasContext);
   useScrollTopOn(screenKey(round));
 
   const start = useCallback((c: Choice, d: Difficulty) => {
@@ -78,7 +80,9 @@ function Game({ data }: { data: SetsFile }) {
     const picks = round.picks.map((p, n) => (n === round.index ? pick : p));
     rememberSeen(local, [round.ids[round.index]]);
     update({ ...round, picks });
-  }, [round, local, update]);
+    const set = data.sets.find((entry) => entry.id === round.ids[round.index]);
+    if (set) extras.onReveal?.(data, set, pick === set.odd);
+  }, [round, local, update, data, extras]);
 
   const next = useCallback(() => {
     if (!round || round.picks[round.index] === null) return;

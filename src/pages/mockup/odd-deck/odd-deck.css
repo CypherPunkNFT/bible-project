@@ -1,0 +1,126 @@
+/* The Odd one out deck mock-ups (owner, 2026-11-12). The site's tokens in both themes; a card wears the colour of the
+   book that names it most (--sec). No focus outline: a chosen control shows its own single border. The site cuts every
+   animation to nothing under reduced motion (src/index.css). */
+.od-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; margin-bottom: .9rem; }
+.od-head-title b { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; }
+.od-head-title span { margin-inline-start: .5rem; color: var(--muted); font-size: .85rem; }
+.od-head-kinds { display: flex; gap: .9rem; color: var(--muted); font: 600 .68rem/1.2 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.od-wallet, .od-carousel, .od-where, .od-collection { margin-top: 1.6rem; }
+.od-wallet button, .od-carousel button, .od-where button, .od-collection button { outline: none; }
+
+/* ---- The card ------------------------------------------------------------------------------------------------ */
+.od-card { position: relative; display: flex; flex-direction: column; gap: .65rem; padding: 1.15rem 1.2rem 1rem; border: 1px solid color-mix(in srgb, var(--sec) 45%, var(--line)); border-radius: 1.1rem; background: linear-gradient(160deg, color-mix(in srgb, var(--sec) 18%, var(--surface)) 0%, var(--surface) 58%); box-shadow: 0 26px 44px -30px rgb(0 0 0 / .75); overflow: hidden; text-align: start; }
+.od-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--sec); }
+.od-card-top { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.od-kind { color: var(--muted); font: 650 .64rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.od-tag { padding: .15rem .6rem; border: 1px solid color-mix(in srgb, var(--sec) 60%, transparent); border-radius: 999px; color: color-mix(in srgb, var(--sec) 75%, var(--ink)); font-size: .72rem; font-weight: 600; }
+.od-name { font-family: var(--font-serif); font-size: clamp(1.5rem, 5vw, 1.85rem); font-weight: 500; line-height: 1.1; letter-spacing: -.01em; }
+.od-name a { color: inherit; text-decoration: none; }
+.od-line { color: color-mix(in srgb, var(--ink) 82%, var(--muted)); font-size: .9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.od-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; padding-top: .55rem; border-top: 1px solid var(--line); }
+.od-facts dt { color: var(--muted); font: 650 .6rem/1.2 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.od-facts dd { margin-top: .2rem; font-family: var(--font-serif); font-size: 1.05rem; }
+.od-picture { min-height: 3.2rem; display: grid; align-items: end; }
+.od-why { display: flex; gap: .5rem; align-items: flex-start; padding-top: .6rem; border-top: 1px solid var(--line); font-family: var(--font-serif); font-size: .9rem; font-style: italic; line-height: 1.4; color: var(--muted); }
+.od-why b { color: var(--prophets); font-style: normal; font-weight: 600; }
+.od-spotted { flex: none; display: grid; place-items: center; width: 1.2rem; height: 1.2rem; margin-top: .05rem; border-radius: 50%; background: var(--resource-life); color: var(--page); }
+
+/* The era line: eleven ticks from Creation to the early church, this one tall and breathing. */
+.od-era-ticks { display: flex; align-items: center; gap: 3px; height: 14px; }
+.od-era-ticks span { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
+.od-era-ticks .is-before { background: color-mix(in srgb, var(--sec) 35%, var(--line)); }
+.od-era-ticks .is-here { height: 14px; background: var(--sec); animation: od-breathe 2.4s ease-in-out infinite; }
+.od-era-ends { display: flex; justify-content: space-between; margin-top: .35rem; color: var(--muted); font-size: .65rem; }
+/* The map: every place on the site as a faint dot, this one pinned with a ring that keeps spreading. */
+.od-map { width: 100%; height: auto; max-height: 6.5rem; overflow: visible; }
+.od-map-dot { fill: var(--muted); opacity: .45; }
+.od-map-pin { fill: var(--sec); }
+.od-map-ring { fill: none; stroke: var(--sec); stroke-width: 1.2; transform-box: fill-box; transform-origin: center; animation: od-spread 2.2s ease-out infinite; }
+.od-map-off { fill: var(--muted); font-size: 7px; font-family: var(--font-sans); }
+/* The canon: 66 spines in their section colours, this one standing tall. */
+.od-shelf { display: flex; align-items: flex-end; gap: 1.5px; height: 2.6rem; }
+.od-shelf span { flex: 1; height: 55%; border-radius: 1px; opacity: .3; }
+.od-shelf .is-here { height: 100%; opacity: 1; animation: od-breathe 2.4s ease-in-out infinite; }
+.od-edge { display: flex; align-items: center; gap: .7rem; height: 2.7rem; padding: 0 1.2rem; border: 1px solid color-mix(in srgb, var(--sec) 45%, var(--line)); border-bottom: 0; border-radius: 1.1rem 1.1rem 0 0; background: color-mix(in srgb, var(--sec) 24%, var(--surface)); }
+.od-edge-name { font-family: var(--font-serif); font-size: 1.05rem; }
+
+@keyframes od-breathe { 50% { opacity: .55; } }
+@keyframes od-spread { from { transform: scale(.4); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+@keyframes od-rise { from { transform: translateY(-2.6rem) scale(.96); opacity: 0; } }
+@keyframes od-flip { from { transform: perspective(900px) rotateY(-80deg); opacity: 0; } }
+
+/* ---- 1. The wallet -------------------------------------------------------------------------------------------- */
+.od-wallet { max-width: 24rem; }
+.od-wallet-stack { display: flex; flex-direction: column; }
+.od-wallet-edge { position: relative; margin-bottom: -.75rem; padding: 0; text-align: start; transform: scale(calc(1 - var(--i) * .025)); transform-origin: bottom center; transition: transform .35s cubic-bezier(.16, 1, .3, 1); }
+.od-wallet-edge .od-edge { height: 2.6rem; padding-bottom: .7rem; }
+.od-wallet-edge:is(:hover, :focus-visible) { transform: translateY(-4px) scale(calc(1 - var(--i) * .025)); }
+.od-wallet-edge:focus-visible .od-edge { border-color: var(--ink); }
+.od-wallet-front { position: relative; z-index: 2; animation: od-rise .7s cubic-bezier(.16, 1, .3, 1) both; }
+
+/* ---- 2. The carousel ------------------------------------------------------------------------------------------ */
+.od-carousel-stage { position: relative; height: 25rem; overflow-x: clip; overflow-y: visible; perspective: 1100px; touch-action: pan-y; user-select: none; }
+.od-carousel-slot { position: absolute; top: .5rem; left: 50%; width: min(19rem, 76vw); z-index: calc(10 - var(--a)); opacity: calc(1 - var(--a) * .25); cursor: pointer;
+  transform: translateX(-50%) translateX(calc(var(--d) * 56%)) translateZ(calc(var(--a) * -150px)) rotateY(calc(var(--d) * -34deg));
+  transition: transform .8s cubic-bezier(.16, 1, .3, 1), opacity .8s; }
+.od-carousel-slot.is-front { cursor: default; }
+.od-carousel-slot:not(.is-front) .od-card { filter: saturate(.75); }
+.od-carousel-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; color: var(--muted); font-size: .85rem; }
+.od-carousel-nav button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; transition: border-color .3s; }
+.od-carousel-nav button:is(:hover, :focus-visible) { border-color: var(--prophets); }
+@media (max-width: 520px) { .od-carousel-slot { transform: translateX(-50%) translateX(calc(var(--d) * 34%)) translateZ(calc(var(--a) * -160px)) rotateY(calc(var(--d) * -40deg)); } }
+
+/* ---- 3. Where and when ---------------------------------------------------------------------------------------- */
+.od-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.od-pills button { min-height: 40px; padding: .4rem 1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; transition: border-color .3s, background-color .3s; }
+.od-pills button[aria-pressed="true"] { border-color: var(--prophets); background: color-mix(in srgb, var(--prophets) 14%, transparent); font-weight: 600; }
+.od-pills button:is(:hover, :focus-visible) { border-color: var(--prophets); }
+.od-where-body { display: grid; gap: 1.2rem; }
+.od-where-card { animation: od-rise .6s cubic-bezier(.16, 1, .3, 1) both; }
+@media (min-width: 760px) { .od-where-body { grid-template-columns: minmax(0, 1fr) 18.5rem; align-items: center; } }
+.od-ribbon { position: relative; display: grid; padding-inline-start: 1rem; }
+.od-ribbon::before { content: ""; position: absolute; inset: .9rem auto .9rem .3rem; width: 2px; background: var(--line); }
+.od-ribbon-col { position: relative; display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); align-items: center; gap: .7rem; min-height: 2.1rem; padding-block: .15rem; }
+.od-ribbon-col::before { content: ""; position: absolute; left: calc(-1rem + .3rem - 3px); top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line); }
+.od-ribbon-col.has-cards::before { background: var(--prophets); border-color: var(--prophets); }
+.od-ribbon-era { color: var(--muted); font-size: .74rem; line-height: 1.2; }
+.od-ribbon-col.has-cards .od-ribbon-era { color: var(--ink); }
+.od-ribbon-stack { display: flex; flex-wrap: wrap; gap: 4px; }
+.od-ribbon-chip { min-height: 1.9rem; padding: .25rem .6rem; border: 1px solid transparent; border-inline-start: 3px solid var(--sec); border-radius: 5px; background: color-mix(in srgb, var(--sec) 18%, var(--surface)); font-family: var(--font-serif); font-size: .85rem; line-height: 1.15; text-align: start; animation: od-rise .5s cubic-bezier(.16, 1, .3, 1) both; }
+.od-ribbon-chip.is-on { border-color: var(--ink); }
+@media (max-width: 420px) { .od-ribbon-col { grid-template-columns: 6.6rem minmax(0, 1fr); } }
+.od-bigmap { width: 100%; height: auto; overflow: visible; }
+.od-bigmap-pin { cursor: pointer; }
+.od-bigmap-pin text { fill: var(--ink); font: 4.2px var(--font-serif); opacity: .75; }
+.od-bigmap-pin:not(.is-on) .od-map-ring { animation: none; opacity: 0; }
+.od-bigmap-pin.is-on text { font-weight: 700; opacity: 1; }
+.od-bigshelf { position: relative; display: flex; align-items: flex-end; gap: 3px; height: 11rem; padding-bottom: 1.4rem; }
+.od-bigshelf button { flex: 1; height: 45%; padding: 0; border: 1px solid transparent; border-radius: 2px; background: var(--sec); opacity: .16; transition: height .5s cubic-bezier(.16, 1, .3, 1), opacity .3s; }
+.od-bigshelf button.is-kept { height: 78%; opacity: .8; cursor: pointer; }
+.od-bigshelf button.is-on { height: 100%; opacity: 1; border-color: var(--ink); }
+.od-bigshelf-ends { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; color: var(--muted); font-size: .68rem; }
+.od-empty { color: var(--muted); font-size: .9rem; }
+
+/* ---- 4. The collection ---------------------------------------------------------------------------------------- */
+.od-collection-body { display: grid; gap: 1.4rem; }
+@media (min-width: 760px) { .od-collection-body { grid-template-columns: 18.5rem minmax(0, 1fr); align-items: start; } }
+.od-collection-card { animation: od-flip .7s cubic-bezier(.16, 1, .3, 1) both; }
+.od-slots { display: grid; gap: 1rem; }
+.od-slot-head { display: grid; grid-template-columns: auto 1fr; gap: .3rem .6rem; align-items: baseline; margin-bottom: .45rem; font-size: .8rem; }
+.od-slot-head b { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; }
+.od-slot-head span { color: var(--muted); }
+.od-slot-head i { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--prophets) calc(var(--p) * 100%), var(--line) 0); }
+.od-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(1.55rem, 1fr)); gap: 4px; }
+.od-slot { display: grid; place-items: center; aspect-ratio: 1; border: 1px dashed var(--line); border-radius: 5px; }
+.od-slot.is-kept { border: 1px solid transparent; background: color-mix(in srgb, var(--sec) 75%, var(--surface)); color: var(--page); font: 700 .58rem/1 var(--font-sans); cursor: pointer; animation: kit-pop .45s cubic-bezier(.16, 1, .3, 1) both; }
+.od-slot.is-kept.is-on { border: 2px solid var(--ink); }
+
+/* ---- "Joined your deck", during play -------------------------------------------------------------------------- */
+.od-joined { position: fixed; z-index: 60; top: calc(env(safe-area-inset-top, 0px) + 4.6rem); right: 1rem; display: flex; align-items: center; gap: .75rem; padding: .55rem 1rem .55rem .55rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); box-shadow: 0 20px 40px -24px rgb(0 0 0 / .7);
+  animation: od-fly .6s cubic-bezier(.16, 1, .3, 1) both, od-leave .4s ease-in 2.2s forwards; }
+.od-joined-card { display: grid; place-items: center; width: 2.5rem; height: 3.3rem; border-radius: .45rem; background: linear-gradient(160deg, var(--sec), color-mix(in srgb, var(--sec) 55%, var(--surface))); transform: rotate(-6deg); }
+.od-joined-card b { max-width: 2.2rem; overflow: hidden; color: var(--page); font: 600 .6rem/1.1 var(--font-serif); text-align: center; overflow-wrap: anywhere; }
+.od-joined-text { display: grid; font-size: .85rem; }
+.od-joined-text small { color: var(--muted); font-size: .72rem; }
+@keyframes od-fly { from { transform: translate(-30vw, 30vh) rotate(-14deg) scale(.6); opacity: 0; } }
+@keyframes od-leave { to { transform: translateY(-1rem); opacity: 0; } }

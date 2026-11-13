@@ -2,12 +2,13 @@
 // redesign: a sample deal of four cards, chips at a thumb's size, and a result card that
 // counts up over the trail of ten with Play again and Share beside it; the ten rows stay below for anyone re-reading.
 import { Check, RotateCcw, X } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { AnswerCard, Confetti, HopWave, NewBestRibbon, ProgressTrail, RankLine, ResultPanel, ScoreCountUp, ShareButton,
   StreakFlame, trailMarks, trailText } from "../kit";
 import { CHOICES, CHOICE_LABELS, DIFFICULTIES, DIFFICULTY_LABELS, RANKS, ROUND_LENGTH, isAvailable, levelsNote, scoreRound,
   shareLines, shownLabel, type Choice, type Difficulty, type SetsFile } from "./game";
+import { OddExtrasContext } from "./extras";
 import { Headline, Lines } from "./Reveal";
 import type { RoundState } from "./storage";
 
@@ -29,10 +30,11 @@ export function StartScreen({ data, choice, difficulty, best, focusTitle = false
   const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (focusTitle) title.current?.focus({ preventScroll: true }); }, [focusTitle]);
   const sample = data.sets.find((set) => set.id === data.first) ?? data.sets[0];
+  const extras = useContext(OddExtrasContext);
   return <div className="oo-start">
     <h1 ref={title} tabIndex={-1}>Odd one out</h1>
     <p className="oo-lede">Four names. One doesn't belong. Can you see why?</p>
-    {sample && <div className="oo-sample" aria-hidden="true">
+    {extras.startArt ? extras.startArt(data) : sample && <div className="oo-sample" aria-hidden="true">
       {sample.items.map((id, n) => <AnswerCard key={id} index={n} interactive={false} className="oo-choice oo-sample-card">
         <span className="oo-choice-key">{n + 1}</span>
         <span className="oo-choice-name">{shownLabel(data, sample, id)}</span>
