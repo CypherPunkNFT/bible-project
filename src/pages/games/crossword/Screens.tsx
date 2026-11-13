@@ -7,12 +7,12 @@ import { Clock, Trophy } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
-import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, type Level, type Size } from "./themes";
+import { LEVELS, SIZES, SIZE_GRID, THEMES, TILE_TONES, isOffered, type Level, type Size } from "./themes";
 import { allBooks, clock, fitSpec, freshSeed, makeLayout, sameSource, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
 import type { BestTimes, PlayState } from "./storage";
 import { BookPicker } from "./BookPicker";
 import { ThemeIcon } from "./ThemeIcons";
-import { TILE_TONES, ThemeTileArt } from "./ThemeTileArt";
+import { ThemeTileArt } from "./ThemeTileArt";
 
 /** A theme tile's book colour, as the --cw-tone its drawing and pressed edge use. */
 const tone = (id: string) => ({ "--cw-tone": `var(--${TILE_TONES[id]})` }) as CSSProperties;

@@ -5,12 +5,6 @@ import { P } from "../art/parts";
 import "../art/game-art.css";
 import { ThemeIcon } from "./ThemeIcons";
 
-/** One of the site's book-colour tones (src/index.css) per tile, spread so neighbours differ in rows of six and three. */
-export const TILE_TONES: Record<string, string> = {
-  whole: "epistles", beginnings: "poetry", exodus: "history", kingdom: "revelation", wisdom: "acts", prophets: "prophets",
-  jesus: "gospels", church: "epistles", people: "poetry", places: "history", verses: "revelation", book: "prophets",
-};
-
 /** The 24-unit drawing scaled into the 120×80 arch, centred, its stroke kept at the hub's weight. */
 export function ThemeTileArt({ id }: { id: string }) {
   return <svg className="ga-art cw-tile-art" viewBox="0 0 120 80" aria-hidden="true" focusable="false">

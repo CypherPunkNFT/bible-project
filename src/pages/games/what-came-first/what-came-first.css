@@ -28,12 +28,6 @@
 /* ---- The start screen: the game shown, one row of modes ------------------------------------------------------ */
 .wo-start h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
 .wo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-.wo-sample { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .9rem; align-items: center; max-width: 26rem; margin-top: 1.4rem; }
-.wo-sample .wo-card { --kit-card-height: 8.5rem; min-height: 8.5rem; padding: 1rem .8rem; }
-.wo-sample .wo-card:nth-child(1) { animation: kit-deal .55s var(--wo-ease) both, wo-breathe 7s var(--wo-ease) 1s infinite; }
-.wo-sample .wo-card:nth-child(2) { animation: kit-deal .55s var(--wo-ease) .06s both, wo-breathe 7s var(--wo-ease) 4.5s infinite; }
-.wo-sample .wo-medallion { width: 2.6rem; height: 2.6rem; font-size: 1.2rem; }
-.wo-sample .wo-card-name { font-size: 1.25rem; }
 .wo-continue { margin-top: 1.4rem; }
 .wo-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.2rem 2rem; margin-top: 1.4rem; }
 .wo-mode { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding-top: .9rem; border-top: 1px solid var(--line); }
@@ -45,10 +39,6 @@
 .wo-chips legend { width: 100%; margin-bottom: .4rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .wo-chips button { min-height: 44px; padding: .5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .35s var(--wo-ease), transform .35s var(--wo-ease); }
 .wo-chips button:is(:hover, :focus-visible) { border-color: var(--wo-gold); transform: translateY(-2px); }
-.wo-note { margin-top: 1rem; color: var(--muted); font-size: .85rem; }
-.wo-how { margin-top: 1.6rem; font-size: .92rem; line-height: 1.6; }
-.wo-how summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--wo-gold); font-weight: 600; }
-.wo-how p { margin-top: .3rem; color: var(--muted); }
 
 /* ---- The scoreboard: a large streak with its flame, or the score and three hearts that break ------------------ */
 .wo-play { outline: none; }
@@ -109,7 +99,6 @@
 @keyframes wo-stream { 0%, 85% { opacity: .8; } 90%, 100% { opacity: 0; } }
 @keyframes wo-turn { 0%, 90% { transform: rotate(0); } 100% { transform: rotate(180deg); } }
 .wo-play.is-answered .wo-glass, .wo-play.is-answered .wo-sand { animation-play-state: paused; }
-@keyframes wo-breathe { 0%, 100% { transform: none; } 50% { transform: translateY(-4px); } }
 
 /* ---- The band: verdict and Next in the row, the reading under it --------------------------------------------- */
 .wo-band.kit-band { margin-top: 1.4rem; border-radius: var(--kit-radius) var(--kit-radius) 0 0; }
@@ -201,10 +190,9 @@
   .wo-lane-name { font-size: .74rem; white-space: normal; overflow-wrap: anywhere; line-height: 1.2; }
   .wo-gap { margin-left: 5.65rem; }
   .wo-year { font-size: .68rem; }
-  .wo-sample { max-width: 100%; gap: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wo-glass, .wo-sand, .wo-sample .wo-card { animation: none; }
+  .wo-glass, .wo-sand { animation: none; }
   .wo-card.is-slid, .wo-card.is-held, .wo-card.is-arrived, .wo-bar, .wo-gap-line, .wo-bestbar-row > i, .wo-hearts .is-breaking, .wo-milestone, .wo-card .kit-card__mark { animation: none; }
 }
 
@@ -231,10 +219,6 @@
 .wcf-kind[aria-pressed="true"] .wcf-kind-name { color: var(--ink); }
 .wcf-kind[aria-pressed="true"] .wcf-kind-ask { color: color-mix(in srgb, var(--wcf-tone) 70%, var(--ink)); }
 /* The chosen kind's question, centred under the tiles, with its colour as a short rule. */
-.wcf-chosen { max-width: 34rem; margin: 2.2rem auto 0; padding-top: 1.6rem; border-top: 1px solid var(--line); text-align: center; }
-.wcf-chosen-ask { font-family: var(--font-serif); font-size: clamp(1.35rem, 3.6vw, 1.75rem); line-height: 1.2; }
-.wcf-chosen-sub { margin-top: .35rem; color: var(--muted); font-size: .92rem; }
-.wcf-chosen::after { content: ""; display: block; width: 3rem; height: 2px; margin: .8rem auto 0; border-radius: 2px; background: var(--wcf-tone); }
 /* The start screen, centred (owner, 2026-11-12). */
 .wo-start { text-align: center; }
 /* The game's drawing beside the title, like the crossword's (owner, 2026-11-12); the pair stays centred on the page. */
@@ -243,8 +227,6 @@
 .wo-start .wcf-start-head h1 { margin-top: 0; }
 .wo-start .wcf-start-head .wo-lede { margin-inline: 0; }
 .wo-start .wo-lede { max-width: 32rem; margin-inline: auto; }
-.wo-start .wo-sample { margin-inline: auto; }
-.wo-start .wcf-sample-q { margin-inline: auto; }
 .wo-start .wo-continue { margin-top: 1.4rem; }
 /* One row: Easy, Medium, Hard, Streak, equal widths (owner, 2026-11-12); the rule under it says what each means. */
 .wcf-play { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 34rem; margin: 1.6rem auto 0; }
@@ -254,9 +236,6 @@
 .wcf-play-best .wo-best { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); font-size: .82rem; font-weight: 600; }
 .wcf-play-best .wo-best > span:first-child { color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
 .wcf-play-best .kit-streak { font-family: var(--font-serif); font-size: 1.4rem; line-height: 1; }
-.wo-start .wo-how { max-width: 36rem; margin-inline: auto; }
-.wo-start .wo-how p { text-align: left; }
-.wo-start .wo-how summary { display: flex; justify-content: center; text-align: center; }
 .wcf-heading { margin-top: .4rem; }
 .wcf-heading .wo-hint { padding-bottom: .35rem; border-bottom: 2px solid color-mix(in srgb, var(--wcf-tone) 70%, transparent); width: fit-content; }
 .wcf-chip { display: inline-block; margin-top: .3rem; padding: .2rem .6rem; border-radius: 999px; background: color-mix(in srgb, var(--wcf-tone) 16%, var(--surface)); color: var(--wcf-tone); font: 650 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
@@ -268,15 +247,7 @@
 @media (min-width: 640px) { .wcf-answers { grid-template-columns: repeat(4, minmax(0, 1fr)); } .wcf-answers.is-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .wo-card.wcf-answer.kit-card { --kit-card-height: 7rem; min-height: 7rem; padding: 1.4rem .7rem .9rem; }
 .wo-card.wcf-answer .kit-card__body { justify-content: center; padding-inline: 1.1rem; }
-/* The sample face-off keeps the round's order: card, hourglass, card. */
-.wo-sample > .wo-card:nth-child(1) { grid-column: 1; }
-.wo-sample > .wo-cards-glass { grid-column: 2; grid-row: 1; }
-.wo-sample > .wo-card:nth-child(2) { grid-column: 3; }
 .wo-card.wcf-answer .wo-card-name { font-size: clamp(1rem, 3vw, 1.3rem); line-height: 1.25; hyphens: manual; overflow-wrap: break-word; }
-.wcf-sample-q { max-width: 34rem; margin-top: 1.3rem; }
-.wcf-sample-ask { font-family: var(--font-serif); font-size: 1.15rem; }
-.wcf-sample-q .wcf-answers { margin-top: .7rem; }
-.wcf-sample-q .wo-card.wcf-answer.kit-card { --kit-card-height: 4.2rem; min-height: 4.2rem; padding: .7rem; opacity: .75; }
 .wo-continue .wcf-name { font-weight: 700; }
 .wo-continue .wcf-name::after { content: "·"; margin-left: .45rem; }
 .wcf-open { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: .6rem; font-size: .9rem; }

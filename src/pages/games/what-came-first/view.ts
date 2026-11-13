@@ -1,10 +1,10 @@
 // What came first?: the small pure rules of the view (Who's older?'s redesign, docs/visual-audits/whos-older-redesign.md),
 // kept out of the components so they can be tested on their own: the year strip's geometry, which card stayed from the
-// round before, the result's title line, the sample face-off and a label's bracketed qualifier.
+// round before, the result's title line and a label's bracketed qualifier.
 import { formatYear, gapLabel, yearSpan } from "../whos-older/explain";
 import { MILESTONES, type PairRound } from "./game";
 import type { PairCategory } from "./order";
-import type { PairPool, PoolPair, ShownItem } from "./pool";
+import type { PoolPair, ShownItem } from "./pool";
 
 /** The categories whose reveal draws the year strip: their items have windows of years (design §9.3). */
 export const hasStrip = (category: PairCategory) => category !== "went" && category !== "books";
@@ -73,16 +73,6 @@ export const reachedTitle = (score: number): string | undefined => {
   const reached = Object.keys(MILESTONES).map(Number).filter((n) => n <= score);
   return reached.length ? MILESTONES[Math.max(...reached)] : undefined;
 };
-
-
-/** The start screen's sample face-off: Moses and Paul for people, else the first easy pair of the category. */
-export function samplePair(pool: PairPool): [ShownItem, ShownItem] {
-  const moses = pool.byId.get("moses-exo-2-10");
-  const paul = pool.byId.get("paul-act-7-58");
-  if (pool.key === "lived" && moses && paul) return [moses, paul];
-  const pair = pool.byBand.easy[0] ?? pool.pairs[0];
-  return [pair.first, pair.second];
-}
 
 
 /** The bracketed part of a label, for a second small line: "Mary (mother of Jesus)" -> "mother of Jesus". */

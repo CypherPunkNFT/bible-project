@@ -1,12 +1,11 @@
 // What came first?: the view's pure rules (view.ts, Who's older?'s redesign): the strip's bars, years and bracket; who
-// stayed; the result's title; the sample pair; the qualifier line; the gap label's words; each category's window words.
+// stayed; the result's title; the qualifier line; the gap label's words; each category's window words.
 import { gapLabel, yearSpan } from "../whos-older/explain";
 import { pairOf } from "./game";
 import { englishPools } from "./test-pools";
-import { hasStrip, qualifier, reachedTitle, samplePair, stayedFrom, strip, windowNote } from "./view";
+import { hasStrip, qualifier, reachedTitle, stayedFrom, strip, windowNote } from "./view";
 
 const pools = englishPools();
-const pool = pools.lived!;
 const pair = (a: string, b: string) => pairOf(pools, { category: "lived", left: a, right: b, pick: null })!;
 
 describe("the timeline strip", () => {
@@ -79,9 +78,6 @@ describe("the round's motion and the ending", () => {
     expect(reachedTitle(14)).toMatch(/^10 in a row/);
     expect(reachedTitle(60)).toMatch(/^50 in a row/);
   });
-  it("shows Moses and Paul on the start screen", () => {
-    expect(samplePair(pool).map((p) => p.label)).toEqual(["Moses", "Paul"]);
-  });
 });
 
 describe("each category's strip", () => {
@@ -93,11 +89,4 @@ describe("each category's strip", () => {
     expect(windowNote("built", { lo: 20, hi: 30 })).toBe("built about AD 20–30");
   });
 
-  it("gives another category a sample from its own data", () => {
-    for (const key of ["happened", "ruled", "built", "went", "died", "books"] as const) {
-      const [a, b] = samplePair(pools[key]!);
-      expect(pools[key]!.byKey.size).toBeGreaterThan(0);
-      expect(a.id).not.toBe(b.id);
-    }
-  });
 });

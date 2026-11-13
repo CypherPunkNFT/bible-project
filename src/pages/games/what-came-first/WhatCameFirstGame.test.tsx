@@ -61,7 +61,6 @@ describe("what came first page", () => {
     fireEvent.click(pill("Rulers"));
     expect(pill("Rulers")).toHaveAttribute("aria-pressed", "true");
     expect(where).toBe("/games/what-came-first?c=ruled");
-    expect(document.querySelector(".wcf-chosen-ask")?.textContent).toBe("Who ruled first?");
   });
 
   it.each(CATEGORIES.filter((c) => c.key !== "mixed").map((c) => c.key as CategoryKey))("plays a round of %s with its question, reveal and reason", async (key) => {

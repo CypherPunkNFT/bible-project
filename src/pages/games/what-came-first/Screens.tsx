@@ -1,27 +1,24 @@
 // What came first?: the start screen, the run-over screen and the can't-load screen (design §9.1, §9.4). The start
 // has the game's drawing beside the title (owner, 2026-11-12, like the crossword), the nine tiles, the row of Easy,
-// Medium, Hard and Streak right under them with the bests, then the chosen kind's question and a sample of the game; the ending is a result card titled with the kind of round: the number counting up, a bar against
-// your best, a ribbon and one burst for a new best, the missed rounds each with their reading open, and Share.
+// Medium, Hard and Streak right under them, and the bests; nothing below (owner, 2026-11-12). The ending is a result
+// card titled with the kind of round: the number counting up, a bar against your best, a ribbon and one burst for
+// a new best, the missed rounds each with their reading open, and Share.
 import { RotateCcw, X } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
-import { AnswerCard, Confetti, NewBestRibbon, ResultPanel, ScoreCountUp, ShareButton, StreakFlame } from "../kit";
-import { shortName } from "../whos-older/explain";
+import { Confetti, NewBestRibbon, ResultPanel, ScoreCountUp, ShareButton, StreakFlame } from "../kit";
 import { CATEGORIES, categoryInfo, type Choice } from "./categories";
-import { answersOf, askedAll, isPairRound, missedRounds, pairOf, questionOf, score as scoreOf,
+import { askedAll, isPairRound, missedRounds, pairOf, questionOf, score as scoreOf,
   type Difficulty, type Mode, type Run } from "./game";
 import type { Pools } from "./pool";
-import { Hourglass } from "./Hourglass";
 import { CategoryArt } from "./CategoryArt";
 import { ChoiceReading, Reading } from "./Reveal";
-import { Medallion } from "./Round";
-import { cardTag, reachedTitle, samplePair } from "./view";
+import { reachedTitle } from "./view";
 import { shareText } from "./share";
 import type { Best } from "./storage";
 
 interface StartProps {
-  pools: Pools;
   choice: Choice;
   onChoose: (choice: Choice) => void;
   best: Best;
@@ -46,32 +43,6 @@ export function CategoryPills({ choice, onChoose }: { choice: Choice; onChoose: 
   </div>;
 }
 
-/** The sample for the chosen pill: two real cards with the hourglass, or a Bible Firsts question with its answers. */
-function Sample({ pools, choice }: { pools: Pools; choice: Choice }) {
-  if (choice === "firsts" && pools.firsts) {
-    const question = pools.firsts.byBand.easy[0] ?? pools.firsts.questions[0];
-    return <div className="wcf-sample-q" aria-hidden="true">
-      <p className="wcf-sample-ask">{question.question}</p>
-      <div className="wcf-answers">
-        {answersOf(question).slice(0, 4).map((text, i) => <AnswerCard key={text} interactive={false} index={i} className="wo-card wcf-answer wo-card--sample">
-          <span className="wo-card-name">{text}</span>
-        </AnswerCard>)}
-      </div>
-    </div>;
-  }
-  const pool = pools[choice === "mixed" || choice === "firsts" ? "lived" : choice];
-  if (!pool) return null;
-  const sample = samplePair(pool);
-  return <div className="wo-sample" aria-hidden="true">
-    {sample.map((item, i) => <AnswerCard key={item.id} interactive={false} index={i} className="wo-card wo-card--sample">
-      <Medallion category={pool.key} item={item} />
-      <span className="wo-card-name">{pool.key === "happened" ? item.label : shortName(item.label)}</span>
-      {cardTag(pool.key, item) && <span className="wo-card-tag">{cardTag(pool.key, item)}</span>}
-    </AnswerCard>)}
-    <Hourglass className="wo-cards-glass" />
-  </div>;
-}
-
 /** The three Relaxed levels (owner, 2026-11-12: one row of Easy, Medium, Hard and Streak; "medium is mixed"): Medium
  *  plays the mix that starts easy and climbs, so the old separate Mixed level is gone from the screen. Saved runs at any
  *  level still load (storage keeps every Difficulty). */
@@ -81,20 +52,7 @@ const LEVELS: readonly { label: string; difficulty: Difficulty }[] = [
   { label: "Hard", difficulty: "hard" },
 ];
 
-const HOW: Record<Choice, string> = {
-  lived: "People are ordered by when they were born.",
-  happened: "Events are ordered by when they took place; the miracles of Jesus and the plagues are never set against each other.",
-  ruled: "Rulers are ordered by when they began to reign; where a king shared the throne with his father, every way of counting is covered.",
-  built: "Buildings and things made are ordered by when they were built or made.",
-  went: "Journeys: two stops of one traveller's one journey, in the order Scripture gives them; the first arrival counts.",
-  died: "Deaths are only deaths Scripture records; Enoch and Elijah, who did not die, are never asked.",
-  books: "Books follow the 66-book order of the Protestant Bible.",
-  firsts: "Bible firsts are only the firsts Scripture states or plainly shows, each with its verse.",
-  mixed: "Mixed deals a round from every kind in turn.",
-};
-
-export function StartScreen({ pools, choice, onChoose, best, saving, resume, resumeScore, onPlay, onResume }: StartProps) {
-  const info = categoryInfo(choice);
+export function StartScreen({ choice, onChoose, best, saving, resume, resumeScore, onPlay, onResume }: StartProps) {
   return <div className="wo-start">
     <div className="wcf-start-head">
       <GameArtImage art={GAME_ART.whatCameFirst} className="wcf-art" />
@@ -119,19 +77,6 @@ export function StartScreen({ pools, choice, onChoose, best, saving, resume, res
       <p className="wo-best"><span>Best streak</span>
         <StreakFlame count={best.streak} litFrom={1} label={plural(best.streak, "{n} in a row", "{n} in a row")} /></p>
     </div>}
-    {!saving && <p className="wo-note">Best scores are not saved on this device</p>}
-    <div className="wcf-chosen" style={{ "--wcf-tone": `var(--${info.tone})` } as CSSProperties}>
-      <p className="wcf-chosen-ask">{info.heading}</p>
-      <p className="wcf-chosen-sub">{info.subtitle}</p>
-    </div>
-    <Sample pools={pools} choice={choice} />
-    <details className="wo-how">
-      <summary>How we decide what came first</summary>
-      <p>The game follows the order the Bible gives. Dates in years are scholars' reconstructions, and their systems differ.
-        Everything with a date has a window wide enough for all of those systems. A pair is only asked when the order is
-        certain on every one of them, or a verse states it.</p>
-      <p>{HOW[choice]}</p>
-    </details>
   </div>;
 }
 

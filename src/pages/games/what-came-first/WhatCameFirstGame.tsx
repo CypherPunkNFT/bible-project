@@ -97,7 +97,7 @@ function Game({ pools }: { pools: Pools }) {
   const advance = useCallback(() => { if (run) update(next(pools, run)); }, [run, pools, update]);
 
   if (!run || !playing) {
-    return <StartScreen pools={pools} choice={choice} onChoose={choose} best={bestOf(bests, choice)} saving={saving}
+    return <StartScreen choice={choice} onChoose={choose} best={bestOf(bests, choice)} saving={saving}
       resume={run && !run.over ? run : null} resumeScore={run ? score(pools, run) : 0}
       onPlay={(mode, difficulty) => start(choice, mode, difficulty)}
       onResume={() => { setBestBefore(bestOf(bests, run!.choice)[run!.mode]); setPlaying(true); }} />;

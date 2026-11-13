@@ -53,6 +53,12 @@ export const THEMES: readonly Theme[] = [
   { id: "verses", title: "Words from verses", note: "Key words from Scripture", kind: "verse" },
 ];
 
+/** Each theme tile's colour (and "book" for Or one book): one of the site's book-colour tones (src/index.css) per tile, spread so neighbours differ in rows of six and three. */
+export const TILE_TONES: Record<string, string> = {
+  whole: "epistles", beginnings: "poetry", exodus: "history", kingdom: "revelation", wisdom: "acts", prophets: "prophets",
+  jesus: "gospels", church: "epistles", people: "poetry", places: "history", verses: "revelation", book: "prophets",
+};
+
 export const LEVELS: readonly Level[] = ["easy", "medium", "hard"];
 export const SIZES: readonly Size[] = ["small", "medium", "large"];
 
