@@ -15,7 +15,7 @@ The owner's clarifications, the same day:
 
 Already in the file and so not repeated: Isaac's firstborn (Esau), David's firstborn (Amnon).
 
-| # | Question | Answer | Wrong answers (owner-approved) | Verses | Notes |
+| # | Question | Answer | Wrong answers (use as written) | Verses | Notes |
 |---|---|---|---|---|---|
 | 1 | What are the first words of the Bible? | "In the beginning" | The beginning of the gospel · Blessed is the man · Hear, O Israel | Gen 1:1 | Wrong options: other famous openings ("The beginning of the gospel", "Blessed is the man", "Hear, O Israel"). Not "In the beginning was the Word" (John 1:1 opens the same way) |
 | 2 | Who was Adam and Eve's first son? | Cain | Abel · Seth · Enoch | Gen 4:1–2 | Seth and Abel never "first" |
