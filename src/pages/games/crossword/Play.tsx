@@ -25,7 +25,7 @@ interface PlayProps {
   onChoices: () => void;
 }
 
-type Confirm = "reveal" | "new" | "change" | null;
+type Confirm = "reveal" | null;
 
 /** Keys typed into a form elsewhere on the page (the site's correction form) are not letters for the grid. */
 const isTyping = (target: EventTarget | null) =>
@@ -186,16 +186,14 @@ export function Play({ data, game, puzzle, newBest, onChange, onNew, onChoices }
     change({ ...applyLetters(game, letters), revealed: [...new Set([...game.revealed, ...shown])], wrong: game.wrong.filter((cell) => !squares.includes(cell)) });
   };
   const clear = () => change(applyLetters(game, game.letters.map((l, cell) => (revealed.has(cell) ? l : ""))));
-  const typedAny = game.letters.some((l, cell) => l !== "" && !revealed.has(cell));
-  const leave = (what: "new" | "change") => (typedAny ? setConfirm(what) : what === "new" ? onNew() : onChoices());
+  // Leaving loses nothing: an unfinished puzzle is put aside under "Carry on" (CrosswordGame.tsx), so no question first.
+  const leave = (what: "new" | "change") => (what === "new" ? onNew() : onChoices());
   const pickFromSheet = (target: PuzzleWord) => { setSheet(false); goToWord(target); };
   const closeConfirm = () => { setConfirm(null); moved.current = true; setSelected((cell) => cell); };
   const onConfirm = () => {
     const what = confirm;
     setConfirm(null);
     if (what === "reveal") reveal(all);
-    else if (what === "new") onNew();
-    else if (what === "change") onChoices();
   };
   const menuChange = (open: boolean) => setMenus((n) => Math.max(0, n + (open ? 1 : -1)));
 
@@ -251,9 +249,8 @@ export function Play({ data, game, puzzle, newBest, onChange, onNew, onChoices }
     </div>
     {narrow && !solved && <ClueSheet open={sheet} title="Clues" onClose={() => setSheet(false)}>{lists}</ClueSheet>}
     <ConfirmDialog open={confirm !== null} danger onCancel={closeConfirm} onConfirm={onConfirm}
-      title={confirm === "reveal" ? "Reveal the whole puzzle?" : "Throw away this puzzle?"}
-      confirmLabel={confirm === "reveal" ? "Yes, reveal all" : confirm === "new" ? "New puzzle" : "Change puzzle"}>
-      <p className="cw-dialog-note">{confirm === "reveal" ? "Every answer will be filled in and the puzzle counts as revealed." : "The letters you have typed will be lost."}</p>
+      title="Reveal the whole puzzle?" confirmLabel="Yes, reveal all">
+      <p className="cw-dialog-note">Every answer will be filled in and the puzzle counts as revealed.</p>
     </ConfirmDialog>
     <p className="sr-only" aria-live="polite">{solved ? "Solved! Every answer is right." : ""}</p>
   </div>;

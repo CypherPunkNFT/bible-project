@@ -1,7 +1,8 @@
 // /games/crossword: a crossword made from a passage or theme, with clues from the site's own people, places, verses
 // and quiz questions (docs/features/bible-crossword/design.md). The clues are built ahead of time
 // (scripts/build-crossword.ts) and loaded only on this page; the grid is laid out in the browser by the shared
-// generator in src/lib/puzzles. No model runs while people play, and progress stays in this browser.
+// generator in src/lib/puzzles. No model runs while people play, and progress stays in this browser: leaving an
+// unfinished puzzle (New puzzle, Change puzzle) puts it aside under "Carry on" rather than throwing it away.
 import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,7 +11,7 @@ import { useScrollTopOn } from "../kit";
 import { emptyLetters, fitSpec, freshSeed, isSolved, makeLayout, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
 import { Play } from "./Play";
 import { CantLoad, StartScreen } from "./Screens";
-import { browserStore, readSaved, writeSaved, type PlayState, type Saved } from "./storage";
+import { browserStore, readSaved, shelve, writeSaved, type PlayState, type Saved } from "./storage";
 import "../games.css";
 import "./crossword.css";
 
@@ -55,15 +56,32 @@ function Game({ data }: { data: CluesFile }) {
 
   const save = useCallback((next: Saved) => { setSaved(next); writeSaved(store, next); }, [store]);
 
+  /** The shelf with the puzzle in play put aside, when it is unfinished and has letters in it. */
+  const shelfWithCurrent = useCallback((from: Saved): PlayState[] => {
+    const current = from.game ? puzzleOf(from.game.layout) : null;
+    return shelve(from.shelf, from.game, current === null || isSolved(current, from.game!.letters));
+  }, [puzzleOf]);
+
   const start = useCallback((spec: Spec, prepared?: Layout | null) => {
     const layout = prepared ?? makeLayout(data, spec, freshSeed());
     const made = layout && toPuzzle(data, layout);
     if (!layout || !made) { setNoPuzzle(true); setPlaying(false); return; }
     setNoPuzzle(false);
     setBestAtStart(saved.best);
-    save({ ...saved, spec, game: { stamp: data.stamp, spec, layout, letters: emptyLetters(made), revealed: [], wrong: [], checks: 0, right: [], seconds: 0 } });
+    save({ ...saved, spec, shelf: shelfWithCurrent(saved),
+      game: { stamp: data.stamp, spec, layout, letters: emptyLetters(made), revealed: [], wrong: [], checks: 0, right: [], seconds: 0 } });
     setPlaying(true);
-  }, [data, saved, save]);
+  }, [data, saved, save, shelfWithCurrent]);
+
+  /** Takes a puzzle off the shelf and plays it, putting aside whatever was in play. */
+  const resume = (index: number) => {
+    const game = saved.shelf[index];
+    if (!game) return;
+    setNoPuzzle(false);
+    setBestAtStart(saved.best);
+    save({ ...saved, spec: game.spec, game, shelf: shelfWithCurrent(saved).filter((other) => other !== game) });
+    setPlaying(true);
+  };
 
   // Changes go through the latest saved state, so a late write (the clock on leaving the page) can never put back
   // letters that were typed over or a puzzle that was dropped in the meantime.
@@ -84,9 +102,9 @@ function Game({ data }: { data: CluesFile }) {
   const newBest = saved.game !== null && saved.best[saved.game.spec.size] !== bestAtStart[saved.game.spec.size];
 
   if (!playing || !saved.game || !puzzle) {
-    return <StartScreen data={data} spec={saved.spec} solved={saved.solved} best={saved.best} englishNote={!english} failed={noPuzzle}
-      onSpec={(spec) => { setNoPuzzle(false); save({ ...saved, spec }); }} onPlay={(layout) => start(saved.spec, layout)} />;
+    return <StartScreen data={data} spec={saved.spec} shelf={saved.shelf} solved={saved.solved} best={saved.best} englishNote={!english} failed={noPuzzle}
+      onSpec={(spec) => { setNoPuzzle(false); save({ ...saved, spec }); }} onPlay={(layout) => start(saved.spec, layout)} onResume={resume} />;
   }
   return <Play key={JSON.stringify(saved.game.layout)} data={data} game={saved.game} puzzle={puzzle} newBest={newBest} onChange={change}
-    onNew={() => start(saved.game!.spec)} onChoices={() => { save({ ...saved, game: null }); setPlaying(false); }} />;
+    onNew={() => start(saved.game!.spec)} onChoices={() => { save({ ...saved, game: null, shelf: shelfWithCurrent(saved) }); setPlaying(false); }} />;
 }

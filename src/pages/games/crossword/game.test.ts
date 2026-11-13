@@ -1,10 +1,11 @@
 // Bible crossword's rules on the real clue file: every offered choice makes a valid puzzle, the same seed makes the
 // same one, and check, reveal and the moves behave as the design says (design §4, §8).
 import clues from "@/data/crossword/clues.json";
-import { activeWord, applyLetters, candidates, clock, fitSpec, isConfirmed, isFilled, isSolved, offeredBooks, makeLayout, stepFrom, toPuzzle, verseHref, verseLabel, wordAt, wrongIn, type CluesFile,
+import { activeWord, allBooks, applyLetters, candidates, clock, fitSpec, isConfirmed, isFilled, isSolved, offeredBooks, makeLayout, stepFrom, toPuzzle, verseHref, verseLabel, wordAt, wrongIn, type CluesFile,
   type Puzzle } from "./game";
 import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, poolOf } from "./themes";
 import { seededRandom } from "@/lib/puzzles";
+import { DRAWN_THEMES } from "./ThemeIcons";
 
 const data = clues as unknown as CluesFile;
 
@@ -45,6 +46,17 @@ describe("making a puzzle", () => {
       }
     }
     expect(made).toBeGreaterThan(80);
+  });
+
+  it("lists all 66 books, the thin ones marked not offered", () => {
+    const books = allBooks(data);
+    expect(books).toHaveLength(66);
+    expect(books.filter((b) => b.offered).map((b) => b.num)).toEqual(offeredBooks(data).map((b) => b.num));
+    expect(books.find((b) => b.num === 31)?.offered).toBe(false); // Obadiah: too few clues
+  });
+
+  it("has a line drawing for every theme and for one book", () => {
+    expect(new Set(DRAWN_THEMES)).toEqual(new Set([...THEMES.map((t) => t.id), "book"]));
   });
 
   it("makes puzzles from single books", () => {

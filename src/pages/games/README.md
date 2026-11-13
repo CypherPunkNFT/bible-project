@@ -359,8 +359,12 @@ Typing every day; switching it to Choices is kept for that day only, and Practic
 passage (one book) or a theme (Whole Bible, the seven story themes, People, Places, Words from verses), at Easy, Medium
 or Hard and Small (about 7 words), Medium (12) or Large (18). Type on a computer's keys or the on-screen A–Z keys;
 Check and Reveal work on a letter, the word or the whole puzzle (Reveal puzzle asks twice). When solved, every answer
-is listed with a link to its verse or person. The choices, the puzzle in play (its layout, not just a seed) and the
-number solved are kept in the browser under `bp-crossword`.
+is listed with a link to its verse or person. The choices, the puzzle in play (its layout, not just a seed), up to six
+unfinished puzzles put aside and the number solved are kept in the browser under `bp-crossword`. New puzzle and Change
+puzzle put a started, unsolved puzzle aside rather than throwing it away; the start screen lists them under "Carry on",
+and a gold dot marks a theme card or book tile with one waiting. Each theme card has its own line drawing
+([crossword/ThemeIcons.tsx](crossword/ThemeIcons.tsx)); "Or one book" opens a window of all 66 books
+([crossword/BookPicker.tsx](crossword/BookPicker.tsx)), the ones with too few clues greyed out (owner, 2026-11-12).
 
 - **The generator is shared:** the grid comes from [src/lib/puzzles](../../lib/puzzles/README.md), which also makes
   word searches. The Tools page's printable puzzle maker must import it, never write its own.

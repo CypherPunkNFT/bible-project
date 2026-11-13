@@ -26,15 +26,46 @@
 @media (hover: hover) { .cw-theme:hover { transform: translateY(-2px); border-color: var(--cw-color); } }
 .cw-theme:focus-visible, .cw-theme:focus-within { transform: translateY(-2px); border-color: var(--cw-color); box-shadow: 0 0 0 1px var(--cw-color) inset; }
 .cw-theme:active { transform: translateY(0) scale(.98); }
-.cw-theme[aria-pressed="true"], .cw-book.is-chosen { border-color: var(--cw-color); background: color-mix(in srgb, var(--cw-color) 12%, var(--surface)); font-weight: 600; box-shadow: 0 0 0 1px var(--cw-color) inset; }
-.cw-thumb { width: 1.9rem; height: 1.9rem; flex: 0 0 auto; border-radius: 3px; overflow: hidden; }
-.cw-thumb rect, .cw-size-icon rect, .cw-shape rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
-.cw-thumb rect.is-block, .cw-size-icon rect.is-block, .cw-shape rect.is-block { fill: var(--cw-block); stroke: none; }
-.cw-theme[aria-pressed="true"] .cw-thumb rect:not(.is-block), .cw-book.is-chosen .cw-thumb rect:not(.is-block) { fill: color-mix(in srgb, var(--cw-color) 30%, var(--surface)); }
-.cw-book { grid-column: span 2; grid-template-columns: auto 1fr; grid-template-rows: auto auto; }
+.cw-theme[aria-pressed="true"] { border-color: var(--cw-color); background: color-mix(in srgb, var(--cw-color) 12%, var(--surface)); font-weight: 600; box-shadow: 0 0 0 1px var(--cw-color) inset; }
+/* Each theme's own line drawing (ThemeIcons.tsx, owner 2026-11-12), in the game's colour. */
+.cw-icon { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; color: var(--cw-color); transition: transform .35s var(--cw-ease); }
+@media (hover: hover) { .cw-theme:hover .cw-icon { transform: scale(1.08); } }
+.cw-size-icon rect, .cw-shape rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
+.cw-size-icon rect.is-block, .cw-shape rect.is-block { fill: var(--cw-block); stroke: none; }
+.cw-book { grid-column: span 2; }
 @media (max-width: 420px) { .cw-book { grid-column: span 1; } }
-.cw-book > .cw-thumb { grid-row: 1 / 3; }
-.cw-book select { grid-column: 2; width: 100%; min-height: 32px; padding: .2rem .4rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--page); color: var(--ink); font-size: .82rem; }
+.cw-book small, .cw-carry-card small { display: block; margin-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 400; }
+.cw-book[aria-pressed="true"] small { color: var(--ink); font-weight: 600; }
+/* A gold dot on a card or book tile with an unfinished puzzle put aside. */
+.cw-saved-dot { position: absolute; top: .4rem; right: .4rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent); }
+/* Carry on: the unfinished puzzles, above the themes. */
+.cw-carry { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+.cw-carry-title { display: block; font-weight: 600; }
+
+/* ---- The book window (BookPicker.tsx): every book as a tile, Old Testament then New --------------------------- */
+.cw-books { width: min(94vw, 56rem); max-width: 94vw; max-height: 86svh; padding: 0; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); color: var(--ink);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); animation: cw-fade .35s var(--cw-ease) both; }
+.cw-books::backdrop { background: rgb(0 0 0 / .45); }
+.cw-books-body { max-height: 86svh; overflow-y: auto; padding: .6rem 1.2rem 1.3rem; }
+.cw-books .cw-sheet-head h2::before { content: none; }
+.cw-books .cw-note { margin-top: 0; }
+.cw-books-group { margin-top: 1.1rem; }
+.cw-books-group h3 { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .55rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.cw-books-group h3 small { font-weight: 400; letter-spacing: .04em; text-transform: none; font-size: .72rem; }
+.cw-books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.4rem, 1fr)); gap: .4rem; }
+.cw-book-tile { position: relative; min-height: 44px; padding: .45rem .7rem .45rem .85rem; border: 1px solid var(--line); border-radius: .55rem; background: var(--page); color: var(--ink);
+  text-align: start; font-size: .82rem; line-height: 1.2; cursor: pointer; transition: transform .3s var(--cw-ease), border-color .3s var(--cw-ease), background-color .3s var(--cw-ease); }
+.cw-book-tile::before { content: ""; position: absolute; left: 0; top: .5rem; bottom: .5rem; width: 3px; border-radius: 0 2px 2px 0; background: var(--cw-tone); }
+@media (hover: hover) { .cw-book-tile:not(:disabled):hover { transform: translateY(-2px); border-color: var(--cw-tone); } }
+.cw-book-tile:focus-visible { transform: translateY(-2px); border-color: var(--cw-tone); }
+.cw-book-tile[aria-pressed="true"] { border-color: var(--cw-tone); background: color-mix(in srgb, var(--cw-tone) 16%, var(--page)); font-weight: 600; box-shadow: 0 0 0 1px var(--cw-tone) inset; }
+.cw-book-tile:disabled { cursor: not-allowed; opacity: .38; }
+.cw-book-tile .cw-saved-dot { top: .35rem; right: .35rem; }
+@media (max-width: 899px) {
+  .cw-books { width: 100%; max-width: 100%; max-height: 88svh; margin: auto 0 0; border-radius: 1rem 1rem 0 0; border-width: 1px 0 0; animation: cw-sheet .4s var(--cw-ease) both; }
+  .cw-books-body { max-height: 88svh; padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); }
+  .cw-books-grid { grid-template-columns: repeat(auto-fill, minmax(6.6rem, 1fr)); }
+}
 .cw-start-row { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
 .cw-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 .cw-chips legend { width: 100%; }
@@ -222,7 +253,7 @@
 .cw-source a { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
-  .cw-grid.is-solved .cw-square, .cw-grid.is-live .cw-letter, .cw-square.is-pulse, .cw-shape, .cw-sheet, .cw-menu-list { animation: none !important; }
+  .cw-grid.is-solved .cw-square, .cw-grid.is-live .cw-letter, .cw-square.is-pulse, .cw-shape, .cw-sheet, .cw-books, .cw-menu-list { animation: none !important; }
   .cw-frame { scroll-behavior: auto; }
 }
 @media print {

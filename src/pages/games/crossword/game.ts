@@ -153,9 +153,14 @@ export function fitSpec(data: CluesFile, spec: Spec): Spec {
   return spec;
 }
 
+export interface BookChoice { num: number; name: string; offered: boolean }
+
+/** All 66 books in order, each marked offered when it has clues enough for at least the smallest, hardest puzzle. */
+export const allBooks = (data: CluesFile): BookChoice[] =>
+  data.books.map(([, name], i) => ({ num: i + 1, name, offered: isOffered(data.entries, { book: i + 1 }, "hard", "small") }));
+
 /** Books with clues enough for at least the smallest, hardest puzzle. */
-export const offeredBooks = (data: CluesFile) =>
-  data.books.map(([, name], i) => ({ num: i + 1, name })).filter((book) => isOffered(data.entries, { book: book.num }, "hard", "small"));
+export const offeredBooks = (data: CluesFile) => allBooks(data).filter((book) => book.offered).map(({ num, name }) => ({ num, name }));
 
 /** A seed for a new puzzle. */
 export const freshSeed = (): number => Math.floor(Math.random() * 2 ** 31);

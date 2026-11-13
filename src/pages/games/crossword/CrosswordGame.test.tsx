@@ -58,22 +58,40 @@ describe("crossword page", () => {
     expect(after.right).not.toContain(cell);
   });
 
-  it("asks before New puzzle throws away typed letters, and keeps the grid on Cancel", async () => {
+  it("puts a started puzzle aside on New puzzle and Change puzzle, and brings it back from Carry on", async () => {
     const before = await startSmall();
     press("A");
     fireEvent.click(screen.getByRole("button", { name: "New puzzle" }));
-    const dialog = screen.getByRole("dialog");
-    expect(within(dialog).getByRole("heading", { name: "Throw away this puzzle?" })).toBeInTheDocument();
-    // Letters typed while the dialog is open never reach the grid.
-    fireEvent.keyDown(window, { key: "b" });
-    fireEvent.click(within(dialog).getByRole("button", { name: "Cancel" }));
+    expect(screen.queryByRole("dialog")).toBeNull(); // nothing is lost, so nothing is asked
+    let stored = JSON.parse(localStorage.getItem("bp-crossword")!);
+    expect(stored.game.layout).not.toEqual(before.layout);
+    expect(stored.shelf).toHaveLength(1);
+    expect(stored.shelf[0].layout).toEqual(before.layout);
+    // An untouched puzzle is not kept when leaving it.
+    fireEvent.click(screen.getByRole("button", { name: "Change puzzle" }));
+    stored = JSON.parse(localStorage.getItem("bp-crossword")!);
+    expect(stored.game).toBeNull();
+    expect(stored.shelf).toHaveLength(1);
+    const carry = screen.getByRole("group", { name: "Carry on" });
+    fireEvent.click(within(carry).getByRole("button", { name: /Jesus & the Gospels/ }));
+    expect(screen.getByRole("group", { name: "Crossword grid" })).toBeInTheDocument();
+    stored = JSON.parse(localStorage.getItem("bp-crossword")!);
+    expect(stored.game.layout).toEqual(before.layout);
+    expect(stored.game.letters.filter((l: string) => l !== "")).toEqual(["A"]);
+    expect(stored.shelf).toHaveLength(0);
+  });
+
+  it("chooses a single book from the book window, with thin books greyed out", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: /Or one book/ }));
+    const dialog = screen.getByRole("dialog", { name: "Choose a book" });
+    expect(within(dialog).getAllByRole("button").filter((b) => b.classList.contains("cw-book-tile"))).toHaveLength(66);
+    expect(within(dialog).getByRole("button", { name: "Obadiah" })).toBeDisabled();
+    fireEvent.click(within(dialog).getByRole("button", { name: "Genesis" }));
     expect(screen.queryByRole("dialog")).toBeNull();
-    const kept = JSON.parse(localStorage.getItem("bp-crossword")!).game;
-    expect(kept.layout).toEqual(before.layout);
-    expect(kept.letters.filter((l: string) => l !== "")).toEqual(["A"]);
-    fireEvent.click(screen.getByRole("button", { name: "New puzzle" }));
-    fireEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: "New puzzle" }));
-    expect(JSON.parse(localStorage.getItem("bp-crossword")!).game.layout).not.toEqual(before.layout);
+    expect(screen.getByRole("button", { name: /Or one book/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: /Or one book/ })).toHaveTextContent("Genesis");
+    expect(JSON.parse(localStorage.getItem("bp-crossword")!).spec.source).toEqual({ book: 1 });
   });
 
   it("shows the words filled and the clock, and keeps the time in the save", async () => {

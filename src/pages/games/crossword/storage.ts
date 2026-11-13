@@ -1,5 +1,6 @@
 // Bible crossword: what the game keeps on this device, in local storage under bp-crossword (design §4, §8). The last
-// choices, the puzzle in play (its layout, never just a seed, so a changed generator cannot move saved letters) and
+// choices, the puzzle in play (its layout, never just a seed, so a changed generator cannot move saved letters), the
+// unfinished puzzles put aside (owner, 2026-11-12: progress kept in the browser, so changing puzzle loses nothing) and
 // how many puzzles were solved. Nothing leaves the browser. Storage that is missing, full or corrupt never stops
 // the game: it just keeps nothing, and anything that does not match the clue file or the grid is dropped.
 import { LEVELS, SIZES, THEMES, type Level, type Size, type Source } from "./themes";
@@ -27,7 +28,25 @@ export interface PlayState {
 /** The quickest clean solve (no letters revealed) per size, in seconds. */
 export type BestTimes = Partial<Record<Size, number>>;
 
-export interface Saved { spec: Spec; game: PlayState | null; solved: number; best: BestTimes }
+export interface Saved {
+  spec: Spec;
+  game: PlayState | null;
+  /** Unfinished puzzles put aside, newest first, at most SHELF_MAX. Missing in saves from before 2026-11-12. */
+  shelf: PlayState[];
+  solved: number;
+  best: BestTimes;
+}
+
+/** How many unfinished puzzles are kept besides the one in play; the oldest goes when a seventh is put aside. */
+export const SHELF_MAX = 6;
+
+/** The shelf with `game` put on the front when it has letters typed and is not finished, else the shelf unchanged.
+ *  A puzzle already on the shelf (the same layout) is not kept twice. */
+export function shelve(shelf: readonly PlayState[], game: PlayState | null, finished: boolean): PlayState[] {
+  if (!game || finished || game.letters.every((letter) => letter === "")) return [...shelf];
+  const key = JSON.stringify(game.layout);
+  return [game, ...shelf.filter((other) => JSON.stringify(other.layout) !== key)].slice(0, SHELF_MAX);
+}
 
 export const DEFAULT_SPEC: Spec = { source: { theme: "whole" }, level: "easy", size: "small" };
 
@@ -109,9 +128,13 @@ function readRaw(store: Store | null): Record<string, unknown> {
 
 export function readSaved(store: Store | null, data: CluesFile, toPuzzle: (layout: Layout) => Puzzle | null): Saved {
   const raw = readRaw(store);
+  const shelf = Array.isArray(raw.shelf)
+    ? raw.shelf.map((value) => readGame(value, data, toPuzzle)).filter((game): game is PlayState => game !== null).slice(0, SHELF_MAX)
+    : [];
   return {
     spec: readSpec(raw.spec) ?? DEFAULT_SPEC,
     game: readGame(raw.game, data, toPuzzle),
+    shelf,
     solved: isCount(raw.solved) ? raw.solved : 0,
     best: readBest(raw.best),
   };

@@ -1,7 +1,7 @@
 // Bible crossword's saved game: it comes back as it was, and anything stale, corrupt or out of shape is dropped.
 import clues from "@/data/crossword/clues.json";
 import { emptyLetters, makeLayout, toPuzzle, type CluesFile, type Layout } from "./game";
-import { DEFAULT_SPEC, readSaved, writeSaved, type Saved, type Store } from "./storage";
+import { DEFAULT_SPEC, SHELF_MAX, readSaved, shelve, writeSaved, type PlayState, type Saved, type Store } from "./storage";
 
 const data = clues as unknown as CluesFile;
 const puzzleOf = (layout: Layout) => toPuzzle(data, layout);
@@ -16,7 +16,7 @@ const letters = emptyLetters(puzzle);
 letters[puzzle.words[0].cells[0]] = puzzle.words[0].entry.a[0];
 const saved: Saved = {
   spec, game: { stamp: data.stamp, spec, layout, letters, revealed: [puzzle.words[0].cells[1]], wrong: [], checks: 2, right: [puzzle.words[0].cells[0]], seconds: 95 },
-  solved: 3, best: { small: 80 },
+  shelf: [], solved: 3, best: { small: 80 },
 };
 
 describe("crossword storage", () => {
@@ -32,7 +32,7 @@ describe("crossword storage", () => {
     delete old.right;
     delete old.seconds;
     store.raw.set("bp-crossword", JSON.stringify({ spec, game: old, solved: 3 }));
-    expect(readSaved(store, data, puzzleOf)).toEqual({ spec, game: { ...old, right: [], seconds: null }, solved: 3, best: {} });
+    expect(readSaved(store, data, puzzleOf)).toEqual({ spec, game: { ...old, right: [], seconds: null }, shelf: [], solved: 3, best: {} });
   });
 
   it("keeps only confirmed squares whose letter is still the answer's, and only sound best times", () => {
@@ -70,9 +70,31 @@ describe("crossword storage", () => {
   it("ignores corrupt or missing storage", () => {
     const store = memory();
     store.raw.set("bp-crossword", "{not json");
-    expect(readSaved(store, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0, best: {} });
-    expect(readSaved(null, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, solved: 0, best: {} });
+    expect(readSaved(store, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, shelf: [], solved: 0, best: {} });
+    expect(readSaved(null, data, puzzleOf)).toEqual({ spec: DEFAULT_SPEC, game: null, shelf: [], solved: 0, best: {} });
     const full: Store = { getItem: () => null, setItem: () => { throw new Error("full"); } };
     expect(() => writeSaved(full, saved)).not.toThrow();
+  });
+
+  it("keeps unfinished puzzles on the shelf, newest first, and drops ones that no longer fit", () => {
+    const other = makeLayout(data, spec, 99)!;
+    const otherPuzzle = toPuzzle(data, other)!;
+    const second: PlayState = { ...saved.game!, layout: other, letters: emptyLetters(otherPuzzle).map((l, i) => (i === otherPuzzle.words[0].cells[0] ? otherPuzzle.words[0].entry.a[0] : l)), revealed: [], right: [] };
+    const store = memory();
+    writeSaved(store, { ...saved, shelf: [second, saved.game!, { ...second, stamp: "0000000000000000" }] });
+    expect(readSaved(store, data, puzzleOf).shelf).toEqual([second, saved.game]);
+  });
+
+  it("puts a puzzle aside only when it has letters and is not finished, once, and keeps at most six", () => {
+    const game = saved.game!;
+    expect(shelve([], game, false)).toEqual([game]);
+    expect(shelve([], game, true)).toEqual([]);
+    expect(shelve([], { ...game, letters: game.letters.map(() => "") }, false)).toEqual([]);
+    expect(shelve([], null, false)).toEqual([]);
+    expect(shelve([game], { ...game, letters: [...game.letters] }, false)).toHaveLength(1);
+    const many = Array.from({ length: 9 }, (_, i) => ({ ...game, layout: { ...game.layout, width: game.layout.width + i + 1 } }));
+    const shelf = many.reduce<PlayState[]>((kept, next) => shelve(kept, next, false), []);
+    expect(shelf).toHaveLength(SHELF_MAX);
+    expect(shelf[0]).toBe(many[8]);
   });
 });

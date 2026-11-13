@@ -1,26 +1,44 @@
 // Bible crossword: the start screen (pick a passage or theme, a level and a size) and the can't-load screen (design §1).
-// The redesign (docs/visual-audits/crossword-redesign.md, audit item 7): the themes are a shelf of cards with a small
-// grid drawing each, the sizes are drawn as grids, the chosen combination shows the shape of the puzzle it will make
-// before "Make my crossword", and the hub's engraving sits beside the title.
+// The redesign (docs/visual-audits/crossword-redesign.md, audit item 7): the themes are a shelf of cards, the sizes
+// are drawn as grids, the chosen combination shows the shape of the puzzle it will make before "Make my crossword",
+// and the hub's engraving sits beside the title. Owner, 2026-11-12: each theme card carries its own line drawing,
+// "Or one book" opens a window of every book (BookPicker.tsx), and unfinished puzzles wait under "Carry on".
 import { Clock, Trophy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, type Level, type Size } from "./themes";
-import { clock, fitSpec, freshSeed, makeLayout, offeredBooks, sameSource, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
-import type { BestTimes } from "./storage";
+import { allBooks, clock, fitSpec, freshSeed, makeLayout, sameSource, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
+import type { BestTimes, PlayState } from "./storage";
+import { BookPicker } from "./BookPicker";
+import { ThemeIcon } from "./ThemeIcons";
 
 // Under `label:`, where the translation collector reads one-word names.
 const LEVEL_LABELS: Record<Level, { label: string }> = { easy: { label: "Easy" }, medium: { label: "Medium" }, hard: { label: "Hard" } };
 const SIZE_LABELS: Record<Size, { label: string }> = { small: { label: "Small" }, medium: { label: "Medium" }, large: { label: "Large" } };
 const SIZE_CELLS: Record<Size, number> = { small: 3, medium: 4, large: 5 };
 
-/** A small five-by-five grid drawing, its blocks placed from a seed so every theme card looks a little different. */
-function ThemeThumb({ seed }: { seed: number }) {
-  const cells = Array.from({ length: 25 }, (_, i) => ((seed * 7 + i * 13 + Math.floor(i / 5) * 3) % 5 === 0));
-  return <svg className="cw-thumb" viewBox="0 0 25 25" aria-hidden="true" focusable="false">
-    {cells.map((block, i) => <rect key={i} x={(i % 5) * 5} y={Math.floor(i / 5) * 5} width="5" height="5" className={block ? "is-block" : undefined} />)}
-  </svg>;
+/** Unfinished puzzles put aside, newest first: what each was made from, its level and size, and how far it got. */
+function CarryOn({ data, shelf, onResume }: { data: CluesFile; shelf: readonly PlayState[]; onResume: (index: number) => void }) {
+  if (shelf.length === 0) return null;
+  return <fieldset className="cw-shelf cw-carry">
+    <legend>Carry on</legend>
+    {shelf.map((game, index) => {
+      const puzzle = toPuzzle(data, game.layout);
+      if (!puzzle) return null;
+      const squares = puzzle.cells.filter((cell) => cell !== null).length;
+      const filled = game.letters.filter((letter) => letter !== "").length;
+      const source = game.spec.source;
+      const title = "book" in source ? data.books[source.book - 1]?.[1] ?? "" : THEMES.find((theme) => theme.id === source.theme)?.title ?? "";
+      return <button key={JSON.stringify(game.layout)} type="button" className="cw-theme cw-carry-card" onClick={() => onResume(index)}>
+        <ThemeIcon id={"book" in source ? "book" : source.theme} />
+        <span>
+          <span className="cw-carry-title">{title}</span>
+          <small><span>{LEVEL_LABELS[game.spec.level].label}</span>{" · "}<span>{SIZE_LABELS[game.spec.size].label}</span>{" · "}<span>{`${filled} of ${squares} squares filled`}</span></small>
+        </span>
+      </button>;
+    })}
+  </fieldset>;
 }
 
 /** A size drawn as a grid of three, four or five squares across. */
@@ -58,13 +76,17 @@ function usePreview(data: CluesFile, spec: Spec, offered: boolean): { layout: La
 }
 
 interface StartProps {
-  data: CluesFile; spec: Spec; solved: number; best: BestTimes; englishNote: boolean; failed: boolean;
-  onSpec: (spec: Spec) => void; onPlay: (layout: Layout | null) => void;
+  data: CluesFile; spec: Spec; shelf: readonly PlayState[]; solved: number; best: BestTimes; englishNote: boolean; failed: boolean;
+  onSpec: (spec: Spec) => void; onPlay: (layout: Layout | null) => void; onResume: (index: number) => void;
 }
 
-export function StartScreen({ data, spec, solved, best, englishNote, failed, onSpec, onPlay }: StartProps) {
+export function StartScreen({ data, spec, shelf, solved, best, englishNote, failed, onSpec, onPlay, onResume }: StartProps) {
   const choose = (next: Spec) => onSpec(fitSpec(data, next));
-  const books = offeredBooks(data);
+  const [picking, setPicking] = useState(false);
+  const books = allBooks(data);
+  const chosenBook = "book" in spec.source ? spec.source.book : null;
+  const savedBooks = new Set(shelf.flatMap((game) => ("book" in game.spec.source ? [game.spec.source.book] : [])));
+  const hasSaved = (themeId: string) => shelf.some((game) => sameSource(game.spec.source, { theme: themeId }));
   const offered = isOffered(data.entries, spec.source, spec.level, spec.size);
   const { max, target } = SIZE_GRID[spec.size];
   const preview = usePreview(data, spec, offered);
@@ -78,20 +100,20 @@ export function StartScreen({ data, spec, solved, best, englishNote, failed, onS
         {englishNote && <p className="cw-note">The clues and answers are in English.</p>}
       </div>
     </div>
+    <CarryOn data={data} shelf={shelf} onResume={onResume} />
     <fieldset className="cw-shelf">
       <legend>Theme</legend>
-      {THEMES.map((theme, i) => <button key={theme.id} type="button" className="cw-theme" aria-pressed={sameSource(spec.source, { theme: theme.id })}
-        onClick={() => choose({ ...spec, source: { theme: theme.id } })}><ThemeThumb seed={i + 1} /><span>{theme.title}</span></button>)}
-      <label className={`cw-theme cw-book${"book" in spec.source ? " is-chosen" : ""}`}>
-        <ThemeThumb seed={23} />
-        <span>Or one book</span>
-        <select value={"book" in spec.source ? String(spec.source.book) : ""}
-          onChange={(event) => choose({ ...spec, source: event.target.value ? { book: Number(event.target.value) } : { theme: "whole" } })}>
-          <option value="">Choose a book</option>
-          {books.map((book) => <option key={book.num} value={book.num}>{book.name}</option>)}
-        </select>
-      </label>
+      {THEMES.map((theme) => <button key={theme.id} type="button" className="cw-theme" aria-pressed={sameSource(spec.source, { theme: theme.id })}
+        onClick={() => choose({ ...spec, source: { theme: theme.id } })}><ThemeIcon id={theme.id} /><span>{theme.title}</span>
+        {hasSaved(theme.id) && <span className="cw-saved-dot" aria-hidden="true" />}</button>)}
+      <button type="button" className="cw-theme cw-book" aria-pressed={chosenBook !== null} aria-haspopup="dialog" onClick={() => setPicking(true)}>
+        <ThemeIcon id="book" />
+        <span>Or one book<small>{chosenBook !== null ? books[chosenBook - 1]?.name : "Choose a book"}</small></span>
+        {savedBooks.size > 0 && <span className="cw-saved-dot" aria-hidden="true" />}
+      </button>
     </fieldset>
+    <BookPicker open={picking} books={books} chosen={chosenBook} saved={savedBooks} onClose={() => setPicking(false)}
+      onPick={(book) => { setPicking(false); choose({ ...spec, source: { book } }); }} />
     <div className="cw-start-row">
       <fieldset className="cw-chips">
         <legend>How hard</legend>

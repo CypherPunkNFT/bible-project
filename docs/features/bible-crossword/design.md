@@ -61,7 +61,7 @@ Same seed + same word list ⇒ same puzzle, so the game saves only its choices a
 |---|---|
 | `CrosswordGame.tsx` | page: loads `clues.json` (dynamic import, only on this page), start / play / can't-load |
 | `game.ts` | pools (theme/book × level), availability, `buildPuzzle(data, spec)` (seeded: pool shuffled, up to `target × 8` candidates, deduplicated by answer letters, handed to `generateCrossword`), check/reveal/solved as pure functions, links |
-| `storage.ts` | `bp-crossword` in local storage: last choices, the puzzle in play (`stamp`, spec, seed, typed letters, revealed and wrong squares, checks used), solved count; missing/full/corrupt storage never stops the game |
+| `storage.ts` | `bp-crossword` in local storage: last choices, the puzzle in play (`stamp`, spec, layout, typed letters, revealed and wrong squares, checks used), up to six unfinished puzzles put aside (`shelf`, added 2026-11-12), solved count; missing/full/corrupt storage never stops the game |
 | `Board.tsx` | the grid of inputs, keyboard and pointer handling |
 | `Clues.tsx` | current-clue bar, Across and Down lists |
 | `Screens.tsx` | start screen, solved panel, can't-load |
