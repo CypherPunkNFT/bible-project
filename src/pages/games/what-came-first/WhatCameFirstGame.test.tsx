@@ -86,8 +86,7 @@ describe("what came first page", () => {
   it("changes the heading with each round's kind in Mixed, with the kind's chip above it", async () => {
     vi.spyOn(Math, "random").mockReturnValue(0.3);
     renderGame();
-    fireEvent.click(await screen.findByRole("button", { name: "Relaxed" }));
-    fireEvent.click(screen.getByRole("button", { name: "Easy" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Easy" }));
     const kinds = new Set<string>();
     for (let n = 0; n < 12; n++) {
       const round = current(savedRun());

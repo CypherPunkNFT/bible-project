@@ -215,6 +215,13 @@
    own book colour. The chosen tile wears its colour as its one border and a faint wash; the others' drawings rest in a
    quieter mix. Focus and hover are the tile's lift, never an outline. */
 .wcf-kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; max-width: 46rem; margin: 2rem auto 0; }
+/* From tablet up: two rows only (owner, 2026-11-12), five then four, every tile the same width, the second row centred.
+   The row is wider than the page column, so it steps out of it symmetrically. Phones keep three to a row: five across
+   would leave tiles too small to read. */
+@media (min-width: 640px) {
+  .wcf-kinds { --wcf-kinds-w: min(62rem, calc(100vw - 2rem)); display: flex; flex-wrap: wrap; justify-content: center; width: var(--wcf-kinds-w); max-width: none; margin-inline: calc((100% - var(--wcf-kinds-w)) / 2); }
+  .wcf-kind { flex: 0 0 calc((100% - 4 * .75rem) / 5); }
+}
 .wcf-kind { --game: color-mix(in srgb, var(--wcf-tone) 62%, var(--muted)); display: flex; flex-direction: column; align-items: center; gap: .15rem; min-height: 44px; padding: .9rem .6rem 1rem; border: 1px solid var(--line); border-radius: 1.1rem; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink); text-align: center; outline: none; transition: border-color .4s var(--wo-ease), transform .4s var(--wo-ease), background-color .4s var(--wo-ease), box-shadow .4s var(--wo-ease); }
 .wcf-kind:is(:hover, :focus-visible) { --game: var(--wcf-tone); transform: translateY(-3px); border-color: color-mix(in srgb, var(--wcf-tone) 55%, var(--line)); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .7); }
 .wcf-kind[aria-pressed="true"] { --game: var(--wcf-tone); border-color: var(--wcf-tone); background: color-mix(in srgb, var(--wcf-tone) 11%, var(--surface)); }
@@ -233,11 +240,15 @@
 .wo-start .wo-lede { max-width: 32rem; margin-inline: auto; }
 .wo-start .wo-sample { margin-inline: auto; }
 .wo-start .wcf-sample-q { margin-inline: auto; }
-.wo-start .wo-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 40rem; margin-inline: auto; margin-top: 2rem; }
-.wo-start .wo-mode { align-items: center; }
-.wo-start .wo-chips { justify-content: center; }
-.wo-start .wo-chips legend { text-align: center; }
 .wo-start .wo-continue { margin-top: 1.4rem; }
+/* One row: Easy, Medium, Hard, Streak, equal widths (owner, 2026-11-12); the rule under it says what each means. */
+.wcf-play { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 34rem; margin: 2.2rem auto 0; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.wcf-play > button { justify-content: center; width: 100%; min-height: 48px; padding-inline: .6rem; }
+.wcf-play-note { max-width: 30rem; margin: .9rem auto 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+.wcf-play-best { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: .9rem; }
+.wcf-play-best .wo-best { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); font-size: .82rem; font-weight: 600; }
+.wcf-play-best .wo-best > span:first-child { color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.wcf-play-best .kit-streak { font-family: var(--font-serif); font-size: 1.4rem; line-height: 1; }
 .wo-start .wo-how { max-width: 36rem; margin-inline: auto; }
 .wo-start .wo-how p { text-align: left; }
 .wo-start .wo-how summary { display: flex; justify-content: center; text-align: center; }
@@ -273,5 +284,6 @@
   .wcf-kind { padding: .6rem .3rem .7rem; border-radius: .9rem; }
   .wcf-kind-name { font-size: .95rem; }
   .wcf-kind-ask { display: none; }
-  .wo-start .wo-modes { gap: 1rem; }
+  .wcf-play { gap: .4rem; }
+  .wcf-play > button { padding-inline: .4rem; font-size: .88rem; }
 }

@@ -3,12 +3,12 @@
 // that pill's bests; the ending is a result card titled with the kind of round: the number counting up, a bar against
 // your best, a ribbon and one burst for a new best, the missed rounds each with their reading open, and Share.
 import { RotateCcw, X } from "lucide-react";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { AnswerCard, Confetti, NewBestRibbon, ResultPanel, ScoreCountUp, ShareButton, StreakFlame } from "../kit";
 import { shortName } from "../whos-older/explain";
 import { CATEGORIES, categoryInfo, type Choice } from "./categories";
-import { DIFFICULTIES, DIFFICULTY_LABELS, answersOf, askedAll, isPairRound, missedRounds, pairOf, questionOf, score as scoreOf,
+import { answersOf, askedAll, isPairRound, missedRounds, pairOf, questionOf, score as scoreOf,
   type Difficulty, type Mode, type Run } from "./game";
 import type { Pools } from "./pool";
 import { Hourglass } from "./Hourglass";
@@ -71,6 +71,15 @@ function Sample({ pools, choice }: { pools: Pools; choice: Choice }) {
   </div>;
 }
 
+/** The three Relaxed levels (owner, 2026-11-12: one row of Easy, Medium, Hard and Streak; "medium is mixed"): Medium
+ *  plays the mix that starts easy and climbs, so the old separate Mixed level is gone from the screen. Saved runs at any
+ *  level still load (storage keeps every Difficulty). */
+const LEVELS: readonly { label: string; difficulty: Difficulty }[] = [
+  { label: "Easy", difficulty: "easy" },
+  { label: "Medium", difficulty: "mixed" },
+  { label: "Hard", difficulty: "hard" },
+];
+
 const HOW: Record<Choice, string> = {
   lived: "People are ordered by when they were born.",
   happened: "Events are ordered by when they took place; the miracles of Jesus and the plagues are never set against each other.",
@@ -84,7 +93,6 @@ const HOW: Record<Choice, string> = {
 };
 
 export function StartScreen({ pools, choice, onChoose, best, saving, resume, resumeScore, onPlay, onResume }: StartProps) {
-  const [relaxedOpen, setRelaxedOpen] = useState(false);
   const info = categoryInfo(choice);
   return <div className="wo-start">
     <h1>What came first?</h1>
@@ -99,23 +107,17 @@ export function StartScreen({ pools, choice, onChoose, best, saving, resume, res
       <span className="wcf-name">{categoryInfo(resume.choice).label}</span>
       <span>{resume.mode === "streak" ? `Continue (streak ${resumeScore})` : `Continue (score ${resumeScore})`}</span>
     </button>}
-    <div className="wo-modes">
-      <div className="wo-mode">
-        <button type="button" className={resume ? "wo-secondary" : "wo-primary"} onClick={() => onPlay("streak", "mixed")}>Streak</button>
-        <p>One miss ends the run. It gets harder as you go.</p>
-        {saving && <p className="wo-best"><span>Best streak</span>
-          <StreakFlame count={best.streak} litFrom={1} label={plural(best.streak, "{n} in a row", "{n} in a row")} /></p>}
-      </div>
-      <div className="wo-mode">
-        <button type="button" className="wo-secondary" aria-expanded={relaxedOpen} onClick={() => setRelaxedOpen((open) => !open)}>Relaxed</button>
-        <p>Three hearts, and you choose how hard. Good for families.</p>
-        {saving && <p className="wo-best"><span>Best score</span><span className="wo-best-n">{formatNumber(best.relaxed)}</span></p>}
-        {relaxedOpen && <fieldset className="wo-chips">
-          <legend>How hard</legend>
-          {DIFFICULTIES.map((d) => <button key={d} type="button" onClick={() => onPlay("relaxed", d)}>{DIFFICULTY_LABELS[d]}</button>)}
-        </fieldset>}
-      </div>
+    <div className="wcf-play" role="group" aria-label="How to play">
+      {LEVELS.map((level) => <button key={level.difficulty} type="button" className="wo-secondary"
+        onClick={() => onPlay("relaxed", level.difficulty)}>{level.label}</button>)}
+      <button type="button" className={resume ? "wo-secondary" : "wo-primary"} onClick={() => onPlay("streak", "mixed")}>Streak</button>
     </div>
+    <p className="wcf-play-note">Easy, Medium and Hard give you three hearts. Streak ends at the first miss and gets harder as you go.</p>
+    {saving && <div className="wcf-play-best">
+      <p className="wo-best"><span>Best score</span><span className="wo-best-n">{formatNumber(best.relaxed)}</span></p>
+      <p className="wo-best"><span>Best streak</span>
+        <StreakFlame count={best.streak} litFrom={1} label={plural(best.streak, "{n} in a row", "{n} in a row")} /></p>
+    </div>}
     {!saving && <p className="wo-note">Best scores are not saved on this device</p>}
     <details className="wo-how">
       <summary>How we decide what came first</summary>
