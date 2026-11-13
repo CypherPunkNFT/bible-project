@@ -1,7 +1,7 @@
 // Bible Jeopardy's clue screen (design 5.2, 9.4): category and value, the clue in very large type sized by its length,
 // a two-part question's lead-in above it, the four choices when shown (dealt-in cards; the right one ticks on the
 // answer), the optional timer (thick, amber then red with the seconds, "Time!" stamped over the clue when it ends; the
-// audit's item 4), and along the bottom each team's Right and Wrong (the choosing team first in Take turns) and Show
+// audit's item 4), and along the bottom each team's Right and Wrong (in team order, like the scores) and Show
 // answer. A mark lands: the team's row flashes and the others are invited to steal (the audit's item 2).
 import { Check, X } from "lucide-react";
 import { formatNumber, plural } from "@/lib/site-format";

@@ -12,7 +12,6 @@ import { motionMs, useScrollTopOn } from "../kit";
 import { AnswerScreen } from "./AnswerScreen";
 import { Board } from "./Board";
 import { ClueScreen } from "./ClueScreen";
-import { markOrder } from "./display";
 import { DailyDouble } from "./DailyDouble";
 import { FinalRound } from "./FinalRound";
 import { keyCommand, moved } from "./keys";
@@ -203,7 +202,9 @@ export function Stage(props: StageProps) {
   const tile = play.open ? tileAt(board, play.open) : null;
   const column = play.open ? board.columns[play.open.col] : null;
   const dailyDouble = isDailyDouble(board, play.open);
-  const order = dailyDouble ? [play.chooser] : markOrder(play.teams.length, settings.answering === "turns" ? play.chooser : null);
+  // Right and Wrong stay in team order, the same as the scores below (owner, 2026-11-13: moving the choosing team to the
+  // front made a host mark the wrong row).
+  const order = dailyDouble ? [play.chooser] : play.teams.map((_, index) => index);
   const may = (team: number) => canMark(game, team);
 
   let screen;

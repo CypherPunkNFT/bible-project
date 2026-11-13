@@ -61,8 +61,11 @@ describe("Bible Jeopardy page", () => {
     click("Back to board");
     expect(scoreOf("Team 1")).toBe("100");
 
-    // Team 2 chooses, is wrong, and Team 3 steals.
+    // Team 2 chooses, is wrong, and Team 3 steals. The Right and Wrong rows stay in team order, like the scores, on
+    // every turn (owner, 2026-11-13: a host marked the top row wrong and the second right, and the wrong team scored).
     fireEvent.click(tile(1, 0));
+    expect(within(screen.getByRole("list", { name: "Mark a team" })).getAllByRole("listitem").map((row) => row.textContent?.match(/Team \d/)?.[0]))
+      .toEqual(["Team 1", "Team 2", "Team 3"]);
     click("Team 2: wrong");
     click("Team 3: right");
     click("Back to board");
