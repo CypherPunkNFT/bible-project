@@ -51,7 +51,9 @@ describe("odd one out page", () => {
     expect(choiceNamed("Peter")).toHaveAttribute("data-state", "faded");
     expect(screen.getByRole("img", { name: "1 of 10 answered" })).toBeInTheDocument();
     expect(scoreShown()).toBe("1");
-    expect(screen.getAllByText(/was not with Jesus during his ministry/).length).toBeGreaterThan(0);
+    const reason = document.querySelector(".oo-headline")!.textContent;
+    expect(reason).toMatch(/followed Jesus during his ministry\. Paul is the odd one out\.$/);
+    expect(reason).not.toMatch(/was not/);
     fireEvent.click(screen.getByText("Why"));
     expect(screen.getByText(/Also true:/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Matthew 4:18–19" })).toHaveAttribute("href", "/read/bsb/MAT/4?hl=18-19");

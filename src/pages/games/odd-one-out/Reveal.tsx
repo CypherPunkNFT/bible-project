@@ -9,10 +9,14 @@ import { BibleAbbr, Verse } from "@/components/Verse";
 import { MoreOptions } from "../kit";
 import { headline, itemRef, joinNames, shownLabel, verseHref, verseLabel, type SetEntry, type SetsFile } from "./game";
 
-/** The reason in one sentence; `inline` for places that take only phrasing content (a summary row). */
+/** The reason; `inline` for places that take only phrasing content (a summary row). When the three share something,
+ *  it says what they share and then names the odd one, never a bare "Salt Sea is not a mountain or hill" (owner,
+ *  2026-11-13); when the odd one alone has it ("is the only man"), that comes first. */
 export function Headline({ data, set, inline = false }: { data: SetsFile; set: SetEntry; inline?: boolean }) {
   const { odd, oddPhrase, rest } = headline(data, set);
-  const body = <><strong>{odd}</strong> {oddPhrase}. {rest}</>;
+  const body = set.polarity === "members-share"
+    ? <>{rest} <strong>{odd}</strong> <span>is the odd one out</span>.</>
+    : <><strong>{odd}</strong> {oddPhrase}. {rest}</>;
   return inline ? <span className="oo-headline">{body}</span> : <p className="oo-headline">{body}</p>;
 }
 
