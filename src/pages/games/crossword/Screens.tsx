@@ -108,7 +108,7 @@ export function StartScreen({ data, spec, shelf, solved, best, englishNote, fail
         {hasSaved(theme.id) && <span className="cw-saved-dot" aria-hidden="true" />}</button>)}
       <button type="button" className="cw-theme cw-book" aria-pressed={chosenBook !== null} aria-haspopup="dialog" onClick={() => setPicking(true)}>
         <ThemeIcon id="book" />
-        <span>Or one book<small>{chosenBook !== null ? books[chosenBook - 1]?.name : "Choose a book"}</small></span>
+        <span>Or one book{chosenBook !== null && <small>{books[chosenBook - 1]?.name}</small>}</span>
         {savedBooks.size > 0 && <span className="cw-saved-dot" aria-hidden="true" />}
       </button>
     </fieldset>

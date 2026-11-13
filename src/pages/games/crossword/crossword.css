@@ -32,8 +32,6 @@
 @media (hover: hover) { .cw-theme:hover .cw-icon { transform: scale(1.08); } }
 .cw-size-icon rect, .cw-shape rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
 .cw-size-icon rect.is-block, .cw-shape rect.is-block { fill: var(--cw-block); stroke: none; }
-.cw-book { grid-column: span 2; }
-@media (max-width: 420px) { .cw-book { grid-column: span 1; } }
 .cw-book small, .cw-carry-card small { display: block; margin-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 400; }
 .cw-book[aria-pressed="true"] small { color: var(--ink); font-weight: 600; }
 /* A gold dot on a card or book tile with an unfinished puzzle put aside. */
