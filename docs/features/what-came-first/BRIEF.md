@@ -84,8 +84,10 @@ quotations are the Berean Standard Bible (`../../../../DOCTRINAL-FOUNDATION.md`,
 2. **Stephen:** the Bible Firsts question says **"the first Christian martyr"** (Acts presents him so: 7:59–60, 8:1, 22:20).
 3. **A new player opens on Mixed**, not Who lived first. (A player arriving from the old /games/whos-older link still lands
    on Who lived first.)
-4. **Bible Firsts launches with what passes the checks** (about 20–25 questions); no padding with weaker ones. More can be
-   added later.
+4. **Bible Firsts launches with what passes the checks**; no padding with weaker ones. **Later the same day the owner added
+   36 more questions:** [firsts-additions.md](firsts-additions.md) (about 61 in all). Creation was ruled out as a category
+   to play, not as a theme, so Genesis 1–3 questions are welcome. No "first of the Ten Commandments" question; "the first
+   and greatest commandment" stands instead.
 
 ## 5. The steps
 
