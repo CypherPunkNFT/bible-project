@@ -115,12 +115,46 @@
 .od-slot.is-kept { border: 1px solid transparent; background: color-mix(in srgb, var(--sec) 75%, var(--surface)); color: var(--page); font: 700 .58rem/1 var(--font-sans); cursor: pointer; animation: kit-pop .45s cubic-bezier(.16, 1, .3, 1) both; }
 .od-slot.is-kept.is-on { border: 2px solid var(--ink); }
 
-/* ---- "Joined your deck", during play -------------------------------------------------------------------------- */
-.od-joined { position: fixed; z-index: 60; top: calc(env(safe-area-inset-top, 0px) + 4.6rem); right: 1rem; display: flex; align-items: center; gap: .75rem; padding: .55rem 1rem .55rem .55rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); box-shadow: 0 20px 40px -24px rgb(0 0 0 / .7);
-  animation: od-fly .6s cubic-bezier(.16, 1, .3, 1) both, od-leave .4s ease-in 2.2s forwards; }
-.od-joined-card { display: grid; place-items: center; width: 2.5rem; height: 3.3rem; border-radius: .45rem; background: linear-gradient(160deg, var(--sec), color-mix(in srgb, var(--sec) 55%, var(--surface))); transform: rotate(-6deg); }
-.od-joined-card b { max-width: 2.2rem; overflow: hidden; color: var(--page); font: 600 .6rem/1.1 var(--font-serif); text-align: center; overflow-wrap: anywhere; }
-.od-joined-text { display: grid; font-size: .85rem; }
-.od-joined-text small { color: var(--muted); font-size: .72rem; }
-@keyframes od-fly { from { transform: translate(-30vw, 30vh) rotate(-14deg) scale(.6); opacity: 0; } }
-@keyframes od-leave { to { transform: translateY(-1rem); opacity: 0; } }
+/* ---- The stack on the screen during play ------------------------------------------------------------------- */
+.oo-page:has(.oo-with-aside) { max-width: 76rem; }
+.oo-with-aside { display: flex; flex-direction: column; }
+.oo-with-aside-main { min-width: 0; }
+.od-play { order: -1; margin-top: 1rem; }
+.od-play button { outline: none; }
+.od-play-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .7rem; margin-bottom: .7rem; font-size: .8rem; color: var(--muted); }
+.od-play-head b { color: var(--ink); font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; }
+.od-play-deck { margin-inline-start: auto; }
+.od-play-empty { position: relative; display: grid; place-items: center; min-height: 6rem; padding: 1rem; border: 1px dashed var(--line); border-radius: 1.1rem; color: var(--muted); font-size: .85rem; text-align: center; }
+.od-play-ghost { display: none; }
+.od-play-pile { display: none; }
+/* Phone: a hand of cards overlapping, newest on the right, the newest dropping in. */
+.od-play-hand { display: flex; padding: .3rem .2rem .5rem; overflow-x: auto; scrollbar-width: none; }
+.od-play-mini { flex: none; display: flex; align-items: flex-end; width: 4.6rem; height: 6rem; margin-inline-end: -1.9rem; padding: .45rem; border: 1px solid color-mix(in srgb, var(--sec) 50%, var(--line)); border-radius: .6rem; background: linear-gradient(165deg, color-mix(in srgb, var(--sec) 45%, var(--surface)), var(--surface) 85%); box-shadow: -6px 0 14px -10px rgb(0 0 0 / .8); text-align: start; transform: rotate(-3deg); transition: transform .35s cubic-bezier(.16, 1, .3, 1); }
+.od-play-mini:nth-child(even) { transform: rotate(2deg) translateY(2px); }
+.od-play-mini:last-child { margin-inline-end: 0; }
+.od-play-mini span { font-family: var(--font-serif); font-size: .78rem; line-height: 1.1; overflow-wrap: anywhere; }
+.od-play-mini.is-on { border-color: var(--ink); transform: translateY(-6px) rotate(0); }
+.od-play-mini.is-new { animation: od-drop .7s cubic-bezier(.2, 1.3, .4, 1) both; }
+.od-play-handcard { margin-top: .6rem; animation: od-rise .5s cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes od-drop { from { transform: translate(-40vw, 40vh) rotate(-25deg) scale(.6); opacity: 0; } 60% { opacity: 1; } }
+
+/* Desktop: the pile beside the puzzle, kept in view while the page scrolls. */
+@media (min-width: 1000px) {
+  .oo-with-aside { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: 3rem; align-items: start; }
+  .od-play { order: 0; position: sticky; top: 5rem; margin-top: 2.2rem; }
+  .od-play-hand, .od-play-handcard { display: none; }
+  .od-play-pile { display: flex; flex-direction: column; }
+  .od-play-edge { position: relative; margin-bottom: -.95rem; padding: 0; text-align: start; transform: rotate(var(--tilt)); transition: transform .3s cubic-bezier(.16, 1, .3, 1); animation: od-tuck .5s cubic-bezier(.16, 1, .3, 1) both; }
+  .od-play-edge .od-edge { height: 2.5rem; padding-bottom: .8rem; box-shadow: 0 -8px 16px -14px rgb(0 0 0 / .8); }
+  .od-play-edge:is(:hover, :focus-visible) { transform: translateY(-5px) rotate(var(--tilt)); }
+  .od-play-edge:focus-visible .od-edge { border-color: var(--ink); }
+  .od-play-top { position: relative; z-index: 2; }
+  .od-play-top.is-new { animation: od-land .75s cubic-bezier(.2, 1.25, .4, 1) both; }
+  .od-play-empty { min-height: 22rem; align-content: center; gap: 1rem; }
+  .od-play-ghost { display: block; position: absolute; inset: 1.4rem 1.6rem; border: 1px solid var(--line); border-radius: 1rem; transform: rotate(-3deg); opacity: .5; }
+  .od-play-ghost + .od-play-ghost { transform: rotate(2.5deg); opacity: .35; }
+  .od-play-ghost + .od-play-ghost + .od-play-ghost { transform: rotate(0); opacity: .25; }
+  .od-play-empty p { position: relative; max-width: 12rem; }
+}
+@keyframes od-land { from { transform: translateX(-28rem) translateY(4rem) rotate(-14deg) scale(.82); opacity: 0; } 55% { opacity: 1; } }
+@keyframes od-tuck { from { transform: translateY(1.6rem); } }

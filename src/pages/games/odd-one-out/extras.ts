@@ -3,10 +3,13 @@
 // hear each answer. The real page provides none, so it behaves exactly as before.
 import { createContext, type ReactNode } from "react";
 import type { SetEntry, SetsFile } from "./game";
+import type { RoundState } from "./storage";
 
 export interface OddExtras {
   /** Drawn on the start screen in place of the four sample cards. */
   startArt?: (data: SetsFile) => ReactNode;
+  /** Drawn beside the puzzle while a round is played (below it on a phone). */
+  playAside?: (data: SetsFile, round: RoundState) => ReactNode;
   /** Called once when a puzzle is answered: the set, and whether the pick was the odd one. */
   onReveal?: (data: SetsFile, set: SetEntry, right: boolean) => void;
 }

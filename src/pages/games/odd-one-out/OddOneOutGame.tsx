@@ -116,9 +116,10 @@ function Game({ data }: { data: SetsFile }) {
     return <SummaryScreen data={data} round={round} best={best[bestKey(round.choice, round.difficulty)] ?? 0} ending={ending}
       onAgain={() => start(round.choice, round.difficulty)} onChange={backToStart} />;
   }
+  const puzzle = <Puzzle data={data} round={round} restored={restored.current === round.ids[round.index]} dialogOpen={leaving}
+    onAnswer={answer} onNext={next} onLeave={() => setLeaving(true)} />;
   return <>
-    <Puzzle data={data} round={round} restored={restored.current === round.ids[round.index]} dialogOpen={leaving}
-      onAnswer={answer} onNext={next} onLeave={() => setLeaving(true)} />
+    {extras.playAside ? <div className="oo-with-aside"><div className="oo-with-aside-main">{puzzle}</div>{extras.playAside(data, round)}</div> : puzzle}
     <ConfirmDialog open={leaving} title="Leave this round?" confirmLabel="Leave round" cancelLabel="Keep playing" danger
       onConfirm={backToStart} onCancel={() => setLeaving(false)}>
       <p className="oo-dialog-note">Your answers so far will not be kept.</p>
