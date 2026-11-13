@@ -1,11 +1,11 @@
 // Bible crossword: the start screen (pick a passage or theme, a level and a size) and the can't-load screen (design §1).
 // The redesign (docs/visual-audits/crossword-redesign.md, audit item 7): the themes are a shelf of cards, the sizes
-// are drawn as grids, the chosen combination shows the shape of the puzzle it will make before "Make my crossword",
-// and the hub's engraving sits beside the title. Owner, 2026-11-12: each theme card carries its own line drawing,
+// are drawn as grids, and the hub's engraving sits beside the title. "Make my crossword" sits at the end of the level
+// and size row, with no picture of the puzzle (owner, 2026-11-12). Owner, 2026-11-12: each theme card carries its own line drawing,
 // "Or one book" opens a window of every book (BookPicker.tsx), and unfinished puzzles wait under "Carry on".
 import { Clock, Trophy } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { formatNumber, plural } from "@/lib/site-format";
+import { formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import { LEVELS, SIZES, SIZE_GRID, THEMES, isOffered, type Level, type Size } from "./themes";
 import { allBooks, clock, fitSpec, freshSeed, makeLayout, sameSource, toPuzzle, type CluesFile, type Layout, type Spec } from "./game";
@@ -50,17 +50,6 @@ function SizeIcon({ size }: { size: Size }) {
   const n = SIZE_CELLS[size];
   return <svg className="cw-size-icon" viewBox={`0 0 ${n * 5} ${n * 5}`} aria-hidden="true" focusable="false" style={{ width: `${n * 0.42}rem`, height: `${n * 0.42}rem` }}>
     {Array.from({ length: n * n }, (_, i) => <rect key={i} x={(i % n) * 5} y={Math.floor(i / n) * 5} width="5" height="5" className={(i + Math.floor(i / n)) % 3 === 2 ? "is-block" : undefined} />)}
-  </svg>;
-}
-
-/** The shape the chosen puzzle will have: its squares and blocks, drawn small. */
-function Shape({ layout, data }: { layout: Layout; data: CluesFile }) {
-  const puzzle = toPuzzle(data, layout);
-  if (!puzzle) return null;
-  return <svg className="cw-shape" viewBox={`0 0 ${puzzle.width * 6} ${puzzle.height * 6}`} aria-hidden="true" focusable="false"
-    style={{ width: `${Math.min(14, puzzle.width * 0.8)}rem` }}>
-    {puzzle.cells.map((answer, i) => <rect key={i} x={(i % puzzle.width) * 6 + 0.4} y={Math.floor(i / puzzle.width) * 6 + 0.4} width="5.2" height="5.2"
-      className={answer === null ? "is-block" : undefined} />)}
   </svg>;
 }
 
@@ -137,16 +126,10 @@ export function StartScreen({ data, spec, shelf, solved, best, englishNote, fail
             onClick={() => choose({ ...spec, size })}><SizeIcon size={size} />{SIZE_LABELS[size].label}</button>;
         })}
       </fieldset>
+      <button type="button" className="cw-primary" disabled={!offered} onClick={() => onPlay(preview.ready ? preview.layout : null)}>Make my crossword</button>
     </div>
     <p className="cw-note"><span>{`About ${target} words, on a grid of up to ${max} by ${max} squares.`}</span>{" "}<span id="cw-not-offered">A greyed-out choice has too few clues at this level.</span></p>
-    <div className="cw-preview">
-      {preview.ready && preview.layout ? <Shape layout={preview.layout} data={data} /> : <div className="cw-shape cw-shape-wait" aria-hidden="true" />}
-      <div className="cw-preview-words">
-        {preview.ready && preview.layout && <p className="cw-note">{plural(preview.layout.words.length, "{n} word, laid out and waiting.", "{n} words, laid out and waiting.")}</p>}
-        {failed && <p className="cw-note" role="alert">No puzzle of this size could be made from these clues just now. Try again, or pick a smaller size.</p>}
-        <button type="button" className="cw-primary" disabled={!offered} onClick={() => onPlay(preview.ready ? preview.layout : null)}>Make my crossword</button>
-      </div>
-    </div>
+    {failed && <p className="cw-note" role="alert">No puzzle of this size could be made from these clues just now. Try again, or pick a smaller size.</p>}
     {(solved > 0 || bestTime) && <dl className="cw-record">
       {solved > 0 && <div><dt><Trophy size={14} aria-hidden="true" />Solved</dt><dd>{formatNumber(solved)}</dd></div>}
       {bestTime && <div><dt><Clock size={14} aria-hidden="true" />Best time</dt><dd translate="no">{clock(bestTime)}</dd></div>}

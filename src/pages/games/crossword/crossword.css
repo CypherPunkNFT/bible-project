@@ -30,8 +30,8 @@
 /* Each theme's own line drawing (ThemeIcons.tsx, owner 2026-11-12), in the game's colour. */
 .cw-icon { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; color: var(--cw-color); transition: transform .35s var(--cw-ease); }
 @media (hover: hover) { .cw-theme:hover .cw-icon { transform: scale(1.08); } }
-.cw-size-icon rect, .cw-shape rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
-.cw-size-icon rect.is-block, .cw-shape rect.is-block { fill: var(--cw-block); stroke: none; }
+.cw-size-icon rect { fill: var(--cw-cell); stroke: var(--line); stroke-width: .5; }
+.cw-size-icon rect.is-block { fill: var(--cw-block); stroke: none; }
 .cw-carry-card small { display: block; margin-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 400; }
 /* A gold dot on a card or book tile with an unfinished puzzle put aside. */
 .cw-saved-dot { position: absolute; top: .4rem; right: .4rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent); }
@@ -82,7 +82,10 @@
   .cw-books-body { max-height: 88svh; padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); }
   .cw-books-grid { grid-template-columns: repeat(auto-fill, minmax(6.6rem, 1fr)); }
 }
-.cw-start-row { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
+.cw-start-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+.cw-start-row > .cw-primary { align-self: flex-end; }
+/* "Make my crossword" follows the size chips in the same row, level with them; on a phone it wraps under them, full width. */
+@media (max-width: 559px) { .cw-start-row > .cw-primary { width: 100%; } }
 .cw-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 .cw-chips legend { width: 100%; }
 .cw-chips button { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .45rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .9rem;
@@ -92,21 +95,6 @@
 .cw-chips button[aria-pressed="true"] { border-color: var(--cw-color); background: color-mix(in srgb, var(--cw-color) 14%, var(--surface)); font-weight: 600; }
 .cw-chips button:disabled { cursor: not-allowed; opacity: .4; }
 .cw-size-icon { height: auto; flex: 0 0 auto; }
-.cw-preview { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.cw-shape { display: block; height: auto; border-radius: 3px; animation: cw-fade .5s var(--cw-ease) both; }
-.cw-shape-wait { width: 7rem; height: 7rem; border-radius: 3px; background: repeating-linear-gradient(45deg, transparent 0 6px, color-mix(in srgb, var(--line) 60%, transparent) 6px 7px); opacity: .6; }
-.cw-preview-words { display: grid; gap: .6rem; }
-@media (max-width: 899px) {
-  /* On a phone the preview and "Make my crossword" stay pinned to the bottom, so the shelf can be long and the button is never off the screen. */
-  .cw-preview { position: sticky; bottom: 0; z-index: 20; flex-wrap: nowrap; gap: .8rem; margin: 1rem -1rem 0; padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom, 0px)) 1rem;
-    border-top: 1px solid var(--line); background: color-mix(in srgb, var(--page) 94%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-  .cw-preview .cw-shape, .cw-preview .cw-shape-wait { width: 4.5rem !important; height: auto; flex: 0 0 auto; }
-  .cw-preview .cw-shape-wait { height: 4.5rem; }
-  .cw-preview-words { flex: 1 1 auto; min-width: 0; gap: .35rem; padding-right: 3.4rem; }
-  .cw-preview-words .cw-note { font-size: .78rem; }
-  .cw-preview .cw-primary { min-height: 44px; padding: .5rem 1.1rem; }
-}
-.cw-preview-words .cw-note { margin-top: 0; }
 .cw-primary, .cw-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 48px; padding: .7rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
   transition: transform .35s var(--cw-ease), box-shadow .35s var(--cw-ease), border-color .35s var(--cw-ease); }
 .cw-primary { justify-self: start; background: var(--accent); color: var(--page); }
@@ -269,7 +257,7 @@
 .cw-source a { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
-  .cw-grid.is-solved .cw-square, .cw-grid.is-live .cw-letter, .cw-square.is-pulse, .cw-shape, .cw-sheet, .cw-books, .cw-menu-list { animation: none !important; }
+  .cw-grid.is-solved .cw-square, .cw-grid.is-live .cw-letter, .cw-square.is-pulse, .cw-sheet, .cw-books, .cw-menu-list { animation: none !important; }
   .cw-frame { scroll-behavior: auto; }
 }
 @media print {
