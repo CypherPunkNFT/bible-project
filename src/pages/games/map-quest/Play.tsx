@@ -2,9 +2,10 @@
 // the summary. The round strip and the running total sit above the map, Confirm floats inside the map's frame, and
 // the answer comes up as a sheet over the map (a panel beside it on a desktop) with the points counting up, so the
 // line, the true site and the score are all in view at once. The map stays mounted from place to place; if it cannot
-// load, an error panel offers a retry.
-import { ExternalLink } from "lucide-react";
-import { useState, type CSSProperties } from "react";
+// load, an error panel offers a retry. Beside Confirm, Hint draws a circle that holds the place (hints.ts), up to the
+// level's number of circles, each one costing HINT_COST points off the place.
+import { ExternalLink, Lightbulb } from "lucide-react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Verse } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
@@ -16,6 +17,7 @@ import { Confetti, FeedbackBand, ProgressTrail, trailMarks, useCountUp, useScrol
 import { BAND_CSS, BAND_MARK, BAND_TONE } from "./bands";
 import { scorePin, type Game, type Question, type Result } from "./game";
 import type { LonLat } from "./geo";
+import { HINT_COST, HINTS_BY_LEVEL, hintCircles } from "./hints";
 import { distanceText, pointsText, shapeOf } from "./words";
 import { ERA_VIEWS } from "./pools";
 import { QuestMap } from "./QuestMap";
@@ -29,9 +31,13 @@ interface Props {
   game: Game;
   /** Daily Five pins already confirmed (a resumed game starts after them). */
   resume: Result[];
+  /** Hint circles already taken for the first place still to play. */
+  resumeHints: number;
   stats: Stats;
   now: Date;
   onConfirm: (result: Result) => void;
+  /** A hint circle was taken: the place's id and how many it now has. */
+  onHint: (id: string, used: number) => void;
   onFinish: () => void;
   onAgain: () => void;
   onHome: () => void;
@@ -41,7 +47,7 @@ interface Props {
 const DESKTOP_PADDING = { left: 420, top: 48, right: 48, bottom: 48 };
 const PHONE_PADDING = { left: 32, top: 40, right: 32, bottom: 250 };
 
-export function Play({ game, resume, stats, now, onConfirm, onFinish, onAgain, onHome }: Props) {
+export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint, onFinish, onAgain, onHome }: Props) {
   const [results, setResults] = useState<Result[]>(resume);
   const [index, setIndex] = useState(Math.min(resume.length, game.questions.length));
   const [pin, setPin] = useState<LonLat | null>(null);
@@ -49,10 +55,16 @@ export function Play({ game, resume, stats, now, onConfirm, onFinish, onAgain, o
   const [mapKey, setMapKey] = useState(0);
   const [mapFailed, setMapFailed] = useState(false);
   const [everPinned, setEverPinned] = useState(resume.length > 0);
+  const [hintsUsed, setHintsUsed] = useState(resumeHints);
+  // The Daily Five draws the same circles for everyone; any other game draws fresh ones each time it is played.
+  const [hintSeed] = useState(() => (game.mode === "daily" ? `daily-${game.n}` : `${game.mode}-${Math.random()}`));
   const wide = useMediaQuery("(min-width: 900px)");
   const over = index >= game.questions.length;
   useScrollTopOn(over);
   const total = results.reduce((sum, result) => sum + result.points, 0);
+  const current = game.questions[Math.min(index, game.questions.length - 1)];
+  const allHints = useMemo(() => hintCircles(current.sites[0], ERA_VIEWS[game.era], game.level, `${hintSeed}:${current.id}`), [current, game.era, game.level, hintSeed]);
+  const shownHints = useMemo(() => (revealed ? [] : allHints.slice(0, hintsUsed)), [allHints, hintsUsed, revealed]);
 
   if (over) return <Summary game={game} results={results} stats={stats} now={now} onAgain={onAgain} onHome={onHome} />;
   const question = game.questions[index];
@@ -62,13 +74,19 @@ export function Play({ game, resume, stats, now, onConfirm, onFinish, onAgain, o
   const drop = (at: LonLat) => { setPin(at); setEverPinned(true); };
   const confirm = () => {
     if (!pin || revealed) return;
-    const result = scorePin(question, pin);
+    const result = scorePin(question, pin, hintsUsed);
     setResults((done) => [...done, result]);
     setRevealed(result);
     onConfirm(result);
   };
+  const takeHint = () => {
+    if (revealed || hintsUsed >= allHints.length) return;
+    setHintsUsed(hintsUsed + 1);
+    onHint(question.id, hintsUsed + 1);
+  };
   const next = () => {
     setPin(null);
+    setHintsUsed(0);
     setRevealed(null);
     setIndex(index + 1);
     if (index + 1 >= game.questions.length) onFinish();
@@ -94,10 +112,11 @@ export function Play({ game, resume, stats, now, onConfirm, onFinish, onAgain, o
         </div>
       : <div className={`mq-stage${revealed ? " is-revealed" : ""}`}>
           <QuestMap key={mapKey} view={ERA_VIEWS[game.era]} viewKey={`${index}`} beginner={game.mode === "practice" && game.level === "beginner"}
-            pin={pin} onPin={drop} onFail={() => setMapFailed(true)} label={`Map. Drop a pin where ${question.name} stood. With a keyboard, move the map and press Enter to pin the centre.`}
+            pin={pin} onPin={drop} hints={shownHints} onFail={() => setMapFailed(true)} label={`Map. Drop a pin where ${question.name} stood. With a keyboard, move the map and press Enter to pin the centre.`}
             reveal={revealed ? shapeOf(revealed) : null} revealPadding={wide ? DESKTOP_PADDING : PHONE_PADDING} />
           {!revealed && <div className="mq-dock">
             {!everPinned && <p className="mq-hint">Tap the map to drop a pin, then drag it to adjust.</p>}
+            {hintsUsed < allHints.length && <HintButton used={hintsUsed} of={HINTS_BY_LEVEL[game.level]} onTake={takeHint} />}
             <button type="button" className="mq-button mq-primary mq-confirm" disabled={!pin} onClick={confirm}>Confirm</button>
           </div>}
           <FeedbackBand className="mq-sheet" open={!!revealed} pinned="never" tone={revealed ? BAND_TONE[bandFor(revealed.points)] : null}
@@ -107,6 +126,18 @@ export function Play({ game, resume, stats, now, onConfirm, onFinish, onAgain, o
           </FeedbackBand>
         </div>}
   </div>;
+}
+
+/** Hint: its cost on the button, and a dot for each circle still to take (shown only while one is left). */
+function HintButton({ used, of, onTake }: { used: number; of: number; onTake: () => void }) {
+  const left = of - used;
+  return <button type="button" className="mq-button mq-lamp" onClick={onTake}
+    aria-label={plural(left, "Hint: draw a circle that holds the place, 150 points off. {n} hint left.", "Hint: draw a circle that holds the place, 150 points off. {n} hints left.")}>
+    <Lightbulb size={16} aria-hidden="true" />
+    <span>Hint</span>
+    <span className="mq-lamp-cost" aria-hidden="true">{plural(-HINT_COST, "{n} point", "{n} points")}</span>
+    {of > 1 && <span className="mq-lamp-dots" aria-hidden="true">{Array.from({ length: of }, (_, i) => <i key={i} className={i < used ? "is-used" : undefined} />)}</span>}
+  </button>;
 }
 
 /** The running total as a bar that grows and a number that counts up from the last total. */
@@ -129,6 +160,11 @@ function Verdict({ result }: { result: Result }) {
     <div className="mq-verdict-words">
       <strong className="mq-verdict-name">{result.question.name}</strong>
       <span className="mq-verdict-line">{`${distanceText(result.km)} away, ${pointsText(result.points)}`}</span>
+      {result.hints > 0 && <span className="mq-verdict-line mq-verdict-hints">
+        <Lightbulb size={13} aria-hidden="true" />
+        <span>{plural(result.hints, "{n} hint used", "{n} hints used")}</span>
+        <span>{plural(-result.hints * HINT_COST, "{n} point", "{n} points")}</span>
+      </span>}
     </div>
     <span className="mq-points" aria-hidden="true">{formatNumber(shown)}</span>
     <span className="mq-bar mq-bar--points" aria-hidden="true" style={{ "--mq-band": BAND_CSS[band] } as CSSProperties}>

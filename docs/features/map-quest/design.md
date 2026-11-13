@@ -448,3 +448,21 @@ Built as designed; the game is live at `/games/map-quest`. Where the build diffe
 6. **Epoch** is 2026-11-07, the build date, so the game has a puzzle today. The README says how to restart the numbering on the real launch day before the first release.
 7. **Disputed sites** use only OpenBible's own candidates (picked by index in `curation.json`); Jabal al Lawz and Tall el Hammam are already in OpenBible, so no hand-added coordinates were needed. The notes sit inline in each `disputed` entry rather than in a separate `disputedNotes` field. **They were drafted by this build job and await the owner's review.**
 8. **Tab title** follows the quiz page ("Map quest · Games · Bible Guide"). Place names, era names and notes are not yet translated (the collector does not read `src/data/`); recorded as a known gap in the games README.
+
+## 14. Hint circles (owner, 2026-11-12)
+
+The owner asked for hints shown as circles on the map, more of them on easier levels.
+
+- **How many:** Beginner may take 3, Standard 2, Expert 1. The Daily Five and Disputed sites play at Expert, so they get 1.
+- **What a circle is:** every circle holds the place (for a place with several proposed sites, the first one). It is
+  never centred on the place: the place sits between 15% and 60% of the radius from the middle. There are no decoys.
+- **Size:** the first circle's radius is a tenth of the round's opening view's width (about 370 km for All eras, about
+  24 km for the Life of Jesus); each next circle is half the one before, never under 4 km. A new circle is framed whole.
+- **Cost:** 150 points off the place for each circle taken, never below 0 (`HINT_COST` in `hints.ts`). The answer card
+  says how many hints were used and what they cost. The share text is unchanged; the lower score shows it.
+- **Daily Five:** the circles come from a seed (puzzle number + place), so everyone gets the same ones. Circles taken
+  for the place being played are saved (`today.hinting`), so a reload cannot take them back; each saved pin keeps its
+  `hints`, and pins saved before this read as 0. Practice and Disputed draw fresh circles each game.
+- **Code:** `src/pages/games/map-quest/hints.ts` (circles), `game.ts` (`scorePin` takes the hint count),
+  `storage.ts` (`recordHint`, `pendingHints`), `QuestMap.tsx` + `quest-style.ts` (the `mq-hints` layers), `Play.tsx`
+  (the Hint button beside Confirm). Tests: `hints.test.ts`, `storage.test.ts`, `MapQuestGame.test.tsx`.

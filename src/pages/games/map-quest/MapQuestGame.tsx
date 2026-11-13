@@ -13,11 +13,12 @@ import { Home } from "./Home";
 import { useNow } from "./use-now";
 import { Play } from "./Play";
 import type { Era, Level } from "./pools";
-import { finishDaily, readStats, recordPick, startDaily, writeStats, type Stats } from "./storage";
+import { finishDaily, pendingHints, readStats, recordHint, recordPick, startDaily, writeStats, type Stats } from "./storage";
 import "../games.css";
 import "./map-quest.css";
 
-interface Session { game: Game; resume: Result[]; round: number }
+/** `resumeHints`: hint circles already taken for the first place still to play (a resumed Daily Five). */
+interface Session { game: Game; resume: Result[]; resumeHints: number; round: number }
 
 export default function MapQuestGame() {
   useEffect(() => { document.title = "Map quest · Games · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
@@ -37,13 +38,13 @@ export default function MapQuestGame() {
 
   const start = (mode: Mode, level: Level, era: Era) => {
     setParams(playParams(mode, level, era), { replace: true });
-    if (mode === "practice") return setSession((s) => ({ game: practiceGame(level, era), resume: [], round: (s?.round ?? 0) + 1 }));
-    if (mode === "disputed") return setSession((s) => ({ game: disputedGame(), resume: [], round: (s?.round ?? 0) + 1 }));
+    if (mode === "practice") return setSession((s) => ({ game: practiceGame(level, era), resume: [], resumeHints: 0, round: (s?.round ?? 0) + 1 }));
+    if (mode === "disputed") return setSession((s) => ({ game: disputedGame(), resume: [], resumeHints: 0, round: (s?.round ?? 0) + 1 }));
     const n = DAILY.numberOn(new Date()); // fixed for this game: one started before midnight finishes as that day's
     const game = dailyGame(n);
     if (!game) return home();
     const saved = update((fresh) => startDaily(fresh, n, game.questions.map((q) => q.id)));
-    setSession((s) => ({ game, resume: resultsFromPicks(game, saved.today?.picks ?? []), round: (s?.round ?? 0) + 1 }));
+    setSession((s) => ({ game, resume: resultsFromPicks(game, saved.today?.picks ?? []), resumeHints: pendingHints(saved.today), round: (s?.round ?? 0) + 1 }));
   };
 
   const home = () => {
@@ -61,6 +62,10 @@ export default function MapQuestGame() {
     const game = session?.game;
     if (game?.mode === "daily" && game.n) update((fresh) => recordPick(fresh, game.n!, pickFromResult(result)));
   };
+  const onHint = (id: string, used: number) => {
+    const game = session?.game;
+    if (game?.mode === "daily" && game.n) update((fresh) => recordHint(fresh, game.n!, id, used));
+  };
   const onFinish = () => {
     const game = session?.game;
     if (game?.mode === "daily" && game.n) update((fresh) => finishDaily(fresh, game.n!));
@@ -73,7 +78,7 @@ export default function MapQuestGame() {
       {session && <button type="button" className="mq-link" onClick={home}>Game home</button>}
     </header>
     {session
-      ? <Play key={session.round} game={session.game} resume={session.resume} stats={stats} now={now} onConfirm={onConfirm} onFinish={onFinish}
+      ? <Play key={session.round} game={session.game} resume={session.resume} resumeHints={session.resumeHints} stats={stats} now={now} onConfirm={onConfirm} onHint={onHint} onFinish={onFinish}
           onAgain={() => start(session.game.mode, session.game.level, session.game.era)} onHome={home} />
       : <Home stats={stats} now={now} onDaily={() => start("daily", "expert", "all")} onPractice={(level, era) => start("practice", level, era)}
           onDisputed={() => start("disputed", "expert", "all")} />}

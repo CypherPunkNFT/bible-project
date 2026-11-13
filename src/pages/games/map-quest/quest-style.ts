@@ -9,6 +9,7 @@ import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 import { BOUNDS, EARTH, MAP_KEY, englishLabels, tilesBase } from "@/components/atlas/street-style";
 import type { Theme } from "@/lib/theme";
 import type { LonLat } from "./geo";
+import { circleRing, type HintCircle } from "./hints";
 import { WATER_NAMES, waterNameFeatures } from "./water-names";
 
 const BLANK_LAYERS = new Set(["background", "earth", "landcover", "landuse_park", "landuse_beach", "water", "water_stream", "water_river"]);
@@ -65,6 +66,22 @@ export function revealFeatures(reveal: RevealShape | readonly RevealShape[] | nu
   };
 }
 
+/** The hint circles taken so far, as polygons; the newest is drawn strongest. */
+export function hintFeatures(circles: readonly HintCircle[]): FeatureCollection<Geometry> {
+  return { type: "FeatureCollection", features: circles.map((circle, index) => ({
+    type: "Feature", geometry: { type: "Polygon", coordinates: [circleRing(circle)] }, properties: { newest: index === circles.length - 1 } })) };
+}
+
+/** The hint circles: a soft wash of the game's teal and a dashed edge, under the pin and the answer. */
+function hintLayers(): LayerSpecification[] {
+  const teal = css("--poetry") || "#2f7f86";
+  return [
+    { id: "mq-hint-fill", type: "fill", source: "mq-hints", paint: { "fill-color": teal, "fill-opacity": ["case", ["get", "newest"], 0.16, 0.07] } },
+    { id: "mq-hint-edge", type: "line", source: "mq-hints", layout: { "line-join": "round" },
+      paint: { "line-color": teal, "line-width": ["case", ["get", "newest"], 2.5, 1.5], "line-opacity": ["case", ["get", "newest"], 0.95, 0.55], "line-dasharray": [2, 1.5] } },
+  ];
+}
+
 function revealLayers(): LayerSpecification[] {
   const surface = css("--surface") || "#fff";
   const ink = css("--ink") || "#222";
@@ -100,9 +117,9 @@ function waterNameLayers(flavor: Flavor): LayerSpecification[] {
   }));
 }
 
-/** The whole style for one theme; `beginner` shows water names; `reveal` is drawn in from the start, so a theme switch
- *  (which replaces the style) keeps the answer on the map. */
-export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealShape | readonly RevealShape[] | null = null): StyleSpecification {
+/** The whole style for one theme; `beginner` shows water names; `reveal` and `hints` are drawn in from the start, so a
+ *  theme switch (which replaces the style) keeps the answer and the hint circles on the map. */
+export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealShape | readonly RevealShape[] | null = null, hints: readonly HintCircle[] = []): StyleSpecification {
   const base = tilesBase();
   const earthy = { ...namedFlavor(theme), ...EARTH[theme], ...QUEST_EARTH[theme] } as Flavor;
   const flavor: Flavor = { ...earthy, landcover: { ...earthy.landcover!, urban_area: earthy.earth } }; // modern towns drawn as open land
@@ -115,10 +132,11 @@ export function buildQuestStyle(theme: Theme, beginner: boolean, reveal: RevealS
       world: { type: "vector", tiles: [`pmtiles://${MAP_KEY}/{z}/{x}/{y}`], bounds: BOUNDS, minzoom: 0, maxzoom: WORLD_MAX_ZOOM,
         attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> · <a href="https://protomaps.com">Protomaps</a>' },
       "mq-water-names": { type: "geojson", data: waterNameFeatures() },
+      "mq-hints": { type: "geojson", data: hintFeatures(hints) },
       "mq-line": { type: "geojson", data: features.line },
       "mq-sites": { type: "geojson", data: features.sites },
       "mq-pins": { type: "geojson", data: features.pins },
     },
-    layers: [...basemap, coastLayer(theme), ...(beginner ? waterNameLayers(flavor) : []), ...revealLayers()],
+    layers: [...basemap, coastLayer(theme), ...(beginner ? waterNameLayers(flavor) : []), ...hintLayers(), ...revealLayers()],
   };
 }

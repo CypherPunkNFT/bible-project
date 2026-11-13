@@ -85,6 +85,31 @@ describe("map quest page", () => {
     expect(screen.getByRole("button", { name: "Confirm" })).toBeEnabled();
   });
 
+  it("takes up to three hint circles on Beginner, each 150 points off the place", async () => {
+    await renderAt("/games/map-quest?play=practice&level=beginner&era=all");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    for (const left of [3, 2, 1]) fireEvent.click(screen.getByRole("button", { name: new RegExp(`150 points off[.] ${left} hints? left`) }));
+    expect(screen.queryByRole("button", { name: /^Hint/ })).not.toBeInTheDocument();
+    answerExactly();
+    expect(screen.getByText(/0 km \(0 mi\) away, 550 points/)).toBeInTheDocument();
+    expect(screen.getByText("3 hints used")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next place" }));
+    expect(screen.getByRole("button", { name: /3 hints left/ })).toBeInTheDocument();
+  });
+
+  it("gives Expert one hint circle, and the Daily Five remembers it through a reload", async () => {
+    const first = await renderAt("/games/map-quest?play=daily");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    fireEvent.click(screen.getByRole("button", { name: /1 hint left/ }));
+    expect(screen.queryByRole("button", { name: /^Hint/ })).not.toBeInTheDocument();
+    first.unmount();
+    await renderAt("/games/map-quest?play=daily");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    expect(screen.queryByRole("button", { name: /^Hint/ })).not.toBeInTheDocument();
+    answerExactly();
+    expect(screen.getByText(/0 km \(0 mi\) away, 850 points/)).toBeInTheDocument();
+  });
+
   it("reopens a finished Daily Five straight on the summary, with all five pins on the map", async () => {
     const first = await renderAt("/games/map-quest?play=daily");
     await screen.findByRole("img", { name: "Place 1 of 5" });

@@ -3,6 +3,7 @@
 import { DAILY, DISPUTED, PLACES, PLACE_BY_ID } from "./data";
 import type { LonLat } from "./geo";
 import { ERAS, LEVELS, pickRound, practicePool, sitesOf, type DisputedPlace, type Era, type Level, type QuestPlace } from "./pools";
+import { HINT_COST } from "./hints";
 import { nearestSite, scoreForDistance } from "./scoring";
 import type { Pick } from "./storage";
 
@@ -21,7 +22,8 @@ export interface Question {
   source?: string;
 }
 
-export interface Result { question: Question; pin: LonLat; site: LonLat; km: number; points: number }
+/** `hints`: how many hint circles the player took for this place (each costs HINT_COST points). */
+export interface Result { question: Question; pin: LonLat; site: LonLat; km: number; points: number; hints: number }
 
 export interface Game {
   mode: Mode;
@@ -43,10 +45,10 @@ export const questionFromDisputed = (place: DisputedPlace): Question => ({
   verse: place.verse, verseCount: place.verseCount, atlas: PLACE_BY_ID.get(place.id)?.atlas ?? false, note: place.note, source: place.source,
 });
 
-/** A pin scored against the nearest of the question's sites. */
-export function scorePin(question: Question, pin: LonLat): Result {
+/** A pin scored against the nearest of the question's sites, less HINT_COST for each hint circle taken. */
+export function scorePin(question: Question, pin: LonLat, hints = 0): Result {
   const { site, km } = nearestSite(pin, question.sites);
-  return { question, pin, site, km, points: scoreForDistance(km) };
+  return { question, pin, site, km, points: Math.max(0, scoreForDistance(km) - hints * HINT_COST), hints };
 }
 
 /** Puzzle n's game (null before puzzle #1). */
@@ -68,10 +70,10 @@ export function disputedGame(random: () => number = Math.random): Game {
 
 /** Today's confirmed pins as results, for resuming a Daily Five. */
 export const resultsFromPicks = (game: Game, picks: readonly Pick[]): Result[] =>
-  picks.slice(0, game.questions.length).map((pick, index) => scorePin(game.questions[index], [pick.lon, pick.lat]));
+  picks.slice(0, game.questions.length).map((pick, index) => scorePin(game.questions[index], [pick.lon, pick.lat], pick.hints));
 
 export const pickFromResult = (result: Result): Pick => ({
-  id: result.question.id, lon: result.pin[0], lat: result.pin[1], km: Math.round(result.km * 10) / 10, points: result.points,
+  id: result.question.id, lon: result.pin[0], lat: result.pin[1], km: Math.round(result.km * 10) / 10, points: result.points, hints: result.hints,
 });
 
 /** What the address asks for (?play=daily, ?play=practice&level=standard&era=jesus, ?play=disputed); unknown values: null. */

@@ -2,7 +2,8 @@
 // click, drag, or Enter at the centre crosshair. The pin is an HTML marker that drops in with a ring where the tap
 // landed and lifts while dragged; on a reveal the dashed line draws itself out from the pin to the true site over half
 // a second, the true site lands as a marker with a slow looping ring, and both are framed clear of the answer card. In
-// summary mode (`summary`) the map is still, draws every place's line and points, and takes no input.
+// summary mode (`summary`) the map is still, draws every place's line and points, and takes no input. Hint circles
+// (`hints`) are drawn under the pin; each new one is framed so the player sees it whole.
 // A map that cannot start (no WebGL, no map file, nothing loaded within 20 s) calls onFail; the page offers a retry.
 import { addProtocol, AttributionControl, Map as MapLibreMap, Marker, NavigationControl, setWorkerUrl, type GeoJSONSource, type PaddingOptions } from "maplibre-gl";
 import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
@@ -15,7 +16,8 @@ import { useThemeVersion, type Theme } from "@/lib/theme";
 import { motionMs } from "../kit";
 import type { LonLat } from "./geo";
 import { boundsOf, clampPadding } from "./frame";
-import { QUEST_MAX_ZOOM, buildQuestStyle, revealFeatures, type RevealShape } from "./quest-style";
+import { circleBox, type HintCircle } from "./hints";
+import { QUEST_MAX_ZOOM, buildQuestStyle, hintFeatures, revealFeatures, type RevealShape } from "./quest-style";
 
 // The atlas registers the same reader privately (StreetAtlasMap.tsx); importing it would pull the whole atlas in, so the
 // game repeats those lines. Both point at the same file, so whichever registered last serves the other page correctly.
@@ -39,6 +41,8 @@ const LOAD_TIMEOUT_MS = 20_000;
 const NO_LAND_AFTER_FAILURE_MS = 3_000;
 const LINE_DRAW_MS = 550;
 const REVEAL_ZOOM_MS = 900;
+const HINT_ZOOM_MS = 700;
+const HINT_PADDING = 56;
 
 /** Draws the shapes into the map's three answer sources, the lines `progress` (0 to 1) of the way. */
 function setData(map: MapLibreMap, shapes: RevealShape | readonly RevealShape[] | null, progress: number) {
@@ -91,6 +95,8 @@ interface Props {
   pin: LonLat | null;
   onPin: (pin: LonLat) => void;
   reveal: RevealShape | null;
+  /** The hint circles taken for this place, largest first (none once the answer shows). */
+  hints?: readonly HintCircle[];
   /** Room to leave around the framed answer, for the card that sits over the map. */
   revealPadding?: Partial<PaddingOptions>;
   /** Every place of a finished game: the map goes still and draws them all. */
@@ -99,13 +105,17 @@ interface Props {
   label: string;
 }
 
-export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPadding, summary, onFail, label }: Props) {
+const NO_HINTS: readonly HintCircle[] = [];
+
+export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = NO_HINTS, revealPadding, summary, onFail, label }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const markerRef = useRef<Marker | null>(null);
   const siteRef = useRef<Marker | null>(null);
   const frameRef = useRef(0);
   const revealRef = useRef(reveal);
+  const hintsRef = useRef(hints);
+  const hintsShownRef = useRef(hints.length);
   const summaryRef = useRef(summary);
   const paddingRef = useRef(revealPadding);
   const onPinRef = useRef(onPin);
@@ -113,6 +123,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPa
   const beginnerRef = useRef(beginner);
   const viewRef = useRef(view);
   revealRef.current = reveal;
+  hintsRef.current = hints;
   summaryRef.current = summary;
   paddingRef.current = revealPadding;
   viewRef.current = view;
@@ -122,7 +133,11 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPa
   const still = !!summary;
 
   const shapes = (): RevealShape | readonly RevealShape[] | null => summaryRef.current ?? revealRef.current;
-  const syncReveal = () => { const map = mapRef.current; if (map?.getSource("mq-line")) setData(map, shapes(), 1); };
+  const syncReveal = () => {
+    const map = mapRef.current;
+    if (map?.getSource("mq-line")) setData(map, shapes(), 1);
+    (map?.getSource("mq-hints") as GeoJSONSource | undefined)?.setData(hintFeatures(hintsRef.current));
+  };
   const sync = useRef(syncReveal);
   sync.current = syncReveal;
 
@@ -135,7 +150,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPa
       addPmtilesProtocol();
       const bounds = (stillMap && boundsOf(summaryRef.current!)) || viewRef.current;
       map = new MapLibreMap({
-        container: container.current, style: buildQuestStyle(currentTheme(), beginnerRef.current, shapes()), bounds,
+        container: container.current, style: buildQuestStyle(currentTheme(), beginnerRef.current, shapes(), hintsRef.current), bounds,
         fitBoundsOptions: stillMap ? { padding: 36, maxZoom: 7 } : undefined,
         maxBounds: BOUNDS, maxZoom: QUEST_MAX_ZOOM, renderWorldCopies: false, attributionControl: false,
         interactive: !stillMap, keyboard: !stillMap,
@@ -182,7 +197,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPa
   }, []);
 
   useEffect(() => {
-    if (themeVersion > 0 || beginnerRef.current !== beginner) mapRef.current?.setStyle(buildQuestStyle(currentTheme(), beginner, shapes()));
+    if (themeVersion > 0 || beginnerRef.current !== beginner) mapRef.current?.setStyle(buildQuestStyle(currentTheme(), beginner, shapes(), hintsRef.current));
     beginnerRef.current = beginner;
   }, [themeVersion, beginner]);
 
@@ -191,6 +206,23 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, revealPa
   useEffect(() => {
     if (!still) mapRef.current?.fitBounds(viewRef.current, { duration: 0 });
   }, [viewKey, still]);
+
+  // The hint circles: drawn as they are taken, and a new one framed whole (a resumed game frames the last one taken).
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || still) return;
+    (map.getSource("mq-hints") as GeoJSONSource | undefined)?.setData(hintFeatures(hintsRef.current));
+    const grew = hints.length > 0 && hints.length >= hintsShownRef.current;
+    hintsShownRef.current = hints.length;
+    if (!grew) return;
+    const canvas = map.getCanvas();
+    const padding = clampPadding({ top: HINT_PADDING, right: HINT_PADDING, bottom: HINT_PADDING, left: HINT_PADDING }, canvas.clientWidth || 360, canvas.clientHeight || 300);
+    try {
+      map.fitBounds(circleBox(hints[hints.length - 1]), { padding, maxZoom: QUEST_MAX_ZOOM - 1, duration: motionMs(HINT_ZOOM_MS) });
+    } catch (error) {
+      console.warn("Map quest: could not frame the hint circle, leaving the map where it is:", error);
+    }
+  }, [hints, still]);
 
   // The pin: a marker that drops in, can be dragged until the answer is shown, and flashes a ring where it lands.
   useEffect(() => {

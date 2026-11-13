@@ -116,6 +116,15 @@
 .mq-dock > * { pointer-events: auto; }
 .mq-hint { padding: .35rem .75rem; border-radius: 999px; background: color-mix(in srgb, var(--surface) 88%, transparent); color: var(--ink); font-size: .78rem; line-height: 1.4; animation: mq-settle .5s var(--mq-ease) both; }
 .mq-confirm { min-width: 9rem; box-shadow: 0 10px 24px -12px rgb(0 0 0 / .6); }
+/* Hint: a quieter pill beside Confirm, its cost in small type and a dot for each circle (filled once taken). */
+.mq-lamp { gap: .4rem; padding-inline: .9rem; box-shadow: 0 10px 24px -14px rgb(0 0 0 / .55); }
+.mq-lamp svg { color: var(--poetry); }
+.mq-lamp-cost { color: var(--muted); font-size: .76rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mq-lamp-dots { display: inline-flex; gap: .22rem; }
+.mq-lamp-dots i { width: .42rem; height: .42rem; border: 1.5px solid var(--poetry); border-radius: 50%; background: var(--poetry); }
+.mq-lamp-dots i.is-used { background: transparent; opacity: .5; }
+.mq-verdict-hints { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .3rem .5rem; }
+.mq-verdict-hints svg { color: var(--poetry); }
 .mq-error { display: grid; justify-items: start; gap: .8rem; padding: 2rem 1.4rem; border: 1px solid var(--line); border-radius: .9rem; }
 
 /* ---- The answer sheet: over the map's bottom on a phone, a panel on the map's left on a desktop ---------------- */
