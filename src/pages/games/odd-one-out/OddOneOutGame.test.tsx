@@ -45,7 +45,8 @@ describe("odd one out page", () => {
     expect(within(verdict()).getByText("Right!")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Next" })).toHaveFocus();
     expect(choiceNamed("Paul")).toHaveAttribute("data-state", "right");
-    expect(choiceNamed("Paul").querySelector(".oo-ring")).not.toBeNull();
+    expect(choiceNamed("Paul").querySelector(".oo-stamp.is-right")).not.toBeNull();
+    expect(document.querySelector(".oo-ring")).toBeNull();
     expect(choiceNamed("Peter")).toHaveAttribute("data-state", "faded");
     expect(screen.getByRole("img", { name: "1 of 10 answered" })).toBeInTheDocument();
     expect(scoreShown()).toBe("1");

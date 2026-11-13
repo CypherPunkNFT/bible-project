@@ -2,7 +2,7 @@
 // (docs/features/odd-one-out/design.md). The sets are built ahead of time (scripts/build-odd-one-out.py) and loaded
 // only on this page. Rounds of ten, one tap answers, no timer; progress survives Back and reload in this tab.
 // The look is the redesign from its visual audit (docs/visual-audits/odd-one-out-redesign.md): the kit's cards that
-// deal in, press and settle, a ring drawn round the odd one, a trail of ten squares, and the verdict in the kit's band
+// deal in, press and settle, the odd one edged green with its stamp, a trail of ten squares, and the verdict in the kit's band
 // with Next inside it, pinned to the bottom of a phone screen. Every state changes at once; the motion only decorates.
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -14,7 +14,7 @@ import { AnswerCard, ConfirmDialog, FeedbackBand, ProgressTrail, StreakFlame, tr
 import { inSiteLanguage } from "../translated-data";
 import { CHOICE_LABELS, DIFFICULTY_LABELS, buildRound, isAvailable, opensWithExample, seededRng, shownLabel, shuffle,
   type Choice, type Difficulty, type SetsFile } from "./game";
-import { Reading, Ring, Verdict } from "./Reveal";
+import { Reading, Verdict } from "./Reveal";
 import { CantLoad, StartScreen, SummaryScreen, type Ending } from "./Screens";
 import { bestKey, browserStore, readBest, readRound, readSeen, rememberSeen, saveBest, saveRound, takeOpener,
   type RoundState } from "./storage";
@@ -190,7 +190,6 @@ function Puzzle({ data, round, restored, dialogOpen, onAnswer, onNext, onLeave }
           {state === "right" && <>
             <span className="oo-stamp is-right" aria-hidden="true"><Check size={13} />Odd one out</span>
             <span className="sr-only">Odd one out</span>
-            <Ring />
           </>}
           {state === "wrong" && <>
             <span className="oo-stamp is-wrong" aria-hidden="true"><X size={13} />Your pick</span>

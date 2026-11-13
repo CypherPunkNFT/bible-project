@@ -37,20 +37,12 @@
 .oo-best { color: var(--muted); font-size: .85rem; }
 .oo-best b { color: var(--ink); font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; }
 
-/* ---- The start screen: the game shown, a ring that keeps looking ---------------------------------------------- */
+/* ---- The start screen: the game shown, four sample cards ------------------------------------------------------ */
 .oo-start h1 { margin-top: 1.6rem; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
 .oo-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .oo-sample { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; max-width: 24rem; margin-top: 1.3rem; }
 .oo-sample .oo-choice.kit-card { --kit-card-height: 5rem; padding: 1.7rem .9rem .7rem; }
 .oo-sample .oo-choice-name { font-size: 1.15rem; }
-.oo-sample .oo-sample-ring { top: -6px; left: -6px; width: calc(50% - .35rem + 12px); height: calc(50% - .35rem + 12px); stroke-dashoffset: 0; animation: oo-search 14s var(--oo-ease) infinite; }
-@keyframes oo-search {
-  0%, 18% { transform: translate(0, 0) rotate(-2deg); }
-  25%, 43% { transform: translate(calc(100% + .7rem - 12px), 0) rotate(2deg); }
-  50%, 68% { transform: translate(calc(100% + .7rem - 12px), calc(100% + .7rem - 12px)) rotate(-2deg); }
-  75%, 93% { transform: translate(0, calc(100% + .7rem - 12px)) rotate(2deg); }
-  100% { transform: translate(0, 0) rotate(-2deg); }
-}
 
 /* ---- The track: ten squares, the count, the kind, the score that pops, the streak ------------------------------ */
 .oo-play { outline: none; min-height: calc(100svh - 9rem); } /* the header, the back link and the page padding: the footer waits below the fold */
@@ -82,10 +74,7 @@
 .oo-choice.is-faded { opacity: .7; transform: translateY(3px) scale(.985); }
 .oo-choice.is-faded:hover { transform: translateY(3px) scale(.985); }
 /* After a wrong pick the true odd one lifts a beat later; the delay is zeroed under reduced motion below. */
-.oo-choice.is-late .oo-stamp, .oo-choice.is-late .oo-ring { animation-delay: .3s; }
-.oo-ring { position: absolute; top: -6px; left: -6px; width: calc(100% + 12px); height: calc(100% + 12px); overflow: visible; pointer-events: none; fill: none; stroke: var(--oo-right); stroke-width: 2; stroke-linecap: round; transform: rotate(-2deg); }
-.oo-ring ellipse { stroke-dasharray: 1; stroke-dashoffset: 0; animation: oo-draw .7s var(--oo-ease) both; }
-@keyframes oo-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.oo-choice.is-late .oo-stamp { animation-delay: .3s; }
 
 /* ---- The band: the verdict and Next, the reason large, the rest under "Why" ----------------------------------- */
 .oo-band.kit-band { margin-top: 1.2rem; border-radius: var(--kit-radius) var(--kit-radius) 0 0; }
@@ -164,6 +153,5 @@
   .oo-reading .oo-headline { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .oo-choice.is-late .oo-stamp, .oo-choice.is-late .oo-ring, .oo-choice.kit-card { animation-delay: 0s !important; }
-  .oo-sample-ring { animation: none; }
+  .oo-choice.is-late .oo-stamp, .oo-choice.kit-card { animation-delay: 0s !important; }
 }

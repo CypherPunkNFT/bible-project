@@ -1,8 +1,7 @@
 // Odd one out: what the player sees after answering (design section 7), split for the kit's feedback band. The
 // Verdict (right or wrong, and the odd one's name when the pick was wrong) sits in the band's row beside Next; the
 // Reading folds in under it: the reason in one large sentence, then, under a "Why" fold, one line for each of the
-// four with a verse, the key verse in the reader's Bible, and anything else that singles out the same answer. The
-// Ring is the hub drawing's circle round the goat, drawn round the odd card. Words: fixed phrases and names stand in
+// four with a verse, the key verse in the reader's Bible, and anything else that singles out the same answer. Words: fixed phrases and names stand in
 // their own elements, so the translation check passes.
 import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -26,13 +25,6 @@ export function Verdict({ right, oddLabel }: { right: boolean; oddLabel: string 
     </h2>
     {!right && <p className="oo-verdict-who"><strong>{oddLabel}</strong> <span>was the odd one out</span></p>}
   </div>;
-}
-
-/** A hand-drawn ring that draws itself round the odd card (the hub's goat, circled). Decoration only. */
-export function Ring() {
-  return <svg className="oo-ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <ellipse cx="50" cy="50" rx="48" ry="46" pathLength={1} vectorEffect="non-scaling-stroke" />
-  </svg>;
 }
 
 interface LinesProps { data: SetsFile; set: SetEntry; order: readonly string[] }

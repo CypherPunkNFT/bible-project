@@ -1,5 +1,5 @@
 // Odd one out: the start screen, the round summary and the can't-load screen (design section 10), in the look of the
-// redesign: a sample deal of four cards with a ring that keeps looking, chips at a thumb's size, and a result card that
+// redesign: a sample deal of four cards, chips at a thumb's size, and a result card that
 // counts up over the trail of ten with Play again and Share beside it; the ten rows stay below for anyone re-reading.
 import { Check, RotateCcw, X } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -37,9 +37,6 @@ export function StartScreen({ data, choice, difficulty, best, focusTitle = false
         <span className="oo-choice-key">{n + 1}</span>
         <span className="oo-choice-name">{shownLabel(data, sample, id)}</span>
       </AnswerCard>)}
-      <svg className="oo-ring oo-sample-ring" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
-        <ellipse cx="50" cy="50" rx="48" ry="46" vectorEffect="non-scaling-stroke" />
-      </svg>
     </div>}
     <fieldset className="oo-chips">
       <legend>What</legend>
