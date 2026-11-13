@@ -78,6 +78,15 @@ quotations are the Berean Standard Bible (`../../../../DOCTRINAL-FOUNDATION.md`,
 - **Never deploy.** Commit to `main` with a clear message; the owner releases.
 - Every step writes its report as it goes (not as the last act) and copies it into its own job folder.
 
+## 4a. Owner's decisions on the design's open points (2026-11-12, binding)
+
+1. **The ark of the covenant's journey is in** Where did they go first, as its own journey.
+2. **Stephen:** the Bible Firsts question says **"the first Christian martyr"** (Acts presents him so: 7:59–60, 8:1, 22:20).
+3. **A new player opens on Mixed**, not Who lived first. (A player arriving from the old /games/whos-older link still lands
+   on Who lived first.)
+4. **Bible Firsts launches with what passes the checks** (about 20–25 questions); no padding with weaker ones. More can be
+   added later.
+
 ## 5. The steps
 
 1. **Research and design** → `docs/features/what-came-first/design.md`.
