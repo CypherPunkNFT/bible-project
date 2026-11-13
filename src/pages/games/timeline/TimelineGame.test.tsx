@@ -121,22 +121,27 @@ describe("timeline sort page", () => {
     expect(cards()[2]).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("opens on a lobby: the puzzle's fanned stack, three level stacks and era chips, Play on the first screen", async () => {
+  it("opens like the other games: picture cards for what to play, then How hard and the gold button on one line", async () => {
     renderAt();
     await screen.findByRole("button", { name: `Play #${N}` });
-    expect(document.querySelectorAll(".tl-fan-card")).toHaveLength(6);
-    expect(document.querySelector(".tl-fan-number")).toHaveTextContent(`#${N}`);
-    const levels = within(screen.getByRole("group", { name: "Level" })).getAllByRole("button");
-    expect(levels).toHaveLength(3);
-    expect(levels[2].querySelectorAll(".tl-stack-cards span")).toHaveLength(7);
-    const eras = within(screen.getByRole("group", { name: "Part of the story" })).getAllByRole("button");
-    expect(eras).toHaveLength(9);
-    expect(eras[0]).toHaveAttribute("aria-pressed", "true");
-    fireEvent.click(eras[7]);
+    const tiles = within(screen.getByRole("group", { name: "What to play" })).getAllByRole("button");
+    expect(tiles).toHaveLength(10); // Today's timeline, All of the Bible and the eight parts of the story
+    expect(tiles[0]).toHaveAccessibleName(`Today's timeline #${N} · the same for everyone`);
+    expect(tiles[0]).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByRole("group", { name: "How hard" })).not.toBeInTheDocument(); // the daily has its own six cards
+    expect(screen.getByText(/Six events, the same for everyone today/)).toBeInTheDocument();
+    fireEvent.click(within(screen.getByRole("group", { name: "What to play" })).getByRole("button", { name: /^Life of Jesus/ }));
+    expect(screen.queryByRole("button", { name: `Play #${N}` })).not.toBeInTheDocument();
+    const levels = within(screen.getByRole("group", { name: "How hard" })).getAllByRole("button");
+    expect(levels.map((b) => b.textContent)).toEqual(["Easy · 4 cards", "Medium · 5 cards", "Hard · 7 cards"]);
+    expect(screen.getByText("Best perfect streak at this level")).toBeInTheDocument();
     fireEvent.click(levels[0]);
     fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
     expect(cards()).toHaveLength(4);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Easy · Life of Jesus/);
+    fireEvent.click(screen.getByRole("button", { name: "Game home" })); // back home after Practice: Practice stays chosen
+    expect(within(screen.getByRole("group", { name: "What to play" })).getByRole("button", { name: /^Life of Jesus/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "Easy · 4 cards" })).toHaveAttribute("aria-pressed", "true");
   });
 
   it("moves a card by tapping it and then the card whose place it should take", async () => {
@@ -194,7 +199,8 @@ describe("timeline sort page", () => {
 
   it("plays a Practice round: Check waits for a move, then pairs in order and the next round", async () => {
     renderAt();
-    fireEvent.click(await screen.findByRole("button", { name: "Start practice" }));
+    fireEvent.click(await screen.findByRole("button", { name: /^All of the Bible/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
     expect(cards()).toHaveLength(5);
     expect(check()).toBeDisabled();
     keyboardMove(0, 4);

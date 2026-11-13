@@ -41,6 +41,12 @@ const DRAWINGS = {
   basket: <><path d="M3.5 13.5h17l-2 7h-13z" /><path d="M6 13.5a3 2.6 0 0 1 6 0M12 13.5a3 2.6 0 0 1 6 0M9 11a3 2.4 0 0 1 6 0" /><path d="M7 16.5h10" /></>,
   // Christmas and Easter: the cross on its hill, under the star.
   cross: <><path d="M3 20.5c3.5-2.6 14.5-2.6 18 0" /><path d="M12 18.6V8.5M8.5 11.5h7" /><path d="M18.5 3.5l.5 1.1 1.1.5-1.1.5-.5 1.1-.5-1.1-1.1-.5 1.1-.5z" /></>,
+  // Timeline sort (owner, 2026-11-13). Today's timeline: a page of the calendar with a star on it.
+  calendar: <><path d="M4 6.5h16V20H4z" /><path d="M4 10.5h16" /><path d="M8 4v4.5M16 4v4.5" /><path d="M12 12.6l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2-1.45-1.4 2-.3z" /></>,
+  // Abraham's world: a tent under the stars.
+  tent: <><path d="M2 20h20" /><path d="M3.5 20 12 7l8.5 13" /><path d="M10 20l2-5.5 2 5.5" /><path d="M5 3.5l.4.8.8.4-.8.4-.4.8-.4-.8-.8-.4.8-.4zM19 4.5l.4.8.8.4-.8.4-.4.8-.4-.8-.8-.4.8-.4z" /></>,
+  // Return from exile: the city wall built again.
+  wall: <><path d="M3 20V10h3v2.5h3V10h3v2.5h3V10h3v2.5h3V20z" /><path d="M3 16h18M7.5 16v4M16.5 16v4M12 12.5V16" /><path d="M10.5 20v-2a1.5 1.5 0 0 1 3 0v2" /></>,
 } satisfies Record<string, ReactNode>;
 
 export type TileIconKey = keyof typeof DRAWINGS;
@@ -49,7 +55,7 @@ export type TileIconKey = keyof typeof DRAWINGS;
 const TONES: Record<TileIconKey, string> = {
   people: "poetry", places: "history", verses: "revelation", book: "epistles", sunrise: "poetry", tablets: "history",
   crown: "revelation", scroll: "prophets", lyre: "acts", fish: "gospels", quill: "epistles", veil: "acts", seed: "poetry",
-  little: "acts", kids: "epistles", basket: "prophets", cross: "revelation",
+  little: "acts", kids: "epistles", basket: "prophets", cross: "revelation", calendar: "history", tent: "poetry", wall: "acts",
 };
 
 /** The tile's colour, as the --mm-tone its drawing, edge and short line use. */
