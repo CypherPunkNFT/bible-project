@@ -2,6 +2,7 @@
 // for the original version: people and their stories, places and what happened there (scripts/memory-match/places.json),
 // and the two halves of a well-known verse (verse completion's pool, split in verse-cards.ts). A version names its two
 // sides as the card backs show them, with an emblem and a card design each (CardArt.tsx, memory-match.css).
+import type { TileIconKey } from "./TileIcons";
 
 export type VersionKey = "people" | "places" | "verses";
 export type EmblemKey = "bust" | "book" | "pin" | "spark" | "open" | "close";
@@ -22,6 +23,8 @@ export interface Version {
   /** The end screen's heading over the pairs. */
   reading: string;
   sides: { who: Side; story: Side };
+  /** The start screen's tile drawing for each of the version's decks, by deck key (TileIcons.tsx). */
+  deckIcons: Record<string, TileIconKey>;
   /** The end screen's link to the who card's own page, when it has one. */
   aboutLink?: (label: string) => string;
 }
@@ -31,16 +34,20 @@ export const VERSIONS: readonly Version[] = [
     key: "people", chip: "People and stories", lede: "Turn over two cards at a time. Pair each person with their story.",
     reading: "The stories", aboutLink: (label) => `About ${label}`,
     sides: { who: { label: "Who", art: "who", emblem: "bust" }, story: { label: "Story", art: "story", emblem: "book" } },
+    deckIcons: { mixed: "book", beginnings: "sunrise", "judges-kings": "crown", prophets: "scroll", women: "veil", jesus: "fish",
+      church: "quill", parables: "seed" },
   },
   {
     key: "places", chip: "Places and events", lede: "Turn over two cards at a time. Pair each place with what happened there.",
     reading: "The places", aboutLink: (label) => `${label} on the map`,
     sides: { who: { label: "Place", art: "place", emblem: "pin" }, story: { label: "Event", art: "event", emblem: "spark" } },
+    deckIcons: { mixed: "book", beginnings: "tablets", "land-kings": "crown", jesus: "fish", church: "quill" },
   },
   {
     key: "verses", chip: "Verses", lede: "Turn over two cards at a time. Pair the start of each verse with its end.",
     reading: "The verses",
     sides: { who: { label: "Begins", art: "begins", emblem: "open" }, story: { label: "Ends", art: "ends", emblem: "close" } },
+    deckIcons: { mixed: "book", psalms: "lyre", "law-prophets-wisdom": "scroll", gospels: "fish", letters: "quill" },
   },
 ];
 

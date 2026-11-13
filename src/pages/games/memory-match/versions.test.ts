@@ -98,3 +98,14 @@ describe("the versions", () => {
     expect(isVersionKey("songs")).toBe(false);
   });
 });
+
+describe("the start screen's tiles", () => {
+  it("draw every deck of every version", async () => {
+    const people = (await import("@/data/memory-match/pairs.json")).default as unknown as PairsFile;
+    const files = { people, places, verses } as const;
+    for (const version of VERSIONS) {
+      const keys = files[version.key].decks.map((deck) => deck.key);
+      expect(Object.keys(version.deckIcons).sort(), version.key).toEqual([...keys].sort());
+    }
+  });
+});

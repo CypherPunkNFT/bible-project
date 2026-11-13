@@ -5,11 +5,12 @@
 import { Star } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { MoreOptions } from "../kit";
-import { CardBack, VersionIcon } from "./CardArt";
+import { CardBack } from "./CardArt";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
 import type { Best, Settings } from "./storage";
+import { TileIcon } from "./TileIcons";
 import { VERSIONS, type Version, type VersionKey } from "./versions";
 
 export interface Choice { deck: string; difficulty: Difficulty; players: number; names: string[] }
@@ -60,14 +61,14 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
     <fieldset className="mm-tiles">
       <legend>Match</legend>
       {VERSIONS.map((item) => <button key={item.key} type="button" className="mm-tile" aria-pressed={version.key === item.key}
-        onClick={() => onVersion(item.key)}><VersionIcon version={item.key} /><span>{item.chip}</span></button>)}
+        onClick={() => onVersion(item.key)}><TileIcon name={item.key} /><span>{item.chip}</span></button>)}
     </fieldset>
-    <fieldset className="mm-chips">
+    <fieldset className="mm-tiles">
       <legend>Deck</legend>
-      {data.decks.map((deck) => <button key={deck.key} type="button" aria-pressed={choice.deck === deck.key}
+      {data.decks.map((deck) => <button key={deck.key} type="button" className="mm-tile" aria-pressed={choice.deck === deck.key}
         onClick={() => onChoice({ ...choice, deck: deck.key,
           difficulty: isOffered(data, deck.key, choice.difficulty) ? choice.difficulty : "easy" })}>
-        {deck.title}
+        <TileIcon name={version.deckIcons[deck.key] ?? "book"} /><span>{deck.title}</span>
       </button>)}
     </fieldset>
     <fieldset className="mm-chips">
