@@ -1,10 +1,11 @@
 // What came first?: the start screen, the run-over screen and the can't-load screen (design §9.1, §9.4). The start
-// shows the nine pills, the chosen kind's question, a sample of the game itself and one row of Streak and Relaxed with
-// that pill's bests; the ending is a result card titled with the kind of round: the number counting up, a bar against
+// has the game's drawing beside the title (owner, 2026-11-12, like the crossword), the nine tiles, the row of Easy,
+// Medium, Hard and Streak right under them with the bests, then the chosen kind's question and a sample of the game; the ending is a result card titled with the kind of round: the number counting up, a bar against
 // your best, a ribbon and one burst for a new best, the missed rounds each with their reading open, and Share.
 import { RotateCcw, X } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
+import { GAME_ART, GameArtImage } from "../art";
 import { AnswerCard, Confetti, NewBestRibbon, ResultPanel, ScoreCountUp, ShareButton, StreakFlame } from "../kit";
 import { shortName } from "../whos-older/explain";
 import { CATEGORIES, categoryInfo, type Choice } from "./categories";
@@ -95,14 +96,14 @@ const HOW: Record<Choice, string> = {
 export function StartScreen({ pools, choice, onChoose, best, saving, resume, resumeScore, onPlay, onResume }: StartProps) {
   const info = categoryInfo(choice);
   return <div className="wo-start">
-    <h1>What came first?</h1>
-    <p className="wo-lede">Two from the Bible. Tap the one that came first.</p>
-    <CategoryPills choice={choice} onChoose={onChoose} />
-    <div className="wcf-chosen" style={{ "--wcf-tone": `var(--${info.tone})` } as CSSProperties}>
-      <p className="wcf-chosen-ask">{info.heading}</p>
-      <p className="wcf-chosen-sub">{info.subtitle}</p>
+    <div className="wcf-start-head">
+      <GameArtImage art={GAME_ART.whatCameFirst} className="wcf-art" />
+      <div>
+        <h1>What came first?</h1>
+        <p className="wo-lede">Two from the Bible. Tap the one that came first.</p>
+      </div>
     </div>
-    <Sample pools={pools} choice={choice} />
+    <CategoryPills choice={choice} onChoose={onChoose} />
     {resume && <button type="button" className="wo-primary wo-continue" onClick={onResume}>
       <span className="wcf-name">{categoryInfo(resume.choice).label}</span>
       <span>{resume.mode === "streak" ? `Continue (streak ${resumeScore})` : `Continue (score ${resumeScore})`}</span>
@@ -119,6 +120,11 @@ export function StartScreen({ pools, choice, onChoose, best, saving, resume, res
         <StreakFlame count={best.streak} litFrom={1} label={plural(best.streak, "{n} in a row", "{n} in a row")} /></p>
     </div>}
     {!saving && <p className="wo-note">Best scores are not saved on this device</p>}
+    <div className="wcf-chosen" style={{ "--wcf-tone": `var(--${info.tone})` } as CSSProperties}>
+      <p className="wcf-chosen-ask">{info.heading}</p>
+      <p className="wcf-chosen-sub">{info.subtitle}</p>
+    </div>
+    <Sample pools={pools} choice={choice} />
     <details className="wo-how">
       <summary>How we decide what came first</summary>
       <p>The game follows the order the Bible gives. Dates in years are scholars' reconstructions, and their systems differ.

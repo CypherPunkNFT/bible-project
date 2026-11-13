@@ -231,18 +231,23 @@
 .wcf-kind[aria-pressed="true"] .wcf-kind-name { color: var(--ink); }
 .wcf-kind[aria-pressed="true"] .wcf-kind-ask { color: color-mix(in srgb, var(--wcf-tone) 70%, var(--ink)); }
 /* The chosen kind's question, centred under the tiles, with its colour as a short rule. */
-.wcf-chosen { margin: 2.2rem auto 0; text-align: center; }
+.wcf-chosen { max-width: 34rem; margin: 2.2rem auto 0; padding-top: 1.6rem; border-top: 1px solid var(--line); text-align: center; }
 .wcf-chosen-ask { font-family: var(--font-serif); font-size: clamp(1.35rem, 3.6vw, 1.75rem); line-height: 1.2; }
 .wcf-chosen-sub { margin-top: .35rem; color: var(--muted); font-size: .92rem; }
 .wcf-chosen::after { content: ""; display: block; width: 3rem; height: 2px; margin: .8rem auto 0; border-radius: 2px; background: var(--wcf-tone); }
 /* The start screen, centred (owner, 2026-11-12). */
 .wo-start { text-align: center; }
+/* The game's drawing beside the title, like the crossword's (owner, 2026-11-12); the pair stays centred on the page. */
+.wcf-start-head { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1rem; text-align: start; }
+.wcf-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--epistles); }
+.wo-start .wcf-start-head h1 { margin-top: 0; }
+.wo-start .wcf-start-head .wo-lede { margin-inline: 0; }
 .wo-start .wo-lede { max-width: 32rem; margin-inline: auto; }
 .wo-start .wo-sample { margin-inline: auto; }
 .wo-start .wcf-sample-q { margin-inline: auto; }
 .wo-start .wo-continue { margin-top: 1.4rem; }
 /* One row: Easy, Medium, Hard, Streak, equal widths (owner, 2026-11-12); the rule under it says what each means. */
-.wcf-play { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 34rem; margin: 2.2rem auto 0; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.wcf-play { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 34rem; margin: 1.6rem auto 0; }
 .wcf-play > button { justify-content: center; width: 100%; min-height: 48px; padding-inline: .6rem; }
 .wcf-play-note { max-width: 30rem; margin: .9rem auto 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
 .wcf-play-best { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: .9rem; }
