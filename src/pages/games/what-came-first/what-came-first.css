@@ -211,13 +211,36 @@
 /* ---- What came first?: the pills, the kind's accent, Bible Firsts' answers ------------------------------------
    One room, eight accents: a category's book-colour tone (--wcf-tone) marks only its pill, its Mixed chip and a thin
    rule under its heading. Pills are buttons in one group, all visible, never a dropdown; focus is the lift and edge. */
-.wcf-pills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: 1.3rem; }
-@media (min-width: 640px) { .wcf-pills { display: flex; flex-wrap: wrap; } }
-.wcf-pill { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .9rem; font-weight: 600; outline: none; transition: border-color .35s var(--wo-ease), transform .35s var(--wo-ease), background-color .35s var(--wo-ease), color .35s var(--wo-ease); }
-.wcf-pill:is(:hover, :focus-visible) { border-color: var(--wcf-tone); transform: translateY(-2px); }
-.wcf-pill[aria-pressed="true"] { border-color: var(--wcf-tone); background: color-mix(in srgb, var(--wcf-tone) 16%, var(--surface)); color: var(--ink); }
-.wcf-pill[aria-pressed="true"]::before { content: ""; display: inline-block; width: .5rem; height: .5rem; margin-right: .45rem; border-radius: 50%; background: var(--wcf-tone); vertical-align: .08em; }
-.wcf-chosen { margin-top: 1rem; padding-bottom: .35rem; border-bottom: 2px solid var(--wcf-tone); font-family: var(--font-serif); font-size: 1.25rem; width: fit-content; }
+/* The nine choices: equal tiles, three to a row at every width (owner, 2026-11-12), each with its line drawing in its
+   own book colour. The chosen tile wears its colour as its one border and a faint wash; the others' drawings rest in a
+   quieter mix. Focus and hover are the tile's lift, never an outline. */
+.wcf-kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; max-width: 46rem; margin: 2rem auto 0; }
+.wcf-kind { --game: color-mix(in srgb, var(--wcf-tone) 62%, var(--muted)); display: flex; flex-direction: column; align-items: center; gap: .15rem; min-height: 44px; padding: .9rem .6rem 1rem; border: 1px solid var(--line); border-radius: 1.1rem; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink); text-align: center; outline: none; transition: border-color .4s var(--wo-ease), transform .4s var(--wo-ease), background-color .4s var(--wo-ease), box-shadow .4s var(--wo-ease); }
+.wcf-kind:is(:hover, :focus-visible) { --game: var(--wcf-tone); transform: translateY(-3px); border-color: color-mix(in srgb, var(--wcf-tone) 55%, var(--line)); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .7); }
+.wcf-kind[aria-pressed="true"] { --game: var(--wcf-tone); border-color: var(--wcf-tone); background: color-mix(in srgb, var(--wcf-tone) 11%, var(--surface)); }
+.wcf-kind-art { width: 100%; max-width: 8.5rem; margin-bottom: .2rem; }
+.wcf-kind-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; line-height: 1.2; }
+.wcf-kind-ask { color: var(--muted); font-size: .8rem; line-height: 1.35; }
+.wcf-kind[aria-pressed="true"] .wcf-kind-name { color: var(--ink); }
+.wcf-kind[aria-pressed="true"] .wcf-kind-ask { color: color-mix(in srgb, var(--wcf-tone) 70%, var(--ink)); }
+/* The chosen kind's question, centred under the tiles, with its colour as a short rule. */
+.wcf-chosen { margin: 2.2rem auto 0; text-align: center; }
+.wcf-chosen-ask { font-family: var(--font-serif); font-size: clamp(1.35rem, 3.6vw, 1.75rem); line-height: 1.2; }
+.wcf-chosen-sub { margin-top: .35rem; color: var(--muted); font-size: .92rem; }
+.wcf-chosen::after { content: ""; display: block; width: 3rem; height: 2px; margin: .8rem auto 0; border-radius: 2px; background: var(--wcf-tone); }
+/* The start screen, centred (owner, 2026-11-12). */
+.wo-start { text-align: center; }
+.wo-start .wo-lede { max-width: 32rem; margin-inline: auto; }
+.wo-start .wo-sample { margin-inline: auto; }
+.wo-start .wcf-sample-q { margin-inline: auto; }
+.wo-start .wo-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 40rem; margin-inline: auto; margin-top: 2rem; }
+.wo-start .wo-mode { align-items: center; }
+.wo-start .wo-chips { justify-content: center; }
+.wo-start .wo-chips legend { text-align: center; }
+.wo-start .wo-continue { margin-top: 1.4rem; }
+.wo-start .wo-how { max-width: 36rem; margin-inline: auto; }
+.wo-start .wo-how p { text-align: left; }
+.wo-start .wo-how summary { display: flex; justify-content: center; text-align: center; }
 .wcf-heading { margin-top: .4rem; }
 .wcf-heading .wo-hint { padding-bottom: .35rem; border-bottom: 2px solid color-mix(in srgb, var(--wcf-tone) 70%, transparent); width: fit-content; }
 .wcf-chip { display: inline-block; margin-top: .3rem; padding: .2rem .6rem; border-radius: 999px; background: color-mix(in srgb, var(--wcf-tone) 16%, var(--surface)); color: var(--wcf-tone); font: 650 .66rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
@@ -246,5 +269,9 @@
 @media (max-width: 639px) {
   .wo-card.wcf-answer.kit-card { --kit-card-height: 5.6rem; min-height: 5.6rem; padding: 1.2rem .5rem .7rem; }
   .wo-card.wcf-phrase .wo-card-name { font-size: clamp(.92rem, 4.2vw, 1.1rem); }
-  .wcf-pill { padding: .45rem .5rem; font-size: .85rem; }
+  .wcf-kinds { gap: .5rem; margin-top: 1.5rem; }
+  .wcf-kind { padding: .6rem .3rem .7rem; border-radius: .9rem; }
+  .wcf-kind-name { font-size: .95rem; }
+  .wcf-kind-ask { display: none; }
+  .wo-start .wo-modes { gap: 1rem; }
 }

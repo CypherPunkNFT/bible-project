@@ -12,6 +12,7 @@ import { DIFFICULTIES, DIFFICULTY_LABELS, answersOf, askedAll, isPairRound, miss
   type Difficulty, type Mode, type Run } from "./game";
 import type { Pools } from "./pool";
 import { Hourglass } from "./Hourglass";
+import { CategoryArt } from "./CategoryArt";
 import { ChoiceReading, Reading } from "./Reveal";
 import { Medallion } from "./Round";
 import { cardTag, reachedTitle, samplePair } from "./view";
@@ -30,11 +31,17 @@ interface StartProps {
   onResume: () => void;
 }
 
-/** The nine pills, all visible at once: a single-choice group of buttons, never a dropdown (design §9.1). */
+/** The nine choices, all visible at once, as equal tiles three to a row, each with its own line drawing (owner,
+ *  2026-11-12): a single-choice group of buttons, never a dropdown (design §9.1). The question under the name is
+ *  decoration (aria-hidden), so each button is named by its label alone. */
 export function CategoryPills({ choice, onChoose }: { choice: Choice; onChoose: (choice: Choice) => void }) {
-  return <div className="wcf-pills" role="group" aria-label="What to play">
-    {CATEGORIES.map((c) => <button key={c.key} type="button" className="wcf-pill" aria-pressed={c.key === choice}
-      style={{ "--wcf-tone": `var(--${c.tone})` } as CSSProperties} onClick={() => onChoose(c.key)}>{c.label}</button>)}
+  return <div className="wcf-kinds" role="group" aria-label="What to play">
+    {CATEGORIES.map((c) => <button key={c.key} type="button" className="wcf-kind" aria-pressed={c.key === choice}
+      style={{ "--wcf-tone": `var(--${c.tone})` } as CSSProperties} onClick={() => onChoose(c.key)}>
+      <CategoryArt choice={c.key} />
+      <span className="wcf-kind-name">{c.label}</span>
+      <span className="wcf-kind-ask" aria-hidden="true">{c.format === "pair" ? c.heading : c.subtitle}</span>
+    </button>)}
   </div>;
 }
 
@@ -83,7 +90,10 @@ export function StartScreen({ pools, choice, onChoose, best, saving, resume, res
     <h1>What came first?</h1>
     <p className="wo-lede">Two from the Bible. Tap the one that came first.</p>
     <CategoryPills choice={choice} onChoose={onChoose} />
-    <p className="wcf-chosen" style={{ "--wcf-tone": `var(--${info.tone})` } as CSSProperties}>{info.heading}</p>
+    <div className="wcf-chosen" style={{ "--wcf-tone": `var(--${info.tone})` } as CSSProperties}>
+      <p className="wcf-chosen-ask">{info.heading}</p>
+      <p className="wcf-chosen-sub">{info.subtitle}</p>
+    </div>
     <Sample pools={pools} choice={choice} />
     {resume && <button type="button" className="wo-primary wo-continue" onClick={onResume}>
       <span className="wcf-name">{categoryInfo(resume.choice).label}</span>

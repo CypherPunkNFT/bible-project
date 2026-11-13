@@ -54,13 +54,14 @@ describe("what came first page", () => {
     renderGame();
     expect(await screen.findByRole("heading", { level: 1, name: "What came first?" })).toBeInTheDocument();
     const pills = within(screen.getByRole("group", { name: "What to play" })).getAllByRole("button");
-    expect(pills.map((p) => p.textContent)).toEqual(CATEGORIES.map((c) => c.label));
+    expect(pills.map((p) => p.querySelector(".wcf-kind-name")?.textContent)).toEqual(CATEGORIES.map((c) => c.label));
+    expect(pills.every((p) => p.querySelector("svg"))).toBe(true); // each tile carries its line drawing
     expect(pill("Mixed")).toHaveAttribute("aria-pressed", "true");
     expect(document.querySelector("select, [role=combobox], [role=listbox]")).toBeNull();
     fireEvent.click(pill("Rulers"));
     expect(pill("Rulers")).toHaveAttribute("aria-pressed", "true");
     expect(where).toBe("/games/what-came-first?c=ruled");
-    expect(screen.getByText("Who ruled first?")).toBeInTheDocument();
+    expect(document.querySelector(".wcf-chosen-ask")?.textContent).toBe("Who ruled first?");
   });
 
   it.each(CATEGORIES.filter((c) => c.key !== "mixed").map((c) => c.key as CategoryKey))("plays a round of %s with its question, reveal and reason", async (key) => {
