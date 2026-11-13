@@ -11,6 +11,13 @@ export const KINDS: readonly Kind[] = ["person", "place", "book"];
 export const CHOICES: readonly Choice[] = ["person", "place", "book", "mixed"];
 export const DIFFICULTIES: readonly Difficulty[] = ["easy", "medium", "hard"];
 export const CHOICE_LABELS: Record<Choice, string> = { person: "People", place: "Places", book: "Books", mixed: "Mixed" };
+/** The line under each choice's card on the start page, and its book-colour tone (src/index.css). */
+export const CHOICE_CARDS: Record<Choice, { note: string; tone: string }> = {
+  person: { note: "Men and women of the Bible", tone: "epistles" },
+  place: { note: "Towns, lands and seas", tone: "history" },
+  book: { note: "The books of the Bible", tone: "poetry" },
+  mixed: { note: "People, places and books", tone: "gospels" },
+};
 export const DIFFICULTY_LABELS: Record<Difficulty, string> = { easy: "Easy", medium: "Medium", hard: "Hard" };
 export const ROUND_LENGTH = 10;
 export const SEEN_LIMIT = 200;

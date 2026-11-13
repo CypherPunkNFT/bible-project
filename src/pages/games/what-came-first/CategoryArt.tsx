@@ -4,14 +4,9 @@
 // reduced motion nothing moves and every drawing is complete. Paths with ga-draw / ga-write carry pathLength={1}.
 import type { CSSProperties, ReactNode } from "react";
 import { P, T } from "../art/parts";
+import { TileArch } from "../art/tiles";
 import "../art/game-art.css";
 import type { Choice } from "./categories";
-
-const Arch = () => <g>
-  <path className="ga-arch" d="M30 74V40A30 30 0 0 1 90 40V74Z" />
-  <path className="ga-arch-line" d="M34 74V41A26 26 0 0 1 86 41V74" />
-  <P d="M12 74H108" c="ga-f" />
-</g>;
 
 const Drawn = ({ d, c = "ga-l ga-draw", i = 0 }: { d: string; c?: string; i?: number }) =>
   <path className={c} d={d} pathLength={1} style={{ "--i": i } as CSSProperties} />;
@@ -117,6 +112,6 @@ const SCENES: Record<Choice, () => ReactNode> = {
 export function CategoryArt({ choice }: { choice: Choice }) {
   const Scene = SCENES[choice];
   return <svg className="ga-art wcf-kind-art" viewBox="0 0 120 80" aria-hidden="true" focusable="false">
-    <Arch /><Scene />
+    <TileArch /><Scene />
   </svg>;
 }

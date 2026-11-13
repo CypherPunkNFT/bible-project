@@ -26,14 +26,14 @@ const scoreShown = () => document.querySelector(".oo-score")?.getAttribute("data
 beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 
 describe("odd one out page", () => {
-  it("opens on the crossword's start screen: the drawing by the title, four choice cards with drawings, Play below", async () => {
+  it("opens on the start screen: the drawing by the title, four choice cards with drawings, Play beside How hard", async () => {
     renderGame();
     await screen.findByRole("button", { name: "Play" });
     expect(document.querySelector(".oo-start-head .oo-art")).not.toBeNull();
-    const cards = [...document.querySelectorAll<HTMLButtonElement>(".oo-shelf .oo-pick")];
-    expect(cards.map((card) => card.textContent)).toEqual(["People", "Places", "Books", "Mixed"]);
-    cards.forEach((card) => expect(card.querySelector("svg.oo-icon")).not.toBeNull());
-    expect(document.querySelector(".oo-start-foot .oo-primary")).not.toBeNull();
+    const cards = within(screen.getByRole("group", { name: "What to play" })).getAllByRole("button");
+    expect(cards.map((card) => card.querySelector(".oo-card-name")?.textContent)).toEqual(["People", "Places", "Books", "Mixed"]);
+    cards.forEach((card) => expect(card.querySelector("svg.oo-card-art")).not.toBeNull());
+    expect(document.querySelector(".oo-start-row .oo-chips + .oo-primary")).not.toBeNull();
   });
 
   it("opens a new player's first round with Peter, John, Paul, James and explains the answer", async () => {

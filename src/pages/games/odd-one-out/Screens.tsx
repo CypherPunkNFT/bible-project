@@ -1,16 +1,17 @@
 // Odd one out: the start screen, the round summary and the can't-load screen (design section 10). The start screen
 // follows the Bible crossword's (owner, 2026-11-12: "make this the standard"): the hub's drawing beside the title, the
-// four choices as cards with their own line drawing, the levels as pills, and Play under a hairline. The summary is a
+// four choices as cards like Bible Wordle's (owner, 2026-11-13: an arched drawing in each card's own book colour, the
+// name centred, a line under it), and one row of the levels with Play beside them, no hairline. The summary is a
 // result card that counts up over the trail of ten with Play again and Share beside it; the ten rows stay below.
 import { Check, RotateCcw, X } from "lucide-react";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, type CSSProperties } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { Confetti, HopWave, NewBestRibbon, ProgressTrail, RankLine, ResultPanel, ScoreCountUp, ShareButton,
   StreakFlame, trailMarks, trailText } from "../kit";
-import { CHOICES, CHOICE_LABELS, DIFFICULTIES, DIFFICULTY_LABELS, RANKS, ROUND_LENGTH, isAvailable, levelsNote, scoreRound,
+import { CHOICES, CHOICE_CARDS, CHOICE_LABELS, DIFFICULTIES, DIFFICULTY_LABELS, RANKS, ROUND_LENGTH, isAvailable, levelsNote, scoreRound,
   shareLines, shownLabel, type Choice, type Difficulty, type SetsFile } from "./game";
 import { GAME_ART, GameArtImage } from "../art";
-import { ChoiceIcon } from "./ChoiceIcons";
+import { ChoiceArt } from "./ChoiceArt";
 import { OddExtrasContext } from "./extras";
 import { Headline, Lines } from "./Reveal";
 import type { RoundState } from "./storage";
@@ -42,27 +43,30 @@ export function StartScreen({ data, choice, difficulty, best, focusTitle = false
       </div>
     </div>
     {extras.startArt?.(data)}
-    <fieldset className="oo-shelf">
-      <legend>What</legend>
+    <div className="oo-cards" role="group" aria-label="What to play">
       {CHOICES.map((c) => {
         const open = DIFFICULTIES.some((d) => isAvailable(data, c, d));
-        return <button key={c} type="button" className="oo-pick" aria-pressed={c === choice} disabled={!open} onClick={() => onChoice(c)}>
-          <ChoiceIcon choice={c} /><span>{CHOICE_LABELS[c]}</span></button>;
+        return <button key={c} type="button" className="oo-card" aria-pressed={c === choice} disabled={!open} onClick={() => onChoice(c)}
+          style={{ "--oo-tone": `var(--${CHOICE_CARDS[c].tone})` } as CSSProperties}>
+          <ChoiceArt choice={c} />
+          <span className="oo-card-name">{CHOICE_LABELS[c]}</span>
+          <span className="oo-card-note" aria-hidden="true">{CHOICE_CARDS[c].note}</span>
+        </button>;
       })}
-    </fieldset>
-    <fieldset className="oo-chips">
-      <legend>How hard</legend>
-      {DIFFICULTIES.map((d) => {
-        const open = isAvailable(data, choice, d);
-        return <button key={d} type="button" aria-pressed={d === difficulty} disabled={!open} onClick={() => onDifficulty(d)}
-          aria-describedby={open ? undefined : "oo-levels-note"}>{DIFFICULTY_LABELS[d]}</button>;
-      })}
-    </fieldset>
-    {note && <p className="oo-note" id="oo-levels-note">{note}</p>}
-    <div className="oo-start-foot">
-      <button type="button" className="oo-primary" disabled={!playable} onClick={onPlay}>Play</button>
-      {best !== undefined && <span className="oo-best"><span>Your best here</span> <b>{`${formatNumber(best)} / ${formatNumber(ROUND_LENGTH)}`}</b></span>}
     </div>
+    <div className="oo-start-row">
+      <fieldset className="oo-chips">
+        <legend>How hard</legend>
+        {DIFFICULTIES.map((d) => {
+          const open = isAvailable(data, choice, d);
+          return <button key={d} type="button" aria-pressed={d === difficulty} disabled={!open} onClick={() => onDifficulty(d)}
+            aria-describedby={open ? undefined : "oo-levels-note"}>{DIFFICULTY_LABELS[d]}</button>;
+        })}
+      </fieldset>
+      <button type="button" className="oo-primary oo-start-play" disabled={!playable} onClick={onPlay}>Play</button>
+    </div>
+    {note && <p className="oo-note" id="oo-levels-note">{note}</p>}
+    {best !== undefined && <p className="oo-best"><span>Your best here</span> <b>{`${formatNumber(best)} / ${formatNumber(ROUND_LENGTH)}`}</b></p>}
   </div>;
 }
 
