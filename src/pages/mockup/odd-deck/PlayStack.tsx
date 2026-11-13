@@ -58,7 +58,7 @@ export function PlayStack({ data, round }: { data: SetsFile; round: RoundState }
           onClick={() => setChosen(entry.card.id)} aria-label={`Show ${entry.card.name}`}>
           <CardEdge card={entry.card} />
         </button>)}
-        <DeckCard key={top.card.id} card={top.card} kept={top.kept} className={`od-play-top${top.card.id === newest && !chosen ? " is-new" : ""}`} />
+        <DeckCard key={top.card.id} card={top.card} className={`od-play-top${top.card.id === newest && !chosen ? " is-new" : ""}`} />
       </div>
       {/* Phone: one row of short cards, scrolling sideways. */}
       <div className="od-play-hand" ref={hand}>
@@ -69,7 +69,7 @@ export function PlayStack({ data, round }: { data: SetsFile; round: RoundState }
           <b>{entry.card.name}</b><span>{detail(entry.card)}</span>
         </button>)}
       </div>
-      {chosen && <DeckCard key={`hand-${top.card.id}`} card={top.card} kept={top.kept} className="od-play-handcard" />}
+      {chosen && <DeckCard key={`hand-${top.card.id}`} card={top.card} className="od-play-handcard" />}
     </>}
   </aside>;
 }

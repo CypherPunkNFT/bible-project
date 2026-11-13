@@ -144,8 +144,8 @@
   .od-play { order: 0; position: sticky; top: 5rem; margin-top: 2.2rem; }
   .od-play-hand, .od-play-handcard { display: none; }
   .od-play-pile { display: flex; flex-direction: column; }
-  .od-play-edge { position: relative; margin-bottom: -.95rem; padding: 0; text-align: start; transform: rotate(var(--tilt)); transition: transform .3s cubic-bezier(.16, 1, .3, 1); animation: od-tuck .5s cubic-bezier(.16, 1, .3, 1) both; }
-  .od-play-edge .od-edge { height: 2.5rem; padding-bottom: .8rem; box-shadow: 0 -8px 16px -14px rgb(0 0 0 / .8); }
+  .od-play-edge { position: relative; margin-bottom: -.55rem; padding: 0; text-align: start; transform: rotate(var(--tilt)); transition: transform .3s cubic-bezier(.16, 1, .3, 1); animation: od-tuck .5s cubic-bezier(.16, 1, .3, 1) both; }
+  .od-play-edge .od-edge { height: 3.1rem; padding-bottom: .55rem; box-shadow: 0 -8px 16px -14px rgb(0 0 0 / .8); }
   .od-play-edge:is(:hover, :focus-visible) { transform: translateY(-5px) rotate(var(--tilt)); }
   .od-play-edge:focus-visible .od-edge { border-color: var(--ink); }
   .od-play-top { position: relative; z-index: 2; }
