@@ -3,7 +3,24 @@
 // (versions.ts): Who teal with a bust, Story wine red with an open book; Place forest green with a map pin, Event ochre
 // with a spark; Begins plum with an opening quotation mark, Ends slate blue with a closing one. Hard deals one plain navy
 // back with a star for both kinds, so a back never gives the kind away. The emblems also sit in a face's corners.
-import type { EmblemKey, Side } from "./versions";
+import type { ReactNode } from "react";
+import type { EmblemKey, Side, VersionKey } from "./versions";
+
+/** The start screen's tile drawings, one per version, in the crossword's theme-tile style (owner, 2026-11-12: "make it
+ *  this standard for choosing subgame"): line art on a 24-unit square with round ends. */
+const VERSION_DRAWINGS: Record<VersionKey, ReactNode> = {
+  // People and stories: two figures.
+  people: <><circle cx="8.5" cy="8" r="2.8" /><path d="M3 20a5.5 5.5 0 0 1 11 0" /><circle cx="16.5" cy="7" r="2.4" /><path d="M14.6 13.2A5 5 0 0 1 21.5 18" /></>,
+  // Places and events: a pin standing on the land.
+  places: <><path d="M12 18s-5.5-4.8-5.5-9.2a5.5 5.5 0 0 1 11 0C17.5 13.2 12 18 12 18z" /><circle cx="12" cy="8.8" r="2" /><path d="M5 18.5c-1.6.4-2.5 1-2.5 1.5 0 1.1 4.3 2 9.5 2s9.5-.9 9.5-2c0-.5-.9-1.1-2.5-1.5" /></>,
+  // Verses: quotation marks.
+  verses: <><path d="M10 6.5c-3.3.9-5.5 3.6-5.5 7.3v3.7h5v-5h-3" /><path d="M19.5 6.5c-3.3.9-5.5 3.6-5.5 7.3v3.7h5v-5h-3" /></>,
+};
+
+export function VersionIcon({ version }: { version: VersionKey }) {
+  return <svg className="mm-tile__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor"
+    strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{VERSION_DRAWINGS[version]}</svg>;
+}
 
 const QUOTE = "M10.2 5.5C6.6 6.7 4 9.6 4 13.6V18.5h6.2v-6.2H7.3c.1-2.4 1.4-4.1 3.6-5zM20.2 5.5c-3.6 1.2-6.2 4.1-6.2 8.1V18.5h6.2v-6.2h-2.9c.1-2.4 1.4-4.1 3.6-5z";
 

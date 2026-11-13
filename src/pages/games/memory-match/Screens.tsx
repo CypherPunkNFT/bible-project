@@ -5,7 +5,7 @@
 import { Star } from "lucide-react";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { MoreOptions } from "../kit";
-import { CardBack } from "./CardArt";
+import { CardBack, VersionIcon } from "./CardArt";
 import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficulty, type PairsFile } from "./deal";
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
@@ -57,10 +57,10 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
       </div>
       <CardFan key={version.key} version={version} />
     </div>
-    <fieldset className="mm-chips">
+    <fieldset className="mm-tiles">
       <legend>Match</legend>
-      {VERSIONS.map((item) => <button key={item.key} type="button" aria-pressed={version.key === item.key}
-        onClick={() => onVersion(item.key)}>{item.chip}</button>)}
+      {VERSIONS.map((item) => <button key={item.key} type="button" className="mm-tile" aria-pressed={version.key === item.key}
+        onClick={() => onVersion(item.key)}><VersionIcon version={item.key} /><span>{item.chip}</span></button>)}
     </fieldset>
     <fieldset className="mm-chips">
       <legend>Deck</legend>
