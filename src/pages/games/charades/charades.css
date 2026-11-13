@@ -12,27 +12,28 @@
 .ch-loading { margin-top: 2rem; color: var(--muted); }
 .ch-cant-load { margin-top: 2rem; display: grid; gap: 1rem; justify-items: start; }
 
-/* ---- Setup: the game shows itself, then Start, then the choices ------------------------------------------------- */
-.ch-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: 1rem 2rem; align-items: center; margin-top: 1rem; }
+/* ---- Setup: the game shows itself beside the title, then the choices, then Start ------------------------------- */
+/* The sample card stands to the left of the title, a little smaller than it was (owner, 2026-11-13). */
+.ch-hero { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1rem 1.6rem; align-items: center; margin-top: 1rem; }
 .ch-setup h1, .ch-recap h1, .ch-handover h1, .ch-final h1 { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; outline: none; }
 .ch-final h1 { margin-top: 1.4rem; }
 .ch-lede { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-.ch-sample { display: grid; place-items: center; padding: .8rem 1.2rem; overflow: hidden; }
-.ch-sample-card { position: relative; display: grid; grid-template-rows: auto 1fr auto; width: 12rem; aspect-ratio: 5 / 4; padding: .7rem .9rem; border: 2px solid var(--ch-color); border-radius: var(--ch-radius); background: var(--ch-tint); color: var(--ink); transform: rotate(-6deg); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .6); animation: ch-sample-sway 9s ease-in-out infinite alternate; }
+.ch-sample { display: grid; place-items: center start; padding: .8rem 1.2rem .8rem .4rem; overflow: hidden; }
+.ch-sample-card { position: relative; display: grid; grid-template-rows: auto 1fr auto; width: 10.5rem; aspect-ratio: 5 / 4; padding: .6rem .8rem; border: 2px solid var(--ch-color); border-radius: var(--ch-radius); background: var(--ch-tint); color: var(--ink); transform: rotate(-6deg); box-shadow: 0 18px 30px -24px rgb(0 0 0 / .6); animation: ch-sample-sway 9s ease-in-out infinite alternate; }
 .ch-sample-card::before, .ch-sample-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border: 2px solid color-mix(in srgb, var(--ch-color) 55%, transparent); border-radius: inherit; background: var(--page); transform: rotate(4deg) translate(5px, 5px); }
 .ch-sample-card::after { transform: rotate(8deg) translate(10px, 9px); border-color: color-mix(in srgb, var(--ch-color) 30%, transparent); }
 .ch-sample-deck, .ch-card-deck { font: 650 .62rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ch-color); }
-.ch-sample-title { display: grid; place-items: center; text-align: center; font: 700 1.25rem/1.15 var(--font-serif); letter-spacing: -.01em; animation: ch-sample-in .7s var(--ch-ease) both; }
+.ch-sample-title { display: grid; place-items: center; text-align: center; font: 700 1.1rem/1.15 var(--font-serif); letter-spacing: -.01em; animation: ch-sample-in .7s var(--ch-ease) both; }
 .ch-sample-foot { font-size: .75rem; color: var(--ch-got); letter-spacing: .1em; }
 @keyframes ch-sample-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes ch-sample-sway { from { transform: rotate(-6deg); } to { transform: rotate(-4deg) translateY(-3px); } }
 @media (max-width: 639px) {
-  .ch-hero { grid-template-columns: minmax(0, 1fr) 9rem; gap: .6rem; align-items: center; }
+  .ch-hero { grid-template-columns: 8rem minmax(0, 1fr); gap: .6rem; align-items: center; }
   .ch-hero-text h1 { font-size: 1.8rem; }
   .ch-lede { font-size: .92rem; line-height: 1.5; }
-  .ch-sample { padding: .6rem .5rem .6rem 0; }
-  .ch-sample-card { width: 8rem; padding: .5rem .6rem; }
-  .ch-sample-title { font-size: .95rem; }
+  .ch-sample { padding: .6rem .6rem .6rem .2rem; }
+  .ch-sample-card { width: 7rem; padding: .45rem .55rem; }
+  .ch-sample-title { font-size: .85rem; }
 }
 
 .ch-modes { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin-top: 1.2rem; border: 0; padding: 0; }
@@ -54,9 +55,9 @@
 /* Who's playing and the deck are Memory card match's picture tiles (memory-match/tiles.css; owner, 2026-11-13). From
    900px the start screen widens to 64rem, as memory's does, so the eight decks fit one row. */
 @media (min-width: 900px) { .ch-page:has(> .ch-setup) { max-width: 64rem; } }
-/* Difficulty and round length share one line, wrapping only when the screen is too narrow (owner, 2026-11-13). */
+/* Difficulty, round length and Start share one line, wrapping only when the screen is too narrow (owner, 2026-11-13). */
 .ch-line { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .9rem 2rem; margin-top: 1.2rem; }
-.ch-line > .ch-chips { margin-top: 0; }
+.ch-line > .ch-chips, .ch-line > .ch-start { margin-top: 0; }
 .ch-line > .ch-chips legend { width: auto; }
 .ch-more { margin-top: 1.3rem; }
 .ch-more > summary { color: var(--ink); }

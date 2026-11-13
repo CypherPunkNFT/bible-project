@@ -1,7 +1,7 @@
 // Family charades: the start screen (design §7.1, redesigned from the visual audit). The game shows itself first: a
-// tilted sample card beside the title, cycling slowly through real scenes, with Start right under it, so a phone sees
-// the button on its first screen. Who's playing and the deck follow as picture tiles like Memory card match's, then
-// difficulty and round length on one line (owner, 2026-11-13); the long tail (controls, sound, pictures, teams, and
+// tilted sample card to the left of the title, cycling slowly through real scenes. Who's playing and the deck follow
+// as picture tiles like Memory card match's, then difficulty, round length and Start on one line (owner, 2026-11-13,
+// as Memory card match's Deal sits at the end of its line); the long tail (controls, sound, pictures, teams, and
 // How to play) folds behind one "More options" row that names the current choices. Start runs the Start tap
 // (CharadesGame.tsx, §5.4).
 import { Play } from "lucide-react";
@@ -77,11 +77,11 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
   const [openAtFirst] = useState(teams.on);
   return <div className="ch-setup">
     <div className="ch-hero">
+      <SampleCard titles={sampleTitles(scenes)} deckTitle={deckTitle} still={still} />
       <div className="ch-hero-text">
         <h1>Family charades</h1>
         <p className="ch-lede">Hold the phone to your forehead, everyone acts out the Bible scene, and you guess.</p>
       </div>
-      <SampleCard titles={sampleTitles(scenes)} deckTitle={deckTitle} still={still} />
     </div>
 
     <fieldset className="ch-modes">
@@ -91,12 +91,6 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
           <strong>{title}</strong><span>{text}</span>
         </button>)}
     </fieldset>
-
-    {notice && <p className="ch-notice" role="status">{notice}</p>}
-    <div className="ch-start">
-      <button type="button" className="ch-primary ch-go" onClick={onStart} disabled={starting}><Play size={18} aria-hidden="true" />Start</button>
-      <p className="ch-best">{saving ? `Best in ${settings.seconds[ageGroup]} seconds: ${best}` : "Best scores are not saved on this device"}</p>
-    </div>
 
     <fieldset className="mm-tiles ch-ages" style={evenRows(AGE_GROUPS.length)}>
       <legend>Who's playing?</legend>
@@ -116,7 +110,13 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
       {usesDifficulty(settings) && <Chips label="Difficulty" options={DIFFICULTIES} value={settings.difficulty} onPick={(key) => onSettings({ difficulty: key })} />}
       <Chips label="Round length" options={ROUND_SECONDS.map((s) => ({ key: s, label: `${s} s` }))} value={settings.seconds[ageGroup]}
         onPick={(key) => onSettings({ seconds: { ...settings.seconds, [ageGroup]: key } })} />
+      {/* Start closes the line, after the last choice, as Deal does in Memory card match (owner, 2026-11-13). */}
+      <div className="ch-start">
+        <button type="button" className="ch-primary ch-go" onClick={onStart} disabled={starting}><Play size={18} aria-hidden="true" />Start</button>
+        <p className="ch-best">{saving ? `Best in ${settings.seconds[ageGroup]} seconds: ${best}` : "Best scores are not saved on this device"}</p>
+      </div>
     </div>
+    {notice && <p className="ch-notice" role="status">{notice}</p>}
 
     <MoreOptions className="ch-more" defaultOpen={openAtFirst} summary={<>
       <span>More options</span>
