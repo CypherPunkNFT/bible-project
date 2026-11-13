@@ -18,6 +18,9 @@ const ALIF = "[\u0627\u0671\u0623\u0625\u0622]";
 /** Arabic and Persian yeh and kaf, which the Persian text mixes. Alef maksura stays apart (Arabic "upon" is not "Ali"). */
 const YEH = "[\u064a\u06cc]";
 const KAF = "[\u0643\u06a9]";
+/** Straight, left and right single quotes: what is typed and what the Bibles print. */
+const APOSTROPHES = /['\u2018\u2019]/g;
+const APOSTROPHE_CLASS = "['\u2018\u2019]";
 
 function arabicLetter(ch: string): string {
   if (/[\u0627\u0671\u0623\u0625\u0622]/u.test(ch)) return ALIF;
@@ -34,6 +37,8 @@ function arabicLetter(ch: string): string {
  * Chinese and Japanese: no word spaces, so never "whole words", and the respectful space the Union Version puts
  * before 神 is skipped.
  * Hindi: a zero-width joiner inside a word is optional.
+ * Apostrophes: the straight one a phone keyboard types and the curly ones most English Bibles print match each other,
+ * so "Lord's" finds "Lord’s".
  */
 export function makeMatcher(query: string, wholeWords: boolean): RegExp | null {
   // The Bible data is NFC; a query typed in decomposed form (NFD) must match it too.
@@ -50,7 +55,7 @@ export function makeMatcher(query: string, wholeWords: boolean): RegExp | null {
   } else if (DEVANAGARI.test(phrase)) {
     body = [...phrase].map((ch) => (ch === " " ? "\\s+" : escapeRegExp(ch))).join("[\\u200c\\u200d]?");
   } else {
-    body = escapeRegExp(phrase).replace(/ /g, "\\s+");
+    body = escapeRegExp(phrase).replace(/ /g, "\\s+").replace(APOSTROPHES, APOSTROPHE_CLASS);
   }
   const whole = wholeWords && !noSpaces;
   const letter = "[\\p{L}\\p{M}\\u200c\\u200d]";

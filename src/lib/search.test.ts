@@ -16,6 +16,14 @@ describe("search", () => {
     expect(hits.map((h) => h.verse)).toEqual(["34", "35", "42"]);
   });
 
+  it("a straight apostrophe finds the curly one the Bibles print, and the other way round", () => {
+    const printed = [{ code: "PSA", plain: { "24:1": "The earth is the LORD’s, and the fulness thereof" } }];
+    expect(searchBooks(printed, makeMatcher("lord's", false)!)).toHaveLength(1);
+    expect(searchBooks(printed, makeMatcher("lord’s", true)!)).toHaveLength(1);
+    const straight = [{ code: "PSA", plain: { "24:1": "The earth is Jehovah's, and the fulness thereof" } }];
+    expect(searchBooks(straight, makeMatcher("jehovah’s", false)!)).toHaveLength(1);
+  });
+
   it("refuses queries shorter than two characters", () => {
     expect(makeMatcher(" a ", false)).toBeNull();
   });
