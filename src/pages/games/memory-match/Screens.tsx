@@ -106,15 +106,18 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
       </div>
     </div>
     {choice.players > 1 && <div className="mm-names">
-      {Array.from({ length: choice.players }, (_, n) => <label key={n}>
-        <span>{`${choice.phones ? "Team" : "Player"} ${formatNumber(n + 1)}`}</span>
-        <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={`${choice.phones ? "Team" : "Player"} ${formatNumber(n + 1)}`}
-          onChange={(event) => {
-            const names = [...choice.names];
-            names[n] = event.target.value;
-            onChoice({ ...choice, names });
-          }} />
-      </label>)}
+      {Array.from({ length: choice.players }, (_, n) => {
+        const label = choice.phones ? `Team ${formatNumber(n + 1)}` : `Player ${formatNumber(n + 1)}`;
+        return <label key={n}>
+          <span>{label}</span>
+          <input type="text" maxLength={20} value={choice.names[n] ?? ""} placeholder={label}
+            onChange={(event) => {
+              const names = [...choice.names];
+              names[n] = event.target.value;
+              onChoice({ ...choice, names });
+            }} />
+        </label>;
+      })}
     </div>}
     {dealFailed && <p className="mm-note" role="alert">The verses didn't load. Check the connection and deal again.</p>}
     {teamError && <p className="mm-note" role="alert">{teamError}</p>}

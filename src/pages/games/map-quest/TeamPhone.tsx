@@ -47,9 +47,10 @@ export default function MapTeamPhone({ view: raw, send }: PhoneScreenProps) {
   const standing = view.standing && <p className="tp-hint">{`Your team is ${ordinal(view.standing.place)} of ${formatNumber(view.standing.of)}, with ${pointsText(view.standing.score)}.`}</p>;
   if (view.phase === "done") return <><p className="tp-big">That's all five places. See the big screen!</p>{standing}</>;
   if (view.phase === "reveal") {
+    const away = view.result?.km == null ? null : distanceText(view.result.km);
     return <>
       <p className="tp-hint">{counter}</p>
-      <p className="tp-big">{view.result?.km == null ? `No pin for ${view.name}.` : `${view.name}: your pin was ${distanceText(view.result.km)} away.`}</p>
+      <p className="tp-big">{away === null ? `No pin for ${view.name}.` : `Your pin for ${view.name} was ${away} away.`}</p>
       <p className="tp-big"><b>{pointsText(view.result?.points ?? 0)}</b></p>
       {standing}
     </>;

@@ -124,7 +124,7 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
   /** Lays out a drawn board whose words are in hand. */
   const start = useCallback((c: Choice, study: boolean, ids: string[], filled: PairsFile, rng: () => number) => {
     rememberSeen(local, ids);
-    const named = Array.from({ length: c.players }, (_, n) => c.names[n]?.trim() || `${c.phones ? "Team" : "Player"} ${n + 1}`);
+    const named = Array.from({ length: c.players }, (_, n) => c.names[n]?.trim() || (c.phones ? `Team ${n + 1}` : `Player ${n + 1}`));
     const players = c.players > 1 ? (c.phones ? distinctNames(named) : named) : ["You"];
     const columns = columnsFor(c.difficulty, isNarrow());
     setBoard(filled);

@@ -3,7 +3,7 @@
 // pin revealed on the map with the points, then the final standings. The round lives in team.ts and is saved after
 // every change by the page; this screen turns it into views for the phones and buttons for the leader.
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { formatNumber } from "@/lib/site-format";
+import { formatList, formatNumber } from "@/lib/site-format";
 import { teamTone } from "../kit";
 import { useTeamHost } from "../team-play/host";
 import { JoinStrip, Lobby } from "../team-play/Lobby";
@@ -147,9 +147,12 @@ function Standings({ round }: { round: TeamRound }) {
 
 function Final({ round, onAgain, onEnd }: { round: TeamRound; onAgain: () => void; onEnd: () => void }) {
   const table = standings(round);
-  const winners = table.filter((row) => row.place === 1).map((row) => row.name);
+  // Two different sentences (one winner, or a tie between named teams), not a count, so no plural forms are needed.
+  const [first, ...tied] = table.filter((row) => row.place === 1).map((row) => row.name);
   return <section className="mq-team">
-    <h2 className="mq-team-ask">{winners.length === 1 ? <><span>{winners[0]}</span> wins!</> : <>A shared win: <span>{winners.join(" and ")}</span></>}</h2>
+    <h2 className="mq-team-ask">{tied.length > 0
+      ? <>A shared win: <span>{formatList([first, ...tied])}</span></>
+      : <><span>{first}</span> wins!</>}</h2>
     <Standings round={round} />
     <div className="mq-team-actions">
       <button type="button" className="mq-button mq-primary" onClick={onAgain}>Five more places</button>
