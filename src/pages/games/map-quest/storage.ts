@@ -2,11 +2,12 @@
 // 30 daily totals and today's confirmed pins. The game plays the same without storage (a private window); streaks are
 // then simply not kept. Whatever is stored is rebuilt field by field, so a damaged value can never break the page.
 
-/** `hints`: hint circles taken for the place (0 in records saved before hints existed). */
-export interface Pick { id: string; lon: number; lat: number; km: number; points: number; hints: number }
+/** `hints`: hint circles taken; `seconds`: time taken (both 0 in records saved before they existed). */
+export interface Pick { id: string; lon: number; lat: number; km: number; points: number; hints: number; seconds: number }
 export interface DayRecord { n: number; total: number }
-/** `hinting`: hint circles already taken for the place now being played, so a reload cannot take them back. */
-export interface TodayRecord { n: number; ids: string[]; picks: Pick[]; hinting?: { id: string; used: number } }
+/** The place now being played: hint circles already taken and when its clock started (ms), so a reload takes back neither. */
+export interface Playing { id: string; used: number; startedAt: number }
+export interface TodayRecord { n: number; ids: string[]; picks: Pick[]; playing?: Playing }
 export interface Stats {
   v: 1;
   played: number;
@@ -35,7 +36,7 @@ function parsePick(value: unknown): Pick | null {
   if (!v || typeof v.id !== "string") return null;
   const [lon, lat, km, points] = [finite(v.lon), finite(v.lat), finite(v.km), finite(v.points)];
   if (lon === null || lat === null || km === null || points === null) return null;
-  return { id: v.id, lon, lat, km, points: Math.round(points), hints: count(v.hints) };
+  return { id: v.id, lon, lat, km, points: Math.round(points), hints: count(v.hints), seconds: count(v.seconds) };
 }
 
 function parseToday(value: unknown): TodayRecord | null {
@@ -44,9 +45,11 @@ function parseToday(value: unknown): TodayRecord | null {
   const ids = v.ids.filter((id): id is string => typeof id === "string").slice(0, ROUND);
   const picks = v.picks.map(parsePick).filter((pick): pick is Pick => pick !== null).slice(0, ids.length);
   const n = count(v.n);
-  const hinting = record(v.hinting);
-  const pending = hinting && typeof hinting.id === "string" && count(hinting.used) > 0 ? { id: hinting.id, used: count(hinting.used) } : undefined;
-  return n > 0 && ids.length > 0 ? { n, ids, picks, ...(pending ? { hinting: pending } : {}) } : null;
+  const playing = record(v.playing);
+  const startedAt = finite(playing?.startedAt);
+  const current = playing && typeof playing.id === "string" && startedAt !== null && startedAt > 0
+    ? { id: playing.id, used: count(playing.used), startedAt } : undefined;
+  return n > 0 && ids.length > 0 ? { n, ids, picks, ...(current ? { playing: current } : {}) } : null;
 }
 
 /** A stored value, whatever its shape, as a sound record. */
@@ -92,17 +95,24 @@ export function recordPick(stats: Stats, n: number, pick: Pick): Stats {
   return { ...stats, today: { n: today.n, ids: today.ids, picks: [...today.picks, pick] } };
 }
 
+/** The saved state of the place now being played, or null when none is saved for it. */
+export const playingNow = (today: TodayRecord | null): Playing | null =>
+  today?.playing && today.playing.id === today.ids[today.picks.length] ? today.playing : null;
+
+/** Starts the clock on the place now being played; a clock already running for it is kept (a reload does not reset it). */
+export function recordStart(stats: Stats, n: number, id: string, at: number): Stats {
+  const today = stats.today;
+  if (!today || today.n !== n || today.ids[today.picks.length] !== id || playingNow(today)) return stats;
+  return { ...stats, today: { ...today, playing: { id, used: 0, startedAt: at } } };
+}
+
 /** Saves the hint circles taken so far for the place now being played (only ever more, never fewer). */
 export function recordHint(stats: Stats, n: number, id: string, used: number): Stats {
   const today = stats.today;
-  if (!today || today.n !== n || today.ids[today.picks.length] !== id) return stats;
-  const already = today.hinting?.id === id ? today.hinting.used : 0;
-  return used > already ? { ...stats, today: { ...today, hinting: { id, used } } } : stats;
+  const playing = playingNow(today);
+  if (!today || today.n !== n || !playing || playing.id !== id || used <= playing.used) return stats;
+  return { ...stats, today: { ...today, playing: { ...playing, used } } };
 }
-
-/** Hint circles already taken for the place now being played (0 when none, or when the record is for another place). */
-export const pendingHints = (today: TodayRecord | null): number =>
-  today?.hinting && today.hinting.id === today.ids[today.picks.length] ? today.hinting.used : 0;
 
 export const dailyTotal = (today: TodayRecord): number => today.picks.reduce((sum, pick) => sum + pick.points, 0);
 export const isFinished = (today: TodayRecord | null): boolean => !!today && today.picks.length >= today.ids.length;

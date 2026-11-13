@@ -110,6 +110,41 @@ describe("map quest page", () => {
     expect(screen.getByText(/0 km \(0 mi\) away, 850 points/)).toBeInTheDocument();
   });
 
+  it("runs a clock on each place that takes points off, the whole 300 once time is up", async () => {
+    await renderAt("/games/map-quest?play=practice&level=beginner&era=all");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    expect(screen.getByRole("timer", { name: "90 seconds left on the clock" })).toBeInTheDocument();
+    vi.setSystemTime(new Date(2026, 10, 9, 10, 0, 45));
+    answerExactly();
+    expect(screen.getByText(/0 km \(0 mi\) away, 850 points/)).toBeInTheDocument();
+    expect(screen.getByText("45 seconds")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next place" }));
+    vi.setSystemTime(new Date(2026, 10, 9, 10, 10));
+    answerExactly();
+    expect(screen.getByText(/0 km \(0 mi\) away, 700 points/)).toBeInTheDocument();
+  });
+
+  it("keeps the Daily Five's clock running through a reload", async () => {
+    const first = await renderAt("/games/map-quest?play=daily");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    first.unmount();
+    vi.setSystemTime(new Date(2026, 10, 9, 10, 0, 15));
+    await renderAt("/games/map-quest?play=daily");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    answerExactly();
+    expect(screen.getByText(/0 km \(0 mi\) away, 900 points/)).toBeInTheDocument();
+  });
+
+  it("lists every verse that names the place beside the map", async () => {
+    await renderAt("/games/map-quest?play=practice&level=beginner&era=all");
+    await screen.findByRole("img", { name: "Place 1 of 5" });
+    const panel = await screen.findByRole("complementary", { name: "Where Scripture names it" });
+    const name = screen.getByRole("heading", { level: 2 }).textContent ?? "";
+    const place = [...PLACE_BY_ID.values()].find((p) => p.name === name)!;
+    await waitFor(() => expect(within(panel).getByText(place.verseCount === 1 ? "1 verse" : `${place.verseCount.toLocaleString("en-US")} verses`)).toBeInTheDocument());
+    expect(within(panel).getByText(`verse ${place.verse}`)).toBeInTheDocument();
+  });
+
   it("reopens a finished Daily Five straight on the summary, with all five pins on the map", async () => {
     const first = await renderAt("/games/map-quest?play=daily");
     await screen.findByRole("img", { name: "Place 1 of 5" });

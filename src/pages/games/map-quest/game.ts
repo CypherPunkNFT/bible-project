@@ -3,6 +3,7 @@
 import { DAILY, DISPUTED, PLACES, PLACE_BY_ID } from "./data";
 import type { LonLat } from "./geo";
 import { ERAS, LEVELS, pickRound, practicePool, sitesOf, type DisputedPlace, type Era, type Level, type QuestPlace } from "./pools";
+import { timePenalty } from "./clock";
 import { HINT_COST } from "./hints";
 import { nearestSite, scoreForDistance } from "./scoring";
 import type { Pick } from "./storage";
@@ -22,8 +23,11 @@ export interface Question {
   source?: string;
 }
 
-/** `hints`: how many hint circles the player took for this place (each costs HINT_COST points). */
-export interface Result { question: Question; pin: LonLat; site: LonLat; km: number; points: number; hints: number }
+/** `hints`: hint circles taken (each HINT_COST points off); `seconds`: time taken; `timeOff`: the points the clock took. */
+export interface Result { question: Question; pin: LonLat; site: LonLat; km: number; points: number; hints: number; seconds: number; timeOff: number }
+
+/** What a place cost besides distance: hint circles and the time taken, at the game's level. */
+export interface Costs { hints?: number; seconds?: number; level?: Level }
 
 export interface Game {
   mode: Mode;
@@ -45,10 +49,11 @@ export const questionFromDisputed = (place: DisputedPlace): Question => ({
   verse: place.verse, verseCount: place.verseCount, atlas: PLACE_BY_ID.get(place.id)?.atlas ?? false, note: place.note, source: place.source,
 });
 
-/** A pin scored against the nearest of the question's sites, less HINT_COST for each hint circle taken. */
-export function scorePin(question: Question, pin: LonLat, hints = 0): Result {
+/** A pin scored against the nearest of the question's sites, less HINT_COST per hint circle and the clock's penalty. */
+export function scorePin(question: Question, pin: LonLat, { hints = 0, seconds = 0, level = "expert" }: Costs = {}): Result {
   const { site, km } = nearestSite(pin, question.sites);
-  return { question, pin, site, km, points: Math.max(0, scoreForDistance(km) - hints * HINT_COST), hints };
+  const timeOff = timePenalty(seconds, level);
+  return { question, pin, site, km, points: Math.max(0, scoreForDistance(km) - hints * HINT_COST - timeOff), hints, seconds, timeOff };
 }
 
 /** Puzzle n's game (null before puzzle #1). */
@@ -70,10 +75,10 @@ export function disputedGame(random: () => number = Math.random): Game {
 
 /** Today's confirmed pins as results, for resuming a Daily Five. */
 export const resultsFromPicks = (game: Game, picks: readonly Pick[]): Result[] =>
-  picks.slice(0, game.questions.length).map((pick, index) => scorePin(game.questions[index], [pick.lon, pick.lat], pick.hints));
+  picks.slice(0, game.questions.length).map((pick, index) => scorePin(game.questions[index], [pick.lon, pick.lat], { hints: pick.hints, seconds: pick.seconds, level: game.level }));
 
 export const pickFromResult = (result: Result): Pick => ({
-  id: result.question.id, lon: result.pin[0], lat: result.pin[1], km: Math.round(result.km * 10) / 10, points: result.points, hints: result.hints,
+  id: result.question.id, lon: result.pin[0], lat: result.pin[1], km: Math.round(result.km * 10) / 10, points: result.points, hints: result.hints, seconds: result.seconds,
 });
 
 /** What the address asks for (?play=daily, ?play=practice&level=standard&era=jesus, ?play=disputed); unknown values: null. */

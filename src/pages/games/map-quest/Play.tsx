@@ -3,18 +3,20 @@
 // the answer comes up as a sheet over the map (a panel beside it on a desktop) with the points counting up, so the
 // line, the true site and the score are all in view at once. The map stays mounted from place to place; if it cannot
 // load, an error panel offers a retry. Beside Confirm, Hint draws a circle that holds the place (hints.ts), up to the
-// level's number of circles, each one costing HINT_COST points off the place.
-import { ExternalLink, Lightbulb } from "lucide-react";
-import { useMemo, useState, type CSSProperties } from "react";
+// level's number of circles, each one costing HINT_COST points off the place. A clock above the map runs on each
+// place (clock.ts) and takes points off as it goes. On a wide screen the round sits on the site's left margin with the
+// Scripture panel (every verse naming the place) on the right; on a narrower one the panel comes under the map.
+import { ExternalLink, Lightbulb, Timer } from "lucide-react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Verse } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
-import { bookByNum, formatRange, splitId } from "@/lib/refs";
+import { formatRange } from "@/lib/refs";
 import { formatList, formatNumber, plural } from "@/lib/site-format";
 import { useMediaQuery } from "@/lib/useMediaQuery";
-import { useCurrentBible } from "@/lib/verses";
-import { Confetti, FeedbackBand, ProgressTrail, trailMarks, useCountUp, useScrollTopOn } from "../kit";
+import { Confetti, FeedbackBand, ProgressTrail, TimerBar, trailMarks, useCountUp, useScrollTopOn } from "../kit";
 import { BAND_CSS, BAND_MARK, BAND_TONE } from "./bands";
+import { TIME_LIMIT_SECONDS, secondsBetween, timePenalty } from "./clock";
 import { scorePin, type Game, type Question, type Result } from "./game";
 import type { LonLat } from "./geo";
 import { HINT_COST, HINTS_BY_LEVEL, hintCircles } from "./hints";
@@ -22,7 +24,9 @@ import { distanceText, pointsText, shapeOf } from "./words";
 import { ERA_VIEWS } from "./pools";
 import { QuestMap } from "./QuestMap";
 import { BAND_EMOJI, MAX_POINTS, bandFor } from "./scoring";
-import type { Stats } from "./storage";
+import { useReaderHref } from "./reader-href";
+import { ScripturePanel } from "./ScripturePanel";
+import type { Playing, Stats } from "./storage";
 import { Summary } from "./Summary";
 import { LEVEL_TEXT } from "./text";
 import { furtherAfield } from "./view";
@@ -31,11 +35,13 @@ interface Props {
   game: Game;
   /** Daily Five pins already confirmed (a resumed game starts after them). */
   resume: Result[];
-  /** Hint circles already taken for the first place still to play. */
-  resumeHints: number;
+  /** The saved hints and clock of the first place still to play (a resumed Daily Five), else null. */
+  playing: Playing | null;
   stats: Stats;
   now: Date;
   onConfirm: (result: Result) => void;
+  /** A place's clock started: its id and the time (ms). */
+  onStart: (id: string, at: number) => void;
   /** A hint circle was taken: the place's id and how many it now has. */
   onHint: (id: string, used: number) => void;
   onFinish: () => void;
@@ -47,7 +53,9 @@ interface Props {
 const DESKTOP_PADDING = { left: 420, top: 48, right: 48, bottom: 48 };
 const PHONE_PADDING = { left: 32, top: 40, right: 32, bottom: 250 };
 
-export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint, onFinish, onAgain, onHome }: Props) {
+const TICK_MS = 250;
+
+export function Play({ game, resume, playing, stats, now, onConfirm, onStart, onHint, onFinish, onAgain, onHome }: Props) {
   const [results, setResults] = useState<Result[]>(resume);
   const [index, setIndex] = useState(Math.min(resume.length, game.questions.length));
   const [pin, setPin] = useState<LonLat | null>(null);
@@ -55,7 +63,9 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
   const [mapKey, setMapKey] = useState(0);
   const [mapFailed, setMapFailed] = useState(false);
   const [everPinned, setEverPinned] = useState(resume.length > 0);
-  const [hintsUsed, setHintsUsed] = useState(resumeHints);
+  const [hintsUsed, setHintsUsed] = useState(playing?.used ?? 0);
+  const [startedAt, setStartedAt] = useState(() => playing?.startedAt ?? Date.now());
+  const [clockNow, setClockNow] = useState(Date.now);
   // The Daily Five draws the same circles for everyone; any other game draws fresh ones each time it is played.
   const [hintSeed] = useState(() => (game.mode === "daily" ? `daily-${game.n}` : `${game.mode}-${Math.random()}`));
   const wide = useMediaQuery("(min-width: 900px)");
@@ -65,6 +75,13 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
   const current = game.questions[Math.min(index, game.questions.length - 1)];
   const allHints = useMemo(() => hintCircles(current.sites[0], ERA_VIEWS[game.era], game.level, `${hintSeed}:${current.id}`), [current, game.era, game.level, hintSeed]);
   const shownHints = useMemo(() => (revealed ? [] : allHints.slice(0, hintsUsed)), [allHints, hintsUsed, revealed]);
+  // Each place's clock: saved as it starts (the Daily Five keeps a running one through a reload), ticking until Confirm.
+  useEffect(() => { if (!over) onStart(current.id, startedAt); }, [index]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (over || revealed) return;
+    const timer = window.setInterval(() => setClockNow(Date.now()), TICK_MS);
+    return () => window.clearInterval(timer);
+  }, [over, revealed]);
 
   if (over) return <Summary game={game} results={results} stats={stats} now={now} onAgain={onAgain} onHome={onHome} />;
   const question = game.questions[index];
@@ -74,7 +91,7 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
   const drop = (at: LonLat) => { setPin(at); setEverPinned(true); };
   const confirm = () => {
     if (!pin || revealed) return;
-    const result = scorePin(question, pin, hintsUsed);
+    const result = scorePin(question, pin, { hints: hintsUsed, seconds: secondsBetween(startedAt, Date.now()), level: game.level });
     setResults((done) => [...done, result]);
     setRevealed(result);
     onConfirm(result);
@@ -87,6 +104,8 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
   const next = () => {
     setPin(null);
     setHintsUsed(0);
+    setStartedAt(Date.now());
+    setClockNow(Date.now());
     setRevealed(null);
     setIndex(index + 1);
     if (index + 1 >= game.questions.length) onFinish();
@@ -94,9 +113,13 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
   const last = index + 1 >= game.questions.length;
   const afield = game.mode === "practice" && furtherAfield(question.sites, ERA_VIEWS[game.era]);
 
+  const seconds = revealed ? revealed.seconds : secondsBetween(startedAt, clockNow);
+
   return <div className="mq-play">
+    <div className="mq-round-head">
     <div className="mq-strip">
       <ProgressTrail className="mq-slots" marks={marks} tones={tones} size="1rem" label={`Place ${index + 1} of ${game.questions.length}`} />
+      <RoundClock seconds={seconds} level={game.level} />
       <Total total={total} gained={revealed?.points ?? 0} of={game.questions.length * MAX_POINTS} />
     </div>
     <div className="mq-name-row">
@@ -104,6 +127,7 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
       {afield && <span className="mq-chip">Further afield: zoom out</span>}
     </div>
     {game.widenedTo && index === 0 && <p className="mq-notice">{`That era has few places at ${LEVEL_TEXT[game.level].label} level, so this game also draws on ${LEVEL_TEXT[game.widenedTo].label} places.`}</p>}
+    </div>
     {mapFailed
       ? <div className="mq-error" role="alert">
           <p>The map couldn't load. Check the connection and try again.</p>
@@ -125,6 +149,19 @@ export function Play({ game, resume, resumeHints, stats, now, onConfirm, onHint,
             {revealed && <Reading question={revealed.question} />}
           </FeedbackBand>
         </div>}
+    <ScripturePanel placeId={question.id} />
+  </div>;
+}
+
+/** The place's clock: a bar draining over the level's time, the seconds left, and the points it has taken so far. */
+function RoundClock({ seconds, level }: { seconds: number; level: Game["level"] }) {
+  const limit = TIME_LIMIT_SECONDS[level];
+  const left = Math.max(0, limit - seconds);
+  const off = timePenalty(seconds, level);
+  return <div className="mq-clock">
+    <TimerBar className="mq-clock-bar" secondsLeft={left} total={limit} warnAt={10} stamp="Time!"
+      label={plural(left, "{n} second left on the clock", "{n} seconds left on the clock")} />
+    <span className={`mq-clock-off${off > 0 ? " is-on" : ""}`} aria-live="off">{plural(-off, "{n} point", "{n} points")}</span>
   </div>;
 }
 
@@ -165,6 +202,11 @@ function Verdict({ result }: { result: Result }) {
         <span>{plural(result.hints, "{n} hint used", "{n} hints used")}</span>
         <span>{plural(-result.hints * HINT_COST, "{n} point", "{n} points")}</span>
       </span>}
+      {result.timeOff > 0 && <span className="mq-verdict-line mq-verdict-hints">
+        <Timer size={13} aria-hidden="true" />
+        <span>{plural(result.seconds, "{n} second", "{n} seconds")}</span>
+        <span>{plural(-result.timeOff, "{n} point", "{n} points")}</span>
+      </span>}
     </div>
     <span className="mq-points" aria-hidden="true">{formatNumber(shown)}</span>
     <span className="mq-bar mq-bar--points" aria-hidden="true" style={{ "--mq-band": BAND_CSS[band] } as CSSProperties}>
@@ -189,11 +231,9 @@ function Reading({ question }: { question: Question }) {
 
 function RevealVerse({ id }: { id: number }) {
   const catalog = useCatalog();
-  const bible = useCurrentBible();
-  const { num, chapter, verse } = splitId(id);
-  const code = bookByNum(catalog, num)?.code ?? "GEN";
+  const href = useReaderHref();
   return <blockquote className="mq-verse">
     <Verse id={id} />
-    <Link to={`/read/${bible.slug}/${code}/${chapter}?v=${verse}`}>{formatRange(catalog, id, id)}</Link>
+    <Link to={href(id)}>{formatRange(catalog, id, id)}</Link>
   </blockquote>;
 }

@@ -466,3 +466,23 @@ The owner asked for hints shown as circles on the map, more of them on easier le
 - **Code:** `src/pages/games/map-quest/hints.ts` (circles), `game.ts` (`scorePin` takes the hint count),
   `storage.ts` (`recordHint`, `pendingHints`), `QuestMap.tsx` + `quest-style.ts` (the `mq-hints` layers), `Play.tsx`
   (the Hint button beside Confirm). Tests: `hints.test.ts`, `storage.test.ts`, `MapQuestGame.test.tsx`.
+
+## 15. Wide round, Scripture panel and the clock (owner, 2026-11-12)
+
+- **Layout:** while a game is on, the page uses the site's own width and margins (`--site-content-width`,
+  `--site-gutter`), so the map starts on the same line as the Bible Guide logo and keeps its size (61rem, narrower only
+  when the screen is). From 1,100 px the Scripture panel sits on the right of the map, as tall as it; below that it
+  comes under the map with its own scroll. The game home and the summary stay centred.
+- **Scripture panel** (`ScripturePanel.tsx`): "Where Scripture names it", every verse naming the place in Bible
+  order, with its reference (the reader opens in a new tab). Shown while the player is still looking, so the verses
+  are clues and a way to learn them. The lists are `src/data/map-quest/verses.json`, written by
+  `scripts/build-map-quest.py` next to places.json (place id to verse ids; a place merged from several of
+  OpenBible's keeps all their verses), loaded on first use. Long lists draw only the rows near the panel's scroll
+  position (`useRowWindow`).
+- **Clock** (`clock.ts`): 90 seconds on Beginner, 60 on Standard, 45 on Expert (so the Daily Five and Disputed sites).
+  Points come off evenly as the seconds pass, up to 300 when time runs out; running out does not end the place, the
+  pin just carries the whole 300. The strip above the map shows the kit's draining bar, the seconds left ("Time!" at
+  zero) and the points the clock has taken so far; the answer card shows the seconds and the points taken. Scoring:
+  distance points − 150 per hint − the clock, never below 0.
+- **Daily Five:** the clock's start is saved with the place being played (`today.playing`, which also holds the hints
+  taken), so a reload neither resets it nor gives back hints; each saved pin keeps its `seconds`.

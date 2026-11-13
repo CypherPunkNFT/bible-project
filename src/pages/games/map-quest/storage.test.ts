@@ -1,7 +1,7 @@
-import { currentStreak, emptyStats, finishDaily, parseStats, pendingHints, readStats, recordHint, recordPick, startDaily, writeStats, type Pick, type Stats } from "./storage";
+import { currentStreak, emptyStats, finishDaily, parseStats, playingNow, readStats, recordHint, recordPick, recordStart, startDaily, writeStats, type Pick, type Stats } from "./storage";
 
 const ids = ["a", "b", "c", "d", "e"];
-const pick = (id: string, points = 800, hints = 0): Pick => ({ id, lon: 35, lat: 31, km: 20, points, hints });
+const pick = (id: string, points = 800, hints = 0, seconds = 0): Pick => ({ id, lon: 35, lat: 31, km: 20, points, hints, seconds });
 function played(stats: Stats, n: number, points = 800): Stats {
   let next = startDaily(stats, n, ids);
   for (const id of ids) next = recordPick(next, n, pick(id, points));
@@ -54,23 +54,26 @@ describe("map quest saved record", () => {
     expect(startDaily(started, 6, ids).today).toEqual({ n: 6, ids, picks: [] });
   });
 
-  it("keeps the hint circles taken for the place being played, through a reload, and clears them with its pin", () => {
+  it("keeps the clock and the hint circles of the place being played through a reload, and clears them with its pin", () => {
     let stats = recordPick(startDaily(emptyStats(), 7, ids), 7, pick("a"));
-    expect(recordHint(stats, 7, "c", 1)).toBe(stats); // not the place being played
+    expect(recordStart(stats, 7, "c", 1000)).toBe(stats); // not the place being played
+    expect(recordHint(stats, 7, "b", 1)).toBe(stats); // no clock started for it yet
+    stats = recordStart(stats, 7, "b", 1000);
+    expect(recordStart(stats, 7, "b", 5000)).toBe(stats); // a running clock is kept
     expect(recordHint(stats, 6, "b", 1)).toBe(stats); // another day
     stats = recordHint(stats, 7, "b", 2);
     expect(recordHint(stats, 7, "b", 1)).toBe(stats); // never fewer
-    expect(pendingHints(parseStats(JSON.parse(JSON.stringify(stats))).today)).toBe(2);
-    stats = recordPick(stats, 7, pick("b", 500, 2));
-    expect(stats.today?.hinting).toBeUndefined();
-    expect(pendingHints(stats.today)).toBe(0);
-    expect(parseStats(JSON.parse(JSON.stringify(stats))).today?.picks[1].hints).toBe(2);
+    expect(playingNow(parseStats(JSON.parse(JSON.stringify(stats))).today)).toEqual({ id: "b", used: 2, startedAt: 1000 });
+    stats = recordPick(stats, 7, pick("b", 500, 2, 40));
+    expect(stats.today?.playing).toBeUndefined();
+    expect(playingNow(stats.today)).toBeNull();
+    expect(parseStats(JSON.parse(JSON.stringify(stats))).today?.picks[1]).toMatchObject({ hints: 2, seconds: 40 });
   });
 
-  it("reads a pin saved before hints existed as one with no hints", () => {
+  it("reads a pin saved before hints and the clock existed as one with neither, and drops a damaged clock", () => {
     const old = { today: { n: 2, ids, picks: [{ id: "a", lon: 35, lat: 31, km: 20, points: 800 }] } };
-    expect(parseStats(old).today?.picks[0].hints).toBe(0);
-    expect(parseStats({ today: { n: 2, ids, picks: [], hinting: { id: "a", used: "x" } } }).today?.hinting).toBeUndefined();
+    expect(parseStats(old).today?.picks[0]).toMatchObject({ hints: 0, seconds: 0 });
+    expect(parseStats({ today: { n: 2, ids, picks: [], playing: { id: "a", used: 1, startedAt: "x" } } }).today?.playing).toBeUndefined();
   });
 
   it("counts a streak over consecutive puzzles; a missed day resets it, today does not break it until it is over", () => {

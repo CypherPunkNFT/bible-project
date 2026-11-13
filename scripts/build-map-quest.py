@@ -6,7 +6,8 @@ sites (a pin is scored against the nearest), so it reads the raw ancient.jsonl t
   py -3.12 scripts/build-map-quest.py                     rebuild places, disputed sites and the daily schedule
   py -3.12 scripts/build-map-quest.py --epoch 2026-11-07  (first build only) the date of Daily Five puzzle #1
 
-Writes src/data/map-quest/places.json, disputed.json and, through scripts/build-map-quest-daily.ts, daily.json.
+Writes src/data/map-quest/places.json, disputed.json, verses.json (every verse naming each place, for the round's
+Scripture panel) and, through scripts/build-map-quest-daily.ts, daily.json.
 Hand-kept choices live in src/data/map-quest/curation.json. All three outputs are swapped in together, only after
 every step succeeded. Run by hand when the data or curation changes (not part of prebuild). Reads files only.
 """
@@ -201,7 +202,7 @@ def playable_places(rows: list[dict], curation: dict, atlas_ids: set[str], journ
             "id": place["id"], "name": place["name"], "lon": place["lon"], "lat": place["lat"], "alts": place["alts"],
             "tier": tier, "scope": "holy" if inside(HOLY_BOX, place["lon"], place["lat"]) else "wider",
             "eras": era_tags(verses, place["id"] in journeys), "verseCount": len(verses), "verse": verse,
-            "atlas": place["id"] in atlas_ids,
+            "atlas": place["id"] in atlas_ids, "verses": verses,
         })
     return records
 
@@ -226,7 +227,7 @@ def disputed_places(rows: list[dict], curation: dict) -> list[dict]:
             "id": row["id"], "name": entry.get("name") or re.sub(r" \d+$", "", row["friendly_id"]),
             "sites": [{"name": sites[i]["name"], "lon": sites[i]["lon"], "lat": sites[i]["lat"]} for i in entry["candidates"]],
             "note": entry["note"], "verse": verse, "verseCount": len(verses),
-            "source": f"https://www.openbible.info/geo/ancient/{row['id']}/{row.get('url_slug', '')}".rstrip("/"),
+            "source": f"https://www.openbible.info/geo/ancient/{row['id']}/{row.get('url_slug', '')}".rstrip("/"), "verses": verses,
         })
     return found
 
@@ -255,6 +256,20 @@ def write_lines(path: Path, records: list[dict]) -> None:
     path.write_text(f"[\n{body}\n]\n", encoding="utf-8")
 
 
+def split_verses(places: list[dict], disputed: list[dict]) -> dict[str, list[int]]:
+    """Takes each record's full verse list out (places.json stays small) into one map, place id to sorted verse ids."""
+    lists: dict[str, set[int]] = defaultdict(set)
+    for record in places + disputed:
+        lists[record["id"]] |= set(record.pop("verses"))
+    return {place_id: sorted(lists[place_id]) for place_id in sorted(lists)}
+
+
+def write_verses(path: Path, verses: dict[str, list[int]]) -> None:
+    """One place per line, like the other outputs."""
+    body = ",\n".join(f"{json.dumps(place_id)}:{json.dumps(ids, separators=(',', ':'))}" for place_id, ids in verses.items())
+    path.write_text(f"{{\n{body}\n}}\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--epoch", help="date of Daily Five puzzle #1 (YYYY-MM-DD); only when daily.json does not exist yet")
@@ -273,7 +288,9 @@ def main() -> int:
     if problems:
         print("map quest: refusing to write: " + "; ".join(problems), file=sys.stderr)
         return 1
-    staged = {name: OUT / f".{name}.new" for name in ("places.json", "disputed.json", "daily.json")}
+    verses = split_verses(places, disputed)
+    staged = {name: OUT / f".{name}.new" for name in ("places.json", "disputed.json", "verses.json", "daily.json")}
+    write_verses(staged["verses.json"], verses)
     write_lines(staged["places.json"], places)
     write_lines(staged["disputed.json"], disputed)
     command = ["node", "--experimental-strip-types", "--no-warnings", str(DAILY_SCRIPT),
