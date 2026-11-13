@@ -24816,5 +24816,10 @@
    "id"
   ],
   "why": "chat f350929d (the translation progress readout), 2026-11-11: the one string check.py counts as unchanged is a museum's name and shelfmark ('Kansas City, Missouri, The Nelson-Atkins Museum of Art, KG {n}'), kept as published; ruling 595 rules the same string for Portuguese"
+ },
+ {
+  "check": "files",
+  "item": "src/data/memory-match/verses.json",
+  "why": "Memory card match, Verses version: verse ids and split points only; the card words are the Bible's own, looked up per board in the site's Bible (verse-cards.ts). Its only prose is its deck titles, which the page shows as written (it reads no translated copy of this file), so they stay English until the page reads one"
  }
 ]

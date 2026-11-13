@@ -147,6 +147,9 @@ GAME_DATA = [
      set(), set()),
     (RESOURCE_KIND, "src/data/memory-match/pairs.json", False, ("characters",), {
         ".characters.*.label", ".decks[].title", ".pairs[].story"}, set(), set()),
+    # Memory card match, Places version: the same shape as the people file; the page reads its translated copy too.
+    (RESOURCE_KIND, "src/data/memory-match/places.json", False, ("characters",), {
+        ".characters.*.label", ".decks[].title", ".pairs[].story"}, set(), set()),
     # What came first? (sequence 48): the cards, tags, dates and reasons of each kind of round, and the Bible Firsts
     # questions. Who lived first reads whos-older.json above; the 66 books keep the catalogue's names (books.json).
     (RESOURCE_KIND, "src/data/what-came-first/events.json", False, (), {
