@@ -69,9 +69,10 @@
 @keyframes mm-fan-turn { 0%, 32% { transform: rotateY(0); } 48%, 78% { transform: rotateY(180deg); } 94%, 100% { transform: rotateY(360deg); } }
 @media (max-width: 479px) { .mm-fan { width: 6.4rem; height: 5.2rem; } .mm-fan__card { left: 1.2rem; width: 3.4rem; height: 4.5rem; } .mm-fan__front { font-size: .85rem; } }
 
-/* The version and deck tiles live in tiles.css (TileIcons.tsx imports it). From 900px the start screen widens to
-   64rem so a version's decks fit one row of eight (owner, 2026-11-13). */
-@media (min-width: 900px) { .mm-page:has(> .mm-start) { max-width: 64rem; } }
+/* The version and deck tiles live in tiles.css (TileIcons.tsx imports it). From 900px the start screen takes the room
+   the site has, up to 74rem: a row of eight deck tiles at their full size; narrower screens shrink the tiles only as
+   much as they must (owner, 2026-11-13: "we are well within the margin of the site"). */
+@media (min-width: 900px) { .mm-page:has(> .mm-start) { max-width: 74rem; } }
 .mm-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; border: 0; padding: 0; }
 .mm-chips legend { width: 100%; margin-bottom: .5rem; color: var(--muted); font: 650 .65rem/1.2 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .mm-chips button { min-height: 44px; padding: .45rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; transition: border-color .25s var(--mm-ease), background-color .25s var(--mm-ease), transform .25s var(--mm-ease); }
@@ -316,3 +317,6 @@
   .mm-shelf__slot { height: 2rem; font-size: .72rem; }
   .mm-track { min-height: 2.2rem; }
 }
+
+/* Once the start screen's tiles have their full width, they get back their full padding and name size. */
+@media (min-width: 1184px) { .mm-start .mm-tile { padding-inline: .6rem; } .mm-start .mm-tile__name { font-size: 1.05rem; } }

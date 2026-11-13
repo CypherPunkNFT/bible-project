@@ -51,6 +51,13 @@
 .ch-chips button:disabled { opacity: .55; cursor: not-allowed; border-radius: .8rem; }
 .ch-chip-note { font-size: .7rem; color: var(--muted); }
 .ch-row { display: flex; flex-wrap: wrap; gap: 0 2rem; }
+/* Who's playing and the deck are Memory card match's picture tiles (memory-match/tiles.css; owner, 2026-11-13). From
+   900px the start screen widens to 64rem, as memory's does, so the eight decks fit one row. */
+@media (min-width: 900px) { .ch-page:has(> .ch-setup) { max-width: 64rem; } }
+/* Difficulty and round length share one line, wrapping only when the screen is too narrow (owner, 2026-11-13). */
+.ch-line { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .9rem 2rem; margin-top: 1.2rem; }
+.ch-line > .ch-chips { margin-top: 0; }
+.ch-line > .ch-chips legend { width: auto; }
 .ch-more { margin-top: 1.3rem; }
 .ch-more > summary { color: var(--ink); }
 .ch-more-now { display: inline-flex; flex-wrap: wrap; gap: .2rem .6rem; margin-left: .3rem; color: var(--muted); font-weight: 500; font-size: .85rem; }
@@ -63,9 +70,12 @@
 .ch-team-names input { min-height: 44px; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); font-size: .95rem; transition: border-color .25s var(--ch-ease); }
 .ch-team-names input:focus-visible { border-color: var(--ch-team, var(--ch-color)); }
 
-.ch-how { margin-top: 1.6rem; font-size: .92rem; line-height: 1.6; }
-.ch-how summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--accent); font-weight: 600; }
-.ch-how summary:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 3px; }
+/* How to play sits inside More options (owner, 2026-11-13): a pill like the chips around it, opening its steps below. */
+.ch-how { margin-top: 1.1rem; font-size: .92rem; line-height: 1.6; }
+.ch-how summary { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; list-style: none; color: var(--ink); font-size: .9rem; transition: border-color .25s var(--ch-ease), transform .25s var(--ch-ease); }
+.ch-how summary::-webkit-details-marker { display: none; }
+.ch-how summary:is(:hover, :focus-visible) { border-color: var(--ch-color); transform: translateY(-2px); }
+.ch-how[open] summary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); font-weight: 600; }
 .ch-how ol { margin: .6rem 0 0 1.2rem; list-style: decimal; color: var(--muted); }
 .ch-how p { margin-top: .6rem; color: var(--muted); }
 .ch-tilt-drawing { width: 13rem; margin-top: .6rem; color: var(--ink); }

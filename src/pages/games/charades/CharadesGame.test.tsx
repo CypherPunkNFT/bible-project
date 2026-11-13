@@ -54,6 +54,29 @@ beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe("family charades page", () => {
+  it("picks who's playing and the deck from picture tiles, and greys out a deck too small for the age", async () => {
+    await openSetup();
+    const ages = screen.getByRole("group", { name: "Who's playing?" });
+    const decks = screen.getByRole("group", { name: "Deck" });
+    expect(within(ages).getByRole("button", { name: "Kids Ages 8–12" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(within(decks).getByRole("button", { name: /^Parables/ }));
+    expect(within(decks).getByRole("button", { name: /^Parables/ })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(within(ages).getByRole("button", { name: "Little ones Ages 4–7" })); // six parables scenes for little ones: too few
+    expect(within(decks).getByRole("button", { name: /^Everything/ })).toHaveAttribute("aria-pressed", "true");
+    const parables = within(decks).getByRole("button", { name: "Parables Not enough scenes yet" });
+    expect(parables).toBeDisabled();
+    fireEvent.click(parables);
+    expect(within(decks).getByRole("button", { name: /^Everything/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByRole("group", { name: "Difficulty" })).not.toBeInTheDocument(); // never asked for little ones
+    expect(screen.getByRole("group", { name: "Round length" }).closest(".ch-line")).not.toBeNull();
+  });
+
+  it("keeps How to play inside More options", async () => {
+    await openSetup();
+    const how = screen.getByText("How to play", { selector: "summary" });
+    expect(how.closest("details.ch-how")?.parentElement?.closest("details.ch-more")).not.toBeNull();
+  });
+
   it("plays a buttons-only round from Start to the recap, where a mark can be fixed", async () => {
     await openSetup();
     expect(screen.queryByRole("group", { name: "Controls" })).not.toBeInTheDocument(); // no orientation events here: no tilt option

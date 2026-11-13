@@ -4,6 +4,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { P } from "../art/parts";
 import "../art/game-art.css";
+import "./tiles.css";
 
 const DRAWINGS = {
   // The versions. People: two figures.
@@ -32,6 +33,14 @@ const DRAWINGS = {
   veil: <><path d="M12 3.5c-3 0-5 2.3-5 5.2 0 2.2.6 3.6 1.3 4.6C5.6 14.6 4 17 4 20.5h16c0-3.5-1.6-5.9-4.3-7.2.7-1 1.3-2.4 1.3-4.6 0-2.9-2-5.2-5-5.2z" /><circle cx="12" cy="9" r="2.4" /></>,
   // Parables: the sower's seed, sprouting.
   seed: <><path d="M12 20.5V11" /><path d="M12 13c-3.5 0-6-2.3-6-5.5 3.5 0 6 2.3 6 5.5zM12 11c0-3.2 2.5-5.5 6-5.5 0 3.2-2.5 5.5-6 5.5z" /><path d="M5 20.5h14" /></>,
+  // Family charades' players (owner, 2026-11-13). Little ones: a small child with a ball.
+  little: <><circle cx="9.5" cy="10" r="2.6" /><path d="M5 20.5a4.5 4.5 0 0 1 9 0" /><circle cx="17.5" cy="18.3" r="2.2" /><path d="M15.6 17.2c1.3.4 2.5.4 3.8 0" /></>,
+  // Kids: two children side by side.
+  kids: <><circle cx="7.5" cy="9.5" r="2.4" /><path d="M3.5 20.5a4 4 0 0 1 8 0" /><circle cx="16.5" cy="9.5" r="2.4" /><path d="M12.5 20.5a4 4 0 0 1 8 0" /></>,
+  // Family charades' Miracles: the loaves in a basket.
+  basket: <><path d="M3.5 13.5h17l-2 7h-13z" /><path d="M6 13.5a3 2.6 0 0 1 6 0M12 13.5a3 2.6 0 0 1 6 0M9 11a3 2.4 0 0 1 6 0" /><path d="M7 16.5h10" /></>,
+  // Christmas and Easter: the cross on its hill, under the star.
+  cross: <><path d="M3 20.5c3.5-2.6 14.5-2.6 18 0" /><path d="M12 18.6V8.5M8.5 11.5h7" /><path d="M18.5 3.5l.5 1.1 1.1.5-1.1.5-.5 1.1-.5-1.1-1.1-.5 1.1-.5z" /></>,
 } satisfies Record<string, ReactNode>;
 
 export type TileIconKey = keyof typeof DRAWINGS;
@@ -40,6 +49,7 @@ export type TileIconKey = keyof typeof DRAWINGS;
 const TONES: Record<TileIconKey, string> = {
   people: "poetry", places: "history", verses: "revelation", book: "epistles", sunrise: "poetry", tablets: "history",
   crown: "revelation", scroll: "prophets", lyre: "acts", fish: "gospels", quill: "epistles", veil: "acts", seed: "poetry",
+  little: "acts", kids: "epistles", basket: "prophets", cross: "revelation",
 };
 
 /** The tile's colour, as the --mm-tone its drawing, edge and short line use. */
@@ -57,13 +67,22 @@ function TileArt({ name }: { name: TileIconKey }) {
   </svg>;
 }
 
-interface TileProps { icon: TileIconKey; name: string; subtitle: string; pressed: boolean; onClick: () => void }
+interface TileProps {
+  icon: TileIconKey; name: string; subtitle: string; pressed: boolean; onClick: () => void;
+  /** The tile can't be picked now (charades: too few scenes for this age); its short line says why. */
+  disabled?: boolean;
+  /** The short line is part of the choice (charades' ages, or why a tile is off): read out, and kept on a phone. */
+  said?: boolean;
+}
 
-/** A version or deck tile: the drawing in its arch, the name, and a short line under it that the button's name leaves out. */
-export function Tile({ icon, name, subtitle, pressed, onClick }: TileProps) {
-  return <button type="button" className="mm-tile" style={toneOf(icon)} aria-pressed={pressed} onClick={onClick}>
+/** A version or deck tile: the drawing in its arch, the name, and a short line under it that the button's name leaves
+ *  out, unless the line says something the choice needs. */
+export function Tile({ icon, name, subtitle, pressed, onClick, disabled = false, said = false }: TileProps) {
+  const spoken = said || disabled;
+  return <button type="button" className="mm-tile" style={toneOf(icon)} aria-pressed={pressed} disabled={disabled} onClick={onClick}>
     <TileArt name={icon} />
     <span className="mm-tile__name">{name}</span>
-    {subtitle && <span className="mm-tile__note" aria-hidden="true">{subtitle}</span>}
+    {subtitle && <span className={`mm-tile__note${spoken ? " is-said" : ""}`} aria-hidden={spoken ? undefined : "true"}>
+      {subtitle}</span>}
   </button>;
 }

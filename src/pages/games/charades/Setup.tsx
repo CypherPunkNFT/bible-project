@@ -1,11 +1,15 @@
 // Family charades: the start screen (design §7.1, redesigned from the visual audit). The game shows itself first: a
 // tilted sample card beside the title, cycling slowly through real scenes, with Start right under it, so a phone sees
-// the button on its first screen. The deck choices follow; the long tail (controls, sound, pictures, teams) folds
-// behind one "More options" row that names the current choices. Start runs the Start tap (CharadesGame.tsx, §5.4).
+// the button on its first screen. Who's playing and the deck follow as picture tiles like Memory card match's, then
+// difficulty and round length on one line (owner, 2026-11-13); the long tail (controls, sound, pictures, teams, and
+// How to play) folds behind one "More options" row that names the current choices. Start runs the Start tap
+// (CharadesGame.tsx, §5.4).
 import { Play } from "lucide-react";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { MoreOptions, prefersReducedMotion, teamTone } from "../kit";
-import { AGE_GROUPS, DIFFICULTIES, deckOffered, usesDifficulty, type DeckKey, type Scene, type ScenesFile } from "./deck";
+import { evenRows } from "../memory-match/even-rows";
+import { Tile, type TileIconKey } from "../memory-match/TileIcons";
+import { AGE_GROUPS, DIFFICULTIES, deckOffered, usesDifficulty, type AgeGroup, type DeckKey, type Scene, type ScenesFile } from "./deck";
 import { SAMPLE_MS, sampleTitles } from "./display";
 import { MAX_TEAM_NAME, ROUND_SECONDS, TEAM_COUNTS, TURN_COUNTS } from "./game";
 import type { Controls, Mode, Settings } from "./storage";
@@ -43,6 +47,25 @@ function Chips<T extends string | number>({ label, options, value, onPick, disab
 
 const onOff = [{ key: "on", label: "On" }, { key: "off", label: "Off" }] as const;
 
+/** Who's playing and the decks are picture tiles like Memory card match's (owner, 2026-11-13): a drawing each, the
+ *  name, and a short line; the ages ride on that line, so it is read out and kept on a phone. */
+const AGE_TILES: Record<AgeGroup, { icon: TileIconKey; name: string; subtitle: string }> = {
+  little: { icon: "little", name: "Little ones", subtitle: "Ages 4–7" },
+  kids: { icon: "kids", name: "Kids", subtitle: "Ages 8–12" },
+  adults: { icon: "people", name: "Teens and adults", subtitle: "13 and up" },
+};
+const DECK_TILES: Record<DeckKey, { icon: TileIconKey; subtitle: string }> = {
+  everything: { icon: "book", subtitle: "From every deck" },
+  beginnings: { icon: "sunrise", subtitle: "Genesis to Joshua" },
+  kings: { icon: "crown", subtitle: "Judges to the exile" },
+  jesus: { icon: "fish", subtitle: "In the four Gospels" },
+  miracles: { icon: "basket", subtitle: "Moses to the apostles" },
+  parables: { icon: "seed", subtitle: "Stories Jesus told" },
+  church: { icon: "quill", subtitle: "The book of Acts" },
+  seasons: { icon: "cross", subtitle: "Born, died and risen" },
+};
+const TOO_FEW = "Not enough scenes yet";
+
 export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, starting, still = false, onSettings, onTeams, onStart }: Props) {
   const scenes: Scene[] = file.scenes;
   const { mode, ageGroup, deck } = settings;
@@ -50,6 +73,8 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
   const controls = tiltKnown ? settings.controls[mode] : "buttons";
   const setTeamCount = (count: number) => onTeams({ ...teams, names: Array.from({ length: count }, (_, i) => teams.names[i] ?? `Team ${i + 1}`) });
   const deckTitle = decks.find((d) => d.key === deck)?.label ?? "Everything";
+  // Open at first only if teams were on when the page came up; turning Teams off later must not snap the fold shut.
+  const [openAtFirst] = useState(teams.on);
   return <div className="ch-setup">
     <div className="ch-hero">
       <div className="ch-hero-text">
@@ -73,13 +98,27 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
       <p className="ch-best">{saving ? `Best in ${settings.seconds[ageGroup]} seconds: ${best}` : "Best scores are not saved on this device"}</p>
     </div>
 
-    <Chips label="Who's playing?" options={AGE_GROUPS} value={ageGroup} onPick={(key) => onSettings({ ageGroup: key, deck: deckOffered(scenes, key, deck) ? deck : "everything" })} />
-    <Chips label="Deck" options={decks} value={deck} onPick={(key) => onSettings({ deck: key })} disabled={(key) => !deckOffered(scenes, ageGroup, key)} />
-    {usesDifficulty(settings) && <Chips label="Difficulty" options={DIFFICULTIES} value={settings.difficulty} onPick={(key) => onSettings({ difficulty: key })} />}
-    <Chips label="Round length" options={ROUND_SECONDS.map((s) => ({ key: s, label: `${s} s` }))} value={settings.seconds[ageGroup]}
-      onPick={(key) => onSettings({ seconds: { ...settings.seconds, [ageGroup]: key } })} />
+    <fieldset className="mm-tiles ch-ages" style={evenRows(AGE_GROUPS.length)}>
+      <legend>Who's playing?</legend>
+      {AGE_GROUPS.map(({ key }) => <Tile key={key} {...AGE_TILES[key]} said pressed={ageGroup === key}
+        onClick={() => onSettings({ ageGroup: key, deck: deckOffered(scenes, key, deck) ? deck : "everything" })} />)}
+    </fieldset>
+    <fieldset className="mm-tiles" style={evenRows(decks.length)}>
+      <legend>Deck</legend>
+      {decks.map(({ key, label }) => {
+        const offered = deckOffered(scenes, ageGroup, key);
+        const tile = DECK_TILES[key] ?? { icon: "book", subtitle: "" };
+        return <Tile key={key} icon={tile.icon} name={label} subtitle={offered ? tile.subtitle : TOO_FEW} disabled={!offered}
+          pressed={deck === key} onClick={() => onSettings({ deck: key })} />;
+      })}
+    </fieldset>
+    <div className="ch-line">
+      {usesDifficulty(settings) && <Chips label="Difficulty" options={DIFFICULTIES} value={settings.difficulty} onPick={(key) => onSettings({ difficulty: key })} />}
+      <Chips label="Round length" options={ROUND_SECONDS.map((s) => ({ key: s, label: `${s} s` }))} value={settings.seconds[ageGroup]}
+        onPick={(key) => onSettings({ seconds: { ...settings.seconds, [ageGroup]: key } })} />
+    </div>
 
-    <MoreOptions className="ch-more" defaultOpen={teams.on} summary={<>
+    <MoreOptions className="ch-more" defaultOpen={openAtFirst} summary={<>
       <span>More options</span>
       <span className="ch-more-now">
         {tiltKnown && <span>{controls === "tilt" ? "Tilt and buttons" : "Buttons only"}</span>}
@@ -97,12 +136,11 @@ export function Setup({ file, settings, teams, tiltKnown, best, saving, notice, 
         <Chips label="Teams" options={onOff} value={teams.on ? "on" : "off"} onPick={(key) => onTeams({ ...teams, on: key === "on" })} />
       </div>
       {teams.on && <TeamFields teams={teams} onTeams={onTeams} onCount={setTeamCount} />}
+      <details className="ch-how">
+        <summary>How to play</summary>
+        <HowTo mode={mode} />
+      </details>
     </MoreOptions>
-
-    <details className="ch-how">
-      <summary>How to play</summary>
-      <HowTo mode={mode} />
-    </details>
   </div>;
 }
 
