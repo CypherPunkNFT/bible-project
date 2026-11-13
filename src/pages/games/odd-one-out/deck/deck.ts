@@ -1,7 +1,7 @@
-// The Odd one out deck (mock-ups, owner 2026-11-12): every odd one out a player meets becomes a card they keep, with
-// one sentence, the book that names it most, how many verses name it, its era, map point or place in the canon, and
-// why it was the odd one. Cards are in cards.json (scripts/mockup_odd_deck_cards.py); the deck itself is kept in this
-// browser.
+// The Odd one out deck (owner 2026-11-12: tried as a mock-up, approved and put in the game): every odd one out a
+// player meets becomes a card they keep, with one sentence, the book that names it most and how many verses name it.
+// Cards are in cards.json (scripts/mockup_odd_deck_cards.py); the deck itself is kept in this browser under
+// bp-odd-one-out-deck (a deck collected on the mock-up, under its old key, is carried over).
 import { useSyncExternalStore } from "react";
 import { headline, type SetEntry, type SetsFile } from "@/pages/games/odd-one-out/game";
 import { PEOPLE_PERIODS } from "@/lib/people-periods";
@@ -16,24 +16,25 @@ export interface CardData {
 /** One kept card: which card, why it was odd where the player met it, whether they spotted it, and when. */
 export interface Kept { id: string; why: string; spotted: boolean; at: number }
 
-const file = cardsFile as unknown as { cards: CardData[]; dots: [number, number][] };
+const file = cardsFile as unknown as { cards: CardData[] };
 export const CARDS = new Map(file.cards.map((card) => [card.id, card]));
-export const MAP_DOTS = file.dots;
 export const TOTAL = { person: 0, place: 0, book: 0 };
 for (const card of file.cards) TOTAL[card.kind] += 1;
 export const ERAS = PEOPLE_PERIODS.filter((period) => period.id !== "");
 
-const KEY = "oo-deck-mockup";
+const KEY = "bp-odd-one-out-deck";
+/** Where the mock-up kept the deck before it went into the game: read once when the new key is empty. */
+const MOCKUP_KEY = "oo-deck-mockup";
 const listeners = new Set<() => void>();
 let kept: Kept[] = read();
 
 function read(): Kept[] {
   try {
-    const raw = window.localStorage.getItem(KEY);
+    const raw = window.localStorage.getItem(KEY) ?? window.localStorage.getItem(MOCKUP_KEY);
     const list = raw ? (JSON.parse(raw) as Kept[]) : [];
     return Array.isArray(list) ? list.filter((entry) => CARDS.has(entry.id)) : [];
   } catch (error) {
-    console.warn("Odd one out deck mock-up: could not read the saved deck", error);
+    console.warn("Odd one out deck: could not read the saved deck, starting an empty one", error);
     return [];
   }
 }
@@ -41,7 +42,7 @@ function read(): Kept[] {
 function write(next: Kept[]) {
   kept = next;
   try { window.localStorage.setItem(KEY, JSON.stringify(next)); } catch (error) {
-    console.warn("Odd one out deck mock-up: could not save the deck (it stays for this visit)", error);
+    console.warn("Odd one out deck: could not save the deck (it stays for this visit)", error);
   }
   listeners.forEach((listener) => listener());
 }

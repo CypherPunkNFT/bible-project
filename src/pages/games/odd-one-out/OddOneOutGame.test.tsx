@@ -54,7 +54,8 @@ describe("odd one out page", () => {
     fireEvent.click(screen.getByText("Why"));
     expect(screen.getByText(/Also true:/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Matthew 4:18–19" })).toHaveAttribute("href", "/read/bsb/MAT/4?hl=18-19");
-    expect(screen.getByRole("link", { name: "Paul" })).toHaveAttribute("href", "/people/paul");
+    // The reading's own link (the stack beside the puzzle holds a card for Paul too).
+    expect([...document.querySelectorAll(".oo-line-name")].find((a) => a.textContent === "Paul")).toHaveAttribute("href", "/people/paul");
     expect(await screen.findByText(/Come, follow Me/)).toBeInTheDocument(); // the key verse, Matthew 4:18–19
   });
 
@@ -148,6 +149,18 @@ describe("odd one out page", () => {
     expect(await screen.findByRole("heading", { level: 2, name: "Your round" })).toBeInTheDocument();
     expect(screen.queryByText("New best")).not.toBeInTheDocument();
     expect(document.querySelector(".kit-confetti")).toBeNull();
+  });
+
+  it("drops each answer's odd one onto the stack beside the puzzle and keeps it in this browser's deck", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "Play" }));
+    const stack = screen.getByRole("complementary", { name: "Your stack this round" });
+    expect(within(stack).getByText("Answer the puzzle and its odd one lands here.")).toBeInTheDocument();
+    fireEvent.click(choiceNamed("Peter"));
+    expect(within(stack).getByRole("heading", { name: "Paul" })).toBeInTheDocument();
+    expect(within(stack).getByText(/^1 of 10 this round/)).toBeInTheDocument();
+    const deck = JSON.parse(localStorage.getItem("bp-odd-one-out-deck")!) as { id: string }[];
+    expect(deck[0].id).toBe("paul-act-7-58"); // newest first
   });
 
   it("says why levels are greyed for Books, in words a phone can read", async () => {

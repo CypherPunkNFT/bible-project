@@ -3,7 +3,7 @@
 // shorter card, so the map (and the era line and book shelf in the same slot) and the "why it was the odd one" line,
 // which read as "Salt Sea is not a mountain or hill", are gone.
 import { Link } from "react-router-dom";
-import { formatNumber } from "@/lib/site-format";
+import { formatNumber, plural } from "@/lib/site-format";
 import { eraLabel, kindLabel, type CardData } from "./deck";
 
 function Facts({ card }: { card: CardData }) {
@@ -15,7 +15,7 @@ function Facts({ card }: { card: CardData }) {
   }
   return <dl className="od-facts">
     <div><dt>Most in</dt><dd>{card.top.book}</dd></div>
-    <div><dt>Named in</dt><dd>{`${formatNumber(card.verses)} ${card.verses === 1 ? "verse" : "verses"}`}</dd></div>
+    <div><dt>Named in</dt><dd>{plural(card.verses, "{n} verse", "{n} verses")}</dd></div>
   </dl>;
 }
 

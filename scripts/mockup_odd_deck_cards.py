@@ -3,7 +3,7 @@
 One card for every item that is the odd one out of at least one set: a person, place or book, with one sentence,
 the book that names it most, how many verses name it, its era (people), its point on the map (places) or its place
 in the canon (books). Built only from the site's own data; no new source. Writes
-src/pages/mockup/odd-deck/cards.json. Run from Website/: py -3.12 scripts/mockup_odd_deck_cards.py
+src/pages/games/odd-one-out/deck/cards.json (moved from the mock-up's folder when the deck went into the game, 2026-11-12). Run from Website/: py -3.12 scripts/mockup_odd_deck_cards.py
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ SETS = SITE / "src" / "data" / "odd-one-out" / "sets.json"
 PEOPLE = SITE / "data" / "study" / "people.json"
 PERSON_DIR = SITE / "data" / "study" / "people"
 PLACES = SITE / "data" / "places.json"
-OUT = SITE / "src" / "pages" / "mockup" / "odd-deck" / "cards.json"
+OUT = SITE / "src" / "pages" / "games" / "odd-one-out" / "deck" / "cards.json"
 
 
 def read_json(path: Path):

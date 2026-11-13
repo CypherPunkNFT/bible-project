@@ -1,7 +1,9 @@
-// Optional extras a page can plug into Odd one out without copying it: the local deck mock-ups
-// (/games/odd-one-out_mockup..4, owner 2026-11-12) put their own start-screen graphic in place of the sample deal and
-// hear each answer. The real page provides none, so it behaves exactly as before.
+// Extras plugged into Odd one out without copying it. The default is the deck (deck/DeckExtras.tsx): the stack of
+// odd ones beside the puzzle while a round is played and the cards kept in this browser, tried as the mock-up
+// /games/odd-one-out_mockup and put in the game on the owner's approval (2026-11-12). A page or test can provide
+// other extras, or {} for the game alone.
 import { createContext, type ReactNode } from "react";
+import { DECK_EXTRAS } from "./deck/DeckExtras";
 import type { SetEntry, SetsFile } from "./game";
 import type { RoundState } from "./storage";
 
@@ -14,4 +16,4 @@ export interface OddExtras {
   onReveal?: (data: SetsFile, set: SetEntry, right: boolean) => void;
 }
 
-export const OddExtrasContext = createContext<OddExtras>({});
+export const OddExtrasContext = createContext<OddExtras>(DECK_EXTRAS);

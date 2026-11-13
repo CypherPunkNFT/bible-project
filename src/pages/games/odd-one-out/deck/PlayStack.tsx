@@ -36,7 +36,7 @@ export function PlayStack({ data, round }: { data: SetsFile; round: RoundState }
   const hand = useRef<HTMLDivElement>(null);
   useEffect(() => { // a new card landing always shows on top, and on a phone scrolls into view
     setChosen(null);
-    hand.current?.scrollTo({ left: hand.current.scrollWidth, behavior: "smooth" });
+    hand.current?.scrollTo?.({ left: hand.current.scrollWidth, behavior: "smooth" }); // missing in older browsers and the test page
   }, [newest]);
   const top = landed.find((entry) => entry.card.id === chosen) ?? landed[0];
   const behind = landed.filter((entry) => entry !== top);
