@@ -10,43 +10,58 @@ import { BOARD_PAIRS, DIFFICULTIES, DIFFICULTY_LABELS, isOffered, type Difficult
 import { formatNumber, plural } from "@/lib/site-format";
 import { formatTime } from "./game";
 import type { Best, Settings } from "./storage";
+import { VERSIONS, type Version, type VersionKey } from "./versions";
 
 export interface Choice { deck: string; difficulty: Difficulty; players: number; names: string[] }
 
 interface StartProps {
   data: PairsFile;
+  version: Version;
+  onVersion: (version: VersionKey) => void;
   choice: Choice;
   best: Best | undefined;
   settings: Settings;
   onChoice: (choice: Choice) => void;
   onSettings: (settings: Settings) => void;
   onDeal: (study: boolean) => void;
+  /** Verses: the board's words are being fetched, or could not be. */
+  dealing?: boolean;
+  dealFailed?: boolean;
 }
 
+/** The front card of the fan turns over to show one of the version's who cards. */
+const FAN_FRONT: Record<VersionKey, string> = { people: "Daniel", places: "Jericho", verses: "Psalm 23" };
+
 /** Three face-down cards fanned beside the title; the front one turns over and back on a slow loop (CSS). */
-function CardFan() {
+function CardFan({ version }: { version: Version }) {
   return <span className="mm-fan" aria-hidden="true">
-    <span className="mm-fan__card is-story"><span className="mm-fan__face mm-fan__back"><CardBack kind="story" /></span></span>
-    <span className="mm-fan__card is-who"><span className="mm-fan__face mm-fan__back"><CardBack kind="who" /></span></span>
+    <span className="mm-fan__card is-story"><span className="mm-fan__face mm-fan__back"><CardBack side={version.sides.story} /></span></span>
+    <span className="mm-fan__card is-who"><span className="mm-fan__face mm-fan__back"><CardBack side={version.sides.who} /></span></span>
     <span className="mm-fan__card is-turning">
       <span className="mm-fan__inner">
-        <span className="mm-fan__face mm-fan__back"><CardBack kind="who" /></span>
-        <span className="mm-fan__face mm-fan__front">Daniel</span>
+        <span className="mm-fan__face mm-fan__back"><CardBack side={version.sides.who} /></span>
+        <span className="mm-fan__face mm-fan__front">{FAN_FRONT[version.key]}</span>
       </span>
     </span>
   </span>;
 }
 
-export function StartScreen({ data, choice, best, settings, onChoice, onSettings, onDeal }: StartProps) {
-  const offered = isOffered(data, choice.deck, choice.difficulty);
+export function StartScreen({ data, version, onVersion, choice, best, settings, onChoice, onSettings, onDeal, dealing = false,
+  dealFailed = false }: StartProps) {
+  const offered = isOffered(data, choice.deck, choice.difficulty) && !dealing;
   return <div className="mm-start">
     <div className="mm-start__head">
       <div>
         <h1>Memory card match</h1>
-        <p className="mm-lede">Turn over two cards at a time. Pair each person with their story.</p>
+        <p className="mm-lede">{version.lede}</p>
       </div>
-      <CardFan />
+      <CardFan key={version.key} version={version} />
     </div>
+    <fieldset className="mm-chips">
+      <legend>Match</legend>
+      {VERSIONS.map((item) => <button key={item.key} type="button" aria-pressed={version.key === item.key}
+        onClick={() => onVersion(item.key)}>{item.chip}</button>)}
+    </fieldset>
     <fieldset className="mm-chips">
       <legend>Deck</legend>
       {data.decks.map((deck) => <button key={deck.key} type="button" aria-pressed={choice.deck === deck.key}
@@ -85,9 +100,10 @@ export function StartScreen({ data, choice, best, settings, onChoice, onSettings
       </label>)}
     </div>}
     <div className="mm-start-foot">
-      <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>Deal the cards</button>
+      <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>{dealing ? "Dealing…" : "Deal the cards"}</button>
       <button type="button" className="mm-link" disabled={!offered} onClick={() => onDeal(true)}>See the pairs first</button>
     </div>
+    {dealFailed && <p className="mm-note" role="alert">The verses didn't load. Check the connection and deal again.</p>}
     {best && choice.players === 1 && <p className="mm-best">
       <span className="mm-best__stars" aria-hidden="true">{[1, 2, 3].map((n) => <Star key={n} size={14} className={n <= best.stars ? "is-on" : undefined} />)}</span>
       <span>{`Your best here: ${plural(best.moves, "{n} move", "{n} moves")} · ${formatTime(best.timeMs)} · ${plural(best.stars, "{n} star", "{n} stars")}`}</span>

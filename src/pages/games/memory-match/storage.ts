@@ -3,12 +3,14 @@
 // progress, so Back or a reload returns to it. Storage that is missing, full or corrupt never stops the game.
 import { DIFFICULTIES, type Card, type Difficulty, type PairsFile } from "./deal";
 import type { GameState } from "./game";
+import { DEFAULT_VERSION, isVersionKey, type VersionKey } from "./versions";
 
 const BEST_KEY = "bp-memory-match-best";
 const SEEN_KEY = "bp-memory-match-seen";
 const OPENER_KEY = "bp-memory-match-opener";
 const SETTINGS_KEY = "bp-memory-match-settings";
 const GAME_KEY = "bp-memory-match-game";
+const VERSION_KEY = "bp-memory-match-version";
 /** Pairs remembered as seen lately: most of the Mixed deck, so boards keep changing. */
 export const SEEN_LIMIT = 120;
 
@@ -138,3 +140,18 @@ export function readGame(store: Store | null, data: PairsFile): GameState | null
 }
 
 export const saveGame = (store: Store | null, game: GameState | null) => write(store, GAME_KEY, game);
+
+/** The version of the board in progress, if one is saved: the page loads that version's cards to resume it. */
+export function savedGameVersion(store: Store | null): VersionKey | null {
+  const value = read(store, GAME_KEY);
+  if (!isRecord(value)) return null;
+  return isVersionKey(value.version) ? value.version : DEFAULT_VERSION;
+}
+
+/** The version last chosen on this device; the people version on a first visit. */
+export function readVersion(store: Store | null): VersionKey {
+  const value = read(store, VERSION_KEY);
+  return isVersionKey(value) ? value : DEFAULT_VERSION;
+}
+
+export const saveVersion = (store: Store | null, version: VersionKey) => write(store, VERSION_KEY, version);

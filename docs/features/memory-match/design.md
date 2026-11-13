@@ -830,3 +830,18 @@ I added five links to "must not share a board" (§6.1, Appendix A). There are no
 - `deal.test.ts` draws 1,000 boards for each of the 24 deck and difficulty combinations. Every board is fair: one character per pair, no shared first name, no linked characters, no shared story words on Easy, and at least 4 deeper pairs on Hard.
 - The Parables decision (§17) is still the owner's. The deck is in.
 - On a 360 × 640 phone, a Hard board made of the 12 longest labels first clipped words and ran past the screen. Three changes made it fit: the small "Who"/"Story" tag and the "✓ Matched" mark now sit in the card's top and bottom padding, the Hard cards have narrower side padding, and card words may break inside a long word (soft hyphens first). The layout checks in `e2e/memory-match.spec.ts` check the 360 × 640 fit, the one-row limit at 320 × 568, and that turning the phone moves no card.
+
+### Two more versions (2026-11-12)
+
+The owner asked for more ways to play beyond a person and their story, and confirmed two. A "Match" row on the start screen now picks one of three versions (`src/pages/games/memory-match/versions.ts`); the last pick is remembered, and a board in progress keeps its own version after Back or a reload.
+
+| Version | The two cards | Source | Card designs |
+|---|---|---|---|
+| People and stories | Who · Story | `pairs.json` (unchanged) | teal with a bust · wine red with an open book |
+| Places and events | Place · Event | `scripts/memory-match/places.json`: 67 events at 61 places, each with its BSB verse; a place's link opens it on the atlas map | forest green with a map pin · ochre with a spark |
+| Verses | Begins · Ends | verse completion's pool, one-verse passages that split well near the middle (127; six bad splits left out in `scripts/memory-match/verses.json`) | plum with an opening quotation mark · slate blue with a closing one |
+
+- The game code still calls the two sides `who` and `story`; a version only names them and picks their designs. Hard keeps one plain navy back for every version.
+- The verses file ships verse ids and split points only (the site keeps no verse wording in its data). When a Verses board is dealt, its twelve or fewer verses are fetched from the BSB and split in the browser (`verse-cards.ts`) exactly as the build split them (`mm_verses.py`); `versions.test.ts` checks every shipped verse against the build's review sheet. If the verses cannot be fetched, the start screen says so and the deal can be tried again.
+- Best records for Places and Verses are kept apart from the people version's (`places/<deck>`, `verses/<deck>`); the people version keeps its old keys.
+- Review sheets: `docs/features/memory-match/places-review-sheet.md` and `verses-review-sheet.md`.

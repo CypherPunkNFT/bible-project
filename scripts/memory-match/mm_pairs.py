@@ -121,17 +121,18 @@ def check_story_text(pair: Pair, character: Character, passage_text: str) -> Non
             raise BuildError(f"{where}: the quotation {quote!r} is not BSB wording in {pair.ref}")
 
 
-def check_pair(pair: Pair, characters: dict[str, Character], sources: Sources) -> None:
-    """Everything the design fails the build on for one pair; sets its key verse."""
+def check_pair(pair: Pair, characters: dict[str, Character], sources: Sources,
+               deck_keys: list[str] = DECK_KEYS) -> list[tuple[str, int, int, str]]:
+    """Everything the design fails the build on for one pair; sets its key verse and returns the passage's verses."""
     where = f"pair {pair.who} / {pair.story!r}"
     character = characters.get(pair.who)
     if character is None:
         raise BuildError(f"{where}: unknown who card {pair.who!r} (not in characters.json)")
     if pair.tier not in (1, 2, 3):
         raise BuildError(f"{where}: tier must be 1, 2 or 3, not {pair.tier!r}")
-    unknown_decks = [d for d in pair.decks if d not in DECK_KEYS]
+    unknown_decks = [d for d in pair.decks if d not in deck_keys]
     if not pair.decks or unknown_decks:
-        raise BuildError(f"{where}: decks must be some of {', '.join(DECK_KEYS)}; got {pair.decks!r}")
+        raise BuildError(f"{where}: decks must be some of {', '.join(deck_keys)}; got {pair.decks!r}")
     verses = passage_verses(sources, pair.ref)
     text = " ".join(v[3] for v in verses)
     check_story_text(pair, character, text)
@@ -153,6 +154,7 @@ def check_pair(pair: Pair, characters: dict[str, Character], sources: Sources) -
             raise BuildError(f"{where}: notWith names {other!r}, which is not a who card")
         if other == pair.who:
             raise BuildError(f"{where}: notWith names the pair's own character")
+    return verses
 
 
 def symmetric_not_with(pairs: list[Pair]) -> dict[str, list[str]]:
@@ -201,21 +203,26 @@ def fame(pair: Pair, characters: dict[str, Character], sources: Sources) -> tupl
     return (sources.bank_counts.get(person["n"], 0), person.get("c", 0)) if person else (0, 0)
 
 
-def deck_pools(pairs: list[Pair], characters: dict[str, Character], sources: Sources) -> list[dict]:
-    """Design 4 and 8: per deck, the Easy top-up and which difficulties have enough characters to be offered."""
+def deck_pools(pairs: list, characters: dict[str, Character], sources: Sources, deck_list: list | None = None,
+               fame_of=None, fits_hard=None) -> list[dict]:
+    """Design 4 and 8: per deck, the Easy top-up and which difficulties have enough characters to be offered. The
+    Places and Verses versions pass their own decks, fame measure and (Verses) which pairs are short enough for Hard."""
+    deck_list = DECKS if deck_list is None else deck_list
+    fame_of = fame_of or (lambda p: fame(p, characters, sources))
     decks = []
-    for key, title in [(MIXED, "Mixed"), *DECKS]:
+    for key, title in [(MIXED, "Mixed"), *deck_list]:
         members = [p for p in pairs if key == MIXED or key in p.decks]
         easy = [p for p in members if p.tier == 1]
         extra = []
         candidates = sorted((p for p in members if p.tier == 2),
-                            key=lambda p: (*(-n for n in fame(p, characters, sources)), p.id))
+                            key=lambda p: (*(-n for n in fame_of(p)), p.id))
         for pair in candidates:
             if len({p.who for p in easy + extra}) >= EASY_POOL_CHARACTERS:
                 break
             if pair.who not in {p.who for p in easy + extra}:
                 extra.append(pair)
-        pools = {"easy": easy + extra, "medium": [p for p in members if p.tier <= 2], "hard": members}
+        hard = [p for p in members if fits_hard is None or fits_hard(p)]
+        pools = {"easy": easy + extra, "medium": [p for p in members if p.tier <= 2], "hard": hard}
         offered = {}
         for difficulty, pool in pools.items():
             enough = len({p.who for p in pool}) >= BOARD_PAIRS[difficulty] + 3

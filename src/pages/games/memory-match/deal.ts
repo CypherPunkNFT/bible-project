@@ -31,6 +31,10 @@ export interface PairInfo {
   words: string[];
   /** Characters this pair never shares a board with, already symmetric (design 6.1). */
   notWith: string[];
+  /** Verses: halves too long for Hard's 24 cards on a phone. */
+  notOnHard?: boolean;
+  /** Verses: the word the second card starts at (verse-cards.ts). */
+  split?: number;
 }
 export interface PairsFile {
   about: string;
@@ -83,7 +87,7 @@ export function columnsFor(difficulty: Difficulty, narrow: boolean): number {
 /** The pairs a deck and difficulty draw from: tier 1 (plus the build's top-up) on Easy, tiers 1–2 on Medium, all on Hard. */
 export function poolFor(data: PairsFile, deck: string, difficulty: Difficulty): PairInfo[] {
   const inDeck = data.pairs.filter((pair) => deck === MIXED || pair.decks.includes(deck));
-  if (difficulty === "hard") return inDeck;
+  if (difficulty === "hard") return inDeck.filter((pair) => !pair.notOnHard);
   if (difficulty === "medium") return inDeck.filter((pair) => pair.tier <= 2);
   const extra = new Set(deckOf(data, deck)?.easyExtra ?? []);
   return inDeck.filter((pair) => pair.tier === 1 || extra.has(pair.id));

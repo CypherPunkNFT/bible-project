@@ -12,6 +12,7 @@ import { capitalise, cardText, clockRead, clockStart, clockStop, flip, foundCoun
 import { Shelf, type ShelfPair } from "./Shelf";
 import type { Settings } from "./storage";
 import { Track } from "./Track";
+import type { Version } from "./versions";
 
 /** The second card's turn (CSS 420ms): taps during it are ignored (design 16). */
 export const FLIP_MS = 420;
@@ -26,6 +27,7 @@ export const HANDOVER_MS = 1600;
 
 interface BoardProps {
   data: PairsFile;
+  version: Version;
   game: GameState;
   settings: Settings;
   onChange: (game: GameState) => void;
@@ -58,7 +60,7 @@ function useDecorationTimers() {
   }, []);
 }
 
-export function Board({ data, game, settings, onChange, onSettings, onFinish, onRestart, onQuit }: BoardProps) {
+export function Board({ data, version, game, settings, onChange, onSettings, onFinish, onRestart, onQuit }: BoardProps) {
   const visible = usePageVisible();
   const reduced = useMemo(() => prefersReducedMotion(), []);
   const solo = isSolo(game);
@@ -213,7 +215,7 @@ export function Board({ data, game, settings, onChange, onSettings, onFinish, on
     player: solo ? null : game.matched[game.cards.findIndex((card) => card.pair === id)],
   }));
 
-  return <section className={`mm-play is-${game.difficulty}`} aria-label="Memory card match board">
+  return <section className={`mm-play is-${game.difficulty} is-${version.key}`} aria-label="Memory card match board">
     <Track game={game} toneOf={toneOf} settings={settings} elapsedMs={elapsed} streak={streak} onSettings={onSettings} />
     <Shelf data={data} pairs={shelfPairs} total={pairCount(game)} players={game.players.length}
       slotRef={(place, el) => { slotRefs.current[place] = el; }} />
@@ -224,7 +226,7 @@ export function Board({ data, game, settings, onChange, onSettings, onFinish, on
         {game.cards.map((card, index) => {
           const face = faceOf(index);
           const text = face === "down" ? null : cardText(data, card);
-          return <Card key={index} ref={(el) => { cardRefs.current[index] = el; }} card={card} face={face} text={text}
+          return <Card key={index} ref={(el) => { cardRefs.current[index] = el; }} card={card} version={version} face={face} text={text}
             partner={face === "matched" || face === "taken" ? partnerOf(index) : null} typed={typed}
             missed={holding && game.up.includes(index)} flying={fresh?.phase === "fly" && fresh.pair === card.pair}
             row={Math.floor(index / game.columns) + 1} column={(index % game.columns) + 1} index={index} tone={toneOf.get(card.pair) ?? 0}

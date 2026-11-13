@@ -1,0 +1,11 @@
+{
+ "about": "Memory card match, Verses: the verses are verse completion's pool (src/data/verse-completion/pool.json); a verse listed here is left out, with the reason. Checked by scripts/build-memory-match.py, whose review sheet shows every split.",
+ "exclude": {
+  "jer-33-3": "the split falls inside a phrase: show you great | and unsearchable things",
+  "heb-11-1": "the split falls inside a phrase: what we hope | for",
+  "1co-13-13": "the split breaks the list of three: faith, hope, | and love",
+  "mrk-9-23": "a dialogue that does not read as a sentence once its quotation marks are gone",
+  "luk-7-50": "the first half is only the speaker: And Jesus told the woman,",
+  "luk-11-28": "the first half is mostly the speaker: But He replied, Blessed rather are those"
+ }
+}

@@ -13,7 +13,12 @@ import MemoryMatchGame from "./MemoryMatchGame";
 const verseTable = vi.hoisted(() => ({ value: null as Record<number, string | null> | null }));
 vi.mock("@/lib/verses", () => ({
   useVerseTable: () => (verseTable.value ? { bible: { slug: "bsb", name: "Berean Standard Bible" }, table: verseTable.value } : null),
+  // The Verses version fetches its board's verses when it deals (verse-cards.ts): every verse reads the same here.
+  resolveVerses: async (_catalog: unknown, ids: number[]) => ({
+    verses: ids.map((id) => ({ id, text: verseTable.value ? verseTable.value[id] ?? null : `One two three four five six seven eight` })),
+  }),
 }));
+vi.mock("@/lib/catalog", () => ({ useCatalog: () => ({}) }));
 
 const data = rawData as unknown as PairsFile;
 const byId = new Map(data.pairs.map((pair) => [pair.id, pair]));
@@ -156,6 +161,37 @@ describe("memory match page", () => {
     await screen.findByRole("group", { name: /^Cards/ });
     expect(JSON.parse(sessionStorage.getItem("bp-memory-match-game")!).cards).toEqual(JSON.parse(before!).cards);
     expect(cards()[0]).toHaveAccessibleName(/face up$/);
+  });
+
+  // ---- The Places and Verses versions (versions.ts) -----------------------------------------------------------------
+
+  it("deals places and events, remembers the version, and keeps its board on a reload", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "Places and events" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Deal the cards" }));
+    expect(JSON.parse(localStorage.getItem("bp-memory-match-version")!)).toBe("places");
+    const dealt = savedCards();
+    expect(cards()[dealt.findIndex((c) => c.kind === "who")]).toHaveAccessibleName(/face down, place card$/);
+    expect(cards()[dealt.findIndex((c) => c.kind === "story")]).toHaveAccessibleName(/face down, event card$/);
+    expect(cards()[0]).toHaveClass(dealt[0].kind === "who" ? "art-place" : "art-event");
+    cleanup();
+    localStorage.removeItem("bp-memory-match-version"); // the board in this tab decides the version, not the last pick
+    renderGame();
+    await screen.findByRole("group", { name: /^Cards/ });
+    expect(savedCards()).toEqual(dealt);
+    expect(cards()[0]).toHaveClass(dealt[0].kind === "who" ? "art-place" : "art-event");
+  });
+
+  it("deals verse halves with the BSB's words, an ellipsis where each card breaks", async () => {
+    renderGame();
+    fireEvent.click(await screen.findByRole("button", { name: "Verses" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Deal the cards" }));
+    await screen.findByRole("group", { name: /^Cards/ });
+    const dealt = savedCards();
+    const begins = dealt.findIndex((c) => c.kind === "who");
+    expect(cards()[begins]).toHaveAccessibleName(/face down, begins card$/);
+    fireEvent.click(cards()[begins]);
+    expect(cards()[begins].textContent).toMatch(/^.*One two three four … *$/);
   });
 
   // ---- The redesign (docs/visual-audits/memory-match-redesign.md) --------------------------------------------------

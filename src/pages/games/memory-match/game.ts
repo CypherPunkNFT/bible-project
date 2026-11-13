@@ -4,10 +4,13 @@
 // and in background tabs (design 11).
 import { plural } from "@/lib/site-format";
 import type { Card, Difficulty, PairsFile } from "./deal";
+import type { VersionKey } from "./versions";
 
 export interface GameState {
   /** The pairs file this board was dealt from; a saved board from another build is not resumed. */
   stamp: string;
+  /** The version dealt (versions.ts); a board saved before versions existed is the people version. */
+  version?: VersionKey;
   deck: string;
   difficulty: Difficulty;
   columns: number;
@@ -43,8 +46,8 @@ export const isHolding = (state: GameState) => state.up.length === 2;
 export const hasStarted = (state: GameState) => state.moves > 0 || state.up.length > 0;
 
 export function newGame(stamp: string, deck: string, difficulty: Difficulty, columns: number, cards: Card[],
-  players: string[], studying: boolean): GameState {
-  return { stamp, deck, difficulty, columns, cards, up: [], matched: cards.map(() => null), found: [], moves: 0,
+  players: string[], studying: boolean, version: VersionKey = "people"): GameState {
+  return { stamp, version, deck, difficulty, columns, cards, up: [], matched: cards.map(() => null), found: [], moves: 0,
     players: players.length ? players : ["You"], turn: 0, elapsedMs: 0, studying };
 }
 

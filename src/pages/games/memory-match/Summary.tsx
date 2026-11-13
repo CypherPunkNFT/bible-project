@@ -11,14 +11,17 @@ import { formatList, plural } from "@/lib/site-format";
 import { useVerseTable } from "@/lib/verses";
 import { Confetti, NewBestRibbon, ResultPanel, ScoreCountUp, WinnerLine, teamTone } from "../kit";
 import { toneColor } from "./tones";
+import type { Version } from "./versions";
 import type { PairsFile } from "./deal";
 import { formatTime, isSolo, pairCount, ranking, stars, winnerLine, type GameState } from "./game";
 
 export interface RecordNews { newMoves: boolean; newTime: boolean }
 
-interface SummaryProps { data: PairsFile; game: GameState; news: RecordNews | null; onAgain: () => void; onChange: () => void }
+interface SummaryProps {
+  data: PairsFile; version: Version; game: GameState; news: RecordNews | null; onAgain: () => void; onChange: () => void;
+}
 
-export function Summary({ data, game, news, onAgain, onChange }: SummaryProps) {
+export function Summary({ data, version, game, news, onAgain, onChange }: SummaryProps) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { heading.current?.focus(); }, []);
   const pairs = useMemo(() => {
@@ -91,19 +94,20 @@ export function Summary({ data, game, news, onAgain, onChange }: SummaryProps) {
   </>;
 
   const reading = <>
-    <h3 className="mm-stories-title">The stories</h3>
+    <h3 className="mm-stories-title">{version.reading}</h3>
     <ul className="mm-stories">
       {pairs.map((pair, n) => {
         const character = data.characters[pair.who];
         const quote = verses?.table[pair.keyVerseId];
         return <li key={pair.id} style={{ "--pair": toneColor(n), "--i": n } as CSSProperties}>
-          <p className="mm-story-pair"><strong>{character.label}</strong> — {pair.story}</p>
+          {/* A verse's two halves are the verse itself, quoted whole below. */}
+          {version.key !== "verses" && <p className="mm-story-pair"><strong>{character.label}</strong> — {pair.story}</p>}
           {character.parable && <p className="mm-parable">In a parable Jesus told</p>}
           {quote ? <blockquote><p>“{quote}”</p><footer>{pair.keyVerse}</footer></blockquote>
             : <p className="mm-key-ref">{pair.keyVerse}</p>}
           <p className="mm-story-links">
             <Link to={pair.readerHref}>{`Read ${pair.ref}`}</Link>
-            {character.href && <Link to={character.href}>{`About ${character.label}`}</Link>}
+            {character.href && version.aboutLink && <Link to={character.href}>{version.aboutLink(character.label)}</Link>}
           </p>
         </li>;
       })}

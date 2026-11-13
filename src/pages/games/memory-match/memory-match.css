@@ -32,6 +32,16 @@
   --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M0 7L7 0L14 7L7 14Z' fill='none' stroke='%233f9d91' stroke-width='.8'/%3E%3Ccircle cx='7' cy='7' r='1.2' fill='%23d9b66b'/%3E%3C/svg%3E"); }
 .mm-back.is-story { --mm-back-base: #5c1b27;
   --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M0 16a8 8 0 0 1 16 0M-8 8a8 8 0 0 1 16 0M8 8a8 8 0 0 1 16 0' fill='none' stroke='%23b25a63' stroke-width='.8'/%3E%3Ccircle cx='8' cy='13' r='1' fill='%23d9b66b'/%3E%3Ccircle cx='0' cy='5' r='1' fill='%23d9b66b'/%3E%3Ccircle cx='16' cy='5' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
+/* Places: a forest-green map with contour lines (place), an ochre field of small stars (event). */
+.mm-back.is-place { --mm-back-base: #1e4a33;
+  --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M0 5q5-4 10 0t10 0M0 15q5-4 10 0t10 0' fill='none' stroke='%234f9a6c' stroke-width='.8'/%3E%3Ccircle cx='15' cy='10' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
+.mm-back.is-event { --mm-back-base: #6a4510;
+  --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cpath d='M9 4l.9 4.1L14 9l-4.1.9L9 14l-.9-4.1L4 9l4.1-.9z' fill='%23a77a2c'/%3E%3Ccircle cx='0' cy='0' r='1' fill='%23d9b66b'/%3E%3Ccircle cx='18' cy='18' r='1' fill='%23d9b66b'/%3E%3Ccircle cx='18' cy='0' r='1' fill='%23d9b66b'/%3E%3Ccircle cx='0' cy='18' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
+/* Verses: a plum lattice of rings (begins), slate-blue chevrons (ends). */
+.mm-back.is-begins { --mm-back-base: #4a2147;
+  --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cg fill='none' stroke='%23955a92' stroke-width='.8'%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='12' cy='0' r='6'/%3E%3Ccircle cx='0' cy='12' r='6'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3C/g%3E%3Ccircle cx='6' cy='6' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
+.mm-back.is-ends { --mm-back-base: #243b5c;
+  --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpath d='M0 9L7 2L14 9' fill='none' stroke='%23587aa8' stroke-width='.8'/%3E%3Ccircle cx='7' cy='7.5' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
 .mm-back.is-plain { --mm-back-base: #1c2741;
   --mm-back-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0L12 12M12 0L0 12' stroke='%233b4c74' stroke-width='.8'/%3E%3Ccircle cx='6' cy='6' r='1' fill='%23d9b66b'/%3E%3C/svg%3E"); }
 .mm-back__seal { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3cqmin; width: 62cqmin; height: 76cqmin; border-radius: 50%;
@@ -158,13 +168,18 @@
 /* The small "Who"/"Story" tag and the stamp sit in the face's top and bottom padding, so the words get the whole height
    of the card (the Hard board must fit a 360 × 640 phone, design 8). */
 .mm-card__front { position: relative; padding-block: .85rem; transform: rotateY(180deg); border: 1px solid var(--line); background: var(--surface); transition: border-color .25s var(--mm-ease), background-color .25s var(--mm-ease); }
-.mm-card.is-who .mm-card__front { border-top: 3px solid var(--mm-color); }
+.mm-card.is-who .mm-card__front { border-top: 3px solid var(--mm-kind); }
 /* A sheen crosses the face as the turn lands. */
 .mm-card__front::before { content: ""; position: absolute; inset: -40% -60%; background: linear-gradient(115deg, transparent 42%, rgb(255 255 255 / .16) 50%, transparent 58%); transform: translateX(-70%); opacity: 0; pointer-events: none; }
 .mm-card.is-up .mm-card__front::before { animation: mm-sheen .9s var(--mm-ease) calc(var(--mm-flip) * .55) both; }
 @keyframes mm-sheen { 0% { opacity: 1; transform: translateX(-70%); } 100% { opacity: 0; transform: translateX(70%); } }
-.mm-card.is-who { --mm-kind: var(--mm-color); }
-.mm-card.is-story { --mm-kind: var(--mm-story); }
+/* Each side's colour on its face: the top edge (side A only), the inner frame and the corner emblems. */
+.mm-card.art-who { --mm-kind: var(--mm-color); }
+.mm-card.art-story { --mm-kind: var(--mm-story); }
+.mm-card.art-place { --mm-kind: #3f8a5e; }
+.mm-card.art-event { --mm-kind: #b4852c; }
+.mm-card.art-begins { --mm-kind: #94568f; }
+.mm-card.art-ends { --mm-kind: #4f72a3; }
 .mm-card__front::after { content: ""; position: absolute; inset: .2rem; border: 1px solid color-mix(in srgb, var(--mm-kind) 22%, transparent); border-radius: calc(var(--mm-radius) - .22rem); pointer-events: none; }
 .mm-card__pip { position: absolute; width: .78rem; height: .78rem; color: var(--mm-kind); line-height: 0; }
 .mm-card__pip .mm-emblem { width: 100%; height: 100%; }
