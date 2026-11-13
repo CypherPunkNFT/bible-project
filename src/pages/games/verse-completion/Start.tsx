@@ -1,15 +1,14 @@
 // The start screen (design §10.1), laid out like the other games' (owner, 2026-11-13: "nice and standardized like the
-// others"): the game's drawing beside the title; Pick or Type, with Whole words and First letters under Type; where the
-// verses come from as picture tiles like Memory card match's; then one line of Easy, Medium and Hard pills, Play and
-// How to play. When progress can be saved, My verses is a small ring (verses saved, how many memorised) and the day
+// others"): the game's drawing beside the title; where the verses come from as picture tiles like Memory card match's,
+// the whole Bible, a testament or a group of books; then one line of Mode, Difficulty, Play and How to play. When progress can be saved, My verses is a small ring (verses saved, how many memorised) and the day
 // streak a flame badge; a round in progress is a card you tap to resume.
 import { formatNumber } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import { StreakFlame } from "../kit";
 import { evenRows } from "../memory-match/even-rows";
 import { Tile } from "../memory-match/TileIcons";
-import type { Settings } from "./model";
-import { ANSWERS, LEGENDS, LEVELS, STYLES, TESTAMENTS } from "./text";
+import { answerStyle, type Settings } from "./model";
+import { LEGENDS, LEVELS, MODES, SOURCES } from "./text";
 
 interface StartProps {
   settings: Settings;
@@ -81,16 +80,14 @@ export function Start(props: StartProps) {
       </button>}
       {counts.due > 0 && <button type="button" className={props.resume ? "vc-secondary" : "vc-primary"} onClick={props.onReview}>{`Review (${counts.due} due)`}</button>}
     </div>}
-    <div className="vc-switch" role="group" aria-label={LEGENDS.mode.label}>
-      {ANSWERS.map((option) => <button key={option.value} type="button" aria-pressed={settings.answer === option.value} onClick={() => set({ answer: option.value })}>{option.label}</button>)}
-    </div>
-    {settings.answer === "type" && <Choice legend={LEGENDS.typing.label} options={STYLES} value={settings.style} onChange={(style) => set({ style })} />}
-    <fieldset className="mm-tiles vc-from" style={evenRows(TESTAMENTS.length)}>
+    <fieldset className="mm-tiles vc-from" style={evenRows(SOURCES.length)}>
       <legend>{LEGENDS.from.label}</legend>
-      {TESTAMENTS.map((item) => <Tile key={item.value} icon={item.icon} name={item.label} subtitle={item.note}
+      {SOURCES.map((item) => <Tile key={item.value} icon={item.icon} name={item.label} subtitle={item.note}
         pressed={settings.testament === item.value} onClick={() => set({ testament: item.value })} />)}
     </fieldset>
     <div className="vc-start-line">
+      <Choice legend={LEGENDS.mode.label} options={MODES} value={answerStyle(settings)}
+        onChange={(mode) => set(mode === "pick" ? { answer: "pick" } : { answer: "type", style: mode })} />
       <Choice legend={LEGENDS.difficulty.label} options={LEVELS} value={settings.level} onChange={(value) => set({ level: value })} />
       <div className="vc-actions">
         <button type="button" className={mainIsPlay ? "vc-primary is-big" : "vc-secondary"} onClick={props.onPlay}>Play</button>

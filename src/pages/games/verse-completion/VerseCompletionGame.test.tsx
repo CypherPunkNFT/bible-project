@@ -69,7 +69,7 @@ describe("verse completion page", () => {
   it("opens How to play only from its link, never by itself (owner, 2026-11-13)", async () => {
     await openGame();
     expect(screen.queryByRole("dialog")).toBeNull();
-    for (const name of ["Whole Bible", "Old Testament", "New Testament"]) expect(screen.getByRole("button", { name })).toBeInTheDocument();
+    for (const name of ["Whole Bible", "Old Testament", "New Testament", "The Law", "Historical", "Psalms", "Prophetical", "Gospels", "Epistles"]) expect(screen.getByRole("button", { name })).toBeInTheDocument();
     choose("How to play");
     expect(screen.getByRole("dialog", { name: "How to play" })).toBeInTheDocument();
     choose("Got it");
@@ -105,7 +105,7 @@ describe("verse completion page", () => {
 
   it("plays a Type round with whole words, and a reload mid-round resumes at the same card", async () => {
     const view = await openGame();
-    choose("Type");
+    choose("Type words");
     choose(/^Medium/);
     choose("Play");
     for (let card = 1; card <= 10; card++) {
@@ -131,10 +131,9 @@ describe("verse completion page", () => {
     expect(saved().settings).toMatchObject({ answer: "type", style: "words", level: "medium" });
   }, 60_000);
 
-  it("plays First letters and Hard word-by-word picking for a card", async () => {
+  it("plays Type letters and Hard word-by-word picking for a card", async () => {
     await openGame();
-    choose("Type");
-    choose("First letters");
+    choose("Type letters");
     choose(/^Hard/);
     choose("Play");
     let passage = await currentPassage();
@@ -146,7 +145,7 @@ describe("verse completion page", () => {
     choose("Yes, leave"); // the site-styled confirm, not the browser's
     await waitFor(() => expect(saved().round).toBeNull());
 
-    choose("Pick");
+    choose("Multiple choice");
     choose("Play");
     passage = await currentPassage();
     const hidden = endingOf(textOf(passage), passage.split.hard);

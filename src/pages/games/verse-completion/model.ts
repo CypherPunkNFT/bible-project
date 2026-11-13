@@ -25,7 +25,26 @@ export interface Passage {
 
 export interface Pool { stamp: string; passages: Passage[] }
 
-export interface Settings { answer: Answer; style: Style; level: Level; testament: "all" | Testament }
+/** The groups of books a round can come from besides the testaments (owner, 2026-11-13), by first and last book number. */
+export const BOOK_GROUPS = {
+  law: [1, 5], history: [6, 17], psalms: [19, 19], prophets: [23, 39], gospels: [40, 43], epistles: [45, 65],
+} as const satisfies Record<string, readonly [number, number]>;
+export type BookGroup = keyof typeof BOOK_GROUPS;
+/** Where a round's verses come from: the whole Bible, a testament or a group of books. */
+export type VerseSource = "all" | Testament | BookGroup;
+export const VERSE_SOURCES: readonly VerseSource[] = ["all", "ot", "nt", ...(Object.keys(BOOK_GROUPS) as BookGroup[])];
+
+/** Whether a passage belongs to a source of verses. */
+export function isFrom(passage: Pick<Passage, "from" | "testament">, source: VerseSource): boolean {
+  if (source === "all") return true;
+  if (source === "ot" || source === "nt") return passage.testament === source;
+  const [first, last] = BOOK_GROUPS[source];
+  const book = Math.floor(passage.from / 1e6);
+  return book >= first && book <= last;
+}
+
+/** `testament` keeps its stored name from before the groups of books, so saved settings still read. */
+export interface Settings { answer: Answer; style: Style; level: Level; testament: VerseSource }
 
 export const DEFAULT_SETTINGS: Settings = { answer: "pick", style: "words", level: "easy", testament: "all" };
 

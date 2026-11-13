@@ -68,10 +68,6 @@
 .vc-resume:is(:hover, :focus-visible) { transform: translateY(-3px); box-shadow: 0 12px 24px -18px rgb(0 0 0 / .6); }
 .vc-resume-title { font-weight: 650; color: var(--vc-tone); }
 .vc-resume-line { color: var(--muted); font-size: .85rem; }
-.vc-switch { display: inline-flex; margin-top: 1.4rem; padding: .2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
-.vc-switch button { min-height: 40px; padding: .4rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .95rem; color: var(--muted); transition: background-color .35s var(--vc-ease), color .35s var(--vc-ease), transform .35s var(--vc-ease); }
-.vc-switch button:is(:hover, :focus-visible) { color: var(--ink); transform: translateY(-1px); }
-.vc-switch button[aria-pressed="true"] { background: var(--vc-tone); color: var(--page); }
 /* The start screen, like the other games' (owner, 2026-11-13): the drawing beside the title, the sources of verses as
    Memory card match's picture tiles (../memory-match/tiles.css), and Difficulty, Play and How to play on one line. It
    widens as Memory card match's does, so the tiles stand at their full size. */
@@ -81,6 +77,7 @@
 .vc-start-head h1 { margin-top: 0; }
 .vc-art { flex: 0 0 auto; width: clamp(6rem, 22vw, 10rem); height: auto; color: var(--vc-tone); }
 .vc-from { margin-top: 1.4rem; }
+@media (min-width: 1184px) { .mm-tiles.vc-from { --mm-most: 9; --mm-cols: 9; } } /* all nine sources in one row */
 .vc-start-line { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .9rem 1.6rem; margin-top: 1.2rem; }
 .vc-start-line > .vc-chips, .vc-start-line > .vc-actions { margin-top: 0; }
 .vc-start-line > .vc-chips legend { width: auto; }

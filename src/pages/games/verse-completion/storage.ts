@@ -2,7 +2,7 @@
 // on every read, so damaged or hand-edited data comes back sound and never breaks the page. Every write re-reads the
 // stored record first and changes only what the answer changed. No account, no server: nothing leaves the browser.
 import { freshProgress, type Days, type Progress } from "./boxes.ts";
-import { DEFAULT_SETTINGS, type Settings } from "./model.ts";
+import { DEFAULT_SETTINGS, VERSE_SOURCES, type Settings } from "./model.ts";
 
 export const STORAGE_KEY = "bp-verse-completion";
 const TAB_KEY = "bp-verse-completion-tab";
@@ -52,7 +52,7 @@ export function readSettings(value: unknown): Settings {
     answer: oneOf(raw.answer, ["pick", "type"], DEFAULT_SETTINGS.answer),
     style: oneOf(raw.style, ["words", "letters"], DEFAULT_SETTINGS.style),
     level: oneOf(raw.level, ["easy", "medium", "hard"], DEFAULT_SETTINGS.level),
-    testament: oneOf(raw.testament, ["all", "ot", "nt"], DEFAULT_SETTINGS.testament),
+    testament: oneOf(raw.testament, VERSE_SOURCES, DEFAULT_SETTINGS.testament),
   };
 }
 

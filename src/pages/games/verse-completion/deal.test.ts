@@ -56,6 +56,19 @@ describe("verse completion: dealing a round", () => {
     expect(easy.every((id) => byId.get(id)!.tier === 1)).toBe(true);
   });
 
+  it("deals from a group of books, taking more from each book when the group has few (owner, 2026-11-13)", () => {
+    const gospels = dealRound(pool, { level: "hard", testament: "gospels" }, {}, [], TODAY, 4);
+    expect(gospels).toHaveLength(10);
+    expect(gospels.every((id) => bookOf(id) >= 40 && bookOf(id) <= 43)).toBe(true);
+    const perBook = new Map<number, number>();
+    for (const id of gospels) perBook.set(bookOf(id), (perBook.get(bookOf(id)) ?? 0) + 1);
+    expect(Math.max(...perBook.values())).toBeLessThanOrEqual(3); // four books share ten
+    const psalms = Array.from({ length: 12 }, (_, n): Passage => ({ ...pool[0], id: `ps-${n}`, from: 19e6 + 1000 + n, to: 19e6 + 1000 + n }));
+    expect(dealRound([...pool, ...psalms], { level: "easy", testament: "psalms" }, {}, [], TODAY, 4)).toHaveLength(10); // one book gives a full round
+    const law = dealRound(pool, { level: "easy", testament: "law" }, {}, [], TODAY, 2);
+    expect(law.every((id) => bookOf(id) <= 5)).toBe(true);
+  });
+
   it("respects the testament filter and fills a short tier from the next one", () => {
     const small = pool.filter((passage) => passage.testament === "nt" || passage.tier > 1 || bookOf(passage.id) <= 2);
     const ids = dealRound(small, { level: "easy", testament: "ot" }, {}, [], TODAY, 5);

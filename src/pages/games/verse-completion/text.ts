@@ -2,17 +2,14 @@
 // The verses themselves are always the English Berean Standard Bible, in every language of the site.
 import type { BoxChange } from "./boxes.ts";
 import type { Verdict } from "./match.ts";
-import type { Level } from "./model.ts";
+import type { AnswerStyle, Level, VerseSource } from "./model.ts";
 
-export const ANSWERS = [
-  { value: "pick", label: "Pick" },
-  { value: "type", label: "Type" },
-] as const;
-
-export const STYLES = [
-  { value: "words", label: "Whole words" },
-  { value: "letters", label: "First letters" },
-] as const;
+/** How you answer, as one row of pills (owner, 2026-11-13): each is an answer and, for typing, a style. */
+export const MODES = [
+  { value: "pick", label: "Multiple choice" },
+  { value: "words", label: "Type words" },
+  { value: "letters", label: "Type letters" },
+] as const satisfies readonly { value: AnswerStyle; label: string }[];
 
 export const LEVELS: readonly { value: Level; label: string; text: string }[] = [
   { value: "easy", label: "Easy", text: "Famous verses, the last part hidden" },
@@ -21,11 +18,17 @@ export const LEVELS: readonly { value: Level; label: string; text: string }[] = 
 ];
 
 /** Where the verses come from, as picture tiles (Start.tsx): the drawing and short line each tile shows. */
-export const TESTAMENTS = [
+export const SOURCES = [
   { value: "all", label: "Whole Bible", icon: "book", note: "Genesis to Revelation" },
-  { value: "ot", label: "Old Testament", icon: "tablets", note: "Genesis to Malachi" },
+  { value: "ot", label: "Old Testament", icon: "sunrise", note: "Genesis to Malachi" },
   { value: "nt", label: "New Testament", icon: "cross", note: "Matthew to Revelation" },
-] as const;
+  { value: "law", label: "The Law", icon: "tablets", note: "Genesis to Deuteronomy" },
+  { value: "history", label: "Historical", icon: "crown", note: "Joshua to Esther" },
+  { value: "psalms", label: "Psalms", icon: "lyre", note: "Songs and prayers" },
+  { value: "prophets", label: "Prophetical", icon: "scroll", note: "Isaiah to Malachi" },
+  { value: "gospels", label: "Gospels", icon: "fish", note: "Matthew to John" },
+  { value: "epistles", label: "Epistles", icon: "quill", note: "Romans to Jude" },
+] as const satisfies readonly { value: VerseSource; label: string; icon: string; note: string }[];
 
 /** Each word state has its own symbol and words, never colour alone (§6.5). */
 export const VERDICTS: Record<Verdict, { label: string; symbol: string }> = {
@@ -64,8 +67,7 @@ export const STAR_LINES: readonly { label: string }[] = [
 
 export const LEGENDS = {
   answer: { label: "Answer" },
-  mode: { label: "How you answer" },
-  typing: { label: "Typing" },
+  mode: { label: "Mode" },
   difficulty: { label: "Difficulty" },
   from: { label: "Verses from" },
 };

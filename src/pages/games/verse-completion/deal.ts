@@ -1,7 +1,7 @@
 // Verse completion: dealing a round and a review (design §7.3, §8.3). A round is seeded and the seed is saved with it,
 // so a reload deals the same ten passages.
 import { isDue, type Progress } from "./boxes.ts";
-import { compareIds, seeded, shuffle, type Level, type Passage, type Settings, type Tier } from "./model.ts";
+import { BOOK_GROUPS, compareIds, isFrom, seeded, shuffle, type Level, type Passage, type Settings, type Tier } from "./model.ts";
 
 export const ROUND_SIZE = 10;
 export const MAX_PER_BOOK = 2;
@@ -16,14 +16,16 @@ const bookOf = (passage: Passage) => Math.floor(passage.from / 1e6);
  * Ten passages for a round, or fewer when the filters leave fewer. Absolute exclusions first: retired, due in My verses
  * (they belong to the review) and the testament filter. Then, per tier: passages never played, then other passages
  * not played recently, both in seeded random order, then recent ones oldest first. Short tiers are filled from the
- * level's other tiers, then from the next tier down. At most two per book, always.
+ * level's other tiers, then from the next tier down. At most two per book; a group of books short of ten after that
+ * (Psalms is one book) is topped up from any of its books.
  */
 export function dealRound(pool: readonly Passage[], settings: Pick<Settings, "level" | "testament">, progress: Readonly<Record<string, Progress>>,
   recent: readonly string[], today: number, seed: number): string[] {
   const random = seeded(seed);
   const recentAt = new Map(recent.map((id, i) => [id, i]));
   const open = pool.filter((passage) => !passage.retired && !(progress[passage.id] && isDue(progress[passage.id], today))
-    && (settings.testament === "all" || passage.testament === settings.testament));
+    && isFrom(passage, settings.testament));
+  let perBookCap = MAX_PER_BOOK;
   const ordered = (tier: Tier) => {
     const inTier = open.filter((passage) => passage.tier === tier);
     const fresh = shuffle(inTier.filter((passage) => !recentAt.has(passage.id)), random);
@@ -39,7 +41,7 @@ export function dealRound(pool: readonly Passage[], settings: Pick<Settings, "le
     const queue = queues.get(tier)!;
     for (let i = 0; i < queue.length && count > 0 && chosen.length < ROUND_SIZE;) {
       const passage = queue[i];
-      if ((perBook.get(bookOf(passage)) ?? 0) >= MAX_PER_BOOK) { i++; continue; }
+      if ((perBook.get(bookOf(passage)) ?? 0) >= perBookCap) { i++; continue; }
       queue.splice(i, 1);
       chosen.push(passage);
       perBook.set(bookOf(passage), (perBook.get(bookOf(passage)) ?? 0) + 1);
@@ -48,6 +50,10 @@ export function dealRound(pool: readonly Passage[], settings: Pick<Settings, "le
   };
   for (const [tier, count] of Object.entries(QUOTAS[settings.level])) takeFrom(Number(tier) as Tier, count);
   for (const tier of FILL_ORDER[settings.level]) takeFrom(tier, ROUND_SIZE - chosen.length);
+  if (settings.testament in BOOK_GROUPS) { // a group of few books (Psalms is one) tops the round up from any of them
+    perBookCap = ROUND_SIZE;
+    for (const tier of FILL_ORDER[settings.level]) takeFrom(tier, ROUND_SIZE - chosen.length);
+  }
   return shuffle(chosen, random).map((passage) => passage.id);
 }
 
