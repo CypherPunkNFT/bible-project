@@ -39,6 +39,9 @@ interface BoardProps {
   /** Team phones (docs/features/team-play/design.md, Review 9): the board puts a function here that takes a tap from
    *  a player's phone; it is applied like a click, only on that player's turn. */
   remote?: MutableRefObject<RemoteFlip | null>;
+  /** False while the team whose turn it is plays on its own phone: this screen's clicks and keys then do nothing
+   *  (design section 10.5). Phones' taps come in through `remote` either way. */
+  localTaps?: boolean;
 }
 
 /** A tap sent from player `player`'s phone on card `index`. */
@@ -97,7 +100,7 @@ function useRemoteFlips(remote: MutableRefObject<RemoteFlip | null> | undefined,
   }, [game, tick, tap, lockUntil]);
 }
 
-export function Board({ data, version, game, settings, onChange, onSettings, onFinish, onRestart, onQuit, remote }: BoardProps) {
+export function Board({ data, version, game, settings, onChange, onSettings, onFinish, onRestart, onQuit, remote, localTaps = true }: BoardProps) {
   const visible = usePageVisible();
   const reduced = useMemo(() => prefersReducedMotion(), []);
   const solo = isSolo(game);
@@ -217,13 +220,13 @@ export function Board({ data, version, game, settings, onChange, onSettings, onF
 
   /** A tap on the board between the cards turns a showing non-pair back. */
   const tapBoard = (event: MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) doTurnBack();
+    if (localTaps && event.target === event.currentTarget) doTurnBack();
   };
 
   const move = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     if (event.key === "Enter" || event.key === " ") { // handled here, so a repeat or the browser's own click is harmless
       event.preventDefault();
-      if (!event.repeat) tap(index);
+      if (!event.repeat && localTaps) tap(index);
       return;
     }
     const last = game.cards.length - 1;
@@ -265,11 +268,11 @@ export function Board({ data, version, game, settings, onChange, onSettings, onF
         {game.cards.map((card, index) => {
           const face = faceOf(index);
           const text = face === "down" ? null : cardText(data, card);
-          return <Card key={index} ref={(el) => { cardRefs.current[index] = el; }} card={card} version={version} face={face} text={text}
+          return <Card key={index} ref={(el) => { cardRefs.current[index] = el; }} kind={card.kind} version={version} face={face} text={text}
             partner={face === "matched" || face === "taken" ? partnerOf(index) : null} typed={typed}
             missed={holding && game.up.includes(index)} flying={fresh?.phase === "fly" && fresh.pair === card.pair}
             row={Math.floor(index / game.columns) + 1} column={(index % game.columns) + 1} index={index} tone={toneOf.get(card.pair) ?? 0}
-            focusable={index === focusIndex} onFlip={() => tap(index)} onKeyDown={(event) => move(event, index)}
+            focusable={index === focusIndex} onFlip={() => { if (localTaps) tap(index); }} onKeyDown={(event) => move(event, index)}
             onFocus={() => setFocusIndex(index)} />;
         })}
       </div>

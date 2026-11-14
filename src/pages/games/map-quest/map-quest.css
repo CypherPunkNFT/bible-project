@@ -260,3 +260,9 @@
 .mq-team-phone-ask { margin: 0; font-size: 1.3rem; }
 .mq-team-phone-ask b { color: var(--poetry); }
 .tp-phone .mq-map { height: clamp(300px, 55vh, 520px); }
+/* The big screen pinning for a team with no phone (ScreenPin.tsx; design 10.5): which team, its map, and Lock in. */
+.mq-team-here { display: grid; gap: .6rem; padding: .8rem; border: 1px solid var(--line); border-left: 4px solid var(--_team); border-radius: .7rem; }
+.mq-team-here-ask { margin: 0; font-size: 1.15rem; }
+.mq-team-here-teams { display: flex; flex-wrap: wrap; gap: .4rem; }
+.mq-team-here-teams button { padding: .35rem .8rem; border: 1px solid var(--line); border-left: 4px solid var(--_team); border-radius: 999px; background: var(--surface); color: var(--ink); }
+.mq-team-here-teams button[aria-pressed="true"] { background: color-mix(in srgb, var(--_team) 18%, var(--surface)); font-weight: 700; }

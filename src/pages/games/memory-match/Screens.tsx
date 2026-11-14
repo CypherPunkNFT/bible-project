@@ -98,7 +98,7 @@ export function StartScreen({ data, version, onVersion, choice, best, settings, 
       {choice.players > 1 && <fieldset className="mm-chips">
         <legend>Play on</legend>
         <button type="button" aria-pressed={!choice.phones} onClick={() => onChoice({ ...choice, phones: false })}>One screen</button>
-        <button type="button" aria-pressed={Boolean(choice.phones)} onClick={() => onChoice({ ...choice, phones: true })}>A phone per team</button>
+        <button type="button" aria-pressed={Boolean(choice.phones)} onClick={() => onChoice({ ...choice, phones: true })}>With phones</button>
       </fieldset>}
       <div className="mm-start-foot">
         <button type="button" className="mm-primary" disabled={!offered} onClick={() => onDeal(false)}>{dealing ? "Dealing…" : "Deal the cards"}</button>

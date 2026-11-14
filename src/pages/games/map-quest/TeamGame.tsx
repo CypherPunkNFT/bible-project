@@ -5,10 +5,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { formatList, formatNumber } from "@/lib/site-format";
 import { teamTone } from "../kit";
+import type { TeamStatus } from "@/lib/team-room/protocol";
 import { useTeamHost } from "../team-play/host";
 import { JoinStrip, Lobby } from "../team-play/Lobby";
 import { ERA_VIEWS } from "./pools";
+import type { LonLat } from "./geo";
 import { QuestMap } from "./QuestMap";
+import { ScreenPin } from "./ScreenPin";
 import type { RevealShape } from "./quest-style";
 import {
   addPin, nextPlace, placeResults, questionsOf, readPin, readyToReveal, resolvedTeamColor, reveal, standings, startPlace, teamView, type TeamRound,
@@ -50,15 +53,23 @@ export function TeamGame({ round, onChange, onAgain, onEnd }: Props) {
   roundRef.current = round;
   const pushRef = useRef<(team?: string) => void>(() => {});
 
+  // Pins from phones and from this screen both build on the newest round, set at once, so two at the same moment both stay.
+  const commit = useCallback((next: TeamRound) => { roundRef.current = next; onChange(next); }, [onChange]);
   const onInput = useCallback((team: string, data: unknown) => {
     const pin = readPin(data);
     const next = pin ? addPin(roundRef.current, team, pin.place, pin.pin) : roundRef.current;
-    if (next !== roundRef.current) onChange(next);
+    if (next !== roundRef.current) commit(next);
     else pushRef.current(team); // a stale or refused pin: that phone gets the screen as it is now
-  }, [onChange]);
+  }, [commit]);
 
   const host = useTeamHost(round.room, onInput);
   const { sendView, teams } = host;
+  const connected = host.socket.status === "open";
+  // A team with no phone (never joined, or freed) pins on this screen, as does every team while this screen is offline.
+  const pinsHere = (team: string) => !connected || (teams.find((t) => t.id === team)?.state ?? "open") === "open";
+  const pinHere = (team: string, place: number, pin: LonLat) => {
+    if (pinsHere(team)) commit(addPin(roundRef.current, team, place, pin)); // refused if that team's phone joined meanwhile
+  };
   pushRef.current = (only?: string) => {
     const now = Date.now();
     for (const team of roundRef.current.room.teams) if (!only || only === team.id) sendView(team.id, teamView(roundRef.current, team.id, now));
@@ -85,7 +96,7 @@ export function TeamGame({ round, onChange, onAgain, onEnd }: Props) {
   }
   if (round.phase === "lobby") {
     return <Lobby code={round.room.code} teams={teams} status={host.socket.status} onFree={host.free}>
-      <button type="button" className="mq-button mq-primary" onClick={() => onChange(startPlace(round, 0, teams, Date.now()))}>Start the first place</button>
+      <button type="button" className="mq-button mq-primary" onClick={() => onChange(startPlace(round, 0, Date.now()))}>Start the first place</button>
       <button type="button" className="mq-button" onClick={finish}>Cancel</button>
     </Lobby>;
   }
@@ -94,20 +105,39 @@ export function TeamGame({ round, onChange, onAgain, onEnd }: Props) {
   const counter = `Place ${formatNumber(round.index + 1)} of ${formatNumber(round.ids.length)}`;
   if (round.phase === "place") {
     const pinned = round.pins[round.index] ?? {};
-    return <section className="mq-team" aria-live="polite">
-      {strip}
+    const waiting = round.room.teams.filter((team) => !(team.id in pinned) && pinsHere(team.id)).map((team) => team.id);
+    return <PlaceScreen round={round} teams={teams} counter={counter} name={question.name} seconds={seconds} strip={strip}
+      onReveal={() => onChange(reveal(round))}>
+      <ScreenPin round={round} waiting={waiting} onPin={pinHere} />
+    </PlaceScreen>;
+  }
+  return <Reveal round={round} counter={counter} strip={strip} onNext={() => onChange(nextPlace(round, Date.now()))} />;
+}
+
+interface PlaceProps {
+  round: TeamRound; teams: TeamStatus[]; counter: string; name: string; seconds: number; strip: ReactNode; onReveal: () => void;
+  /** The pin map for teams with no phone (outside the live region, so it is not read out on every change). */
+  children: ReactNode;
+}
+
+function PlaceScreen({ round, teams, counter, name, seconds, strip, onReveal, children }: PlaceProps) {
+  const pinned = round.pins[round.index] ?? {};
+  const onPhone = (id: string) => teams.find((t) => t.id === id)?.state === "held";
+  return <section className="mq-team">
+    {strip}
+    <div className="mq-team" aria-live="polite">
       <p className="mq-team-count">{counter}</p>
-      <h2 className="mq-team-ask">Where is <span>{question.name}</span>?</h2>
+      <h2 className="mq-team-ask">Where is <span>{name}</span>?</h2>
       <p className="mq-team-clock" aria-label={`${seconds} seconds left`}>{seconds}</p>
       <ul className="mq-team-pins" aria-label="Who has pinned">
         {round.room.teams.map((team, n) => <li key={team.id} style={{ "--_team": teamTone(n) } as CSSProperties} data-pinned={team.id in pinned}>
-          <span dir="auto">{team.name}</span><b>{team.id in pinned ? "Pinned" : "Thinking…"}</b>
+          <span dir="auto">{team.name}</span><b>{team.id in pinned ? "Pinned" : onPhone(team.id) ? "Thinking…" : "Pins here"}</b>
         </li>)}
       </ul>
-      <button type="button" className="mq-button" onClick={() => onChange(reveal(round))}>Reveal now</button>
-    </section>;
-  }
-  return <Reveal round={round} counter={counter} strip={strip} onNext={() => onChange(nextPlace(round, teams, Date.now()))} />;
+    </div>
+    {children}
+    <button type="button" className="mq-button" onClick={onReveal}>Reveal now</button>
+  </section>;
 }
 
 function Reveal({ round, counter, strip, onNext }: { round: TeamRound; counter: string; strip: ReactNode; onNext: () => void }) {

@@ -3,6 +3,7 @@
 // and each phone's tap handed to the board. If the room ends or cannot be reached, the game simply carries on as a
 // one-screen game.
 import { useCallback, useEffect, useRef, useState, type MutableRefObject } from "react";
+import type { TeamStatus } from "@/lib/team-room/protocol";
 import { createTeamRoom, useTeamHost, type HostRoom, type TeamHost } from "../team-play/host";
 import type { RemoteFlip } from "./Board";
 import type { PairsFile } from "./deal";
@@ -90,4 +91,15 @@ export function useMemoryTeams(session: Store | null, hasGame: boolean, shown: O
   const close = useCallback(() => { if (room) host.end(); forget(); }, [room, host, forget]);
 
   return { room, host, lobby, startPlay: () => setLobby(false), error, open, close, remote };
+}
+
+/** Where the turn is played (design 10.5): "here" when that team has no phone (never joined, or freed), or while this
+ *  screen's own connection is down (its list of phones is then stale); "phone" when its phone is joined; "away" when
+ *  its phone is asleep or dropped, which still keeps the team (the leader can Free it to play here). */
+export type TurnPlace = "here" | "phone" | "away";
+
+export function turnPlace(teams: readonly TeamStatus[], connected: boolean, turn: number): TurnPlace {
+  const state = teams[turn]?.state ?? "open";
+  if (!connected || state === "open") return "here";
+  return state === "held" ? "phone" : "away";
 }

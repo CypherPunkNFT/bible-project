@@ -93,7 +93,7 @@ function TeamCard({ onStart, levelLabel, eraLabel }: { onStart: (names: string[]
   };
   return <section className="mq-card" aria-labelledby="mq-teams">
     <h2 id="mq-teams">Team game</h2>
-    <p>{`For a group: the places show on this screen, and each team drops its pin on its own phone. ${levelLabel}, ${eraLabel.toLowerCase()}, as chosen under Practice.`}</p>
+    <p>{`For a group: the places show on this screen, and each team drops its pin on its own phone, or on this screen if it has none. ${levelLabel}, ${eraLabel.toLowerCase()}, as chosen under Practice.`}</p>
     <fieldset className="mq-pills">
       <legend>Teams</legend>
       {TEAM_COUNTS.map((value) => <label key={value} className={`mq-pill${count === value ? " is-on" : ""}`}>

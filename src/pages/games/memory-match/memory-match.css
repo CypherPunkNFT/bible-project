@@ -184,12 +184,12 @@
 .mm-card.is-up .mm-card__front::before { animation: mm-sheen .9s var(--mm-ease) calc(var(--mm-flip) * .55) both; }
 @keyframes mm-sheen { 0% { opacity: 1; transform: translateX(-70%); } 100% { opacity: 0; transform: translateX(70%); } }
 /* Each side's colour on its face: the top edge (side A only), the inner frame and the corner emblems. */
-.mm-card.art-who { --mm-kind: var(--mm-color); }
-.mm-card.art-story { --mm-kind: var(--mm-story); }
-.mm-card.art-place { --mm-kind: #3f8a5e; }
-.mm-card.art-event { --mm-kind: #b4852c; }
-.mm-card.art-begins { --mm-kind: #94568f; }
-.mm-card.art-ends { --mm-kind: #4f72a3; }
+.mm-card.art-who, .mmp-turned .art-who { --mm-kind: var(--mm-color); }
+.mm-card.art-story, .mmp-turned .art-story { --mm-kind: var(--mm-story); }
+.mm-card.art-place, .mmp-turned .art-place { --mm-kind: #3f8a5e; }
+.mm-card.art-event, .mmp-turned .art-event { --mm-kind: #b4852c; }
+.mm-card.art-begins, .mmp-turned .art-begins { --mm-kind: #94568f; }
+.mm-card.art-ends, .mmp-turned .art-ends { --mm-kind: #4f72a3; }
 .mm-card__front::after { content: ""; position: absolute; inset: .2rem; border: 1px solid color-mix(in srgb, var(--mm-kind) 22%, transparent); border-radius: calc(var(--mm-radius) - .22rem); pointer-events: none; }
 .mm-card__pip { position: absolute; width: .78rem; height: .78rem; color: var(--mm-kind); line-height: 0; }
 .mm-card__pip .mm-emblem { width: 100%; height: 100%; }
@@ -320,3 +320,7 @@
 
 /* Once the start screen's tiles have their full width, they get back their full padding and name size. */
 @media (min-width: 1184px) { .mm-start .mm-tile { padding-inline: .6rem; } .mm-start .mm-tile__name { font-size: 1.05rem; } }
+
+/* Team play: whose turn, and whether it is played on this screen or on that team's phone (MemoryMatchGame.tsx TeamTurn). */
+.mm-team-turn { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .3rem .8rem; margin: .4rem 0 0; padding: .45rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); font-weight: 650; text-align: center; }
+.mm-team-turn[data-place="here"] { border-color: var(--mm-color); }

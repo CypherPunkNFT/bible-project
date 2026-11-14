@@ -1,5 +1,4 @@
 // Map quest as a team game (docs/features/team-play/design.md, section 5 and Review 3, 13-15): the round as data.
-import type { TeamStatus } from "@/lib/team-room/protocol";
 import type { HostRoom } from "../team-play/host";
 import { seeded } from "../kit";
 import {
@@ -7,30 +6,34 @@ import {
 } from "./team";
 
 const room: HostRoom = { code: "48213", token: "tok", teams: [{ id: "t1", name: "Lions", state: "open" }, { id: "t2", name: "Eagles", state: "open" }, { id: "t3", name: "Bears", state: "open" }] };
-const online = (...held: string[]): TeamStatus[] => room.teams.map((t) => ({ ...t, state: held.includes(t.id) ? "held" : "open" }));
 const NOW = 1_000_000;
 
 function started() {
   const round = newTeamRound(room, "beginner", "all", seeded(7));
-  return startPlace(round, 0, online("t1", "t2"), NOW);
+  return startPlace(round, 0, NOW);
 }
 
 describe("a team round of Map quest", () => {
-  it("draws five places and expects the teams that held a phone when the place started", () => {
+  it("draws five places and starts the first place's countdown", () => {
     const round = started();
     expect(round.ids).toHaveLength(5);
     expect(questionsOf(round)).toHaveLength(5);
-    expect(round).toMatchObject({ phase: "place", index: 0, deadline: NOW + PLACE_SECONDS * 1000, expected: ["t1", "t2"] });
+    expect(round).toMatchObject({ phase: "place", index: 0, deadline: NOW + PLACE_SECONDS * 1000 });
   });
 
-  it("reveals when every expected team has pinned, or when time is up, not when an absent team has not", () => {
+  it("reveals when every team has pinned, a team without a phone included (it pins on the big screen), or when time is up", () => {
     let round = started();
     const site = questionsOf(round)[0].sites[0];
-    round = addPin(round, "t1", 0, site);
-    expect(readyToReveal(round, NOW + 1000)).toBe(false);
-    round = addPin(round, "t2", 0, [site[0] + 1, site[1]]);
-    expect(readyToReveal(round, NOW + 1000)).toBe(true); // Bears had no phone, so nobody waits for them
+    round = addPin(addPin(round, "t1", 0, site), "t2", 0, [site[0] + 1, site[1]]);
+    expect(readyToReveal(round, NOW + 1000)).toBe(false); // Bears have no phone: the big screen pins for them
+    round = addPin(round, "t3", 0, [site[0], site[1] + 1]);
+    expect(readyToReveal(round, NOW + 1000)).toBe(true);
     expect(readyToReveal(started(), NOW + PLACE_SECONDS * 1000)).toBe(true);
+  });
+
+  it("ignores the expected list of a round saved before every team was expected", () => {
+    const old = { ...addPin(started(), "t1", 0, [35, 31]), expected: ["t1"] } as ReturnType<typeof started>;
+    expect(readyToReveal(old, NOW + 1000)).toBe(false);
   });
 
   it("ignores a pin for another place, after the reveal, or from a team not in the game (Review 3)", () => {
@@ -59,7 +62,7 @@ describe("a team round of Map quest", () => {
   it("moves through the five places to the end", () => {
     let round = started();
     for (let n = 0; n < 5; n++) {
-      round = nextPlace(reveal(round), online("t1"), NOW + n);
+      round = nextPlace(reveal(round), NOW + n);
     }
     expect(round.phase).toBe("done");
   });

@@ -7,6 +7,8 @@
 import type { CSSProperties, KeyboardEvent } from "react";
 import { forwardRef } from "react";
 import type { Card as CardSpec } from "./deal";
+
+type Kind = CardSpec["kind"];
 import { CardBack, Emblem } from "./CardArt";
 import { spoken } from "./game";
 import { toneColor } from "./tones";
@@ -18,7 +20,8 @@ export type CardFace = "down" | "up" | "matched" | "taken" | "closing";
 
 
 interface CardProps {
-  card: CardSpec;
+  /** Which side of its pair the card is (it never needs the pair itself). */
+  kind: Kind;
   /** The version played: the words, emblems and designs of its two sides. */
   version: Version;
   face: CardFace;
@@ -39,28 +42,32 @@ interface CardProps {
   onFlip: () => void;
   onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => void;
   onFocus: () => void;
+  /** On a team phone: "sent", the tapped card waiting for the big screen; "wait", not this team's turn. */
+  hold?: "sent" | "wait";
+  /** On a team phone, where the words are read above the board: this card's number there (1 or 2). */
+  mark?: number;
 }
 
-const kindWord = (card: CardSpec, version: Version) => `${version.sides[card.kind].label.toLowerCase()} card`;
+const kindWord = (kind: Kind, version: Version) => `${version.sides[kind].label.toLowerCase()} card`;
 
-function cardName(card: CardSpec, version: Version, face: CardFace, text: string | null, partner: string | null,
+function cardName(kind: Kind, version: Version, face: CardFace, text: string | null, partner: string | null,
   typed: boolean, row: number, column: number): string {
   if ((face === "matched" || face === "taken") && text && partner) return `${spoken(text)}, matched with ${spoken(partner)}`;
-  if (face === "up" && text) return `${spoken(text)}, ${kindWord(card, version)}, face up`;
-  return `Row ${row}, column ${column}, face down${typed ? `, ${kindWord(card, version)}` : ""}`;
+  if (face === "up" && text) return `${spoken(text)}, ${kindWord(kind, version)}, face up`;
+  return `Row ${row}, column ${column}, face down${typed ? `, ${kindWord(kind, version)}` : ""}`;
 }
 
 export const Card = forwardRef<HTMLButtonElement, CardProps>(function Card(props, ref) {
-  const { card, version, face, text, partner, typed, missed, flying, row, column, index, tone, focusable, onFlip, onKeyDown, onFocus } = props;
-  const side = version.sides[card.kind];
+  const { kind, version, face, text, partner, typed, missed, flying, row, column, index, tone, focusable, onFlip, onKeyDown, onFocus, hold, mark } = props;
+  const side = version.sides[kind];
   const shown = face === "up" || face === "matched";
   const style = { "--pair": toneColor(tone), "--i": index } as CSSProperties;
-  const classes = [`mm-card is-${card.kind} art-${side.art}`, shown ? "is-up" : "", face === "matched" ? "is-matched" : "", face === "taken" ? "is-taken" : "",
+  const classes = [`mm-card is-${kind} art-${side.art}`, hold ? `is-${hold}` : "", shown ? "is-up" : "", face === "matched" ? "is-matched" : "", face === "taken" ? "is-taken" : "",
     face === "closing" ? "is-closing" : "", typed ? "is-typed" : "", missed ? "is-miss" : "", flying ? "is-flying" : ""].filter(Boolean).join(" ");
   return <span className="mm-slot" style={style}>
     <button ref={ref} type="button" className={classes} data-face={face}
-      aria-label={cardName(card, version, face === "closing" ? "down" : face, text, partner, typed, row, column)}
-      aria-disabled={face === "matched" || face === "taken" || face === "up" ? true : undefined}
+      aria-label={cardName(kind, version, face === "closing" ? "down" : face, text, partner, typed, row, column)}
+      aria-disabled={hold || face === "matched" || face === "taken" || face === "up" ? true : undefined}
       tabIndex={focusable ? 0 : -1} onClick={onFlip} onKeyDown={onKeyDown} onFocus={onFocus}>
       {face !== "taken" && <span className="mm-card__inner" aria-hidden="true">
         <span className="mm-card__face mm-card__back"><CardBack side={typed ? side : null} /></span>
@@ -69,6 +76,7 @@ export const Card = forwardRef<HTMLButtonElement, CardProps>(function Card(props
             <span className="mm-card__pip is-top"><Emblem name={side.emblem} /></span>
             <span className="mm-card__kind">{side.label}</span>
             <span className="mm-card__text">{text}</span>
+            {mark !== undefined && <span className="mm-card__mark">{mark}</span>}
             {face === "matched" ? <span className="mm-card__stamp">✓</span> : <span className="mm-card__pip is-bottom"><Emblem name={side.emblem} /></span>}
           </>}
         </span>

@@ -17,7 +17,7 @@ import { newGame, pairCount, stars, type GameState } from "./game";
 import { CantLoad, StartScreen, StudyScreen, type Choice } from "./Screens";
 import { Summary, type RecordNews } from "./Summary";
 import { JoinStrip, Lobby } from "../team-play/Lobby";
-import { distinctNames, useMemoryTeams } from "./useTeams";
+import { distinctNames, turnPlace, useMemoryTeams, type MemoryTeams } from "./useTeams";
 import { bestKey, browserStore, readBest, readGame, readSeen, readSettings, readVersion, rememberSeen, saveBest, saveGame,
   savedGameVersion, saveSettings, saveVersion, takeOpener, type Settings, type Store } from "./storage";
 import { versesAsPairs, withVerseText, type VersesFile } from "./verse-cards";
@@ -212,8 +212,20 @@ function Game({ data, version, onVersion, choice, onChoice, local, session }: Ga
     return <>{strip}<StudyScreen data={board} pairIds={ids} onStart={() => update({ ...game, studying: false })} /></>;
   }
   // With team phones a non-pair always turns back by itself: "when I tap" would wait for a tap on the laptop (Review 10).
-  return <>{strip}<Board key={round} data={board} version={version} game={game} settings={teams.room ? { ...settings, turnBack: "auto" } : settings} onChange={update}
+  // A team with no phone plays on this screen; a team with one, on its phone (design 10.5).
+  const place = teams.room ? turnPlace(teams.host.teams, teams.host.socket.status === "open", game.turn) : "here";
+  return <>{strip}{teams.room && <TeamTurn teams={teams} game={game} place={place} />}<Board key={round} data={board} version={version} game={game} settings={teams.room ? { ...settings, turnBack: "auto" } : settings} onChange={update}
     onSettings={changeSettings} onFinish={finish}
     onRestart={() => void again(game)}
-    onQuit={() => backToStart(game)} remote={teams.room ? teams.remote : undefined} /></>;
+    onQuit={() => backToStart(game)} remote={teams.room ? teams.remote : undefined} localTaps={place === "here"} /></>;
+}
+
+/** Whose turn, and where it is played: on this screen, or on that team's phone. */
+function TeamTurn({ teams, game, place }: { teams: MemoryTeams; game: GameState; place: ReturnType<typeof turnPlace> }) {
+  const name = game.players[game.turn];
+  const id = teams.host.teams[game.turn]?.id;
+  return <p className="mm-team-turn" role="status" data-place={place}>
+    {place === "here" ? `Your turn, ${name}: tap two cards here.` : place === "phone" ? `${name} is choosing on their phone.` : `The phone for ${name} is not connected.`}
+    {place === "away" && id && <button type="button" className="mm-link" onClick={() => teams.host.free(id)}>Free it to play here</button>}
+  </p>;
 }

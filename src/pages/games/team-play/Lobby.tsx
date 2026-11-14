@@ -4,6 +4,7 @@
 // phone can still join. The QR and link carry only /team/<code>, never the laptop's token (Review 8).
 import QRCode from "qrcode";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { formatNumber } from "@/lib/site-format";
 import type { TeamStatus } from "@/lib/team-room/protocol";
 import { teamTone } from "../kit";
 import { joinAddress, joinUrl } from "./host";
@@ -64,7 +65,7 @@ export function Lobby({ code, teams, status, onFree, children }: LobbyProps) {
   return <section className="tp-lobby" aria-label="Join with team phones">
     <div className="tp-lobby-join">
       <div>
-        <p className="tp-join">One phone per team: go to <b>{joinAddress()}</b> and enter</p>
+        <p className="tp-join">Team phones: go to <b>{joinAddress()}</b> and enter</p>
         <p className="tp-code" aria-label={`Game code ${code}`}>{groupedCode(code)}</p>
         <p className="tp-hint">Or scan the code with the phone's camera.</p>
       </div>
@@ -72,7 +73,7 @@ export function Lobby({ code, teams, status, onFree, children }: LobbyProps) {
     </div>
     <ConnectionNote status={status} />
     <TeamList teams={teams} onFree={onFree} />
-    <p className="tp-hint">{joined === teams.length ? "Every team has a phone." : `${joined} of ${teams.length} teams have a phone. You can start anyway: tap for a team on this screen.`}</p>
+    <p className="tp-hint">{joined === teams.length ? "Every team has a phone." : `Phones joined: ${formatNumber(joined)} of ${formatNumber(teams.length)}. Teams without a phone play on this screen.`}</p>
     <div className="tp-actions">{children}</div>
   </section>;
 }

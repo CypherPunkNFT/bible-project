@@ -2,7 +2,6 @@
 // place, each team drops a pin on its own phone, and every pin is revealed at once. The round is plain data, saved in
 // this tab after every change, so a reload of the big screen loses nothing (Review 13). Scoring is the game's own
 // (scorePin), with no hints and no points off for time: the countdown only ends the place.
-import type { TeamStatus } from "@/lib/team-room/protocol";
 import { TEAM_TONES, placeTeams } from "../kit";
 import type { HostRoom } from "../team-play/host";
 import { PLACE_BY_ID, PLACES } from "./data";
@@ -27,8 +26,6 @@ export interface TeamRound {
   pins: Record<string, LonLat>[];
   /** When the current place's countdown ends (this device's clock, ms). */
   deadline: number;
-  /** The teams that held a phone when the place started: the place reveals early only when all of them have pinned. */
-  expected: string[];
 }
 
 export interface TeamScore { id: string; name: string; index: number; score: number }
@@ -39,12 +36,12 @@ export const questionsOf = (round: TeamRound): Question[] => round.ids.map((id) 
 export function newTeamRound(room: HostRoom, level: Level, era: Era, random: () => number = Math.random): TeamRound {
   const { pool } = practicePool(PLACES, level, era);
   const ids = pickRound(pool, random).map((place) => place.id);
-  return { room, level, era, ids, phase: "lobby", index: 0, pins: ids.map(() => ({})), deadline: 0, expected: [] };
+  return { room, level, era, ids, phase: "lobby", index: 0, pins: ids.map(() => ({})), deadline: 0 };
 }
 
-/** Starts place `index`: its countdown, and the teams expected to pin (those with a phone now). */
-export function startPlace(round: TeamRound, index: number, teams: readonly TeamStatus[], now: number): TeamRound {
-  return { ...round, phase: "place", index, deadline: now + PLACE_SECONDS * 1000, expected: teams.filter((t) => t.state === "held").map((t) => t.id) };
+/** Starts place `index` and its countdown. Every team pins: on its phone, or on this screen if it has none (design 10.5). */
+export function startPlace(round: TeamRound, index: number, now: number): TeamRound {
+  return { ...round, phase: "place", index, deadline: now + PLACE_SECONDS * 1000 };
 }
 
 const isLonLat = (value: unknown): value is LonLat =>
@@ -65,19 +62,20 @@ export function addPin(round: TeamRound, team: string, place: number, pin: LonLa
   return { ...round, pins };
 }
 
-/** Time is up, or every team expected has pinned (Review 14). With nobody expected, only the clock or the leader reveals. */
+/** Time is up, or every team has pinned (Review 14, design 10.5). A round saved before 10.5 has an `expected` list;
+ *  it is ignored, so it behaves the same. */
 export function readyToReveal(round: TeamRound, now: number): boolean {
   if (round.phase !== "place") return false;
   if (now >= round.deadline) return true;
   const pinned = round.pins[round.index] ?? {};
-  return round.expected.length > 0 && round.expected.every((team) => team in pinned);
+  return round.room.teams.every((team) => team.id in pinned);
 }
 
 export const reveal = (round: TeamRound): TeamRound => (round.phase === "place" ? { ...round, phase: "reveal" } : round);
 
-export function nextPlace(round: TeamRound, teams: readonly TeamStatus[], now: number): TeamRound {
+export function nextPlace(round: TeamRound, now: number): TeamRound {
   if (round.phase !== "reveal") return round;
-  return round.index + 1 < round.ids.length ? startPlace(round, round.index + 1, teams, now) : { ...round, phase: "done" };
+  return round.index + 1 < round.ids.length ? startPlace(round, round.index + 1, now) : { ...round, phase: "done" };
 }
 
 /** Each team's distance and points for one place; a team with no pin scores 0. */

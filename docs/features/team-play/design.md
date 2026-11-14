@@ -221,3 +221,86 @@ None found a reason to change the overall approach. These corrections are bindin
 18. `/team` sends a six-digit code on to `/play/<code>` (it is a live quiz code). The live quiz's `/play` is not touched.
 19. The quick one-page release script refuses changes under server/ and functions/, so this ships through the full
     release. Deploy only with the owner's yes.
+
+## 10. Owner's changes after the first test (2026-11-13 evening)
+
+The owner, after playing it live: "lets bring the card visuals not these number cards like a calculator button", and
+"just two devices and not three ... no options, its either three devices for HDMI or two for direct team to team play".
+
+**One rule covers both setups, with nothing to choose: a team without a phone plays on the screen that started the
+game.** Three devices: a laptop on the TV over HDMI, a phone per team. Two devices: one player starts the game on their
+own phone or laptop and plays on it; the other joins with a phone. The starting screen already shows the board, so
+the second setup needs no new mode.
+
+### 10.1 Memory card match: the phone shows the real cards
+- The phone's grid uses the big screen's `Card` (Card.tsx), `CardBack` and `Emblem` (CardArt.tsx) and the card styles in
+  memory-match.css. The phone wraps itself in `.mm-page` for the card style settings, with a smaller `--mm-above`
+  so the grid fits under the phone's header lines.
+- The view gains `version` (the version key, so the phone draws that version's sides) and, per card, `k` (who/story
+  kind) **only when the back shows the kind anyway** (Easy and Medium; `typedBacks`). On Hard a face-down card carries
+  no kind, and the phone draws every face-down card with the same placeholder kind and the plain back, so nothing
+  differs between them on screen or in the page. Face-up cards carry `k` and their words (already shown on the TV).
+- Per card, `t` (the pair's colour number, as the board computes it: order of first appearance) for face-up and found
+  cards only. A face-down card never carries its pair, colour or words.
+- Found cards show as the big screen shows them once they leave: an empty slot ("taken").
+- A tapped card shows "sent" until the next view: a new optional `pending` prop on `Card` adds a class
+  (`is-pending`, dimmed and slightly pressed). Not your turn: the grid is dimmed and taps do nothing.
+- Card ids sent back are still only the card's position and the board's round (unchanged input).
+
+### 10.2 Memory card match: the starting screen plays for teams without a phone
+- Today any tap on the starting screen is applied, whoever's turn it is. New: `Board` gets `localTaps` (default
+  true). With team phones, the game passes false while the team whose turn it is has a phone joined ("held"):
+  taps and keys on that screen then do nothing, and it says "{team} is choosing on their phone." When that team has
+  no phone (never joined, away, or freed), the screen takes taps, and says "Your turn, {team}: tap two cards here."
+  Phones' taps (the `remote` path) are unchanged.
+- The lobby's line becomes "{n} of {n} teams have a phone. Teams without one play on this screen." (shared by both
+  games).
+
+### 10.3 Map quest: the starting screen pins for teams without a phone
+- `startPlace` expects **every** team (not only those holding a phone). A place reveals early when every team has
+  pinned; otherwise at the clock or on Reveal now, as before.
+- During a place, the starting screen shows a map for the first team, in team order, that has no phone held and no
+  pin yet: "Drop the pin for {team}", a map (the same `QuestMap` the phones use), and Lock in, which calls `addPin`
+  for that team. After it, the next such team, if any. Teams with phones pin on their phones as now.
+- The pin a team locks on the starting screen is visible to anyone watching that screen until the reveal; with a
+  TV that is the room, which is acceptable for a team without a phone.
+- The Team game card's line becomes: "For a group: the places show on this screen, and each team drops its pin on
+  its own phone, or on this screen if it has none."
+
+### 10.4 Tests
+- Phone view: no `k`, `t` or words on face-down cards on Hard; `k` on Easy; `t` and words on face-up ones.
+- Board: with `localTaps` false a click does nothing; a remote tap still applies.
+- Map quest: `startPlace` expects every team; reveal waits for a team with no phone until it pins or time is up.
+- Check on the local servers with a laptop window and one phone window (two devices) and with two phones (three).
+
+### 10.5 Review of section 10 (three reviews, 2026-11-13; these replace the points above where they differ)
+1. **"No phone" means `open` only** (never joined, or freed), never `away`: phones go away whenever their screen locks
+   (Review 2), and the starting screen must not take a turn from a team whose phone is only asleep. The starting screen
+   also plays when **its own connection is down** (its team list is then stale): `localTaps = socket not open || the
+   turn's team is open`. An `away` team's turn says "{team}'s phone is away." with a **Free** button beside it; Free (also
+   in the strip) is how the leader takes over a stalled phone.
+2. **The `localTaps` check sits only where this screen's own taps enter** (a card's click, Enter/Space in `move`, a tap on
+   the board between cards), never inside `tap()`, which phones also use. Tested for click and keys.
+3. **No pair colour (`t`) in the view**: the board numbers pair colours by first appearance, so `t` would point at a
+   face-up card's partner. The phone passes one fixed tone. A found card carries its words and its partner's words
+   (both shown on the TV's shelf), so it is read out as "X, matched with Y" and drawn as the empty slot.
+4. **The view carries `difficulty`**; the phone wraps its grid in `mm-play is-{difficulty} is-{version}` (text sizes),
+   imports memory-match.css, keys the grid by round (New cards deals again), keeps a card's words for the turn-back
+   (CLOSE_MS) so a non-pair turns back instead of snapping, drops the lift shadow in its grid, and sets `--mm-above`
+   to about 10.5rem with smaller Hard text; Hard may scroll a little.
+5. **`Card` takes `kind` instead of the whole card** (it reads only the kind), and one optional `hold?: "sent" | "wait"`
+   that adds a class and `aria-disabled`: "sent" for the tapped card, "wait" for every card when it is not this team's
+   turn. Face-down Hard cards all get one fixed placeholder kind.
+6. **Map quest pins on the starting screen** (for `open` teams, or any team while its connection is down): the leader
+   picks the team from pills (default the first that has not pinned); the choice stays until Lock in; the map is keyed
+   by place and team so no pin carries over; Lock in pins for the team and place shown, through `roundRef` (set at
+   once, as the phone path does, so two pins at the same moment both stay); refused if that team's phone is now held.
+   Last pin wins. The map has the phone's "Try the map again". The place screen moves into its own `PlaceScreen` and
+   `ScreenPin` (the TeamGame function is over 50 lines); the map sits outside the polite live region.
+7. **`expected` goes**: a place reveals early when every team has pinned (`readyToReveal` reads `room.teams`, so a
+   round saved before this change behaves the same); `startPlace`/`nextPlace` no longer take the team list.
+8. **Wording** (each one whole sentence for the translator): the lobby's "One phone per team: go to" becomes "Team
+   phones: go to"; its count becomes "Phones joined: {n} of {n}. Teams without a phone play on this screen."; Memory
+   card match's "A phone per team" becomes "With phones"; Map quest's card line keeps its level and era tail.
+9. **Accepted**: in two-device play the starting screen is also a player, and its page holds the whole board (as it
+   always has for one-screen play). A pin entered on a TV is seen by the room before the reveal.

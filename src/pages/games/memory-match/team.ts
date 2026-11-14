@@ -3,11 +3,14 @@
 // the board itself, through the same handler as a click, only if it is that team's turn.
 import type { HostRoom } from "../team-play/host";
 import { cardText, isFinished, ranking, scores, winnerLine, type GameState } from "./game";
-import type { PairsFile } from "./deal";
+import { typedBacks, type Card, type Difficulty, type PairsFile } from "./deal";
 import type { Store } from "./storage";
+import type { VersionKey } from "./versions";
 
-/** d: face down; u: face up; f: found (by: the team that found it). */
-export interface PhoneCard { s: "d" | "u" | "f"; text?: string; by?: number }
+/** d: face down (k only where its back shows the kind anyway: Easy and Medium); u: face up; f: found, with the words of
+ *  both halves (the big screen's shelf shows them) and the team that found it. Never a pair id or pair colour: the
+ *  board numbers colours by first appearance, so a colour would point at a card's partner (design 10.5). */
+export interface PhoneCard { s: "d" | "u" | "f"; k?: Card["kind"]; text?: string; partner?: string; by?: number }
 
 export type MemoryPhase = "lobby" | "study" | "play" | "done";
 
@@ -17,6 +20,9 @@ export interface MemoryView {
   phase: MemoryPhase;
   /** The board's number this session; a tap echoes it, and a tap from an older board is ignored (Review 3). */
   round: number;
+  /** The version played (its card designs) and the level (its text sizes and whether backs name their kind). */
+  version: VersionKey;
+  difficulty: Difficulty;
   columns: number;
   cards: PhoneCard[];
   /** Whose turn: a team id ("t1"…), or null between games. */
@@ -32,16 +38,27 @@ export interface MemoryInput { flip: number; round: number }
 export const teamId = (player: number) => `t${player + 1}`;
 export const playerOf = (team: string) => Number(team.slice(1)) - 1;
 
-export function phoneView(game: GameState | null, data: PairsFile, phase: MemoryPhase, round: number): MemoryView {
-  if (!game) return { game: "memory-match", phase, round, columns: 0, cards: [], turn: null, names: [], scores: [], result: null };
-  const cards = game.cards.map((card, index): PhoneCard => {
+function phoneCards(game: GameState, data: PairsFile): PhoneCard[] {
+  const typed = typedBacks(game.difficulty);
+  return game.cards.map((card, index): PhoneCard => {
     const by = game.matched[index];
-    if (by !== null) return { s: "f", text: cardText(data, card), by };
-    return game.up.includes(index) ? { s: "u", text: cardText(data, card) } : { s: "d" };
+    if (by !== null) {
+      const other = game.cards.find((c, n) => n !== index && c.pair === card.pair);
+      return { s: "f", k: card.kind, text: cardText(data, card), partner: other ? cardText(data, other) : undefined, by };
+    }
+    if (game.up.includes(index)) return { s: "u", k: card.kind, text: cardText(data, card) };
+    return typed ? { s: "d", k: card.kind } : { s: "d" };
   });
+}
+
+export function phoneView(game: GameState | null, data: PairsFile, phase: MemoryPhase, round: number): MemoryView {
+  if (!game) {
+    return { game: "memory-match", phase, round, version: "people", difficulty: "easy", columns: 0, cards: [], turn: null, names: [], scores: [], result: null };
+  }
   const done = phase === "done" || isFinished(game);
   return {
-    game: "memory-match", phase: done ? "done" : phase, round, columns: game.columns, cards,
+    game: "memory-match", phase: done ? "done" : phase, round, version: game.version ?? "people", difficulty: game.difficulty,
+    columns: game.columns, cards: phoneCards(game, data),
     turn: done || phase !== "play" ? null : teamId(game.turn), names: game.players, scores: scores(game),
     result: done ? winnerLine(ranking(game)) : null,
   };

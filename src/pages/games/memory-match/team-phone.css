@@ -1,17 +1,40 @@
-/* Memory card match on a team phone (TeamPhone.tsx). Fits Hard's six columns on a 360px phone: the words are small
-   and wrap, and each face-down card shows its number. */
+/* Memory card match on a team phone (TeamPhone.tsx): the big screen's cards (memory-match.css) under the phone's team
+   bar and turn line. --mm-above is what sits above the grid here (team bar, turn line, page header), so a board fits
+   the phone's height where it can. The board keeps the big screen's columns (where a card lies is the game), so a
+   card is too narrow for its words: the turned cards are read in the panel above, numbered as on the cards. */
 .mmp { display: grid; gap: .8rem; }
+.mmp.mm-page { --mm-above: 17rem; }
+.mmp .mm-play { margin-top: 0; }
 .mmp-turn { margin: 0; padding: .6rem .8rem; border-radius: .6rem; background: var(--surface); border: 1px solid var(--line); font-weight: 700; text-align: center; }
 .mmp-turn.is-mine { background: var(--_team, var(--accent)); border-color: transparent; color: #fff; font-size: 1.15rem; }
-.mmp-grid { display: grid; grid-template-columns: repeat(var(--mmp-cols, 4), minmax(0, 1fr)); gap: .3rem; }
-.mmp-card { display: flex; align-items: center; justify-content: center; min-height: 3.6rem; padding: .2rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); cursor: pointer; overflow: hidden; }
-.mmp-card[data-s="d"]:not([disabled]) { background: var(--accent); border-color: transparent; color: #fff; }
-.mmp-card[data-s="u"] { border: 2px solid var(--accent); background: var(--page); }
-.mmp-card[data-s="f"] { border-color: var(--_team); background: color-mix(in srgb, var(--_team) 14%, var(--page)); opacity: .75; }
-.mmp-card[data-sent] { outline: 0; transform: scale(.94); opacity: .6; }
-.mmp-card[disabled] { cursor: default; }
-.mmp-num { font-weight: 700; font-variant-numeric: tabular-nums; }
-.mmp-text { font-size: .62rem; line-height: 1.15; text-align: center; hyphens: manual; overflow-wrap: anywhere; }
+
+/* Lighter than the big screen: no lift shadow under a turning card (a blurred layer per card is slow on a cheap phone). */
+.mmp .mm-card::after { display: none; }
+/* Not this team's turn: the backs rest a little darker, and nothing lifts. The tapped card waits pressed in. */
+.mmp .mm-card.is-wait:not(.is-up) .mm-card__back { filter: brightness(.82) saturate(.8); }
+.mmp .mm-card.is-wait, .mmp .mm-card.is-sent { cursor: default; }
+.mmp .mm-card.is-sent { transform: scale(.94); opacity: .75; }
+
+/* A face-up card shows its kind and its number (1 or 2); its words are in the panel. Six columns: the number only. */
+.mmp .mm-card__text { display: none; }
+.mmp .mm-card__mark { font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--mm-kind); }
+.mmp .mm-play.is-tight .mm-card__kind { display: none; }
+
+/* The turned cards' words: two slots of a fixed height (up to four lines), so the board below never moves. */
+.mmp-turned { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: 0 0 .6rem; padding: 0; list-style: none; }
+.mmp-turned li { position: relative; box-sizing: border-box; height: 6.3rem; padding: .4rem .55rem .4rem 1.9rem; overflow: hidden;
+  border: 1px solid var(--line); border-top: 3px solid var(--mm-kind, var(--line)); border-radius: .6rem; background: var(--surface);
+  transition: border-color .25s var(--mm-ease), background-color .25s var(--mm-ease); }
+.mmp-turned li.is-empty { border: 1px dashed var(--line); background: transparent; }
+.mmp-turned__mark { position: absolute; top: .3rem; left: .55rem; font-size: 1.2rem; line-height: 1.2; color: var(--mm-kind, var(--muted)); }
+.mmp-turned li.is-empty .mmp-turned__mark { opacity: .45; }
+.mmp-turned__kind { display: block; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mm-kind); }
+.mmp-turned__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; font-family: var(--font-serif);
+  font-size: .9rem; line-height: 1.18; overflow-wrap: break-word; hyphens: auto; }
+/* A non-pair wears the miss once the second card has turned (as on the big screen); a found pair, the finder's colour. */
+.mmp-turned.is-miss li:not(.is-empty) { border-color: var(--mm-red); background: color-mix(in srgb, var(--mm-red) 7%, var(--surface)); transition-delay: var(--mm-flip); }
+.mmp-turned.is-pair li:not(.is-empty) { border-color: var(--_team, var(--accent)); background: color-mix(in srgb, var(--_team, var(--accent)) 14%, var(--surface)); }
+
 .mmp-scores { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
 .mmp-scores li { padding: .2rem .6rem; border-radius: 999px; border: 1px solid var(--line); border-left: 4px solid var(--_team); font-size: .85rem; }
 .mmp-scores li[data-turn="true"] { border-color: var(--_team); font-weight: 700; }
