@@ -1,5 +1,4 @@
 import { MapPin, X } from "lucide-react";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -9,13 +8,13 @@ import { BibleAbbr, Verse } from "@/components/Verse";
 import { useCurrentBible } from "@/lib/verses";
 import type { MapPlace } from "./projection";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { WindowedRows } from "@/components/WindowedRows";
 import { OldMapsFold } from "./OldMapsFold";
 import { formatNumber, plural } from "@/lib/site-format";
 
 /** One place: where it is named, as a reference list by book, then the verses themselves. */
 export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
   const catalog = useCatalog();
-  const [shown, setShown] = useState(15);
   // Verse ids grouped by book, in canon order.
   const byBook = new Map<number, number[]>();
   for (const id of [...place.verses].sort((a, b) => a - b)) {
@@ -78,16 +77,9 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
       </ul>
 
       <h3 className="mb-2 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">The verses (<BibleAbbr />)</h3>
-      <ol className="space-y-2">
-        {place.verses.slice(0, shown).map((id) => (
-          <PlaceVerse key={id} id={id} />
-        ))}
-      </ol>
-      {place.verses.length > shown && (
-        <button type="button" onClick={() => setShown((n) => n + 30)} className="mt-3 w-full rounded-lg bg-surface-2 py-2 text-sm">
-          {`Show more (${formatNumber(place.verses.length - shown)} left)`}
-        </button>
-      )}
+      {/* Every verse, drawn a window of rows at a time as the panel scrolls (owner's scroll rule, 2026-11-17). */}
+      <WindowedRows as="ol" className="grid gap-2" items={place.verses} itemKey={String} estimate={64}
+        renderItem={(id, row) => <PlaceVerse key={id} id={id} row={row} />} />
       <p className="mt-4 text-[11px] text-muted">Place data from OpenBible.info's Bible geocoding (CC-BY 4.0).</p>
       </OutsideScroll>
       <OldMapsFold placeId={place.id} placeName={place.name} />
@@ -95,14 +87,14 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
   );
 }
 
-function PlaceVerse({ id }: { id: number }) {
+function PlaceVerse({ id, row }: { id: number; row: number }) {
   const catalog = useCatalog();
   const { num, chapter, verse } = splitId(id);
   const book = bookByNum(catalog, num);
   const code = book?.code ?? "GEN";
   const bible = useCurrentBible();
   return (
-    <li>
+    <li data-row={row}>
       <Link to={`/read/${bible.slug}/${code}/${chapter}?v=${verse}`} className="block rounded-lg p-2 hover:bg-surface-2">
         <span className="text-sm font-semibold">{formatRange(catalog, id, id)}</span>
         <span className="mt-0.5 line-clamp-2 block font-serif text-sm text-ink/85">

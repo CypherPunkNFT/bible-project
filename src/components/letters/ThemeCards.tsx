@@ -15,11 +15,11 @@ const ICONS: [RegExp, LucideIcon][] = [
   [/scripture|quoted/i, ScrollText], [/leader|church/i, Church], [/hospitality|travel/i, DoorOpen], [/holiness|holy/i, Sparkles], [/household|ruler/i, Home],
 ];
 const iconFor = (title: string) => ICONS.find(([re]) => re.test(title))?.[1] ?? BookOpen;
-const SHOWN_VERSES = 6;
 
 /**
  * The themes the four groups share, as cards. Opening one widens it across its whole row: the theme in full, the
- * letters that carry it (each opens its group), and the words of its key verses.
+ * letters that carry it (each opens its group), and the words of all its key verses (at most about 15, so no "Show all":
+ * owner's scroll rule, 2026-11-17).
  */
 export function ThemeCards({ themes, letterName, openLetter }: { themes: LettersOverview["themes"]; letterName: (code: string) => string; openLetter: (code: string) => void }) {
   const [open, setOpen] = useState<string | null>(null);
@@ -42,7 +42,6 @@ export function ThemeCards({ themes, letterName, openLetter }: { themes: Letters
 
 function ThemeDetail({ theme, letterName, openLetter }: { theme: LettersOverview["themes"][number]; letterName: (code: string) => string; openLetter: (code: string) => void }) {
   const catalog = useCatalog();
-  const [all, setAll] = useState(false);
   const refs = theme.claim.refs ?? [];
   return <div className="lg-theme-body">
     <p className="lg-claim">{theme.claim.text}<CiteMarks cites={theme.claim.cites} /></p>
@@ -51,10 +50,9 @@ function ThemeDetail({ theme, letterName, openLetter }: { theme: LettersOverview
       style={{ "--tone": `var(--${LETTER_TONE(code)})` } as CSSProperties} onClick={() => openLetter(code)}>{letterName(code)} →</button>)}</div>
     {refs.length > 0 && <>
       <p className="lg-subhead" style={{ marginTop: "1.25rem" }}>In their own words</p>
-      <div className="lg-theme-verses">{(all ? refs : refs.slice(0, SHOWN_VERSES)).map((span) => <figure key={span.join("-")}>
+      <div className="lg-theme-verses">{refs.map((span) => <figure key={span.join("-")}>
         <figcaption>{formatRange(catalog, span[0], span[1])}</figcaption><PassageText span={span} max={5} />
       </figure>)}</div>
-      {refs.length > SHOWN_VERSES && !all && <button type="button" className="lg-tab" style={{ marginTop: ".75rem" }} onClick={() => setAll(true)}>{`Show all ${formatNumber(refs.length)} passages`}</button>}
     </>}
   </div>;
 }

@@ -28,7 +28,6 @@ export function WholeBible() {
   const [hovered, setHovered] = useState(-1);
   const [pinned, setPinned] = useState(-1);
   const [sheetCell, setSheetCell] = useState(-1); // what the phone sheet shows, kept while it slides away
-  const [expanded, setExpanded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -86,7 +85,7 @@ export function WholeBible() {
   }, [themeVersion]);
 
   const pin = useCallback((i: number) => {
-    setPinned(i); setExpanded(false); setHovered(-1);
+    setPinned(i); setHovered(-1);
     if (i >= 0) setSheetCell(i);
   }, []);
 
@@ -122,7 +121,6 @@ export function WholeBible() {
     const i = map.cellAt(event.clientX, event.clientY, touch);
     setPinned(i === pinned ? -1 : i);
     if (i >= 0 && i !== pinned) setSheetCell(i);
-    setExpanded(false);
     if (narrow || touch) setHovered(-1);
   }
   function onKeyDown(event: KeyboardEvent<HTMLCanvasElement>) {
@@ -141,8 +139,8 @@ export function WholeBible() {
   const open = (id: string, origin: Element) => openProfile(id, origin);
   const shownCell = hovered >= 0 ? hovered : pinned;
   const summary = <Summary key={`summary-${view}`} model={model} view={view} narrow={narrow} onOpen={open} onPin={pin} />;
-  const chapter = (i: number, closable: boolean) => <ChapterPanel key={`cell-${i}-${expanded}`} model={model} cell={model.cells[i]} view={view} closable={closable}
-    expanded={expanded} onOpen={open} onClose={() => pin(-1)} onExpand={() => setExpanded(true)} />;
+  const chapter = (i: number, closable: boolean) => <ChapterPanel key={`cell-${i}`} model={model} cell={model.cells[i]} view={view} closable={closable}
+    onOpen={open} onClose={() => pin(-1)} />;
 
   return <div className="bib" style={tone("--accent")}>
     <SectionHead num="01" kicker="The whole Bible" title={<>Every chapter, lit by our <em>teachers</em></>}

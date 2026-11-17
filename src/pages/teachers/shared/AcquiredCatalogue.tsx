@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageCodes, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
 import { SectionHead } from "./Frame";
 import "./acquired.css";
+import { WindowedRows } from "@/components/WindowedRows";
 import { formatDate, formatNumber, plural } from "@/lib/site-format";
 
 // Its own text node after the count: the collector skips a text with ";".
 const OVERLAP_NOTE = "Editions and formats can overlap; this is not a count of distinct books.";
+// Every work and every contributor, drawn a window of rows at a time as the page (or drawer) scrolls: no page buttons
+// (owner's scroll rule, 2026-11-17).
+const workKey = (w: AcquiredWork) => w.id;
+const contributorKey = (c: AcquiredContributor) => c.id;
 
 function useAcquiredCatalogue() {
   const [data, setData] = useState<Catalogue | null>(null);
@@ -20,31 +25,30 @@ function useAcquiredCatalogue() {
 }
 
 export function ContributorWorks({ contributor, onOpenWork }: { contributor: Pick<AcquiredContributor, "id">; onOpenWork?: (work: AcquiredWork, origin: HTMLElement) => void }) {
-  const [rows, setRows] = useState<AcquiredWork[]>([]), [query, setQuery] = useState(""), [page, setPage] = useState(0), [error, setError] = useState("");
+  const [rows, setRows] = useState<AcquiredWork[]>([]), [query, setQuery] = useState(""), [error, setError] = useState("");
   useEffect(() => {
     const abort = new AbortController();
-    setRows([]); setError(""); setPage(0);
+    setRows([]); setError("");
     getContributorShelf(contributor.id,abort.signal).then(data => { if (!abort.signal.aborted) setRows(data); }).catch(error => { if (!abort.signal.aborted) setError(error.message); });
     return () => abort.abort();
   }, [contributor.id]);
   const found = useMemo(() => rows.filter(w => `${w.title} ${w.source} ${languageCodes(w.language).join(" ")} ${languageLabel(w.language)}`.toLowerCase().includes(query.toLowerCase())), [rows, query]);
   return <div className="acq-works">
-    <label>Find a work<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Title, source or language" /></label>
+    <label>Find a work<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Title, source or language" /></label>
     <p className="acq-caption">{`${formatNumber(found.length)} text representations.`}{" "}{OVERLAP_NOTE}</p>
     {error && <p role="alert">{error}</p>}
-    <ul>{found.slice(page * 20, (page + 1) * 20).map(w => <li key={w.id}>{onOpenWork ? <button type="button" onClick={e=>onOpenWork(w,e.currentTarget)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></button> : <Link to={workUrl(w.id)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></Link>}</li>)}</ul>
-    {found.length > 20 && <nav className="acq-pagination" aria-label="Work pages"><button disabled={!page} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(found.length / 20)}</span><button disabled={(page + 1) * 20 >= found.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}
+    <WindowedRows as="ul" items={found} itemKey={workKey} estimate={70} dataVersion={`${contributor.id}|${query}|${rows.length}`} renderItem={(w, row) => <li key={w.id} data-row={row}>{onOpenWork ? <button type="button" onClick={e=>onOpenWork(w,e.currentTarget)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></button> : <Link to={workUrl(w.id)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></Link>}</li>} />
   </div>;
 }
 
-function ContributorCard({ contributor: c }: { contributor: AcquiredContributor }) {
+function ContributorCard({ contributor: c, row }: { contributor: AcquiredContributor; row: number }) {
   const [open, setOpen] = useState(false);
-  return <details onToggle={e => setOpen(e.currentTarget.open)}><summary><strong>{c.name}</strong><span>{c.roles.join(", ")}{" · "}{plural(c.records, "{n} held", "{n} held")}{" · "}{plural(c.readable, "{n} readable here", "{n} readable here")}</span></summary><p className="acq-caption">{c.traditions.length ? `Recorded tradition: ${c.traditions.join(", ")}.` : "Faith and tradition not recorded."} {c.profileId ? "A documented profile is also in the main biographical catalogue." : "Biography not yet recorded."}</p>{c.sourceLifeDates?.length ? <p className="acq-caption">{`Source life-date labels: ${c.sourceLifeDates.join("; ")}. These are transcribed identity evidence, not a reviewed biography.`}</p> : null}{open && <ContributorWorks contributor={c} />}</details>;
+  return <details onToggle={e => setOpen(e.currentTarget.open)} data-row={row}><summary><strong>{c.name}</strong><span>{c.roles.join(", ")}{" · "}{plural(c.records, "{n} held", "{n} held")}{" · "}{plural(c.readable, "{n} readable here", "{n} readable here")}</span></summary><p className="acq-caption">{c.traditions.length ? `Recorded tradition: ${c.traditions.join(", ")}.` : "Faith and tradition not recorded."} {c.profileId ? "A documented profile is also in the main biographical catalogue." : "Biography not yet recorded."}</p>{c.sourceLifeDates?.length ? <p className="acq-caption">{`Source life-date labels: ${c.sourceLifeDates.join("; ")}. These are transcribed identity evidence, not a reviewed biography.`}</p> : null}{open && <ContributorWorks contributor={c} />}</details>;
 }
 
 export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "scholars"; authorId?: string | null }) {
   const { data, error } = useAcquiredCatalogue();
-  const [query, setQuery] = useState(""), [role, setRole] = useState(""), [page, setPage] = useState(0);
+  const [query, setQuery] = useState(""), [role, setRole] = useState("");
   const shelves = useMemo(() => data?.contributors.filter(c => (!side || c.side === side) && (!authorId || c.id === authorId)) ?? [], [data, side, authorId]);
   const contributors = useMemo(() => shelves.filter(c => (!role || c.roles.includes(role)) && `${c.name} ${c.traditions.join(" ")}`.toLowerCase().includes(query.toLowerCase())), [shelves, role, query]);
   const contributorLabel = side === "preachers" ? "authors and assemblies" : "authors, editors and translators";
@@ -53,12 +57,11 @@ export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "sc
     : "Open a contributor's shelf to browse acquired editions and read available texts here.";
   return <div className="acq-catalogue">
     <SectionHead num={side === "preachers" ? "09" : "08"} kicker="Acquired library" title={<>The texts we hold, <em>by contributor</em></>} line={introduction} />
-    <div className="acq-controls"><label>Find a contributor<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Name or recorded tradition" /></label><label>Role<select value={role} onChange={e => { setRole(e.target.value); setPage(0); }}><option value="">All roles</option><option value="author">Author</option><option value="editor">Editor</option><option value="translator">Translator</option></select></label></div>
+    <div className="acq-controls"><label>Find a contributor<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Name or recorded tradition" /></label><label>Role<select value={role} onChange={e => setRole(e.target.value)}><option value="">All roles</option><option value="author">Author</option><option value="editor">Editor</option><option value="translator">Translator</option></select></label></div>
     {error && <p role="alert">{error}</p>}
     {!data && !error && <p role="status">Loading acquired catalogue…</p>}
     {data && <p className="acq-caption">{query || role ? `${formatNumber(contributors.length)} of ${plural(shelves.length, "{n} contributor", "{n} contributors")} match · Updated ${formatDate(new Date(data.updatedAt))}.` : `Updated ${formatDate(new Date(data.updatedAt))}.`}</p>}
     {data && !contributors.length && <p>No contributors match these filters.</p>}
-    <div className="acq-contributors">{contributors.slice(page * 24, (page + 1) * 24).map(c => <ContributorCard key={c.id} contributor={c} />)}</div>
-    {contributors.length > 24 && <nav className="acq-pagination" aria-label="Contributor pages"><button disabled={!page} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(contributors.length / 24)}</span><button disabled={(page + 1) * 24 >= contributors.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}
+    <WindowedRows className="acq-contributors" items={contributors} itemKey={contributorKey} estimate={110} dataVersion={`${side}|${authorId}|${query}|${role}|${shelves.length}`} renderItem={(c, row) => <ContributorCard key={c.id} contributor={c} row={row} />} />
   </div>;
 }

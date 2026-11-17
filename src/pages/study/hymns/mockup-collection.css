@@ -393,9 +393,11 @@
 .hy-page .t-sec-bible .bib-detail.outside-scroll-area { border-top: 2px solid var(--panel-tone, var(--accent)); transition: border-color .2s; }
 .hy-page .t-sec-bible .bib-detail .bib-inner::before { display: none; }
 .hy-page .t-sec-through .thr-list { padding-top: 0; }
-.hy-page .t-sec-through .thr-chapter { top: 0; z-index: 2; margin: 0; padding: .5rem .35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
-.hy-page .t-sec-through .thr-chapter:first-child { border-top: 0; }
-.hy-page .t-sec-through .thr-item + .thr-chapter { border-top: 0; }
+/* A heading only ever follows an item's bottom border or starts the list, so it has no top border of its own. (Was
+   :first-child / .thr-item + rules, which a windowed list breaks: its first drawn line is not the list's first.) */
+.hy-page .t-sec-through .thr-chapter { top: 0; z-index: 2; margin: 0; padding: .5rem .35rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+/* The windowed list sets its own top and bottom padding (the rows not drawn), so the end space is a block instead. */
+.hy-page .t-sec-through .thr-rows::after { content: ""; display: block; height: .8rem; }
 @supports selector(::-webkit-scrollbar) {
 .hy-page .outside-scrollbar { scrollbar-width: auto; scrollbar-color: auto; }
 .hy-page .outside-scrollbar::-webkit-scrollbar { width: 6px; }

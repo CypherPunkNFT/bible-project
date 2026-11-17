@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Citation, KeyWord, Ladder, Letter, OpenQuestion } from "@/data/letters/types";
-import { ClaimText, Refs } from "./LetterParts";
+import { ClaimText, RefRows, Refs } from "./LetterParts";
 import { useWordVerses } from "./letter-hooks";
 import { StableTip } from "@/components/StableTip";
 import { formatNumber, plural } from "@/lib/site-format";
@@ -83,7 +83,6 @@ export function WordConstellation({ letters, columns }: { letters: Letter[]; col
 
 function WordVerses({ word, label, count, codes, onClose }: { word: KeyWord; label: string; count: number; codes: string[]; onClose: () => void }) {
   const verses = useWordVerses(codes, word.strongs);
-  const [all, setAll] = useState(false);
   const used = verses ? `used ${formatNumber(count)} times in ${plural(verses.length, "{n} verse", "{n} verses")}` : `used ${formatNumber(count)} times`;
   return <div className="lg-word-panel" aria-live="polite">
     <div className="lg-word-panel-head">
@@ -93,8 +92,7 @@ function WordVerses({ word, label, count, codes, onClose }: { word: KeyWord; lab
     </div>
     {verses === undefined ? <p className="lg-muted">Finding the verses…</p>
       : <><p className="lg-subhead" style={{ marginTop: ".75rem" }}>The verses, where the KJV text is tagged with this Greek word</p>
-        <Refs refs={all ? verses : verses.slice(0, 40)} limit={all ? verses.length : 40} />
-        {verses.length > 40 && !all && <button type="button" className="lg-tab" style={{ marginLeft: ".5rem" }} onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)}`}</button>}</>}
+        <RefRows refs={verses} /></>}
   </div>;
 }
 

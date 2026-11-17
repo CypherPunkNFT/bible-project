@@ -134,14 +134,10 @@
 .tp-preachers .drw-worklist li > button { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .15rem .8rem; align-items: center; width: 100%; padding: .75rem .5rem; text-align: left; border-radius: .5rem; color: var(--ink); }
 .tp-preachers .drw-worklist li > button:hover { background: var(--surface-2); }
 .tp-preachers .drw-worklist li > button svg { grid-column: 2; grid-row: 1 / 3; color: var(--tone); }
-.tp-preachers .drw-work-pages { display: flex; align-items: center; justify-content: space-between; gap: .7rem; margin-block: 1rem; font-size: .72rem; color: var(--muted); }
-.tp-preachers .drw-work-pages button { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .5rem; color: var(--ink); }
-.tp-preachers .drw-work-pages button:disabled { opacity: .4; }
 .tp-preachers .drw-editions { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .tp-preachers .drw-editions summary { cursor: pointer; font-size: .8rem; }
 .tp-preachers .drw-editions .acq-works li button { display: block; width: 100%; color: var(--ink); text-align: left; }
 .tp-preachers .drw-editions .acq-works li button:hover { color: var(--tone); }
-.tp-preachers .drw-editions .acq-pagination button { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .5rem; }
 .tp-preachers .drw :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 999px) {
   .tp-preachers .drw-document { right: 0; width: 100%; }

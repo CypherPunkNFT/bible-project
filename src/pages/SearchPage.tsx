@@ -8,6 +8,7 @@ import { MeaningBadge, PlacesSection, StudiesSection, TopicsSection, VersesSecti
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { WindowedRows } from "@/components/WindowedRows";
 import { useCatalog } from "@/lib/catalog";
 import { loadPlain } from "@/lib/data";
 import { lastReadPath } from "@/lib/last-read";
@@ -19,7 +20,7 @@ import { searchBible, useSearchLanguage } from "@/lib/search-language";
 import { commonWords } from "@/lib/study-search-language";
 import { STUDIES } from "@/data/apologetics-studies";
 
-const PAGE = 100;
+const hitKey = (hit: Hit) => `${hit.code}${hit.chapter}:${hit.verse}`;
 type Plains = { code: string; plain: Record<string, string> }[];
 
 /**
@@ -49,7 +50,6 @@ export default function SearchPage() {
   const latestRun = useRef(0);
   const [submitted, setSubmitted] = useState(params.get("q") ?? "");
   const meaning = useMeaningResults(language ? "" : submitted);
-  const [shown, setShown] = useState(PAGE);
   // A book picked on the chart narrows the verse list to it.
   const [bookFilter, setBookFilter] = useState("");
   // One word of the search picked in "Your words" (?w=); empty = all the words.
@@ -70,7 +70,6 @@ export default function SearchPage() {
     const runId = ++latestRun.current;
     const searched = { query, slug: translation.slug, wholeWords };
     setState({ status: "loading", loaded: 0, hits: [], plains: [], ...searched });
-    setShown(PAGE);
     setBookFilter("");
     let loaded = 0;
     const plains = await Promise.all(
@@ -118,7 +117,6 @@ export default function SearchPage() {
   const pickWord = (word: string) => {
     setFocus(word);
     setBookFilter("");
-    setShown(PAGE);
     setParams((current) => { const next = new URLSearchParams(current); if (word) next.set("w", word); else next.delete("w"); return next; }, { replace: true });
   };
 
@@ -184,12 +182,13 @@ export default function SearchPage() {
               <>{`${plural(exact.hits.length, "{n} verse contains", "{n} verses contain")} “${exact.mode === "word" ? focusWord : state.query}” in the ${resultTranslation.name}.`}</>
             )}
           </p>
-          {exact.hits.length > 0 && <WordDistribution books={resultBooks} hits={exact.hits} selected={bookFilter} onSelect={(code) => { setBookFilter(code); setShown(PAGE); }} slug={resultTranslation.slug} />}
-          <ol className="mt-6 divide-y divide-line">
-            {listed.slice(0, shown).map((hit) => {
+          {exact.hits.length > 0 && <WordDistribution books={resultBooks} hits={exact.hits} selected={bookFilter} onSelect={setBookFilter} slug={resultTranslation.slug} />}
+          {/* Every verse found, drawn a window of rows at a time as the page scrolls: no "Show more" (owner's scroll rule,
+              2026-11-17). The search already returns every match, so there is nothing more to fetch. */}
+          <WindowedRows as="ol" className="mt-6" items={listed} itemKey={hitKey} estimate={84} renderItem={(hit, row, index) => {
               const book = catalog.books.find((b) => b.code === hit.code)!;
               return (
-                <li key={`${hit.code}${hit.chapter}:${hit.verse}`} className="py-3">
+                <li key={hitKey(hit)} data-row={row} className={index ? "border-t border-line py-3" : "py-3"}>
                   <Link to={`/read/${resultTranslation.slug}/${hit.code}/${hit.chapter}?v=${hit.verse}`} state={CHOSEN_BIBLE} className="group block">
                     <span className="flex items-center gap-2 text-sm font-semibold group-hover:text-accent">
                       <span className="h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(book.section) }} aria-hidden />
@@ -201,13 +200,7 @@ export default function SearchPage() {
                   </Link>
                 </li>
               );
-            })}
-          </ol>
-          {listed.length > shown && (
-            <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-4 w-full rounded-xl bg-surface-2 py-2.5 text-sm">
-              {`Show more (${formatNumber(listed.length - shown)} left)`}
-            </button>
-          )}
+            }} />
         </section>
       )}
     </div>

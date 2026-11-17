@@ -1,5 +1,5 @@
 // 07 · All the scholars (approved mock-up: design/scholars-directions/scholars/directory.js): a compact list in three
-// columns, grouped by era. A small two-way switch re-groups the SAME rows by era or by the first letter of the surname:
+// columns, grouped by era, every entry drawn a window of rows at a time as the frame scrolls (directory/Rows.tsx). A small two-way switch re-groups the SAME rows by era or by the first letter of the surname:
 // rows glide to their new places (transforms only), new headings fade in and the frame eases to its new height, so
 // nothing on the page jumps. Every row opens the shared profile.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
@@ -18,10 +18,9 @@ interface Before { rects: Map<string, DOMRect>; height: number }
 export function Directory() {
   const { data, library, openProfile, filterCatalogue } = useScholars();
   const groups = useMemo(() => buildGroups(data, library ?? []), [data, library]);
-  const [limit, setLimit] = useState(96);
   const [mode, setMode] = useState<Mode>("era");
   const frameRef = useRef<HTMLDivElement>(null), listRef = useRef<HTMLDivElement>(null);
-  useEffect(() => { setLimit(96); frameRef.current?.scrollTo({top:0}); }, [mode]);
+  useEffect(() => { frameRef.current?.scrollTo({top:0}); }, [mode]);
   const before = useRef<Before | null>(null);
   const rowsNow = () => [...(listRef.current?.querySelectorAll<HTMLLIElement>("li[data-id]") ?? [])];
 
@@ -74,9 +73,8 @@ export function Directory() {
         <button type="button" aria-pressed={mode === "az"} onClick={() => choose("az")}>A to Z</button>
       </div>
     </div>
-    <div ref={frameRef} className="dir-frame slim-scroll" role="region" aria-label="Contributor directory" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,library?.length??0));}}>
-      <div ref={listRef} className="dir-list" onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} limit={limit} /></div>
+    <div ref={frameRef} className="dir-frame slim-scroll" role="region" aria-label="Contributor directory" tabIndex={0}>
+      <div ref={listRef} onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} /></div>
     </div>
-    {library&&limit<library.length&&<button type="button" className="pop-load" onClick={()=>setLimit(n=>Math.min(n+192,library.length))}>{`Show more directory entries (${formatNumber(Math.min(limit,library.length))} of ${formatNumber(library.length)})`}</button>}
   </>;
 }

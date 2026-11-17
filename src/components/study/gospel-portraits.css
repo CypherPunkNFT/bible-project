@@ -64,7 +64,6 @@
 .portrait-results button:hover, .portrait-results button[aria-pressed='true'] { background: var(--surface-2); }
 .portrait-results button strong { font-size: .76rem; line-height: 1.6; font-weight: 500; }
 .portrait-results button > span { font-size: .63rem; color: var(--muted); }
-.portrait-more { font-size: .75rem; border: 1px solid var(--line); padding: .6rem 1rem; border-radius: .5rem; margin-top: 1rem; }
 .portrait-selection, .portrait-empty, .portrait-method { color: var(--muted); font-size: .7rem; line-height: 1.65; margin-top: 1rem; }
 .portrait-method a { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 1000px) { .portrait-accounts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; } .portrait-guides { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

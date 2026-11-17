@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react"
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Library } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { WindowedRows } from "@/components/WindowedRows";
 import { bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
 import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
@@ -20,6 +21,11 @@ const CAP = 50;
 const STEP = (Math.PI * 2) / BOOKS;
 const DISC: Record<string, string> = { psalms: "PI", hss: "HS", divine: "DS", newton: "JN", cowper: "WC" };
 const MOVES: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+
+// One line of a book's list: a chapter heading, or a hymn on that chapter.
+interface Line { chapter: number; hymn?: HymnEntry }
+const lineKey = (line: Line) => (line.hymn ? line.hymn.id : `ch-${line.chapter}`);
+const isHeading = (line: Line) => !line.hymn;
 
 interface Shelf { id: string; group: HymnGroup | null; byBook: HymnEntry[][]; totals: number[]; works: number; all: number; max: number; bookCount: number; top: number }
 
@@ -90,7 +96,7 @@ function Ring({ collection, shelf, selected, onSelect }: { collection: HymnColle
   </svg>;
 }
 
-function HymnItem({ collection, hymn, group }: { collection: HymnCollection; hymn: HymnEntry; group: HymnGroup | undefined }) {
+function HymnItem({ collection, hymn, group, row }: { collection: HymnCollection; hymn: HymnEntry; group: HymnGroup | undefined; row: number }) {
   const book = collection.books[bookIndexOf(hymn.v)];
   const bits = [
     <Link key="ref" className="thr-ref" to={passageHref(collection.books, hymn)} title={`Read ${chapterLabel(book, chapterOf(hymn.v))} on this site`}><BookOpen size={12} strokeWidth={1.5} aria-hidden />{hymn.r}</Link>,
@@ -98,7 +104,7 @@ function HymnItem({ collection, hymn, group }: { collection: HymnCollection; hym
     <span key="y">{hymn.y}</span>,
     hymn.m ? <span key="m">{`metre ${hymn.m.replace(/,/g, ".")}`}</span> : null,
   ].filter(Boolean);
-  return <li className="thr-item"><Link className="thr-work" to={hymnHref(hymn.id)}>{hymn.t}</Link>
+  return <li className="thr-item" data-row={row}><Link className="thr-work" to={hymnHref(hymn.id)}>{hymn.t}</Link>
     <p className="thr-meta">{bits.flatMap((bit, i) => (i ? [<span key={`sep-${i}`} className="thr-sep">·</span>, bit] : [bit]))}</p>
     <Link className="thr-go" to={hymnHref(hymn.id)}>Open the hymn<ArrowRight size={12} strokeWidth={1.5} aria-hidden /></Link></li>;
 }
@@ -134,14 +140,17 @@ export function Through({ collection }: { collection: HymnCollection }) {
   }
 
   const book = books[selected], entries = shelf.byBook[selected];
-  const items: JSX.Element[] = [];
-  let lastChapter = 0;
-  for (const h of entries) {
-    const chapter = chapterOf(h.v);
-    if (chapter !== lastChapter) items.push(<li key={`ch-${chapter}`} className="thr-chapter">{chapterLabel(book, chapter)}</li>);
-    lastChapter = chapter;
-    items.push(<HymnItem key={h.id} collection={collection} hymn={h} group={groups.get(h.g)} />);
-  }
+  const lines = useMemo(() => {
+    const out: Line[] = [];
+    let lastChapter = 0;
+    for (const h of entries) {
+      const chapter = chapterOf(h.v);
+      if (chapter !== lastChapter) out.push({ chapter });
+      lastChapter = chapter;
+      out.push({ chapter, hymn: h });
+    }
+    return out;
+  }, [entries]);
 
   return <div className="thr" style={tone("--poetry")}>
     <SectionHead num="02" kicker="Book by book" title={<>Hymns <em>through</em> the Bible</>}
@@ -174,7 +183,13 @@ export function Through({ collection }: { collection: HymnCollection }) {
         <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
           <p className="thr-book-sub">{plural(entries.length, "{n} hymn", "{n} hymns")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
         <OutsideScroll label={`Hymns on ${book.name}`} className="thr-scroll" resetKey={`${chosen}-${selected}`}>
-          <ol className="thr-list">{items.length ? items : <li className="thr-empty">{shelf.group ? `No hymn on ${book.name} in ${shelf.group.short}.` : `No hymn on ${book.name} in any of these books.`}</li>}</ol>
+          {/* Psalms alone holds hundreds of hymns: drawn a window of rows at a time, each chapter heading a row of its
+              own (owner's scroll rule, 2026-11-17). The headings stick, so useRowWindow does not anchor on them. */}
+          {lines.length ? <WindowedRows as="ol" className="thr-list thr-rows" items={lines} itemKey={lineKey} fullRow={isHeading} estimate={72}
+            renderItem={(line, row) => line.hymn
+              ? <HymnItem key={line.hymn.id} collection={collection} hymn={line.hymn} group={groups.get(line.hymn.g)} row={row} />
+              : <li key={`ch-${line.chapter}`} className="thr-chapter" data-row={row} data-sticky="">{chapterLabel(book, line.chapter)}</li>} />
+            : <ol className="thr-list"><li className="thr-empty">{shelf.group ? `No hymn on ${book.name} in ${shelf.group.short}.` : `No hymn on ${book.name} in any of these books.`}</li></ol>}
         </OutsideScroll>
       </aside>
     </div>

@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useScholars } from '../context';
 import { POPULATION_BASE, getUnattributedPage, type PopulationRecord } from '../population';
 import { downloadCompleteCatalogue } from './export-download';
 import { useDownloadBusy } from '@/components/download/download';
 import { PopulationRecordRow } from './PopulationWorks';
+import { WindowedRows } from '@/components/WindowedRows';
 import { formatDateTime, formatNumber } from "@/lib/site-format";
 
 // Clauses after a ";" in the reconciliation notes. Each clause is its own text node, because the collector never registers
@@ -13,15 +14,22 @@ const PROFILE_EXPERTISE = "only documented profiles establish expertise.";
 const PROFILE_DATES = "their documented profile dates take precedence.";
 const MEMBERSHIPS_KEPT = "all memberships are retained and labeled.";
 
+const recordKey = (r: PopulationRecord) => r.id;
+
+// The records arrive a file (100 records) at a time; the next file is fetched by itself as the window of drawn rows
+// nears the end, and the list is drawn a window of rows at a time: no page buttons (owner's scroll rule, 2026-11-17).
 function Unattributed({total}:{total:number}) {
-  const [page,setPage]=useState(0),[rows,setRows]=useState<PopulationRecord[]|null>(null),[error,setError]=useState('');
+  const [wanted,setWanted]=useState(1),[pages,setPages]=useState<PopulationRecord[][]>([]),[error,setError]=useState('');
+  const last=Math.max(0,Math.ceil(total/100)-1), page=wanted-1;
   useEffect(()=>{
-    const abort=new AbortController();setRows(null);setError('');
-    getUnattributedPage(page,abort.signal).then(setRows).catch(e=>{if(!abort.signal.aborted)setError(e.message);});
+    const abort=new AbortController();setError('');
+    getUnattributedPage(page,abort.signal).then(rows=>setPages(p=>{const next=[...p];next[page]=rows;return next;})).catch(e=>{if(!abort.signal.aborted)setError(e.message);});
     return()=>abort.abort();
   },[page]);
-  const last=Math.max(0,Math.ceil(total/100)-1);
-  return <div className="pop-unattributed"><p>{`${formatNumber(total)} records have no linked contributor credit. These records are kept outside the people population. The complete list is also in the export.`}</p><div className="pop-links"><button type="button" disabled={!page} onClick={()=>setPage(p=>p-1)}>Previous</button><label>Page <input aria-label="Unattributed records page" type="number" min={1} max={last+1} value={page+1} onChange={e=>setPage(Math.max(0,Math.min(last,Number(e.target.value)-1)))}/>{` of ${formatNumber(last+1)}`}</label><button type="button" disabled={page>=last} onClick={()=>setPage(p=>p+1)}>Next</button></div>{!rows&&!error&&<p role="status">Loading records…</p>}{error&&<p role="alert">{error}</p>}<ul className="pop-unattributed-list slim-scroll">{rows?.map(r=><PopulationRecordRow key={r.id} record={r}/>)}</ul></div>;
+  const ready=pages.length===wanted&&pages.every(Boolean);
+  const more=useCallback(()=>{if(ready&&wanted<=last)setWanted(n=>n+1);},[ready,wanted,last]);
+  const rows=pages.flat();
+  return <div className="pop-unattributed"><p>{`${formatNumber(total)} records have no linked contributor credit. These records are kept outside the people population. The complete list is also in the export.`}</p>{!ready&&!error&&<p role="status">Loading records…</p>}{error&&<p role="alert">{error}</p>}<div className="pop-unattributed-list slim-scroll"><WindowedRows as="ul" items={rows} itemKey={recordKey} estimate={130} dataVersion={total} onEnd={more} renderItem={(r,row)=><PopulationRecordRow key={r.id} record={r} row={row}/>}/></div></div>;
 }
 export function PopulationCoverage() {
   const {population}=useScholars();const [unknown,setUnknown]=useState(false);

@@ -17,7 +17,6 @@ import { centreInStrip } from "@/pages/teachers/preachers/bible/words";
 import { chapterLabel, formatNumber, groupsById, tone } from "./model";
 import { plural } from "@/lib/site-format";
 
-const SHOWN_TITLES = 8;
 const MOVES: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
 interface View { id: string; label: string; chapters: number; tone: string; group?: HymnGroup }
 
@@ -72,13 +71,13 @@ function Summary({ model, view, narrow, onPin }: { model: Model; view: string; n
   </div>;
 }
 
-function ChapterPanel({ model, cell, view, groups, expanded, onClose, onExpand }:
-  { model: Model; cell: Cell; view: string; groups: Map<string, HymnGroup>; expanded: boolean; onClose: () => void; onExpand: () => void }) {
+// Every hymn on the chapter is listed (at most about 20), with no "Show all": the owner's scroll rule, 2026-11-17.
+function ChapterPanel({ model, cell, view, groups, onClose }:
+  { model: Model; cell: Cell; view: string; groups: Map<string, HymnGroup>; onClose: () => void }) {
   const section = model.books[cell.b].section;
   const entries = Object.entries(cell.counts).sort((a, b) => b[1] - a[1]);
   const max = entries.length ? entries[0][1] : 1;
   const list = (model.onChapter.get(cell.key) ?? []).filter((h) => view === "all" || h.g === view);
-  const shown = expanded ? list : list.slice(0, SHOWN_TITLES);
   const name = nameOf(model, cell);
   return <div className="bib-inner" style={tone(`--${section}`)}>
     <div className="bib-top-row"><p className="kicker">{SECTION_LABEL[section]}</p>
@@ -93,10 +92,9 @@ function ChapterPanel({ model, cell, view, groups, expanded, onClose, onExpand }
       return <li key={id} className={view === "all" || view === id ? "" : "bib-faded"} style={tone(g.tone)}>
         <span className="bib-name">{g.short}</span><span className="bib-vbar"><i style={{ width: `${Math.max(4, (count / max) * 100).toFixed(1)}%` }} /></span><b>{count}</b></li>;
     })}</ul>}
-    {shown.length > 0 && <><p className="bib-mini">Open a hymn</p>
-      <ul className="bib-titles">{shown.map((h) => <li key={h.id}><Link className="bib-work" to={hymnHref(h.id)}><span>{h.t}</span><ArrowRight size={13} strokeWidth={1.5} aria-hidden /></Link>
+    {list.length > 0 && <><p className="bib-mini">Open a hymn</p>
+      <ul className="bib-titles">{list.map((h) => <li key={h.id}><Link className="bib-work" to={hymnHref(h.id)}><span>{h.t}</span><ArrowRight size={13} strokeWidth={1.5} aria-hidden /></Link>
         <small>{h.r} · {groups.get(h.g)?.short} · {h.y}</small></li>)}</ul></>}
-    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>{`Show all ${formatNumber(list.length)} hymns`}</button>}
     <Link className="bib-read" to={readHref(model, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />{`Read ${name}`}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
   </div>;
 }
@@ -111,7 +109,6 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
   const [hovered, setHovered] = useState(-1);
   const [pinned, setPinned] = useState(-1);
   const [sheetCell, setSheetCell] = useState(-1);
-  const [expanded, setExpanded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -161,7 +158,7 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
     return () => observer.disconnect();
   }, [narrow]);
 
-  const pin = useCallback((i: number) => { setPinned(i); setExpanded(false); setHovered(-1); if (i >= 0) setSheetCell(i); }, []);
+  const pin = useCallback((i: number) => { setPinned(i); setHovered(-1); if (i >= 0) setSheetCell(i); }, []);
   useEffect(() => {
     if (!narrow || pinned < 0) return;
     const onKey = (event: globalThis.KeyboardEvent) => { if (event.key === "Escape") pin(-1); };
@@ -192,7 +189,6 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
     const i = map.cellAt(event.clientX, event.clientY, touch);
     setPinned(i === pinned ? -1 : i);
     if (i >= 0 && i !== pinned) setSheetCell(i);
-    setExpanded(false);
     if (narrow || touch) setHovered(-1);
   }
   function onKeyDown(event: KeyboardEvent<HTMLCanvasElement>) {
@@ -204,8 +200,8 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
   }
 
   const summary = <Summary key={`summary-${view}`} model={model} view={view} narrow={narrow} onPin={pin} />;
-  const chapter = (i: number) => <ChapterPanel key={`cell-${i}-${expanded}`} model={model} cell={model.cells[i]} view={view} groups={groups}
-    expanded={expanded} onClose={() => pin(-1)} onExpand={() => setExpanded(true)} />;
+  const chapter = (i: number) => <ChapterPanel key={`cell-${i}`} model={model} cell={model.cells[i]} view={view} groups={groups}
+    onClose={() => pin(-1)} />;
 
   return <div className="bib" style={tone("--accent")}>
     <SectionHead num="01" kicker="The whole Bible" title={<>Every chapter, sung in our <em>hymns</em></>}

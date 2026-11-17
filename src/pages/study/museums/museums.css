@@ -315,8 +315,7 @@
 }
 
 /* --- the long list of institutions with no page ------------------------------------------------ */
-.mu-disclose,
-.mu-more {
+.mu-disclose {
   display: inline-flex;
   align-items: center;
   gap: .4rem;
@@ -331,8 +330,7 @@
   cursor: pointer;
 }
 
-.mu-disclose:hover,
-.mu-more:hover { border-color: var(--history); color: var(--history); }
+.mu-disclose:hover { border-color: var(--history); color: var(--history); }
 .mu-disclose[aria-pressed="true"] { border-color: var(--history); color: var(--history); }
 
 .mu-other-list {
@@ -425,16 +423,15 @@
 .mu-kind[aria-pressed="true"] { border-color: var(--history); color: var(--history); }
 .mu-kind[aria-pressed="true"] span { color: inherit; }
 
+/* A rule above every object rather than a 1px gap over a ruled background: the list is drawn a window of rows at a
+   time, and the space standing for the rows not drawn must be blank. */
 .mu-object-list {
   display: grid;
-  gap: 1px;
   margin-top: 1.8rem;
-  background: var(--line);
-  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.mu-object { padding: 1.6rem 0 1.8rem; background: var(--page); }
+.mu-object { padding: 1.6rem 0 1.8rem; background: var(--page); border-top: 1px solid var(--line); }
 
 .mu-object > header {
   display: flex;
@@ -572,9 +569,6 @@
 
 .mu-object-links a { display: inline-flex; align-items: center; gap: .25rem; color: var(--muted); }
 .mu-object-links a:hover { color: var(--ink); }
-
-.mu-more { justify-content: center; width: 100%; margin-top: 1.6rem; border-radius: .4rem; }
-.mu-more span { margin-left: .6rem; font-size: .7rem; color: var(--muted); }
 
 /* --- the Coming soon panel --------------------------------------------------------------------- */
 /* No rule of its own: the museum header above already closes with one. */

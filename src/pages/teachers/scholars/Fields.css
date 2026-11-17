@@ -34,8 +34,8 @@
 .tp-scholars .fld-controls select:last-child { flex: 0 1 7.5rem; }
 .tp-scholars .fld-more { width: 100%; padding-top: .65rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--tone); }
 .tp-scholars .fld-coverage { margin: .5rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.5; }
-.tp-scholars .fld-pages, .tp-scholars .fld-works nav { display: flex; flex: none; align-items: center; justify-content: space-between; gap: .5rem; padding: .6rem 1.1rem; font-size: .73rem; color: var(--muted); }
-.tp-scholars .fld-pages button:disabled, .tp-scholars .fld-works nav button:disabled { opacity: .35; cursor: default; }
+.tp-scholars .fld-works nav { display: flex; flex: none; align-items: center; justify-content: space-between; gap: .5rem; padding: .6rem 1.1rem; font-size: .73rem; color: var(--muted); }
+.tp-scholars .fld-works nav button:disabled { opacity: .35; cursor: default; }
 .tp-scholars .fld-people .fld-held { width: auto; margin: -.4rem 0 .5rem 2.8rem; font-size: .7rem; color: var(--tone); }
 .tp-scholars .fld-credit { margin: .3rem .5rem; font-size: .7rem; line-height: 1.5; color: var(--muted); }
 .tp-scholars .fld-works { margin: .5rem; padding: .7rem; background: var(--surface); border: 1px solid var(--line); border-radius: .65rem; font-size: .74rem; }
@@ -46,7 +46,9 @@
 .tp-scholars .fld-works li a { display: block; padding: .6rem .2rem; }
 .tp-scholars .fld-works nav { padding: .4rem 0; }
 .tp-scholars .fld-works nav button { width: auto; padding: .3rem; }
-.tp-scholars .fld-people { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .1rem 1rem; align-content: start; min-height: 0; margin: 0; padding: 0 .7rem .6rem; overflow-y: auto; list-style: none;
+/* The box scrolls; the grid inside is drawn a window of rows at a time (owner's scroll rule, 2026-11-17). */
+.tp-scholars .fld-people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .1rem 1rem; align-content: start; margin: 0; padding: 0; list-style: none; }
+.tp-scholars .fld-people { flex: 1; min-height: 0; margin: 0; padding: 0 .7rem .6rem; overflow-y: auto;
   scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
 .tp-scholars .fld-people::-webkit-scrollbar { width: 6px; height: 6px; }
 .tp-scholars .fld-people::-webkit-scrollbar-track, .tp-scholars .fld-people::-webkit-scrollbar-corner { background: transparent; }
@@ -83,7 +85,8 @@
   .tp-scholars .fld-body, .tp-scholars .fld-sel .fld-body { position: static; display: block; animation: none; }
   .tp-scholars .fld-body-in { height: auto; min-height: 0; }
   .tp-scholars .tp-sec-fields .fld-cat { margin: 0 .7rem .9rem 1.15rem; }
-  .tp-scholars .fld-people { flex: auto; max-height: 65svh; overflow-y: auto; grid-template-columns: 1fr; padding-bottom: .6rem; margin-bottom: .65rem; }
+  .tp-scholars .fld-people { flex: auto; max-height: 65svh; overflow-y: auto; padding-bottom: .6rem; margin-bottom: .65rem; }
+  .tp-scholars .fld-people-grid { grid-template-columns: 1fr; }
 }
 .tp-scholars .fld-body[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) { .tp-scholars .fld-grid { transition: none; } }

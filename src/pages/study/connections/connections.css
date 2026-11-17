@@ -121,8 +121,6 @@
 .cx-ref:hover { color: var(--accent); }
 .cx-verses-texts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: .45rem; }
 .cx-verses-texts > div { font-size: .82rem; color: color-mix(in srgb, var(--ink) 82%, var(--muted)); }
-.cx-verses-more { margin-top: .9rem; align-self: flex-start; font-size: .78rem; color: var(--accent); }
-.cx-verses-more:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .cx-source { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
 .cx-source a { color: var(--accent); }

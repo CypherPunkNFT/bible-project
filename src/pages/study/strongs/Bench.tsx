@@ -2,10 +2,11 @@
 // reach and no more: Greek numbers in the 21 letters. A whole-Bible list is not built here (see the research record's boundaries).
 import { useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { WindowedRows } from "@/components/WindowedRows";
 import { lemmaById, parseNumber, readerHref } from "./model";
 import { Head, Lemma } from "./parts";
 import { useLetterLookup, type Found } from "./useLetterLookup";
-import { formatNumber, plural } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 
 const PARTS = [
   { key: "number", text: "26.", label: "The number", says: "Its place in the list. It finds the entry and says nothing else." },
@@ -34,14 +35,15 @@ const MOVES: [string, string][] = [
   ["Walk the verses, then come back", "Read other places in their own settings. Then return to your verse and ask what it says."],
 ];
 
+const foundKey = (v: Found) => `${v.code}${v.chapter}:${v.verse}`;
+
+// Every verse found, in rows of links drawn a window of rows at a time as the page scrolls: no "Show all" (owner's
+// scroll rule, 2026-11-17).
 function Results({ number, verses }: { number: string; verses: Found[] }) {
-  const [all, setAll] = useState(false);
   if (!verses.length) return <p className="sn-readout">{`No King James tag for ${number} in the 21 letters. It may still appear elsewhere in the New Testament; this tool reads only the letters.`}</p>;
-  const shown = all ? verses : verses.slice(0, 24);
   return <>
     <p className="sn-readout">{`${plural(verses.length, "{n} verse", "{n} verses")} in the 21 letters have a King James tag for ${number}. Each link opens in the Berean, which has no tags, so read for the sense.`}</p>
-    <ul className="sn-found">{shown.map((v) => <li key={`${v.code}${v.chapter}:${v.verse}`}><Link to={readerHref(v.code, v.chapter, v.verse)}>{v.book} {v.chapter}:{v.verse}</Link></li>)}</ul>
-    {verses.length > shown.length && <button type="button" className="sn-more" onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)} →`}</button>}
+    <WindowedRows as="ul" className="sn-found" items={verses} itemKey={foundKey} estimate={30} renderItem={(v, row) => <li key={foundKey(v)} data-row={row}><Link to={readerHref(v.code, v.chapter, v.verse)}>{v.book} {v.chapter}:{v.verse}</Link></li>} />
   </>;
 }
 

@@ -1,8 +1,9 @@
-﻿// Subject discovery generated from the complete packaged library, with paged shelves.
+﻿// Subject discovery generated from the complete packaged library, with scrolling shelves.
 import { useMemo, useState, type CSSProperties } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import type { Field } from "@/data/teachers/pages-types";
 import featured from "../../../../content/teachers/field-featured.json";
+import { WindowedRows } from "@/components/WindowedRows";
 import { SectionHead } from "../shared/Frame";
 import { faithOf, toneOf, yearsOf } from "./built/labels";
 import { Mark } from "./marks/Mark";
@@ -12,7 +13,7 @@ import { FIELD_COLLECTIONS, type FieldEntry } from "./field-library";
 import "./Fields.css";
 import { compareText, formatNumber, plural } from "@/lib/site-format";
 
-const SIZE = 40;
+const entryKey = (p: FieldEntry) => p.id;
 const descriptions: Record<Field, string> = {
   history: "Ancient histories, the early church and the world of the Bible.",
   texts: "Languages, manuscripts, translation and the biblical canon.",
@@ -26,7 +27,7 @@ export function Fields() {
   const library=useMemo(()=>populationPeople?{entries:populationPeople,coverage:{scannedRecords:population?.summary.recordRepresentations??0,withoutSubjectMatch:populationPeople.filter(p=>!Object.keys(p.fields).length).length,collections:Object.fromEntries(FIELD_COLLECTIONS.map(([id])=>[id,populationPeople.filter(p=>p.collections.includes(id)).length]))}}:null,[populationPeople,population]);
   const [choice, setChoice] = useState<{ key: Field; open: boolean }>({ key: "theology", open: true });
   const [query, setQuery] = useState(""), [collection, setCollection] = useState("");
-  const [page, setPage] = useState(0), [expanded, setExpanded] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const [sort, setSort] = useState("featured");
   const groups = useMemo(() => (Object.entries(data.fields) as [Field, string][]).map(([key, label]) => {
     const people = (library?.entries ?? []).filter(p => p.fields[key]);
@@ -45,17 +46,13 @@ export function Fields() {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   const matches = (p: FieldEntry) => (!collection || p.collections.includes(collection)) && words.every(word =>
     [p.name, ...p.aliases, ...p.roles, ...p.traditions, ...Object.values(p.fields).map(f => f?.example?.title)].join(" ").toLocaleLowerCase().includes(word));
-  function reset() { setPage(0); setExpanded(null); }
+  function reset() { setExpanded(null); }
   function choose(key: Field) {
     const narrow = window.matchMedia("(max-width: 900px)").matches;
     setChoice(c => ({ key, open: !(c.key === key && c.open && narrow) }));
     setQuery(""); reset();
   }
-  function movePage(next: number, field: Field) {
-    setPage(next); setExpanded(null);
-    document.querySelector(`#fld-list-${field} .fld-people`)?.scrollTo({ top: 0 });
-  }
-  function personRow(p: FieldEntry, field: Field) {
+  function personRow(p: FieldEntry, field: Field, row: number) {
     const scholar = data.scholars.find(s => s.id === p.profileId), open = expanded === p.id;
     const example = p.fields[field]?.example;
     const content = <><Mark scholar={{ name: p.name, field }} size={34} /><span>
@@ -64,7 +61,7 @@ export function Fields() {
       <em>{example?.title ?? scholar?.line}</em>
       <span className="fld-person-action">{scholar ? "Open profile" : `${formatNumber(p.records)} held ${plural(p.records, "record", "records")} · ${open ? "Close works" : "Browse works"}`}<ArrowRight size={11} aria-hidden="true" /></span>
     </span></>;
-    return <li key={p.id} data-person={p.id}>
+    return <li key={p.id} data-person={p.id} data-row={row}>
       <button type="button" aria-label={scholar ? `Open the profile of ${p.name}` : `Browse held works by ${p.name}`} aria-expanded={scholar ? undefined : open}
         onClick={e => scholar ? openProfile(scholar.id, e.currentTarget) : setExpanded(open ? null : p.id)}>{content}</button>
       {scholar && p.records > 0 && <button type="button" className="fld-held" aria-expanded={open} onClick={() => setExpanded(open ? null : p.id)}>{`${plural(p.records, "{n} held record", "{n} held records")} · ${open ? "Close works" : "Browse works"}`}</button>}
@@ -78,7 +75,7 @@ export function Fields() {
     <div className="fld-grid" style={{ "--cols": columns } as CSSProperties}>
       {groups.map(g => {
         const selected = choice.open && choice.key === g.key;
-        const visible = g.people.filter(matches), currentPage = Math.min(page, Math.max(0, Math.ceil(visible.length / SIZE) - 1));
+        const visible = selected ? g.people.filter(matches) : [];
         return <article key={g.key} className={`fld-card${selected ? " fld-sel" : ""}`} data-field={g.key} style={{ "--tone": `var(${toneOf(g.key)})` } as CSSProperties}>
           <button type="button" className="fld-head" aria-label={`${g.label}: browse all ${formatNumber(g.people.length)} contributors`} aria-expanded={selected} aria-controls={`fld-list-${g.key}`} onClick={() => choose(g.key)}>
             <span className="fld-count">{library ? plural(g.people.length, "{n} contributor", "{n} contributors") : "… contributors"}</span><h3>{g.label}</h3>
@@ -93,12 +90,13 @@ export function Fields() {
               <label className="fld-search"><Search size={14} aria-hidden="true" /><input type="search" aria-label={`Search ${g.label}`} placeholder="Find a name or work" value={selected ? query : ""} onChange={e => { setQuery(e.target.value); reset(); }} /></label>
               <div className="fld-controls"><select aria-label={`Collection in ${g.label}`} value={collection} onChange={e => { setCollection(e.target.value); reset(); }}><option value="">All collections</option>{FIELD_COLLECTIONS.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select><select aria-label={`Sort ${g.label}`} value={sort} onChange={e => { setSort(e.target.value); reset(); }}><option value="featured">Featured first</option><option value="held">Most held</option><option value="az">A–Z</option></select></div>
               <p className="fld-results" role="status">{`${formatNumber(visible.length)} of ${plural(g.people.length, "{n} contributor", "{n} contributors")}`}{(query || collection) && <button type="button" onClick={() => { setQuery(""); setCollection(""); reset(); }}>Clear</button>}</p>
-              <ul className="fld-people" key={`${g.key}-${query}-${collection}-${sort}-${currentPage}`} tabIndex={0} aria-label={`${g.label} authors and contributors`}>
-                {selected && visible.slice(currentPage * SIZE, (currentPage + 1) * SIZE).map(p => personRow(p, g.key))}
-                {!library && !error && <li className="fld-empty">Loading the full subject index…</li>}
-                {library && !visible.length && <li className="fld-empty">No names or works match. Try another search or collection.</li>}
-              </ul>
-              {visible.length > SIZE && <nav className="fld-pages" aria-label={`${g.label} contributor pages`}><button type="button" disabled={currentPage === 0} onClick={() => movePage(currentPage - 1, g.key)}>Previous</button><span>{currentPage * SIZE + 1}–{Math.min((currentPage + 1) * SIZE, visible.length)} / {formatNumber(visible.length)}</span><button type="button" disabled={(currentPage + 1) * SIZE >= visible.length} onClick={() => movePage(currentPage + 1, g.key)}>Next</button></nav>}
+              {/* Every contributor in the field, drawn a window of rows at a time as the box scrolls: no page buttons
+                  (owner's scroll rule, 2026-11-17). */}
+              <div className="fld-people" key={`${g.key}-${query}-${collection}-${sort}`} tabIndex={0} role="region" aria-label={`${g.label} authors and contributors`}>
+                {selected && <WindowedRows as="ul" className="fld-people-grid" items={visible} itemKey={entryKey} estimate={86} renderItem={(p, row) => personRow(p, g.key, row)} />}
+                {!library && !error && <p className="fld-empty">Loading the full subject index…</p>}
+                {library && selected && !visible.length && <p className="fld-empty">No names or works match. Try another search or collection.</p>}
+              </div>
               <button type="button" className="fld-cat" onClick={() => filterCatalogue({ field: [g.key] })}>Profiles in the catalogue <ArrowRight size={14} /></button>
             </div>
           </div>

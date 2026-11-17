@@ -7,13 +7,15 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { WindowedRows } from "@/components/WindowedRows";
 import { bookIndexOf, hymnHref, metreName, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
 import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { firstLine, formatNumber, groupsById, tone } from "./model";
 import { compareText } from "@/lib/site-format";
 
-const PAGE = 240;
+const ROW_ESTIMATE = 230;
+const hymnKey = (r: Row) => r.h.id;
 const normalise = (text: string) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase();
 const DISC: Record<string, string> = { psalms: "IW", hss: "IW", divine: "IW", newton: "JN", cowper: "WC" };
 const SORTS = [["bible", "Bible order"], ["az", "A–Z"], ["book", "Hymn book"]] as const;
@@ -41,11 +43,9 @@ export function Cards({ collection }: { collection: HymnCollection }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<Sort>("bible");
   const [filters, setFilters] = useState<Record<FacetKey, string[]>>({ g: [], section: [], metre: [] });
-  // The grid shows a page of cards at a time; "Load more" adds the next (owner, 2026-10-18). A new search starts again.
-  const [limit, setLimit] = useState(PAGE);
+  // Every match, drawn a window of rows at a time as the grid scrolls: the owner's scroll rule (2026-11-17) replaced
+  // the "Load more" button of 2026-10-18.
   const shownFor = `${query}|${sort}|${JSON.stringify(filters)}`;
-  const [lastShown, setLastShown] = useState(shownFor);
-  if (shownFor !== lastShown) { setLastShown(shownFor); setLimit(PAGE); }
   const words = wordsOf(query);
   const matches = (r: Row, ignore?: FacetKey) => words.every((w) => r.search.includes(w))
     && (["g", "section", "metre"] as FacetKey[]).every((key) => key === ignore || !filters[key].length || filters[key].includes(valueOf(r, key)));
@@ -76,17 +76,14 @@ export function Cards({ collection }: { collection: HymnCollection }) {
         <div className="pc-toolbar"><p className="pc-result-count" aria-live="polite"><strong>{formatNumber(visible.length)}</strong> of {formatNumber(rows.length)} hymns</p>
           <div className="pc-sort" role="radiogroup" aria-label="Sort hymns"><span>Sort</span>{SORTS.map(([k, l]) =>
             <button key={k} type="button" role="radio" aria-checked={k === sort} onClick={() => setSort(k)}>{l}</button>)}</div></div>
-        <OutsideScroll label="Hymn cards" className="pc-scroll" resetKey={`${query}|${sort}|${JSON.stringify(filters)}`}>
-          <div className="pc-grid">
-            {visible.slice(0, limit).map((r) => <article key={r.h.id} className="pc-card" style={tone(r.g.tone)}>
+        <OutsideScroll label="Hymn cards" className="pc-scroll" resetKey={shownFor}>
+          {visible.length === 0 ? <div className="pc-grid"><div className="pc-empty"><p>No hymn matches these filters.</p></div></div>
+            : <WindowedRows className="pc-grid" items={visible} itemKey={hymnKey} estimate={ROW_ESTIMATE} dataVersion={shownFor} renderItem={(r, row) => <article key={r.h.id} data-row={row} className="pc-card" style={tone(r.g.tone)}>
               <div className="pc-card-top"><span className="pc-mark" aria-hidden="true">{DISC[r.g.id]}</span><span className="pc-badge">{r.h.v ? r.h.r : "On a subject"}</span></div>
               <h3>{firstLine(r.h)}</h3><p className="pc-meta">{r.h.a} · {r.h.y}</p>
               <p className="pc-tags"><span>{r.g.short}</span><span>{r.metre}</span></p>
               <div className="pc-work"><small>{r.h.s ? "Subject" : "Hymn book"}</small><div><strong>{r.h.s || r.g.label}</strong></div></div>
-              <Link className="pc-card-hit" to={hymnHref(r.h.id)} aria-label={`Open ${r.h.t}`} /></article>)}
-            {visible.length === 0 && <div className="pc-empty"><p>No hymn matches these filters.</p></div>}
-            {visible.length > limit && <div className="pc-load"><button type="button" onClick={() => setLimit(limit + PAGE)}>Load more</button><span>{`${formatNumber(limit)} of ${formatNumber(visible.length)}`}</span></div>}
-          </div>
+              <Link className="pc-card-hit" to={hymnHref(r.h.id)} aria-label={`Open ${r.h.t}`} /></article>} />}
         </OutsideScroll>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
 import { nameLinkFor } from "@/data/baby-names";
 import { SlideLink } from "@/components/people-pages/SlideLink";
+import { WindowedRows } from "@/components/WindowedRows";
 import { useCarried } from "@/components/people-pages/use-carried";
 import { RefLink } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
@@ -19,7 +20,6 @@ const SEX = { M: "Man", F: "Woman", G: "Group", "": "" } as const;
 /** One person's page body: who they were, their family, where Scripture names them, their story and every verse. */
 export function PersonProfile({ person, byId, sameName, switcher, entry }: { person: Person; byId: Map<string, PersonRow>; sameName: number; switcher?: ReactNode; entry?: ReactNode }) {
   const catalog = useCatalog();
-  const [refsShown, setRefsShown] = useState(40);
   const [full, setFull] = useState(false);
   const facts = [SEX[person.s], person.p && periodLabel(person.p), person.t].filter(Boolean).join(" · ");
   const story = Boolean(person.story || person.short || person.article);
@@ -48,8 +48,9 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
           <DescriptionCredit person={person} />
         </section>}
         <h2 className="mb-1.5 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">{`Every verse that names ${person.n} · ${formatNumber(person.refs.length)}`}</h2>
-        <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm">{person.refs.slice(0, refsShown).map((ref) => <RefLink key={ref} span={[ref, ref]} label={formatRange(catalog, ref, ref)} />)}</p>
-        {person.refs.length > refsShown && <button type="button" onClick={() => setRefsShown((n) => n + 200)} className="mt-2 text-sm text-accent underline">{`Show more (${formatNumber(person.refs.length - refsShown)} left)`}</button>}
+        {/* Every verse, in rows of links drawn as the reader scrolls: no "Show more" (owner's scroll rule, 2026-11-17). */}
+        <WindowedRows className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-x-3 gap-y-1 text-sm" items={person.refs} itemKey={String} estimate={20}
+          renderItem={(ref, row) => <span key={ref} data-row={row}><RefLink span={[ref, ref]} label={formatRange(catalog, ref, ref)} /></span>} />
       </div>
       <aside className="space-y-6">
         <FamilyTree person={person} byId={byId} />

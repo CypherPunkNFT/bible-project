@@ -39,7 +39,8 @@ const sameWindow = (a: RowWindow, b: RowWindow) => a.start === b.start && a.end 
 /** The first drawn row on screen (its items reach below viewTop), with the top of its first item; null if none is. */
 function topVisibleRow(container: HTMLElement | null, viewTop: number, viewBottom: number, rowCount: number): { row: number; top: number } | null {
   if (!container) return null;
-  const items = container.querySelectorAll<HTMLElement>(":scope > [data-row]:not([data-pinned])");
+  // A sticky item (`data-sticky`, a chapter heading) reports where it is stuck, not where it lies: never the anchor.
+  const items = container.querySelectorAll<HTMLElement>(":scope > [data-row]:not([data-pinned]):not([data-sticky])");
   // Items are in row order: binary search for the first whose bottom is below the top of the view.
   let lo = 0, hi = items.length;
   while (lo < hi) { const mid = (lo + hi) >> 1; if (items[mid].getBoundingClientRect().bottom > viewTop) hi = mid; else lo = mid + 1; }

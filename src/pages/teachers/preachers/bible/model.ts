@@ -6,8 +6,6 @@ import { familyOf } from "../../shared/people";
 export const SPURGEON = "author-charles-spurgeon";
 export const SECTION_LABEL: Record<string, string> = { history: "History", poetry: "Poetry & Wisdom", prophets: "Prophets", gospels: "Gospels & Acts", epistles: "Epistles", revelation: "Revelation" };
 export const GENRE_WORD: Record<string, string> = { sermon: "sermon", commentary: "commentary", treatise: "treatise", lecture: "lecture" };
-/** How many titles a chapter shows before "Show all". */
-export const SHOWN_TITLES = 6;
 
 export interface Cell { i: number; b: number; c: number; key: string; verses: number; counts: Record<string, number>; total: number; voices: number }
 export interface TitledWork { person: Person; work: PassageWork }

@@ -1,7 +1,7 @@
 import { StudyTrail } from "@/components/study/StudyTrail";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { loadMuseumIndex } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { GROUP_LABELS, GROUP_LEADS, type MuseumCard, type MuseumGroup } from "@/lib/museums";
@@ -56,7 +56,6 @@ function Card({ card }: { card: MuseumCard }) {
 export default function MuseumArchaeologyPage() {
   const index = useAsync(loadMuseumIndex, "museums/index");
   const [params, setParams] = useSearchParams();
-  const [showOthers, setShowOthers] = useState(false);
   useEffect(() => {
     const old = document.title;
     document.title = "Museum-Grade Archaeology · Bible Guide";
@@ -228,22 +227,17 @@ export default function MuseumArchaeologyPage() {
               {`The cuneiform catalogues record a holder for almost every tablet, and these ${formatNumber(others.length)} institutions and private collections are named among them. We hold catalogue rows about their objects, no photographs, and nothing fetched from the institutions themselves — so they have a line here rather than a page.`}
             </p>
           </div>
-          <button type="button" className="mu-disclose" onClick={() => setShowOthers(!showOthers)}>
-            {showOthers ? "Hide the list" : `Show all ${others.length}`}
-            <Plus size={15} aria-hidden="true" />
-          </button>
-          {showOthers ? (
-            <ul className="mu-other-list">
-              {others.map((holder) => (
-                <li key={holder.name}>
-                  <span>{holder.name}</span>
-                  <small>
-                    {plural(holder.records, "{n} record", "{n} records")}
-                  </small>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          {/* Every one listed (about a hundred, a few dozen rows), with no "Show all": the owner's scroll rule, 2026-11-17. */}
+          <ul className="mu-other-list">
+            {others.map((holder) => (
+              <li key={holder.name}>
+                <span>{holder.name}</span>
+                <small>
+                  {plural(holder.records, "{n} record", "{n} records")}
+                </small>
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

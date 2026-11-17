@@ -1,4 +1,4 @@
-import { startTransition, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { LayoutGrid, Table2 } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { ScholarSectionHead as SectionHead } from "./SectionHead";
@@ -16,39 +16,16 @@ import "./Catalogue.css";
 import "./Fields.css";
 import { formatNumber, plural } from "@/lib/site-format";
 
-const BATCH_SIZE = 48;
 const SORTS: [LibrarySort, string][] = [['featured', 'Featured'], ['az', 'A–Z'], ['year', 'Birth year'], ['held', 'Most associated'], ['named', 'Most named']];
 const EMPTY: never[] = [];
 export function Catalogue() {
   const { data, library, libraryError, profile, cataloguePeople:visible, catalogueOptions:options, setCatalogueOptions:setOptions, catalogueSort:sort, setCatalogueSort:setSort, filters, filterCatalogue, openProfile } = useScholars();
   const people = library ?? EMPTY;
   const [view,setView]=useState<'table'|'cards'>('cards'); const [exportError, setExportError] = useState('');
-  const [loaded, setLoaded] = useState(BATCH_SIZE), [shelf, setShelf] = useState<string | null>(null);
+  const [shelf, setShelf] = useState<string | null>(null);
   const scroll = useRef<HTMLDivElement | null>(null), [scroller, setScroller] = useState<HTMLDivElement | null>(null);
   const scrollRef = useCallback((el: HTMLDivElement | null) => { scroll.current = el; setScroller(el); }, []);
-  const slice = visible.slice(0, loaded);
-  useEffect(() => { setLoaded(BATCH_SIZE); setShelf(visible.length===1 && (filters.q===visible[0].id || filters.q===visible[0].name.toLocaleLowerCase())?visible[0].id:null); scroll.current?.scrollTo({ top: 0 }); }, [filters, options, sort, visible]);
-  useEffect(() => {
-    // Only the full table loads in batches; the card view draws a window of rows over the whole list (VirtualCards).
-    const root = scroll.current;
-    if (view !== 'table' || !root || loaded >= visible.length) return;
-    let frame = 0, queued = false;
-    const check = () => {
-      frame = 0;
-      const travel = root.scrollHeight - root.clientHeight;
-      // Prepare the next batch at 40% of the currently rendered scroll range.
-      // Appending retains existing cards, focus, open shelves and scroll position.
-      if (!queued && (travel <= 1 || root.scrollTop >= travel * .4)) {
-        queued = true;
-        startTransition(() => setLoaded(n => Math.min(n + BATCH_SIZE, visible.length)));
-      }
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(check); };
-    root.addEventListener('scroll', schedule, { passive: true });
-    const resize = new ResizeObserver(schedule);
-    resize.observe(root);
-    return () => { root.removeEventListener('scroll', schedule); resize.disconnect(); cancelAnimationFrame(frame); };
-  }, [loaded, visible, view]);
+  useEffect(() => { setShelf(visible.length===1 && (filters.q===visible[0].id || filters.q===visible[0].name.toLocaleLowerCase())?visible[0].id:null); scroll.current?.scrollTo({ top: 0 }); }, [filters, options, sort, visible]);
   useEffect(() => {
     if (!shelf || !scroll.current) return;
     const opened = scroll.current.querySelector<HTMLElement>('.cat-shelf');
@@ -78,8 +55,8 @@ export function Catalogue() {
           {view === 'table' ? <label className="cat-sort-select">Sort<select aria-label="Sort contributors" value={sort} onChange={e => setSort(e.target.value as LibrarySort)}>{SORTS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label> : <div className="cat-sort" role="radiogroup" aria-label="Sort by"><span className="cat-sort-l">Sort</span>{SORTS.map(([key,label]) => <button key={key} type="button" role="radio" data-sort={key} aria-checked={key === sort} onClick={() => setSort(key)}>{label}</button>)}</div>}</div></div>
         <div ref={scrollRef} className="cat-scroll slim-scroll" data-view={view} role="region" aria-label="Scholar and contributor results" tabIndex={0}>
           {!library && !libraryError && <p role="status">Loading every contributor…</p>}
-          {view==='table'?<div className="pop-table-wrap"><ContributorTable people={slice} data={data} expanded={shelf} onExpand={setShelf} onOpen={openProfile}/></div>:<VirtualCards people={visible} data={data} shelf={shelf} onShelf={setShelf} onOpen={openProfile} scroller={scroller} profileOrigin={profile?.origin ?? null} />}
-          {view==='table'&&loaded<visible.length&&<button type="button" className="pop-load" onClick={()=>setLoaded(n=>Math.min(n+BATCH_SIZE,visible.length))}>{`Show more contributors (${formatNumber(Math.min(loaded,visible.length))} of ${formatNumber(visible.length)})`}</button>}
+          {/* Both views draw a window of rows over the whole list (owner's scroll rule, 2026-11-17: no "Show more"). */}
+          {view==='table'?<div className="pop-table-wrap"><ContributorTable people={visible} data={data} expanded={shelf} onExpand={setShelf} onOpen={openProfile} scroller={scroller ?? undefined}/></div>:<VirtualCards people={visible} data={data} shelf={shelf} onShelf={setShelf} onOpen={openProfile} scroller={scroller} profileOrigin={profile?.origin ?? null} />}
           {library && !visible.length && <div className="cat-empty"><p>No contributor matches these filters.</p><button type="button" className="cat-clear" onClick={clear}>Clear the filters</button></div>}
         </div>
       </div>

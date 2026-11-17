@@ -5,7 +5,7 @@ import { useAsync } from "@/lib/useAsync";
 import type { Letter, Named } from "@/data/letters/types";
 import { BibleAbbr } from "@/components/Verse";
 import { useKeep, useSpanLabel, useVerseIndex, useWordVerses } from "../letter-hooks";
-import { ClaimText, KeepX, Refs } from "../LetterParts";
+import { ClaimText, KeepX, RefRows, Refs } from "../LetterParts";
 import { kindTone } from "./builders";
 import { formatNumber } from "@/lib/site-format";
 
@@ -88,7 +88,7 @@ function HeadingsBeside({ parts, sections, kept, label }: { parts: Letter["outli
 
 /** The letter's key Greek words as sized stars; keeping one lists every verse where it stands behind the KJV text. */
 export function LetterWords({ letter }: { letter: Letter }) {
-  const keep = useKeep<number>(), [all, setAll] = useState(false);
+  const keep = useKeep<number>();
   const most = Math.max(1, ...letter.words.map((w) => w.count));
   const w = keep.active !== null ? letter.words[keep.active] : null;
   const verses = useWordVerses([letter.code], keep.kept !== null ? letter.words[keep.kept].strongs : null);
@@ -97,10 +97,9 @@ export function LetterWords({ letter }: { letter: Letter }) {
       return <button key={word.strongs} type="button" aria-pressed={keep.kept === i} {...keep.bind(i)}>
         <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r={r + 4} fill="var(--gospels)" opacity=".15" /><circle cx="20" cy="20" r={r} fill="var(--gospels)" /></svg>
         <span><b>{word.gloss}</b><small>{word.greek} {word.translit} · {word.strongs}</small></span><em>{word.count}</em></button>; })}</div>
-    <div className="lb-tip">{w ? <><b>{w.gloss}</b> ({w.greek}, {w.translit}){keep.kept !== null && <KeepX onRelease={() => { keep.release(); setAll(false); }} />}{w.note ? ` · ${w.note}` : ""}
+    <div className="lb-tip">{w ? <><b>{w.gloss}</b> ({w.greek}, {w.translit}){keep.kept !== null && <KeepX onRelease={keep.release} />}{w.note ? ` · ${w.note}` : ""}
       {keep.kept !== null && (verses === undefined ? <p className="lg-muted">Finding the verses…</p>
-        : <p>{`${formatNumber(verses.length)} verses where the KJV text is tagged with this word:`} <Refs refs={all ? verses : verses.slice(0, 40)} limit={all ? verses.length : 40} />
-          {verses.length > 40 && !all && <button type="button" className="lb-tab" onClick={() => setAll(true)}>{`Show all ${formatNumber(verses.length)}`}</button>}</p>)}</>
+        : <><p>{`${formatNumber(verses.length)} verses where the KJV text is tagged with this word:`}</p><RefRows refs={verses} /></>)}</>
       : "A bigger star means more uses. Click a word to list every verse it appears in."}</div>
   </div>;
 }

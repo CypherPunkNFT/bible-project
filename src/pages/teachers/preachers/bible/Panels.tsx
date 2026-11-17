@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BookOpen, X } from "lucide-react";
 import type { Person } from "@/data/teachers/pages-types";
 import { familyOf, formatNumber, lifeLabel } from "../../shared/people";
-import { GENRE_WORD, SECTION_LABEL, SHOWN_TITLES, chapterName, readHref, relevant, valueOf, type BibleModel, type Cell, type TitledWork } from "./model";
+import { GENRE_WORD, SECTION_LABEL, chapterName, readHref, relevant, valueOf, type BibleModel, type Cell, type TitledWork } from "./model";
 import { plural } from "@/lib/site-format";
+import { WindowedRows } from "@/components/WindowedRows";
 
 const tone = (token: string) => ({ "--tone": `var(${token})` }) as CSSProperties;
 type Open = (id: string, origin: Element) => void;
@@ -34,12 +35,12 @@ export function Summary({ model, view, narrow, onOpen, onPin }: { model: BibleMo
   </div>;
 }
 
-function WorkLink({ entry, model }: { entry: TitledWork; model: BibleModel }) {
+function WorkLink({ entry, model, row }: { entry: TitledWork; model: BibleModel; row: number }) {
   const { person, work } = entry;
   const volume = work.u ? (model.sharedUrl.get(person.id)?.get(work.u) ?? 0) > 1 : false;
   const year = work.d ? work.d.slice(0, 4) : "";
   const kind = work.g !== "sermon" && GENRE_WORD[work.g] ? ` · ${GENRE_WORD[work.g]}` : "";
-  return <li>
+  return <li data-row={row}>
     {work.u
       ? <a className="bib-work" href={work.u} target="_blank" rel="noreferrer" aria-label={`${work.t}, ${volume ? "read in the volume" : "read it"} (opens a new tab)`}><span>{work.t}</span><ArrowUpRight size={13} strokeWidth={1.5} aria-hidden /></a>
       : <span className="bib-work-plain">{work.t}</span>}
@@ -47,16 +48,19 @@ function WorkLink({ entry, model }: { entry: TitledWork; model: BibleModel }) {
   </li>;
 }
 
-interface ChapterProps { model: BibleModel; cell: Cell; view: string; closable: boolean; expanded: boolean; onOpen: Open; onClose: () => void; onExpand: () => void }
+interface ChapterProps { model: BibleModel; cell: Cell; view: string; closable: boolean; onOpen: Open; onClose: () => void }
+const titleKey = (title: { key: string }) => title.key;
 
-export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, onClose, onExpand }: ChapterProps) {
+// Every title on the chapter (Romans 8 has over a hundred), drawn a window of rows at a time as the panel scrolls: no
+// "Show all" (owner's scroll rule, 2026-11-17).
+export function ChapterPanel({ model, cell, view, closable, onOpen, onClose }: ChapterProps) {
   const section = model.books[cell.b].section;
   const entries = Object.entries(cell.counts).sort((a, b) => b[1] - a[1]);
   const max = entries.length ? entries[0][1] : 1;
   const list = (model.titles.get(cell.key) ?? []).filter(({ person }) => relevant(view, person.id));
   const counted = entries.filter(([id]) => relevant(view, id)).reduce((sum, [, c]) => sum + c, 0);
   const elsewhere = counted - list.length;
-  const shown = expanded ? list : list.slice(0, SHOWN_TITLES);
+  const titles = list.map((entry, i) => ({ entry, key: `${entry.person.id}-${entry.work.v}-${i}` }));
   const name = chapterName(model.books, cell);
   return <div className="bib-inner" style={tone(`--${section}`)}>
     <div className="bib-top-row"><p className="kicker">{SECTION_LABEL[section]}</p>
@@ -73,9 +77,9 @@ export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, on
         <span className="bib-vbar"><i style={{ width: `${Math.max(4, (count / max) * 100).toFixed(1)}%` }} /></span><b>{count}</b>
       </li>;
     })}</ul>}
-    {shown.length > 0 && <><p className="bib-mini">Read their works</p>
-      <ul className="bib-titles">{shown.map((entry, i) => <WorkLink key={`${entry.person.id}-${entry.work.v}-${i}`} entry={entry} model={model} />)}</ul></>}
-    {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>{`Show all ${formatNumber(list.length)} titles`}</button>}
+    {titles.length > 0 && <><p className="bib-mini">Read their works</p>
+      <WindowedRows as="ul" className="bib-titles" items={titles} itemKey={titleKey} estimate={44} dataVersion={`${cell.key}|${view}`}
+        renderItem={({ entry, key }, row) => <WorkLink key={key} entry={entry} model={model} row={row} />} /></>}
     {elsewhere > 0 && <p className="bib-more-note">{plural(elsewhere, "{n} more work takes this chapter alongside an earlier main text, so it is listed under that chapter.", "{n} more works take this chapter alongside an earlier main text, so they are listed under that chapter.")}</p>}
     <Link className="bib-read" to={readHref(model.books, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />{`Read ${name}`}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
   </div>;

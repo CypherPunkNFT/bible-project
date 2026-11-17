@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { loadMuseum, loadMuseumIndex } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
+import { WindowedRows } from "@/components/WindowedRows";
 import {
   BASIS_TONE,
   OBJECT_KINDS,
@@ -18,7 +19,7 @@ import "./museums.css";
 import { formatNumber, plural } from "@/lib/site-format";
 
 /** How many objects open with. The rest arrive a page at a time rather than as one long scroll. */
-const PAGE = 12;
+const objectKey = (object: MuseumObject) => object.id;
 
 function Photo({ object }: { object: MuseumObject }) {
   const photo = object.photo;
@@ -107,7 +108,7 @@ function CatalogueRows({ object }: { object: MuseumObject }) {
   );
 }
 
-function ObjectEntry({ object, museum }: { object: MuseumObject; museum: Museum }) {
+function ObjectEntry({ object, museum, row }: { object: MuseumObject; museum: Museum; row: number }) {
   const facts: [string, string][] = [
     ["Date", object.date],
     ["Culture", object.culture],
@@ -120,7 +121,7 @@ function ObjectEntry({ object, museum }: { object: MuseumObject; museum: Museum 
   ];
   const shown = facts.filter(([, value]) => value && value.trim());
   return (
-    <article className={`mu-object${object.photo ? " mu-object-photo" : ""}`} id={object.id}>
+    <article className={`mu-object${object.photo ? " mu-object-photo" : ""}`} id={object.id} data-row={row}>
       <header>
         <div>
           <h3>{object.title}</h3>
@@ -173,7 +174,6 @@ export default function MuseumPage() {
   const valid = isMuseumSlug(slug);
   const index = useAsync(loadMuseumIndex, "museums/index");
   const museum = useAsync(() => (valid ? loadMuseum(slug) : Promise.reject(new Error("bad slug"))), `museums/${slug}`);
-  const [limit, setLimit] = useState(PAGE);
   const [onlyPhotos, setOnlyPhotos] = useState(false);
   const [kind, setKind] = useState<ObjectKind | null>(null);
   const name = museum.status === "ready" ? museum.value.name : "A museum";
@@ -185,7 +185,6 @@ export default function MuseumPage() {
     };
   }, [name]);
   useEffect(() => {
-    setLimit(PAGE);
     setOnlyPhotos(false);
     setKind(null);
   }, [slug]);
@@ -327,7 +326,7 @@ export default function MuseumPage() {
                 </div>
                 {photographs > 0 ? (
                   <button type="button" className="mu-disclose" aria-pressed={onlyPhotos}
-                    onClick={() => { setOnlyPhotos(!onlyPhotos); setLimit(PAGE); }}>
+                    onClick={() => setOnlyPhotos(!onlyPhotos)}>
                     {onlyPhotos ? "Show every object" : `Only the ${photographs} photographed`}
                   </button>
                 ) : null}
@@ -340,10 +339,7 @@ export default function MuseumPage() {
                       type="button"
                       className="mu-kind"
                       aria-pressed={kind === entry.id}
-                      onClick={() => {
-                        setKind(entry.id);
-                        setLimit(PAGE);
-                      }}
+                      onClick={() => setKind(entry.id)}
                     >
                       {entry.label}
                       <span>{formatNumber(entry.count)}</span>
@@ -351,21 +347,12 @@ export default function MuseumPage() {
                   ))}
                 </div>
               ) : null}
-              <div className="mu-object-list">
-                {objects.slice(0, limit).map((object) => (
-                  <ObjectEntry key={object.id} object={object} museum={held} />
-                ))}
-              </div>
+              {/* Every object, drawn a window of rows at a time as the page scrolls: no "Show more" (owner's scroll rule,
+                  2026-11-17). */}
+              <WindowedRows className="mu-object-list" items={objects} itemKey={objectKey} estimate={420}
+                dataVersion={`${slug}|${onlyPhotos}|${kind}`} renderItem={(object, row) => <ObjectEntry key={object.id} object={object} museum={held} row={row} />} />
               {objects.length === 0 ? (
                 <p className="mu-unavailable">None of this kind has a photograph. Show every object to see them.</p>
-              ) : null}
-              {objects.length > limit ? (
-                <button type="button" className="mu-more" onClick={() => setLimit(limit + PAGE)}>
-                  {`Show ${formatNumber(Math.min(PAGE, objects.length - limit))} more`}
-                  <span>
-                    {`${formatNumber(limit)} of ${formatNumber(objects.length)}`}
-                  </span>
-                </button>
               ) : null}
             </section>
           ) : (

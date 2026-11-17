@@ -72,6 +72,8 @@
 .tp-preachers .tp-sec-through .thr-seg button { padding: .28rem .7rem; border-radius: 999px; font-size: .7rem; color: var(--muted); transition: background .2s, color .2s; }
 .tp-preachers .tp-sec-through .thr-seg button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
 .tp-preachers .tp-sec-through .thr-list { flex: 1; min-height: 0; max-height: 34rem; margin: 0 -.35rem; padding: .2rem 0 .8rem; overflow-y: auto; list-style: none; }
+/* The list inside the scrolling box, drawn a window of rows at a time (owner's scroll rule, 2026-11-17). */
+.tp-preachers .tp-sec-through .thr-rows { margin: 0; padding: 0; list-style: none; }
 .tp-preachers .tp-sec-through .thr-item { padding: .55rem .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
 .tp-preachers .tp-sec-through .thr-work { display: block; font: 500 .88rem/1.35 var(--serif); color: var(--ink); transition: color .15s; }
 .tp-preachers .tp-sec-through a.thr-work:hover { color: var(--tone); }

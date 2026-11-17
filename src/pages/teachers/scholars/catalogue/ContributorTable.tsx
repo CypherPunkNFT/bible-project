@@ -6,6 +6,7 @@ import type { LibraryPerson } from './library';
 import { dateLabel } from '../population';
 import { PopulationWorks } from './PopulationWorks';
 import { usePersonDetails } from './useLibrary';
+import { WindowedRows } from '@/components/WindowedRows';
 import { formatNumber, plural } from "@/lib/site-format";
 
 function ContributorDetails({ person, data }: { person: LibraryPerson; data: ScholarsData }) {
@@ -44,13 +45,16 @@ function ContributorDetails({ person, data }: { person: LibraryPerson; data: Sch
   </>;
 }
 
-export function ContributorTable({ people, data, expanded, onExpand, onOpen }: { people: LibraryPerson[]; data: ScholarsData; expanded: string | null; onExpand: (id: string | null) => void; onOpen: (id: string, origin: Element) => void }) {
-  return <div className="pop-contributors" role="list" aria-label="Complete contributor population">
-    {people.map(p => {
+const personKey = (p: LibraryPerson) => p.id;
+
+// Every contributor, drawn a window of rows at a time as the results scroll: no "Show more" (owner's scroll rule, 2026-11-17).
+export function ContributorTable({ people, data, expanded, onExpand, onOpen, scroller }: { people: LibraryPerson[]; data: ScholarsData; expanded: string | null; onExpand: (id: string | null) => void; onOpen: (id: string, origin: Element) => void; scroller?: HTMLElement }) {
+  return <WindowedRows className="pop-contributors" role="list" aria-label="Complete contributor population" items={people} itemKey={personKey} estimate={150} scroller={scroller}
+    renderItem={(p, row) => {
       const open = expanded === p.id;
       const pop = p.population, identity = pop?.identity, counts = pop?.counts;
       const fields = Object.keys(p.fields).map(f => data.fields[f as keyof typeof data.fields]);
-      return <article className="pop-contributor" role="listitem" key={p.id} data-id={p.id} data-open={open}>
+      return <article className="pop-contributor" role="listitem" key={p.id} data-id={p.id} data-row={row} data-open={open}>
         <div className="pop-contributor-summary">
           <div className="pop-contributor-name" data-column="contributor"><span className="pop-column-label">Contributor / stable IDs</span><h3>{p.name}</h3><code>{p.id}</code>{p.contributorIds.filter(id => id !== p.id).map(id => <code key={id}>{id}</code>)}<small>{pop?.verifiedAliases.length ? `Verified aliases: ${pop.verifiedAliases.join('; ')}` : 'No additional verified alias'}</small></div>
           <div data-column="identity"><span className="pop-column-label">Identity &amp; roles</span><b>{identity?.status ?? p.facts?.kind ?? 'unresolved'}</b><small>{identity?.entityType ? `Recorded entity: ${identity.entityType}` : p.facts?.kind ?? 'Entity unestablished'}{identity?.reviewRequired ? ' · identity review open' : ''}</small><span>{p.roles.join(' · ') || 'Role unrecorded'}</span></div>
@@ -60,6 +64,5 @@ export function ContributorTable({ people, data, expanded, onExpand, onOpen }: {
         </div>
         {open && <div className="pop-contributor-body" id={`population-${p.id}`}><ContributorDetails person={p} data={data} /></div>}
       </article>;
-    })}
-  </div>;
+    }} />;
 }

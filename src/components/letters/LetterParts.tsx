@@ -5,6 +5,7 @@ import { formatRange } from "@/lib/refs";
 import { studyRefLink } from "@/lib/study";
 import type { Citation, Claim, Span } from "@/data/letters/types";
 import { formatNumber } from "@/lib/site-format";
+import { WindowedRows } from "@/components/WindowedRows";
 
 /** Citation number (1-based, in the order of the file's sources list) by id, for the superscript markers. */
 const CitationIndex = createContext<Map<string, number>>(new Map());
@@ -26,6 +27,17 @@ export function Refs({ refs, limit = 6 }: { refs?: Span[]; limit?: number }) {
     {shown.map((span) => <Link key={span.join("-")} to={studyRefLink(catalog, span)}>{formatRange(catalog, span[0], span[1])}</Link>)}
     {unique.length > limit && <span className="lg-muted">{`+${formatNumber(unique.length - limit)} more`}</span>}
   </span>;
+}
+
+const spanKey = (span: Span) => span.join("-");
+
+/** Every verse of a long list (a word's verses) as links in rows, drawn a window of rows at a time as the reader
+ *  scrolls: no "Show all" (owner's scroll rule, 2026-11-17). */
+export function RefRows({ refs }: { refs: Span[] }) {
+  const catalog = useCatalog();
+  const unique = useMemo(() => refs.filter((span, i) => refs.findIndex((other) => other[0] === span[0] && other[1] === span[1]) === i), [refs]);
+  return <WindowedRows className="lg-ref-rows" items={unique} itemKey={spanKey} estimate={24}
+    renderItem={(span, row) => <Link key={spanKey(span)} data-row={row} to={studyRefLink(catalog, span)}>{formatRange(catalog, span[0], span[1])}</Link>} />;
 }
 
 /** The ✕ beside a kept chart item; pressing it lets the item go, so pointing browses again. */

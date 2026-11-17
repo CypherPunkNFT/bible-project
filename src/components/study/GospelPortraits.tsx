@@ -7,10 +7,12 @@ import { loadHarmony, shortRange, type Span } from "@/lib/study";
 import { splitId } from "@/lib/refs";
 import type { Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
+import { WindowedRows } from "@/components/WindowedRows";
 import { PassageText, RefLink } from "./StudyParts";
 import "./gospel-portraits.css";
-import { formatNumber, plural } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 
+const eventKey = (event: PortraitEvent) => event.n;
 const palette = (color: string) => ({ "--portrait-color": color }) as CSSProperties;
 
 export function GospelPortraits({ stats }: { stats: Stats }) {
@@ -18,7 +20,6 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
   const [params, setParams] = useSearchParams();
   const [query, setQuery] = useState("");
   const [scope, setScope] = useState<"all" | "four" | "one">("all");
-  const [limit, setLimit] = useState(6);
   const events = useMemo(() => harmony.status === "ready" ? portraitEvents(harmony.value) : [], [harmony]);
   const selected = events.find((event) => event.n === params.get("portrait")) ?? events.find((event) => event.n === "72");
   const guide = GOSPEL_PORTRAITS.find((item) => item.event === selected?.n);
@@ -105,14 +106,14 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
     <section className="portrait-browser" aria-labelledby="portrait-browser-title">
       <header><div><p className="portrait-eyebrow">Keep exploring</p><h4 id="portrait-browser-title">{plural(matchingPortraitEvents(events, "", "all").length, "Explore {n} Gospel entry", "Explore {n} Gospel entries")}</h4></div>
         <Link to="#harmony">Open the complete harmony <ArrowRight size={14} aria-hidden /></Link></header>
-      <label className="portrait-search"><Search size={17} aria-hidden /><span className="sr-only">Search Gospel portrait entries</span><input type="search" value={query} placeholder="Search an event or harmony number…" onChange={(e) => { setQuery(e.target.value); setLimit(6); }} /></label>
+      <label className="portrait-search"><Search size={17} aria-hidden /><span className="sr-only">Search Gospel portrait entries</span><input type="search" value={query} placeholder="Search an event or harmony number…" onChange={(e) => setQuery(e.target.value)} /></label>
       <div className="portrait-filters" role="group" aria-label="Filter harmony entries by Gospel coverage">
-        {([['all', 'All accounts'], ['four', 'In all four'], ['one', 'In one Gospel']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={scope === value} onClick={() => { setScope(value); setLimit(6); }}>{label}</button>)}
+        {([['all', 'All accounts'], ['four', 'In all four'], ['one', 'In one Gospel']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={scope === value} onClick={() => setScope(value)}>{label}</button>)}
         <span role="status">{plural(results.length, "{n} entry", "{n} entries")}</span>
       </div>
-      <ol className="portrait-results">{results.slice(0, limit).map((event) => <li key={event.n}><button type="button" aria-pressed={selected.n === event.n} onClick={() => pick(event.n)}><span>§{event.n}</span><strong>{event.title}</strong><span>{PORTRAIT_GOSPELS.filter((g) => event.refs[g.key]).map((g) => g.name).join(" · ")}</span><ArrowRight size={15} aria-hidden /></button></li>)}</ol>
+      {/* Every matching entry, drawn a window of rows at a time as the page scrolls: no "Show more" (owner's scroll rule, 2026-11-17). */}
+      <WindowedRows as="ol" className="portrait-results" items={results} itemKey={eventKey} estimate={58} dataVersion={`${query}|${scope}|${selected.n}`} renderItem={(event, row) => <li key={event.n} data-row={row}><button type="button" aria-pressed={selected.n === event.n} onClick={() => pick(event.n)}><span>§{event.n}</span><strong>{event.title}</strong><span>{PORTRAIT_GOSPELS.filter((g) => event.refs[g.key]).map((g) => g.name).join(" · ")}</span><ArrowRight size={15} aria-hidden /></button></li>} />
       {!results.length && <p className="portrait-empty">No entry matches. Try another word or choose All accounts.</p>}
-      {limit < results.length && <button className="portrait-more" type="button" onClick={() => setLimit(limit + 12)}>{`Show more entries (${formatNumber(results.length - limit)} remaining)`}</button>}
       <p className="portrait-selection" aria-live="polite">{`Comparing: ${guide?.title ?? selected.title}. The map and accounts above update together.`}</p>
     </section>
     <p className="portrait-method">Passage boundaries and groupings: <a href="https://www.gutenberg.org/ebooks/36264" target="_blank" rel="noreferrer">A. T. Robertson, <cite>A Harmony of the Gospels</cite> (1922)</a>. The eight guided comparisons are this site’s observations on the cited texts. Verse counts measure the selected passages, not importance. Nearby entries are sorted by their first verse and may overlap.</p>

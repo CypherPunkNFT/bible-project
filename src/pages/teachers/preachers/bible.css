@@ -85,8 +85,6 @@
 .tp-preachers .tp-sec-bible .bib-work:hover { color: var(--tone); } .tp-preachers .tp-sec-bible .bib-work:hover span { border-color: var(--tone); }
 .tp-preachers .tp-sec-bible .bib-titles small { display: block; margin-top: .1rem; font-size: .68rem; color: var(--muted); }
 .tp-preachers .tp-sec-bible .bib-titles em { font-style: normal; color: var(--tone); }
-.tp-preachers .tp-sec-bible .bib-more { margin-top: .7rem; padding: .3rem .75rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--muted); transition: border-color .15s, color .15s; }
-.tp-preachers .tp-sec-bible .bib-more:hover { border-color: var(--tone); color: var(--ink); }
 .tp-preachers .tp-sec-bible .bib-read { display: inline-flex; gap: .55rem; align-items: center; margin-top: 1.1rem; padding: .55rem 1rem; border: 1px solid color-mix(in srgb, var(--tone, var(--accent)) 45%, transparent);
   border-radius: 999px; font-size: .8rem; color: var(--tone, var(--accent)); transition: background .15s; }
 .tp-preachers .tp-sec-bible .bib-read:hover { background: color-mix(in srgb, var(--tone, var(--accent)) 10%, transparent); }

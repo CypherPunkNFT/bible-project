@@ -2,6 +2,7 @@ import { Image as ImageIcon, Link2, Layers, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
+import { WindowedRows } from "@/components/WindowedRows";
 import { useCatalog } from "@/lib/catalog";
 import { loadCrossRefs } from "@/lib/data";
 import { VERSION_GROUPS } from "@/lib/languages";
@@ -23,13 +24,13 @@ interface Props {
   onClose: () => void;
 }
 
-const FIRST_PAGE = 12;
+type Ref = [number, number, number];
+const refKey = ([start, end]: Ref) => `${start}-${end}`;
 
 /** The selected verse: its open cross-references (strongest first) and the verse in every version. */
 export function VersePanel({ translation, bookCode, chapter, label, onClose }: Props) {
   const catalog = useCatalog();
   const heading = useRef<HTMLHeadingElement>(null);
-  const [shown, setShown] = useState(FIRST_PAGE);
   const [compare, setCompare] = useState(false);
   const verse = Number(/^\d+/.exec(label)?.[0] ?? NaN);
   const lastVerse = Number(/-(\d+)/.exec(label)?.[1] ?? verse);
@@ -43,7 +44,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   );
   const list = useMemo(() => {
     if (refs.status !== "ready") return [];
-    const all: [number, number, number][] = [];
+    const all: Ref[] = [];
     for (let v = verse; v <= lastVerse; v++) all.push(...(refs.value[`${chapter}:${v}`] ?? []));
     return all.sort((a, b) => b[2] - a[2]);
   }, [refs, chapter, verse, lastVerse]);
@@ -52,7 +53,6 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   const cardHref = inCanon && kjvNumbering ? verseCardPath(catalog.books.find((b) => b.code === bookCode)?.num ?? 0, Number(chapter), verse, lastVerse) : null;
 
   useEffect(() => {
-    setShown(FIRST_PAGE);
     heading.current?.focus();
   }, [bookCode, chapter, label]);
 
@@ -115,22 +115,16 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
       )}
       {inCanon && refs.status === "loading" && <p className="animate-pulse text-sm text-muted">Loading…</p>}
       {inCanon && kjvNumbering && refs.status === "ready" && list.length === 0 && <p className="text-sm text-muted">No cross-references recorded for this verse.</p>}
-      <ol className="space-y-2">
-        {list.slice(0, shown).map(([start, end, votes]) => (
-          <CrossRef key={`${start}-${end}`} start={start} end={end} votes={votes} translation={translation} />
-        ))}
-      </ol>
-      {list.length > shown && (
-        <button type="button" onClick={() => setShown((n) => n + 20)} className="mt-3 w-full rounded-lg bg-surface-2 py-2 text-sm hover:brightness-95">
-          {`Show more (${formatNumber(list.length - shown)} left)`}
-        </button>
-      )}
+      {/* Every cross-reference, drawn a window of rows at a time as the panel scrolls (owner's scroll rule, 2026-11-17);
+          a row fetches its verse's words only when it is drawn. */}
+      <WindowedRows as="ol" className="grid gap-2" items={list} itemKey={refKey} estimate={92}
+        renderItem={([start, end, votes], row) => <CrossRef key={`${start}-${end}`} row={row} start={start} end={end} votes={votes} translation={translation} />} />
       <div className="h-4" aria-hidden />
     </ReferencePanel>
   );
 }
 
-function CrossRef({ start, end, votes, translation }: { start: number; end: number; votes: number; translation: Translation }) {
+function CrossRef({ row, start, end, votes, translation }: { row: number; start: number; end: number; votes: number; translation: Translation }) {
   const catalog = useCatalog();
   const { num, chapter, verse } = splitId(start);
   const book = bookByNum(catalog, num);
@@ -139,7 +133,7 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
   const slug = version?.slug ?? "kjv";
   const { loading, text } = useVerseText(version, code, chapter, verse);
   return (
-    <li>
+    <li data-row={row}>
       <Link
         to={`/read/${slug}/${code}/${chapter}?v=${verse}`}
         className="block rounded-lg border border-line/70 p-2.5 transition hover:border-line hover:bg-surface-2"
@@ -160,37 +154,30 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
   );
 }
 
+type VersionRow = { t: Translation; code: string };
+const versionKey = ({ t }: VersionRow) => t.slug;
+
 function EveryVersion({ current, bookCode, chapter, verse }: { current: Translation; bookCode: string; chapter: number; verse: number }) {
   const catalog = useCatalog();
-  const [everyLanguage, setEveryLanguage] = useState(false);
   // A version without this book may carry its Greek twin (Brenton's DAG for Daniel, ESG for Esther).
   const twin = catalog.equivalent[bookCode];
   const versions = catalog.translations
     .map((t) => ({ t, code: t.books[bookCode] ? bookCode : twin && t.books[twin] ? twin : null }))
-    .filter((v): v is { t: Translation; code: string } => v.code !== null);
-  // Each line fetches a file, so the long list of further languages loads only when asked for.
-  const first = versions.filter(({ t }) => t.slug === current.slug || VERSION_GROUPS.some((group) => group.langs.includes(t.lang)));
-  const shown = everyLanguage ? versions : first;
+    .filter((v): v is VersionRow => v.code !== null);
+  // The main groups first, then every other language. Each line fetches a file, so the list is drawn a window of rows
+  // at a time as the panel scrolls and a line fetches only when drawn: no "Show more" (owner's scroll rule, 2026-11-17).
+  const main = (t: Translation) => t.slug === current.slug || VERSION_GROUPS.some((group) => group.langs.includes(t.lang));
+  const ordered = [...versions.filter(({ t }) => main(t)), ...versions.filter(({ t }) => !main(t))];
   return (
-    <>
-      <ul className="mb-3 divide-y divide-line">
-        {shown.map(({ t, code }) => (
-          <VersionLine key={t.slug} translation={t} bookCode={code} chapter={chapter} verse={verse} />
-        ))}
-      </ul>
-      {shown.length < versions.length && (
-        <button type="button" onClick={() => setEveryLanguage(true)} className="mb-5 w-full rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2">
-          {`Show ${formatNumber(versions.length - shown.length)} more languages`}
-        </button>
-      )}
-    </>
+    <WindowedRows as="ul" className="mb-5" items={ordered} itemKey={versionKey} estimate={64} dataVersion={`${current.slug}|${bookCode}|${chapter}|${verse}`}
+      renderItem={({ t, code }, row, index) => <VersionLine key={t.slug} row={row} first={index === 0} translation={t} bookCode={code} chapter={chapter} verse={verse} />} />
   );
 }
 
-function VersionLine({ translation, bookCode, chapter, verse }: { translation: Translation; bookCode: string; chapter: number; verse: number }) {
+function VersionLine({ row, first, translation, bookCode, chapter, verse }: { row: number; first: boolean; translation: Translation; bookCode: string; chapter: number; verse: number }) {
   const { loading, text } = useVerseText(translation, bookCode, chapter, verse);
   return (
-    <li className="py-3 text-sm first:pt-0">
+    <li data-row={row} className={first ? "pb-3 text-sm" : "border-t border-line py-3 text-sm"}>
       <span className="me-1.5 font-semibold text-accent" title={`${translation.name} (${translation.year})`}>
         {translation.abbr}
       </span>
