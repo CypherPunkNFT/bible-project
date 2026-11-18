@@ -171,7 +171,7 @@ describe("reverse mode", () => {
 
     fireEvent.click(button("Make a guess"));
     fireEvent.change(screen.getByLabelText("Who is it?"), { target: { value: name } });
-    const exact = within(screen.getByRole("list", { name: "People in the game" })).getAllByRole("button").find((b) => b.querySelector(".tq-result-name")?.textContent === name)!;
+    const exact = within(screen.getByRole("list", { name: "People in the game" })).getAllByRole("button").find((b) => b.querySelector(".tq-found-name")?.textContent === name)!;
     fireEvent.click(exact);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(`Yes! It was ${name}. You got it in 3.`);
     expect(screen.getByText(/The site would have needed|This one is hard/)).toBeInTheDocument();

@@ -45,7 +45,7 @@ export function Lobby({ view, onKick, seen = new Map(), onProjector }: LobbyProp
     <div className="lq-lobby">
       <div>
         <p className="lq-join">Go to <b>{`${window.location.host}/play`}</b> and enter</p>
-        <p className="lq-code" aria-label={`Game code ${view.code}`}>{groupedCode(view.code)}</p>
+        <p className="lq-code" dir="ltr" aria-label={`Game code ${view.code}`}>{groupedCode(view.code)}</p>
         {view.locked && <p className="lq-warn">Joining is locked.</p>}
       </div>
       {qr && <img className="lq-qr" src={qr} alt={`QR code that opens ${joinUrl}`} />}

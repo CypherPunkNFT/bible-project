@@ -123,6 +123,7 @@ describe("live quiz leader", () => {
     render(<Lobby view={hostView()} onKick={onKick} />);
     expect(groupedCode("482913")).toBe("482 913");
     expect(screen.getByLabelText("Game code 482913")).toHaveTextContent("482 913");
+    expect(screen.getByLabelText("Game code 482913")).toHaveAttribute("dir", "ltr"); // never "913 482" on a right-to-left page
     expect(await screen.findByAltText(/QR code that opens .*\/play\/482913/)).toHaveAttribute("src", "data:image/png;base64,AAAA");
     expect(screen.getByText("2 players")).toBeInTheDocument();
     fireEvent.click(within(screen.getByRole("list", { name: "Players" })).getByRole("button", { name: "Ann" }));

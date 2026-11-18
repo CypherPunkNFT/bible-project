@@ -186,6 +186,33 @@ describe("the quiz on the games page", () => {
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(QUESTIONS[1].ask);
   });
 
+  it("saves a new best when the last answer is closed and the board's See how you did opens the ending", () => {
+    renderGame();
+    fireEvent.click(screen.getByRole("button", { name: "Play all twelve" }));
+    for (let i = 0; i < 11; i++) { answerRight(i); next(); }
+    answerRight(11);
+    fireEvent.click(screen.getByRole("button", { name: "Close, back to all twelve questions" }));
+    fireEvent.click(screen.getByRole("button", { name: "See how you did" }));
+    expect(localStorage.getItem("bp-quiz-best")).toBe("12");
+    expect(screen.getByText("New best")).toBeInTheDocument();
+    // Seen once: back to the board and in again shows the ending plainly.
+    fireEvent.click(screen.getByRole("button", { name: "See the board" }));
+    fireEvent.click(screen.getByRole("button", { name: "See how you did" }));
+    expect(screen.queryByText("New best")).toBeNull();
+  });
+
+  it("grows the card from the tile it was opened from, and the next question rises in plainly", () => {
+    const rect = { x: 0, y: 0, left: 0, top: 0, right: 100, bottom: 140, width: 100, height: 140, toJSON: () => ({}) } as DOMRect;
+    const measure = vi.spyOn(Element.prototype, "getBoundingClientRect").mockReturnValue(rect);
+    renderGame();
+    fireEvent.click(tiles()[2]);
+    expect(document.querySelector(".qz-card")).toHaveClass("is-growing");
+    answerRight(2);
+    next();
+    expect(document.querySelector(".qz-card")).not.toHaveClass("is-growing");
+    measure.mockRestore();
+  });
+
   it("leaves the homepage quiz untouched: it still uses its own component, not the game's", async () => {
     const home = await import("@/pages/home/HomeQuiz");
     const source = readFileSync("src/pages/home/HomeQuiz.tsx", "utf8");

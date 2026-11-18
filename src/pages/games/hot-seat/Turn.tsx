@@ -12,6 +12,7 @@ import { beep, buzz } from "../charades/sound";
 import { StreakFlame } from "../kit";
 import { MARK_SIGNS } from "./display";
 import { IDLE_CLOSE_MS, currentRun, scoreOf, type Asked, type Mark, type Turn } from "./game";
+import { PlayerName } from "./PlayerName";
 import { groupInfo } from "./pool";
 import { Reference } from "./Reference";
 
@@ -165,7 +166,7 @@ export function TurnScreen(props: TurnProps) {
       {props.canResume ? <button type="button" className="hs-primary hs-big" onClick={props.onResume} autoFocus>Resume</button> : props.waiting}
       <button type="button" className="hs-secondary" onClick={props.onMenu}><Menu size={16} aria-hidden="true" />Menu</button>
     </div> : <>
-      <div className="hs-seat"><span className="hs-label">In the hot seat</span> <span className="hs-seat-name">{props.playerName}</span>
+      <div className="hs-seat"><span className="hs-label">In the hot seat</span> <span className="hs-seat-name"><PlayerName name={props.playerName} /></span>
         <span className="hs-seat-group">{groupInfo(turn.group).label}</span></div>
       <div className="hs-deck">
         {open && <QuestionCard key={`${open.q.id}-${turn.questions.length}`} asked={open} />}

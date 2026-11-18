@@ -35,6 +35,16 @@ describe("crossword page", () => {
     expect(document.querySelector(".cw-bar-name")?.textContent).toMatch(/^1 (Across|Down)$/);
   });
 
+  it("keeps the English grid, keys, count and clues left to right on a right-to-left page", async () => {
+    await startSmall();
+    expect(screen.getByRole("group", { name: "Crossword grid" }).closest(".cw-frame")).toHaveAttribute("dir", "ltr");
+    expect(screen.getByRole("group", { name: "Keyboard" })).toHaveAttribute("dir", "ltr");
+    expect(document.querySelector(".cw-count")).toHaveAttribute("dir", "ltr");
+    expect(document.querySelector(".cw-bar-clue")).toHaveAttribute("dir", "ltr");
+    expect(document.querySelector(".cw-bar-strip")).toHaveAttribute("dir", "ltr");
+    for (const clue of document.querySelectorAll(".cw-list-clue > [translate='no']")) expect(clue).toHaveAttribute("dir", "ltr");
+  });
+
   it("types a letter, moves on, and Check marks it wrong", async () => {
     await startSmall();
     const selected = squares().find((b) => b.tabIndex === 0)!;

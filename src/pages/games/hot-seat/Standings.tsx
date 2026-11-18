@@ -9,6 +9,7 @@ import { formatNumber, ordinal } from "@/lib/site-format";
 import { HandOver, useCountUp } from "../kit";
 import type { Session } from "./game";
 import { mixedLengths, unevenTurns, type Standing } from "./leaderboard";
+import { PlayerName } from "./PlayerName";
 
 /** A total that counts up to its value when the table opens; the real number is in the row for readers from the start. */
 function Total({ value, countMs }: { value: number; countMs: number }) {
@@ -30,7 +31,7 @@ export function StandingsTable({ rows, rounds, byRound = false, countMs = 0 }: {
       </tr></thead>
       <tbody>{rows.map((row, i) => <tr key={row.player.id} className={`hs-standing${row.player.left ? " is-left" : ""}${row.moved > 0 ? " is-up" : ""}`} style={{ "--hs-i": i } as CSSProperties}>
         <td className="hs-place"><span className="hs-place-no">{ordinal(row.place)}</span>{row.moved > 0 && <span className="hs-up" aria-label="Moved up">▲</span>}{row.moved < 0 && <span className="hs-down" aria-label="Moved down">▼</span>}</td>
-        <td className="hs-name-cell" aria-label={row.player.name}><span className="hs-cut">{row.player.name}</span>{row.player.left && <span className="hs-left-mark">left</span>}</td>
+        <td className="hs-name-cell" aria-label={row.player.name}><span className="hs-cut"><PlayerName name={row.player.name} /></span>{row.player.left && <span className="hs-left-mark">left</span>}</td>
         {byRound && row.byRound.map((points, i) => <td key={i} className="hs-num">{points === null ? "–" : formatNumber(points)}</td>)}
         {uneven && <td className="hs-num">{formatNumber(row.played)}</td>}
         {uneven && <td className="hs-num">{row.average === null ? "–" : formatNumber(row.average, { maximumFractionDigits: 1 })}</td>}
@@ -60,7 +61,7 @@ export function BetweenTurns({ session, rows, nextName, onNext }: BetweenProps) 
       {nextName === null
         ? <button type="button" className="hs-primary hs-big" onClick={onNext}>Final standings<ArrowRight size={18} aria-hidden="true" /></button>
         : <button type="button" className="hs-next-card" onClick={onNext}>
-          <HandOver name={nextName} tone="var(--history)">
+          <HandOver name={<PlayerName name={nextName} />} tone="var(--history)">
             <span className="hs-primary hs-big hs-next-go">Next player<ArrowRight size={18} aria-hidden="true" /></span>
           </HandOver>
         </button>}

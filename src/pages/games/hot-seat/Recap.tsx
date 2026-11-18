@@ -8,6 +8,7 @@ import { plural } from "@/lib/site-format";
 import { FeedbackBand, NewBestRibbon, ProgressTrail, ScoreCountUp } from "../kit";
 import { MARK_SIGNS, tilesOf } from "./display";
 import { scoreOf, type Asked, type Mark, type Turn } from "./game";
+import { PlayerName } from "./PlayerName";
 import { groupInfo } from "./pool";
 import { Reference } from "./Reference";
 
@@ -39,7 +40,7 @@ export function Recap({ turn, playerName, recordBefore, onFix, onSave }: Props) 
   const newBest = score > 0 && score > recordBefore;
   const answered = turn.questions.filter((a) => a.mark !== null).length;
   return <section className="hs-recap" aria-label="Recap">
-    <p className="hs-name" ref={heading} tabIndex={-1}>{playerName}</p>
+    <p className="hs-name" ref={heading} tabIndex={-1}><PlayerName name={playerName} /></p>
     {turn.questions.length > 0 && <ProgressTrail className="hs-strip" marks={tilesOf(turn.questions)} size="1.1rem"
       label={plural(answered, "{n} question answered", "{n} questions answered")} />}
     <div className="hs-recap-score">

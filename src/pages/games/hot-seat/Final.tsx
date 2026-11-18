@@ -4,10 +4,11 @@
 // site's useRowWindow (about 50 rows drawn above and below the screen, no "load more").
 import { Plus, RotateCcw, Users } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { formatList, plural } from "@/lib/site-format";
+import { plural } from "@/lib/site-format";
 import { useRowWindow } from "@/lib/useRowWindow";
 import { Confetti, Podium, type Team } from "../kit";
 import { missedTurns, scoreOf, type Asked, type Session } from "./game";
+import { PlayerName, PlayerNames } from "./PlayerName";
 import { groupInfo } from "./pool";
 import { AskedRow, MarkBadge } from "./Recap";
 import { StandingsTable } from "./Standings";
@@ -20,7 +21,7 @@ export function Final({ session, onAnotherRound, onNewGame, onChangePlayers }: P
   // The layer that held the game kept the page's scroll where setup left it; the standings start at the top of the page.
   useEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, []);
   const rows = useMemo(() => standings(session), [session]);
-  const teams = useMemo<Team[]>(() => rows.map((r) => ({ id: r.player.id, name: r.player.name, score: r.total })), [rows]);
+  const teams = useMemo<Team[]>(() => rows.map((r) => ({ id: r.player.id, name: <PlayerName name={r.player.name} />, score: r.total })), [rows]);
   const played = rows.some((r) => r.played > 0);
   const shouts = shoutOuts(session);
   const missed = session.ended ? missedTurns(session) : [];
@@ -29,7 +30,7 @@ export function Final({ session, onAnotherRound, onNewGame, onChangePlayers }: P
     {played && <div className="hs-podium-wrap">
       <Podium teams={teams} label="Podium" countMs={900} className="hs-podium" winnerExtra={<Confetti when count={28} reach={140} />} />
     </div>}
-    {missed.length > 0 && <p className="hs-note"><span>The game ended before these players had their turn this round:</span> <span>{formatList(missed.map((p) => p.name))}</span></p>}
+    {missed.length > 0 && <p className="hs-note"><span>The game ended before these players had their turn this round:</span> <span><PlayerNames names={missed.map((p) => p.name)} /></span></p>}
     <div className="hs-row hs-final-actions">
       <button type="button" className="hs-primary" onClick={onAnotherRound}><Plus size={16} aria-hidden="true" />Play another round</button>
       <button type="button" className="hs-secondary" onClick={onNewGame}><RotateCcw size={16} aria-hidden="true" />New game, same players</button>
@@ -49,7 +50,7 @@ function Shout({ title, shout, unit }: { title: string; shout: ShoutOut | null; 
   return <div className="hs-shout">
     <h2>{title}</h2>
     <p className="hs-shout-value">{unit(shout.value)}</p>
-    <ul>{shout.who.map((w) => <li key={`${w.player.id}-${w.group}`}><span className="hs-cut">{w.player.name}</span> <span className="hs-tag">{groupInfo(w.group).label}</span></li>)}</ul>
+    <ul>{shout.who.map((w) => <li key={`${w.player.id}-${w.group}`}><span className="hs-cut"><PlayerName name={w.player.name} /></span> <span className="hs-tag">{groupInfo(w.group).label}</span></li>)}</ul>
   </div>;
 }
 
@@ -74,7 +75,7 @@ function AllQuestions({ session }: { session: Session }) {
       {drawn.map((i) => {
         const row = rows[i];
         if (row.kind === "turn") return <li key={row.key} data-row={i} className="hs-all-turn">
-          <span className="hs-label">{`Round ${row.round}`}</span> <span className="hs-cut">{row.name}</span> <span>{plural(row.score, "{n} point", "{n} points")}</span>
+          <span className="hs-label">{`Round ${row.round}`}</span> <span className="hs-cut"><PlayerName name={row.name} /></span> <span>{plural(row.score, "{n} point", "{n} points")}</span>
         </li>;
         return <li key={row.key} data-row={i} className={`hs-recap-row is-${row.asked.mark ?? "open"}`}>
           <span className="hs-mark-cycle is-static"><MarkBadge mark={row.asked.mark} /></span>

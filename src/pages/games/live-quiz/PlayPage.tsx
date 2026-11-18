@@ -47,7 +47,7 @@ function CodeStep({ error, onCode }: { error?: string; onCode: (code: string) =>
   return <form onSubmit={submit}>
     <h1>Join a live quiz</h1>
     <label htmlFor="lq-code" className="lq-note">Game code from the screen</label>
-    <input id="lq-code" className="lq-input lq-code-input" inputMode="numeric" autoComplete="off" pattern="[0-9 ]*" maxLength={7} value={code}
+    <input id="lq-code" className="lq-input lq-code-input" dir="ltr" inputMode="numeric" autoComplete="off" pattern="[0-9 ]*" maxLength={7} value={code}
       onChange={(e) => setCode(e.target.value)} placeholder="123 456" />
     {error && <p className="lq-error" role="alert">{error}</p>}
     <button type="submit" className="lq-button" disabled={code.replace(/\D/g, "").length !== 6}>Join</button>

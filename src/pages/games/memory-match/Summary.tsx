@@ -15,6 +15,9 @@ import type { Version } from "./versions";
 import type { PairsFile } from "./deal";
 import { formatTime, isSolo, pairCount, ranking, stars, winnerLine, type GameState } from "./game";
 
+/** A verse quoted whole: a quotation inside it takes single marks, so one ending with the verse is not "believe.””". */
+const quoted = (text: string) => `“${text.replace(/“/g, "‘").replace(/”/g, "’")}”`;
+
 export interface RecordNews { newMoves: boolean; newTime: boolean }
 
 interface SummaryProps {
@@ -103,7 +106,7 @@ export function Summary({ data, version, game, news, onAgain, onChange }: Summar
           {/* A verse's two halves are the verse itself, quoted whole below. */}
           {version.key !== "verses" && <p className="mm-story-pair"><strong>{character.label}</strong> — {pair.story}</p>}
           {character.parable && <p className="mm-parable">In a parable Jesus told</p>}
-          {quote ? <blockquote><p>“{quote}”</p><footer>{pair.keyVerse}</footer></blockquote>
+          {quote ? <blockquote><p>{quoted(quote)}</p><footer>{pair.keyVerse}</footer></blockquote>
             : <p className="mm-key-ref">{pair.keyVerse}</p>}
           <p className="mm-story-links">
             <Link to={pair.readerHref}>{`Read ${pair.ref}`}</Link>

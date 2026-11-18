@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { WordChoice } from "./choices";
 import type { Mark } from "./match";
-import { keyIsTaken } from "./view";
+import { keyIsTaken, VERSE_IN_ENGLISH } from "./view";
 import type { Word } from "./words";
 
 interface PickWordsProps {
@@ -50,7 +50,7 @@ export function PickWords({ hidden, choices, onProgress, onDone }: PickWordsProp
     <p className="vc-count" aria-hidden="true">{`${Math.min(position + 1, hidden.length)} / ${hidden.length}`}</p>
     {choice && <div className="vc-tiles" role="group" aria-label={`Word ${position + 1} of ${hidden.length}: choose with 1, 2 or 3`}>
       {choice.options.map((option, i) => <button key={`${position}-${i}`} type="button" className={shaking === i ? "vc-tile is-shake" : "vc-tile"} style={{ animationDelay: shaking === i ? undefined : `${i * 60}ms` }} onClick={() => choose(i)}>
-        <span className="vc-key" aria-hidden="true">{i + 1}</span>{option}
+        <span className="vc-key" aria-hidden="true">{i + 1}</span><span {...VERSE_IN_ENGLISH}>{option}</span>
       </button>)}
     </div>}
     <p className="sr-only" aria-live="polite">{said}</p>

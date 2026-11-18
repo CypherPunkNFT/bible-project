@@ -14,7 +14,8 @@ export function Strip({ pair, category }: { pair: PoolPair; category: PairCatego
     {[a, b].map((bar, n) => <div key={bar.person.id} className={`wo-lane wo-lane-${n}`}>
       <span className="wo-lane-name">{bar.person.label}</span>
       <span className="wo-track">
-        <span className={`wo-bar${bar.open ? " is-open" : ""}`} style={{ left: `${bar.left}%`, width: `${bar.width}%` }} />
+        {/* A short window at the far end keeps its least width (and the bar's .6rem) inside the track, not cut off. */}
+        <span className={`wo-bar${bar.open ? " is-open" : ""}`} style={{ left: `min(${bar.left}%, 100% - max(${bar.width}%, .6rem))`, width: `${bar.width}%` }} />
         {bar.left > 60 && !bar.end
           ? <span className="wo-year wo-year-end" style={{ left: `${Math.min(bar.left + bar.width, 100)}%` }}>{bar.start}</span>
           : <span className="wo-year wo-year-start" style={{ left: `${bar.left}%` }}>{bar.start}</span>}

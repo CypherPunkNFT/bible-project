@@ -118,16 +118,13 @@ export function Board({ data, version, game, settings, onChange, onSettings, onF
   const [streak, setStreak] = useState(0);
   const [handover, setHandover] = useState<number | null>(null);
   const [message, setMessage] = useState("");
-  const [now, setNow] = useState(() => Date.now());
   const [confirmQuit, setConfirmQuit] = useState(false);
 
-  // The clock runs from the first card to the last pair, and pauses while the page is hidden (design 7.1).
+  // The clock runs from the first card to the last pair, and pauses while the page is hidden (design 7.1). Only the
+  // track's timer ticks each second (Track.tsx), so the cards are not drawn again with it.
   const running = visible && hasStarted(game) && !isFinished(game) && !game.studying;
   useEffect(() => {
     clock.current = running ? clockStart(clock.current, Date.now()) : clockStop(clock.current, Date.now());
-    if (!running) return;
-    const tick = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(tick);
   }, [running]);
 
   const commit = useCallback((next: GameState) => onChange({ ...next, elapsedMs: Math.round(clockRead(clock.current, Date.now())) }), [onChange]);
@@ -251,18 +248,17 @@ export function Board({ data, version, game, settings, onChange, onSettings, onF
   };
   const typed = typedBacks(game.difficulty);
   const holding = isHolding(game);
-  const elapsed = clockRead(clock.current, now);
   const shelfPairs: ShelfPair[] = game.found.map((id) => ({
     pair: pairsById.get(id)!, tone: toneOf.get(id) ?? 0, arriving: fresh?.pair === id,
     player: solo ? null : game.matched[game.cards.findIndex((card) => card.pair === id)],
   }));
 
   return <section className={`mm-play is-${game.difficulty} is-${version.key}`} aria-label="Memory card match board">
-    <Track game={game} toneOf={toneOf} settings={settings} elapsedMs={elapsed} streak={streak} onSettings={onSettings} />
+    <Track game={game} toneOf={toneOf} settings={settings} clock={clock} running={running} streak={streak} onSettings={onSettings} />
     <Shelf data={data} pairs={shelfPairs} total={pairCount(game)} players={game.players.length}
       slotRef={(place, el) => { slotRefs.current[place] = el; }} />
     <div className="mm-stage">
-      <div role="group" lang="en" aria-label={`Cards, ${game.columns} columns by ${rows} rows`}
+      <div role="group" aria-label={`Cards, ${game.columns} columns by ${rows} rows`}
         className={`mm-grid${reduced ? " is-reduced" : ""}${holding ? " is-holding" : ""}`}
         style={{ "--mm-cols": game.columns, "--mm-rows": rows } as CSSProperties} onClick={tapBoard}>
         {game.cards.map((card, index) => {

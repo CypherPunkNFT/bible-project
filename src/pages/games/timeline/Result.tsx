@@ -31,7 +31,7 @@ function rightNames(loaded: Loaded, order: readonly string[], truth: readonly st
 
 function CloseLine({ names }: { names: string[] }) {
   if (!names.length) return <p className="tl-close">Every round teaches the order. Try again tomorrow, or practise now.</p>;
-  return <p className="tl-close"><span>Close. You had these in the right place:</span> <strong>{formatList(names)}</strong></p>;
+  return <p className="tl-close"><span>Close. You had these in the right place:</span> <strong dir="auto">{formatList(names)}</strong></p>;
 }
 
 interface DailyProps { loaded: Loaded; n: number; result: DailyRecord; truth: readonly string[]; saved: Saved; streak: number; onPractice: () => void }

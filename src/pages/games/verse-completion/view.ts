@@ -5,6 +5,11 @@ import type { TrailMark } from "../kit/trail";
 import type { Mark } from "./match";
 import type { Done } from "./storage";
 
+/** The verse is the BSB in English on every page: marked English, so the page translator leaves its words alone (it
+ * would otherwise swap "the" or "and" a word at a time), and left to right, so its punctuation stays at its end on a
+ * right-to-left page. Spread on whatever holds only the verse's words. */
+export const VERSE_IN_ENGLISH = { lang: "en", dir: "ltr", translate: "no" } as const;
+
 /** One answered card on the trail: three stars right, one or two part, none (or skipped) wrong. */
 export const trailMarkFor = (done: Done): Exclude<TrailMark, "empty" | "current"> =>
   done.status === "skipped" || done.stars === 0 ? "wrong" : done.stars === 3 ? "right" : "part";

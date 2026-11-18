@@ -3,23 +3,38 @@
 // one as the move thresholds pass, design 9), the streak of pairs in a row and the timer; in pass and play each
 // player's chip with its bar, the one whose turn it is lifted (the kit's TeamChips).
 import { Star } from "lucide-react";
+import { useEffect, useState, type MutableRefObject } from "react";
 import { formatNumber, plural } from "@/lib/site-format";
 import { ProgressTrail, StreakFlame, TeamChips, useGrew, type TrailMark } from "../kit";
 import { toneColor } from "./tones";
-import { foundCount, formatTime, isSolo, pairCount, scores, starThresholds, stars, type GameState } from "./game";
+import { clockRead, foundCount, formatTime, isSolo, pairCount, scores, starThresholds, stars, type Clock, type GameState } from "./game";
 import type { Settings } from "./storage";
 
 interface TrackProps {
   game: GameState;
   toneOf: ReadonlyMap<string, number>;
   settings: Settings;
-  elapsedMs: number;
+  /** The board's clock, read here only, and whether it runs. */
+  clock: MutableRefObject<Clock>;
+  running: boolean;
   /** Pairs found in a row without a miss (solo). */
   streak: number;
   onSettings: (settings: Settings) => void;
 }
 
-export function Track({ game, toneOf, settings, elapsedMs, streak, onSettings }: TrackProps) {
+/** The time on the clock: the one thing redrawn each second, so the board's cards are not; hidden, nothing ticks. */
+function Timer({ clock, running }: { clock: MutableRefObject<Clock>; running: boolean }) {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!running) return;
+    const tick = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(tick);
+  }, [running]);
+  const time = formatTime(clockRead(clock.current, now));
+  return <span className="mm-timer" aria-label={`Time ${time}`}>{time}</span>;
+}
+
+export function Track({ game, toneOf, settings, clock, running, streak, onSettings }: TrackProps) {
   const total = pairCount(game);
   const found = foundCount(game);
   const marks: TrailMark[] = Array.from({ length: total }, (_, n) => (n < found ? "right" : "empty"));
@@ -40,7 +55,7 @@ export function Track({ game, toneOf, settings, elapsedMs, streak, onSettings }:
       </span>
       {streak >= 2 && <StreakFlame className="mm-streak" count={streak} label={plural(streak, "{n} pair in a row", "{n} pairs in a row")} />}
       <span className="mm-clock">
-        {settings.timerHidden ? null : <span className="mm-timer" aria-label={`Time ${formatTime(elapsedMs)}`}>{formatTime(elapsedMs)}</span>}
+        {settings.timerHidden ? null : <Timer clock={clock} running={running} />}
         <button type="button" className="mm-link" onClick={() => onSettings({ ...settings, timerHidden: !settings.timerHidden })}>
           {settings.timerHidden ? "Show timer" : "Hide timer"}
         </button>

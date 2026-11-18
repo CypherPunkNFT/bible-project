@@ -33,7 +33,7 @@ function Panel({ title, onClose, children }: { title: string; onClose: () => voi
 }
 
 function ExampleRow({ word, at, mark }: { word: string; at: number; mark: Mark }) {
-  return <div className="bw-row bw-example" role="img" aria-label={markLabel(word[at], mark)}>
+  return <div className="bw-row bw-example" dir="ltr" role="img" aria-label={markLabel(word[at], mark)}>
     {[...word].map((letter, i) => <span key={i} className={`bw-tile${i === at ? ` bw-${mark}` : " bw-filled"}`} aria-hidden="true">{letter.toUpperCase()}</span>)}
   </div>;
 }

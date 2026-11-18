@@ -70,6 +70,8 @@
 .qz-tile[data-state="wrong"]:is(:hover, :focus-visible) { opacity: 1; }
 .qz-seal { position: absolute; right: 12px; top: 10px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--qz-right); color: var(--page); animation: qz-pop .45s var(--qz-ease) both; }
 .qz-ribbon { position: absolute; right: -34px; top: 14px; width: 120px; padding: 3px 0; background: var(--qz-wrong); color: #fff; font: 700 8.5px/1.2 var(--font-sans); letter-spacing: .18em; text-transform: uppercase; text-align: center; transform: rotate(45deg); transform-origin: 50% 50%; }
+/* Right to left the ribbon crosses the top left corner (right: is built as the end side), so its slant turns too. */
+.qz-ribbon:dir(rtl) { transform: rotate(-45deg); }
 .qz-tile { overflow: clip; }
 /* Once answered, the seal or the ribbon says it; the word stays for screen readers only. */
 .qz-tile[data-state] .qz-tile-top span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

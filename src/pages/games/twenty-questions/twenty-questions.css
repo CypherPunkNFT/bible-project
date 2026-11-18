@@ -175,7 +175,7 @@
 .tq-results button { display: flex; flex-direction: column; align-items: flex-start; width: 100%; min-height: 48px; padding: .5rem .4rem; border-bottom: 1px solid var(--line); text-align: left; transition: translate .2s var(--tq-ease), border-color .2s; }
 @media (hover: hover) { .tq-results button:hover { border-bottom-color: var(--tq-color); } }
 .tq-results button:focus-visible { border-bottom-color: var(--tq-color); translate: 0 -1px; }
-.tq-result-name { font-weight: 600; }
+.tq-found-name { font-weight: 600; }
 .tq-result-brief { color: var(--muted); font-size: .85rem; }
 .tq-empty { color: var(--muted); font-size: .9rem; }
 .tq-wider { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; align-items: center; }

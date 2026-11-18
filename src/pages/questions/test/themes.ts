@@ -121,7 +121,7 @@ export const SHELVES: Shelf[] = [
     ] },
     { id: "words", title: "Words of Jesus", line: "What he taught, and how", themes: [
       { id: "parables", title: "The parables", line: "The sower, the lost sheep, the good Samaritan", subjects: /parabl/ },
-      { id: "sermon", title: "The Sermon on the Mount", line: "The beatitudes, salt and light", subjects: /sermon on the mount|beatitude|jesus'? teaching/ },
+      { id: "sermon", title: "The Sermon on the Mount", line: "The beatitudes, salt and light", subjects: /sermon on (the )?mount|beatitude/ },
     ] },
     { id: "last", title: "Last things", line: "Death, judgement and what comes after", themes: [
       { id: "life-to-come", title: "Death and the life to come", line: "Heaven, hell and eternal life", topics: ["last-things"], subjects: /heaven|^hell$|eternal life|^death$/ },

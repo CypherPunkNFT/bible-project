@@ -97,9 +97,12 @@
 .jp-board-wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .jp-board { flex: 1; display: grid; grid-template-rows: auto repeat(5, minmax(0, 1fr)); gap: .8vh; }
 .jp-board-heads, .jp-board-row { display: grid; grid-template-columns: repeat(var(--jp-columns), minmax(0, 1fr)); gap: .6vw; }
-.jp-board-head { display: grid; place-items: center; min-height: 9vh; padding: .4vh .4vw; text-align: center; font: 600 clamp(.9rem, 3vh, 2.2rem)/1.15 var(--font-serif); overflow-wrap: anywhere; }
-.jp-board-head.is-mid { font-size: clamp(.85rem, 2.5vh, 1.8rem); }
-.jp-board-head.is-long { font-size: clamp(.8rem, 2.1vh, 1.5rem); }
+/* A title breaks only between words: its size follows the column's width as well as the screen's height (a tall,
+   narrow screen broke "Miracle / s"), so a long word fits whole; breaking inside one is only the last resort. */
+.jp-board-heads { container-type: inline-size; }
+.jp-board-head { display: grid; place-items: center; min-height: 9vh; padding: .4vh .4vw; text-align: center; font: 600 clamp(.9rem, min(3vh, 100cqi / var(--jp-columns) / 7), 2.2rem)/1.15 var(--font-serif); overflow-wrap: break-word; }
+.jp-board-head.is-mid { font-size: clamp(.85rem, min(2.5vh, 100cqi / var(--jp-columns) / 7), 1.8rem); }
+.jp-board-head.is-long { font-size: clamp(.8rem, min(2.1vh, 100cqi / var(--jp-columns) / 7), 1.5rem); }
 .jp-board-row [role="gridcell"] { display: flex; }
 .jp-tile { position: relative; flex: 1; min-height: 8vh; border: 0; border-radius: .5rem; background: var(--prophets-tab); color: var(--prophets-tab-ink); font: 700 clamp(1.4rem, 7vh, 4.5rem)/1 var(--font-sans); font-variant-numeric: tabular-nums;
   box-shadow: inset 0 -.5vh 0 rgb(0 0 0 / .18); transition: transform .3s var(--jp-ease), box-shadow .3s var(--jp-ease), background-color .3s var(--jp-ease); }
@@ -292,7 +295,9 @@
   .jp-choices { grid-template-columns: minmax(0, 1fr); gap: .4rem; font-size: 1rem; }
   .jp-choices .kit-card { padding: .5rem .7rem; }
   .jp-clue-foot { position: sticky; bottom: 0; z-index: 2; margin: 0 -.6rem -.6rem; padding: .6rem; background: var(--page); border-top: 1px solid var(--line); }
-  .jp-marks { gap: .3rem .6rem; }
+  /* The list may be narrower than its rows' natural width, so a team's name gives way before the buttons leave the
+     screen (Spanish's "Incorrecto" ran off the right edge at 400 wide). */
+  .jp-marks { gap: .3rem .6rem; min-width: 0; }
   .jp-marks li { width: 100%; }
   .jp-marks .jp-mark-buttons { margin-left: auto; }
   .jp-team-label { max-width: 7rem; }
@@ -310,6 +315,8 @@
   .jp-results .kit-winner__name { font-size: 2.6rem; }
   .jp-final-row { font-size: 1rem; }
 }
+/* The narrowest phones: when a row still cannot hold the name, the tag and both buttons, the buttons go under it. */
+@media (max-width: 380px) { .jp-marks li { flex-wrap: wrap; } }
 
 /* How to play. */
 .jp-overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: color-mix(in srgb, #000 45%, transparent); }

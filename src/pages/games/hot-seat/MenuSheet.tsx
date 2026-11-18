@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { NAME_MAX } from "@/lib/live-quiz/names";
 import { ConfirmDialog } from "../kit";
 import { MAX_PLAYERS, type Session, type Settings } from "./game";
+import { PlayerName } from "./PlayerName";
 import { GROUPS, type Group } from "./pool";
 import { GameSettings } from "./Setup";
 
@@ -51,7 +52,7 @@ export function MenuSheet(props: Props) {
 
       <h3>Players</h3>
       <ul className="hs-menu-players">{active.map((p) => <li key={p.id}>
-        <span className="hs-cut">{p.name}</span>
+        <span className="hs-cut"><PlayerName name={p.name} /></span>
         <select value={p.group} aria-label="Age group" onChange={(event) => props.onSetGroup(p.id, event.target.value as Group)}>
           {GROUPS.map((g) => <option key={g.key} value={g.key}>{g.label}</option>)}
         </select>

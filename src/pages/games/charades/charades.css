@@ -111,8 +111,10 @@
 .ch-best-bar { position: relative; height: 10px; margin-top: .9rem; border-radius: 999px; background: color-mix(in srgb, var(--line) 70%, transparent); overflow: visible; }
 .ch-best-fill { position: absolute; inset: 0; border-radius: inherit; background: var(--ch-color); transform-origin: 0 50%; transform: scaleX(var(--ch-score-share, 0)); animation: ch-grow .9s var(--ch-ease) both; }
 @keyframes ch-grow { from { transform: scaleX(0); } }
-.ch-best-mark { position: absolute; top: -6px; left: calc(var(--ch-best-share, 0) * 100%); display: grid; justify-items: center; gap: .15rem; transform: translateX(-50%); font: 600 .7rem/1 var(--font-sans); color: var(--muted); }
-.ch-best-mark::before { content: ""; width: 2px; height: 22px; background: var(--ink); border-radius: 1px; }
+/* The words slide with the mark, from starting at the line at the bar's start to ending at it at the far end (centred
+   halfway), so a longer word ("MEJOR") never runs off past the bar's end; the line itself stays on the best. */
+.ch-best-mark { position: absolute; top: -6px; left: calc(var(--ch-best-share, 0) * 100%); display: grid; justify-items: center; gap: .15rem; transform: translateX(calc(var(--ch-best-share, 0) * -100%)); font: 600 .7rem/1 var(--font-sans); color: var(--muted); }
+.ch-best-mark::before { content: ""; justify-self: left; width: 2px; height: 22px; margin-left: calc(var(--ch-best-share, 0) * (100% - 2px)); background: var(--ink); border-radius: 1px; }
 .ch-best-mark span { white-space: nowrap; }
 .ch-best-label { letter-spacing: .12em; text-transform: uppercase; font-size: .6rem; }
 .ch-best-mark > span:last-child { color: var(--ink); font-variant-numeric: tabular-nums; }

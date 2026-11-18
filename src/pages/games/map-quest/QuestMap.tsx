@@ -12,6 +12,7 @@ import { PMTiles, Protocol } from "pmtiles";
 import { useEffect, useRef, type KeyboardEvent } from "react";
 import { ChunkedSource } from "@/components/atlas/chunked-source";
 import { BOUNDS, tilesBase } from "@/components/atlas/street-style";
+import { languageDirection, useSiteLanguage } from "@/lib/language";
 import { useThemeVersion, type Theme } from "@/lib/theme";
 import { motionMs } from "../kit";
 import type { LonLat } from "./geo";
@@ -136,6 +137,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
   onPinRef.current = onPin;
   onFailRef.current = onFail;
   const themeVersion = useThemeVersion();
+  const rightToLeft = languageDirection(useSiteLanguage()) === "rtl";
   const still = !!summary;
 
   const shapes = (): RevealShape | readonly RevealShape[] | null => summaryRef.current ?? revealRef.current;
@@ -185,11 +187,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
     });
     map.on("webglcontextlost", () => { console.error("Map quest: the graphics context was lost"); fail(); });
     map.on("style.load", () => sync.current()); // a theme switch replaces the style and with it the reveal's shapes
-    if (!stillMap) {
-      map.on("click", (event) => { if (!revealRef.current) onPinRef.current([event.lngLat.lng, event.lngLat.lat]); });
-      map.addControl(new NavigationControl({ showCompass: false }), "top-right");
-      map.addControl(new AttributionControl({ compact: true }), "bottom-left");
-    }
+    if (!stillMap) map.on("click", (event) => { if (!revealRef.current) onPinRef.current([event.lngLat.lng, event.lngLat.lat]); });
     mapRef.current = map;
     return () => {
       window.cancelAnimationFrame(frameRef.current);
@@ -201,6 +199,23 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
       map.remove();
     };
   }, []);
+
+  // The zoom buttons and the credit. The map is laid out left to right in every language (dir="ltr" below: a map is not
+  // text, and MapLibre places its pins from the left), so on a right-to-left page the two are put on the mirrored
+  // corners here, clear of the answer panel, which sits on the right there.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || still) return;
+    const zoom = new NavigationControl({ showCompass: false });
+    const credit = new AttributionControl({ compact: true });
+    map.addControl(zoom, rightToLeft ? "top-left" : "top-right");
+    map.addControl(credit, rightToLeft ? "bottom-right" : "bottom-left");
+    return () => {
+      if (mapRef.current !== map) return; // the map itself is gone, and its controls with it
+      map.removeControl(zoom);
+      map.removeControl(credit);
+    };
+  }, [rightToLeft, still]);
 
   useEffect(() => {
     if (themeVersion > 0 || beginnerRef.current !== beginner) mapRef.current?.setStyle(buildQuestStyle(currentTheme(), beginner, shapes(), hintsRef.current, askedRef.current));
@@ -304,7 +319,7 @@ export function QuestMap({ view, viewKey, beginner, pin, onPin, reveal, hints = 
     onPinRef.current([center.lng, center.lat]);
   };
 
-  return <div className={`mq-map${still ? " mq-map--still" : ""}`} onKeyDown={onKeyDown}>
+  return <div className={`mq-map${still ? " mq-map--still" : ""}`} dir="ltr" onKeyDown={onKeyDown}>
     <div ref={container} className="mq-map-canvas" role={still ? "img" : "application"} aria-label={label} />
     {!reveal && !still && <span className="mq-crosshair" aria-hidden="true" />}
   </div>;

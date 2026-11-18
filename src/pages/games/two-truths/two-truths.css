@@ -57,8 +57,11 @@ div.tt-face { cursor: default; }
 .tt-card.is-picked .kit-flip__front:has(.tt-face) .tt-letter { background: var(--acts); border-color: var(--acts); color: var(--page); }
 .tt-pick { position: absolute; top: -.65rem; right: .9rem; z-index: 1; padding: .2rem .6rem; border-radius: 999px; background: var(--acts); color: var(--page);
   font: 700 .62rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; animation: tt-pop .4s var(--tt-ease) both; pointer-events: none; }
-.tt-back .tt-mark { font-size: 1.15rem; font-weight: 700; line-height: 1; }
-.tt-back .tt-kind { font: 700 .56rem/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; text-align: center; }
+/* The start screen's turning sample wears a real card's back. The verdict never breaks inside its word (the page's
+   overflow-wrap: anywhere): a long one ("Verdadeiro") stands a little past its slot, centred, into the padding and gap. */
+:is(.tt-back, .tt-sample-back) .tt-slot { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+:is(.tt-back, .tt-sample-back) .tt-mark { font-size: 1.15rem; font-weight: 700; line-height: 1; }
+:is(.tt-back, .tt-sample-back) .tt-kind { font: 700 .56rem/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; text-align: center; overflow-wrap: normal; }
 .tt-back.is-true .tt-slot { color: var(--tt-true); }
 .tt-back.is-lie .tt-slot { color: var(--tt-lie); }
 .tt-back.is-lie s { text-decoration-color: var(--tt-lie); text-decoration-thickness: 2px; }

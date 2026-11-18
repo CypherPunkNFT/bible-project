@@ -3,6 +3,8 @@
 // whose phone keyboards send no key codes, swipe whole words and zoom the page. The redesign (docs/visual-audits/
 // crossword-redesign.md) draws solid blocks, a ring and a direction arrow on the selected square, a pop for each typed
 // letter, a pulse when a word fills, a tick for a confirmed word and a gold wave across the grid when it is solved.
+// The answers are English, so the grid (and its frame, which Play.tsx pans by left-to-right numbers) and the keys stay
+// left to right on a right-to-left page.
 import { Delete } from "lucide-react";
 import { forwardRef, useEffect, useState, type CSSProperties, type MouseEvent } from "react";
 import type { Direction } from "@/lib/puzzles";
@@ -45,7 +47,7 @@ export const Board = forwardRef<HTMLDivElement, BoardProps>(function Board(props
   const [live, setLive] = useState(false);
   useEffect(() => { setLive(true); }, []);
   const classes = ["cw-grid", solved ? "is-solved" : "", live ? "is-live" : ""].filter(Boolean).join(" ");
-  return <div className="cw-frame" style={{ "--cw-w": puzzle.width, "--cw-h": puzzle.height } as CSSProperties}>
+  return <div className="cw-frame" dir="ltr" style={{ "--cw-w": puzzle.width, "--cw-h": puzzle.height } as CSSProperties}>
     <div ref={ref} className={classes} role="group" aria-label="Crossword grid" data-pulse-parity={pulse.endsWith(":1") ? 1 : 0}
       style={{ gridTemplateColumns: `repeat(${puzzle.width}, var(--cw-square))` }}>
       {puzzle.cells.map((answer, cell) => {
@@ -73,7 +75,7 @@ const ROWS: readonly (readonly string[])[] = [[..."QWERTYUIOP"], [..."ASDFGHJKL"
 /** The A–Z keys. A pressed key keeps the focus where it was (on the grid), so a computer's keys still work after. */
 export function Keyboard({ onKey }: { onKey: (key: string) => void }) {
   const keep = (event: MouseEvent) => event.preventDefault();
-  return <div className="cw-keyboard" role="group" aria-label="Keyboard">
+  return <div className="cw-keyboard" dir="ltr" role="group" aria-label="Keyboard">
     {ROWS.map((row, r) => <div key={r} className="cw-keys">
       {row.map((key) => key === "back"
         ? <button key={key} type="button" className="cw-key cw-key-wide" onMouseDown={keep} onClick={() => onKey("Backspace")} aria-label="Backspace">

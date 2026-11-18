@@ -9,6 +9,7 @@ import { NAME_MAX } from "@/lib/live-quiz/names";
 import { GAME_ART, GameArtImage } from "../art";
 import { MoreOptions } from "../kit";
 import { MAX_PLAYERS, ROUND_COUNTS, SECONDS, estimateMinutes, type Settings, type TwoChoicesFor } from "./game";
+import { PlayerNames } from "./PlayerName";
 import { GROUPS, MIN_POOL, type Group, type Testament } from "./pool";
 
 export interface RosterRow { name: string; group: Group }
@@ -86,7 +87,7 @@ export function Setup(props: Props) {
       <div>
         <strong>Tonight's game is saved</strong>
         <p className="hs-note">{`Round ${props.resume.round} of ${props.resume.rounds}`}</p>
-        {props.resume.leaders.length > 0 && <p className="hs-note"><span className="hs-label">Leading</span> <span>{formatList(props.resume.leaders)}</span></p>}
+        {props.resume.leaders.length > 0 && <p className="hs-note"><span className="hs-label">Leading</span> <span><PlayerNames names={props.resume.leaders} /></span></p>}
       </div>
       <div className="hs-row">
         <button type="button" className="hs-primary" onClick={props.onCarryOn}>Carry on tonight's game</button>

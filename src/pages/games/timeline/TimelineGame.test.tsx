@@ -77,6 +77,7 @@ describe("timeline sort page", () => {
     const reveal = screen.getByRole("region", { name: "The true order" });
     expect(share.compareDocumentPosition(reveal) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(reveal.querySelector(".tl-truth")).toHaveClass("kit-hop"); // the winning rows hop in a wave
+    expect(reveal.querySelector(".tl-axis-ends")).toHaveAttribute("dir", "ltr"); // earliest on the left, as the bars run, in Arabic too
     const grid = screen.getByRole("img", { name: "2 tries" }); // the share grid on screen: one row per try, all six green on the last
     expect(grid.querySelectorAll(".kit-trail")).toHaveLength(2);
     expect(grid.querySelectorAll(".kit-trail")[1].querySelectorAll(".kit-trail__mark.is-right")).toHaveLength(6);

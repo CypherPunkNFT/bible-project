@@ -5,7 +5,7 @@ import type { QuestionBank } from "@/lib/data";
 import type { TestQuestion } from "../../questions/test/engine";
 import { boardSettings, BOOKS, question, questionsFor } from "./bank.test.fixture";
 import {
-  MIN_CANDIDATES, THEME_CATEGORIES, bookCategories, limitsOf, poolFor, shownText, surprise, visibleCategories,
+  MIN_CANDIDATES, THEME_CATEGORIES, belongs, bookCategories, limitsOf, poolFor, shownText, surprise, visibleCategories,
 } from "./categories";
 import { buildBoard, makeDeck, seeded } from "./generate";
 
@@ -81,6 +81,18 @@ describe("the pool", () => {
   });
 });
 
+describe("the Sermon on the Mount", () => {
+  const sermon = THEME_CATEGORIES.find((category) => category.id === "theme:sermon")!;
+  it("takes the sermon's own clues, not every clue tagged as Jesus' teaching", () => {
+    const hymn = question("Jesus", "easy", "MAT", "NT", { subjects: ["passover", "jesus teachings"] });
+    const enemies = question("Jesus", "easy", "MAT", "NT", { subjects: ["love enemies", "jesus teaching", "sermon on mount"] });
+    const blessed = question("Jesus", "easy", "MAT", "NT", { subjects: ["beatitudes"] });
+    expect(belongs(sermon, hymn)).toBe(false);
+    expect(belongs(sermon, enemies)).toBe(true);
+    expect(belongs(sermon, blessed)).toBe(true);
+  });
+});
+
 const BANK = path.resolve(__dirname, "../../../../data/questions/bank.json");
 describe.skipIf(!fs.existsSync(BANK))("against the real question bank", () => {
   it("offers at least 50 themes and fills 200 random six-column Standard boards without falling short", () => {
@@ -95,4 +107,12 @@ describe.skipIf(!fs.existsSync(BANK))("against the real question bank", () => {
       expect(board.notices.filter((notice) => notice.startsWith("Only "))).toEqual([]);
     }
   }, 120_000);
+
+  it("does not file the hymn after the Passover (Matthew 26:30) under the Sermon on the Mount", () => {
+    const bank = JSON.parse(fs.readFileSync(BANK, "utf8")) as QuestionBank;
+    const sermon = THEME_CATEGORIES.find((category) => category.id === "theme:sermon")!;
+    const hymn = (bank.questions as TestQuestion[]).filter((q) => q.question.startsWith("In Matthew 26:30,"));
+    expect(hymn.length).toBeGreaterThan(0);
+    expect(hymn.some((q) => belongs(sermon, q))).toBe(false);
+  });
 });

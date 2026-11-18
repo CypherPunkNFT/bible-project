@@ -75,7 +75,7 @@ export const Card = forwardRef<HTMLButtonElement, CardProps>(function Card(props
           {text !== null && face !== "down" && <>
             <span className="mm-card__pip is-top"><Emblem name={side.emblem} /></span>
             <span className="mm-card__kind">{side.label}</span>
-            <span className="mm-card__text">{text}</span>
+            <span className="mm-card__text" lang={version.key === "verses" ? "en" : undefined}>{text}</span>
             {mark !== undefined && <span className="mm-card__mark">{mark}</span>}
             {face === "matched" ? <span className="mm-card__stamp">✓</span> : <span className="mm-card__pip is-bottom"><Emblem name={side.emblem} /></span>}
           </>}

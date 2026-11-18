@@ -39,7 +39,7 @@ export function useQuizRound() {
     setFresh(true);
     setBestBefore(best);
     if (right > best) { writeBest(local, right); setBest(right); }
-    setRound({ ...round, current: VERDICT, board: false });
+    setRound({ ...round, current: VERDICT, board: false, reached: true });
   };
 
   const next = () => {
@@ -57,7 +57,12 @@ export function useQuizRound() {
     optionState: (j: number): OptionState => (choice === null || !question ? "idle" : j === question.answer ? "right" : j === choice ? "wrong" : "faded"),
     choose, next,
     open: (i: number) => setRound({ ...round, current: i, board: false }),
-    playAll: () => setRound({ ...round, current: finished ? VERDICT : nextAfter(picked, VERDICT), board: false }),
+    // The board's "See how you did" after the last answer was closed, not Next'd, is the first time the ending is
+    // reached: it saves the best and celebrates as Next would. Once reached, it only shows the ending again.
+    playAll: () => {
+      if (finished && !round.reached) reachVerdict();
+      else setRound({ ...round, current: finished ? VERDICT : nextAfter(picked, VERDICT), board: false });
+    },
     // Leaving the ending for the board ends its one-time celebration: coming back shows the score plainly.
     toBoard: () => { if (current === VERDICT) setFresh(false); setRound({ ...round, board: true, current: current === VERDICT ? 0 : current }); },
     restart: () => { setFresh(false); setLanded({ n: 0, right: false }); saveRound(session, null); setRoundState(freshRound()); },

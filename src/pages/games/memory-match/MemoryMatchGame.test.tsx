@@ -80,7 +80,7 @@ describe("memory match page", () => {
     const summary = await screen.findByRole("heading", { level: 2, name: /^All 6 pairs in 6 moves · \d+:\d\d$/ });
     expect(summary).toHaveFocus();
     expect(screen.getByText("3 stars")).toBeInTheDocument();
-  });
+  }, 20_000); // heavy: about 1.6 s alone, ran past the 5 s default when the whole suite runs at once (2026-11-18)
 
   it("announces a pair and a non-pair", async () => {
     await deal();
@@ -113,6 +113,9 @@ describe("memory match page", () => {
     expect(cards()[0]).toHaveAccessibleName(`Row 1, column 1, face down, ${dealt[0].kind} card`);
     fireEvent.click(cards()[0]);
     expect(grid().textContent).toContain(textOf(dealt[0]));
+    // The side names ("Who", "Story") are page text the translator may swap; only a verse's words are marked English.
+    expect(grid()).not.toHaveAttribute("lang");
+    expect(cards()[0].querySelector(".mm-card__text")).not.toHaveAttribute("lang");
   });
 
   it("takes the reduced-motion path when the reader asks for less motion", async () => {
@@ -132,7 +135,8 @@ describe("memory match page", () => {
     fireEvent.click(screen.getByRole("button", { name: "Start playing" }));
     const dealt = savedCards();
     const pairs = [...new Set(dealt.map((c) => c.pair))].map((id) => byId.get(id)!);
-    verseTable.value = Object.fromEntries(pairs.map((pair, n) => [pair.keyVerseId, n === 0 ? null : `Verse text ${n}`]));
+    // The first verse with words ends inside a quotation: quoted whole, its own marks turn single (not "believe.””").
+    verseTable.value = Object.fromEntries(pairs.map((pair, n) => [pair.keyVerseId, n === 0 ? null : n === 1 ? "Verse text 1, “I believe.”" : `Verse text ${n}`]));
     for (const pair of pairs) {
       fireEvent.click(cards()[dealt.findIndex((c) => c.pair === pair.id && c.kind === "who")]);
       later();
@@ -145,7 +149,7 @@ describe("memory match page", () => {
       expect(list.getByRole("link", { name: `Read ${pair.ref}` })).toHaveAttribute("href", pair.readerHref);
       const href = data.characters[pair.who].href;
       if (href) expect(list.getByRole("link", { name: `About ${plain(data.characters[pair.who].label)}` })).toHaveAttribute("href", href);
-      if (n > 0) expect(list.getByText(`“Verse text ${n}”`)).toBeInTheDocument();
+      if (n > 0) expect(list.getByText(n === 1 ? "“Verse text 1, ‘I believe.’”" : `“Verse text ${n}”`)).toBeInTheDocument();
     }
     expect(list.getAllByText(pairs[0].keyVerse).length).toBeGreaterThan(0); // no text: the reference alone
     fireEvent.click(screen.getByRole("button", { name: "Change game" }));
@@ -192,6 +196,7 @@ describe("memory match page", () => {
     expect(cards()[begins]).toHaveAccessibleName(/face down, begins card$/);
     fireEvent.click(cards()[begins]);
     expect(cards()[begins].textContent).toMatch(/^.*One two three four … *$/);
+    expect(cards()[begins].querySelector(".mm-card__text")).toHaveAttribute("lang", "en"); // the BSB's words stay English
   });
 
   // ---- The redesign (docs/visual-audits/memory-match-redesign.md) --------------------------------------------------

@@ -143,6 +143,8 @@
 .tl-score { font-family: var(--font-serif); font-size: clamp(2.6rem, 9vw, 3.8rem); line-height: 1; font-variant-numeric: tabular-nums; animation: kit-pop .5s var(--tl-ease) both; animation-delay: .15s; }
 .tl-close { max-width: 34rem; margin-top: .3rem; color: var(--muted); font-size: .92rem; line-height: 1.5; }
 .tl-close strong { color: var(--ink); }
+/* On a right-to-left page the English names keep together, so a long list wraps inside its own left-to-right box. */
+html[dir="rtl"] .tl-close strong { display: inline-block; }
 .tl-stars { display: inline-flex; gap: .25rem; color: var(--muted); }
 .tl-stars svg { transition: color .3s var(--tl-ease); }
 .tl-stars .is-on { color: var(--tl-tone); fill: currentColor; animation: kit-pop .5s var(--tl-ease) both; animation-delay: calc(var(--kit-i, 0) * 220ms + .2s); }
@@ -169,6 +171,9 @@
 .tl-truth { --tl-rail: 1.6rem; position: relative; margin-top: .4rem; padding: 0 0 0 var(--tl-rail); list-style: none; }
 .tl-truth::before { content: ""; position: absolute; left: calc(var(--tl-rail) / 2 - .5px); top: .6rem; bottom: .6rem; width: 1px; background: var(--line); }
 .tl-step { position: relative; animation: kit-deal .5s var(--tl-ease) both; animation-delay: calc(var(--kit-i, 0) * 70ms); }
+/* A win's rows hop in a wave once dealt in: the kit's hop on its own would lose to the deal-in above (same weight, later). */
+.tl-truth.kit-hop > .tl-step { animation: kit-deal .5s var(--tl-ease) both, kit-hop .6s var(--tl-ease);
+  animation-delay: calc(var(--kit-i, 0) * 70ms), calc(var(--kit-i, 0) * 70ms + .5s); }
 .tl-step + .tl-step { margin-top: .4rem; }
 .tl-step::before { content: ""; position: absolute; left: calc(var(--tl-rail) / -2 - .25rem); top: 1.1rem; width: .5rem; height: .5rem; border-radius: 50%; border: 1.5px solid var(--tl-tone); background: var(--page); z-index: 1; }
 .tl-step.is-right::before { background: var(--tl-right); border-color: var(--tl-right); }
@@ -209,6 +214,6 @@
 .tl-spread-bar { padding: .1rem .4rem; border-radius: .3rem; background: color-mix(in srgb, var(--tl-tone) 30%, transparent); text-align: right; }
 
 @media (prefers-reduced-motion: reduce) {
-  .tl-item, .tl-card, .tl-faces, .tl-face, .tl-step, .tl-banner, .tl-score, .tl-stars .is-on, .tl-join, .tl-tick { transition: none; animation: none; animation-delay: 0s; }
+  .tl-item, .tl-card, .tl-faces, .tl-face, .tl-step, .tl-truth.kit-hop > .tl-step, .tl-banner, .tl-score, .tl-stars .is-on, .tl-join, .tl-tick { transition: none; animation: none; animation-delay: 0s; }
   .tl-item.is-lifted .tl-card, .tl-item.is-held .tl-card, .tl-card:focus-visible { transform: none; }
 }

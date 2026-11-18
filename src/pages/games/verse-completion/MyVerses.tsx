@@ -11,6 +11,7 @@ import { isDue, type Progress } from "./boxes";
 import { passageText } from "./load";
 import { compareIds, type Passage } from "./model";
 import { boxLabel } from "./text";
+import { VERSE_IN_ENGLISH } from "./view";
 
 type Filter = "all" | "due" | "memorised";
 type Sort = "due" | "box" | "bible";
@@ -28,7 +29,9 @@ export function PassageWords({ catalog, passage }: { catalog: Catalog; passage: 
     });
     return () => { live = false; };
   }, [catalog, passage]);
-  return <p className="vc-verse is-small">{failed ? "This verse couldn't load." : text ?? "Loading the verse…"}</p>;
+  return failed || text === null
+    ? <p className="vc-verse is-small">{failed ? "This verse couldn't load." : "Loading the verse…"}</p>
+    : <p className="vc-verse is-small" {...VERSE_IN_ENGLISH}>{text}</p>;
 }
 
 /** "Due today", or the date, written with the site's date formatter (local calendar day numbers are UTC dates). */

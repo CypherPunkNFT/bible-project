@@ -41,7 +41,7 @@ export function PersonSearch({ engine, label, wider = false, onPick, onCancel }:
     <input id={inputId} type="search" autoComplete="off" value={query} placeholder="Type a name" autoFocus onChange={(e) => setQuery(e.target.value)} />
     {query.trim() && <ul className="tq-results" aria-label="People in the game">
       {found.map((p) => <li key={p}><button type="button" onClick={() => onPick({ kind: "pool", person: p })}>
-        <span className="tq-result-name">{engine.data.people[p].label}</span>
+        <span className="tq-found-name">{engine.data.people[p].label}</span>
         <span className="tq-result-brief">{engine.data.people[p].b}</span>
       </button></li>)}
       {!found.length && <li className="tq-empty">{wider ? "Nobody in the game by that name yet. Check the spelling, or look further down." : "Nobody in the game by that name."}</li>}
@@ -52,7 +52,7 @@ export function PersonSearch({ engine, label, wider = false, onPick, onCancel }:
       {others === "failed" && <p className="tq-empty" role="alert">The full list of people couldn't load.</p>}
       {Array.isArray(others) && query.trim() && <ul className="tq-results" aria-label="Everyone else in the Bible">
         {more.map((r) => <li key={r.id}><button type="button" onClick={() => onPick({ kind: "other", id: r.id, label: r.n })}>
-          <span className="tq-result-name">{r.n}</span><span className="tq-result-brief">{r.b}</span>
+          <span className="tq-found-name">{r.n}</span><span className="tq-result-brief">{r.b}</span>
         </button></li>)}
         {!more.length && <li className="tq-empty">Not among everyone else in the Bible either.</li>}
       </ul>}

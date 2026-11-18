@@ -30,7 +30,7 @@ export function Reveal({ loaded, truth, order, celebrate = false }: Props) {
   const playerAt = new Map(order.map((id, i) => [id, i]));
   return <section className="tl-reveal" aria-label="The true order">
     <h3 className="tl-reveal-title">The true order</h3>
-    {axis && <p className="tl-axis-ends" aria-hidden="true"><span>{axis.loText}</span><span>{axis.hiText}</span></p>}
+    {axis && <p className="tl-axis-ends" dir="ltr" aria-hidden="true"><span>{axis.loText}</span><span>{axis.hiText}</span></p>}
     <ol className={`tl-truth${celebrate ? " kit-hop" : ""}`} aria-label="The true order, earliest first">
       {events.map((event, i) => {
         const had = playerAt.get(event.id)!;

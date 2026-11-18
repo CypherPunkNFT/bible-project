@@ -6,6 +6,7 @@ import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import HotSeatGame from "./HotSeatGame";
 import { fixtureBank } from "./hot-seat.test.fixture";
+import { PlayerName, PlayerNames } from "./PlayerName";
 import { GAME_KEY } from "./storage";
 
 const loadBank = vi.hoisted(() => vi.fn());
@@ -55,6 +56,7 @@ describe("hot seat page", () => {
 
     // Anna's turn: nobody has sat yet, so anyone reads.
     expect(within(layer()).getByText("Anna")).toBeInTheDocument();
+    expect(within(layer()).getByText("Anna")).toHaveAttribute("translate", "no"); // a typed name is never translated
     expect(within(layer()).getByText("Anyone else can read.")).toBeInTheDocument();
     await startTurn();
     const first = question();
@@ -108,7 +110,17 @@ describe("hot seat page", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Final standings" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "All questions tonight" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Play another round/ })).toBeInTheDocument();
+    for (const name of screen.getAllByText("Ben")) expect(name.closest("[translate='no']")).not.toBeNull(); // the podium and the lists too
   }, 30_000);
+
+  it("leaves a typed name to the player but a name the game gave to the translator (Ruth stays Ruth in Arabic)", () => {
+    render(<p><PlayerName name="Ruth" /> <PlayerName name="Player 2" /> <PlayerNames names={["Player 1", "Player 3"]} /> <PlayerNames names={["Ruth", "Player 3"]} /></p>);
+    expect(screen.getByText("Ruth")).toHaveAttribute("translate", "no");
+    expect(screen.getByText("Player 2")).not.toHaveAttribute("translate");
+    expect(screen.getByText(/^Player 1.*Player 3$/)).not.toHaveAttribute("translate");
+    expect(screen.getByText(/^Ruth.+Player 3$/)).toHaveAttribute("translate", "no");
+    expect(screen.getByText("Ruth").tagName).toBe("BDI"); // held apart from the line around it
+  });
 
   it("offers Carry on after a reload mid-turn and resumes with the time that was left", async () => {
     const view = await openSetup();

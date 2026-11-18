@@ -7,6 +7,7 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { plural } from "@/lib/site-format";
 import { GAME_ART, GameArtImage } from "../art";
 import type { Player } from "./game";
+import { PlayerName } from "./PlayerName";
 import { groupInfo } from "./pool";
 
 interface Props {
@@ -39,12 +40,12 @@ export function Handover(props: Props) {
     <p className="hs-kicker hs-rise" style={beat(0)}>{`Round ${props.round} of ${props.rounds} · turn ${props.position} of ${props.ofTurns}`}</p>
     <div className="hs-who hs-rise" style={beat(1)}>
       <span className="hs-label">In the hot seat</span>
-      <p className="hs-name" ref={heading} tabIndex={-1}>{props.player.name}</p>
+      <p className="hs-name" ref={heading} tabIndex={-1}><PlayerName name={props.player.name} /></p>
       <span className="hs-group">{groupInfo(props.player.group).label}</span>
     </div>
     <div className="hs-who is-reader hs-rise" style={beat(2)}>
       <span className="hs-label">Reading</span>
-      {props.reader ? <p className="hs-reader">{props.reader.name}</p> : <p className="hs-reader">Anyone else can read.</p>}
+      {props.reader ? <p className="hs-reader"><PlayerName name={props.reader.name} /></p> : <p className="hs-reader">Anyone else can read.</p>}
     </div>
     <p className="hs-note hs-rise" style={beat(3)}>Sit facing the reader. No peeking!</p>
     <div className="hs-rise" style={beat(4)}>

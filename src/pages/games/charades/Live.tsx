@@ -122,7 +122,10 @@ function useFitText(box: RefObject<HTMLElement>, text: RefObject<HTMLElement>, k
       el.style.fontSize = `${low}px`;
     };
     fit();
+    // Sized before the serif face arrived, the title could run off the card once it did: fitted again when it lands.
+    let live = true;
+    void document.fonts?.ready.then(() => { if (live) fit(); });
     window.addEventListener("resize", fit);
-    return () => window.removeEventListener("resize", fit);
+    return () => { live = false; window.removeEventListener("resize", fit); };
   }, [box, text, key]);
 }

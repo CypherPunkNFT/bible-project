@@ -103,6 +103,22 @@ describe("verse completion page", () => {
     expect(saved().days.streak).toBe(1);
   }, 60_000);
 
+  it("marks the verse and its endings English and left to right, so the page translator leaves the words alone", async () => {
+    const english = (element: Element | null) => {
+      expect(element).toHaveAttribute("lang", "en");
+      expect(element).toHaveAttribute("dir", "ltr");
+      expect(element).toHaveAttribute("translate", "no");
+    };
+    await openGame();
+    choose("Play");
+    const group = await screen.findByRole("group", { name: "Choose the ending" }, { timeout: 5000 });
+    english(document.querySelector(".vc-verse"));
+    for (const option of within(group).getAllByRole("button")) english(option.querySelector("[lang]"));
+    choose("I don't know");
+    expect(await screen.findByLabelText("No stars")).toBeInTheDocument();
+    english(document.querySelector(".vc-card.is-result .vc-verse"));
+  }, 60_000);
+
   it("plays a Type round with whole words, and a reload mid-round resumes at the same card", async () => {
     const view = await openGame();
     choose("Type words");

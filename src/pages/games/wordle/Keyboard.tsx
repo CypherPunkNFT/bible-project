@@ -1,7 +1,8 @@
 // The on-screen keyboard (design §9.1): QWERTY in three rows, Enter at the left of the bottom row and Backspace at the
 // right. Keys take their colour only once the board row has finished turning (Play hands over the marks then), and a
 // key that has just taken a colour gives one small pulse, so the keyboard colours in as the board does. A clicked key
-// gives up focus, so a physical Enter afterwards submits the row instead of pressing that key again.
+// gives up focus, so a physical Enter afterwards submits the row instead of pressing that key again. It is an English
+// keyboard, so it keeps its left-to-right order on a right-to-left page.
 import { Delete } from "lucide-react";
 import { memo, useRef, type MouseEvent } from "react";
 import { markLabel } from "./text";
@@ -34,7 +35,7 @@ export const Keyboard = memo(function Keyboard({ marks, onKey }: KeyboardProps) 
     event.currentTarget.blur();
     onKey(key);
   };
-  return <div className="bw-keyboard" role="group" aria-label="Keyboard">
+  return <div className="bw-keyboard" dir="ltr" role="group" aria-label="Keyboard">
     {ROWS.map((row, r) => <div key={r} className="bw-keys">
       {row.map((key) => {
         if (key === "enter") return <button key={key} type="button" className="bw-key bw-key-wide" onClick={press(key)}>Enter</button>;

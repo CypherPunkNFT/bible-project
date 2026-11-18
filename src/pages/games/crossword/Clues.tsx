@@ -22,9 +22,9 @@ export function ClueBar({ word, letters, selected, onStep }: BarProps) {
     <button type="button" className="cw-bar-step" onClick={() => onStep(true)} aria-label="Previous clue"><ChevronLeft size={20} aria-hidden="true" /></button>
     <p className="cw-bar-body" aria-live="polite">
       <span className="cw-bar-name">{clueName(word)}</span>
-      <span className="cw-bar-clue" translate="no">{word.entry.c}</span>
+      <span className="cw-bar-clue" translate="no" dir="ltr">{word.entry.c}</span>
       <span className="cw-bar-length">{`(${word.cells.length})`}</span>
-      <span className="cw-bar-strip" aria-hidden="true" translate="no">
+      <span className="cw-bar-strip" aria-hidden="true" translate="no" dir="ltr">
         {word.cells.map((cell) => <span key={cell} className={cell === selected ? "is-at" : undefined}>{letters[cell] || "·"}</span>)}
       </span>
     </p>
@@ -47,7 +47,7 @@ function ClueList({ words, letters, right, revealed, word, onPick }: Omit<ListsP
       return <li key={`${w.number}-${w.direction}`}>
         <button type="button" className={classes || undefined} aria-current={w === word ? "true" : undefined} onClick={() => onPick(w)}>
           <span className="cw-list-number">{w.number}</span>
-          <span className="cw-list-clue"><span translate="no">{w.entry.c}</span> <span className="cw-list-length">{`(${w.cells.length})`}</span></span>
+          <span className="cw-list-clue"><span translate="no" dir="ltr">{w.entry.c}</span> <span className="cw-list-length">{`(${w.cells.length})`}</span></span>
           <span className="cw-list-mark" aria-hidden="true">{confirmed && <Check size={14} />}</span>
           {confirmed && <span className="sr-only">Confirmed</span>}
         </button>
@@ -104,7 +104,7 @@ export function SolvedPanel({ data, puzzle, game, newBest, onNew, onChoices, onP
           onFocus={() => onPeek(word)} onBlur={() => onPeek(null)}>
           <span className="cw-answer-name">{clueName(word)}</span>
           <strong translate="no">{word.entry.w}</strong>
-          <span className="cw-answer-clue" translate="no">{word.entry.c}</span>
+          <span className="cw-answer-clue" translate="no" dir="ltr">{word.entry.c}</span>
           <Source data={data} word={word} />
         </li>)}
       </ol>

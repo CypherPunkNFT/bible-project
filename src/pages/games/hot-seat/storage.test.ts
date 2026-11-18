@@ -85,6 +85,17 @@ describe("hot seat storage", () => {
     expect(tamper((s) => { (s.settings as { seconds: number }).seconds = 7; })?.session.settings.seconds).toBe(60);
   });
 
+  it("reads back a game asked in a language whose words run longer than the English, but not a flood of text", () => {
+    const store = memoryStore();
+    const words = (length: number) => "palabra ".repeat(Math.ceil(length / 8)).slice(0, length);
+    let s = newSession([{ name: "Ana", group: "adults" }], DEFAULT_SETTINGS, 1);
+    s = reduce(s, { type: "start", first: frozen({ text: words(320), answer: words(230), full: words(2200), reference: words(200), choices: [words(230), words(226)] }) });
+    writeSession(store, s, NOW);
+    expect(readSession(store, NOW)?.session).toEqual(s);
+    store.data.set(GAME_KEY, store.data.get(GAME_KEY)!.replace(words(320), words(20_000)));
+    expect(readSession(store, NOW)).toBeNull();
+  });
+
   it("keeps the game playable when the store throws, and says it is not saving", () => {
     expect(canSave(throwingStore)).toBe(false);
     expect(canSave(null)).toBe(false);

@@ -61,7 +61,7 @@ export function Result({ answer, entry, rows, won, shareText, record, streak, ce
       {won ? <p className="bw-cheer">{WIN_LINES[rows.length - 1]?.label}</p> : <p className="bw-win">The word was</p>}
       <h2 id="bw-result-title" className="bw-answer">
         <span className="sr-only">{answer.toUpperCase()}</span>
-        <span className="bw-answer-tiles" aria-hidden="true">
+        <span className="bw-answer-tiles" dir="ltr" aria-hidden="true">
           {[...answer].map((letter, i) => <span key={i} className="bw-answer-tile" style={{ "--kit-i": i } as CSSProperties}>{letter.toUpperCase()}</span>)}
           <Confetti when={celebrate && won} count={20} reach={110} />
         </span>
@@ -72,9 +72,10 @@ export function Result({ answer, entry, rows, won, shareText, record, streak, ce
   </section>;
 }
 
-/** The share grid as coloured squares, exactly the rows the share text carries; no letters, so nothing is given away. */
+/** The share grid as coloured squares, exactly the rows the share text carries; no letters, so nothing is given away.
+ *  Left to right on every page, as the board and the shared text are. */
 function Grid({ rows }: { rows: readonly (readonly Mark[])[] }) {
-  return <div className="bw-grid" aria-hidden="true">
+  return <div className="bw-grid" dir="ltr" aria-hidden="true">
     {rows.map((row, r) => <div key={r} className="bw-grid-row">
       {row.map((mark, i) => <span key={i} className={`bw-square bw-${mark}`} />)}
     </div>)}

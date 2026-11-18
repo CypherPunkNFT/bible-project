@@ -12,7 +12,7 @@ import { contextHref } from "./load";
 import type { Mark, Result } from "./match";
 import type { Passage } from "./model";
 import { BAND_LINES, SHOWN_MARK, STAR_LINES, VERDICTS, boxChangeText } from "./text";
-import { landDelayMs, shownVerdict } from "./view";
+import { landDelayMs, shownVerdict, VERSE_IN_ENGLISH } from "./view";
 import type { Word } from "./words";
 
 export interface Outcome extends Pick<Result, "marks" | "extras" | "accuracy" | "perfect"> {
@@ -85,12 +85,12 @@ export function CardResult(props: ResultProps) {
   return <>
     <section className={`vc-card is-result is-${tone}`} aria-labelledby="vc-ref" style={{ "--vc-landed": landed } as CSSProperties}>
       <h2 id="vc-ref" className="vc-ref" tabIndex={-1}>{props.reference}</h2>
-      <p className="vc-verse">
+      <p className="vc-verse" {...VERSE_IN_ENGLISH}>
         {props.text.slice(0, list[split].start)}
         {list.slice(split).map((word, i) => <MarkedWord key={i} word={word} mark={outcome.marks[i]} index={i} hinted={outcome.hinted} />)}
       </p>
       {outcome.extras.length > 0 && <p className="vc-note">Also typed: <em>{outcome.extras.join(", ")}</em></p>}
-      {props.endings && props.chosen !== null && props.chosen !== props.endings.right && <p className="vc-note">You chose: <s>{props.endings.options[props.chosen]}</s></p>}
+      {props.endings && props.chosen !== null && props.chosen !== props.endings.right && <p className="vc-note">You chose: <s {...VERSE_IN_ENGLISH}>{props.endings.options[props.chosen]}</s></p>}
     </section>
     <FeedbackBand open tone={tone} className="vc-band" pinned="narrow"
       verdict={<span className="vc-verdict" style={{ "--vc-landed": landed } as CSSProperties}>

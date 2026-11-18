@@ -6,7 +6,7 @@ type Link = NonNullable<QuizQuestion["link"]>;
 
 /** "Genesis 7:6" from the link and the site's book list, so a night's verses never mix "Gen 7:6" with "Ezekiel 14:1";
  * the bank's own reference when the book is unknown or the link is missing. */
-export function fullReference(reference: string | null, link: Link | null, books: ReadonlyArray<{ code: string; name: string }>): string {
+export function fullReference(reference: string | null, link: Link | null, books: readonly { code: string; name: string }[]): string {
   if (!link) return reference ?? "";
   const book = books.find((b) => b.code === link.book);
   if (!book) return reference ?? `${link.book} ${link.chapter}`;

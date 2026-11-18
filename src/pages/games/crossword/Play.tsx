@@ -217,7 +217,7 @@ export function Play({ data, game, puzzle, newBest, onChange, onNew, onChoices }
     <div className="cw-board-side">
       <div className="cw-topline">
         <ProgressTrail marks={marks} tones={tones} shape="dots" size=".55rem" label={plural(filled, "{n} word filled", "{n} words filled")} />
-        <span className="cw-count" aria-hidden="true">{`${filled} / ${puzzle.words.length}`}</span>
+        <span className="cw-count" dir="ltr" aria-hidden="true">{`${filled} / ${puzzle.words.length}`}</span>
         {timed && !solved && <span className="cw-clock" translate="no" aria-label={plural(seconds, "{n} second", "{n} seconds")}>{clock(seconds)}</span>}
       </div>
       {!solved && !narrow && bar}

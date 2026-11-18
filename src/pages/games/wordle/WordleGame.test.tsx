@@ -195,6 +195,21 @@ describe("bible wordle page", () => {
     expect(screen.getByRole("button", { name: "Close" })).toHaveFocus();
   });
 
+  it("keeps the English letters left to right on a right-to-left page: board, keyboard, answer, share grid, examples", async () => {
+    await open(new Date(2026, 10, 8, 10));
+    expect(screen.getByRole("group", { name: "Your guesses" })).toHaveAttribute("dir", "ltr");
+    expect(screen.getByRole("group", { name: "Keyboard" })).toHaveAttribute("dir", "ltr");
+    fireEvent.click(screen.getByRole("button", { name: "How to play" }));
+    const help = screen.getByRole("dialog", { name: "How to play" });
+    expect(help.querySelectorAll(".bw-example")).toHaveLength(3);
+    for (const example of help.querySelectorAll(".bw-example")) expect(example).toHaveAttribute("dir", "ltr");
+    fireEvent.click(within(help).getByRole("button", { name: "Close" }));
+    play("thorn");
+    const result = screen.getByRole("dialog", { name: "THORN" });
+    expect(result.querySelector(".bw-answer-tiles")).toHaveAttribute("dir", "ltr");
+    expect(result.querySelector(".bw-grid")).toHaveAttribute("dir", "ltr");
+  });
+
   it("shows the last seven days in Statistics, today's in green", async () => {
     await open(new Date(2026, 10, 8, 10));
     play("thorn");

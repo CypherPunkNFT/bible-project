@@ -107,11 +107,16 @@ const isLink = (v: unknown) => {
   return v === null || (!!l && typeof l.book === "string" && /^[A-Z0-9]{2,8}$/.test(l.book) && whole(l.chapter, 1, 999) && (l.verse === null || whole(l.verse, 1, 999)));
 };
 
+// A question's words are in the language it was asked in, and a translation runs longer than the English (the bank's
+// printed answers reach 2,113 characters in Indonesian, a wrong option 226), so the words are held to a ceiling against
+// a damaged store, not to the English sizes: a game saved in another language comes back whole.
+const WORDS_MAX = 5000;
+
 function isQuestion(v: unknown): v is FrozenQuestion {
   const q = record(v);
-  if (!q || !text(q.id, 16) || !text(q.text, 300) || !text(q.answer, 200) || !textOrNull(q.full, 2000) || !textOrNull(q.reference, 160)) return false;
+  if (!q || !text(q.id, 16) || !text(q.text, WORDS_MAX) || !text(q.answer, WORDS_MAX) || !textOrNull(q.full, WORDS_MAX) || !textOrNull(q.reference, WORDS_MAX)) return false;
   if (!isLink(q.link) || !text(q.level, 10) || !textOrNull(q.topic, 60) || !(q.earlier === undefined || q.earlier === true)) return false;
-  return q.choices === null || (Array.isArray(q.choices) && q.choices.length === 2 && q.choices.every((c) => text(c, 200)));
+  return q.choices === null || (Array.isArray(q.choices) && q.choices.length === 2 && q.choices.every((c) => text(c, WORDS_MAX)));
 }
 
 const MARKS: readonly (Mark | null)[] = ["right", "wrong", "pass", null];

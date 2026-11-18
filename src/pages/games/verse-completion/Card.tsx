@@ -18,6 +18,7 @@ import { endingOf } from "./pool-rules";
 import { CardResult, type Outcome } from "./Result";
 import { TypeLetters } from "./TypeLetters";
 import { TypeWords } from "./TypeWords";
+import { VERSE_IN_ENGLISH } from "./view";
 import { words, type Word } from "./words";
 
 export interface CardProps {
@@ -86,7 +87,7 @@ export function Gap({ word, state = "" }: { word: Pick<Word, "key">; state?: str
 /** The verse while it is being played: the opening, then for each hidden word the word already given (right or
  * missed), the active gap, a gap the typed answer has reached, or a plain gap. */
 function PlayVerse({ opening, hidden, given, reach, active }: { opening: string; hidden: readonly Word[]; given: readonly Mark[]; reach: number; active: boolean }) {
-  return <p className="vc-verse">
+  return <p className="vc-verse" {...VERSE_IN_ENGLISH}>
     {opening}
     {hidden.map((word, i) => {
       const mark = given[i];

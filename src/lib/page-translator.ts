@@ -228,12 +228,36 @@ function translated(text: string): string | null {
 const VERSE_RANGE = /\d+:\d+[–-]\d+(?::\d+)?/g;
 const heldTogether = (value: string) => (targetRightToLeft ? value.replace(VERSE_RANGE, "\u2066$&\u2069") : value);
 
-function retranslate(node: Text | Attr): void {
+// The same holds for all text that reads left to right on a right-to-left page. English left in English ("Is your
+// person a woman?") would show its question mark at the front, and inside an Arabic line "2 Timothy 3", "27 km (17 mi)",
+// the years "2140-1627", the ages "8-12", the count "0 / 7" and the penalty "-21" would read backwards. An English run
+// reaches from its first letter (or the number before it) to its last letter or number, over anything but Arabic or
+// Hebrew between, as the browser would join it anyway: "amen@bibleguide.io" and "Genesis 1 · BSB" stay whole.
+const RIGHT_TO_LEFT_LETTER = /[\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]/;
+const LETTER_OR_DIGIT = /[\p{L}\p{N}]/u;
+const LEFT_TO_RIGHT_RUN = /(?:[-\u2212+]?\d[\d,.]*\s?)?[A-Za-z\u00c0-\u024f](?:[^\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff\n]*[A-Za-z\u00c0-\u024f\d)])?|(?<![\p{L}\p{N}])[-\u2212+]\d[\d,.]*|\d[\d,.]*(?:\s?[\u2013\-/:]\s?\d[\d,.]*)+/gu;
+const ISOLATION_MARKS = /[\u2066-\u2069]/g;
+const isolated = (run: string) => `\u2066${run}\u2069`;
+// A run that ends in a bracket it did not open ("Modalism)") leaves the bracket to the line, which mirrors it with its pair.
+const isolatedRun = (run: string) =>
+  run.endsWith(")") && run.split("(").length < run.split(")").length ? `${isolated(run.slice(0, -1))})` : isolated(run);
+
+/** A text on screen, set to read the right way on a right-to-left page: a text left in English is held together whole,
+ * a translated line has its left-to-right runs held together. Anywhere else it is unchanged. */
+function directed(value: string, english: boolean): string {
+  if (!targetRightToLeft) return value;
+  if (RIGHT_TO_LEFT_LETTER.test(value)) return value.replace(LEFT_TO_RIGHT_RUN, isolatedRun);
+  return english && LETTER_OR_DIGIT.test(value) ? isolated(value) : heldTogether(value);
+}
+
+function retranslate(node: Text | Attr, onScreen = false): void {
   const raw = node.nodeValue ?? "";
   const original = originals.get(node);
   const source = original?.written === raw ? original.source : raw;
   const value = translated(source);
-  const next = value ? source.match(/^\s*/)![0] + heldTogether(value) + source.match(/\s*$/)![0] : source;
+  // A label (and the tab title) only has its verse ranges held together: the marks are for laying out text on the page.
+  const shown = onScreen ? directed(value ?? source.trim(), value === null) : value && heldTogether(value);
+  const next = shown ? source.match(/^\s*/)![0] + shown + source.match(/\s*$/)![0] : source;
   if (next === raw) return;
   originals.set(node, { source, written: next });
   node.nodeValue = next;
@@ -247,7 +271,7 @@ const leftAlone = (element: Element | null) =>
 const isScripture = (element: Element | null) => element?.closest(".scripture, [lang]:not(html)") != null;
 
 function translateText(node: Text): void {
-  if (!leftAlone(node.parentElement) && !isScripture(node.parentElement)) retranslate(node);
+  if (!leftAlone(node.parentElement) && !isScripture(node.parentElement)) retranslate(node, true);
 }
 
 function translateAttribute(element: Element, name: string): void {
@@ -295,7 +319,10 @@ export function setOwnTitle(title: string): void {
 }
 
 /** The English a text was translated from, in any language read so far; the text itself when it is not known. */
-export const englishOf = (text: string): string => toEnglish.get(normal(text)) ?? text;
+export const englishOf = (text: string): string => {
+  const plain = text.replace(ISOLATION_MARKS, ""); // the marks directed() set around left-to-right runs
+  return toEnglish.get(normal(plain)) ?? plain;
+};
 
 function translateTitle(): void {
   const element = document.head?.querySelector("title");

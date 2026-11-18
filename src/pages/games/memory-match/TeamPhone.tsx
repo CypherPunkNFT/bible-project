@@ -110,7 +110,7 @@ function Grid({ view, mine, sent, onTap }: GridProps) {
   const marks = new Map(panel.items.map((item, n) => [item.index, n + 1]));
   return <div className={`mm-play is-${view.difficulty} is-${view.version}${view.columns >= 6 ? " is-tight" : ""}`}>
     <TurnedPanel panel={panel} version={version} />
-    <div role="group" lang="en" aria-label={`Cards, ${view.columns} columns by ${view.cards.length / view.columns} rows`}
+    <div role="group" aria-label={`Cards, ${view.columns} columns by ${view.cards.length / view.columns} rows`}
       className={`mm-grid${reduced ? " is-reduced" : ""}`}
       style={{ "--mm-cols": view.columns, "--mm-rows": view.cards.length / view.columns } as CSSProperties}>
       {view.cards.map((card, index) => {

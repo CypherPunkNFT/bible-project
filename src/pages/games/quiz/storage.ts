@@ -8,7 +8,8 @@ const BEST_KEY = "bp-quiz-best";
 
 export type Store = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
-export interface SavedRound { picked: Picked; order: number[]; current: number; board: boolean }
+// `reached`: the ending was shown for this round, so the board's "See how you did" only shows it again (state.ts).
+export interface SavedRound { picked: Picked; order: number[]; current: number; board: boolean; reached: boolean }
 
 /** The browser's storage, or null where the browser refuses it (private modes can throw on access). */
 export function browserStore(which: "local" | "session"): Store | null {
@@ -44,7 +45,7 @@ export function readRound(store: Store | null): SavedRound | null {
   if (!raw || !Array.isArray(raw.picked) || raw.picked.length !== TOTAL || !raw.picked.every(isChoice)) return null;
   if (!Array.isArray(raw.order) || !raw.order.every((i) => Number.isInteger(i) && i >= 0 && i < TOTAL)) return null;
   if (!Number.isInteger(raw.current) || (raw.current as number) < -1 || (raw.current as number) >= TOTAL) return null;
-  return { picked: raw.picked as Picked, order: raw.order as number[], current: raw.current as number, board: raw.board !== false };
+  return { picked: raw.picked as Picked, order: raw.order as number[], current: raw.current as number, board: raw.board !== false, reached: raw.reached === true };
 }
 
 export function saveRound(store: Store | null, round: SavedRound | null): void {
@@ -61,4 +62,4 @@ export const readBest = (store: Store | null): number => {
 };
 export const writeBest = (store: Store | null, best: number): void => write(store, BEST_KEY, best);
 
-export const freshRound = (): SavedRound => ({ picked: freshPicked(), order: [], current: 0, board: true });
+export const freshRound = (): SavedRound => ({ picked: freshPicked(), order: [], current: 0, board: true, reached: false });

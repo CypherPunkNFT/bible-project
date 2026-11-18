@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Verse } from "@/components/Verse";
 import { useCatalog } from "@/lib/catalog";
+import { languageDirection, useSiteLanguage } from "@/lib/language";
 import { formatRange } from "@/lib/refs";
 import { formatList, formatNumber, plural } from "@/lib/site-format";
 import { useMediaQuery } from "@/lib/useMediaQuery";
@@ -51,6 +52,8 @@ interface Props {
 
 /** Room for the answer card over the map: a panel on the left on a desktop, a sheet at the bottom on a phone. */
 const DESKTOP_PADDING = { left: 420, top: 48, right: 48, bottom: 48 };
+/** A page read right to left has the desktop panel on the right, so the room goes there (the map itself is not mirrored). */
+const DESKTOP_PADDING_RTL = { left: 48, top: 48, right: 420, bottom: 48 };
 const PHONE_PADDING = { left: 32, top: 40, right: 32, bottom: 250 };
 
 const TICK_MS = 250;
@@ -69,6 +72,7 @@ export function Play({ game, resume, playing, stats, now, onConfirm, onStart, on
   // The Daily Five draws the same circles for everyone; any other game draws fresh ones each time it is played.
   const [hintSeed] = useState(() => (game.mode === "daily" ? `daily-${game.n}` : `${game.mode}-${Math.random()}`));
   const wide = useMediaQuery("(min-width: 900px)");
+  const rightToLeft = languageDirection(useSiteLanguage()) === "rtl";
   const over = index >= game.questions.length;
   useScrollTopOn(over);
   const total = results.reduce((sum, result) => sum + result.points, 0);
@@ -137,7 +141,7 @@ export function Play({ game, resume, playing, stats, now, onConfirm, onStart, on
       : <div className={`mq-stage${revealed ? " is-revealed" : ""}`}>
           <QuestMap key={mapKey} view={ERA_VIEWS[game.era]} viewKey={`${index}`} beginner={game.mode === "practice" && game.level === "beginner"} asked={question.id}
             pin={pin} onPin={drop} hints={shownHints} onFail={() => setMapFailed(true)} label={`Map. Drop a pin where ${question.name} stood. With a keyboard, move the map and press Enter to pin the centre.`}
-            reveal={revealed ? shapeOf(revealed) : null} revealPadding={wide ? DESKTOP_PADDING : PHONE_PADDING} />
+            reveal={revealed ? shapeOf(revealed) : null} revealPadding={!wide ? PHONE_PADDING : rightToLeft ? DESKTOP_PADDING_RTL : DESKTOP_PADDING} />
           {!revealed && <div className="mq-dock">
             {!everPinned && <p className="mq-hint">Tap the map to drop a pin, then drag it to adjust.</p>}
             {hintsUsed < allHints.length && <HintButton used={hintsUsed} of={HINTS_BY_LEVEL[game.level]} onTake={takeHint} />}
