@@ -12,7 +12,9 @@ const STRINGS: Record<string, string> = {
   "Ages {n}–{n}": "الأعمار {n}–{n}",
   "Time -{n} points": "الوقت -{n} نقطة",
   "Write to {n}": "اكتب إلى {n}",
-  "Not Modalism (one person)": "ليست أحادية (Modalism)",
+  "Got it": "فهمت",
+  "Got it!": "خمّنتها!",
+  "Not Modalism (one person)":"ليست أحادية (Modalism)",
 };
 
 const [open, close] = [String.fromCodePoint(0x2066), String.fromCodePoint(0x2069)];
@@ -36,7 +38,9 @@ describe("the page translator on a right-to-left page", () => {
     add("ages", "Ages 8–12");
     add("penalty", "Time -21 points");
     add("mail", "Write to Q&A Box 2 · BSB");
-    add("bracket", "Not Modalism (one person)");
+    add("understood", "Got it");
+    add("guessed", "Got it!"); // Emoji stories' team award: its own words, not "Got it" with a "!"
+    add("bracket","Not Modalism (one person)");
     const label = add("label", "");
     label.setAttribute("aria-label", "Is your person a woman?");
     const kept = document.body.appendChild(Object.assign(document.createElement("div"), { translate: false }));
@@ -55,6 +59,7 @@ describe("the page translator on a right-to-left page", () => {
     expect(text("ages")).toBe(`الأعمار ${held("8–12")}`);
     expect(text("penalty")).toBe(`الوقت ${held("-21")} نقطة`);
     expect(text("mail")).toBe(`اكتب إلى ${held("Q&A Box 2 · BSB")}`);
+    expect([text("understood"), text("guessed")]).toEqual(["فهمت", "خمّنتها!"]);
     expect(text("bracket")).toBe(`ليست أحادية (${held("Modalism")})`);
     expect(label.getAttribute("aria-label")).toBe("Is your person a woman?");
     expect(text("kept")).toBe("WORD");

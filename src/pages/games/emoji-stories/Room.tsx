@@ -96,7 +96,7 @@ export function RoomPlay({ data, round, teams, onChange, onTeams }: {
                 <button key={team.id} type="button" className="es-award-button" aria-pressed={team.got.includes(puzzle.id)}
                   style={{ "--_team": ROOM_TONES[index % ROOM_TONES.length] } as CSSProperties} onClick={press(() => award(team))}>
                   <span className="es-award-name"><bdi>{teamName(team, index)}</bdi></span>
-                  <span className="es-award-word">Got it</span>
+                  <span className="es-award-word">Got it!</span>
                 </button>
               ))}
             </div>

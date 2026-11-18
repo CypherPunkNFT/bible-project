@@ -236,7 +236,6 @@ const heldTogether = (value: string) => (targetRightToLeft ? value.replace(VERSE
 const RIGHT_TO_LEFT_LETTER = /[\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]/;
 const LETTER_OR_DIGIT = /[\p{L}\p{N}]/u;
 const LEFT_TO_RIGHT_RUN = /(?:[-\u2212+]?\d[\d,.]*\s?)?[A-Za-z\u00c0-\u024f](?:[^\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff\n]*[A-Za-z\u00c0-\u024f\d)])?|(?<![\p{L}\p{N}])[-\u2212+]\d[\d,.]*|\d[\d,.]*(?:\s?[\u2013\-/:]\s?\d[\d,.]*)+/gu;
-const ISOLATION_MARKS = /[\u2066-\u2069]/g;
 const isolated = (run: string) => `\u2066${run}\u2069`;
 // A run that ends in a bracket it did not open ("Modalism)") leaves the bracket to the line, which mirrors it with its pair.
 const isolatedRun = (run: string) =>
@@ -318,6 +317,7 @@ export function setOwnTitle(title: string): void {
   document.title = title;
 }
 
+const ISOLATION_MARKS = /[\u2066-\u2069]/g;
 /** The English a text was translated from, in any language read so far; the text itself when it is not known. */
 export const englishOf = (text: string): string => {
   const plain = text.replace(ISOLATION_MARKS, ""); // the marks directed() set around left-to-right runs
