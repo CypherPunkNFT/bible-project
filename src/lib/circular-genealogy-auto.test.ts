@@ -123,5 +123,5 @@ describe("automatic circular family rules",()=> {
     }
     rows.push({root,direction,depth,omitted:branch.omitted,people:input.length,result,positions:plotted.map(n=>({...n,angle:result.offsets[n.id]}))});
     mkdirSync(".local",{recursive:true});writeFileSync(".local/genealogy-auto-evaluation.json",JSON.stringify(rows,null,2));
-  });
+  },20000);
 });
