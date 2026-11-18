@@ -46,7 +46,7 @@ describe("making a puzzle", () => {
       }
     }
     expect(made).toBeGreaterThan(80);
-  });
+  }, 20_000); // heavy: ran past the 5 s default when the whole suite runs at once (2026-11-18)
 
   it("lists all 66 books, the thin ones marked not offered", () => {
     const books = allBooks(data);

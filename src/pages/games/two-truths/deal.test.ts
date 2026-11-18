@@ -16,7 +16,7 @@ it('deals 3,000 valid rounds with each lie position between 30 and 37 percent',(
   }
   for(const n of counts) expect(n/3000).toBeGreaterThanOrEqual(.30);
   for(const n of counts) expect(n/3000).toBeLessThanOrEqual(.37);
-});
+},20000); // heavy: ran past the 5 s default when the whole suite runs at once (2026-11-18)
 it('checks clashes both ways, including truth pairs, and skips people with no valid triples',()=>{
   const who=deck.people[0].id,rows=structuredClone(deck.statements.filter(s=>s.who===who));
   const [a,b,c]=rows.filter(s=>s.kind==='truth');a.clash=[b.id];

@@ -68,10 +68,12 @@ export function isRight(pools: Pools, round: Round): boolean {
 export const current = (run: Run): Round => run.rounds[run.rounds.length - 1];
 export const score = (pools: Pools, run: Run) => run.rounds.filter((r) => isRight(pools, r)).length;
 
-/** Right answers in a row up to now. */
+/** Right answers in a row up to now; the round still waiting for an answer does not break it. */
 export function streakNow(pools: Pools, run: Run): number {
   let n = 0;
-  for (let i = run.rounds.length - 1; i >= 0 && isRight(pools, run.rounds[i]); i--) n++;
+  let i = run.rounds.length - 1;
+  if (i >= 0 && run.rounds[i].pick === null) i--;
+  for (; i >= 0 && isRight(pools, run.rounds[i]); i--) n++;
   return n;
 }
 

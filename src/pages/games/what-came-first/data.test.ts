@@ -103,7 +103,7 @@ describe.each(POOLS)("the $name pool", ({ category, file, minPartners, minPerBan
       expect(f.why.trim()).not.toBe("");
       if (!f.derived) expectWords(f.refs[0], `${f.first} / ${f.second}`);
     }
-  });
+  }, 20_000); // heavy: ran past the 5 s default when the whole suite runs at once (2026-11-18)
 
   it("blocks only pairs of two real items, and deals no excluded person", () => {
     for (const [a, b] of file.blocked ?? []) expect(items.has(a) && items.has(b), `${a} / ${b}`).toBe(true);

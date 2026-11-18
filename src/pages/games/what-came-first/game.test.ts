@@ -177,4 +177,11 @@ describe("how a run ends", () => {
     expect(answer(pools, fresh, "nobody")).toBe(fresh);
     expect(streakNow(pools, playRight(start("books", "streak", "mixed", 1), 4))).toBe(4);
   });
+
+  it("keeps the streak while the next round waits for its answer (it read 0 after Next)", () => {
+    expect(streakNow(pools, start("books", "streak", "mixed", 1))).toBe(0);
+    const waiting = next(pools, playRight(start("books", "streak", "mixed", 1), 4));
+    expect(current(waiting).pick).toBeNull();
+    expect(streakNow(pools, waiting)).toBe(4);
+  });
 });
