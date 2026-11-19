@@ -1,8 +1,10 @@
 // Bible Jeopardy's setup (design 9.1): teams, board and rules on one page, then Build board. A board link replaces the
 // Board section with one line (7.2). Settings are remembered for next time by the page (storage.ts).
 import { Dices } from "lucide-react";
-import type { ReactNode } from "react";
+import { useSyncExternalStore, type ReactNode } from "react";
+import { useSiteLanguage } from "@/lib/language";
 import { friendlyName } from "@/lib/live-quiz/names";
+import { onPhrasesLearned, phrase, phraseListVersion } from "@/lib/phrase-memory";
 import { formatNumber, plural } from "@/lib/site-format";
 import { CategoryPicker } from "./CategoryPicker";
 import type { Category } from "./categories";
@@ -49,8 +51,20 @@ function minutes(columns: number) {
   return `About ${formatNumber(length)} minutes, plus about 5 for the Final.`;
 }
 
+/** A name box's value: a default name ("Team 2", kept in English like every saved name, which the page translator swaps
+ * wherever it is shown) in the reader's language, as the translator never touches what a box holds. A typed name as typed. */
+function useNameShown(): (name: string, index: number) => string {
+  const language = useSiteLanguage();
+  useSyncExternalStore(onPhrasesLearned, () => phraseListVersion(language)); // drawn again when the language's phrases land
+  return (name, index) => {
+    const own = name === `Team ${index + 1}` ? phrase("Team {n}", language) : null;
+    return own?.includes("{n}") ? own.replace("{n}", String(index + 1)) : name;
+  };
+}
+
 function Teams({ settings, set }: { settings: Settings; set: (over: Partial<Settings>) => void }) {
   const names = settings.teamNames;
+  const shown = useNameShown();
   const resize = (count: number) => set({ teamNames: Array.from({ length: count }, (_, i) => names[i] ?? `Team ${i + 1}`) });
   const rename = (index: number, name: string) => set({ teamNames: names.map((old, i) => (i === index ? name : old)) });
   return <section className="jp-section" aria-labelledby="jp-teams">
@@ -64,7 +78,7 @@ function Teams({ settings, set }: { settings: Settings; set: (over: Partial<Sett
       const problem = teamNameProblem(names, index);
       return <li key={index} className={`jp-tone-${index}`}>
         <span className="jp-team-number" aria-hidden>{formatNumber(index + 1)}</span>
-        <input type="text" value={name} maxLength={24} aria-label={`Name of team ${index + 1}`} aria-invalid={problem !== null} onChange={(event) => rename(index, event.target.value)} />
+        <input type="text" value={shown(name, index)} maxLength={24} aria-label={`Name of team ${index + 1}`} aria-invalid={problem !== null} onChange={(event) => rename(index, event.target.value)} />
         <button type="button" className="jp-icon" onClick={() => rename(index, friendlyName())} aria-label={`A friendly name for team ${index + 1}`} title="A friendly name"><Dices size={18} aria-hidden /></button>
         {problem && <p className="jp-error">{problem}</p>}
       </li>;

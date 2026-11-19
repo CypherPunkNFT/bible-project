@@ -58,7 +58,7 @@ export function Live({ scenes, round, clock, feedback, leaving, hidden, tiltOn, 
     {tiltLost && <p className="ch-tilt-lost" role="status">Tilt stopped; use the buttons</p>}
     <div className={`ch-answer${big ? " is-big" : ""}`}>
       <button type="button" className="ch-pass" onClick={() => onAnswer("pass")} disabled={!!feedback || !scene}><Redo2 size={20} aria-hidden="true" />Pass</button>
-      <button type="button" className="ch-got" onClick={() => onAnswer("correct")} disabled={!!feedback || !scene}><Check size={20} aria-hidden="true" />Got it</button>
+      <button type="button" className="ch-got" onClick={() => onAnswer("correct")} disabled={!!feedback || !scene}><Check size={20} aria-hidden="true" />Got it!</button>
     </div>
   </div>;
 }

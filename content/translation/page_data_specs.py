@@ -136,6 +136,11 @@ SITE_DATA = [
     # with the page so the daily puzzle never waits on a file, so the screen is swapped rather than a copy read. The
     # place and site names stay as written, as on the atlas.
     (SITE_DATA_KIND, MAP_QUEST_DISPUTED, False, (), {"[].note"}, set(), set()),
+    # Odd one out's deck (src/pages/games/odd-one-out/deck/DeckCard.tsx): each card's name, line, and kind of place or
+    # book. Bundled with the page like Map quest's notes, so the screen is swapped; names take each language's Bible form,
+    # as on the puzzle's own cards (extract.py GAME_DATA). "Most in" is a book name, which the seed already gives.
+    (SITE_DATA_KIND, "src/pages/games/odd-one-out/deck/cards.json", False, (), {
+        ".cards[].name", ".cards[].line", ".cards[].type", ".cards[].genre"}, set(), set()),
 ]
 
 

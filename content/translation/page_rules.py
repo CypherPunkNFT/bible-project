@@ -22,9 +22,12 @@ JSX_EDGE = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
 EDGE_CODE = re.compile(r"[;`]|\(\)|\$$|\$\{|^[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*\d[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*$|^(?:export|function|const|let|var|return|else|if|import|interface|type|case|default|"
                        r"async|await|for|while|try|catch|finally|throw|new|typeof|extends|class|as|satisfies)\b")
 # A template string with values in it: each ${...} becomes "{n}", the form the site matches counts by ("{n} scholars").
-# A value may hold quoted text with braces of its own: ${plural(n, "{n} verse", "{n} verses")} (stage 5 job 14).
+# A value may hold quoted text with braces of its own: ${plural(n, "{n} verse", "{n} verses")} (stage 5 job 14), and
+# one level of braces of a plain object: ${formatDate(due, { weekday: "long" })}, so "Due {n}" is read whole (never a
+# template inside a value, whose backticks the TEMPLATE match has already cut it at).
 TEMPLATE = re.compile(r"`([^`\\\n]*\$\{[^`\\\n]*)`")
-TEMPLATE_VALUE = re.compile(r"""\$\{(?:[^{}"']|"[^"\n]*"|'[^'\n]*')*\}""")
+_QUOTED = r""""[^"\n]*"|'[^'\n]*'"""
+TEMPLATE_VALUE = re.compile(r"""\$\{(?:[^{}"']|""" + _QUOTED + r"""|(?<!\$)\{(?:[^{}"'$`]|""" + _QUOTED + r""")*\})*\}""")
 PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
 # One-word labels in data written into the code ({ label: "Study" }, {label:'Practice'}), which PAGE_LITERAL's two-word
 # floor skips. Either quote: the Apologetics menu and several study pages use single quotes.
@@ -90,16 +93,34 @@ def jsx_prose(text: str) -> bool:
             and not CODE_LIKE.search(text.replace(";", ",")))
 
 
+# A label and its value, "missed: {n}", alone or joined by " · " ("Verses: {n} · due: {n}"): words, never a CSS or
+# Tailwind variant ("hover:{n}"), whose colon has no space after it.
+COLON_VALUE = re.compile(r"[A-Za-z]+(?: [A-Za-z]+)*: \{n\}(?: · [A-Za-z]+(?: [A-Za-z]+)*: \{n\})*")
+# A CSS value built in a template: "min({n}%, 100% - max({n}%, .6rem))".
+CSS_FUNCTION = re.compile(r"\b(?:min|max|calc|clamp)\(")
+
+
 def template_text(literal: str) -> str | None:
     text = " ".join(TEMPLATE_VALUE.sub("{n}", literal).split())
-    rest = " ".join(text.replace("{n}", " ").split())
-    if "$" in rest or "{" in rest or not re.search(r"[A-Za-z]{3}", rest) or EDGE_CODE.search(text.replace("{n}", "0")):
+    # A number sign before a value, and the dot after it, are not code: "#{n} · the same for everyone".
+    rest = " ".join(re.sub(r"#\{n\}(?: · )?", " ", text).replace("{n}", " ").split())
+    if ("$" in rest or "{" in rest or not re.search(r"[A-Za-z]{3}", rest) or EDGE_CODE.search(text.replace("{n}", "0"))
+            or CSS_FUNCTION.search(text)):
         return None
     one_word = re.fullmatch(r"[A-Za-z]{3,}", rest) and " " in text  # "{n} scholars", not "{n}px"
     # A sentence label ending in ':' is not a Tailwind variant. Keep the exception
     # narrow: multiple plain words, capitalized, with no internal colon or class syntax.
-    colon_label = bool(re.fullmatch(r"[A-Z][A-Za-z]*(?: [A-Za-z]+)+:", rest))
+    colon_label = bool(re.fullmatch(r"[A-Z][A-Za-z]*(?: [A-Za-z]+)+:", rest) or COLON_VALUE.fullmatch(text))
     return None if (CODE_LIKE.search(rest) and not one_word) or (class_like(rest) and not colon_label) else text
+
+
+def literal_prose(text: str) -> bool:
+    """A string literal that is words, not code. As in JSX text (jsx_prose), a semicolon is allowed in a sentence of
+    five words or more that starts with a capital and ends with a stop ("Light came first; the sun and moon...")."""
+    if not CODE_LIKE.search(text):
+        return True
+    return (len(WORD.findall(text)) >= 5 and bool(re.match(r"[A-Z“‘\"(]", text)) and bool(re.search(r"[.?!][”’\")]?$", text))
+            and not CODE_LIKE.search(text.replace(";", ",")))
 
 
 def first_rules(source: str, suffix: str) -> list[str]:
@@ -125,13 +146,13 @@ def first_rules(source: str, suffix: str) -> list[str]:
     for match in PAGE_PROPERTY.finditer(source):
         text = " ".join((match.group(1) or match.group(2)).split())
         one_word = re.fullmatch(r"[A-Z][a-z'’]+", text)
-        if one_word or (re.match(r"[A-Z]", text) and not CODE_LIKE.search(text) and not class_like(text)):
+        if one_word or (re.match(r"[A-Z]", text) and literal_prose(text) and not class_like(text)):
             found.setdefault(text)
     for match in PAGE_LITERAL.finditer(source):
         literal = next(group for group in match.groups() if group is not None)
         text = " ".join(literal.split())
         if (len(literal) in PAGE_LITERAL_LENGTH and len(WORD.findall(text)) >= 2 and re.search(r"[A-Z]|[.?!,]", text)
-                and not CODE_LIKE.search(text) and not class_like(text)):
+                and literal_prose(text) and not class_like(text)):
             found.setdefault(text)
     return list(found)
 
@@ -379,7 +400,7 @@ def literal_gaps(source: str) -> list[str]:
         line_start = source.rfind("\n", 0, start) + 1
         before = source[max(line_start, start - 80):start]
         if (len(body) in range(3, LONGEST_LITERAL + 1) and len(WORD.findall(text)) >= 2
-                and re.search(r"[A-Z]|[.?!,]", text) and not CODE_LIKE.search(text) and not class_like(text)):
+                and re.search(r"[A-Z]|[.?!,]", text) and literal_prose(text) and not class_like(text)):
             found.append(text)
         elif (ONE_WORD.fullmatch(text) and (LABEL_KEY.search(before) or branch_of_choice(code, start))
               and (not code_context(source, start, end) or re.search(r"\|\|\s*$", before))):

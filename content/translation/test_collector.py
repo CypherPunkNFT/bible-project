@@ -42,6 +42,19 @@ def found(source: str, suffix: str = ".ts") -> list[str]:
     ('el.innerHTML = `<p>Named as his ${rel} in the family list &amp; more</p><b>${icon("x")} Topics</b>`;', ".js",
      {"Named as his {n} in the family list & more", "Topics"}),
     ('const msg = "Load more, please";', ".mjs", {"Load more, please"}),
+    # The games check (GAMES_ALL.md, 2026-11-18): a sentence with a semicolon, as JSX text already allowed (the Bible
+    # quiz's reason, Verse completion's How to play), in a literal and under a label key...
+    ('{ ask: "Q", why: "Light came first; the sun and moon were not made until the fourth day." }', ".ts",
+     {"Light came first; the sun and moon were not made until the fourth day."}),
+    ('{ label: "Each verse climbs five boxes and comes back after 1, 3, 7, 14 and 30 days; a miss sends it back to box 1." }',
+     ".ts", {"Each verse climbs five boxes and comes back after 1, 3, 7, 14 and 30 days; a miss sends it back to box 1."}),
+    # ...a value holding braces of its own (Verse completion's "Due {date}"), a label and its value ("typos accepted:"),
+    # and a number sign before a value (Timeline sort's daily line).
+    ('const d = `Due ${formatDate(day, { weekday: "long", month: "long" })}`;', ".tsx", {"Due {n}"}),
+    ("parts.push(`typos accepted: ${typos}`); const v = `Verses: ${a} · due: ${b}`;", ".tsx",
+     {"typos accepted: {n}", "Verses: {n} · due: {n}"}),
+    ("subtitle={done ? 'Done today' : `#${formatNumber(n)} · the same for everyone`}", ".tsx",
+     {"#{n} · the same for everyone"}),
 ])
 def test_a_gap_of_the_first_rules_is_collected(source: str, suffix: str, wanted: set[str]) -> None:
     assert wanted <= set(found(source, suffix))
@@ -73,6 +86,11 @@ def test_a_paragraph_over_400_characters_is_collected() -> None:
     ('type K = "Chart" | "Guide"; if (kind === "Verdict") {}', ".ts", "Verdict"),
     ('document.querySelectorAll("p,pre,li");', ".js", "p,pre,li"),
     ('const p = `M${x} ${y} L${x + 4} ${y}`; const q = "Read more";', ".js", "M${x} ${y} L${x + 4} ${y}"),
+    # CSS built in a template, a semicolon in code, a Tailwind variant and a colour pair stay out.
+    ("style={{ left: `min(${a}%, 100% - max(${b}%, .6rem))` }}", ".tsx", "min({n}%, 100% - max({n}%, .6rem))"),
+    ('const css = "Color: red; display: none; margin: 0 auto";', ".ts", "Color: red; display: none; margin: 0 auto"),
+    ("const c = `hover:${tone} focus:${ring}`;", ".tsx", "hover:{n} focus:{n}"),
+    ("const g = `linear-gradient(135deg, #${a}, #${b})`;", ".tsx", "linear-gradient(135deg, #{n}, #{n})"),
 ])
 def test_code_and_text_no_reader_sees_stay_out(source: str, suffix: str, unwanted: str) -> None:
     assert unwanted not in found(source, suffix)

@@ -89,7 +89,7 @@ describe("family charades page", () => {
     await advance(3600);
     const first = cardTitle();
     expect(scenes.some((s) => s.title === first)).toBe(true);
-    fireEvent.click(within(layer()).getByRole("button", { name: "Got it" }));
+    fireEvent.click(within(layer()).getByRole("button", { name: "Got it!" }));
     expect(within(layer()).getByText("✓ Correct!")).toBeInTheDocument();
     await advance(700);
     const second = cardTitle();
@@ -183,7 +183,7 @@ describe("family charades page", () => {
     const before = Number(foot.textContent!.replace(/\D/g, ""));
     expect(before).toBeGreaterThan(1);
     expect(within(layer()).getByRole("timer", { name: /seconds left/ })).toBeInTheDocument();
-    fireEvent.click(within(layer()).getByRole("button", { name: "Got it" }));
+    fireEvent.click(within(layer()).getByRole("button", { name: "Got it!" }));
     await advance(700);
     expect(Number(within(layer()).getByText(/cards? left$/).textContent!.replace(/\D/g, ""))).toBe(before - 1);
     expect(within(layer()).getByText("Everything").closest(".ch-card-head")!.querySelectorAll(".ch-tick")).toHaveLength(1);

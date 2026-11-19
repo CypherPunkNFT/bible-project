@@ -98,6 +98,14 @@ describe("live quiz on the phone", () => {
     expect(screen.getByRole("link", { name: "Gen 6:14" })).toHaveAttribute("href", "/read/bsb/GEN/6?v=14"); // no catalog here: the bank's words
   });
 
+  it("words the final score's unit through plural(), so each language says it in its own form", () => {
+    const many = draw(phone({ phase: "podium", verses: [] }));
+    expect(many.container.querySelector(".lq-final-score .lq-label")).toHaveTextContent(/^points$/);
+    many.unmount();
+    const one = draw(phone({ phase: "podium", verses: [], you: { ...phone({}).you, score: 1 } }));
+    expect(one.container.querySelector(".lq-final-score .lq-label")).toHaveTextContent(/^point$/);
+  });
+
   it("gives the first three places a medal", () => {
     const { container } = draw(phone({ phase: "podium", verses: [], you: { ...phone({}).you, rank: 1 } }));
     expect(container.querySelector(".lq-final")).toHaveAttribute("data-medal", "1");

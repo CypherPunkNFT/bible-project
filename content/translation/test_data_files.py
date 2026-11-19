@@ -259,6 +259,18 @@ def test_the_games_cards_and_reasons_are_collected_and_their_keys_are_not() -> N
     assert keys & texts == set()
 
 
+def test_the_odd_one_out_decks_cards_are_site_data_and_their_keys_are_not() -> None:
+    """The games check (GAMES_ALL.md item 9): the deck's cards showed rarer names ("Huldah") in English, as their file had
+    no rule. Bundled with the page, so they join ui.json for the screen swap; ids, links and colours stay out."""
+    cards = json.loads((extract.SITE / "src/pages/games/odd-one-out/deck/cards.json").read_text("utf-8"))["cards"]
+    texts = set(page_data.data_strings(extract.SITE, extract.walk)["sitedata"])
+    huldah = next(card for card in cards if card["name"] == "Huldah")
+    place = next(card for card in cards if card["kind"] == "place")
+    book = next(card for card in cards if card["kind"] == "book")
+    assert {huldah["name"], huldah["line"], "Agrippa", place["type"], place["line"], book["genre"]} <= texts
+    assert {huldah["id"], huldah["href"], huldah["top"]["sec"], huldah["era"]} & texts == set()
+
+
 def test_map_quest_notes_are_site_data_and_a_tree_without_the_game_skips_the_rule(
         tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     import page_data_specs

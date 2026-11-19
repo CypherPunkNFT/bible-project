@@ -1,9 +1,11 @@
 // Bible Jeopardy's page (design 13): set up three teams, build and preview a board, start, play a right answer, a wrong
 // answer and a steal, a Daily Double (marked by key) with one undo, reload mid-game and carry on, end into the Final and
 // reach Results with the right ranking. The bank is the fixture bank and the verse loading is stubbed.
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { CatalogContext } from "@/lib/catalog";
+import { setSiteLanguage } from "@/lib/language";
+import { learnPhraseList } from "@/lib/phrase-memory";
 import type { Catalog } from "@/lib/types";
 import JeopardyGame from "./JeopardyGame";
 import type { SavedGame } from "./storage";
@@ -35,7 +37,30 @@ const tile = (col: number, row: number) => {
 };
 
 beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
-afterEach(() => vi.restoreAllMocks());
+afterEach(() => { vi.restoreAllMocks(); act(() => setSiteLanguage("en")); });
+
+describe("Bible Jeopardy's team name boxes", () => {
+  const box = (n: number) => screen.getByRole("textbox", { name: `Name of team ${n}` }) as HTMLInputElement;
+
+  it("show the default names in English on the English page", async () => {
+    renderPage();
+    await waitFor(() => expect(box(3)).toBeInTheDocument());
+    expect([box(1).value, box(2).value, box(3).value]).toEqual(["Team 1", "Team 2", "Team 3"]);
+  });
+
+  it("show a default name in the reader's language (the page translator never swaps what a box holds); a typed name stays as typed", async () => {
+    learnPhraseList("es", { "Team {n}": "Equipo {n}" });
+    act(() => setSiteLanguage("es"));
+    renderPage();
+    await waitFor(() => expect(box(3)).toBeInTheDocument());
+    expect([box(1).value, box(2).value, box(3).value]).toEqual(["Equipo 1", "Equipo 2", "Equipo 3"]);
+    fireEvent.change(box(1), { target: { value: "Leones" } });
+    expect(box(1).value).toBe("Leones");
+    // The defaults are still kept in English, so the English page shows them in English again.
+    act(() => setSiteLanguage("en"));
+    expect([box(1).value, box(2).value]).toEqual(["Leones", "Team 2"]);
+  });
+});
 
 describe("Bible Jeopardy page", () => {
   it("plays a whole night: board, steal, Daily Double, undo, reload, Final and Results", async () => {

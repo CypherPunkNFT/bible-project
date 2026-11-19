@@ -135,7 +135,7 @@ function Final({ view }: { view: PlayerView }) {
       <p className="lq-place-big">{place(view.you)}</p>
       <p className="lq-me lq-final-name"><Badge name={view.you.name} /><span className="lq-name" dir="auto">{view.you.name}</span></p>
     </div>
-    <p className="lq-final-score" role="img" aria-label={plural(view.you.score, "{n} point", "{n} points")}><span aria-hidden="true">{formatNumber(shown)}</span><span className="lq-label" aria-hidden="true">points</span></p>
+    <p className="lq-final-score" role="img" aria-label={plural(view.you.score, "{n} point", "{n} points")}><span aria-hidden="true">{formatNumber(shown)}</span><span className="lq-label" aria-hidden="true">{plural(view.you.score, "point", "points")}</span></p>
     {verses.length > 0 && <>
       <h2>Read the verses from tonight</h2>
       <ol className="lq-verses">{verses.map((v, i) => <li key={i}>
