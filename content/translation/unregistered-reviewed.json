@@ -24875,5 +24875,14 @@
    "ar"
   ],
   "why": "chat 476e7763 (the 2026-11-13 release), What came first? reasons in chunk 1902: the Arabic writes the ages in words, as Arabic prose does (السابعة عشرة 17, الأربعين 40, الثلاثين بعد المئة 130), and keeps 99 in digits; the meaning is complete and correct, checked by reading each sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "translation",
+  "finding": "numbers",
+  "item": "72b29fb96e71",
+  "languages": [
+   "ar"
+  ],
+  "why": "Fortress job 25008f77 (card D66), Odd one out's deck in chunk 1920: 'Pekahiah ... reigned for 2 years' is سنتين in Arabic, the dual form of 'year', which says 'two years' in one word with no numeral, as Arabic prose does; the meaning is complete and correct, checked by reading the sentence against its English, so check.py's missing-number count is wrong here"
  }
 ]
