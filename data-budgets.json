@@ -716,55 +716,6 @@
     "plan": "Screens read the opening slice (people-opening.json); each preacher's passages and sermons when the preacher is opened (follow-up job)."
    },
    {
-    "item": "file:src/data/site/debate-transcripts.json",
-    "gzipKB": 319,
-    "rawKB": 1058,
-    "why": "Every debate's transcript, split into turns, in one bundled file.",
-    "plan": "One file per debate, read when that debate is opened (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/hou-map.json",
-    "gzipKB": 218,
-    "rawKB": 632,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/atl-map.json",
-    "gzipKB": 213,
-    "rawKB": 633,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/tpa-map.json",
-    "gzipKB": 183,
-    "rawKB": 545,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/dal-map.json",
-    "gzipKB": 174,
-    "rawKB": 514,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/orl-map.json",
-    "gzipKB": 166,
-    "rawKB": 484,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/clt-map.json",
-    "gzipKB": 156,
-    "rawKB": 504,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
     "item": "file:src/data/games/crossword/clues.json",
     "gzipKB": 150,
     "rawKB": 595,
@@ -779,27 +730,6 @@
     "plan": "Index of cities with counts first, each city's places when it is opened (follow-up job)."
    },
    {
-    "item": "file:src/data/resources/mia-map.json",
-    "gzipKB": 127,
-    "rawKB": 399,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/bhm-map.json",
-    "gzipKB": 118,
-    "rawKB": 343,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/jax-map.json",
-    "gzipKB": 118,
-    "rawKB": 352,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
     "item": "file:src/data/teachers/content/feature-usage.json",
     "gzipKB": 114,
     "rawKB": 749,
@@ -812,27 +742,6 @@
     "rawKB": 511,
     "why": "The drawings of the Twelve, Matthias and Paul as SVG data.",
     "plan": "One file per apostle page, read when that page opens (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/okc-map.json",
-    "gzipKB": 109,
-    "rawKB": 334,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/chs-map.json",
-    "gzipKB": 108,
-    "rawKB": 315,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/sdf-map.json",
-    "gzipKB": 108,
-    "rawKB": 316,
-    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
-    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
    },
    {
     "item": "file:src/data/world-map.json",
