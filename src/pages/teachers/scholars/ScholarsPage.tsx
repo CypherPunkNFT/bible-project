@@ -6,7 +6,7 @@ import { evidencedProfiles } from "./site-evidence";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
 import { PageStatus, TeacherSection } from "../shared/Frame";
-import { usePeopleData, useScholarsData } from "../shared/data";
+import { usePeopleOpening, useScholarsData } from "../shared/data";
 import { Built } from "./Built";
 import { Catalogue } from "./Catalogue";
 import { NO_FILTERS, ScholarsContext, type CatalogueFilters, type ProfileTarget } from "./context";
@@ -25,7 +25,8 @@ export default function ScholarsPage() {
   const { data, error } = useScholarsData();
   // The landing frame uses the Preachers geometry. Load it before mounting the
   // page so the chart never paints a guessed height while that import is pending.
-  const { data: graphPeople, error: graphError } = usePeopleData();
+  // The opening slice (64 KB) carries it; the whole people.json (1.8 MB) is not needed here.
+  const { data: graphPeople, error: graphError } = usePeopleOpening();
   useEffect(() => { document.title = "Scholars · Teachers · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   return data && graphPeople ? <Loaded data={data} /> : <PageStatus error={error ?? graphError} />;
 }

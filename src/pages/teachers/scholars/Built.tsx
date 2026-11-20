@@ -56,6 +56,23 @@ function useStageWidth(card: RefObject<HTMLElement>, stage: RefObject<HTMLElemen
   return width;
 }
 
+// Built.css shows the ribbon stage above this width and the stacked lists at or below it. Only the one shown is drawn:
+// drawing both (one hidden) put 3,200 nodes on the page (job 87f995cb, 2026-11-19). Without matchMedia, both are drawn.
+const PHONE_LAYOUT = "(max-width: 760px)";
+const phoneQuery = () => typeof window !== "undefined" && typeof window.matchMedia === "function" ? window.matchMedia(PHONE_LAYOUT) : null;
+function usePhoneLayout(): boolean | null {
+  const [phone, setPhone] = useState<boolean | null>(() => phoneQuery()?.matches ?? null);
+  useEffect(() => {
+    const query = phoneQuery();
+    if (!query) return;
+    const change = () => setPhone(query.matches);
+    change();
+    query.addEventListener("change", change);
+    return () => query.removeEventListener("change", change);
+  }, []);
+  return phone;
+}
+
 export function Built() {
   const { data, library, openProfile } = useScholars();
   const scholars=useMemo(()=>(library??[]).flatMap(p=>p.scholar?[p.scholar]:[]),[library]);
@@ -70,6 +87,7 @@ export function Built() {
   const layout = useMemo(() => (width ? layoutFor(model, width) : null), [model, width]);
   const openingHeight = useMemo(() => width ? layoutFor(overviewModel, width).openingHeight : 715, [overviewModel, width]);
   const sweep = useSweepIn(cardRef);
+  const phone = usePhoneLayout();
   const [pinned, setPinned] = useState<string | null>(null);
   const [focus, setFocus] = useState<Focus | null>(null);
   const chooseArea = (next: SourceArea) => {
@@ -130,13 +148,13 @@ export function Built() {
         if(next<0)return;event.preventDefault();chooseArea(SOURCE_AREAS[next].id);tabs[next].focus();
       }}>{SOURCE_AREAS.map(tab=><button type="button" key={tab.id} id={`source-tab-${tab.id}`} role="tab" aria-selected={area===tab.id} aria-controls="source-area-panel" tabIndex={area===tab.id?0:-1} onClick={()=>chooseArea(tab.id)}>{tab.label}<small>{modelForArea(allModel,tab.id).features.length}</small></button>)}</div>
       <div id="source-area-panel" role="tabpanel" aria-labelledby={`source-tab-${area}`}>
-      <div className="blt-scroll slim-scroll"><div ref={stageRef} className={`blt-stage${focus ? " blt-dim" : ""}`} style={layout ? { height: layout.height } : undefined}
+      {phone !== true && <div className="blt-scroll slim-scroll"><div ref={stageRef} className={`blt-stage${focus ? " blt-dim" : ""}`} style={layout ? { height: layout.height } : undefined}
         onPointerOver={(e) => setFocus(nodeFocus(e.target) ?? pinnedFocus)} onPointerLeave={() => setFocus(pinnedFocus)}
         onFocus={(e) => { const f = nodeFocus(e.target); if (f) setFocus(f); }} onBlur={() => setFocus(pinnedFocus)} onClick={onStageClick}>
         <Stage data={data} model={model} layout={layout} lit={lit} pinned={pinned} />
         {!model.rows.length&&<p className="blt-empty">No source connections match this search in this area.</p>}
       </div>
-      </div><Stack data={data} model={model} />
+      </div>}{phone !== false && <Stack data={data} model={model} />}
       </div>
     </div>
     <p className="blt-caption">Solid ribbons: cited sources and data inputs. Dashed ribbons: listed bibliographies. <Link to="/study/circles?study=letters">Explore circles of study →</Link></p>

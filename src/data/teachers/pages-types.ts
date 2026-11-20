@@ -37,6 +37,9 @@ export interface Person {
   books: number[];
   sermons: Sermon[];
 }
+/** A teacher as people-opening.json carries them: everything but the passages and sermons. */
+export type OpeningPerson = Omit<Person, "passages" | "sermons">;
+export interface PeopleOpening { people: OpeningPerson[] }
 export interface PersonLink { from: string; to: string; note: string }
 export interface PeopleData {
   about: string;

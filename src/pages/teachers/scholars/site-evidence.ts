@@ -11,9 +11,23 @@ export const areaFor: Record<string,string> = {
 };
 // Explicit attribution aliases; joint author/translator credits remain separate in the full credit grid.
 const aliases: Record<string,string[]> = aliasData.aliases;
-export const nameKey = (name:string) => name.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,' ').trim();
+// Each name's key and each scholar's keys are worked out once: profileFor runs for every source of every feature for
+// every scholar, and re-normalising each time took 0.4 s of a phone's main thread (job 87f995cb, 2026-11-19).
+const nameKeys = new Map<string,string>();
+export const nameKey = (name:string) => {
+  let key = nameKeys.get(name);
+  if (key === undefined) { key = name.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,' ').trim(); nameKeys.set(name, key); }
+  return key;
+};
+const scholarKeys = new WeakMap<Scholar,Set<string>>();
+function keysOf(s:Scholar) {
+  let keys = scholarKeys.get(s);
+  if (!keys) { keys = new Set([s.name,...(aliases[s.id] ?? [])].map(nameKey)); scholarKeys.set(s, keys); }
+  return keys;
+}
 export function profileFor(author:string, scholars:Scholar[]) {
-  return scholars.find(s => [s.name,...(aliases[s.id] ?? [])].some(n=>nameKey(n)===nameKey(author)));
+  const key = nameKey(author);
+  return scholars.find(s => keysOf(s).has(key));
 }
 export function sourcesFor(s:Scholar) { return featureEvidence.flatMap(f=>f.sources.filter(r=>profileFor(r.author,[s])).map(r=>({...r,feature:f.id,area:areaFor[f.id]}))); }
 const evidenceCache=new WeakMap<ScholarsData,ScholarsData>();

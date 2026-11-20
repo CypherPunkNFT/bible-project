@@ -7,14 +7,14 @@ import "./idea-lineage.css";
 import { useScholars } from '../context';
 import { lineageEntry } from './lineage-population';
 import { ScholarTimeline, type ScholarTimelineProps } from "./ScholarTimeline";
-import { usePeopleData } from "../../shared/data";
+import { usePeopleOpening } from "../../shared/data";
 import { layoutLandingArc } from "../../preachers/landing/arc";
 import "../../shared/landing-graph.css";
 import { reclaimedLandingSpace } from "../../shared/landing-graph";
 
 export function IdeaLineage(props: ScholarTimelineProps & { initialView?: "lineage"|"timeline";onTimeline?:()=>void;sectionMode?:boolean }) {
   const {library,filterCatalogue}=useScholars();
-  const {data:preachers}=usePeopleData();
+  const {data:preachers}=usePeopleOpening();
   const frameRef=useRef<HTMLElement>(null);
   const [frameSize,setFrameSize]=useState({width:0,reclaimed:0});
   useLayoutEffect(()=>{

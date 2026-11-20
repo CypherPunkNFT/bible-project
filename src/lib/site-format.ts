@@ -19,11 +19,19 @@ const usable = (tag: string): boolean => {
   }
 };
 
+// One answer per code, worked out once (the app's copy does the same): sorting the 9,111 scholars called this on every
+// comparison, and Intl.getCanonicalLocales there took 0.64 s of a phone's main thread (job 87f995cb, 2026-11-19).
+const locales = new Map<string, string>();
+
 /** The site language's tag for Intl, with its numbering system: "ar-u-nu-latn" is Arabic words with 0-9 digits. */
 export function siteLocale(code: string = siteLanguage()): string {
+  const known = locales.get(code);
+  if (known) return known;
   const language = LANGUAGES.find((entry) => entry.code === code) ?? SOURCE_LANGUAGE;
   const tag = `${language.code}-u-nu-${language.digits}`;
-  return usable(tag) ? tag : usable(language.code) ? language.code : "en";
+  const locale = usable(tag) ? tag : usable(language.code) ? language.code : "en";
+  locales.set(code, locale);
+  return locale;
 }
 
 // One formatter per kind, locale and options: a table of thousands of numbers would otherwise build one per cell.

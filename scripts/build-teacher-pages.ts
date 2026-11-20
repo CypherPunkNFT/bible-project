@@ -1,7 +1,7 @@
 // The two Teachers subpages' data: Preachers & authors (src/data/teachers/people.json) and Scholars
 // (src/data/teachers/scholars.json), and a few counts for the /teachers front page (summary.json), from
 // content/teachers/*.json and the library catalogue.
-//   node --experimental-strip-types scripts/build-teacher-pages.ts           rebuild the three files
+//   node --experimental-strip-types scripts/build-teacher-pages.ts           rebuild the four files
 //   node --experimental-strip-types scripts/build-teacher-pages.ts --check   fail if any file is stale
 import fs from "node:fs";
 import path from "node:path";
@@ -19,8 +19,16 @@ const summary = {
   scholars: scholars.scholars.length,
   scholarsInUse: scholars.scholars.filter((s) => s.site?.status === "in-use").length,
 };
+// The Preachers landing and the Scholars landing's frame need only who the teachers are, not every passage and sermon
+// (84% of people.json): this slice draws them while the whole file loads (job 87f995cb, 2026-11-19).
+const opening = { people: people.people.map((person) => {
+  const { passages, sermons, ...rest } = person;
+  void passages; void sermons;
+  return rest;
+}) };
 const outputs: [string, unknown][] = [
   ["src/data/teachers/people.json", people],
+  ["src/data/teachers/people-opening.json", opening],
   ["src/data/teachers/scholars.json", scholars],
   ["src/data/teachers/summary.json", summary],
 ];

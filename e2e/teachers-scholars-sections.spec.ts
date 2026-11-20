@@ -29,7 +29,10 @@ test("Built on their work joins features, books and scholars, follows the pointe
   if (isPhone(page)) {
     // The phone form: one list per feature, every book opening its scholar.
     await expect(card.locator(".blt-stage")).toBeHidden();
-    await expect(card.locator(".blt-st-group")).toHaveCount(await card.locator(".blt-feat").count());
+    // The stage is not drawn on a phone (job 87f995cb): the chosen area's tab carries the number of features.
+    const features = Number(await card.locator('[role=tab][aria-selected=true] small').textContent());
+    expect(features).toBeGreaterThan(0);
+    await expect(card.locator(".blt-st-group")).toHaveCount(features);
     const first = card.locator(".blt-st-group a").first();
     await expect(first).toHaveAttribute("href", /https?:/);
     return;
