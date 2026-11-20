@@ -1,6 +1,7 @@
 import { fillVerses } from "@/lib/verses";
 import { loadCatalog } from "@/lib/data";
-import { DataUnavailable } from "./data";
+import { DataUnavailable, loadSplitManifest, loadSplitPart } from "./data";
+import { assembleRows, splitPath, type SplitHead } from "./split-data";
 import { onLanguageChange, translatedDataPath } from "./language";
 import { PackUnavailable, readPacked } from "./translated-packs";
 import { lastReadPath } from "./last-read";
@@ -158,6 +159,49 @@ export const loadHarmony = () => loadStudy<Harmony>("harmony.json");
 export const loadMiracles = () => loadStudy<Miracles>("miracles.json");
 export const loadLetters = () => loadStudy<Letter[]>("letters.json");
 export const loadPeople = () => loadStudy<PersonRow[]>("people.json");
+
+/** A person's row as the split's list layer holds it (scripts/split-data/datasets.ts): everything but the one-line brief. */
+export type PersonName = Omit<PersonRow, "b"> & { b?: string };
+const isSplitHead = (value: unknown) => typeof value === "object" && value !== null && Array.isArray((value as SplitHead).keys);
+async function readPeopleLayer(layer: "list" | "briefs"): Promise<unknown[]> {
+  const manifest = await loadSplitManifest("people");
+  const files = manifest.layers[layer]?.files;
+  if (!files) throw new DataUnavailable(splitPath("people"), `no ${layer} layer`);
+  const [head, parts] = await Promise.all([loadSplitPart<SplitHead>("people", manifest.head, isSplitHead),
+    Promise.all(files.map((file) => loadSplitPart<unknown[]>("people", file.file, Array.isArray)))]);
+  return assembleRows(parts, head, manifest.rows);
+}
+let peopleNames: Promise<PersonName[]> | null = null;
+/** The People list without its one-line briefs, from its split (about half of people.json's download): what a person
+ *  page needs for the person's own row, the family links and "one of N people named" (owner, 2026-11-19: a person page
+ *  read the whole list before it showed). A page in another language, or data with no split yet, reads people.json
+ *  whole, briefs and all. */
+export function loadPeopleNames(): Promise<PersonName[]> {
+  if (translatedDataPath("study/people.json")) return loadPeople();
+  peopleNames ??= readPeopleLayer("list").then((rows) => rows as PersonName[]).catch((error: unknown) => {
+    peopleNames = null;
+    if (!(error instanceof DataUnavailable)) throw error;
+    console.warn(`${error.message}; reading the whole people list`);
+    return loadPeople();
+  });
+  return peopleNames;
+}
+let peopleBriefs: { language: string; briefs: Promise<Map<string, string>> } | null = null;
+/** Every person's one-line brief by id (the family links' tooltips), read when a family box nears the screen. */
+export function loadPeopleBriefs(): Promise<Map<string, string>> {
+  const language = translatedDataPath("study/people.json") ?? "";
+  if (peopleBriefs?.language !== language) {
+    const briefs = loadPeopleNames().then(async (rows) => {
+      const found = rows.every((row) => row.b !== undefined) ? rows.map((row) => row.b)
+        : (await readPeopleLayer("briefs") as { b?: string }[]).map((row) => row.b);
+      if (found.length !== rows.length) throw new Error(`People briefs: ${found.length} read for ${rows.length} people`);
+      return new Map(rows.map((row, i) => [row.id, found[i] ?? ""]));
+    });
+    briefs.catch(() => { if (peopleBriefs?.briefs === briefs) peopleBriefs = null; });
+    peopleBriefs = { language, briefs };
+  }
+  return peopleBriefs.briefs;
+}
 let englishPeople: Promise<PersonRow[]> | null = null;
 /** The people list in English whatever the page's language: the role rules (people-roles.ts) read English descriptions. */
 export function loadEnglishPeople(): Promise<PersonRow[]> {

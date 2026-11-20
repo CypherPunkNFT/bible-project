@@ -8,9 +8,12 @@ import { StudyCredits } from "@/components/study/StudyParts";
 import { useCachedLoad } from "@/lib/people-pages";
 import { isApostleEndpoint, isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
 import { personIdOf, slugOf } from "@/lib/people-slugs";
-import { loadPeople, loadPersonDetail } from "@/lib/study";
+import { loadPeopleNames, loadPersonDetail, type PersonName } from "@/lib/study";
 
 const MosesPage = lazy(() => import("@/components/moses-page/MosesPage"));
+const noPeople = async (): Promise<PersonName[]> => [];
+/** Moses has his own page (components/moses-page), drawn from his record alone. */
+const MOSES = "moses-exo-2-10";
 
 type SpecialPages = typeof import("@/components/people-pages/SpecialPages");
 let specialPages: SpecialPages | undefined;
@@ -41,9 +44,12 @@ export default function PersonPage() {
   const endpoint = isApostleEndpoint(id);
   const aspect: Aspect | undefined = endpoint && !asked ? "mission" : askedAspect;
   const slide = usePeoplePageSlide();
-  const people = useCachedLoad("people", loadPeople);
-  const detail = useCachedLoad(`person:${id}`, () => loadPersonDetail(id));
   const special = aspect ? specialPageOf(id, aspect) : undefined;
+  // The people list without its briefs (the person's row, the family links, the same-name count); a ruler's, apostle's
+  // or prophet's own page and Moses' page draw without it, so it is not read there.
+  const unread = Boolean(special) || id === MOSES;
+  const people = useCachedLoad(unread ? "people:unread" : "people-names", unread ? noPeople : loadPeopleNames);
+  const detail = useCachedLoad(`person:${id}`, () => loadPersonDetail(id));
   const pages = useSpecialPages(Boolean(special));
   const byId = useMemo(() => new Map(people.status === "ready" ? people.value.map((p) => [p.id, p]) : []), [people]);
   const row = byId.get(id);
@@ -68,8 +74,8 @@ export default function PersonPage() {
   </div>;
 
   const ready = row && detail.status === "ready";
-  if (id === "moses-exo-2-10" && row && detail.status === "ready") return <Suspense fallback={<div className="min-h-[60vh] animate-pulse" role="status" aria-label="Loading Moses" />}>
-    <MosesPage person={{ ...row, ...detail.value }} />
+  if (id === MOSES && detail.status === "ready") return <Suspense fallback={<div className="min-h-[60vh] animate-pulse" role="status" aria-label="Loading Moses" />}>
+    <MosesPage person={{ ...detail.value, id }} />
   </Suspense>;
   return <div className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6" onClickCapture={slide}>
     <div className="people-page-slide" data-people-ready={ready ? readyKey({ kind: "person", id }) : undefined}>

@@ -16,7 +16,7 @@ import joinedScripts from "@/joined-scripts.css?inline";
 /** The approved cinematic design, within the site's real routing and header.
  * A shadow root isolates its typography/illustrations from generic study styles.
  * The runtime belongs to this mount and releases observers/listeners on departure. */
-export default function MosesPage({ person }: { person: Person }) {
+export default function MosesPage({ person }: { person: Pick<Person, "id" | "refs" | "story"> }) {
   const host = useRef<HTMLDivElement>(null);
   const [error, setError] = useState(false);
   const catalog = useCatalog();

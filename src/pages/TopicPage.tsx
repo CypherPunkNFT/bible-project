@@ -11,6 +11,7 @@ import { categoryStyle, groupIcon } from "@/lib/topic-style";
 import { categoryUrl, placeOf, pointsAndPassages, topicUrl, type ArticleParagraph, type Topic, type TopicIndex, type TopicItem, type TopicPoint } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
 import { BibleName, Verse } from "@/components/Verse";
+import { DeferredSection } from "@/components/DeferredSection";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
@@ -200,7 +201,8 @@ export function TopicPage({ index }: { index: TopicIndex }) {
 
       {summary && <FromTheLibrary id={t.id} bundle={summary.f} />}
 
-      <Elsewhere title={t.title} />
+      {/* The people list and the places (130 KB) only for this section, read as it nears the screen (owner, 2026-11-19). */}
+      <DeferredSection minHeight="0"><Elsewhere title={t.title} /></DeferredSection>
 
       {t.relatedStudies.length > 0 && (
         <section aria-labelledby="topic-studies" className="mt-10">

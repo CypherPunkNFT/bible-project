@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { loadCatalog } from "@/lib/data";
 import { ordinal } from "@/lib/site-format";
-import { currentBibleSlug, fillVerses } from "@/lib/verses";
+import { currentBibleSlug, emptyVerses, fillVerses } from "@/lib/verses";
 import booksJson from "@/data/apostle-pages/books.json";
 import indexJson from "@/data/apostle-pages/index.json";
 import type { Landing } from "./art/landing/shared";
@@ -12,6 +12,9 @@ import type { Apostle, ApostleView, Ref } from "./types";
  * The apostle pages' data: one JSON file per apostle (src/data/apostle-pages/, built by scripts/build-apostle-pages.py),
  * each its own chunk loaded when the page opens and kept, so switching apostle is instant; and the landing drawing,
  * one module per apostle. Plus the small helpers every section shares (references, evidence labels, tones).
+ * The page draws first with its quotations empty (emptyVerses); their words, which come from many chapters of the
+ * reader's Bible, are read when a section below the landing nears the screen or a record is opened (useApostleData's
+ * `words`, owner 2026-11-19: Peter's page read 22 whole books before it showed).
  */
 const FILES = import.meta.glob<{ default: ApostleView }>(["/src/data/apostle-pages/*.json", "!/src/data/apostle-pages/index.json", "!/src/data/apostle-pages/books.json"]);
 const LANDINGS: Record<string, () => Promise<{ draw: Landing }>> = {
@@ -27,11 +30,14 @@ export const WHO: { key: string; id: string; name: string; short: string }[] = i
 const whoById = new Map(WHO.map((w) => [w.id, w]));
 export const isApostlePage = (id: string) => whoById.has(id);
 
-interface Loaded { apostle: Apostle; draw: Landing }
+interface Loaded { apostle: Apostle; draw: Landing; /** false while the quotations are still empty */ words: boolean }
 const loaded = new Map<string, Loaded>();
-/** The words are the reader's Bible's, so a loaded page belongs to that Bible. */
+/** The words are the reader's Bible's, so a page with its words belongs to that Bible. */
 const loadKey = (id: string) => `${currentBibleSlug()}:${id}`;
 const pending = new Map<string, Promise<Loaded>>();
+/** Each apostle's data and drawing with the quotations empty: the same in every Bible. */
+const shells = new Map<string, Loaded>();
+const pendingShells = new Map<string, Promise<Loaded>>();
 
 function prepare(d: ApostleView): Apostle {
   return {
@@ -44,17 +50,38 @@ function prepare(d: ApostleView): Apostle {
   };
 }
 
-/** An apostle's data and drawing, loaded once. */
+function source(id: string) {
+  const who = whoById.get(id), file = FILES[`/src/data/apostle-pages/${id}.json`];
+  if (!who || !file) throw new Error(`apostle page: no data file for ${id} (expected src/data/apostle-pages/${id}.json)`);
+  return Promise.all([file(), LANDINGS[who.key]()]);
+}
+
+/** An apostle's data and drawing with the quotations empty, loaded once. */
+export function loadApostleShell(id: string): Promise<Loaded> {
+  const done = shells.get(id);
+  if (done) return Promise.resolve(done);
+  let promise = pendingShells.get(id);
+  if (!promise) {
+    promise = Promise.resolve().then(() => source(id)).then(([data, art]) => {
+      const value = { apostle: prepare(emptyVerses(data.default)), draw: art.draw, words: false };
+      shells.set(id, value);
+      return value;
+    });
+    promise.catch((error: unknown) => { console.error(`apostle page: could not load ${id}`, error); pendingShells.delete(id); });
+    pendingShells.set(id, promise);
+  }
+  return promise;
+}
+
+/** An apostle's data with the reader's Bible's words in its quotations, and the drawing, loaded once per Bible. */
 export function loadApostle(id: string): Promise<Loaded> {
   const key = loadKey(id);
   const done = loaded.get(key);
   if (done) return Promise.resolve(done);
   let promise = pending.get(key);
   if (!promise) {
-    const who = whoById.get(id), file = FILES[`/src/data/apostle-pages/${id}.json`];
-    if (!who || !file) return Promise.reject(new Error(`apostle page: no data file for ${id} (expected src/data/apostle-pages/${id}.json)`));
-    promise = Promise.all([file(), LANDINGS[who.key](), loadCatalog()]).then(async ([data, art, catalog]) => {
-      const value = { apostle: prepare(await fillVerses(data.default, catalog)), draw: art.draw };
+    promise = Promise.all([Promise.resolve().then(() => source(id)), loadCatalog()]).then(async ([[data, art], catalog]) => {
+      const value = { apostle: prepare(await fillVerses(data.default, catalog)), draw: art.draw, words: true };
       loaded.set(key, value);
       return value;
     });
@@ -66,24 +93,33 @@ export function loadApostle(id: string): Promise<Loaded> {
 
 export type ApostleState = { status: "loading" } | { status: "error"; message: string } | { status: "ready"; value: Loaded };
 
-/** The page's data; read straight from the cache when it is already loaded, so a page wipe never shows a loading frame. */
-export function useApostleData(id: string): ApostleState {
+/** The page's data, its quotations empty until `words` is asked for (or already read in this Bible); read straight from
+ *  the cache when it is already loaded, so a page wipe never shows a loading frame. If the words cannot be read, the
+ *  page keeps drawing without them. */
+export function useApostleData(id: string, words: boolean): ApostleState {
   const [state, setState] = useState<{ id: string; value: ApostleState }>({ id, value: { status: "loading" } });
   useEffect(() => {
-    if (loaded.has(loadKey(id))) return;
+    if (loaded.has(loadKey(id)) || shells.has(id)) return;
     let live = true;
-    loadApostle(id).then((value) => { if (live) setState({ id, value: { status: "ready", value } }); })
+    loadApostleShell(id).then((value) => { if (live) setState({ id, value: { status: "ready", value } }); })
       .catch((error: unknown) => { if (live) setState({ id, value: { status: "error", message: error instanceof Error ? error.message : String(error) } }); });
     return () => { live = false; };
   }, [id]);
-  const ready = loaded.get(loadKey(id));
+  useEffect(() => {
+    if (!words || loaded.has(loadKey(id))) return;
+    let live = true;
+    loadApostle(id).then((value) => { if (live) setState({ id, value: { status: "ready", value } }); }).catch(() => undefined);
+    return () => { live = false; };
+  }, [id, words]);
+  const ready = loaded.get(loadKey(id)) ?? shells.get(id);
   if (ready) return { status: "ready", value: ready };
   return state.id === id ? state.value : { status: "loading" };
 }
 
-/** Loads every other apostle in the background, so the counter's arrows and list switch at once. */
+/** Loads every other apostle's data and drawing in the background, so the counter's arrows and list switch at once;
+ *  their words are read when their page asks for them. */
 export function preloadOthers(id: string) {
-  for (const w of WHO) if (w.id !== id) loadApostle(w.id).catch(() => undefined);
+  for (const w of WHO) if (w.id !== id) loadApostleShell(w.id).catch(() => undefined);
 }
 
 // ── References ──

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageCodes, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
+import { getContributorShelf, loadAcquiredCatalogue, workUrl, languageCodes, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
 import { SectionHead } from "./Frame";
 import "./acquired.css";
 import { WindowedRows } from "@/components/WindowedRows";
@@ -13,15 +13,28 @@ const OVERLAP_NOTE = "Editions and formats can overlap; this is not a count of d
 const workKey = (w: AcquiredWork) => w.id;
 const contributorKey = (c: AcquiredContributor) => c.id;
 
+/** The catalogue, read once the section nears the screen (within 300px): on /teachers/works it sits below the
+ *  collections, and its 8,477 contributors are 230 KB to download (owner, 2026-11-19). */
 function useAcquiredCatalogue() {
+  const box = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
   const [data, setData] = useState<Catalogue | null>(null);
   const [error, setError] = useState("");
   useEffect(() => {
+    const element = box.current;
+    if (near || !element) return;
+    if (!("IntersectionObserver" in window)) { setNear(true); return; }
+    const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); setNear(true); } }, { rootMargin: "300px 0px" });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [near]);
+  useEffect(() => {
+    if (!near) return;
     const abort = new AbortController();
-    getAcquired<Catalogue>(`${ACQUIRED_BASE}/catalogue.json`, abort.signal).then(setData).catch(error => { if (!abort.signal.aborted) setError(String(error.message)); });
+    loadAcquiredCatalogue(abort.signal).then(setData).catch(error => { if (!abort.signal.aborted) setError(String(error.message)); });
     return () => abort.abort();
-  }, []);
-  return { data, error };
+  }, [near]);
+  return { box, data, error };
 }
 
 export function ContributorWorks({ contributor, onOpenWork }: { contributor: Pick<AcquiredContributor, "id">; onOpenWork?: (work: AcquiredWork, origin: HTMLElement) => void }) {
@@ -47,7 +60,7 @@ function ContributorCard({ contributor: c, row }: { contributor: AcquiredContrib
 }
 
 export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "scholars"; authorId?: string | null }) {
-  const { data, error } = useAcquiredCatalogue();
+  const { box, data, error } = useAcquiredCatalogue();
   const [query, setQuery] = useState(""), [role, setRole] = useState("");
   const shelves = useMemo(() => data?.contributors.filter(c => (!side || c.side === side) && (!authorId || c.id === authorId)) ?? [], [data, side, authorId]);
   const contributors = useMemo(() => shelves.filter(c => (!role || c.roles.includes(role)) && `${c.name} ${c.traditions.join(" ")}`.toLowerCase().includes(query.toLowerCase())), [shelves, role, query]);
@@ -55,7 +68,7 @@ export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "sc
   const introduction = data
     ? `Explore the acquired texts of ${formatNumber(shelves.length)} ${contributorLabel}. Open a shelf to browse editions and read available texts here.`
     : "Open a contributor's shelf to browse acquired editions and read available texts here.";
-  return <div className="acq-catalogue">
+  return <div ref={box} className="acq-catalogue">
     <SectionHead num={side === "preachers" ? "09" : "08"} kicker="Acquired library" title={<>The texts we hold, <em>by contributor</em></>} line={introduction} />
     <div className="acq-controls"><label>Find a contributor<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Name or recorded tradition" /></label><label>Role<select value={role} onChange={e => setRole(e.target.value)}><option value="">All roles</option><option value="author">Author</option><option value="editor">Editor</option><option value="translator">Translator</option></select></label></div>
     {error && <p role="alert">{error}</p>}

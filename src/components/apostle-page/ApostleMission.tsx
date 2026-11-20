@@ -1,5 +1,5 @@
 import { BibleName } from "@/components/Verse";
-import { useCallback, useEffect, useLayoutEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
 import { AccountsSection } from "./Accounts";
 import { Cinema } from "./Cinema";
@@ -12,7 +12,7 @@ import { QuestionsSection } from "./Questions";
 import { GridSection, RingSection } from "./Record";
 import { SheetContext, type SheetApi } from "./sheet";
 import { Tip } from "./tip";
-import type { Apostle } from "./types";
+import type { Apostle, Entry } from "./types";
 import { EntrySheet, Sheet } from "./ui";
 import { WithSection } from "./With";
 import "./apostle-page.css";
@@ -39,8 +39,12 @@ function Sources({ d }: { d: Apostle }) {
 }
 
 function ApostleMission({ id }: { id: string }) {
-  const state = useApostleData(id);
-  const [sheet, setSheet] = useState<{ node: ReactNode; tone: string } | null>(null);
+  // The quotations' words are read once the chapter grid nears the screen, or a record is opened.
+  const [words, setWords] = useState(false);
+  const below = useRef<HTMLDivElement>(null);
+  const state = useApostleData(id, words);
+  // An opened record is kept as the record, not as drawn, so it shows its words once they arrive.
+  const [sheet, setSheet] = useState<{ node: ReactNode; entry?: Entry; tone: string } | null>(null);
   // Ready (for the people pages' wipe) once drawn and, when the reader switched with the counter, back at their place.
   const [placed, setPlaced] = useState(false);
   const d = state.status === "ready" ? state.value.apostle : undefined;
@@ -48,8 +52,17 @@ function ApostleMission({ id }: { id: string }) {
   const close = useCallback(() => setSheet(null), []);
   const api = useMemo<SheetApi>(() => ({
     open: (node, tone = "var(--accent)") => { Tip.hide(); setSheet({ node, tone }); },
-    openEntry: (e) => { if (d) { Tip.hide(); setSheet({ node: <EntrySheet d={d} e={e} />, tone: PERIOD_TONE[e.period] }); } },
+    openEntry: (e) => { if (d) { Tip.hide(); setWords(true); setSheet({ node: null, entry: e, tone: PERIOD_TONE[e.period] }); } },
   }), [d]);
+
+  useEffect(() => {
+    const element = below.current;
+    if (words || !element) return;
+    if (!("IntersectionObserver" in window)) { setWords(true); return; }
+    const observer = new IntersectionObserver((entries) => { if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); setWords(true); } }, { rootMargin: "300px 0px" });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [words, d]);
 
   useLayoutEffect(() => {
     if (!d) return;
@@ -83,10 +96,11 @@ function ApostleMission({ id }: { id: string }) {
     <div className="ap ap-page" data-people-ready={placed ? readyKey({ kind: "special", id, aspect: "mission" }) : undefined} style={{ "--tone": "var(--accent)" } as CSSProperties}>
       <Counter id={d.id} />
       <Landing d={d} draw={state.status === "ready" ? state.value.draw : () => null} />
-      <div className="wrap"><RingSection d={d} /><GridSection d={d} /></div>
+      {/* The words wait for the chapter grid (the first section that quotes); the ring above draws counts only. */}
+      <div className="wrap"><RingSection d={d} /><div ref={below} aria-hidden="true" /><GridSection d={d} /></div>
       <Cinema d={d} />
       <div className="wrap"><WithSection d={d} /><AccountsSection d={d} /><PlacesSection d={d} /><QuestionsSection d={d} /><Sources d={d} /></div>
-      <Sheet content={sheet?.node ?? null} tone={sheet?.tone ?? "var(--accent)"} onClose={close} />
+      <Sheet content={sheet?.entry ? <EntrySheet d={d} e={sheet.entry} /> : sheet?.node ?? null} tone={sheet?.tone ?? "var(--accent)"} onClose={close} />
     </div>
   </SheetContext.Provider>;
 }

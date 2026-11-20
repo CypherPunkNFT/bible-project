@@ -29,12 +29,14 @@ const TOLERANCE = 1.02;
 const hasData = existsSync(path.join(root, "data"));
 
 const built = new Map<string, Built | null>();
-/** A data set as split-data builds it; null for one whose source is under data/ on a computer without data/. */
+/** A data set as split-data builds it; null for one whose source is not in git and not on this computer. */
 const dataset = (name: string) => {
   if (!built.has(name)) {
     const found = DATASETS.find((d) => d.name === name);
     if (!found) throw new Error(`data-budgets.json names split:${name}, which scripts/split-data/datasets.ts does not have`);
-    built.set(name, found.source.startsWith("data/") && !hasData ? null : buildFromSource(found));
+    // The acquired library (split:teacher-library) is built on this computer and kept out of git, like data/.
+    const absent = (found.source.startsWith("data/") && !hasData) || (found.source.startsWith("public/content/teacher-library/") && !existsSync(path.join(root, found.source)));
+    built.set(name, absent ? null : buildFromSource(found));
   }
   return built.get(name)!;
 };

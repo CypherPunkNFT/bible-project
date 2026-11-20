@@ -124,10 +124,19 @@ async function loadChunk(slug: string, code: string, labels: string[], chapter: 
 
 export const loadChapter = loadChunk;
 
-/** One chapter's verses as plain words ("chapter:verse" -> text), made from the chapter text: for previews. */
+/** Each chapter's plain words, made once per chapter read (a page quoting many verses of one chapter asks many times). */
+const chapterPlain = new WeakMap<Chapter, PlainBook>();
+
+/** One chapter's verses as plain words ("chapter:verse" -> text), made from the chapter text: for previews, and for every
+ * quotation (src/lib/verses.ts), so a page downloads the chapters it quotes rather than whole books. */
 export async function loadChapterPlain(slug: string, code: string, labels: string[], chapter: string): Promise<PlainBook> {
   const found = await loadChunk(slug, code, labels, chapter);
-  return Object.fromEntries(found.v.map((verse) => [`${found.c}:${verse.n}`, plainWords(verse.r)]));
+  let words = chapterPlain.get(found);
+  if (!words) {
+    words = Object.fromEntries(found.v.map((verse) => [`${found.c}:${verse.n}`, plainWords(verse.r)]));
+    chapterPlain.set(found, words);
+  }
+  return words;
 }
 
 /** The words of a verse's runs: text only, no notes or breaks, whitespace collapsed (same rule as scripts/bible/usfm.py). */
@@ -136,7 +145,7 @@ export function plainWords(runs: Run[]): string {
   return parts.join("").replace(/\s+/g, " ").trim();
 }
 
-/** A whole book's plain words: only for search, which has to read a whole version. */
+/** A whole book's plain words: for search, which has to read a whole version, and for a page quoting most of a book. */
 export const loadPlain = (slug: string, code: string) => load<PlainBook>(`plain/${slug}/${code}.json`, isObject);
 
 export async function loadCrossRefs(code: string, chapter: string): Promise<CrossRefBook> {

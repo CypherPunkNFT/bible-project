@@ -14,7 +14,8 @@ export const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as 
 /** Serves /data/plain/bsb/<BOOK>.json from the repository; `fail` makes every request fail, as offline. */
 export function serveBerean(options: { fail?: boolean } = {}) {
   const fetchMock = vi.fn(async (url: string) => {
-    const match = /^\/data\/(plain\/bsb\/[A-Z0-9]+\.json)/.exec(String(url));
+    // Whole books, and the reader's chapter files the quotations read (src/lib/verses.ts).
+    const match = /^\/data\/(plain\/bsb\/[A-Z0-9]+\.json|text\/bsb\/[A-Z0-9]+\/\d+\.json)/.exec(String(url));
     if (options.fail || !match) return { ok: false, status: 404, headers: { get: () => "text/plain" }, json: async () => ({}) };
     return { ok: true, status: 200, headers: { get: () => "application/json" }, json: async () => JSON.parse(readFileSync(`data/${match[1]}`, "utf8")) };
   });

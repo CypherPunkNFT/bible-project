@@ -7,11 +7,11 @@
  "pages": {
   "/": [
    "data:catalog.json",
-   "data:plain/bsb/1CO.json",
-   "data:plain/bsb/ISA.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/PRO.json",
-   "data:plain/bsb/PSA.json"
+   "data:text/bsb/1CO/1.json",
+   "data:text/bsb/ISA/10.json",
+   "data:text/bsb/MAT/1.json",
+   "data:text/bsb/PRO/0.json",
+   "data:text/bsb/PSA/23.json"
   ],
   "/study/questions/children": [
    "data:catalog.json",
@@ -32,7 +32,7 @@
   ],
   "/bible": [
    "data:catalog.json",
-   "data:plain/bsb/JHN.json"
+   "data:text/bsb/JHN/0.json"
   ],
   "/listen": [
    "data:catalog.json"
@@ -73,13 +73,13 @@
   ],
   "/charts/words-of-jesus": [
    "data:catalog.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/LUK.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/MRK.json",
    "data:stats.json",
    "data:study/harmony.json",
-   "data:study/index.json"
+   "data:study/index.json",
+   "data:text/bsb/JHN/1.json",
+   "data:text/bsb/LUK/1.json",
+   "data:text/bsb/MAT/2.json",
+   "data:text/bsb/MRK/1.json"
   ],
   "/charts/versions": [
    "data:catalog.json",
@@ -106,10 +106,10 @@
   ],
   "/contact": [
    "data:catalog.json",
-   "data:plain/bsb/1CO.json",
-   "data:plain/bsb/ISA.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/PRO.json"
+   "data:text/bsb/1CO/1.json",
+   "data:text/bsb/ISA/10.json",
+   "data:text/bsb/MAT/1.json",
+   "data:text/bsb/PRO/0.json"
   ],
   "/contact/other-work": [
    "data:catalog.json"
@@ -119,8 +119,8 @@
   ],
   "/support": [
    "data:catalog.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/PSA.json"
+   "data:text/bsb/MAT/1.json",
+   "data:text/bsb/PSA/9.json"
   ],
   "/search/meaning": [
    "data:catalog.json"
@@ -176,7 +176,7 @@
   ],
   "/testimony-builder": [
    "data:catalog.json",
-   "data:plain/bsb/MRK.json"
+   "data:text/bsb/MRK/0.json"
   ],
   "/verse-of-the-day": [
    "data:catalog.json",
@@ -252,66 +252,76 @@
   ],
   "/study/strongs-numbers": [
    "data:catalog.json",
-   "data:plain/bsb/JHN.json"
+   "data:text/bsb/JHN/4.json"
   ],
   "/study/home-and-household": [
    "data:catalog.json",
-   "data:plain/bsb/1KI.json",
-   "data:plain/bsb/JOS.json",
-   "data:plain/bsb/PRO.json"
+   "data:text/bsb/1KI/3.json",
+   "data:text/bsb/JOS/1.json",
+   "data:text/bsb/PRO/6.json"
   ],
   "/study/the-farming-year": [
    "data:catalog.json",
-   "data:plain/bsb/AMO.json",
-   "data:plain/bsb/EXO.json",
-   "data:plain/bsb/HOS.json",
-   "data:plain/bsb/ISA.json",
-   "data:plain/bsb/JER.json",
-   "data:plain/bsb/LUK.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/MIC.json",
-   "data:plain/bsb/MRK.json",
-   "data:plain/bsb/RUT.json"
+   "data:plain/bsb/RUT.json",
+   "data:text/bsb/AMO/1.json",
+   "data:text/bsb/EXO/1.json",
+   "data:text/bsb/HOS/1.json",
+   "data:text/bsb/ISA/5.json",
+   "data:text/bsb/JER/1.json",
+   "data:text/bsb/LUK/2.json",
+   "data:text/bsb/MAT/2.json",
+   "data:text/bsb/MAT/3.json",
+   "data:text/bsb/MIC/0.json",
+   "data:text/bsb/MRK/0.json",
+   "data:text/bsb/MRK/2.json"
   ],
   "/study/egypt-beside-israel": [
    "data:catalog.json",
-   "data:plain/bsb/2SA.json",
    "data:plain/bsb/2TI.json",
-   "data:plain/bsb/GEN.json",
    "data:plain/bsb/MAL.json",
-   "data:plain/bsb/PSA.json"
+   "data:text/bsb/2SA/0.json",
+   "data:text/bsb/GEN/6.json",
+   "data:text/bsb/PSA/20.json",
+   "data:text/bsb/PSA/22.json"
   ],
   "/study/how-the-church-has-read-the-bible": [
    "data:catalog.json",
-   "data:plain/bsb/GAL.json",
-   "data:plain/bsb/PSA.json"
+   "data:text/bsb/GAL/0.json",
+   "data:text/bsb/PSA/29.json"
   ],
   "/study/the-medieval-church": [
    "data:catalog.json",
-   "data:plain/bsb/ACT.json",
    "data:plain/bsb/COL.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/ROM.json"
+   "data:text/bsb/ACT/0.json",
+   "data:text/bsb/JHN/2.json",
+   "data:text/bsb/JHN/3.json",
+   "data:text/bsb/MAT/4.json",
+   "data:text/bsb/MAT/5.json",
+   "data:text/bsb/ROM/1.json"
   ],
   "/study/the-good-news": [
    "data:catalog.json",
    "data:plain/bsb/1JN.json",
-   "data:plain/bsb/ACT.json",
-   "data:plain/bsb/ISA.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/LUK.json",
-   "data:plain/bsb/ROM.json"
+   "data:text/bsb/ACT/0.json",
+   "data:text/bsb/ISA/10.json",
+   "data:text/bsb/JHN/0.json",
+   "data:text/bsb/JHN/2.json",
+   "data:text/bsb/LUK/2.json",
+   "data:text/bsb/ROM/0.json",
+   "data:text/bsb/ROM/1.json"
   ],
   "/study/how-hebrew-works": [
    "data:catalog.json",
-   "data:plain/bsb/GEN.json",
-   "data:plain/bsb/PSA.json"
+   "data:text/bsb/GEN/0.json",
+   "data:text/bsb/PSA/0.json",
+   "data:text/bsb/PSA/29.json",
+   "data:text/bsb/PSA/4.json"
   ],
   "/study/how-new-testament-greek-works": [
    "data:catalog.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/ROM.json"
+   "data:text/bsb/JHN/0.json",
+   "data:text/bsb/ROM/0.json",
+   "data:text/bsb/ROM/1.json"
   ],
   "/study/dead-sea-scrolls": [
    "data:catalog.json"
@@ -366,13 +376,13 @@
   ],
   "/study/gospels": [
    "data:catalog.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/LUK.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/MRK.json",
    "data:stats.json",
    "data:study/harmony.json",
-   "data:study/index.json"
+   "data:study/index.json",
+   "data:text/bsb/JHN/1.json",
+   "data:text/bsb/LUK/1.json",
+   "data:text/bsb/MAT/2.json",
+   "data:text/bsb/MRK/1.json"
   ],
   "/study/versions": [
    "data:catalog.json",
@@ -392,7 +402,7 @@
   ],
   "/study/long-memory": [
    "data:catalog.json",
-   "data:plain/bsb/ISA.json"
+   "data:text/bsb/ISA/1.json"
   ],
   "/study/people": [
    "data:catalog.json",
@@ -431,14 +441,14 @@
   ],
   "/resources/life": [
    "data:catalog.json",
-   "data:plain/bsb/MAT.json"
+   "data:text/bsb/MAT/2.json"
   ],
   "/resources/learning": [
    "data:catalog.json"
   ],
   "/resources/fellowships": [
    "data:catalog.json",
-   "data:plain/bsb/ACT.json"
+   "data:text/bsb/ACT/0.json"
   ],
   "/resources/sermon-notes": [
    "data:catalog.json"
@@ -468,14 +478,11 @@
   ],
   "/topics/marriage": [
    "data:catalog.json",
-   "data:places.json",
-   "data:plain/bsb/1CO.json",
-   "data:plain/bsb/GEN.json",
    "data:plain/bsb/MAL.json",
-   "data:study/index.json",
-   "data:study/people.json",
-   "split:topics",
-   "data:topics/t/30.json"
+   "data:text/bsb/1CO/1.json",
+   "data:text/bsb/GEN/0.json",
+   "data:topics/t/30.json",
+   "split:topics"
   ],
   "/games/crossword": [
    "data:catalog.json"
@@ -507,51 +514,47 @@
   ],
   "/people/peter": [
    "data:catalog.json",
-   "data:plain/bsb/1CO.json",
-   "data:plain/bsb/1PE.json",
-   "data:plain/bsb/1TH.json",
-   "data:plain/bsb/1TI.json",
-   "data:plain/bsb/2CO.json",
-   "data:plain/bsb/2PE.json",
-   "data:plain/bsb/2TH.json",
-   "data:plain/bsb/2TI.json",
-   "data:plain/bsb/ACT.json",
-   "data:plain/bsb/COL.json",
-   "data:plain/bsb/EPH.json",
-   "data:plain/bsb/GAL.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/JOS.json",
-   "data:plain/bsb/LUK.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/MRK.json",
-   "data:plain/bsb/PHM.json",
-   "data:plain/bsb/PHP.json",
-   "data:plain/bsb/REV.json",
-   "data:plain/bsb/ROM.json",
-   "data:plain/bsb/TIT.json",
    "data:study/index.json",
-   "data:study/people.json",
-   "data:study/people/peter-mat-4-18.json"
+   "data:study/people/peter-mat-4-18.json",
+   "data:text/bsb/MAT/0.json",
+   "data:text/bsb/MAT/3.json"
   ],
   "/study/people/moses": [
    "data:catalog.json",
-   "data:plain/bsb/1CH.json",
-   "data:plain/bsb/1KI.json",
-   "data:plain/bsb/1SA.json",
-   "data:plain/bsb/ACT.json",
-   "data:plain/bsb/DEU.json",
    "data:plain/bsb/EXO.json",
    "data:plain/bsb/HEB.json",
-   "data:plain/bsb/JHN.json",
-   "data:plain/bsb/JOS.json",
-   "data:plain/bsb/MAT.json",
-   "data:plain/bsb/MRK.json",
-   "data:plain/bsb/NEH.json",
-   "data:plain/bsb/NUM.json",
-   "data:plain/bsb/PSA.json",
    "data:study/index.json",
-   "data:study/people.json",
-   "data:study/people/moses-exo-2-10.json"
+   "data:study/people/moses-exo-2-10.json",
+   "data:text/bsb/1CH/4.json",
+   "data:text/bsb/1KI/0.json",
+   "data:text/bsb/1KI/1.json",
+   "data:text/bsb/1SA/2.json",
+   "data:text/bsb/ACT/0.json",
+   "data:text/bsb/ACT/1.json",
+   "data:text/bsb/ACT/2.json",
+   "data:text/bsb/DEU/1.json",
+   "data:text/bsb/DEU/3.json",
+   "data:text/bsb/DEU/5.json",
+   "data:text/bsb/DEU/6.json",
+   "data:text/bsb/JHN/0.json",
+   "data:text/bsb/JOS/0.json",
+   "data:text/bsb/JOS/1.json",
+   "data:text/bsb/JOS/2.json",
+   "data:text/bsb/MAT/1.json",
+   "data:text/bsb/MAT/3.json",
+   "data:text/bsb/MAT/4.json",
+   "data:text/bsb/MRK/1.json",
+   "data:text/bsb/NEH/0.json",
+   "data:text/bsb/NUM/2.json",
+   "data:text/bsb/NUM/3.json",
+   "data:text/bsb/NUM/4.json",
+   "data:text/bsb/NUM/5.json",
+   "data:text/bsb/PSA/15.json",
+   "data:text/bsb/PSA/19.json"
+  ],
+  "/teachers/works": [
+   "data:catalog.json",
+   "split:teacher-library"
   ]
  },
  "overBudget": [
@@ -564,31 +567,10 @@
   },
   {
    "item": "page:/study/people/moses",
-   "gzipKB": 635.4,
+   "gzipKB": 311.6,
    "rawKB": 0,
-   "why": "A person page reads the whole people list (study/people.json) and several chapters of Scripture before it shows; no single file is over, the sum is.",
-   "plan": "Read only the person's own record and the chapters on screen first; the people list when a section that needs it comes near the screen (follow-up job)."
-  },
-  {
-   "item": "page:/people/peter",
-   "gzipKB": 440.9,
-   "rawKB": 0,
-   "why": "A person page reads the whole people list (study/people.json) and several chapters of Scripture before it shows; no single file is over, the sum is.",
-   "plan": "Read only the person's own record and the chapters on screen first; the people list when a section that needs it comes near the screen (follow-up job)."
-  },
-  {
-   "item": "page:/topics/marriage",
-   "gzipKB": 356.9,
-   "rawKB": 0,
-   "why": "The index of every topic with its verses, read whole by the topic, structure and search pages.",
-   "plan": "The topic names and counts first, each topic's verses when that topic opens (follow-up job)."
-  },
-  {
-   "item": "page:/study/the-farming-year",
-   "gzipKB": 346.1,
-   "rawKB": 0,
-   "why": "The farming-year study reads many whole books of the Berean Standard Bible (one file per book) for its quotations before it shows; no single file is over, the sum is.",
-   "plan": "Quote by chapter from the reader's per-chapter files instead of whole books (follow-up job, with the other whole-book quotes)."
+   "why": "Moses' own page (src/components/moses-page) fills every quotation on its long page, from about 30 chapter files of the Berean Standard Bible and the whole of Exodus and Hebrews, before it draws. It no longer reads the people list (job 55541c54: 635 KB down to 312 KB).",
+   "plan": "Fill each section's quotations when that section nears the screen: draw from data/moses.json with its quotations empty (emptyVerses in src/lib/verses.ts, as the apostle pages do) and fill a section's words before it is shown (follow-up job; the page's 1,900-line drawing code renders each section once, so it needs a re-render per section)."
   }
  ],
  "app": {

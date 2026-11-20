@@ -1,3 +1,5 @@
+import { DataUnavailable, loadSplitManifest, loadSplitPart } from "@/lib/data";
+import { assembleRows, type SplitHead } from "@/lib/split-data";
 export interface AcquiredContributor {
   id: string; name: string; side: "preachers" | "scholars"; traditions: string[];
   profileId: string | null; roles: string[]; records: number; readable: number;
@@ -27,6 +29,22 @@ export async function getAcquired<T>(url: string, signal?: AbortSignal): Promise
   const response = await fetch(url, { signal });
   if (!response.ok || !response.headers.get("content-type")?.includes("json")) throw new Error("The library record could not be loaded.");
   return response.json() as Promise<T>;
+}
+const isSplitHead = (value: unknown) => typeof value === "object" && value !== null && Array.isArray((value as SplitHead).keys);
+/** The catalogue from its split (scripts/split-data/datasets.ts, data/split/teacher-library: its figures and the
+ *  contributor rows in files under the per-file budget, put back together in their order), or catalogue.json whole where
+ *  the split is missing (data that has not been through npm run split-data). */
+export async function loadAcquiredCatalogue(signal?: AbortSignal): Promise<AcquiredCatalogue> {
+  try {
+    const manifest = await loadSplitManifest("teacher-library");
+    const [head, parts] = await Promise.all([loadSplitPart<SplitHead<Omit<AcquiredCatalogue, "contributors">>>("teacher-library", manifest.head, isSplitHead),
+      Promise.all(manifest.layers.list.files.map(file => loadSplitPart<unknown[]>("teacher-library", file.file, Array.isArray)))]);
+    return { ...head.data, contributors: assembleRows(parts, head, manifest.rows) as AcquiredContributor[] };
+  } catch (error) {
+    if (!(error instanceof DataUnavailable)) throw error;
+    console.warn(`${error.message}; reading the whole acquired catalogue`);
+    return getAcquired<AcquiredCatalogue>(`${ACQUIRED_BASE}/catalogue.json`, signal);
+  }
 }
 export function localLibraryEnabled(): boolean {
   return typeof window!=='undefined'&&['127.0.0.1','localhost','[::1]'].includes(window.location.hostname)&&['8930','8931'].includes(window.location.port);

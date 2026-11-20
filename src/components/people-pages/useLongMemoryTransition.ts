@@ -1,7 +1,7 @@
 import { useEffect, useRef, type MouseEvent } from "react";
 import { flushSync } from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
-import { loadPeople, loadPersonDetail } from "@/lib/study";
+import { loadPeople, loadPeopleNames, loadPersonDetail } from "@/lib/study";
 import { personIdOf } from "@/lib/people-slugs";
 import { preparePeoplePage, preload } from "@/lib/people-pages";
 import { isApostleEndpoint } from "@/lib/people-pages-index";
@@ -59,8 +59,9 @@ export function useLongMemoryTransition() {
     if (person(to.pathname)) {
       const id = personIdOf(to.pathname.split("/")[2]);
       await Promise.allSettled([
-        import("@/pages/PersonPage"), preload("people", loadPeople), preload(`person:${id}`, () => loadPersonDetail(id)),
-        ...(isApostleEndpoint(id) ? [preparePeoplePage(id,"mission")] : []),
+        import("@/pages/PersonPage"), preload(`person:${id}`, () => loadPersonDetail(id)),
+        // The same key and list as PersonPage: the apostle pages draw without it.
+        ...(isApostleEndpoint(id) ? [preparePeoplePage(id,"mission")] : [preload("people-names", loadPeopleNames)]),
       ]);
     }
     if (run !== generation.current || window.location.pathname !== here.pathname) return;

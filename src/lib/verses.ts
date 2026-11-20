@@ -1,8 +1,11 @@
 // The one place a verse's wording comes from. Pages and data files hold verse ids (BBCCCVVV, scripts/bible/books.py),
-// never wording; the words are looked up here, in the reader's current Bible, from data/plain/<slug>/<BOOK>.json.
+// never wording; the words are looked up here, in the reader's current Bible, from the reader's chapter files
+// (data/text/<slug>/<BOOK>/, the same words as data/plain word for word: checked over all 160 Bibles on 2026-11-19), so
+// a page downloads the chapters it quotes, not whole books (owner, 2026-11-19). A batch that needs most of a book's
+// chapter files reads the book's plain file instead (WHOLE_BOOK_SHARE).
 // A verse that Bible does not number comes back with no text, and the page shows its reference with a short note.
 import { useMemo } from "react";
-import { loadPlain } from "./data";
+import { loadChapterPlain, loadPlain, textChunkPath } from "./data";
 import { siteLanguage, useSiteLanguage, type LanguageCode } from "./language";
 import { siteLanguageBible } from "./site-languages";
 import { useCatalog } from "./catalog";
@@ -57,15 +60,52 @@ const clean = (text: string): string => text.replace(/^¶\s*/, "").replace(/\s+/
 /** A verse id means the English numbering, so a Bible numbered another way would answer with the wrong verse. */
 const sameNumbering = (bible: Translation): boolean => bible.numbering === "english";
 
-async function bookWords(bible: Translation, code: string): Promise<Record<string, string> | null> {
-  if (!sameNumbering(bible) || !bible.books[code]) return null;
-  return loadPlain(bible.slug, code);
+/** A chapter file holds the verses with their notes and headings, about 1.4 times the plain words; past this share of a
+ * book's chapter files, its one plain file is the smaller download. */
+const WHOLE_BOOK_SHARE = 0.6;
+/** Books (codes) a batch reads whole. */
+type WholeBooks = ReadonlySet<string>;
+
+/** The books of which a batch of chapters needs more than WHOLE_BOOK_SHARE of the chapter files. */
+function wholeBooks(catalog: Catalog, bible: Translation, chapters: Iterable<[number, number]>): WholeBooks {
+  const files = new Map<string, Set<string>>();
+  for (const [num, chapter] of chapters) {
+    const code = bookByNum(catalog, num)?.code;
+    const labels = code ? bible.books[code] : undefined;
+    const index = labels?.indexOf(String(chapter)) ?? -1;
+    if (!code || !labels || index < 0) continue;
+    if (!files.has(code)) files.set(code, new Set());
+    files.get(code)!.add(textChunkPath(bible.slug, code, index));
+  }
+  const whole = new Set<string>();
+  for (const [code, needed] of files) {
+    const all = new Set(bible.books[code].map((_, index) => textChunkPath(bible.slug, code, index)));
+    if (needed.size > all.size * WHOLE_BOOK_SHARE) whole.add(code);
+  }
+  return whole;
 }
 
-async function wordsOf(catalog: Catalog, bible: Translation, id: number): Promise<ResolvedVerse> {
+/** The chapters a span covers, as [book number, chapter]; a span across books is refused later by rangeVerses. */
+function spanChapters(start: number, end: number): [number, number][] {
+  const a = splitId(start), b = splitId(end || start), out: [number, number][] = [];
+  if (a.num !== b.num) return [[a.num, a.chapter]];
+  for (let chapter = a.chapter; chapter <= b.chapter; chapter++) out.push([a.num, chapter]);
+  return out;
+}
+
+/** One chapter's words in this Bible ("chapter:verse" -> text), from its chapter file or, for a book read whole, the
+ * book's plain file; null where the Bible lacks the book or chapter, or numbers its verses differently. */
+async function chapterWords(bible: Translation, code: string, chapter: number, whole: WholeBooks): Promise<Record<string, string> | null> {
+  const labels = bible.books[code];
+  if (!sameNumbering(bible) || !labels) return null;
+  if (whole.has(code)) return loadPlain(bible.slug, code);
+  return labels.includes(String(chapter)) ? loadChapterPlain(bible.slug, code, labels, String(chapter)) : null;
+}
+
+async function wordsOf(catalog: Catalog, bible: Translation, id: number, whole: WholeBooks): Promise<ResolvedVerse> {
   const { num, chapter, verse } = splitId(id);
   const code = bookByNum(catalog, num)?.code;
-  const plain = code ? await bookWords(bible, code) : null;
+  const plain = code ? await chapterWords(bible, code, chapter, whole) : null;
   const found = plain ? plainLookup(plain, chapter, verse) : undefined;
   return { id, chapter, verse, text: found === undefined ? null : clean(found) };
 }
@@ -73,10 +113,11 @@ async function wordsOf(catalog: Catalog, bible: Translation, id: number): Promis
 /** The verses of a list of ids, in the order given. */
 export async function resolveVerses(catalog: Catalog, ids: readonly number[], slug = currentBibleSlug()): Promise<ResolvedPassage> {
   const bible = findBible(catalog, slug);
-  return { bible, verses: await Promise.all(ids.map((id) => wordsOf(catalog, bible, id))), truncated: false };
+  const whole = wholeBooks(catalog, bible, ids.map((id): [number, number] => [splitId(id).num, splitId(id).chapter]));
+  return { bible, verses: await Promise.all(ids.map((id) => wordsOf(catalog, bible, id, whole))), truncated: false };
 }
 
-/** The last verse number a Bible gives a chapter, from its plain book. */
+/** The last verse number a Bible gives a chapter, from its plain words (the chapter's, or the whole book's). */
 function lastVerse(plain: Record<string, string>, chapter: number): number {
   const prefix = `${chapter}:`;
   let last = 0;
@@ -91,22 +132,26 @@ function lastVerse(plain: Record<string, string>, chapter: number): number {
 /** The verses from `start` to `end` (ids), one book, across chapters if need be, stopping after `max`. */
 export async function resolveRange(catalog: Catalog, start: number, end: number, slug = currentBibleSlug(), max = Infinity): Promise<ResolvedPassage> {
   const bible = findBible(catalog, slug);
+  return rangeVerses(catalog, bible, start, end, max, wholeBooks(catalog, bible, spanChapters(start, end)));
+}
+
+async function rangeVerses(catalog: Catalog, bible: Translation, start: number, end: number, max: number, whole: WholeBooks): Promise<ResolvedPassage> {
   const a = splitId(start);
   const b = splitId(end || start);
   if (a.num !== b.num) throw new Error(`verses: a range must stay in one book, got ${start}–${end}`);
   const code = bookByNum(catalog, a.num)?.code;
-  const plain = code ? await bookWords(bible, code) : null;
+  // Every chapter's words are asked for at once, so the files download side by side.
+  const chapters = spanChapters(start, end).map(([, chapter]) => chapter);
+  const words = await Promise.all(chapters.map((chapter) => code ? chapterWords(bible, code, chapter, whole) : null));
   const verses: ResolvedVerse[] = [];
-  const add = (chapter: number, verse: number) => {
-    const found = plain ? plainLookup(plain, chapter, verse) : undefined;
-    verses.push({ id: a.num * 1_000_000 + chapter * 1000 + verse, chapter, verse, text: found === undefined ? null : clean(found) });
-  };
-  for (let chapter = a.chapter; chapter <= b.chapter; chapter++) {
+  for (const [i, chapter] of chapters.entries()) {
+    const plain = words[i];
     const from = chapter === a.chapter ? a.verse : 1;
     const to = chapter === b.chapter ? b.verse : plain ? lastVerse(plain, chapter) : from;
     for (let verse = from; verse <= to; verse++) {
       if (verses.length >= max) return { bible, verses, truncated: true };
-      add(chapter, verse);
+      const found = plain ? plainLookup(plain, chapter, verse) : undefined;
+      verses.push({ id: a.num * 1_000_000 + chapter * 1000 + verse, chapter, verse, text: found === undefined ? null : clean(found) });
     }
   }
   return { bible, verses, truncated: false };
@@ -158,8 +203,8 @@ export function firstWords(text: string, limit = 60): string {
 const missingText = (catalog: Catalog, bible: Translation, start: number, end: number): string =>
   `${verseReference(catalog, start, end)}: ${sameNumbering(bible) ? "not in this Bible" : "numbered differently in this Bible"}`;
 
-async function passageText(catalog: Catalog, bible: Translation, start: number, end: number): Promise<string> {
-  const { verses } = await resolveRange(catalog, start, end, bible.slug);
+async function passageText(catalog: Catalog, bible: Translation, start: number, end: number, whole: WholeBooks): Promise<string> {
+  const { verses } = await rangeVerses(catalog, bible, start, end, Infinity, whole);
   const words = verses.flatMap((verse) => (verse.text === null ? [] : [verse.text]));
   return words.length ? words.join(" ") : missingText(catalog, bible, start, end);
 }
@@ -176,29 +221,42 @@ const isVerseTable = (value: unknown): value is string[] =>
 export async function fillVerses<T>(data: T, catalog: Catalog, slug = currentBibleSlug()): Promise<T> {
   const bible = findBible(catalog, slug);
   const copy = structuredClone(data);
-  const pending: Promise<void>[] = [];
-  const walk = (node: unknown): void => {
-    if (Array.isArray(node)) { node.forEach(walk); return; }
-    if (!node || typeof node !== "object") return;
-    const record = node as Record<string, unknown>;
-    if (record.quoted === true) {
-      const span = (record.span ?? record.ref ?? [record.id, record.id]) as [number, number];
-      pending.push(passageText(catalog, bible, span[0], span[1]).then((text) => { record.text = record.marks ? `“${text}”` : text; }));
-    }
-    for (const [key, value] of Object.entries(record)) {
-      if ((key === "verses" || key === "kjv") && isVerseTable(value)) {
-        const table: Record<string, string> = {};
-        record[key] = table;
-        for (const entry of value) {
-          const [first, last = first] = entry.split("-").map(Number);
-          pending.push(passageText(catalog, bible, first, last).then((text) => { table[entry] = text; }));
-        }
-      } else walk(value);
-    }
-  };
-  walk(copy);
-  await Promise.all(pending);
+  // Every passage is found first, so the books it needs most of are read whole (wholeBooks) and the rest by chapter.
+  const passages: { span: [number, number]; put: (text: string) => void }[] = [];
+  walkQuotations(copy, (span, put) => passages.push({ span, put }));
+  const whole = wholeBooks(catalog, bible, passages.flatMap(({ span }) => spanChapters(span[0], span[1])));
+  await Promise.all(passages.map(({ span, put }) => passageText(catalog, bible, span[0], span[1], whole).then(put)));
   return copy;
+}
+
+/** A copy of the data with every quotation fillVerses would fill left empty ("" for each passage), for a page that draws
+ * before its sections below ask for the words (the apostle pages, src/components/apostle-page/data.ts). */
+export function emptyVerses<T>(data: T): T {
+  const copy = structuredClone(data);
+  walkQuotations(copy, (_span, put) => put(""));
+  return copy;
+}
+
+/** Calls `found` for every quotation and table entry in `node` (see fillVerses), with how to put its words in place;
+ * a table of verses becomes an object at once, and its entries are filled in place. */
+function walkQuotations(node: unknown, found: (span: [number, number], put: (text: string) => void) => void): void {
+  if (Array.isArray(node)) { node.forEach((item) => walkQuotations(item, found)); return; }
+  if (!node || typeof node !== "object") return;
+  const record = node as Record<string, unknown>;
+  if (record.quoted === true) {
+    const span = (record.span ?? record.ref ?? [record.id, record.id]) as [number, number];
+    found(span, (text) => { record.text = record.marks && text ? `“${text}”` : text; });
+  }
+  for (const [key, value] of Object.entries(record)) {
+    if ((key === "verses" || key === "kjv") && isVerseTable(value)) {
+      const table: Record<string, string> = {};
+      record[key] = table;
+      for (const entry of value) {
+        const [first, last = first] = entry.split("-").map(Number);
+        found([first, last], (text) => { table[entry] = text; });
+      }
+    } else walkQuotations(value, found);
+  }
 }
 
 /** Many verses at once for a page that handles the words as data (word marks, comparisons). `null` until they are in. */

@@ -50,7 +50,7 @@ describe("scripture memory page", () => {
     expect(within(practise()).getByText("Step 1 of 6")).toBeInTheDocument();
     expect(saved()).toMatchObject({ v: 1, verses: [{ from: 43003016, to: 43003016, stage: 0, last: 0 }] });
     expect(screen.getByLabelText("Reference")).toHaveValue("");
-    for (const [url] of fetchMock.mock.calls) expect(String(url)).toMatch(/^\/data\/plain\/bsb\/[A-Z0-9]+\.json/);
+    for (const [url] of fetchMock.mock.calls) expect(String(url)).toMatch(/^\/data\/(plain\/bsb\/[A-Z0-9]+|text\/bsb\/[A-Z0-9]+\/\d+)\.json/);
   });
 
   it("refuses what it cannot learn, with a sentence", async () => {

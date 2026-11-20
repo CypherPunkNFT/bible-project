@@ -86,4 +86,43 @@ const questions: Dataset = {
   detailShards: 8,
 };
 
-export const DATASETS: Dataset[] = [scholars, questions, sources, ...STUDY_DATASETS];
+/** The People list (data/study/people.json, scripts/build-study.py people_files: 3,133 rows, 375 KB, 77 KB compressed).
+ *  A person page needs only the list layer (names, other names, verse counts, eras: about 37 KB compressed) for the
+ *  person's own row, the family links and "one of N people named"; the one-line briefs (the family links' tooltips)
+ *  come when the family box nears the screen (job 55541c54). Every row is in that first read, so every row is the
+ *  opening. English only: a page in another language reads its translated people.json whole (src/lib/study.ts). */
+const people: Dataset = {
+  name: "people",
+  source: "data/study/people.json",
+  rows: (source) => source as unknown as Row[],
+  id: (row) => row.id as string,
+  head: () => ({}),
+  extra: null,
+  opening: () => true,
+  layers: {
+    list: { id: 1, n: 1, o: 1, c: 1, p: 1, g: 1 },
+    briefs: { b: 1 },
+  },
+  detailShards: 1,
+};
+
+/** The acquired library's catalogue (public/content/teacher-library/catalogue.json, scripts/build-acquired-teachers.py:
+ *  8,477 contributors, 1.5 MB, 230 KB compressed; not in git), read by "The texts we hold, by contributor" on
+ *  /teachers/works and the Preachers page. Its figures are the head; the contributor rows (everything a card, the
+ *  filters and the search read) come in files under the per-file budget when that section nears the screen (job
+ *  55541c54). On /teachers/works it is on the first screen, so every row is the opening. */
+const teacherLibrary: Dataset = {
+  name: "teacher-library",
+  source: "public/content/teacher-library/catalogue.json",
+  rows: (source) => source.contributors as Row[],
+  id: (row) => row.id as string,
+  head: (source) => Object.fromEntries(Object.entries(source).filter(([key]) => key !== "contributors")),
+  extra: null,
+  opening: () => true,
+  layers: {
+    list: { id: 1, name: 1, side: 1, traditions: 1, profileId: 1, roles: 1, records: 1, readable: 1, sourceLifeDates: 1 },
+  },
+  detailShards: 1,
+};
+
+export const DATASETS: Dataset[] = [scholars, questions, sources, ...STUDY_DATASETS, people, teacherLibrary];

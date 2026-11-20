@@ -12,12 +12,13 @@ import OccasionVersesPage from "./OccasionVersesPage";
 
 export const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
 
-/** Serves /data/plain/bsb/<BOOK>.json from the repository; books in `failBooks` fail, as offline. */
+/** Serves /data/plain/bsb/<BOOK>.json and the reader's chapter files the quotations read (/data/text/bsb/<BOOK>/<n>.json,
+ *  src/lib/verses.ts) from the repository; books in `failBooks` fail, as offline. */
 export function serveBerean(options: { failBooks?: string[] } = {}) {
   const fetchMock = vi.fn(async (url: string) => {
-    const match = /^\/data\/plain\/bsb\/([A-Z0-9]+)\.json/.exec(String(url));
-    if (!match || options.failBooks?.includes(match[1])) return { ok: false, status: 404, headers: { get: () => "text/plain" }, json: async () => ({}) };
-    return { ok: true, status: 200, headers: { get: () => "application/json" }, json: async () => JSON.parse(readFileSync(`data/plain/bsb/${match[1]}.json`, "utf8")) };
+    const match = /^\/data\/(plain\/bsb\/([A-Z0-9]+)\.json|text\/bsb\/([A-Z0-9]+)\/\d+\.json)/.exec(String(url));
+    if (!match || options.failBooks?.includes(match[2] ?? match[3])) return { ok: false, status: 404, headers: { get: () => "text/plain" }, json: async () => ({}) };
+    return { ok: true, status: 200, headers: { get: () => "application/json" }, json: async () => JSON.parse(readFileSync(`data/${match[1]}`, "utf8")) };
   });
   vi.stubGlobal("fetch", fetchMock);
   return fetchMock;

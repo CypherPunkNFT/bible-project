@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
 import { nameLinkFor } from "@/data/baby-names";
@@ -11,14 +11,14 @@ import { apostleFor, personPath, prophetFor, rulerFor } from "@/lib/people-pages
 import { periodLabel } from "@/lib/people-periods";
 import { bookByNum, formatRange } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
-import type { Person, PersonRow, PersonStory } from "@/lib/study";
+import { loadPeopleBriefs, type Person, type PersonName, type PersonStory } from "@/lib/study";
 import { cn } from "@/lib/utils";
 import { formatNumber } from "@/lib/site-format";
 
 const SEX = { M: "Man", F: "Woman", G: "Group", "": "" } as const;
 
 /** One person's page body: who they were, their family, where Scripture names them, their story and every verse. */
-export function PersonProfile({ person, byId, sameName, switcher, entry }: { person: Person; byId: Map<string, PersonRow>; sameName: number; switcher?: ReactNode; entry?: ReactNode }) {
+export function PersonProfile({ person, byId, sameName, switcher, entry }: { person: Person; byId: Map<string, PersonName>; sameName: number; switcher?: ReactNode; entry?: ReactNode }) {
   const catalog = useCatalog();
   const [full, setFull] = useState(false);
   const facts = [SEX[person.s], person.p && periodLabel(person.p), person.t].filter(Boolean).join(" · ");
@@ -106,26 +106,49 @@ function DescriptionCredit({ person }: { person: Person }) {
 }
 
 /** A relative: their own page, with this person as the way back. */
-function PersonLink({ id, byId, from }: { id: string; byId: Map<string, PersonRow>; from: string }) {
+function PersonLink({ id, byId, briefs, from }: { id: string; byId: Map<string, PersonName>; briefs: Map<string, string> | null; from: string }) {
   const p = byId.get(id);
   if (!p) return null;
-  return <Link to={`/people/${id}`} state={cameFrom(from)} className="inline-block rounded-full border border-line bg-page px-2.5 py-0.5 text-sm hover:border-accent hover:text-accent" title={p.b}>{p.n}</Link>;
+  return <Link to={`/people/${id}`} state={cameFrom(from)} className="inline-block rounded-full border border-line bg-page px-2.5 py-0.5 text-sm hover:border-accent hover:text-accent" title={p.b ?? briefs?.get(id)}>{p.n}</Link>;
+}
+
+/** The relatives' one-line briefs (their links' tooltips), read once the family box nears the screen: the person page's
+ *  list leaves them out (src/lib/study.ts loadPeopleNames). Null until they arrive, or when every relative has one. */
+function useRelativeBriefs(ids: string[], byId: Map<string, PersonName>) {
+  const box = useRef<HTMLElement>(null);
+  const [briefs, setBriefs] = useState<Map<string, string> | null>(null);
+  const wanted = ids.some((id) => byId.get(id)?.b === undefined);
+  useEffect(() => {
+    const element = box.current;
+    if (!wanted || briefs || !element) return;
+    let live = true;
+    const read = () => loadPeopleBriefs().then((found) => { if (live) setBriefs(found); })
+      .catch((error: unknown) => console.warn("the family links' briefs could not be loaded", error));
+    if (!("IntersectionObserver" in window)) { void read(); return () => { live = false; }; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); void read(); }
+    }, { rootMargin: "300px 0px" });
+    observer.observe(element);
+    return () => { live = false; observer.disconnect(); };
+  }, [wanted, briefs]);
+  return { box, briefs };
 }
 
 /** Parents above; the person with brothers, sisters and spouses; children below. */
-function FamilyTree({ person, byId }: { person: Person; byId: Map<string, PersonRow> }) {
+function FamilyTree({ person, byId }: { person: Person; byId: Map<string, PersonName> }) {
+  const { box, briefs } = useRelativeBriefs([...person.pa, ...person.si, ...person.sp, ...person.ch], byId);
   if (!person.pa.length && !person.si.length && !person.sp.length && !person.ch.length) return null;
   const Row = ({ label, ids }: { label: string; ids: string[] }) => ids.length ? <div className="flex flex-wrap items-center justify-center gap-1.5">
     <span className="w-full text-center text-[11px] uppercase tracking-[0.14em] text-muted">{label}</span>
-    {ids.map((id) => <PersonLink key={id} id={id} byId={byId} from={person.n} />)}
+    {ids.map((id) => <PersonLink key={id} id={id} byId={byId} briefs={briefs} from={person.n} />)}
   </div> : null;
-  return <section aria-label="Family" className="space-y-2 rounded-xl border border-line bg-surface p-4">
+  return <section ref={box} aria-label="Family" className="space-y-2 rounded-xl border border-line bg-surface p-4">
     <h2 className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Family</h2>
     <Row label="Parents" ids={person.pa} />
     {person.pa.length > 0 && <div className="mx-auto h-3 w-px bg-line" aria-hidden />}
     <div className="flex flex-wrap items-center justify-center gap-1.5">
       <span className="rounded-full bg-ink px-3 py-0.5 text-sm font-semibold text-page">{person.n}</span>
-      {person.sp.map((id) => <span key={id} className="flex items-center gap-1 text-xs text-muted">married to <PersonLink id={id} byId={byId} from={person.n} /></span>)}
+      {person.sp.map((id) => <span key={id} className="flex items-center gap-1 text-xs text-muted">married to <PersonLink id={id} byId={byId} briefs={briefs} from={person.n} /></span>)}
     </div>
     <Row label="Brothers and sisters" ids={person.si} />
     {person.ch.length > 0 && <div className="mx-auto h-3 w-px bg-line" aria-hidden />}

@@ -9,10 +9,10 @@ import { newRun, current, reveal, select } from './game';
 import { RUN_KEY, saveRun } from './storage';
 import type { Deck } from './types';
 
-vi.mock('@/lib/data',()=>({loadPlain:vi.fn()}));
+vi.mock('@/lib/data',async original=>({...await original<typeof import('@/lib/data')>(),loadPlain:vi.fn()}));
 vi.mock('@/lib/catalog',()=>({useCatalog:()=>catalog}));
 vi.mock('@/lib/language',async original=>({...await original<typeof import('@/lib/language')>(),useSiteLanguage:()=> 'es'}));
-const translation={abbr:'BSB',name:'Berean Standard Bible',lang:'en',dir:'ltr',numbering:'english',books:{GEN:['6','8','9']}};
+const translation={abbr:'BSB',name:'Berean Standard Bible',lang:'en',dir:'ltr',numbering:'english',books:{GEN:['6','7','8','9']}}; // every chapter the deck's passages quote: a chapter the catalogue does not list is not looked up
 const catalog={translations:[{...translation,slug:'bsb'},{...translation,slug:currentBibleSlug('es'),lang:'es'}],books:[{num:1,code:'GEN',name:'Genesis'}]} as unknown as Catalog;
 afterEach(()=>{cleanup();vi.restoreAllMocks();});
 it('uses BSB on another site language, retains the revealed score on load failure, and retries through the real verse helpers',async()=>{

@@ -17,6 +17,9 @@ const catalog = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../../../
 vi.mock("@/lib/data", async (importOriginal) => ({
   ...await importOriginal<typeof import("@/lib/data")>(),
   loadPlain: async (slug: string, code: string) => JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../../../data/plain/${slug}/${code}.json`), "utf8")),
+  // Quotations read one chapter (src/lib/verses.ts): the same words, cut from the book.
+  loadChapterPlain: async (slug: string, code: string, _labels: string[], chapter: string) => Object.fromEntries(Object.entries(
+    JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../../../data/plain/${slug}/${code}.json`), "utf8")) as Record<string, string>).filter(([key]) => key.startsWith(`${chapter}:`))),
 }));
 
 const schedule = scheduleFile as unknown as TimelineSchedule;

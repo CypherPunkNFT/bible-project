@@ -2,7 +2,8 @@ import type { Person, Span } from "@/lib/study";
 import type { Aspect } from "@/lib/people-pages-index";
 
 export function mountMoses(root: HTMLElement, options: {
-  person: Person;
+  /** All the runtime reads of the person: their verses and the site's life story. */
+  person: Pick<Person, "id" | "refs" | "story">;
   back: { path: string; label: string };
   personPath: (id: string, aspect?: Aspect) => string;
   fillVerses: <T>(data: T) => Promise<T>;
