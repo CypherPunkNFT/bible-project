@@ -8,6 +8,7 @@ import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 import { languageFolder, onLanguageChange, translatedDataPath } from "./language";
 import { bankPartPath, parseQuestionParts } from "./language-packs";
 import { PackUnavailable, readPacked } from "./translated-packs";
+import { isSplitPart, parseSplitManifest, splitPath, type SplitManifest } from "./split-data";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -62,8 +63,11 @@ async function fetchJson(path: string, check: (value: unknown) => boolean, reval
 }
 
 async function fetchFile(path: string, check: (value: unknown) => boolean, revalidate: boolean): Promise<unknown> {
-  const url = `/data/${path}${stamp ? `?v=${stamp}` : ""}`;
-  const response = await fetch(url, { cache: stamp && !revalidate ? "default" : "no-cache" });
+  // A split part's name carries the hash of its bytes (src/lib/split-data.ts), so it needs no stamp and stays cached
+  // across releases that did not change it.
+  const fixed = isSplitPart(path);
+  const url = `/data/${path}${stamp && !fixed ? `?v=${stamp}` : ""}`;
+  const response = await fetch(url, { cache: (stamp || fixed) && !revalidate ? "default" : "no-cache" });
   if (!response.ok) throw new DataUnavailable(path, `HTTP ${response.status}`);
   if (!(response.headers.get("content-type") ?? "").includes("json")) {
     throw new DataUnavailable(path, `expected JSON, got ${response.headers.get("content-type")}`);
@@ -232,6 +236,24 @@ export function loadQuestionBank(): Promise<QuestionBank> {
   }
   return wholeBank;
 }
+
+// Split data sets (scripts/split-data.ts): a data set's manifest, then the parts it names, each read once per visit.
+export const loadSplitManifest = (dataset: string): Promise<SplitManifest> =>
+  load<unknown>(splitPath(dataset), isObject).then((value) => parseSplitManifest(value, dataset));
+/** Split parts being fetched. Unlike load(), a part is not kept for the session once it has arrived: the reader keeps the
+ *  rows it builds from it, and the browser's cache keeps the file (its name changes with its bytes). */
+const splitParts = new Map<string, Promise<unknown>>();
+export const loadSplitPart = <T>(dataset: string, file: string, check: (value: unknown) => boolean = (v) => Array.isArray(v) || isObject(v)): Promise<T> => {
+  const path = splitPath(dataset, file);
+  let pending = splitParts.get(path);
+  if (!pending) {
+    pending = fetchJson(path, check);
+    const done = () => { splitParts.delete(path); };
+    pending.then(done, done);
+    splitParts.set(path, pending);
+  }
+  return pending as Promise<T>;
+};
 
 // Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.

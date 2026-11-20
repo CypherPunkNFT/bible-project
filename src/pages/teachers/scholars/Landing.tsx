@@ -20,18 +20,20 @@ function jump(event: MouseEvent<HTMLAnchorElement>) {
   history.replaceState(history.state, "", hash);
 }
 export function Landing() {
-  const { data, library, libraryFacts, openProfile, filterCatalogue } = useScholars();
+  const { data, library: whole, opening, entryCount, wantLibrary, libraryFacts, openProfile, filterCatalogue } = useScholars();
+  // Until the whole list arrives (a search asks for it), matches come from the opening's rows, which the timeline draws.
+  const library = whole ?? opening;
   const [query, setQuery] = useState("");
   const matchIds = useMemo(() => new Set(query.trim() ? (library??[]).filter(p=>matchesLibrary(p,{...NO_FILTERS,q:query.trim().toLocaleLowerCase()},ALL_LIBRARY)).flatMap(p=>[p.id,...(p.scholar?[p.scholar.id]:[])]) : []),[library,query]);
   return <div className="lnd">
-    <LandingHeader title={<>The greats,<br/><em>catalogued.</em></>} lead={<>{library ? `Explore ${formatNumber(library.length)} contributor entries across five fields, including ${formatNumber(data.scholars.length)} documented scholar profiles. Search authors, translators and their associated works.` : `Explore the full library of contributor entries across five fields, including ${formatNumber(data.scholars.length)} documented scholar profiles. Search authors, translators and their associated works.`}</>}
+    <LandingHeader title={<>The greats,<br/><em>catalogued.</em></>} lead={<>{entryCount !== null ? `Explore ${formatNumber(entryCount)} contributor entries across five fields, including ${formatNumber(data.scholars.length)} documented scholar profiles. Search authors, translators and their associated works.` : `Explore the full library of contributor entries across five fields, including ${formatNumber(data.scholars.length)} documented scholar profiles. Search authors, translators and their associated works.`}</>}
       navigation={<nav className="lnd-section-nav" aria-label="On this page"><div className="lnd-jump">{SCHOLAR_SECTIONS.map(({id,title})=><a key={id} href={`#${id}`} onClick={jump}><span><b>{sectionNumber(id)}</b>{title}</span><ArrowRight size={14} aria-hidden="true"/></a>)}</div></nav>}>
         <form className="lnd-full-search" onSubmit={e=>{e.preventDefault();filterCatalogue({q:query.trim().toLocaleLowerCase()});}}>
           <label className="sr-only" htmlFor="full-contributor-search">Search the full catalogue</label>
-          <div><Search size={17} aria-hidden="true"/><input id="full-contributor-search" type="search" placeholder="Author, translator or work" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit" aria-label="Search catalogue"><ArrowRight size={17}/></button></div>
+          <div><Search size={17} aria-hidden="true"/><input id="full-contributor-search" type="search" placeholder="Author, translator or work" value={query} onChange={e=>{setQuery(e.target.value);wantLibrary();}}/><button type="submit" aria-label="Search catalogue"><ArrowRight size={17}/></button></div>
         </form>
         <dl className="lnd-figs">
-          <div><dt>Contributors</dt><dd>{(library ? formatNumber(library.length) : undefined) ?? "…"}</dd><p>{plural(data.scholars.length, "{n} documented profile", "{n} documented profiles")}</p></div>
+          <div><dt>Contributors</dt><dd>{(entryCount !== null ? formatNumber(entryCount) : undefined) ?? "…"}</dd><p>{plural(data.scholars.length, "{n} documented profile", "{n} documented profiles")}</p></div>
           <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>history to reference books</p></div>
           <div><dt>Era established</dt><dd>{libraryFacts ? formatNumber(libraryFacts.summary.catalogueEntries-libraryFacts.summary.eras.unknown) : "…"}</dd><p>documented or source-supported</p></div>
           <div><dt>Era unknown</dt><dd>{(libraryFacts ? formatNumber(libraryFacts.summary.eras.unknown) : undefined) ?? "…"}</dd><p>retained in the catalogue</p></div>

@@ -18,6 +18,12 @@ export interface ScholarsContextValue {
   setCatalogueSort: (sort: LibrarySort) => void;
   cataloguePeople: LibraryPerson[];
   library: LibraryPerson[] | null;
+  /** The timeline's rows (every supported birth year) until `library` has loaded, then null (catalogue/useLibrary.ts). */
+  opening: LibraryPerson[] | null;
+  /** How many entries the list has, known from the opening before the whole list loads. */
+  entryCount: number | null;
+  /** Ask for the whole list (a section below the opening, a search): until then only the opening is loaded. */
+  wantLibrary: () => void;
   population: PopulationSnapshot | null;
   libraryError: string;
   libraryFacts: ContributorFacts | null;

@@ -27,8 +27,9 @@
 .hf-art:hover::before { opacity: 1.4; }
 .hf-scene { position: relative; display: block; width: 100%; height: auto; overflow: visible; }
 .hf-scene [class^="hf-layer"] { transition: transform .9s cubic-bezier(.2, .7, .2, 1), opacity .6s, filter .6s; }
-.hf-scene * { animation-play-state: paused; }
-.hf-art[data-live] .hf-scene * { animation-play-state: running; }
+/* Each part's own `animation` shorthand resets its play state and outranks a plain pause, so the drawings ran off
+   screen too, costing a phone every frame (measured 2026-11-19): the pause needs !important. */
+.hf-art:not([data-live]) .hf-scene *, .hf-art:not([data-live]) .hf-scene *::before, .hf-art:not([data-live]) .hf-scene *::after { animation-play-state: paused !important; }
 .hf-orbit { stroke: currentColor; opacity: .22; stroke-dasharray: 2 7; animation: hf-orbit 70s linear infinite; }
 .hf-orbit-inner { opacity: .14; animation-duration: 95s; animation-direction: reverse; }
 .hf-cross { stroke: var(--line); stroke-width: 1; opacity: .7; }

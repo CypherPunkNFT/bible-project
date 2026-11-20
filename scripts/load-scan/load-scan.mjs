@@ -10,6 +10,11 @@ import { chromium } from '@playwright/test';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const limits = JSON.parse(fs.readFileSync(path.join(root, 'scripts/load-scan/thresholds.json'), 'utf8'));
+// Data file limits come from data-budgets.json, the one place data budgets live (shared with both test suites, 2026-11-19):
+// a data file over the per-file raw budget is a warning, five times over it is bad.
+const dataBudgets = JSON.parse(fs.readFileSync(path.join(root, 'data-budgets.json'), 'utf8'));
+limits.dataFileWarn = dataBudgets.perFileRawKB / 1024;
+limits.dataFileBad = (dataBudgets.perFileRawKB * 5) / 1024;
 // Files reviewed and kept as they are, each with its reason; they are reported as accepted instead of as warnings.
 const accepted = JSON.parse(fs.readFileSync(path.join(root, 'scripts/load-scan/accepted.json'), 'utf8'));
 const MB = 1024 * 1024;

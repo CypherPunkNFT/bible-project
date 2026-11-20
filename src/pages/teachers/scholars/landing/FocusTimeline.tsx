@@ -12,7 +12,7 @@ import './focus-timeline.css';
 import { formatNumber } from "@/lib/site-format";
 
 export function FocusTimeline({data,matches,searching,onOpen}:ScholarTimelineProps){
- const {library,libraryError}=useScholars(),id=useId();
+ const {library:whole,opening,libraryError}=useScholars(),library=whole??opening,id=useId();
  const frame=useRef<HTMLDivElement>(null),periodPanel=useRef<HTMLDivElement>(null),nameButton=useRef<HTMLButtonElement>(null);
  const [width,setWidth]=useState(0),[selected,setSelected]=useState<string|null>(null),[expanded,setExpanded]=useState<number|null>(null),[query,setQuery]=useState(''),[details,setDetails]=useState<LibraryPerson|null>(null);
  useLayoutEffect(()=>{const el=frame.current;if(!el)return;const measure=()=>setWidth(el.clientWidth);measure();const observer=new ResizeObserver(measure);observer.observe(el);return()=>observer.disconnect();},[]);

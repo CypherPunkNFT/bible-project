@@ -6,6 +6,9 @@
 // standard of "Every word, traced to its source" leading to its own page. The map and its zoom: NearbyStage.tsx.
 // resourcesTab (owner, 2026-10-23, trying on home_mockup2): three openings with a paragraph on what the section is about
 // and one way to Resources, switched by a floating pill: nearby/NearbyIntro.tsx.
+// Speed (2026-11-19): the section sits far down the page, and its files (life.json, the fellowships, the cities and the
+// default city's map, about 1.7 MB) were all fetched as the homepage opened. Now nothing is read until the section comes
+// near the screen (DeferredSection); a placeholder of about its height holds its place meanwhile.
 import { ArrowRight, Church, LifeBuoy, type LucideIcon } from "lucide-react";
 import { useMemo, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
@@ -18,6 +21,7 @@ import "@/pages/resources/life/life.css";
 import "@/pages/resources/fellowships/fellowships.css";
 import "./home-nearby.css";
 import { plural } from "@/lib/site-format";
+import { DeferredSection } from "@/components/DeferredSection";
 
 /** Every city with a map, its help places and its churches and groups together; the local phone lines come from life.json. */
 function mergeCities(life: LifeData, fellowships: FellowshipsData, gatherings: FellowshipCities) {
@@ -44,20 +48,12 @@ const WAYS: { to: string; Icon: LucideIcon; title: string; text: string; open: s
     text: "Help is for a crisis, whoever you are: a pregnancy, an empty cupboard, a loss, an addiction. Places that help, each checked on its own page." },
 ];
 
-export function HomeNearby({ resourcesTab = false, number, trial = false }: { resourcesTab?: boolean; number?: string; trial?: boolean }) {
-  const life = useResource("life"), fellowships = useResource("fellowships"), gatherings = useResource("fellowship-cities");
-  const merged = useMemo(() => (typeof life === "object" && typeof fellowships === "object" && typeof gatherings === "object" ? mergeCities(life, fellowships, gatherings) : null), [life, fellowships, gatherings]);
-  const words = useMemo(() => ({
-    kick: `${merged?.cities.length ?? 0} cities on the map`,
-    lead: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")}${lines ? ` and ${plural(lines, "{n} phone line", "{n} phone lines")}` : ""}: churches and Bible studies, and help for hard times, each checked on its own page.`,
-    title: "Near you in",
-    count: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")} on the map${lines > 0 ? ` · ${plural(lines, "{n} phone line", "{n} phone lines")} below` : ""}`,
-    tag: (e: City["entries"][number]) => merged?.fellowshipOf.get(e.id) || kindOf(e.category).short,
-  }), [merged]);
-  const checked = typeof gatherings === "object" ? gatherings.checked : typeof life === "object" ? life.checked : "";
+interface NearbyProps { resourcesTab?: boolean; number?: string; trial?: boolean }
 
+export function HomeNearby(props: NearbyProps) {
+  const { resourcesTab = false } = props;
   return <section className={`hn lf-page fw-page home-wrap${resourcesTab ? " hn-one" : ""}`} aria-labelledby="hn-title" style={{ "--door": "var(--accent)" } as CSSProperties}>
-    {resourcesTab ? (merged ? <NearbyIntro figures={merged.figures} number={number} trial={trial} /> : null) : <header className="hn-head">
+    {!resourcesTab && <header className="hn-head">
       <div>
         <p className="home-eyebrow">Close to home</p>
         <h2 id="hn-title">Find your way, <em>close to home.</em></h2>
@@ -69,7 +65,26 @@ export function HomeNearby({ resourcesTab = false, number, trial = false }: { re
           <span className="hn-way-copy"><strong>{title}</strong><span>{text}</span><span className="hn-way-open">{open}<ArrowRight size={14} aria-hidden /></span></span>
         </Link></li>)}</ul>
     </header>}
+    <DeferredSection minHeight="min(1000px, 150vh)"><NearbyContent {...props} /></DeferredSection>
+  </section>;
+}
+
+/** What needs the files: the opening with its figures (resourcesTab) and the map. */
+function NearbyContent({ resourcesTab = false, number, trial = false }: NearbyProps) {
+  const life = useResource("life"), fellowships = useResource("fellowships"), gatherings = useResource("fellowship-cities");
+  const merged = useMemo(() => (typeof life === "object" && typeof fellowships === "object" && typeof gatherings === "object" ? mergeCities(life, fellowships, gatherings) : null), [life, fellowships, gatherings]);
+  const words = useMemo(() => ({
+    kick: `${merged?.cities.length ?? 0} cities on the map`,
+    lead: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")}${lines ? ` and ${plural(lines, "{n} phone line", "{n} phone lines")}` : ""}: churches and Bible studies, and help for hard times, each checked on its own page.`,
+    title: "Near you in",
+    count: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")} on the map${lines > 0 ? ` · ${plural(lines, "{n} phone line", "{n} phone lines")} below` : ""}`,
+    tag: (e: City["entries"][number]) => merged?.fellowshipOf.get(e.id) || kindOf(e.category).short,
+  }), [merged]);
+  const checked = typeof gatherings === "object" ? gatherings.checked : typeof life === "object" ? life.checked : "";
+
+  return <>
+    {resourcesTab && merged ? <NearbyIntro figures={merged.figures} number={number} trial={trial} /> : null}
     {merged?.cities.length ? <NearbyStage cities={merged.cities} words={words} checked={checked} />
       : <p className="lf-wait">{[life, fellowships, gatherings].includes("missing") ? "The map's places are missing." : "Loading the map…"}</p>}
-  </section>;
+  </>;
 }

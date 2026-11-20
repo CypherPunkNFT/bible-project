@@ -134,5 +134,7 @@ html[dir="rtl"] .home-banner[data-flip] .home-banner-terms li::after { display: 
 .home-collapse[data-open] { grid-template-rows: 1fr; }
 .home-collapse > div { overflow: hidden; min-height: 0; }
 .home-collapse:not([data-open]) > div { visibility: hidden; transition: visibility 0s .6s; }
+/* A closed part holds its drawings still: nobody can see them, and their loops cost a phone every frame (2026-11-19). */
+.home-collapse:not([data-open]) *, .home-collapse:not([data-open]) *::before, .home-collapse:not([data-open]) *::after { animation-play-state: paused !important; }
 @media (max-width: 900px) { .home-banner[data-flip] .home-banner-title { order: 0; flex-direction: row; justify-self: start; text-align: left; } .home-banner[data-flip] .home-banner-name { align-items: flex-start; } }
 @media (prefers-reduced-motion: reduce) { .home-collapse, .home-banner-chevron { transition: none; } }

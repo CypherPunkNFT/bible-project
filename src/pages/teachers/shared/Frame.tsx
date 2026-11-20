@@ -1,7 +1,9 @@
 // What both Teachers subpages share: the switch between the two sides, the numbered section heading, a section that
 // keeps its own failure to itself, and the loading state.
-import { Component, useEffect, useRef, useState, type ErrorInfo, type ReactNode } from "react";
+import { Component, type ErrorInfo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+// Expensive maps and source diagrams mount near the viewport, then stay mounted for this visit.
+import { DeferredSection } from "@/components/DeferredSection";
 import { SIDE_PATHS, type Side } from "./sides";
 import "./frame.css";
 
@@ -33,24 +35,9 @@ export class TeacherSection extends Component<{ id: string; title: string; child
   }
   render() {
     return <section id={this.props.id} className={`tp-sec tp-sec-${this.props.id}`} aria-label={this.props.title}>
-      {this.state.failed ? <p className="tp-failed">This section could not be shown. Reloading the page usually fixes it.</p> : this.props.id==="landing" ? this.props.children : <DeferredSection>{this.props.children}</DeferredSection>}
+      {this.state.failed ? <p className="tp-failed">This section could not be shown. Reloading the page usually fixes it.</p> : this.props.id==="landing" ? this.props.children : <DeferredSection className="tp-section-content">{this.props.children}</DeferredSection>}
     </section>;
   }
-}
-
-// Expensive maps and source diagrams mount near the viewport, then stay mounted for this visit.
-function DeferredSection({children}:{children:ReactNode}) {
-  const [ready,setReady]=useState(false),ref=useRef<HTMLDivElement>(null);
-  useEffect(()=>{
-    if(!ref.current)return;
-    if(!("IntersectionObserver" in window)){setReady(true);return;}
-    const observer=new IntersectionObserver(entries=>{
-      if(entries.some(entry=>entry.isIntersecting)){setReady(true);observer.disconnect();}
-    },{rootMargin:"300px 0px"});
-    observer.observe(ref.current);
-    return()=>observer.disconnect();
-  },[]);
-  return <div ref={ref} className="tp-section-content" data-deferred={!ready||undefined} style={!ready?{minHeight:"min(800px, 90vh)"}:undefined}>{ready?children:null}</div>;
 }
 
 export function PageStatus({ error }: { error: Error | null }) {

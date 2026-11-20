@@ -34,4 +34,14 @@ describe("WindowedRows", () => {
     expect(short).toHaveBeenCalled();
     expect(long).not.toHaveBeenCalled();
   });
+
+  it("draws the pinned stand-in for the first drawn item just before the list, outside it", () => {
+    const pinned = vi.fn((first: string) => <p className="pin">{`Pinned for ${first}`}</p>);
+    const { container } = render(<div data-testid="host"><WindowedRows items={["a1", "a2", "h:B", "b1"]} itemKey={(s) => s} estimate={30} pinned={pinned}
+      className="list" renderItem={(s, row) => <div key={s} data-row={row}>{s}</div>} /></div>);
+    const host = container.firstElementChild!;
+    expect([...host.children].map((el) => el.className)).toEqual(["pin", "list"]);
+    expect(host.querySelector(".pin")?.textContent).toBe("Pinned for a1");
+    expect(host.querySelectorAll(".list > [data-row]").length).toBe(4);
+  });
 });

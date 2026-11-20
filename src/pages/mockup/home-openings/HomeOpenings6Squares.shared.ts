@@ -7,8 +7,10 @@ export function useSquareRoom(stage: RefObject<HTMLElement>, on: boolean) {
     const section = stage.current;
     if (!on || !section) return;
     const place = () => {
+      // Phone width shows no squares: decide that before measuring, so nothing forces a layout there.
+      if (innerWidth <= 860) { section.dataset.squares = "none"; return; }
       const wall = section.querySelector(".hm6-wall")?.getBoundingClientRect();
-      if (!wall || innerWidth <= 860) { section.dataset.squares = "none"; return; }
+      if (!wall) { section.dataset.squares = "none"; return; }
       const room = wall.left - section.getBoundingClientRect().left, spare = room - COLUMN_WIDEST;
       const least = GAP_NARROWEST + EDGE_NARROWEST, most = GAP_WIDEST + EDGE_WIDEST;
       const share = Math.min(1, Math.max(0, (spare - least) / (most - least)));
@@ -20,7 +22,15 @@ export function useSquareRoom(stage: RefObject<HTMLElement>, on: boolean) {
       section.dataset.squares = column >= COLUMN_NARROWEST ? "fit" : "none";
     };
     place();
-    const observer = new ResizeObserver(place);
+    // Only a change that can move the wall re-places the squares: on a phone the section's height changes all the time
+    // as the page below it loads and animates, and measuring on each change kept the Home page busy (2026-11-19).
+    let last = "";
+    const observer = new ResizeObserver(([entry]) => {
+      const key = innerWidth <= 860 ? "narrow" : `${entry?.contentRect.width}x${entry?.contentRect.height}`;
+      if (key === last) return;
+      last = key;
+      place();
+    });
     observer.observe(section);
     return () => observer.disconnect();
   }, [stage, on]);

@@ -26,6 +26,7 @@ const WINDOWED = [
   "src/pages/teachers/scholars/Fields.tsx",
   "src/pages/study/hymns/Through.tsx",
   "src/pages/teachers/preachers/through/BookPanel.tsx",
+  "src/components/study/PeopleCatalog.tsx",
 ];
 // Lists short enough to show whole (under about 100 rows): shown whole, with no button either.
 const WHOLE = [

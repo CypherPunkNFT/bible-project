@@ -1,0 +1,846 @@
+{
+ "about": "Data size budgets for the website and the app (owner, 2026-11-19: slow pages came from downloading and parsing big data files whole). The one place budgets live: scripts/split-data.ts cuts parts to them, src/lib/data-budgets.test.ts (website) and App/src/__tests__/data-budgets.test.ts (app) fail when a first-load file or a page's first load is over, and scripts/load-scan reads them for the browser scan. Sizes are gzip at gzipLevel (what a phone downloads) and raw (what it parses).",
+ "perFileGzipKB": 100,
+ "perFileRawKB": 1024,
+ "pageFirstLoadGzipKB": 300,
+ "gzipLevel": 9,
+ "pages": {
+  "/": [
+   "data:catalog.json",
+   "data:plain/bsb/1CO.json",
+   "data:plain/bsb/ISA.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/PRO.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/study/questions/children": [
+   "data:catalog.json",
+   "data:questions/bank.json"
+  ],
+  "/study/questions": [
+   "data:catalog.json",
+   "data:questions/bank.json"
+  ],
+  "/study/questions/test": [
+   "data:catalog.json",
+   "data:questions/bank.json"
+  ],
+  "/library": [
+   "data:catalog.json",
+   "data:stats.json",
+   "data:summaries/JHN.json"
+  ],
+  "/bible": [
+   "data:catalog.json",
+   "data:plain/bsb/JHN.json"
+  ],
+  "/listen": [
+   "data:catalog.json"
+  ],
+  "/listen/asv": [
+   "data:catalog.json"
+  ],
+  "/read": [
+   "data:catalog.json",
+   "data:hymns/by-book/GEN.json",
+   "data:places-by-book/GEN.json",
+   "data:text/bsb/GEN/0.json",
+   "data:topics/chapters/GEN.json",
+   "data:xref/GEN/1.json"
+  ],
+  "/charts": [
+   "data:catalog.json"
+  ],
+  "/charts/references": [
+   "data:catalog.json",
+   "data:xref-arcs.json",
+   "data:xref-books.json",
+   "public:images/arcs/manifest.json"
+  ],
+  "/charts/structure": [
+   "data:catalog.json",
+   "data:hymns/by-book/GEN.json",
+   "data:stats.json",
+   "data:study/harmony.json",
+   "data:study/index.json",
+   "data:study/letters.json",
+   "data:study/miracles.json",
+   "data:study/names.json",
+   "data:study/prophets.json",
+   "data:summaries/GEN.json",
+   "data:topics/chapters/GEN.json",
+   "data:topics/index.json"
+  ],
+  "/charts/words-of-jesus": [
+   "data:catalog.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/LUK.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/MRK.json",
+   "data:stats.json",
+   "data:study/harmony.json",
+   "data:study/index.json"
+  ],
+  "/charts/versions": [
+   "data:catalog.json",
+   "data:stats.json"
+  ],
+  "/testimonies": [
+   "data:catalog.json"
+  ],
+  "/testimonies/join": [
+   "data:catalog.json"
+  ],
+  "/testimonies/access": [
+   "data:catalog.json"
+  ],
+  "/testimonies/design": [
+   "data:catalog.json"
+  ],
+  "/atlas": [
+   "data:catalog.json"
+  ],
+  "/search": [
+   "data:catalog.json",
+   "data:topics/index.json"
+  ],
+  "/contact": [
+   "data:catalog.json",
+   "data:plain/bsb/1CO.json",
+   "data:plain/bsb/ISA.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/PRO.json"
+  ],
+  "/contact/other-work": [
+   "data:catalog.json"
+  ],
+  "/privacy": [
+   "data:catalog.json"
+  ],
+  "/support": [
+   "data:catalog.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/search/meaning": [
+   "data:catalog.json"
+  ],
+  "/analysis": [
+   "data:catalog.json"
+  ],
+  "/games/whos-older": [
+   "data:catalog.json"
+  ],
+  "/play": [
+   "data:catalog.json"
+  ],
+  "/team": [
+   "data:catalog.json"
+  ],
+  "/holy-days": [
+   "data:catalog.json"
+  ],
+  "/reading-planner": [
+   "data:catalog.json"
+  ],
+  "/word-counter": [
+   "data:catalog.json"
+  ],
+  "/citation-generator": [
+   "data:catalog.json"
+  ],
+  "/tithe-calculator": [
+   "data:catalog.json"
+  ],
+  "/random-verse": [
+   "data:catalog.json",
+   "data:text/bsb/EXO/1.json"
+  ],
+  "/name-in-hebrew": [
+   "data:baby-names/index.json",
+   "data:catalog.json"
+  ],
+  "/occasion-verses": [
+   "data:catalog.json"
+  ],
+  "/worship-slides": [
+   "data:catalog.json"
+  ],
+  "/scripture-memory": [
+   "data:catalog.json"
+  ],
+  "/puzzle-maker": [
+   "data:catalog.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/testimony-builder": [
+   "data:catalog.json",
+   "data:plain/bsb/MRK.json"
+  ],
+  "/verse-of-the-day": [
+   "data:catalog.json",
+   "public:widget/v1/days/2026-11-19.json"
+  ],
+  "/banner-emblems": [
+   "data:catalog.json"
+  ],
+  "/versions": [
+   "data:catalog.json",
+   "public:content/sources/directory.json",
+   "public:content/sources/facets.json"
+  ],
+  "/sources": [
+   "data:catalog.json",
+   "public:content/sources/directory.json",
+   "public:content/sources/facets.json"
+  ],
+  "/study": [
+   "data:catalog.json"
+  ],
+  "/study/circles": [
+   "data:catalog.json",
+   "public:circles/catalogue.json",
+   "public:circles/readers.json"
+  ],
+  "/study2": [
+   "data:catalog.json"
+  ],
+  "/study/theology": [
+   "data:catalog.json"
+  ],
+  "/study/creeds": [
+   "data:catalog.json",
+   "data:creeds/index.json"
+  ],
+  "/study/hymns": [
+   "data:catalog.json",
+   "data:hymns/collection.json"
+  ],
+  "/study/theology-articles": [
+   "data:catalog.json"
+  ],
+  "/study/manuscripts": [
+   "data:catalog.json",
+   "data:manuscripts/collection.json"
+  ],
+  "/study/surviving-witnesses": [
+   "data:catalog.json",
+   "data:manuscripts/collection.json"
+  ],
+  "/study/passage-through-manuscripts": [
+   "data:catalog.json",
+   "data:manuscripts/collection.json"
+  ],
+  "/study/israel-among-the-empires": [
+   "data:catalog.json"
+  ],
+  "/study/from-manuscript-to-printed-bible": [
+   "data:catalog.json"
+  ],
+  "/study/world-of-jesus-and-apostles": [
+   "data:catalog.json"
+  ],
+  "/study/world-of-jesus-apostles-complete": [
+   "data:catalog.json"
+  ],
+  "/study/world-of-jesus-apostles": [
+   "data:catalog.json"
+  ],
+  "/study/cities-through-their-layers": [
+   "data:catalog.json"
+  ],
+  "/study/how-the-canon-took-shape": [
+   "data:catalog.json"
+  ],
+  "/study/strongs-numbers": [
+   "data:catalog.json",
+   "data:plain/bsb/JHN.json"
+  ],
+  "/study/home-and-household": [
+   "data:catalog.json",
+   "data:plain/bsb/1KI.json",
+   "data:plain/bsb/JOS.json",
+   "data:plain/bsb/PRO.json"
+  ],
+  "/study/the-farming-year": [
+   "data:catalog.json",
+   "data:plain/bsb/AMO.json",
+   "data:plain/bsb/EXO.json",
+   "data:plain/bsb/HOS.json",
+   "data:plain/bsb/ISA.json",
+   "data:plain/bsb/JER.json",
+   "data:plain/bsb/LUK.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/MIC.json",
+   "data:plain/bsb/MRK.json",
+   "data:plain/bsb/RUT.json"
+  ],
+  "/study/egypt-beside-israel": [
+   "data:catalog.json",
+   "data:plain/bsb/2SA.json",
+   "data:plain/bsb/2TI.json",
+   "data:plain/bsb/GEN.json",
+   "data:plain/bsb/MAL.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/study/how-the-church-has-read-the-bible": [
+   "data:catalog.json",
+   "data:plain/bsb/GAL.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/study/the-medieval-church": [
+   "data:catalog.json",
+   "data:plain/bsb/ACT.json",
+   "data:plain/bsb/COL.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/ROM.json"
+  ],
+  "/study/the-good-news": [
+   "data:catalog.json",
+   "data:plain/bsb/1JN.json",
+   "data:plain/bsb/ACT.json",
+   "data:plain/bsb/ISA.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/LUK.json",
+   "data:plain/bsb/ROM.json"
+  ],
+  "/study/how-hebrew-works": [
+   "data:catalog.json",
+   "data:plain/bsb/GEN.json",
+   "data:plain/bsb/PSA.json"
+  ],
+  "/study/how-new-testament-greek-works": [
+   "data:catalog.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/ROM.json"
+  ],
+  "/study/dead-sea-scrolls": [
+   "data:catalog.json"
+  ],
+  "/study/discoveries-biblical-record": [
+   "data:catalog.json"
+  ],
+  "/study/from-discovery-to-history": [
+   "data:catalog.json"
+  ],
+  "/study/museum-archaeology": [
+   "data:catalog.json",
+   "data:museums/index.json"
+  ],
+  "/study/mesha-and-the-world-of-moab": [
+   "data:catalog.json"
+  ],
+  "/study/lachish-under-siege": [
+   "data:catalog.json"
+  ],
+  "/study/cyrus-restoration-and-return": [
+   "data:catalog.json"
+  ],
+  "/study/academic": [
+   "data:catalog.json"
+  ],
+  "/study/connections": [
+   "data:catalog.json",
+   "data:xref-arcs.json",
+   "data:xref-books.json",
+   "public:images/arcs/manifest.json"
+  ],
+  "/study/references": [
+   "data:catalog.json",
+   "data:xref-arcs.json",
+   "data:xref-books.json",
+   "public:images/arcs/manifest.json"
+  ],
+  "/study/structure": [
+   "data:catalog.json",
+   "data:hymns/by-book/GEN.json",
+   "data:stats.json",
+   "data:study/harmony.json",
+   "data:study/index.json",
+   "data:study/letters.json",
+   "data:study/miracles.json",
+   "data:study/names.json",
+   "data:study/prophets.json",
+   "data:summaries/GEN.json",
+   "data:topics/chapters/GEN.json",
+   "data:topics/index.json"
+  ],
+  "/study/gospels": [
+   "data:catalog.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/LUK.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/MRK.json",
+   "data:stats.json",
+   "data:study/harmony.json",
+   "data:study/index.json"
+  ],
+  "/study/versions": [
+   "data:catalog.json",
+   "data:stats.json"
+  ],
+  "/study/harmony": [
+   "data:catalog.json",
+   "data:stats.json",
+   "data:study/harmony.json",
+   "data:study/index.json"
+  ],
+  "/study/miracles": [
+   "data:catalog.json",
+   "data:study/harmony.json",
+   "data:study/index.json",
+   "data:study/miracles.json"
+  ],
+  "/study/long-memory": [
+   "data:catalog.json",
+   "data:plain/bsb/ISA.json"
+  ],
+  "/study/people": [
+   "data:catalog.json",
+   "data:study/index.json",
+   "data:study/people.json"
+  ],
+  "/study/prophets": [
+   "data:catalog.json",
+   "data:study/index.json",
+   "data:study/people.json",
+   "data:study/prophets.json"
+  ],
+  "/study/rulers": [
+   "data:catalog.json",
+   "data:study/index.json",
+   "data:study/prophets.json"
+  ],
+  "/study/apostles": [
+   "data:catalog.json"
+  ],
+  "/study/names": [
+   "data:catalog.json"
+  ],
+  "/review": [
+   "data:catalog.json"
+  ],
+  "/teachers": [
+   "data:catalog.json"
+  ],
+  "/teachers/scholars": [
+   "data:catalog.json",
+   "split:scholars"
+  ],
+  "/teachers/preachers-and-authors": [
+   "data:catalog.json"
+  ],
+  "/resources/life": [
+   "data:catalog.json",
+   "data:plain/bsb/MAT.json"
+  ],
+  "/resources/learning": [
+   "data:catalog.json"
+  ],
+  "/resources/fellowships": [
+   "data:catalog.json",
+   "data:plain/bsb/ACT.json"
+  ],
+  "/resources/sermon-notes": [
+   "data:catalog.json"
+  ],
+  "/study/atlas/map": [
+   "data:catalog.json",
+   "data:places.json"
+  ],
+  "/study/atlas/cities": [
+   "data:catalog.json",
+   "data:places.json"
+  ],
+  "/study/atlas/reformation": [
+   "data:catalog.json"
+  ],
+  "/study/atlas/journeys": [
+   "data:catalog.json",
+   "data:places.json"
+  ],
+  "/topics": [
+   "data:catalog.json",
+   "data:topics/index.json"
+  ],
+  "/topics/reformed": [
+   "data:catalog.json",
+   "data:topics/index.json"
+  ],
+  "/topics/marriage": [
+   "data:catalog.json",
+   "data:places.json",
+   "data:plain/bsb/1CO.json",
+   "data:plain/bsb/GEN.json",
+   "data:plain/bsb/MAL.json",
+   "data:study/index.json",
+   "data:study/people.json",
+   "data:topics/index.json",
+   "data:topics/t/30.json"
+  ],
+  "/games/crossword": [
+   "data:catalog.json"
+  ],
+  "/games/what-came-first": [
+   "data:catalog.json"
+  ],
+  "/games/timeline": [
+   "data:catalog.json"
+  ],
+  "/games/quiz": [
+   "data:catalog.json"
+  ],
+  "/games/map-quest": [
+   "data:catalog.json"
+  ],
+  "/study/letters/paul": [
+   "data:catalog.json"
+  ],
+  "/apologetics": [
+   "data:catalog.json",
+   "data:plain/bsb/1PE.json"
+  ],
+  "/study/places": [
+   "data:catalog.json"
+  ],
+  "/tools": [
+   "data:catalog.json"
+  ],
+  "/people/peter": [
+   "data:catalog.json",
+   "data:plain/bsb/1CO.json",
+   "data:plain/bsb/1PE.json",
+   "data:plain/bsb/1TH.json",
+   "data:plain/bsb/1TI.json",
+   "data:plain/bsb/2CO.json",
+   "data:plain/bsb/2PE.json",
+   "data:plain/bsb/2TH.json",
+   "data:plain/bsb/2TI.json",
+   "data:plain/bsb/ACT.json",
+   "data:plain/bsb/COL.json",
+   "data:plain/bsb/EPH.json",
+   "data:plain/bsb/GAL.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/JOS.json",
+   "data:plain/bsb/LUK.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/MRK.json",
+   "data:plain/bsb/PHM.json",
+   "data:plain/bsb/PHP.json",
+   "data:plain/bsb/REV.json",
+   "data:plain/bsb/ROM.json",
+   "data:plain/bsb/TIT.json",
+   "data:study/index.json",
+   "data:study/people.json",
+   "data:study/people/peter-mat-4-18.json"
+  ],
+  "/study/people/moses": [
+   "data:catalog.json",
+   "data:plain/bsb/1CH.json",
+   "data:plain/bsb/1KI.json",
+   "data:plain/bsb/1SA.json",
+   "data:plain/bsb/ACT.json",
+   "data:plain/bsb/DEU.json",
+   "data:plain/bsb/EXO.json",
+   "data:plain/bsb/HEB.json",
+   "data:plain/bsb/JHN.json",
+   "data:plain/bsb/JOS.json",
+   "data:plain/bsb/MAT.json",
+   "data:plain/bsb/MRK.json",
+   "data:plain/bsb/NEH.json",
+   "data:plain/bsb/NUM.json",
+   "data:plain/bsb/PSA.json",
+   "data:study/index.json",
+   "data:study/people.json",
+   "data:study/people/moses-exo-2-10.json"
+  ]
+ },
+ "overBudget": [
+  {
+   "item": "page:/study/questions/children",
+   "gzipKB": 1961.8,
+   "rawKB": 0,
+   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
+   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
+  },
+  {
+   "item": "page:/study/questions",
+   "gzipKB": 1961.8,
+   "rawKB": 0,
+   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
+   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
+  },
+  {
+   "item": "page:/study/questions/test",
+   "gzipKB": 1961.8,
+   "rawKB": 0,
+   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
+   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
+  },
+  {
+   "item": "file:data:questions/bank.json",
+   "gzipKB": 1942.6,
+   "rawKB": 16476.7,
+   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
+   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
+  },
+  {
+   "item": "page:/versions",
+   "gzipKB": 760.7,
+   "rawKB": 0,
+   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
+   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
+  },
+  {
+   "item": "page:/sources",
+   "gzipKB": 760.7,
+   "rawKB": 0,
+   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
+   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
+  },
+  {
+   "item": "file:public:content/sources/directory.json",
+   "gzipKB": 697.5,
+   "rawKB": 7825.9,
+   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
+   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
+  },
+  {
+   "item": "page:/study/people/moses",
+   "gzipKB": 635.4,
+   "rawKB": 0,
+   "why": "A person page reads the whole people list (study/people.json) and several chapters of Scripture before it shows; no single file is over, the sum is.",
+   "plan": "Read only the person's own record and the chapters on screen first; the people list when a section that needs it comes near the screen (follow-up job)."
+  },
+  {
+   "item": "page:/people/peter",
+   "gzipKB": 440.9,
+   "rawKB": 0,
+   "why": "A person page reads the whole people list (study/people.json) and several chapters of Scripture before it shows; no single file is over, the sum is.",
+   "plan": "Read only the person's own record and the chapters on screen first; the people list when a section that needs it comes near the screen (follow-up job)."
+  },
+  {
+   "item": "page:/charts/references",
+   "gzipKB": 427.4,
+   "rawKB": 0,
+   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
+   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
+  },
+  {
+   "item": "page:/study/connections",
+   "gzipKB": 427.4,
+   "rawKB": 0,
+   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
+   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
+  },
+  {
+   "item": "page:/study/references",
+   "gzipKB": 427.4,
+   "rawKB": 0,
+   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
+   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
+  },
+  {
+   "item": "file:data:xref-arcs.json",
+   "gzipKB": 392,
+   "rawKB": 1712.2,
+   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
+   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
+  },
+  {
+   "item": "page:/topics/marriage",
+   "gzipKB": 356.9,
+   "rawKB": 0,
+   "why": "The index of every topic with its verses, read whole by the topic, structure and search pages.",
+   "plan": "The topic names and counts first, each topic's verses when that topic opens (follow-up job)."
+  },
+  {
+   "item": "page:/study/the-farming-year",
+   "gzipKB": 346.1,
+   "rawKB": 0,
+   "why": "The farming-year study reads many whole books of the Berean Standard Bible (one file per book) for its quotations before it shows; no single file is over, the sum is.",
+   "plan": "Quote by chapter from the reader's per-chapter files instead of whole books (follow-up job, with the other whole-book quotes)."
+  },
+  {
+   "item": "page:/study/circles",
+   "gzipKB": 310.5,
+   "rawKB": 0,
+   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
+   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
+  },
+  {
+   "item": "file:public:circles/catalogue.json",
+   "gzipKB": 235.7,
+   "rawKB": 2359.5,
+   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
+   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
+  },
+  {
+   "item": "file:data:manuscripts/collection.json",
+   "gzipKB": 168.7,
+   "rawKB": 1191.3,
+   "why": "Every manuscript with its full description, read whole by the three manuscript studies.",
+   "plan": "The list fields first and each manuscript's description when it is opened (follow-up job)."
+  },
+  {
+   "item": "file:data:topics/index.json",
+   "gzipKB": 112.8,
+   "rawKB": 502.1,
+   "why": "The index of every topic with its verses, read whole by the topic, structure and search pages.",
+   "plan": "The topic names and counts first, each topic's verses when that topic opens (follow-up job)."
+  },
+  {
+   "item": "file:public:circles/readers.json",
+   "gzipKB": 55.6,
+   "rawKB": 1166.3,
+   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
+   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
+  },
+  {
+   "item": "file:public:content/sources/facets.json",
+   "gzipKB": 44,
+   "rawKB": 1617.5,
+   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
+   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
+  }
+ ],
+ "app": {
+  "about": "The app's bundled JSON files over the per-file budget (App/src/__tests__/data-budgets.test.ts). Caps are the sizes measured on 2026-11-19; they may only come down.",
+  "overBudget": [
+   {
+    "item": "file:src/data/teachers/people.json",
+    "gzipKB": 420,
+    "rawKB": 1785,
+    "why": "The 52 preachers with every passage and sermon (passages and sermons are 84% of it), bundled whole.",
+    "plan": "Screens read the opening slice (people-opening.json); each preacher's passages and sermons when the preacher is opened (follow-up job)."
+   },
+   {
+    "item": "file:src/data/site/debate-transcripts.json",
+    "gzipKB": 319,
+    "rawKB": 1058,
+    "why": "Every debate's transcript, split into turns, in one bundled file.",
+    "plan": "One file per debate, read when that debate is opened (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/hou-map.json",
+    "gzipKB": 218,
+    "rawKB": 632,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/atl-map.json",
+    "gzipKB": 213,
+    "rawKB": 633,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/tpa-map.json",
+    "gzipKB": 183,
+    "rawKB": 545,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/dal-map.json",
+    "gzipKB": 174,
+    "rawKB": 514,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/orl-map.json",
+    "gzipKB": 166,
+    "rawKB": 484,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/clt-map.json",
+    "gzipKB": 156,
+    "rawKB": 504,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/games/crossword/clues.json",
+    "gzipKB": 150,
+    "rawKB": 595,
+    "why": "All crossword clues, bundled for the game.",
+    "plan": "An index of puzzles first, each puzzle's clues when it starts (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/life.json",
+    "gzipKB": 141,
+    "rawKB": 604,
+    "why": "Every city's help places in one file, read by the Help for life and home map screens.",
+    "plan": "Index of cities with counts first, each city's places when it is opened (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/mia-map.json",
+    "gzipKB": 127,
+    "rawKB": 399,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/bhm-map.json",
+    "gzipKB": 118,
+    "rawKB": 343,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/jax-map.json",
+    "gzipKB": 118,
+    "rawKB": 352,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/teachers/content/feature-usage.json",
+    "gzipKB": 114,
+    "rawKB": 749,
+    "why": "Which site features each scholar's sources feed, for the Scholars page's Sources in use section.",
+    "plan": "Load with that section (it is below the opening), cut by feature group (follow-up job)."
+   },
+   {
+    "item": "file:src/data/apostle-pages/art.json",
+    "gzipKB": 112,
+    "rawKB": 511,
+    "why": "The drawings of the Twelve, Matthias and Paul as SVG data.",
+    "plan": "One file per apostle page, read when that page opens (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/okc-map.json",
+    "gzipKB": 109,
+    "rawKB": 334,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/chs-map.json",
+    "gzipKB": 108,
+    "rawKB": 315,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/resources/sdf-map.json",
+    "gzipKB": 108,
+    "rawKB": 316,
+    "why": "One city's whole street map (US Census TIGER/Line layers), parsed when that city opens.",
+    "plan": "Cut each city map by layer and zoom so a city opens with its outline and main streets only (follow-up job)."
+   },
+   {
+    "item": "file:src/data/world-map.json",
+    "gzipKB": 106,
+    "rawKB": 281,
+    "why": "The world outline for the atlas and small maps, at one detail level.",
+    "plan": "A coarse outline first and the detailed one when zoomed (follow-up job)."
+   }
+  ]
+ }
+}

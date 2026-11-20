@@ -17,6 +17,8 @@ import { assertOnlyReleasedTranslations, assertTranslationsComplete, packTransla
 import { assertFullCheckPassed } from "./full-check-gate.mjs";
 import { assertPreReleaseCheckPassed } from "./prerelease-gate.mjs";
 import { releasedFolders } from "../src/lib/site-languages.ts";
+import { buildFromSource, checkWritten } from "./split-data.ts";
+import { DATASETS } from "./split-data/datasets.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const started = Date.now();
@@ -73,6 +75,11 @@ const phraseLists = phraseFolders(path.resolve("data", "i18n")).map((folder) => 
 if (unreleasedTranslations.length) console.log("Translations left out (not released):", unreleasedTranslations.map((entry) => path.basename(entry)).join(", "));
 await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, ...packedData, ...unreleasedTranslations, ...phraseLists].includes(path.resolve(source)) });
 stage("Data copied");
+// The split data sets the pages read first (scripts/split-data.ts): refused if missing, incomplete or older than their
+// sources, before the content stamp covers them.
+const splitProblems = DATASETS.flatMap((dataset) => checkWritten(dataset, buildFromSource(dataset), path.join(site, "data")));
+if (splitProblems.length) throw new Error(`Split data is not ready for the release; run npm run split-data:\n${splitProblems.join("\n")}`);
+stage("Split data checked");
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
 console.log("Translated person packs:", await packTranslatedPeople(site));

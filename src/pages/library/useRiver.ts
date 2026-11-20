@@ -80,8 +80,13 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       state.animation = requestAnimationFrame(step);
     };
 
+    // The width the river was last drawn at: the ResizeObserver's first call (made as soon as it observes) and any call
+    // without a change of width would only draw the same 1,189 bars again (2026-11-19: on a throttled phone the page's
+    // opening was blocked 1.25 s, building the river's and the overview's 2,866 SVG elements and then the river's again).
+    let drawnWidth = -1;
     function draw() {
       const w = box!.clientWidth, h = LAYOUT.band + LAYOUT.bars + LAYOUT.foot;
+      drawnWidth = w;
       svg!.setAttribute("viewBox", `0 0 ${w} ${h}`);
       svg!.setAttribute("height", String(h));
       const unit = w / span();
@@ -140,23 +145,34 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       drawOverview();
     }
 
-    // The overview's 1,189 bars only change with its width; the window over them changes every frame.
-    let overviewWidth = -1;
+    // The overview's 1,189 bars only change with its width; the window over them changes every frame. They are built when
+    // the page is next idle (2026-11-19), so they are not part of the page's first long task; the window, drawn at once,
+    // already shows where the river is.
+    let overviewWidth = -1, overviewIdle = 0;
     const overviewBars = node("g", {});
     const overviewWindow = node("g", {});
     overview.replaceChildren(overviewBars, overviewWindow);
+    const whenIdle = (next: () => void) => window.requestIdleCallback ? window.requestIdleCallback(next, { timeout: 500 }) : window.setTimeout(next, 50);
+    const cancelIdle = (handle: number) => window.cancelIdleCallback ? window.cancelIdleCallback(handle) : window.clearTimeout(handle);
+    function drawOverviewBars(w: number) {
+      const h = LAYOUT.overview, unit = w / total;
+      overviewBars.replaceChildren(
+        ...bars.map((bar, i) => {
+          const height = Math.max(1, (bar.verses / tallestVerses) * (h - 6));
+          return node("rect", { x: i * unit, y: h - height, width: Math.max(unit, 0.7), height, fill: color(bar.section), opacity: 0.55 });
+        }),
+      );
+    }
     function drawOverview() {
       const w = overviewBox!.clientWidth, h = LAYOUT.overview, unit = w / total;
       if (w !== overviewWidth) {
+        const first = overviewWidth < 0;
         overviewWidth = w;
         overview!.setAttribute("viewBox", `0 0 ${w} ${h}`);
         overview!.setAttribute("height", String(h));
-        overviewBars.replaceChildren(
-          ...bars.map((bar, i) => {
-            const height = Math.max(1, (bar.verses / tallestVerses) * (h - 6));
-            return node("rect", { x: i * unit, y: h - height, width: Math.max(unit, 0.7), height, fill: color(bar.section), opacity: 0.55 });
-          }),
-        );
+        cancelIdle(overviewIdle);
+        if (first) overviewIdle = whenIdle(() => drawOverviewBars(overviewWidth));
+        else drawOverviewBars(w);
       }
       const left = state.start * unit, right = state.end * unit;
       const parts = [
@@ -315,7 +331,7 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       [overviewBox, "pointercancel", onOverviewUp],
     ];
     for (const [target, type, listener, options] of listeners) target.addEventListener(type, listener, options);
-    const resize = new ResizeObserver(() => setView(state.start, state.end));
+    const resize = new ResizeObserver(() => { if (box.clientWidth !== drawnWidth) setView(state.start, state.end); });
     resize.observe(box);
 
     api.current = {
@@ -338,6 +354,7 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       api.current = null;
       cancelAnimationFrame(state.animation);
       cancelAnimationFrame(state.frame);
+      cancelIdle(overviewIdle);
       resize.disconnect();
       for (const [target, type, listener, options] of listeners) target.removeEventListener(type, listener, options);
     };

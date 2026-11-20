@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { WindowedRows } from "@/components/WindowedRows";
 import { PEOPLE_PERIODS, periodOrder } from "@/lib/people-periods";
 import { PERSON_ROLES, roleColor, type PersonRole } from "@/lib/people-roles";
 import { usePersonRoles } from "@/lib/use-person-roles";
@@ -9,9 +10,26 @@ import type { PersonRow } from "@/lib/study";
 import { formatNumber } from "@/lib/utils";
 import "./people-catalog.css";
 import { compareText, plural } from "@/lib/site-format";
+import { gridRows, trackCount } from "@/lib/row-window";
 
 /** Short period names, so the twelve buttons fit two rows beside the legend; the full name shows on hover. */
 const SHORT: Record<string, string> = { exodus: "Exodus", "divided-kingdom": "Two kingdoms", "": "Undated" };
+
+// The cards are drawn a window of rows at a time (WindowedRows; owner's scroll rule, 2026-11-17): drawing all ~3,000 at
+// once (25,000 elements) was what made the People page slow to open on a phone (2026-11-19). The periods and their people
+// are one list, each period's band a row of its own above its cards.
+type Group = (typeof PEOPLE_PERIODS)[number] & { people: PersonRow[] };
+interface Line { group: Group; person?: PersonRow }
+const lineKey = (line: Line) => line.person ? line.person.id : `period:${line.group.id || "none"}`;
+const isBand = (line: Line) => !line.person;
+/** A card's usual height in px (two lines of brief), assumed before any row has been measured. */
+const CARD_ESTIMATE = 112;
+
+/** A period's gold band: its number, name and note, and how many people it holds. */
+function PeriodBand({ group }: { group: Group }) {
+  return <h3 className="people-catalog-band"><span className="people-catalog-number">{String(PEOPLE_PERIODS.findIndex((entry) => entry.id === group.id) + 1).padStart(2, "0")}</span>
+    <span className="people-catalog-title">{group.label}<small>{group.note}</small></span><span className="people-catalog-count">{plural(group.people.length, "{n} person", "{n} people")}</span></h3>;
+}
 
 /** Everyone in the Bible as cards, grouped by period in the order of biblical history, scrolling in their own frame.
  *  A period button shows only that period (again to show everyone); each card opens that person's own page.
@@ -40,12 +58,15 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
   };
   const setQuery = (value: string) => { setQueryState(value); update({ q: value || null, person: null }); };
   const setPeriod = (value: string | null) => update({ period: value === null ? null : value || "none", person: null });
-  /** The way back from a person's page: this view, remembering which card was opened. */
-  const backTo = (id: string) => {
+  /** The way back from a person's page: this view, remembering which card was opened. The address is built once, not
+   *  once for every card. */
+  const backPath = useMemo(() => {
     const next = new URLSearchParams(params);
-    next.set("person", id);
-    return { from: { path: `${pathname}?${next}`, label: backLabel } };
-  };
+    next.delete("person");
+    const rest = next.toString();
+    return `${pathname}?${rest}${rest ? "&" : ""}person=`;
+  }, [params, pathname]);
+  const backTo = (id: string) => ({ from: { path: backPath + encodeURIComponent(id), label: backLabel } });
   const matches = useMemo(() => {
     const words = query.trim().toLowerCase();
     const list = words ? people.filter((p) => p.n.toLowerCase().includes(words) || p.o.some((o) => o.toLowerCase().includes(words)) || p.b.toLowerCase().includes(words)) : people;
@@ -62,17 +83,33 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
     for (const person of shownPeople) map.set(person.p, (map.get(person.p) ?? 0) + 1);
     return map;
   }, [shownPeople]);
-  const groups = useMemo(() => periods.filter((entry) => period === null || entry.id === period)
+  const groups: Group[] = useMemo(() => periods.filter((entry) => period === null || entry.id === period)
     .map((entry) => ({ ...entry, people: shownPeople.filter((person) => person.p === entry.id) })).filter((group) => group.people.length), [shownPeople, period, periods]);
   const shown = groups.reduce((sum, group) => sum + group.people.length, 0);
-  // Back from a person: bring the catalogue into view and that card into the middle of the frame.
+  const lines = useMemo(() => groups.flatMap((group): Line[] => [{ group }, ...group.people.map((person) => ({ group, person }))]), [groups]);
+  // Back from a person: bring the catalogue into view and that card into the middle of the frame. Only the rows near the
+  // frame's view are drawn, so the card may not be on the page yet: the frame first scrolls to about where its row lies
+  // (in rows of as many cards as the grid lays out), then, once the rows there are drawn, exactly onto the card.
   useEffect(() => {
-    if (!last || !root.current) return;
-    const card = root.current.querySelector<HTMLElement>(`[data-person="${CSS.escape(last)}"]`);
-    const viewport = card?.closest<HTMLElement>(".outside-scroll-viewport");
-    if (!card || !viewport) return;
+    if (!last || !root.current || !lines.some((line) => line.person?.id === last)) return;
     root.current.scrollIntoView({ block: "start" });
-    viewport.scrollTop += card.getBoundingClientRect().top - viewport.getBoundingClientRect().top - viewport.clientHeight / 2 + card.offsetHeight / 2;
+    let frame = 0, tries = 0;
+    const seek = () => {
+      const list = root.current?.querySelector<HTMLElement>(".people-catalog-rows"), viewport = list?.closest<HTMLElement>(".outside-scroll-viewport");
+      if (!list || !viewport) return;
+      const view = viewport.getBoundingClientRect(), card = list.querySelector<HTMLElement>(`[data-person="${CSS.escape(last)}"]`);
+      if (card) { viewport.scrollTop += card.getBoundingClientRect().top - view.top - viewport.clientHeight / 2 + card.offsetHeight / 2; return; }
+      // A sticky band reports where it is stuck, not where it lies: measure from the cards.
+      const drawn = list.querySelectorAll<HTMLElement>(":scope > [data-row]:not([data-sticky])");
+      if (!drawn.length || ++tries > 8) return;
+      const row = gridRows(lines, trackCount(getComputedStyle(list).gridTemplateColumns), isBand).findIndex((cells) => cells.some((line) => line.person?.id === last));
+      const first = drawn[0], end = drawn[drawn.length - 1], firstRow = Number(first.dataset.row), endRow = Number(end.dataset.row);
+      const top = first.getBoundingClientRect().top, pitch = endRow > firstRow ? (end.getBoundingClientRect().top - top) / (endRow - firstRow) : CARD_ESTIMATE;
+      viewport.scrollTop += top + (row - firstRow) * pitch - view.top - viewport.clientHeight / 2;
+      frame = requestAnimationFrame(() => { frame = requestAnimationFrame(seek); });
+    };
+    seek();
+    return () => cancelAnimationFrame(frame);
     // Only on arrival; later filtering clears the remembered card.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -122,14 +159,17 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
       </div>
     </div>
     <OutsideScroll label="People, scrollable" className="people-catalog-scroll" frameClassName="people-catalog-frame" viewportClassName="people-catalog-viewport" resetKey={`${period}:${query}:${role}`}>
-      {groups.map((group) => <section key={group.id || "none"} className="people-catalog-group" aria-label={group.label}>
-        <h3><span className="people-catalog-number">{String(PEOPLE_PERIODS.findIndex((entry) => entry.id === group.id) + 1).padStart(2, "0")}</span>
-          <span className="people-catalog-title">{group.label}<small>{group.note}</small></span><span className="people-catalog-count">{plural(group.people.length, "{n} person", "{n} people")}</span></h3>
-        <ul>{group.people.map((person) => <li key={person.id}><Link to={`/people/${person.id}`} state={backTo(person.id)} data-person={person.id} className={person.id === last ? "people-card is-last" : "people-card"}>
-          <strong>{person.n}</strong><span className="people-card-brief">{person.b}</span>
-          <span className="people-card-foot"><span className="people-card-role" style={{ "--role": roleColor(roles.get(person.id)!) } as CSSProperties}><span className="people-role-dot" aria-hidden />{PERSON_ROLES.find((entry) => entry.id === roles.get(person.id))?.label}</span><span>{plural(person.c, "{n} verse", "{n} verses")}</span></span>
-        </Link></li>)}</ul>
-      </section>)}
+      {/* A period's band sticks at the top of the frame while its cards scroll beneath it; deep in a long period, where its
+          own band is no longer drawn, a stand-in (pinned) takes its place. */}
+      {lines.length > 0 && <WindowedRows as="ul" className="people-catalog-rows" items={lines} itemKey={lineKey} fullRow={isBand} estimate={CARD_ESTIMATE}
+        dataVersion={`${period}:${query}:${role}`} aria-label="People"
+        pinned={(first) => first.person ? <div className="people-catalog-pin" aria-hidden="true"><PeriodBand group={first.group} /></div> : null}
+        renderItem={({ group, person }, row) => !person
+          ? <li key={lineKey({ group })} className="people-catalog-heading" data-row={row} data-sticky=""><PeriodBand group={group} /></li>
+          : <li key={person.id} data-row={row}><Link to={`/people/${person.id}`} state={backTo(person.id)} data-person={person.id} className={person.id === last ? "people-card is-last" : "people-card"}>
+            <strong>{person.n}</strong><span className="people-card-brief">{person.b}</span>
+            <span className="people-card-foot"><span className="people-card-role" style={{ "--role": roleColor(roles.get(person.id)!) } as CSSProperties}><span className="people-role-dot" aria-hidden />{PERSON_ROLES.find((entry) => entry.id === roles.get(person.id))?.label}</span><span>{plural(person.c, "{n} verse", "{n} verses")}</span></span>
+          </Link></li>} />}
       {!groups.length && <p className="people-catalog-empty">No one matches.</p>}
     </OutsideScroll>
   </section>;

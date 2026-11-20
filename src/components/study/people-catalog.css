@@ -23,16 +23,21 @@
 .people-view-window:has(.people-catalog) { overflow: clip; overflow-clip-margin: 1.25rem; }
 .people-catalog .outside-scrollbar { overscroll-behavior: contain; }
 
-/* The period band: gold, flush with the frame's top while its cards scroll beneath it. */
-.people-catalog-group h3 { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: .9rem; margin: 0 -1.4rem .75rem; padding: .7rem 1.4rem; background: linear-gradient(90deg, var(--epistles-tab), color-mix(in srgb, var(--epistles-tab) 55%, #f5c518)); color: var(--epistles-tab-ink); box-shadow: 0 6px 14px -10px #00000080; }
+/* The period band: gold, flush with the frame's top while its cards scroll beneath it. Since 2026-11-19 the cards are drawn
+   a window of rows at a time (WindowedRows): the bands and cards are one grid spaced by its gap (the list measures its
+   rows, and margins fall outside a row), each band's row sticky. The band's .15rem bottom padding plus the gap keeps the
+   .75rem it had below it. Deep in a long period its own band is no longer drawn, and a stand-in (.people-catalog-pin,
+   sticky and taking no room, above the list) shows it; the next band, later in the page, covers it as it sticks. */
+.people-catalog-heading { grid-column: 1 / -1; position: sticky; top: 0; z-index: 1; padding-bottom: .15rem; }
+.people-catalog-pin { position: sticky; top: 0; z-index: 1; height: 0; }
+.people-catalog-band { display: flex; align-items: center; gap: .9rem; margin: 0 -1.4rem; padding: .7rem 1.4rem; background: linear-gradient(90deg, var(--epistles-tab), color-mix(in srgb, var(--epistles-tab) 55%, #f5c518)); color: var(--epistles-tab-ink); box-shadow: 0 6px 14px -10px #00000080; }
 .people-catalog-number { font: 600 .7rem var(--font-sans); letter-spacing: .12em; opacity: .7; }
 .people-catalog-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .7rem; min-width: 0; font: 600 1.15rem/1.25 var(--font-serif); }
 .people-catalog-title small { font: 500 .72rem var(--font-sans); opacity: .78; }
 .people-catalog-count { margin-left: auto; flex-shrink: 0; padding: .2rem .6rem; border-radius: 999px; background: color-mix(in srgb, var(--epistles-tab-ink) 14%, transparent); font: 600 .66rem var(--font-sans); }
-.people-catalog-group ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem; margin-bottom: .6rem; }
-/* ~3,000 cards (24,000 elements) in a 700px window: the browser lays out only those near view, which took ~0.2 s off
-   opening the page. 112px is the usual card height; a card's real height is remembered once it has been shown. */
-.people-catalog-group li { content-visibility: auto; contain-intrinsic-block-size: auto 112px; }
+.people-catalog-rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem; margin-bottom: .6rem; }
+/* The cards used content-visibility: auto here (the browser laid out only those near view); the row window now draws
+   only those, and it must measure each row's real height, which a skipped card would not give. */
 .people-card { display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: .8rem .9rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--page); transition: border-color .15s; }
 .people-card:hover { border-color: var(--accent); }
 /* The person you last opened, outlined when you come back. */
@@ -46,7 +51,7 @@
   .people-catalog-header, .people-catalog-periods { padding-inline: 1rem; }
   .people-catalog-periods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .people-catalog-viewport { padding-inline: 1rem; }
-  .people-catalog-group h3 { margin-inline: -1rem; padding-inline: 1rem; }
+  .people-catalog-band { margin-inline: -1rem; padding-inline: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .people-card { transition: none; } }
 

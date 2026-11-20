@@ -3,7 +3,7 @@ import { evidencedProfiles } from "./site-evidence";
 // reference books this site is built on, in the owner's order of sections (approved mock-up:
 // design/scholars-directions/scholars/). Every section reads the data, the shared profile and the catalogue's filters
 // from ScholarsContext; each draws inside its own TeacherSection so one failing never blanks the rest.
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
 import { PageStatus, TeacherSection } from "../shared/Frame";
 import { usePeopleOpening, useScholarsData } from "../shared/data";
@@ -19,6 +19,12 @@ import { ALL_LIBRARY, matchesLibrary, orderLibrary, type LibraryOptions, type Li
 import { SCHOLAR_SECTIONS } from "./sections";
 
 const COMPONENTS = { catalogue: Catalogue, built: Built, discoveries: Discoveries, directory: Directory };
+/** Asks for the whole list when it mounts: the sections below the opening mount near the screen (Frame's
+ *  DeferredSection), so the list (about 1.2 MB) is fetched when the reader comes towards them. */
+function WantLibrary({ want, children }: { want: () => void; children: ReactNode }) {
+  useEffect(want, [want]);
+  return children;
+}
 
 
 export default function ScholarsPage() {
@@ -37,7 +43,11 @@ function Loaded({ data: original }: { data: ScholarsData }) {
   const [catalogueOptions,setCatalogueOptions]=useState<LibraryOptions>(ALL_LIBRARY);
   const [catalogueSort,setCatalogueSort]=useState<LibrarySort>('featured');
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
-  const { library, libraryError, libraryFacts, population } = useLibrary(data, Boolean(filters.q));
+  // Once wanted, always wanted for this visit: clearing a search must not drop a list already on its way.
+  const [wanted, setWanted] = useState(false);
+  const wantLibrary = useCallback(() => setWanted(true), []);
+  useEffect(() => { if (filters.q || profile) wantLibrary(); }, [filters.q, profile, wantLibrary]);
+  const { library, opening, entryCount, libraryError, libraryFacts, population } = useLibrary(data, Boolean(filters.q), wanted);
   const cataloguePeople=useMemo(()=>orderLibrary((library??[]).filter(p=>matchesLibrary(p,filters,catalogueOptions)),catalogueSort),[library,filters,catalogueOptions,catalogueSort]);
   const shownIds=useMemo(()=>cataloguePeople.map(p=>p.id),[cataloguePeople]);
   const openProfile = useCallback((id: string, origin: Element | null = null) => setProfile({ id, origin }), []);
@@ -47,12 +57,12 @@ function Loaded({ data: original }: { data: ScholarsData }) {
     if(options.scroll !== false) setCatalogueOptions(ALL_LIBRARY);
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds }),
-    [data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, opening, entryCount, wantLibrary, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds }),
+    [data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, opening, entryCount, wantLibrary, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <TeacherSection id="landing" title="Scholars"><Landing /></TeacherSection>
-      {SCHOLAR_SECTIONS.map(({ id, title }) => { const Section = COMPONENTS[id]; return <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>; })}
+      {SCHOLAR_SECTIONS.map(({ id, title }) => { const Section = COMPONENTS[id]; return <TeacherSection key={id} id={id} title={title}><WantLibrary want={wantLibrary}><Section /></WantLibrary></TeacherSection>; })}
       <Profile />
     </div>
   </ScholarsContext.Provider>;

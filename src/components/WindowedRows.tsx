@@ -6,7 +6,11 @@
 // by margins; each item renderItem returns is one element carrying its `key` and `data-row={row}`. A sticky item (a
 // heading that sticks while its section scrolls) also carries `data-sticky`. The container turns off the browser's
 // scroll anchoring (overflow-anchor), since useRowWindow keeps the reader's place itself.
-import { createElement, useCallback, useEffect, useLayoutEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+// `pinned` (2026-11-19, the People catalogue): a sticky section heading is released with its row once the reader is more
+// than ROW_BUFFER rows into a long section, so its band would vanish; `pinned` draws a stand-in, just before the list,
+// for the section of the first drawn row. It must take no room (a sticky, zero-height holder) and be aria-hidden; the
+// next real heading, later in the page, covers it as it sticks.
+import { createElement, Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { gridRows, trackCount } from "@/lib/row-window";
 import { useRowWindow } from "@/lib/useRowWindow";
 
@@ -28,6 +32,8 @@ export interface WindowedRowsProps<T> {
   scroller?: HTMLElement | "window";
   /** Called when the last row is drawn, i.e. the reader is within ROW_BUFFER rows of the end. */
   onEnd?: () => void;
+  /** Drawn just before the list, given the first drawn item: the stand-in for its section's sticky heading, or null. */
+  pinned?: (first: T) => ReactNode;
   role?: string;
   "aria-label"?: string;
 }
@@ -43,7 +49,7 @@ function scrollParent(el: HTMLElement): HTMLElement | "window" {
 
 const NO_FULL_ROW = () => false;
 
-export function WindowedRows<T>({ items, itemKey, renderItem, estimate, as = "div", className, style, fullRow = NO_FULL_ROW, dataVersion, scroller, onEnd, role, "aria-label": label }: WindowedRowsProps<T>) {
+export function WindowedRows<T>({ items, itemKey, renderItem, estimate, as = "div", className, style, fullRow = NO_FULL_ROW, dataVersion, scroller, onEnd, pinned, role, "aria-label": label }: WindowedRowsProps<T>) {
   const [container, setContainer] = useState<HTMLElement | null>(null);
   const [found, setFound] = useState<HTMLElement | "window" | null>(null);
   const [tracks, setTracks] = useState({ columns: 1, gap: 0 });
@@ -86,5 +92,7 @@ export function WindowedRows<T>({ items, itemKey, renderItem, estimate, as = "di
 
   const drawn: ReactNode[] = [];
   for (let r = start; r <= end && r < rows.length; r++) rows[r].forEach((item, k) => drawn.push(renderItem(item, r, firstIndex[r] + k)));
-  return createElement(as, { ref: setContainer, className, role, "aria-label": label, style: { ...style, paddingTop: before, paddingBottom: after, overflowAnchor: "none" } }, drawn);
+  const list = createElement(as, { ref: setContainer, className, role, "aria-label": label, style: { ...style, paddingTop: before, paddingBottom: after, overflowAnchor: "none" } }, drawn);
+  if (!pinned) return list;
+  return createElement(Fragment, null, start <= end && start < rows.length ? pinned(rows[start][0]) : null, list);
 }
