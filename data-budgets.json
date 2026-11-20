@@ -593,28 +593,6 @@
  ],
  "app": {
   "about": "The app's bundled JSON files over the per-file budget (App/src/__tests__/data-budgets.test.ts). Caps are the sizes measured on 2026-11-19; they may only come down.",
-  "overBudget": [
-   {
-    "item": "file:src/data/games/crossword/clues.json",
-    "gzipKB": 150,
-    "rawKB": 595,
-    "why": "All crossword clues, bundled for the game.",
-    "plan": "An index of puzzles first, each puzzle's clues when it starts (follow-up job)."
-   },
-   {
-    "item": "file:src/data/resources/life.json",
-    "gzipKB": 141,
-    "rawKB": 604,
-    "why": "Every city's help places in one file, read by the Help for life and home map screens.",
-    "plan": "Index of cities with counts first, each city's places when it is opened (follow-up job)."
-   },
-   {
-    "item": "file:src/data/teachers/content/feature-usage.json",
-    "gzipKB": 114,
-    "rawKB": 749,
-    "why": "Which site features each scholar's sources feed, for the Scholars page's Sources in use section.",
-    "plan": "Load with that section (it is below the opening), cut by feature group (follow-up job)."
-   }
-  ]
+  "overBudget": []
  }
 }
