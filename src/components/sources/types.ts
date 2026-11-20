@@ -16,7 +16,9 @@ export type Directory = {
   sources: { id: string; name: string; url: string; role: string }[];
   /** Present in the unsplit file (dev mode); the build moves the records to `split.entries`. */
   entries?: SourceEntry[];
-  split?: { schemaVersion: 1; entries: string; records: number; collections: Record<string, CollectionCounts> };
+  /** The counts the build measured. `entries` names the records file a release splits off directory.json; the head of
+   *  the split data set (scripts/split-data/sources.ts) has no `entries` and says whether its author facets are current. */
+  split?: { schemaVersion: 1; entries?: string; records: number; collections: Record<string, CollectionCounts>; facets?: 'ready' | 'stale' };
   sourceProfiles?: SourceProfile[];
   sourceProfilesMeasuredAt?: string;
   intakeSnapshot?: { measuredAt: string; files: number; bytes: number; textReady: number; pendingText: number; supportFiles: number; duplicates: number; textGaps: number };

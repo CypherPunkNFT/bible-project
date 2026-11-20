@@ -1,6 +1,7 @@
 // The data sets scripts/split-data.ts cuts into small files (src/lib/split-data.ts). To add one: describe its rows and
 // layers here, read it on the page through the manifest, and give its page an entry in data-budgets.json.
 import type { Dataset } from "./engine.ts";
+import { sources } from "./sources.ts";
 import { inTheme, THEMES } from "../../src/pages/questions/test/themes.ts";
 import type { TestQuestion } from "../../src/pages/questions/test/engine.ts";
 
@@ -81,4 +82,4 @@ const questions: Dataset = {
   detailShards: 8,
 };
 
-export const DATASETS: Dataset[] = [scholars, questions];
+export const DATASETS: Dataset[] = [scholars, questions, sources];

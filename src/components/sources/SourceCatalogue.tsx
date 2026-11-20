@@ -18,27 +18,46 @@ interface Props {
   filters: CatalogueFilters; onFilters: (next: CatalogueFilters) => void;
   facetState?: 'loading' | 'ready' | 'unavailable' | 'stale';
   page: number; onPage: (page: number) => void;
+  /** One record whole (useSourceDirectory's details); absent or resolving to null when the records are whole already. */
+  details?: RecordLoader;
+}
+export type RecordLoader = (id: string) => Promise<SourceEntry | null>;
+
+/** The opened record with what the list leaves out (status, role, use basis, author facts), once its shard is here. */
+function useWholeRecord(entry: SourceEntry | null, details?: RecordLoader) {
+  const [loaded, setLoaded] = useState<{ id: string; entry: SourceEntry | null; failed: boolean } | null>(null);
+  useEffect(() => {
+    if (!entry || !details) return;
+    let live = true;
+    details(entry.id).then(found => { if (live) setLoaded({ id: entry.id, entry: found, failed: false }); },
+      error => { console.error(`source record ${entry.id}: its details could not load`, error); if (live) setLoaded({ id: entry.id, entry: null, failed: true }); });
+    return () => { live = false; };
+  }, [entry, details]);
+  const mine = entry && loaded?.id === entry.id ? loaded : null;
+  return { whole: mine?.entry ?? entry, ready: !details || !!mine, failed: !!mine?.failed };
 }
 
-export function RecordDetails({ entry, directory, onClose }: { entry: SourceEntry | null; directory: Directory; onClose: () => void }) {
+export function RecordDetails({ entry: listed, directory, onClose, details }: { entry: SourceEntry | null; directory: Directory; onClose: () => void; details?: RecordLoader }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const { whole: entry, ready, failed } = useWholeRecord(listed, details);
   useEffect(() => {
     const element = dialog.current;
-    if (!entry || !element) return;
+    if (!listed || !element) return;
     const overflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     if (!element.open) element.showModal();
     return () => { if (element.open) element.close(); document.body.style.overflow = overflow; };
-  }, [entry]);
+  }, [listed]);
+  const pending = failed ? 'Not loaded' : '…';
   return <dialog ref={dialog} className="source-detail-dialog" aria-labelledby="source-detail-title" onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose(); }}>
     {entry && <div className="source-detail-content">
       <header><span className="source-eyebrow">Source record</span><button type="button" aria-label="Close source details" onClick={onClose}><X size={20}/></button></header>
-      <p className="source-detail-status">{entry.status} · {entry.kind}</p>
+      <p className="source-detail-status">{ready && !failed ? entry.status : pending} · {entry.kind}</p>
       <h2 id="source-detail-title">{entry.title}</h2><p className="source-detail-author">{entry.author || 'Author not recorded'}</p>
       {missingIdentity(entry) && <p className="source-review-badge">Attribution needs review</p>}
-      <section><h3>Identity & collection</h3><dl><dt>Record ID</dt><dd><code>{entry.id}</code></dd><dt>Collections</dt><dd>{entry.categories.map(id => directory.collections.find(c => c.id === id)?.label ?? id).join(' · ') || 'Not recorded'}</dd><dt>Recorded role</dt><dd>{entry.role || 'Not recorded'}</dd></dl></section>
+      <section><h3>Identity & collection</h3><dl><dt>Record ID</dt><dd><code>{entry.id}</code></dd><dt>Collections</dt><dd>{entry.categories.map(id => directory.collections.find(c => c.id === id)?.label ?? id).join(' · ') || 'Not recorded'}</dd><dt>Recorded role</dt><dd>{ready && !failed ? entry.role || 'Not recorded' : pending}</dd></dl></section>
       <section><h3>Author tradition & era</h3><p>These labels describe recorded authors, not the date or doctrinal reliability of this edition.</p>
-      {entry.metadata?.authors.length ? entry.metadata.authors.map(author=><div className="source-author-facts" key={author.id}><strong>{author.name}</strong><dl><dt>Recorded traditions</dt><dd>{author.traditions.map(traditionLabel).join(' · ')||'Unrecorded'}</dd><dt>Author period</dt><dd>{eraLabels[author.era??'unrecorded']}{author.born!==null && ' · '+(author.approximate?'c. ':'')+author.born+(author.died?'–'+author.died:'')}</dd><dt>Date basis</dt><dd>{author.dateStatus.replace(/-/g,' ')}{author.dateBasis&&' · '+author.dateBasis}{author.sourceConflict&&' · conflicting source labels retained'}</dd><dt>Linked author ID</dt><dd><code>{author.id}</code></dd></dl>{author.evidence.map((url,index)=><a key={url} href={url}>{`Recorded evidence ${index+1} ↗`}</a>)}</div>) : <p>No eligible author metadata is linked to this exact catalogue record yet. It remains in Unrecorded / unresolved.</p>}
+      {!ready ? <p role="status">Loading the record's details…</p> : failed ? <p role="status">The record's details could not load. Close it and open it again to retry.</p> : entry.metadata?.authors?.length ? entry.metadata.authors.map(author=><div className="source-author-facts" key={author.id}><strong>{author.name}</strong><dl><dt>Recorded traditions</dt><dd>{author.traditions.map(traditionLabel).join(' · ')||'Unrecorded'}</dd><dt>Author period</dt><dd>{eraLabels[author.era??'unrecorded']}{author.born!==null && ' · '+(author.approximate?'c. ':'')+author.born+(author.died?'–'+author.died:'')}</dd><dt>Date basis</dt><dd>{author.dateStatus.replace(/-/g,' ')}{author.dateBasis&&' · '+author.dateBasis}{author.sourceConflict&&' · conflicting source labels retained'}</dd><dt>Linked author ID</dt><dd><code>{author.id}</code></dd></dl>{author.evidence.map((url,index)=><a key={url} href={url}>{`Recorded evidence ${index+1} ↗`}</a>)}</div>) : <p>No eligible author metadata is linked to this exact catalogue record yet. It remains in Unrecorded / unresolved.</p>}
       </section>
       {entry.metadata?.basis && <p className="source-card-note">{`Metadata link: ${entry.metadata.basis}.`}</p>}
       {entry.metadata?.caution && <section><h3>Source-specific reading caution</h3><p>{entry.metadata.caution}</p></section>}
@@ -50,7 +69,7 @@ export function RecordDetails({ entry, directory, onClose }: { entry: SourceEntr
   </dialog>;
 }
 
-export function SourceCatalogue({ directory, entries, matches, failed, facetState, filters, onFilters, page, onPage }: Props) {
+export function SourceCatalogue({ directory, entries, matches, failed, facetState, filters, onFilters, page, onPage, details }: Props) {
   const [selected, setSelected] = useState<SourceEntry | null>(null);
   const scroll = useRef<HTMLDivElement>(null);
   const stage = useRef<HTMLDivElement>(null);
@@ -140,6 +159,6 @@ export function SourceCatalogue({ directory, entries, matches, failed, facetStat
 
       </div>
     </div>
-    <RecordDetails entry={selected} directory={directory} onClose={() => setSelected(null)}/>
+    <RecordDetails entry={selected} directory={directory} details={details} onClose={() => setSelected(null)}/>
   </section>;
 }

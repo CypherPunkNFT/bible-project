@@ -53,7 +53,7 @@ const research = [
 const repo = "https://github.com/CypherPunkNFT/bible-project/blob/main/";
 
 export function SourceDirectory({ scriptureCount, children }: { scriptureCount: number; children: ReactNode }) {
-  const { directory, entries, failed, marker, want, facetState } = useSourceDirectory();
+  const { directory, entries, failed, marker, want, facetState, details } = useSourceDirectory();
   // ?collection=<id>#bibliography opens the catalogue on one collection (the homepage links each collection this way).
   const [category, setCategory] = useState(() => new URLSearchParams(window.location.search).get("collection") ?? "all");
   const [query, setQuery] = useState("");
@@ -79,7 +79,7 @@ export function SourceDirectory({ scriptureCount, children }: { scriptureCount: 
     {!['bibliography','collections','repositories','quality'].includes(view) && <form className="source-global-search" onSubmit={e=>{e.preventDefault(); setFacets({});setCategory('all');setHoldings('all');setReview('all');setPage(0);want();navigate('#bibliography');}}><Search size={20} aria-hidden/><label className="sr-only" htmlFor="source-search">Search the library catalogue</label><input id="source-search" value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}} placeholder="Search title, author or source…"/><button type="submit">Search catalogue <ArrowUpRight size={15}/></button></form>}
     <div className="source-workspace" key={view}>
     {view === 'overview' && <LibraryOverview directory={directory} entries={entries} scriptureCount={scriptureCount} openCatalogue={openCatalogue}/>}
-    {view === 'collections' && <SourceCollections directory={directory} entries={entries} failed={!!failed} openCatalogue={openCatalogue}/>}
+    {view === 'collections' && <SourceCollections directory={directory} entries={entries} failed={!!failed} openCatalogue={openCatalogue} details={details}/>}
     {view === 'scriptures' && children}
     {view === 'quality' && <SourceReview directory={directory} entries={entries} openCatalogue={openCatalogue} reports={research} repo={repo} showReports={location.hash === '#research'}/>}
     {view === 'foundations' && <>
@@ -88,7 +88,7 @@ export function SourceDirectory({ scriptureCount, children }: { scriptureCount: 
     <section id="reference-library" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">The reference library.</h2><p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">Respected reference works gathered for the person, place, topic and word pages to come. Each is held as downloaded, with its licence and checksum in the source ledger, and will be credited on every page that uses it.</p><div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{referenceLibrary.map(([name, kind, use, licence, url]) => <article key={kind} className="border-t border-line py-5"><p className="text-[11px] uppercase tracking-widest text-accent">{kind}</p><h3 className="mt-2 font-serif text-xl"><a href={url} className="hover:underline">{name} <ArrowUpRight className="inline h-3.5 w-3.5" aria-hidden /></a></h3><p className="mt-2 text-sm leading-relaxed text-muted">{use}</p><p className="mt-2 text-xs text-muted">{licence}</p></article>)}</div><p className="text-sm text-muted">Planned, not yet shown on the site. <a href={`${repo}SOURCES.md`} className="text-accent underline">Source ledger: editions, licences & checksums</a></p></section>
 
     </>}
-    {view === 'bibliography' && <div ref={marker}><SourceCatalogue directory={directory} entries={entries} matches={matches} failed={failed === 'records'} facetState={facetState} filters={filters} page={page} onPage={setPage} onFilters={next => { setFacets(next.facets ?? {}); setCategory(next.category); setHoldings(next.holdings); setReview(next.review); setQuery(next.query); setPage(0); }}/></div>}
+    {view === 'bibliography' && <div ref={marker}><SourceCatalogue directory={directory} entries={entries} matches={matches} failed={failed === 'records'} facetState={facetState} filters={filters} page={page} onPage={setPage} details={details} onFilters={next => { setFacets(next.facets ?? {}); setCategory(next.category); setHoldings(next.holdings); setReview(next.review); setQuery(next.query); setPage(0); }}/></div>}
     {view === 'repositories' && <SourceProviders directory={directory} />}
 
     {view === 'foundations' && <aside className="my-8 rounded-2xl border border-accent/30 bg-surface p-6"><h2 className="font-serif text-2xl">An open reference desk, an honest record.</h2><p className="mt-3 max-w-4xl text-sm leading-relaxed text-muted">Historical texts, modern editions, translations and digital files can carry different permissions. A source link does not grant permission to republish its contents. Our library has a substantial Reformed and Protestant emphasis; comparative sources are identified by their role. Cataloguing, acquiring, reviewing and publishing are distinct steps. This directory joins the project’s work and edition catalogues, acquisition manifests, inventories and on-disk provenance. Work IDs, asset IDs and exact source URLs connect records; matching titles alone do not merge editions. Metadata and evidence files are distinguished from reading texts. Source dates and unresolved attribution stay visible.</p></aside>}

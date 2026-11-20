@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import { buildSourceFacets } from "./build-source-facets.mjs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { readFeatureCitations, type CitedOn } from "./feature-citations.ts";
 
 // Input registries have different schemas; only the explicitly selected public fields leave this adapter.
@@ -144,4 +145,10 @@ export function buildSourceDirectory(root: string) {
   fs.mkdirSync(path.join(root, "public/content/sources"), { recursive: true });
   fs.writeFileSync(path.join(root, "public/content/sources/directory.json"), JSON.stringify(result));
   buildSourceFacets(root, entries);
+}
+
+// By hand or from prebuild (before npm run split-data, whose sources data set reads these files):
+//   node --experimental-strip-types scripts/source-directory.ts
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  buildSourceDirectory(path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."));
 }
