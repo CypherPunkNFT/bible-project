@@ -198,8 +198,7 @@
   ],
   "/study/circles": [
    "data:catalog.json",
-   "public:circles/catalogue.json",
-   "public:circles/readers.json"
+   "split:circles"
   ],
   "/study2": [
    "data:catalog.json"
@@ -590,27 +589,6 @@
    "rawKB": 0,
    "why": "The farming-year study reads many whole books of the Berean Standard Bible (one file per book) for its quotations before it shows; no single file is over, the sum is.",
    "plan": "Quote by chapter from the reader's per-chapter files instead of whole books (follow-up job, with the other whole-book quotes)."
-  },
-  {
-   "item": "page:/study/circles",
-   "gzipKB": 310.5,
-   "rawKB": 0,
-   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
-   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
-  },
-  {
-   "item": "file:public:circles/catalogue.json",
-   "gzipKB": 235.7,
-   "rawKB": 2359.5,
-   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
-   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
-  },
-  {
-   "item": "file:public:circles/readers.json",
-   "gzipKB": 55.6,
-   "rawKB": 1166.3,
-   "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
-   "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
   }
  ],
  "app": {

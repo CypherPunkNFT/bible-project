@@ -13,7 +13,8 @@ import { VersionsTimeline } from "@/components/charts/VersionsTimeline";
 import { SpeechAtlas, TeachingJourneys } from "@/components/charts/WordsOfJesus";
 import { STUDY_SECTIONS } from "@/data/study-sections";
 import { STUDY_COLLECTIONS, type StudyCollectionId } from "@/data/study-collections";
-import { loadArcs, loadBookPairs, loadStats } from "@/lib/data";
+import { loadArcSource } from "@/lib/arc-source";
+import { loadBookPairs, loadStats } from "@/lib/data";
 import { useAsync, type AsyncState } from "@/lib/useAsync";
 import "./charts.css";
 import { StudyContents } from "@/components/study/StudyContents";
@@ -30,7 +31,7 @@ function Result<T>({ state, children }: { state: AsyncState<T>; children: (value
 }
 /** The study a /study/<slug> address shows: Connections in Scripture keeps its older id, "references". */
 const collectionOf = (slug: string) => (slug === "connections" ? "references" : slug) as StudyCollectionId;
-function ArcsView() { const arcs = useAsync(loadArcs, "arcs"); return <Result state={arcs}>{(data) => <ArcDiagram data={data} />}</Result>; }
+function ArcsView() { const arcs = useAsync(loadArcSource, "arc-source"); return <Result state={arcs}>{(data) => <ArcDiagram data={data} />}</Result>; }
 function MatrixView() { const pairs = useAsync(loadBookPairs, "pairs"); return <Result state={pairs}>{(data) => <BookMatrix pairs={data} />}</Result>; }
 
 /** One chart at a time: the contents cards above choose which (components/study/study-view.ts). A chart mounts when first

@@ -2,6 +2,7 @@ import {layoutWorks,previewMarkup} from './graph-layout.mjs';
 import {parseMap,createMapBloom,animateMapBloom,animateMapCamera} from './map-bloom.mjs';
 import {DenseWorkMap} from './dense-map.mjs';
 import { compareText, formatNumber, plural } from "../../../lib/site-format.ts";
+import { loadCircles } from "./circles-data.ts";
 export async function mountCircles(root,options={}){
 const cleanups=[],app=root.querySelector('.circles-app');let disposed=false;
 const on=(target,event,callback,opts)=>{target.addEventListener(event,callback,opts);cleanups.push(()=>target.removeEventListener(event,callback,opts));};
@@ -11,12 +12,10 @@ const asset=name=>'/circles/'+name;
 const $=s=>root.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safe=s=>/^(https?:\/\/|\/(?!\/))/.test(s??'')?esc(s):'#';
 const icon=(name,cls='')=>`<svg class="${cls}" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">${({book:'<path d="M4 6c5-2 9-1 12 2 3-3 7-4 12-2v20c-5-2-9-1-12 1-3-2-7-3-12-1Z"/><path d="M16 8v19M8 11l5 1m-5 5 5 1m7-6 5-1m-5 7 5-1"/>',arch:'<path d="M6 28V14a10 10 0 0 1 20 0v14M11 28V14a5 5 0 0 1 10 0v14M3 28h26M16 4v5"/>',compass:'<circle cx="16" cy="16" r="12"/><path d="m21 10-3 9-8 3 3-9Z M16 1v4m0 22v4M1 16h4m22 0h4"/>',layers:'<path d="m3 10 13-6 13 6-13 6ZM3 16l13 6 13-6M3 22l13 6 13-6M16 4v-2"/>',spark:'<circle cx="16" cy="16" r="12"/><path d="m16 7 2 7 7 2-7 2-2 7-2-7-7-2 7-2Z"/>',columns:'<path d="M3 8 16 3l13 5ZM4 28h24M6 11v14m5-14v14m10-14v14m5-14v14M3 25h26"/>',orbit:'<circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="8"/><circle cx="16" cy="16" r="3"/><circle cx="28" cy="11" r="2" fill="currentColor"/><circle cx="10" cy="21" r="1.8" fill="currentColor"/>'})[name]||''}</svg>`;
-const response=await fetch(asset('catalogue.json'),{signal:options.signal});if(!response.ok)throw new Error('The study catalogue could not load.');
-const readerResponse=await fetch(asset('readers.json'),{signal:options.signal});
-const readerData=readerResponse.ok?await readerResponse.json():{readers:{}};
-const featured=new Set(readerData.featured||[]);
-const catalogue=await response.json();if(options.signal?.aborted)return()=>{};
-const data=catalogue,{categories,studies,works,leaders}=data,workById=new Map(works.map(w=>[w.id,w])),leaderById=new Map(leaders.map(p=>[p.id,p]));
+// The catalogue's works and the studies at once; a leader's own works, a work's records and its reading copy when wanted (circles-data.ts).
+const data=await loadCircles(options.signal);if(options.signal?.aborted)return()=>{};
+const featured=new Set(data.featured||[]);
+const {categories,studies,works,leaders}=data,workById=new Map(works.map(w=>[w.id,w])),leaderById=new Map(leaders.map(p=>[p.id,p]));
 for(const w of Object.values(data.leaderWorks||{}).flat())workById.set(w.id,w);
 let studyId='letters',leaderId=null,selected=null,limit=24,nodes=[],mapRings=[],currentMap=null,mapOpen=false;
 const workPositions=new Map();
@@ -28,6 +27,10 @@ const life=p=>p.born?`${p.born}${p.died?`–${p.died}`:''}`:'';
 const year=w=>{const y=Number(w.year.match(/-?\d{1,4}/)?.[0]);const p=leaderById.get(w.leader);return y&&(w.originalDate||(!p.born||y>=p.born)&&(!p.died||y<=p.died))?y:null;};
 const entry=w=>study().works.find(x=>x.id===w.id);
 const collectionCache=new Map();
+// A leader's own works are read when that leader's page opens; a work's records and reading copy when it is opened.
+const ensureLeader=async()=>{if(!leaderId||data.leaderWorks[leaderId])return;const own=await data.leaderWorksOf(leaderId);for(const w of own)workById.set(w.id,w);collectionCache.delete(leaderId);};
+const detailRuns=new Map();
+const detailsOf=id=>{if(!detailRuns.has(id))detailRuns.set(id,data.detailsOf(id).catch(error=>{detailRuns.delete(id);throw error;}));return detailRuns.get(id);};
 function collection(){
  const id=leaderId||studyId;if(collectionCache.has(id))return collectionCache.get(id);
  const items=leaderId?[...works.filter(w=>w.leader===leaderId),...(data.leaderWorks?.[leaderId]||[])].sort((a,b)=>(year(a)??9999)-(year(b)??9999)||compareText(a.fullDate||a.year, b.fullDate||b.year)||compareText(a.title, b.title)):study().works.map(r=>workById.get(r.id));
@@ -74,7 +77,8 @@ function draw(){
 function authorCard(p){return`<a class="author-card" href="${urlFor(studyId,p.id)}"><span class="avatar">${esc(initial(p.name))}</span><span><strong>${esc(p.name)}</strong><small>${esc(p.kind)}${life(p)?' · '+life(p):''}</small><small>Explore their works</small></span><span class="arrow">↗</span></a>`;}
 function inspect(){const el=$('#inspect'),w=workById.get(selected),p=leader();$('#right-panel').classList.toggle('map-overview',!w);if(!w){const n=collection().length;el.innerHTML=leaderId?`${icon('orbit','panel-orbit')}<p class="eyebrow">THROUGH THE YEARS</p><h3>${esc(p.name)}</h3><p>${esc(p.line||'A closer look at the works in the collection.')}</p><div class="panel-stats"><span><b>${n}</b><small>catalogued works</small></span><span><b>${collection().filter(w=>year(w)!==null).length}</b><small>dated in their lifetime</small></span></div><a class="primary-link" href="${safe(p.library)}">Browse the library <span>↗</span></a>`:`${icon('orbit','panel-orbit')}<p class="eyebrow">AT THE CENTRE</p><h3>${esc(study().label)}</h3><p>A reading path through the works behind this subject.</p><div class="panel-stats"><span><b>${mapOpen?n:Math.min(48,n)}</b><small>works in the rings</small></span><span><b>${new Set(collection().map(w=>w.leader)).size}</b><small>contributors</small></span></div><a class="primary-link" href="${safe(study().url)}">Open this study <span>↗</span></a><details><summary>How priority is arranged</summary><p>Level I: the first eight works. Level II: the next sixteen. Level III: further reading. Expand the map for the complete collection. Recorded use leads, followed by further and curated reading. Curated collections are a proposed reading order.</p></details>`;return;}
  const person=leaderById.get(w.leader),meta=entry(w),rank=collection().indexOf(w)+1;
- const refs=w.records.flatMap(r=>r.uses.map(u=>({...u,url:r.url}))),seen=new Set();const evidence=refs.filter(u=>{const k=u.address+'|'+u.locator;if(seen.has(k))return false;seen.add(k);return true;}).slice(0,12);
+ if(!w.records)detailsOf(w.id).then(d=>{w.records=d.records;if(!disposed&&selected===w.id)inspect();}).catch(error=>console.warn(`Circles: the records of ${w.id} could not be read`,error));
+ const refs=(w.records||[]).flatMap(r=>r.uses.map(u=>({...u,url:r.url}))),seen=new Set();const evidence=refs.filter(u=>{const k=u.address+'|'+u.locator;if(seen.has(k))return false;seen.add(k);return true;}).slice(0,12);
  el.innerHTML=`<div class="panel-label">${leaderId?'THE WORK':`<span>${['LEVEL I','LEVEL II','LEVEL III'][priorityLevel(rank-1)]}</span> · PRIORITY ${String(rank).padStart(2,'0')}`}</div><h3>${esc(w.title)}</h3><div class="work-year">${esc(w.fullDate||w.year||'Date not recorded')}${w.dateEvent?' · '+(w.dateEvent==='delivery'?'Preached':'Published'):''}${!leaderId?' · '+esc(meta?.kind||'Related reading'):''}</div>${authorCard(person)}<p>${esc(w.author)}${w.number?` · No. ${esc(w.number)}`:''}${w.passages?.length?`<br>${esc(w.passages.join('; '))}`:''}</p>${w.dateNote?`<p>${esc(w.dateNote)}</p>`:''}<button class="primary-link" data-read="${w.id}">Read this work <span>↗</span></button>${evidence.length?`<details><summary>Where this work appears · ${evidence.length}</summary><div class="evidence slim-scroll">${evidence.map(u=>`<a href="${safe(u.address)}">${esc(u.page)} <span>↗</span></a><p>${esc(u.locator)}</p>`).join('')}</div></details>`:''}`;
 }
 function connections(){const ids=new Set(selected?[selected]:collection().map(w=>w.id)),related=studies.filter(s=>leaderId||s.id!==studyId).map(s=>({...s,shared:s.works.filter(w=>ids.has(w.id)).length})).filter(s=>s.shared).sort((a,b)=>b.shared-a.shared).slice(0,5);$('#connections').innerHTML=`<p class="eyebrow">FOLLOW THE CONNECTION</p><h3>Connected studies</h3>${related.map(s=>`<button class="connection" data-study="${s.id}"><span><strong>${esc(s.label)}</strong><small>${esc(categories.find(c=>c.id===s.category).label)} · ${esc(plural(s.shared, "{n} shared work", "{n} shared works"))}</small></span><span>↗</span></button>`).join('')||'<p>No other study in this collection shares these works yet.</p>'}`;}
@@ -102,7 +106,7 @@ const dialog=$('#browse-dialog');on(dialog,'keydown',e=>{if(e.key==='Escape'){e.
 on(root,'click',e=>{const read=e.target.closest('[data-read]');if(read){openReader(workById.get(read.dataset.read),read);return;}const work=e.target.closest('[data-work]'),cat=e.target.closest('[data-category]'),sub=e.target.closest('[data-study]');if(!mapOpen&&!work&&e.target.closest('#graph'))return;if(work){const restore=work.closest('#graph')?work.dataset.work:null;selected=selected===work.dataset.work?null:work.dataset.work;draw();if(restore)$('#graph').querySelector(`[data-work="${restore}"]`)?.focus({preventScroll:true});if(!mapOpen&&(!restore||innerWidth<821))$('#inspect').scrollIntoView({block:'nearest'});}else if(cat){navigate(studies.find(s=>s.category===cat.dataset.category).id);}else if(sub){if(mapOpen)$('#map-dialog').close();if(dialog.open)dialog.close();navigate(sub.dataset.study);}});
 $('#graph').onkeydown=e=>{if(mapOpen&&handleMapKey(e))return;if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-work]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}if(e.key==='Escape'){selected=null;draw();$('#graph').focus();}};
 $('#search').oninput=()=>{selected=null;draw();};$('#clear-selection').onclick=()=>{selected=null;$('#search').value='';draw();};watch(ResizeObserver,()=>requestAnimationFrame(()=>{if(mapTransitioning)return;mapOpen?applyMapTransform():centreMap();})).observe($('#graph'));
-on(window,'popstate',()=>{readURL();render();});readURL();render();
+on(window,'popstate',()=>{readURL();ensureLeader().then(()=>{if(!disposed)render();},error=>console.warn("Circles: the leader's works could not be read",error));});readURL();if(leaderId){await ensureLeader();if(disposed||options.signal?.aborted)return()=>{};}render();
 
 const reader=$('#reader-dialog');let readerAbort=null,readerBlob=null,readerTrigger=null,textObserver=null,inlineReader=null,inlineReaderWork=null;
 function mountMapReader(){
@@ -131,7 +135,8 @@ async function openReader(w,trigger,part=0){
  if(mapOpen){mountMapReader();inlineReaderWork=w.id;}
  else closeInlineReader();
  clearReader();readerTrigger=trigger;const controller=new AbortController();readerAbort=controller;
- const sourceRecord=readerData.readers[w.id],record=sourceRecord?.parts?.[part]||sourceRecord,body=$('#reader-body');
+ const sourceRecord=(await detailsOf(w.id).catch(error=>{console.warn(`Circles: the reading copy of ${w.id} could not be found`,error);return{};})).reader;if(controller.signal.aborted||disposed)return;
+ const record=sourceRecord?.parts?.[part]||sourceRecord,body=$('#reader-body');
  $('#reader-title').textContent=w.title;
  $('#reader-kicker').textContent=record?.edition||'FROM THE READING SHELF';
  $('#reader-meta').textContent=[w.author,w.fullDate||w.year,w.number?`Sermon ${w.number}`:''].filter(Boolean).join(' · ');

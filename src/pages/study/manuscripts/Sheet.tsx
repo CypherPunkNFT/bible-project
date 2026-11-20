@@ -1,7 +1,8 @@
 // The record sheet (approved mock-up: js/sheet.js): any manuscript, opened from any section, slides in from the right with
 // everything the open record holds: the date and how it was reached, material, contents, where it is now, its picture
 // with credit, and its sources. The city panel of "Where are they now?" uses the same sliding shell, beneath it.
-import { useEffect, useRef, type CSSProperties, type ReactNode, type RefObject } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
+import { loadManuscriptDetails } from "@/lib/data";
 import type { MsRecord } from "@/lib/manuscripts";
 import { booksText, holderText, kindOf, ranges, sigla, type MsIndex } from "./model";
 import { FormArt, Icon } from "./parts";
@@ -72,17 +73,29 @@ function Sources({ r }: { r: MsRecord }) {
 
 /** The record sheet for `record`; `open` slides it in. Escape or a click outside closes it (a click on another [data-open]
  *  control opens that record instead). Focus moves to the close button and back to where it came from. */
-export function RecordSheet({ index, record, open, onClose, returnFocus, justOpened }: {
+export function RecordSheet({ index, record: listed, open, onClose, returnFocus, justOpened }: {
   index: MsIndex; record: MsRecord | null; open: boolean; onClose: () => void; returnFocus: RefObject<HTMLElement | SVGElement | null>;
   /** True during the click that just opened a record, so that same click does not count as a click outside. */
   justOpened: RefObject<boolean>;
 }) {
   const body = useRef<HTMLDivElement>(null);
+  // The list carries what lists and charts show; what only this sheet shows (shelfmark, the date's basis, script and
+  // language...) is read when a record opens (loadManuscriptDetails, a few KB), and the sheet shows the listed record
+  // until then.
+  const [full, setFull] = useState<MsRecord | null>(null);
+  useEffect(() => {
+    if (!listed) return;
+    let live = true;
+    loadManuscriptDetails(listed).then((value) => { if (live) setFull(value); })
+      .catch((error: unknown) => console.warn(`Manuscripts: the details of ${listed.i} could not be read`, error));
+    return () => { live = false; };
+  }, [listed]);
+  const record = full && listed && full.i === listed.i ? full : listed;
   useEffect(() => {
     if (!open) return;
     if (body.current) body.current.scrollTop = 0;
     body.current?.parentElement?.querySelector<HTMLButtonElement>(".ms-sheet-close")?.focus({ preventScroll: true });
-  }, [open, record]);
+  }, [open, listed]);
   useEffect(() => {
     if (!open) return;
     const key = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };

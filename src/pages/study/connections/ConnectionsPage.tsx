@@ -3,7 +3,8 @@ import { ArcDiagram } from "@/components/charts/ArcDiagram";
 import { Loading } from "@/components/charts/ChartCard";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { useCatalog } from "@/lib/catalog";
-import { loadArcs, loadBookPairs } from "@/lib/data";
+import { loadArcSource } from "@/lib/arc-source";
+import { loadBookPairs } from "@/lib/data";
 import { useAsync, type AsyncState } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import { BookAtlas, BookAtlasButton } from "./BookAtlas";
@@ -24,7 +25,7 @@ function Result<T>({ state, children }: { state: AsyncState<T>; children: (value
  *  emblem's book atlas (or a click on the arcs) chooses. */
 export default function ConnectionsPage() {
   const catalog = useCatalog();
-  const arcs = useAsync(loadArcs, "arcs");
+  const arcs = useAsync(loadArcSource, "arc-source");
   const pairs = useAsync(loadBookPairs, "pairs");
   const [book, setBook] = useState("");
   const [atlasOpen, setAtlasOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function ConnectionsPage() {
     return map;
   }, [pairs]);
   const figures = useMemo(() => {
-    const links = arcs.status === "ready" ? arcs.value.arcs.reduce((sum, edge) => sum + edge[2], 0) : 0;
+    const links = arcs.status === "ready" ? arcs.value.references : 0;
     const chapters = arcs.status === "ready" ? arcs.value.chapters.length : 0;
     const joined = pairs.status === "ready" ? pairs.value.filter(([a, b, n]) => a !== b && n > 0).length : 0;
     return [[links, "cross-references between chapters"], [chapters, "chapters"], [books.length, "books"], [joined, "book pairs in conversation"]] as const;

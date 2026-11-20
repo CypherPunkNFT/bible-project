@@ -45,11 +45,16 @@ const sizes = new Map<string, Size | null>();
 function resolve(token: string): [string, Size | null][] {
   const [kind, rest] = [token.slice(0, token.indexOf(":")), token.slice(token.indexOf(":") + 1)];
   if (kind === "split") {
-    const split = dataset(rest);
+    // "split:<data set>" is its opening (the head and the first list files); "split:<data set>/<layer>" the head and
+    // every file of that layer, for a page that reads one whole layer (the Analysis page reads scholars/analysis).
+    const [name, layer] = rest.split("/");
+    const split = dataset(name);
     if (!split) return [[`split:${rest}`, null]];
     const { manifest, files } = split;
-    const first = [manifest.head, ...manifest.layers.list.files.slice(0, manifest.first).map((f) => f.file)];
-    return [[`split:${rest}/manifest.json`, sizeOf(Buffer.from(JSON.stringify(manifest, null, 1)))], ...first.map((f): [string, Size] => [`split:${rest}/${f}`, sizeOf(files.get(f)!)])];
+    if (layer && !manifest.layers[layer]) throw new Error(`data-budgets.json names split:${rest}, but split:${name} has no layer ${layer}`);
+    const parts = layer ? manifest.layers[layer].files : manifest.layers.list.files.slice(0, manifest.first);
+    const first = [manifest.head, ...parts.map((f) => f.file)];
+    return [[`split:${name}/manifest.json`, sizeOf(Buffer.from(JSON.stringify(manifest, null, 1)))], ...first.map((f): [string, Size] => [`split:${name}/${f}`, sizeOf(files.get(f)!)])];
   }
   const folder = { data: "data", public: "public", src: "src" }[kind];
   if (!folder || rest.includes("..")) throw new Error(`data-budgets.json: "${token}" is not split:, data:, public: or src: followed by a path`);

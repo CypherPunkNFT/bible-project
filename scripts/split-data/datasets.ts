@@ -2,6 +2,7 @@
 // layers here, read it on the page through the manifest, and give its page an entry in data-budgets.json.
 import type { Dataset } from "./engine.ts";
 import { sources } from "./sources.ts";
+import { STUDY_DATASETS } from "./study-datasets.ts";
 import { inTheme, THEMES } from "../../src/pages/questions/test/themes.ts";
 import type { TestQuestion } from "../../src/pages/questions/test/engine.ts";
 
@@ -13,7 +14,8 @@ const dates = (row: Row) => ((row.facts as Row | undefined)?.dates ?? {}) as Row
  *  those rows go first. The list layer keeps everything the cards, filters, sort, directory, numbers, timelines and
  *  table rows read; the work titles (shown on cards, 0.7 MB compressed) come with the whole list; the search text of
  *  every work title (6 MB) only once someone searches; the rest (sources, evidence, join basis, example ids) only when
- *  a record is opened. */
+ *  a record is opened. The Analysis page (src/pages/AnalysisPage.tsx) reads only its own layer: names, aliases, dates and
+ *  work counts, without the ids (112 KB compressed of random hex the page never shows), about 170 KB compressed. */
 const scholars: Dataset = {
   name: "scholars",
   source: "public/content/scholar-population/index.json",
@@ -33,6 +35,8 @@ const scholars: Dataset = {
     },
     titles: { fields: { "*": { example: { title: 1 } } } },
     search: { searchText: 1 },
+    analysis: { name: 1, aliases: 1, verifiedAliases: 1, counts: { workGroups: 1 },
+      facts: { dates: { status: 1, born: 1, died: 1, floruit: 1, approximate: 1, sourceConflict: 1 } } },
   },
   detailShards: 64,
 };
@@ -82,4 +86,4 @@ const questions: Dataset = {
   detailShards: 8,
 };
 
-export const DATASETS: Dataset[] = [scholars, questions, sources];
+export const DATASETS: Dataset[] = [scholars, questions, sources, ...STUDY_DATASETS];

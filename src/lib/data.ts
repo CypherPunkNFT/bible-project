@@ -2,13 +2,13 @@ import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, DataLayout, Pl
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
 import { HYMN_GROUPS, isHymnId, type HymnCollection, type HymnGroupId, type HymnSong, type HymnText } from "./hymns";
 import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
-import type { ManuscriptCollection } from "./manuscripts";
+import type { ManuscriptCollection, MsRecord } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
-import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
+import type { ChapterTopics, LibraryBook, Topic, TopicIndex, TopicSummary } from "./topics";
 import { languageFolder, onLanguageChange, translatedDataPath } from "./language";
 import { bankPartPath, parseQuestionParts } from "./language-packs";
 import { PackUnavailable, readPacked } from "./translated-packs";
-import { isSplitPart, parseSplitManifest, splitPath, type SplitManifest } from "./split-data";
+import { assembleRows, isSplitPart, mergeDeep, parseSplitManifest, shardOf, splitPath, type SplitHead, type SplitManifest } from "./split-data";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -281,8 +281,29 @@ export const loadHymnsByChapter = (code: string) => {
 };
 
 // Manuscripts (scripts/build-manuscripts.py): every record, holder and picture credit the page shows, in one file.
-export const loadManuscripts = () =>
+const loadWholeManuscripts = () =>
   load<ManuscriptCollection>("manuscripts/collection.json", (v) => isObject(v) && Array.isArray(v.records) && Array.isArray(v.books) && isObject(v.map));
+/** The manuscripts from their split (scripts/split-data/study-datasets.ts): the books, counts, holders, pictures and map
+ *  in the head, every record's list fields in two files; what only the open record sheet shows comes with
+ *  loadManuscriptDetails. collection.json whole where the split is missing. */
+let manuscriptsRun: Promise<ManuscriptCollection> | null = null;
+export const loadManuscripts = (): Promise<ManuscriptCollection> => manuscriptsRun ??= (async () => {
+  const manifest = await loadSplitManifest("manuscripts");
+  const [head, ...parts] = await Promise.all([
+    loadSplitPart<SplitHead<Omit<ManuscriptCollection, "records">>>("manuscripts", manifest.head, (v) => isObject(v) && Array.isArray(v.keys) && isObject(v.data)),
+    ...manifest.layers.list.files.map((f) => loadSplitPart<unknown[]>("manuscripts", f.file, Array.isArray)),
+  ]);
+  return { ...head.data, records: assembleRows(parts as unknown[][], head, manifest.rows) as MsRecord[] };
+})().catch((error: unknown) => { console.warn("Manuscripts: the split collection could not be read; reading collection.json.", error); return loadWholeManuscripts(); })
+  .catch((error: unknown) => { manuscriptsRun = null; throw error; });
+/** One record with what only its sheet shows put back (its details shard, a few KB); the record as it is when it came
+ *  whole from collection.json or has nothing more. */
+export async function loadManuscriptDetails(record: MsRecord): Promise<MsRecord> {
+  const { details } = await loadSplitManifest("manuscripts");
+  if (!details) return record;
+  const shard = await loadSplitPart<Record<string, Partial<MsRecord>>>("manuscripts", details.files[shardOf(record.i, details.shards)], isObject);
+  return Object.prototype.hasOwnProperty.call(shard, record.i) ? mergeDeep(record, shard[record.i]) : record;
+}
 
 // Museum-Grade Archaeology (scripts/build-museums.py): the museum cards, and one file per museum.
 export const loadMuseumIndex = () =>
@@ -305,7 +326,27 @@ export const loadBookLinks = (code: string) => load<Record<string, [number, numb
 export const loadPlaces = () => load<Place[]>("places.json", Array.isArray);
 
 /** Topics: Torrey's New Topical Textbook in a two-level taxonomy (scripts/build-topics.py). */
-export const loadTopicIndex = () => load<TopicIndex>("topics/index.json", (v) => isObject(v) && Array.isArray(v.categories) && isObject(v.topics));
+const loadWholeTopicIndex = () => load<TopicIndex>("topics/index.json", (v) => isObject(v) && Array.isArray(v.categories) && isObject(v.topics));
+/** The topic index from its split (scripts/split-data/study-datasets.ts): the families and aliases in the head, the
+ *  topics' names and counts in list files under the per-file budget, all read at once and put back into one TopicIndex
+ *  in the original order. */
+async function loadSplitTopicIndex(): Promise<TopicIndex> {
+  const manifest = await loadSplitManifest("topics");
+  const [head, ...parts] = await Promise.all([
+    loadSplitPart<SplitHead<Omit<TopicIndex, "topics">>>("topics", manifest.head, (v) => isObject(v) && Array.isArray(v.keys) && isObject(v.data)),
+    ...manifest.layers.list.files.map((f) => loadSplitPart<unknown[]>("topics", f.file, Array.isArray)),
+  ]);
+  const topics: TopicIndex["topics"] = {};
+  for (const row of assembleRows(parts as unknown[][], head, manifest.rows) as ({ id: string } & TopicSummary)[]) {
+    const { id, ...summary } = row;
+    topics[id] = summary;
+  }
+  return { ...head.data, topics };
+}
+/** In English the split (about 110 KB compressed in three files, none over the per-file budget); in another language its
+ *  translated index whole; topics/index.json where the split is missing. */
+export const loadTopicIndex = (): Promise<TopicIndex> => translatedDataPath("topics/index.json") ? loadWholeTopicIndex()
+  : loadSplitTopicIndex().catch((error: unknown) => { console.warn("Topics: the split index could not be read; reading topics/index.json.", error); return loadWholeTopicIndex(); });
 /** A topic from its bundle file (the index gives the bundle number). */
 export async function loadTopic(id: string, bundle: number): Promise<Topic> {
   const topics = await load<Record<string, Topic>>(`topics/t/${bundle}.json`, isObject);

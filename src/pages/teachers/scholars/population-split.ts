@@ -61,3 +61,32 @@ export async function loadSplitDetails(split: SplitPopulation, entry: Population
   const shard = await loadSplitPart<Record<string, unknown>>(DATASET, details.files[shardOf(entry.id, details.shards)]);
   return Object.prototype.hasOwnProperty.call(shard, entry.id) ? mergeDeep(entry, shard[entry.id]) : entry;
 }
+
+/** One row of the Analysis page (layer analysis): what its cards, search and sorts read, with its place in the original
+ *  list (the split leaves the ids out, so the place is its key and breaks ties between equal names). An id is there only
+ *  when the row came from a fallback file. */
+export interface AnalysisRow {
+  place: number;
+  id?: string;
+  name: string;
+  aliases: string[];
+  verifiedAliases: string[];
+  facts: { dates: Pick<PopulationEntry['facts']['dates'], 'status' | 'born' | 'died' | 'floruit' | 'approximate' | 'sourceConflict'> };
+  counts: { workGroups: number };
+}
+type AnalysisSource = Partial<Omit<AnalysisRow, 'place' | 'facts' | 'counts'>> & { facts?: Partial<AnalysisRow['facts']>; counts?: Partial<AnalysisRow['counts']> };
+
+/** A row in the page's shape whichever file it came from (keys a row lacks are absent in the split). */
+export const analysisRow = (row: AnalysisSource, place: number): AnalysisRow => ({
+  place, ...(row.id ? { id: row.id } : {}), name: row.name ?? '', aliases: row.aliases ?? [], verifiedAliases: row.verifiedAliases ?? [],
+  facts: { dates: (row.facts?.dates ?? {}) as AnalysisRow['facts']['dates'] }, counts: { workGroups: row.counts?.workGroups ?? 0 },
+});
+
+/** The Analysis page's whole list: the manifest, the head and the analysis layer (about 170 KB compressed, instead of the
+ *  285 KB analysis.json or the whole list layer). */
+export async function loadSplitAnalysis(): Promise<AnalysisRow[]> {
+  const m = await manifest();
+  if (!m.layers.analysis) throw new Error('data/split/scholars/manifest.json has no analysis layer: run npm run split-data');
+  const [h, parts] = await Promise.all([head(m), layer(m, 'analysis')]);
+  return (assembleRows(parts, h, m.rows) as AnalysisSource[]).map(analysisRow);
+}
