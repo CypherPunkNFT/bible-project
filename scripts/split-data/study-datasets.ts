@@ -20,7 +20,9 @@ const topics: Dataset = {
   head: (source) => ({ source: source.source, categories: source.categories, aliases: source.aliases, readings: source.readings }),
   extra: null,
   opening: () => true,
-  layers: { list: { id: 1, title: 1, points: 1, refs: 1, f: 1, s: 1 } },
+  // parts (how many topics a contents page was split into) is in the list: TopicCategoryPage shows "Contents: N topics"
+  // from it, and loadTopicIndex reads no details.
+  layers: { list: { id: 1, title: 1, points: 1, refs: 1, f: 1, s: 1, parts: 1 } },
   detailShards: 1,
 };
 
