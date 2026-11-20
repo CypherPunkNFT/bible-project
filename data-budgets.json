@@ -69,7 +69,7 @@
    "data:study/prophets.json",
    "data:summaries/GEN.json",
    "data:topics/chapters/GEN.json",
-   "data:topics/index.json"
+   "split:topics"
   ],
   "/charts/words-of-jesus": [
    "data:catalog.json",
@@ -102,7 +102,7 @@
   ],
   "/search": [
    "data:catalog.json",
-   "data:topics/index.json"
+   "split:topics"
   ],
   "/contact": [
    "data:catalog.json",
@@ -126,7 +126,8 @@
    "data:catalog.json"
   ],
   "/analysis": [
-   "data:catalog.json"
+   "data:catalog.json",
+   "split:scholars/analysis"
   ],
   "/games/whos-older": [
    "data:catalog.json"
@@ -221,15 +222,15 @@
   ],
   "/study/manuscripts": [
    "data:catalog.json",
-   "data:manuscripts/collection.json"
+   "split:manuscripts"
   ],
   "/study/surviving-witnesses": [
    "data:catalog.json",
-   "data:manuscripts/collection.json"
+   "split:manuscripts"
   ],
   "/study/passage-through-manuscripts": [
    "data:catalog.json",
-   "data:manuscripts/collection.json"
+   "split:manuscripts"
   ],
   "/study/israel-among-the-empires": [
    "data:catalog.json"
@@ -364,7 +365,7 @@
    "data:study/prophets.json",
    "data:summaries/GEN.json",
    "data:topics/chapters/GEN.json",
-   "data:topics/index.json"
+   "split:topics"
   ],
   "/study/gospels": [
    "data:catalog.json",
@@ -462,11 +463,11 @@
   ],
   "/topics": [
    "data:catalog.json",
-   "data:topics/index.json"
+   "split:topics"
   ],
   "/topics/reformed": [
    "data:catalog.json",
-   "data:topics/index.json"
+   "split:topics"
   ],
   "/topics/marriage": [
    "data:catalog.json",
@@ -476,7 +477,7 @@
    "data:plain/bsb/MAL.json",
    "data:study/index.json",
    "data:study/people.json",
-   "data:topics/index.json",
+   "split:topics",
    "data:topics/t/30.json"
   ],
   "/games/crossword": [
@@ -677,20 +678,6 @@
    "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
   },
   {
-   "item": "file:data:manuscripts/collection.json",
-   "gzipKB": 168.7,
-   "rawKB": 1191.3,
-   "why": "Every manuscript with its full description, read whole by the three manuscript studies.",
-   "plan": "The list fields first and each manuscript's description when it is opened (follow-up job)."
-  },
-  {
-   "item": "file:data:topics/index.json",
-   "gzipKB": 112.8,
-   "rawKB": 502.1,
-   "why": "The index of every topic with its verses, read whole by the topic, structure and search pages.",
-   "plan": "The topic names and counts first, each topic's verses when that topic opens (follow-up job)."
-  },
-  {
    "item": "file:public:circles/readers.json",
    "gzipKB": 55.6,
    "rawKB": 1166.3,
@@ -735,20 +722,6 @@
     "rawKB": 749,
     "why": "Which site features each scholar's sources feed, for the Scholars page's Sources in use section.",
     "plan": "Load with that section (it is below the opening), cut by feature group (follow-up job)."
-   },
-   {
-    "item": "file:src/data/apostle-pages/art.json",
-    "gzipKB": 112,
-    "rawKB": 511,
-    "why": "The drawings of the Twelve, Matthias and Paul as SVG data.",
-    "plan": "One file per apostle page, read when that page opens (follow-up job)."
-   },
-   {
-    "item": "file:src/data/world-map.json",
-    "gzipKB": 106,
-    "rawKB": 281,
-    "why": "The world outline for the atlas and small maps, at one detail level.",
-    "plan": "A coarse outline first and the detailed one when zoomed (follow-up job)."
    }
   ]
  }
