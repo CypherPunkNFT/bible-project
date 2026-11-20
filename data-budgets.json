@@ -15,15 +15,15 @@
   ],
   "/study/questions/children": [
    "data:catalog.json",
-   "data:questions/bank.json"
+   "split:questions"
   ],
   "/study/questions": [
    "data:catalog.json",
-   "data:questions/bank.json"
+   "split:questions"
   ],
   "/study/questions/test": [
    "data:catalog.json",
-   "data:questions/bank.json"
+   "split:questions"
   ],
   "/library": [
    "data:catalog.json",
@@ -53,7 +53,7 @@
   ],
   "/charts/references": [
    "data:catalog.json",
-   "data:xref-arcs.json",
+   "split:arcs",
    "data:xref-books.json",
    "public:images/arcs/manifest.json"
   ],
@@ -187,13 +187,11 @@
   ],
   "/versions": [
    "data:catalog.json",
-   "public:content/sources/directory.json",
-   "public:content/sources/facets.json"
+   "split:sources"
   ],
   "/sources": [
    "data:catalog.json",
-   "public:content/sources/directory.json",
-   "public:content/sources/facets.json"
+   "split:sources"
   ],
   "/study": [
    "data:catalog.json"
@@ -343,13 +341,13 @@
   ],
   "/study/connections": [
    "data:catalog.json",
-   "data:xref-arcs.json",
+   "split:arcs",
    "data:xref-books.json",
    "public:images/arcs/manifest.json"
   ],
   "/study/references": [
    "data:catalog.json",
-   "data:xref-arcs.json",
+   "split:arcs",
    "data:xref-books.json",
    "public:images/arcs/manifest.json"
   ],
@@ -559,53 +557,11 @@
  },
  "overBudget": [
   {
-   "item": "page:/study/questions/children",
-   "gzipKB": 1961.8,
-   "rawKB": 0,
-   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
-   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
-  },
-  {
-   "item": "page:/study/questions",
-   "gzipKB": 1961.8,
-   "rawKB": 0,
-   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
-   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
-  },
-  {
-   "item": "page:/study/questions/test",
-   "gzipKB": 1961.8,
-   "rawKB": 0,
-   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
-   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
-  },
-  {
    "item": "file:data:questions/bank.json",
    "gzipKB": 1942.6,
    "rawKB": 16476.7,
-   "why": "The whole question bank (every question with its answers and sources, 16 MB raw), read whole by the Questions pages before the first question shows.",
-   "plan": "Split it with scripts/split-data.ts: an index of categories and counts first, each category's questions when it is chosen, search text on search (follow-up job)."
-  },
-  {
-   "item": "page:/versions",
-   "gzipKB": 760.7,
-   "rawKB": 0,
-   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
-   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
-  },
-  {
-   "item": "page:/sources",
-   "gzipKB": 760.7,
-   "rawKB": 0,
-   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
-   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
-  },
-  {
-   "item": "file:public:content/sources/directory.json",
-   "gzipKB": 697.5,
-   "rawKB": 7825.9,
-   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
-   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
+   "why": "The whole question bank (every question with its answers and sources, 16 MB raw). The Questions pages read it split in English (split:questions, job 7bafbc51); the games, the app and the pages in another language still read it whole.",
+   "plan": "Point the games and the app at split:questions, and split each released language's bank the same way (follow-up jobs)."
   },
   {
    "item": "page:/study/people/moses",
@@ -620,34 +576,6 @@
    "rawKB": 0,
    "why": "A person page reads the whole people list (study/people.json) and several chapters of Scripture before it shows; no single file is over, the sum is.",
    "plan": "Read only the person's own record and the chapters on screen first; the people list when a section that needs it comes near the screen (follow-up job)."
-  },
-  {
-   "item": "page:/charts/references",
-   "gzipKB": 427.4,
-   "rawKB": 0,
-   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
-   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
-  },
-  {
-   "item": "page:/study/connections",
-   "gzipKB": 427.4,
-   "rawKB": 0,
-   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
-   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
-  },
-  {
-   "item": "page:/study/references",
-   "gzipKB": 427.4,
-   "rawKB": 0,
-   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
-   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
-  },
-  {
-   "item": "file:data:xref-arcs.json",
-   "gzipKB": 392,
-   "rawKB": 1712.2,
-   "why": "Every cross-reference arc of the Bible (about 340,000) for the arc chart, read whole before the chart draws.",
-   "plan": "A coarse arc set (book to book) first and the verse-level arcs by book when zoomed or chosen (follow-up job)."
   },
   {
    "item": "page:/topics/marriage",
@@ -683,25 +611,11 @@
    "rawKB": 1166.3,
    "why": "The Circles of study catalogue of every book and its readers, read whole when the page opens.",
    "plan": "Split it with scripts/split-data.ts: the shelf rows first, each book's record and readers when it is opened (follow-up job)."
-  },
-  {
-   "item": "file:public:content/sources/facets.json",
-   "gzipKB": 44,
-   "rawKB": 1617.5,
-   "why": "Every source and Bible version the site uses, with all their details, read whole by the Sources and Versions directories.",
-   "plan": "Split it with scripts/split-data.ts: the rows the directory lists first, each source's details when it is opened, the facets cut to the counts the filters show (follow-up job)."
   }
  ],
  "app": {
   "about": "The app's bundled JSON files over the per-file budget (App/src/__tests__/data-budgets.test.ts). Caps are the sizes measured on 2026-11-19; they may only come down.",
   "overBudget": [
-   {
-    "item": "file:src/data/teachers/people.json",
-    "gzipKB": 420,
-    "rawKB": 1785,
-    "why": "The 52 preachers with every passage and sermon (passages and sermons are 84% of it), bundled whole.",
-    "plan": "Screens read the opening slice (people-opening.json); each preacher's passages and sermons when the preacher is opened (follow-up job)."
-   },
    {
     "item": "file:src/data/games/crossword/clues.json",
     "gzipKB": 150,
