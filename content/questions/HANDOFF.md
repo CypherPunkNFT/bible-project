@@ -114,6 +114,11 @@ what comes next.
 - A wrong question is fixed to what the BSB says; hiding it is the last resort. No King James wording.
 - `python scripts/build-question-bank.py` (from `Website/`) after every change; the build is the only writer of
   [bank/](bank/README.md) and of `data/questions/bank.json`, the one file the site releases.
+- **Since 2026-11-19 the Questions pages read the bank in parts** (job 7bafbc51): `npm run split-data` cuts
+  `data/questions/bank.json` into `data/split/questions/` (`scripts/split-data/datasets.ts`, read by
+  `src/pages/questions/question-store.ts`). Run it after every bank build, or the pages show the old bank until the
+  next site build, and the release refuses an out-of-date split. Only how the bank is shipped changed: the bank,
+  its build and `bank.json` are as they were, and the games, the app and the other languages still read `bank.json`.
 - Keep the downloads out of git ([sources/README.md](sources/README.md)). Commit by file name; other chats work in the
   same repository.
 

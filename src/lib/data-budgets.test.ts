@@ -28,12 +28,13 @@ const kb = (bytes: number) => Math.round(bytes / 102.4) / 10;
 const TOLERANCE = 1.02;
 const hasData = existsSync(path.join(root, "data"));
 
-const built = new Map<string, Built>();
+const built = new Map<string, Built | null>();
+/** A data set as split-data builds it; null for one whose source is under data/ on a computer without data/. */
 const dataset = (name: string) => {
   if (!built.has(name)) {
     const found = DATASETS.find((d) => d.name === name);
     if (!found) throw new Error(`data-budgets.json names split:${name}, which scripts/split-data/datasets.ts does not have`);
-    built.set(name, buildFromSource(found));
+    built.set(name, found.source.startsWith("data/") && !hasData ? null : buildFromSource(found));
   }
   return built.get(name)!;
 };
@@ -44,7 +45,9 @@ const sizes = new Map<string, Size | null>();
 function resolve(token: string): [string, Size | null][] {
   const [kind, rest] = [token.slice(0, token.indexOf(":")), token.slice(token.indexOf(":") + 1)];
   if (kind === "split") {
-    const { manifest, files } = dataset(rest);
+    const split = dataset(rest);
+    if (!split) return [[`split:${rest}`, null]];
+    const { manifest, files } = split;
     const first = [manifest.head, ...manifest.layers.list.files.slice(0, manifest.first).map((f) => f.file)];
     return [[`split:${rest}/manifest.json`, sizeOf(Buffer.from(JSON.stringify(manifest, null, 1)))], ...first.map((f): [string, Size] => [`split:${rest}/${f}`, sizeOf(files.get(f)!)])];
   }
@@ -74,7 +77,9 @@ const pageLimit: Size = { gzip: budgets.pageFirstLoadGzipKB * 1024, raw: Infinit
 
 describe("data size budgets", () => {
   it.each(DATASETS.map((d) => d.name))("every part of split:%s a page reads up front is within the per-file budget", (name) => {
-    const { manifest, files } = dataset(name);
+    const split = dataset(name);
+    if (!split) return;
+    const { manifest, files } = split;
     const upFront = [manifest.head, ...Object.values(manifest.layers).flatMap((layer) => layer.files.map((f) => f.file))];
     const problems = upFront.map((file) => [file, sizeOf(files.get(file)!)] as const)
       .filter(([, size]) => size.gzip > fileLimit.gzip || size.raw > fileLimit.raw)

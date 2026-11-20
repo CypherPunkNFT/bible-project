@@ -23,6 +23,8 @@ export interface Dataset {
   opening: (row: Row) => boolean;
   /** layers.list is required; every layer keeps the same row order. */
   layers: Record<string, Shape>;
+  /** A smaller compressed size (KB) for a layer's files than the per-file budget, where a page reads a few rows at a time. */
+  partGzipKB?: Record<string, number>;
   detailShards: number;
 }
 
@@ -124,7 +126,8 @@ export function buildDataset(dataset: Dataset, source: Row, budget: Budget, buil
   const layers: SplitManifest["layers"] = {};
   let first = 0;
   for (const [name, shape] of Object.entries(dataset.layers)) {
-    const parts = chunk(order.map((i) => shorten(prune(all[i], shape), table)), budget);
+    const cap = dataset.partGzipKB?.[name];
+    const parts = chunk(order.map((i) => shorten(prune(all[i], shape), table)), cap ? { ...budget, gzipBytes: Math.min(budget.gzipBytes, cap * 1024) } : budget);
     layers[name] = { files: parts.map((part, n) => ({ file: named(files, `${name}-${n}`, json(part)), rows: part.length })) };
     if (name === "list") for (let seen = 0; seen < openingRows; first++) seen += parts[first].length;
   }
@@ -137,7 +140,9 @@ export function buildDataset(dataset: Dataset, source: Row, budget: Budget, buil
     if (!sameJson(back, row)) throw new Error(`Split data ${dataset.name}: row ${dataset.id(row)} does not come back whole from its layers and details`);
   }
   const keys = [...table.keys()];
-  const head = named(files, "head", json({ keys, order, data: dataset.head(source) }));
+  // Rows written in their original order (an opening of every row) need no order: it would be 0, 1, 2… for every row.
+  const identity = order.every((place, i) => place === i);
+  const head = named(files, "head", json({ keys, ...(identity ? {} : { order }), data: dataset.head(source) }));
   const extra = dataset.extra ? named(files, "extra", json(dataset.extra(source))) : null;
   const details = { shards: dataset.detailShards, files: shards.map((shard, n) => named(files, `details-${n}`, json(shard))) };
   const manifest: SplitManifest = { layout: SPLIT_LAYOUT, dataset: dataset.name, builtAt, rows: all.length, head, first, layers, extra, details };

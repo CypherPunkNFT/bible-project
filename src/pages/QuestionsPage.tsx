@@ -8,7 +8,8 @@
 // 03's rail, ListRail.tsx, can then join the two) and carries the reader down to 03, which is always open. The test
 // banner follows the list and is set to whatever it shows. The choice is kept in the address (?book=, ?theme=), the
 // same address the test page's "Back to the questions" link writes.
-import { type QuestionBank } from "@/lib/data";
+// The bank comes in parts (questions/question-store.ts, owner 2026-11-19): every row's list layer and the first screen's
+// words open the page; 03 asks for the words of the rows it shows, and a search for every question's words.
 import { formatNumber, plural } from "@/lib/site-format";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -18,42 +19,48 @@ import { QuestionsHero, StatsBar } from "./questions/Hero";
 import { ListRail } from "./questions/ListRail";
 import { listFacets, type ListChoice } from "./questions/ListRail.shared";
 import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
+import { useQuestionStore, type QuestionStore } from "./questions/question-store";
 import { EyeToggle, QuestionList, ResultsBar, SearchField } from "./questions/QuestionList";
 import { choiceInWords, type Chosen } from "./questions/QuestionList.shared";
 import "./questions/questions-panels.css";
 import { SectionHead } from "./questions/shared";
-import type { TestQuestion } from "./questions/test/engine";
 import { useRecord } from "./questions/test/record";
-import { inTheme, themeById, THEMES } from "./questions/test/themes";
+import { themeById } from "./questions/test/themes";
 import { ThemeShelves } from "./questions/test/ThemeShelves";
 import { TestBanner } from "./questions/TestBanner";
-import { useQuestionBank } from "./questions/useQuestionBank";
 
 const NONE: Filters = readFilters(new URLSearchParams());
+/** The first screen of 03 before any choice: the first questions of the bank, whose words open the page. */
+const FIRST_ROWS = Array.from({ length: 40 }, (_, i) => i);
 
 export default function QuestionsPage() {
-  const { bank, failed } = useQuestionBank();
+  const { store, failed } = useQuestionStore(() => [["list", "all"], ["text", FIRST_ROWS]], "list");
   return <div className="qp">
     {failed && <p className="qp-status" role="alert">The questions could not be loaded: {failed}</p>}
-    {!bank && !failed && <p className="qp-status">Loading the questions…</p>}
-    {bank && <ListBody bank={bank} />}
+    {!store && !failed && <p className="qp-status">Loading the questions…</p>}
+    {store && <ListBody store={store} />}
   </div>;
 }
 
-function ListBody({ bank }: { bank: QuestionBank }) {
+function ListBody({ store }: { store: QuestionStore }) {
   const [params, setParams] = useSearchParams();
   const [testMode, setTestMode] = useState(true);
   const { record } = useRecord();
-  const questions = bank.questions as TestQuestion[];
-  const haystacks = useMemo(() => bank.questions.map(haystackOf), [bank]);
+  const bank = store.bank;
+  // A search reads every question's words, which come only once someone searches; until then it waits.
+  const textReady = store.ready("text");
+  const haystacks = useMemo(() => (textReady ? bank.questions.map(haystackOf) : []), [bank, textReady]);
   const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);
   const filters = readFilters(params);
   const theme = themeById(params.get("theme") ?? "");
   const choice: ListChoice = { book: filters.book, theme: theme?.id ?? "" };
+  const searching = Boolean(filters.search) && !textReady;
+  useEffect(() => { if (searching) void store.need("text", "all"); }, [searching, store]);
   const key = params.toString();
-  const members = useMemo(() => new Map(THEMES.map((t) => [t.id, new Set(questions.flatMap((q, i) => (inTheme(t, q) ? [i] : [])))])), [questions]);
+  const members = store.themes;
+  const counted = searching ? { ...filters, search: "" } : filters;
   // eslint-disable-next-line react-hooks/exhaustive-deps -- filters and choice are read from params, which `key` stands for
-  const all = useMemo(() => listFacets(bank, haystacks, filters, choice, members), [bank, haystacks, key, members]);
+  const all = useMemo(() => listFacets(bank, haystacks, counted, choice, members, store.withoutOptions), [bank, haystacks, key, members, searching]);
   const bookCounts = useMemo(() => facetsOf(bank.questions, haystacks, NONE).counts.book, [bank, haystacks]);
   const themeCounts = useMemo(() => new Map([...members].map(([id, set]) => [id, set.size])), [members]);
 
@@ -89,8 +96,10 @@ function ListBody({ bank }: { bank: QuestionBank }) {
         aside={<div className="qp-find"><SearchField search={filters.search} update={update} /><EyeToggle testMode={testMode} setTestMode={setTestMode} /></div>} />
       <div className="qp-explore-grid">
         <ListRail bank={bank} facets={all} filters={filters} choice={choice} members={members} update={update} choose={choose} />
-        <QuestionList bank={bank} rows={all.rows} filters={filters} clear={clear} testMode={testMode} bookNames={bookNames}
-          bar={<ResultsBar count={all.rows.length} chips={chosen} remove={remove} clear={clear} />} />
+        {searching ? <p className="qp-status">Loading every question's words for the search…</p>
+          : <QuestionList bank={bank} rows={all.rows} filters={filters} clear={clear} testMode={testMode} bookNames={bookNames}
+            has={(i) => store.has("text", i)} need={(rows) => void store.need("text", rows)}
+            bar={<ResultsBar count={all.rows.length} chips={chosen} remove={remove} clear={clear} />} />}
       </div>
     </section>
     <TestBanner bank={bank} filters={filters} theme={theme} bookNames={bookNames} />

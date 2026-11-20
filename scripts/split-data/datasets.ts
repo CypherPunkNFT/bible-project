@@ -1,6 +1,8 @@
 // The data sets scripts/split-data.ts cuts into small files (src/lib/split-data.ts). To add one: describe its rows and
 // layers here, read it on the page through the manifest, and give its page an entry in data-budgets.json.
 import type { Dataset } from "./engine.ts";
+import { inTheme, THEMES } from "../../src/pages/questions/test/themes.ts";
+import type { TestQuestion } from "../../src/pages/questions/test/engine.ts";
 
 type Row = Record<string, unknown>;
 const dates = (row: Row) => ((row.facts as Row | undefined)?.dates ?? {}) as Row;
@@ -34,4 +36,49 @@ const scholars: Dataset = {
   detailShards: 64,
 };
 
-export const DATASETS: Dataset[] = [scholars];
+/** The question bank (scripts/build-question-bank.py, data/questions/bank.json: 14,916 questions, 16 MB) for the
+ *  Questions pages (src/pages/questions/question-store.ts). Every row's list layer comes first: what the counts, filters,
+ *  book ring, statistics and the test's pool read. The head carries what would otherwise need the words of every
+ *  question: each theme's questions (two themes match the question's wording, test/themes.ts), the questions without
+ *  options (the "multiple choice only" filter) and where each collection's rows lie (the children's page reads only its
+ *  two). The words of a question come in small files for the rows on screen, every one of them only for a search; the
+ *  tagged passages with them, or all at once when the test page counts a chapter. English only: in another language
+ *  the pages read that language's whole bank, as before. Rows have no id of their own; a row's id is its place. */
+const questionPlace = new WeakMap<Row, string>();
+const questionHead = (source: Row) => {
+  const rows = source.questions as Row[];
+  // Each theme's questions as gaps from the one before (the first from 0), which compress to a fraction of the places.
+  const gaps = (places: number[]) => places.map((place, i) => place - (i ? places[i - 1] : 0));
+  const themes = Object.fromEntries(THEMES.map((theme) => [theme.id, gaps(rows.flatMap((row, i) => inTheme(theme, row as unknown as TestQuestion) ? [i] : []))]));
+  const ranges: Record<string, [number, number][]> = {};
+  rows.forEach((row, i) => {
+    const runs = ranges[row.collection as string] ??= [];
+    const last = runs[runs.length - 1];
+    if (last && last[1] === i) last[1] = i + 1; else runs.push([i, i + 1]);
+  });
+  const withoutOptions = rows.flatMap((row, i) => (row.options ? [] : [i]));
+  return { schema: source.schema, kinds: source.kinds, topics: source.topics, books: source.books, collections: source.collections, themes, withoutOptions, ranges };
+};
+const questions: Dataset = {
+  name: "questions",
+  source: "data/questions/bank.json",
+  rows: (source) => {
+    const rows = source.questions as Row[];
+    rows.forEach((row, i) => questionPlace.set(row, String(i)));
+    return rows;
+  },
+  id: (row) => questionPlace.get(row) as string,
+  head: questionHead,
+  extra: null,
+  opening: () => true,
+  layers: {
+    list: { kind: 1, topic: 1, testament: 1, books: 1, collection: 1, tradition: 1, level: 1, children: 1, standalone: 1, link: 1, lead_in: 1, people: 1, places: 1 },
+    text: { question: 1, answer: 1, options: 1, answer_choice: 1, reference: 1, lesson: 1, child: 1 },
+    passages: { passages: 1 },
+  },
+  // About 300 questions a file: a book's or a theme's first screen of 40 reads a few small files, not a few large ones.
+  partGzipKB: { text: 24, passages: 24 },
+  detailShards: 8,
+};
+
+export const DATASETS: Dataset[] = [scholars, questions];

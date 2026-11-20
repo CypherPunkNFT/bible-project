@@ -29,7 +29,7 @@ const snapshotOf = (h: SplitHead<HeadData>, entries: PopulationEntry[], extra: P
 export async function loadSplitOpening(): Promise<SplitPopulation> {
   const m = await manifest(), h = await head(m);
   const files = m.layers.list.files.slice(0, m.first), parts = await layer(m, 'list', files);
-  const entries: [number, PopulationEntry][] = parts.flat().map((row, i) => [h.order[i], expandRow(row, h.keys) as PopulationEntry]);
+  const entries: [number, PopulationEntry][] = parts.flat().map((row, i) => [h.order ? h.order[i] : i, expandRow(row, h.keys) as PopulationEntry]);
   entries.sort((a, b) => a[0] - b[0]);
   return { manifest: m, head: h, snapshot: snapshotOf(h, entries.map(([, e]) => e), {}) };
 }

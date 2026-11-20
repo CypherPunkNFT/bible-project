@@ -39,8 +39,9 @@ export interface SplitManifest {
   extra: string | null;
   details: { shards: number; files: string[] } | null;
 }
-/** The head part: the figures shown at once, the short keys, and each row's place in the original list. */
-export interface SplitHead<T = Record<string, unknown>> { keys: string[]; order: number[]; data: T }
+/** The head part: the figures shown at once, the short keys, and each row's place in the original list (no order when
+ *  the rows are written in their original order). */
+export interface SplitHead<T = Record<string, unknown>> { keys: string[]; order?: number[]; data: T }
 
 /** The path under data/ of a part (or of the manifest, with no file). */
 export const splitPath = (dataset: string, file = "manifest.json") => `split/${dataset}/${file}`;
@@ -128,7 +129,9 @@ export function mergeDeep<T>(base: T, more: unknown): T {
 export function assembleRows(parts: readonly unknown[][], head: SplitHead<unknown>, expected: number): unknown[] {
   const rows = parts.flat();
   if (rows.length !== expected) throw new Error(`Split data: ${rows.length} rows read, ${expected} expected`);
-  const out = new Array<unknown>(head.order.length);
-  rows.forEach((row, i) => { out[head.order[i]] = expandRow(row, head.keys); });
+  const order = head.order;
+  if (order && order.length !== expected) throw new Error(`Split data: the head orders ${order.length} rows, ${expected} expected`);
+  const out = new Array<unknown>(expected);
+  rows.forEach((row, i) => { out[order ? order[i] : i] = expandRow(row, head.keys); });
   return out;
 }

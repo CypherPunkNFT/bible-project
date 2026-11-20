@@ -43,10 +43,18 @@ export function EyeToggle({ testMode, setTestMode }: { testMode: boolean; setTes
   </button>;
 }
 
-interface Props { bank: QuestionBank; rows: number[]; filters: Filters; clear: () => void; testMode: boolean; bookNames: Record<string, string>; bar: ReactNode }
+/** `has` and `need`: where the words of a question come later (question-store.ts), whether row i's have come, and the way
+ *  to ask for some rows'. The list shows the rows whose words are here and grows only once they all are. */
+interface Props { bank: QuestionBank; rows: number[]; filters: Filters; clear: () => void; testMode: boolean; bookNames: Record<string, string>; bar: ReactNode;
+  has?: (row: number) => boolean; need?: (rows: number[]) => void }
 
-export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, bar }: Props) {
+export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, bar, has, need }: Props) {
   const [shown, setShown] = useState(STEP);
+  const inView = rows.slice(0, shown);
+  const waiting = has ? inView.findIndex((row) => !has(row)) : -1;
+  const ready = waiting < 0 ? inView : inView.slice(0, waiting);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- `inView` is rows up to `shown`; `ready.length` changes as words arrive
+  useEffect(() => { if (waiting >= 0) need?.(inView); }, [rows, shown, ready.length]);
   const sentinel = useRef<HTMLDivElement>(null);
   const terms = searchTerms(filters.search);
   const topicTitle = Object.fromEntries(bank.topics.map((t) => [t.id, t.title]));
@@ -57,15 +65,16 @@ export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, 
     const watch = new IntersectionObserver((entries) => entries[0].isIntersecting && setShown((n) => n + STEP), { rootMargin: "300px" });
     watch.observe(node);
     return () => watch.disconnect();
-  }, [shown, rows]);
+  }, [shown, rows, waiting]);
   return <div className="qp-results">
     {bar}
     <PillScroll key={JSON.stringify(filters)} className="qp-list-viewport" label="Questions">
-      {rows.length ? <ol className="qp-list">{rows.slice(0, shown).map((index, i) =>
+      {rows.length ? <ol className="qp-list">{ready.map((index, i) =>
         <QuestionRow key={index} n={i + 1} q={bank.questions[index]} terms={terms} testMode={testMode} bookNames={bookNames}
           meta={[bank.kinds[bank.questions[index].kind], bank.questions[index].collection, bank.questions[index].tradition, topicTitle[bank.questions[index].topic ?? ""]]} />)}</ol>
         : <p className="qp-empty">No questions match all of these. <button type="button" onClick={clear}>Clear the filters</button></p>}
-      {shown < rows.length && <div ref={sentinel} className="qp-more">{`Loading more of ${formatNumber(rows.length)}…`}</div>}
+      {waiting >= 0 ? <div className="qp-more">Loading the questions…</div>
+        : shown < rows.length && <div ref={sentinel} className="qp-more">{`Loading more of ${formatNumber(rows.length)}…`}</div>}
     </PillScroll>
   </div>;
 }

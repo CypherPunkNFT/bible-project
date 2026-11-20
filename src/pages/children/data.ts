@@ -26,8 +26,8 @@ export const PARTS: Part[] = [
 ];
 const partById = (id: string) => PARTS.find((p) => p.id === id)!;
 
-const HURLBUT = "Hurlbut's Bible Lessons for Boys and Girls (1903)";
-const CATECHISM = "A Catechism for Young Children";
+export const HURLBUT = "Hurlbut's Bible Lessons for Boys and Girls (1903)";
+export const CATECHISM = "A Catechism for Young Children";
 const CATECHISM_SET = 8;
 const EGYPT = new Set(["EXO", "LEV", "NUM", "DEU", "JOS"]);
 const KINGS = new Set(["JDG", "RUT", "1SA", "2SA", "1KI", "1CH", "2CH"]);

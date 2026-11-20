@@ -6,9 +6,8 @@
 // tops for the parents' course, one to a row, in place of the page.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { type QuestionBank } from "@/lib/data";
-import { useQuestionBank } from "@/pages/questions/useQuestionBank";
-import { buildLessons, byPart, nextLesson, type Lesson } from "./data";
+import { useQuestionStore, type QuestionStore } from "@/pages/questions/question-store";
+import { buildLessons, byPart, CATECHISM, HURLBUT, nextLesson, type Lesson } from "./data";
 import { CourseHeadsPage } from "./CourseHeads";
 import { ParentGuide } from "./ParentGuide";
 import { MixedView } from "./MixedView";
@@ -18,14 +17,20 @@ import "../home-quiz.css";
 import "../test-options.css";
 import "./children.css";
 
+/** The bank's rows of the two collections the lessons are made from: all the page reads (questions/question-store.ts). */
+const lessonRows = (store: QuestionStore) => [HURLBUT, CATECHISM].flatMap((title) =>
+  (store.ranges[title] ?? []).flatMap(([from, to]) => Array.from({ length: to - from }, (_, k) => from + k)));
+
 export function ChildrenTests({ mockup }: { mockup?: boolean }) {
-  const { bank, failed } = useQuestionBank();
+  const { store, failed } = useQuestionStore((s) => [["text", lessonRows(s)], ["passages", lessonRows(s)]], "children");
   if (failed) return <p className="ck-status" role="alert">The lessons could not be loaded: {failed}</p>;
-  if (!bank) return <p className="ck-status">Loading the lessons…</p>;
-  return <ChildrenBody bank={bank} mockup={mockup} />;
+  if (!store) return <p className="ck-status">Loading the lessons…</p>;
+  return <ChildrenBody store={store} mockup={mockup} />;
 }
 
-function ChildrenBody({ bank, mockup }: { bank: QuestionBank; mockup?: boolean }) {
+function ChildrenBody({ store, mockup }: { store: QuestionStore; mockup?: boolean }) {
+  const whole = store.bank;
+  const bank = useMemo(() => ({ ...whole, questions: lessonRows(store).map((i) => whole.questions[i]) }), [store, whole]);
   const lessons = useMemo(() => buildLessons(bank), [bank]);
   const groups = useMemo(() => byPart(lessons), [lessons]);
   const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);

@@ -22,7 +22,10 @@ export function readBudget(): Budget {
 }
 
 export function buildFromSource(dataset: Dataset, budget = readBudget()): Built {
-  const source = JSON.parse(readFileSync(path.join(root, dataset.source), "utf8"));
+  const file = path.join(root, dataset.source);
+  // data/ is built on each computer (the bank by scripts/build-question-bank.py), not kept in git.
+  if (!existsSync(file)) throw new Error(`Split data ${dataset.name}: its source ${dataset.source} is missing; build it first`);
+  const source = JSON.parse(readFileSync(file, "utf8"));
   return buildDataset(dataset, source, budget, String(source.builtAt ?? ""));
 }
 

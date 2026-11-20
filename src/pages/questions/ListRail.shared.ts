@@ -13,13 +13,17 @@ export const BOOK_SECTIONS = [
 
 export interface ListChoice { book: string; theme: string }
 
-export function listFacets(bank: QuestionBank, haystacks: string[], filters: Filters, choice: ListChoice, members: Map<string, Set<number>>) {
+/** `withoutOptions`: the questions "multiple choice only" leaves out, given so the filter works on rows whose words (and
+ *  options) have not come yet (question-store.ts); without it the filter reads each question's options. */
+export function listFacets(bank: QuestionBank, haystacks: string[], filters: Filters, choice: ListChoice, members: Map<string, Set<number>>, withoutOptions?: Set<number>) {
   const inTheme = members.get(choice.theme);
-  const keepTheme = inTheme ? (i: number) => inTheme.has(i) : undefined;
-  const base: Filters = { ...filters, topic: "", testament: "", kind: "" };
+  const left = filters.choices && withoutOptions ? withoutOptions : null;
+  const keepTheme = inTheme || left ? (i: number) => (!inTheme || inTheme.has(i)) && !left?.has(i) : undefined;
+  const keepAny = left ? (i: number) => !left.has(i) : undefined;
+  const base: Filters = { ...filters, topic: "", testament: "", kind: "", choices: left ? false : filters.choices };
   const chosen = facetsOf(bank.questions, haystacks, { ...base, book: choice.book }, keepTheme);
   const anyBook = choice.book ? facetsOf(bank.questions, haystacks, { ...base, book: "" }, keepTheme).rows : chosen.rows;
-  const anyTheme = inTheme ? facetsOf(bank.questions, haystacks, { ...base, book: choice.book }).rows : chosen.rows;
+  const anyTheme = inTheme ? facetsOf(bank.questions, haystacks, { ...base, book: choice.book }, keepAny).rows : chosen.rows;
   const themeCount = new Map<string, number>();
   for (const [id, set] of members) themeCount.set(id, anyTheme.reduce((n, i) => n + (set.has(i) ? 1 : 0), 0));
   return { rows: chosen.rows, bookCount: chosen.counts.book, collectionCount: chosen.counts.collection, difficultyCount: chosen.counts.difficulty, anyBook, anyTheme, themeCount };
