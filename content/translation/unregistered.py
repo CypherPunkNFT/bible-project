@@ -216,6 +216,12 @@ def unread_fields(spec: tuple, skip: set[str]) -> list[str]:
 # generated cross-reference and graph indexes. A file over MAX_FILE_BYTES is a data dump, not page content.
 CONTENT_ROOTS = ["data", "public/content", "src/data"]
 NOT_CONTENT = {"text", "plain", "i18n", "xref", "xref-links", "graph", "generated", "node_modules"}
+# The data sets scripts/split-data.ts cuts into parts: each is a re-cut of one source file (scripts/split-data/datasets.ts
+# names it), whose text is collected or ruled where that file lies, so its parts are judged there. Named one by one, so a
+# new split shows up here until someone has checked its source. Not a "files" ruling: split-data.ts keeps the last
+# manifest's parts beside the new ones, so the folder's count grows whenever the source changes (Fortress job 89cf2af8).
+SPLIT_COPIES = {f"data/split/{name}" for name in (
+    "arcs", "circles", "manuscripts", "people", "questions", "scholars", "sources", "teacher-library", "topics")}
 MAX_FILE_BYTES = 5_000_000
 # The page code also bundles some files of content/, the authoring folder, by importing them (stage 5 job 19 found the
 # teachers' discovery evidence that way): those are content files too, and only those.
@@ -238,7 +244,8 @@ def bundled_content_files() -> set[Path]:
 def content_files():
     for root in CONTENT_ROOTS:
         for folder, folders, files in os.walk(SITE / root):
-            folders[:] = sorted(name for name in folders if name not in NOT_CONTENT)
+            folders[:] = sorted(name for name in folders if name not in NOT_CONTENT
+                                and (Path(folder) / name).relative_to(SITE).as_posix() not in SPLIT_COPIES)
             for name in sorted(files):
                 if name.endswith(".json"):
                     yield Path(folder) / name

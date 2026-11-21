@@ -24869,5 +24869,22 @@
    "ar"
   ],
   "why": "Fortress job 25008f77 (card D66), Odd one out's deck in chunk 1920: 'Pekahiah ... reigned for 2 years' is سنتين in Arabic, the dual form of 'year', which says 'two years' in one word with no numeral, as Arabic prose does; the meaning is complete and correct, checked by reading the sentence against its English, so check.py's missing-number count is wrong here"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/split-data.ts",
+  "item": "read in English: split/",
+  "why": "the split parts of scripts/split-data.ts (Fortress job 89cf2af8; the net reads splitPath's template, so it names no data set): each of the nine data sets, data/split/arcs, circles, manuscripts, people, questions, scholars, sources, teacher-library and topics, is a re-cut of one source file that was read the same way before the split. questions, people and topics are read from the split only in English: in another language question-store.ts, study.ts (loadPeopleNames, loadPeopleBriefs) and data.ts loadTopicIndex read the translated bank.json, people.json and topics/index.json whole. The other six were read in English in every language before the split too: circles (catalogue.json), manuscripts (collection.json) and sources (directory.json) carry fields that page_data.py, page_data_specs.py and extract.py SOURCES collect and the page translator swaps on screen; scholars and teacher-library are catalogue metadata ruled out as such (public/content/scholar-population/, public/content/teacher-library/catalogue.json); arcs is chapter labels and counts only, like xref-arcs.json. A new data set split from a translated file needs its loader to read the translated copy in another language, as these three do"
+ },
+ {
+  "check": "files",
+  "item": "src/data/teachers/people-opening.json",
+  "why": "the Preachers page's opening slice (scripts/build-teacher-pages.ts, job 87f995cb): the same rows as people.json, all 52 people without their passages and sermons, written word for word from it; page_data_specs.py collects people.json's .people[].line and .people[].notable[].s, and the page translator swaps those texts on screen whichever file brought them"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/quotations.ts",
+  "item": "trying again in {n} s",
+  "why": "part of a console.error message for developers (the Moses page could not read a section's quotations); never shown on the page"
  }
 ]
