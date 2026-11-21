@@ -11,7 +11,7 @@
 import { normalizePath, SITE_ORIGIN } from "./page-head.ts";
 import { SITE_LANGUAGES, SOURCE_LANGUAGE, type SiteLanguage } from "./site-languages.ts";
 
-export const LANGUAGE_ADDRESSES_RELEASED = false;
+export const LANGUAGE_ADDRESSES_RELEASED = true;
 
 /** This computer's preview: where unreleased languages and the unreleased addresses work. */
 export const LOCAL_HOSTS: ReadonlySet<string> = new Set(["127.0.0.1", "localhost"]);

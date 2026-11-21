@@ -33,9 +33,9 @@ describe("index.html's language script, as built", () => {
     const filled = JSON.parse(/const languages = (\{.*?\});/.exec(languageScript)![1]) as Record<string, { folder: string; dir: string; released: boolean; address: string | false }>;
     const translated = SITE_LANGUAGES.filter((language) => language.folder !== null);
     expect(Object.keys(filled).sort()).toEqual(translated.map((language) => language.code).sort());
-    // Language addresses (job 18): on the preview only until the owner releases them; none for a made-up language.
+    // Language addresses (job 18): live since the owner released them (card D49, 2026-11-21); none for a made-up language.
     const addressed = addressLanguages().map((language) => language.code);
-    for (const language of translated) expect(filled[language.code], language.code).toEqual({ folder: language.folder, dir: language.dir, released: language.released, address: addressed.includes(language.code) ? "preview" : false });
+    for (const language of translated) expect(filled[language.code], language.code).toEqual({ folder: language.folder, dir: language.dir, released: language.released, address: addressed.includes(language.code) ? "live" : false });
   });
 
   it("sets lang and dir before the site's code runs: right to left for Arabic and the made-up ar-XB, left to right otherwise", () => {
@@ -143,12 +143,13 @@ describe("index.html's language script at a language address", () => {
     expect(arrive(null, "127.0.0.1", "/pt").lang).toBe("pt-BR");
   });
 
-  it("names no language for a part of a word, a made-up language or a non-language, and on the live site", () => {
+  it("names no language for a part of a word, a made-up language or a non-language; on the live site the address names it", () => {
     for (const pathname of ["/essay", "/esp/study", "/xa/study", "/xb", "/en/study", "/constructor/x", "/__proto__"]) {
       expect(arrive(null, "127.0.0.1", pathname).getAttribute("lang"), pathname).toBeNull();
     }
-    expect(arrive(null, "bibleguide.io", "/es/study").getAttribute("lang")).toBeNull();
-    expect(arrive("hi", "bibleguide.io", "/es/study").lang).toBe("hi");
+    expect(arrive(null, "bibleguide.io", "/es/study").lang).toBe("es");
+    expect(arrive("hi", "bibleguide.io", "/es/study").lang).toBe("es");
+    expect(arrive(null, "bibleguide.io", "/xa/study").getAttribute("lang")).toBeNull();
   });
 
   it("still takes the address when the browser refuses storage", () => {

@@ -14,9 +14,9 @@ afterEach(() => {
 });
 
 describe("the language addresses", () => {
-  it("are not released: the owner's yes flips this, and this test with it", () => {
-    expect(LANGUAGE_ADDRESSES_RELEASED).toBe(false);
-    expect(addressesOn("bibleguide.io")).toBe(false);
+  it("are released: the owner's yes (card D49, 2026-11-21) flipped this, and this test with it", () => {
+    expect(LANGUAGE_ADDRESSES_RELEASED).toBe(true);
+    expect(addressesOn("bibleguide.io")).toBe(true);
     expect(addressesOn("127.0.0.1") && addressesOn("localhost")).toBe(true);
     expect(addressesOn("bibleguide.io", true)).toBe(true);
   });
@@ -108,12 +108,19 @@ describe("takeLanguageAddress: the app's start-up at a language address", () => 
     expect(home.calls[0][2]).toBe("/");
   });
 
-  it("changes nothing for an address with no language, or on the live site while the addresses are not released", () => {
+  it("changes nothing for an address with no language", () => {
     const h = history();
     expect(takeLanguageAddress({ hostname: "127.0.0.1", pathname: "/essay", search: "", hash: "" }, h)).toBeNull();
-    expect(takeLanguageAddress({ hostname: "bibleguide.io", pathname: "/es/study", search: "", hash: "" }, h)).toBeNull();
+    expect(takeLanguageAddress({ hostname: "bibleguide.io", pathname: "/essay", search: "", hash: "" }, h)).toBeNull();
     expect(h.calls).toEqual([]);
     expect(localStorage.getItem("bp-language")).toBeNull();
+  });
+
+  it("takes the address on the live site, now the addresses are released", () => {
+    const h = history();
+    expect(takeLanguageAddress({ hostname: "bibleguide.io", pathname: "/es/study", search: "", hash: "" }, h)).toBe("es");
+    expect(h.calls[0][2]).toBe("/study");
+    expect(localStorage.getItem("bp-language")).toBe("es");
   });
 
   it("runs as the site starts: the address wins over the stored language, and the router sees the plain address", async () => {
