@@ -230,22 +230,28 @@ export async function fillVerses<T>(data: T, catalog: Catalog, slug = currentBib
 }
 
 /** A copy of the data with every quotation fillVerses would fill left empty ("" for each passage), for a page that draws
- * before its sections below ask for the words (the apostle pages, src/components/apostle-page/data.ts). */
-export function emptyVerses<T>(data: T): T {
+ * before its sections below ask for the words (the apostle pages, src/components/apostle-page/data.ts). Given
+ * `placeholder`, each passage holds what it returns instead, as it is, without quotation marks (the Moses page puts an
+ * invisible mark there and swaps in the words later, src/components/moses-page/quotations.ts); `marks` says whether
+ * fillVerses would put that passage's words in quotation marks. */
+export function emptyVerses<T>(data: T, placeholder?: (span: [number, number], marks: boolean) => string): T {
   const copy = structuredClone(data);
-  walkQuotations(copy, (_span, put) => put(""));
+  walkQuotations(copy, (span, put, marks) => put(placeholder ? placeholder(span, marks) : "", true));
   return copy;
 }
 
-/** Calls `found` for every quotation and table entry in `node` (see fillVerses), with how to put its words in place;
- * a table of verses becomes an object at once, and its entries are filled in place. */
-function walkQuotations(node: unknown, found: (span: [number, number], put: (text: string) => void) => void): void {
+/** Calls `found` for every quotation and table entry in `node` (see fillVerses), with how to put its words in place
+ * (in quotation marks where the quotation asks for them, unless `raw`) and whether it asks for them; a table of verses
+ * becomes an object at once, and its entries are filled in place. */
+type Put = (text: string, raw?: boolean) => void;
+function walkQuotations(node: unknown, found: (span: [number, number], put: Put, marks: boolean) => void): void {
   if (Array.isArray(node)) { node.forEach((item) => walkQuotations(item, found)); return; }
   if (!node || typeof node !== "object") return;
   const record = node as Record<string, unknown>;
   if (record.quoted === true) {
     const span = (record.span ?? record.ref ?? [record.id, record.id]) as [number, number];
-    found(span, (text) => { record.text = record.marks && text ? `“${text}”` : text; });
+    const marks = Boolean(record.marks);
+    found(span, (text, raw = false) => { record.text = marks && text && !raw ? `“${text}”` : text; }, marks);
   }
   for (const [key, value] of Object.entries(record)) {
     if ((key === "verses" || key === "kjv") && isVerseTable(value)) {
@@ -253,7 +259,7 @@ function walkQuotations(node: unknown, found: (span: [number, number], put: (tex
       record[key] = table;
       for (const entry of value) {
         const [first, last = first] = entry.split("-").map(Number);
-        found([first, last], (text) => { table[entry] = text; });
+        found([first, last], (text) => { table[entry] = text; }, false);
       }
     } else walkQuotations(value, found);
   }

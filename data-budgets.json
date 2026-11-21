@@ -521,36 +521,9 @@
   ],
   "/study/people/moses": [
    "data:catalog.json",
-   "data:plain/bsb/EXO.json",
-   "data:plain/bsb/HEB.json",
    "data:study/index.json",
    "data:study/people/moses-exo-2-10.json",
-   "data:text/bsb/1CH/4.json",
-   "data:text/bsb/1KI/0.json",
-   "data:text/bsb/1KI/1.json",
-   "data:text/bsb/1SA/2.json",
-   "data:text/bsb/ACT/0.json",
-   "data:text/bsb/ACT/1.json",
-   "data:text/bsb/ACT/2.json",
-   "data:text/bsb/DEU/1.json",
-   "data:text/bsb/DEU/3.json",
-   "data:text/bsb/DEU/5.json",
-   "data:text/bsb/DEU/6.json",
-   "data:text/bsb/JHN/0.json",
-   "data:text/bsb/JOS/0.json",
-   "data:text/bsb/JOS/1.json",
-   "data:text/bsb/JOS/2.json",
-   "data:text/bsb/MAT/1.json",
-   "data:text/bsb/MAT/3.json",
-   "data:text/bsb/MAT/4.json",
-   "data:text/bsb/MRK/1.json",
-   "data:text/bsb/NEH/0.json",
-   "data:text/bsb/NUM/2.json",
-   "data:text/bsb/NUM/3.json",
-   "data:text/bsb/NUM/4.json",
-   "data:text/bsb/NUM/5.json",
-   "data:text/bsb/PSA/15.json",
-   "data:text/bsb/PSA/19.json"
+   "data:text/bsb/DEU/6.json"
   ],
   "/teachers/works": [
    "data:catalog.json",
@@ -564,13 +537,6 @@
    "rawKB": 16476.7,
    "why": "The whole question bank (every question with its answers and sources, 16 MB raw). The Questions pages read it split in English (split:questions, job 7bafbc51); the games, the app and the pages in another language still read it whole.",
    "plan": "Point the games and the app at split:questions, and split each released language's bank the same way (follow-up jobs)."
-  },
-  {
-   "item": "page:/study/people/moses",
-   "gzipKB": 311.6,
-   "rawKB": 0,
-   "why": "Moses' own page (src/components/moses-page) fills every quotation on its long page, from about 30 chapter files of the Berean Standard Bible and the whole of Exodus and Hebrews, before it draws. It no longer reads the people list (job 55541c54: 635 KB down to 312 KB).",
-   "plan": "Fill each section's quotations when that section nears the screen: draw from data/moses.json with its quotations empty (emptyVerses in src/lib/verses.ts, as the apostle pages do) and fill a section's words before it is shown (follow-up job; the page's 1,900-line drawing code renders each section once, so it needs a re-render per section)."
   }
  ],
  "app": {

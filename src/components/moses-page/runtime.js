@@ -2,6 +2,7 @@ import { mountWordTopics } from './word-topics.js';
 import { mountChapterTopics } from './chapter-topics.js';
 import { egyptContext } from './egypt-context.js';
 import { plural } from "../../lib/site-format.ts";
+import { quotations } from "./quotations.ts";
 // Adapted from the approved Moses merged design. Each mount owns its state,
 // observers and animations; no globals or mockup scripts are installed on the site.
 export function mountMoses(root, options) {
@@ -34,6 +35,9 @@ export function mountMoses(root, options) {
   };
   const topline = () => `<div class="topline"><a href="${esc(options.back.path)}">${icon('arrowLeft',15)}Back to ${esc(options.back.label)}</a><span><a href="${options.personPath('moses-exo-2-10', 'rule')}">As leader</a> · <a href="${options.personPath('moses-exo-2-10', 'word')}">As prophet</a></span></div>`;
   let ACT_TONE, ART_NAMES, Constellation, ICON, M, MergedAsk, MergedLand, MergedLedger, MergedRail, MergedSections, MosesMap, PLAGUE, SCENE_ICON, actOf, art, callSteps, chip, citeShort, cites, claim, clamp01, datesBlock, easeInOut, easeOut, esc, expander, fortiesCards, fulfilPairs, glyph, icon, kjv, loadMoses, notSaid, peopleList, peopleNet, personDetail, placeTag, plagueDots, plagueLine, plaguesGrid, questionList, quoteSpan, refHref, refLink, refList, refText, saysList, sceneLines, sceneMore, signTiles, sourcesBlock, span, starField, stopIndexFor, twoAccounts, wordMore, worldStage;
+  // The quotations are drawn as invisible marks and take their words as their section nears the screen (quotations.ts).
+  const quotes = quotations(options.fillVerses, { IntersectionObserver, MutationObserver });
+  let jumpTo = (target, scroll) => scroll(); // a jump down the page; draw() makes it land after the words above come in
 
 // --- icons ---
 // Lucide-style interface icons (the site uses lucide-react), plus line glyphs for the ten plagues and the people groups.
@@ -236,7 +240,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
   loadMoses = async () => {
     const res = { ok: true, json: async () => structuredClone((await import("./data/moses.json")).default) };
     if (!res.ok) throw new Error(`moses.json: expected 200, got ${res.status}`);
-    M = await options.fillVerses(await res.json());
+    M = quotes.mark(await res.json()); // words come as each section nears (quotations.ts)
     M.story = options.person.story.paragraphs; M.person.short = options.person.story.short;
     M.person.verseCount = options.person.refs.length;
     M.sceneById = Object.fromEntries(M.scenes.map((s) => [s.id, s]));
@@ -1005,6 +1009,8 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 // and to their neighbours (no boxes). Choosing one opens its views in place underneath, quietly.
 (() => {
   MergedAsk = {
+    // A question's views, as shown when it is chosen.
+    views: (q) => `<p class="mg-views-q">${esc(q.question)}</p><div class="mg-views-row">${q.views.map((v) => `<article class="mg-view"><h4>${esc(v.label)}</h4><small>${esc(v.holders)}</small>${claim(v.argument)}</article>`).join("")}</div>`,
     html(titles) {
       return `<section class="mg-ask" style="--tone:var(--prophets)" aria-label="What readers still ask">
         <div class="mg-ask-field" data-askfield>
@@ -1058,7 +1064,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
         words.forEach((w) => { w.classList.toggle("is-on", w.dataset.q === chosen); w.setAttribute("aria-expanded", String(w.dataset.q === chosen)); });
         svg.querySelectorAll(".mg-spoke").forEach((l) => l.classList.toggle("is-on", l.dataset.l === chosen));
         const q = M.questions.find((x) => x.id === chosen);
-        if (q) inner.innerHTML = `<p class="mg-views-q">${esc(q.question)}</p><div class="mg-views-row">${q.views.map((v) => `<article class="mg-view"><h4>${esc(v.label)}</h4><small>${esc(v.holders)}</small>${claim(v.argument)}</article>`).join("")}</div>`;
+        if (q) inner.innerHTML = MergedAsk.views(q);
         views.classList.toggle("is-open", !!q);
       };
       const onClick = (e) => { const w = e.target.closest(".mg-word"); if (w) choose(w.dataset.q); };
@@ -1458,7 +1464,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 
   MergedSections = {
     atlas, wireAtlas, man, word, people, peopleData,
-    famDetail,
+    famDetail, personPanel,
     // The people field: choose, links, filters; the bloom plays on the page's clock when the section comes into view.
     wirePeople(root, X, data) {
       vtextCache = (ref) => vtext(X, ref);
@@ -1504,7 +1510,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
       };
       let raf = 0;
       const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
-      const onClick = (e) => { const a = e.target.closest("[data-rail]"); if (!a) return; e.preventDefault(); main.querySelector(`#${a.dataset.rail}`)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); };
+      const onClick = (e) => { const a = e.target.closest("[data-rail]"); if (!a) return; e.preventDefault(); const to = main.querySelector(`#${a.dataset.rail}`); if (to) jumpTo(to, () => to.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })); };
       addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); rail.addEventListener("click", onClick);
       update();
       return () => { cancelAnimationFrame(raf); removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); };
@@ -1522,7 +1528,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 (() => {
   const ROMAN = ["", "I", "II", "III"];
   let X = null; // data/merged.json
-  const loadX = async () => { if (X) return X; const res = { ok: true, json: async () => structuredClone((await import("./data/merged.json")).default) }; if (!res.ok) throw new Error(`merged.json: expected 200, got ${res.status}`); X = await options.fillVerses(await res.json()); return X; };
+  const loadX = async () => { if (X) return X; const res = { ok: true, json: async () => structuredClone((await import("./data/merged.json")).default) }; if (!res.ok) throw new Error(`merged.json: expected 200, got ${res.status}`); X = quotes.mark(await res.json()); return X; };
   const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
   const toneVar = (t) => `var(--${t})`;
   const drawerFor = {};
@@ -1583,7 +1589,8 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     mount(main) {
       main.innerHTML = `<div class="wrap mg-wait">${topline()}<p>Opening the page…</p></div>`;
       let alive = true, teardown = () => {};
-      loadX().then(() => {
+      // The landing's words are read before it is drawn, so the first screen shows them as before.
+      loadX().then(() => quotes.read(DIRECTIONS.forties.landing())).then(() => {
         if (!alive) return;
         try { teardown = draw(main); } catch (error) { console.error("merged: the page failed to draw", error); main.innerHTML = `<p class="wrap">The merged page failed to draw: ${esc(error.message)}</p>`; }
       }).catch((error) => { console.error("merged: could not load data/merged.json", error); main.innerHTML = `<p class="wrap">Could not load data/merged.json: ${esc(error.message)}</p>`; });
@@ -1615,6 +1622,18 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
       <div class="wrap"><div class="mg-sources">${sourcesBlock()}</div></div>
       <div class="cn-drawer mg-drawer" aria-hidden="true"><div class="cn-scrim" data-close></div><div class="cn-sheet"><button type="button" class="cn-close" data-close aria-label="Close">${icon("x", 18)}</button><div class="cn-sheet-body"></div></div></div>
       ${MergedRail.html(RAIL)}`;
+    // Before anything below lifts parts of the page out (the topic panels, the remembrance): each section's quotations take
+    // their words as it nears the screen, with those it shows only when chosen; the event lists measure again after.
+    const { stop: offQuotes, jump } = quotes.watch(main, {
+      later: {
+        ...Object.fromEntries(CH.map((c) => [`mg-${c.id}`, () => c.scenes.map((id) => drawerFor[id]).join("") + [...main.querySelectorAll(`#mg-${c.id} [data-plague]`)].map((b) => plagueLine(Number(b.dataset.plague))).join("")])),
+        "mg-man": () => [...main.querySelectorAll("#mg-man [data-fam]")].map((g) => MergedSections.famDetail(X, g.dataset.fam)).join(""),
+        "mg-people": () => people.nodes.map((n) => MergedSections.personPanel(n)).join(""),
+        "mg-ask": () => M.questions.map((q) => MergedAsk.views(q)).join(""),
+      },
+      onSwap: () => main.querySelectorAll(".lg-time").forEach((list) => list.dispatchEvent(new Event("scroll"))),
+    });
+    jumpTo = jump;
     const remembrance = main.querySelector('#mg-remembrance');
     const remembranceWrap = document.createElement('div');
     remembranceWrap.className = 'wrap mx-remembrance-wrap';
@@ -1731,7 +1750,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     const goChapter = (id, scene) => {
       const ch = chOf(id);
       if (scene !== undefined) { if (seen.has(ch)) slideTo(ch, scene); else state.set(ch, scene); }
-      ch.scrollIntoView({ behavior: reduced() ? "auto" : "smooth" });
+      jumpTo(ch, () => ch.scrollIntoView({ behavior: reduced() ? "auto" : "smooth" }));
     };
     const onClick = (e) => {
       const ch = e.target.closest(".mg-ch");
@@ -1745,7 +1764,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
       const d = e.target.closest("[data-drawer]"); if (d) { openDrawer(drawerFor[d.dataset.drawer], getComputedStyle(d.closest(".mg-slide")).getPropertyValue("--tone")); return; }
       if (e.target.closest("[data-close]")) { closeDrawer(); return; }
       const fam = e.target.closest("[data-fam]"); if (fam) { main.querySelectorAll("[data-fam]").forEach((g) => g.classList.toggle("is-on", g === fam)); main.querySelector(".mx-fd").innerHTML = MergedSections.famDetail(X, fam.dataset.fam); return; }
-      const ask = e.target.closest("[data-askq]"); if (ask) { e.preventDefault(); const w = main.querySelector(`.mg-word[data-q="${ask.dataset.askq}"]`); main.querySelector("#mg-ask").scrollIntoView({ behavior: reduced() ? "auto" : "smooth" }); if (w && w.getAttribute("aria-expanded") !== "true") w.click(); return; }
+      const ask = e.target.closest("[data-askq]"); if (ask) { e.preventDefault(); const w = main.querySelector(`.mg-word[data-q="${ask.dataset.askq}"]`); const at = main.querySelector("#mg-ask"); jumpTo(at, () => at.scrollIntoView({ behavior: reduced() ? "auto" : "smooth" })); if (w && w.getAttribute("aria-expanded") !== "true") w.click(); return; }
       const gc = e.target.closest("[data-goch]"); if (gc) { e.preventDefault(); goChapter(gc.dataset.goch); return; }
       const card = e.target.closest(".tf-act-btn"); if (card) { const a = Number(card.dataset.act); turnTo(a); goChapter(CH.find((c) => c.act === a)?.id ?? CH[CH.length - 1].id); return; }
       const hit = e.target.closest(".tf-hit, .tf-actlabel"); if (hit) { const a = Number(hit.dataset.act); turnTo(a); goChapter(CH.find((c) => c.act === a).id); return; }
@@ -1764,7 +1783,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     main.querySelectorAll(".mg-track").forEach((track) => [...track.children].forEach((s,i) => { s.inert = i !== 0; s.setAttribute("aria-hidden", String(i !== 0)); }));
     main.addEventListener("click", onClick); addEventListener("keydown", onKey); main.addEventListener("pointerdown", onDown); addEventListener("pointerup", onUp);
     readyPage();
-    return () => { vpIo.disconnect(); chIo.disconnect(); pIo.disconnect(); maps.forEach((m) => m.destroy()); offAtlas(); peopleUi.destroy(); offRail(); offAsk(); removeEventListener("keydown", onKey); removeEventListener("pointerup", onUp); };
+    return () => { offQuotes(); jumpTo = (target, scroll) => scroll(); vpIo.disconnect(); chIo.disconnect(); pIo.disconnect(); maps.forEach((m) => m.destroy()); offAtlas(); peopleUi.destroy(); offRail(); offAsk(); removeEventListener("keydown", onKey); removeEventListener("pointerup", onUp); };
   }
 })();
 
@@ -1870,7 +1889,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     if (!a || event.defaultPrevented || event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || a.target === '_blank') return;
     const href = a.getAttribute('href');
     if (href === '#memory') { event.preventDefault(); setMemoryOpen(!memoryWanted); return; }
-    if (href.startsWith('#')) { event.preventDefault(); root.querySelector('[id="' + CSS.escape(href.slice(1)) + '"]')?.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (href.startsWith('#')) { event.preventDefault(); const to = root.querySelector('[id="' + CSS.escape(href.slice(1)) + '"]'); if (to) jumpTo(to, () => to.scrollIntoView({ behavior: 'smooth' })); return; }
     if (href.startsWith('/')) { event.preventDefault(); options.navigate(href); }
   });
   loadMoses().then(() => { if (!disposed) offMerged = DIRECTIONS.merged.mount(root); }).catch((error) => { if (!disposed) options.onError(error); });
