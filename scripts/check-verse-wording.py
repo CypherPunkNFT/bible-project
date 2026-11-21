@@ -26,9 +26,12 @@ EXTENSIONS = {".json", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".html", ".txt", ".
 # The Bibles themselves and what is made from them for the reader and for search; the home page banners' own short
 # wording in each language; historic documents, which quote in
 # their own words; the translation table, whose keys are English the code once held; the question bank, whose quiz sets
-# are drawn elsewhere; design mock-ups, which are never released; tests.
+# are drawn elsewhere; design mock-ups, which are never released; tests. The question bank's and the source directory's
+# split parts (scripts/split-data.ts) are the same records cut small: the bank is allowed above, and the directory
+# (public/content/sources/directory.json, with facets.json beside it) lies outside ROOTS, so neither was read before the split (job 89cf2af8).
 ALLOWED = re.compile(
     r"^(data/(plain|text|search|questions|summaries)/"
+    r"|data/split/(questions|sources)/"
     r"|data/creeds/doc/"
     r"|data/i18n/[^/]+/(creeds/doc/|ui\.json)"
     r"|src/data/teachers/"
