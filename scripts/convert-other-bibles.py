@@ -110,8 +110,16 @@ def helloao_item(item: dict) -> list[str]:
                 words = ""
                 lines += [f"\\q{min(part['poem'], 3)}", ""]
             words += f" \\wj {text}\\wj*" if part.get("wordsOfJesus") else f" {text}"
+        elif "heading" in part:
+            # helloao also puts a section heading inside a verse, part-way through it (2,073 times across
+            # 14 of these texts). \\p after it is what returns the parser to verse text: bible/usfm.py puts
+            # itself in heading mode on \\s1 and only a paragraph break closes that, so without it the rest
+            # of the verse would be read as part of the heading.
+            lines[-1] += words
+            words = ""
+            lines += [f"\\s1 {clean(part['heading'])}", "\\p", ""]
         elif "noteId" not in part and "lineBreak" not in part:
-            raise SystemExit(f"helloao: unknown verse part {part!r}; expected text, a note or a line break")
+            raise SystemExit(f"helloao: unknown verse part {part!r}; expected text, a heading, a note or a line break")
     lines[-1] += words
     return [line.strip() if not line.startswith("\\v") else line for line in lines if line]
 

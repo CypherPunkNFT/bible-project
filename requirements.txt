@@ -1,0 +1,6 @@
+# Python packages the build scripts need. Everything else they use is in the standard library.
+# Install with: pip install -r requirements.txt
+pysword==0.2.8  # reads the six SWORD-format Bibles in scripts/convert-other-bibles.py (from_sword)
+
+# Only needed to run the checks (python -m pytest scripts/tests -q):
+pytest>=8
