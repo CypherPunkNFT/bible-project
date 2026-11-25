@@ -1360,7 +1360,6 @@ The data builders read these source IDs and SHA-256 prefixes directly from this 
 | [ita1927](sources/ebible/ita1927/) | Riveduta 1927 — Giovanni Luzzi's revision of the Italian Diodati Bible | Italian | 39/27/0 | 2019-12-17 | e95a11617ef36d0c |
 | [ach_abr](sources/converted/ach_abr/) | Acoli Bible Revision (Acoli), from HelloAO catalogue. public domain. 31093 verses; numbering: english | Acoli | 66 books | 2026-10-31 | 07d350f773020db2 |
 | [twi](sources/ebible/twi/) | Akuapem Twi Bible (Akan), from eBible.org. CC BY-SA 4.0, Copyright © 1996, 2020 Biblica, Inc.. 31100 verses; numbering: english | Akan | 66 books | 2026-10-31 | 81f944c75f982185 |
-| [sqi-albanian](sources/converted/sqi-albanian/) | Albanian Bible (Albanian), from seven1m/open-bibles. public domain. 31102 verses; numbering: english | Albanian | 66 books | 2026-10-31 | b37ec38022101493 |
 | [msy2020](sources/ebible/msy2020/) | Holy Bible (Aruamu), from eBible.org. CC BY-SA 4.0, Copyright © 2020 Pioneer Bible Translators. 29926 verses; numbering: english | Aruamu | 66 books | 2026-10-31 | c60dfd843f293bb9 |
 | [asmfb](sources/ebible/asmfb/) | Indian Revised Version (Assamese), from eBible.org. CC BY-SA 4.0, Copyright © 2017, 2018 Bridge Connectivity Solutions. 31092 verses; numbering: english | Assamese | 66 books | 2026-10-31 | b2f458bfb6f6069a |
 | [bba](sources/ebible/bba/) | Holy Bible (Baatonum), from eBible.org. CC BY-NC-ND 4.0, Copyright © 2013 SIM. 30587 verses; numbering: hebrew | Baatonum | 66 books | 2026-10-31 | 1a7ec7249a1372cc |
