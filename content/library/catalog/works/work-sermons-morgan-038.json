@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-038",
+  "editorialState": "catalogued",
+  "notes": [
+    "Heading OCR reads 'THE FINAL WOED'. Quotation printed at the head of the chapter, closed by '(Malachi iv.)'. From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Final Word",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Malachi 4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 39004001,
+      "end": 39004006,
+      "verification": "verified",
+      "locator": "https://archive.org/details/wherinhavewerobb00morg; original.txt L3212-L3233 (printed under the heading; heading at L3205); printed: I come and smite the earth with a curse \" (Malachi iv.)."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-wherein-have-we-robbed-god",
+      "locator": "original.txt L3205: heading 'THE FINAL WOED'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/wherinhavewerobb00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/wherinhavewerobb00morg",
+      "locator": "original.txt L3205: heading 'THE FINAL WOED'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

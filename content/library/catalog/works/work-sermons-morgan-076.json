@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-076",
+  "editorialState": "catalogued",
+  "notes": [
+    "Texts printed on the page before the chapter heading. From a volume of studies (see the volume's own description in sources).",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Its Value",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 1:7, 8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44001007,
+      "end": 44001008,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L2914-L2932 (printed before the heading; heading at L2938); printed: the world, holding forth the word of life.\" — Phil 2. 12-16"
+    },
+    {
+      "reference": "Phil 2:12-16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50002012,
+      "end": 50002016,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L2914-L2932 (printed before the heading; heading at L2938); printed: the world, holding forth the word of life.\" — Phil 2. 12-16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-of-the-christian",
+      "locator": "original.txt L2938: heading 'Its Value'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "original.txt L2938: heading 'Its Value'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-020",
+  "editorialState": "catalogued",
+  "notes": [
+    "No text reference printed under the heading. Opening words (L2833, as in the OCR text): \"It is always difficult to measure correctly the times in which we live. It has ...\". From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Present Opportunity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-evangelism",
+      "locator": "original.txt L2831: heading 'iTHE PRESENT OPPORTUNITY.'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/evangelism00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/evangelism00morg",
+      "locator": "original.txt L2831: heading 'iTHE PRESENT OPPORTUNITY.'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

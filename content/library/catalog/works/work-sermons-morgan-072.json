@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-072",
+  "editorialState": "catalogued",
+  "notes": [
+    "Texts printed on the page before the chapter heading. From a volume of studies (see the volume's own description in sources).",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Its Sustenance",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 6:47-51",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43006047,
+      "end": 43006051,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L736-L757 (printed before the heading; heading at L764); printed: — Col 3. 16 \"Be filled with the Spirit.\"— Eph. 5. 18"
+    },
+    {
+      "reference": "John 16:13, 14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43016013,
+      "end": 43016014,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L736-L757 (printed before the heading; heading at L764); printed: — Col 3. 16 \"Be filled with the Spirit.\"— Eph. 5. 18"
+    },
+    {
+      "reference": "Col 3:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 51003016,
+      "end": 51003016,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L736-L757 (printed before the heading; heading at L764); printed: — Col 3. 16 \"Be filled with the Spirit.\"— Eph. 5. 18"
+    },
+    {
+      "reference": "Eph 5:18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49005018,
+      "end": 49005018,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L736-L757 (printed before the heading; heading at L764); printed: — Col 3. 16 \"Be filled with the Spirit.\"— Eph. 5. 18"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-of-the-christian",
+      "locator": "original.txt L764: heading 'Its Sustenance'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "original.txt L764: heading 'Its Sustenance'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

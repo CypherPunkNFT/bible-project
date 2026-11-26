@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-043",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Temptation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 4:15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58004015,
+      "end": 58004015,
+      "verification": "verified",
+      "locator": "https://archive.org/details/simplethingsofch0000morg; original.txt L2877-L2878 (printed under the heading; heading at L2874); printed: points tempted like as we are, yet without sin.” HEBREWS iv. 15."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-simple-things-christian-life",
+      "locator": "original.txt L2874: heading 'TEMPTATION'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/simplethingsofch0000morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/simplethingsofch0000morg",
+      "locator": "original.txt L2874: heading 'TEMPTATION'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

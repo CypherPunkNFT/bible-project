@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-018",
+  "editorialState": "catalogued",
+  "notes": [
+    "No text reference printed under the heading. Opening words (L1385, as in the OCR text): \"The doctrine of New Testament ministry lies wholly within that of the Church. The ministry ...\". From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Evangelist",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-evangelism",
+      "locator": "original.txt L1383: heading 'THE EVANGELIST.'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/evangelism00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/evangelism00morg",
+      "locator": "original.txt L1383: heading 'THE EVANGELIST.'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

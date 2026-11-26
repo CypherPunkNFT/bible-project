@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-003",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Ephesus Letter",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Rev 2:1-7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66002001,
+      "end": 66002007,
+      "verification": "verified",
+      "locator": "https://archive.org/details/firstcenturymess00morg; original.txt L978-L997 (printed under the heading; heading at L975); printed: life, which is in the Paradise of God.\" Rev. ii : 1-7."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-first-century-message",
+      "locator": "original.txt L975: heading 'THE EPHESUS LETTER'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/firstcenturymess00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/firstcenturymess00morg",
+      "locator": "original.txt L975: heading 'THE EPHESUS LETTER'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

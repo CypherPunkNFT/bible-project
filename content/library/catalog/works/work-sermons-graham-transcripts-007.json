@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-graham-transcripts-007",
+  "editorialState": "catalogued",
+  "notes": [
+    "Recording title: 'Jesus Calls You by Name Billy Graham Classic Sermon' (BGEA 'Billy Graham Classics'). Automatic transcription (Whisper large-v3) of a recording the owner supplied; the source records its accuracy as not verified, so the text is not Graham's checked verbatim words. Rights: copyright Billy Graham Evangelistic Association; held for private study only; the site links to BGEA and does not host the text or audio. Held file: library/source-billy-graham/yt-transcripts/Jesus Calls You by Name Billy Graham Classic Sermon-c785205bfa/transcript.txt (sha256 55a9ae2aa4bcbc68920870e6ec64817bc90501bb45edf983783894c935a89a42)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Jesus Calls You by Name",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-billy-graham",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://billygraham.org/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://billygraham.org/",
+      "locator": "BGEA's own site; no BGEA page for this sermon was located",
+      "note": "Transcript listed in content/library/reports/graham-transcripts-20261010/acquisition-manifest.json.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

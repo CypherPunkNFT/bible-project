@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-088",
+  "editorialState": "catalogued",
+  "notes": [
+    "No text reference printed under the heading. Opening words (L983, as in the OCR text): \"[\"s Philosophy of Supernaturalism ad- mits the possibility of a Supernatural Revelation. To one who ...\". From a volume of lectures (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Full and Final Authority of the Bible",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-categorical-imperatives",
+      "locator": "original.txt L979: heading 'THE FULL AND FINAL AUTHORITY OF'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/categoricalimper00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/categoricalimper00morg",
+      "locator": "original.txt L979: heading 'THE FULL AND FINAL AUTHORITY OF'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

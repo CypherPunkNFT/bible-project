@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-082",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of studies (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Parable of the Leavened Meal",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 13:33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40013033,
+      "end": 40013033,
+      "verification": "verified",
+      "locator": "https://archive.org/details/parablesofkingdo00morg; original.txt L2938-L2941 (printed under the heading; heading at L2934); printed: measures of meal, till it was all leavened\" — Matthew xiii. 33."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-parables-of-the-kingdom",
+      "locator": "original.txt L2934: heading 'THE PARABLE OF THE LEAV-'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/parablesofkingdo00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/parablesofkingdo00morg",
+      "locator": "original.txt L2934: heading 'THE PARABLE OF THE LEAV-'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

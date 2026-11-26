@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-morgan-westminster-pulpit-1914-life-of-faith",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-morgan-097",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-/The%20Life%20of%20Faith%20in%20the%20Day%20of%20Calamity%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2033%2C%20August%2014th%2C%201914_djvu.txt",
+  "finalUrl": "https://dn720905.ca.archive.org/0/items/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-/The%20Life%20of%20Faith%20in%20the%20Day%20of%20Calamity%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2033%2C%20August%2014th%2C%201914_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-sermons-morgan-westminster-pulpit-1914-life-of-faith/original.txt",
+  "sha256": "59fae48899b35a089599de664b2d61b10602c203f9552139188563e9388c23f9",
+  "byteCount": 22976,
+  "mimeType": "text/plain; charset=utf-8",
+  "retrievedAt": "2026-10-09T01:38:17Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://archive.org/about/terms.php",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/download/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-/The%20Life%20of%20Faith%20in%20the%20Day%20of%20Calamity%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2033%2C%20August%2014th%2C%201914_djvu.txt",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-26"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-26",
+    "note": "Ten random entries checked against the held file at acquisition; the text is archive.org's existing OCR full text, not proofread."
+  }
+}

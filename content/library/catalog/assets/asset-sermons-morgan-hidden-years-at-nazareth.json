@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-morgan-hidden-years-at-nazareth",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-morgan-094",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/hiddenyearsatnaz00morg/hiddenyearsatnaz00morg_djvu.txt",
+  "finalUrl": "https://dn760004.eu.archive.org/0/items/hiddenyearsatnaz00morg/hiddenyearsatnaz00morg_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-sermons-morgan-hidden-years-at-nazareth/original.txt",
+  "sha256": "03404b0b1fbb73a02a561a3895d6c6afe7b98751d8d1fb99a606ab9207079c10",
+  "byteCount": 29394,
+  "mimeType": "text/plain; charset=utf-8",
+  "retrievedAt": "2026-10-09T01:33:26Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://archive.org/about/terms.php",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/download/hiddenyearsatnaz00morg/hiddenyearsatnaz00morg_djvu.txt",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-26"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-26",
+    "note": "Ten random entries checked against the held file at acquisition; the text is archive.org's existing OCR full text, not proofread."
+  }
+}

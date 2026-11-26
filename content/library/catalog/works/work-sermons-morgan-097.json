@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-097",
+  "editorialState": "catalogued",
+  "notes": [
+    "Also printed above the text: 'Scripture Lesson: Habakkuk i.; ii. 1-4, 20; iii. 17-19.' (L12). The sermon says it was preached 'To-night', a week after 'The Day of War—The Day of God' ('Last Sunday evening, under the shadow of war')."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Life of Faith in the Day of Calamity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1914-08-14",
+      "precision": "day",
+      "label": "Issue date printed on the sermon: 'Vol. 9. August 14th, 1914. No. 33.' (publication date, not the preaching date)",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-",
+          "locator": "Printed with the sermon",
+          "note": "Issue date as printed by the source; not the preaching date.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalm 97:1-2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19097001,
+      "end": 19097002,
+      "verification": "verified",
+      "locator": "https://archive.org/details/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-; original.txt L13-L18 (printed under the heading; heading at L8); printed: Him: Righteousness and judgment are the foundation of His Throne.”—Psalm xcvii. 1-2."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/the-life-of-faith-in-the-day-of-calamity-the-westminster-pulpit-a-sermon-by-dr.-",
+      "locator": "original.txt L8: heading 'THE LIFE OF FAITH IN THE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

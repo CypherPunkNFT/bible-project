@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-morgan-westminster-pulpit-1914-day-of-war",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-morgan-096",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell/The%20Day%20of%20War%E2%80%94The%20Day%20of%20God%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2032%2C%20August%207th%2C%201914_djvu.txt",
+  "finalUrl": "https://ia801406.us.archive.org/34/items/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell/The%20Day%20of%20War%E2%80%94The%20Day%20of%20God%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2032%2C%20August%207th%2C%201914_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-sermons-morgan-westminster-pulpit-1914-day-of-war/original.txt",
+  "sha256": "78945599332466a7bd34d3e65dc36e00a4f71e85797c8537445641af93a9fc77",
+  "byteCount": 24244,
+  "mimeType": "text/plain; charset=utf-8",
+  "retrievedAt": "2026-10-09T01:39:05Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://archive.org/about/terms.php",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/download/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell/The%20Day%20of%20War%E2%80%94The%20Day%20of%20God%2C%20The%20Westminster%20Pulpit%2C%20A%20Sermon%20by%20Dr.%20G.%20Campbell%20Morgan%2C%20Vol.%209%2C%20No.%2032%2C%20August%207th%2C%201914_djvu.txt",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-26"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-26",
+    "note": "Ten random entries checked against the held file at acquisition; the text is archive.org's existing OCR full text, not proofread."
+  }
+}

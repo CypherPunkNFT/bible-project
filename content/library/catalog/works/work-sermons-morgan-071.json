@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-071",
+  "editorialState": "catalogued",
+  "notes": [
+    "Texts printed on the page before the chapter heading. From a volume of studies (see the volume's own description in sources).",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Its Nature",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 11:25, 26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44011025,
+      "end": 44011026,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L88-L102 (printed before the heading; heading at L109); printed: let him glorify God in this name.\" — i Pet. 4. 16"
+    },
+    {
+      "reference": "Acts 26:28",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44026028,
+      "end": 44026028,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L88-L102 (printed before the heading; heading at L109); printed: let him glorify God in this name.\" — i Pet. 4. 16"
+    },
+    {
+      "reference": "1 Pet 4:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 60004016,
+      "end": 60004016,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L88-L102 (printed before the heading; heading at L109); printed: let him glorify God in this name.\" — i Pet. 4. 16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-of-the-christian",
+      "locator": "original.txt L109: heading 'Its Nature'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "original.txt L109: heading 'Its Nature'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}
