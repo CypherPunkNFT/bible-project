@@ -24,6 +24,7 @@ SITE = Path(__file__).resolve().parents[1]
 STATE = SITE.parent / 'KnowledgeBase'
 sys.path.insert(0, str(SITE / 'scripts'))
 sys.path.insert(0, str(SITE))
+from bible.paths import SOURCES
 from bible.study_refs import BOOK_BY_NAME, BOOK_NAME, RefError, Verses, normalise_book, parse_refs
 
 
@@ -219,7 +220,7 @@ def blocks_for(row):
         return
     derivative = metadata.get('derivative')
     source = Path(row['path'])
-    if not source.resolve().is_relative_to((SITE.parent / 'sources/library').resolve()):
+    if not source.resolve().is_relative_to((SOURCES / 'library').resolve()):
         raise ValueError('Source path outside held library')
     if not source.exists():
         raise FileNotFoundError(str(source))
@@ -248,7 +249,7 @@ def blocks_for(row):
     from knowledge.library_extract import extract, derivative_blocks
     if derivative and Path(derivative['path']).exists():
         file = Path(derivative['path']).resolve()
-        if not file.is_relative_to(SITE) and not file.is_relative_to(SITE.parent / 'sources/library'):
+        if not file.is_relative_to(SITE) and not file.is_relative_to(SOURCES / 'library'):
             raise ValueError('Derivative outside allowed library paths')
         iterator = derivative_blocks(file, derivative)
     else:

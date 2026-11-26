@@ -11,6 +11,7 @@ import "@/components/home/home-phone.css";
 import { DebateScene, FieldArt, WorldviewsScene } from "@/components/home/HomeApologeticsScenes";
 import { HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { SectionBanner } from "@/components/home/HomeBanner";
+import { usePauseOffscreen } from "@/lib/pause-offscreen";
 import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
 import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
 import { FellowshipScene } from "@/components/home/HomeResourceScenes";
@@ -150,6 +151,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
   const resume = version && last ? last : "/read/kjv/JHN/1";
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
+  usePauseOffscreen(".home-hub > *, .home-hub .home-section");
 
   return <div className="home-hub hm6-page hm6-plain-corners" data-landing={landing} data-banners="inset" data-shape="point" data-phone={phoneLayout}>
     <div className="home-opening hm6-first" ref={opening}>

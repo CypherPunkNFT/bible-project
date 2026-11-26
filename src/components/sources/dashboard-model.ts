@@ -8,7 +8,7 @@ export function needsReview(entry: SourceEntry, filter: ReviewFilter) {
   if (filter === 'unassigned') return entry.categories.includes('research');
   return true;
 }
-export const sourceViews = [['overview', 'Overview'], ['bibliography', 'Catalogue'], ['collections', 'Collections'], ['scriptures', 'Bible editions'], ['repositories', 'Providers'], ['quality', 'Review & gaps'], ['foundations', 'Credits']] as const;
+export const sourceViews = [['overview', 'Overview'], ['collections', 'Collections'], ['bibliography', 'Catalogue'], ['scriptures', 'Bible editions'], ['repositories', 'Providers'], ['quality', 'Review & gaps'], ['foundations', 'Credits']] as const;
 export type SourceView = typeof sourceViews[number][0];
 export function sourceView(hash: string): SourceView {
   const id = hash.replace(/^#/, '');

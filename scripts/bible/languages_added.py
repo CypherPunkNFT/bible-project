@@ -6,7 +6,6 @@ Plans/TRANSLATIONS-AVAILABLE.md and SOURCES.md. Rows use the columns of translat
 ADDED_TRANSLATIONS = [
     ('ach_abr', 'ACH', 'Acoli Bible Revision (Acoli)', 2026, 'ach', 'ltr', 'english', False),
     ('twi', 'TWI', 'Akuapem Twi Bible (Akan)', 2020, 'ak', 'ltr', 'english', False),
-    ('sqi-albanian', 'SQI', 'Albanian Bible (Albanian)', 2026, 'sq', 'ltr', 'english', False),
     ('msy2020', 'MSY', 'Holy Bible (Aruamu)', 2020, 'msy', 'ltr', 'english', False),
     ('asmfb', 'ASM', 'Indian Revised Version (Assamese)', 2018, 'as', 'ltr', 'english', False),
     ('bba', 'BBA', 'Holy Bible (Baatonum)', 2013, 'bba', 'ltr', 'hebrew', False),

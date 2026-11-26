@@ -5,16 +5,16 @@ import { familyOf, lifeEnd } from "../../shared/people";
 
 // Which country or region each town is in.
 const REGIONS: Record<string, string> = {
-  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth|Tetbury|Stone|Rugeley|Birmingham|Southampton|Manchester",
+  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth|Tetbury|Stone|Rugeley|Birmingham|Wicken|Soham|Blackwell|Sutton-in-Ashfield|Stoke Hammond|Winslow|Henley-in-Arden|Bourton-on-the-Water|Bewdley|Leominster|Salisbury|Pirton|Eltisley|Stafford|Southampton|Manchester",
   Scotland: "Haddington|Edinburgh|Nisbet|Anwoth|Aberdeen|St Andrews|Duns|Simprin|Ettrick|Collace|Glasgow|Dundee|Kirkmahoe|Badbea|Hamilton",
   Wales: "Cardiff|Aberavon",
   Ireland: "Dublin",
   Switzerland: "Bremgarten|Zürich|Geneva",
-  France: "Noyon|Paris|Strasbourg",
+  France: "Noyon|Paris|Strasbourg|Pau",
   Germany: "Wittenberg|Heidelberg|Neustadt",
   Silesia: "Breslau",
   Netherlands: "Franeker|Enkhuizen|Utrecht|Leiden|Maassluis|Amsterdam|Hoogeveen|Kampen|Heerenveen|Emmen",
-  "United States": "West Nottingham|Fredericksburg|Wilkes-Barre|East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Orlando|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix|Northfield|Boston|Chicago|Charlotte|Cleveland, Tennessee|Temple Terrace|Wheaton|Western Springs|Montreat|Athens, Georgia|Los Angeles|Greenville|Burbank|La Mirada|Sun Valley",
+  "United States": "West Nottingham|Fredericksburg|Wilkes-Barre|East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Orlando|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix|Northfield|Boston|Chicago|Charlotte|Cleveland, Tennessee|Temple Terrace|Wheaton|Western Springs|Montreat|Athens, Georgia|Los Angeles|Greenville|Burbank|La Mirada|Sun Valley|Eldorado|Texline|Chickasha|Muskogee|Dallas|West Palm Beach|Merritt Island|Memphis|Middleburg|Tuscaloosa|Penfield|Hayneville|Charleston|Louisville",
   Canada: "Vancouver|Montreal",
   India: "Serampore|Allahabad",
   "Middle East": "Bahrain|Cairo",
@@ -39,6 +39,14 @@ function regionOf(town: string) {
   const region = REGION_OF.get(town);
   if (!region) console.error(`Teachers directory: no country or region recorded for the town "${town}"; listed under "${UNKNOWN_REGION}"`);
   return region ?? UNKNOWN_REGION;
+}
+
+/** Shown instead of a country when the birthplace is not recorded. */
+export const UNRECORDED_ORIGIN = "Not recorded";
+
+/** The country or region a person came from: their birthplace, not the town they served longest. */
+export function originRegion(person: Person): string {
+  return person.birthplaceKnown === false ? UNRECORDED_ORIGIN : regionOf(person.places[0][0]);
 }
 
 // Each place from the year they arrived to the next arrival (or the end of their life). When the birthplace is not
