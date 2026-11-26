@@ -124,6 +124,16 @@ second, John 6:69 is right, so that sermon could be placed on John 6:69 alone if
 They belong in another genre or out of the catalogue. That is a catalogue correction this job did not make. The one
 real sermon left is no. 1700, whose heading reads "Romans 10:59", a verse that does not exist.
 
+**Since corrected (2026-11-26, job 9da892a6).** Each held file was read again. [sermon-passages.py](../../../../../scripts/sermon-passages.py)
+now writes the correction into [spurgeon.json](../../../passage-overlays/spurgeon.json); the catalogue records are not
+edited. The 13 prefaces, which Spurgeon wrote for each volume, become `front-matter`, a genre used only in the overlay,
+like Piper's `interview`. The two *Sword and Trowel* pieces, "Our First Sermon" (January 1880) and "Our First Seven
+Years" (April 1876), become `article`. The three indexes, compiled by the website, and the three web pages, held as
+evidence of the site's terms and inventory, are marked not Spurgeon's (`notBy`), so no Teachers page counts them.
+Spurgeon's sermons on the Teachers page went from 3,566 to 3,545 and his catalogue works from 3,826 to 3,820. His
+sermons with a recorded text are unchanged at 3,544, and his `unplaced` list went from 21 to 0. No. 1700 stays in
+`unresolved`, as it was.
+
 ## Audit (each held file re-read by a separate method)
 
 | Source | Checked | Errors | How |

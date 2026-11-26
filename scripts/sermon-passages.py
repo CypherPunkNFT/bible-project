@@ -10,7 +10,8 @@ untracked reconciled records (Pages/Teachers/SERMONS-CAMPAIGN.md, "Git safety");
   piper     Desiring God messages: the header list after "Scripture:"; Ask Pastor John episodes -> genre interview.
             Message pages the collector fetched but kept no asset for (it found under 150 words of text, or
             several speakers) are read from its verified cache, listed in reports/modern-texts/piper-results.json
-  spurgeon  catalogued opening-Scripture headings left "unmapped" (e.g. "Romans 8:26, 27")
+  spurgeon  catalogued opening-Scripture headings left "unmapped" (e.g. "Romans 8:26, 27"); Spurgeon Gems prefaces,
+            magazine pieces, indexes and web pages catalogued as sermons -> front-matter, article, or not his
 
 Never infers a passage from a title: a work gets a passage only when its source states one, checked against our KJV.
 Every sermon still without a main text is listed in its overlay's "unplaced" (with the reason observed) or
@@ -41,6 +42,21 @@ READY_MANIFEST = LIBRARY / "reports" / "ready-text-completion" / "acquisition-ma
 PIPER_RESULTS = LIBRARY / "reports" / "modern-texts" / "piper-results.json"
 PIPER_CACHE = SITE / ".local" / "library" / "run-modern-texts-2026-10-05" / "http"  # modern_texts_common.CACHE
 AUTHORS = {"begg": "author-alistair-begg", "piper": "author-john-piper", "spurgeon": "author-charles-spurgeon"}
+# Spurgeon Gems files catalogued as Spurgeon sermons, by the file name in the record's externalIds address; each held file
+# was read on 2026-11-26 (job 9da892a6, from job 1486's list). Not matched on evidence addresses: numbered sermon
+# records cite the title index, robots.txt and the listing page as their evidence.
+SITE_FILES = {
+    **{f"chsp{n}.pdf": dict(genre="front-matter") for n in range(1, 14)},  # "Preface to Volume n", by Spurgeon
+    "chsofs.pdf": dict(genre="article"),  # "Our First Sermon", The Sword and the Trowel, January 1880
+    "chsof7.pdf": dict(genre="article"),  # "Our First Seven Years", The Sword and the Trowel, April 1876
+    **{name: dict(notBy=dict(authorId=AUTHORS["spurgeon"], actually=f"Spurgeon Gems site file, not a library work: {what}"))
+       for name, what in {"chstix.pdf": "the site's title index of all 63 volumes",
+                          "sindex_ot.pdf": "the site's Old Testament Scripture index",
+                          "sindex_nt.pdf": "the site's New Testament Scripture index",
+                          "robots.txt": "the site's robots.txt, held as acquisition evidence",
+                          "about-us": "the site's About page, held as evidence of its terms",
+                          "spurgeon-sermons": "the site's sermon listing page, held as the inventory snapshot"}.items()},
+}
 
 
 def norm(url):
@@ -301,13 +317,32 @@ def piper_interviews(works, entries):
     return moved
 
 
+def spurgeon_site_files(works, entries):
+    """Spurgeon Gems site files catalogued as his sermons: relabelled front-matter or article, or marked not his."""
+    counts, matched = Counter(), set()
+    for work_id, (name, work) in sorted(works.items()):
+        urls = (work.get("externalIds") or {}).get("source-spurgeon-gems") or []
+        files = [norm(u).rsplit("/", 1)[-1] for u in urls if isinstance(u, str) and norm(u)]
+        if name != "spurgeon" or work.get("genre") != "sermon" or not any(f in SITE_FILES for f in files):
+            continue
+        if len(files) != 1 or has_main(work) or work_id in entries or any(re.search(r"/sermon/chs\d+[a-z]?\.pdf$", u) for u in sermon_urls(work)):
+            sys.exit(f"{work_id}: a site-file correction would touch a record with a main text, several Gems addresses, "
+                     "a numbered sermon address or an overlay entry already; check it by hand")
+        entries[work_id] = json.loads(json.dumps(SITE_FILES[files[0]]))
+        matched.add(files[0])
+        counts["site file marked not Spurgeon's" if "notBy" in entries[work_id] else f"genre corrected to {entries[work_id]['genre']}"] += 1
+    for missing in sorted(set(SITE_FILES) - matched):
+        print(f"warning: no Spurgeon sermon record carries the site file {missing}", file=sys.stderr)
+    return counts
+
+
 def unplaced(name, works, entries, unresolved, reasons):
     """Every sermon of this preacher still without a main text and not in "unresolved", with the reason seen."""
     listed = {u["workId"] for u in unresolved}
     out = []
     for work_id, (owner, work) in sorted(works.items()):
         entry = entries.get(work_id, {})
-        if owner != name or work_id in listed or entry.get("duplicateOf") or entry.get("passages") or has_main(work):
+        if owner != name or work_id in listed or entry.get("duplicateOf") or entry.get("notBy") or entry.get("passages") or has_main(work):
             continue
         if entry.get("genre", work.get("genre")) != "sermon":
             continue
@@ -353,7 +388,11 @@ def main():
     out["piper"] = overlay("piper", "Publisher's 'Scripture:' header list on each held Desiring God message page, and on message pages fetched but not kept as assets; Ask Pastor John episodes relabelled interview.",
                            e, u, c, unplaced("piper", works, e, u, r), x)
     e, u, c = spurgeon(works, verses)
-    out["spurgeon"] = overlay("spurgeon", "Opening Scripture headings already catalogued but left unmapped (verse lists such as '8:26, 27').",
+    c.update(spurgeon_site_files(works, e))
+    out["spurgeon"] = overlay("spurgeon", "Opening Scripture headings already catalogued but left unmapped (verse lists such as '8:26, 27'); "
+                              "Spurgeon Gems files catalogued as sermons relabelled by their held file: volume prefaces 'front-matter' "
+                              "(an overlay-only genre, like 'interview'), Sword and Trowel pieces 'article', the site's indexes and "
+                              "web pages marked not Spurgeon's (notBy), so no Teachers page counts them.",
                               e, u, c, unplaced("spurgeon", works, e, u, {}))
     for name, data in out.items():
         print(name, data["counts"], "unresolved:", len(data["unresolved"]), "unplaced:", len(data["unplaced"]),
