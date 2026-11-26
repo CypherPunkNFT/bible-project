@@ -189,6 +189,12 @@ def main():
             if ident:
                 aliases[key(credit['name'])] = ident
                 identities[ident] = identities.get(ident, {'id':ident,'name':credit['name'],'side':'scholars','traditions':[],'profileId':None})
+    # A shelf goes on the page its person's profile is on: Preachers & authors for a lives.json profile, Scholars
+    # for a scholars.json one. Eligibility says whether an author may be in the collection, not which page they are
+    # on; it still places people with no profile (job 694eae39, 2026-11-26: Bunyan and Carson were on neither page).
+    for label in identities.values():
+        if label.get('profileId'):
+            label['side'] = 'preachers' if label['profileId'] in lives else 'scholars'
     # Canonical works all receive an internal record. No external reading fallback.
     works, editions, url_to_work, assets = {}, {}, {}, []
     for f in sorted((SITE / 'content/library/catalog/works').glob('*.json')):

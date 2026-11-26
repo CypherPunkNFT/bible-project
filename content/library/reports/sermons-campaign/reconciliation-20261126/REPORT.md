@@ -137,6 +137,10 @@ its Bible passage, with a link to the original.
   shared by lines 163 and 175. Then rebuild `build-acquired-teachers.py` followed by `npm run teacher-pages`. Do not mark them `eligible` just to
   move a shelf: provisional is a judgment about the person, and should stay separate from where the shelf is filed.
 - A side oddity: Carson has 1 work but 373 catalogue assets whose editions point at it. That linkage is worth a look when this is fixed.
+- **Fixed 2026-11-26 (job 694eae39):** a profiled person's shelf now goes on the page the profile is on; eligibility places
+  only people with no profile. Seven shelves moved to the Preachers side, all of them people on the Preachers page: Bunyan
+  (1,032 held), Carson (377), and five marked `context-only`: Brainerd (66), Rutherford (61), Andrew Bonar (23), M'Cheyne
+  (23) and Paton (7). No other shelf moved. No registry eligibility was changed.
 
 ### Acquisition manifests in `reports/` with no catalogue records
 
