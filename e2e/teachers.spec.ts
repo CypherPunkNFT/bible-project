@@ -34,6 +34,16 @@ test("the Teachers station has two doorways: Preachers & authors, and Scholars",
   await expect(page).toHaveURL(/\/teachers\/scholars$/);
 });
 
+// The works figure is catalogue records of every kind and sermons are a part of them; the scholars whose work powers a
+// feature are counted on the Scholars door, so no small figure sits beside the records total (job 47a92cd8, 2026-11-26).
+test("the Teachers hero figures say what they count", async ({ page }) => {
+  await page.goto("/teachers");
+  const stats = page.locator(".st-hero .st-stats");
+  await expect(stats.locator("dt")).toHaveText(["Preachers & authors", "Scholars", "Library records", "Of them, sermons"]);
+  await expect(page.locator(".st-hero")).not.toContainText("Used on this site");
+  await expect(page.getByRole("navigation", { name: "Teachers" })).toContainText(/\d+ scholars, \d+ used in site features/);
+});
+
 test("the earlier list addresses lead to the merged Preachers & authors page", async ({ page }) => {
   for (const old of ["/teachers/preachers", "/teachers/authors"]) {
     await page.goto(old);

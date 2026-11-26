@@ -16,3 +16,6 @@
 .st-doors-2 a.st-door:is(:hover,:focus-visible) .sa-shelf-dot{opacity:1}
 @keyframes teacher-book-lift{0%,15%,100%{transform:translateY(0)}40%,75%{transform:translateY(-9px)}}
 @media(prefers-reduced-motion:reduce){.st-doors-2 .sa-shelf-raised{animation:none!important}}
+
+/* When a figure's label wraps to two lines and its neighbour's does not, the numbers still sit on one line (2026-11-26). */
+.st-page:has(.st-doors-2) .st-stats > div { align-content: end; }

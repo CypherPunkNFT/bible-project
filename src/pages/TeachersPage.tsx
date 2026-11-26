@@ -45,8 +45,11 @@ function Station() {
     <header className="st-hero">
       <div><p className="st-kick">Teachers</p><h1>Learn from those<br /><span>who taught the Word.</span></h1></div>
       <div className="st-side">
-        <p>The preachers and writers whose sermons and books are in the site’s library, and the scholars whose work the site is built on.</p>
-        <StationStats items={[["Preachers & authors", summary.people], ["Scholars", summary.scholars], ["Preacher & author works", summary.works], ["Used on this site", summary.scholarsInUse]]} />
+        <p>The preachers and writers whose sermons, books, articles and podcast episodes are in the site’s library, and the scholars whose work the site draws on. Each edition, translation or part of a book is a separate record.</p>
+        {/* Each label says what its number counts (job 47a92cd8, 2026-11-26): the works are catalogue records of every kind
+            (a fifth are podcast episodes and articles; copies and translations count separately), sermons are a part of
+            them, and the scholars whose work powers a feature are counted against all scholars on their door. */}
+        <StationStats items={[["Preachers & authors", summary.people], ["Scholars", summary.scholars], ["Library records", summary.works], ["Of them, sermons", summary.sermons]]} />
       </div>
     </header>
     <nav className="st-doors st-doors-2" aria-label="Teachers">
@@ -55,7 +58,7 @@ function Station() {
         note={`${summary.people} preachers and authors`} action="Meet the preachers and authors" />
       <StationDoor index={2} art="scholars" title="Scholars" color="prophets" to={SIDE_PATHS.scholars}
         text="Historians, translators, archaeologists and the makers of the reference books this site stands on, Christian or not, each labelled for what they were."
-        note={`${summary.scholars} scholars`} action="Meet the scholars" />
+        note={`${summary.scholars} scholars, ${summary.scholarsInUse} used in site features`} action="Meet the scholars" />
     </nav>
     <p className="st-closing"><span />Every work links to where it can be read; every scholar shows how this site uses their work.<span /></p>
   </div>;
