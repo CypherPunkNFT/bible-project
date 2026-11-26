@@ -4,6 +4,8 @@ Written 2026-11-26. **A plan only.** I changed no catalogue data, downloaded not
 
 **Where this should live:** the brief asked for a new dated folder at `Website/content/library/reports/sermons-campaign/2026-11-26-historic-splitting/` holding `REPORT.md` and `plan.json`. This job was read-only, so the service refused that write. Moving these two files there unchanged (renamed `REPORT.md` and `plan.json`) is the only filing step left.
 
+**Done since:** the first round (Calvin, Bullinger, Flavel, Sibbes, Owen and the 26 namesake corrections) in commit `75ce992f7`. Steps 6–13 are reported in [RESULTS-steps-6-13.md](RESULTS-steps-6-13.md), and the remaining zeros with their reasons in [zeros-20261126.md](../zeros-20261126.md) (all 2026-11-26).
+
 ## The answer in brief
 
 - **Most of the work does not need splitting scanned books.** The library already holds **clean, hand-typed transcriptions** (Text Creation Partnership TEI, which is public domain, CC0) for nearly every preacher who matters here. They mark each sermon with `<div type="sermon">`, a heading and the printed Bible text. One small parser covers Calvin, Bullinger, Flavel, Sibbes, Rutherford and Watson.

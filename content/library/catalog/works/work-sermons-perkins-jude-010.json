@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-perkins-jude-010",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A Godly and Learned Exposition upon the Whole Epistle of Jude; held file library/source-tcp-bulk/asset-bulk-tcp-a09434/original.xml (sha256 30364c9d04b2…).",
+    "The title page says 'containing threescore and six sermons preached in Cambridge'; the printed book divides the exposition by verse and prints no sermon break, so the 66 sermons cannot be recovered from it. This record is one verse unit of that exposition, not a sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "A Godly and Learned Exposition upon the Whole Epistle of Jude, part 10",
+  "alternateTitles": [
+    "Vers. 12. These are spots in your feasts of loue, when they feast with you, without all feare feeding themselues."
+  ],
+  "creators": [
+    {
+      "authorId": "author-william-perkins",
+      "role": "preacher"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Jude 1:12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 65001012,
+      "end": 65001012,
+      "verification": "verified",
+      "locator": "TCP A09434, <div type=\"verse\"> 10 of 21 (n=12); heading: 'Vers. 12. These are spots in your feasts of loue, when they feast with you, without all fe'; verse numbers printed: [12]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-3628aba925d2168d73a98963",
+      "locator": "TCP A09434, <div type=\"verse\"> 10 of 21 (n=12)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A09434/master/A09434.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09434/master/A09434.xml",
+      "locator": "TCP A09434, <div type=\"verse\"> 10 of 21 (n=12)",
+      "note": "Unit boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

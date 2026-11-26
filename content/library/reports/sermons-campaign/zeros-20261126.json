@@ -1,0 +1,240 @@
+{
+ "generatedBy": "job 4b5ae800 (historic sermons, second round)",
+ "generatedOn": "2026-11-26",
+ "measure": "people on the Preachers & authors page (src/data/teachers/people.json after npm run teacher-pages) with no sermon on a Bible passage",
+ "count": 29,
+ "zeros": [
+  {
+   "id": "author-heinrich-bullinger",
+   "name": "Heinrich Bullinger",
+   "worksOnPage": 174,
+   "sermonRecords": 156,
+   "kind": "sermons held, no printed text",
+   "reason": "155 sermons are catalogued, one per printed sermon (Decades, Hundred Sermons on the Apocalypse); none prints a Bible reference at its head: 101 open by quoting Revelation with no chapter or verse, 50 are doctrinal sermons headed by a topic, 4 print none. A passage is never guessed from a title or a quotation, so none is placed."
+  },
+  {
+   "id": "author-zacharias-ursinus",
+   "name": "Zacharias Ursinus",
+   "worksOnPage": 13,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-william-ames",
+   "name": "William Ames",
+   "worksOnPage": 26,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-francis-turretin",
+   "name": "Francis Turretin",
+   "worksOnPage": 5,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-herman-witsius",
+   "name": "Herman Witsius",
+   "worksOnPage": 31,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-john-gill",
+   "name": "John Gill",
+   "worksOnPage": 73,
+   "sermonRecords": 0,
+   "kind": "blocked by the no-scans rule",
+   "reason": "his Collection of Sermons and Tracts is held only as Internet Archive page scans with machine-read text, which this library does not use as a text source"
+  },
+  {
+   "id": "author-l13-david-brainerd",
+   "name": "David Brainerd",
+   "worksOnPage": 3,
+   "sermonRecords": 0,
+   "kind": "not a preacher of printed sermons",
+   "reason": "what is held is his journal"
+  },
+  {
+   "id": "author-william-carey",
+   "name": "William Carey",
+   "worksOnPage": 54,
+   "sermonRecords": 0,
+   "kind": "no printed sermon exists",
+   "reason": "his 1792 Nottingham sermon was never printed; the Enquiry is a treatise"
+  },
+  {
+   "id": "author-archibald-alexander",
+   "name": "Archibald Alexander",
+   "worksOnPage": 30,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons; a small sermon-form book is catalogued (Practical Sermons), optional and outside this plan"
+  },
+  {
+   "id": "author-charles-hodge",
+   "name": "Charles Hodge",
+   "worksOnPage": 230,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons; a small sermon-form book is catalogued (Princeton Sermons (outlines) and 4 single sermons), optional and outside this plan"
+  },
+  {
+   "id": "author-l13-andrew-bonar",
+   "name": "Andrew A. Bonar",
+   "worksOnPage": 8,
+   "sermonRecords": 0,
+   "kind": "held as a biographer",
+   "reason": "the Bonar sermon e-books held are by his brother Horatius, not by him"
+  },
+  {
+   "id": "author-l13-robert-murray-mcheyne",
+   "name": "Robert Murray M’Cheyne",
+   "worksOnPage": 5,
+   "sermonRecords": 0,
+   "kind": "blocked by the no-scans rule",
+   "reason": "his Sermons, Additional Remains and Memoir & Remains are held only as Internet Archive scans with machine-read text; the clean e-booklets held print no sermon headings"
+  },
+  {
+   "id": "author-a-a-hodge",
+   "name": "A. A. Hodge",
+   "worksOnPage": 46,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-l13-john-g-paton",
+   "name": "John G. Paton",
+   "worksOnPage": 26,
+   "sermonRecords": 0,
+   "kind": "not a preacher of printed sermons",
+   "reason": "what is held is his autobiography"
+  },
+  {
+   "id": "author-abraham-kuyper",
+   "name": "Abraham Kuyper",
+   "worksOnPage": 20,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-b-b-warfield",
+   "name": "B. B. Warfield",
+   "worksOnPage": 112,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons; a small sermon-form book is catalogued (Faith and Life; The Gospel of the Incarnation (2 sermons)), optional and outside this plan"
+  },
+  {
+   "id": "author-herman-bavinck",
+   "name": "Herman Bavinck",
+   "worksOnPage": 20,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-geerhardus-vos",
+   "name": "Geerhardus Vos",
+   "worksOnPage": 15,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-samuel-m-zwemer",
+   "name": "Samuel Marinus Zwemer",
+   "worksOnPage": 24,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-louis-berkhof",
+   "name": "Louis Berkhof",
+   "worksOnPage": 51,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-j-gresham-machen",
+   "name": "J. Gresham Machen",
+   "worksOnPage": 10,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-john-murray",
+   "name": "John Murray",
+   "worksOnPage": 6,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-martyn-lloyd-jones",
+   "name": "D. Martyn Lloyd-Jones",
+   "worksOnPage": 2,
+   "sermonRecords": 2,
+   "kind": "blocked by source terms",
+   "reason": "the MLJ Trust's terms forbid systematic retrieval for a database (CAMPAIGN-BRIEF.md), so none is fetched; the 2 sermon records catalogued print no passage that has been read"
+  },
+  {
+   "id": "author-billy-graham",
+   "name": "Billy Graham",
+   "worksOnPage": 23,
+   "sermonRecords": 23,
+   "kind": "separate campaign",
+   "reason": "his sermons are a campaign of their own (billygraham.org, personal-use terms); the 23 sermon records on the page carry no passage yet"
+  },
+  {
+   "id": "author-j-i-packer",
+   "name": "J. I. Packer",
+   "worksOnPage": 8,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-john-macarthur",
+   "name": "John MacArthur",
+   "worksOnPage": 0,
+   "sermonRecords": 0,
+   "kind": "separate campaign",
+   "reason": "his sermons are a campaign of their own (Grace to You)"
+  },
+  {
+   "id": "author-d-a-carson",
+   "name": "D. A. Carson",
+   "worksOnPage": 1,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  },
+  {
+   "id": "author-sinclair-ferguson",
+   "name": "Sinclair B. Ferguson",
+   "worksOnPage": 0,
+   "sermonRecords": 0,
+   "kind": "separate campaign",
+   "reason": "his sermons are a campaign of their own"
+  },
+  {
+   "id": "author-james-r-white",
+   "name": "James R. White",
+   "worksOnPage": 8,
+   "sermonRecords": 0,
+   "kind": "not a preacher",
+   "reason": "not a preacher in this library: the works catalogued under this name are systematic theology, commentary, catechism or lectures, not printed sermons"
+  }
+ ]
+}

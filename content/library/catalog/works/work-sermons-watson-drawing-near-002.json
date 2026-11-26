@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-watson-drawing-near-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Happiness of Drawing Near to God (printed with Heaven Taken by Storm); held file library/source-tcp-bulk/asset-bulk-tcp-a65299/original.xml (sha256 a6693e64ca61…).",
+    "The held transcription marks 54 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "The Happiness of Drawing Near to God (printed with Heaven Taken by Storm), sermon 2",
+  "alternateTitles": [
+    "THE HAPPINESS OF Drawing near to GOD."
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-watson",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 73:28",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19073028,
+      "end": 19073028,
+      "verification": "verified",
+      "locator": "TCP A65299, <div type=\"sermon\"> 2 of 2; printed: 'PSALM 73. 28.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f1a020a483ca09f4bba1f564",
+      "locator": "TCP A65299, <div type=\"sermon\"> 2 of 2"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A65299/master/A65299.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A65299/master/A65299.xml",
+      "locator": "TCP A65299, <div type=\"sermon\"> 2 of 2",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

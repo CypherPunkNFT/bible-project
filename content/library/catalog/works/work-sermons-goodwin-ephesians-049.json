@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-goodwin-ephesians-049",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons on Ephesians 1:1-2:11; held file library/source-monergism/asset-historical-ready-cf987f89f3072f7a0d/original.epub (sha256 95897e90a8b5…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons on Ephesians 1:1-2:11, sermon 49",
+  "alternateTitles": [
+    "SERMON XLVIII"
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-goodwin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Ephesians 2:4-6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49002004,
+      "end": 49002006,
+      "verification": "verified",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 49 of 60: 'SERMON XLVIII'; contents page: 'SERMON XLIX.—EPHESIANS 2 4–6'; the sermon's head: '...ces in Christ Jesus.—VER. 4–6.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-a93b1bb22e3fdb4ba55aaa93",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 49 of 60: 'SERMON XLVIII'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/goodwin/Commentary%20on%20Ephesians%20-%20Thomas%20Goodwin.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/goodwin/Commentary%20on%20Ephesians%20-%20Thomas%20Goodwin.epub",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 49 of 60: 'SERMON XLVIII'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-commons-1644-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A sermon preached to the House of Commons (1644); held file library/source-tcp-bulk/asset-bulk-tcp-a57979/original.xml (sha256 e4f749e45e3b…).",
+    "The held transcription marks 16 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "A sermon preached to the House of Commons (1644), sermon 1",
+  "alternateTitles": [
+    "A SERMON, PREACHED Before the Honourable House of COMMONS, At their last solemne Fast, Wednesday, January 31. 1644."
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Daniel 6:26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 27006026,
+      "end": 27006026,
+      "verification": "verified",
+      "locator": "TCP A57979, <div type=\"sermon\"> 1 of 1; printed: 'DANIEL 6. 26.'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A57979/master/A57979.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A57979/master/A57979.xml",
+      "locator": "TCP A57979, <div type=\"sermon\"> 1 of 1",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

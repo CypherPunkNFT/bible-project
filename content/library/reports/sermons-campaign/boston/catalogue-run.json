@@ -1,0 +1,55 @@
+{
+  "preacher": "boston",
+  "generatedBy": "scripts/catalog-historic-sermons.py",
+  "generatedOn": "2026-11-26",
+  "plan": "reports/sermons-campaign/historic-splitting-20261126/plan.json",
+  "counts": {
+    "placed": 76,
+    "listed without a passage": 5,
+    "sermons": 81
+  },
+  "ceiling": 81,
+  "unplaced": [
+    {
+      "workId": "work-sermons-boston-sixty-six-024",
+      "title": "SERMON XXIV / THE EVIL AND DANGER OF HALTING BETWIXT TWO OPINIONS*",
+      "reason": "printed: '1 KINGS 16:21'; misprint, not corrected: the words quoted at the head ('And Elijah said, How long halt ye betwixt two opinions?') are not in the printed verses; its words are 1KI 18:21 in the KJV"
+    },
+    {
+      "workId": "work-sermons-boston-sixty-six-025",
+      "title": "SERMON XXV / THE SAME SUBJECT CONTINUED.*",
+      "reason": "printed: '1 KINGS 16:21'; misprint, not corrected: the words quoted at the head ('Elijah said, How long hah ye betwixt two opinions?') are not in the printed verses; its words are 1KI 18:21 in the KJV"
+    },
+    {
+      "workId": "work-sermons-boston-sixty-six-034",
+      "title": "SERMON XXXIV / THE SAME SUBJECT CONTINUED.*",
+      "reason": "printed: 'LUKE 16:26'; misprint, not corrected: the words quoted at the head ('If any man come unto me, and hate not his father, and') are not in the printed verses; its words are LUK 14:26 in the KJV"
+    },
+    {
+      "workId": "work-sermons-boston-sixty-six-041",
+      "title": "SERMON XLI / THE SAME SUBJECT CONTINUED",
+      "reason": "printed: 'ACTS 28:23'; misprint, not corrected: the words quoted at the head ('For there stood by me this night the angel of the Lord,') are not in the printed verses; its words are ACT 27:23 in the KJV"
+    },
+    {
+      "workId": "work-sermons-boston-sixty-six-042",
+      "title": "SERMON XLII / THE SAME SUBJECT CONTINUED",
+      "reason": "printed: 'ACTS 28:23'; misprint, not corrected: the words quoted at the head ('For there stood by me this night the angel of the Lord,') are not in the printed verses; its words are ACT 27:23 in the KJV"
+    }
+  ],
+  "missingHeldFiles": [],
+  "notSermons": [],
+  "witnessesNotCounted": [
+    {
+      "epub": "source-monergism-library/asset-expanded-003e741dbdf81560e502",
+      "note": "Christ's Invitation to the Labouring and Heavy Laden (4): Sixty-Six Sermons XVIII-XXI"
+    },
+    {
+      "epub": "source-monergism-library/asset-expanded-396296b4e3b39d9803cb",
+      "note": "Liberty to the Captives (10): Sixty-Six Sermons XLVI-LV"
+    },
+    {
+      "epub": "source-monergism-library/asset-expanded-b7e498fe021f6aa51cfe",
+      "note": "I Count All Things But Loss (8): the same eight sermons on Phil. 3:8-9 as Christ Jesus Duly Prized"
+    }
+  ]
+}

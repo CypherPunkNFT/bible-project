@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-quaint-011",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Eighteen Quaint Sermons; held file library/source-monergism-library/asset-expanded-cf5df9865129d364996a/original.epub (sha256 a6170ed7a4d9…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Eighteen Quaint Sermons, sermon 11",
+  "alternateTitles": [
+    "The Forlorn Son—the Grounds why he came Home, and his Prayer"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Luke 15:14-19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42015014,
+      "end": 42015019,
+      "verification": "verified",
+      "locator": "Eighteen Quaint Sermons (held e-book), sermon heading 11 of 18: 'The Forlorn Son—the Grounds why he came Home, and his Prayer'; printed: 'LUKE 15:14–19'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/rutherford/Eighteen%20Quaint%20Sermons%20-%20Rutherford.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/rutherford/Eighteen%20Quaint%20Sermons%20-%20Rutherford.epub",
+      "locator": "Eighteen Quaint Sermons (held e-book), sermon heading 11 of 18: 'The Forlorn Son—the Grounds why he came Home, and his Prayer'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

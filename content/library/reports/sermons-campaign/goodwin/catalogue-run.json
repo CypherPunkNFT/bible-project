@@ -1,0 +1,43 @@
+{
+  "preacher": "goodwin",
+  "generatedBy": "scripts/catalog-historic-sermons.py",
+  "generatedOn": "2026-11-26",
+  "plan": "reports/sermons-campaign/historic-splitting-20261126/plan.json",
+  "counts": {
+    "placed": 65,
+    "sermons": 65
+  },
+  "ceiling": 77,
+  "unplaced": [],
+  "missingHeldFiles": [],
+  "notSermons": [
+    {
+      "source": "ephesians-other",
+      "division": 1,
+      "reason": "Part I of 'A Sermon on Ephesians 2:14-16': one sermon in two parts, held as its own book, Christ the Universal Peace-maker (TCP A85431, 1651), which carries its record"
+    },
+    {
+      "source": "ephesians-other",
+      "division": 2,
+      "reason": "Part II of 'A Sermon on Ephesians 2:14-16': see Part I"
+    }
+  ],
+  "witnessesNotCounted": [
+    {
+      "tcp": "A85442",
+      "note": "The World to Come (two lectures on Eph. 1:21-22): Ephesians sermons XXXIII-XXXIV (the first lecture opens with the same words as XXXIII; the second's argument is XXXIV's)"
+    },
+    {
+      "tcp": "A85438",
+      "note": "A Sermon of the Fifth Monarchy (Rev. 5:9-10): attribution to Goodwin disputed; not counted"
+    },
+    {
+      "tcp": "A41543",
+      "note": "Thomas Goodwin d. 1658, a namesake: not counted"
+    },
+    {
+      "tcp": "A01894",
+      "note": "Aggravation of Sin and Sinning against Knowledge and Mercy: the title page says 'delivered in several sermons', but the book prints three discourses (Rom. 7:13, Rom. 1:21, Rom. 2:4-5) with no sermon break: sermon-derived, not counted as sermons and not split"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-lords-1645-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A sermon preached before the House of Lords (1645); held file library/source-tcp-bulk/asset-bulk-tcp-a92145/original.xml (sha256 fea59fca43ed…).",
+    "The held transcription marks 65 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "A sermon preached before the House of Lords (1645), sermon 1",
+  "alternateTitles": [
+    "A SERMON PREACHED before the Right Honorable the House of LORDS at their Monethly Fast, June 25. 1645. in the Abbey Church at Westminster."
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Luke 8:22",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42008022,
+      "end": 42008022,
+      "verification": "verified",
+      "locator": "TCP A92145, <div type=\"sermon\"> 1 of 1; printed: 'Luke 8. 22.'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A92145/master/A92145.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A92145/master/A92145.xml",
+      "locator": "TCP A92145, <div type=\"sermon\"> 1 of 1",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-watson-beatitudes-added-010",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Beatitudes: the sermons added to it; held file library/source-tcp-bulk/asset-bulk-tcp-a96093/original.xml (sha256 318bb76eeb1b…).",
+    "The held transcription marks 24 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "The Beatitudes: the sermons added to it, sermon 10",
+  "alternateTitles": [
+    "The good Practitioner."
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-watson",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 13:17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43013017,
+      "end": 43013017,
+      "verification": "verified",
+      "locator": "TCP A96093, <div type=\"sermon\"> 10 of 10; printed: 'Ioh. 13.17.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-13dfb8b1d6476ba744ae5f55",
+      "locator": "TCP A96093, <div type=\"sermon\"> 10 of 10"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A96093/master/A96093.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A96093/master/A96093.xml",
+      "locator": "TCP A96093, <div type=\"sermon\"> 10 of 10",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-goodwin-ephesians-004",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons on Ephesians 1:1-2:11; held file library/source-monergism/asset-historical-ready-cf987f89f3072f7a0d/original.epub (sha256 95897e90a8b5…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons on Ephesians 1:1-2:11, sermon 4",
+  "alternateTitles": [
+    "SERMON IV"
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-goodwin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Ephesians 1:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49001003,
+      "end": 49001003,
+      "verification": "verified",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 4 of 60: 'SERMON IV'; contents page: 'SERMON IV.—EPHESIANS I. 3'; the sermon's head: '...With all blessings.—VER. 3.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-a93b1bb22e3fdb4ba55aaa93",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 4 of 60: 'SERMON IV'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/goodwin/Commentary%20on%20Ephesians%20-%20Thomas%20Goodwin.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/goodwin/Commentary%20on%20Ephesians%20-%20Thomas%20Goodwin.epub",
+      "locator": "Sermons on Ephesians 1:1-2:11 (held e-book), sermon heading 4 of 60: 'SERMON IV'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

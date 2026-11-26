@@ -1,0 +1,306 @@
+Placement audit, historic sermons second round (job 4b5ae800, 2026-11-26)
+
+Sample: a seeded random 50 placed records per preacher, or every placed record where there are fewer than 50.
+Each row: record | what the book prints -> the passage recorded | whether that printed text was found in the held
+file read raw (tags stripped, not through the splitter) | the words around it scored against the recorded KJV verses
+(OK = half or more of a recorded verse's words are there) and against every verse of the KJV.
+
+Every CHECK and NOT FOUND row below was read by eye in the held file. All are correct: CHECK rows are books that quote
+only part of the verse ("He will swallow up death in victory. ISAIAH 25:8"), or the window scored was the end of the
+sermon before; NOT FOUND rows are old spellings the literal search misses (long s, words broken across lines, "•" for
+an illegible letter). Errors found and fixed before this file was written:
+  1. Charnock, A SERMON Preached on 2 Cor. 5.19 (TCP A32722): recorded as the whole of 2 Corinthians 5; the heading
+     reader dropped a verse joined to the chapter ("5.19"). Fixed in scripts/catalog-historic-sermons.py
+     (head_reference); now 2 Corinthians 5:19. Calvin, Bullinger, Flavel, Sibbes and Owen re-read identically.
+  2. Bunyan, Saved by Grace: the record chosen to stand for the discourse was a volume binding four works ("Saved by
+     grace ; justification, the law and grace unfolded, also ..."). Found in a sample of 50 of the 138 links; it is now
+     left alone as a bound volume and "Saved by Grace" (one work) stands for the discourse (3 records).
+Error rates: Rutherford 0/35, Boston 0/50, Goodwin 0/50, Watson 0/21, Perkins 0/21 (verse units), Whitefield 0/17,
+single sermons 1/11 (fixed), Bunyan links 1/50 sampled (fixed).
+
+## rutherford: 35 of 35 placed
+work-sermons-rutherford-commons-1644-001 | DANIEL 6. 26. -> Daniel 6:26 [27006026-27006026] | found x1 | OK inside 0.89; best anywhere DAN 6:26 (0.89)
+work-sermons-rutherford-communion-001 | Revelation 19:11, 12, 13, 14 -> Revelation 19:11-14 [66019011-66019014] | found x3 | OK inside 1.00; best anywhere REV 19:11 (1.00)
+work-sermons-rutherford-communion-002 | Zechariah 13:7, 8, 9 -> Zechariah 13:7-9 [38013007-38013009] | found x6 | OK inside 1.00; best anywhere ZEC 13:7 (1.00)
+work-sermons-rutherford-communion-003 | Zechariah 13:7, 8, 9 -> Zechariah 13:7-9 [38013007-38013009] | found x6 | OK inside 1.00; best anywhere ZEC 13:7 (1.00)
+work-sermons-rutherford-communion-004 | Luke 14:16, 17 -> Luke 14:16-17 [42014016-42014017] | found x3 | OK inside 1.00; best anywhere LUK 14:16 (1.00)
+work-sermons-rutherford-communion-005 | Heb. 12:1, 2, 3, 4, 5 -> Hebrews 12:1-5 [58012001-58012005] | found x2 | OK inside 1.00; best anywhere HEB 12:1 (1.00)
+work-sermons-rutherford-communion-006 | Isaiah 49:1, 2, 3, 4 -> Isaiah 49:1-4 [23049001-23049004] | found x3 | OK inside 1.00; best anywhere ISA 49:1 (1.00)
+work-sermons-rutherford-communion-007 | Zech. 11:9, 10, 11, 12, 13 -> Zechariah 11:9-13 [38011009-38011013] | found x2 | OK inside 1.00; best anywhere ZEC 11:9 (1.00)
+work-sermons-rutherford-communion-008 | John 20:13, 14, 15, 16, 17, 18 -> John 20:13-18 [43020013-43020018] | found x3 | OK inside 1.00; best anywhere JHN 20:13 (1.00)
+work-sermons-rutherford-communion-009 | Song 5:1, 2 -> Song of Songs 5:1-2 [22005001-22005002] | found x2 | OK inside 0.95; best anywhere SNG 5:1 (0.95)
+work-sermons-rutherford-communion-010 | Rev. 21:4, 5, 6, 7 -> Revelation 21:4-7 [66021004-66021007] | found x2 | CHECK inside 0.43; best anywhere ROM 8:31 (0.57)
+      HELD: . THIS text contains three things. First, The state of the glorified, verse 4. Secondly, A part of Christ's office, verse 5. Thirdly, A description of His nature. Fourthly, The promises as to 1. Drink to satisfy the thirst; 2. An inheritance to the overcomers,
+      KJV : And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away. And he that sat upon the throne said, Behold, I make all things new. A
+work-sermons-rutherford-communion-011 | CANTICLES 2:14, 17 -> Song of Songs 2:14, 17 [22002014-22002014] | found x2 | CHECK inside 0.07; best anywhere 1CO 1:6 (0.60)
+      HELD:  Christ and the Dove* CANTICLES 2:14, 17. IN the 14th verse, there is (1) a style given to the Kirk; (2) a suit made; (3) a doubt answered. In the 15th verse, a new doubt is answered, and a suit made. He calls her "His dove." He rues nothing that He said; He b
+      KJV : ¶ O my dove, that art in the clefts of the rock, in the secret places of the stairs, let me see thy countenance, let me hear thy voice; for sweet is thy voice, and thy countenance is comely.
+work-sermons-rutherford-communion-013 | Revelation 19:7, 8, 9, 10, 11, 12, 13, 14 -> Revelation 19:7-14 [66019007-66019014] | found x2 | OK inside 1.00; best anywhere REV 19:7 (1.00)
+work-sermons-rutherford-communion-014 | Cant. 2:8–12 -> Song of Songs 2:8-12 [22002008-22002012] | found x2 | OK inside 1.00; best anywhere SNG 2:8 (1.00)
+work-sermons-rutherford-lords-1645-001 | Luke 8. 22. -> Luke 8:22 [42008022-42008022] | found x1 | OK inside 0.94; best anywhere LUK 8:23 (1.00)
+work-sermons-rutherford-quaint-001 | ISAIAH 41:14–16 -> Isaiah 41:14-16 [23041014-23041016] | found x2 | OK inside 1.00; best anywhere ISA 41:16 (1.00)
+work-sermons-rutherford-quaint-002 | ISAIAH 41:14–16 -> Isaiah 41:14-16 [23041014-23041016] | found x2 | OK inside 1.00; best anywhere ISA 41:16 (1.00)
+work-sermons-rutherford-quaint-003 | HOSEA 8:1–3 -> Hosea 8:1-3 [28008001-28008003] | found x2 | OK inside 1.00; best anywhere HOS 8:1 (1.00)
+work-sermons-rutherford-quaint-004 | JOHN 20:9–13 -> John 20:9-13 [43020009-43020013] | found x2 | OK inside 1.00; best anywhere JHN 20:12 (1.00)
+work-sermons-rutherford-quaint-005 | SONG OF SOLOMON 5:3–6 -> Song of Songs 5:3-6 [22005003-22005006] | found x2 | OK inside 1.00; best anywhere SNG 5:6 (1.00)
+work-sermons-rutherford-quaint-006 | SONG OF SOLOMON 5:7–10 -> Song of Songs 5:7-10 [22005007-22005010] | found x2 | OK inside 1.00; best anywhere SNG 5:9 (1.00)
+work-sermons-rutherford-quaint-007 | JEREMIAH 50:4, 5 -> Jeremiah 50:4-5 [24050004-24050005] | found x1 | OK inside 1.00; best anywhere JER 50:5 (1.00)
+work-sermons-rutherford-quaint-009 | LUKE 15:11, 12 -> Luke 15:11-12 [42015011-42015012] | found x1 | OK inside 1.00; best anywhere LUK 15:11 (1.00)
+work-sermons-rutherford-quaint-010 | LUKE 15:11–13 -> Luke 15:11-13 [42015011-42015013] | found x2 | OK inside 1.00; best anywhere LUK 15:12 (1.00)
+work-sermons-rutherford-quaint-011 | LUKE 15:14–19 -> Luke 15:14-19 [42015014-42015019] | found x2 | OK inside 1.00; best anywhere LUK 15:18 (1.00)
+work-sermons-rutherford-quaint-012 | LUKE 15:20–21 -> Luke 15:20-21 [42015020-42015021] | found x1 | OK inside 1.00; best anywhere LUK 15:20 (1.00)
+work-sermons-rutherford-quaint-013 | LUKE 15:22–23 -> Luke 15:22-23 [42015022-42015023] | found x2 | OK inside 1.00; best anywhere LUK 15:22 (1.00)
+work-sermons-rutherford-quaint-014 | LUKE 15:24–28 -> Luke 15:24-28 [42015024-42015028] | found x2 | OK inside 1.00; best anywhere LUK 15:26 (1.00)
+work-sermons-rutherford-quaint-015 | LUKE 15:29–32 -> Luke 15:29-32 [42015029-42015032] | found x2 | OK inside 1.00; best anywhere LUK 15:31 (1.00)
+work-sermons-rutherford-quaint-016 | 2 COR. 10:4, 5 -> 2 Corinthians 10:4-5 [47010004-47010005] | found x1 | OK inside 1.00; best anywhere 2CO 10:5 (1.00)
+work-sermons-rutherford-quaint-017 | PHIL. 3:7, 8 -> Philippians 3:7-8 [50003007-50003008] | found x1 | OK inside 1.00; best anywhere PHP 3:7 (1.00)
+work-sermons-rutherford-quaint-018 | PHILIPPIANS 3:8 -> Philippians 3:8 [50003008-50003008] | found x1 | OK inside 0.81; best anywhere 1CO 8:6 (0.88)
+work-sermons-rutherford-trial-triumph-001 | Mar. 7.24. -> Mark 7:24 [41007024-41007024] | found x2 | OK inside 0.93; best anywhere LUK 18:38 (1.00)
+work-sermons-rutherford-trial-triumph-011 | Matth. 15.23. -> Matthew 15:23 [40015023-40015023] | found x1 | OK inside 1.00; best anywhere EZK 24:20 (1.00)
+work-sermons-rutherford-trial-triumph-027 | Mar. 7.30. -> Mark 7:30 [41007030-41007030] | found x1 | OK inside 0.89; best anywhere MRK 7:30 (0.89)
+## boston: 50 of 76 placed
+work-sermons-boston-sixty-six-064 | EXOD. 24:11 -> Exodus 24:11 [2024011-2024011] | found x4 | OK inside 1.00; best anywhere EXO 24:11 (1.00)
+work-sermons-boston-sixty-six-009 | ISAIAH 25:8 -> Isaiah 25:8 [23025008-23025008] | found x2 | CHECK inside 0.31; best anywhere PSA 147:11 (1.00)
+      HELD: opeless case, and his mercy reaches wide for every condition. Fear him, ye that hope in him; hope in his mercy, ye that fear him; for "the Lord taketh pleasure in them that fear him, in those that hope in his mercy." Amen. SERMON IX JESUS VICTORIOUS OVER DEATH
+      KJV : He will swallow up death in victory; and the Lord GOD will wipe away tears from off all faces; and the rebuke of his people shall he take away from off all the earth: for the LORD hath spoken it.
+work-sermons-boston-sixty-six-052 | ISAIAH 61:1 -> Isaiah 61:1 [23061001-23061001] | found x9 | CHECK inside 0.35; best anywhere DEU 29:15 (0.50)
+      HELD: aith in this, of all matters the most important? Here lies the weight of God's honour, and the salvation of an elect world; and this required no less solid a bottom than the testimony of truth itself. SERMON XLIX SAME SUBJECT CONTINUED The Lord hath anointed m
+      KJV : The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;
+work-sermons-boston-sixty-six-020 | MATTH. 11:28 -> Matthew 11:28 [40011028-40011028] | found x5 | OK inside 1.00; best anywhere MAT 11:28 (1.00)
+work-sermons-boston-sixty-six-057 | 2 TIM. 2:19 -> 2 Timothy 2:19 [55002019-55002019] | found x5 | OK inside 0.56; best anywhere PSA 69:27 (0.80)
+work-sermons-boston-sixty-six-054 | ISAIAH 61:1 -> Isaiah 61:1 [23061001-23061001] | found x9 | CHECK inside 0.35; best anywhere DEU 29:15 (0.50)
+      HELD: aith in this, of all matters the most important? Here lies the weight of God's honour, and the salvation of an elect world; and this required no less solid a bottom than the testimony of truth itself. SERMON XLIX SAME SUBJECT CONTINUED The Lord hath anointed m
+      KJV : The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;
+work-sermons-boston-sixty-six-058 | 2 TIM. 2:19 -> 2 Timothy 2:19 [55002019-55002019] | found x5 | OK inside 0.56; best anywhere PSA 69:27 (0.80)
+work-sermons-boston-sixty-six-007 | PSALM 147:11 -> Psalms 147:11 [19147011-19147011] | found x3 | OK inside 1.00; best anywhere PSA 147:11 (1.00)
+work-sermons-boston-sixty-six-065 | EXOD. 24:11 -> Exodus 24:11 [2024011-2024011] | found x4 | OK inside 1.00; best anywhere EXO 24:11 (1.00)
+work-sermons-boston-sixty-six-036 | HOS. 6:3 -> Hosea 6:3 [28006003-28006003] | found x3 | CHECK inside 0.31; best anywhere ISA 40:31 (1.00)
+      HELD: h." Isa. 40:31, "They that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run and not be weary; and they shall walk, and not faint" Amen. SERMON XXXV A RICH REWARD TO DILIGENCE IN RELIGION.* Then shall we kn
+      KJV : Then shall we know, if we follow on to know the LORD: his going forth is prepared as the morning; and he shall come unto us as the rain, as the latter and former rain unto the earth.
+work-sermons-boston-sixty-six-029 | NUMB. 14:24 -> Numbers 14:24 [4014024-4014024] | found x1 | OK inside 1.00; best anywhere NUM 14:24 (1.00)
+work-sermons-boston-sixty-six-033 | LUKE 14:26 -> Luke 14:26 [42014026-42014026] | found x2 | OK inside 1.00; best anywhere LUK 14:26 (1.00)
+work-sermons-boston-sixty-six-027 | ROM. 8:22 -> Romans 8:22 [45008022-45008022] | found x5 | OK inside 1.00; best anywhere ROM 8:22 (1.00)
+work-sermons-boston-sixty-six-013 | ISAIAH 55:4 -> Isaiah 55:4 [23055004-23055004] | found x1 | OK inside 1.00; best anywhere ISA 55:4 (1.00)
+work-sermons-boston-sixty-six-023 | ISA. 32:2 -> Isaiah 32:2 [23032002-23032002] | found x3 | CHECK inside 0.47; best anywhere MAT 11:28 (1.00)
+      HELD: osoever will may come, and him that cometh unto him, he will in no wise cast out. "Come unto me" says he, "all ye that labour and are heavy laden, and I will give you rest." SERMON XXII CHRIST, A REFRESHFUL SHADOW IN A WEARY LAND.* And a man shall be—as the sh
+      KJV : And a man shall be as an hiding place from the wind, and a covert from the tempest; as rivers of water in a dry place, as the shadow of a great rock in a weary land.
+work-sermons-boston-sixty-six-055 | ISAIAH 61:1 -> Isaiah 61:1 [23061001-23061001] | found x9 | CHECK inside 0.35; best anywhere DEU 29:15 (0.50)
+      HELD: aith in this, of all matters the most important? Here lies the weight of God's honour, and the salvation of an elect world; and this required no less solid a bottom than the testimony of truth itself. SERMON XLIX SAME SUBJECT CONTINUED The Lord hath anointed m
+      KJV : The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;
+work-sermons-boston-sixty-six-016 | MATT. 20:6 -> Matthew 20:6 [40020006-40020006] | found x1 | CHECK inside 0.38; best anywhere 1JN 4:5 (0.60)
+      HELD: divested of self-confidence in this world, therefore we do not arrive here at perfect strength. But all the saints, however, will give their testimony, that "when they are weak, then they are strong."—Amen. SERMON XVI Sixty-Six Sermons THE INTERESTING INQUIRY.
+      KJV : And about the eleventh hour he went out, and found others standing idle, and saith unto them, Why stand ye here all the day idle?
+work-sermons-boston-amiable-003 | MARK 10:21 -> Mark 10:21 [41010021-41010021] | found x12 | OK inside 0.75; best anywhere MAT 19:21 (0.77)
+work-sermons-boston-duly-prized-005 | PHILLIPIANS 3:8 -> Philippians 3:8 [50003008-50003008] | found x1 | CHECK inside 0.31; best anywhere JHN 5:42 (0.60)
+      HELD:  see as if you saw the face of God; which is an hundred-fold better than any thing lost for him. See also the principal secured, but exchanged into eternal life, in heaven. November 9, 1712. SERMON V: For whom I have suffered the loss of all things For whom I 
+      KJV : Yea doubtless, and I count all things but loss for the excellency of the knowledge of Christ Jesus my Lord: for whom I have suffered the loss of all things, and do count them but dung, that I may win Christ,
+work-sermons-boston-sixty-six-044 | JOHN 6:57 -> John 6:57 [43006057-43006057] | found x2 | OK inside 0.57; best anywhere ISA 1:18 (0.95)
+work-sermons-boston-sixty-six-063 | ISA. 25:6 -> Isaiah 25:6 [23025006-23025006] | found x2 | OK inside 1.00; best anywhere ISA 25:6 (1.00)
+work-sermons-boston-sixty-six-011 | 2 KINGS 2:14 -> 2 Kings 2:14 [12002014-12002014] | found x2 | OK inside 0.50; best anywhere PSA 34:9 (0.60)
+work-sermons-boston-amiable-007 | MARK 10:22 -> Mark 10:22 [41010022-41010022] | found x2 | OK inside 1.00; best anywhere MRK 10:22 (1.00)
+work-sermons-boston-sixty-six-040 | ACTS 27:23 -> Acts 27:23 [44027023-44027023] | found x2 | OK inside 1.00; best anywhere ACT 27:23 (1.00)
+work-sermons-boston-sixty-six-035 | HOS. 6:3 -> Hosea 6:3 [28006003-28006003] | found x3 | CHECK inside 0.31; best anywhere ISA 40:31 (1.00)
+      HELD: h." Isa. 40:31, "They that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run and not be weary; and they shall walk, and not faint" Amen. SERMON XXXV A RICH REWARD TO DILIGENCE IN RELIGION.* Then shall we kn
+      KJV : Then shall we know, if we follow on to know the LORD: his going forth is prepared as the morning; and he shall come unto us as the rain, as the latter and former rain unto the earth.
+work-sermons-boston-duly-prized-001 | PHILIPPIANS 3:8 -> Philippians 3:8 [50003008-50003008] | found x4 | OK inside 0.81; best anywhere PHP 3:8 (0.81)
+work-sermons-boston-sixty-six-038 | HEB. 10:22 -> Hebrews 10:22 [58010022-58010022] | found x4 | OK inside 1.00; best anywhere HEB 10:22 (1.00)
+work-sermons-boston-duly-prized-008 | PHILIPPIANS, 3:9 -> Philippians 3:9 [50003009-50003009] | found x1 | OK inside 1.00; best anywhere PHP 3:9 (1.00)
+work-sermons-boston-sixty-six-002 | ISAIAH 59:2 -> Isaiah 59:2 [23059002-23059002] | found x1 | OK inside 1.00; best anywhere ISA 59:2 (1.00)
+work-sermons-boston-sixty-six-012 | 2 KINGS 2:14 -> 2 Kings 2:14 [12002014-12002014] | found x2 | OK inside 0.50; best anywhere PSA 34:9 (0.60)
+work-sermons-boston-sixty-six-059 | 2 TIM. 2:19 -> 2 Timothy 2:19 [55002019-55002019] | found x5 | OK inside 0.56; best anywhere PSA 69:27 (0.80)
+work-sermons-boston-sixty-six-022 | ISA. 32:2 -> Isaiah 32:2 [23032002-23032002] | found x3 | CHECK inside 0.47; best anywhere MAT 11:28 (1.00)
+      HELD: osoever will may come, and him that cometh unto him, he will in no wise cast out. "Come unto me" says he, "all ye that labour and are heavy laden, and I will give you rest." SERMON XXII CHRIST, A REFRESHFUL SHADOW IN A WEARY LAND.* And a man shall be—as the sh
+      KJV : And a man shall be as an hiding place from the wind, and a covert from the tempest; as rivers of water in a dry place, as the shadow of a great rock in a weary land.
+work-sermons-boston-sixty-six-008 | PSALM 147:11 -> Psalms 147:11 [19147011-19147011] | found x3 | OK inside 1.00; best anywhere PSA 147:11 (1.00)
+work-sermons-boston-sixty-six-026 | ROM. 8:22 -> Romans 8:22 [45008022-45008022] | found x5 | OK inside 1.00; best anywhere ROM 8:22 (1.00)
+work-sermons-boston-sixty-six-062 | DEUT. 5:29 -> Deuteronomy 5:29 [5005029-5005029] | found x4 | OK inside 1.00; best anywhere DEU 5:29 (1.00)
+work-sermons-boston-sixty-six-045 | 1 SAM. 12:21 -> 1 Samuel 12:21 [9012021-9012021] | found x2 | OK inside 1.00; best anywhere 1SA 12:21 (1.00)
+work-sermons-boston-sixty-six-017 | MATTH. 28:20 -> Matthew 28:20 [40028020-40028020] | found x2 | CHECK inside 0.17; best anywhere ROM 12:11 (0.83)
+      HELD: consciences closely with them as in the sight of God,—to profit by the instructive lessons afforded from them;—and, in short, that you study a being diligent in business, fervent in spirit, always serving the Lord. SERMON XVII CHRIST'S PRESENCE WITH GOSPEL MIN
+      KJV : Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.
+work-sermons-boston-sixty-six-006 | PSALM 18:30 -> Psalms 18:30 [19018030-19018030] | found x2 | CHECK inside 0.33; best anywhere ISA 40:31 (1.00)
+      HELD: it will be good for you to draw near to God at his own table: "They that thus wait upon the Lord shall renew their strength, they shall mount up on wings like eagles, run and not be weary, walk and not faint." SERMON VI THE PERFECTION OF PROVIDENTIAL DISPENSAT
+      KJV : As for God, his way is perfect: the word of the LORD is tried: he is a buckler to all those that trust in him.
+work-sermons-boston-sixty-six-046 | ISAIAH 61:1 -> Isaiah 61:1 [23061001-23061001] | found x9 | CHECK inside 0.35; best anywhere DEU 29:15 (0.50)
+      HELD: aith in this, of all matters the most important? Here lies the weight of God's honour, and the salvation of an elect world; and this required no less solid a bottom than the testimony of truth itself. SERMON XLIX SAME SUBJECT CONTINUED The Lord hath anointed m
+      KJV : The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;
+work-sermons-boston-sixty-six-003 | MATTH. 21:29 -> Matthew 21:29 [40021029-40021029] | found x2 | OK inside 0.80; best anywhere MAT 21:29 (0.80)
+work-sermons-boston-sixty-six-014 | 2 COR. 12:10 -> 2 Corinthians 12:10 [47012010-47012010] | found x3 | CHECK inside 0.25; best anywhere HEB 7:10 (0.40)
+      HELD: US OVER DEATH - ISA. 25:8 SERMON X: THE SAME SUBJECT CONTINUED SERMON XI: THE SUITABLE IMPROVEMENT OF SAINTS' FORMER EXPERIENCES - 2 KINGS 1:14 SERMON XII: THE SAME SUBJECT CONTINUED SERMON XIII: CHRIST, THE FATHER'S GIFT TO HIS CHOSEN PEOPLE - ISA. 55:4 SERMO
+      KJV : Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ’s sake: for when I am weak, then am I strong.
+work-sermons-boston-duly-prized-007 | PHILIPPAINS 3:9 -> Philippians 3:9 [50003009-50003009] | found x1 | CHECK inside 0.40; best anywhere JER 32:38 (0.80)
+      HELD:  HERE is another thing which the apostle hath in his eye, namely, to be found in Christ. This supposeth that they who win Christ are in him, united to him, and that they who are united to him will be found in him, when God searcheth for them. Having before han
+      KJV : And be found in him, not having mine own righteousness, which is of the law, but that which is through the faith of Christ, the righteousness which is of God by faith:
+work-sermons-boston-sixty-six-028 | ROM. 8:22 -> Romans 8:22 [45008022-45008022] | found x5 | OK inside 1.00; best anywhere ROM 8:22 (1.00)
+work-sermons-boston-sixty-six-032 | ROM. 2:28, 29 -> Romans 2:28-29 [45002028-45002029] | found x3 | OK inside 1.00; best anywhere ROM 2:28 (1.00)
+work-sermons-boston-sixty-six-049 | ISAIAH 61:1 -> Isaiah 61:1 [23061001-23061001] | found x9 | CHECK inside 0.35; best anywhere DEU 29:15 (0.50)
+      HELD: aith in this, of all matters the most important? Here lies the weight of God's honour, and the salvation of an elect world; and this required no less solid a bottom than the testimony of truth itself. SERMON XLIX SAME SUBJECT CONTINUED The Lord hath anointed m
+      KJV : The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;
+work-sermons-boston-amiable-005 | MARK 10:21 -> Mark 10:21 [41010021-41010021] | found x12 | OK inside 0.75; best anywhere MAT 19:21 (0.77)
+work-sermons-boston-sixty-six-030 | NUM. 14:24 -> Numbers 14:24 [4014024-4014024] | found x2 | OK inside 0.94; best anywhere NUM 14:24 (0.94)
+work-sermons-boston-sixty-six-018 | MATTH. 11:28 -> Matthew 11:28 [40011028-40011028] | found x5 | OK inside 1.00; best anywhere MAT 11:28 (1.00)
+work-sermons-boston-sixty-six-010 | ISAIAH 25:8 -> Isaiah 25:8 [23025008-23025008] | found x2 | CHECK inside 0.31; best anywhere PSA 147:11 (1.00)
+      HELD: opeless case, and his mercy reaches wide for every condition. Fear him, ye that hope in him; hope in his mercy, ye that fear him; for "the Lord taketh pleasure in them that fear him, in those that hope in his mercy." Amen. SERMON IX JESUS VICTORIOUS OVER DEATH
+      KJV : He will swallow up death in victory; and the Lord GOD will wipe away tears from off all faces; and the rebuke of his people shall he take away from off all the earth: for the LORD hath spoken it.
+work-sermons-boston-duly-prized-006 | PHILIPPIANS 3:8 -> Philippians 3:8 [50003008-50003008] | found x4 | OK inside 0.81; best anywhere PHP 3:8 (0.81)
+## goodwin: 50 of 65 placed
+work-sermons-goodwin-ephesians-026 | mighty power, &c.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x1 | OK inside 0.88; best anywhere EPH 1:19 (0.88)
+work-sermons-goodwin-ephesians-057 | hould walk in them.—VER. 8–10. -> Ephesians 2:8-10 [49002008-49002010] | found x3 | OK inside 1.00; best anywhere EPH 2:8 (1.00)
+work-sermons-goodwin-ephesians-001 |  Lord Jesus Christ.—VER. 1, 2. -> Ephesians 1:1-2 [49001001-49001002] | found x1 | OK inside 1.00; best anywhere EPH 1:1 (1.00)
+work-sermons-goodwin-ephesians-027 |  who believe, &c.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x1 | OK inside 0.50; best anywhere EPH 1:19 (0.50)
+work-sermons-goodwin-ephesians-044 | wrath, even as others.—VER. 3. -> Ephesians 2:3 [49002003-49002003] | found x4 | OK inside 0.82; best anywhere EPH 2:3 (0.82)
+work-sermons-goodwin-ephesians-023 |  heavenly places.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x4 | OK inside 1.00; best anywhere EPH 1:20 (1.00)
+work-sermons-goodwin-ephesians-030 | e heavenly places, &c.—VER. 20 -> Ephesians 1:20 [49001020-49001020] | found x1 | OK inside 0.80; best anywhere 1CO 15:13 (1.00)
+work-sermons-goodwin-ephesians-012 | n earth; even in him.—VER. 10. -> Ephesians 1:10 [49001010-49001010] | found x3 | OK inside 0.83; best anywhere EPH 1:10 (0.83)
+work-sermons-goodwin-ephesians-055 | rd us in Christ Jesus.—VER. 7. -> Ephesians 2:7 [49002007-49002007] | found x3 | OK inside 0.83; best anywhere EPH 2:7 (0.83)
+work-sermons-goodwin-ephesians-029 | venly places, &c.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x2 | OK inside 0.88; best anywhere EPH 1:19 (0.88)
+work-sermons-goodwin-ephesians-006 | ted in the beloved.—VER. 5, 6. -> Ephesians 1:5-6 [49001005-49001006] | found x2 | OK inside 0.91; best anywhere EPH 1:5 (0.91)
+work-sermons-goodwin-ephesians-011 | n earth; even in him.—VER. 10. -> Ephesians 1:10 [49001010-49001010] | found x3 | OK inside 0.83; best anywhere EPH 1:10 (0.83)
+work-sermons-goodwin-ephesians-007 | ted in the beloved.—VER. 5, 6. -> Ephesians 1:5-6 [49001005-49001006] | found x2 | OK inside 0.91; best anywhere EPH 1:5 (0.91)
+work-sermons-goodwin-ephesians-005 | ld be holy, &c.—VER. 4, 5, &c. -> Ephesians 1:4-5 [49001004-49001005] | found x1 | OK inside 0.50; best anywhere EPH 1:4 (0.50)
+work-sermons-goodwin-ephesians-045 | wrath, even as others.—VER. 3. -> Ephesians 2:3 [49002003-49002003] | found x4 | OK inside 0.82; best anywhere EPH 2:3 (0.82)
+work-sermons-goodwin-ephesians-016 |  inheritance, &c.—VER. 13, 14. -> Ephesians 1:13-14 [49001013-49001014] | found x1 | OK inside 0.73; best anywhere EPH 1:13 (0.73)
+work-sermons-goodwin-ephesians-042 | wrath, even as others.—VER. 3. -> Ephesians 2:3 [49002003-49002003] | found x4 | OK inside 0.82; best anywhere EPH 2:3 (0.82)
+work-sermons-goodwin-ephesians-009 | urposed in himself.—VER. 8, 9. -> Ephesians 1:8-9 [49001008-49001009] | found x1 | OK inside 1.00; best anywhere EPH 1:8 (1.00)
+work-sermons-goodwin-ephesians-025 |  heavenly places.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x4 | OK inside 1.00; best anywhere EPH 1:20 (1.00)
+work-sermons-goodwin-ephesians-022 |  heavenly places.—VER. 19, 20. -> Ephesians 1:19-20 [49001019-49001020] | found x4 | OK inside 1.00; best anywhere EPH 1:20 (1.00)
+work-sermons-goodwin-ephesians-060 |  flesh made by hands.—VER. 11. -> Ephesians 2:11 [49002011-49002011] | found x1 | OK inside 0.83; best anywhere EPH 2:11 (0.83)
+work-sermons-goodwin-ephesians-046 | ces in Christ Jesus.—VER. 4–6. -> Ephesians 2:4-6 [49002004-49002006] | found x4 | OK inside 1.00; best anywhere EPH 2:4 (1.00)
+work-sermons-goodwin-ephesians-018 | n my prayers, &c.—VER. 15, 16. -> Ephesians 1:15-16 [49001015-49001016] | found x1 | OK inside 1.00; best anywhere EPH 1:15 (1.00)
+work-sermons-goodwin-ephesians-054 | rd us in Christ Jesus.—VER. 7. -> Ephesians 2:7 [49002007-49002007] | found x3 | OK inside 0.83; best anywhere EPH 2:7 (0.83)
+work-sermons-goodwin-ephesians-040 | ldren of disobedience.—VER. 2. -> Ephesians 2:2 [49002002-49002002] | found x2 | OK inside 0.60; best anywhere EPH 2:2 (0.60)
+work-sermons-goodwin-ephesians-other-003 | EPHESIANS 3:17 -> Ephesians 3:17 [49003017-49003017] | found x1 | OK inside 0.60; best anywhere EPH 3:17 (0.60)
+work-sermons-goodwin-ephesians-039 | ldren of disobedience.—VER. 2. -> Ephesians 2:2 [49002002-49002002] | found x2 | OK inside 0.60; best anywhere EPH 2:2 (0.60)
+work-sermons-goodwin-ephesians-041 | wrath, even as others.—VER. 3. -> Ephesians 2:3 [49002003-49002003] | found x4 | OK inside 0.82; best anywhere EPH 2:3 (0.82)
+work-sermons-goodwin-ephesians-051 | y grace ye are saved.)—VER. 5. -> Ephesians 2:5 [49002005-49002005] | found x1 | OK inside 0.89; best anywhere EPH 2:5 (0.89)
+work-sermons-goodwin-ephesians-015 | ise of his glory.—VER. 13, 14. -> Ephesians 1:13-14 [49001013-49001014] | found x1 | OK inside 0.75; best anywhere EPH 1:14 (0.75)
+work-sermons-goodwin-ephesians-033 | der his feet, &c.—VER. 21, 22. -> Ephesians 1:21-22 [49001021-49001022] | found x1 | OK inside 1.00; best anywhere EPH 1:21 (1.00)
+work-sermons-goodwin-ephesians-010 | n earth; even in him.—VER. 10. -> Ephesians 1:10 [49001010-49001010] | found x3 | OK inside 0.83; best anywhere EPH 1:10 (0.83)
+work-sermons-goodwin-ephesians-048 | ces in Christ Jesus.—VER. 4–6. -> Ephesians 2:4-6 [49002004-49002006] | found x4 | OK inside 1.00; best anywhere EPH 2:4 (1.00)
+work-sermons-goodwin-ephesians-050 | es in Christ Jesus.—VER. 5, 6. -> Ephesians 2:5-6 [49002005-49002006] | found x1 | OK inside 1.00; best anywhere EPH 2:5 (1.00)
+work-sermons-goodwin-ephesians-032 | s under his feet.—VER. 21, 22. -> Ephesians 1:21-22 [49001021-49001022] | found x1 | OK inside 1.00; best anywhere EPH 1:21 (1.00)
+work-sermons-goodwin-repentance-002 | Zephaniah 2:1–3 -> Zephaniah 2:1-3 [36002001-36002003] | found x4 | OK inside 0.86; best anywhere ZEP 2:3 (0.86)
+work-sermons-goodwin-ephesians-020 | itance in the saints.—VER. 18. -> Ephesians 1:18 [49001018-49001018] | found x2 | OK inside 0.85; best anywhere EPH 1:18 (0.85)
+work-sermons-goodwin-repentance-001 | Zephaniah 2:1–3 -> Zephaniah 2:1-3 [36002001-36002003] | found x4 | OK inside 0.86; best anywhere ZEP 2:3 (0.86)
+work-sermons-goodwin-ephesians-034 | illeth all in all.—VER. 21–23. -> Ephesians 1:21-23 [49001021-49001023] | found x1 | OK inside 0.88; best anywhere EPH 1:22 (0.88)
+work-sermons-goodwin-ephesians-035 | lleth all in all.—VER. 22, 23. -> Ephesians 1:22-23 [49001022-49001023] | found x2 | OK inside 0.88; best anywhere EPH 1:22 (0.88)
+work-sermons-goodwin-ephesians-008 | he riches of his grace.—VER 7. -> Ephesians 1:7 [49001007-49001007] | found x1 | OK inside 0.80; best anywhere COL 1:14 (0.88)
+work-sermons-goodwin-ephesians-other-004 | EPHESIANS 3:16–21 -> Ephesians 3:16-21 [49003016-49003021] | found x1 | OK inside 1.00; best anywhere EPH 3:16 (1.00)
+work-sermons-goodwin-ephesians-038 | this world, &c.—Ver. 1, 2, &c. -> Ephesians 2:1-2 [49002001-49002002] | found x1 | OK inside 1.00; best anywhere EPH 2:1 (1.00)
+work-sermons-goodwin-ephesians-004 | With all blessings.—VER. 3. -> Ephesians 1:3 [49001003-49001003] | found x1 | CHECK inside 0.40; best anywhere EPH 4:6 (0.60)
+      HELD:  This was so vast a prospect, as he falls down at the first and general view and consideration thereof: Blessed be God the Father that hath blessed us, us Jews, and with us, you Gentiles, with the blessings promised Abraham. And so much for the persons blessed
+      KJV : Blessed be the God and Father of our Lord Jesus Christ, who hath blessed us with all spiritual blessings in heavenly places in Christ:
+work-sermons-goodwin-ephesians-017 |  praise of his glory.—VER. 14. -> Ephesians 1:14 [49001014-49001014] | found x1 | OK inside 0.75; best anywhere EPH 1:14 (0.75)
+work-sermons-goodwin-ephesians-059 | hould walk in them.—VER. 8–10. -> Ephesians 2:8-10 [49002008-49002010] | found x3 | OK inside 1.00; best anywhere EPH 2:8 (1.00)
+work-sermons-goodwin-ephesians-058 | hould walk in them.—VER. 8–10. -> Ephesians 2:8-10 [49002008-49002010] | found x3 | OK inside 1.00; best anywhere EPH 2:8 (1.00)
+work-sermons-goodwin-ephesians-013 |  his own will, &c.—VER. 11–14. -> Ephesians 1:11-14 [49001011-49001014] | found x1 | OK inside 0.93; best anywhere EPH 1:11 (0.93)
+work-sermons-goodwin-ephesians-014 | our salvation, &c.—VER. 11–14. -> Ephesians 1:11-14 [49001011-49001014] | found x1 | OK inside 1.00; best anywhere EPH 1:12 (1.00)
+work-sermons-goodwin-ephesians-021 | itance in the saints.—VER. 18. -> Ephesians 1:18 [49001018-49001018] | found x2 | OK inside 0.85; best anywhere EPH 1:18 (0.85)
+## watson: 21 of 21 placed
+work-sermons-watson-beatitudes-added-001 | COL. 3.11. -> Colossians 3:11 [51003011-51003011] | found x1 | CHECK inside 0.08; best anywhere 1JN 5:3 (0.60)
+      HELD: n cordially to embrace the wayes of God; Exhort. his commandments are not grievous. God never burdens us, Onerat Deus ut exoneres. but that he may unburden us of our ſins; His commands are our priviledges; there's joy in the way of duty Pſal. 19.11. , and heav
+      KJV : Where there is neither Greek nor Jew, circumcision nor uncircumcision, Barbarian, Scythian, bond nor free: but Christ is all, and in all.
+work-sermons-watson-beatitudes-added-002 | MATTH. 16.26. -> Matthew 16:26 [40016026-40016026] | found x1 | OK inside 1.00; best anywhere MAT 16:26 (1.00)
+work-sermons-watson-beatitudes-added-003 | LUKE 5.31. -> Luke 5:31 [42005031-42005031] | found x1 | OK inside 0.57; best anywhere EXO 2:1 (0.62)
+work-sermons-watson-beatitudes-added-004 | 1 PET. 1.2. -> 1 Peter 1:2 [60001002-60001002] | found x1 | CHECK inside 0.24; best anywhere JUD 1:2 (0.60)
+      HELD:  Grace unto you, and Peace be multiplyed. The beauty of Grace. T HE bleſſed Apoſtle having felt the Effica cy and Soveraignty of grace, is taken up with the thoughts of it; and ſo ſweet is this wine of Paradiſe, that he commends it to theſe diſperſed Chriſtian
+      KJV : Elect according to the foreknowledge of God the Father, through sanctification of the Spirit, unto obedience and sprinkling of the blood of Jesus Christ: Grace unto you, and peace, be multiplied.
+work-sermons-watson-beatitudes-added-005 | PROV. 4.23. -> Proverbs 4:23 [20004023-20004023] | found x1 | OK inside 1.00; best anywhere PRO 4:23 (1.00)
+work-sermons-watson-beatitudes-added-006 | 1 COR. 9.24 -> 1 Corinthians 9:24 [46009024-46009024] | found x1 | OK inside 1.00; best anywhere 1CO 9:24 (1.00)
+work-sermons-watson-beatitudes-added-008 | Phil. 1.11. -> Philippians 1:11 [50001011-50001011] | found x1 | OK inside 1.00; best anywhere PHP 1:11 (1.00)
+work-sermons-watson-beatitudes-added-009 | 1 Pet. 1.22. -> 1 Peter 1:22 [60001022-60001022] | found x1 | CHECK inside 0.44; best anywhere COL 3:9 (0.57)
+      HELD:  See that ye love one another with a pure heart fervently. T HE holy Scripture makes the love of the brethren the ſureſt note of a man that ſhall go to heaven, 1 Joh. 3.14. and I find Chriſt and his Apoſtles beating much upon this ſtring of love, as if this ma
+      KJV : Seeing ye have purified your souls in obeying the truth through the Spirit unto unfeigned love of the brethren, see that ye love one another with a pure heart fervently:
+work-sermons-watson-beatitudes-added-010 | Ioh. 13.17. -> John 13:17 [43013017-43013017] | found x1 | CHECK inside 0.00; best anywhere HEB 10:24 (0.57)
+      HELD: es near to the deſpighting of the Spirit of grace: To conclude, let us beg the ſpirit of amity and unity, that we may love one another, eſpecially that we may be endeared in our affections to them who are of the family of God, and whoſe names are enrolled in t
+      KJV : If ye know these things, happy are ye if ye do them.
+work-sermons-watson-body-divinity-added-084 | Matth. 10.16. -> Matthew 10:16 [40010016-40010016] | found x1 | CHECK inside 0.42; best anywhere ROM 4:3 (0.43)
+      HELD:  Be ye therefore wise as Serpents, and harmless as Doves. THE Apostle saith, All Scripture is of Divine inspiration, 2 Tim. 3.16. God's Word is compared to a Lamp, for its enlightning quality, Psal. 119.105. and to Silver refined, for its enriching quality, Ps
+      KJV : ¶ Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.
+work-sermons-watson-body-divinity-added-085 | 2. Cor. 5.17. -> 2 Corinthians 5:17 [47005017-47005017] | found x1 | OK inside 0.92; best anywhere 2CO 5:17 (0.92)
+work-sermons-watson-body-divinity-added-086 | Jam. 3.6. -> James 3:6 [59003006-59003006] | found x1 | CHECK inside 0.29; best anywhere ACT 15:18 (0.40)
+      HELD:  And the Tongue is a Fire, a World of Iniquity. THE Apostle Iames in this Scripture describes the Evil of the Tongue: The Tongue is a Fire, a World of Iniquity. 1. It is a Fire : It burns with intemperate heat; it causeth the Heat of Contention; it sets others
+      KJV : And the tongue is a fire, a world of iniquity: so is the tongue among our members, that it defileth the whole body, and setteth on fire the course of nature; and it is set on fire of hell.
+work-sermons-watson-body-divinity-added-087 | Gal. 6.9. -> Galatians 6:9 [48006009-48006009] | found x1 | OK inside 1.00; best anywhere GAL 6:9 (1.00)
+work-sermons-watson-body-divinity-added-088 | James 4.17. -> James 4:17 [59004017-59004017] | found x1 | OK inside 0.60; best anywhere JER 30:22 (0.80)
+work-sermons-watson-drawing-near-002 | PSALM 73. 28. -> Psalms 73:28 [19073028-19073028] | found x1 | CHECK inside 0.27; best anywhere MRK 12:27 (0.60)
+      HELD: is first love. Therefore thou weak Christian, be not discou raged, so long as thou dost not allow thy selfin thy distemper; a dead heart is thy burden, look up to Christ thy, High-Priest, who is merciful to bear with thy infirmities, and is mighty to help them
+      KJV : But it is good for me to draw near to God: I have put my trust in the Lord GOD, that I may declare all thy works.
+work-sermons-watson-seven-001 | Job 14.14. -> Job 14:14 [18014014-18014014] | found x1 | OK inside 0.67; best anywhere JHN 5:40 (0.80)
+work-sermons-watson-seven-002 | Psalm 23.4. -> Psalms 23:4 [19023004-19023004] | found x1 | CHECK inside 0.31; best anywhere AMO 7:6 (0.60)
+      HELD:  Thy Rod, and thy Staff, they comfort me. THIS Psalm St. Bernard calls a noble and illustrious Psalm. The Jews did use to repeat this Psalm when they sate down to their meat. In it David sets forth two things: His Experience, and his Confidence: His Confidence
+      KJV : Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.
+work-sermons-watson-seven-003 | John 16 33. -> John 16:33 [43016033-43016033] | found x1 | OK inside 1.00; best anywhere JHN 16:33 (1.00)
+work-sermons-watson-seven-004 | Psalm 2.12. -> Psalms 2:12 [19002012-19002012] | found x1 | OK inside 1.00; best anywhere PSA 2:12 (1.00)
+work-sermons-watson-seven-005 | Psalm 112.7. -> Psalms 112:7 [19112007-19112007] | found x1 | OK inside 1.00; best anywhere PRO 25:11 (1.00)
+work-sermons-watson-seven-007 | St. John 10.14. -> John 10:14 [43010014-43010014] | found x1 | OK inside 1.00; best anywhere JHN 10:14 (1.00)
+## perkins: 21 of 21 placed
+work-sermons-perkins-jude-001 | Vers. 1. Iude (or Iudas) a seruant of Iesus Christ, and brother of Iames, to them which ar -> Jude 1:1-3 [65001001-65001003] | found x1 | OK inside 0.73; best anywhere JUD 1:1 (0.73)
+work-sermons-perkins-jude-002 | Vers. 4. For there are certain men crep • in, which were of old before ordained to this co -> Jude 1:4 [65001004-65001004] | found x1 | OK inside 0.70; best anywhere 1CO 16:23 (0.80)
+work-sermons-perkins-jude-003 | Vers. 5. I will therefore put you in remembrance, for as much as ye once know this, how th -> Jude 1:5 [65001005-65001005] | found x1 | CHECK inside 0.44; best anywhere 1CH 16:26 (0.50)
+      HELD: for as much as ye once know this, how that the Lord after that he had de liuered the people out of Egypt, destroyed them afterward which beleeued not.] THe Apostle hauing propounded his principall exhortation to contend and fight for the faith, vers. 3. with t
+      KJV : I will therefore put you in remembrance, though ye once knew this, how that the Lord, having saved the people out of the land of Egypt, afterward destroyed them that believed not.
+work-sermons-perkins-jude-004 | Vers. 6. The Angels also which kept not their first estate, but left their owne habitation -> Jude 1:6 [65001006-65001006] | NOT FOUND | 
+work-sermons-perkins-jude-005 | Vers. 7. Euen as Sodome and Gomorrha, and the cities about them, which, in like manner as  -> Jude 1:7 [65001007-65001007] | found x1 | CHECK inside 0.45; best anywhere ACT 8:17 (0.67)
+      HELD: es about them, which, in like manner as they did, committed, and followed strange flesh, are set foorth for an example, and suffer the vengeance of eter nall fire. IN this verse is laid downe the third and last example, proouing the first part of the former re
+      KJV : Even as Sodom and Gomorrha, and the cities about them in like manner, giving themselves over to fornication, and going after strange flesh, are set forth for an example, suffering the vengeance of eternal fire.
+work-sermons-perkins-jude-006 | Vers. 8. Likewise notwithstanding these dreamers also defile the flesh, and despise gouern -> Jude 1:8 [65001008-65001008] | found x1 | OK inside 0.55; best anywhere JAS 2:12 (0.67)
+work-sermons-perkins-jude-007 | Vers. 9. Yet Michael the Archangell when he stroue against the Diuell, and disputed about  -> Jude 1:9 [65001009-65001009] | NOT FOUND | 
+work-sermons-perkins-jude-008 | Vers. 10. But these speake euill of those things which they know not, and whatsoeuer thing -> Jude 1:10 [65001010-65001010] | NOT FOUND | 
+work-sermons-perkins-jude-009 | Vers. 11. W • e vnto them, for they haue followed the way of Caine, and are cast away by t -> Jude 1:11 [65001011-65001011] | NOT FOUND | 
+work-sermons-perkins-jude-010 | Vers. 12. These are spots in your feasts of loue, when they feast with you, without all fe -> Jude 1:12 [65001012-65001012] | found x1 | CHECK inside 0.40; best anywhere JHN 5:42 (0.80)
+      HELD: when they feast with you, without all feare feeding themselues. IN these words the Apostle setteth downe the seuenth sin of these sedu cers: to know the meaning whereof the better, consider foure things: first, what is meant by feasts of loue and charitie. Ans
+      KJV : These are spots in your feasts of charity, when they feast with you, feeding themselves without fear: clouds they are without water, carried about of winds; trees whose fruit withereth, without fruit, twice dead, plucked up by the roots;
+work-sermons-perkins-jude-011 | Vers. 13. They are raging waues of the sea, foaming out their owne shame: they are wandrin -> Jude 1:13 [65001013-65001013] | found x1 | OK inside 0.69; best anywhere JUD 1:13 (0.69)
+work-sermons-perkins-jude-012 | Vers. 14. And Enoch also the seuenth from Adam prophecied of such, saying: Behold the Lord -> Jude 1:14 [65001014-65001014] | found x1 | OK inside 0.67; best anywhere JUD 1:14 (0.67)
+work-sermons-perkins-jude-013 | Vers. 15. To giue iudgement against all men, and to rebuke all the vngodly among them, of  -> Jude 1:15 [65001015-65001015] | found x1 | OK inside 0.57; best anywhere DEU 18:17 (0.80)
+work-sermons-perkins-jude-014 | Vers. 16. These are murmurers, complainers, walking after their owne lusts, whose mouthes  -> Jude 1:16 [65001016-65001016] | found x1 | CHECK inside 0.44; best anywhere SIR 35:5 (0.60)
+      HELD: g after their owne lusts, whose mouthes speake proud things; hauing mens persons in admiration, because of ad uantage. IN this verse the Apostle returneth a gaine to his former purpose, and still continueth the rehearsall of the sinnes and vices of these false
+      KJV : These are murmurers, complainers, walking after their own lusts; and their mouth speaketh great swelling words, having men’s persons in admiration because of advantage.
+work-sermons-perkins-jude-015 | Vers. 17. But, ye beloued, remember the words which were spoken before of the Apostles of  -> Jude 1:17 [65001017-65001017] | NOT FOUND | 
+work-sermons-perkins-jude-016 | Vers. 18. How that they told you that there should be mockers in the last time, which shou -> Jude 1:18 [65001018-65001018] | found x1 | OK inside 0.64; best anywhere JUD 1:18 (0.64)
+work-sermons-perkins-jude-017 | Vers. 19. These are makers of sects, fleshly, not hauing the spirit. -> Jude 1:19 [65001019-65001019] | found x1 | OK inside 0.57; best anywhere EXO 20:1 (0.60)
+work-sermons-perkins-jude-018 | Vers. 20. But ye beloued, edifie your selues in your most holie faith: praying in the holy -> Jude 1:20 [65001020-65001020] | found x1 | OK inside 0.56; best anywhere JUD 1:20 (0.56)
+work-sermons-perkins-jude-019 | Vers. 21. And keepe your selues in the loue of God, looking for the mercie of our Lord Ies -> Jude 1:21 [65001021-65001021] | found x2 | OK inside 0.82; best anywhere JUD 1:21 (0.82)
+work-sermons-perkins-jude-020 | Vers. 22.23. And haue compassion of some, in putting difference; and others saue with fear -> Jude 1:22-23 [65001022-65001023] | found x1 | OK inside 0.80; best anywhere JUD 1:23 (0.80)
+work-sermons-perkins-jude-021 | Vers. 24. Now vnto him that is able to keepe you that you fall not, and to present you fau -> Jude 1:24-25 [65001024-65001025] | found x1 | OK inside 0.83; best anywhere JUD 1:25 (0.83)
+## whitefield: 17 of 17 placed
+work-sermons-whitefield-eighteen-gurney-001 | REVELATIONS xxii. 21. -> Revelation 22:21 [66022021-66022021] | found x1 | OK inside 1.00; best anywhere 1CO 16:23 (1.00)
+work-sermons-whitefield-eighteen-gurney-002 | PSALM xlvi. I—6. -> Psalms 46:1-6 [19046001-19046006] | found x1 | OK inside 1.00; best anywhere PSA 46:1 (1.00)
+work-sermons-whitefield-eighteen-gurney-004 | MARK xvi. ver. 15, 16. -> Mark 16:15-16 [41016015-41016016] | found x1 | OK inside 1.00; best anywhere MRK 16:15 (1.00)
+work-sermons-whitefield-eighteen-gurney-005 | ACTS iii. ver. 19. -> Acts 3:19 [44003019-44003019] | found x1 | OK inside 0.92; best anywhere ACT 3:19 (0.92)
+work-sermons-whitefield-eighteen-gurney-006 | DEUT. xxxiii. ver. 12. -> Deuteronomy 33:12 [5033012-5033012] | found x1 | OK inside 1.00; best anywhere DEU 33:12 (1.00)
+work-sermons-whitefield-eighteen-gurney-007 | ISAIAH xlviii. ver. 10. -> Isaiah 48:10 [23048010-23048010] | found x1 | OK inside 0.57; best anywhere PSA 103:9 (0.71)
+work-sermons-whitefield-eighteen-gurney-008 | ISAIAH lx. ver. 19, 20. -> Isaiah 60:19-20 [23060019-23060020] | found x1 | OK inside 1.00; best anywhere ISA 60:19 (1.00)
+work-sermons-whitefield-eighteen-gurney-009 | ISAIAH xxiv. ver. 15. -> Isaiah 24:15 [23024015-23024015] | found x1 | CHECK inside 0.40; best anywhere 2MA 11:32 (0.67)
+      HELD:  Wherefore glorify ye the Lord in the fires. YOU have oft, my dear hearers, let me tell you, met with affliction; and I be lieve you may perſuade yourſelves affliction is at hand, which makes ſuch deep impreſſions, when ſent and bleſſed by heaven, as to thaw t
+      KJV : Wherefore glorify ye the LORD in the fires, even the name of the LORD God of Israel in the isles of the sea.
+work-sermons-whitefield-eighteen-gurney-010 | NUMBERS xxiii. ver. 23. -> Numbers 23:23 [4023023-4023023] | found x1 | OK inside 0.50; best anywhere EXO 20:1 (0.60)
+work-sermons-whitefield-eighteen-gurney-011 | EXODUS iii. ver. 2, 3. -> Exodus 3:2-3 [2003002-2003003] | found x1 | OK inside 1.00; best anywhere EXO 3:3 (1.00)
+work-sermons-whitefield-eighteen-gurney-012 | PSALM xlii. ver. 5. -> Psalms 42:5 [19042005-19042005] | found x1 | OK inside 1.00; best anywhere PSA 42:5 (1.00)
+work-sermons-whitefield-eighteen-gurney-013 | ROMANS vi. ver. 3, 4. -> Romans 6:3-4 [45006003-45006004] | found x1 | OK inside 1.00; best anywhere ROM 6:3 (1.00)
+work-sermons-whitefield-eighteen-gurney-014 | JOHN v. ver. 40. -> John 5:40 [43005040-43005040] | found x1 | OK inside 0.80; best anywhere JHN 5:40 (0.80)
+work-sermons-whitefield-eighteen-gurney-015 | ECCLESIASTES vi. ver. 6. -> Ecclesiastes 6:6 [21006006-21006006] | found x1 | CHECK inside 0.18; best anywhere ROM 15:32 (0.71)
+      HELD: ome to Chriſt; and if you cannot come, if you are ſenſible of it, God be praiſ ed; he will come to you if you cannot come to Chriſt, he will come and make you willing in the day of his power; that this may be the happy caſe, God grant to us all, for his name's
+      KJV : ¶ Yea, though he live a thousand years twice told, yet hath he seen no good: do not all go to one place?
+work-sermons-whitefield-eighteen-gurney-016 | ISAIAH lx. ver. 19. -> Isaiah 60:19 [23060019-23060019] | found x1 | CHECK inside 0.36; best anywhere 1TH 5:28 (0.83)
+      HELD:  God calls me hence: the Lord quicken you, the Lord ſtrengthen you, the Lord Jeſus Chriſt be with you, and grant that e'er long we may be where there ſhall be no more ſor row, but we ſhall dwell with God and one another for ever; even ſo, Lord Jeſus Chriſt. Am
+      KJV : The sun shall be no more thy light by day; neither for brightness shall the moon give light unto thee: but the LORD shall be unto thee an everlasting light, and thy God thy glory.
+work-sermons-whitefield-eighteen-gurney-017 | GENESIS xxviii. ver. 12, &c. -> Genesis 28:12 [1028012-1028012] | found x1 | OK inside 1.00; best anywhere GEN 28:12 (1.00)
+work-sermons-whitefield-eighteen-gurney-018 | JOHN x. ver. 27, 28. -> John 10:27-28 [43010027-43010028] | found x1 | OK inside 1.00; best anywhere JHN 10:27 (1.00)
+## singles: 11 of 11 placed
+work-reconciled-b8c07ca75b9ee9f9dd2cfd81 | ZECH. 4. VER. 6, 7, 8, 9. -> Zechariah 4:6-9 [38004006-38004009] | found x1 | OK inside 1.00; best anywhere EZK 7:1 (1.00)
+work-reconciled-119ccc4b7cc81bf0405cb75b | EPHES. 2. 14, 15, 16. -> Ephesians 2:14-16 [49002014-49002016] | found x1 | OK inside 1.00; best anywhere EPH 2:16 (1.00)
+work-reconciled-1fb2afe3224e66c9fdde6dc3 | 2 TIM. IV. 7, 8. -> 2 Timothy 4:7-8 [55004007-55004008] | found x1 | OK inside 1.00; best anywhere 2TI 4:7 (1.00)
+work-reconciled-64dbbe2933d74824957ebcfa | Psal. 112. v. 4. -> Psalms 112:4 [19112004-19112004] | found x1 | OK inside 0.56; best anywhere PSA 112:4 (0.56)
+work-reconciled-2150233a6284c58a35a58adc | Phil. 2. 12. -> Philippians 2:12 [50002012-50002012] | found x1 | CHECK inside 0.35; best anywhere NUM 15:40 (0.50)
+      HELD:  Work out your own salvation with fear and trembling. I F there be any thing excellent, it is salva tion; if there be any thing necessary, it is working out salvati on; if there be any tool to work with, 'tis holy fear; work out your salvation with fear. The w
+      KJV : Wherefore, my beloved, as ye have always obeyed, not as in my presence only, but now much more in my absence, work out your own salvation with fear and trembling.
+work-reconciled-a8a6d2c8c9ff7e6fa34efcb4 | I COR. VII. 29. -> 1 Corinthians 7:29 [46007029-46007029] | found x1 | OK inside 0.50; best anywhere 1CO 7:29 (0.50)
+work-reconciled-d899181fe4a84191ed12249c | 2 TIM. 4. 8. -> 2 Timothy 4:8 [55004008-55004008] | found x1 | OK inside 0.71; best anywhere JER 30:22 (0.80)
+work-reconciled-20181c1822275e875b02bef1 | PHILIPP. 1. 23. -> Philippians 1:23 [50001023-50001023] | found x1 | OK inside 1.00; best anywhere PHP 1:23 (1.00)
+work-reconciled-701dc5272a6c949e6c2479a8 | A SERMON Preached on 2 Cor. 5.19 God was in Christ, reconciling the World unto Himself. / The Doctri -> 2 Corinthians 5:19 [47005019-47005019] | NOT FOUND | 
+work-reconciled-72e2bf81e11f02d0ca109a5e | Isaias .26. Chap. verse. 13. -> Isaiah 26:13 [23026013-23026013] | found x1 | CHECK inside 0.47; best anywhere BAR 3:6 (0.80)
+      HELD:  13 O Lorde our God, other Lordes be side thee haue ruled vs, but we will reme ̄ ber thee onely and thy name. 14 The dead shal not lyue, neyther shal the dead arise, bicause thou hast visited and scattered them and destroyed all their memorie. 15 Thou hast inc
+      KJV : O LORD our God, other lords beside thee have had dominion over us: but by thee only will we make mention of thy name.
+work-reconciled-1cc8b476b613cae774517cbb | Zophoniah, Chap. 2. verse. 1. 2. -> Zephaniah 2:1-2 [36002001-36002002] | NOT FOUND | 

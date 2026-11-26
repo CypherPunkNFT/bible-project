@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-communion-013",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Fourteen Communion Sermons (ed. A. A. Bonar); held file library/source-monergism-library/asset-expanded-461145d293c0ad7ad574/original.epub (sha256 5b635cdc7792…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Fourteen Communion Sermons (ed. A. A. Bonar), sermon 13",
+  "alternateTitles": [
+    "SERMON XIII* —Revelation 19:7, 8, 9, 10, 11, 12, 13, 14"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Revelation 19:7-14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66019007,
+      "end": 66019014,
+      "verification": "verified",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 13 of 14: 'SERMON XIII* —Revelation 19:7, 8, 9, 10, 11, 12, 13, 14'; printed: 'Revelation 19:7, 8, 9, 10, 11, 12, 13, 14'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 13 of 14: 'SERMON XIII* —Revelation 19:7, 8, 9, 10, 11, 12, 13, 14'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

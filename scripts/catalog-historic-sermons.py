@@ -11,10 +11,16 @@ reports/sermons-campaign/<preacher>/catalogue-run.json with the reason. Copies o
 The run stops before writing anything if a preacher would exceed the plan's checked ceiling, or if two of a
 preacher's sermons share a series and ordinal.
 
+The second round (job 4b5ae800: Rutherford, Boston, Goodwin, Watson, Perkins's Jude, Whitefield's Eighteen Sermons)
+is configured in scripts/historic_sermon_sources.py, which adds e-books (Monergism) and a stricter check of the quoted
+words. The run also stops if a book yields a different number of sermons than its config expects, or if a sermon file
+of the preacher's from an earlier run would be left behind.
+
 Usage (from Website/): python -X utf8 scripts/catalog-historic-sermons.py calvin bullinger flavel sibbes owen [--dry-run]
 """
 
 import argparse
+import hashlib
 import importlib.util
 import json
 import re
@@ -23,6 +29,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import historic_sermon_sources as sources  # noqa: E402
 import historic_sermon_texts as texts  # noqa: E402
 from bible.books import BOOKS  # noqa: E402
 from bible.paths import SITE, SOURCES  # noqa: E402
@@ -137,10 +144,15 @@ PREACHERS = {
         dict(ccel="source-ccel-expansion/asset-expanded-7c2360b3c3a34c57f625", url="https://ccel.org/ccel/o/owen/sermons.xml",
              series="ccel", short="Sermons of John Owen (CCEL; Goold's Works vols. 8-9)", mode="ccel")]),
 }
+PREACHERS.update(sources.PREACHERS)
+MISPRINTS.update(sources.MISPRINTS)
+WITNESSES.update(sources.WITNESSES)
 DATE = re.compile(r"(?:On\s+)?(?:\w+day|Sondaye|Sonday)\s+the\s+[^.]*?\.?\s*of\s+\w+\.?\s*(1[56]\d\d)", re.I)
 
 
 def held_path(cfg):
+    if "epub" in cfg:
+        return SOURCES / "library" / cfg["epub"] / "original.epub"
     if "tcp" in cfg:
         return SOURCES / "library" / "source-tcp-bulk" / f"asset-bulk-tcp-{cfg['tcp'].lower()}" / "original.xml"
     return SOURCES / "library" / cfg["ccel"] / "original.xml"
@@ -164,8 +176,9 @@ def containers():
 
 
 def head_reference(head):
-    """'The second Sermon, Genesis 25. Chapter.' -> the book and chapter the heading prints, or None."""
-    for match in re.finditer(r"((?:[1-3]\s)?[A-Z][a-zſ]{2,})\.?\s+(\d+|[ivxlc]+)\b\.?", texts.plain(head)):
+    """'The second Sermon, Genesis 25. Chapter.' -> the book and chapter the heading prints, or None; a verse joined to
+    the chapter is read with it ('A SERMON Preached on 2 Cor. 5.19', Charnock: 5:19, not the whole chapter)."""
+    for match in re.finditer(r"((?:[1-3]\s)?[A-Z][a-zſ]{2,})\.?\s+(\d+|[ivxlc]+)\b(?:[.:]\d+)?\.?", texts.plain(head)):
         read, _ = texts.printed_reference(match.group(0))
         if read and _book_ok(read[0]):
             return read
@@ -217,6 +230,16 @@ def main_text(cfg, sermon):
     mode = cfg["mode"]
     if mode == "none":
         return None, None, cfg["reason"]
+    if mode == "verse-unit":
+        if not sermon["verses"]:
+            return None, None, f"no verse number printed at the head of the unit: '{sermon['head'][:60]}'"
+        return texts.modern("Jude", 1, texts.spans_of(sermon["verses"])), f"heading: '{sermon['head'][:90]}'; verse numbers printed: {sermon['verses']}", None
+    if mode == "toc":
+        read, problem = sources.toc_reading(sermon)
+        if not read:
+            return None, None, problem
+        return (texts.modern(BOOK_NAME[sermon_passages.normalise_book(read[0])], read[1], read[2]),
+                f"contents page: '{sermon['toc']}'; the sermon's head: '...{sermon['lead'][-30:]}'", None)
     if mode == "heading":
         chapters = texts.chapters_in_heading(sermon["head"])
         if not chapters and sermon.get("parentType") == "chapter" and (sermon.get("parentN") or "").isdigit():
@@ -238,7 +261,7 @@ def main_text(cfg, sermon):
         read, problem = None, f"book not recognised in the printed reference '{sermon['bibl'][:60]}'"
     printed = f"printed: '{sermon['bibl'][:80]}'"
     if not read:
-        from_head = head_reference(sermon["head"])
+        from_head = head_reference(sermon["head"]) if mode == "bibl" else None  # an e-book's heading was read already
         if not from_head:
             return None, None, f"{problem}" + (f" ('{sermon['bibl'][:40]}')" if sermon["bibl"] else "")
         read, printed = from_head, f"heading: '{sermon['head'][:100]}'"
@@ -296,10 +319,36 @@ def quoted_check(passages, lead):
     return None
 
 
+def strict_check(passages, lead):
+    """The books of the second round: the words quoted at the head must be in the printed verses. Five or more quoted
+    words with under a third of them there is a misprint; the verse they match anywhere in the book is named in the
+    reason only, never used (Boston prints 'LUKE 16:26' quoting 14:26, 'ACTS 28:23' quoting 27:23)."""
+    lead = re.sub(r"[—–]\s*VER\b.*$", "", texts.TRAILING.sub("", lead), flags=re.I).strip(" -—–")
+    quoted = texts.content_words(" ".join(lead.split()[:40]))
+    if len(quoted) < 5:
+        return None
+
+    def share(verse):
+        words = kjv_words(verse)
+        return len(words & quoted) / max(1, min(len(words), len(quoted)))
+    if max(share(v) for p in passages for v in range(p["start"], p["end"] + 1) if v % 1000) >= 1 / 3:
+        return None
+    book = passages[0]["start"] // 1000000
+    kjv_words(book * 1000000 + 1001)  # loads the book's text
+    keys = (k.partition(":") for k in KJV_TEXT[CODES[book - 1]])
+    best = max((book * 1000000 + int(c) * 1000 + int(v) for c, _, v in keys if c.isdigit() and v.isdigit()), key=share)
+    found = f"; its words are {CODES[book - 1]} {best // 1000 % 1000}:{best % 1000} in the KJV" if share(best) >= 2 / 3 else ""
+    return f"the words quoted at the head ('{' '.join(lead.split()[:12])}') are not in the printed verses{found}"
+
+
 def sermons_of(cfg):
     path = held_path(cfg)
     if not path.is_file():
         return None
+    if "epub" in cfg:
+        return sources.epub_rows(cfg, path)
+    if cfg.get("mode") == "verse-unit":
+        return sources.verse_unit_rows(cfg, path)
     if "tcp" in cfg:
         rows = texts.tei_sermons(path)
         for row in rows:
@@ -321,24 +370,24 @@ def sermons_of(cfg):
     return rows
 
 
-def sermon_work(name, preacher, cfg, sermon, container, passages, notes):
+def sermon_work(name, preacher, cfg, sermon, container, passages, notes, url):
     ident = f"work-sermons-{name}-{cfg['series']}-{sermon['ordinal']:03d}"
-    url = TCP_URL.format(cfg["tcp"]) if "tcp" in cfg else cfg["url"]
-    title = sermon["head"] if "ccel" in cfg else f"{cfg['short']}, sermon {sermon['ordinal']}"
+    genre = cfg.get("genre", "sermon")
+    title = sermon["head"] if "ccel" in cfg else f"{cfg['short']}, {'sermon' if genre == 'sermon' else 'part'} {sermon['ordinal']}"
     dates = []
     date = DATE.search(texts.plain(sermon["head"])) if cfg.get("dated") else None
     if date:
         dates.append(dict(event="delivery", value=date.group(1), precision="year", label=f"As printed: '{date.group(0)}' (not converted)",
                           evidence=[dict(url=url, locator=sermon["where"], note="Preaching day and year as printed in the sermon's heading.", checkedOn=TODAY)]))
     work = {"$schema": "../../schema.json", "schemaVersion": 1, "kind": "work", "id": ident, "editorialState": "catalogued",
-            "notes": notes, "reviews": [REVIEW], "title": title,
+            "notes": notes, "reviews": [sources.REVIEW if name in sources.PREACHERS else REVIEW], "title": title,
             "alternateTitles": [sermon["head"]] if sermon["head"] and sermon["head"] != title else [],
-            "creators": [dict(authorId=preacher["author"], role="preacher")], "genre": "sermon", "role": "core-teaching",
+            "creators": [dict(authorId=preacher["author"], role="preacher")], "genre": genre, "role": preacher.get("role", "core-teaching"),
             "collections": ["sermons"], "subjects": [], "occasions": [], "audiences": ["general"], "depth": "unknown",
             "era": preacher["era"], "dates": dates, "passages": passages,
             "related": [dict(relation="is-part-of", targetId=container, locator=sermon["where"])] if container else [],
             "externalIds": dict(officialDestination=[url]),
-            "evidence": [dict(url=url, locator=sermon["where"], note="Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.", checkedOn=TODAY)]}
+            "evidence": [dict(url=url, locator=sermon["where"], note=f"{'Sermon' if genre == 'sermon' else 'Unit'} boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.", checkedOn=TODAY)]}
     return work
 
 
@@ -350,10 +399,12 @@ def catalogue(name, verses, owners, ceiling, dry_run):
             missing.append(dict(source=cfg.get("tcp") or cfg.get("ccel"), path=str(held_path(cfg))))
             continue
         for index, reason in cfg.get("skip", {}).items():  # a division the transcription tags as a sermon that is not one
-            skipped.append(dict(source=cfg["tcp"], division=index, reason=reason))
+            skipped.append(dict(source=cfg.get("tcp") or cfg["series"], division=index, reason=reason))
         rows = [r for r in rows if r["index"] not in cfg.get("skip", {})]
-        sha = __import__("hashlib").sha256(held_path(cfg).read_bytes()).hexdigest()
-        container = owners.get(sha[:12])
+        if "expect" in cfg and len(rows) != cfg["expect"]:
+            sys.exit(f"{name}: {cfg['series']} yields {len(rows)} sermons; its config expects {cfg['expect']}")
+        sha = hashlib.sha256(held_path(cfg).read_bytes()).hexdigest()
+        container, url = owners.get(sha[:12]), sources.source_url(cfg, sha, TCP_URL)
         if not container:
             counts["sermons in a book with no catalogue work to belong to"] += len(rows)
         for ordinal, before in cfg.get("lost", {}).items():
@@ -372,12 +423,16 @@ def catalogue(name, verses, owners, ceiling, dry_run):
                 notes.append(f"Numbered {sermon['ordinal']}: {sermon['fixed']}.")
             if sermon.get("gaps"):
                 notes.append(f"The held transcription marks {sermon['gaps']} illegible or missing passage(s) in this sermon.")
+            if cfg.get("note"):
+                notes.append(cfg["note"])
             if reference:
                 try:
                     passages = sermon_passages.passages(reference, verses, f"{sermon['where']}; {printed}")
                 except RefError as error:
                     problem = f"{printed}: {error}"
                 misprint = quoted_check(passages, sermon["lead"]) if passages and not cfg.get("manual", {}).get(sermon["index"]) else None
+                if not misprint and passages and cfg.get("strict"):
+                    misprint = strict_check(passages, sermon["lead"])
                 misprint = MISPRINTS.get((cfg.get("tcp"), sermon["index"]), misprint)
                 if misprint:
                     passages, problem = [], f"{printed}; misprint, not corrected: {misprint}"
@@ -385,23 +440,34 @@ def catalogue(name, verses, owners, ceiling, dry_run):
             if problem:
                 unplaced.append(dict(workId=ident, title=sermon["head"][:120], reason=problem))
             counts["placed" if passages else "listed without a passage"] += 1
-            works.append(sermon_work(name, preacher, cfg, sermon, container, passages, notes))
+            works.append(sermon_work(name, preacher, cfg, sermon, container, passages, notes, url))
+    check_run(name, works, ceiling)
+    genres = Counter(w["genre"] for w in works)
+    report = dict(preacher=name, generatedBy="scripts/catalog-historic-sermons.py", generatedOn=TODAY,
+                  plan="reports/sermons-campaign/historic-splitting-20261126/plan.json",
+                  counts=dict(counts, sermons=genres["sermon"], **{f"{g} units (not sermons)": n for g, n in genres.items() if g != "sermon"}),
+                  ceiling=ceiling, unplaced=unplaced, missingHeldFiles=missing, notSermons=skipped, witnessesNotCounted=WITNESSES.get(name, []))
+    if not dry_run:
+        for work in works:
+            sources.write_json(CATALOG / "works" / f"{work['id']}.json", work)
+        (REPORTS / name).mkdir(exist_ok=True)
+        sources.write_json(REPORTS / name / "catalogue-run.json", report)
+    return report
+
+
+def check_run(name, works, ceiling):
+    """Stop before writing: two sermons with one id, more sermons than the plan's ceiling, or a sermon file of this
+    preacher's from an earlier run that this run would not rewrite (it would be left behind, stale)."""
     ids = Counter(w["id"] for w in works)
     clashes = [i for i, n in ids.items() if n > 1]
     if clashes:
         sys.exit(f"{name}: two sermons share a series and ordinal: {clashes[:10]}")
-    if len(works) > ceiling:
-        sys.exit(f"{name}: {len(works)} sermons exceed the plan's checked ceiling of {ceiling}")
-    if not dry_run:
-        for work in works:
-            (CATALOG / "works" / f"{work['id']}.json").write_text(json.dumps(work, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    report = dict(preacher=name, generatedBy="scripts/catalog-historic-sermons.py", generatedOn=TODAY,
-                  plan="reports/sermons-campaign/historic-splitting-20261126/plan.json", counts=dict(counts, sermons=len(works)),
-                  ceiling=ceiling, unplaced=unplaced, missingHeldFiles=missing, notSermons=skipped, witnessesNotCounted=WITNESSES.get(name, []))
-    if not dry_run:
-        (REPORTS / name).mkdir(exist_ok=True)
-        (REPORTS / name / "catalogue-run.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    return report
+    sermons = sum(1 for w in works if w["genre"] == "sermon")
+    if sermons > ceiling:
+        sys.exit(f"{name}: {sermons} sermons exceed the plan's checked ceiling of {ceiling}")
+    stale = sorted(p.stem for p in (CATALOG / "works").glob(f"work-sermons-{name}-*.json") if p.stem not in ids)
+    if stale:
+        sys.exit(f"{name}: sermon files from an earlier run that this run does not produce: {stale[:10]} ({len(stale)})")
 
 
 def main():
@@ -412,7 +478,8 @@ def main():
     plan = {p["id"]: p for p in json.loads(PLAN.read_text(encoding="utf-8"))["preachers"]}
     verses, owners = Verses(SITE / "data"), containers()
     for name in args.preachers:
-        report = catalogue(name, verses, owners, plan[PREACHERS[name]["author"]]["checkedCeiling"], args.dry_run)
+        ceiling = PREACHERS[name].get("ceiling") or plan[PREACHERS[name]["author"]]["checkedCeiling"]  # Boston: 81 checked, not 103
+        report = catalogue(name, verses, owners, ceiling, args.dry_run)
         print(name, report["counts"], "unplaced:", len(report["unplaced"]), "missing files:", len(report["missingHeldFiles"]))
         if args.dry_run:
             for entry in report["unplaced"]:

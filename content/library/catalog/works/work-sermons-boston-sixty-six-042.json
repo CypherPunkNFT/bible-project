@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-boston-sixty-six-042",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sixty-Six Sermons; held file library/source-monergism/asset-historical-ready-21390df828806cbcf1/original.epub (sha256 db700080aa77…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Sixty-Six Sermons, sermon 42",
+  "alternateTitles": [
+    "SERMON XLII / THE SAME SUBJECT CONTINUED"
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-boston",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-51e227547ebf3c86726066d3",
+      "locator": "Sixty-Six Sermons (held e-book), sermon heading 42 of 66: 'SERMON XLII / THE SAME SUBJECT CONTINUED'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/boston/Sixty-Six%20Sermons%20-%20Thomas%20Boston.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/boston/Sixty-Six%20Sermons%20-%20Thomas%20Boston.epub",
+      "locator": "Sixty-Six Sermons (held e-book), sermon heading 42 of 66: 'SERMON XLII / THE SAME SUBJECT CONTINUED'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

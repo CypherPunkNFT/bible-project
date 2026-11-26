@@ -1,0 +1,702 @@
+{
+  "kind": "passage-overlay",
+  "name": "historic-sermons-20261126",
+  "generatedBy": "scripts/relabel-historic-sermons.py (job 4b5ae800)",
+  "generatedOn": "2026-11-26",
+  "method": "Writes ONE overlay, content/library/passage-overlays/historic-sermons-20261126.json, read by the Teachers build\n(scripts/teacher-pages/people.ts); no work record is edited and no held file is touched.\n  singles  a book that prints one sermon and is catalogued as one record (Goodwin, Watson, Charnock, Knox, Perkins's\n           Zephaniah): genre \"sermon\", and its main text where the book prints it, read and checked the way\n           scripts/catalog-historic-sermons.py reads a sermon (never from a title).\n  Bunyan   his 18 sermon-form discourses (plan.json): one record per discourse is marked \"sermon\"; every other record of\n           the same discourse (reprints, extracts, translations) gets duplicateOf that record. A record whose title shows\n           a second work bound with it (a compound volume) is left as it is and listed.\nThe run stops if an id it would write is already in another overlay file (that file would silently win or lose), if a\nduplicateOf target is missing or is itself marked a duplicate or not-by, or if a single's held file has no record.",
+  "counts": {
+    "singles": 15,
+    "singlesPlaced": 11,
+    "bunyanDiscourses": 18,
+    "bunyanDuplicatesLinked": 137,
+    "bunyanLeftAlone": 22,
+    "bunyanRecordsBefore": 1026,
+    "bunyanRecordsOnPageAfter": 889
+  },
+  "works": {
+    "work-reconciled-3fd0bb05229cccd96d15ec7a": {
+      "title": "The great interest of states & kingdomes. A sermon preached before the Honorable House of Commons, at their late solemne",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a85436/original.xml",
+      "sha256": "bf5704c9fc3c9d26ab89a08a967767c30223931bdbc4c84ca65658c3d2518cb8",
+      "unplaced": "verse 14 printed twice: PSAL. 105. 14, 14. ('PSAL. 105. 14, 14.')"
+    },
+    "work-reconciled-b8c07ca75b9ee9f9dd2cfd81": {
+      "title": "Zerubbabels encouragement to finish the temple. A sermon preached before the honourable House of Commons, at their late ",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a85443/original.xml",
+      "sha256": "507c675342a331c97a0528bc9d51cab9a4960fa06b8f5aa8c4ba680b6466e2d3",
+      "passages": [
+        {
+          "reference": "Zechariah 4:6-9",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 38004006,
+          "end": 38004009,
+          "verification": "verified",
+          "locator": "TCP A85443, first <div type=\"sermon\">; printed: 'ZECH. 4. VER. 6, 7, 8, 9.'"
+        }
+      ],
+      "printed": "printed: 'ZECH. 4. VER. 6, 7, 8, 9.'"
+    },
+    "work-reconciled-4a29bde3385a4552161b49f3": {
+      "title": "A state of glory for spirits of just men upon dissolution, demonstrated. A sermon preached in Pauls Church Aug. 30. 1657",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a85440/original.xml",
+      "sha256": "670184b6457590599c10447bb0b7896878208840192411c2bdf1a5054c622c39",
+      "unplaced": "the sermon prints only 'TEXT. Ver. 5.' and, in its introduction, 'Chap. 5. ver. 1.': no book is named, so no passage is recorded"
+    },
+    "work-reconciled-119ccc4b7cc81bf0405cb75b": {
+      "title": "Christ the universall peace-maker: or, The reconciliation of all the people of God, notwithstanding all their difference",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a85431/original.xml",
+      "sha256": "adaa3181e1110417e72e270ed2b538b9eaeedf52ca4196070a12a343e4b56480",
+      "passages": [
+        {
+          "reference": "Ephesians 2:14-16",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 49002014,
+          "end": 49002016,
+          "verification": "verified",
+          "locator": "TCP A85431, first <div type=\"part\">; printed: 'EPHES. 2. 14, 15, 16.'"
+        }
+      ],
+      "printed": "printed: 'EPHES. 2. 14, 15, 16.'",
+      "note": "one sermon printed in two parts ('I. PART.', 'II. PART.'); the same sermon is appended to the Ephesians e-book as 'Part I' and 'Part II'"
+    },
+    "work-reconciled-1fb2afe3224e66c9fdde6dc3": {
+      "title": "The fight of faith crowned, or, A sermon preached at the funeral of that eminently holy man Mr. Henry Stubs by Tho. Wats",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a65295/original.xml",
+      "sha256": "28ba559a9392b05f737ccb7a202dd7d9192072063568c0711b7bbe02b1f881f6",
+      "passages": [
+        {
+          "reference": "2 Timothy 4:7-8",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004007,
+          "end": 55004008,
+          "verification": "verified",
+          "locator": "TCP A65295, first <div type=\"sermon\">; printed: '2 TIM. IV. 7, 8.'"
+        }
+      ],
+      "printed": "printed: '2 TIM. IV. 7, 8.'"
+    },
+    "work-reconciled-57a2e14bbcc195ca3bc3967b": {
+      "title": "Gods anatomy upon mans heart. Or, A sermon preached by order of the Honorable House of Commons, at Margarets Westminster",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a65297/original.xml",
+      "sha256": "22443c91d122d8a8a599ebb0dbd1144cfb553fcf3cbd9a55183371116cb4125f",
+      "unplaced": "printed: 'HEB. 4. 12.'; misprint, not corrected: the words quoted at the head ('But all things are naked, and open'd unto the eyes of Him') are HEB 4:13 in the KJV"
+    },
+    "work-reconciled-64dbbe2933d74824957ebcfa": {
+      "title": "Light in darkness, or, Deliverance proclaimed unto the church in the midst of all her despondencies and discouragements ",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a65301/original.xml",
+      "sha256": "c7b9224e1fa7adcecbf00bfb71357b963182befb3242c3816ccf6b14479f25e5",
+      "passages": [
+        {
+          "reference": "Psalms 112:4",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 19112004,
+          "end": 19112004,
+          "verification": "verified",
+          "locator": "TCP A65301, first <div type=\"sermon\">; printed: 'Psal. 112. v. 4.'"
+        }
+      ],
+      "printed": "printed: 'Psal. 112. v. 4.'",
+      "note": "also printed as Seven Sermons VI (TCP A65313), which gets no record of its own"
+    },
+    "work-reconciled-2150233a6284c58a35a58adc": {
+      "title": "The one thing necessary Preached in a sermon at Pauls, before the Right Honourable the Lord Mayor, and the aldermen of t",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a65304/original.xml",
+      "sha256": "c15299e357e349e2bbef3e675a6e163f259df8e9c83cd7f71840311fbd867c2d",
+      "passages": [
+        {
+          "reference": "Philippians 2:12",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 50002012,
+          "end": 50002012,
+          "verification": "verified",
+          "locator": "TCP A65304, first <div type=\"sermon\">; printed: 'Phil. 2. 12.'"
+        }
+      ],
+      "printed": "printed: 'Phil. 2. 12.'"
+    },
+    "work-reconciled-a8a6d2c8c9ff7e6fa34efcb4": {
+      "title": "A sermon preached July 2, at the funeral of Mr. John Wells late pastor of Olave-Jury, London by Thomas Watson ...",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a65312/original.xml",
+      "sha256": "c3c3208618365436f966a4423702f7f619fcbf95b61843d114b4414bd657234f",
+      "passages": [
+        {
+          "reference": "1 Corinthians 7:29",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 46007029,
+          "end": 46007029,
+          "verification": "verified",
+          "locator": "TCP A65312, first <div type=\"sermon\">; printed: 'I COR. VII. 29.'"
+        }
+      ],
+      "printed": "printed: 'I COR. VII. 29.'"
+    },
+    "work-reconciled-d899181fe4a84191ed12249c": {
+      "title": "The crown of righteousness. Set forth in a sermon preached at Stephens Walbrook, May 1. 1656. At the funeral of Thomas H",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a96098/original.xml",
+      "sha256": "f048eb267bcddbbaebcda13606c7603cc2069626747d0a40c7dbc395255b49f8",
+      "passages": [
+        {
+          "reference": "2 Timothy 4:8",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004008,
+          "end": 55004008,
+          "verification": "verified",
+          "locator": "TCP A96098, first <div type=\"sermon\">; printed: '2 TIM. 4. 8.'"
+        }
+      ],
+      "printed": "printed: '2 TIM. 4. 8.'"
+    },
+    "work-reconciled-20181c1822275e875b02bef1": {
+      "title": "The holy longing: or, The saints desire to be with Christ: delivered in a sermon at Al-hallows Lumbard-street, Aug. 24. ",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a96103/original.xml",
+      "sha256": "d716d30135228c1738d37d01c7e25209a5266b6f396dd99ee7cd98f65f8fcc5d",
+      "passages": [
+        {
+          "reference": "Philippians 1:23",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 50001023,
+          "end": 50001023,
+          "verification": "verified",
+          "locator": "TCP A96103, first <div type=\"sermon\">; printed: 'PHILIPP. 1. 23.'"
+        }
+      ],
+      "printed": "printed: 'PHILIPP. 1. 23.'"
+    },
+    "work-reconciled-701dc5272a6c949e6c2479a8": {
+      "title": "A sermon preached by the late eminent Mr. Steph. Charnock on 2 Cor. V. XIX.",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a32722/original.xml",
+      "sha256": "b25bad732f769d06e49315e201b2ce6004fa5a5d6ffb360c8a435b090fcb11c1",
+      "passages": [
+        {
+          "reference": "2 Corinthians 5:19",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 47005019,
+          "end": 47005019,
+          "verification": "verified",
+          "locator": "TCP A32722, first <div type=\"sermon\">; heading: 'A SERMON Preached on 2 Cor. 5.19 God was in Christ, reconciling the World unto Himself. / The Doctri'"
+        }
+      ],
+      "printed": "heading: 'A SERMON Preached on 2 Cor. 5.19 God was in Christ, reconciling the World unto Himself. / The Doctri'"
+    },
+    "work-reconciled-72e2bf81e11f02d0ca109a5e": {
+      "title": "A sermon preached by Iohn Knox minister of Christ Iesus in the publique audience of the Church of Edenbrough, within the",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a04931/original.xml",
+      "sha256": "2fc984ddc82e41a6f5731e7ea38c01cce5162861b497dab4dab8d62edae5ceda",
+      "passages": [
+        {
+          "reference": "Isaiah 26:13",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 23026013,
+          "end": 23026013,
+          "verification": "verified",
+          "locator": "TCP A04931, first <div type=\"sermon\">; printed: 'Isaias .26. Chap. verse. 13.'"
+        }
+      ],
+      "printed": "printed: 'Isaias .26. Chap. verse. 13.'"
+    },
+    "work-reconciled-1cc8b476b613cae774517cbb": {
+      "title": "M. Perkins, his Exhortation to repentance, out of Zephaniah preached in 2. sermons in Sturbridge Faire. Together with tw",
+      "genre": "sermon",
+      "heldFile": "library/source-tcp-bulk/asset-bulk-tcp-a73023/original.xml",
+      "sha256": "cb89f1b0c87802ffd9c25d403112a7cb7a56b8e1c4503129061c6a343019d867",
+      "passages": [
+        {
+          "reference": "Zephaniah 2:1-2",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 36002001,
+          "end": 36002002,
+          "verification": "verified",
+          "locator": "TCP A73023, first <div type=\"sermon\">; printed: 'Zophoniah, Chap. 2. verse. 1. 2.'"
+        }
+      ],
+      "printed": "printed: 'Zophoniah, Chap. 2. verse. 1. 2.'",
+      "note": "the title page says 'preached in 2. sermons'; the book prints the text undivided, so it is one record"
+    },
+    "work-reconciled-02320b036313c763cddd31d3": {
+      "genre": "sermon"
+    },
+    "work-reconciled-0465db0283893d988c50937d": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-09f79a69faab13008ee40710": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-0f3c41529528b9e67a6d6b03": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-11daf6ed8274eeb55e96e39b": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-12996683b9d1ce23707b85bd": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-1db81899844e54e613465583": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-2f8914718557f02f7b232b7f": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-32af9023276587c2b993a428": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-48d19bffde3c631d7d0d649c": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-5243c75e3472ed472ee95848": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-5f48f165ac0abb948c42268f": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-75e48b51565a3c4cb0e8c3f8": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-7acdc55dbdfe2aa142c72f8c": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-8234d2e740f8e27c96d8911f": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-8996863ab53c6cdfb5c0ecf7": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-95079a10720524a423be5dbf": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-a16f56d015fc988e0f01a152": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-a4b36af7fda11f66b3cbd9c6": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-c48b7912d8ad55ec8dfd65e8": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-c5ca33aa056377338de40262": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-cc7d2651c1070a189d83f22a": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-d29a5027059c5a14f1c99427": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-d9fc12b65372f9647a0f514c": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-e65710be81eb35881b12c858": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-eeb803505e6798f8b55e0e47": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-f8a4ff8c5df96f6fa2ce0937": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-fb5c80ca5532fd8c11446dbb": {
+      "duplicateOf": "work-reconciled-02320b036313c763cddd31d3"
+    },
+    "work-reconciled-82385e9fe4490c428bdbce79": {
+      "genre": "sermon"
+    },
+    "work-reconciled-cb57ddd6c7d789f75f6d61c6": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-0dc22ae15975fa34d5860fb4": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-1df5041b2043db51f818ec2e": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-214e368633f4302842fdb1eb": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-274ee2a712e79cd20e818a4d": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-4bc2923df32985870f9361b3": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-5650173eb56ebc7c463126f0": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-6dec4ea3e6fe9eb6741d547d": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-76b9cbd0f9f4904997d98bb3": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-8753538419f98dce7508136f": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-919235b93e07d41effb96b2b": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-9c32932a88c3c1129d690649": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-b3447c9dbdc721e4677fb137": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-c4239cca6d9a20cb2f41d8ab": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-c59b285a8aad9f83512c028f": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-c623d344ed4954f92d6debff": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-d38b0d1679b1e71ed4853e26": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-e2595e3f9929cbf14c244d4e": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-e873f1c85836849e8bd92c00": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-f38017ce4a1ec31a6d0fb7b2": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-f60df2ffa19ae21e7262f69a": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-f6b0c7835c3a4be2fbe4e5cf": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-ffaf17b47af2ff2f1efbe546": {
+      "duplicateOf": "work-reconciled-82385e9fe4490c428bdbce79"
+    },
+    "work-reconciled-a58c131a87a9a4241d8c2fde": {
+      "genre": "sermon"
+    },
+    "work-reconciled-cf693ae1f7726edb0b6de599": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-09d42ac7e6d33ff29793909d": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-09e3b4f0512e927fdf112bb4": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-125ecaa105886e77cfc7637c": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-27a4f14a3fbf50fa6e2747d1": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-393fe67988c3e81eb561d787": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-3a9c51dc8f686c8dd04597b5": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-40f15c20ce13b724f6a83e39": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-45ea1ca2679edd6d2b8df699": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-48e399f96c3c215cb73f8886": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-4af5efab5ddb65b4bdc57fdc": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-4f63f4e1822d897623507e4c": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-61a93c5d075027c46d18e197": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-74b49852f7a796ffdb3be698": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-7daa7192f79794fe26579057": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-7ecd5a2de45799d1f436b8ef": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-8900e981375ef67920202a0b": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-92651c1fd02d5c70a01e74b8": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-a17c8c559e3c6837cb91790c": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-a779add2e3cdab2012833401": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-a8b417995b9bdc374f7cc335": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-ae0844489dae53c9aaa49a7b": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-cef35147f49a6814365529e2": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-d3e37d4562d6038907d53988": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-df963473ee4e9a529f26b5bc": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-e459c67d0a39aa4660c2fa4d": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-e48c94543b122bd72f42c77d": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-e75fb9bb9250be47722abaf5": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-f6a4fa93b9df7fe093004389": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-fd0832926e9a8342f28d51c5": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-fdd437a704612459ff33b834": {
+      "duplicateOf": "work-reconciled-a58c131a87a9a4241d8c2fde"
+    },
+    "work-reconciled-2c2eb5949040751958662450": {
+      "genre": "sermon"
+    },
+    "work-reconciled-43ad7e8f5432ff4669e0d36b": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-4f5d902d7270f7ad6b2dc861": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-532b1528faff4963f499839c": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-53409e8e5f377ac095305490": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-59bc742d233d2f9d17011550": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-6bfd8803b8f55de0aa10ab7d": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-7fb4cbcdd63dff348131c23f": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-a348c5206372925b92f16e8a": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-ee9737e3484735be9ea93e5d": {
+      "duplicateOf": "work-reconciled-2c2eb5949040751958662450"
+    },
+    "work-reconciled-60de547d8091e655dde5078c": {
+      "genre": "sermon"
+    },
+    "work-reconciled-066fbfc465ba34df8e0dfb32": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-5ae94172c8c7e7bdcf6be0c6": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-6aabc30ac818e59f6b9f808e": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-7242060a575989bd931b34a3": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-7d7f36384cf25f7f2f417ef4": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-96dbf2d555c0edec10eb39f5": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-ba1c77ad73a4e5e9809d0c25": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-cca5e9b38d1fd7cfb472530f": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-d128242bafd8dca2655561ea": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-e8b3a28d064a178d1a717c03": {
+      "duplicateOf": "work-reconciled-60de547d8091e655dde5078c"
+    },
+    "work-reconciled-21743be429dafc93a29887cc": {
+      "genre": "sermon"
+    },
+    "work-reconciled-0ea79a0a8a1e57309dcd6ae8": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-12cf2ec8a7675b9435ac1f74": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-245b2c6850e3872ac6c96f0c": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-284b81349fec2cb755da2d41": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-5448fb67445bf4f6b00d6ef1": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-5f92f445eb191f478e993945": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-6fae3c3e102ebf12785e9cee": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-d6e66b12cb174c70eb351bc1": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-e89d3732cd6f93cd0a907850": {
+      "duplicateOf": "work-reconciled-21743be429dafc93a29887cc"
+    },
+    "work-reconciled-27964bdec12bcd868f5f490a": {
+      "genre": "sermon"
+    },
+    "work-reconciled-42713a3d7826f035d654d9f5": {
+      "duplicateOf": "work-reconciled-27964bdec12bcd868f5f490a"
+    },
+    "work-reconciled-8445a3193dd7804d8143d958": {
+      "duplicateOf": "work-reconciled-27964bdec12bcd868f5f490a"
+    },
+    "work-reconciled-9a6a7050193489ad24e77094": {
+      "duplicateOf": "work-reconciled-27964bdec12bcd868f5f490a"
+    },
+    "work-reconciled-9d85bcbf882f8d998193b148": {
+      "duplicateOf": "work-reconciled-27964bdec12bcd868f5f490a"
+    },
+    "work-reconciled-b306d52e2c782e13a19f4f8d": {
+      "duplicateOf": "work-reconciled-27964bdec12bcd868f5f490a"
+    },
+    "work-reconciled-7f560fe770128bebf12fc15c": {
+      "genre": "sermon"
+    },
+    "work-reconciled-a1a068c28c8ce9e929ed077a": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-17975c7194834c8bcb76b383": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-1b1988bc8531352d2b20b241": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-203e3c423964304063f2d91b": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-3ed7b5aa0e48e4fc541a5024": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-88bc0e13b75cca1aaab49fa8": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-b9ab17c542fea6ef4312263a": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-e47aa427e9f54c35d3abd238": {
+      "duplicateOf": "work-reconciled-7f560fe770128bebf12fc15c"
+    },
+    "work-reconciled-2a8558bf552096349e949509": {
+      "genre": "sermon"
+    },
+    "work-reconciled-4d9ceff4f2fc2677ff908858": {
+      "duplicateOf": "work-reconciled-2a8558bf552096349e949509"
+    },
+    "work-reconciled-57992380956b7462f025b1e5": {
+      "duplicateOf": "work-reconciled-2a8558bf552096349e949509"
+    },
+    "work-reconciled-66575a24606285a005cfa216": {
+      "duplicateOf": "work-reconciled-2a8558bf552096349e949509"
+    },
+    "work-reconciled-f2d8b2d7e2cc41a0f9a5859a": {
+      "duplicateOf": "work-reconciled-2a8558bf552096349e949509"
+    },
+    "work-reconciled-fb46d2934f0dfaae4244aa00": {
+      "duplicateOf": "work-reconciled-2a8558bf552096349e949509"
+    },
+    "work-reconciled-1c00ab120fcec19cb789dac5": {
+      "genre": "sermon"
+    },
+    "work-reconciled-755a11780e6d70d65ab35dbc": {
+      "duplicateOf": "work-reconciled-1c00ab120fcec19cb789dac5"
+    },
+    "work-reconciled-bc33a86a81314dec4c2995b8": {
+      "duplicateOf": "work-reconciled-1c00ab120fcec19cb789dac5"
+    },
+    "work-reconciled-4f29912984f9f910e39390ef": {
+      "genre": "sermon"
+    },
+    "work-reconciled-29b37d921f3e63d77e3a5e79": {
+      "duplicateOf": "work-reconciled-4f29912984f9f910e39390ef"
+    },
+    "work-reconciled-520e081f85050f3e75212c2d": {
+      "duplicateOf": "work-reconciled-4f29912984f9f910e39390ef"
+    },
+    "work-reconciled-e9ddbce6aef7741c05f42858": {
+      "duplicateOf": "work-reconciled-4f29912984f9f910e39390ef"
+    },
+    "work-reconciled-674c4f97ee5246a15fde8b06": {
+      "genre": "sermon"
+    },
+    "work-reconciled-8a2015ce6c8310593bb78d78": {
+      "duplicateOf": "work-reconciled-674c4f97ee5246a15fde8b06"
+    },
+    "work-reconciled-f4f797189605e8951775c8d5": {
+      "duplicateOf": "work-reconciled-674c4f97ee5246a15fde8b06"
+    },
+    "work-reconciled-307fa58d72b38ccf98e80eac": {
+      "duplicateOf": "work-reconciled-56420513f543b9284bbc24f6"
+    },
+    "work-reconciled-36d9345354cceb25e239ab36": {
+      "genre": "sermon"
+    },
+    "work-reconciled-5d875f4190b236f3c4cb4878": {
+      "genre": "sermon"
+    },
+    "work-reconciled-791bfdd1ebccb25f041c2e56": {
+      "duplicateOf": "work-reconciled-5d875f4190b236f3c4cb4878"
+    },
+    "work-reconciled-74aa0421703cf6823e53114e": {
+      "genre": "sermon"
+    },
+    "work-reconciled-be4f9840c27f441507a6bdb5": {
+      "duplicateOf": "work-reconciled-74aa0421703cf6823e53114e"
+    },
+    "work-reconciled-08971277e665b96feaba8819": {
+      "genre": "sermon"
+    },
+    "work-reconciled-607670a5d507cbb22c5a2517": {
+      "genre": "sermon"
+    }
+  }
+}

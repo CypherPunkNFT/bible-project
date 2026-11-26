@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-watson-seven-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Seven Sermons on Several Select Subjects; held file library/source-tcp-bulk/asset-bulk-tcp-a65313/original.xml (sha256 0c0661352550…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Seven Sermons on Several Select Subjects, sermon 2",
+  "alternateTitles": [
+    "SERMON II. / This Sermon was Preached in the Parish of St. Margaret Moses."
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-watson",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 23:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19023004,
+      "end": 19023004,
+      "verification": "verified",
+      "locator": "TCP A65313, <div type=\"sermon\"> 2 of 7 (n=2); printed: 'Psalm 23.4.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-27c0026d293ae29be4f46890",
+      "locator": "TCP A65313, <div type=\"sermon\"> 2 of 7 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A65313/master/A65313.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A65313/master/A65313.xml",
+      "locator": "TCP A65313, <div type=\"sermon\"> 2 of 7 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

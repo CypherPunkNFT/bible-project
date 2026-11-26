@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-trial-triumph-023",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Trial and Triumph of Faith; held file library/source-tcp-bulk/asset-bulk-tcp-a57982/original.xml (sha256 15a6fd5fa5e0…).",
+    "The held transcription marks 27 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "The Trial and Triumph of Faith, sermon 23",
+  "alternateTitles": [
+    "SERMON XXIII."
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A57982/master/A57982.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A57982/master/A57982.xml",
+      "locator": "TCP A57982, <div type=\"sermon\"> 50 of 54 (n=23)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

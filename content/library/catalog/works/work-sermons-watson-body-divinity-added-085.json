@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-watson-body-divinity-added-085",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A Body of Practical Divinity: the sermons added to it; held file library/source-tcp-bulk/asset-bulk-tcp-a65285/original.xml (sha256 dce4e1a3b111…).",
+    "The held transcription marks 3 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "A Body of Practical Divinity: the sermons added to it, sermon 85",
+  "alternateTitles": [
+    "Who in are Christ are New Creatures."
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-watson",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Corinthians 5:17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47005017,
+      "end": 47005017,
+      "verification": "verified",
+      "locator": "TCP A65285, <div type=\"sermon\"> 85 of 88; printed: '2. Cor. 5.17.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-e79aa08f7314ab7be20c1e7b",
+      "locator": "TCP A65285, <div type=\"sermon\"> 85 of 88"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A65285/master/A65285.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A65285/master/A65285.xml",
+      "locator": "TCP A65285, <div type=\"sermon\"> 85 of 88",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

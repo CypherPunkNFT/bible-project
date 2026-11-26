@@ -1,0 +1,448 @@
+{
+  "preacher": "watson",
+  "generatedBy": "scripts/catalog-historic-sermons.py",
+  "generatedOn": "2026-11-26",
+  "plan": "reports/sermons-campaign/historic-splitting-20261126/plan.json",
+  "counts": {
+    "placed": 21,
+    "listed without a passage": 1,
+    "sermons": 22
+  },
+  "ceiling": 30,
+  "unplaced": [
+    {
+      "workId": "work-sermons-watson-beatitudes-added-007",
+      "title": "The sacred Anchor.",
+      "reason": "printed: 'Titus 2. • 3.'; misprint, not corrected: printed 'Titus 2. • 3.': one figure is illegible in the copy transcribed (the • is the transcriber's mark), and the words quoted ('Looking for that blessed hope, and the glorious appearing') are Titus 2:13 in the KJV"
+    }
+  ],
+  "missingHeldFiles": [],
+  "notSermons": [
+    {
+      "source": "A65313",
+      "division": 6,
+      "reason": "the same sermon as Light in Darkness (TCP A65301, printed on its own in 1679; 887 shared six-word runs), which carries its record"
+    },
+    {
+      "source": "A65299",
+      "division": 1,
+      "reason": "Heaven Taken by Storm: a treatise of 40,842 words with no sermon break printed (TCP tags it as one sermon)"
+    },
+    {
+      "source": "A65285",
+      "division": 1,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 2,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 3,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 4,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 5,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 6,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 7,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 8,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 9,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 10,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 11,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 12,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 13,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 14,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 15,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 16,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 17,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 18,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 19,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 20,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 21,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 22,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 23,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 24,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 25,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 26,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 27,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 28,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 29,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 30,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 31,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 32,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 33,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 34,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 35,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 36,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 37,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 38,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 39,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 40,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 41,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 42,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 43,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 44,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 45,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 46,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 47,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 48,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 49,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 50,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 51,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 52,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 53,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 54,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 55,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 56,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 57,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 58,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 59,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 60,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 61,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 62,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 63,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 64,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 65,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 66,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 67,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 68,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 69,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 70,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 71,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 72,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 73,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 74,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 75,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 76,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 77,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 78,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 79,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 80,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 81,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 82,
+      "reason": "a head of the catechism exposition (Body of Practical Divinity): a topic unit with no sermon break printed, not a sermon"
+    },
+    {
+      "source": "A65285",
+      "division": 83,
+      "reason": "the exposition of the Lord's Prayer (180,571 words), not a sermon"
+    }
+  ],
+  "witnessesNotCounted": []
+}

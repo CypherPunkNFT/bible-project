@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-whitefield-eighteen-gurney-013",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Eighteen Sermons (taken in shorthand by Joseph Gurney, 1771); held file library/source-tcp-bulk/asset-bulk-tcp-n25065/original.xml (sha256 6669d634709f…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon.",
+    "Taken down in shorthand as preached and published by Joseph Gurney after Whitefield's death (1771)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Eighteen Sermons (taken in shorthand by Joseph Gurney, 1771), sermon 13",
+  "alternateTitles": [
+    "SERMON XIII. / Spiritual Baptism."
+  ],
+  "creators": [
+    {
+      "authorId": "author-george-whitefield",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 6:3-4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45006003,
+      "end": 45006004,
+      "verification": "verified",
+      "locator": "TCP N25065, <div type=\"sermon\"> 13 of 18 (n=13); printed: 'ROMANS vi. ver. 3, 4.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-bfe541ca079a0ab7ef5824de",
+      "locator": "TCP N25065, <div type=\"sermon\"> 13 of 18 (n=13)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/N25065/master/N25065.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N25065/master/N25065.xml",
+      "locator": "TCP N25065, <div type=\"sermon\"> 13 of 18 (n=13)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

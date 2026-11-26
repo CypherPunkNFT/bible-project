@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-communion-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Fourteen Communion Sermons (ed. A. A. Bonar); held file library/source-monergism-library/asset-expanded-461145d293c0ad7ad574/original.epub (sha256 5b635cdc7792…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Fourteen Communion Sermons (ed. A. A. Bonar), sermon 2",
+  "alternateTitles": [
+    "SERMON II.—Zechariah 13:7, 8, 9"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Zechariah 13:7-9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 38013007,
+      "end": 38013009,
+      "verification": "verified",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 2 of 14: 'SERMON II.—Zechariah 13:7, 8, 9'; printed: 'Zechariah 13:7, 8, 9'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 2 of 14: 'SERMON II.—Zechariah 13:7, 8, 9'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

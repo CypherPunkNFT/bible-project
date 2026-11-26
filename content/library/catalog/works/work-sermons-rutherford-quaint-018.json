@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-quaint-018",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Eighteen Quaint Sermons; held file library/source-monergism-library/asset-expanded-cf5df9865129d364996a/original.epub (sha256 a6170ed7a4d9…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Eighteen Quaint Sermons, sermon 18",
+  "alternateTitles": [
+    "The Apostle's Choice / No. II"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Philippians 3:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50003008,
+      "end": 50003008,
+      "verification": "verified",
+      "locator": "Eighteen Quaint Sermons (held e-book), sermon heading 18 of 18: 'The Apostle's Choice / No. II'; printed: 'PHILIPPIANS 3:8'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/rutherford/Eighteen%20Quaint%20Sermons%20-%20Rutherford.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/rutherford/Eighteen%20Quaint%20Sermons%20-%20Rutherford.epub",
+      "locator": "Eighteen Quaint Sermons (held e-book), sermon heading 18 of 18: 'The Apostle's Choice / No. II'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

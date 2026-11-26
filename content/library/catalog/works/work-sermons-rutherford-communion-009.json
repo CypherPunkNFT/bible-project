@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-rutherford-communion-009",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Fourteen Communion Sermons (ed. A. A. Bonar); held file library/source-monergism-library/asset-expanded-461145d293c0ad7ad574/original.epub (sha256 5b635cdc7792…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Fourteen Communion Sermons (ed. A. A. Bonar), sermon 9",
+  "alternateTitles": [
+    "SERMON IX* —Song 5:1, 2"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Song of Songs 5:1-2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 22005001,
+      "end": 22005002,
+      "verification": "verified",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 9 of 14: 'SERMON IX* —Song 5:1, 2'; printed: 'Song 5:1, 2'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/rutherford/Fourteen%20Communion%20Sermons%20-%20Rutherford.epub",
+      "locator": "Fourteen Communion Sermons (ed. A. A. Bonar) (held e-book), sermon heading 9 of 14: 'SERMON IX* —Song 5:1, 2'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

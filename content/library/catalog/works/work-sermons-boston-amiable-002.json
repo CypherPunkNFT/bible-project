@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-boston-amiable-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Amiable Professors Falling Short of Heaven; held file library/source-monergism-library/asset-expanded-be752e820127fadd1b3c/original.epub (sha256 70c6188cf9e7…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split, second round (job 4b5ae800): sermon boundary, heading and printed main text read from the held clean text, quoted words checked against the printed verses; not a full-text proofread."
+    }
+  ],
+  "title": "Amiable Professors Falling Short of Heaven, sermon 2",
+  "alternateTitles": [
+    "SERMON II"
+  ],
+  "creators": [
+    {
+      "authorId": "author-thomas-boston",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 10:21",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41010021,
+      "end": 41010021,
+      "verification": "verified",
+      "locator": "Amiable Professors Falling Short of Heaven (held e-book), sermon heading 2 of 7: 'SERMON II'; printed: 'MARK 10:21'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-ff944096f114dc34ad894242",
+      "locator": "Amiable Professors Falling Short of Heaven (held e-book), sermon heading 2 of 7: 'SERMON II'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.monergism.com/thethreshold/sdg/boston/Amiable%20Professors%20Falling%20Shor%20-%20Thomas%20Boston.epub"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/thethreshold/sdg/boston/Amiable%20Professors%20Falling%20Shor%20-%20Thomas%20Boston.epub",
+      "locator": "Amiable Professors Falling Short of Heaven (held e-book), sermon heading 2 of 7: 'SERMON II'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}
