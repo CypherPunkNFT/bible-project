@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0166",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Luther—A Stone on the Cairn",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 13:36, 37",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44013036,
+      "end": 44013037,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.vi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.vi, heading-text element(s) #iii.vi-p1; printed: ACTS xiii. 36, 37"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=iii.vi; heading #iii.vi-p0.2 'LUTHER—A STONE ON THE CAIRN'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.iii.vi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.iii.vi.html",
+      "locator": "div id=iii.vi; heading #iii.vi-p0.2 'LUTHER—A STONE ON THE CAIRN'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

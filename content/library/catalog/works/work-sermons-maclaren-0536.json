@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0536",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Guiding Pillar",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Num. 9:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 4009016,
+      "end": 4009016,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iv.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.iv.ii, heading-text element(s) #iii.iv.ii-p1; printed: NUM. ix. 16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=iii.iv.ii; heading #iii.iv.ii-p0.2 'THE GUIDING PILLAR'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iv.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iv.ii.html",
+      "locator": "div id=iii.iv.ii; heading #iii.iv.ii-p0.2 'THE GUIDING PILLAR'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

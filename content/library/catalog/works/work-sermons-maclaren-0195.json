@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0195",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "An Old Disciple",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 21:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44021016,
+      "end": 44021016,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxxv.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.xxxv, heading-text element(s) #iii.xxxv-p1; printed: ACTS xxi. 16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=iii.xxxv; heading #iii.xxxv-p0.2 'AN OLD DISCIPLE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.iii.xxxv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxxv.html",
+      "locator": "div id=iii.xxxv; heading #iii.xxxv-p0.2 'AN OLD DISCIPLE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

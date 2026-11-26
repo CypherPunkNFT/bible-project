@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1017",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ’s Lament over Our Faithlessness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 9:19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41009019,
+      "end": 41009019,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xlii.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xlii, heading-text element(s) #ii.xlii-p1; printed: Mark ix. 19"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xlii; heading #ii.xlii-p0.2 'CHRIST’S LAMENT OVER OUR FAITHLESSNESS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xlii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xlii.html",
+      "locator": "div id=ii.xlii; heading #ii.xlii-p0.2 'CHRIST’S LAMENT OVER OUR FAITHLESSNESS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

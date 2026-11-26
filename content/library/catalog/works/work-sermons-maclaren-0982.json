@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0982",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ’s Touch",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 1:41",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41001041,
+      "end": 41001041,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.vii, heading-text element(s) #ii.vii-p1; printed: Mark i. 41"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.vii; heading #ii.vii-p0.2 'CHRIST’S TOUCH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.vii.html",
+      "locator": "div id=ii.vii; heading #ii.vii-p0.2 'CHRIST’S TOUCH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

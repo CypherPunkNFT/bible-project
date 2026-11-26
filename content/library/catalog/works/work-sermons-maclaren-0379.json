@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0379",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘Stout Words,’ and Their Confutation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Malachi 3:13-18; 4:1-6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 39003013,
+      "end": 39003018,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.xii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.xii.vii, heading-text element(s) #ii.xii.vii-p1; printed: MALACHI iii. 13-18; iv. 1-6"
+    },
+    {
+      "reference": "Malachi 3:13-18; 4:1-6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 39004001,
+      "end": 39004006,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.xii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.xii.vii, heading-text element(s) #ii.xii.vii-p1; printed: MALACHI iii. 13-18; iv. 1-6"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-ezek-matt1",
+      "locator": "div id=ii.xii.vii; heading #ii.xii.vii-p0.2 '‘STOUT WORDS,’ AND THEIR CONFUTATION'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.xii.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.xii.vii.html",
+      "locator": "div id=ii.xii.vii; heading #ii.xii.vii-p0.2 '‘STOUT WORDS,’ AND THEIR CONFUTATION'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

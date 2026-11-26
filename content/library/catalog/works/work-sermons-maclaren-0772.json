@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0772",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Wind and Spirit",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 3:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43003008,
+      "end": 43003008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.xviii.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.xviii, heading-text element(s) #ii.xviii-p1; printed: JOHN iii. 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.xviii; heading #ii.xviii-p0.2 'WIND AND SPIRIT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.xviii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.xviii.html",
+      "locator": "div id=ii.xviii; heading #ii.xviii-p0.2 'WIND AND SPIRIT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

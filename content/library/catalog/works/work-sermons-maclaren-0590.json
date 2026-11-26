@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0590",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "THE RULE OF THE ROAD",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Phil. 3:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50003016,
+      "end": 50003016,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.xxi.html; library/source-ccel/asset-sermons-maclaren-expositions-iicor-tim/original.xml div id=ii.iii.xxi, heading-text element(s) #ii.iii.xxi-p0.2; printed: Phil. iii. 16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-iicor-tim",
+      "locator": "div id=ii.iii.xxi; heading #ii.iii.xxi-p0.1 'THE RULE OF THE ROAD'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.xxi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.xxi.html",
+      "locator": "div id=ii.iii.xxi; heading #ii.iii.xxi-p0.1 'THE RULE OF THE ROAD'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

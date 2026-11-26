@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0236",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Rahab",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Joshua 6:25",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 6006025,
+      "end": 6006025,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.viii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.iii.viii, heading-text element(s) #ii.iii.viii-p1; printed: JOSHUA vi. 25"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=ii.iii.viii; heading #ii.iii.viii-p0.2 'RAHAB'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.viii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.viii.html",
+      "locator": "div id=ii.iii.viii; heading #ii.iii.viii-p0.2 'RAHAB'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

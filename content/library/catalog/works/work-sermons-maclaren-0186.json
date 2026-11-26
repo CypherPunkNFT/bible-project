@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0186",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Fruitful Years",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 19:1-12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44019001,
+      "end": 44019012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.xxvi, heading-text element(s) #iii.xxvi-p1; printed: ACTS xix. 1-12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=iii.xxvi; heading #iii.xxvi-p0.2 'TWO FRUITFUL YEARS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.iii.xxvi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxvi.html",
+      "locator": "div id=iii.xxvi; heading #iii.xxvi-p0.2 'TWO FRUITFUL YEARS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

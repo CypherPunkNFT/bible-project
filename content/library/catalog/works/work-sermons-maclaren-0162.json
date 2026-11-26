@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0162",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "To the Regions Beyond",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 13:1-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44013001,
+      "end": 44013013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.ii, heading-text element(s) #iii.ii-p1; printed: ACTS xiii. 1-13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=iii.ii; heading #iii.ii-p0.2 'TO THE REGIONS BEYOND'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.iii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.iii.ii.html",
+      "locator": "div id=iii.ii; heading #iii.ii-p0.2 'TO THE REGIONS BEYOND'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

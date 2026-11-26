@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1228",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Let Us Have Peace.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 5:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45005001,
+      "end": 45005001,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=ii.ix, heading-text element(s) #ii.ix-p1; printed: ROMANS v. 1"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=ii.ix; heading #ii.ix-p0.2 'LET US HAVE PEACE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.ix.html",
+      "locator": "div id=ii.ix; heading #ii.ix-p0.2 'LET US HAVE PEACE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

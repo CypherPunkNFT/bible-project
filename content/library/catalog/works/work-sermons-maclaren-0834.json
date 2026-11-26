@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0834",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The True Branches of the True Vine",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 15:5-8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43015005,
+      "end": 43015008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john2/john2.ii.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-john2/original.xml div id=ii.iii, heading-text element(s) #ii.iii-p1; printed: JOHN xv. 5-8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john2",
+      "locator": "div id=ii.iii; heading #ii.iii-p0.2 'THE TRUE BRANCHES OF THE TRUE VINE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john2/john2.ii.iii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john2/john2.ii.iii.html",
+      "locator": "div id=ii.iii; heading #ii.iii-p0.2 'THE TRUE BRANCHES OF THE TRUE VINE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

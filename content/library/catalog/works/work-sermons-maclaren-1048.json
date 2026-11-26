@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1048",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Death Which Gives Life",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 15:21-39",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41015021,
+      "end": 41015039,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.lxxiii.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.lxxiii, heading-text element(s) #ii.lxxiii-p1; printed: Mark xv. 21-39"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.lxxiii; heading #ii.lxxiii-p0.2 'THE DEATH WHICH GIVES LIFE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.lxxiii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.lxxiii.html",
+      "locator": "div id=ii.lxxiii; heading #ii.lxxiii-p0.2 'THE DEATH WHICH GIVES LIFE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

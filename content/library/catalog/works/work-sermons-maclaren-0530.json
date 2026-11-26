@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0530",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Sojourners with God",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Lev. 25:23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 3025023,
+      "end": 3025023,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.iii.vii, heading-text element(s) #iii.iii.vii-p1; printed: LEV. xxv. 23"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=iii.iii.vii; heading #iii.iii.vii-p0.2 'SOJOURNERS WITH GOD'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iii.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.iii.vii.html",
+      "locator": "div id=iii.iii.vii; heading #iii.iii.vii-p0.2 'SOJOURNERS WITH GOD'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

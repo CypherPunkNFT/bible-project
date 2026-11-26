@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0736",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "An Impossibility Made Possible",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Jer. 13:23; 2 Cor. 5:17; Rev. 21:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 24013023,
+      "end": 24013023,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.ix, heading-text element(s) #ii.iii.ix-p1, #ii.iii.ix-p2, #ii.iii.ix-p3; printed: JER. xiii. 23; 2 COR. v. 17; REV. xxi. 5"
+    },
+    {
+      "reference": "Jer. 13:23; 2 Cor. 5:17; Rev. 21:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47005017,
+      "end": 47005017,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.ix, heading-text element(s) #ii.iii.ix-p1, #ii.iii.ix-p2, #ii.iii.ix-p3; printed: JER. xiii. 23; 2 COR. v. 17; REV. xxi. 5"
+    },
+    {
+      "reference": "Jer. 13:23; 2 Cor. 5:17; Rev. 21:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66021005,
+      "end": 66021005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.ix, heading-text element(s) #ii.iii.ix-p1, #ii.iii.ix-p2, #ii.iii.ix-p3; printed: JER. xiii. 23; 2 COR. v. 17; REV. xxi. 5"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.iii.ix; heading #ii.iii.ix-p0.2 'AN IMPOSSIBILITY MADE POSSIBLE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.ix.html",
+      "locator": "div id=ii.iii.ix; heading #ii.iii.ix-p0.2 'AN IMPOSSIBILITY MADE POSSIBLE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

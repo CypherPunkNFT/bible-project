@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0566",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "THE FRUIT OF THE SPIRIT",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Gal. 5:22, 23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 48005022,
+      "end": 48005023,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.ii.viii.html; library/source-ccel/asset-sermons-maclaren-expositions-iicor-tim/original.xml div id=ii.ii.viii, heading-text element(s) #ii.ii.viii-p0.2; printed: Gal. v. 22, 23"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-iicor-tim",
+      "locator": "div id=ii.ii.viii; heading #ii.ii.viii-p0.1 'THE FRUIT OF THE SPIRIT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.ii.viii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.ii.viii.html",
+      "locator": "div id=ii.ii.viii; heading #ii.ii.viii-p0.1 'THE FRUIT OF THE SPIRIT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

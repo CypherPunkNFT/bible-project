@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0709",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Suffering Servant—III",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 53:7-9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23053007,
+      "end": 23053009,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.ii.xix.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.ii.xix, heading-text element(s) #ii.ii.xix-p1; printed: ISAIAH liii, 7-9"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.ii.xix; heading #ii.ii.xix-p0.2 'THE SUFFERING SERVANT—III.'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.ii.xix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.ii.xix.html",
+      "locator": "div id=ii.ii.xix; heading #ii.ii.xix-p0.2 'THE SUFFERING SERVANT—III.'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

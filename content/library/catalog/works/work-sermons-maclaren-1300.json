@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1300",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "God’s Yea; Man’s Amen",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Cor. 1:20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47001020,
+      "end": 47001020,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iv.i.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=iv.i, heading-text element(s) #iv.i-p1; printed: 2 COR. i. 20"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=iv.i; heading #iv.i-p0.2 'GOD’S YEA; MAN’S AMEN'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iv.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iv.i.html",
+      "locator": "div id=iv.i; heading #iv.i-p0.2 'GOD’S YEA; MAN’S AMEN'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

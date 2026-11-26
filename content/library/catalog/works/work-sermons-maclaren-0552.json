@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0552",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "WILLING AND NOT DOING",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Cor. 8:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47008011,
+      "end": 47008011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.i.v.html; library/source-ccel/asset-sermons-maclaren-expositions-iicor-tim/original.xml div id=ii.i.v, heading-text element(s) #ii.i.v-p0.2; printed: 2 Cor. viii. 11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-iicor-tim",
+      "locator": "div id=ii.i.v; heading #ii.i.v-p0.1 'WILLING AND NOT DOING'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.i.v.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.i.v.html",
+      "locator": "div id=ii.i.v; heading #ii.i.v-p0.1 'WILLING AND NOT DOING'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

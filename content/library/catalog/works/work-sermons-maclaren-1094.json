@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1094",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The King in His Beauty.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 17:1-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40017001,
+      "end": 40017013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxix.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=ii.xxxix, heading-text element(s) #ii.xxxix-p1; printed: MATT. xvii. 1-13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=ii.xxxix; heading #ii.xxxix-p0.3 'THE KING IN HIS BEAUTY'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxix.html",
+      "locator": "div id=ii.xxxix; heading #ii.xxxix-p0.3 'THE KING IN HIS BEAUTY'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

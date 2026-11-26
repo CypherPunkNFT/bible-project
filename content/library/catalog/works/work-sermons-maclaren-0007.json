@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0007",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Divided Worship",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Kings 17:33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12017033,
+      "end": 12017033,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ii.vii, heading-text element(s) #ii.ii.vii-p1; printed: 2 KINGS xvii. 33"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+      "locator": "div id=ii.ii.vii; heading #ii.ii.vii-p0.2 'DIVIDED WORSHIP'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.vii.html",
+      "locator": "div id=ii.ii.vii; heading #ii.ii.vii-p0.2 'DIVIDED WORSHIP'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

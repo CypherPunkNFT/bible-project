@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1012",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Gradual Healing of the Blind Man",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 8:22-25",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41008022,
+      "end": 41008025,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxvii.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxxvii, heading-text element(s) #ii.xxxvii-p1; printed: Mark viii. 22-25"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xxxvii; heading #ii.xxxvii-p0.2 'THE GRADUAL HEALING OF THE BLIND MAN'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxvii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxvii.html",
+      "locator": "div id=ii.xxxvii; heading #ii.xxxvii-p0.2 'THE GRADUAL HEALING OF THE BLIND MAN'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

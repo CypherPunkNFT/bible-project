@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0150",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘God is no Respecter of Persons’",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 10:30-44",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44010030,
+      "end": 44010044,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxxix.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxxix, heading-text element(s) #ii.xxxix-p1; printed: ACTS x. 30-44"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=ii.xxxix; heading #ii.xxxix-p0.2 '‘GOD IS NO RESPECTER OF PERSONS’'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.ii.xxxix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxxix.html",
+      "locator": "div id=ii.xxxix; heading #ii.xxxix-p0.2 '‘GOD IS NO RESPECTER OF PERSONS’'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

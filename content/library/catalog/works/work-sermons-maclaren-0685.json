@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0685",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Thy Name: My Name",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 43:1; Isaiah 43:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23043001,
+      "end": 23043001,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.lii.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.i.lii, heading-text element(s) #ii.i.lii-p1, #ii.i.lii-p2; printed: ISAIAH xliii. 1; ISAIAH xliii. 7"
+    },
+    {
+      "reference": "Isaiah 43:1; Isaiah 43:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23043007,
+      "end": 23043007,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.lii.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.i.lii, heading-text element(s) #ii.i.lii-p1, #ii.i.lii-p2; printed: ISAIAH xliii. 1; ISAIAH xliii. 7"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.i.lii; heading #ii.i.lii-p0.2 'THY NAME: MY NAME'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.lii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.lii.html",
+      "locator": "div id=ii.i.lii; heading #ii.i.lii-p0.2 'THY NAME: MY NAME'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

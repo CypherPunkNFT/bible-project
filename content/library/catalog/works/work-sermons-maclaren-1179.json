@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1179",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "David’s Cry for Purity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 51:10-12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19051010,
+      "end": 19051012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=iii.iii, heading-text element(s) #iii.iii-p1; printed: PSALM li. 10-12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=iii.iii; heading #iii.iii-p0.2 'DAVID’S CRY FOR PURITY'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.iii.iii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.iii.html",
+      "locator": "div id=iii.iii; heading #iii.iii-p0.2 'DAVID’S CRY FOR PURITY'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

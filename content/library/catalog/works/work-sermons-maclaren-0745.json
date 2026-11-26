@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0745",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "A Threefold Disease and a Twofold Cure",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Jer. 33:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 24033008,
+      "end": 24033008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xviii.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.xviii, heading-text element(s) #ii.iii.xviii-p1; printed: JER. xxxiii. 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.iii.xviii; heading #ii.iii.xviii-p0.2 'A THREEFOLD DISEASE AND A TWOFOLD CURE.'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xviii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xviii.html",
+      "locator": "div id=ii.iii.xviii; heading #ii.iii.xviii-p0.2 'A THREEFOLD DISEASE AND A TWOFOLD CURE.'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

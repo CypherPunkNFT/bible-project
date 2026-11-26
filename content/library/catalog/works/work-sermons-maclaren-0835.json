@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0835",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Abiding in Love",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 15:9-11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43015009,
+      "end": 43015011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john2/john2.ii.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-john2/original.xml div id=ii.iv, heading-text element(s) #ii.iv-p1; printed: JOHN xv. 9-11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john2",
+      "locator": "div id=ii.iv; heading #ii.iv-p0.2 'ABIDING IN LOVE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john2/john2.ii.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john2/john2.ii.iv.html",
+      "locator": "div id=ii.iv; heading #ii.iv-p0.2 'ABIDING IN LOVE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

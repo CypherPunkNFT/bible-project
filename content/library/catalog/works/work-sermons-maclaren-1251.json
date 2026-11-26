@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1251",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Another Triplet of Graces",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 12:12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45012012,
+      "end": 45012012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xxxii.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=ii.xxxii, heading-text element(s) #ii.xxxii-p1; printed: ROMANS xii. 12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'ANOTHER TRIPLET OF GRACES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xxxii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xxxii.html",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'ANOTHER TRIPLET OF GRACES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0362",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Ideal Devout Life",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Habakkuk 3:19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 35003019,
+      "end": 35003019,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.viii.i.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.viii.i, heading-text element(s) #ii.viii.i-p1; printed: HABAKKUK iii. 19"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-ezek-matt1",
+      "locator": "div id=ii.viii.i; heading #ii.viii.i-p0.2 'THE IDEAL DEVOUT LIFE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.viii.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.viii.i.html",
+      "locator": "div id=ii.viii.i; heading #ii.viii.i-p0.2 'THE IDEAL DEVOUT LIFE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

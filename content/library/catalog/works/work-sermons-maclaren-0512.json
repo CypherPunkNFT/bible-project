@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0512",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Three Inscriptions with One Meaning",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Exodus 28:36; Zech. 14:20; Rev. 22:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 2028036,
+      "end": 2028036,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxv.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.ii.xxv, heading-text element(s) #iii.ii.xxv-p1, #iii.ii.xxv-p2, #iii.ii.xxv-p3; printed: EXODUS xxviii. 36; ZECH. xiv. 20; REV. xxii. 4"
+    },
+    {
+      "reference": "Exodus 28:36; Zech. 14:20; Rev. 22:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 38014020,
+      "end": 38014020,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxv.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.ii.xxv, heading-text element(s) #iii.ii.xxv-p1, #iii.ii.xxv-p2, #iii.ii.xxv-p3; printed: EXODUS xxviii. 36; ZECH. xiv. 20; REV. xxii. 4"
+    },
+    {
+      "reference": "Exodus 28:36; Zech. 14:20; Rev. 22:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66022004,
+      "end": 66022004,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxv.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.ii.xxv, heading-text element(s) #iii.ii.xxv-p1, #iii.ii.xxv-p2, #iii.ii.xxv-p3; printed: EXODUS xxviii. 36; ZECH. xiv. 20; REV. xxii. 4"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=iii.ii.xxv; heading #iii.ii.xxv-p0.2 'THREE INSCRIPTIONS WITH ONE MEANING'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxv.html",
+      "locator": "div id=iii.ii.xxv; heading #iii.ii.xxv-p0.2 'THREE INSCRIPTIONS WITH ONE MEANING'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

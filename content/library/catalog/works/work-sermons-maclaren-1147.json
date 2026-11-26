@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1147",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Open Sins",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 19:13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19019013,
+      "end": 19019013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.ix, heading-text element(s) #ii.ix-p1; printed: PSALM xix. 13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.ix; heading #ii.ix-p0.2 'OPEN SINS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ix.html",
+      "locator": "div id=ii.ix; heading #ii.ix-p0.2 'OPEN SINS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

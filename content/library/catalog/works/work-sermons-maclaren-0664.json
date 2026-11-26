@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0664",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "God’s Waiting and Man’s",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 30:18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23030018,
+      "end": 23030018,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.xxxi.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.i.xxxi, heading-text element(s) #ii.i.xxxi-p1; printed: ISAIAH xxx. 18"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.i.xxxi; heading #ii.i.xxxi-p0.2 'GOD’S WAITING AND MAN’S'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.xxxi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.i.xxxi.html",
+      "locator": "div id=ii.i.xxxi; heading #ii.i.xxxi-p0.2 'GOD’S WAITING AND MAN’S'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

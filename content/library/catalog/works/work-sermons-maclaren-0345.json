@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0345",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘Fruit Which Is Death’",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hosea 10:1-15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 28010001,
+      "end": 28010015,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iv.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.iv.iv, heading-text element(s) #ii.iv.iv-p1; printed: HOSEA x. 1-15"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-ezek-matt1",
+      "locator": "div id=ii.iv.iv; heading #ii.iv.iv-p0.2 '‘FRUIT WHICH IS DEATH’'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iv.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iv.iv.html",
+      "locator": "div id=ii.iv.iv; heading #ii.iv.iv-p0.2 '‘FRUIT WHICH IS DEATH’'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

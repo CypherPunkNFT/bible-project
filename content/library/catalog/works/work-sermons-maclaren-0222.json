@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0222",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Eagle and its Brood",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Deut. 32:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5032011,
+      "end": 5032011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.ii.viii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.ii.viii, heading-text element(s) #ii.ii.viii-p1; printed: DEUT. xxxii. 11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=ii.ii.viii; heading #ii.ii.viii-p0.2 'THE EAGLE AND ITS BROOD'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.ii.viii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.ii.viii.html",
+      "locator": "div id=ii.ii.viii; heading #ii.ii.viii-p0.2 'THE EAGLE AND ITS BROOD'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

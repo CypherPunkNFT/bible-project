@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0241",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Cities of Refuge",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Joshua 20:1-9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 6020001,
+      "end": 6020009,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.xiii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.iii.xiii, heading-text element(s) #ii.iii.xiii-p1; printed: JOSHUA xx. 1-9"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=ii.iii.xiii; heading #ii.iii.xiii-p0.2 'THE CITIES OF REFUGE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.xiii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.iii.xiii.html",
+      "locator": "div id=ii.iii.xiii; heading #ii.iii.xiii-p0.2 'THE CITIES OF REFUGE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

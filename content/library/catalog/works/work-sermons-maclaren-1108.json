@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1108",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Vineyard and Its Keepers.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 21:33-46",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40021033,
+      "end": 40021046,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xiii.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=iii.xiii, heading-text element(s) #iii.xiii-p1; printed: MATT. xxi. 33-46"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=iii.xiii; heading #iii.xiii-p0.2 'THE VINEYARD AND ITS KEEPERS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xiii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xiii.html",
+      "locator": "div id=iii.xiii; heading #iii.xiii-p0.2 'THE VINEYARD AND ITS KEEPERS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

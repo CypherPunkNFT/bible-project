@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0491",
+  "editorialState": "catalogued",
+  "notes": [
+    "misprint? heading reference 'EXODUS iii. 1' disagrees with the book's contents list 'Exodus iii. 2'"
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Bush that Burned, and Did Not Burn Out",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=iii.ii.iv; heading #iii.ii.iv-p0.2 'THE BUSH THAT BURNED, AND DID NOT BURN OUT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.iv.html",
+      "locator": "div id=iii.ii.iv; heading #iii.ii.iv-p0.2 'THE BUSH THAT BURNED, AND DID NOT BURN OUT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

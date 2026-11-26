@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0578",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "WORK OUT YOUR OWN SALVATION",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Phil. 2:12, 13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50002012,
+      "end": 50002013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-iicor-tim/original.xml div id=ii.iii.ix, heading-text element(s) #ii.iii.ix-p0.2; printed: Phil. ii. 12, 13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-iicor-tim",
+      "locator": "div id=ii.iii.ix; heading #ii.iii.ix-p0.1 'WORK OUT YOUR OWN SALVATION'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.ii.iii.ix.html",
+      "locator": "div id=ii.iii.ix; heading #ii.iii.ix-p0.1 'WORK OUT YOUR OWN SALVATION'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

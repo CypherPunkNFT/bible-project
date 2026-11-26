@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0832",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ Foreseeing His Passion",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 14:30, 31",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43014030,
+      "end": 43014031,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.lxxviii.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.lxxviii, heading-text element(s) #ii.lxxviii-p1; printed: JOHN xiv. 30, 31"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.lxxviii; heading #ii.lxxviii-p0.2 'CHRIST FORESEEING HIS PASSION'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.lxxviii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.lxxviii.html",
+      "locator": "div id=ii.lxxviii; heading #ii.lxxviii-p0.2 'CHRIST FORESEEING HIS PASSION'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0137",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Filled with the Spirit",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 6:3, 5, 8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44006003,
+      "end": 44006003,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: ACTS vi. 3, 5, 8"
+    },
+    {
+      "reference": "Acts 6:3, 5, 8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44006005,
+      "end": 44006005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: ACTS vi. 3, 5, 8"
+    },
+    {
+      "reference": "Acts 6:3, 5, 8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44006008,
+      "end": 44006008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: ACTS vi. 3, 5, 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'FILLED WITH THE SPIRIT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.ii.xxvi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxvi.html",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'FILLED WITH THE SPIRIT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

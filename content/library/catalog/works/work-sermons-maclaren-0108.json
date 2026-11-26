@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0108",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Misused Respite",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Eccles. 8:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 21008011,
+      "end": 21008011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.x.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.x.ix, heading-text element(s) #ii.x.ix-p1; printed: ECCLES. viii. 11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+      "locator": "div id=ii.x.ix; heading #ii.x.ix-p0.2 'MISUSED RESPITE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.x.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.x.ix.html",
+      "locator": "div id=ii.x.ix; heading #ii.x.ix-p0.2 'MISUSED RESPITE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1007",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The World’s Bread",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 6:30-44",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41006030,
+      "end": 41006044,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxii.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxxii, heading-text element(s) #ii.xxxii-p1; printed: Mark vi. 30-44"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'THE WORLD’S BREAD'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxxii.html",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'THE WORLD’S BREAD'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

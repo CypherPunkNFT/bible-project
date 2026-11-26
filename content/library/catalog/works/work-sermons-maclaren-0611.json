@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0611",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "GOD'S TRUMPET",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Thess. 1:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 52001008,
+      "end": 52001008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.iii.iii.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-iicor-tim/original.xml div id=iii.iii.ii, heading-text element(s) #iii.iii.ii-p0.2; printed: 1 Thess. i. 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-iicor-tim",
+      "locator": "div id=iii.iii.ii; heading #iii.iii.ii-p0.1 'GOD'S TRUMPET'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.iii.iii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/iicor_tim/iicor_tim.iii.iii.ii.html",
+      "locator": "div id=iii.iii.ii; heading #iii.iii.ii-p0.1 'GOD'S TRUMPET'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0771",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Teacher or Saviour?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 3:2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43003002,
+      "end": 43003002,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.xvii.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.xvii, heading-text element(s) #ii.xvii-p1; printed: JOHN iii. 2"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.xvii; heading #ii.xvii-p0.2 'TEACHER OR SAVIOUR?'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.xvii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.xvii.html",
+      "locator": "div id=ii.xvii; heading #ii.xvii-p0.2 'TEACHER OR SAVIOUR?'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

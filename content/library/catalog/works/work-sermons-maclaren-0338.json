@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0338",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Mene, Tekel, Peres",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Daniel 5:17-31",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 27005017,
+      "end": 27005031,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iii.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.iii.iv, heading-text element(s) #ii.iii.iv-p1; printed: DANIEL v. 17-31"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-ezek-matt1",
+      "locator": "div id=ii.iii.iv; heading #ii.iii.iv-p0.2 'MENE, TEKEL, PERES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iii.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.iii.iv.html",
+      "locator": "div id=ii.iii.iv; heading #ii.iii.iv-p0.2 'MENE, TEKEL, PERES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

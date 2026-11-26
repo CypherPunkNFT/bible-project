@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1263",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Priscilla and Aquila",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 16:3-5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45016003,
+      "end": 45016005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xliv.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=ii.xliv, heading-text element(s) #ii.xliv-p1; printed: ROMANS xvi. 3-5"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=ii.xliv; heading #ii.xliv-p0.2 'PRISCILLA AND AQUILA'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xliv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xliv.html",
+      "locator": "div id=ii.xliv; heading #ii.xliv-p0.2 'PRISCILLA AND AQUILA'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

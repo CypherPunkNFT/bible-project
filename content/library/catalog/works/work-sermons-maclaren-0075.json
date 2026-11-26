@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0075",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Keeping and Kept",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Proverbs 4:23; 1 Peter 1:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 20004023,
+      "end": 20004023,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.viii.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ix.viii, heading-text element(s) #ii.ix.viii-p1, #ii.ix.viii-p2; printed: PROVERBS iv. 23; 1 PETER i. 5"
+    },
+    {
+      "reference": "Proverbs 4:23; 1 Peter 1:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 60001005,
+      "end": 60001005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.viii.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ix.viii, heading-text element(s) #ii.ix.viii-p1, #ii.ix.viii-p2; printed: PROVERBS iv. 23; 1 PETER i. 5"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+      "locator": "div id=ii.ix.viii; heading #ii.ix.viii-p0.2 'KEEPING AND KEPT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.viii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.viii.html",
+      "locator": "div id=ii.ix.viii; heading #ii.ix.viii-p0.2 'KEEPING AND KEPT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

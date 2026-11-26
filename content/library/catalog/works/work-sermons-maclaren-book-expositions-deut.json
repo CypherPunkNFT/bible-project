@@ -1,0 +1,628 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-book-expositions-deut",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Expositions of Holy Scripture: Deuteronomy, Joshua, Judges, Ruth and First Book of Samuel, Second Samuel, First Kings, and Second Kings Chapters",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0215",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0216",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0217",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0218",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0219",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0220",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0221",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0222",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0223",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0224",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0225",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0226",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0227",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0228",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0229",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0230",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0231",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0232",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0233",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0234",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0235",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0236",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0237",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0238",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0239",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0240",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0241",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0242",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0243",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0244",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0245",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0246",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0247",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0248",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0249",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0250",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0251",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0252",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0253",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0254",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0255",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0256",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0257",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0258",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0259",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0260",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0261",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0262",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0263",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0264",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0265",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0266",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0267",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0268",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0269",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0270",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0271",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0272",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0273",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0274",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0275",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0276",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0277",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0278",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0279",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0280",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0281",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0282",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0283",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0284",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0285",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0286",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0287",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0288",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0289",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0290",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0291",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0292",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0293",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0294",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0295",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0296",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0297",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0298",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0299",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0300",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0301",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0302",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0303",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0304",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0305",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0306",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0307",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0308",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0309",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0310",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0311",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0312",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0313",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0314",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0315",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0316",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0317",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0318",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0319",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0320",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0321",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0322",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0323",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0324",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0325",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0326",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0327",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0328",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-maclaren-0329",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.ii.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.ii.i.html",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0809",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Love of the Departing Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 13:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43013001,
+      "end": 43013001,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.lv.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.lv, heading-text element(s) #ii.lv-p1; printed: JOHN xiii. 1"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.lv; heading #ii.lv-p0.2 'THE LOVE OF THE DEPARTING CHRIST'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.lv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.lv.html",
+      "locator": "div id=ii.lv; heading #ii.lv-p0.2 'THE LOVE OF THE DEPARTING CHRIST'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

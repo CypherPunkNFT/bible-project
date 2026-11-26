@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0817",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "A Rash Vow",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 13:38",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43013038,
+      "end": 43013038,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.lxiii.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.lxiii, heading-text element(s) #ii.lxiii-p1; printed: JOHN xiii. 38"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.lxiii; heading #ii.lxiii-p0.2 'A RASH VOW'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.lxiii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.lxiii.html",
+      "locator": "div id=ii.lxiii; heading #ii.lxiii-p0.2 'A RASH VOW'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

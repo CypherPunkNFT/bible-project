@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1149",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Shepherd King of Israel",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 23:1-6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19023001,
+      "end": 19023006,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xi.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xi, heading-text element(s) #ii.xi-p1; printed: PSALM xxiii. 1-6"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.xi; heading #ii.xi-p0.2 'THE SHEPHERD KING OF ISRAEL'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xi.html",
+      "locator": "div id=ii.xi; heading #ii.xi-p0.2 'THE SHEPHERD KING OF ISRAEL'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

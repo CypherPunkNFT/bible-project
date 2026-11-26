@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1097",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Law of Precedence in the Kingdom.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 18:1-14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40018001,
+      "end": 40018014,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=iii.ii, heading-text element(s) #iii.ii-p1; printed: MATT. xviii. 1-14"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=iii.ii; heading #iii.ii-p0.3 'THE LAW OF PRECEDENCE IN THE KINGDOM'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.iii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.ii.html",
+      "locator": "div id=iii.ii; heading #iii.ii-p0.3 'THE LAW OF PRECEDENCE IN THE KINGDOM'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

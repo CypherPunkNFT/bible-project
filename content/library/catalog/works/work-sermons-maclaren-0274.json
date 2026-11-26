@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0274",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The End of Self-Will",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Samuel 31:1-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 9031001,
+      "end": 9031013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.vi.xix.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.vi.xix, heading-text element(s) #ii.vi.xix-p1; printed: 1 SAMUEL xxxi. 1-13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=ii.vi.xix; heading #ii.vi.xix-p0.2 'THE END OF SELF-WILL'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.vi.xix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.vi.xix.html",
+      "locator": "div id=ii.vi.xix; heading #ii.vi.xix-p0.2 'THE END OF SELF-WILL'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

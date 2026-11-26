@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0321",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Elijah’s Translation and Elisha’s Deathbed",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Kings 2:12; 2 Kings 13:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12002012,
+      "end": 12002012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iv.iii, heading-text element(s) #iii.iv.iii-p1, #iii.iv.iii-p2; printed: 2 KINGS ii. 12; 2 KINGS xiii. 14"
+    },
+    {
+      "reference": "2 Kings 2:12; 2 Kings 13:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12013014,
+      "end": 12013014,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iv.iii, heading-text element(s) #iii.iv.iii-p1, #iii.iv.iii-p2; printed: 2 KINGS ii. 12; 2 KINGS xiii. 14"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=iii.iv.iii; heading #iii.iv.iii-p0.2 'ELIJAH’S TRANSLATION AND ELISHA’S DEATHBED'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.iii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.iii.html",
+      "locator": "div id=iii.iv.iii; heading #iii.iv.iii-p0.2 'ELIJAH’S TRANSLATION AND ELISHA’S DEATHBED'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-sermons-maclaren-book-expositions-2kings-eccl",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "workId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+  "label": "CCEL Expositions of Holy Scripture",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.i.html",
+      "locator": "Held source file",
+      "note": "Edition as acquired.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

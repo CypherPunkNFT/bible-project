@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0443",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Course and Crown of a Devout LIfe",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 5:24",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1005024,
+      "end": 1005024,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.ii.i.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=ii.i.vii, heading-text element(s) #ii.i.vii-p1; printed: GENESIS v. 24"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=ii.i.vii; heading #ii.i.vii-p0.2 'THE COURSE AND CROWN OF A DEVOUT LIFE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.ii.i.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.ii.i.vii.html",
+      "locator": "div id=ii.i.vii; heading #ii.i.vii-p0.2 'THE COURSE AND CROWN OF A DEVOUT LIFE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

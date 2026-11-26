@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1161",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "A Threefold Thought of Sin and Forgiveness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 32:1, 2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19032001,
+      "end": 19032002,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxiii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxiii, heading-text element(s) #ii.xxiii-p1; printed: PSALM xxxii. 1, 2"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.xxiii; heading #ii.xxiii-p0.2 'A THREEFOLD THOUGHT OF SIN AND FORGIVENESS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxiii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxiii.html",
+      "locator": "div id=ii.xxiii; heading #ii.xxiii-p0.2 'A THREEFOLD THOUGHT OF SIN AND FORGIVENESS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

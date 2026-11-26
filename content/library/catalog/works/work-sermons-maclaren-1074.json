@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1074",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Pharisees’ Sabbath and Christ’s.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 12:1-14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40012001,
+      "end": 40012014,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xix.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=ii.xix, heading-text element(s) #ii.xix-p1; printed: MATT. xii. 1-14"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=ii.xix; heading #ii.xix-p0.3 'THE PHARISEES’ SABBATH AND CHRIST’S'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xix.html",
+      "locator": "div id=ii.xix; heading #ii.xix-p0.3 'THE PHARISEES’ SABBATH AND CHRIST’S'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

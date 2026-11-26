@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1283",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘Love Buildeth Up’",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Cor. 8:1-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 46008001,
+      "end": 46008013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iii.xv.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=iii.xv, heading-text element(s) #iii.xv-p1; printed: 1 COR. viii. 1-13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=iii.xv; heading #iii.xv-p0.2 '‘LOVE BUILDETH UP’'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iii.xv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.iii.xv.html",
+      "locator": "div id=iii.xv; heading #iii.xv-p0.2 '‘LOVE BUILDETH UP’'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

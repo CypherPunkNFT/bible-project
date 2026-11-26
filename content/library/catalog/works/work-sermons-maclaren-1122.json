@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1122",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Defence of Uncalculating Love.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 26:6-16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40026006,
+      "end": 40026016,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xxvii.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=iii.xxvii, heading-text element(s) #iii.xxvii-p1; printed: MATT. xxvi. 6-16"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=iii.xxvii; heading #iii.xxvii-p0.3 'THE DEFENCE OF UNCALCULATING LOVE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xxvii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.xxvii.html",
+      "locator": "div id=iii.xxvii; heading #iii.xxvii-p0.3 'THE DEFENCE OF UNCALCULATING LOVE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

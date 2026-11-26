@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0333",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Dry Bones and the Spirit of Life",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Ezekiel 37:1-14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 26037001,
+      "end": 26037014,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.ii.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-ezek-matt1/original.xml div id=ii.ii.iv, heading-text element(s) #ii.ii.iv-p1; printed: EZEKIEL xxxvii. 1-14"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-ezek-matt1",
+      "locator": "div id=ii.ii.iv; heading #ii.ii.iv-p0.2 'THE DRY BONES AND THE SPIRIT OF LIFE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.ii.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/ezek_matt1/ezek_matt1.ii.ii.iv.html",
+      "locator": "div id=ii.ii.iv; heading #ii.ii.iv-p0.2 'THE DRY BONES AND THE SPIRIT OF LIFE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1260",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Fountains, One Stream",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 15:4, 13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45015004,
+      "end": 45015004,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xli.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=ii.xli, heading-text element(s) #ii.xli-p1; printed: ROMANS xv. 4, 13"
+    },
+    {
+      "reference": "Romans 15:4, 13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45015013,
+      "end": 45015013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xli.html; library/source-ccel/asset-sermons-maclaren-expositions-rom-cor/original.xml div id=ii.xli, heading-text element(s) #ii.xli-p1; printed: ROMANS xv. 4, 13"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-rom-cor",
+      "locator": "div id=ii.xli; heading #ii.xli-p0.2 'TWO FOUNTAINS, ONE STREAM'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xli.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/rom_cor/rom_cor.ii.xli.html",
+      "locator": "div id=ii.xli; heading #ii.xli-p0.2 'TWO FOUNTAINS, ONE STREAM'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

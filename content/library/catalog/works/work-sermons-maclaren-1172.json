@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1172",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The King in His Beauty",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 45:2-7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19045002,
+      "end": 19045007,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxxiv, heading-text element(s) #ii.xxxiv-p1; printed: PSALM xlv. 2-7"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.xxxiv; heading #ii.xxxiv-p0.2 'THE KING IN HIS BEAUTY'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxiv.html",
+      "locator": "div id=ii.xxxiv; heading #ii.xxxiv-p0.2 'THE KING IN HIS BEAUTY'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

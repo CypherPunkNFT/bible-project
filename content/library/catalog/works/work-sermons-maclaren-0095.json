@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0095",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Crime of Negligence",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Proverbs 24:11, 12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 20024011,
+      "end": 20024012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.xxviii.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ix.xxviii, heading-text element(s) #ii.ix.xxviii-p1; printed: PROVERBS xxiv. 11, 12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+      "locator": "div id=ii.ix.xxviii; heading #ii.ix.xxviii-p0.2 'THE CRIME OF NEGLIGENCE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.xxviii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ix.xxviii.html",
+      "locator": "div id=ii.ix.xxviii; heading #ii.ix.xxviii-p0.2 'THE CRIME OF NEGLIGENCE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

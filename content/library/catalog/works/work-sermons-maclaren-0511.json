@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0511",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Names on Aaron’s Breastplate",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Exodus 28:12, 29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 2028012,
+      "end": 2028012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.ii.xxiv, heading-text element(s) #iii.ii.xxiv-p1; printed: EXODUS xxviii. 12, 29"
+    },
+    {
+      "reference": "Exodus 28:12, 29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 2028029,
+      "end": 2028029,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-gen-num/original.xml div id=iii.ii.xxiv, heading-text element(s) #iii.ii.xxiv-p1; printed: EXODUS xxviii. 12, 29"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=iii.ii.xxiv; heading #iii.ii.xxiv-p0.2 'THE NAMES ON AARON’S BREASTPLATE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.iii.ii.xxiv.html",
+      "locator": "div id=iii.ii.xxiv; heading #iii.ii.xxiv-p0.2 'THE NAMES ON AARON’S BREASTPLATE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

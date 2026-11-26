@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1168",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Bitterness and Blessedness of the Brevity of Life",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 39:6, 12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19039006,
+      "end": 19039006,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxx, heading-text element(s) #ii.xxx-p1; printed: PSALM xxxix. 6, 12"
+    },
+    {
+      "reference": "Psalm 39:6, 12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19039012,
+      "end": 19039012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxx, heading-text element(s) #ii.xxx-p1; printed: PSALM xxxix. 6, 12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.xxx; heading #ii.xxx-p0.2 'THE BITTERNESS AND BLESSEDNESS OF THE BREVITY OF LIFE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxx.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxx.html",
+      "locator": "div id=ii.xxx; heading #ii.xxx-p0.2 'THE BITTERNESS AND BLESSEDNESS OF THE BREVITY OF LIFE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0009",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘He Uttered His Voice, the Earth Melted’",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Kings 19:20-22, 28-37",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12019020,
+      "end": 12019022,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ii.ix, heading-text element(s) #ii.ii.ix-p1; printed: 2 KINGS xix. 20-22; 28-37"
+    },
+    {
+      "reference": "2 Kings 19:20-22, 28-37",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12019028,
+      "end": 12019037,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.ix.html; library/source-ccel/asset-sermons-maclaren-expositions-2kings-eccl/original.xml div id=ii.ii.ix, heading-text element(s) #ii.ii.ix-p1; printed: 2 KINGS xix. 20-22; 28-37"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-2kings-eccl",
+      "locator": "div id=ii.ii.ix; heading #ii.ii.ix-p0.2 '‘HE UTTERED HIS VOICE, THE EARTH MELTED’'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/2kings_eccl/2kings_eccl.ii.ii.ix.html",
+      "locator": "div id=ii.ii.ix; heading #ii.ii.ix-p0.2 '‘HE UTTERED HIS VOICE, THE EARTH MELTED’'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { familyOf, lifeEnd } from "../../shared/people";
 
 // Which country or region each town is in.
 const REGIONS: Record<string, string> = {
-  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth|Tetbury|Stone|Rugeley|Birmingham",
+  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth|Tetbury|Stone|Rugeley|Birmingham|Southampton|Manchester",
   Scotland: "Haddington|Edinburgh|Nisbet|Anwoth|Aberdeen|St Andrews|Duns|Simprin|Ettrick|Collace|Glasgow|Dundee|Kirkmahoe|Badbea|Hamilton",
   Wales: "Cardiff|Aberavon",
   Ireland: "Dublin",

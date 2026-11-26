@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0190",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "A Fulfilled Aspiration",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 20:24; 2 Tim. 4:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44020024,
+      "end": 44020024,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.xxx, heading-text element(s) #iii.xxx-p1, #iii.xxx-p2; printed: ACTS xx. 24; 2 TIM. iv. 7"
+    },
+    {
+      "reference": "Acts 20:24; 2 Tim. 4:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 55004007,
+      "end": 55004007,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=iii.xxx, heading-text element(s) #iii.xxx-p1, #iii.xxx-p2; printed: ACTS xx. 24; 2 TIM. iv. 7"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=iii.xxx; heading #iii.xxx-p0.2 'A FULFILLED ASPIRATION'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.iii.xxx.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.iii.xxx.html",
+      "locator": "div id=iii.xxx; heading #iii.xxx-p0.2 'A FULFILLED ASPIRATION'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

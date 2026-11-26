@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1001",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Touch or Faith",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 5:28,34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41005028,
+      "end": 41005028,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: Mark v. 28,34"
+    },
+    {
+      "reference": "Mark 5:28,34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41005034,
+      "end": 41005034,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: Mark v. 28,34"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'TOUCH OR FAITH?'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xxvi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxvi.html",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'TOUCH OR FAITH?'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1087",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Grave of the Dead John and the Grave of the Living Jesus.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 14:12; Matt. 28:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40014012,
+      "end": 40014012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxii.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=ii.xxxii, heading-text element(s) #ii.xxxii-p1, #ii.xxxii-p2; printed: MATT. xiv. 12; MATT. xxviii. 8"
+    },
+    {
+      "reference": "Matt. 14:12; Matt. 28:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40028008,
+      "end": 40028008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxii.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=ii.xxxii, heading-text element(s) #ii.xxxii-p1, #ii.xxxii-p2; printed: MATT. xiv. 12; MATT. xxviii. 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'THE GRAVE OF THE DEAD JOHN AND THE GRAVE OF THE LIVING JESUS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.ii.xxxii.html",
+      "locator": "div id=ii.xxxii; heading #ii.xxxii-p0.2 'THE GRAVE OF THE DEAD JOHN AND THE GRAVE OF THE LIVING JESUS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

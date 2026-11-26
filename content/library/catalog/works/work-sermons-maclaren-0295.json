@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0295",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "David Appointing Solomon",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Kings 1:28-39",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 11001028,
+      "end": 11001039,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.i.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iii.i, heading-text element(s) #iii.iii.i-p1; printed: 1 KINGS i. 28-39"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=iii.iii.i; heading #iii.iii.i-p0.2 'DAVID APPOINTING SOLOMON'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.i.html",
+      "locator": "div id=iii.iii.i; heading #iii.iii.i-p0.2 'DAVID APPOINTING SOLOMON'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0856",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ’s Summary of His Work",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 17:26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43017026,
+      "end": 43017026,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john2/john2.ii.xxv.html; library/source-ccel/asset-sermons-maclaren-expositions-john2/original.xml div id=ii.xxv, heading-text element(s) #ii.xxv-p1; printed: JOHN xvii. 26"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john2",
+      "locator": "div id=ii.xxv; heading #ii.xxv-p0.2 'CHRIST’S SUMMARY OF HIS WORK'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john2/john2.ii.xxv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john2/john2.ii.xxv.html",
+      "locator": "div id=ii.xxv; heading #ii.xxv-p0.2 'CHRIST’S SUMMARY OF HIS WORK'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

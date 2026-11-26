@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1140",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Blessedness and Praise",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 1:1, 2; Psalm 150:6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19001001,
+      "end": 19001002,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.ii, heading-text element(s) #ii.ii-p1, #ii.ii-p2; printed: PSALM i. 1, 2; PSALM cl. 6"
+    },
+    {
+      "reference": "Psalm 1:1, 2; Psalm 150:6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19150006,
+      "end": 19150006,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.ii, heading-text element(s) #ii.ii-p1, #ii.ii-p2; printed: PSALM i. 1, 2; PSALM cl. 6"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.ii; heading #ii.ii-p0.2 'BLESSEDNESS AND PRAISE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.ii.html",
+      "locator": "div id=ii.ii; heading #ii.ii-p0.2 'BLESSEDNESS AND PRAISE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

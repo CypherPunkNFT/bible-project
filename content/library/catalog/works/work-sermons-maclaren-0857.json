@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0857",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ and His Captors",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 18:6-9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43018006,
+      "end": 43018009,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john2/john2.ii.xxvi.html; library/source-ccel/asset-sermons-maclaren-expositions-john2/original.xml div id=ii.xxvi, heading-text element(s) #ii.xxvi-p1; printed: JOHN xviii. 6-9"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john2",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'CHRIST AND HIS CAPTORS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john2/john2.ii.xxvi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john2/john2.ii.xxvi.html",
+      "locator": "div id=ii.xxvi; heading #ii.xxvi-p0.2 'CHRIST AND HIS CAPTORS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

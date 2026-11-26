@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1206",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "God and the Godly",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 111:3; 112:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19111003,
+      "end": 19111003,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=iii.xxx, heading-text element(s) #iii.xxx-p1; printed: PSALMS cxi. 3; cxii. 3"
+    },
+    {
+      "reference": "Psalms 111:3; 112:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19112003,
+      "end": 19112003,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.xxx.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=iii.xxx, heading-text element(s) #iii.xxx-p1; printed: PSALMS cxi. 3; cxii. 3"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=iii.xxx; heading #iii.xxx-p0.2 'GOD AND THE GODLY'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.iii.xxx.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.xxx.html",
+      "locator": "div id=iii.xxx; heading #iii.xxx-p0.2 'GOD AND THE GODLY'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

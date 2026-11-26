@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0788",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "One Saying with Two Meanings",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 7:33, 34; John 13:33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43007033,
+      "end": 43007034,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.xxxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.xxxiv, heading-text element(s) #ii.xxxiv-p1, #ii.xxxiv-p2; printed: JOHN vii. 33, 34; JOHN xiii. 33"
+    },
+    {
+      "reference": "John 7:33, 34; John 13:33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43013033,
+      "end": 43013033,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john1/john1.ii.xxxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-john1/original.xml div id=ii.xxxiv, heading-text element(s) #ii.xxxiv-p1, #ii.xxxiv-p2; printed: JOHN vii. 33, 34; JOHN xiii. 33"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john1",
+      "locator": "div id=ii.xxxiv; heading #ii.xxxiv-p0.2 'ONE SAYING WITH TWO MEANINGS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john1/john1.ii.xxxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john1/john1.ii.xxxiv.html",
+      "locator": "div id=ii.xxxiv; heading #ii.xxxiv-p0.2 'ONE SAYING WITH TWO MEANINGS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

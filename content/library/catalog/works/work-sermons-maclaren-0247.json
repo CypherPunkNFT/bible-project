@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0247",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "‘All Things are Yours’",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Judges 5:20; Job 5:23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 7005020,
+      "end": 7005020,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.iv.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.iv.iv, heading-text element(s) #ii.iv.iv-p1, #ii.iv.iv-p2; printed: JUDGES v. 20; JOB v. 23"
+    },
+    {
+      "reference": "Judges 5:20; Job 5:23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18005023,
+      "end": 18005023,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.ii.iv.iv.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=ii.iv.iv, heading-text element(s) #ii.iv.iv-p1, #ii.iv.iv-p2; printed: JUDGES v. 20; JOB v. 23"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=ii.iv.iv; heading #ii.iv.iv-p0.2 '‘ALL THINGS ARE YOURS’'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.ii.iv.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.ii.iv.iv.html",
+      "locator": "div id=ii.iv.iv; heading #ii.iv.iv-p0.2 '‘ALL THINGS ARE YOURS’'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1169",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Innumerable Series",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 40:5, 12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19040005,
+      "end": 19040005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxi.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxxi, heading-text element(s) #ii.xxxi-p1; printed: PSALMS xl. 5, 12"
+    },
+    {
+      "reference": "Psalms 40:5, 12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19040012,
+      "end": 19040012,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxi.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=ii.xxxi, heading-text element(s) #ii.xxxi-p1; printed: PSALMS xl. 5, 12"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=ii.xxxi; heading #ii.xxxi-p0.2 'TWO INNUMERABLE SERIES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.ii.xxxi.html",
+      "locator": "div id=ii.xxxi; heading #ii.xxxi-p0.2 'TWO INNUMERABLE SERIES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

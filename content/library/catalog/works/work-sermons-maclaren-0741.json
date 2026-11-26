@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0741",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Lists of Names",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Jer. 17:13; Luke 10:20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 24017013,
+      "end": 24017013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xiv.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.xiv, heading-text element(s) #ii.iii.xiv-p1, #ii.iii.xiv-p2; printed: JER. xvii. 13; LUKE x. 20"
+    },
+    {
+      "reference": "Jer. 17:13; Luke 10:20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42010020,
+      "end": 42010020,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xiv.html; library/source-ccel/asset-sermons-maclaren-expositions-isa-jer/original.xml div id=ii.iii.xiv, heading-text element(s) #ii.iii.xiv-p1, #ii.iii.xiv-p2; printed: JER. xvii. 13; LUKE x. 20"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-isa-jer",
+      "locator": "div id=ii.iii.xiv; heading #ii.iii.xiv-p0.2 'TWO LISTS OF NAMES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/isa_jer/isa_jer.ii.iii.xiv.html",
+      "locator": "div id=ii.iii.xiv; heading #ii.iii.xiv-p0.2 'TWO LISTS OF NAMES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

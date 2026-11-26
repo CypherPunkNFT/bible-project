@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0318",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Ahab and Micaiah",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Kings 22:7, 8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 11022007,
+      "end": 11022008,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.xxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iii.xxiv, heading-text element(s) #iii.iii.xxiv-p1; printed: 1 KINGS xxii. 7, 8"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=iii.iii.xxiv; heading #iii.iii.xxiv-p0.2 'AHAB AND MICAIAH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.xxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.xxiv.html",
+      "locator": "div id=iii.iii.xxiv; heading #iii.iii.xxiv-p0.2 'AHAB AND MICAIAH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

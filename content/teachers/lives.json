@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody, Graham, MacArthur and Morgan added 2026-10-08 (owner's widened scope), fact-checked the same day.",
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody, Graham, MacArthur and Morgan added 2026-10-08 (owner's widened scope), fact-checked the same day. Alexander Maclaren added 2026-11-26 (sermons campaign): every date, place and arrival year checked against at least two references, listed in his author-registry evidence.",
   "people": {
     "author-john-calvin": {
       "short": "Calvin",
@@ -1211,6 +1211,44 @@
         [
           "Lectures to My Students",
           1875
+        ]
+      ]
+    },
+    "author-alexander-maclaren": {
+      "short": "Maclaren",
+      "born": 1826,
+      "died": 1910,
+      "line": "Scottish Baptist pastor of Union Chapel, Manchester, for 45 years (1858–1903) and twice president of the Baptist Union; his sermons fill the Expositions of Holy Scripture.",
+      "places": [
+        [
+          "Glasgow",
+          55.861,
+          -4.251,
+          1826
+        ],
+        [
+          "London",
+          51.515,
+          -0.046,
+          1840
+        ],
+        [
+          "Southampton",
+          50.905,
+          -1.406,
+          1846
+        ],
+        [
+          "Manchester",
+          53.466,
+          -2.232,
+          1858
+        ]
+      ],
+      "known": [
+        [
+          "Expositions of Holy Scripture",
+          1904
         ]
       ]
     },

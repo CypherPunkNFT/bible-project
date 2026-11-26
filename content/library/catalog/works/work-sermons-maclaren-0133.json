@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0133",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Wheat and the Tares",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 4:32; Acts 5:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44004032,
+      "end": 44004032,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxii.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxii, heading-text element(s) #ii.xxii-p1, #ii.xxii-p2; printed: ACTS iv. 32; ACTS v. 11"
+    },
+    {
+      "reference": "Acts 4:32; Acts 5:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44005011,
+      "end": 44005011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxii.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxii, heading-text element(s) #ii.xxii-p1, #ii.xxii-p2; printed: ACTS iv. 32; ACTS v. 11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=ii.xxii; heading #ii.xxii-p0.2 'THE WHEAT AND THE TARES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.ii.xxii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxii.html",
+      "locator": "div id=ii.xxii; heading #ii.xxii-p0.2 'THE WHEAT AND THE TARES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

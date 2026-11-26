@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0876",
+  "editorialState": "catalogued",
+  "notes": [
+    "subtitle printed under heading: 'Annual Sermon to the Young'"
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Youth and Age, and the Command for Both",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 21:18, 19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43021018,
+      "end": 43021019,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/john2/john2.ii.xlv.html; library/source-ccel/asset-sermons-maclaren-expositions-john2/original.xml div id=ii.xlv, heading-text element(s) #ii.xlv-p2; printed: JOHN xxi. 18, 19"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-john2",
+      "locator": "div id=ii.xlv; heading #ii.xlv-p0.2 'YOUTH AND AGE, AND THE COMMAND FOR BOTH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/john2/john2.ii.xlv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/john2/john2.ii.xlv.html",
+      "locator": "div id=ii.xlv; heading #ii.xlv-p0.2 'YOUTH AND AGE, AND THE COMMAND FOR BOTH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0461",
+  "editorialState": "catalogued",
+  "notes": [
+    "no text printed at the head of this section; it opens: 'We have seen that the fruit of Abraham’s faith was God’s entrance ...'; headed part 'II' (#ii.i.xxv-p0.3): a further treatment following the preceding section '‘Because of His Importunity’'; its text is not repeated here, so none recorded"
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Intercourse of God and His Friend",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-gen-num",
+      "locator": "div id=ii.i.xxv; heading #ii.i.xxv-p0.2 'THE INTERCOURSE OF GOD AND HIS FRIEND'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/gen_num/gen_num.ii.i.xxv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/gen_num/gen_num.ii.i.xxv.html",
+      "locator": "div id=ii.i.xxv; heading #ii.i.xxv-p0.2 'THE INTERCOURSE OF GOD AND HIS FRIEND'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

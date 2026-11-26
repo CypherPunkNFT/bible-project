@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0325",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Naaman’s Wrath",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Kings 5:10, 11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12005010,
+      "end": 12005011,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iv.vii, heading-text element(s) #iii.iv.vii-p1; printed: 2 KINGS v. 10, 11"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=iii.iv.vii; heading #iii.iv.vii-p0.2 'NAAMAN’S WRATH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.iii.iv.vii.html",
+      "locator": "div id=iii.iv.vii; heading #iii.iv.vii-p0.2 'NAAMAN’S WRATH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

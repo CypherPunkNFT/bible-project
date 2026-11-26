@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0132",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Servant and the Slaves",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 4:26, 27, 29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44004026,
+      "end": 44004027,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxi, heading-text element(s) #ii.xxi-p1; printed: ACTS iv. 26, 27, 29"
+    },
+    {
+      "reference": "Acts 4:26, 27, 29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44004029,
+      "end": 44004029,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxi.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.xxi, heading-text element(s) #ii.xxi-p1; printed: ACTS iv. 26, 27, 29"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=ii.xxi; heading #ii.xxi-p0.2 'THE SERVANT AND THE SLAVES'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.ii.xxi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.ii.xxi.html",
+      "locator": "div id=ii.xxi; heading #ii.xxi-p0.2 'THE SERVANT AND THE SLAVES'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0297",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Great Gain of Godliness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Kings 4:25-34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 11004025,
+      "end": 11004034,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-deut/original.xml div id=iii.iii.iii, heading-text element(s) #iii.iii.iii-p1; printed: 1 KINGS iv. 25-34"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-deut",
+      "locator": "div id=iii.iii.iii; heading #iii.iii.iii-p0.2 'THE GREAT GAIN OF GODLINESS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.iii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/deut/deut.iii.iii.iii.html",
+      "locator": "div id=iii.iii.iii; heading #iii.iii.iii-p0.2 'THE GREAT GAIN OF GODLINESS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

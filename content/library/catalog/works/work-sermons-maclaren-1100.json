@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1100",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Persistence of Thwarted Love.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 18:13; Luke 15:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40018013,
+      "end": 40018013,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.v.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=iii.v, heading-text element(s) #iii.v-p1, #iii.v-p2; printed: MATT. xviii. 13; LUKE xv. 4"
+    },
+    {
+      "reference": "Matt. 18:13; Luke 15:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42015004,
+      "end": 42015004,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.v.html; library/source-ccel/asset-sermons-maclaren-expositions-matt2/original.xml div id=iii.v, heading-text element(s) #iii.v-p1, #iii.v-p2; printed: MATT. xviii. 13; LUKE xv. 4"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-matt2",
+      "locator": "div id=iii.v; heading #iii.v-p0.2 'PERSISTENCE OF THWARTED LOVE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/matt2/matt2.iii.v.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/matt2/matt2.iii.v.html",
+      "locator": "div id=iii.v; heading #iii.v-p0.2 'PERSISTENCE OF THWARTED LOVE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0114",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Theme of Acts",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 1:1, 2; Acts 28:30, 31",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44001001,
+      "end": 44001002,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.iii, heading-text element(s) #ii.iii-p1, #ii.iii-p2; printed: ACTS i. 1, 2; ACTS xxviii. 30, 31"
+    },
+    {
+      "reference": "Acts 1:1, 2; Acts 28:30, 31",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44028030,
+      "end": 44028031,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/acts/acts.ii.iii.html; library/source-ccel/asset-sermons-maclaren-expositions-acts/original.xml div id=ii.iii, heading-text element(s) #ii.iii-p1, #ii.iii-p2; printed: ACTS i. 1, 2; ACTS xxviii. 30, 31"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-acts",
+      "locator": "div id=ii.iii; heading #ii.iii-p0.2 'THE THEME OF ACTS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/acts/acts.ii.iii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/acts/acts.ii.iii.html",
+      "locator": "div id=ii.iii; heading #ii.iii-p0.2 'THE THEME OF ACTS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

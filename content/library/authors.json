@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "author-registry",
-  "updated": "2026-10-11",
+  "updated": "2026-11-26",
   "authors": [
     {
       "id": "author-john-calvin",
@@ -1685,6 +1685,71 @@
         "reviewer": "Codex",
         "kind": "ai-assisted",
         "scope": "Bibliographic placement in Scholars and Apologetics, following owner instruction; no blanket doctrinal endorsement."
+      }
+    },
+    {
+      "id": "author-alexander-maclaren",
+      "entityType": "person",
+      "name": "Alexander Maclaren",
+      "aliases": [
+        "Alexander McLaren",
+        "A. Maclaren"
+      ],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "baptist"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08: Preachers & authors admits any Baptist. Maclaren was a Scottish Baptist minister, trained at the Baptist college at Stepney, pastor of Portland Chapel, Southampton (1846) and Union Chapel, Manchester (1858–1903), and twice president of the Baptist Union.",
+      "receptionBasis": "Baptist tradition confirmed by two references; his Expositions of Holy Scripture are public domain and held from CCEL.",
+      "evidence": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Alexander_Maclaren",
+          "locator": "Lead and Life sections",
+          "note": "Tradition: 'Scottish Baptist minister'; born 11 February 1826 in Glasgow, died 5 May 1910; entered Stepney College, a Baptist institution in London, in 1842; Union Chapel, Manchester 1858 until his retirement in 1903; twice president of the Baptist Union.",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1912_supplement/Maclaren,_Alexander",
+          "locator": "Dictionary of National Biography, 1912 supplement, 'Maclaren, Alexander'",
+          "note": "Born in Glasgow 11 Feb. 1826; the family moved to London on the father's return (1840) and he entered Stepney College in 1842; left college (1846) for Portland Chapel, Southampton; began at Union Chapel, Manchester on 27 June 1858, retired 28 June 1903; president of the Baptist Union (1876 and 1901); died at 4 Whitehouse Terrace, Edinburgh, 5 May 1910; Expositions of Holy Scripture 1904–10.",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://projectmarion.ca/ancestors/alexander-maclaren/",
+          "locator": "Biographical sketch (cites E. T. McLaren, Dr. McLaren of Manchester)",
+          "note": "Born 11 February 1826 in Glasgow; family moved to London in 1840; entered the Baptist college at Stepney in 1842; began at Portland Chapel, Southampton in 1846; Union Chapel, Manchester 1858–1903; died in Edinburgh 5 May 1910.",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://www.preaching.com/articles/past-masters/alexander-maclaren-a-great-expositor/",
+          "locator": "Past Masters article",
+          "note": "Born in Glasgow 11 February 1826; enrolled for the Baptist ministry at Stepney College, London, in 1842; began at Portland Chapel, Southampton on 28 June 1846; called to Union Chapel, Manchester in April 1858. Differs on two points: resignation in 1905 (DNB and Wikipedia: 1903) and Manchester as the place of death (DNB: Edinburgh).",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://www.logos.com/product/236055/expositions-of-holy-scripture",
+          "locator": "Product page",
+          "note": "Expositions of Holy Scripture: Hodder and Stoughton, print publication date 1904 (agrees with the DNB's 1904–10).",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://ccel.org/ccel/maclaren",
+          "locator": "CCEL author page",
+          "note": "Corpus identity: the 14 Expositions of Holy Scripture volumes held from CCEL.",
+          "checkedOn": "2026-11-26"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Place of death: Edinburgh (DNB 1912, Project Marion) or Manchester (Preaching.com); not used on the page.",
+        "First Baptist Union presidency: 1876 (DNB 1912) or 1875 (other secondary accounts); the page says only 'twice'."
+      ],
+      "review": {
+        "date": "2026-11-26",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity, Baptist tradition and life facts checked against at least two references; work review remains required."
       }
     }
   ]

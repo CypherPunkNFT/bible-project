@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0999",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Talitha Cumi",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 5:22-24, 35-43",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41005022,
+      "end": 41005024,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxiv, heading-text element(s) #ii.xxiv-p1; printed: Mark v. 22-24, 35-43"
+    },
+    {
+      "reference": "Mark 5:22-24, 35-43",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41005035,
+      "end": 41005043,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxiv.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xxiv, heading-text element(s) #ii.xxiv-p1; printed: Mark v. 22-24, 35-43"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xxiv; heading #ii.xxiv-p0.2 'TALITHA CUMI'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xxiv.html",
+      "locator": "div id=ii.xxiv; heading #ii.xxiv-p0.2 'TALITHA CUMI'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-0986",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Works Which Hallow the Sabbath",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mark 2:23-28; Mark 3:1-5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41002023,
+      "end": 41002028,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xi.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xi, heading-text element(s) #ii.xi-p1, #ii.xi-p2; printed: Mark ii. 23-28; Mark iii. 1-5"
+    },
+    {
+      "reference": "Mark 2:23-28; Mark 3:1-5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41003001,
+      "end": 41003005,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/mark/mark.ii.xi.html; library/source-ccel/asset-sermons-maclaren-expositions-mark/original.xml div id=ii.xi, heading-text element(s) #ii.xi-p1, #ii.xi-p2; printed: Mark ii. 23-28; Mark iii. 1-5"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-mark",
+      "locator": "div id=ii.xi; heading #ii.xi-p0.2 'WORKS WHICH HALLOW THE SABBATH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/mark/mark.ii.xi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/mark/mark.ii.xi.html",
+      "locator": "div id=ii.xi; heading #ii.xi-p0.2 'WORKS WHICH HALLOW THE SABBATH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

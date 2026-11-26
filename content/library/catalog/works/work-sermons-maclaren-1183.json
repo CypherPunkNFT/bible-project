@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-maclaren-1183",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Waiting and Singing",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alexander-maclaren",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 59:9, 17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19059009,
+      "end": 19059009,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=iii.vii, heading-text element(s) #iii.vii-p1; printed: PSALM lix. 9, 17"
+    },
+    {
+      "reference": "Psalm 59:9, 17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19059017,
+      "end": 19059017,
+      "verification": "verified",
+      "locator": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.vii.html; library/source-ccel/asset-sermons-maclaren-expositions-psalms/original.xml div id=iii.vii, heading-text element(s) #iii.vii-p1; printed: PSALM lix. 9, 17"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-maclaren-book-expositions-psalms",
+      "locator": "div id=iii.vii; heading #iii.vii-p0.2 'WAITING AND SINGING'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/maclaren/psalms/psalms.iii.vii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/maclaren/psalms/psalms.iii.vii.html",
+      "locator": "div id=iii.vii; heading #iii.vii-p0.2 'WAITING AND SINGING'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}
