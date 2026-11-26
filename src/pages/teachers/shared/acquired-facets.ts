@@ -5,7 +5,7 @@
 import type { Person, Scholar } from "@/data/teachers/pages-types";
 import type { AcquiredCatalogue, AcquiredContributor } from "./acquired";
 import { FAMILIES, familyOf } from "./people";
-import { originRegion, UNRECORDED_ORIGIN } from "../preachers/directory/regions";
+import { countryOfTown, originRegion, UNRECORDED_ORIGIN } from "../preachers/directory/regions";
 import { compareText } from "@/lib/site-format";
 
 export const NO_PROFILE = "no-profile";
@@ -27,7 +27,10 @@ export const SHELVES: [string, string][] = [
 
 export interface ShelfRow {
   contributor: AcquiredContributor;
+  /** The country, which is what the Place of origin filter lists. */
   origin: string;
+  /** What the card shows: a scholar's recorded town, a preacher's country. */
+  place: string;
   tradition: string;
   traditionLabel: string;
   century: string;
@@ -40,8 +43,8 @@ export interface ShelfRow {
   search: string;
 }
 
-/** What a profile contributes to its shelf. Both pages supply the same four facts in their own vocabulary. */
-export interface ProfileFacts { origin: string; tradition: string; traditionLabel: string; born: number; life: string }
+/** What a profile contributes to its shelf. Both pages supply the same facts in their own vocabulary. */
+export interface ProfileFacts { origin: string; place: string; tradition: string; traditionLabel: string; born: number; life: string }
 
 const century = (born: number) => `${Math.floor(born / 100) * 100}`;
 const centuryLabel = (value: string) => (value === UNRECORDED ? "Not recorded" : `${value}–${+value + 99}`);
@@ -51,18 +54,20 @@ const lifeOf = (born: number, died: number | null, circa?: boolean) => `${circa 
 /** Preachers: the country they came from, and the tradition family that already colours the rest of their page. */
 export function preacherFacts(people: Person[]): Map<string, ProfileFacts> {
   return new Map(people.map(person => {
-    const family = familyOf(person);
+    const family = familyOf(person), origin = originRegion(person);
     return [person.id, {
-      origin: originRegion(person), tradition: family.key, traditionLabel: family.label,
+      origin, place: origin, tradition: family.key, traditionLabel: family.label,
       born: person.born, life: lifeOf(person.born, person.died, person.circa),
     }];
   }));
 }
 
-/** Scholars: their one recorded place, and the faith recorded for them rather than a Protestant tradition family. */
+/** Scholars: the country of their one recorded town (the card keeps the town), and the faith recorded for them rather
+ *  than a Protestant tradition family. */
 export function scholarFacts(scholars: Scholar[], faiths: Record<string, string>): Map<string, ProfileFacts> {
   return new Map(scholars.map(scholar => [scholar.id, {
-    origin: scholar.place[0] || UNRECORDED_ORIGIN,
+    origin: scholar.place[0] ? countryOfTown(scholar.place[0]) : UNRECORDED_ORIGIN,
+    place: scholar.place[0] || UNRECORDED_ORIGIN,
     tradition: scholar.faith, traditionLabel: faiths[scholar.faith] ?? titleCase(scholar.faith),
     born: scholar.born, life: lifeOf(scholar.born, scholar.died, scholar.circa),
   }]));
@@ -87,6 +92,7 @@ export function shelfRows(contributors: AcquiredContributor[], facts: Map<string
     const row: ShelfRow = {
       contributor,
       origin: profile?.origin ?? UNRECORDED_ORIGIN,
+      place: profile?.place ?? UNRECORDED_ORIGIN,
       ...tradition,
       century: profile ? century(profile.born) : UNRECORDED,
       shelf: !profile ? NO_PROFILE : contributor.readable ? "readable" : "catalogue",
@@ -97,7 +103,7 @@ export function shelfRows(contributors: AcquiredContributor[], facts: Map<string
       search: "",
     };
     row.search = [contributor.name, ...contributor.traditions, ...contributor.roles, ...(contributor.sourceLifeDates ?? []),
-      row.origin, row.traditionLabel, row.life ?? ""].join(" ").toLocaleLowerCase();
+      row.origin, row.place, row.traditionLabel, row.life ?? ""].join(" ").toLocaleLowerCase();
     return row;
   });
 }
@@ -135,7 +141,7 @@ export function options(rows: ShelfRow[], key: Facet): FacetOption[] {
   const tone = (value: string) => (key === "tradition" ? familyTone(value) : undefined);
   return [...counts.keys()]
     .sort((a, b) => Number(unknown(a)) - Number(unknown(b))
-      || (key === "century" ? compareText(a, b) : (counts.get(b) ?? 0) - (counts.get(a) ?? 0))
+      || (key === "century" ? Number(a) - Number(b) : (counts.get(b) ?? 0) - (counts.get(a) ?? 0))
       || compareText(labels.get(a) ?? a, labels.get(b) ?? b))
     .map(value => ({ value, label: labels.get(value) ?? value, tone: tone(value) }));
 }

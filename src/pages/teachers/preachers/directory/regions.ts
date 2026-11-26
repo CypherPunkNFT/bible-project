@@ -49,6 +49,34 @@ export function originRegion(person: Person): string {
   return person.birthplaceKnown === false ? UNRECORDED_ORIGIN : regionOf(person.places[0][0]);
 }
 
+// Scholars record one town (where they worked, or the site they dug) rather than a birthplace. These are the scholars'
+// towns the list above does not name, under the country each lies in today; the West Bank sites are named as such.
+const OTHER_TOWNS: Record<string, string> = {
+  England: "York|Canterbury",
+  Scotland: "Darvel",
+  Switzerland: "Basel",
+  Belgium: "Antwerp",
+  Germany: "Leipzig",
+  Italy: "Rome",
+  "United States": "New York|Madison, New Jersey|Cambridge, Massachusetts|Fort Omaha|La Mirada, California",
+  Israel: "Jerusalem|City of David, Jerusalem|Gihon Spring, Jerusalem|Ophel, Jerusalem|Caesarea|Lachish|Tel Miqne-Ekron|Tell es-Safi/Gath|Khirbet Qeiyafa|Tel Dan|Tel Kabri|Tell el-Hesi|Hazor|Megiddo|Gezer|Ashkelon|Sepphoris|Negev",
+  "West Bank": "Qumran|Jericho|Shechem|Herodium|Bethlehem|Gibeon",
+  Jordan: "Khirbat en-Nahas",
+  Iraq: "Nineveh|Mosul|Babylon|Ur",
+  Turkey: "Hattusha|Bithynia",
+  Egypt: "Luxor",
+  Algeria: "Hippo",
+};
+const OTHER_COUNTRY_OF = new Map<string, string>();
+for (const [country, towns] of Object.entries(OTHER_TOWNS)) for (const town of towns.split("|")) OTHER_COUNTRY_OF.set(town, country);
+
+/** The country a recorded town lies in, for the Place of origin filter; the town itself stays on the profile. */
+export function countryOfTown(town: string): string {
+  const country = REGION_OF.get(town) ?? OTHER_COUNTRY_OF.get(town);
+  if (!country) console.error(`Teachers: no country recorded for the town "${town}"; listed under "${UNKNOWN_REGION}"`);
+  return country ?? UNKNOWN_REGION;
+}
+
 // Each place from the year they arrived to the next arrival (or the end of their life). When the birthplace is not
 // recorded, the first place is only the earliest known one, counted from the year they arrived.
 const knowsBirthplace = (person: Person) => person.birthplaceKnown !== false;

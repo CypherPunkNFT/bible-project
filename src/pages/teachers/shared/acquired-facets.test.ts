@@ -1,9 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
-import { NO_FILTERS, NO_PROFILE, UNRECORDED, matches, options, order, preacherFacts, shelfRows, stats } from "./acquired-facets";
+import { NO_FILTERS, NO_PROFILE, UNRECORDED, matches, options, order, preacherFacts, scholarFacts, shelfRows, stats } from "./acquired-facets";
 import { UNRECORDED_ORIGIN } from "../preachers/directory/regions";
 import type { AcquiredCatalogue, AcquiredContributor } from "./acquired";
-import type { PeopleData } from "@/data/teachers/pages-types";
+import type { PeopleData, ScholarsData } from "@/data/teachers/pages-types";
 
 const people: PeopleData = JSON.parse(readFileSync("src/data/teachers/people.json", "utf8"));
 const facts = preacherFacts(people.people);
@@ -84,5 +84,38 @@ describe("facet options and header figures", () => {
     // The spreads total held records, not shelves, so one large shelf dominates its tradition.
     expect(figures.traditions.find(t => t.label === "Baptists")?.count).toBe(4506 + 609);
     expect(figures.origins.find(o => o.label === UNRECORDED_ORIGIN)?.count).toBe(609);
+  });
+});
+
+// Scholars record a town (Cambridge, Caesarea, a dig site), preachers a country; the Place of origin filter on
+// /teachers/works joins both, so it must list countries only while the card keeps the scholar's town.
+describe("place of origin lists countries only", () => {
+  const data: ScholarsData = JSON.parse(readFileSync("src/data/teachers/scholars.json", "utf8"));
+  it("knows the country of every scholar's recorded town", () => {
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    scholarFacts(data.scholars, data.faiths);
+    expect(error).not.toHaveBeenCalled();
+    error.mockRestore();
+  });
+  it("files a scholar under the country and keeps the town for the card", () => {
+    const scholars = scholarFacts(data.scholars, data.faiths);
+    expect(scholars.get("westcott")).toMatchObject({ origin: "England", place: "Cambridge" });
+    expect(scholars.get("thayer")).toMatchObject({ origin: "United States", place: "Cambridge, Massachusetts" });
+    expect(scholars.get("eusebius")).toMatchObject({ origin: "Israel", place: "Caesarea" });
+  });
+  it("offers no town as an option once both sides are joined", () => {
+    const scholars = scholarFacts(data.scholars, data.faiths);
+    const facts = new Map([...preacherFacts(people.people), ...scholars]);
+    const shelves = [...facts.keys()].map(id => contributor({ id: `c-${id}`, name: id, profileId: id }));
+    const towns = new Set(data.scholars.map(scholar => scholar.place[0]));
+    const values = options(shelfRows(shelves, facts), "origin").map(o => o.value);
+    expect(values.filter(value => towns.has(value))).toEqual([]);
+    expect(values).toContain("England");
+  });
+  it("orders centuries by number, not as text", () => {
+    const scholars = scholarFacts(data.scholars, data.faiths);
+    const rows = shelfRows([...scholars.keys()].map(id => contributor({ id: `c-${id}`, name: id, profileId: id })), scholars);
+    const centuries = options(rows, "century").map(o => o.value).filter(value => value !== UNRECORDED).map(Number);
+    expect(centuries).toEqual([...centuries].sort((x, y) => x - y));
   });
 });

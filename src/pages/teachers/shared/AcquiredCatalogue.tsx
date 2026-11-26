@@ -70,7 +70,7 @@ function ShelfCard({ row, index }: { row: ShelfRow; index: number }) {
         <strong>{c.name}</strong>
         <span className="acq-shelf-badge">{row.shelf === NO_PROFILE ? "No profile yet" : c.readable ? `${formatNumber(c.readable)} readable` : "Catalogue only"}</span>
       </span>
-      <span className="acq-shelf-meta">{[row.life, row.origin].filter(Boolean).join(" · ")}</span>
+      <span className="acq-shelf-meta">{[row.life, row.place].filter(Boolean).join(" · ")}</span>
       <span className="acq-shelf-tags"><span>{row.traditionLabel}</span><span>{c.roles.join(", ")}</span></span>
       <span className="acq-shelf-counts"><b>{formatNumber(c.records)}</b> {plural(c.records, "held text", "held texts")}</span>
     </summary>
