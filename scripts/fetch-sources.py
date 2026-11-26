@@ -13,6 +13,7 @@ owner's own selection and are not published elsewhere, so they ship in bundled-s
 """
 
 import argparse
+import contextlib
 import hashlib
 import os
 import re
@@ -30,6 +31,22 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.other_sources import OTHER_SOURCES  # noqa: E402
 from bible.paths import SITE  # noqa: E402
 from bible.translations import TRANSLATIONS  # noqa: E402
+
+# When this checkout sits inside the Fortress vault, downloads from the sites its shared gate knows (GitHub's
+# raw files here) take that site's machine-wide turn (fortress_polite, since 2026-11-20): one request at a time
+# per site across every tool on the machine, and a "too many requests" makes every reader wait. Other
+# publishers, and a checkout anywhere else, download exactly as before.
+_POLITE_HOME = next((p / "Tools" / "PoliteFetch" for p in Path(__file__).resolve().parents
+                     if (p / "Tools" / "PoliteFetch" / "fortress_polite" / "__init__.py").is_file()), None)
+if _POLITE_HOME is not None and str(_POLITE_HOME) not in sys.path:
+    sys.path.append(str(_POLITE_HOME))
+try:
+    import fortress_polite as polite  # noqa: E402
+except ImportError:
+    polite = None
+POLITE_WAIT_S = 600
+POLITE_LEASE_S = 180     # renewed while a download streams; a killed run frees the site after this
+COOLING_DOWN = (polite.CoolingDown,) if polite is not None else ()
 
 USER_AGENT = "bible-project-fetch-sources/1.0 (+https://github.com/CYPKNFT/bible-project)"
 
@@ -127,12 +144,35 @@ GUTENBERG_MIRROR = "https://gutenberg.pglaf.org/"
 ATTEMPTS = 5
 
 
+def polite_turn(url: str):
+    """The site's machine-wide turn when the shared gate is here and knows the site; otherwise no turn (None)."""
+    if polite is None or polite.site_for(url).key not in {site.key for site in polite.SITES}:
+        return contextlib.nullcontext()
+    return polite.slot(url, max_wait_s=POLITE_WAIT_S, lease_s=POLITE_LEASE_S)
+
+
+def record(turn, url: str, status: int, headers) -> None:
+    """Tell the gate how the site answered (a 429 cools it down for every reader); not for a redirect elsewhere."""
+    if turn is not None and polite.site_for(url).key == turn.site.key:
+        turn.record(status, dict(headers.items()) if headers else {})
+
+
 def fetch(url: str, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     partial = target.with_suffix(target.suffix + ".part")
-    with urllib.request.urlopen(request, timeout=120) as response, partial.open("wb") as out:
-        shutil.copyfileobj(response, out)
+    # Each attempt download() makes takes its own turn, so a retry after a 429 waits out the site's cool-down.
+    with polite_turn(url) as turn:
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response, partial.open("wb") as out:
+                record(turn, response.geturl(), response.status, response.headers)
+                while chunk := response.read(1 << 20):
+                    out.write(chunk)
+                    if turn is not None:
+                        turn.extend(POLITE_LEASE_S)
+        except urllib.error.HTTPError as error:
+            record(turn, error.geturl() or url, error.code, error.headers)
+            raise
     partial.replace(target)
 
 
@@ -156,6 +196,9 @@ def download(url: str, target: Path) -> None:
                 last = f"HTTP {err.code}"
             except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as err:
                 last = type(err).__name__
+            except COOLING_DOWN as err:
+                # The gate has already waited POLITE_WAIT_S for the site; asking again sooner is what it forbids.
+                raise SystemExit(f"{url}: {err}; try again later") from err
         if attempt == ATTEMPTS:
             raise SystemExit(f"{url}: {last} after {ATTEMPTS} attempts (the publisher may be down; try again later)")
         pause = 5 * attempt
