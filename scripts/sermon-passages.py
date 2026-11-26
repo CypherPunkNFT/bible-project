@@ -7,7 +7,9 @@ untracked reconciled records (Pages/Teachers/SERMONS-CAMPAIGN.md, "Git safety");
   begg      Truth For Life pages: <meta ... scripture_ref content="2 Corinthians 12:1–10">; source-begg folders carry
             provenance.json, the source-truth-for-life folders only `original` (address found by its sha256 in the
             ready-text-completion acquisition manifest)
-  piper     Desiring God messages: the header list after "Scripture:"; Ask Pastor John episodes -> genre interview
+  piper     Desiring God messages: the header list after "Scripture:"; Ask Pastor John episodes -> genre interview.
+            Message pages the collector fetched but kept no asset for (it found under 150 words of text, or
+            several speakers) are read from its verified cache, listed in reports/modern-texts/piper-results.json
   spurgeon  catalogued opening-Scripture headings left "unmapped" (e.g. "Romans 8:26, 27")
 
 Never infers a passage from a title: a work gets a passage only when its source states one, checked against our KJV.
@@ -23,6 +25,7 @@ import json
 import re
 import sys
 from collections import Counter
+from itertools import chain
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -35,6 +38,8 @@ HELD = SOURCES / "library"
 TODAY = "2026-10-08"  # first run: kept in the Spurgeon locators it wrote
 GENERATED = "2026-11-26"
 READY_MANIFEST = LIBRARY / "reports" / "ready-text-completion" / "acquisition-manifest.json"
+PIPER_RESULTS = LIBRARY / "reports" / "modern-texts" / "piper-results.json"
+PIPER_CACHE = SITE / ".local" / "library" / "run-modern-texts-2026-10-05" / "http"  # modern_texts_common.CACHE
 AUTHORS = {"begg": "author-alistair-begg", "piper": "author-john-piper", "spurgeon": "author-charles-spurgeon"}
 
 
@@ -133,7 +138,31 @@ def held_pages(source_ids, counts):
                     counts["held file with no provenance and no manifest match"] += 1
                     continue
             if url:
-                yield norm(url), folder.name, url, text
+                yield norm(url), f"held asset {folder.name}", url, text, None
+
+
+def piper_cached_pages(counts):
+    """Message pages the collector fetched but kept no asset for, from its cache; the 5th item says why it gave no text."""
+    for url, record in sorted(read(PIPER_RESULTS).items()):
+        if "/messages/" not in url or record.get("status") not in ("no-substantial-text", "author-review"):
+            continue
+        body = PIPER_CACHE / (hashlib.sha256(url.encode()).hexdigest() + ".body")
+        data = body.read_bytes()  # missing cache is an error: a rerun must not quietly drop what it placed
+        meta = read(body.with_suffix(".json"))
+        sha = hashlib.sha256(data).hexdigest()
+        if sha != meta["sha256"]:
+            raise ValueError(f"collector cache for {url} changed: expected sha256 {meta['sha256']}, found {sha}")
+        authors = record.get("authors") or []
+        if "John Piper" not in authors:
+            counts["fetched page not credited to John Piper"] += 1
+            continue
+        if record["status"] == "author-review":
+            kind = f"page by several speakers ({', '.join(authors)})"
+        else:  # under 150 words; 0 can also mean the collector's selectors predate the site's redesign
+            kind = f"page the collector found {record.get('bodyWordCount', 0)} words of text on"
+        counts["page fetched but not kept as an asset"] += 1
+        yield (norm(url), f"{kind}, fetched {meta['retrievedAt'][:10]}, sha256 {sha}, not kept as an asset", url,
+               data.decode("utf-8", errors="replace"), f"{kind} has no 'Scripture:' header link")
 
 
 def begg_refs(text):
@@ -150,8 +179,9 @@ def begg_no_text(text):
 
 
 def piper_refs(text):
-    # the "Scripture:" that heads the link list, not one in the page title ("Singing, Suffering, and Scripture: …")
-    block = re.search(r'Scripture:\s*(<a[^>]*data-grouping-type="Scripture".*?)(?:Topic:|</li>)', text, re.DOTALL)
+    # the "Scripture:" that heads the link list, not one in the page title ("Singing, Suffering, and Scripture: …");
+    # pages fetched after the site's redesign put "<!-- -->" between the label and the link
+    block = re.search(r'Scripture:\s*(?:<!--.*?-->\s*)?(<a[^>]*data-grouping-type="Scripture".*?)(?:Topic:|</li>)', text, re.DOTALL)
     return [html.unescape(m).strip() for m in re.findall(r'data-grouping-type="Scripture"[^>]*>([^<]+)<', block.group(1))] if block else []
 
 
@@ -188,21 +218,27 @@ def passages(reference, verses, locator):
                  verification="verified", locator=locator) for s, e in spans]
 
 
-def from_pages(name, sources, read_refs, no_text, label, works, addresses, verses, copies):
-    """Place each held page's stated text; also returns, per work, why a held page gave none."""
+def from_pages(name, sources, read_refs, no_text, label, works, addresses, verses, copies, extra=None):
+    """Place each held page's stated text; also returns, per work, why a held page gave none.
+
+    `extra(counts)` yields further pages after the held ones; one is skipped for a sermon a held page already gave."""
     entries, unresolved, counts, reasons, conflicts, spans = {}, [], Counter(), {}, [], {}
     seen = set()
     for work_id, keep in copies.items():
         if works[work_id][0] == name:
             entries[work_id] = dict(duplicateOf=keep)
             counts["duplicate record marked"] += 1
-    for address, asset_id, url, text in held_pages(sources, counts):
+    pages = chain(held_pages(sources, counts), extra(counts) if extra else ())
+    for address, asset_id, url, text, why_none in pages:
         work_id = addresses.get(address)
         if not work_id or works[work_id][0] != name:
             counts["held page with no catalogue work"] += 1
             continue
         work_id = copies.get(work_id, work_id)
         work = works[work_id][1]
+        if why_none and work_id in seen:
+            counts["unkept page of a sermon already read from a held page"] += 1
+            continue
         refs = read_refs(text)
         if work_id in spans:  # a second held copy of a sermon placed this run: it must state the same text
             counts["second held copy of a placed sermon"] += 1
@@ -220,12 +256,12 @@ def from_pages(name, sources, read_refs, no_text, label, works, addresses, verse
         seen.add(work_id)
         if not refs:
             counts["page states no Bible text"] += 1
-            reasons.setdefault(work_id, dict(reason=no_text(text), locator=f"{url} (held asset {asset_id})"))
+            reasons.setdefault(work_id, dict(reason=why_none or no_text(text), locator=f"{url} ({asset_id})"))
             continue
         found = []
         try:
             for ref in refs:
-                found += passages(ref, verses, f"{url}; {label} (held asset {asset_id})")
+                found += passages(ref, verses, f"{url}; {label} ({asset_id})")
         except RefError as error:
             unresolved.append(dict(workId=work_id, reference=refs, reason=str(error)))
             continue
@@ -312,9 +348,9 @@ def main():
     out["begg"] = overlay("begg", "Publisher-assigned scripture_ref metadata on each held Truth For Life sermon page; second records of one sermon marked duplicateOf.",
                           e, u, c, unplaced("begg", works, e, u, r), x)
     e, u, c, r, x = from_pages("piper", ["source-desiring-god"], piper_refs, lambda _text: "held page has no 'Scripture:' header link",
-                               "Desiring God page header 'Scripture:'", works, addresses, verses, copies)
+                               "Desiring God page header 'Scripture:'", works, addresses, verses, copies, piper_cached_pages)
     c["genre corrected to interview"] = piper_interviews(works, e)
-    out["piper"] = overlay("piper", "Publisher's 'Scripture:' header list on each held Desiring God message page; Ask Pastor John episodes relabelled interview.",
+    out["piper"] = overlay("piper", "Publisher's 'Scripture:' header list on each held Desiring God message page, and on message pages fetched but not kept as assets; Ask Pastor John episodes relabelled interview.",
                            e, u, c, unplaced("piper", works, e, u, r), x)
     e, u, c = spurgeon(works, verses)
     out["spurgeon"] = overlay("spurgeon", "Opening Scripture headings already catalogued but left unmapped (verse lists such as '8:26, 27').",

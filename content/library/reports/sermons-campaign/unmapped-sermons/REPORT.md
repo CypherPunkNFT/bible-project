@@ -12,7 +12,7 @@ never inferred from a title. Everything else is listed here with the reason foun
 
 | Preacher | Before | After | Placed now | Real gap in the source | Other reason |
 |---|---|---|---|---|---|
-| John Piper | 778 | 777 | 1 | 754 (held page has no Scripture field) | 23 have no held page |
+| John Piper | 778 | 777 | 1 | 754 (held page has no Scripture field) | 23 have no held page (**since resolved, 2026-11-26 job 6ca48b16:** 6 placed, the other 17 pages carry no Scripture field, so 771 left, all textless at the source; [piper/REPORT.md](../piper/REPORT.md)) |
 | Alistair Begg | 87 | 65 | 22 | 58 ("Selected Scriptures") | 7 survey sermons spanning several books, deliberately unplaced |
 | D. L. Moody | 74 | 74 | 0 | 51 print no text; 19 quote a verse but print no reference; 2 give only a starting verse | 2 print a wrong reference |
 | Charles Spurgeon | 22 | 22 | 0 | — | 21 are site files catalogued as sermons; 1 misprinted heading ("Romans 10:59") |

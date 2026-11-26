@@ -1,5 +1,7 @@
 # Ready-text acquisitions and modern sermon completion
 
+> **Update, 2026-11-26 (job 6ca48b16):** the Piper stop described below was resolved. The collector had carried on later on 5 October (486 of the 491 held, 3 short pages). The last 2 were fetched today with no rate limit, and all 2,397 message destinations are processed. [piper-resume.json](piper-resume.json) is current. piper-remaining.json and piper-snapshot.json are the 5 October picture. See [sermons-campaign/piper/REPORT.md](../sermons-campaign/piper/REPORT.md).
+
 Snapshot: October 5, 2026. **Named historical acquisitions are complete at file level. Modern acquisition remains partial because Desiring God returned HTTP 429.** No new OCR, scan downloads or audio transcription were performed. [Machine-readable totals](summary.json) and [integrity checks](validation.json).
 
 ## Historical texts now held

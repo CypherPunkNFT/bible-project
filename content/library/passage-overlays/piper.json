@@ -3,13 +3,15 @@
   "name": "piper",
   "generatedBy": "scripts/sermon-passages.py",
   "generatedOn": "2026-11-26",
-  "method": "Publisher's 'Scripture:' header list on each held Desiring God message page; Ask Pastor John episodes relabelled interview.",
+  "method": "Publisher's 'Scripture:' header list on each held Desiring God message page, and on message pages fetched but not kept as assets; Ask Pastor John episodes relabelled interview.",
   "counts": {
     "already placed": 5,
     "duplicate record marked": 5,
     "genre corrected to interview": 2632,
-    "page states no Bible text": 5586,
-    "placed": 1614
+    "held page with no catalogue work": 3,
+    "page fetched but not kept as an asset": 26,
+    "page states no Bible text": 5603,
+    "placed": 1620
   },
   "unresolved": [],
   "unplaced": [
@@ -58,7 +60,8 @@
     {
       "workId": "work-reconciled-021900beb80560ee1f7ca9ef",
       "title": "Five Points with Many Questions",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 96 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/five-points-with-many-questions (page the collector found 96 words of text on, fetched 2026-10-05, sha256 18ed88d558d128ee5f0b88888e8e715ef762d8efeed7885a8ec4b3f8e5748a11, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-0224cd4f6a08be3296cfdacb",
@@ -219,7 +222,8 @@
     {
       "workId": "work-reconciled-0a674e6d2ab8ed5941e5c8df",
       "title": "Together for Good?",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 87 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/together-for-good (page the collector found 87 words of text on, fetched 2026-10-05, sha256 f030326afd4a4655cd5b2f00fe8817c7155316516d2d76ab7cf171e63ac86c87, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-0a7b444b0b9332253169a091",
@@ -378,11 +382,6 @@
       "locator": "https://www.desiringgod.org/messages/is-jesus-an-egomaniac--2 (held asset asset-modern-piper-wdwjizzv-html)"
     },
     {
-      "workId": "work-reconciled-122d48322a221fd3f7f8f3ba",
-      "title": "What Stirs the Church to Sing?",
-      "reason": "no held page found at this record's address"
-    },
-    {
       "workId": "work-reconciled-1258c2c79b6a1fb52e9f059b",
       "title": "How I Distinguish Between the Gospel and False Gospels",
       "reason": "held page has no 'Scripture:' header link",
@@ -461,11 +460,6 @@
       "locator": "https://www.desiringgod.org/messages/born-again-to-a-living-hope (held asset asset-modern-piper-uhgap82p-html)"
     },
     {
-      "workId": "work-reconciled-16fe3d2183612816aa5a1894",
-      "title": "Reset Your Mind on Jesus",
-      "reason": "no held page found at this record's address"
-    },
-    {
       "workId": "work-reconciled-17285948655c6d40b7aae929",
       "title": "Brothers — Feel, Think, Preach God (Part 1)",
       "reason": "held page has no 'Scripture:' header link",
@@ -516,7 +510,8 @@
     {
       "workId": "work-reconciled-1841e41b37cc74458c4a6baa",
       "title": "Salvation Is More Than an Offer",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 90 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/salvation-is-more-than-an-offer (page the collector found 90 words of text on, fetched 2026-10-05, sha256 136e3a0e715126fdd7979c502fdb2425282aa3f04c09a1d66c23f5d0767a283e, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-18c45341bf608a748ba1c8d6",
@@ -641,7 +636,8 @@
     {
       "workId": "work-reconciled-205fce7580cdfbeaf05d771a",
       "title": "Q&A with Piper, Mason, Driscoll, Greear, and Stetzer",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, J.D. Greear, Eric Mason, Ed Stetzer) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/q-and-a-with-piper-mason-driscoll-greear-and-stetzer (page by several speakers (John Piper, J.D. Greear, Eric Mason, Ed Stetzer), fetched 2026-10-05, sha256 b1b3517dd9162f52a81b57d6d1650635b2949df8912dee0e028f60d7c5bf4f72, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-2084c162df5d266ea53fa282",
@@ -850,7 +846,8 @@
     {
       "workId": "work-reconciled-2c0b7272d57badc4940904f3",
       "title": "Life Changing Things I've Learned about Missions",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 143 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/life-changing-things-ive-learned-about-missions (page the collector found 143 words of text on, fetched 2026-10-05, sha256 55b6b952cfa696673ec72c2ede88db589998e14c6b5c4d53295c7c925f17093e, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-2c29d3d9a9c4c21f7c8d746b",
@@ -1177,11 +1174,6 @@
       "locator": "https://www.desiringgod.org/messages/sacred-book-sovereign-god-serious-joy (held asset asset-modern-piper-ewch3cuu-html)"
     },
     {
-      "workId": "work-reconciled-432a1cfcea3880c363f03dab",
-      "title": "Where to Stand When All Is Shaking",
-      "reason": "no held page found at this record's address"
-    },
-    {
       "workId": "work-reconciled-434faeb085c05329d3287f11",
       "title": "Public Worship in a Secular World",
       "reason": "held page has no 'Scripture:' header link",
@@ -1322,7 +1314,8 @@
     {
       "workId": "work-reconciled-4d524136f8e1bdb618f0b194",
       "title": "God Chose You for God",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 69 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/god-chose-you-for-god (page the collector found 69 words of text on, fetched 2026-10-05, sha256 98e8944fed554ff2daac2f1bb77617d2f251ec195322498c580911e3ed3af89b, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-4d7739b3acdd0570ae588284",
@@ -1519,7 +1512,8 @@
     {
       "workId": "work-reconciled-58534d0326dc0751d17f9ee3",
       "title": "T4G 2008 Panel Discussion",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Mark Dever, Ligon Duncan, C.J. Mahaney, Albert Mohler) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/t4g-2008-panel-discussion (page by several speakers (John Piper, Mark Dever, Ligon Duncan, C.J. Mahaney, Albert Mohler), fetched 2026-10-05, sha256 55b9848f91737d90ca90b60908d4fddbb043cbf4fa01df9f66cf306107026d07, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-58b0565ebc7a4757ed713e77",
@@ -1668,7 +1662,8 @@
     {
       "workId": "work-reconciled-5fbe998b7caa35a5b4bb3435",
       "title": "Biblical Foundations for Seeking God's Justice in a Sinful World",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Voddie Baucham, D.A. Carson, Tim Keller, Miguel Núñez) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/biblical-foundations-for-seeking-gods-justice-in-a-sinful-world (page by several speakers (John Piper, Voddie Baucham, D.A. Carson, Tim Keller, Miguel Núñez), fetched 2026-10-05, sha256 184382995dce79e19db387930526f2fd97ae68f6b08689c3e3303e9d54733bc9, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-5ffd32a64fa8299a0a6ca6f7",
@@ -1859,7 +1854,8 @@
     {
       "workId": "work-reconciled-6b61328b220e0fa05ebc203c",
       "title": "God’s Call Overcomes Our Resistance",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 80 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/gods-call-overcomes-our-resistance (page the collector found 80 words of text on, fetched 2026-10-05, sha256 4ad2a9c38426d71239a397ef82ac6eae0d1fc3ebbf52419a3a4513a118e18593, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-6bc7d27c3a583ecab1bc5376",
@@ -1972,7 +1968,8 @@
     {
       "workId": "work-reconciled-7409596119eef4edab10ec2a",
       "title": "Gravity and Gladness",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Bob Kauflin) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/gravity-and-gladness-q-and-a (page by several speakers (John Piper, Bob Kauflin), fetched 2026-10-05, sha256 878af3fbc355bd6746ecd3be57a45ff1fa43ec3dac7a20760eed8b249f70ee0f, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-7436a7dbeb271a4827649fac",
@@ -2145,7 +2142,8 @@
     {
       "workId": "work-reconciled-7bcf8c4c71f7a1a5dbc3f6e8",
       "title": "Jesus Christ and the Life of the Mind: Examining the Word and Works of God",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Mark Noll) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/jesus-christ-and-the-life-of-the-mind-examining-the-word-and-works-of-god (page by several speakers (John Piper, Mark Noll), fetched 2026-10-05, sha256 ed47164955b4690a4099057dad7c5fb98392a4735fcfa9256ec14f35fc3247e8, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-7c32f1d82fe1a88982c03279",
@@ -2474,7 +2472,8 @@
     {
       "workId": "work-reconciled-8ec7729f8a235c0fba03a4d4",
       "title": "Doug Wilson Interviews John Piper and Tim Chester",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Tim Chester) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/doug-wilson-interviews-john-piper-and-tim-chester (page by several speakers (John Piper, Tim Chester), fetched 2026-10-05, sha256 2e468438e797e50f3ae413ced3e94205ee1700625ebbb4c48415ae9ebbd1c976, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-8ff5378dce6dc0f46cb85d32",
@@ -2905,7 +2904,8 @@
     {
       "workId": "work-reconciled-a5336af95fa190bfee4c01eb",
       "title": "The Greatness of God in the Doctrines of Grace",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 59 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/the-greatness-of-god-in-the-doctrines-of-grace (page the collector found 59 words of text on, fetched 2026-10-05, sha256 c94dcd954c00a287b66dd9d11c6ee40b10f38461a605546fef83d24ed463a3ff, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-a53b97168438e13c00cc6c65",
@@ -3102,7 +3102,8 @@
     {
       "workId": "work-reconciled-ae4b73630ec976a935ca61ee",
       "title": "We Cannot Please God Without Grace",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 64 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/we-cannot-please-god-without-grace (page the collector found 64 words of text on, fetched 2026-10-05, sha256 de6b6a3b1b535ae23b31393b0e59a9d1f54e8ce7aec8b63cf728d47eaa7f4451, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-ae5b9f06b38d8cf3446ef627",
@@ -3581,7 +3582,8 @@
     {
       "workId": "work-reconciled-c43c27a95dfc209862e94e28",
       "title": "Race and the Christian",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Tim Keller) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/race-and-the-christian (page by several speakers (John Piper, Tim Keller), fetched 2026-10-05, sha256 2e56ac8b9ac0fb52da9725bd9ef6738b61370cad0e91db868117d93d1851bca3, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-c44a73df03925a828be45319",
@@ -3694,7 +3696,8 @@
     {
       "workId": "work-reconciled-c96aa3a245d331c11f7adea4",
       "title": "Surprise Presentation of the Book “For the Fame of God’s Name”",
-      "reason": "no held page found at this record's address"
+      "reason": "page by several speakers (John Piper, Lane Dennis, Sam Storms, Justin Taylor) has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/surprise-presentation-of-the-book-for-the-fame-of-gods-name (page by several speakers (John Piper, Lane Dennis, Sam Storms, Justin Taylor), fetched 2026-10-05, sha256 1ac68637f7795edb6a3e16cb638b78ce85883091e3cf0872ee85a9bdfd2d183f, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-c9fb584956a41f0dcf75e758",
@@ -4021,11 +4024,6 @@
       "locator": "https://www.desiringgod.org/messages/john-newton-the-tough-roots-of-his-habitual-tenderness (held asset asset-modern-piper-88roogem-html)"
     },
     {
-      "workId": "work-reconciled-de42466d52858b94fbfcece0",
-      "title": "A Kingdom That Cannot Be Shaken",
-      "reason": "no held page found at this record's address"
-    },
-    {
       "workId": "work-reconciled-de51fa360eda5159a85ed34c",
       "title": "Jonathan Edwards and Revival",
       "reason": "held page has no 'Scripture:' header link",
@@ -4082,7 +4080,8 @@
     {
       "workId": "work-reconciled-e0a320425b9a48a1b243f7f3",
       "title": "God Holds His People Fast",
-      "reason": "no held page found at this record's address"
+      "reason": "page the collector found 62 words of text on has no 'Scripture:' header link",
+      "locator": "https://www.desiringgod.org/messages/god-holds-his-people-fast (page the collector found 62 words of text on, fetched 2026-10-05, sha256 24acf01f5ccb06c3d5248cc9d24b0f71e46ba1898762c817e35513c8e835557d, not kept as an asset)"
     },
     {
       "workId": "work-reconciled-e12661ebd54089b2074ffb84",
@@ -4125,11 +4124,6 @@
       "title": "Summary and Conclusion: 1 Peter 2:13–3:7",
       "reason": "held page has no 'Scripture:' header link",
       "locator": "https://www.desiringgod.org/messages/summary-and-conclusion-1-peter-2-13-3-7 (held asset asset-modern-piper-2iui3qms-html)"
-    },
-    {
-      "workId": "work-reconciled-e2e4f0236698fe505559c8ad",
-      "title": "Prayer at Harvest Time: Now!",
-      "reason": "no held page found at this record's address"
     },
     {
       "workId": "work-reconciled-e341d5eb50c7d47b14037039",
@@ -4184,11 +4178,6 @@
       "title": "A New Year's Plea: Plan!",
       "reason": "held page has no 'Scripture:' header link",
       "locator": "https://www.desiringgod.org/messages/a-new-years-plea-plan (held asset asset-modern-piper-sqjycvz8-html)"
-    },
-    {
-      "workId": "work-reconciled-e70cae620fd36213205aa4cf",
-      "title": "Sing in the Fullness of the Spirit",
-      "reason": "no held page found at this record's address"
     },
     {
       "workId": "work-reconciled-e739dfd141cc252cafda50ec",
@@ -6530,6 +6519,19 @@
         }
       ]
     },
+    "work-reconciled-122d48322a221fd3f7f8f3ba": {
+      "passages": [
+        {
+          "reference": "Ephesians 1:1–6",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 49001001,
+          "end": 49001006,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/what-stirs-the-church-to-sing; Desiring God page header 'Scripture:' (page the collector found 73 words of text on, fetched 2026-10-05, sha256 6164f4653e23ada0c07ae8e0c00f996610c0df8839b8b4a6345633ef75a0f777, not kept as an asset)"
+        }
+      ]
+    },
     "work-reconciled-1236f2b98144484859ef8f59": {
       "genre": "interview"
     },
@@ -7120,6 +7122,19 @@
     },
     "work-reconciled-16f9bceb9fca6c4c3d7d2f54": {
       "genre": "interview"
+    },
+    "work-reconciled-16fe3d2183612816aa5a1894": {
+      "passages": [
+        {
+          "reference": "Colossians 3:1–4",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 51003001,
+          "end": 51003004,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/reset-your-mind-on-jesus; Desiring God page header 'Scripture:' (page the collector found 61 words of text on, fetched 2026-10-05, sha256 b0ec60ef8edc39953b85d70b08444694a3da716730c7118bfaeb8ffce76a982e, not kept as an asset)"
+        }
+      ]
     },
     "work-reconciled-170e11a762aae5ca47b1afee": {
       "genre": "interview"
@@ -12000,6 +12015,19 @@
           "end": 1001031,
           "verification": "verified",
           "locator": "https://www.desiringgod.org/messages/god-created-man-male-and-female; Desiring God page header 'Scripture:' (held asset asset-modern-piper-xpycx7uo-html)"
+        }
+      ]
+    },
+    "work-reconciled-432a1cfcea3880c363f03dab": {
+      "passages": [
+        {
+          "reference": "Romans 8:32",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 45008032,
+          "end": 45008032,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/where-to-stand-when-all-is-shaking; Desiring God page header 'Scripture:' (page the collector found 144 words of text on, fetched 2026-10-05, sha256 4d0197b200e9ab07ca8e6576df973fd746203c1d50c2a4ca9fe921272a3ee999, not kept as an asset)"
         }
       ]
     },
@@ -30053,6 +30081,19 @@
         }
       ]
     },
+    "work-reconciled-de42466d52858b94fbfcece0": {
+      "passages": [
+        {
+          "reference": "Hebrews 12:25–29",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 58012025,
+          "end": 58012029,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/a-kingdom-that-cannot-be-shaken; Desiring God page header 'Scripture:' (page the collector found 0 words of text on, fetched 2026-11-26, sha256 248a5baf35fb242fff0a5cf9eac7f3f9965ec503238a45f2e106ad59920d2bda, not kept as an asset)"
+        }
+      ]
+    },
     "work-reconciled-de4fee4d4fd25ca9908be51d": {
       "genre": "interview"
     },
@@ -30628,6 +30669,19 @@
     },
     "work-reconciled-e2c8c7b4d686ffdf06e1063c": {
       "genre": "interview"
+    },
+    "work-reconciled-e2e4f0236698fe505559c8ad": {
+      "passages": [
+        {
+          "reference": "Matthew 9:35–38",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 40009035,
+          "end": 40009038,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/prayer-at-harvest-time-now; Desiring God page header 'Scripture:' (page the collector found 0 words of text on, fetched 2026-11-26, sha256 227c1f1afe8ed6a4a53af2dbcb1d3a0aa29383bc038121bba61e0dcb27f90f36, not kept as an asset)"
+        }
+      ]
     },
     "work-reconciled-e303865818d6780e1af55b76": {
       "passages": [
@@ -31243,6 +31297,19 @@
     },
     "work-reconciled-e70c7ae818f9339818280413": {
       "genre": "interview"
+    },
+    "work-reconciled-e70cae620fd36213205aa4cf": {
+      "passages": [
+        {
+          "reference": "Ephesians 5:15–20",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 49005015,
+          "end": 49005020,
+          "verification": "verified",
+          "locator": "https://www.desiringgod.org/messages/sing-in-the-fullness-of-the-spirit; Desiring God page header 'Scripture:' (page the collector found 52 words of text on, fetched 2026-10-05, sha256 e9063029dbbe02cc05405b10c016b33707937c45add3d0ebcd5b94f4958dc94a, not kept as an asset)"
+        }
+      ]
     },
     "work-reconciled-e716e3a9a6160f4239b3bc66": {
       "genre": "interview"
