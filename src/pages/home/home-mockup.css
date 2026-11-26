@@ -21,17 +21,25 @@
 .home-banner-shape { --tip: 118px; --line-c: color-mix(in srgb, var(--home-color) 45%, var(--line));
   --edge: clamp(14px, 1.8vw, 28px); /* the gap between each point's tip and the screen edge */
   --rest-half: min(calc(50% - var(--tip) - var(--edge)), calc(var(--site-content-width) / 2 - var(--site-gutter)));
-  filter: drop-shadow(1px 0 0 var(--line-c)) drop-shadow(-1px 0 0 var(--line-c)) drop-shadow(0 1px 0 var(--line-c)) drop-shadow(0 -1px 0 var(--line-c)); }
-.home-hub[data-banners="inset"] .home-banner-shape .home-banner { --half: var(--rest-half); --hatch: 135deg;
+  position: relative; }
+.home-hub[data-banners="inset"] .home-banner-shape { --half: var(--rest-half); }
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner { --hatch: 135deg;
   --fill: repeating-linear-gradient(var(--hatch), color-mix(in srgb, var(--home-color) 4.5%, transparent) 0 1px, transparent 1px 11px),
     linear-gradient(100deg, color-mix(in srgb, var(--home-color) 13%, var(--page)), color-mix(in srgb, var(--home-color) 5%, var(--page)) 55%, color-mix(in srgb, var(--home-color) 11%, var(--page)));
   width: 100%; max-width: none; margin-inline: 0; border: 0; box-shadow: none; background: var(--fill);
-  clip-path: polygon(calc(50% - var(--half)) 0, calc(50% + var(--half)) 0, calc(50% + var(--half) + var(--tip)) 50%, calc(50% + var(--half)) 100%, calc(50% - var(--half)) 100%, calc(50% - var(--half) - var(--tip)) 50%); transition: --half .6s cubic-bezier(.2, .7, .2, 1), border-color .4s; }
+  clip-path: polygon(calc(50% - var(--half)) 0, calc(50% + var(--half)) 0, calc(50% + var(--half) + var(--tip)) 50%, calc(50% + var(--half)) 100%, calc(50% - var(--half)) 100%, calc(50% - var(--half) - var(--tip)) 50%); transition: border-color .4s; }
 .home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-flip] { --hatch: 45deg; }
-.home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-open] { --half: calc(50% + var(--tip)); }
+.home-hub[data-banners="inset"] .home-banner-shape:has(.home-banner[data-open]) { --half: calc(50% + var(--tip)); }
 /* The inner edge: a line-coloured copy of the shape 9px in, covered by a fill-coloured copy 10px in, leaving a 1px line. */
 .home-banner-shape .home-banner::before { display: block; inset: 0; border: 0; background: color-mix(in srgb, var(--home-color) 30%, var(--page)); clip-path: polygon(calc(50% - var(--half) + 9px * .4142) 9px, calc(50% + var(--half) - 9px * .4142) 9px, calc(50% + var(--half) + var(--tip) - 9px * 1.4142) 50%, calc(50% + var(--half) - 9px * .4142) calc(100% - 9px), calc(50% - var(--half) + 9px * .4142) calc(100% - 9px), calc(50% - var(--half) - var(--tip) + 9px * 1.4142) 50%); }
 .home-banner-shape .home-banner::after { inset: 0; opacity: 1; animation: none; background: var(--fill); clip-path: polygon(calc(50% - var(--half) + 10px * .4142) 10px, calc(50% + var(--half) - 10px * .4142) 10px, calc(50% + var(--half) + var(--tip) - 10px * 1.4142) 50%, calc(50% + var(--half) - 10px * .4142) calc(100% - 10px), calc(50% - var(--half) + 10px * .4142) calc(100% - 10px), calc(50% - var(--half) - var(--tip) + 10px * 1.4142) 50%); }
+/* The outer outline: a line-coloured copy of the shape sitting 1px proud of the banner, which paints its own fill over the
+   middle and leaves that 1px showing. This was four stacked drop-shadow filters on the shape. A filter makes WebKit
+   re-rasterise the whole banner (1728x246, four times that on a Retina screen) on every repaint, and the emblem and the
+   glint inside it repaint every frame, so the banners re-filtered continuously: about 140ms a frame, which read as a
+   flicker. Clipping a plain layer costs nothing and draws the same line. */
+.home-hub[data-banners="inset"] .home-banner-shape::before { content: ""; position: absolute; inset: -1px; background: var(--line-c); pointer-events: none;
+  clip-path: polygon(calc(50% - var(--half) - 1px * .4142) 0, calc(50% + var(--half) + 1px * .4142) 0, calc(50% + var(--half) + var(--tip) + 1px * 1.4142) 50%, calc(50% + var(--half) + 1px * .4142) 100%, calc(50% - var(--half) - 1px * .4142) 100%, calc(50% - var(--half) - var(--tip) - 1px * 1.4142) 50%); }
 .home-banner-shape .home-banner-inner { max-width: min(1400px, calc(2 * var(--rest-half))); }
 .home-banner-shape { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: reduce) { .home-hub[data-banners="inset"] .home-banner-shape .home-banner { transition: none; } }
@@ -41,9 +49,9 @@
    outline; --line-c is registered so the outline colour fades rather than jumps. On screens narrow enough that the points
    already sit near the screen edges, the growth stops halfway into the margin rather than reaching the edge. */
 @property --line-c { syntax: "<color>"; inherits: true; initial-value: transparent; }
-.home-banner-shape { transition: --line-c .4s; }
+.home-banner-shape { transition: --line-c .4s, --half .6s cubic-bezier(.2, .7, .2, 1); }
 .home-banner-shape:has(.home-banner:hover) { --line-c: color-mix(in srgb, var(--home-color) 75%, var(--line)); }
-.home-hub[data-banners="inset"] .home-banner-shape .home-banner:not([data-open]):hover { --half: min(calc(var(--rest-half) + 8px), calc(50% - var(--tip) - var(--edge) / 2)); }
+.home-hub[data-banners="inset"] .home-banner-shape:has(.home-banner:not([data-open]):hover) { --half: min(calc(var(--rest-half) + 8px), calc(50% - var(--tip) - var(--edge) / 2)); }
 @media (prefers-reduced-motion: reduce) { .home-banner-shape { transition: none; } }
 /* Hovering a banner also fills its number with the colour its edge lines turn to. The fill is its own registered colour,
    fading between two fixed values in step with the edges (following --line-c mid-fade made it lurch). */

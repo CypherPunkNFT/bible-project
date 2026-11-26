@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-li
 import { Suspense } from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import rawData from "@/data/memory-match/pairs.json";
+import rawVerses from "@/data/memory-match/verses.json";
 import GamesPage from "../GamesPage";
 import type { Card, PairsFile } from "./deal";
 import { SOFT_HYPHEN } from "./game";
@@ -21,6 +22,8 @@ vi.mock("@/lib/verses", () => ({
 vi.mock("@/lib/catalog", () => ({ useCatalog: () => ({}) }));
 
 const data = rawData as unknown as PairsFile;
+// Each verse keeps its own split point, the word its second card starts at (verse-cards.ts, VerseRow.split).
+const splitOf = new Map((rawVerses as { verses: { id: string; split: number }[] }).verses.map((v) => [v.id, v.split]));
 const byId = new Map(data.pairs.map((pair) => [pair.id, pair]));
 const plain = (text: string) => text.split(SOFT_HYPHEN).join("").replace(/[“”]/g, "");
 const textOf = (card: Card) => {
@@ -193,9 +196,15 @@ describe("memory match page", () => {
     await screen.findByRole("group", { name: /^Cards/ });
     const dealt = savedCards();
     const begins = dealt.findIndex((c) => c.kind === "who");
+    // Every verse reads the same eight words here (the mock above), but each keeps its own split, so the break is
+    // where that verse says; verseHalves only halves the words when the split is past the end of the text it is given.
+    // Reading the dealt verse's own split keeps this true whichever verse the deal picks: 80 of the 127 split before 8.
+    const words = "One two three four five six seven eight".split(" ");
+    const split = splitOf.get(dealt[begins].pair) ?? 0;
+    const at = split > 0 && split < words.length ? split : Math.ceil(words.length / 2);
     expect(cards()[begins]).toHaveAccessibleName(/face down, begins card$/);
     fireEvent.click(cards()[begins]);
-    expect(cards()[begins].textContent).toMatch(/^.*One two three four … *$/);
+    expect(cards()[begins].textContent).toMatch(new RegExp(`${words.slice(0, at).join(" ")} … *$`));
     expect(cards()[begins].querySelector(".mm-card__text")).toHaveAttribute("lang", "en"); // the BSB's words stay English
   });
 

@@ -16,6 +16,7 @@ SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS / "bible" / "baby-names"))
 sys.path.insert(0, str(SCRIPTS))
 
+from bible.paths import SOURCES  # noqa: E402
 from bn_assemble import RESERVED, BuildError, add_reviewed_identities, decided_spelling, slug_of  # noqa: E402
 from bn_meaning import (GIVEN, PROBABLE, PROBABLE_HEDGED, UNCERTAIN, UNCERTAIN_HEADLINE, choose_meaning,  # noqa: E402
                         clean_headline, follow_chain, origin_of, parse_note, strongs_meaning, themes_for)
@@ -280,8 +281,8 @@ def test_reviewed_headlines_use_only_words_their_sources_give():
 def test_every_flagged_draft_in_the_build_is_settled_by_a_reviewed_override(built):
     """A Strong's chain that ends on an ordinary word (or a gloss too long for a headline) is only a draft (design 3.3
     rule 3); every one on a built page is settled by a hand-checked override or comes from the Bible's own note."""
-    hebrew = SITE.parent / "sources" / "openscriptures" / "HebrewLexicon" / "HebrewLexicon-master" / "HebrewStrong.xml"
-    greek = SITE.parent / "sources" / "openscriptures" / "strongs" / "strongs-master" / "greek" / "StrongsGreekDictionaryXML_1.4" / "strongsgreek.xml"
+    hebrew = SOURCES / "openscriptures" / "HebrewLexicon" / "HebrewLexicon-master" / "HebrewStrong.xml"
+    greek = SOURCES / "openscriptures" / "strongs" / "strongs-master" / "greek" / "StrongsGreekDictionaryXML_1.4" / "strongsgreek.xml"
     if not hebrew.exists() or not greek.exists():
         pytest.skip("the Strong's dictionaries are not on this PC")
     from bn_sources import read_greek_strongs, read_hebrew_strongs

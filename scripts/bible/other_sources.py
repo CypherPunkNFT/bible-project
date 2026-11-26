@@ -14,6 +14,6 @@ OTHER_SOURCES = {
         "ach_abr", "bis_obb", "hrv_hrsdc", "cab_sblg", "drs_wft", "ibb_bib", "kfx_osj", "lao_bib", "mam_ost", "mhr_mmu",
         "nme_nz", "nyn_bsu", "poh_pok", "run_bib", "czt_zb")},
     **{name.split(".")[0]: ("osis", OPEN_BIBLES.format(name)) for name in (
-        "sqi-albanian.osis.xml", "hun-karoli.osis.xml", "ron-rccv.usfx.xml")},
+        "hun-karoli.osis.xml", "ron-rccv.usfx.xml")},
     **{name: ("sword", CROSSWIRE.format(name)) for name in ("GreVamvas", "Mg1865", "FinBiblia", "Norsk", "Swe1917", "LvGluck8")},
 }

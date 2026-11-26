@@ -74,6 +74,9 @@
    to end"). */
 @media (max-width: 900px) {
   .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner, .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner:not([data-open]):hover, .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-open] { --tip: 0px; --half: 50%; clip-path: none; }
+  /* The outer outline follows the same rectangle here, so it needs the phone's values too (--half now lives on the shape). */
+  .hm6-page.home-hub[data-banners="inset"] .home-banner-shape, .hm6-page.home-hub[data-banners="inset"] .home-banner-shape:has(.home-banner:not([data-open]):hover), .hm6-page.home-hub[data-banners="inset"] .home-banner-shape:has(.home-banner[data-open]) { --tip: 0px; --half: 50%; }
+  .hm6-page.home-hub[data-banners="inset"] .home-banner-shape::before { clip-path: none; }
   .home-hub.hm6-page .home-banner-shape .home-banner::before { clip-path: inset(9px 9px); }
   .home-hub.hm6-page .home-banner-shape .home-banner::after { clip-path: inset(10px 10px); }
   .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner-inner { max-width: none; padding-inline: calc(var(--site-gutter) + 12px); }

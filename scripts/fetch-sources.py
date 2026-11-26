@@ -19,6 +19,8 @@ import re
 import shutil
 import subprocess
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
@@ -68,6 +70,9 @@ DOWNLOADS = [
     ("theographic", "https://github.com/robertrouse/theographic-bible-metadata/archive/refs/heads/master.zip",
      "theographic/theographic-bible-metadata.zip", "theographic"),
     ("openbible-topics", "https://a.openbible.info/data/topic-scores.zip", "openbible-topics/topic-scores.zip", "openbible-topics"),
+    # Emoji stories reads this for each emoji's official name and qualification; build-emoji-stories.ts checks its
+    # SHA-256 and stops if it differs. It was downloaded by hand until now, so a fresh clone could not build the game.
+    ("unicode-emoji", "https://unicode.org/Public/emoji/15.1/emoji-test.txt", "unicode/emoji-test-15.1.txt", None),
     ("strongs", "https://github.com/openscriptures/strongs/archive/refs/heads/master.zip", "openscriptures/strongs.zip", "openscriptures/strongs"),
     ("hebrew-lexicon", "https://github.com/openscriptures/HebrewLexicon/archive/refs/heads/master.zip",
      "openscriptures/HebrewLexicon.zip", "openscriptures/HebrewLexicon"),
@@ -114,13 +119,48 @@ def recorded_checksums() -> dict[str, str]:
     return {m.group(1): m.group(2) for m in re.finditer(r"^\| \[([\w-]+)\]\([^)]*\) \|.*\| ([0-9a-f]{16}) \|$", table, re.M)}
 
 
-def download(url: str, target: Path) -> None:
+# Project Gutenberg rate-limits automated downloads with 503s (regardless of User-Agent), which used to
+# abort the whole run part-way through. gutenberg.pglaf.org is one of its official mirrors and serves the
+# same paths byte for byte, so a blocked file is simply fetched from there instead.
+GUTENBERG = "https://www.gutenberg.org/"
+GUTENBERG_MIRROR = "https://gutenberg.pglaf.org/"
+ATTEMPTS = 5
+
+
+def fetch(url: str, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     partial = target.with_suffix(target.suffix + ".part")
     with urllib.request.urlopen(request, timeout=120) as response, partial.open("wb") as out:
         shutil.copyfileobj(response, out)
     partial.replace(target)
+
+
+def download(url: str, target: Path) -> None:
+    """Download one file, retrying transient failures and falling back to Gutenberg's mirror.
+
+    Publishers go down, rate-limit or time out; one such blip used to lose every remaining file,
+    and the next run started again from there. A missing file (404) still fails at once: that is
+    the publisher withdrawing it, which no amount of retrying will fix.
+    """
+    urls = [url]
+    if url.startswith(GUTENBERG):
+        urls.append(GUTENBERG_MIRROR + url[len(GUTENBERG):])
+    for attempt in range(1, ATTEMPTS + 1):
+        for candidate in urls:
+            try:
+                return fetch(candidate, target)
+            except urllib.error.HTTPError as err:
+                if err.code == 404 and candidate == url:
+                    raise  # only the publisher's own 404 is final; a mirror may simply not carry the file
+                last = f"HTTP {err.code}"
+            except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as err:
+                last = type(err).__name__
+        if attempt == ATTEMPTS:
+            raise SystemExit(f"{url}: {last} after {ATTEMPTS} attempts (the publisher may be down; try again later)")
+        pause = 5 * attempt
+        print(f"  {last}; retrying in {pause}s ({attempt}/{ATTEMPTS - 1})", flush=True)
+        time.sleep(pause)
 
 
 def checksum(path: Path) -> str:
