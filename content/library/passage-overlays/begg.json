@@ -2,13 +2,14 @@
   "kind": "passage-overlay",
   "name": "begg",
   "generatedBy": "scripts/sermon-passages.py",
-  "generatedOn": "2026-10-08",
+  "generatedOn": "2026-11-26",
   "method": "Publisher-assigned scripture_ref metadata on each held Truth For Life sermon page; second records of one sermon marked duplicateOf.",
   "counts": {
     "already placed": 80,
     "duplicate record marked": 80,
     "page states no Bible text": 58,
-    "placed": 1337
+    "placed": 1359,
+    "second held copy of a placed sermon": 80
   },
   "unresolved": [
     {
@@ -59,6 +60,356 @@
         "Judges 1:1 – 2 Chronicles 36:23"
       ],
       "reason": "cannot read reference piece '1:1 - 2 Chronicles 36:23' in Judges"
+    }
+  ],
+  "unplaced": [
+    {
+      "workId": "work-reconciled-00c72efa2ca407a87cf25a57",
+      "title": "Panel Question Time (Basics 2025)",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/panel-question-time-basics-2025/ (held asset asset-expanded-98424767be8499240db8)"
+    },
+    {
+      "workId": "work-reconciled-0a7052a860ea852ce9924638",
+      "title": "Sweet Fruit Revisited",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/sweet-fruit-revisited/ (held asset asset-expanded-95265649a7143cb4983f)"
+    },
+    {
+      "workId": "work-reconciled-15dc6840e4dec8ec4bd883dc",
+      "title": "What Happened to Expository Preaching?",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/what-happened-to-expository-preaching/ (held asset asset-expanded-6cebe612d6cfcbf275fd)"
+    },
+    {
+      "workId": "work-reconciled-177be43669b73c6d38e36064",
+      "title": "Who Is Jesus? — Part One",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/who-is-jesus-pt-1/ (held asset asset-expanded-0979dd6fdc8ec4bf4f6e)"
+    },
+    {
+      "workId": "work-reconciled-190375fc8908d9b2ed88ec0e",
+      "title": "A Warning against Laziness",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/warning-against-laziness/ (held asset asset-expanded-d4b2c9d5cccbdeb86db8)"
+    },
+    {
+      "workId": "work-reconciled-1934a2806c654dec645b8e47",
+      "title": "Examining Our Motives",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/examining-our-motives/ (held asset asset-expanded-87e7a560c337db35c288)"
+    },
+    {
+      "workId": "work-reconciled-1c84fe09e2e3b0857c5b79c7",
+      "title": "The Devil and Demons",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-devil-and-demons/ (held asset asset-expanded-5299a90ac592e7b10aa0)"
+    },
+    {
+      "workId": "work-reconciled-1cd1589c230b61cc7459470e",
+      "title": "The One Thing",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-one-thing/ (held asset asset-expanded-9d5b50943b40adb51dc0)"
+    },
+    {
+      "workId": "work-reconciled-1deae301102c17f63b93cd37",
+      "title": "Dealing With Stress",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/dealing-with-stress/ (held asset asset-expanded-0261fcc57232aa277bdb)"
+    },
+    {
+      "workId": "work-reconciled-1dfabf9f51901d4377be6617",
+      "title": "The Proclaimed Kingdom — Part Three",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/proclaimed-kingdom-pt-3/ (held asset asset-expanded-658161fdb1496b51cc50)"
+    },
+    {
+      "workId": "work-reconciled-219fd95b5a0b6459c5814111",
+      "title": "A Historical Survey of Preaching",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/a-historical-survey-of-preaching-/ (held asset asset-expanded-9a8b73f3e0b3a8de7d69)"
+    },
+    {
+      "workId": "work-reconciled-2bfb7fe4a1b53df3c5f70abe",
+      "title": "Jesus Heals the Paralytic",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/jesus-heals-paralytic/ (held asset asset-expanded-f9be99b53acd31604aab)"
+    },
+    {
+      "workId": "work-reconciled-30d0641635afa3860655c2d7",
+      "title": "Who Is on the Throne?",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/who-throne/ (held asset asset-expanded-2d18293e61d3cf028eab)"
+    },
+    {
+      "workId": "work-reconciled-34fd4a410a61d78cb5ae1ea9",
+      "title": "‘Lasting Love’ Radio Interview",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/lasting-love-studio-interview/ (held asset asset-expanded-67c8619cc4433c6f9632)"
+    },
+    {
+      "workId": "work-reconciled-36f0a959f179058870fc4a44",
+      "title": "Martyn Lloyd-Jones, the Preacher",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/martyn-lloyd-jones/ (held asset asset-expanded-91a0e6b82df19abfcb74)"
+    },
+    {
+      "workId": "work-reconciled-39ef9d9b3c42ea7c81f9982c",
+      "title": "Notes from the Flyleaf of My Bible",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/notes-flyleaf-my-bible/ (held asset asset-expanded-e4a64af1aa11b974931f)"
+    },
+    {
+      "workId": "work-reconciled-3a299bd901f7362c0fb97be6",
+      "title": "Be Like Christ",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/be-christ-cd/ (held asset asset-expanded-c61f5f7c1a42d763c99b)"
+    },
+    {
+      "workId": "work-reconciled-3a96bdc4922b60451ef4c6c6",
+      "title": "The Man Who Is God — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-man-who-is-god-pt-2/ (held asset asset-expanded-f0716c10fa6fa19acb6b)"
+    },
+    {
+      "workId": "work-reconciled-3ccc33cb2802aa951421627e",
+      "title": "Perseverance of the Saints?",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/perserverance-of-the-saints/ (held asset asset-expanded-97085ec8f497e4039502)"
+    },
+    {
+      "workId": "work-reconciled-45e9e549504e84e13a57148b",
+      "title": "“Oh, Magnify the Lord”",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/oh-magnify-the-lord/ (held asset asset-expanded-5b22aafbbb75db23bde4)"
+    },
+    {
+      "workId": "work-reconciled-4b1a61ee030e1ef8aa0bfec8",
+      "title": "The Pastor’s Role in the Praising Church",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/pastors-role-praising-church/ (held asset asset-expanded-3b0cd8c27ab0c0a46156)"
+    },
+    {
+      "workId": "work-reconciled-4e7a7d233793f9b7b098174b",
+      "title": "Pattern for Giving",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/pattern-for-giving/ (held asset asset-expanded-0fd7e6f1cdde179a9d32)"
+    },
+    {
+      "workId": "work-reconciled-4f06f6111fd542d2013ddb6d",
+      "title": "Dangers and Delights of Pastoral Ministry",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/dangers-and-delights-of-pastoral-ministry/ (held asset asset-expanded-52941397441d5f7237a7)"
+    },
+    {
+      "workId": "work-reconciled-5339bbcd22d988f6921a53bb",
+      "title": "Evangelism: Dealing With Difficulties — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/evangelism-dealing-wdiffs-pt-2/ (held asset asset-expanded-15b5baeab1e59ed1c8c3)"
+    },
+    {
+      "workId": "work-reconciled-53774cd81b384e2158c3feea",
+      "title": "A Bible Teacher’s Backstory (Interview)",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/bible-teachers-backstory-interview/ (held asset asset-expanded-cc4460f8843af5471be2)"
+    },
+    {
+      "workId": "work-reconciled-550dc9286f1eaafbe727141e",
+      "title": "A Matter of Believer’s Baptism",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/matter-of-believers-baptism-a/ (held asset asset-expanded-c61a6354ff73b75273e8)"
+    },
+    {
+      "workId": "work-reconciled-59d85d1c26249bb185fe3836",
+      "title": "Footprints That We Leave",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/footprints-that-we-leave/ (held asset asset-expanded-5df6e1540d0169c8e912)"
+    },
+    {
+      "workId": "work-reconciled-5c37290468a29227d107bd3b",
+      "title": "Understanding Our Message",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/understanding-our-message/ (held asset asset-expanded-0ae7a95c460ebdc50767)"
+    },
+    {
+      "workId": "work-reconciled-5e815cf17cfab751007d9c6f",
+      "title": "Friendship",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/friendship/ (held asset asset-expanded-5551eece08704504d223)"
+    },
+    {
+      "workId": "work-reconciled-60c751453c9727decf2c6803",
+      "title": "“My Mother and My Brothers”",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/my-mother-and-my-brothers/ (held asset asset-expanded-9fc76431439f34fc1542)"
+    },
+    {
+      "workId": "work-reconciled-68df664cb7f1c35590f82525",
+      "title": "How to Share Christ with Someone — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/how-to-share-christ-wsomeone-pt-2/ (held asset asset-expanded-dd6e04d7b99873bb3e39)"
+    },
+    {
+      "workId": "work-reconciled-6c578e5fa8d271b22911ee52",
+      "title": "Planting Hedges in Marriage — Part One",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/plntg-hedges-in-marr-pt1/ (held asset asset-expanded-6849c03d3d6e68a8a160)"
+    },
+    {
+      "workId": "work-reconciled-72dc82efceb1aead456a7eac",
+      "title": "What Is Evangelism?",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/what-is-evangelism/ (held asset asset-expanded-ffe4b2af9d9084b12441)"
+    },
+    {
+      "workId": "work-reconciled-790fb3b9dabaf55df3e2eec6",
+      "title": "Keeping Watch",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/keeping-watch/ (held asset asset-expanded-2313143c8eaabb5d5f9e)"
+    },
+    {
+      "workId": "work-reconciled-7e18b6ae6467ca9edcd07840",
+      "title": "Evangelism: Dealing With Difficulties — Part One",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/evangelism-dealing-wdiffs-pt-1/ (held asset asset-expanded-5cf12b9a65a1763d5dc4)"
+    },
+    {
+      "workId": "work-reconciled-8ca0678fa5bf4d09b0326c33",
+      "title": "Truth For Life 30th Anniversary Interview",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/30th-anniversary-interview/ (held asset asset-expanded-68fe8b7453144cdd5d9e)"
+    },
+    {
+      "workId": "work-reconciled-8d92007121991780b7317c44",
+      "title": "A Roundtable with Alistair Begg, William Philip, and Richard Pratt",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/a-roundtable-with-alistair-begg-william-philip-and-richard-pratt/ (held asset asset-expanded-150ad2dacd2c1d8235fc)"
+    },
+    {
+      "workId": "work-reconciled-8f2ccf6eadda0c524d68a604",
+      "title": "The Christian’s Devotional Life (Interview)",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/christians-devotional-life-interview/ (held asset asset-expanded-efa49272bb2e1ab36d50)"
+    },
+    {
+      "workId": "work-reconciled-8f93a7636950d26b3ad3e5a0",
+      "title": "Christmas in the Words of Christ",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/christmas-concert/ (held asset asset-expanded-764606010272ee215f76)"
+    },
+    {
+      "workId": "work-reconciled-9045ac7267507229d3438e49",
+      "title": "Regarding Jealousy",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/regarding-jealousy/ (held asset asset-expanded-f3cfb10f24d70aca09c9)"
+    },
+    {
+      "workId": "work-reconciled-91faa002777a34a45951e6e7",
+      "title": "Three Reminders",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/three-reminders/ (held asset asset-expanded-3ddbad4c1960bdf4ba00)"
+    },
+    {
+      "workId": "work-reconciled-951ac545a02b7428b280e655",
+      "title": "On Evangelism and Preaching (Interview)",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/on-evangelism-and-preaching-interview/ (held asset asset-expanded-fe52f65a53dc0b45a985)"
+    },
+    {
+      "workId": "work-reconciled-97100ca8b87992cd14690728",
+      "title": "How to Avoid Marital Failure",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/how-to-avoid-marital-failure/ (held asset asset-expanded-cebb26236c6abb4829f9)"
+    },
+    {
+      "workId": "work-reconciled-9e8990768c217ac2f702923d",
+      "title": "Family Ties",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/familyties/ (held asset asset-expanded-131bc4d298b7cd0db455)"
+    },
+    {
+      "workId": "work-reconciled-9eb17c4357fe24f2c41f3720",
+      "title": "Who Is Jesus? — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/who-is-jesus-pt-2/ (held asset asset-expanded-620212f81f1e96f82c54)"
+    },
+    {
+      "workId": "work-reconciled-a143dcb442368d390995d0cc",
+      "title": "Evangelism: God’s Part, Our Part",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/evangelism-gods-part-our-part/ (held asset asset-expanded-29330a8b1af0e265296b)"
+    },
+    {
+      "workId": "work-reconciled-a70edfa77ebdd0d82af807a7",
+      "title": "How to Share Christ with Someone — Part One",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/how-to-share-christ-wsomeone-pt-1/ (held asset asset-expanded-73e6ea25a894aaab3376)"
+    },
+    {
+      "workId": "work-reconciled-a7ff814c1517aceba7e48b40",
+      "title": "Practical Pointers on Preaching",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/practical-pointers-for-preaching/ (held asset asset-expanded-9dc55f78be9fa2e8b6d8)"
+    },
+    {
+      "workId": "work-reconciled-bee17d455c91ff0ee136af51",
+      "title": "The Proclaimed Kingdom — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/proclaimed-kingdom-pt-2/ (held asset asset-expanded-5788928a6e92a810e24c)"
+    },
+    {
+      "workId": "work-reconciled-ce036fbadcd115eb5aaa0fb8",
+      "title": "The Master’s Plan for Evangelism",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-masters-plan-for-evangelism/ (held asset asset-expanded-434f2868c15a19e6c4ca)"
+    },
+    {
+      "workId": "work-reconciled-dcb9e08288ef1fda91aa2289",
+      "title": "“Good News of Great Joy”",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/good-news-great-joy/ (held asset asset-expanded-1f0b663f6c239908f03e)"
+    },
+    {
+      "workId": "work-reconciled-dfe1c014ab13ce8a2cffb255",
+      "title": "The Man on the Middle Cross (Interview)",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-man-on-the-middle-cross-interview/ (held asset asset-expanded-3f677ee22d46d424c19a)"
+    },
+    {
+      "workId": "work-reconciled-ef7cf1d85a4734cf8253e085",
+      "title": "The Fatherhood of God",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/fatherhood-god/ (held asset asset-expanded-cee222f839cbdb58997e)"
+    },
+    {
+      "workId": "work-reconciled-f1d024552125ed13e13c7201",
+      "title": "The Nature of Expository Preaching",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-nature-of-expository-preaching/ (held asset asset-expanded-873b17f79682df4e4c50)"
+    },
+    {
+      "workId": "work-reconciled-f2981fcfee9b5ef367f56ad1",
+      "title": "Who Is Jesus? — Part Three",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/who-is-jesus-pt-3/ (held asset asset-expanded-201b59e9b51b040e0966)"
+    },
+    {
+      "workId": "work-reconciled-f47bf5d51e0db6f71d1c3814",
+      "title": "How to Share Christ with Someone — Part Three",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/how-to-share-christ-wsomeone-pt-3/ (held asset asset-expanded-d505271d48c0647a104e)"
+    },
+    {
+      "workId": "work-reconciled-f7f8d8314b66c25d38645235",
+      "title": "The Ascension — Part Two",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/the-ascension-pt-2/ (held asset asset-expanded-311ecddffaacf2283b04)"
+    },
+    {
+      "workId": "work-reconciled-f9f25418a9a8f697acc0eb68",
+      "title": "Thinking Christianly All Year — Part One",
+      "reason": "publisher states no single text: the page's scripture line reads \"Selected Scriptures\"",
+      "locator": "https://www.truthforlife.org/resources/sermon/thinking-christianly-all-year/ (held asset asset-expanded-6b5945ef4639f65734cb)"
     }
   ],
   "works": {
@@ -1319,6 +1670,19 @@
         }
       ]
     },
+    "work-reconciled-130479c48b88268269390d72": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:5",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004005,
+          "end": 55004005,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/fulfill-your-ministry/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-fulfill-your-ministry)"
+        }
+      ]
+    },
     "work-reconciled-131796e7911f1af22ceffa6c": {
       "passages": [
         {
@@ -1691,6 +2055,19 @@
           "end": 9005012,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/heavy-hand-god/; Truth For Life page meta scripture_ref (held asset asset-expanded-9739f923f323248665b6)"
+        }
+      ]
+    },
+    "work-reconciled-178340662f1cca97e15f9e38": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:8",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004008,
+          "end": 55004008,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/crown-righteousness/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-crown-righteousness)"
         }
       ]
     },
@@ -3269,6 +3646,19 @@
         }
       ]
     },
+    "work-reconciled-2be532e366d3187c642a090e": {
+      "passages": [
+        {
+          "reference": "2 Timothy 3:14–15",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55003014,
+          "end": 55003015,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/keep-on/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-keep-on)"
+        }
+      ]
+    },
     "work-reconciled-2bec0f96fde92b15ca0d2e8b": {
       "passages": [
         {
@@ -3823,6 +4213,19 @@
         }
       ]
     },
+    "work-reconciled-360bd4b5d6eaf4f42e111a35": {
+      "passages": [
+        {
+          "reference": "2 Timothy 3:10–13",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55003010,
+          "end": 55003013,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/persecuted-church/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-persecuted-church)"
+        }
+      ]
+    },
     "work-reconciled-36537b753bb5bcfe9f3e418c": {
       "passages": [
         {
@@ -4086,6 +4489,19 @@
           "end": 45012014,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/responding-persecution-part-two/; Truth For Life page meta scripture_ref (held asset asset-expanded-6bb1c39a36d2999837eb)"
+        }
+      ]
+    },
+    "work-reconciled-399655b8e7b4dc6d380f3321": {
+      "passages": [
+        {
+          "reference": "2 Timothy 2:1–2",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55002001,
+          "end": 55002002,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/passing-truth/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-passing-truth)"
         }
       ]
     },
@@ -4635,6 +5051,19 @@
           "end": 18016017,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/why-suffering/; Truth For Life page meta scripture_ref (held asset asset-expanded-686aac7498aed65545cd)"
+        }
+      ]
+    },
+    "work-reconciled-401055da1880c36f16f9d261": {
+      "passages": [
+        {
+          "reference": "2 Timothy 3:6–9",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55003006,
+          "end": 55003009,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/bad-men-weak-women/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-bad-men-weak-women)"
         }
       ]
     },
@@ -5279,6 +5708,19 @@
           "end": 1003013,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/what-is-this-you-have-done/; Truth For Life page meta scripture_ref (held asset asset-expanded-f5ec57a0db07b57c084f)"
+        }
+      ]
+    },
+    "work-reconciled-4950ff4648eaa93b7c96b060": {
+      "passages": [
+        {
+          "reference": "2 Timothy 2:1–2",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55002001,
+          "end": 55002002,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/passing-truth-part-two/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-passing-truth-part-two)"
         }
       ]
     },
@@ -6467,6 +6909,19 @@
         }
       ]
     },
+    "work-reconciled-5a9e4441f2fdca58bb780e52": {
+      "passages": [
+        {
+          "reference": "1 Timothy 6:11–16",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 54006011,
+          "end": 54006016,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/a-charge-to-a-man-of-god-pt1/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-a-charge-to-a-man-of-god-pt1)"
+        }
+      ]
+    },
     "work-reconciled-5aa19c75da9acacf2f58e118": {
       "duplicateOf": "work-ready-begg-1960"
     },
@@ -6868,6 +7323,19 @@
           "end": 10007017,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/understanding-promise-part-one/; Truth For Life page meta scripture_ref (held asset asset-expanded-4cf4e3b95cca9b41c2a9)"
+        }
+      ]
+    },
+    "work-reconciled-5e04d9773c69f6f619152358": {
+      "passages": [
+        {
+          "reference": "2 Timothy 1:7",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55001007,
+          "end": 55001007,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/necessary-reminders-part-two/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-necessary-reminders-part-two)"
         }
       ]
     },
@@ -7543,6 +8011,19 @@
           "end": 9016007,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/myself-king-part-one/; Truth For Life page meta scripture_ref (held asset asset-expanded-cc1742d957e30f17dfcd)"
+        }
+      ]
+    },
+    "work-reconciled-65c3d12750e27a1a3caab6ed": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:3–4",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004003,
+          "end": 55004004,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/itching-ears/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-itching-ears)"
         }
       ]
     },
@@ -8649,6 +9130,19 @@
           "end": 42002017,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/sign-and-song/; Truth For Life page meta scripture_ref (held asset asset-expanded-92ca6c85b2d41de2fcf8)"
+        }
+      ]
+    },
+    "work-reconciled-79591cf547d242d4651f54da": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:19–22",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004019,
+          "end": 55004022,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/postscript/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-postscript)"
         }
       ]
     },
@@ -10207,6 +10701,19 @@
         }
       ]
     },
+    "work-reconciled-8ec7c08bfcd5e75be548df46": {
+      "passages": [
+        {
+          "reference": "1 Timothy 6:11–16",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 54006011,
+          "end": 54006016,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/a-charge-to-a-man-of-god-pt2/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-a-charge-to-a-man-of-god-pt2)"
+        }
+      ]
+    },
     "work-reconciled-8ed2ea259293da7f8d088c8f": {
       "passages": [
         {
@@ -11533,6 +12040,19 @@
         }
       ]
     },
+    "work-reconciled-9fbf3d0f30093908c41fa01c": {
+      "passages": [
+        {
+          "reference": "2 Timothy 1:1–3",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55001001,
+          "end": 55001003,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/paul-timothy/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-paul-timothy)"
+        }
+      ]
+    },
     "work-reconciled-9fdb54e22f72249121ca1586": {
       "passages": [
         {
@@ -12783,6 +13303,19 @@
         }
       ]
     },
+    "work-reconciled-b1efb9995dd641bd2a00179d": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:14–18",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004014,
+          "end": 55004018,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/lions-mouth/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-lions-mouth)"
+        }
+      ]
+    },
     "work-reconciled-b206f05698c72f8a6bba46d6": {
       "passages": [
         {
@@ -13663,6 +14196,19 @@
         }
       ]
     },
+    "work-reconciled-beb0c7c90bc834eb6d723587": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:11–13",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004011,
+          "end": 55004013,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/friendship-matters/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-friendship-matters)"
+        }
+      ]
+    },
     "work-reconciled-bec38fdde39789bba5a090dd": {
       "passages": [
         {
@@ -13699,6 +14245,19 @@
           "end": 49001006,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/chosen-him/; Truth For Life page meta scripture_ref (held asset asset-expanded-7ace5ef9cd53ff2a8428)"
+        }
+      ]
+    },
+    "work-reconciled-bf35d2f275a4936e04f355a9": {
+      "passages": [
+        {
+          "reference": "2 Timothy 1:11–12",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55001011,
+          "end": 55001012,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/preacher-apostle-teacher/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-preacher-apostle-teacher)"
         }
       ]
     },
@@ -15134,6 +15693,19 @@
         }
       ]
     },
+    "work-reconciled-d6bc5ab030f0de786310c24f": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:1–2",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004001,
+          "end": 55004002,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/preach-word-2015/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-preach-word-2015)"
+        }
+      ]
+    },
     "work-reconciled-d6fd5e0a77c0d257649f3647": {
       "duplicateOf": "work-ready-begg-2001"
     },
@@ -15464,6 +16036,19 @@
           "end": 17008017,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/celebration-time/; Truth For Life page meta scripture_ref (held asset asset-expanded-a294c831167a6e407cfb)"
+        }
+      ]
+    },
+    "work-reconciled-dc4ead293806d889a43fdfea": {
+      "passages": [
+        {
+          "reference": "2 Timothy 3:16",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55003016,
+          "end": 55003016,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/scripture-god-breathed/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-scripture-god-breathed)"
         }
       ]
     },
@@ -16665,6 +17250,19 @@
         }
       ]
     },
+    "work-reconciled-ecb913fc4a549f6bf820089e": {
+      "passages": [
+        {
+          "reference": "2 Timothy 3:1–5",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55003001,
+          "end": 55003005,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/times-difficulty/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-times-difficulty)"
+        }
+      ]
+    },
     "work-reconciled-ecdf6b4a551e986c4d405aca": {
       "passages": [
         {
@@ -16827,6 +17425,19 @@
           "end": 41009008,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/transfiguration-part-one/; Truth For Life page meta scripture_ref (held asset asset-expanded-97b3ac5865b7c4b67248)"
+        }
+      ]
+    },
+    "work-reconciled-ef302805ea8afd967d3196c2": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:7",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004007,
+          "end": 55004007,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/mission-accomplished-cd/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-mission-accomplished-cd)"
         }
       ]
     },
@@ -17051,6 +17662,19 @@
           "end": 54004016,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/good-servant-christ-jesus-public/; Truth For Life page meta scripture_ref (held asset asset-expanded-7460a4a91d8980bf74b0)"
+        }
+      ]
+    },
+    "work-reconciled-f3234eaa316f8d110434e565": {
+      "passages": [
+        {
+          "reference": "2 Timothy 1:13",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55001013,
+          "end": 55001013,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/follow-pattern/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-follow-pattern)"
         }
       ]
     },
@@ -17725,6 +18349,19 @@
           "end": 1040023,
           "verification": "verified",
           "locator": "https://www.truthforlife.org/resources/sermon/good-news-bad-news/; Truth For Life page meta scripture_ref (held asset asset-expanded-1fa5ccbbb6fe1f648c4b)"
+        }
+      ]
+    },
+    "work-reconciled-f9e7952d6fd626e2f9101359": {
+      "passages": [
+        {
+          "reference": "2 Timothy 4:9–10",
+          "numberingSystem": "english",
+          "role": "main-text",
+          "start": 55004009,
+          "end": 55004010,
+          "verification": "verified",
+          "locator": "https://www.truthforlife.org/resources/sermon/mr-temporary/; Truth For Life page meta scripture_ref (held asset asset-ready-completion-begg-mr-temporary)"
         }
       ]
     },
