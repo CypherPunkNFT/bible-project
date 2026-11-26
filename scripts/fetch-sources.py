@@ -70,6 +70,9 @@ DOWNLOADS = [
     ("theographic", "https://github.com/robertrouse/theographic-bible-metadata/archive/refs/heads/master.zip",
      "theographic/theographic-bible-metadata.zip", "theographic"),
     ("openbible-topics", "https://a.openbible.info/data/topic-scores.zip", "openbible-topics/topic-scores.zip", "openbible-topics"),
+    # Emoji stories reads this for each emoji's official name and qualification; build-emoji-stories.ts checks its
+    # SHA-256 and stops if it differs. It was downloaded by hand until now, so a fresh clone could not build the game.
+    ("unicode-emoji", "https://unicode.org/Public/emoji/15.1/emoji-test.txt", "unicode/emoji-test-15.1.txt", None),
     ("strongs", "https://github.com/openscriptures/strongs/archive/refs/heads/master.zip", "openscriptures/strongs.zip", "openscriptures/strongs"),
     ("hebrew-lexicon", "https://github.com/openscriptures/HebrewLexicon/archive/refs/heads/master.zip",
      "openscriptures/HebrewLexicon.zip", "openscriptures/HebrewLexicon"),
