@@ -21,13 +21,14 @@ from pathlib import Path
 WEBSITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WEBSITE / "scripts"))
 from bible.books import BOOK_NUMBER, OSIS_TO_CODE, verse_id  # noqa: E402
+from bible.paths import SOURCES  # noqa: E402
 import easton  # noqa: E402
 import naves  # noqa: E402
 import topic_extras  # noqa: E402
 from bible.books import BOOKS  # noqa: E402
 from bible.english_spelling import PHRASES, correct_tree  # noqa: E402
 
-TORREY = WEBSITE.parent / "sources" / "ccel" / "ttt.xml"
+TORREY = SOURCES / "ccel" / "ttt.xml"
 ID_KEYS = frozenset({"id", "f", "s", "see", "refs", "category", "subcategory", "topics", "relatedStudies", "parts"})
 TAXONOMY = WEBSITE / "content" / "topics" / "taxonomy.json"
 NAVE_PLACEMENT = WEBSITE / "content" / "topics" / "naves-placement.json"  # Nave entry id -> group id, reviewed by hand

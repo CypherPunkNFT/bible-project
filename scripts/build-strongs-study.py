@@ -16,6 +16,8 @@ import sys
 import unicodedata
 from collections import Counter, defaultdict
 from collections.abc import Iterator
+
+from bible.paths import SOURCES
 from pathlib import Path
 from typing import NoReturn
 
@@ -269,7 +271,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     here = Path(__file__).resolve().parent.parent
     parser.add_argument("--site", type=Path, default=here)
-    parser.add_argument("--sources", type=Path, default=here.parent / "sources/stepbible")
+    parser.add_argument("--sources", type=Path, default=SOURCES / "stepbible")
     args = parser.parse_args()
     build(args.site, args.sources)
 

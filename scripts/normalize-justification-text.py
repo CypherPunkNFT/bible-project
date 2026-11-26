@@ -14,9 +14,11 @@ from pathlib import Path
 import pymupdf as fitz
 from fontTools.cffLib import CFFFontSet
 
+from bible.paths import SOURCES
+
 ROOT = Path(__file__).resolve().parents[1]
 REL = "library/source-desiring-god/asset-modern-piper-3e2cdbe410efea6d860f-pdf/original.pdf"
-SOURCE = ROOT.parent / "sources" / REL
+SOURCE = SOURCES / REL
 PIN = "1b046fe8b70ef43681153b88ab9205521014cfaeecbdc495a1eb7f88ccd2a2ce"
 OUT = ROOT / ".local/library/ocr-completion/font-repair"
 REPORT = ROOT / "content/library/reports/ocr-completion/font-repair.json"

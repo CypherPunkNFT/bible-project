@@ -11,6 +11,8 @@ import hashlib
 import json
 import urllib.request
 
+from bible.paths import SOURCES
+
 ROOT = Path(__file__).resolve().parents[1]
 FLAGS = dict(zip(
     'AFG ALB DZA AZE BHR BGD BIH BRN BFA TCD COM DJI EGY ERI GMB GIN GNB IDN IRN IRQ JOR KAZ KOS KWT KGZ LBN LBY MYS MDV MLI MRT MYT MAR NER NGA OMN PAK PSE QAT SAU SEN SLE SOM SDN SYR TJK TUN TUR TKM ARE UZB ESH YEM'.split(),
@@ -34,7 +36,7 @@ def immutable(path, data):
 def build(refresh):
     manifest_path = ROOT / 'content/missions/flag-manifest.json'
     commit = json.loads(fetch('https://api.github.com/repos/lipis/flag-icons/commits/main'))['sha'] if refresh else json.loads(manifest_path.read_bytes())['commit']
-    archive = ROOT.parent / 'sources/missions/muslim-world' / ('flag-icons-' + commit)
+    archive = SOURCES / 'missions/muslim-world' / ('flag-icons-' + commit)
     output = ROOT / 'public/assets/muslim-world/flags'
     output.mkdir(parents=True, exist_ok=True)
     base = f'https://raw.githubusercontent.com/lipis/flag-icons/{commit}'
