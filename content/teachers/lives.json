@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody, Graham, MacArthur and Morgan added 2026-10-08 (owner's widened scope), fact-checked the same day.",
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody, Graham, MacArthur and Morgan added 2026-10-08 (owner's widened scope), fact-checked the same day. Sixteen Baptist contributors from the owner's acquisition selection added 2026-11-25 (Spilsbury, Kiffin, Tombes, Denne, Danvers, Keach, Collins, Coxe, Brine, Beddome, Booth, Fuller, Dagg, Boyce, Criswell, Rogers), each life date and place checked the same day against the references cited in their author-registry entries; uncertain dates are marked circa and unrecorded birthplaces with birthplaceKnown false.",
   "people": {
     "author-john-calvin": {
       "short": "Calvin",
@@ -2026,6 +2026,589 @@
         ]
       ],
       "birthplaceKnown": false
+    },
+    "author-john-spilsbury": {
+      "short": "Spilsbury",
+      "born": 1593,
+      "died": 1668,
+      "line": "Cobbler who became pastor at Wapping, the first Particular Baptist congregation on record in London.",
+      "places": [
+        [
+          "London",
+          51.507,
+          -0.128,
+          1593
+        ]
+      ],
+      "known": [
+        [
+          "A Treatise Concerning the Lawfull Subject of Baptisme",
+          1643
+        ]
+      ]
+    },
+    "author-william-kiffin": {
+      "short": "Kiffin",
+      "born": 1616,
+      "died": 1701,
+      "line": "London wool merchant and pastor of the Devonshire Square church; his name heads the 1644 Baptist confession.",
+      "places": [
+        [
+          "London",
+          51.507,
+          -0.128,
+          1616
+        ]
+      ],
+      "known": [
+        [
+          "A Sober Discourse of Right to Church-Communion",
+          1681
+        ],
+        [
+          "Remarkable Passages in the Life of William Kiffin",
+          1823
+        ]
+      ]
+    },
+    "author-john-tombes": {
+      "short": "Tombes",
+      "born": 1603,
+      "died": 1676,
+      "circa": true,
+      "line": "Oxford-trained vicar of Leominster and the leading English writer against infant baptism in his century.",
+      "places": [
+        [
+          "Bewdley",
+          52.375,
+          -2.317,
+          1603
+        ],
+        [
+          "Oxford",
+          51.752,
+          -1.258,
+          1618
+        ],
+        [
+          "Leominster",
+          52.228,
+          -2.739,
+          1630
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1643
+        ],
+        [
+          "Bewdley",
+          52.375,
+          -2.317,
+          1646
+        ],
+        [
+          "Leominster",
+          52.228,
+          -2.739,
+          1654
+        ],
+        [
+          "Salisbury",
+          51.069,
+          -1.794,
+          1661
+        ]
+      ],
+      "known": [
+        [
+          "Examen of the Sermon of Mr Stephen Marshall",
+          1645
+        ],
+        [
+          "Anti-paedobaptism",
+          1652
+        ]
+      ]
+    },
+    "author-henry-denne": {
+      "short": "Denne",
+      "born": 1606,
+      "died": 1666,
+      "circa": true,
+      "birthplaceKnown": false,
+      "line": "General Baptist evangelist in the eastern counties, once a Leveller, who preached widely after leaving his parish.",
+      "places": [
+        [
+          "Pirton",
+          51.97,
+          -0.33,
+          1631
+        ],
+        [
+          "Eltisley",
+          52.22,
+          -0.09,
+          1645
+        ],
+        [
+          "Cambridge",
+          52.205,
+          0.119,
+          1653
+        ]
+      ],
+      "known": [
+        [
+          "The Doctrine and Conversation of John Baptist",
+          1642
+        ],
+        [
+          "Antichrist Unmasked",
+          1645
+        ]
+      ]
+    },
+    "author-henry-danvers": {
+      "short": "Danvers",
+      "born": 1622,
+      "died": 1687,
+      "birthplaceKnown": false,
+      "line": "Militia colonel and Governor of Stafford who turned General Baptist writer against infant baptism; died in exile at Utrecht.",
+      "places": [
+        [
+          "Stafford",
+          52.806,
+          -2.117,
+          1650
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1660
+        ],
+        [
+          "Utrecht",
+          52.091,
+          5.122,
+          1687
+        ]
+      ],
+      "known": [
+        [
+          "A Treatise of Baptism",
+          1673
+        ]
+      ]
+    },
+    "author-benjamin-keach": {
+      "short": "Keach",
+      "born": 1640,
+      "died": 1704,
+      "line": "Pastor at Horsleydown in Southwark for 36 years; wrote over forty books and the catechism that bears his name.",
+      "places": [
+        [
+          "Stoke Hammond",
+          51.942,
+          -0.72,
+          1640
+        ],
+        [
+          "Winslow",
+          51.945,
+          -0.885,
+          1659
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1668
+        ]
+      ],
+      "known": [
+        [
+          "The Glorious Lover",
+          1679
+        ],
+        [
+          "Tropologia: A Key to Open Scripture Metaphors",
+          1681
+        ],
+        [
+          "The Baptist Catechism",
+          1693
+        ]
+      ]
+    },
+    "author-hercules-collins": {
+      "short": "Collins",
+      "born": 1647,
+      "died": 1702,
+      "birthplaceKnown": false,
+      "line": "Pastor of the Wapping congregation for some twenty-five years; imprisoned in Newgate for nonconformity.",
+      "places": [
+        [
+          "London",
+          51.507,
+          -0.128,
+          1677
+        ]
+      ],
+      "known": [
+        [
+          "An Orthodox Catechism",
+          1680
+        ],
+        [
+          "The Temple Repair'd",
+          1702
+        ]
+      ]
+    },
+    "author-nehemiah-coxe": {
+      "short": "Coxe",
+      "born": 1650,
+      "died": 1689,
+      "circa": true,
+      "birthplaceKnown": false,
+      "line": "Shoemaker, physician and co-pastor at Petty France in London; wrote on the covenants God made before the law.",
+      "places": [
+        [
+          "Bedford",
+          52.136,
+          -0.467,
+          1669
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1674
+        ]
+      ],
+      "known": [
+        [
+          "A Discourse of the Covenants That God Made with Men before the Law",
+          1681
+        ]
+      ]
+    },
+    "author-john-brine": {
+      "short": "Brine",
+      "born": 1703,
+      "died": 1765,
+      "line": "Particular Baptist pastor at Cripplegate in London for thirty-five years; a systematic defender of hyper-Calvinism.",
+      "places": [
+        [
+          "Kettering",
+          52.398,
+          -0.725,
+          1703
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1730
+        ]
+      ],
+      "known": [
+        [
+          "A Refutation of Arminian Principles",
+          1743
+        ],
+        [
+          "The Certain Efficacy of the Death of Christ",
+          1743
+        ]
+      ]
+    },
+    "author-benjamin-beddome": {
+      "short": "Beddome",
+      "born": 1717,
+      "died": 1795,
+      "line": "Pastor at Bourton-on-the-Water for fifty-five years; wrote more than eight hundred hymns to close his own sermons.",
+      "places": [
+        [
+          "Henley-in-Arden",
+          52.289,
+          -1.779,
+          1717
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1739
+        ],
+        [
+          "Bourton-on-the-Water",
+          51.885,
+          -1.757,
+          1740
+        ]
+      ],
+      "known": [
+        [
+          "A Scriptural Exposition of the Baptist Catechism",
+          1752
+        ],
+        [
+          "Hymns Adapted to Public Worship or Family Devotion",
+          1818
+        ]
+      ]
+    },
+    "author-abraham-booth": {
+      "short": "Booth",
+      "born": 1734,
+      "died": 1806,
+      "line": "Stocking weaver and schoolmaster who became pastor of Prescot Street, London, for thirty-five years.",
+      "places": [
+        [
+          "Blackwell",
+          53.12,
+          -1.36,
+          1734
+        ],
+        [
+          "Sutton-in-Ashfield",
+          53.126,
+          -1.261,
+          1760
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1769
+        ]
+      ],
+      "known": [
+        [
+          "The Reign of Grace",
+          1768
+        ],
+        [
+          "An Apology for the Baptists",
+          1778
+        ]
+      ]
+    },
+    "author-andrew-fuller": {
+      "short": "Fuller",
+      "born": 1754,
+      "died": 1815,
+      "line": "Pastor at Soham and Kettering; founder and first secretary of the Baptist Missionary Society, and Carey's closest supporter.",
+      "places": [
+        [
+          "Wicken",
+          52.313,
+          0.29,
+          1754
+        ],
+        [
+          "Soham",
+          52.334,
+          0.336,
+          1770
+        ],
+        [
+          "Kettering",
+          52.398,
+          -0.725,
+          1782
+        ]
+      ],
+      "known": [
+        [
+          "The Gospel Worthy of All Acceptation",
+          1785
+        ],
+        [
+          "The Calvinistic and Socinian Systems Compared",
+          1793
+        ]
+      ]
+    },
+    "author-john-l-dagg": {
+      "short": "Dagg",
+      "born": 1794,
+      "died": 1884,
+      "line": "Near-blind Virginian who became president of Mercer University and the first Southern Baptist systematic theologian.",
+      "places": [
+        [
+          "Middleburg",
+          38.968,
+          -77.737,
+          1794
+        ],
+        [
+          "Philadelphia",
+          39.952,
+          -75.165,
+          1825
+        ],
+        [
+          "Tuscaloosa",
+          33.209,
+          -87.569,
+          1836
+        ],
+        [
+          "Penfield",
+          33.54,
+          -83.11,
+          1844
+        ],
+        [
+          "Hayneville",
+          32.186,
+          -86.579,
+          1870
+        ]
+      ],
+      "known": [
+        [
+          "Manual of Theology",
+          1857
+        ],
+        [
+          "A Treatise on Church Order",
+          1858
+        ]
+      ]
+    },
+    "author-james-p-boyce": {
+      "short": "Boyce",
+      "born": 1827,
+      "died": 1888,
+      "line": "Principal founder and first president of the Southern Baptist Theological Seminary; studied under Charles Hodge at Princeton.",
+      "places": [
+        [
+          "Charleston",
+          32.777,
+          -79.931,
+          1827
+        ],
+        [
+          "Columbia, South Carolina",
+          34.001,
+          -81.035,
+          1851
+        ],
+        [
+          "Greenville",
+          34.853,
+          -82.394,
+          1855
+        ],
+        [
+          "Louisville",
+          38.253,
+          -85.758,
+          1877
+        ],
+        [
+          "Pau",
+          43.295,
+          -0.37,
+          1888
+        ]
+      ],
+      "known": [
+        [
+          "Abstract of Systematic Theology",
+          1887
+        ]
+      ]
+    },
+    "author-w-a-criswell": {
+      "short": "Criswell",
+      "born": 1909,
+      "died": 2002,
+      "line": "Pastor of First Baptist Church, Dallas, for five decades; preached the whole Bible through from the pulpit.",
+      "places": [
+        [
+          "Eldorado",
+          34.473,
+          -99.648,
+          1909
+        ],
+        [
+          "Texline",
+          36.376,
+          -103.02,
+          1915
+        ],
+        [
+          "Chickasha",
+          35.053,
+          -97.936,
+          1937
+        ],
+        [
+          "Muskogee",
+          35.748,
+          -95.37,
+          1941
+        ],
+        [
+          "Dallas",
+          32.777,
+          -96.797,
+          1944
+        ]
+      ],
+      "known": [
+        [
+          "Expository Sermons on Revelation",
+          1962
+        ],
+        [
+          "Why I Preach That the Bible Is Literally True",
+          1969
+        ]
+      ]
+    },
+    "author-adrian-rogers": {
+      "short": "Rogers",
+      "born": 1931,
+      "died": 2005,
+      "line": "Pastor of Bellevue Baptist Church, Memphis, for 32 years and three times president of the Southern Baptist Convention.",
+      "places": [
+        [
+          "West Palm Beach",
+          26.715,
+          -80.053,
+          1931
+        ],
+        [
+          "Merritt Island",
+          28.36,
+          -80.694,
+          1964
+        ],
+        [
+          "Memphis",
+          35.149,
+          -90.049,
+          1972
+        ]
+      ],
+      "known": [
+        [
+          "The Incredible Power of Kingdom Authority",
+          2002
+        ],
+        [
+          "What Every Christian Ought to Know",
+          2005
+        ]
+      ]
     }
   },
   "links": [
