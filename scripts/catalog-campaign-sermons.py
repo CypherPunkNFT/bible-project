@@ -10,7 +10,7 @@ reference are listed in the run report, never looked up.
 A run that records rights per held file (Morgan) is followed file by file: an "unknown" never takes the preacher's
 public-domain label and gets no asset record. graham-transcripts reads the owner's Graham transcripts report instead.
 
-Usage (from Website/): python -X utf8 scripts/catalog-campaign-sermons.py wesley moody maclaren morgan graham-transcripts [graham]
+Usage (from Website/): python -X utf8 scripts/catalog-campaign-sermons.py wesley moody maclaren morgan graham-transcripts begg [graham]
 """
 
 import argparse
@@ -58,9 +58,17 @@ PREACHERS = {
     "graham-transcripts": dict(author="author-billy-graham", era="twentieth-century", rights="restricted-license",
                                edition="Automatic transcription of a BGEA recording", policy="https://billygraham.org/legal-permissions",
                                catalogued="2026-11-26", manifest=LIBRARY / "reports" / "graham-transcripts-20261010" / "acquisition-manifest.json"),
+    # Truth For Life pages held by begg/progress/collect.py, numbered by Truth For Life's own sermon ID. The main text is
+    # placed afterwards by sermon-passages.py from each page's scripture_ref (passage-overlays/begg.json), not here.
+    "begg": dict(author="author-alistair-begg", era="unknown", rights="restricted-license", edition="Truth For Life sermon page",
+                 policy="https://www.truthforlife.org/about/policies/", catalogued="2026-11-26", width=4, passages_from_overlay=True,
+                 no_overwrite=True, license_id="source-personal-educational-permission",
+                 conditions=["Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."],
+                 quality="Main texts audited against the held page after cataloguing: begg/AUDIT.md."),
 }
 TRANSCRIPT_TITLE = re.compile(r"^Billy Graham |\s+Billy Graham Classic(?:s| Sermon)$")
-HELD_RIGHTS = {"public-domain", "unknown"}  # the values an acquisition run records per held file
+HELD_RIGHTS = {"public-domain", "unknown"}
+NO_OVERWRITE = False  # set per preacher (no_overwrite): a record file may be rewritten only by the record it already holds  # the values an acquisition run records per held file
 
 # Moody names some passages in words; each conversion is the sermon's own wording, written out so it can be checked.
 PROSE = {
@@ -88,9 +96,15 @@ def read(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def identity(record):
+    return record.get("externalIds") or record.get("workId") or record.get("canonicalUrl")
+
+
 def save(record):
     folder = {"work": "works", "edition": "editions", "asset": "assets"}[record["kind"]]
     path = CATALOG / folder / f"{record['id']}.json"
+    if NO_OVERWRITE and path.exists() and identity(read(path)) != identity(record):
+        sys.exit(f"{path.name} already names another record ({identity(read(path))}); refusing to overwrite it")
     path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
@@ -257,8 +271,8 @@ def sermon_work(ident, entry, cfg, passages, related=None):
     work = common("work", ident, notes)
     work.update(title=entry["title"], alternateTitles=[], creators=[dict(authorId=cfg["author"], role="preacher")],
                 genre="sermon", role="core-teaching", collections=["sermons"], subjects=[], occasions=[],
-                audiences=["general"], depth="unknown", era=cfg["era"], dates=delivery(entry, url), passages=passages,
-                related=related or [], externalIds=dict(officialDestination=[url]),
+                audiences=["general"], depth="unknown", era=entry.get("era") or cfg["era"], dates=delivery(entry, url), passages=passages,
+                related=related or [], externalIds=dict(officialDestination=[url], **({"officialSermonNumber": [entry["sermonId"]]} if entry.get("sermonId") else {})),
                 evidence=[ev(url, entry.get("locator") or "Sermon page",
                              entry.get("evidenceNote") or "Acquired by the sermons campaign; see its acquisition manifest.")])
     return work
@@ -276,15 +290,16 @@ def asset(asset_id, edition_id, cfg, rights):
     prov = read(prov_file)
     actions = {k: "unknown" for k in ["download", "host", "redistribute", "adapt", "transcribe", "embed", "indexMetadata", "indexFullText"]}
     actions.update(download="allowed", indexMetadata="allowed")
-    record = common("asset", asset_id)
+    record = common("asset", asset_id, ["The publisher offers this sermon as audio/video only: the held page carries its metadata and "
+                                        "stated text, no transcript."] if prov.get("transcriptOffered") is False else None)
     form = prov.get("format") or "html"
     form = {"txt": "text"}.get(form, form)
     record.update(editionId=edition_id, sourceId=prov_file.parent.parent.name, canonicalUrl=prov["url"], finalUrl=prov.get("finalUrl"),
-                  format=form if form in FORMATS else "other", mediaKind="text", acquisitionStatus="downloaded", storage="raw",
+                  format=form if form in FORMATS else "other", mediaKind="other" if prov.get("transcriptOffered") is False else "text", acquisitionStatus="downloaded", storage="raw",
                   relativePath=prov["relativePath"], sha256=prov["sha256"], byteCount=prov["byteCount"], mimeType=prov.get("mimeType"),
                   retrievedAt=re.sub(r"\+00:00$", "Z", prov["retrievedAt"]),
-                  rights=dict(category=rights, jurisdiction="United States", licenseId=None, licenseUrl=prov.get("policyUrl") or cfg["policy"],
-                              attribution="Author and host credited; the site links to the original page.", conditions=[], conditionsMet=False,
+                  rights=dict(category=rights, jurisdiction="United States", licenseId=cfg.get("license_id"), licenseUrl=prov.get("policyUrl") or cfg["policy"],
+                              attribution="Author and host credited; the site links to the original page.", conditions=cfg.get("conditions", []), conditionsMet=False,
                               actions=actions, evidence=[ev(prov["url"], "Host terms recorded in the acquisition TERMS.md", "Private noncommercial reading; no public hosting.")],
                               unresolved=["No public hosting or public full-text index; the site links to the original."], review=REVIEW),
                   fullTextIndexed=False,
@@ -342,7 +357,7 @@ def rights_noted(work, category):
 
 
 def catalogue(name, verses):
-    global TODAY, REVIEW  # records carry the day their preacher was catalogued, not the campaign's first day
+    global TODAY, REVIEW, NO_OVERWRITE  # records carry the day their preacher was catalogued, not the campaign's first day
     cfg = PREACHERS[name]
     manifest = read(cfg.get("manifest", REPORTS / name / "acquisition-manifest.json"))
     if "files" in manifest:
@@ -350,18 +365,24 @@ def catalogue(name, verses):
     rights = held_rights(manifest)
     TODAY = cfg.get("catalogued", "2026-10-08")
     REVIEW = dict(REVIEW, date=TODAY)
+    NO_OVERWRITE = cfg.get("no_overwrite", False)
     counts, unplaced, volumes, unknown = Counter(), [], {}, {}
-    width = max(3, len(str(len(manifest["sermons"]))))
+    width = cfg.get("width") or max(3, len(str(len(manifest["sermons"]))))
     per_file = Counter(e.get("assetId") for e in manifest["sermons"] if e.get("book"))
     for index, entry in enumerate(manifest["sermons"], 1):
         number = entry.get("number") or index
-        ident = f"work-sermons-{name}-{number:0{width}d}"
+        suffix = f"{number:0{width}d}" if isinstance(number, int) else number  # Begg: "r2804" for a page with no sermon number
+        ident = f"work-sermons-{name}-{suffix}"
         locator = f"{entry['url']}; {entry.get('mainTextLocator') or 'printed text'}"
-        passages, problem = (ocr_main_text(entry, verses, locator) if cfg.get("ocr_texts")
-                             else main_text(entry, verses, locator, cfg.get("quoted_heading", False)))
+        if cfg.get("passages_from_overlay"):
+            passages, problem = [], None
+            counts["main text left to sermon-passages.py"] += 1
+        else:
+            passages, problem = (ocr_main_text(entry, verses, locator) if cfg.get("ocr_texts")
+                                 else main_text(entry, verses, locator, cfg.get("quoted_heading", False)))
+            counts["placed" if passages else "listed without a passage"] += 1
         if problem:
             unplaced.append(dict(workId=ident, title=entry["title"], reason=problem))
-        counts["placed" if passages else "listed without a passage"] += 1
         asset_id = entry.get("assetId")
         held = asset_id and next(SOURCES.glob(f"library/*/{asset_id}/provenance.json"), None)
         if rights and asset_id and asset_id not in rights:
@@ -377,9 +398,9 @@ def catalogue(name, verses):
         else:
             save(rights_noted(sermon_work(ident, entry, cfg, passages), category))
             if held and asset_id.startswith(f"asset-sermons-{name}"):  # reused older holdings keep their own records
-                save(edition(f"edition-sermons-{name}-{number:0{width}d}", ident, cfg, entry["url"]))
+                save(edition(f"edition-sermons-{name}-{suffix}", ident, cfg, entry["url"]))
                 if category != "unknown":  # an unknown never borrows the preacher's rights; the validator refuses it too
-                    save(asset(asset_id, f"edition-sermons-{name}-{number:0{width}d}", cfg, category))
+                    save(asset(asset_id, f"edition-sermons-{name}-{suffix}", cfg, category))
     for asset_id, volume in volumes.items():
         key = volume_key(name, asset_id)
         work = common("work", f"work-sermons-{name}-book-{key}")

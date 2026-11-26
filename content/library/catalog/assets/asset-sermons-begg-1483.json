@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-begg-1483",
+  "editorialState": "catalogued",
+  "notes": [
+    "The publisher offers this sermon as audio/video only: the held page carries its metadata and stated text, no transcript."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-begg-1483",
+  "sourceId": "source-truth-for-life",
+  "canonicalUrl": "https://www.truthforlife.org/resources/sermon/let-us-love-one-another/",
+  "finalUrl": "https://www.truthforlife.org/resources/sermon/let-us-love-one-another/",
+  "format": "html",
+  "mediaKind": "other",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-truth-for-life/asset-sermons-begg-1483/original.html",
+  "sha256": "63fd75085fe4fb9b6750a7dd22e8cf2969ff82c687d01037564da73d2e86e58b",
+  "byteCount": 65370,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-11-26T10:54:42.112156Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.truthforlife.org/about/policies/",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [
+      "Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.truthforlife.org/resources/sermon/let-us-love-one-another/",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-26"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-26",
+    "note": "Main texts audited against the held page after cataloguing: begg/AUDIT.md."
+  }
+}

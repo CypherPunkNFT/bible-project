@@ -1,0 +1,41 @@
+User-agent: *
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
+Disallow: *?month=
+Disallow: *?year=
+Disallow: *?topic=
+Disallow: *?scripture=
+Disallow: *?type=
+Disallow: *?sort=
+Disallow: *?chapter=
+Disallow: *?per_page=
+Disallow: *&per_page=
+Disallow: *?perpage=
+Disallow: *&perpage=
+Disallow: *?page=
+Disallow: *&page=
+Disallow: *?q=
+Disallow: *&month=
+Disallow: *&year=
+Disallow: *&topic=
+Disallow: *&scripture=
+Disallow: *&type=
+Disallow: *&sort=
+Disallow: *&chapter=
+Disallow: *&format=
+Disallow: *?date=
+Disallow: *&date=
+Disallow: /blog/flashdrive/
+Disallow: /flashdrive/
+Disallow: /donate/paypal/thank-you
+Disallow: *?next=
+Disallow: *?src=
+Disallow: *&src=
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Swiftbot
+Crawl-delay: 1
+
+Sitemap: https://www.truthforlife.org/sitemap.xml
+

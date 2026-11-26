@@ -1011,6 +1011,7 @@ Reconciled **7 October 2026** from the held-file stocktake and retained acquisit
 **Licence/terms and credit:** Recorded private noncommercial reading copies; preserve Alistair Begg, ministry and publication notices. No public hosting or AI-training permission is inferred.
 **Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
 **Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/begg-policy-evidence.json).
+**Whole sermon archive (2026-11-26):** 1,351 more sermon pages from the official sermon sitemap (3,082 pages; 1,343 new Begg sermons, mostly audio-only pages carrying their stated text), held under `source-truth-for-life/asset-sermons-begg-*` with provenance; policy and robots.txt re-read first, 2 s between requests. [Report](content/library/reports/sermons-campaign/begg/README.md), [terms](content/library/reports/sermons-campaign/begg/TERMS.md).
 
 <a id="source-tyndale-tms-edu"></a>
 ### The Master’s Seminary Journal
