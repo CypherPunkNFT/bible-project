@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-beams-009",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Beams of Divine Light; held file library/source-tcp-bulk/asset-bulk-tcp-a12166/original.xml (sha256 deab49d05406…).",
+    "The held transcription marks 62 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Beams of Divine Light, sermon 9",
+  "alternateTitles": [
+    "THE CHVRCHES ECCHO."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Revelation 22:17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66022017,
+      "end": 66022017,
+      "verification": "verified",
+      "locator": "TCP A12166, <div type=\"sermon\"> 9 of 11; printed: 'REVEL. 22.17.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-9c8af930625d61517d449a3d",
+      "locator": "TCP A12166, <div type=\"sermon\"> 9 of 11"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12166/master/A12166.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12166/master/A12166.xml",
+      "locator": "TCP A12166, <div type=\"sermon\"> 9 of 11",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

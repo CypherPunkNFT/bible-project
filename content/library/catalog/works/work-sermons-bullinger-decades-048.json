@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-decades-048",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Fifty sermons divided into five decades; held file library/source-tcp-bulk/asset-bulk-tcp-a17183/original.xml (sha256 4c2b9b4976cb…).",
+    "The held transcription marks 57 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Fifty sermons divided into five decades, sermon 48",
+  "alternateTitles": [
+    "Decade 5, sermon 8: Of holie Baptisme, what it is, by whom, and when it was instituted, and that there is but one baptisme of water. Of the baptisme of fire. Of the rite or ceremonie of Baptisme, how, of whome, and to whom it must be ministred. Of Baptisme by Midwiues, and of infantes dying without Baptisme. Of the Baptisme of Infantes, against Anabaptisme or Rebaptising, and of the power or efficacie of Baptisme. / The eighth Sermon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f7b99a60d6801c5d26a2be97",
+      "locator": "TCP A17183, <div type=\"sermon\"> 48 of 50 (n=8)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17183/master/A17183.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17183/master/A17183.xml",
+      "locator": "TCP A17183, <div type=\"sermon\"> 48 of 50 (n=8)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-125",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 8 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 125",
+  "alternateTitles": [
+    "On Thursday the ij. of Ianuarie, 1556. The Cxxv. Sermon, which is the first vpon the two & twentith Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Deuteronomy 22:1-4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5022001,
+      "end": 5022004,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 116 of 190 (n=125); heading: 'On Thursday the ij. of Ianuarie, 1556. The Cxxv. Sermon, which is the first vpon the two & twentith Chapter.'; verse numbers printed at its head: [2, 3, 4]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 116 of 190 (n=125)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 116 of 190 (n=125)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

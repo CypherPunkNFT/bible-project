@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-backslider-004",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Returning Backslider; held file library/source-tcp-bulk/asset-bulk-tcp-a12190/original.xml (sha256 b4836ff30e5d…).",
+    "The held transcription marks 5 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Returning Backslider, sermon 4",
+  "alternateTitles": [
+    "THE FOVRTH SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hosea 14:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 28014003,
+      "end": 28014003,
+      "verification": "verified",
+      "locator": "TCP A12190, <div type=\"sermon\"> 4 of 16 (n=4); printed: 'HOS. 14.3.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-8acc5483bf0dbcfd83d89f6e",
+      "locator": "TCP A12190, <div type=\"sermon\"> 4 of 16 (n=4)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12190/master/A12190.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12190/master/A12190.xml",
+      "locator": "TCP A12190, <div type=\"sermon\"> 4 of 16 (n=4)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

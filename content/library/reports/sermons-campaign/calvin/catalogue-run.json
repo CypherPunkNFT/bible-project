@@ -1,0 +1,153 @@
+{
+  "preacher": "calvin",
+  "generatedBy": "scripts/catalog-historic-sermons.py",
+  "generatedOn": "2026-11-26",
+  "plan": "reports/sermons-campaign/historic-splitting-20261126/plan.json",
+  "counts": {
+    "placed": 503,
+    "listed without a passage": 23,
+    "sermons": 526
+  },
+  "ceiling": 535,
+  "unplaced": [
+    {
+      "workId": "work-sermons-calvin-deut-169",
+      "title": "On Saturday the xi. of April, 1556. The CLXIX. Sermon which is the first vppon the thirtith Chapter.",
+      "reason": "heading: 'On Saturday the xi. of April, 1556. The CLXIX. Sermon which is the first vppon the thirtith Chapter.'; verse numbers printed at its head: [29, 2, 3, 4, 5] (out of order, not used: [2, 3, 4, 5]): Deuteronomy 30:29 does not exist in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-039",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 38's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-048",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 47's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-061",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 60's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-067",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 66's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-084",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 83's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-107",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 106's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-111",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 110's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-115",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 114's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-117",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 116's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-deut-157",
+      "title": "",
+      "reason": "heading lost in two pages missing from the transcribed copy; the text runs on inside sermon 156's division, boundary not verified"
+    },
+    {
+      "workId": "work-sermons-calvin-job-036",
+      "title": "The .xxxvj. Sermon, which is the fourth vpon the ninth Chapter.",
+      "reason": "heading: 'The .xxxvj. Sermon, which is the fourth vpon the ninth Chapter.'; verse numbers printed at its head: [23, 24, 25, 26, 27, 38]: Job 9:38 does not exist in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-job-044",
+      "title": "The .xliiij. Sermon, which is the thirde vpon the .xj. Chapter.",
+      "reason": "heading: 'The .xliiij. Sermon, which is the thirde vpon the .xj. Chapter.'; verse numbers printed at its head: [13, 14, 115, 16, 17, 18, 19, 20] (out of order, not used: [16, 17, 18, 19, 20]): Job 11:115 does not exist in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-job-124",
+      "title": "The .Cxxiiij. Sermon, which is the third vpon the .xxxiiij. Chapter.",
+      "reason": "heading: 'The .Cxxiiij. Sermon, which is the third vpon the .xxxiiij. Chapter.'; verse numbers printed at its head: [14, 15, 16, 17]; misprint, not corrected: the heading prints 'the third vpon the .xxxiiij. Chapter', but the words quoted ('God vvill speake once or tvvice') are Job 33:14-17, and the sermons before and after are the second and fourth upon chapter 33"
+    },
+    {
+      "workId": "work-sermons-calvin-job-126",
+      "title": "The .Cxxvj. Sermon, which is the fifth vpon the .xxxiij. Chapter.",
+      "reason": "heading: 'The .Cxxvj. Sermon, which is the fifth vpon the .xxxiij. Chapter.'; verse numbers printed at its head: [29]; misprint, not corrected: the quoted text is numbered '29', but its words ('He shal pray, God and appease him') are Job 33:26 in the KJV, and the sermon's own note says it is still upon verses 23-25 'and then vpon that which is added heere'"
+    },
+    {
+      "workId": "work-sermons-calvin-job-153",
+      "title": "The Cliij. Sermon, which is the third vpon the▪ xxxix. Chapter.",
+      "reason": "heading: 'The Cliij. Sermon, which is the third vpon the▪ xxxix. Chapter.'; verse numbers printed at its head: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]: Job 39:35 does not exist in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-job-154",
+      "title": "The .Cliiij. Sermon, which is the fourth vpon the .xxxix. Chapter.",
+      "reason": "heading: 'The .Cliiij. Sermon, which is the fourth vpon the .xxxix. Chapter.'; verse numbers printed at its head: [36, 37, 38, 2, 3, 4, 5, 6] (out of order, not used: [2, 3, 4, 5, 6]): Job 39:36 does not exist in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-job-155",
+      "title": "The .Clv. Sermon, which is the second vpon the .xl. Chapter.",
+      "reason": "heading: 'The .Clv. Sermon, which is the second vpon the .xl. Chapter.': Golding numbers Job 40 and 41 as the French Bible does, not as the KJV (his 40:7 'Cast abroad the rage of thy wrath' is the KJV's 40:11)"
+    },
+    {
+      "workId": "work-sermons-calvin-job-156",
+      "title": "The Clvj. Sermon, which is the third vpon the .xl. Chapter.",
+      "reason": "heading: 'The Clvj. Sermon, which is the third vpon the .xl. Chapter.': Golding numbers Job 40 and 41 as the French Bible does, not as the KJV (his 40:7 'Cast abroad the rage of thy wrath' is the KJV's 40:11)"
+    },
+    {
+      "workId": "work-sermons-calvin-jacob-esau-010",
+      "title": "The eleuenth Sermon of Iacob and Esau, Genesis 27.",
+      "reason": "heading: 'The eleuenth Sermon of Iacob and Esau, Genesis 27.'; printed at the head: '3'; verse numbers printed in the quoted text: [3, 4, 5, 6, 7, 8, 9]; misprint, not corrected: the words quoted at the head ('Nowe it came to passe when Isaack was very olde, and his') are GEN 27:24 in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-jacob-esau-011",
+      "title": "❧The twelfth Sermon of Iacob and Esau. Genesis 27.",
+      "reason": "heading: '❧The twelfth Sermon of Iacob and Esau. Genesis 27.'; printed at the head: '13'; verse numbers printed in the quoted text: [13, 14, 15, 16, 17, 18, 19, 20, 21]; misprint, not corrected: the words quoted at the head ('But Iacob sayde vnto Rebecca his mother, Beholde my brother Esau is') are GEN 27:11 in the KJV"
+    },
+    {
+      "workId": "work-sermons-calvin-melchizedek-007",
+      "title": "THE FOVRTH Sermon of Iustification.",
+      "reason": "no reference printed at the head"
+    },
+    {
+      "workId": "work-sermons-calvin-melchizedek-009",
+      "title": "The Seconde Sermon of Abraham his Sacrificing of his Sonne Isaak.",
+      "reason": "no reference printed at the head"
+    }
+  ],
+  "missingHeldFiles": [],
+  "notSermons": [],
+  "witnessesNotCounted": [
+    {
+      "tcp": "A17717",
+      "note": "Sermons upon the Ten Commandments (16): the same sermons as Deuteronomy 4:44-6:4 in A17698"
+    },
+    {
+      "tcp": "A17636",
+      "note": "Certain homilies (3): the same sermons as the Four godly sermons, A17692"
+    },
+    {
+      "tcp": "A17694",
+      "note": "Four sermons, Fielde's translation (1579): the same four sermons as A17692"
+    },
+    {
+      "tcp": "A17725",
+      "note": "Two godly and learned sermons (Munday): the first two of the Four sermons, A17692"
+    },
+    {
+      "tcp": "A17693",
+      "note": "A sermon ... exhortation to suffer persecution (Heb. 13:13): the second of the Four sermons, A17692"
+    }
+  ]
+}

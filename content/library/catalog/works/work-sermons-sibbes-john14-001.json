@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-john14-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Two Sermons upon John 14:1; held file library/source-tcp-bulk/asset-bulk-tcp-a12205/original.xml (sha256 e7795aae4682…).",
+    "The held transcription marks 3 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Sermons upon John 14:1, sermon 1",
+  "alternateTitles": [
+    "The first SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 14:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43014001,
+      "end": 43014001,
+      "verification": "verified",
+      "locator": "TCP A12205, <div type=\"sermon\"> 1 of 2 (n=1); printed: 'lOHN 14. chap. 1 verse.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-31b224e9b0038d2b6e30da54",
+      "locator": "TCP A12205, <div type=\"sermon\"> 1 of 2 (n=1)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12205/master/A12205.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12205/master/A12205.xml",
+      "locator": "TCP A12205, <div type=\"sermon\"> 1 of 2 (n=1)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

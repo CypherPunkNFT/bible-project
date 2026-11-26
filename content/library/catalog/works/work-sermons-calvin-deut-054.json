@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-054",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 6 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 54",
+  "alternateTitles": [
+    "On Wednesday the vij. of August. 1555. The Liiij. Sermon which is the fourth vpon the seuenth Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1555",
+      "precision": "year",
+      "label": "As printed: 'On Wednesday the vij. of August. 1555' (not converted)",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+          "locator": "TCP A17698, <div type=\"sermon\"> 52 of 190 (n=54)",
+          "note": "Preaching day and year as printed in the sermon's heading.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 7:11-15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5007011,
+      "end": 5007015,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 52 of 190 (n=54); heading: 'On Wednesday the vij. of August. 1555. The Liiij. Sermon which is the fourth vpon the seuenth Chapter.'; verse numbers printed at its head: [11, 12, 13, 14, 15]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 52 of 190 (n=54)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 52 of 190 (n=54)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

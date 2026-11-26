@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-004",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 5 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 4",
+  "alternateTitles": [
+    "On Thursday the xj. of Aprill. 1555. The fourth Sermon vppon the first Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1555",
+      "precision": "year",
+      "label": "As printed: 'On Thursday the xj. of Aprill. 1555' (not converted)",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+          "locator": "TCP A17698, <div type=\"sermon\"> 4 of 190 (n=4)",
+          "note": "Preaching day and year as printed in the sermon's heading.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 1:16-18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5001016,
+      "end": 5001018,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 4 of 190 (n=4); heading: 'On Thursday the xj. of Aprill. 1555. The fourth Sermon vppon the first Chapter.'; verse numbers printed at its head: [16, 17, 18]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 4 of 190 (n=4)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 4 of 190 (n=4)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

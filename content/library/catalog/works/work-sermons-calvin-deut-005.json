@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-005",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 6 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 5",
+  "alternateTitles": [
+    "On Fryday the xij. of Aprill. 1555. The fift Sermon vpon the first Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1555",
+      "precision": "year",
+      "label": "As printed: 'On Fryday the xij. of Aprill. 1555' (not converted)",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+          "locator": "TCP A17698, <div type=\"sermon\"> 5 of 190 (n=5)",
+          "note": "Preaching day and year as printed in the sermon's heading.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 1:19-21",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5001019,
+      "end": 5001021,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 5 of 190 (n=5); heading: 'On Fryday the xij. of Aprill. 1555. The fift Sermon vpon the first Chapter.'; verse numbers printed at its head: [19, 20, 21]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 5 of 190 (n=5)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 5 of 190 (n=5)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

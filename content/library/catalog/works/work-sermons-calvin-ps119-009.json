@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-ps119-009",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Two and twenty sermons upon Psalm 119; held file library/source-tcp-bulk/asset-bulk-tcp-a17724/original.xml (sha256 eb15b17ecc53…).",
+    "The held transcription marks 2 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Two and twenty sermons upon Psalm 119, sermon 9",
+  "alternateTitles": [
+    "The nienth Sermon of the hundredth and nineteenth Psalme."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 119",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19119001,
+      "end": 19119176,
+      "verification": "verified",
+      "locator": "TCP A17724, <div type=\"sermon\"> 9 of 22 (n=9); heading: 'vpon the hundreth and ninteene Psalme'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-26d33c6c1a86287d9cd7e2a7",
+      "locator": "TCP A17724, <div type=\"sermon\"> 9 of 22 (n=9)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17724/master/A17724.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17724/master/A17724.xml",
+      "locator": "TCP A17724, <div type=\"sermon\"> 9 of 22 (n=9)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-apocalypse-076",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A hundred sermons upon the Apocalypse; held file library/source-tcp-bulk/asset-bulk-tcp-b11837/original.xml (sha256 5903dc4f4ec6…).",
+    "The held transcription marks 3 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "A hundred sermons upon the Apocalypse, sermon 76",
+  "alternateTitles": [
+    "¶ Agayne this vision is more fully declared, and the punnishment of the beast is shewed. The .lxxvj. Sermon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-030e399d2b53e03872c67c2c",
+      "locator": "TCP B11837, <div type=\"sermon\"> 76 of 101 (n=76)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/B11837/master/B11837.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/B11837/master/B11837.xml",
+      "locator": "TCP B11837, <div type=\"sermon\"> 76 of 101 (n=76)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

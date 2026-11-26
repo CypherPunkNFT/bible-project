@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-miracle-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A Miracle of Miracles; held file library/source-tcp-bulk/asset-bulk-tcp-a12187/original.xml (sha256 11135c2012ad…).",
+    "The held transcription marks 6 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "A Miracle of Miracles, sermon 2",
+  "alternateTitles": [
+    "THE SECOND SERMON"
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 7:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23007014,
+      "end": 23007014,
+      "verification": "verified",
+      "locator": "TCP A12187, <div type=\"sermon\"> 2 of 2 (n=2); printed: 'ISAIAH. 7.14.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-94decff8d077ea3d07538426",
+      "locator": "TCP A12187, <div type=\"sermon\"> 2 of 2 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12187/master/A12187.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12187/master/A12187.xml",
+      "locator": "TCP A12187, <div type=\"sermon\"> 2 of 2 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

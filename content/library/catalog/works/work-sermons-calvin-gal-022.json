@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-gal-022",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Galatians; held file library/source-tcp-bulk/asset-bulk-tcp-a17706/original.xml (sha256 59ab925906c7…).",
+    "The held transcription marks 5 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Galatians, sermon 22",
+  "alternateTitles": [
+    "The .xxij. Sermon, which is the eyght vpon the third Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Galatians 3:21-25",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 48003021,
+      "end": 48003025,
+      "verification": "verified",
+      "locator": "TCP A17706, <div type=\"sermon\"> 22 of 43 (n=22); heading: 'The .xxij. Sermon, which is the eyght vpon the third Chapter.'; verse numbers printed at its head: [21, 22, 23, 24, 25]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-39f4abc22e30ad8d4cc009c8",
+      "locator": "TCP A17706, <div type=\"sermon\"> 22 of 43 (n=22)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml",
+      "locator": "TCP A17706, <div type=\"sermon\"> 22 of 43 (n=22)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

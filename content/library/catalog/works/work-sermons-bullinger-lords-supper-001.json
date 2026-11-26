@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-lords-supper-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A sermon of the Lord's Supper; held file library/source-tcp-bulk/asset-bulk-tcp-a17190/original.xml (sha256 7d3e7439a021…).",
+    "The held transcription marks 2 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "A sermon of the Lord's Supper, sermon 1",
+  "alternateTitles": [
+    "¶ A Sermon of the Supper of our Lorde Iesus Christe the Sonne of God."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-193fea45e51395671ada52ea",
+      "locator": "TCP A17190, <div type=\"sermon\"> 1 of 1"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17190/master/A17190.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17190/master/A17190.xml",
+      "locator": "TCP A17190, <div type=\"sermon\"> 1 of 1",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-flavel-fountain-027",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Fountain of Life; held file library/source-tcp-bulk/asset-bulk-tcp-a39663/original.xml (sha256 f59079ef855c…).",
+    "The held transcription marks 28 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Fountain of Life, sermon 27",
+  "alternateTitles": [
+    "The TWENTY SEVENTH SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-flavel",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Luke 23:38",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42023038,
+      "end": 42023038,
+      "verification": "verified",
+      "locator": "TCP A39663, <div type=\"sermon\"> 27 of 43 (n=27); printed: 'LUK. XXIII.XXXVIII.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-d37128ab9db9d55169e0ceb7",
+      "locator": "TCP A39663, <div type=\"sermon\"> 27 of 43 (n=27)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A39663/master/A39663.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A39663/master/A39663.xml",
+      "locator": "TCP A39663, <div type=\"sermon\"> 27 of 43 (n=27)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

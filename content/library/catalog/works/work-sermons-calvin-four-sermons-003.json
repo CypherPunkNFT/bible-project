@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-four-sermons-003",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Four godly sermons against idolatry; held file library/source-tcp-bulk/asset-bulk-tcp-a17692/original.xml (sha256 fbbd3d8df169…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Four godly sermons against idolatry, sermon 3",
+  "alternateTitles": [
+    "The thirde Sermon VVHEREIN THE FAITHFVL are admonished how greatly thei oght to esteme it to liue in the churche of god, where they may purely and with libertie worship him, taken forth of this sentence of the. Psalm. 27."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalms 27:4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19027004,
+      "end": 19027004,
+      "verification": "verified",
+      "locator": "TCP A17692, <div type=\"sermon\"> 3 of 4 (n=3); heading: 'this sentence of the. Psalm. 27.'; Fielde's translation (TCP A17694) prints 'the 27. Psalme ... Ver. 4.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-fc560eb38140c845736c2cf1",
+      "locator": "TCP A17692, <div type=\"sermon\"> 3 of 4 (n=3)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17692/master/A17692.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17692/master/A17692.xml",
+      "locator": "TCP A17692, <div type=\"sermon\"> 3 of 4 (n=3)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

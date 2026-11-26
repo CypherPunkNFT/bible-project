@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-christians-end-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Christian's End; held file library/source-tcp-bulk/asset-bulk-tcp-a12177/original.xml (sha256 573be6d70672…).",
+    "The held transcription marks 11 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Christian's End, sermon 2",
+  "alternateTitles": [
+    "THE SECOND SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 14:7-8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45014007,
+      "end": 45014008,
+      "verification": "verified",
+      "locator": "TCP A12177, <div type=\"sermon\"> 2 of 5 (n=2); printed: 'ROM. 14. 7, 8.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-b52d555606bd87b4fbdc6a31",
+      "locator": "TCP A12177, <div type=\"sermon\"> 2 of 5 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12177/master/A12177.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12177/master/A12177.xml",
+      "locator": "TCP A12177, <div type=\"sermon\"> 2 of 5 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

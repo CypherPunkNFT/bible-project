@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-melchizedek-008",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons on Melchizedek and Abraham; held file library/source-tcp-bulk/asset-bulk-tcp-a17696/original.xml (sha256 7302056867fc…).",
+    "The held transcription marks 35 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons on Melchizedek and Abraham, sermon 8",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 22:1-2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1022001,
+      "end": 1022002,
+      "verification": "verified",
+      "locator": "TCP A17696, <div type=\"sermon\"> 8 of 9 (n=1); printed: 'Gen. 22.'; verse numbers printed in the quoted text: [1, 2]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-ef5fc428d16b980468ba0319",
+      "locator": "TCP A17696, <div type=\"sermon\"> 8 of 9 (n=1)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17696/master/A17696.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17696/master/A17696.xml",
+      "locator": "TCP A17696, <div type=\"sermon\"> 8 of 9 (n=1)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

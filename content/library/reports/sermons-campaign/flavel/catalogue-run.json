@@ -1,0 +1,38 @@
+{
+  "preacher": "flavel",
+  "generatedBy": "scripts/catalog-historic-sermons.py",
+  "generatedOn": "2026-11-26",
+  "plan": "reports/sermons-campaign/historic-splitting-20261126/plan.json",
+  "counts": {
+    "placed": 85,
+    "listed without a passage": 3,
+    "sermons": 88
+  },
+  "ceiling": 90,
+  "unplaced": [
+    {
+      "workId": "work-sermons-flavel-fountain-017",
+      "title": "The SEVENTEENTH SERMON.",
+      "reason": "book not recognised in the printed reference 'IEPH. XXII.' ('IEPH. XXII.')"
+    },
+    {
+      "workId": "work-sermons-flavel-fountain-038",
+      "title": "The THIRTY EIGHTH SERMON.",
+      "reason": "printed: 'ISAIAH LIII.II.'; misprint, not corrected: printed 'ISAIAH LIII.II.', but the words quoted ('He shall see the Travel of his Soul and be satisfied') are Isaiah 53:11 in the KJV"
+    },
+    {
+      "workId": "work-sermons-flavel-method-grace-021",
+      "title": "The Twenty first SERMON.",
+      "reason": "no reference printed at the head"
+    }
+  ],
+  "missingHeldFiles": [],
+  "notSermons": [
+    {
+      "source": "A39663",
+      "division": 43,
+      "reason": "'The General Use of the whole', the book's closing application after its 42 sermons, not a sermon"
+    }
+  ],
+  "witnessesNotCounted": []
+}

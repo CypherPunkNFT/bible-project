@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-job-037",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Job; held file library/source-tcp-bulk/asset-bulk-tcp-a69056/original.xml (sha256 b56e50949d72…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Job, sermon 37",
+  "alternateTitles": [
+    "The .xxxvij. Sermon, which is the fift vpon the ninth Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Job 9:29-31, 33-35",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18009029,
+      "end": 18009031,
+      "verification": "verified",
+      "locator": "TCP A69056, <div type=\"sermon\"> 37 of 159 (n=37); heading: 'The .xxxvij. Sermon, which is the fift vpon the ninth Chapter.'; verse numbers printed at its head: [29, 30, 31, 22, 33, 34, 35] (out of order, not used: [22])"
+    },
+    {
+      "reference": "Job 9:29-31, 33-35",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18009033,
+      "end": 18009035,
+      "verification": "verified",
+      "locator": "TCP A69056, <div type=\"sermon\"> 37 of 159 (n=37); heading: 'The .xxxvij. Sermon, which is the fift vpon the ninth Chapter.'; verse numbers printed at its head: [29, 30, 31, 22, 33, 34, 35] (out of order, not used: [22])"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f8e8586094538b4d9246c963",
+      "locator": "TCP A69056, <div type=\"sermon\"> 37 of 159 (n=37)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml",
+      "locator": "TCP A69056, <div type=\"sermon\"> 37 of 159 (n=37)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

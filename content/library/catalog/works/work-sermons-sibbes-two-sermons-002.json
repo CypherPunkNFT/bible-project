@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-two-sermons-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Two Sermons (The Spouse; The Power of Christ's Resurrection); held file library/source-tcp-bulk/asset-bulk-tcp-a12209/original.xml (sha256 cdb3b6dc43fe…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Two Sermons (The Spouse; The Power of Christ's Resurrection), sermon 2",
+  "alternateTitles": [
+    "THE POWER OF Christs Resurrection."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Colossians 3:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 51003001,
+      "end": 51003001,
+      "verification": "verified",
+      "locator": "TCP A12209, <div type=\"sermon\"> 2 of 2; printed: 'COLOS. 3. 1.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-21c830a7c075f5fbb35eac68",
+      "locator": "TCP A12209, <div type=\"sermon\"> 2 of 2"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12209/master/A12209.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12209/master/A12209.xml",
+      "locator": "TCP A12209, <div type=\"sermon\"> 2 of 2",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

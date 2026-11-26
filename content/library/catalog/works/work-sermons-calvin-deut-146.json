@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-146",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 9 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 146",
+  "alternateTitles": [
+    "On Munday the xxiiij. of Februarie. 1556. The CXLVI. Sermon, which is the second vpon the sixe & twentith Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1556",
+      "precision": "year",
+      "label": "As printed: 'On Munday the xxiiij. of Februarie. 1556' (not converted)",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+          "locator": "TCP A17698, <div type=\"sermon\"> 137 of 190 (n=146)",
+          "note": "Preaching day and year as printed in the sermon's heading.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 26:5-12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5026005,
+      "end": 5026012,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 137 of 190 (n=146); heading: 'On Munday the xxiiij. of Februarie. 1556. The CXLVI. Sermon, which is the second vpon the sixe & twentith Chapter.'; verse numbers printed at its head: [5, 6, 7, 8, 9, 10, 11, 12]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 137 of 190 (n=146)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 137 of 190 (n=146)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

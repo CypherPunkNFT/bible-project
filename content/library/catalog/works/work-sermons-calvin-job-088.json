@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-job-088",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Job; held file library/source-tcp-bulk/asset-bulk-tcp-a69056/original.xml (sha256 b56e50949d72…).",
+    "The held transcription marks 2 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Job, sermon 88",
+  "alternateTitles": [
+    "The .lxxxviij. Sermon, which is the first vpon the .xxiij. Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Job 23:1-7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18023001,
+      "end": 18023007,
+      "verification": "verified",
+      "locator": "TCP A69056, <div type=\"sermon\"> 88 of 159 (n=88); heading: 'The .lxxxviij. Sermon, which is the first vpon the .xxiij. Chapter.'; verse numbers printed at its head: [1, 2, 3, 4, 5, 6, 7]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f8e8586094538b4d9246c963",
+      "locator": "TCP A69056, <div type=\"sermon\"> 88 of 159 (n=88)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml",
+      "locator": "TCP A69056, <div type=\"sermon\"> 88 of 159 (n=88)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-end-of-world-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Of the end of the world (two sermons); held file library/source-tcp-bulk/asset-bulk-tcp-a17215/original.xml (sha256 45954849944a…).",
+    "The held transcription marks 19 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Of the end of the world (two sermons), sermon 2",
+  "alternateTitles": [
+    "¶THE SECOND Sermon of Henry Bullinger, teaching by the woords of the Apostle. 2. Timothe 3. after what sorte the godly may auoid the harms of the moste perillous daungers in this our last age."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-0cb97ed95044c089f8e0f6cd",
+      "locator": "TCP A17215, <div type=\"sermon\"> 2 of 2 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17215/master/A17215.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17215/master/A17215.xml",
+      "locator": "TCP A17215, <div type=\"sermon\"> 2 of 2 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

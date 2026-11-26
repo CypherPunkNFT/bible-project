@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-gal-043",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Galatians; held file library/source-tcp-bulk/asset-bulk-tcp-a17706/original.xml (sha256 59ab925906c7…).",
+    "The held transcription marks 29 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Galatians, sermon 43",
+  "alternateTitles": [
+    "The. 43. Sermon, which is the sixth and last vpon the sixth and last Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Galatians 6:14-18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 48006014,
+      "end": 48006018,
+      "verification": "verified",
+      "locator": "TCP A17706, <div type=\"sermon\"> 43 of 43 (n=43); heading: 'The. 43. Sermon, which is the sixth and last vpon the sixth and last Chapter.'; verse numbers printed at its head: [14, 15, 16, 17, 18]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-39f4abc22e30ad8d4cc009c8",
+      "locator": "TCP A17706, <div type=\"sermon\"> 43 of 43 (n=43)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml",
+      "locator": "TCP A17706, <div type=\"sermon\"> 43 of 43 (n=43)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

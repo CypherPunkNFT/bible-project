@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-saints-safety-006",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Saints' Safety in Evil Times; held file library/source-tcp-bulk/asset-bulk-tcp-a12197/original.xml (sha256 4bdb3c728ab4…).",
+    "The held transcription marks 24 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Saints' Safety in Evil Times, sermon 6",
+  "alternateTitles": [
+    "THE SAINTS SAFETY IN EVILL TIMES. / SERMON IIII"
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Peter 4:19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 60004019,
+      "end": 60004019,
+      "verification": "verified",
+      "locator": "TCP A12197, <div type=\"sermon\"> 6 of 7 (n=4); printed: '1 PET. 4. 19.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-b4ad922e7121a328457ab32d",
+      "locator": "TCP A12197, <div type=\"sermon\"> 6 of 7 (n=4)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12197/master/A12197.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12197/master/A12197.xml",
+      "locator": "TCP A12197, <div type=\"sermon\"> 6 of 7 (n=4)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

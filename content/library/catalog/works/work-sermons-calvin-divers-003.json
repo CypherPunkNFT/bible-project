@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-divers-003",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Divers sermons (nativity, passion, resurrection, Pentecost); held file library/source-tcp-bulk/asset-bulk-tcp-a17690/original.xml (sha256 f63799d5a06b…).",
+    "The held transcription marks 1 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Divers sermons (nativity, passion, resurrection, Pentecost), sermon 3",
+  "alternateTitles": [
+    "The third Sermon of the Passion."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 26:51-66",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40026051,
+      "end": 40026066,
+      "verification": "verified",
+      "locator": "TCP A17690, <div type=\"sermon\"> 3 of 23 (n=3); printed: 'Matthew xxvi.'; verse numbers printed in the quoted text: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6aa082eb1458d620a31ab6a6",
+      "locator": "TCP A17690, <div type=\"sermon\"> 3 of 23 (n=3)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml",
+      "locator": "TCP A17690, <div type=\"sermon\"> 3 of 23 (n=3)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

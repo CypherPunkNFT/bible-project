@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-hezekiah-004",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon the song of Hezekiah; held file library/source-tcp-bulk/asset-bulk-tcp-a17716/original.xml (sha256 cf9b3c675f04…).",
+    "The held transcription marks 5 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon the song of Hezekiah, sermon 4",
+  "alternateTitles": [
+    "THE FOVRTH SERmon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 38",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23038001,
+      "end": 23038022,
+      "verification": "verified",
+      "locator": "TCP A17716, <div type=\"sermon\"> 4 of 4 (n=4); title page: 'conteyned in the 38. Chapiter of Esay'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f0f500040c155365d7fe1df5",
+      "locator": "TCP A17716, <div type=\"sermon\"> 4 of 4 (n=4)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17716/master/A17716.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17716/master/A17716.xml",
+      "locator": "TCP A17716, <div type=\"sermon\"> 4 of 4 (n=4)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

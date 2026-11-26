@@ -35,23 +35,32 @@ function registry(library: string): Map<string, RegistryAuthor> {
   return out;
 }
 
-interface OverlayEntry { passages?: CatalogPassage[]; genre?: string; duplicateOf?: string }
+interface OverlayEntry { passages?: CatalogPassage[]; genre?: string; duplicateOf?: string; notBy?: { authorId: string; actually: string } }
 /** content/library/passage-overlays/*.json (scripts/sermon-passages.py): main texts the sermons' own publishers state,
  *  genre corrections and second records of one sermon, kept beside the catalogue because most of those works are
- *  untracked reconciled records (Pages/Teachers/SERMONS-CAMPAIGN.md). */
+ *  untracked reconciled records (Pages/Teachers/SERMONS-CAMPAIGN.md). namesakes-*.json adds "notBy": a work filed under
+ *  a preacher that is by someone else of the same name (job 61cd017d, 2026-11-26). */
 function readOverlays(library: string): Map<string, OverlayEntry> {
   const dir = path.join(library, "passage-overlays"), out = new Map<string, OverlayEntry>();
   if (!fs.existsSync(dir)) return out;
-  for (const file of listJson(dir)) for (const [id, entry] of Object.entries(readJson<{ works: Record<string, OverlayEntry> }>(file).works)) out.set(id, entry);
+  for (const file of listJson(dir)) for (const [id, entry] of Object.entries(readJson<{ works: Record<string, OverlayEntry> }>(file).works)) {
+    // A namesake correction must not be dropped by, or drop, another file's entry for the same work.
+    if (out.has(id) && (entry.notBy || out.get(id)!.notBy)) throw new Error(`${path.basename(file)}: work ${id} is in two passage overlays and one of them corrects its author`);
+    out.set(id, entry);
+  }
   return out;
 }
 
 function applyOverlay(work: CatalogWork, entry: OverlayEntry | undefined): CatalogWork | null {
   if (!entry) return work;
   if (entry.duplicateOf) return null;
+  if (entry.notBy && !work.creators?.some((c) => c.authorId === entry.notBy!.authorId)) {
+    throw new Error(`passage overlay: ${work.id} is marked not by ${entry.notBy.authorId}, who is not among its creators`);
+  }
+  const creators = entry.notBy ? work.creators?.filter((c) => c.authorId !== entry.notBy!.authorId) : work.creators;
   const hasMain = (work.passages ?? []).some((p) => p.role === "main-text" && p.start);
   const passages = entry.passages && !hasMain ? [...(work.passages ?? []).filter((p) => p.role !== "main-text"), ...entry.passages] : work.passages;
-  return { ...work, genre: entry.genre ?? work.genre, passages };
+  return { ...work, creators, genre: entry.genre ?? work.genre, passages };
 }
 
 function collectHoldings(library: string, ids: string[], workUrl: Map<string, string>) {

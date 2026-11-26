@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-deut-047",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Deuteronomy; held file library/source-tcp-bulk/asset-bulk-tcp-a17698/original.xml (sha256 f824773bed33…).",
+    "The held transcription marks 13 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Deuteronomy, sermon 47",
+  "alternateTitles": [
+    "On Wednesday the xxiiij. of Iuly. 1555. The xlvij. Sermon, which is the third vpon the sixt Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1555",
+      "precision": "year",
+      "label": "As printed: 'On Wednesday the xxiiij. of Iuly. 1555' (not converted)",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+          "locator": "TCP A17698, <div type=\"sermon\"> 46 of 190 (n=47)",
+          "note": "Preaching day and year as printed in the sermon's heading.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 6:10-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5006010,
+      "end": 5006013,
+      "verification": "verified",
+      "locator": "TCP A17698, <div type=\"sermon\"> 46 of 190 (n=47); heading: 'On Wednesday the xxiiij. of Iuly. 1555. The xlvij. Sermon, which is the third vpon the sixt Chapter.'; verse numbers printed at its head: [10, 11, 12, 13]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-5ecfca6b3bfc9be7e5b375ee",
+      "locator": "TCP A17698, <div type=\"sermon\"> 46 of 190 (n=47)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17698/master/A17698.xml",
+      "locator": "TCP A17698, <div type=\"sermon\"> 46 of 190 (n=47)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

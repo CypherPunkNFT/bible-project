@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-gal-015",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Galatians; held file library/source-tcp-bulk/asset-bulk-tcp-a17706/original.xml (sha256 59ab925906c7…).",
+    "The held transcription marks 6 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Galatians, sermon 15",
+  "alternateTitles": [
+    "The. 15. Sermon, which is the first vpon the third Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Galatians 3:1-3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 48003001,
+      "end": 48003003,
+      "verification": "verified",
+      "locator": "TCP A17706, <div type=\"sermon\"> 15 of 43 (n=15); heading: 'The. 15. Sermon, which is the first vpon the third Chapter.'; verse numbers printed at its head: [2, 3]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-39f4abc22e30ad8d4cc009c8",
+      "locator": "TCP A17706, <div type=\"sermon\"> 15 of 43 (n=15)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml",
+      "locator": "TCP A17706, <div type=\"sermon\"> 15 of 43 (n=15)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

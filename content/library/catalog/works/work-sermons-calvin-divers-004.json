@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-divers-004",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Divers sermons (nativity, passion, resurrection, Pentecost); held file library/source-tcp-bulk/asset-bulk-tcp-a17690/original.xml (sha256 f63799d5a06b…).",
+    "The held transcription marks 3 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Divers sermons (nativity, passion, resurrection, Pentecost), sermon 4",
+  "alternateTitles": [
+    "The fourth Sermon of the passion."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 26:67-75; Matthew 27:1-11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40026067,
+      "end": 40026075,
+      "verification": "verified",
+      "locator": "TCP A17690, <div type=\"sermon\"> 4 of 23 (n=4); printed: 'Matthew Cap. xxvi.'; verse numbers printed in the quoted text: [67, 68, 69, 70, 71, 72, 73, 74, 75], then 'Chapter 27': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
+    },
+    {
+      "reference": "Matthew 26:67-75; Matthew 27:1-11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40027001,
+      "end": 40027011,
+      "verification": "verified",
+      "locator": "TCP A17690, <div type=\"sermon\"> 4 of 23 (n=4); printed: 'Matthew Cap. xxvi.'; verse numbers printed in the quoted text: [67, 68, 69, 70, 71, 72, 73, 74, 75], then 'Chapter 27': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6aa082eb1458d620a31ab6a6",
+      "locator": "TCP A17690, <div type=\"sermon\"> 4 of 23 (n=4)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml",
+      "locator": "TCP A17690, <div type=\"sermon\"> 4 of 23 (n=4)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-bowels-013",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Bowels Opened; held file library/source-tcp-bulk/asset-bulk-tcp-a12167/original.xml (sha256 59e84db88ddc…).",
+    "The held transcription marks 120 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Bowels Opened, sermon 13",
+  "alternateTitles": [
+    "THE THIRTEENTH SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Song of Songs 5:8-9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 22005008,
+      "end": 22005009,
+      "verification": "verified",
+      "locator": "TCP A12167, <div type=\"sermon\"> 13 of 20 (n=13); printed: 'CANT. V. VIII. IX.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-a1ec3103047407c8be3215ac",
+      "locator": "TCP A12167, <div type=\"sermon\"> 13 of 20 (n=13)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12167/master/A12167.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12167/master/A12167.xml",
+      "locator": "TCP A12167, <div type=\"sermon\"> 13 of 20 (n=13)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

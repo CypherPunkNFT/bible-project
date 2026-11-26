@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-flavel-method-grace-032",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Method of Grace; held file library/source-tcp-bulk/asset-bulk-tcp-a39669/original.xml (sha256 19b1e3a8fa09…).",
+    "The held transcription marks 5 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Method of Grace, sermon 32",
+  "alternateTitles": [
+    "The Thirty second SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-flavel",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 3:18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43003018,
+      "end": 43003018,
+      "verification": "verified",
+      "locator": "TCP A39669, <div type=\"sermon\"> 32 of 35 (n=32); printed: 'JOHN 3. 18. Text.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-44d62668606702cd73f943ea",
+      "locator": "TCP A39669, <div type=\"sermon\"> 32 of 35 (n=32)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A39669/master/A39669.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A39669/master/A39669.xml",
+      "locator": "TCP A39669, <div type=\"sermon\"> 32 of 35 (n=32)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-four-sermons-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Four godly sermons against idolatry; held file library/source-tcp-bulk/asset-bulk-tcp-a17692/original.xml (sha256 fbbd3d8df169…).",
+    "The held transcription marks 6 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Four godly sermons against idolatry, sermon 2",
+  "alternateTitles": [
+    "The .ii. sermon conTEINING AN EXHORTATION to suffer persecution, that we may therein folow Iesus Christ and his gospell, taken of this saying, in the .13. Cap. to the Hebrues."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 13:13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58013013,
+      "end": 58013013,
+      "verification": "verified",
+      "locator": "TCP A17692, <div type=\"sermon\"> 2 of 4 (n=2); heading: 'taken of this saying, in the .13. Cap. to the Hebrues'; the same sermon in TCP A17693 prints 'Heb. 13.13.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-fc560eb38140c845736c2cf1",
+      "locator": "TCP A17692, <div type=\"sermon\"> 2 of 4 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17692/master/A17692.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17692/master/A17692.xml",
+      "locator": "TCP A17692, <div type=\"sermon\"> 2 of 4 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

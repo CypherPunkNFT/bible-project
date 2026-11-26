@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-apocalypse-028",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from A hundred sermons upon the Apocalypse; held file library/source-tcp-bulk/asset-bulk-tcp-b11837/original.xml (sha256 5903dc4f4ec6…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "A hundred sermons upon the Apocalypse, sermon 28",
+  "alternateTitles": [
+    "¶ Here is described adoration and prayse geuyng or an Himne songe vnto Christ of the beasts and Elders. The .xxviij. Sermon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-030e399d2b53e03872c67c2c",
+      "locator": "TCP B11837, <div type=\"sermon\"> 28 of 101 (n=28)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/B11837/master/B11837.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/B11837/master/B11837.xml",
+      "locator": "TCP B11837, <div type=\"sermon\"> 28 of 101 (n=28)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

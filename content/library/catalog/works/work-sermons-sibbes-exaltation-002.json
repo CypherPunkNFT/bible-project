@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-exaltation-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Christ's Exaltation Purchased by Humiliation; held file library/source-tcp-bulk/asset-bulk-tcp-a12180/original.xml (sha256 4c54ef39b844…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Christ's Exaltation Purchased by Humiliation, sermon 2",
+  "alternateTitles": [
+    "THE SECOND SERMON ON"
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 14:9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45014009,
+      "end": 45014009,
+      "verification": "verified",
+      "locator": "TCP A12180, <div type=\"sermon\"> 2 of 3 (n=2); printed: 'ROM. 14. 9.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-b4c471de3b2b156039b23459",
+      "locator": "TCP A12180, <div type=\"sermon\"> 2 of 3 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A12180/master/A12180.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12180/master/A12180.xml",
+      "locator": "TCP A12180, <div type=\"sermon\"> 2 of 3 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

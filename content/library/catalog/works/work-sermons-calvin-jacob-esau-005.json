@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-jacob-esau-005",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Thirteen sermons on Jacob and Esau; held file library/source-tcp-bulk/asset-bulk-tcp-a17722/original.xml (sha256 b5d6693b92c1…).",
+    "The held transcription marks 10 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Thirteen sermons on Jacob and Esau, sermon 5",
+  "alternateTitles": [
+    "❧ The fifth Sermon of Iacob and Esau, Genesis 25."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 25:29-34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1025029,
+      "end": 1025034,
+      "verification": "verified",
+      "locator": "TCP A17722, <div type=\"sermon\"> 5 of 12 (n=5); heading: '❧ The fifth Sermon of Iacob and Esau, Genesis 25.'; printed at the head: '29'; verse numbers printed in the quoted text: [29, 30, 31, 32, 33, 34]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6c68d20a98c63334e34d70a1",
+      "locator": "TCP A17722, <div type=\"sermon\"> 5 of 12 (n=5)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17722/master/A17722.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17722/master/A17722.xml",
+      "locator": "TCP A17722, <div type=\"sermon\"> 5 of 12 (n=5)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

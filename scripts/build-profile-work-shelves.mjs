@@ -9,7 +9,8 @@ const overlays=new Map();
 for(const file of fs.readdirSync(path.join(library,'passage-overlays')).filter(f=>f.endsWith('.json')))for(const [id,entry] of Object.entries(read(path.join(library,'passage-overlays',file)).works))overlays.set(id,entry);
 for(const file of fs.readdirSync(path.join(library,'catalog/works')).filter(f=>f.endsWith('.json'))){
  const w=read(path.join(library,'catalog/works',file));
- if(w.creators?.some(c=>ids.has(c.authorId))&&!overlays.get(w.id)?.duplicateOf)works.push(w);
+ const notBy=overlays.get(w.id)?.notBy?.authorId; // a namesake's work (passage-overlays/namesakes-*.json)
+ if(w.creators?.some(c=>ids.has(c.authorId)&&c.authorId!==notBy)&&!overlays.get(w.id)?.duplicateOf)works.push(notBy?{...w,creators:w.creators.filter(c=>c.authorId!==notBy)}:w);
 }
 const wanted=new Set(works.map(w=>w.id)),records=new Map(),readableRecords=[];
 const nameKey=value=>String(value).toLowerCase().replace(/[^a-z0-9]+/g,'');

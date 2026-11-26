@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-jacob-esau-010",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Thirteen sermons on Jacob and Esau; held file library/source-tcp-bulk/asset-bulk-tcp-a17722/original.xml (sha256 b5d6693b92c1…).",
+    "The held transcription marks 2 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Thirteen sermons on Jacob and Esau, sermon 10",
+  "alternateTitles": [
+    "The eleuenth Sermon of Iacob and Esau, Genesis 27."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6c68d20a98c63334e34d70a1",
+      "locator": "TCP A17722, <div type=\"sermon\"> 10 of 12 (n=11)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17722/master/A17722.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17722/master/A17722.xml",
+      "locator": "TCP A17722, <div type=\"sermon\"> 10 of 12 (n=11)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

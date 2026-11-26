@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-owen-ccel-063",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons of John Owen (CCEL; Goold's Works vols. 8-9); held file library/source-ccel-expansion/asset-expanded-7c2360b3c3a34c57f625/original.xml (sha256 d8d1ee4da4cd…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermon III. Faith’s answer to divine reproofs. Habakkuk ii. 1–4.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Habakkuk 2:1-4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 35002001,
+      "end": 35002004,
+      "verification": "verified",
+      "locator": "CCEL owen/sermons.xml, <div2 id=\"vi.vi\"> in 'Posthumous Sermons: Series Published for the First Time 1854'; printed: 'Habakkuk ii. 1–4.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6ca26fe4a1fe7b8a8dbdb44d",
+      "locator": "CCEL owen/sermons.xml, <div2 id=\"vi.vi\"> in 'Posthumous Sermons: Series Published for the First Time 1854'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://ccel.org/ccel/o/owen/sermons.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/o/owen/sermons.xml",
+      "locator": "CCEL owen/sermons.xml, <div2 id=\"vi.vi\"> in 'Posthumous Sermons: Series Published for the First Time 1854'",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

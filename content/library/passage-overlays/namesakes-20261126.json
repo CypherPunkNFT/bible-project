@@ -1,0 +1,408 @@
+{
+  "kind": "passage-overlay",
+  "name": "namesakes-20261126",
+  "generatedBy": "job 61cd017d (historic sermons split)",
+  "generatedOn": "2026-11-26",
+  "method": "Works filed under a preacher that are by someone else of the same name. Each was checked against the author string its held file carries in the library (reports/campaign-reconciliation/catalogue/private-catalog.jsonl, matched by the hash in its edition label) and its title. The work records are not edited or deleted: the Teachers build (scripts/teacher-pages/people.ts) and the profile shelves drop that preacher from the work. Kept under Owen after checking: work-reconciled-1f7376a57fb9e62b36f0edfe \"Poema\", which the held CCEL file describes as his 1654 Latin poem to Cromwell in Goold's Works.",
+  "counts": {
+    "namesakeWorks": 26
+  },
+  "works": {
+    "work-reconciled-3757acd748aea7f0501a7ce4": {
+      "title": "Lectures on the principles and practice of physic v.2",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Sir Thomas Watson (1792-1882), physician: Lectures on the Principles and Practice of Physic",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/lecturesonprinc01watsgoog.txt",
+            "sha256": "0a3beda9ab215a9ad2d8ce1954d76079a72243c48ee493bcb4702ae65ccd0a6e",
+            "libraryAuthor": "Thomas Watson",
+            "source": "https://archive.org/download/lecturesonprinc01watsgoog/lecturesonprinc01watsgoog_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-564bf26118a198dd07258a06": {
+      "title": "Lectures on the principles and practice of physic v.2",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Sir Thomas Watson (1792-1882), physician: Lectures on the Principles and Practice of Physic",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/lecturesonprinc02watsgoog.txt",
+            "sha256": "c5cc5b532de837ea5a48548b39cdb1f78c431698168d42d5d2255768d01a934d",
+            "libraryAuthor": "Thomas Watson",
+            "source": "https://archive.org/download/lecturesonprinc02watsgoog/lecturesonprinc02watsgoog_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-9d14f19ae03b2b1d3d04d889": {
+      "title": "Lectures on the principles and practice of physic v.2",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Sir Thomas Watson (1792-1882), physician: Lectures on the Principles and Practice of Physic",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/lecturesonprinc00watsgoog.txt",
+            "sha256": "6a6bd4cc75ae679ce7a11cd39c568b6b3fe7fb2e2c4697bcd3a495699f85e013",
+            "libraryAuthor": "Thomas Watson",
+            "source": "https://archive.org/download/lecturesonprinc00watsgoog/lecturesonprinc00watsgoog_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-cf84c91a763799863710335d": {
+      "title": "Lectures On The Principles And Practice Of Physic Vol. 1, Ed. 3rd",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Sir Thomas Watson (1792-1882), physician: Lectures on the Principles and Practice of Physic",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/in.ernet.dli.2015.92068.txt",
+            "sha256": "14d098880c908856d4615c42187b0dc3159d88e3b557866d81c063cf53c53eab",
+            "libraryAuthor": "Watson, Thomas",
+            "source": "https://archive.org/download/in.ernet.dli.2015.92068/2015.92068.Lectures-On-The-Principles-And-Practice-Of-Physic--Vol-1-Ed-3rd_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-17b372be814f80e67909cd9c": {
+      "title": "A copy book ... 1700",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson of Newport Pagnell, writing master: A Copy Book",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1700.txt",
+            "sha256": "a1f58bc76d5210a808073ca4a2de54ba66926c7b117475e99dba247cc7edda05",
+            "libraryAuthor": "Watson, Thomas, of Newport Pagnell.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1700/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1700_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-4e0f6dd76df8b91d4906f18d": {
+      "title": "A copy book enriched with great variety of the most useful and modish hands adorned with a whole alphabet of great letters ... / by Thomas Watson ...",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson of Newport Pagnell, writing master: A Copy Book",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/tcp/A65314.xml",
+            "sha256": "307ca1f86a7d9f67735c11c1249c8953f37b75b446470eb01b7678ee5e0d5567",
+            "libraryAuthor": "Watson, Thomas, 17th/18th cent.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A65314/master/A65314.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-ae30173375f33b15b69e36b6": {
+      "title": "A copy book ... 1683",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson of Newport Pagnell, writing master: A Copy Book",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1683.txt",
+            "sha256": "42d424ef4afa62306adedd82d27ecaa602e997bd48f9a0ec5f70b597ca60d198",
+            "libraryAuthor": "Watson, Thomas, of Newport Pagnell.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1683/bim_early-english-books-1641-1700_a-copy-book-_watson-thomas-of-newpo_1683_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-ec3b1ab8db03fe73d2a36595": {
+      "title": "A copy book, enriched with great variety... 1683",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson of Newport Pagnell, writing master: A Copy Book",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-copy-book-enriched-wi_watson-thomas-of-newpo_1683.txt",
+            "sha256": "a935e0e5ab177b9cd30cef99d7f50d4a50f80e6b5ff3c89264154818f56b33e4",
+            "libraryAuthor": "Watson, Thomas, of Newport Pagnell",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-copy-book-enriched-wi_watson-thomas-of-newpo_1683/bim_early-english-books-1641-1700_a-copy-book-enriched-wi_watson-thomas-of-newpo_1683_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-f1df116ec715c3c98eeab078": {
+      "title": "A copy book... 1695",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson of Newport Pagnell, writing master: A Copy Book",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-copy-book_watson-thomas-of-newpo_1695.txt",
+            "sha256": "0e52b4440b190dc1c6e4b56fef000dfe61541075d22376a9c35a1080d0ee0bc4",
+            "libraryAuthor": "Watson, Thomas, of Newport Pagnell.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-copy-book_watson-thomas-of-newpo_1695/bim_early-english-books-1641-1700_a-copy-book_watson-thomas-of-newpo_1695_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-0837f9251bd1b147975a7eb7": {
+      "title": "Holsome and catholyke doctryne concerninge the seuen Sacramentes of Chrystes Church expedient to be knowen of all men, set forth in maner of shorte sermons to bee made to the people, / by the reuerend father in God. Thomas byshop of Lincolne. Anno. 1558. Mense Februarij.",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson (1513-1584), Catholic bishop of Lincoln",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a68859/original.xml",
+            "sha256": "ded2567ac7cf6f6b7f094aeaa122b251a741f2eca69b03b6fc67a834b8303052",
+            "libraryAuthor": "Watson, Thomas, 1513-1584.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A68859/master/A68859.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-902d3aab0e9b7fcb9246504b": {
+      "title": "Twoo notable sermons made the thirde and fyfte Fridayes in Lent last past, before the Quenes highnes, concernynge the reall presence of Christes body and bloude in the blessed Sacrament: & also the Masse, which is the sacrifice of the newe Testament. / By Thomas Watson, Doctor of Diuinitie..",
+      "notBy": {
+        "authorId": "author-thomas-watson",
+        "actually": "Thomas Watson (1513-1584), Catholic bishop of Lincoln",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a14813/original.xml",
+            "sha256": "ba4608ab958eae56a299cece5491a76033ce7279127d5bfe3faf97ee9cd914c3",
+            "libraryAuthor": "Watson, Thomas, 1513-1584.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A14813/master/A14813.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-69c4f9166788eb40183403aa": {
+      "title": "The history of the origin and first ten years of the British and foreign Bible society",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen (1766-1822): History of the British and Foreign Bible Society",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/historyoforiginf00owen.txt",
+            "sha256": "4552675cd33ae755d4a58740c6a2ca9c29d21cdd28e49993fb49687da591ede9",
+            "libraryAuthor": "Owen, John, 1766-1822",
+            "source": "https://archive.org/download/historyoforiginf00owen/historyoforiginf00owen_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-c463de9758ada360bc6bdbc0": {
+      "title": "The history of the origin and first ten years of the British and Foreign Bible Society",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen (1766-1822): History of the British and Foreign Bible Society",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/historyoforiginf02owen.txt",
+            "sha256": "4296b5d5d7a92c43b70409842d65a51da613491beef2ff0f83e1a716a5ac5770",
+            "libraryAuthor": "Owen, John, 1766-1822",
+            "source": "https://archive.org/download/historyoforiginf02owen/historyoforiginf02owen_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-d5e2b61900a634803395ef9e": {
+      "title": "The history of the origin and first ten years of the British and Foreign Bible Society",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen (1766-1822): History of the British and Foreign Bible Society",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/historyoforiginf01owen.txt",
+            "sha256": "bcb472b7684ea0664c80cdd2cd52e7c1283bdb5c5c3bc9006bef1b8d228d3da3",
+            "libraryAuthor": "Owen, John, 1766-1822",
+            "source": "https://archive.org/download/historyoforiginf01owen/historyoforiginf01owen_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-96a8b6ddd8484beb880b1f02": {
+      "title": "The true way to loyalty a sermon preached by John Owen, chaplain to the Right Honourable Henry, Lord Grey of Ruthin.",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen, chaplain to Lord Grey of Ruthin",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/tcp/A53738.xml",
+            "sha256": "85434357473f6e13835c2bf8a9206a60f7279e2784051a1b6cb445e62cc8ada1",
+            "libraryAuthor": "Owen, John, chaplain to Lord Grey of Ruthin.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A53738/master/A53738.xml"
+          },
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a53738/original.xml",
+            "sha256": "85434357473f6e13835c2bf8a9206a60f7279e2784051a1b6cb445e62cc8ada1",
+            "libraryAuthor": "Owen, John, chaplain to Lord Grey of Ruthin.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A53738/master/A53738.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-0daaae75e4a5b4d5511d0402": {
+      "title": "Immoderate mourning for the dead, prov'd unreasonable and unchristian. Or, Some considerations of general use to allay our sorrow for deceased friends and relations but more especially intended for comfort to parents upon the death of their children. By John Owen, chaplain to the right honourable Henry Lord Grey of Ruthen.",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen, chaplain to Lord Grey of Ruthin",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a90298/original.xml",
+            "sha256": "bd1bd6d7b3d5a96f1523e395bf6f781f2e1db842480d467f319784547a90a5a4",
+            "libraryAuthor": "Owen, John, chaplain to Lord Grey of Ruthin.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A90298/master/A90298.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-c0cd9741ede4705cd1ec4c17": {
+      "title": "Epigrams of that most wittie and worthie epigrammatist Mr. Iohn Owen, Gentleman. Translated by Iohn Vicars; Epigrammata. English. Selections",
+      "notBy": {
+        "authorId": "author-john-owen",
+        "actually": "John Owen the Latin epigrammatist (d. 1622)",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/tcp/A08687.xml",
+            "sha256": "4feec37102e153fa288f394286d503a91060d7445dbc49af182f00a9931bc7c9",
+            "libraryAuthor": "Owen, John, 1560?-1622.; Vicars, John, 1579 or 80-1652.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A08687/master/A08687.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-5e4cafc3f02aafb6bb1f718e": {
+      "title": "Moses and Aaron Ciuil and ecclesiastical rites, vsed by the ancient Hebrewes; obserued, and at large opened, for the clearing of many obscure texts thorowout the whole Scripture. Herein likevvise is shewed what customes the Hebrewes borrowed from heathen people: and that many heathenish customes, originally haue beene vnwarrantable imitations of the Hebrewes. By Thomas Godwyn, B.D.",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin (1586/7-1642), schoolmaster",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a01814/original.xml",
+            "sha256": "10015cd52e5b532b50e61a2258d9d11881419026e597493bfe5c80e6cc6c1c3e",
+            "libraryAuthor": "Goodwin, Thomas, 1586 or 7-1642.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A01814/master/A01814.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-e88c0568fb229383c17ab097": {
+      "title": "Romanæ historiæ anthologia An English exposition of the Romane antiquities, wherein many Romane and English offices are paralleld and divers obscure phrases explained. By Thomas Godwyn Master of Arts: for the vse of Abingdon Schoole.",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin (1586/7-1642), schoolmaster",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a01818/original.xml",
+            "sha256": "f46338f4bae0b18f2c20b1b77baf643fe0eaaf24dc1b92e46c7236bdca2de03a",
+            "libraryAuthor": "Goodwin, Thomas, 1586 or 7-1642.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A01818/master/A01818.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-080e677aa9217ba410dd720a": {
+      "title": "The demeanour of a good subject in order to the acquiring and establishing peace",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin (1586/7-1642), schoolmaster",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a42953/original.xml",
+            "sha256": "ade6b8fbe107ac46f2c98fbb4ad8fe6298e954da37291023e809a1d417a7a40c",
+            "libraryAuthor": "Goodwin, Thomas, 1586 or 7-1642.",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A42953/master/A42953.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-1929c2f44b2d5733980a3aa5": {
+      "title": "Of the happiness of princes ... 1695",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin of Pinner (1650?-1716?), the son",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_of-the-happiness-of-prin_goodwin-thomas-of-pinn_1695.txt",
+            "sha256": "120e8158bc9c14e8f1371522b83d6972aaccf190b8a670c41b415c0e21dadaec",
+            "libraryAuthor": "Goodwin, Thomas, of Pinner.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_of-the-happiness-of-prin_goodwin-thomas-of-pinn_1695/bim_early-english-books-1641-1700_of-the-happiness-of-prin_goodwin-thomas-of-pinn_1695_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-40f72bcabdd459578a428ea8": {
+      "title": "Of the Happiness of princes led by divine counsel a sermon occasioned by the death of that most excellent princess, our late sovereign, Queen Mary / by Thomas Goodwin.",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin of Pinner (1650?-1716?), the son",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a41541/original.xml",
+            "sha256": "69bd926004a4c003c6004cbe2ef728b8efbd99bf18f6a8e3e3c05179362c7b1e",
+            "libraryAuthor": "Goodwin, Thomas, 1650?-1716?",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A41541/master/A41541.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-2e537ce6e8a352169e63dcfc": {
+      "title": "A sermon on occasion of the death of ... 1699",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin of Pinner (1650?-1716?), the son",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-sermon-on-occasion-of-_goodwin-thomas-of-pinn_1699.txt",
+            "sha256": "817d94533c901d028e4fe9f663bd60dfee9495e3468dbdf1872801263b70f19c",
+            "libraryAuthor": "Goodwin, Thomas, of Pinner.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-sermon-on-occasion-of-_goodwin-thomas-of-pinn_1699/bim_early-english-books-1641-1700_a-sermon-on-occasion-of-_goodwin-thomas-of-pinn_1699_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-c79b9eddbe36ec3a940b3525": {
+      "title": "A sermon on occasion of the death of the reverend and learned Mr. Stephen Lobb, who dyed June 3, 1699 by Thomas Goodwin.",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin of Pinner (1650?-1716?), the son",
+        "evidence": [
+          {
+            "heldFile": "sources/library/source-tcp-bulk/asset-bulk-tcp-a41542/original.xml",
+            "sha256": "b43ef877ba2e5653c3f5354f224a0e625897fc7aa8ec91e571b5aa8899992724",
+            "libraryAuthor": "Goodwin, Thomas, 1650?-1716?",
+            "source": "https://raw.githubusercontent.com/textcreationpartnership/A41542/master/A41542.xml"
+          }
+        ]
+      }
+    },
+    "work-reconciled-e241dccca75a2cadf5a043a2": {
+      "title": "A sermon on the occasion of the death of ... 1700",
+      "notBy": {
+        "authorId": "author-thomas-goodwin",
+        "actually": "Thomas Goodwin of Pinner (1650?-1716?), the son",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bim_early-english-books-1641-1700_a-sermon-on-the-occasion_goodwin-thomas-of-pinn_1700.txt",
+            "sha256": "423629481462b263be140684eede477b2ac45effe47cc5e184101ed53a23b812",
+            "libraryAuthor": "Goodwin, Thomas, of Pinner.",
+            "source": "https://archive.org/download/bim_early-english-books-1641-1700_a-sermon-on-the-occasion_goodwin-thomas-of-pinn_1700/bim_early-english-books-1641-1700_a-sermon-on-the-occasion_goodwin-thomas-of-pinn_1700_djvu.txt"
+          }
+        ]
+      }
+    },
+    "work-reconciled-8095b0ff9f98659ad3dda99b": {
+      "title": "Bunyan's Pilgrim's progress, in verse",
+      "notBy": {
+        "authorId": "author-john-bunyan",
+        "actually": "E. P. Dyer's verse adaptation of Pilgrim's Progress",
+        "evidence": [
+          {
+            "heldFile": "sources/library/bulk/ia/bunyanspilgrimsp00bun.txt",
+            "sha256": "da9e2dc22b945015372e9dc4394c9aa8f73e9c1bdbcc197f5bf9d22aac9fdd6c",
+            "libraryAuthor": "Bunyan, John, 1628-1688; Dyer, Ebenezer Porter, 1813-1882. [from old catalog]; John Davis Batchelder Collection (Library of Congress) DLC [from old catalog]",
+            "source": "https://archive.org/download/bunyanspilgrimsp00bun/bunyanspilgrimsp00bun_djvu.txt"
+          }
+        ]
+      }
+    }
+  }
+}

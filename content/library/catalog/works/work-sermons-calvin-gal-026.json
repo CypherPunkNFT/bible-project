@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-gal-026",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Galatians; held file library/source-tcp-bulk/asset-bulk-tcp-a17706/original.xml (sha256 59ab925906c7…).",
+    "The held transcription marks 11 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Galatians, sermon 26",
+  "alternateTitles": [
+    "The. 26. Sermon, which is the third vpon the fourth Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Galatians 4:8-11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 48004008,
+      "end": 48004011,
+      "verification": "verified",
+      "locator": "TCP A17706, <div type=\"sermon\"> 26 of 43 (n=26); heading: 'The. 26. Sermon, which is the third vpon the fourth Chapter.'; verse numbers printed at its head: [8, 9, 10, 11]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-39f4abc22e30ad8d4cc009c8",
+      "locator": "TCP A17706, <div type=\"sermon\"> 26 of 43 (n=26)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17706/master/A17706.xml",
+      "locator": "TCP A17706, <div type=\"sermon\"> 26 of 43 (n=26)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

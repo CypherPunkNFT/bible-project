@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-sibbes-glorious-feast-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Glorious Feast of the Gospel; held file library/source-tcp-bulk/asset-bulk-tcp-a93248/original.xml (sha256 d95173b14fc2…).",
+    "The held transcription marks 2 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Glorious Feast of the Gospel, sermon 2",
+  "alternateTitles": [
+    "THE Second Sermon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 25:6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23025006,
+      "end": 23025006,
+      "verification": "verified",
+      "locator": "TCP A93248, <div type=\"sermon\"> 2 of 9 (n=2); printed: 'ISAIAH 25. 6.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-3fa21260b5125221e2eed86a",
+      "locator": "TCP A93248, <div type=\"sermon\"> 2 of 9 (n=2)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A93248/master/A93248.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A93248/master/A93248.xml",
+      "locator": "TCP A93248, <div type=\"sermon\"> 2 of 9 (n=2)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

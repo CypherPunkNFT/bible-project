@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-job-047",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Job; held file library/source-tcp-bulk/asset-bulk-tcp-a69056/original.xml (sha256 b56e50949d72…).",
+    "The held transcription marks 8 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Job, sermon 47",
+  "alternateTitles": [
+    "The .xlvij. Sermon, which is the third vpon the twelfth Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Job 12:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18012014,
+      "end": 18012014,
+      "verification": "verified",
+      "locator": "TCP A69056, <div type=\"sermon\"> 47 of 159 (n=47); heading: 'The .xlvij. Sermon, which is the third vpon the twelfth Chapter.'; verse numbers printed at its head: [14, 1, 1] (out of order, not used: [1, 1])"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f8e8586094538b4d9246c963",
+      "locator": "TCP A69056, <div type=\"sermon\"> 47 of 159 (n=47)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A69056/master/A69056.xml",
+      "locator": "TCP A69056, <div type=\"sermon\"> 47 of 159 (n=47)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

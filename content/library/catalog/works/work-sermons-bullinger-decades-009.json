@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-bullinger-decades-009",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Fifty sermons divided into five decades; held file library/source-tcp-bulk/asset-bulk-tcp-a17183/original.xml (sha256 4c2b9b4976cb…).",
+    "The held transcription marks 44 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Fifty sermons divided into five decades, sermon 9",
+  "alternateTitles": [
+    "Decade 1, sermon 9: Of the latter Articles of Christian fayth contained in the Apostles Creede. / ¶ The nynth Sermon."
+  ],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-f7b99a60d6801c5d26a2be97",
+      "locator": "TCP A17183, <div type=\"sermon\"> 9 of 50 (n=9)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17183/master/A17183.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17183/master/A17183.xml",
+      "locator": "TCP A17183, <div type=\"sermon\"> 9 of 50 (n=9)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-eph-027",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Sermons upon Ephesians; held file library/source-tcp-bulk/asset-bulk-tcp-a17705/original.xml (sha256 ec5430010801…).",
+    "The held transcription marks 52 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Sermons upon Ephesians, sermon 27",
+  "alternateTitles": [
+    "The .xxvii. Sermon, which is the seuenth vppon the fourth Chapter."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Ephesians 4:15-16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49004015,
+      "end": 49004016,
+      "verification": "verified",
+      "locator": "TCP A17705, <div type=\"sermon\"> 27 of 48 (n=27); heading: 'The .xxvii. Sermon, which is the seuenth vppon the fourth Chapter.'; verse numbers printed at its head: [15, 16]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-8ad80b675ee9c39db8f4f275",
+      "locator": "TCP A17705, <div type=\"sermon\"> 27 of 48 (n=27)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+      "locator": "TCP A17705, <div type=\"sermon\"> 27 of 48 (n=27)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

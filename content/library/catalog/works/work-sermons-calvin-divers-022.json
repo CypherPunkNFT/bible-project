@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-calvin-divers-022",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from Divers sermons (nativity, passion, resurrection, Pentecost); held file library/source-tcp-bulk/asset-bulk-tcp-a17690/original.xml (sha256 f63799d5a06b…)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "Divers sermons (nativity, passion, resurrection, Pentecost), sermon 22",
+  "alternateTitles": [
+    "The third Sermon of the descending of the holie Ghost."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 2:18-21",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44002018,
+      "end": 44002021,
+      "verification": "verified",
+      "locator": "TCP A17690, <div type=\"sermon\"> 22 of 23 (n=3); printed: 'Actes. second.'; verse numbers printed in the quoted text: [18, 19, 20, 21]"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-6aa082eb1458d620a31ab6a6",
+      "locator": "TCP A17690, <div type=\"sermon\"> 22 of 23 (n=3)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17690/master/A17690.xml",
+      "locator": "TCP A17690, <div type=\"sermon\"> 22 of 23 (n=3)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

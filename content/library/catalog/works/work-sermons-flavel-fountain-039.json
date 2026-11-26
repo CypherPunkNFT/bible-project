@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-flavel-fountain-039",
+  "editorialState": "catalogued",
+  "notes": [
+    "Split from The Fountain of Life; held file library/source-tcp-bulk/asset-bulk-tcp-a39663/original.xml (sha256 f59079ef855c…).",
+    "The held transcription marks 78 illegible or missing passage(s) in this sermon."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Historic sermons split (job 61cd017d): sermon boundary, heading and printed main text read from the held clean text; not a full-text proofread."
+    }
+  ],
+  "title": "The Fountain of Life, sermon 39",
+  "alternateTitles": [
+    "The THIRTY NINHTH SERMON."
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-flavel",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 28:6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40028006,
+      "end": 40028006,
+      "verification": "verified",
+      "locator": "TCP A39663, <div type=\"sermon\"> 39 of 43 (n=39); printed: 'MATTH. XXVIII.VI.'"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-reconciled-d37128ab9db9d55169e0ceb7",
+      "locator": "TCP A39663, <div type=\"sermon\"> 39 of 43 (n=39)"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/A39663/master/A39663.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A39663/master/A39663.xml",
+      "locator": "TCP A39663, <div type=\"sermon\"> 39 of 43 (n=39)",
+      "note": "Sermon boundary and heading as marked in the held clean text; split by scripts/catalog-historic-sermons.py.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}
