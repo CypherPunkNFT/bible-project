@@ -80,13 +80,16 @@ function ShelfCard({ row, index }: { row: ShelfRow; index: number }) {
   </details>;
 }
 
-function Spread({ title, rows, total }: { title: string; rows: { label: string; count: number }[]; total: number }) {
+// Each bar is scaled to the list's largest entry: against all 142,732 held records (94,128 of them on no shelf) even
+// the top row filled a tenth of its track, and every bar read as a dot.
+function Spread({ title, rows }: { title: string; rows: { label: string; count: number }[] }) {
   const shown = rows.slice(0, 6);
+  const top = Math.max(0, ...shown.map(entry => entry.count));
   return <div className="acq-spread">
     <h4>{title}</h4>
     <ul>{shown.map(entry => <li key={entry.label}>
       <span>{entry.label}</span>
-      <i aria-hidden="true"><b style={{ width: `${total ? Math.max(1, (entry.count / total) * 100) : 0}%` }} /></i>
+      <i aria-hidden="true"><b style={{ width: `${top ? Math.max(1, (entry.count / top) * 100) : 0}%` }} /></i>
       <em>{formatNumber(entry.count)}</em>
     </li>)}</ul>
     {rows.length > shown.length && <p className="acq-caption">{`and ${formatNumber(rows.length - shown.length)} more.`}</p>}
@@ -141,9 +144,9 @@ function Shelves({ side, authorId, facts }: BodyProps) {
       </div>
       <p className="acq-caption">{OVERLAP_NOTE}{figures.unknownAuthorRecords ? ` ${formatNumber(figures.unknownAuthorRecords)} held records name no author and are not on any shelf below.` : ""}</p>
       <div className="acq-spreads">
-        <Spread title="Held texts by tradition" rows={figures.traditions} total={figures.heldTextRecords} />
-        <Spread title="Held texts by place of origin" rows={figures.origins} total={figures.heldTextRecords} />
-        <Spread title="Largest shelves" rows={figures.largest} total={figures.heldTextRecords} />
+        <Spread title="Held texts by tradition" rows={figures.traditions} />
+        <Spread title="Held texts by place of origin" rows={figures.origins} />
+        <Spread title="Largest shelves" rows={figures.largest} />
       </div>
     </>}
     {data && <div className="acq-layout">
