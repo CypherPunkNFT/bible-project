@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-book-true-estimate-of-life",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The True Estimate of Life and How to Live (1903)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-044",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-045",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-046",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-047",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-048",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-049",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-050",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-051",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-052",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/trueestimateofli00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/trueestimateofli00morg",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

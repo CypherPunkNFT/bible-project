@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-089",
+  "editorialState": "catalogued",
+  "notes": [
+    "No text reference printed under the heading. Opening words (L1710, as in the OCR text): \"verse 9, these words are found: “In Him dwelleth all the fulness of the Godhead ...\". The chapter's first line(s) beside the drop capital are missing from this OCR text. Opens by quoting Colossians ('verse 9 ... In Him dwelleth all the fulness of the Godhead bodily') inside the first sentence, not as a text set under the heading. From a volume of lectures (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Deity of Our Lord Jesus Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-categorical-imperatives",
+      "locator": "original.txt L1707: heading 'THE DEITY OF OUR LORD JESUS CHRIST'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/categoricalimper00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/categoricalimper00morg",
+      "locator": "original.txt L1707: heading 'THE DEITY OF OUR LORD JESUS CHRIST'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

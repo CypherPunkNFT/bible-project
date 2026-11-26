@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Vision and the Voice",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Rev 1:12-16, 20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66001012,
+      "end": 66001016,
+      "verification": "verified",
+      "locator": "https://archive.org/details/firstcenturymess00morg; original.txt L473-L493 (printed under the heading; heading at L470); printed: and the seven lampstands are seven churches.\" — Rev. i: 12-16, 20."
+    },
+    {
+      "reference": "Rev 1:12-16, 20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 66001020,
+      "end": 66001020,
+      "verification": "verified",
+      "locator": "https://archive.org/details/firstcenturymess00morg; original.txt L473-L493 (printed under the heading; heading at L470); printed: and the seven lampstands are seven churches.\" — Rev. i: 12-16, 20."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-first-century-message",
+      "locator": "original.txt L470: heading 'THE VISION AND THE VOICE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/firstcenturymess00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/firstcenturymess00morg",
+      "locator": "original.txt L470: heading 'THE VISION AND THE VOICE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

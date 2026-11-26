@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-036",
+  "editorialState": "catalogued",
+  "notes": [
+    "No text reference printed under the heading. Opening words (L1815, as in the OCR text): \"\" The burden of the word of the Lord to Israel by Malachi — I ...\". Opens by quoting Malachi i. 1, 2 inside the first sentence (printed '(i. 1, 2)'), not as a text set under the heading. From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Divine Attitude",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-wherein-have-we-robbed-god",
+      "locator": "original.txt L1808: heading 'THE DIVINE ATTITUDE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/wherinhavewerobb00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/wherinhavewerobb00morg",
+      "locator": "original.txt L1808: heading 'THE DIVINE ATTITUDE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

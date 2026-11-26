@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-066",
+  "editorialState": "catalogued",
+  "notes": [
+    "The opening word of the passage (a drop capital) is missing from this OCR text, which begins 'lay down my life'. From a volume of studies (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Death of Christ: Supernatural",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 10:17, 18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43010017,
+      "end": 43010018,
+      "verification": "verified",
+      "locator": "https://archive.org/details/biblecross00morg; original.txt L725-L729 (printed under the heading; heading at L715); printed: This commandment received I from My Father. — John x. 17, 18."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-bible-and-the-cross",
+      "locator": "original.txt L715: heading 'THE DEATH OF CHEIST'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/biblecross00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/biblecross00morg",
+      "locator": "original.txt L715: heading 'THE DEATH OF CHEIST'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

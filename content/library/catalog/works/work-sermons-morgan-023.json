@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-023",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Heredity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 5:19-21",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45005019,
+      "end": 45005021,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeproblems00morg; original.txt L1633-L1640 (printed under the heading; heading at L1630); printed: righteousness unto eternal life by Jesus Christ our Lord.\"— Romans v. 19-21."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-problems",
+      "locator": "original.txt L1630: heading 'HEREDITY'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeproblems00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeproblems00morg",
+      "locator": "original.txt L1630: heading 'HEREDITY'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

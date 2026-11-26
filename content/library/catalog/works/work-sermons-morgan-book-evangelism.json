@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-book-evangelism",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Evangelism (1904)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-016",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-017",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-018",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-019",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-020",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/evangelism00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/evangelism00morg",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

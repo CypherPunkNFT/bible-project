@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-041",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Growth",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Peter 3:17, 18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 61003017,
+      "end": 61003018,
+      "verification": "verified",
+      "locator": "https://archive.org/details/simplethingsofch0000morg; original.txt L1500-L1505 (printed under the heading; heading at L1497); printed: the glory both now and for ever. Amen,”—2 PETER iii, 17, 18."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-simple-things-christian-life",
+      "locator": "original.txt L1497: heading 'GROWTH'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/simplethingsofch0000morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/simplethingsofch0000morg",
+      "locator": "original.txt L1497: heading 'GROWTH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

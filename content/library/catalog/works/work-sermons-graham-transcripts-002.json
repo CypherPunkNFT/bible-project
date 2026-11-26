@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-graham-transcripts-002",
+  "editorialState": "catalogued",
+  "notes": [
+    "Recording title: 'Billy Graham Almost Persuaded' (BGEA 'Billy Graham Classics'). Automatic transcription (Whisper large-v3) of a recording the owner supplied; the source records its accuracy as not verified, so the text is not Graham's checked verbatim words. Rights: copyright Billy Graham Evangelistic Association; held for private study only; the site links to BGEA and does not host the text or audio. Held file: library/source-billy-graham/yt-transcripts/Billy Graham Almost Persuaded-a5799d8bae/transcript.txt (sha256 673a3040d5dd08350c7f50ff684d69a940e43aa40921438c34ab95cf24dd4865)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Almost Persuaded",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-billy-graham",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://billygraham.org/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://billygraham.org/",
+      "locator": "BGEA's own site; no BGEA page for this sermon was located",
+      "note": "Transcript listed in content/library/reports/graham-transcripts-20261010/acquisition-manifest.json.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

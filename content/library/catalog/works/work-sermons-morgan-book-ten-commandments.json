@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-book-ten-commandments",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Ten Commandments: Studies in the Law of Moses and the Law of Christ (1901)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-053",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-054",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-055",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-056",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-057",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-058",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-059",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-060",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-061",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-062",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-063",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-064",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/tencommandments00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/tencommandments00morg",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

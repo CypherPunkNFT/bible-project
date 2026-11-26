@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-book-life-of-the-christian",
+  "editorialState": "catalogued",
+  "notes": [
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Life of the Christian (undated)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-071",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-072",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-073",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-074",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-075",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-076",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

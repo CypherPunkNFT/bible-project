@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-book-bible-and-the-cross",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Bible and the Cross (1909)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-065",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-066",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-067",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-068",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-069",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-morgan-070",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/biblecross00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/biblecross00morg",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

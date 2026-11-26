@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-093",
+  "editorialState": "catalogued",
+  "notes": [
+    "The text is printed at the head of the first page in a decorative type that the OCR misreads ('“SE the foundations be Destraped, / Chat can the righteous do?”'); kept exactly as in the file. Body: 'Nothing! If the foundations be destroyed ...'. The sermon calls the words 'the basis of our meditation'.",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Foundations",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Psalm 11:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19011003,
+      "end": 19011003,
+      "verification": "verified",
+      "locator": "https://archive.org/details/foundations00morg; original.txt L200-L204 (printed under the heading; heading at L200); printed: the foundations be Destraped, Chat can the righteous do?” Psalm xi. 3"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/foundations00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/foundations00morg",
+      "locator": "original.txt L200: heading '“SE the foundations be Destraped,'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

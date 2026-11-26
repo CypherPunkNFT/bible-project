@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-074",
+  "editorialState": "catalogued",
+  "notes": [
+    "Texts printed on the page before the chapter heading. From a volume of studies (see the volume's own description in sources).",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Its Consciousness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Cor 2:14-16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 46002014,
+      "end": 46002016,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L1855-L1878 (printed before the heading; heading at L1885); printed: in you, which was also in Christ Jesus.\" — Phil 2. 5"
+    },
+    {
+      "reference": "John 17:1-3; 25-26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43017001,
+      "end": 43017003,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L1855-L1878 (printed before the heading; heading at L1885); printed: in you, which was also in Christ Jesus.\" — Phil 2. 5"
+    },
+    {
+      "reference": "John 17:1-3; 25-26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43017025,
+      "end": 43017026,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L1855-L1878 (printed before the heading; heading at L1885); printed: in you, which was also in Christ Jesus.\" — Phil 2. 5"
+    },
+    {
+      "reference": "Phil 2:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50002005,
+      "end": 50002005,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L1855-L1878 (printed before the heading; heading at L1885); printed: in you, which was also in Christ Jesus.\" — Phil 2. 5"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-of-the-christian",
+      "locator": "original.txt L1885: heading 'Its Consciousness'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "original.txt L1885: heading 'Its Consciousness'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

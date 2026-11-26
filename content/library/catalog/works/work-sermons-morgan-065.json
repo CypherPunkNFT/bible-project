@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-065",
+  "editorialState": "catalogued",
+  "notes": [
+    "Two passages printed. The first word of the first passage (a drop capital) is missing from this OCR text, which begins 'men of Israel'. From a volume of studies (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Death of Jesus: Unnatural",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 2:22,23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44002022,
+      "end": 44002023,
+      "verification": "verified",
+      "locator": "https://archive.org/details/biblecross00morg; original.txt L179-L189 (printed under the heading; heading at L168); printed: you, and killed the Prince of Life. — ^Acts iii. 14, 15."
+    },
+    {
+      "reference": "Acts 3:14, 15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44003014,
+      "end": 44003015,
+      "verification": "verified",
+      "locator": "https://archive.org/details/biblecross00morg; original.txt L179-L189 (printed under the heading; heading at L168); printed: you, and killed the Prince of Life. — ^Acts iii. 14, 15."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-bible-and-the-cross",
+      "locator": "original.txt L168: heading 'THE DEATH OP JESUS'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/biblecross00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/biblecross00morg",
+      "locator": "original.txt L168: heading 'THE DEATH OP JESUS'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

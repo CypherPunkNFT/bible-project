@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-075",
+  "editorialState": "catalogued",
+  "notes": [
+    "Texts printed on the page before the chapter heading. From a volume of studies (see the volume's own description in sources).",
+    "Rights of the held file are unknown (no US public-domain basis verified at acquisition); no asset record until resolved. See rightsUnknown in this preacher's catalogue-run.json."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Its Testing",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt 6:13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40006013,
+      "end": 40006013,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L2421-L2436 (printed before the heading; heading at L2443); printed: may be perfect and entire, lacking in nothing.\" — -James i. 2-4"
+    },
+    {
+      "reference": "1 Cor 10:12, 13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 46010012,
+      "end": 46010013,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L2421-L2436 (printed before the heading; heading at L2443); printed: may be perfect and entire, lacking in nothing.\" — -James i. 2-4"
+    },
+    {
+      "reference": "James 1:2-4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 59001002,
+      "end": 59001004,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeofchristian00morguoft; original.txt L2421-L2436 (printed before the heading; heading at L2443); printed: may be perfect and entire, lacking in nothing.\" — -James i. 2-4"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-of-the-christian",
+      "locator": "original.txt L2443: heading 'Its Testing'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeofchristian00morguoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeofchristian00morguoft",
+      "locator": "original.txt L2443: heading 'Its Testing'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

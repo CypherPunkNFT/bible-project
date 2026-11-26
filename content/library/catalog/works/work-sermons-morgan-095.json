@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-095",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: Westminster Chapel (London)",
+    "Printed under the heading with 'Acts 2:15-18'; the sermon then says: 'I have not read these words as a text, but as an introduction to what I desire to say'. The editor's edition divides the sermon into eleven chapters (CHAPTER 1 at L79 to CHAPTER 11 at L881). A condensed version appears as 'The Revival: Its Power and Source' in 'The Welsh Revival' (Pilgrim Press, Boston, 1905), held as asset-sermons-morgan-welsh-revival-pilgrim-1905, starting L3239 (editors' note there: 'condense into the following article a recent sermon by him to his people at Westminster Chapel, London')."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Lessons of the Welsh Revival",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1904-12-25",
+      "precision": "day",
+      "label": "Delivered in Westminster Chapel on Sunday evening, 25th December, 1904 (as printed)",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/lessons-of-the-welsh-revival-g-campbell-morgan",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lessons-of-the-welsh-revival-g-campbell-morgan"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lessons-of-the-welsh-revival-g-campbell-morgan",
+      "locator": "original.txt L82: heading 'LESSONS OF THE WELSH'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-078",
+  "editorialState": "catalogued",
+  "notes": [
+    "The parables of Matthew xiii printed in sequence, ending '— Ver. 52.' From a volume of studies (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Scheme of the Discourse",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 13:3-8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40013003,
+      "end": 40013008,
+      "verification": "verified",
+      "locator": "https://archive.org/details/parablesofkingdo00morg; original.txt L686-L753 (printed under the heading; heading at L683); printed: forth out of his treasure things new and old.\" — Ver. 52."
+    },
+    {
+      "reference": "Matthew 13:24-33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40013024,
+      "end": 40013033,
+      "verification": "verified",
+      "locator": "https://archive.org/details/parablesofkingdo00morg; original.txt L686-L753 (printed under the heading; heading at L683); printed: forth out of his treasure things new and old.\" — Ver. 52."
+    },
+    {
+      "reference": "Matthew 13:44-50",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40013044,
+      "end": 40013050,
+      "verification": "verified",
+      "locator": "https://archive.org/details/parablesofkingdo00morg; original.txt L686-L753 (printed under the heading; heading at L683); printed: forth out of his treasure things new and old.\" — Ver. 52."
+    },
+    {
+      "reference": "Matthew 13:52",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40013052,
+      "end": 40013052,
+      "verification": "verified",
+      "locator": "https://archive.org/details/parablesofkingdo00morg; original.txt L686-L753 (printed under the heading; heading at L683); printed: forth out of his treasure things new and old.\" — Ver. 52."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-parables-of-the-kingdom",
+      "locator": "original.txt L683: heading 'THE SCHEME OF THE DIS-'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/parablesofkingdo00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/parablesofkingdo00morg",
+      "locator": "original.txt L683: heading 'THE SCHEME OF THE DIS-'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-055",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of studies (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Second Commandment",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Exodus 20:4, 5, 6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 2020004,
+      "end": 2020006,
+      "verification": "verified",
+      "locator": "https://archive.org/details/tencommandments00morg; original.txt L752-L761 (printed under the heading; heading at L750); printed: that love Me and keep My commandments.\" Exodus xx. 4, 5, 6."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-ten-commandments",
+      "locator": "original.txt L750: heading 'THE SECOND COMMANDMENT'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/tencommandments00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/tencommandments00morg",
+      "locator": "original.txt L750: heading 'THE SECOND COMMANDMENT'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

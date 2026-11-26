@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-096",
+  "editorialState": "catalogued",
+  "notes": [
+    "Also printed above the text: 'Scripture Lesson: /saiah xvii. 12-14; xxvi. 1-4, 20, 21; xxx. 15-18 5. xxxiii. 7-22.' (L15-16, OCR as in file)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Day of War—The Day of God",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1914-08-07",
+      "precision": "day",
+      "label": "Issue date printed on the sermon: 'Vol. 9. August 7th, 1914. No. 32.' (publication date, not the preaching date)",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell",
+          "locator": "Printed with the sermon",
+          "note": "Issue date as printed by the source; not the preaching date.",
+          "checkedOn": "2026-11-26"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalm 29:10, 11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19029010,
+      "end": 19029011,
+      "verification": "verified",
+      "locator": "https://archive.org/details/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell; original.txt L19-L23 (printed under the heading; heading at L12); printed: Lord will bless His people with peace.” : —Psalm xxix. 10, 11."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/the-day-of-war-the-day-of-god-the-westminster-pulpit-a-sermon-by-dr.-g.-campbell",
+      "locator": "original.txt L12: heading 'THE DAY OF WAR—THE DAY OF GOD.'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}

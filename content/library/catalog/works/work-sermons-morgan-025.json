@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-morgan-025",
+  "editorialState": "catalogued",
+  "notes": [
+    "From a volume of addresses (see the volume's own description in sources)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-26",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Influence",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-g-campbell-morgan",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Rom 5:19",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45005019,
+      "end": 45005019,
+      "verification": "verified",
+      "locator": "https://archive.org/details/lifeproblems00morg; original.txt L2919-L2921 (printed under the heading; heading at L2916); printed: obedience of One shall many be made righteous.\" — Rom. v. 19,"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-morgan-book-life-problems",
+      "locator": "original.txt L2916: heading 'INFLUENCE'"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://archive.org/details/lifeproblems00morg"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lifeproblems00morg",
+      "locator": "original.txt L2916: heading 'INFLUENCE'",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-11-26"
+    }
+  ]
+}
