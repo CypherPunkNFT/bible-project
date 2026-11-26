@@ -49,8 +49,8 @@
     }
   },
   "counts": {
-    "preacher": 11,
-    "author": 27,
+    "preacher": 22,
+    "author": 30,
     "scholar": 200
   },
   "teachers": [
@@ -540,23 +540,23 @@
         "preacher"
       ],
       "basis": {
-        "preacher": "The library catalogues 1,584 sermons by them."
+        "preacher": "The library catalogues 2,927 sermons by them."
       },
       "traditions": [
         "calvinist-evangelical"
       ],
-      "era": "2000s",
-      "eraBasis": "The era recorded on 80 of their catalogued works.",
+      "era": "1900s",
+      "eraBasis": "The era recorded on 796 of their catalogued works.",
       "evidence": {
         "url": "https://www.truthforlife.org/resources/sermon/we-stand-in-grace/",
         "locator": "Ephesians 2:1–10 sermon, ID 1846"
       },
       "holdings": {
-        "total": 1584,
+        "total": 2927,
         "genres": [
           [
             "sermon",
-            1584
+            2927
           ]
         ],
         "sermonBooks": 7
@@ -871,9 +871,11 @@
       "name": "Thomas Boston",
       "origin": "library",
       "sections": [
+        "preacher",
         "author"
       ],
       "basis": {
+        "preacher": "The library catalogues 81 sermons by them.",
         "author": "The library catalogues 194 written works by them."
       },
       "dates": "d. 1732",
@@ -881,21 +883,25 @@
         "reformed"
       ],
       "era": "1700s",
-      "eraBasis": "The era recorded on 1 of their catalogued works.",
+      "eraBasis": "The era recorded on 82 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/authors.php?a_in=B",
         "locator": "Boston, Thomas (d. 1732)"
       },
       "shelf": "/apologetics/texts?author=author-thomas-boston",
       "holdings": {
-        "total": 194,
+        "total": 275,
         "genres": [
           [
             "treatise",
             194
+          ],
+          [
+            "sermon",
+            81
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 20
       },
       "published": [
         {
@@ -1312,7 +1318,7 @@
         "author"
       ],
       "basis": {
-        "preacher": "The library catalogues 1 sermon by them.",
+        "preacher": "The library catalogues 156 sermons by them.",
         "author": "The library catalogues 18 written works by them."
       },
       "traditions": [
@@ -1320,22 +1326,22 @@
         "continental-reformed"
       ],
       "era": "1500s",
-      "eraBasis": "The era recorded on 1 of their catalogued works.",
+      "eraBasis": "The era recorded on 156 of their catalogued works.",
       "evidence": {
         "url": "https://commons.wikimedia.org/wiki/File:The_Decades_of_Henry_Bullinger_(IA_decadeshenrybul06britgoog).pdf",
         "locator": "Author identity and theological placement"
       },
       "shelf": "/apologetics/texts?author=author-heinrich-bullinger",
       "holdings": {
-        "total": 19,
+        "total": 174,
         "genres": [
+          [
+            "sermon",
+            156
+          ],
           [
             "treatise",
             18
-          ],
-          [
-            "sermon",
-            1
           ]
         ],
         "sermonBooks": 0
@@ -1423,9 +1429,11 @@
       "name": "John Calvin",
       "origin": "library",
       "sections": [
+        "preacher",
         "scholar"
       ],
       "basis": {
+        "preacher": "The library catalogues 526 sermons by them.",
         "scholar": "The library holds 1 part of their systematic theology. 153 works of theirs sit on the library's Understanding Scripture shelf. Our study pages cite 4 works of theirs."
       },
       "dates": "d. 1564",
@@ -1433,15 +1441,19 @@
         "reformed"
       ],
       "era": "1500s",
-      "eraBasis": "The era recorded on 158 of their catalogued works.",
+      "eraBasis": "The era recorded on 684 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/authors.php?a_in=C",
         "locator": "Calvin, Jean (d. 1564)"
       },
       "shelf": "/apologetics/texts?author=author-john-calvin",
       "holdings": {
-        "total": 350,
+        "total": 876,
         "genres": [
+          [
+            "sermon",
+            526
+          ],
           [
             "treatise",
             196
@@ -1455,7 +1467,7 @@
             1
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 11
       },
       "published": [
         {
@@ -3483,7 +3495,7 @@
         "author"
       ],
       "basis": {
-        "preacher": "The library catalogues 1 sermon by them.",
+        "preacher": "The library catalogues 89 sermons by them.",
         "author": "The library catalogues 130 written works by them."
       },
       "dates": "d. 1691",
@@ -3492,14 +3504,14 @@
         "puritan"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 3 of their catalogued works.",
+      "eraBasis": "The era recorded on 91 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/authors.php?a_in=F",
         "locator": "Flavel, John (d. 1691)"
       },
       "shelf": "/apologetics/texts?author=author-john-flavel",
       "holdings": {
-        "total": 131,
+        "total": 219,
         "genres": [
           [
             "treatise",
@@ -3507,10 +3519,10 @@
           ],
           [
             "sermon",
-            1
+            89
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 21
       },
       "published": [
         {
@@ -3939,9 +3951,11 @@
       "name": "Thomas Goodwin",
       "origin": "library",
       "sections": [
+        "preacher",
         "author"
       ],
       "basis": {
+        "preacher": "The library catalogues 65 sermons by them.",
         "author": "The library catalogues 166 written works by them."
       },
       "traditions": [
@@ -3950,25 +3964,29 @@
         "congregational"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 1 of their catalogued works.",
+      "eraBasis": "The era recorded on 66 of their catalogued works.",
       "evidence": {
         "url": "https://banneroftruth.org/us/about/banner-authors/thomas-goodwin/",
         "locator": "Biography; paragraph on Owen and the Savoy Declaration"
       },
       "shelf": "/apologetics/texts?author=author-thomas-goodwin",
       "holdings": {
-        "total": 166,
+        "total": 231,
         "genres": [
           [
             "treatise",
             165
           ],
           [
+            "sermon",
+            65
+          ],
+          [
             "collected-works",
             1
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 2
       },
       "published": [
         {
@@ -3978,6 +3996,39 @@
           "rights": "public-domain"
         }
       ],
+      "apologetics": [],
+      "cited": []
+    },
+    {
+      "id": "author-billy-graham",
+      "name": "Billy Graham",
+      "origin": "library",
+      "sections": [
+        "preacher"
+      ],
+      "basis": {
+        "preacher": "The library catalogues 23 sermons by them."
+      },
+      "traditions": [
+        "baptist"
+      ],
+      "era": "1900s",
+      "eraBasis": "The era recorded on 23 of their catalogued works.",
+      "evidence": {
+        "url": "https://billygraham.org/about/biographies/billy-graham/",
+        "locator": "BGEA biography"
+      },
+      "holdings": {
+        "total": 23,
+        "genres": [
+          [
+            "sermon",
+            23
+          ]
+        ],
+        "sermonBooks": 0
+      },
+      "published": [],
       "apologetics": [],
       "cited": []
     },
@@ -6729,6 +6780,45 @@
       ]
     },
     {
+      "id": "author-alexander-maclaren",
+      "name": "Alexander Maclaren",
+      "origin": "library",
+      "sections": [
+        "preacher",
+        "author"
+      ],
+      "basis": {
+        "preacher": "The library catalogues 1,311 sermons by them.",
+        "author": "The library catalogues 14 written works by them."
+      },
+      "traditions": [
+        "baptist"
+      ],
+      "era": "1800s",
+      "eraBasis": "The era recorded on 1,325 of their catalogued works.",
+      "evidence": {
+        "url": "https://en.wikipedia.org/wiki/Alexander_Maclaren",
+        "locator": "Lead and Life sections"
+      },
+      "holdings": {
+        "total": 1325,
+        "genres": [
+          [
+            "sermon",
+            1311
+          ],
+          [
+            "collected-works",
+            14
+          ]
+        ],
+        "sermonBooks": 55
+      },
+      "published": [],
+      "apologetics": [],
+      "cited": []
+    },
+    {
       "id": "cited-g-f-maclear",
       "name": "G. F. Maclear",
       "origin": "cited",
@@ -7186,6 +7276,45 @@
       ]
     },
     {
+      "id": "author-d-l-moody",
+      "name": "D. L. Moody",
+      "origin": "library",
+      "sections": [
+        "preacher",
+        "author"
+      ],
+      "basis": {
+        "preacher": "The library catalogues 101 sermons by them.",
+        "author": "The library catalogues 9 written works by them."
+      },
+      "traditions": [
+        "congregational"
+      ],
+      "era": "1800s",
+      "eraBasis": "The era recorded on 110 of their catalogued works.",
+      "evidence": {
+        "url": "https://www.gutenberg.org/ebooks/author/2296",
+        "locator": "Project Gutenberg author page"
+      },
+      "holdings": {
+        "total": 110,
+        "genres": [
+          [
+            "sermon",
+            101
+          ],
+          [
+            "collected-works",
+            9
+          ]
+        ],
+        "sermonBooks": 15
+      },
+      "published": [],
+      "apologetics": [],
+      "cited": []
+    },
+    {
       "id": "cited-george-foot-moore",
       "name": "George Foot Moore",
       "origin": "cited",
@@ -7284,6 +7413,45 @@
           ]
         }
       ]
+    },
+    {
+      "id": "author-g-campbell-morgan",
+      "name": "G. Campbell Morgan",
+      "origin": "library",
+      "sections": [
+        "preacher",
+        "author"
+      ],
+      "basis": {
+        "preacher": "The library catalogues 97 sermons by them.",
+        "author": "The library catalogues 13 written works by them."
+      },
+      "traditions": [
+        "congregational"
+      ],
+      "era": "1900s",
+      "eraBasis": "The era recorded on 110 of their catalogued works.",
+      "evidence": {
+        "url": "https://www.gutenberg.org/ebooks/author/1785",
+        "locator": "Project Gutenberg author listing"
+      },
+      "holdings": {
+        "total": 110,
+        "genres": [
+          [
+            "sermon",
+            97
+          ],
+          [
+            "collected-works",
+            13
+          ]
+        ],
+        "sermonBooks": 20
+      },
+      "published": [],
+      "apologetics": [],
+      "cited": []
     },
     {
       "id": "cited-h-c-g-moule",
@@ -7557,9 +7725,11 @@
       "name": "John Owen",
       "origin": "library",
       "sections": [
+        "preacher",
         "author"
       ],
       "basis": {
+        "preacher": "The library catalogues 73 sermons by them.",
         "author": "The library catalogues 427 written works by them."
       },
       "dates": "d. 1683",
@@ -7569,25 +7739,29 @@
         "congregational"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 39 of their catalogued works.",
+      "eraBasis": "The era recorded on 112 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/authors.php?a_in=O",
         "locator": "Owen, John (d. 1683)"
       },
       "shelf": "/apologetics/texts?author=author-john-owen",
       "holdings": {
-        "total": 427,
+        "total": 500,
         "genres": [
           [
             "treatise",
             426
           ],
           [
+            "sermon",
+            73
+          ],
+          [
             "catechism",
             1
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 24
       },
       "published": [
         {
@@ -7763,7 +7937,7 @@
         "author"
       ],
       "basis": {
-        "author": "The library catalogues 114 written works by them."
+        "author": "The library catalogues 135 written works by them."
       },
       "dates": "1558–1602",
       "traditions": [
@@ -7771,18 +7945,22 @@
         "puritan"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 21 of their catalogued works.",
+      "eraBasis": "The era recorded on 42 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/search.php?limit=20&q=william+perkins&s=40&sort=",
         "locator": "Perkins, William (1558–1602)"
       },
       "shelf": "/apologetics/texts?author=author-william-perkins",
       "holdings": {
-        "total": 114,
+        "total": 135,
         "genres": [
           [
             "treatise",
             113
+          ],
+          [
+            "commentary",
+            21
           ],
           [
             "collected-works",
@@ -9697,9 +9875,11 @@
       "name": "Richard Sibbes",
       "origin": "library",
       "sections": [
+        "preacher",
         "author"
       ],
       "basis": {
+        "preacher": "The library catalogues 84 sermons by them.",
         "author": "The library catalogues 152 written works by them."
       },
       "dates": "d. 1635",
@@ -9708,21 +9888,25 @@
         "puritan"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 1 of their catalogued works.",
+      "eraBasis": "The era recorded on 85 of their catalogued works.",
       "evidence": {
         "url": "https://www.prdl.org/authors.php?a_in=S",
         "locator": "Sibbes, Richard (d. 1635)"
       },
       "shelf": "/apologetics/texts?author=author-richard-sibbes",
       "holdings": {
-        "total": 152,
+        "total": 236,
         "genres": [
           [
             "treatise",
             152
+          ],
+          [
+            "sermon",
+            84
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 15
       },
       "published": [
         {
@@ -11107,9 +11291,11 @@
       "name": "Thomas Watson",
       "origin": "library",
       "sections": [
+        "preacher",
         "author"
       ],
       "basis": {
+        "preacher": "The library catalogues 22 sermons by them.",
         "author": "The library catalogues 146 written works by them."
       },
       "dates": "c. 1620–1686",
@@ -11118,21 +11304,25 @@
         "puritan"
       ],
       "era": "1600s",
-      "eraBasis": "The era recorded on 4 of their catalogued works.",
+      "eraBasis": "The era recorded on 26 of their catalogued works.",
       "evidence": {
         "url": "https://prdl.org/recent_findings.php?limit=10&s=130760&sort=",
         "locator": "Watson, Thomas (c.1620–1686)"
       },
       "shelf": "/apologetics/texts?author=author-thomas-watson",
       "holdings": {
-        "total": 146,
+        "total": 168,
         "genres": [
           [
             "treatise",
             146
+          ],
+          [
+            "sermon",
+            22
           ]
         ],
-        "sermonBooks": 0
+        "sermonBooks": 13
       },
       "published": [
         {
@@ -11263,6 +11453,39 @@
           ]
         }
       ]
+    },
+    {
+      "id": "author-john-wesley",
+      "name": "John Wesley",
+      "origin": "library",
+      "sections": [
+        "preacher"
+      ],
+      "basis": {
+        "preacher": "The library catalogues 141 sermons by them."
+      },
+      "traditions": [
+        "anglican"
+      ],
+      "era": "1700s",
+      "eraBasis": "The era recorded on 141 of their catalogued works.",
+      "evidence": {
+        "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/",
+        "locator": "Sermons, Thomas Jackson edition (1872)"
+      },
+      "holdings": {
+        "total": 141,
+        "genres": [
+          [
+            "sermon",
+            141
+          ]
+        ],
+        "sermonBooks": 35
+      },
+      "published": [],
+      "apologetics": [],
+      "cited": []
     },
     {
       "id": "cited-b-f-westcott",
@@ -11419,21 +11642,21 @@
         "author"
       ],
       "basis": {
-        "preacher": "The library catalogues 58 sermons by them.",
+        "preacher": "The library catalogues 76 sermons by them.",
         "author": "The library catalogues 307 written works by them."
       },
       "traditions": [
         "calvinist-evangelical"
       ],
       "era": "1700s",
-      "eraBasis": "The era recorded on 60 of their catalogued works.",
+      "eraBasis": "The era recorded on 78 of their catalogued works.",
       "evidence": {
         "url": "https://banneroftruth.org/uk/resources/articles/2015/life-george-whitefield/",
         "locator": "Association and theology discussion"
       },
       "shelf": "/apologetics/texts?author=author-george-whitefield",
       "holdings": {
-        "total": 365,
+        "total": 383,
         "genres": [
           [
             "treatise",
@@ -11441,14 +11664,14 @@
           ],
           [
             "sermon",
-            58
+            76
           ],
           [
             "collected-works",
             2
           ]
         ],
-        "sermonBooks": 20
+        "sermonBooks": 25
       },
       "published": [
         {
@@ -11830,6 +12053,18 @@
       "reason": "A translation or article that names no author."
     },
     {
+      "name": "Abraham Booth",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "Adrian Rogers",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "Andrew Fuller",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
       "name": "Anonymous",
       "reason": "A reference work, institution, council or unnamed author, not a person."
     },
@@ -11844,6 +12079,14 @@
     {
       "name": "Augustus",
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
+    },
+    {
+      "name": "Benjamin Beddome",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "Benjamin Keach",
+      "reason": "The library holds none of their works yet and no page cites them."
     },
     {
       "name": "Benjamin of Tudela",
@@ -11882,6 +12125,18 @@
       "reason": "A reference work, institution, council or unnamed author, not a person."
     },
     {
+      "name": "Henry Danvers",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "Henry Denne",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "Hercules Collins",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
       "name": "Herodotus",
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
     },
@@ -11910,6 +12165,10 @@
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
     },
     {
+      "name": "James P. Boyce",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
       "name": "Jerome",
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
     },
@@ -11922,8 +12181,28 @@
       "reason": "A reference work, institution, council or unnamed author, not a person."
     },
     {
+      "name": "John Brine",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
       "name": "John Chrysostom",
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
+    },
+    {
+      "name": "John L. Dagg",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "John MacArthur",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "John Spilsbury",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "John Tombes",
+      "reason": "The library holds none of their works yet and no page cites them."
     },
     {
       "name": "Justin Martyr",
@@ -11932,6 +12211,10 @@
     {
       "name": "Macrobius",
       "reason": "An ancient, patristic or medieval writer cited as a primary source, not a modern commentator or scholar."
+    },
+    {
+      "name": "Nehemiah Coxe",
+      "reason": "The library holds none of their works yet and no page cites them."
     },
     {
       "name": "Origen",
@@ -12004,6 +12287,14 @@
     {
       "name": "Unknown",
       "reason": "A reference work, institution, council or unnamed author, not a person."
+    },
+    {
+      "name": "W. A. Criswell",
+      "reason": "The library holds none of their works yet and no page cites them."
+    },
+    {
+      "name": "William Kiffin",
+      "reason": "The library holds none of their works yet and no page cites them."
     },
     {
       "name": "Xenophon",
