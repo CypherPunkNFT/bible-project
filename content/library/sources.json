@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "source-registry",
-  "updated": "2026-10-08",
+  "updated": "2026-11-26",
   "sources": [
     {
       "id": "source-prdl",
@@ -191,17 +191,29 @@
       "name": "Truth For Life",
       "url": "https://www.truthforlife.org/",
       "role": "content-host",
-      "automation": "unreviewed",
-      "acquisitionNote": "Official sermon source identified; review automation, indexing, transcription and redistribution policies before acquisition.",
+      "automation": "approved-endpoint",
+      "acquisitionNote": "Policy reviewed 2026-11-26: anyone may copy and distribute Alistair Begg's sermons without prior permission if unaltered, free of charge and credited, and may post written web content elsewhere unedited with a link to the original and the homepage and the credit \"Copyright Truth For Life. Used with Permission.\"; permissions can be revoked or modified at any time. robots.txt blocks only filtered listing URLs (query strings such as ?topic=, ?page=), /flashdrive/ and a donation thank-you page. Throttle, honour robots.txt, link to the original.",
       "evidence": [
         {
           "url": "https://www.truthforlife.org/resources/sermon/we-stand-in-grace/",
           "locator": "Sermon record",
           "note": "Identity and official resource verified; policy not yet reviewed.",
           "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.truthforlife.org/about/policies/",
+          "locator": "Copyright Policy: Audio and Video Content; Web Content",
+          "note": "Sermons may be duplicated and distributed unaltered, free and credited under an \"irrevocable, nonexclusive and royalty-free right\"; written web content may be reposted unedited with links and credit; the page also reserves the right to revoke or modify these permissions. No clause on automated access.",
+          "checkedOn": "2026-11-26"
+        },
+        {
+          "url": "https://www.truthforlife.org/robots.txt",
+          "locator": "User-agent: *",
+          "note": "Disallows only filtered listing query strings, /flashdrive/ and /donate/paypal/thank-you; declares Content-Signal: search=yes, ai-train=yes, ai-input=yes.",
+          "checkedOn": "2026-11-26"
         }
       ],
-      "reviewedOn": "2026-10-05"
+      "reviewedOn": "2026-11-26"
     },
     {
       "id": "source-gospel-coalition",

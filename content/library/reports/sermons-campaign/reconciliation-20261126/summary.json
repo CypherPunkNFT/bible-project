@@ -1,0 +1,1029 @@
+{
+ "schemaVersion": 1,
+ "job": "92d9c9859d2244f8b9be85419e741f73",
+ "measuredOn": "2026-11-26",
+ "readFrom": "shared Website folder at main 13ca1e1da: content/library/catalog, passage-overlays, src/data/teachers/people.json (built 2026-11-19), sources/library",
+ "definitions": {
+  "catalogued": "work records whose creators include the author id",
+  "notDuplicates": "catalogued minus works an overlay marks duplicateOf",
+  "mainTextInCatalogue": "non-duplicate works with a role=main-text passage carrying verse ids in the work record",
+  "mainTextWithOverlays": "the same, counting passages from content/library/passage-overlays as build-teacher-pages does",
+  "assetsLinked": "catalogue assets whose edition points at one of the author's works",
+  "assetsLinkedHeldOnDisk": "of those, assets whose relativePath exists under sources/",
+  "heldFilesBySource": "asset folders counted directly in sources/library (held but not necessarily catalogued)",
+  "preachersPage": "the author's entry in src/data/teachers/people.json; null = not on the Preachers page"
+ },
+ "catalogue": {
+  "works": 18702,
+  "editions": 17515,
+  "assets": 11969
+ },
+ "overlays": {
+  "placedWorks": 3072,
+  "duplicates": 85,
+  "relabelled": 2632
+ },
+ "preachers": [
+  {
+   "id": "author-alistair-begg",
+   "name": "Alistair Begg",
+   "catalogued": 1584,
+   "notDuplicates": 1504,
+   "sermonGenre": 1584,
+   "genres": {
+    "sermon": 1584
+   },
+   "mainTextInCatalogue": 80,
+   "mainTextWithOverlays": 1417,
+   "assetsLinked": 80,
+   "assetsLinkedHeldOnDisk": 80,
+   "preachersPage": {
+    "works": 1504,
+    "passages": 1417,
+    "sermonsListed": 1417,
+    "heldTexts": 1483,
+    "acquiredShelf": "author-alistair-begg"
+   },
+   "heldFilesBySource": {
+    "source-begg": 1482,
+    "source-truth-for-life": 102
+   },
+   "rightsClass": "text-possible"
+  },
+  {
+   "id": "author-john-piper",
+   "name": "John Piper",
+   "catalogued": 7465,
+   "notDuplicates": 7460,
+   "sermonGenre": 2399,
+   "genres": {
+    "interview": 2632,
+    "sermon": 2399,
+    "article": 2324,
+    "treatise": 110
+   },
+   "mainTextInCatalogue": 5,
+   "mainTextWithOverlays": 1618,
+   "assetsLinked": 7325,
+   "assetsLinkedHeldOnDisk": 7313,
+   "preachersPage": {
+    "works": 7460,
+    "passages": 1618,
+    "sermonsListed": 1616,
+    "heldTexts": 7459,
+    "acquiredShelf": "author-john-piper"
+   },
+   "heldFilesBySource": {
+    "source-desiring-god": 7314
+   },
+   "rightsClass": "text-private-links-public"
+  },
+  {
+   "id": "author-charles-spurgeon",
+   "name": "C. H. Spurgeon",
+   "catalogued": 3826,
+   "notDuplicates": 3826,
+   "sermonGenre": 3566,
+   "genres": {
+    "sermon": 3566,
+    "treatise": 170,
+    "collected-works": 64,
+    "lecture": 13,
+    "history": 9,
+    "bibliography": 1
+   },
+   "mainTextInCatalogue": 3432,
+   "mainTextWithOverlays": 3544,
+   "assetsLinked": 3626,
+   "assetsLinkedHeldOnDisk": 3623,
+   "preachersPage": {
+    "works": 3826,
+    "passages": 3544,
+    "sermonsListed": 3544,
+    "heldTexts": 4506,
+    "acquiredShelf": "author-charles-spurgeon"
+   },
+   "heldFilesBySource": {
+    "source-spurgeon-gems": 3652
+   },
+   "rightsClass": "text-public-domain"
+  },
+  {
+   "id": "author-john-wesley",
+   "name": "John Wesley",
+   "catalogued": 141,
+   "notDuplicates": 141,
+   "sermonGenre": 141,
+   "genres": {
+    "sermon": 141
+   },
+   "mainTextInCatalogue": 140,
+   "mainTextWithOverlays": 140,
+   "assetsLinked": 139,
+   "assetsLinkedHeldOnDisk": 139,
+   "preachersPage": {
+    "works": 141,
+    "passages": 140,
+    "sermonsListed": 140,
+    "heldTexts": 104,
+    "acquiredShelf": "author-john-wesley"
+   },
+   "heldFilesBySource": {
+    "source-wesley-center": 139,
+    "reusedTcp": 2
+   },
+   "rightsClass": "text-public-domain"
+  },
+  {
+   "id": "author-d-l-moody",
+   "name": "D. L. Moody",
+   "catalogued": 110,
+   "notDuplicates": 110,
+   "sermonGenre": 101,
+   "genres": {
+    "sermon": 101,
+    "collected-works": 9
+   },
+   "mainTextInCatalogue": 27,
+   "mainTextWithOverlays": 27,
+   "assetsLinked": 10,
+   "assetsLinkedHeldOnDisk": 10,
+   "preachersPage": {
+    "works": 110,
+    "passages": 27,
+    "sermonsListed": 27,
+    "heldTexts": 48,
+    "acquiredShelf": "author-d-l-moody"
+   },
+   "heldFilesBySource": {
+    "source-gutenberg (books)": 10
+   },
+   "rightsClass": "text-public-domain"
+  },
+  {
+   "id": "author-billy-graham",
+   "name": "Billy Graham",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 0,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 80,
+    "acquiredShelf": "author-billy-graham"
+   },
+   "heldFilesBySource": {
+    "source-billy-graham": 56,
+    "graham-transcripts-20261010 sermon transcripts": 23
+   },
+   "rightsClass": "text-private-links-public"
+  },
+  {
+   "id": "author-w-a-criswell",
+   "name": "W. A. Criswell",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": null,
+   "heldFilesBySource": {
+    "source-criswell": 2517
+   },
+   "rightsClass": "owner-decision"
+  },
+  {
+   "id": "author-john-macarthur",
+   "name": "John MacArthur",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 0,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 1,
+    "acquiredShelf": "author-john-macarthur"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": "closed-without-permission"
+  },
+  {
+   "id": "author-g-campbell-morgan",
+   "name": "G. Campbell Morgan",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 0,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 32,
+    "acquiredShelf": "author-g-campbell-morgan"
+   },
+   "heldFilesBySource": {
+    "source-internet-archive (volumes)": 19
+   },
+   "rightsClass": "text-public-domain"
+  },
+  {
+   "id": "author-alexander-maclaren",
+   "name": "Alexander Maclaren",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": null,
+   "heldFilesBySource": {
+    "source-ccel (volumes)": 14
+   },
+   "rightsClass": "text-public-domain"
+  },
+  {
+   "id": "author-martyn-lloyd-jones",
+   "name": "D. Martyn Lloyd-Jones",
+   "catalogued": 2,
+   "notDuplicates": 2,
+   "sermonGenre": 2,
+   "genres": {
+    "sermon": 2
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 2,
+   "assetsLinkedHeldOnDisk": 2,
+   "preachersPage": {
+    "works": 2,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 1,
+    "acquiredShelf": "author-martyn-lloyd-jones"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": "closed-without-permission"
+  },
+  {
+   "id": "author-r-c-sproul",
+   "name": "R. C. Sproul",
+   "catalogued": 12,
+   "notDuplicates": 12,
+   "sermonGenre": 12,
+   "genres": {
+    "sermon": 12
+   },
+   "mainTextInCatalogue": 12,
+   "mainTextWithOverlays": 12,
+   "assetsLinked": 12,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 12,
+    "passages": 12,
+    "sermonsListed": 12,
+    "heldTexts": 2,
+    "acquiredShelf": "author-r-c-sproul"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": "links-only"
+  },
+  {
+   "id": "author-sinclair-ferguson",
+   "name": "Sinclair B. Ferguson",
+   "catalogued": 0,
+   "notDuplicates": 0,
+   "sermonGenre": 0,
+   "genres": {},
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 0,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 21,
+    "acquiredShelf": "author-sinclair-ferguson"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": "links-only"
+  },
+  {
+   "id": "author-j-i-packer",
+   "name": "J. I. Packer",
+   "catalogued": 8,
+   "notDuplicates": 8,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 8
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 3,
+   "assetsLinkedHeldOnDisk": 2,
+   "preachersPage": {
+    "works": 8,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 3,
+    "acquiredShelf": "author-j-i-packer"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": "links-only"
+  },
+  {
+   "id": "author-george-whitefield",
+   "name": "George Whitefield",
+   "catalogued": 365,
+   "notDuplicates": 365,
+   "sermonGenre": 58,
+   "genres": {
+    "treatise": 305,
+    "sermon": 58,
+    "collected-works": 2
+   },
+   "mainTextInCatalogue": 57,
+   "mainTextWithOverlays": 57,
+   "assetsLinked": 13,
+   "assetsLinkedHeldOnDisk": 12,
+   "preachersPage": {
+    "works": 365,
+    "passages": 57,
+    "sermonsListed": 57,
+    "heldTexts": 319,
+    "acquiredShelf": "author-george-whitefield"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-jonathan-edwards",
+   "name": "Jonathan Edwards",
+   "catalogued": 473,
+   "notDuplicates": 473,
+   "sermonGenre": 64,
+   "genres": {
+    "treatise": 389,
+    "sermon": 64,
+    "biography": 12,
+    "collected-works": 8
+   },
+   "mainTextInCatalogue": 71,
+   "mainTextWithOverlays": 71,
+   "assetsLinked": 36,
+   "assetsLinkedHeldOnDisk": 34,
+   "preachersPage": {
+    "works": 473,
+    "passages": 71,
+    "sermonsListed": 64,
+    "heldTexts": 421,
+    "acquiredShelf": "author-jonathan-edwards"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-john-newton",
+   "name": "John Newton",
+   "catalogued": 110,
+   "notDuplicates": 110,
+   "sermonGenre": 84,
+   "genres": {
+    "sermon": 84,
+    "treatise": 20,
+    "collected-works": 5,
+    "letter": 1
+   },
+   "mainTextInCatalogue": 84,
+   "mainTextWithOverlays": 84,
+   "assetsLinked": 18,
+   "assetsLinkedHeldOnDisk": 17,
+   "preachersPage": {
+    "works": 110,
+    "passages": 84,
+    "sermonsListed": 84,
+    "heldTexts": 46,
+    "acquiredShelf": "author-john-newton"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-j-c-ryle",
+   "name": "J. C. Ryle",
+   "catalogued": 93,
+   "notDuplicates": 93,
+   "sermonGenre": 29,
+   "genres": {
+    "treatise": 59,
+    "sermon": 29,
+    "devotional": 2,
+    "collected-works": 2,
+    "commentary": 1
+   },
+   "mainTextInCatalogue": 29,
+   "mainTextWithOverlays": 29,
+   "assetsLinked": 14,
+   "assetsLinkedHeldOnDisk": 11,
+   "preachersPage": {
+    "works": 93,
+    "passages": 29,
+    "sermonsListed": 29,
+    "heldTexts": 99,
+    "acquiredShelf": "author-j-c-ryle"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-john-owen",
+   "name": "John Owen",
+   "catalogued": 427,
+   "notDuplicates": 427,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 426,
+    "catechism": 1
+   },
+   "mainTextInCatalogue": 12,
+   "mainTextWithOverlays": 12,
+   "assetsLinked": 25,
+   "assetsLinkedHeldOnDisk": 18,
+   "preachersPage": {
+    "works": 427,
+    "passages": 12,
+    "sermonsListed": 0,
+    "heldTexts": 399,
+    "acquiredShelf": "author-john-owen"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-thomas-boston",
+   "name": "Thomas Boston",
+   "catalogued": 194,
+   "notDuplicates": 194,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 194
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 1,
+   "assetsLinked": 7,
+   "assetsLinkedHeldOnDisk": 6,
+   "preachersPage": {
+    "works": 194,
+    "passages": 1,
+    "sermonsListed": 0,
+    "heldTexts": 199,
+    "acquiredShelf": "author-thomas-boston"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-thomas-watson",
+   "name": "Thomas Watson",
+   "catalogued": 146,
+   "notDuplicates": 146,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 146
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 2,
+   "assetsLinked": 9,
+   "assetsLinkedHeldOnDisk": 5,
+   "preachersPage": {
+    "works": 146,
+    "passages": 2,
+    "sermonsListed": 0,
+    "heldTexts": 128,
+    "acquiredShelf": "author-thomas-watson"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-john-flavel",
+   "name": "John Flavel",
+   "catalogued": 131,
+   "notDuplicates": 131,
+   "sermonGenre": 1,
+   "genres": {
+    "treatise": 130,
+    "sermon": 1
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 2,
+   "assetsLinked": 7,
+   "assetsLinkedHeldOnDisk": 5,
+   "preachersPage": {
+    "works": 131,
+    "passages": 2,
+    "sermonsListed": 0,
+    "heldTexts": 66,
+    "acquiredShelf": "author-john-flavel"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-richard-sibbes",
+   "name": "Richard Sibbes",
+   "catalogued": 152,
+   "notDuplicates": 152,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 152
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 1,
+   "assetsLinked": 5,
+   "assetsLinkedHeldOnDisk": 4,
+   "preachersPage": {
+    "works": 152,
+    "passages": 1,
+    "sermonsListed": 0,
+    "heldTexts": 158,
+    "acquiredShelf": "author-richard-sibbes"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-thomas-goodwin",
+   "name": "Thomas Goodwin",
+   "catalogued": 166,
+   "notDuplicates": 166,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 165,
+    "collected-works": 1
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 14,
+   "assetsLinkedHeldOnDisk": 13,
+   "preachersPage": {
+    "works": 166,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 181,
+    "acquiredShelf": "author-thomas-goodwin"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-stephen-charnock",
+   "name": "Stephen Charnock",
+   "catalogued": 61,
+   "notDuplicates": 61,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 61
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 2,
+   "assetsLinked": 8,
+   "assetsLinkedHeldOnDisk": 6,
+   "preachersPage": {
+    "works": 61,
+    "passages": 2,
+    "sermonsListed": 0,
+    "heldTexts": 72,
+    "acquiredShelf": "author-stephen-charnock"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-william-perkins",
+   "name": "William Perkins",
+   "catalogued": 114,
+   "notDuplicates": 114,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 113,
+    "collected-works": 1
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 6,
+   "assetsLinkedHeldOnDisk": 4,
+   "preachersPage": {
+    "works": 114,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 98,
+    "acquiredShelf": "author-william-perkins"
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-john-bunyan",
+   "name": "John Bunyan",
+   "catalogued": 1026,
+   "notDuplicates": 1026,
+   "sermonGenre": 0,
+   "genres": {
+    "treatise": 1026
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 2,
+   "assetsLinked": 0,
+   "assetsLinkedHeldOnDisk": 0,
+   "preachersPage": {
+    "works": 1026,
+    "passages": 2,
+    "sermonsListed": 0,
+    "heldTexts": 0,
+    "acquiredShelf": null
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  },
+  {
+   "id": "author-d-a-carson",
+   "name": "D. A. Carson",
+   "catalogued": 1,
+   "notDuplicates": 1,
+   "sermonGenre": 0,
+   "genres": {
+    "article": 1
+   },
+   "mainTextInCatalogue": 0,
+   "mainTextWithOverlays": 0,
+   "assetsLinked": 373,
+   "assetsLinkedHeldOnDisk": 373,
+   "preachersPage": {
+    "works": 1,
+    "passages": 0,
+    "sermonsListed": 0,
+    "heldTexts": 0,
+    "acquiredShelf": null
+   },
+   "heldFilesBySource": null,
+   "rightsClass": null
+  }
+ ],
+ "heldFolders": {
+  "source-begg": {
+   "assetFolders": 1482,
+   "foldersWithAFile": 1482
+  },
+  "source-truth-for-life": {
+   "assetFolders": 102,
+   "foldersWithAFile": 102
+  },
+  "source-desiring-god": {
+   "assetFolders": 7314,
+   "foldersWithAFile": 7314
+  },
+  "source-spurgeon-gems": {
+   "assetFolders": 3652,
+   "foldersWithAFile": 3652
+  },
+  "source-wesley-center": {
+   "assetFolders": 139,
+   "foldersWithAFile": 139
+  },
+  "source-criswell": {
+   "assetFolders": 2517,
+   "foldersWithAFile": 2517
+  },
+  "source-billy-graham": {
+   "assetFolders": 57,
+   "foldersWithAFile": 56
+  }
+ },
+ "criswellRun": {
+  "sitemapSermons": 4093,
+  "held": 2517,
+  "notHeld": 1576,
+  "firstFetch": "2026-10-09T01:32:33Z",
+  "lastFetch": "2026-10-09T09:58:14Z",
+  "catalogued": 0,
+  "gitCheckpointShows": 25
+ },
+ "grahamRun": {
+  "sitemapPagesToScan": 3056,
+  "scanReachedAbout": 1600,
+  "heldPages": 49,
+  "heldPdfs": 7,
+  "catalogued": 0
+ },
+ "manifestsWithoutCatalogueRecords": [
+  {
+   "manifest": "campaign-reconciliation/text/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "campaign-reconciliation/text/existing-ocr-completion/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "csel-20261009/acquisition-manifest.json",
+   "entries": 1111,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "graham-transcripts-20261010/acquisition-manifest.json",
+   "entries": 116,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "letters-cited/LC01/acquisition-manifest.json",
+   "entries": 48,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "local-downloads-20261010/acquisition-manifest.json",
+   "entries": 633,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "patristic-expansion-20261009/acquisition-manifest.json",
+   "entries": 4452,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "private-biblical-history/acquisition-manifest.json",
+   "entries": 92926,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB09/acquisition-manifest.json",
+   "entries": 584,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB12/acquisition-manifest.json",
+   "entries": 2257,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "sermons-campaign/maclaren/acquisition-manifest.json",
+   "entries": 1311,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "sermons-campaign/morgan/acquisition-manifest.json",
+   "entries": 97,
+   "reachCatalogue": 0
+  }
+ ],
+ "manifestsAll": [
+  {
+   "manifest": "bulk-acquisition/offered-books/acquisition-manifest.json",
+   "entries": 0,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "bulk-acquisition/TCP/acquisition-manifest.json",
+   "entries": 9938,
+   "reachCatalogue": 404
+  },
+  {
+   "manifest": "campaign-reconciliation/text/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "campaign-reconciliation/text/existing-ocr-completion/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "confessional-standards/acquisition-manifest.json",
+   "entries": 16,
+   "reachCatalogue": 9
+  },
+  {
+   "manifest": "csel-20261009/acquisition-manifest.json",
+   "entries": 1111,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "doctrinal-studies/acquisition-manifest.json",
+   "entries": 6,
+   "reachCatalogue": 4
+  },
+  {
+   "manifest": "graham-transcripts-20261010/acquisition-manifest.json",
+   "entries": 116,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "historic-preaching/acquisition-manifest.json",
+   "entries": 69,
+   "reachCatalogue": 51
+  },
+  {
+   "manifest": "historical-lives/acquisition-manifest.json",
+   "entries": 21,
+   "reachCatalogue": 12
+  },
+  {
+   "manifest": "islam-studies/acquisition-manifest.json",
+   "entries": 14,
+   "reachCatalogue": 5
+  },
+  {
+   "manifest": "letters-cited/LC01/acquisition-manifest.json",
+   "entries": 48,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "local-downloads-20261010/acquisition-manifest.json",
+   "entries": 633,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "ministry-resources/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 2
+  },
+  {
+   "manifest": "modern-texts/acquisition-manifest.json",
+   "entries": 11428,
+   "reachCatalogue": 9703
+  },
+  {
+   "manifest": "pastoral-care/acquisition-manifest.json",
+   "entries": 10,
+   "reachCatalogue": 9
+  },
+  {
+   "manifest": "patristic-expansion-20261009/acquisition-manifest.json",
+   "entries": 4452,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "private-biblical-history/acquisition-manifest.json",
+   "entries": 92926,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "ready-text-completion/acquisition-manifest.json",
+   "entries": 157,
+   "reachCatalogue": 124
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB00/acquisition-manifest.json",
+   "entries": 2424,
+   "reachCatalogue": 193
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB01/acquisition-manifest.json",
+   "entries": 482,
+   "reachCatalogue": 172
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB02/acquisition-manifest.json",
+   "entries": 153,
+   "reachCatalogue": 33
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB03/acquisition-manifest.json",
+   "entries": 701,
+   "reachCatalogue": 4
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB04/acquisition-manifest.json",
+   "entries": 1880,
+   "reachCatalogue": 1650
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB05/acquisition-manifest.json",
+   "entries": 2192,
+   "reachCatalogue": 7
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB06/acquisition-manifest.json",
+   "entries": 1959,
+   "reachCatalogue": 330
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB07/acquisition-manifest.json",
+   "entries": 622,
+   "reachCatalogue": 365
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB08/acquisition-manifest.json",
+   "entries": 6747,
+   "reachCatalogue": 351
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB09/acquisition-manifest.json",
+   "entries": 584,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB10/acquisition-manifest.json",
+   "entries": 353,
+   "reachCatalogue": 57
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB11/acquisition-manifest.json",
+   "entries": 539,
+   "reachCatalogue": 9
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB12/acquisition-manifest.json",
+   "entries": 2257,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB13/acquisition-manifest.json",
+   "entries": 1491,
+   "reachCatalogue": 159
+  },
+  {
+   "manifest": "reformed-baptist-overnight/RB14/acquisition-manifest.json",
+   "entries": 472,
+   "reachCatalogue": 2
+  },
+  {
+   "manifest": "scripture-studies/acquisition-manifest.json",
+   "entries": 6,
+   "reachCatalogue": 4
+  },
+  {
+   "manifest": "sermons-campaign/maclaren/acquisition-manifest.json",
+   "entries": 1311,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "sermons-campaign/moody/acquisition-manifest.json",
+   "entries": 101,
+   "reachCatalogue": 101
+  },
+  {
+   "manifest": "sermons-campaign/morgan/acquisition-manifest.json",
+   "entries": 97,
+   "reachCatalogue": 0
+  },
+  {
+   "manifest": "sermons-campaign/wesley/acquisition-manifest.json",
+   "entries": 141,
+   "reachCatalogue": 141
+  },
+  {
+   "manifest": "spurgeon/acquisition-manifest.json",
+   "entries": 3652,
+   "reachCatalogue": 3652
+  },
+  {
+   "manifest": "text-gap-batch/acquisition-manifest.json",
+   "entries": 3,
+   "reachCatalogue": 3
+  }
+ ],
+ "bunyanCarsonSide": {
+  "registryEligibility": {
+   "author-john-bunyan": "provisional",
+   "author-d-a-carson": "provisional"
+  },
+  "teacherInputSide": {
+   "author-john-bunyan": "scholars",
+   "author-d-a-carson": "scholars"
+  },
+  "teacherInputBuilt": "2026-10-10",
+  "teacherInputRecords": {
+   "author-john-bunyan": 1032,
+   "author-d-a-carson": 377
+  },
+  "preachersPageAcquiredShelf": {
+   "author-john-bunyan": null,
+   "author-d-a-carson": null
+  },
+  "onScholarsPage": false
+ }
+}

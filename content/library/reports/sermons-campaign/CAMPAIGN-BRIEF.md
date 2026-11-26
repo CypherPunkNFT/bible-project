@@ -1,6 +1,6 @@
 # Sermons campaign: every held sermon on its Bible passage, then many more sermons
 
-**Class:** LIVING · **Opened:** 2026-10-08 by the owner · **State last verified:** 2026-10-08 (steps 1–2 done for Begg, Piper, Spurgeon; Wesley and Moody catalogued; Graham acquiring; not yet released) · Owner of this work: the chat started from the prompt at the end.
+**Class:** LIVING · **Opened:** 2026-10-08 by the owner · **State last verified:** 2026-11-26 (steps 1–2 done for Begg, Piper, Spurgeon; Wesley and Moody catalogued; Maclaren 1,311 and Morgan 97 sermons finished acquiring on 2026-10-09 but not catalogued; Criswell stopped at 2,517 of 4,093 and Graham at 56 files, neither catalogued; nothing is acquiring now; reconciliation: [reconciliation-20261126/REPORT.md](reconciliation-20261126/REPORT.md)) · Owner of this work: the chat started from the prompt at the end.
 
 ## What the owner asked (their words, condensed)
 
@@ -45,6 +45,8 @@ Only **11 of the 47** have any work with a main Bible text, and **Spurgeon is 3,
 
 (Counts from `src/data/teachers/people.json` as built on 2026-10-08 in the shared Website folder.)
 
+**Now (2026-11-26):** with a main Bible text, Begg 1,417, Piper 1,618, Spurgeon 3,544, Wesley 140, Moody 27; the page lists 52 people, not 47. The table above is the state before the campaign.
+
 **Proof the references are there:** a held Begg page (`sources/library/source-begg/asset-expanded-004173dc264bd38295ad/original.html`, "Made Perfect in Weakness") carries structured metadata: `scripture_ref … content="2 Corinthians 12:1–10"`. Desiring God pages need a look: the one checked was an article whose references sit in the body; messages may have a structured Scripture field. Puritan and 18th–19th-century volumes usually state the text under each sermon heading.
 
 ## How the data flows (read before changing anything)
@@ -56,9 +58,9 @@ Only **11 of the 47** have any work with a main Bible text, and **Spurgeon is 3,
 
 ## Hard facts and traps
 
-- **About 34,000 catalogue records are not in git.** `content/library/catalog/{works,editions,assets}` holds ~34k untracked "reconciled" records from the library campaign ([campaign-reconciliation](../../Website/content/library/reports/campaign-reconciliation/)); Begg's 1,584 and Piper's 7,465 works are among them. The Teachers data is therefore built in the shared Website folder, never from a clean checkout (there it counts 4,874 works instead of 17,938). Decide with the owner early whether those records get committed (size, review) — passages written into untracked files are only as safe as those files. Never delete or "clean" them.
+- **The catalogue records are now in git (checked 2026-11-26).** All 18,702 work records under `content/library/catalog/works` are tracked, and nothing under `catalog/` is untracked. The October warning (about 34,000 untracked "reconciled" records, Begg's and Piper's among them) no longer applies; still never delete or "clean" them.
 - **Main text, not every citation.** The sermon-coverage audit ([report](../../Website/content/library/reports/sermon-coverage/REPORT.md)) separates a sermon's announced text from passing quotations and from proven exposition. Record the source's announced/heading text as `main-text` with its `verification` and a `locator` saying where it was read (e.g. "TFL page meta scripture_ref"); never infer a passage from a title alone; list what could not be resolved instead of guessing.
-- **Source terms first.** [sources.json](../../Website/content/library/sources.json) records per source: Desiring God `automation: manual-only` and its [permissions page](https://www.desiringgod.org/permissions); Truth For Life `unreviewed`; MLJ Trust's terms prohibit systematic retrieval for a database; Piper retrieval stopped on HTTP 429 with 491 destinations unresolved ([ready-text-completion](../../Website/content/library/reports/ready-text-completion/REPORT.md)). The owner authorises private local indexing of lawfully held text; the site never re-hosts texts (it links to the original). Before any bulk download: read the source's terms and robots.txt, throttle, keep a resumable checkpoint, record provenance exactly as existing assets do, and stop on 429/blocks.
+- **Source terms first.** [sources.json](../../Website/content/library/sources.json) records per source: Desiring God `automation: manual-only` and its [permissions page](https://www.desiringgod.org/permissions); Truth For Life reviewed 2026-11-26 (its policies page lets anyone copy and distribute Alistair's sermons unaltered, free of charge and credited, and post its written content elsewhere with a link and credit; robots.txt blocks only filtered listings) — recorded in `sources.json` as `approved-endpoint` the same day; MLJ Trust's terms prohibit systematic retrieval for a database; Piper retrieval stopped on HTTP 429 with 491 destinations unresolved ([ready-text-completion](../../Website/content/library/reports/ready-text-completion/REPORT.md)). The owner authorises private local indexing of lawfully held text; the site never re-hosts texts (it links to the original). Before any bulk download: read the source's terms and robots.txt, throttle, keep a resumable checkpoint, record provenance exactly as existing assets do, and stop on 429/blocks.
 - **The library charter still says Reformed.** Its eligibility rules ([CHARTER.md](../../Website/content/library/CHARTER.md), [AUTHORS.md](../../Website/content/library/AUTHORS.md)) were written for a Reformed collection. The owner's 2026-10-08 scope above (any Baptist; conservative, non-heretical, close to Baptist) widens it. Record that decision in the charter, with the date and the owner's words, before adding Graham, Wesley and Moody. For anyone beyond these three outside the Baptist family, ask the owner first.
 - **Other chats share the folder.** Commit only your own files by name; never `git add -A`. The library desk has its own missions (BACKLOG L00–L15, [MISSION-TEMPLATE.md](../../Website/content/library/MISSION-TEMPLATE.md)) — this campaign extends L04 (modern preaching), L05 (Scripture coverage) and L02/L03 (historic preaching); record it there the same way.
 
@@ -95,7 +97,10 @@ Audit: 50 random per source against the held page: Begg 0 errors, Piper 0; Spurg
 |---|---|---|---|
 | John Wesley | 141 (139 fetched, 2 already held as TCP copies) | 140 (one misprint, "Isa. 2:21") | Wesley Center Online, Jackson 1872 |
 | D. L. Moody | 101 from 10 books (plus 10 book records) | 27 (the rest print no reference, e.g. the Ten Commandments addresses, or a misprint) | Project Gutenberg mirror (folder moved to `source-gutenberg`, provenance path updated, checksums verified) |
-| Billy Graham | in progress | | billygraham.org |
+| Billy Graham | stopped: 56 files held (49 pages, 7 PDFs), scan about 1,600 of 3,056; 0 catalogued | | billygraham.org (personal use only) |
+| Alexander Maclaren | 1,311 held (14 volumes), **not catalogued** | 1,306 | CCEL, public domain |
+| G. Campbell Morgan | 97 held (19 volumes), **not catalogued** | 67 | Internet Archive |
+| W. A. Criswell | 2,517 of 4,093 held, **not catalogued**; not in the registry | (sermon pages carry a Scripture field in their header; not yet read for the 2,517) | wacriswell.com, no licence: owner's decision |
 
 People added to the page: authors.json, lives.json (fact-checked: 3 homes added, 2 wording fixes, 7 documented links), a Methodists family (`--apocrypha`), Moody with the Evangelicals, directory towns, "Fifty", station text "Baptist, Reformed and evangelical". Charter records the owner's widened scope.
 
