@@ -2291,3 +2291,116 @@ Pages: `/blessings` and its eight pages. Design: [docs/features/home-blessings/d
 | Isaac Watts, "An Evening Song", verses 3 and 4, *Divine Songs*, second edition (London, 1716), page 36 | Eight lines, credited to Watts, checked on the page image | **Public domain** (1716) | https://archive.org/details/bim_eighteenth-century_divine-songs-attempted-i_watts-isaac-1674-1748_1716 |
 | "Now I lay me down to sleep", *The New England Primer* (Worcester: S. A. Howland, 1830s or 1840s); the earlier wording from *The New-England Primer Improved* (1785), page 25 | Four lines in the familiar form, the 1785 wording named in the source line | **Public domain** (19th-century and 1785 printings) | https://archive.org/details/newenglandprimer00hump |
 | Berean Standard Bible (the site's own copy, registered above) | Every verse shown, loaded from the site's own files | **Public domain** (dedicated 2023) | https://berean.bible/ |
+
+## Apologetics fields: the Baptist footing — registered 27 November 2026 (source records only; nothing released)
+
+Step 1 of [Plans/APOLOGETICS-FIELDS.md](../Plans/APOLOGETICS-FIELDS.md) (sequence 60). The apologetics study fields
+were built almost wholly on Presbyterian sources, and the site's own standard, the Baptist Faith and Message 2000, had
+no source record at all. These 58 records, in `content/apologetics/sources/`, give the coming articles Baptist and
+public-domain witnesses to cite. **No article cites them yet; nothing has been released.** Each record now states, in
+two fields kept out of the site data, what was actually read (`read`) and what text its citations are checked against
+(`checked`: `corpus` a copy held here, `edition` a named edition read online, `none` cite and describe only).
+
+**Rights.** The pre-1927 texts are public domain and may be quoted at any length with the translator or edition and an
+exact locator (owner, 2026-11-27). Where the only held copy is CCEL's electronic text, the translation itself is public
+domain (1885–1900) but CCEL's terms cover its electronic edition, so long extracts are checked against a scan of the
+printed volume first. The Baptist Faith and Message is © Southern Baptist Convention: short phrases and a link only;
+its live text was opened at bfm.sbc.net on 27 November 2026 (eighteen articles; article VI amended 14 June 2023). The
+other four modern SBC documents are cited and summarised, never quoted at length. Leibniz's *Theodicy* is not
+registered: its usual English translation (Huggard, 1951) is in copyright.
+
+| Record | Work | Role | Rights | Held as | Checksum (SHA-256, first 16) |
+|---|---|---|---|---|---|
+| `abstract-of-principles` | Southern Baptist Theological Seminary, *Abstract of Principles (1858)* | Baptist confession | Public domain | Research/Creeds/raw/creeds-json/creeds/abstract_of_principles.json | 3fcb6447826ccbbf |
+| `anselm-proslogium` | Anselm of Canterbury, *Proslogium; Monologium; In Behalf of the Fool by Gaunilo; Cur Deus Homo* | Catholic contribution · limited scope | Public domain | downloaded 2026-11-27, table below | below |
+| `athanasius-incarnation` | Athanasius of Alexandria, *On the Incarnation of the Word* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-d5e964c1e8ccf10c567e/original.txt (NPNF II 4) | patristic manifest |
+| `augustine-city-of-god` | Augustine of Hippo, *The City of God* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-patristic-ccel/npnf102.txt | patristic manifest |
+| `balfour-theism-humanism` | Arthur James Balfour, *Theism and Humanism (1915)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `bfm-2000` | Southern Baptist Convention, *The Baptist Faith and Message (2000)* | Baptist confession | © holder: cite and describe, short phrase at most | not held | not held |
+| `boyce-abstract` | James P. Boyce, *Abstract of Systematic Theology (1887)* | Baptist exposition | Public domain | sources/library/bulk/ia/abstractofsystem00boyc.txt | 8c11c6181b68f8c9 |
+| `butler-analogy` | Joseph Butler, *The Analogy of Religion (1736)* | Historic Christian witness | Public domain | sources/library/bulk/gutenberg/53346.txt | b30d36769dad87d7 |
+| `campbell-miracles` | George Campbell, *A Dissertation on Miracles (1762)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `clarke-demonstration` | Samuel Clarke, *A Demonstration of the Being and Attributes of God (1705)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `coxe-covenants` | Nehemiah Coxe, *A Discourse of the Covenants that God Made with Men before the Law (1681)* | Baptist exposition | Public domain | sources/library/source-tcp-bulk/asset-bulk-tcp-a34849/original.xml | 12e2145f04243e4c |
+| `dagg-church-order` | John L. Dagg, *A Treatise on Church Order (1858)* | Baptist exposition | Public domain | sources/library/bulk/ia/churchorderteati0000jlda.txt | 9573256b73e4caeb |
+| `dagg-theology` | John L. Dagg, *Manual of Theology (1857)* | Baptist exposition | Public domain | downloaded 2026-11-27, table below | below |
+| `doddridge-evidences` | Philip Doddridge, *Three Sermons on the Evidences of Christianity (1736)* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/bulk/ccel/doddridge_evidences.xml | 9300e56e48a00db2 |
+| `dostoevsky-karamazov` | Fyodor Dostoevsky, *The Brothers Karamazov* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `eusebius-church-history` | Eusebius of Caesarea, *Church History* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-578925ec9c59158f116f/original.txt (NPNF II 1) | patristic manifest |
+| `first-london-1644` | Seven Particular Baptist churches in London, *First London Baptist Confession (1644; second edition 1646)* | Baptist confession | Public domain | sources/library/source-romans45/asset-rb01-73f2404c1011ff4e3d74/original.html (1644); …/asset-rb01-65ea07423bdf6b36e33f/original.html (1646) | 420127370235e868 / d307115ed0d7cbb4 |
+| `fuller-gospel-worthy` | Andrew Fuller, *The Gospel Worthy of All Acceptation (1785)* | Baptist exposition | Public domain | sources/library/bulk/ia/bim_eighteenth-century_the-gospel-of-christ-wor_fuller-andrew_1785.txt | 9c51b0d10d09ac1e |
+| `fuller-own-witness` | Andrew Fuller, *The Gospel Its Own Witness (1799)* | Baptist exposition | Public domain | sources/library/bulk/ia/gospelitsownwitn00full.txt | 634e941dffdbe754 |
+| `gill-body-divinity` | John Gill, *A Body of Doctrinal Divinity (1769)* | Baptist exposition | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel-expansion/asset-expanded-a619b7545669d032e969/original.xml | 3810922d7f30de10 |
+| `greenleaf-testimony` | Simon Greenleaf, *An Examination of the Testimony of the Four Evangelists by the Rules of Evidence (1846)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `guidepost-report-2022` | Guidepost Solutions, for the SBC's Sexual Abuse Task Force, *Report of the Independent Investigation: The SBC Executive Committee's Response to Sexual Abuse Allegations (2022)* | Primary record · not a teaching authority | © holder: cite and describe, short phrase at most | not held | not held |
+| `hume-dialogues` | David Hume, *Dialogues Concerning Natural Religion (1779)* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `hume-enquiry` | David Hume, *An Enquiry Concerning Human Understanding (1748)* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `irenaeus-against-heresies` | Irenaeus of Lyons, *Against Heresies* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-patristic-ccel/anf01.txt | ee9c7f0a (manifest) |
+| `james-varieties` | William James, *The Varieties of Religious Experience (1902)* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `jerome-illustrious-men` | Jerome, *Lives of Illustrious Men* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-594f63cae8240f1abef9/original.txt (NPNF II 3) | patristic manifest |
+| `josephus-antiquities` | Flavius Josephus, *Antiquities of the Jews* | Primary record · not a teaching authority | Public domain | sources/gutenberg/josephus-antiquities-2848.txt | bb2e32da8ba3adc1 |
+| `justin-first-apology` | Justin Martyr, *First Apology* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-patristic-ccel/anf01.txt | ee9c7f0a (manifest) |
+| `leibniz-monadology` | G. W. Leibniz, *The Monadology and Other Philosophical Writings* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `lucian-peregrinus` | Lucian of Samosata, *The Passing of Peregrinus* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `manly-inspiration` | Basil Manly Jr., *The Bible Doctrine of Inspiration Explained and Vindicated (1888)* | Baptist exposition | Public domain | downloaded 2026-11-27, table below | below |
+| `mcglothlin-confessions` | W. J. McGlothlin, *Baptist Confessions of Faith (1911)* | Baptist exposition | Public domain | downloaded 2026-11-27, table below | below |
+| `mullins-why-true` | E. Y. Mullins, *Why Is Christianity True? Christian Evidences (1905)* | Baptist exposition | Public domain | downloaded 2026-11-27, table below | below |
+| `murray-school-of-prayer` | Andrew Murray, *With Christ in the School of Prayer (1885)* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/bulk/ccel/murray_prayer.xml | see its provenance record |
+| `new-hampshire-1833` | New Hampshire Baptist State Convention, *New Hampshire Baptist Confession (1833)* | Baptist confession | Public domain | Research/Creeds/raw/ccel-schaff-creeds/creeds3.xml (normalized text 7f031ef1de8880a6) | registered with the creeds collection |
+| `origen-contra-celsum` | Origen, *Against Celsus* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-a17fdd5c055cff5651f0/original.txt (ANF 4) | patristic manifest |
+| `orthodox-creed-1679` | General Baptists of Buckinghamshire and neighbouring counties, *An Orthodox Creed (1679)* | Baptist confession | Public domain | downloaded 2026-11-27, table below | below |
+| `paley-evidences` | William Paley, *A View of the Evidences of Christianity (1794)* | Historic Christian witness | Public domain | sources/library/bulk/gutenberg/14780.txt | cd14e068f720a83d |
+| `paley-natural-theology` | William Paley, *Natural Theology (1802)* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/bulk/ccel/paley_paleysnatural.xml | a1e0c5d24745abaa |
+| `pascal-pensees` | Blaise Pascal, *Pensées* | Catholic contribution · limited scope | Public domain | downloaded 2026-11-27, table below | below |
+| `pliny-letters` | Pliny the Younger, *Letters* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `pusey-daniel` | E. B. Pusey, *Daniel the Prophet (1864)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `ramsay-st-paul` | W. M. Ramsay, *St. Paul the Traveller and the Roman Citizen (1895)* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-dfe8fc6d797fb7939419/original.txt | 4e9dd2db84f683e5 |
+| `sbc-racial-reconciliation-1995` | Southern Baptist Convention, Atlanta, June 1995, *Resolution on Racial Reconciliation on the 150th Anniversary of the Southern Baptist Convention (1995)* | Primary record · not a teaching authority | © holder: cite and describe, short phrase at most | not held | not held |
+| `schweitzer-quest` | Albert Schweitzer, *The Quest of the Historical Jesus (1910)* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `sherlock-tryal` | Thomas Sherlock, *The Tryal of the Witnesses of the Resurrection of Jesus (1729)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `sorley-moral-values` | W. R. Sorley, *Moral Values and the Idea of God (1918)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `spurgeon-sermons` | C. H. Spurgeon, *The New Park Street and Metropolitan Tabernacle Pulpit (1855–1917)* | Baptist exposition | Public domain | sources/library/source-spurgeon-gems/ (3,652 files) | per-file provenance records |
+| `strauss-life-of-jesus` | David Friedrich Strauss, *The Life of Jesus, Critically Examined* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `suetonius-caesars` | Suetonius, *The Lives of the Twelve Caesars* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `tacitus-annals` | Tacitus, *The Annals* | Primary record · not a teaching authority | Public domain | downloaded 2026-11-27, table below | below |
+| `tertullian-apology` | Tertullian, *Apology* | Historic Christian witness | Public domain; CCEL's electronic text, quote the printed translation | sources/library/source-ccel/asset-lc01-ef60b199c53d6146123c/original.txt (ANF 3) | patristic manifest |
+| `traditional-statement-2012` | Eric Hankins and signatories, *A Statement of the Traditional Southern Baptist Understanding of God's Plan of Salvation (2012)* | Baptist exposition | © holder: cite and describe, short phrase at most | not held | not held |
+| `truth-trust-testimony-2013` | Calvinism Advisory Committee, convened by Frank S. Page, president of the SBC Executive Committee, *Truth, Trust, and Testimony in a Time of Tension (2013)* | Primary record · not a teaching authority | © holder: cite and describe, short phrase at most | not held | not held |
+| `warfield-inspiration` | B. B. Warfield, *Revelation and Inspiration (essays first printed 1888–1915)* | Reformed exposition | Public domain | sources/library/bulk/ia/revelationinspir00warf.txt | see its provenance record |
+| `west-resurrection` | Gilbert West, *Observations on the History and Evidences of the Resurrection of Jesus Christ (1747)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+| `westcott-hort-introduction` | B. F. Westcott and F. J. A. Hort, *The New Testament in the Original Greek: Introduction and Appendix (1882)* | Historic Christian witness | Public domain | downloaded 2026-11-27, table below | below |
+
+**Downloaded 27 November 2026** into `sources/` (the project's raw folder beside this repository) and re-fetched by
+`scripts/fetch-sources.py`, which checks each against the checksum below. The Internet Archive files are its OCR text
+of a scan of the printed book (`<item>_djvu.txt`); every title page, date and translator was checked in the text.
+Project Gutenberg answered automated requests with 503, so its files came from its official mirror, byte for byte the
+same.
+
+| File | What | Licence | SHA-256 |
+|---|---|---|---|
+| [mcglothlin-confessions](sources/archive-org/mcglothlin-baptist-confessions-1911.txt) | W. J. McGlothlin, *Baptist Confessions of Faith* (Philadelphia, 1911), OCR text, Internet Archive item `baptistconfessio00mcgl` · prints the Orthodox Creed (1678/79), the First London Confession and the other older Baptist confessions | Public domain (US, 1911) | a7e4b53e376712db |
+| [mullins-why-true](sources/archive-org/mullins-why-is-christianity-true-1905.txt) | E. Y. Mullins, *Why Is Christianity True?* (Chicago, 1905), OCR text, item `whyischristianit00mull` | Public domain (US, 1905) | a2aca1f1af88894e |
+| [manly-inspiration](sources/archive-org/manly-bible-doctrine-of-inspiration-1888.txt) | Basil Manly Jr., *The Bible Doctrine of Inspiration* (New York, 1888), OCR text, item `bibledoctrineofi00manl` | Public domain (US, 1888) | 3a33842d4a96dda3 |
+| [dagg-theology](sources/archive-org/dagg-manual-of-theology-1858.txt) | John L. Dagg, *Manual of Theology* (Charleston, 1858 printing), OCR text, item `manualoftheology02dagg` | Public domain (US, 1858) | a95b56f148bc2bac |
+| [clarke-demonstration](sources/archive-org/clarke-demonstration-1706.txt) | Samuel Clarke, *A Demonstration of the Being and Attributes of God* (London, 1706), OCR text | Public domain (1706) | 8e80e93ebc707082 |
+| [campbell-miracles](sources/archive-org/campbell-dissertation-on-miracles-1762.txt) | George Campbell, *A Dissertation on Miracles* (Edinburgh, 1762), OCR text, item `dissertationonmi00camp` | Public domain (1762) | 13b9385688c75e6c |
+| [sherlock-tryal](sources/archive-org/sherlock-tryal-of-the-witnesses-1729.txt) | Thomas Sherlock, *The Tryal of the Witnesses of the Resurrection of Jesus* (London, 1729), OCR text | Public domain (1729) | 980d0864a9130616 |
+| [west-resurrection](sources/archive-org/west-observations-resurrection-1747.txt) | Gilbert West, *Observations on the History and Evidences of the Resurrection* (London, 1747), OCR text, item `observationsonhi00west` | Public domain (1747) | 4aa3428d9b01be5a |
+| [greenleaf-testimony](sources/archive-org/greenleaf-testimony-of-the-evangelists-1846.txt) | Simon Greenleaf, *An Examination of the Testimony of the Four Evangelists* (Boston, 1846), OCR text, item `examinationoftes00gree` | Public domain (US, 1846) | 4aed8c28df452e69 |
+| [strauss-life-of-jesus](sources/archive-org/strauss-life-of-jesus-eliot-1860-v1.txt) | D. F. Strauss, *The Life of Jesus, Critically Examined*, tr. Marian Evans (George Eliot), vol. 1 (New York, 1860), OCR text, item `lifeofjesuscriti01stra` | Public domain (translation 1846; this printing 1860) | db765c37a772b25a |
+| [schweitzer-quest](sources/archive-org/schweitzer-quest-1910.txt) | Albert Schweitzer, *The Quest of the Historical Jesus*, tr. W. Montgomery (London, 1910), OCR text, item `questofhistorica00schwrich` | Public domain (US, 1910) | 5291a9149a6ca494 |
+| [westcott-hort-introduction](sources/archive-org/westcott-hort-introduction-1882.txt) | Westcott and Hort, *The New Testament in the Original Greek: Introduction and Appendix* (New York, 1882), OCR text, item `newtestamentinor82west` | Public domain (1882) | 287c4f7600d68e78 |
+| [pusey-daniel](sources/archive-org/pusey-daniel-the-prophet-1868.txt) | E. B. Pusey, *Daniel the Prophet* (Oxford, 1868 printing), OCR text, item `a604991500puseuoft` | Public domain (1864; this printing 1868) | cc42d8a946093c0f |
+| [sorley-moral-values](sources/archive-org/sorley-moral-values-1918.txt) | W. R. Sorley, *Moral Values and the Idea of God* (Aberdeen, 1918), OCR text, item `moralvaluesandth00sorluoft` | Public domain (US, 1918) | 8120346225af6242 |
+| [balfour-theism-humanism](sources/archive-org/balfour-theism-and-humanism-1915.txt) | A. J. Balfour, *Theism and Humanism* (London, 1915), OCR text, item `theismandhumanis00balfuoft` | Public domain (US, 1915) | 1cfc673c8c5c8670 |
+| [anselm-proslogium](sources/archive-org/anselm-deane-1903.txt) | Anselm, *Proslogium; Monologium; In Behalf of the Fool* (Gaunilo); *Cur Deus Homo*, tr. S. N. Deane (Chicago: Open Court, 1903), OCR text, item `stanselmeproslog00anseuoft` | Public domain (US, 1903) | 5a578093b4b8c6a8 |
+| [leibniz-monadology](sources/archive-org/leibniz-monadology-latta-1898.txt) | G. W. Leibniz, *The Monadology and Other Philosophical Writings*, tr. Robert Latta (Oxford, 1898), OCR text, item `monadologyotherp00gott` | Public domain (1898) | 5b351722a99fbde4 |
+| [tacitus-annals](sources/archive-org/tacitus-annals-church-brodribb-1884.txt) | Tacitus, *Annals*, tr. A. J. Church and W. J. Brodribb (London, 1884), OCR text, item `annalstranslated00taci` | Public domain (1884) | f90b0f68a784154b |
+| [lucian-peregrinus](sources/archive-org/lucian-works-fowler-1905-v4.txt) | *The Works of Lucian of Samosata*, tr. H. W. and F. G. Fowler, vol. 4 (Oxford, 1905), with *The Passing of Peregrinus*, OCR text, item `worksoflucianofs04luci` | Public domain (1905) | b1cd55bffd038f4a |
+| [hume-enquiry](sources/gutenberg/hume-enquiry-9662.txt) | David Hume, *An Enquiry Concerning Human Understanding*, Project Gutenberg #9662 | Public domain in the US (Project Gutenberg edition) | 647459bc720d0fe0 |
+| [hume-dialogues](sources/gutenberg/hume-dialogues-4583.txt) | David Hume, *Dialogues Concerning Natural Religion*, Project Gutenberg #4583 | Public domain in the US (Project Gutenberg edition) | a6e4592ad61467f6 |
+| [pascal-pensees](sources/gutenberg/pascal-pensees-trotter-18269.txt) | Blaise Pascal, *Pensées*, tr. W. F. Trotter, Project Gutenberg #18269 | Public domain in the US (Project Gutenberg edition) | be863330cafa658e |
+| [pliny-letters](sources/gutenberg/pliny-letters-melmoth-2811.txt) | Pliny the Younger, *Letters*, tr. William Melmoth, Project Gutenberg #2811 | Public domain in the US (Project Gutenberg edition) | 38246747bde7ef4d |
+| [suetonius-caesars](sources/gutenberg/suetonius-caesars-6400.txt) | Suetonius, *The Lives of the Twelve Caesars*, tr. Alexander Thomson rev. T. Forester, Project Gutenberg #6400 | Public domain in the US (Project Gutenberg edition) | ce62a16afa01bbf5 |
+| [dostoevsky-karamazov](sources/gutenberg/dostoevsky-karamazov-garnett-28054.txt) | Fyodor Dostoevsky, *The Brothers Karamazov*, tr. Constance Garnett, Project Gutenberg #28054 | Public domain in the US (Project Gutenberg edition) | 2e75c187cb750df3 |
+| [james-varieties](sources/gutenberg/james-varieties-621.txt) | William James, *The Varieties of Religious Experience*, Project Gutenberg #621 | Public domain in the US (Project Gutenberg edition) | bcfadbaeb796fdd8 |

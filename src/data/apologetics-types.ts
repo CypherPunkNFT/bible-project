@@ -2,7 +2,9 @@ import type { Span } from "../lib/study";
 
 /** Topic membership is checked against the source documents by the content compiler. */
 export type TopicId = string;
-export type SourceRole = "Reformed confession" | "Reformed exposition" | "Historic Christian witness" | "Catholic contribution · limited scope" | "Primary record · not a teaching authority";
+export type SourceRole = "Baptist confession" | "Baptist exposition" | "Reformed confession" | "Reformed exposition" | "Historic Christian witness" | "Catholic contribution · limited scope" | "Scholarship · described, not quoted" | "Primary record · not a teaching authority";
+/** The roles that count as teaching sources: a published study needs one of them beside Scripture (Baptist Faith and Message 2000 footing, plan APOLOGETICS-FIELDS step 1). */
+export const TEACHING_ROLES: readonly SourceRole[] = ["Baptist confession", "Baptist exposition", "Reformed confession", "Reformed exposition"];
 export interface ApSource { id: string; title: string; author: string; kind: string; url: string; note: string; role: SourceRole }
 export type ApCitation = { kind: "scripture"; span: Span } | { kind: "source"; source: string; locator: string };
 export interface CitedText { id?: string; text: string; citations: ApCitation[] }

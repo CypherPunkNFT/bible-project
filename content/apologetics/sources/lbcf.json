@@ -11,7 +11,9 @@
     "kind": "Confession",
     "role": "Reformed confession",
     "url": "https://www.the1689confession.com/",
-    "note": "The Baptist revision of the Westminster Confession, written by Particular (Calvinistic) Baptists in London in 1677 and adopted by their General Assembly in 1689. These guides cite it beside Westminster: the two agree on most doctrine and differ above all on the covenants, the church and baptism. Citations give chapter and paragraph; its numbering follows Westminster's closely but not exactly. The site's own doctrinal standard is the Baptist Faith and Message 2000, and Scripture judges every confession (1.10)."
+    "note": "The Baptist revision of the Westminster Confession, written by Particular (Calvinistic) Baptists in London in 1677 and adopted by their General Assembly in 1689. These guides cite it beside Westminster: the two agree on most doctrine and differ above all on the covenants, the church and baptism. Citations give chapter and paragraph; its numbering follows Westminster's closely but not exactly. The site's own doctrinal standard is the Baptist Faith and Message 2000, and Scripture judges every confession (1.10).",
+    "read": "Every chapter and paragraph the guides cite, checked on 2026-11-06 against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning (review of that date).",
+    "checked": "corpus"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "e761da5c62f261e72622a3855157c5b49bbc5404142984314548d3d17f2ccc73",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = corpus; read = \"Every chapter and paragraph the guides cite, checked on 2026-11-06 against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning (review of that date).\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "23dcab020e74c3dc8bb04696d98a80092306a31e6eb3fbca944d6c80e6df9702",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

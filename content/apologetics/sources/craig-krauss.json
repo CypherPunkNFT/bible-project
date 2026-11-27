@@ -11,7 +11,9 @@
     "kind": "Debate transcript",
     "url": "https://www.reasonablefaith.org/media/debates/the-craig-krauss-debate-at-north-carolina-state-university/",
     "note": "Openings, rebuttals, closings and Q&A. The host also appends post-debate reflections; these are separate from the spoken exchange. Documentary use only; the participants are not doctrinal authorities for this library. Read both speakers in context.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "The linked transcript's structure and publisher notice, and the event's identity against the recording listings, checked on 2026-10-11 (review of that date). The summaries are editorial paraphrases; a full reading of the transcript is not recorded.",
+    "checked": "edition"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "900370aa8250f392b41324495aa48c934fbfd4782f9519110eff1e9286cb7b79",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = edition; read = \"The linked transcript's structure and publisher notice, and the event's identity against the recording listings, checked on 2026-10-11 (review of that date). The summaries are editorial paraphrases; a full reading of the transcript is not recorded.\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "6cf3c48fcac1ee2681de9056a2b7b0fdf91727c860c2b59fbda883b88b99f87c",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

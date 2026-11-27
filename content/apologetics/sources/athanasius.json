@@ -11,7 +11,9 @@
     "kind": "Historical text",
     "url": "https://www.newadvent.org/fathers/2806039.htm",
     "note": "A historical witness to the books Athanasius received, including the 27 books of the New Testament. One bishop's list is evidence within a wider history of reception. Used for the New Testament list in section 5, not as our standard for the Old Testament canon.",
-    "role": "Historic Christian witness"
+    "role": "Historic Christian witness",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "54aff3faa2ba5f2dbe707fe872f06eb44dd122ddec77420c4ef979c30054a735",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "14a6daa77af6369a34072f65e85ba592c63b4c9b77527cec00e968c4b9ae28d2",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

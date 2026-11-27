@@ -11,7 +11,9 @@
     "kind": "Historical text",
     "role": "Historic Christian witness",
     "url": "https://www.newadvent.org/fathers/1510.htm",
-    "note": "Limited use: faith is God's gift and good works follow it. Augustine predates the Reformation. This citation does not equate his entire account of justification with what Baptist and Reformed confessions teach."
+    "note": "Limited use: faith is God's gift and good works follow it. Augustine predates the Reformation. This citation does not equate his entire account of justification with what Baptist and Reformed confessions teach.",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "28e12206098a6fc82699231f7570d8f3cf123718792ffdd4c1cc174dfef82603",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "bcaf046d34f835f1c2141870583b529e8ff8ee01fdbc86c6edf160bc29fea18e",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

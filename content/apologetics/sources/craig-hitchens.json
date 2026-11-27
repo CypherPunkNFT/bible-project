@@ -11,7 +11,9 @@
     "kind": "Debate transcript",
     "url": "https://www.reasonablefaith.org/media/debates/does-god-exist/",
     "note": "Hosted by Craig's organization, with both speakers' contributions. Read the complete exchange and distinguish a speaker's assertion from demonstrated evidence. Documentary use only: Craig is not a doctrinal authority for this library. Assess the arguments against Scripture and the doctrinal basis stated here.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "dd6575a7ef0df578970cec9ad8f0c975da8551ae72ecfa38a2623af2cf541bc5",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "f5f7d99ae60e3f0ef0883766808cf1c63dd6eda88358c7702bcd70f85b7ef9fc",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

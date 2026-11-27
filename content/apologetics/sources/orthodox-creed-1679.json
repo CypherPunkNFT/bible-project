@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "orthodox-creed-1679",
+  "order": 61,
+  "publication": "published",
+  "content": {
+    "title": "An Orthodox Creed (1679)",
+    "author": "General Baptists of Buckinghamshire and neighbouring counties · text in McGlothlin, Baptist Confessions of Faith (1911)",
+    "kind": "Confession",
+    "url": "https://archive.org/details/baptistconfessio00mcgl",
+    "role": "Baptist confession",
+    "note": "The General (non-Calvinist) Baptist confession (agreed 1678, printed 1679; McGlothlin dates it 1678), written to show agreement with the historic creeds against Christological error, and holding that Christ died for all. Cited beside the Second London Confession where Baptists differ, so both strands of Baptist history are heard. Public domain: may be quoted, with the translator or edition named and an exact locator.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (McGlothlin 1911, which prints it whole) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (plan APOLOGETICS-FIELDS step 1, the Baptist footing). Title, author, date, translator and edition checked against the downloaded file's header or title page, the project's corpus inventory (path, size, checksum, provenance), or the publisher's page; the URL was opened on 2026-11-27 (Project Gutenberg answered automated checks with 503, so its files were fetched by number from its mirror and their headers read). Role and kind set under the Baptist Faith and Message 2000 footing; rights stated in the note. checked = corpus; read = \"Downloaded 2026-11-27 to sources/archive-org/ (McGlothlin 1911, which prints it whole) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.\"",
+      "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "c9e6bbf2b7e98744706a13404fd6cb0a80adbeb88740c6d2e43660efc57ba4de",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

@@ -11,7 +11,9 @@
     "kind": "Debate transcript",
     "url": "https://www.reasonablefaith.org/media/debates/hoax-or-history-did-jesus-rise-from-the-dead1/",
     "note": "McGill University, February 2009. The transcript preserves the exchange; the questions in our study guide are editorial prompts, not quotations from the speakers. Documentary use only: Craig is not a doctrinal authority for this library. Assess the arguments against Scripture and the doctrinal basis stated here.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "d35a4fc58b84dc1b9024c2ea5a23427ca981a74cad854a25683711f76fec9006",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "dbf42452395b80ddc9b2bf9ce77593f99b19f55fde08734db5f7d9667da0d308",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

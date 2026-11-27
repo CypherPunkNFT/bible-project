@@ -4,6 +4,7 @@ import path from "node:path";
 import { Ajv } from "ajv";
 import { citationsIn, documentKey, FOLDERS, walk, type ContentDocument, type DocumentKind, type Issue, type LoadedDocument, type Review, type ScriptureIndex } from "./model.ts";
 import { parseReference } from "./scripture.ts";
+import { TEACHING_ROLES } from "../../src/data/apologetics-types.ts";
 
 function stable(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(stable);
@@ -12,6 +13,14 @@ function stable(value: unknown): unknown {
 }
 export const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(stable(value))).digest("hex");
 export const contentHash = (doc: ContentDocument) => hash({ kind: doc.kind, id: doc.id, content: doc.content });
+/** A source as the documents citing it depend on it: without read and checked, the register's record of how we handled
+ * it. A change there is reviewed on the source itself (contentHash) but does not change what any citing claim rests on.
+ * Without those two fields this equals contentHash, so citing documents reviewed before they existed stay current. */
+export function citedSourceHash(doc: ContentDocument): string {
+  if (doc.kind !== "source") return contentHash(doc);
+  const { read: _read, checked: _checked, ...cited } = doc.content;
+  return hash({ kind: doc.kind, id: doc.id, content: cited });
+}
 export function sourceIds(doc: ContentDocument): string[] {
   const ids = citationsIn(doc.content).flatMap((c) => c.kind === "source" ? [c.source] : []);
   if (doc.kind === "worldview") ids.push(...doc.content.sources);
@@ -21,7 +30,7 @@ export function sourceIds(doc: ContentDocument): string[] {
 export function basisHash(doc: ContentDocument, documents: ContentDocument[]): string {
   const policy = documents.find((d): d is ContentDocument<"editorial"> => d.kind === "editorial" && d.id === "library");
   return hash({ policy: doc.kind === "editorial" ? null : policy?.content.policy,
-    sources: sourceIds(doc).map((id) => { const source = documents.find((d) => d.kind === "source" && d.id === id); return [id, source ? contentHash(source) : "missing"]; }),
+    sources: sourceIds(doc).map((id) => { const source = documents.find((d) => d.kind === "source" && d.id === id); return [id, source ? citedSourceHash(source) : "missing"]; }),
   });
 }
 export function reviewState(doc: ContentDocument, documents: ContentDocument[]): "current" | "stale" | "unreviewed" {
@@ -110,7 +119,7 @@ export function validateDocuments(entries: LoadedDocument[], index: ScriptureInd
     if (doc.kind === "study") {
       if (!doc.content.passages.length) add("/content/passages", "A study needs a Scripture passage.", published ? "error" : "warning");
       if (doc.content.related.includes(doc.id)) add("/content/related", "A study cannot recommend itself.");
-      if (!sourceIds(doc).some((id) => { const s = byKey.get("source/" + id); return s?.kind === "source" && s.content.role.startsWith("Reformed"); })) add("/content", "A published study needs a Reformed teaching source as well as Scripture.", published ? "error" : "warning");
+      if (!sourceIds(doc).some((id) => { const s = byKey.get("source/" + id); return s?.kind === "source" && (TEACHING_ROLES as readonly string[]).includes(s.content.role); })) add("/content", "A published study needs a Baptist or Reformed teaching source as well as Scripture.", published ? "error" : "warning");
       if (!citationsIn(doc.content).some((c) => c.kind === "scripture")) add("/content", "A study needs Scripture in its claim-level support.", published ? "error" : "warning");
     }
     if (doc.kind === "practice" && doc.content.best >= doc.content.options.length) add("/content/best", "The preferred response must exist in options.");

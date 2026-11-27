@@ -4,10 +4,10 @@ import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, 
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { buildContent, compileDocuments, GENERATED_FILE, PROJECT_ROOT, verifyBuiltContent } from "./compile.ts";
-import { assertValid, basisHash, contentHash, impact, inspectRepository, loadRepository, recordReview, reviewState, selectDocuments, validateDocuments } from "./repository.ts";
+import { assertValid, basisHash, citedSourceHash, contentHash, impact, inspectRepository, loadRepository, recordReview, reviewState, selectDocuments, validateDocuments } from "./repository.ts";
 import { exportRecord, renderDocument } from "./export.ts";
 import { parseReference, formatReference, scriptureText } from "./scripture.ts";
-import type { ContentDocument } from "./model.ts";
+import { citationsIn, type ContentDocument } from "./model.ts";
 import { assertOrdinaryPath } from "./files.ts";
 import { prepareReadingLibrary, recordReadingReview } from "./reading-library.ts";
 
@@ -27,6 +27,7 @@ function fixture(t: TestContext, withScripts = false) {
   if (withScripts) {
     cpSync(path.join(PROJECT_ROOT, "scripts/content"), path.join(root, "scripts/content"), { recursive: true });
     cpSync(path.join(PROJECT_ROOT, "scripts/content.ts"), path.join(root, "scripts/content.ts"));
+    cpSync(path.join(PROJECT_ROOT, "src/data/apologetics-types.ts"), path.join(root, "src/data/apologetics-types.ts"));
     cpSync(path.join(PROJECT_ROOT, "scripts/validate-library.mjs"), path.join(root, "scripts/validate-library.mjs"));
     writeFileSync(path.join(root, "package.json"), '{"type":"module"}\n');
   }
@@ -95,6 +96,37 @@ test("source scope, references to drafts and review dates are checked", () => {
   assert.ok(result.some((i) => /cannot link to draft source\/wcf/.test(i.message)));
   assert.ok(result.some((i) => /must use HTTPS/.test(i.message)));
   assert.ok(result.some((i) => /real dates/.test(i.message)));
+});
+
+test("a published study needs a Baptist or Reformed teaching source, not any source", () => {
+  const rule = /needs a Baptist or Reformed teaching source/;
+  // Roles are changed on the sources morality cites, which other studies share, so only morality's own findings count.
+  const issues = (entries: typeof baseline.entries) => validateDocuments(entries, baseline.index).filter((i) => i.file.endsWith("morality.json"));
+  const withRoles = (role: string) => {
+    const entries = fresh(), target = study(entries), cited = new Set(citationsIn(target.content).flatMap((c) => c.kind === "source" ? [c.source] : []));
+    for (const { document: doc } of entries) if (doc.kind === "source" && cited.has(doc.id)) doc.content.role = role;
+    return { entries, target };
+  };
+  for (const role of ["Historic Christian witness", "Scholarship · described, not quoted", "Primary record · not a teaching authority"]) {
+    const { entries } = withRoles(role);
+    assert.ok(issues(entries).some((i) => rule.test(i.message) && i.severity === "error"), role);
+  }
+  for (const role of ["Baptist confession", "Baptist exposition", "Reformed confession", "Reformed exposition"]) assert.ok(!issues(withRoles(role).entries).some((i) => rule.test(i.message)), role);
+  const draft = withRoles("Historic Christian witness"); draft.target.publication = "draft";
+  assert.ok(issues(draft.entries).some((i) => rule.test(i.message) && i.severity === "warning"));
+  assert.ok(!issues(draft.entries).some((i) => rule.test(i.message) && i.severity === "error"));
+  const entries = fresh(), target = study(entries);
+  for (const citation of citationsIn(target.content)) if (citation.kind === "source") { citation.source = "lbcf"; citation.locator = "16.5"; }
+  assert.ok(!issues(entries).some((i) => rule.test(i.message)), "a study citing only the 1689 Baptist confession and Scripture");
+});
+
+test("a source's read and checked record is reviewed on the source without staling the documents citing it", () => {
+  const entries = fresh(), docs = entries.map((e) => e.document), target = study(entries);
+  const source = docs.find((d): d is ContentDocument<"source"> => d.kind === "source" && d.id === "wcf")!, before = citedSourceHash(source);
+  assert.equal(reviewState(source, docs), "current");
+  source.content.read = source.content.read + " Revised record of what was read."; source.content.checked = source.content.checked === "none" ? "edition" : "none";
+  assert.equal(reviewState(source, docs), "stale"); assert.equal(reviewState(target, docs), "current"); assert.equal(citedSourceHash(source), before);
+  source.content.note += " Revised scope."; assert.equal(reviewState(target, docs), "stale");
 });
 
 test("editing content or its source basis invalidates review without rewriting history", () => {
@@ -168,6 +200,8 @@ test("CLI creates a private draft, exports exact selections, records reviews and
   const root = fixture(t, true);
   let result = cli(root, "new", "study/test-draft", "--title", "A draft question?", "--topic", "god"); assert.equal(result.status, 0, result.stderr);
   result = cli(root, "new", "study/test-draft", "--title", "Overwrite?", "--topic", "god"); assert.notEqual(result.status, 0);
+  result = cli(root, "new", "source/test-source", "--title", "A new source"); assert.equal(result.status, 0, result.stderr);
+  assert.equal(JSON.parse(readFileSync(path.join(root, "content/apologetics/sources/test-source.json"), "utf8")).content.checked, "none");
   const repo = inspectRepository(root); assertValid(repo.issues); assert.ok(repo.issues.some((i) => i.severity === "warning"));
   buildContent(root); const corpus = JSON.parse(readFileSync(path.join(root, "public/content/apologetics/library.json"), "utf8"));
   assert.equal(corpus.documents.some((d: { id: string }) => d.id === "test-draft"), false);

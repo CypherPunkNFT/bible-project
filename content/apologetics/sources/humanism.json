@@ -11,7 +11,9 @@
     "kind": "Worldview statement",
     "url": "https://humanists.international/policy/declaration-of-modern-humanism/",
     "note": "An organization's own account of humanist ethics, reason and meaning. It does not speak for every atheist or secular person.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "a1945739445a9426d697769b780cba8a0ff0d2b096ddd3b0caa9025ad2dab0d4",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "2e46debb59354dc0932c81b2ea7e0260c0a04444301a3a900a4504cf61b8331e",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

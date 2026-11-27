@@ -11,7 +11,9 @@
     "kind": "Theology",
     "role": "Reformed exposition",
     "url": "https://learn.ligonier.org/articles/bible-errors",
-    "note": "For the truthfulness of Scripture because its divine author is truthful. This is distinct from claiming that every copy, translation or proposed interpretation is error-free."
+    "note": "For the truthfulness of Scripture because its divine author is truthful. This is distinct from claiming that every copy, translation or proposed interpretation is error-free.",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "392b771dd7219e33cb023c8a6ae1c769c6ff4d22c8cf2754a88213464d270876",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "0d280a33eca747251d102a080484a48baff2d3f4bc02e657a90b70f2c19d12d3",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

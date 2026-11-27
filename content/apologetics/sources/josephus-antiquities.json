@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "josephus-antiquities",
+  "order": 95,
+  "publication": "published",
+  "content": {
+    "title": "Antiquities of the Jews",
+    "author": "Flavius Josephus · translated by William Whiston (1737)",
+    "kind": "Historical text",
+    "url": "https://www.gutenberg.org/ebooks/2848",
+    "role": "Primary record · not a teaching authority",
+    "note": "The Jewish historian's references to John the Baptist (18.5.2), James the brother of Jesus (20.9.1) and Jesus (18.3.3, whose wording is disputed). Name the dispute when citing 18.3.3. Public domain: may be quoted, with the translator or edition named and an exact locator.",
+    "read": "Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (plan APOLOGETICS-FIELDS step 1, the Baptist footing). Title, author, date, translator and edition checked against the downloaded file's header or title page, the project's corpus inventory (path, size, checksum, provenance), or the publisher's page; the URL was opened on 2026-11-27 (Project Gutenberg answered automated checks with 503, so its files were fetched by number from its mirror and their headers read). Role and kind set under the Baptist Faith and Message 2000 footing; rights stated in the note. checked = corpus; read = \"Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article.\"",
+      "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "508039258b8ff4fb02d3d4fe59177c43e72b64d57acf422ac2873d99ae2dd47c",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

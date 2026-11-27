@@ -11,7 +11,9 @@
     "kind": "Theology",
     "role": "Reformed exposition",
     "url": "https://learn.ligonier.org/devotionals/penal-substitution",
-    "note": "For Christ bearing the penalty of sin as substitute. Other biblical descriptions of the atonement complement this truth rather than displace it."
+    "note": "For Christ bearing the penalty of sin as substitute. Other biblical descriptions of the atonement complement this truth rather than displace it.",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "faefe80c6951feef66d6e31b5adb7424b6a705672120d1f781f75796003c7c73",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "fead8b1a46e7804cb8147e54504bad7f3c310f4b20391b6c20a1df3d6b572a1c",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

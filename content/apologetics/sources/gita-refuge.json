@@ -11,7 +11,9 @@
     "kind": "Religious text",
     "url": "https://www.holy-bhagavad-gita.org/chapter/18/verse/66/",
     "note": "Krishna’s invitation to take refuge in him. This text prevents a simplistic description of Hindu liberation as merely earning merit; compare interpretations within Hindu traditions.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "The cited passage, read online in the linked translation on 2026-10-09 (review of that date).",
+    "checked": "edition"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "d3c2eb02ba67a1006687fe04a134ac255bccb9f3b3de16548061caefbd513243",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = edition; read = \"The cited passage, read online in the linked translation on 2026-10-09 (review of that date).\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "483b3be46fa10d81df9f417a0a69e45cced08f6eb54e0e9d034382ccf44189a3",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

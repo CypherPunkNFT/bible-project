@@ -635,7 +635,9 @@
         "kind",
         "url",
         "role",
-        "note"
+        "note",
+        "read",
+        "checked"
       ],
       "properties": {
         "title": {
@@ -653,15 +655,30 @@
         },
         "role": {
           "enum": [
+            "Baptist confession",
+            "Baptist exposition",
             "Reformed confession",
             "Reformed exposition",
             "Historic Christian witness",
             "Catholic contribution · limited scope",
+            "Scholarship · described, not quoted",
             "Primary record · not a teaching authority"
           ]
         },
         "note": {
           "type": "string"
+        },
+        "read": {
+          "type": "string",
+          "description": "What was actually read of this source, and when; \"not recorded\" where no record says. Located is never presented as read. Kept out of the site data."
+        },
+        "checked": {
+          "enum": [
+            "corpus",
+            "edition",
+            "none"
+          ],
+          "description": "The text citations of this source are checked against: corpus = a copy this project holds; edition = a named edition read online; none = no text is checked or none is recorded (cite and describe only, never quote). Kept out of the site data."
         }
       }
     },

@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, existsSync, writeFileSync, readdirSync, unlinkSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import type { Citation, ContentDocument, DocumentKind, ScriptureIndex } from "./model.ts";
+import type { Citation, ContentDocument, DocumentKind, ScriptureIndex, SourceContent } from "./model.ts";
 import { documentKey } from "./model.ts";
 import { assertValid, hash, inspectRepository } from "./repository.ts";
 import { parseReference } from "./scripture.ts";
@@ -14,6 +14,9 @@ export const GENERATED_FILE = "src/generated/apologetics.ts";
 export function runtimeCitation(citation: Citation, index: ScriptureIndex) {
   return citation.kind === "scripture" ? { kind: "scripture" as const, span: parseReference(citation.reference, index) } : citation;
 }
+/** A source as pages and the public corpus show it: read and checked are the register's bookkeeping, kept in content/. */
+function publicSource({ read: _read, checked: _checked, ...shown }: SourceContent) { return shown; }
+
 export function compileDocuments(documents: ContentDocument[], index: ScriptureIndex) {
   const published = documents.filter((d) => d.publication === "published");
   const ofKind = <K extends DocumentKind>(kind: K) => published.filter((d) => d.kind === kind) as ContentDocument<K>[];
@@ -25,7 +28,7 @@ export function compileDocuments(documents: ContentDocument[], index: ScriptureI
       sections: c.sections.map((b) => ({ title: b.title, body: b.text })), objection: c.objection, reply: c.reply.text, limit: c.limit.text, prompt: c.prompt.text,
       refs: c.passages.map((p) => ({ span: parseReference(p.reference, index), note: p.note })), sources: [...new Set(all.flatMap((c) => c.kind === "source" ? [c.source] : []))], related: c.related, keywords: c.keywords, support };
   });
-  const SOURCES = ofKind("source").map(({ id, content }) => ({ id, ...content }));
+  const SOURCES = ofKind("source").map(({ id, content }) => ({ id, ...publicSource(content) }));
   const TOPICS = ofKind("topic").map(({ id, content }) => ({ id, ...content }));
   const PATHS = ofKind("path").map(({ id, content }) => ({ id, ...content }));
   const WORLDVIEWS = ofKind("worldview").map(({ id, content: c }) => ({ id, ...c, readingPlan: c.readingPlan ? { ...c.readingPlan, stages: c.readingPlan.stages.map(stage => ({ ...stage, readings: stage.readings.map(reading => ({ ...reading, ...Object.fromEntries(["context", "purpose", "examine", "connection", "christian"].map(key => { const b = reading[key as "context"]; return [key, { ...b, citations: cites(b.citations) }]; })) })) })) } : undefined, rows: c.rows.map((r) => ({ id: r.id, question: r.question, christian: r.christian.text, other: r.other.text, study: r.study, christianBasis: cites(r.christian.citations), otherBasis: cites(r.other.citations) })) }));
@@ -55,7 +58,7 @@ export function prepareArtifacts(root: string) {
   const repository = inspectRepository(root); assertValid(repository.issues);
   const documents = repository.entries.map((e) => e.document), published = documents.filter((d) => d.publication === "published");
   const runtime = compileDocuments(documents, repository.index);
-  const publicCorpus = { schemaVersion: 1, collection: "apologetics", documents: published.map(({ kind, id, content }) => ({ kind, id, content })) };
+  const publicCorpus = { schemaVersion: 1, collection: "apologetics", documents: published.map((doc) => ({ kind: doc.kind, id: doc.id, content: doc.kind === "source" ? publicSource(doc.content) : doc.content })) };
   const publicRoot = "public/content/apologetics";
   const artifacts = new Map<string, string>([[GENERATED_FILE, generatedTypescript(runtime)], [`${publicRoot}/library.json`, JSON.stringify(publicCorpus, null, 2) + "\n"]]);
   const markdown = published.map((doc) => ({ doc, text: renderDocument(doc, documents, repository.index, { publicExport: true }) }));

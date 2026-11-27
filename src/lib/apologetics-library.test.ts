@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { DEBATES, PATHS, PRACTICE, SOURCES, STUDIES, TOPICS, WORLDVIEWS } from "@/data/apologetics-library";
 import type { Catalog, Chapter } from "./types";
-import type { ApCitation } from "@/data/apologetics-types";
+import { TEACHING_ROLES, type ApCitation } from "@/data/apologetics-types";
 
 const studyBlocks = STUDIES.flatMap((study) => [
   { owner: study.id + "/answer", citations: study.support.answer },
@@ -64,7 +64,7 @@ describe("the connected apologetics library", () => {
     for (const study of STUDIES) {
       expect(study.support.reasoning.length, study.id).toBe(study.reasoning.length);
       expect(study.support.sections.length, study.id).toBe(study.sections.length);
-      expect(study.sources.some((id) => SOURCES.find((source) => source.id === id)?.role.startsWith("Reformed")), study.id).toBe(true);
+      expect(study.sources.some((id) => TEACHING_ROLES.some((role) => SOURCES.find((source) => source.id === id)?.role === role)), study.id).toBe(true);
       const sources = studyBlocks.filter((item) => item.owner.startsWith(study.id + "/")).flatMap((item) => item.citations).flatMap((item) => item.kind === "source" ? [item.source] : []);
       expect(new Set(sources), study.id).toEqual(new Set(study.sources));
     }

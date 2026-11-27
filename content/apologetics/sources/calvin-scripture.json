@@ -11,7 +11,9 @@
     "kind": "Theology",
     "role": "Reformed exposition",
     "url": "https://ccel.org/ccel/calvin/institutes/institutes.iii.viii.html",
-    "note": "Sections 1–5 locate Scripture's authority in God and assurance in the Spirit's witness. The church receives God's Word; it does not confer authority on it."
+    "note": "Sections 1–5 locate Scripture's authority in God and assurance in the Spirit's witness. The church receives God's Word; it does not confer authority on it.",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "15049aadfbe7aeb717c9365bb92dea25b54b01756c707f5b3b7ea13fab1ccbd1",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "3d6f848ed28822f344d100b45dc8d6479cc892eec6aa0f61d54793acb4ae4432",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

@@ -11,7 +11,9 @@
     "kind": "Theology",
     "role": "Reformed exposition",
     "url": "https://ccel.org/ccel/calvin/institutes/institutes.iv.iv.html",
-    "note": "Sections 3–4 distinguish God's restraint of sin and gifts in civic life from an inwardly righteous heart. Used alongside Romans 3, not to deny the benefit of an unbeliever's kindness."
+    "note": "Sections 3–4 distinguish God's restraint of sin and gifts in civic life from an inwardly righteous heart. Used alongside Romans 3, not to deny the benefit of an unbeliever's kindness.",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "7424a0f377b2f31dd9e23a5b940e4c5d202346e6bc2ca098ce819e766f9bc19d",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "636b4947aa8dc1dc42d0ef1bbefb02d3bd81333e8273c6b975ca9d12d0d886b2",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

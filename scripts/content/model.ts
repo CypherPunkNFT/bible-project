@@ -9,7 +9,8 @@ export interface StudyContent {
   sections: Section[]; objection: string; reply: Block; limit: Block; prompt: Block;
   passages: { reference: string; note: string }[]; related: string[]; keywords: string[];
 }
-export interface SourceContent { title: string; author: string; kind: string; url: string; role: string; note: string }
+/** read and checked are the register's own record of what was read and how; they are kept out of the site data. */
+export interface SourceContent { title: string; author: string; kind: string; url: string; role: string; note: string; read: string; checked: "corpus" | "edition" | "none" }
 export interface TopicContent { title: string; short: string; color: string; description: string; question: string }
 export interface PathContent { title: string; label: string; description: string; studies: string[] }
 export interface ReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: Block; purpose: Block; examine: Block; connection: Block; christian: Block }[] }[] }

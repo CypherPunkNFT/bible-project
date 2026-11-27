@@ -11,7 +11,9 @@
     "kind": "Religious text",
     "url": "https://quran.com/en/al-ahzab/40",
     "role": "Primary record · not a teaching authority",
-    "note": "Muhammad described as messenger and seal of the prophets. This is the text’s claim; demonstrating a prophetic claim requires further examination."
+    "note": "Muhammad described as messenger and seal of the prophets. This is the text’s claim; demonstrating a prophetic claim requires further examination.",
+    "read": "The cited verse and its surrounding context, read on Quran.com in the Mustafa Khattab translation on 2026-10-09 (review of that date).",
+    "checked": "edition"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "52ae20a499b5863bed6069237d857e78864eaf9140c74b57e120429a4dddc974",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = edition; read = \"The cited verse and its surrounding context, read on Quran.com in the Mustafa Khattab translation on 2026-10-09 (review of that date).\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "48eaeb7736626b2431d9059250769c9a96cb6cc29bd0a45f2b57f44f907ac1fa",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

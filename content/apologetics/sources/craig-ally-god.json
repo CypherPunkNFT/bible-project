@@ -11,7 +11,9 @@
     "kind": "Debate transcript",
     "url": "https://www.reasonablefaith.org/media/debates/the-concept-of-god-in-islam-and-christianity/",
     "note": "McMaster University, March 2002. A Christian–Muslim exchange about the concept of God; neither speaker represents every member of his tradition. Documentary use only: Craig is not a doctrinal authority for this library. Assess the arguments against Scripture and the doctrinal basis stated here.",
-    "role": "Primary record · not a teaching authority"
+    "role": "Primary record · not a teaching authority",
+    "read": "not recorded",
+    "checked": "none"
   },
   "reviews": [
     {
@@ -30,6 +32,15 @@
       "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "fff56f136b59fe4c17a884d77b94a4674c815307d4322ac8191103b01bfb8f92",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Register fields added (plan APOLOGETICS-FIELDS step 1): checked = none; read = \"not recorded\". Each value was set from what this document's own earlier review records say was actually read and how; where no record says, read is 'not recorded' and checked is 'none'. Title, author, kind, URL, role and note were not edited.",
+      "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "dc612dd21da438008e80f01852d3e9a5d8f5223306931faf16c53806a66682a4",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]
