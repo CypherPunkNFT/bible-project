@@ -71,7 +71,12 @@
 .ap-path-card:hover h3 { color: var(--accent); }
 .ap-spotlight { display: grid; grid-template-columns: .85fr 1fr; gap: 4rem; margin-top: 4rem; padding: 3rem 4rem; border: 1px solid color-mix(in srgb,var(--ap-tone) 32%,var(--line)); border-radius: .7rem; background: radial-gradient(ellipse at 25% 50%,color-mix(in srgb,var(--ap-tone) 12%,transparent),transparent 60%),var(--surface); }
 .ap-spotlight-art { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ap-tone); }
-.ap-spotlight-art .ap-topic-art { height: 16rem; stroke-width: .55; }
+.ap-spotlight-art .ap-spotlight-wide { width: 100%; max-width: 29rem; height: auto; stroke-width: 1.6; }
+/* The collection card's own drawing treatment (cards.css), triggered by the spotlight instead of a card. */
+.ap-spotlight .wc-center-base { opacity: .9; }
+.ap-spotlight:is(:hover,:focus-within) .wc-center-base { opacity: .45; }
+.ap-spotlight:is(:hover,:focus-within) .wc-center-live { opacity: 1; }
+.ap-spotlight:is(:hover,:focus-within) .wc-center-live .wc-draw-stroke { animation: wc-center-draw 1.3s cubic-bezier(.45,0,.2,1) var(--wc-draw-delay,0s) both; }
 .ap-spotlight-art > span { font-size: .6rem; text-align: center; line-height: 2; letter-spacing: .18em; text-transform: uppercase; }
 .ap-spotlight h2 { font-size: clamp(2.4rem,4vw,3.8rem); line-height: 1.1; margin: 1rem 0; }
 .ap-spotlight h2 em { color: var(--ap-tone); }
@@ -312,7 +317,7 @@
   .ap-ecosystem-grid > a { padding-left: 4rem; }
   .ap-ecosystem-grid > a > svg:first-child { position: absolute; left: 1.3rem; top: 1.5rem; }
   .ap-spotlight { padding: 2rem; gap: 1.5rem; grid-template-columns: .6fr 1fr; }
-  .ap-spotlight-art .ap-topic-art { height: 9rem; }
+  .ap-spotlight-art .ap-spotlight-wide { max-width: 20rem; stroke-width: 2; }
   .ap-spotlight-art > span { font-size: .5rem; letter-spacing: .05em; }
   .ap-spotlight h2 { font-size: 2.8rem; }
   .ap-footer { align-items: flex-start; flex-direction: column; }
@@ -360,7 +365,7 @@
   .ap-topic-card > p { min-height: 0; }
   .ap-spotlight { padding: 1.7rem; grid-template-columns: 1fr; gap: 1rem; }
   .ap-spotlight-art { flex-direction: row; justify-content: flex-start; gap: 1rem; }
-  .ap-spotlight-art .ap-topic-art { height: 5rem; width: 7rem; }
+  .ap-spotlight-art .ap-spotlight-wide { width: 11rem; flex: none; stroke-width: 2.6; }
   .ap-spotlight-art > span { text-align: left; font-size: .55rem; }
   .ap-spotlight h2 { font-size: 2.9rem; }
   .ap-filter-bar { gap: .7rem; }
@@ -422,3 +427,7 @@
 .ap-debate-availability { max-width: 48rem; color: var(--muted); font-size: .75rem; line-height: 1.8; margin-top: 1rem; }
 .ap-debate-availability p { margin: .4rem 0; }
 .ap-debate-availability a { display: inline-flex; align-items: center; gap: .4rem; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  .ap-spotlight :is(.wc-card-orbit,.wc-draw-stroke) { animation: none !important; }
+  .ap-spotlight :is(.wc-center-base,.wc-center-live) { transition: none; }
+}

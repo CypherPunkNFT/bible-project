@@ -49,9 +49,14 @@ function TempleBell(){return <g className="wc-refined-bell" strokeWidth=".85">
 export function CardArtifactGlyph({id}:{id:string}){
  return id==='garland'?<Necklace/>:id==='bell'?<TempleBell/>:id==='bowl'?<BowlFlame/>:id==='firealtar'?<FireAltar/>:<path d={paths[id]}/>;
 }
+/** The object catalogue by its own numbers: 45 prayer beads, 46 prayer rug, 47 glass mosque lamp,
+ *  48 Qur'an and folding stand, 49 reed pen and inkwell, 51 incense burner, 52 Qur'an binding. */
 export function CardIslamObject({number}:{number:number}){
  return <g className="wc-islam-object" data-object={number}>{number===45?<><path d="M0-32C-35-30-35 29 0 33C35 29 35-30 0-32" opacity=".4"/>{Array.from({length:33},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/33;return <circle key={i} cx={Math.cos(a)*27} cy={Math.sin(a)*32} r="2.25"/>;})}<path d="M0 35v7M-4 42h8v7h-8ZM-3 49l-4 13m5-13v13m3-13v13m2-13 4 13"/></>:
 number===46?<g transform="rotate(-8)"><path d="M-29-43h58v86h-58ZM-24-37h48v74h-48ZM-18 29V-5q0-13 18-24 18 11 18 24v34M-12 26V-4q0-8 12-16 12 8 12 16v30M-18 29h36M-22-28l4-4 4 4-4 4ZM14-28l4-4 4 4-4 4Z"/>{[-24,-16,-8,0,8,16,24].map(x=><path key={x} d={`M${x}-43v-8M${x} 43v8`}/>)}</g>:
 number===47?<><path d="M0-65v22M0-43-22-18m22-25 22 25M-27-26q27-8 54 0-27 8-54 0ZM-24-24l10 19q-20 10-17 28 3 21 31 21t31-21q3-18-17-28l10-19M-31 17q31 11 62 0M-28 27q28 9 56 0M-13 44v6h26v-6M-17 50h34M-7 6q7-6 14 0v7H-7Z"/><circle cy="-43" r="3"/></>:
+number===48?<path d="M-45-20q23-14 45-2 22-12 45 2v34Q22 1 0 14q-23-13-45 0ZM0-22v36M-50-14v35q25-13 50 0 25-13 50 0v-35M-37-6q14-5 27 0m-27 9q14-5 27 0m20-9q13-5 27 0m-27 9q13-5 27 0M-39 22l74 23m-70-23L39 45M-29 26l-12 26m70-26 12 26M-41 52h14m14-26-9 19m49 7h14M13 26l9 19"/>:
+number===49?<path d="M-44 32 3-46l8 5-48 78ZM-44 32l-7 13 14-8M-42 36l7-9M-12-19l7 4m-28 26 7 4M14 8q17-7 34 0v29q-17 7-34 0ZM14 8q17 7 34 0M18 8v-7q13-9 26 0v7M18 1q13-4 26 0M28-6v-6h6v6M18 37v5h26v-5M23 18h16m-16 8h16"/>:
+number===52?<g transform="rotate(-8)"><path d="M-31-45h62v90h-62ZM-25-39h50v78h-50ZM31-45l9-6v90l-9 6M-31 45l9 6h62v-12M31-26l21 26-21 26M-31-45v90M-4-22 4-13 14-17 11-7 21 0 11 7 14 17 4 13-4 22-12 13-22 17-19 7-29 0-19-7-22-17-12-13Z" transform="translate(4 0)"/><path d="M-9-8l8-8 8 8-8 8ZM-18-30h30m-30 60h30"/></g>:
 number===51?<><path d="M0-64v21M-5-38v-5h10v5M0-37a37 37 0 1 0 0 74 37 37 0 1 0 0-74ZM-37 0h74M-35 7h70M-12-35q-12 35 0 70m24-70q12 35 0 70"/>{[-18,0,18].map(x=>[-18,19].map(y=><path key={`${x}:${y}`} d={`M${x} ${y-4}l4 4-4 4-4-4Z`}/>))}<circle cy="-38" r="3"/></>:null}</g>;
 }
