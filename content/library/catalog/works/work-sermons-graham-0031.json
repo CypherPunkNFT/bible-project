@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-graham-0031",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: Philadelphia, Pennsylvania",
+    "© Billy Graham Evangelistic Association. Held for private study only; the site links to the BGEA page and hosts no text or audio."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Love of God",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-billy-graham",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1992",
+      "precision": "year",
+      "label": "Printed under the title: 'by Billy Graham – Philadelphia, Pennsylvania; 1992'",
+      "evidence": [
+        {
+          "url": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-11-27"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "John 3:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43003016,
+      "end": 43003016,
+      "verification": "verified",
+      "locator": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf; Printed under the title as the sermon's text ('–John 3:16'); the first paragraph repeats it: 'I want to consider a passage of Scripture ... John 3:16'"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf",
+      "locator": "BGEA sermon PDF",
+      "note": "Held by the sermons campaign; see reports/sermons-campaign/graham/acquisition-manifest.json.",
+      "checkedOn": "2026-11-27"
+    }
+  ]
+}

@@ -41,8 +41,15 @@ PREACHERS = {
                    edition="Wesley Center Online HTML, Thomas Jackson edition (1872)", policy="https://wesley.nnu.edu/"),
     "moody": dict(author="author-d-l-moody", era="nineteenth-century", rights="public-domain",
                   edition="Project Gutenberg HTML", policy="https://www.gutenberg.org/policy/terms_of_use.html"),
+    # billygraham.org pages held under source-billy-graham (52 from 2026-10-09, the rest by graham/progress/collect.py);
+    # link-only on the site. Numbers come from the manifest, which keeps them by URL, never from list order.
     "graham": dict(author="author-billy-graham", era="twentieth-century", rights="restricted-license",
-                   edition="Billy Graham Evangelistic Association published sermon", policy="https://billygraham.org/"),
+                   edition="Billy Graham Evangelistic Association page on billygraham.org", policy="https://billygraham.org/legal-permissions",
+                   catalogued="2026-11-27", width=4, no_overwrite=True, numbered=True, license_id="BGEA-personal-use-permission",
+                   conditions=["Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, "
+                               "Linking). No text, audio or video reposted without BGEA's written permission."],
+                   quality="Every held page checked for checksum, byline and readable text; main texts and dates read by hand "
+                   "(graham/progress/decisions.json)."),
     "macarthur": dict(author="author-john-macarthur", era="twentieth-century", rights="restricted-license",
                       edition="Grace to You official sermon transcript", policy="https://www.gty.org/"),
     "maclaren": dict(author="author-alexander-maclaren", era="nineteenth-century", rights="public-domain",
@@ -54,10 +61,11 @@ PREACHERS = {
                    "archive.org's existing OCR full text, not proofread."),
     # Whisper transcripts of BGEA "Billy Graham Classics" recordings the owner supplied, from their own report; works only:
     # the held files sit below yt-transcripts/ and cannot be moved to the library/<source>/<asset>/ layout an asset needs.
-    # "graham" stays free for the billygraham.org pages held under source-billy-graham, which have no manifest yet.
+    # "graham" is the billygraham.org pages held under source-billy-graham; a transcript whose title matches one of them by
+    # hand (that manifest's transcriptPages) links to that page instead of BGEA's home page.
     "graham-transcripts": dict(author="author-billy-graham", era="twentieth-century", rights="restricted-license",
                                edition="Automatic transcription of a BGEA recording", policy="https://billygraham.org/legal-permissions",
-                               catalogued="2026-11-26", manifest=LIBRARY / "reports" / "graham-transcripts-20261010" / "acquisition-manifest.json"),
+                               catalogued="2026-11-27", manifest=LIBRARY / "reports" / "graham-transcripts-20261010" / "acquisition-manifest.json"),
     # Truth For Life pages held by begg/progress/collect.py, numbered by Truth For Life's own sermon ID. The main text is
     # placed afterwards by sermon-passages.py from each page's scripture_ref (passage-overlays/begg.json), not here.
     "begg": dict(author="author-alistair-begg", era="unknown", rights="restricted-license", edition="Truth For Life sermon page",
@@ -97,7 +105,10 @@ def read(path):
 
 
 def identity(record):
-    return record.get("externalIds") or record.get("workId") or record.get("canonicalUrl")
+    """What a record file is about: its work's first official page (later pages of the same sermon may be added), its
+    edition's work, or its asset's URL."""
+    external = record.get("externalIds")
+    return (external.get("officialDestination") or [external])[0] if external else record.get("workId") or record.get("canonicalUrl")
 
 
 def save(record):
@@ -272,7 +283,7 @@ def sermon_work(ident, entry, cfg, passages, related=None):
     work.update(title=entry["title"], alternateTitles=[], creators=[dict(authorId=cfg["author"], role="preacher")],
                 genre="sermon", role="core-teaching", collections=["sermons"], subjects=[], occasions=[],
                 audiences=["general"], depth="unknown", era=entry.get("era") or cfg["era"], dates=delivery(entry, url), passages=passages,
-                related=related or [], externalIds=dict(officialDestination=[url], **({"officialSermonNumber": [entry["sermonId"]]} if entry.get("sermonId") else {})),
+                related=related or [], externalIds=dict(officialDestination=[url, *entry.get("alsoAt", [])], **({"officialSermonNumber": [entry["sermonId"]]} if entry.get("sermonId") else {})),
                 evidence=[ev(url, entry.get("locator") or "Sermon page",
                              entry.get("evidenceNote") or "Acquired by the sermons campaign; see its acquisition manifest.")])
     return work
@@ -328,6 +339,8 @@ def held_rights(manifest):
 def transcript_sermons(manifest):
     """The owner's Graham transcripts report (one entry per file) as campaign entries, one per transcript. Nothing is
     taken from the transcript itself: a text Graham announces aloud sits in an unverified machine transcript."""
+    pages_manifest = REPORTS / "graham" / "acquisition-manifest.json"  # transcript title -> {url, evidence, alsoAt}, matched by hand
+    pages = read(pages_manifest).get("transcriptPages", {}) if pages_manifest.exists() else {}
     sermons = []
     for entry in manifest["files"]:
         if entry["textKind"] != "sermon-transcript":
@@ -336,9 +349,12 @@ def transcript_sermons(manifest):
         if not held.is_relative_to(SOURCES.resolve()) or not held.is_file():
             sys.exit(f"transcript not held under {SOURCES}: {entry['path']}")
         relative = held.relative_to(SOURCES.resolve()).as_posix()
+        title = TRANSCRIPT_TITLE.sub("", entry["title"])
+        page = pages.get(title)
         sermons.append(dict(
-            title=TRANSCRIPT_TITLE.sub("", entry["title"]), url="https://billygraham.org/", mainText=None,
-            locator="BGEA's own site; no BGEA page for this sermon was located",
+            title=title, url=page["url"] if page else "https://billygraham.org/", alsoAt=page["alsoAt"] if page else [], mainText=None,
+            locator=(f"BGEA's page for this recording, matched by hand: {page['evidence']}" if page
+                     else "BGEA's own site; no BGEA page for this sermon was located"),
             evidenceNote="Transcript listed in content/library/reports/graham-transcripts-20261010/acquisition-manifest.json.",
             notes=f"Recording title: '{entry['title']}' (BGEA 'Billy Graham Classics'). Automatic transcription "
                   f"({entry['sourceMetadata']['model']}) of a recording the owner supplied; the source records its accuracy as not "
@@ -370,6 +386,8 @@ def catalogue(name, verses):
     width = cfg.get("width") or max(3, len(str(len(manifest["sermons"]))))
     per_file = Counter(e.get("assetId") for e in manifest["sermons"] if e.get("book"))
     for index, entry in enumerate(manifest["sermons"], 1):
+        if cfg.get("numbered") and not entry.get("number"):
+            sys.exit(f"{name}: manifest entry {entry['url']} has no number; list order would renumber other works")
         number = entry.get("number") or index
         suffix = f"{number:0{width}d}" if isinstance(number, int) else number  # Begg: "r2804" for a page with no sermon number
         ident = f"work-sermons-{name}-{suffix}"

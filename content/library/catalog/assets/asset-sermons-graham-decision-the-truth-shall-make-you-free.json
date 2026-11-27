@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-graham-decision-the-truth-shall-make-you-free",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-graham-1627",
+  "sourceId": "source-billy-graham",
+  "canonicalUrl": "https://billygraham.org/decision-magazine/articles/the-truth-shall-make-you-free",
+  "finalUrl": "https://billygraham.org/decision-magazine/articles/the-truth-shall-make-you-free",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-billy-graham/asset-sermons-graham-decision-the-truth-shall-make-you-free/original.html",
+  "sha256": "40f0caeacf58ceaf253f5dc63532f119357d21391eb3e661ff9ced5d5a0882e4",
+  "byteCount": 366587,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-11-27T06:09:11Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "BGEA-personal-use-permission",
+    "licenseUrl": "https://billygraham.org/legal-permissions",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [
+      "Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, Linking). No text, audio or video reposted without BGEA's written permission."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://billygraham.org/decision-magazine/articles/the-truth-shall-make-you-free",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-27"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-27",
+    "note": "Every held page checked for checksum, byline and readable text; main texts and dates read by hand (graham/progress/decisions.json)."
+  }
+}

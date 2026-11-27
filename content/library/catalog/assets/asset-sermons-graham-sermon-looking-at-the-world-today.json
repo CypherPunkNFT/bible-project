@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-graham-sermon-looking-at-the-world-today",
+  "editorialState": "catalogued",
+  "notes": [
+    "The publisher offers this sermon as audio/video only: the held page carries its metadata and stated text, no transcript."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-graham-0717",
+  "sourceId": "source-billy-graham",
+  "canonicalUrl": "https://billygraham.org/sermons/looking-at-the-world-today",
+  "finalUrl": "https://billygraham.org/sermons/looking-at-the-world-today",
+  "format": "html",
+  "mediaKind": "other",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-billy-graham/asset-sermons-graham-sermon-looking-at-the-world-today/original.html",
+  "sha256": "09675b0080295e7f3826cdaf5a35639fc8f27645faafbece447812801a2bda83",
+  "byteCount": 189478,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-11-26T19:58:47Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "BGEA-personal-use-permission",
+    "licenseUrl": "https://billygraham.org/legal-permissions",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [
+      "Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, Linking). No text, audio or video reposted without BGEA's written permission."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://billygraham.org/sermons/looking-at-the-world-today",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-27"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-27",
+    "note": "Every held page checked for checksum, byline and readable text; main texts and dates read by hand (graham/progress/decisions.json)."
+  }
+}

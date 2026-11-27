@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-sermons-graham-0304",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "workId": "work-sermons-graham-0304",
+  "label": "Billy Graham Evangelistic Association page on billygraham.org",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://billygraham.org/sermons/christ-is-coming",
+      "locator": "Held source file",
+      "note": "Edition as acquired.",
+      "checkedOn": "2026-11-27"
+    }
+  ]
+}

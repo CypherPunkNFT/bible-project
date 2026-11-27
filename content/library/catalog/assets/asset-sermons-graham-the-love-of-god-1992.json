@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-graham-the-love-of-god-1992",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-graham-0031",
+  "sourceId": "source-billy-graham",
+  "canonicalUrl": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf",
+  "finalUrl": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf",
+  "format": "pdf",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-billy-graham/asset-sermons-graham-the-love-of-god-1992/original.pdf",
+  "sha256": "ae95faffd113a4bb0d7addb11bbb56dcf5371406f1033357feface9e40a8c57e",
+  "byteCount": 63466,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-09T00:31:30Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "BGEA-personal-use-permission",
+    "licenseUrl": "https://billygraham.org/legal-permissions",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [
+      "Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, Linking). No text, audio or video reposted without BGEA's written permission."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://static.billygraham.org/-/bgm-cdn/2015/04/Billy-Graham-Sermon-The-Love-of-God.pdf",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-27"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-27",
+    "note": "Every held page checked for checksum, byline and readable text; main texts and dates read by hand (graham/progress/decisions.json)."
+  }
+}

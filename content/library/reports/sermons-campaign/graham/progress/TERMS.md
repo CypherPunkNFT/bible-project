@@ -85,3 +85,23 @@ even from General Permission, and the brief asks for real text only.
 
 We used the CDX index API a few times, read-only, to look for other `Billy-Graham-Sermon-*.pdf`
 file names. It found none, and no files were taken from the Wayback Machine.
+
+## Re-read 2026-11-26 (job 90e68650), before finishing the collection
+
+- **robots.txt** (fetched 2026-11-26): still `User-agent: * / Allow: /`; only AI-training crawlers
+  (GPTBot, ClaudeBot, anthropic-ai, Google-Extended, CCBot, ...) are disallowed. User-requested retrieval agents
+  are explicitly allowed. Sitemap: https://billygraham.org/sitemap.xml.
+- **Copyright** and **Legal Permissions** pages: unchanged in substance. Personal use (viewing, listening,
+  printing) is allowed; reposting BGEA material on another website needs written permission ("Provide link
+  instead"); audio, video and images are never covered; a link must clearly say it leads to a BGEA website and
+  open in a new window.
+- **How we read the site this time:** through the machine-wide polite reader
+  (Jarvis/Tools/PoliteFetch, `fortress_polite.get`): one request at a time, 5 s between requests to
+  billygraham.org counted from the end of the last one, shared with every other process on this PC, a shared
+  cool-down on any "too many requests", and its honest user agent
+  (`FortressResearch/1.0 (one person's research tools on one PC; one shared, rate-limited reader per site)`).
+  The collector also stops on an HTTP 403 or a challenge page. Only HTML pages were read: no audio, video,
+  image or PDF was downloaded.
+- **What the site shows:** link-only records. Each sermon's work points at its own billygraham.org page; no
+  text, audio or video is hosted or indexed publicly. Held pages stay private reading copies
+  (`publicHostingAllowed: false`, `publicFullTextIndexAllowed: false`).

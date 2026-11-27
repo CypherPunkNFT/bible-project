@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-graham-0910",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: Austin, TX, USA",
+    "© Billy Graham Evangelistic Association. Held for private study only; the site links to the BGEA page and hosts no text or audio. BGEA audio page (Audio 13:45): no transcript offered; the held page gives the title and description only."
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Revival or the Spirit of the Age",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-billy-graham",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1952",
+      "precision": "year",
+      "label": "Printed on the page: 'message from Austin, TX, USA - 1952'",
+      "evidence": [
+        {
+          "url": "https://billygraham.org/sermons/revival-or-the-spirit-of-the-age",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-11-27"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://billygraham.org/sermons/revival-or-the-spirit-of-the-age"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://billygraham.org/sermons/revival-or-the-spirit-of-the-age",
+      "locator": "BGEA sermon audio page",
+      "note": "Held by the sermons campaign; see reports/sermons-campaign/graham/acquisition-manifest.json.",
+      "checkedOn": "2026-11-27"
+    }
+  ]
+}

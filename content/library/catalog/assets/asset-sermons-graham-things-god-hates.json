@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-graham-things-god-hates",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-graham-0038",
+  "sourceId": "source-billy-graham",
+  "canonicalUrl": "https://billygraham.org/decision-magazine/articles/things-god-hates",
+  "finalUrl": "https://billygraham.org/decision-magazine/articles/things-god-hates",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-billy-graham/asset-sermons-graham-things-god-hates/original.html",
+  "sha256": "e07e1724c4e3bb51cb6c22a1c6b8f4fa182b6d0c261750c39039286bb338a56e",
+  "byteCount": 347636,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:28:29Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "BGEA-personal-use-permission",
+    "licenseUrl": "https://billygraham.org/legal-permissions",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [
+      "Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, Linking). No text, audio or video reposted without BGEA's written permission."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://billygraham.org/decision-magazine/articles/things-god-hates",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-11-27"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-11-27",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-11-27",
+    "note": "Every held page checked for checksum, byline and readable text; main texts and dates read by hand (graham/progress/decisions.json)."
+  }
+}
