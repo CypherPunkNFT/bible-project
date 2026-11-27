@@ -112,7 +112,7 @@ Sermons receive the largest share of effort. Establish a complete, well-document
 
 Each mission should report: expected inventory with its source/date; discovered unique works; editions; acquired original assets; metadata-only records; complete and partial series; verified Scripture coverage; unknown rights; unresolved eligibility; text-quality issues; and exact resumption point. Keep discovered, acquired, reviewed and published totals distinct.
 
-## Collection assignment: 4,467 placed, 2,828 left — 25 November 2026
+## Collection assignment: 5,024 placed, 2,271 left — 26 November 2026
 
 Every acquired record used to arrive with a collection or none at all: `bible_bibliography.py` read
 one from the acquisition report's folder name, plus a rule reading anything whose kind said sermon or
@@ -126,9 +126,9 @@ on the next corpus rebuild; nothing in this repository changed.
 - [x] Per-work decisions in `wiki/_build/bible-collections.json`, read when neither the report folder
       nor a source rule places a record. Keyed by source URL: titles collide (Piper has a book and a
       sermon both called Desiring God; Spurgeon preached one called Providence), and author with
-      title still collided 31 times. JarvisWiki `da1d2178`, `5d4d59b4`.
+      title still collided 31 times. JarvisWiki `da1d2178`, `5d4d59b4`, `5e4c5d58`.
 - [x] CCEL, archive.org, the Desiring God books and four smaller sources: 301 records, all decided.
-- [x] Monergism: 924 of 1,551, decided from the work — commentaries as Scripture, sermon collections
+- [x] Monergism: 1,481 of 1,551, decided from the work — commentaries as Scripture, sermon collections
       as sermons, confessions as standards, lives and letters as history, pastoral office as ministry,
       Rome and other beliefs as apologetics, doctrine as theology, practical writing as Christian life.
 - [ ] **Decision needed — the 2,201 Desiring God articles.** Either one source rule placing
@@ -138,8 +138,15 @@ on the next corpus rebuild; nothing in this repository changed.
       for the Fall" as a sermon, "Brothers, Read Christian Biography" as history and "The Devil Can Do
       Exposition" as Scripture. Rules written for 17th-century book titles read a modern article title
       as its subject rather than its form.
-- [ ] The remaining 627 monergism works: short, abstract Puritan titles ("Faith", "Heaven Upon Earth",
-      "The Heavenly Trade") that neither source nor title settles. Needs reading, or better metadata.
+- [x] The 627 short, abstract Puritan titles ("Faith", "Heaven Upon Earth", "The Heavenly Trade") that
+      neither source nor title settles: read one at a time, 557 placed — Christian life 258, theology
+      181, Scripture 49, apologetics 24, ministry 16, sermons 15, history 10, standards 4. Sampling the
+      output corrected three (Crisp's collected sermons, Ryle on forgiveness, Charnock on spiritual
+      worship); placing by author-level default was tried and dropped again.
+- [ ] 70 monergism works deliberately left blank, not pending a rule: mixed collected editions
+      (Whitefield's six volumes, Edwards' Works volume one, Watson's Works, Machen's and Cunningham's
+      selections), political theology with no home among the eight (Lex Rex, Rijssenius, Trigland), and
+      works whose subject could not be identified at all. These need better metadata, not a guess.
 - [ ] Identity, separate from collection: 610 Adrian Rogers records carry "Title not recorded" and 42
       archive.org records "Author not recorded" with one title repeated. Fixable only at the corpus end.
 
