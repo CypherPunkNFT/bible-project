@@ -1,0 +1,61 @@
+// The two fields the plan asks to mock up (APOLOGETICS-FIELDS.md job 4.1), with the real titles from part B
+// (APOLOGETICS-FIELDS-INVENTORY.md). Existing articles keep their live title and summary. Minutes come from the middle of
+// each article's target length (content/apologetics/targets.json) at about 220 words a minute; source counts are
+// illustrative until the articles are written. `reading-craig-ehrman` (a debate case study) is left out on purpose:
+// the owner asked that the debate case studies not be touched in this sequence.
+window.APF_FIELDS = {
+  jesus: {
+    title: "Jesus & resurrection", short: "Jesus", color: "gospels",
+    description: "The identity, death and resurrection at the heart of Christian faith.",
+    question: "Who do you say that I am?",
+    start: ["jesus", "resurrection-case", "cross"],
+    studies: [
+      ["jesus", "short-answer", "Was Jesus simply a great teacher?", "The eternal Son became truly human to save sinners.", 6, 9, { read: true }],
+      ["cross", "short-answer", "Why would forgiveness involve the cross?", "Christ willingly bore the judgment our sins deserve.", 6, 11, { saved: true }],
+      ["miracles", "short-answer", "Can a reasonable person believe in miracles?", "God acts in his world; not every remarkable report is true.", 5, 8],
+      ["resurrection", "short-answer", "Does the resurrection really matter?", "Christ rose bodily. Our forgiveness and hope depend on it.", 5, 10, { read: true }],
+      ["virgin-birth", "short-answer", "The virgin birth", "What Matthew and Luke say, and the old debate over almah in Isaiah 7:14.", 4, 6],
+      ["crucifixion-history", "short-answer", "Was Jesus really crucified?", "Why historians on every side accept it, and the one major tradition that denies it.", 4, 7],
+      ["gospels-as-history", "essay", "How historians weigh the Gospels", "Ancient biography, memory and the criteria: what the evidence says and where it stops.", 16, 18, { parts: 6 }],
+      ["jesus-claims", "essay", "What did Jesus claim about himself?", "Forgiving sins, the Son of Man of Daniel 7, and the worship given to him early.", 16, 14, { parts: 5 }],
+      ["resurrection-case", "essay", "Did Jesus rise? The historical case", "The creed of 1 Corinthians 15, the empty tomb, the appearances and the critics.", 16, 22, { parts: 7 }],
+      ["mythicism", "objections", "Was Jesus a myth?", "The mythicist case in its own words, and why historians on every side reject it.", 6, 9],
+      ["messianic-prophecy", "objections", "Messianic prophecy: claims and cautions", "Isaiah 53, Psalm 22, Daniel 9 and Micah 5, with Jewish readings stated fairly.", 6, 12],
+      ["penal-substitution-objections", "objections", "Objections to substitution", "Transfer of guilt, \"cosmic child abuse\", payment against forgiveness, and why blood.", 6, 10],
+      ["trilemma", "debate-guide", "Lord, liar, lunatic, or legend?", "The argument, its fourth option, and the answer from the early sources.", 8, 8],
+      ["easter-alternatives", "debate-guide", "Other explanations of Easter", "Theft, swoon, wrong tomb, visions, legend: who holds each, and the reply.", 8, 13],
+      ["hume-miracles", "figure", "Can historians ever conclude a miracle?", "David Hume's essay on miracles, read with George Campbell's reply of 1762.", 5, 7],
+      ["jesus-outside-nt", "reading", "Did Jesus exist? What non-Christian writers say", "Tacitus, Josephus, Pliny, Suetonius and Lucian, read slowly with notes.", 5, 8],
+      ["quests-timeline", "timeline", "The quests for the historical Jesus", "From Reimarus and Strauss to Schweitzer, Bultmann and the Third Quest.", 6, 9],
+      ["atonement-timeline", "timeline", "How Christians have described the cross, 180–1931", "Irenaeus, Athanasius, Anselm, Abelard, Calvin, Grotius and Aulén.", 6, 10],
+      ["titles-of-jesus", "glossary", "Messiah, Son of Man, Lord: the titles of Jesus", "About twenty titles, each with its Old Testament root and a verse.", 9, 6],
+    ],
+  },
+  doubt: {
+    title: "Suffering & doubt", short: "Suffering", color: "poetry",
+    description: "Honest questions about pain, silence and the failures of Christians.",
+    question: "Where is God in the difficult chapters?",
+    start: ["suffering", "doubt-not-unbelief", "unanswered-prayer"],
+    studies: [
+      ["suffering", "short-answer", "How can a good God allow suffering?", "God is sovereign and good; evil is real, and Christ is our hope.", 6, 12, { read: true }],
+      ["hiddenness", "short-answer", "Why does God sometimes seem absent?", "Bring darkness to God; anchor assurance in Christ.", 5, 9],
+      ["church-harm", "short-answer", "What about the harm Christians have done?", "Tell the truth about sin. Christ's name must never shield wrongdoing.", 5, 11, { saved: true }],
+      ["animal-suffering", "short-answer", "Why do animals suffer?", "The question in its strongest form, and the main replies.", 4, 5],
+      ["doubt-not-unbelief", "short-answer", "Doubt is not unbelief", "\"I do believe; help my unbelief!\" Mark 9, Jude 22 and Thomas.", 4, 6],
+      ["problem-of-evil", "essay", "The problem of evil: two arguments", "The logical and the evidential forms, and what each would need to succeed.", 16, 16, { parts: 6 }],
+      ["natural-evil", "objections", "Earthquakes, disease, tsunamis", "Natural evil, Romans 8:18-23 and the strongest objections.", 6, 9],
+      ["hiddenness-argument", "objections", "The hiddenness argument and replies", "Schellenberg's \"nonresistant nonbelief\", with Pascal and Butler.", 6, 10],
+      ["is-hell-just", "objections", "Is hell just?", "What the Baptist Faith and Message confesses, and the other views as others hold them.", 6, 11],
+      ["providence-views", "debate-guide", "Free will, providence and suffering: how Baptists read it", "Calvinist and free-will Baptist accounts side by side, and what both affirm.", 8, 12],
+      ["church-history-charges", "debate-guide", "Crusades, Inquisition, witch trials: what is true", "The charges and the history, without triumphalism.", 8, 10],
+      ["augustine-on-evil", "figure", "Augustine: evil as a lack of good", "The Confessions, the Enchiridion and The City of God.", 5, 6],
+      ["reading-job", "reading", "Reading Job", "Job 1–2 and 38–42: what the book teaches and what it does not.", 5, 5],
+      ["ivan-karamazov", "reading", "Ivan Karamazov's protest", "Dostoevsky's \"Rebellion\" in Garnett's 1912 translation, and a reply from Scripture.", 5, 4],
+      ["sbc-slavery-abuse", "timeline", "Southern Baptists, slavery and abuse: telling the truth", "1845, the 1995 resolution, the 2022 report and the reforms since.", 6, 14],
+      ["unanswered-prayer", "faq", "When prayer is not answered", "Ten short questions, from 2 Corinthians 12:7-10 to Andrew Murray.", 6, 7],
+      ["deconstruction", "faq", "Deconstruction and leaving the faith", "What people mean by it, and how to walk with someone.", 6, 8],
+      ["doubt-glossary", "glossary", "Words for hard questions", "Theodicy, defence, gratuitous evil, privation, lament and more.", 12, 5],
+      ["faith-and-depression", "case-study", "Spurgeon's \"fainting fits\": faith and depression", "Depression is not unbelief, and when to seek medical help.", 6, 6],
+    ],
+  },
+};

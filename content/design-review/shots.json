@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "commit": "0f4f03ff",
- "takenAt": "2026-10-11T20:54:43.259Z",
+ "takenAt": "2026-11-27T22:26:11.168Z",
  "base": "http://127.0.0.1:8931",
  "images": {
   "ruler/king-judah/typical": {
@@ -9615,6 +9615,918 @@
     "thumb": "ap-pages/islam-article/page-400-dark-thumb.jpg",
     "hash": "6800510000ff7c50",
     "height": 3724,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/card-site/page": {
+   "desktop-dark": {
+    "full": "ap-fields-design/card-site/page-1440-dark.png",
+    "crop": "ap-fields-design/card-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-site/page-1440-dark-thumb.jpg",
+    "hash": "8000d9db805b0000",
+    "height": 2733,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-fields-design/card-site/page-1440-light.png",
+    "crop": "ap-fields-design/card-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-site/page-1440-light-thumb.jpg",
+    "hash": "6100062400a40001",
+    "height": 2733,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/card-site/page-400-light.png",
+    "crop": "ap-fields-design/card-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-site/page-400-light-thumb.jpg",
+    "hash": "00005300aa00d200",
+    "height": 5414,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/card-site/page-400-dark.png",
+    "crop": "ap-fields-design/card-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-site/page-400-dark-thumb.jpg",
+    "hash": "007e2c7f557c2d00",
+    "height": 5414,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/card-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/card-app/page-1440-light.png",
+    "crop": "ap-fields-design/card-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-app/page-1440-light-thumb.jpg",
+    "hash": "4000242400240011",
+    "height": 2683,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/card-app/page-1440-dark.png",
+    "crop": "ap-fields-design/card-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-app/page-1440-dark-thumb.jpg",
+    "hash": "2000dbdb80dd00ec",
+    "height": 2683,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/card-app/page-400-dark.png",
+    "crop": "ap-fields-design/card-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-app/page-400-dark-thumb.jpg",
+    "hash": "083c7d04007c7528",
+    "height": 5121,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/card-app/page-400-light.png",
+    "crop": "ap-fields-design/card-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/card-app/page-400-light-thumb.jpg",
+    "hash": "0100800000008a50",
+    "height": 5121,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/field-jesus-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/field-jesus-site/page-1440-light.png",
+    "crop": "ap-fields-design/field-jesus-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-site/page-1440-light-thumb.jpg",
+    "hash": "6001002424a4a000",
+    "height": 3608,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/field-jesus-site/page-1440-dark.png",
+    "crop": "ap-fields-design/field-jesus-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-site/page-1440-dark-thumb.jpg",
+    "hash": "808100d2db5b6000",
+    "height": 3608,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/field-jesus-site/page-400-light.png",
+    "crop": "ap-fields-design/field-jesus-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-site/page-400-light-thumb.jpg",
+    "hash": "0001c8c1800085b0",
+    "height": 7032,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/field-jesus-site/page-400-dark.png",
+    "crop": "ap-fields-design/field-jesus-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-site/page-400-dark-thumb.jpg",
+    "hash": "007c363e7e003248",
+    "height": 7032,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/field-jesus-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/field-jesus-app/page-1440-light.png",
+    "crop": "ap-fields-design/field-jesus-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-app/page-1440-light-thumb.jpg",
+    "hash": "400100243624a000",
+    "height": 3508,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/field-jesus-app/page-1440-dark.png",
+    "crop": "ap-fields-design/field-jesus-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-app/page-1440-dark-thumb.jpg",
+    "hash": "208100dbc9db6000",
+    "height": 3508,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/field-jesus-app/page-400-dark.png",
+    "crop": "ap-fields-design/field-jesus-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-app/page-400-dark-thumb.jpg",
+    "hash": "007c7f7c6e007c01",
+    "height": 6916,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/field-jesus-app/page-400-light.png",
+    "crop": "ap-fields-design/field-jesus-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-jesus-app/page-400-light-thumb.jpg",
+    "hash": "0003000391008122",
+    "height": 6916,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/field-doubt-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/field-doubt-site/page-1440-light.png",
+    "crop": "ap-fields-design/field-doubt-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-site/page-1440-light-thumb.jpg",
+    "hash": "10a02424246424b4",
+    "height": 3579,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/field-doubt-site/page-1440-dark.png",
+    "crop": "ap-fields-design/field-doubt-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-site/page-1440-dark-thumb.jpg",
+    "hash": "2060dbdcdb9bdc74",
+    "height": 3579,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/field-doubt-site/page-400-light.png",
+    "crop": "ap-fields-design/field-doubt-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-site/page-400-light-thumb.jpg",
+    "hash": "00b200b080b800d4",
+    "height": 7044,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/field-doubt-site/page-400-dark.png",
+    "crop": "ap-fields-design/field-doubt-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-site/page-400-dark-thumb.jpg",
+    "hash": "004d7f2f7c437d2b",
+    "height": 7044,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/field-doubt-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/field-doubt-app/page-1440-light.png",
+    "crop": "ap-fields-design/field-doubt-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-app/page-1440-light-thumb.jpg",
+    "hash": "40512424a4342034",
+    "height": 3479,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/field-doubt-app/page-1440-dark.png",
+    "crop": "ap-fields-design/field-doubt-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-app/page-1440-dark-thumb.jpg",
+    "hash": "20a9dbdc5bcbe334",
+    "height": 3479,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/field-doubt-app/page-400-light.png",
+    "crop": "ap-fields-design/field-doubt-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-app/page-400-light-thumb.jpg",
+    "hash": "00d0a800c800c0c0",
+    "height": 6927,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/field-doubt-app/page-400-dark.png",
+    "crop": "ap-fields-design/field-doubt-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/field-doubt-app/page-400-dark-thumb.jpg",
+    "hash": "002f5500377c3e34",
+    "height": 6927,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-essay-site/page": {
+   "desktop-dark": {
+    "full": "ap-fields-design/format-essay-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-essay-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-site/page-1440-dark-thumb.jpg",
+    "hash": "2048e040000000c0",
+    "height": 1882,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-fields-design/format-essay-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-essay-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-site/page-1440-light-thumb.jpg",
+    "hash": "40b0000000000001",
+    "height": 1882,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-essay-site/page-400-light.png",
+    "crop": "ap-fields-design/format-essay-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-site/page-400-light-thumb.jpg",
+    "hash": "09d8d4eac0000000",
+    "height": 2925,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-essay-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-essay-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-site/page-400-dark-thumb.jpg",
+    "hash": "01240b1538000000",
+    "height": 2925,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-essay-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-essay-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-essay-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-app/page-1440-light-thumb.jpg",
+    "hash": "c0303002a0000001",
+    "height": 1780,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-essay-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-essay-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-app/page-1440-dark-thumb.jpg",
+    "hash": "38c8c80150000000",
+    "height": 1780,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-essay-app/page-400-light.png",
+    "crop": "ap-fields-design/format-essay-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-app/page-400-light-thumb.jpg",
+    "hash": "035c000008000000",
+    "height": 2807,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-essay-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-essay-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-essay-app/page-400-dark-thumb.jpg",
+    "hash": "0022000046000000",
+    "height": 2807,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-objections-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-objections-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-objections-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-site/page-1440-light-thumb.jpg",
+    "hash": "4000820000808081",
+    "height": 3284,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-objections-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-objections-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-site/page-1440-dark-thumb.jpg",
+    "hash": "2000410000406040",
+    "height": 3284,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-objections-site/page-400-light.png",
+    "crop": "ap-fields-design/format-objections-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-site/page-400-light-thumb.jpg",
+    "hash": "2bd00000d4a00010",
+    "height": 4827,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-objections-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-objections-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-site/page-400-dark-thumb.jpg",
+    "hash": "542e00006b580008",
+    "height": 4827,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-objections-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-objections-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-objections-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-app/page-1440-light-thumb.jpg",
+    "hash": "c042020000800000",
+    "height": 3182,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-objections-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-objections-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-app/page-1440-dark-thumb.jpg",
+    "hash": "38b1010000600000",
+    "height": 3182,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-objections-app/page-400-light.png",
+    "crop": "ap-fields-design/format-objections-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-app/page-400-light-thumb.jpg",
+    "hash": "02a9820000d400c0",
+    "height": 4709,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-objections-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-objections-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-objections-app/page-400-dark-thumb.jpg",
+    "hash": "00565000002b0030",
+    "height": 4709,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-debate-guide-site/page": {
+   "desktop-dark": {
+    "full": "ap-fields-design/format-debate-guide-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-debate-guide-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-site/page-1440-dark-thumb.jpg",
+    "hash": "20b0600101c8d840",
+    "height": 1890,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-fields-design/format-debate-guide-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-debate-guide-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-site/page-1440-light-thumb.jpg",
+    "hash": "4040800202302081",
+    "height": 1890,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-debate-guide-site/page-400-light.png",
+    "crop": "ap-fields-design/format-debate-guide-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-site/page-400-light-thumb.jpg",
+    "hash": "09a88c5aca000000",
+    "height": 3052,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-debate-guide-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-debate-guide-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-site/page-400-dark-thumb.jpg",
+    "hash": "054e732d35000000",
+    "height": 3052,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-debate-guide-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-debate-guide-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-debate-guide-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-app/page-1440-light-thumb.jpg",
+    "hash": "c1c0c00202103001",
+    "height": 1788,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-debate-guide-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-debate-guide-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-app/page-1440-dark-thumb.jpg",
+    "hash": "382020e10168c800",
+    "height": 1788,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-debate-guide-app/page-400-light.png",
+    "crop": "ap-fields-design/format-debate-guide-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-app/page-400-light-thumb.jpg",
+    "hash": "07e80000d200c0d0",
+    "height": 2935,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-debate-guide-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-debate-guide-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-debate-guide-app/page-400-dark-thumb.jpg",
+    "hash": "001600002d003028",
+    "height": 2935,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-timeline-site/page": {
+   "desktop-dark": {
+    "full": "ap-fields-design/format-timeline-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-timeline-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-site/page-1440-dark-thumb.jpg",
+    "hash": "2048c04070000040",
+    "height": 2263,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-fields-design/format-timeline-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-timeline-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-site/page-1440-light-thumb.jpg",
+    "hash": "40b0008080000081",
+    "height": 2263,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-timeline-site/page-400-light.png",
+    "crop": "ap-fields-design/format-timeline-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-site/page-400-light-thumb.jpg",
+    "hash": "a5b2200080000000",
+    "height": 3058,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-timeline-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-timeline-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-site/page-400-dark-thumb.jpg",
+    "hash": "514d58c040c00000",
+    "height": 3058,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-timeline-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-timeline-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-timeline-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-app/page-1440-light-thumb.jpg",
+    "hash": "c020808080000001",
+    "height": 2161,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-timeline-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-timeline-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-app/page-1440-dark-thumb.jpg",
+    "hash": "3810404140000000",
+    "height": 2161,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-timeline-app/page-400-light.png",
+    "crop": "ap-fields-design/format-timeline-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-app/page-400-light-thumb.jpg",
+    "hash": "02800000008c0000",
+    "height": 2940,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-timeline-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-timeline-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-timeline-app/page-400-dark-thumb.jpg",
+    "hash": "0140000000730000",
+    "height": 2940,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-figure-site/page": {
+   "desktop-dark": {
+    "full": "ap-fields-design/format-figure-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-figure-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-site/page-1440-dark-thumb.jpg",
+    "hash": "2028c000980000c0",
+    "height": 2258,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-fields-design/format-figure-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-figure-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-site/page-1440-light-thumb.jpg",
+    "hash": "4090800060000001",
+    "height": 2258,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-figure-site/page-400-light.png",
+    "crop": "ap-fields-design/format-figure-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-site/page-400-light-thumb.jpg",
+    "hash": "e5aa8800a8000080",
+    "height": 3068,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-figure-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-figure-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-site/page-400-dark-thumb.jpg",
+    "hash": "5155460043000040",
+    "height": 3068,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-figure-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-figure-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-figure-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-app/page-1440-light-thumb.jpg",
+    "hash": "c0a0000220000001",
+    "height": 2156,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-figure-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-figure-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-app/page-1440-dark-thumb.jpg",
+    "hash": "20508001d8000000",
+    "height": 2156,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-figure-app/page-400-light.png",
+    "crop": "ap-fields-design/format-figure-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-app/page-400-light-thumb.jpg",
+    "hash": "0100008000cc0000",
+    "height": 2950,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-figure-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-figure-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-figure-app/page-400-dark-thumb.jpg",
+    "hash": "0100004000330000",
+    "height": 2950,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-reading-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-reading-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-reading-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-site/page-1440-light-thumb.jpg",
+    "hash": "4141308020202000",
+    "height": 1560,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-reading-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-reading-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-site/page-1440-dark-thumb.jpg",
+    "hash": "2020c8e020d02000",
+    "height": 1560,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-reading-site/page-400-light.png",
+    "crop": "ap-fields-design/format-reading-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-site/page-400-light-thumb.jpg",
+    "hash": "b481000000000000",
+    "height": 2552,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-reading-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-reading-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-site/page-400-dark-thumb.jpg",
+    "hash": "4a40000000000000",
+    "height": 2552,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-reading-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-reading-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-reading-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-app/page-1440-light-thumb.jpg",
+    "hash": "4040404020402021",
+    "height": 1458,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-reading-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-reading-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-app/page-1440-dark-thumb.jpg",
+    "hash": "2020a0a020b02020",
+    "height": 1458,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-reading-app/page-400-light.png",
+    "crop": "ap-fields-design/format-reading-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-app/page-400-light-thumb.jpg",
+    "hash": "5540000000d08000",
+    "height": 2437,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-reading-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-reading-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-reading-app/page-400-dark-thumb.jpg",
+    "hash": "28300000002f4010",
+    "height": 2437,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-glossary-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-glossary-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-glossary-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-site/page-1440-light-thumb.jpg",
+    "hash": "40b0204000000001",
+    "height": 1952,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-glossary-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-glossary-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-site/page-1440-dark-thumb.jpg",
+    "hash": "20482020e0180000",
+    "height": 1952,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-glossary-site/page-400-light.png",
+    "crop": "ap-fields-design/format-glossary-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-site/page-400-light-thumb.jpg",
+    "hash": "a55000806080c000",
+    "height": 3262,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-glossary-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-glossary-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-site/page-400-dark-thumb.jpg",
+    "hash": "5128002010603000",
+    "height": 3262,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-glossary-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-glossary-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-glossary-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-app/page-1440-light-thumb.jpg",
+    "hash": "4030200000503001",
+    "height": 1850,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-glossary-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-glossary-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-app/page-1440-dark-thumb.jpg",
+    "hash": "20c8200000a88800",
+    "height": 1850,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-glossary-app/page-400-light.png",
+    "crop": "ap-fields-design/format-glossary-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-app/page-400-light-thumb.jpg",
+    "hash": "01000000c0800090",
+    "height": 3144,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-glossary-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-glossary-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-glossary-app/page-400-dark-thumb.jpg",
+    "hash": "0100000030400008",
+    "height": 3144,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-faq-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-faq-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-faq-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-site/page-1440-light-thumb.jpg",
+    "hash": "4040208080000101",
+    "height": 1572,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-faq-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-faq-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-site/page-1440-dark-thumb.jpg",
+    "hash": "2020d06060000000",
+    "height": 1572,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-faq-site/page-400-light.png",
+    "crop": "ap-fields-design/format-faq-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-site/page-400-light-thumb.jpg",
+    "hash": "9081d8f400008000",
+    "height": 2550,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-faq-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-faq-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-site/page-400-dark-thumb.jpg",
+    "hash": "6e70274a00004000",
+    "height": 2550,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-faq-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-faq-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-faq-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-app/page-1440-light-thumb.jpg",
+    "hash": "4040200382820001",
+    "height": 1470,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-faq-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-faq-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-app/page-1440-dark-thumb.jpg",
+    "hash": "2020d80061410000",
+    "height": 1470,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-faq-app/page-400-light.png",
+    "crop": "ap-fields-design/format-faq-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-app/page-400-light-thumb.jpg",
+    "hash": "9700a0009ac000cc",
+    "height": 2432,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-faq-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-faq-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-faq-app/page-400-dark-thumb.jpg",
+    "hash": "6800500065200032",
+    "height": 2432,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-case-study-site/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-case-study-site/page-1440-light.png",
+    "crop": "ap-fields-design/format-case-study-site/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-site/page-1440-light-thumb.jpg",
+    "hash": "400000800000a001",
+    "height": 1977,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-case-study-site/page-1440-dark.png",
+    "crop": "ap-fields-design/format-case-study-site/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-site/page-1440-dark-thumb.jpg",
+    "hash": "20800040c0881800",
+    "height": 1977,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-case-study-site/page-400-light.png",
+    "crop": "ap-fields-design/format-case-study-site/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-site/page-400-light-thumb.jpg",
+    "hash": "b480000060008000",
+    "height": 2680,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-case-study-site/page-400-dark.png",
+    "crop": "ap-fields-design/format-case-study-site/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-site/page-400-dark-thumb.jpg",
+    "hash": "4a40000010004000",
+    "height": 2680,
+    "clipped": false
+   }
+  },
+  "ap-fields-design/format-case-study-app/page": {
+   "desktop-light": {
+    "full": "ap-fields-design/format-case-study-app/page-1440-light.png",
+    "crop": "ap-fields-design/format-case-study-app/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-app/page-1440-light-thumb.jpg",
+    "hash": "4000000000106001",
+    "height": 1875,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-fields-design/format-case-study-app/page-1440-dark.png",
+    "crop": "ap-fields-design/format-case-study-app/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-app/page-1440-dark-thumb.jpg",
+    "hash": "2000000080e89800",
+    "height": 1875,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-fields-design/format-case-study-app/page-400-light.png",
+    "crop": "ap-fields-design/format-case-study-app/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-app/page-400-light-thumb.jpg",
+    "hash": "47000000a0000000",
+    "height": 2563,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-fields-design/format-case-study-app/page-400-dark.png",
+    "crop": "ap-fields-design/format-case-study-app/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-fields-design/format-case-study-app/page-400-dark-thumb.jpg",
+    "hash": "2800000050000000",
+    "height": 2563,
     "clipped": false
    }
   }

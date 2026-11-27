@@ -4898,6 +4898,372 @@
    ]
   },
   {
+   "id": "ap-fields-design",
+   "area": "apologetics",
+   "name": "Apologetics fields: card, field page and format pages (mock-ups)",
+   "what": "Step 4 of the apologetics-fields plan: the title-led article card with its faded type icon, the field page grouped by format, and the nine new format pages. Built without waiting (owner decision 2); here for the owner's look.",
+   "address": "/mockups/apologetics-fields/…",
+   "instances": 24,
+   "sources": [
+    "design/apologetics-fields/field/card-sheet.js",
+    "design/apologetics-fields/field/data.js",
+    "design/apologetics-fields/field/field.css",
+    "design/apologetics-fields/field/field.js",
+    "design/apologetics-fields/field/index.html",
+    "design/apologetics-fields/formats/content.js",
+    "design/apologetics-fields/formats/formats.css",
+    "design/apologetics-fields/formats/formats.js",
+    "design/apologetics-fields/formats/index.html",
+    "design/apologetics-fields/shared/base.css",
+    "design/apologetics-fields/shared/frame.js",
+    "design/apologetics-fields/shared/icons.js",
+    "design/apologetics-fields/shared/theme.js"
+   ],
+   "sourceHash": "e1a6d53e9dd59a06",
+   "signature": {
+    "selector": ".ap-article-card, .fx-main",
+    "label": "The article card, or the format page's body"
+   },
+   "variants": [
+    {
+     "id": "card-site",
+     "name": "Article card: every type and state · website",
+     "what": "All eleven types in the six field colours, each state, and the measured contrast.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/?view=card",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "card-app",
+     "name": "Article card: every type and state · phone app",
+     "what": "All eleven types in the six field colours, each state, and the measured contrast. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/?view=card&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "field-jesus-site",
+     "name": "Field page: Jesus & resurrection · website",
+     "what": "Three to read first, the format filter with live counts, the articles grouped by format.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "field-jesus-app",
+     "name": "Field page: Jesus & resurrection · phone app",
+     "what": "Three to read first, the format filter with live counts, the articles grouped by format. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/?surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "field-doubt-site",
+     "name": "Field page: Suffering & doubt · website",
+     "what": "The same layout in the poetry colour, with all ten formats.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/?field=doubt",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "field-doubt-app",
+     "name": "Field page: Suffering & doubt · phone app",
+     "what": "The same layout in the poetry colour, with all ten formats. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/field/?field=doubt&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-essay-site",
+     "name": "Format page: Long-form essay · website",
+     "what": "One part per page, a numbered part line, \"next part\" at the foot.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=essay",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-essay-app",
+     "name": "Format page: Long-form essay · phone app",
+     "what": "One part per page, a numbered part line, \"next part\" at the foot. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=essay&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-objections-site",
+     "name": "Format page: Objections & replies · website",
+     "what": "Numbered objections in their holders' terms, each with a reply.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=objections",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-objections-app",
+     "name": "Format page: Objections & replies · phone app",
+     "what": "Numbered objections in their holders' terms, each with a reply. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=objections&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-debate-guide-site",
+     "name": "Format page: Views compared · website",
+     "what": "What all affirm, then the views side by side; the site does not choose.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=debate-guide",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-debate-guide-app",
+     "name": "Format page: Views compared · phone app",
+     "what": "What all affirm, then the views side by side; the site does not choose. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=debate-guide&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-timeline-site",
+     "name": "Format page: Timeline · website",
+     "what": "Eras and dated events on one rule, with how sure each date is.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=timeline",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-timeline-app",
+     "name": "Format page: Timeline · phone app",
+     "what": "Eras and dated events on one rule, with how sure each date is. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=timeline&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-figure-site",
+     "name": "Format page: Key figure · website",
+     "what": "Dates, tradition and roles, his own words, then life, argument and reply.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=figure",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-figure-app",
+     "name": "Format page: Key figure · phone app",
+     "what": "Dates, tradition and roles, his own words, then life, argument and reply. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=figure&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-reading-site",
+     "name": "Format page: Primary-source reading · website",
+     "what": "The public-domain extract set apart, the guided note beside it.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=reading",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-reading-app",
+     "name": "Format page: Primary-source reading · phone app",
+     "what": "The public-domain extract set apart, the guided note beside it. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=reading&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-glossary-site",
+     "name": "Format page: Glossary · website",
+     "what": "Letter index, a finder and two columns of terms with their roots.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=glossary",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-glossary-app",
+     "name": "Format page: Glossary · phone app",
+     "what": "Letter index, a finder and two columns of terms with their roots. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=glossary&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-faq-site",
+     "name": "Format page: Questions answered · website",
+     "what": "Numbered questions that open in place, short answers.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=faq",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-faq-app",
+     "name": "Format page: Questions answered · phone app",
+     "what": "Numbered questions that open in place, short answers. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=faq&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-case-study-site",
+     "name": "Format page: Case study · website",
+     "what": "Setting, claim, evidence, what survives, and what is inferred.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=case-study",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "format-case-study-app",
+     "name": "Format page: Case study · phone app",
+     "what": "Setting, claim, evidence, what survives, and what is inferred. In the app's frame, with the app's card values.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/mockups/apologetics-fields/formats/?format=case-study&surface=app",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "research-case",
    "area": "apologetics",
    "name": "Historical and manuscript cases",

@@ -172,6 +172,42 @@ async function letterTemplates(): Promise<{ templates: TemplateDef[]; valid: { l
 
 interface ApItem { id: string; title: string; topic?: string; sections?: unknown[]; studies?: string[] }
 
+/** Mock-ups waiting for the owner's look (Plans/APOLOGETICS-FIELDS.md step 4): the new article card, the field page laid out
+ *  for many articles and the nine format pages, each on the website and in the phone app. They are served from design/ by
+ *  the local preview only. Once steps 5 and 6 build the real pages, the field and study page types carry the decision. */
+function apologeticsFieldDesigns(): TemplateDef {
+  const base = "/mockups/apologetics-fields";
+  const formats: [string, string, string][] = [
+    ["essay", "Long-form essay", "One part per page, a numbered part line, \"next part\" at the foot."],
+    ["objections", "Objections & replies", "Numbered objections in their holders' terms, each with a reply."],
+    ["debate-guide", "Views compared", "What all affirm, then the views side by side; the site does not choose."],
+    ["timeline", "Timeline", "Eras and dated events on one rule, with how sure each date is."],
+    ["figure", "Key figure", "Dates, tradition and roles, his own words, then life, argument and reply."],
+    ["reading", "Primary-source reading", "The public-domain extract set apart, the guided note beside it."],
+    ["glossary", "Glossary", "Letter index, a finder and two columns of terms with their roots."],
+    ["faq", "Questions answered", "Numbered questions that open in place, short answers."],
+    ["case-study", "Case study", "Setting, claim, evidence, what survives, and what is inferred."],
+  ];
+  const both = (id: string, name: string, what: string, url: string) => [
+    single(`${id}-site`, `${name} · website`, what, `${base}/${url}`),
+    single(`${id}-app`, `${name} · phone app`, `${what} In the app's frame, with the app's card values.`, `${base}/${url}${url.includes("?") ? "&" : "?"}surface=app`),
+  ];
+  const folder = "design/apologetics-fields";
+  return {
+    id: "ap-fields-design", area: "apologetics", name: "Apologetics fields: card, field page and format pages (mock-ups)", address: `${base}/…`,
+    what: "Step 4 of the apologetics-fields plan: the title-led article card with its faded type icon, the field page grouped by format, and the nine new format pages. Built without waiting (owner decision 2); here for the owner's look.",
+    entries: ["field/index.html", "formats/index.html", "shared/theme.js", "shared/icons.js", "shared/frame.js", "shared/base.css", "field/field.js", "field/field.css", "field/card-sheet.js", "field/data.js", "formats/formats.js", "formats/formats.css", "formats/content.js"].map((f) => `${folder}/${f}`),
+    scopes: [`${folder}/`],
+    signature: { selector: ".ap-article-card, .fx-main", label: "The article card, or the format page's body" },
+    variants: [
+      ...both("card", "Article card: every type and state", "All eleven types in the six field colours, each state, and the measured contrast.", "field/?view=card"),
+      ...both("field-jesus", "Field page: Jesus & resurrection", "Three to read first, the format filter with live counts, the articles grouped by format.", "field/"),
+      ...both("field-doubt", "Field page: Suffering & doubt", "The same layout in the poetry colour, with all ten formats.", "field/?field=doubt"),
+      ...formats.flatMap(([id, name, what]) => both(`format-${id}`, `Format page: ${name}`, what, `formats/?format=${id}`)),
+    ],
+  };
+}
+
 async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid: { apologetics: Record<string, string[]> } }> {
   const ap = (await import("../../src/generated/apologetics.ts")) as unknown as Record<string, ApItem[]>;
   const entries = ["src/pages/ApologeticsPage.tsx"], scopes = ["src/pages/ApologeticsPage.tsx", "src/pages/apologetics.css", "src/components/ApologeticsParts.tsx"];
@@ -235,7 +271,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
     ],
   };
   const valid = { topics: ap.TOPICS.map((x) => x.id), study: ap.STUDIES.map((x) => x.id), paths: ap.PATHS.map((x) => x.id), worldviews: ap.WORLDVIEWS.map((x) => x.id), debates: ap.DEBATES.map((x) => x.id) };
-  return { templates: [sectionPages, topic, study, path, worldview, debate, practice], valid: { apologetics: valid } };
+  return { templates: [sectionPages, topic, study, path, worldview, debate, practice, apologeticsFieldDesigns()], valid: { apologetics: valid } };
 }
 
 function studyAndSiteTemplates(): TemplateDef[] {

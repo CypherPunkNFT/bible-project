@@ -1145,6 +1145,118 @@
       ]
     },
     {
+      "id": "apologetics-fields",
+      "title": "Apologetics - Fields: article card, field page, format pages",
+      "line": "Plan APOLOGETICS-FIELDS.md step 4 (sequence 60, 2026-11-27). Built without waiting for the owner's look (owner decision 2); kept here for it. Every view has a Website / Phone app switch and follows the site's light and dark themes.",
+      "page": "/apologetics/topics/jesus",
+      "cards": [
+        {
+          "id": "apologetics-fields-card",
+          "title": "Article card - title first, faded type icon behind",
+          "url": "/mockups/apologetics-fields/field/?view=card",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "The new card for field pages: eyebrow (type and field), serif title, one-line summary, meta line (minutes, sources, parts, read). The type's lucide icon sits faded and turned in the top-right corner, as on the Library dashboard. All eleven types, every state, and the field colours' contrast measured on the page."
+        },
+        {
+          "id": "apologetics-fields-jesus",
+          "title": "Field page - Jesus & resurrection (19 articles)",
+          "url": "/mockups/apologetics-fields/field/",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Three to read first, a format filter with live counts, the articles grouped by format (small groups share a row), the existing search and the neighbouring fields. Real titles from the plan; the Craig-Ehrman debate case study is left out (owner decision 4)."
+        },
+        {
+          "id": "apologetics-fields-doubt",
+          "title": "Field page - Suffering & doubt (19 articles)",
+          "url": "/mockups/apologetics-fields/field/?field=doubt",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "The same layout in the poetry colour, with all ten formats present."
+        },
+        {
+          "id": "apologetics-fields-app",
+          "title": "Field page in the phone app",
+          "url": "/mockups/apologetics-fields/field/?surface=app",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "The app's frame and the card's app values: icon 80 px on phones and 96 on tablets, no fade mask (Android has none), a 40 px save target, pressed instead of hover."
+        },
+        {
+          "id": "apologetics-fields-format-essay",
+          "title": "Format page - Long-form essay",
+          "url": "/mockups/apologetics-fields/formats/?format=essay",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "One part per page with its own address, a numbered part line at the top and \"next part\" at the foot; never one long scroll. Sample: Did Jesus rise? The historical case, part 2."
+        },
+        {
+          "id": "apologetics-fields-format-objections",
+          "title": "Format page - Objections & replies",
+          "url": "/mockups/apologetics-fields/formats/?format=objections",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Five numbered objections, each in its holder's own terms with who makes it, then a reply with its verses. Lines, not boxes. Sample: Objections to substitution."
+        },
+        {
+          "id": "apologetics-fields-format-debate-guide",
+          "title": "Format page - Views compared",
+          "url": "/mockups/apologetics-fields/formats/?format=debate-guide",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "What all affirm across the top, then the views side by side with who holds them, their texts, their case and what the other side presses; the site does not choose. Sample: free will and providence."
+        },
+        {
+          "id": "apologetics-fields-format-timeline",
+          "title": "Format page - Timeline",
+          "url": "/mockups/apologetics-fields/formats/?format=timeline",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Eras with dated events on one rule; a date that is a convention or debated says so. Sample: the quests for the historical Jesus."
+        },
+        {
+          "id": "apologetics-fields-format-figure",
+          "title": "Format page - Key figure",
+          "url": "/mockups/apologetics-fields/formats/?format=figure",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Name, dates, tradition and roles in a quiet row, his own words set apart, then life, argument and reply, and his works free to read. Sample: David Hume on miracles."
+        },
+        {
+          "id": "apologetics-fields-format-reading",
+          "title": "Format page - Primary-source reading",
+          "url": "/mockups/apologetics-fields/formats/?format=reading",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "The public-domain extract set apart with its translator, the guided note beside it (below on phones), and the five readings as steps. Sample: Tacitus, Annals 15.44."
+        },
+        {
+          "id": "apologetics-fields-format-glossary",
+          "title": "Format page - Glossary",
+          "url": "/mockups/apologetics-fields/formats/?format=glossary",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Letter index and a finder over two columns of terms, each with its Old Testament root, a verse and see-also links. Sample: the titles of Jesus."
+        },
+        {
+          "id": "apologetics-fields-format-faq",
+          "title": "Format page - Questions answered",
+          "url": "/mockups/apologetics-fields/formats/?format=faq",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Numbered questions that open in place, short answers that link to the full article. Prose, no chat bubbles. Sample: when prayer is not answered."
+        },
+        {
+          "id": "apologetics-fields-format-case-study",
+          "title": "Format page - Case study",
+          "url": "/mockups/apologetics-fields/formats/?format=case-study",
+          "date": "2026-11-27",
+          "status": "option",
+          "line": "Setting, the claim, the evidence, what survives, then \"what I infer\". Sample: the end of Mark (Three famous variants)."
+        }
+      ]
+    },
+    {
       "id": "hymns",
       "title": "Study · Hymns",
       "cards": [

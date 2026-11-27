@@ -1,0 +1,77 @@
+/* The field page laid out for many articles, and the card sheet. The card itself is in ../shared/base.css. */
+.fp-hero { padding: 2.2rem 0 2rem; }
+.fp-hero h1 { margin: 1.1rem 0 .9rem; font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: 1.04; letter-spacing: -.055em; }
+.fp-hero h1 em, .fp-head h2 em { font-weight: 350; color: var(--ap-tone); }
+.fp-lede { max-width: 62ch; font-size: .86rem; line-height: 1.8; color: var(--muted); }
+.fp-stats { display: flex; flex-wrap: wrap; gap: 0; margin: 1.8rem 0 0; }
+.fp-stats > div { padding: 0 1.6rem; border-left: 1px solid var(--line); }
+.fp-stats > div:first-child { padding-left: 0; border-left: 0; }
+.fp-stats dt { font-size: .58rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.fp-stats dd { margin: .25rem 0 0; font: 450 1.45rem/1.2 var(--font-serif); }
+.fp-stats dd.q { font-size: 1rem; font-style: italic; color: var(--ap-tone); }
+
+.fp-tools { display: flex; align-items: center; gap: 1rem; margin-top: .4rem; }
+.fp-search { display: flex; align-items: center; gap: .6rem; flex: 1; max-width: 42rem; padding: .6rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; color: var(--muted); }
+.fp-search input { width: 100%; min-width: 0; padding: .3rem; font-size: .8rem; color: var(--ink); }
+.fp-search:focus-within { border-color: var(--ap-tone); }
+.fp-count { margin-left: auto; font-size: .66rem; color: var(--muted); white-space: nowrap; }
+.fp-filter { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; }
+.fp-filter button { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: .3rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .7rem; color: var(--muted); transition: border-color .2s, color .2s; }
+.fp-filter button svg { color: var(--ap-tone); }
+.fp-filter button b { font-weight: 600; font-size: .64rem; color: var(--ink); }
+.fp-filter button:hover { border-color: color-mix(in srgb, var(--ap-tone) 45%, var(--line)); color: var(--ink); }
+.fp-filter button[aria-pressed="true"] { border-color: var(--ap-tone); color: var(--ink); background: color-mix(in srgb, var(--ap-tone) 9%, var(--surface)); }
+.fp-filter button:disabled { opacity: .45; cursor: default; }
+
+.fp-head { margin-bottom: 1.2rem; }
+.fp-head h2 { margin-top: .55rem; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; }
+.fp-sub { margin-top: .5rem; max-width: 70ch; font-size: .78rem; line-height: 1.7; color: var(--muted); }
+.fp-start { margin-top: 2.8rem; }
+.fp-start-row { margin: 0; padding: 0; list-style: none; }
+.fp-start-row li { display: flex; flex-direction: column; gap: .4rem; }
+.fp-start-row li > .ap-article-card { flex: 1; }
+.fp-num { font: 450 1.6rem/1 var(--font-serif); color: color-mix(in srgb, var(--ap-tone) 55%, var(--muted)); }
+
+/* Small groups share a row: a group of one or two articles takes only that many of the three columns, so ten formats
+   do not become ten near-empty bands (the owner's "no endless scroll" rule). */
+.fp-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: row dense; column-gap: 1rem; margin-top: 1rem; }
+.fp-group { grid-column: span var(--s3); margin-top: 2.8rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.fp-group > .ap-article-grid { grid-template-columns: repeat(var(--s3), minmax(0, 1fr)); }
+@media (max-width: 1050px) { .fp-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fp-group { grid-column: span var(--s2); } .fp-group > .ap-article-grid { grid-template-columns: repeat(var(--s2), minmax(0, 1fr)); } }
+@media (max-width: 480px) { .fp-groups { grid-template-columns: 1fr; } .fp-group { grid-column: auto; } .fp-group > .ap-article-grid { grid-template-columns: 1fr; } }
+.fp-group-head { display: flex; gap: .85rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.fp-group-head > svg { margin-top: .3rem; color: var(--ap-tone); }
+.fp-group-head h2 { font-size: 1.45rem; line-height: 1.2; }
+.fp-group-head h2 .n { margin-left: .35rem; font: 600 .7rem/1 var(--font-sans); letter-spacing: 0; color: var(--muted); vertical-align: middle; }
+.fp-group-head p { margin-top: .25rem; font-size: .74rem; color: var(--muted); }
+.fp-cell { display: flex; }
+.fp-cell > .ap-article-card { flex: 1; }
+[hidden] { display: none !important; }
+
+.fp-neighbours { margin-top: 4rem; }
+.fp-neighbours h2 { margin: .5rem 0 1.2rem; font-size: clamp(1.6rem, 3vw, 2.3rem); }
+.fp-neighbours div { display: flex; flex-wrap: wrap; gap: .6rem; }
+.fp-neighbours a { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); font-size: .72rem; }
+.fp-neighbours a:hover { border-color: var(--accent); }
+
+/* Card sheet */
+.cs-sec { margin-top: 3rem; }
+.cs-state { display: flex; flex-direction: column; gap: .45rem; margin: 0; }
+.cs-state > .ap-article-card { flex: 1; }
+.cs-state figcaption { font-size: .62rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.cs-table { width: 100%; border-collapse: collapse; font-size: .74rem; }
+.cs-table th { text-align: left; font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.cs-table :is(th, td) { padding: .6rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cs-table .ok { color: var(--poetry); font-weight: 600; }
+.cs-table .no { color: var(--revelation); font-weight: 600; }
+.cs-swatch { display: inline-block; width: .8rem; height: .8rem; margin-right: .45rem; border-radius: 50%; vertical-align: -1px; }
+
+@media (max-width: 700px) {
+  .fp-stats > div { padding: 0 1rem; }
+  .fp-stats > div:last-child { flex-basis: 100%; padding: .8rem 0 0; border-left: 0; }
+  .fp-tools { flex-direction: column; align-items: stretch; }
+  .fp-count { margin-left: 0; }
+  .fp-filter { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding: 0 var(--gutter) .3rem; scrollbar-width: none; }
+  .fp-filter button { flex-shrink: 0; }
+  .cs-table { display: block; overflow-x: auto; }
+}
