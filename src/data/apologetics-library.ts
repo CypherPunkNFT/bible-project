@@ -7,4 +7,5 @@ export type { ApSource, ApStudy, ApCitation, TopicId } from "./apologetics-types
 export const studyById = (id: string) => STUDIES.find((study) => study.id === id);
 export const sourceById = (id: string) => SOURCES.find((source) => source.id === id)!;
 export const topicById = (id: string) => TOPICS.find((topic) => topic.id === id);
-export const studyMinutes = (study: ApStudy) => Math.max(2, Math.ceil([study.answer, ...study.reasoning, study.conclusion, ...study.sections.map((section) => section.body), study.reply, study.limit].join(" ").split(/\s+/).length / 180));
+/** 180 words a minute, two at least. A declared format counts all its text (words, from the compiler); today's articles keep today's count. */
+export const studyMinutes = (study: ApStudy) => Math.max(2, Math.ceil((study.words ?? [study.answer, ...study.reasoning, study.conclusion, ...study.sections.map((section) => section.body), study.reply, study.limit].join(" ").split(/\s+/).length) / 180));

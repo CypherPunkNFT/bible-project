@@ -24886,5 +24886,45 @@
   "file": "src/components/moses-page/quotations.ts",
   "item": "trying again in {n} s",
   "why": "part of a console.error message for developers (the Moses page could not read a section's quotations); never shown on the page"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.objections[].heldBy[]",
+  "why": "names of people, schools or traditions holding a position (an article format's heldBy, plan APOLOGETICS-FIELDS step 3), kept as written like the documents' author names"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.views[].heldBy[]",
+  "why": "names of people, schools or traditions holding a position (an article format's heldBy, plan APOLOGETICS-FIELDS step 3), kept as written like the documents' author names"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.figure.name",
+  "why": "the name of the person a key-figure article is about, kept as written like every person's name"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.works[].title",
+  "why": "titles of published works, kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.works[].url",
+  "why": "a web address, never translated"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.extracts[].text",
+  "why": "a quotation from a named public-domain English edition (an article's primary-source extract); machine-translating it would present our wording as that edition's, so it stays as the edition prints it until the translation step decides how other languages show it"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.extracts[].edition",
+  "why": "the name of the public-domain edition an extract quotes, kept as published"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.extracts[].translator",
+  "why": "the name of the translator of a quoted edition, kept as written"
  }
 ]

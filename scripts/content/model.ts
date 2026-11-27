@@ -4,13 +4,35 @@ export type Citation = { kind: "scripture"; reference: string } | { kind: "sourc
 export interface Block { id: string; text: string; citations: Citation[] }
 export interface Section extends Block { title: string }
 export interface Review { date: string; reviewer: string; kind: "ai-assisted" | "human"; scope: string; contentHash: string; basisHash: string; note: string }
+/** The ten forms one study can take (plan APOLOGETICS-FIELDS §3). A study without `format` is today's short answer and
+ * keeps today's rules; declaring a format applies that format's rules (scripts/content/formats.ts). */
+export const STUDY_FORMATS = ["short-answer", "essay", "objections", "figure", "reading", "timeline", "debate-guide", "glossary", "faq", "case-study"] as const;
+export type StudyFormat = typeof STUDY_FORMATS[number];
+/** The study standard's two spines (Pages/Study/STUDY-STANDARD.md): weighing evidence, or formation. */
+export type StudySpine = "academic" | "scripture-theology";
+export interface Passage { reference: string; note: string }
+export interface ObjectionPair { id: string; heldBy: string[]; objection: string; reply: Block }
+export interface EssayPart { id: string; title: string; blocks: Block[]; passages: Passage[] }
+export interface Figure { name: string; dates: string; tradition: string; roles: string[]; citations: Citation[] }
+export interface FigureWork { title: string; date: string; url?: string; note: string }
+/** Public-domain text only: the build refuses an extract whose source has not been checked against a copy or a named edition. */
+export interface Extract { id: string; source: string; locator: string; edition: string; translator: string; text: string; note: Block }
+export interface TimelineEvent extends Block { title: string; date: string; certainty: "exact" | "circa" | "debated" | "estimate"; dateNote?: string }
+export interface View { id: string; label: string; heldBy: string[]; texts: Passage[]; case: Block; reply: Block }
+export interface Term extends Block { term: string; seeAlso: string[]; siteDefinition?: boolean }
+export interface Question extends Block { question: string; study?: string }
 export interface StudyContent {
-  title: string; topic: string; summary: string; answer: Block; reasoning: Block[]; conclusion: Block;
-  sections: Section[]; objection: string; reply: Block; limit: Block; prompt: Block;
-  passages: { reference: string; note: string }[]; related: string[]; keywords: string[];
+  title: string; topic: string; summary: string; answer: Block; passages: Passage[]; related: string[]; keywords: string[];
+  format?: StudyFormat; spine?: StudySpine; alsoIn?: string[]; debates?: string[];
+  reasoning?: Block[]; conclusion?: Block; sections?: Section[]; objection?: string; reply?: Block; limit?: Block; prompt?: Block;
+  objections?: ObjectionPair[]; parts?: EssayPart[]; figure?: Figure; works?: FigureWork[]; extracts?: Extract[];
+  events?: TimelineEvent[]; views?: View[]; common?: Block; terms?: Term[]; questions?: Question[];
 }
 /** read and checked are the register's own record of what was read and how; they are kept out of the site data. */
-export interface SourceContent { title: string; author: string; kind: string; url: string; role: string; note: string; read: string; checked: "corpus" | "edition" | "none" }
+export interface SourceContent { title: string; author: string; kind: string; url: string; role: string; note: string; read: string; checked: "corpus" | "edition" | "none"; publicDomain?: PublicDomainRecord }
+/** The edition or translation of a source verified to be public domain, and on what basis; only such a source may be
+ * quoted in an extract, and only from that edition (owner decision 3, 2026-11-27). Kept out of the site data. */
+export interface PublicDomainRecord { edition: string; basis: string }
 export interface TopicContent { title: string; short: string; color: string; description: string; question: string }
 export interface PathContent { title: string; label: string; description: string; studies: string[] }
 export interface ReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: Block; purpose: Block; examine: Block; connection: Block; christian: Block }[] }[] }

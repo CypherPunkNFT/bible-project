@@ -84,6 +84,48 @@ Arrays preserve paragraph and reading order. A document's `order` controls its p
 Paths, related studies and comparisons use stable IDs rather than copying another guide's prose. Use
 `npm run content -- impact source/wcf` or `impact study/morality` to see direct and indirect dependencies.
 
+## Article formats (plan APOLOGETICS-FIELDS step 3, 2026-11-27)
+
+One study can take one of ten forms through `content.format`. A study **without** `format` is today's short
+answer and keeps today's fields and rules exactly; the 21 articles of the six fields are written that way.
+Declaring a format applies its rules, which live in
+[scripts/content/formats.ts](../../scripts/content/formats.ts) (each message says what failed, what was expected
+and what was found). Start one with `npm run content -- new study/<id> --title "…" --topic jesus --format essay`.
+
+| `format` | Shown as | Needs (beyond title, topic, summary, answer, passages, related, keywords) | Counts |
+|---|---|---|---|
+| `short-answer` | Short answer | today's reasoning, conclusion, sections, objection, reply, limit, prompt; may add `objections[]` | 2–5 objection pairs, today's one included |
+| `essay` | Long-form essay | `spine`, `parts[]` (title, blocks, passages); `limit` on the academic spine, `prompt` on scripture-theology | 3–8 parts |
+| `objections` | Objections & replies | `objections[]`: `heldBy` (who makes it), the objection in their terms, a cited `reply` | 5–10 |
+| `figure` | Key figure | `figure` (name, dates as the source gives them, tradition, roles, citations), `sections`, `works[]` | ≥1 work |
+| `reading` | Primary-source reading | `extracts[]`: source, locator, edition, translator, text, a cited guided `note` | ≥1 |
+| `timeline` | Timeline | `events[]`: date, `certainty` (exact, circa, debated, estimate), title, cited text; a debated or estimated date needs `dateNote` | 12–30 |
+| `debate-guide` | Views compared | `views[]` (label, `heldBy`, texts, cited case with a named source, reply) and `common` (what all affirm) | 2–5 |
+| `glossary` | Glossary | `terms[]` (term, cited definition or `siteDefinition: true`, `seeAlso` naming terms of the same glossary) | 25–60 |
+| `faq` | Questions answered | `questions[]` (question, cited answer, optional `study` linking the full article) | 8–15 |
+| `case-study` | Case study | `spine: "academic"`, `sections` (setting, the claim, the evidence, what survives), `limit` | ≥4 sections |
+
+Every format may also carry `spine`, `alsoIn` (other field topics that list it), `debates` (debate IDs whose
+hinge it addresses), `sections`, `conclusion`, `limit` and `prompt`; a field that belongs to another format is
+refused. Missing or misplaced fields, rights and links are errors even in a draft; counts and citations warn in
+a draft and block publication.
+
+**Extracts quote public-domain text only (owner decision 3, 2026-11-27: any length, but the specific edition
+must be verified public domain).** A source's `checked` says how its text was read, not whether it may be
+quoted, so an extract also needs the source's `publicDomain` record (`edition`, `basis`) and must name exactly
+that edition. A source whose role is "Scholarship · described, not quoted" can never be quoted. `publicDomain`
+is register bookkeeping like `read` and `checked`: kept out of the site data, and adding it leaves studies
+citing the source current.
+
+**No page shows a declared format yet.** Until plan step 6 builds each renderer and adds it to `PAGE_READY` in
+formats.ts, a study with a declared format stays a draft (publishing it fails). The compiler, the Markdown
+downloads, search, the translation extractor and the app's types already carry every format.
+
+**Depth report:** `npm run content -- depth --topic jesus` lists each article's format, words (all prose),
+target from [targets.json](targets.json) (part B of the plan: 21 articles today, 95 planned), objection pairs,
+citations, Baptist sources, Scripture references, debates and related studies, then the planned articles not yet
+written. `--json` gives the same as data.
+
 ## Review and publish changes
 
 1. Read `editorial/library.json`, the target guide and its cited sources. For AI review, export the relevant

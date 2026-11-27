@@ -1,0 +1,1056 @@
+{
+  "$comment": "Depth targets per apologetics article, from part B of Plans/APOLOGETICS-FIELDS-INVENTORY.md (format and word range). Read by npm run content -- depth. 'existing': the article existed when the plan was written. Glossary and faq ranges are items x words per item at the plan's item counts.",
+  "targets": {
+    "morality": {
+      "topic": "god",
+      "format": "short-answer",
+      "words": [
+        900,
+        1200
+      ],
+      "existing": true
+    },
+    "science": {
+      "topic": "god",
+      "format": "short-answer",
+      "words": [
+        1000,
+        1400
+      ],
+      "existing": true
+    },
+    "why-anything": {
+      "topic": "god",
+      "format": "short-answer",
+      "words": [
+        1000,
+        1300
+      ],
+      "existing": true
+    },
+    "arguments-map": {
+      "topic": "god",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "contingency-argument": {
+      "topic": "god",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "kalam-argument": {
+      "topic": "god",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "five-ways": {
+      "topic": "god",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "fine-tuning": {
+      "topic": "god",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "paley-hume": {
+      "topic": "god",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "moral-argument": {
+      "topic": "god",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "euthyphro": {
+      "topic": "god",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "ontological-argument": {
+      "topic": "god",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "argument-from-reason": {
+      "topic": "god",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "consciousness": {
+      "topic": "god",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "religious-experience": {
+      "topic": "god",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "science-faith-history": {
+      "topic": "god",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "creation-views": {
+      "topic": "god",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "apologetic-methods": {
+      "topic": "god",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "alsoIn": [
+        "faith"
+      ],
+      "existing": false
+    },
+    "god-reality-glossary": {
+      "topic": "god",
+      "format": "glossary",
+      "words": [
+        750,
+        4800
+      ],
+      "existing": false
+    },
+    "cross": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        1100,
+        1400
+      ],
+      "existing": true
+    },
+    "jesus": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        1100,
+        1400
+      ],
+      "existing": true
+    },
+    "miracles": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        1000,
+        1300
+      ],
+      "existing": true
+    },
+    "resurrection": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        900,
+        1200
+      ],
+      "existing": true
+    },
+    "jesus-outside-nt": {
+      "topic": "jesus",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "mythicism": {
+      "topic": "jesus",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "gospels-as-history": {
+      "topic": "jesus",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "spine": "academic",
+      "existing": false
+    },
+    "quests-timeline": {
+      "topic": "jesus",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "jesus-claims": {
+      "topic": "jesus",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "trilemma": {
+      "topic": "jesus",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "titles-of-jesus": {
+      "topic": "jesus",
+      "format": "glossary",
+      "words": [
+        750,
+        4800
+      ],
+      "existing": false
+    },
+    "virgin-birth": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "messianic-prophecy": {
+      "topic": "jesus",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "crucifixion-history": {
+      "topic": "jesus",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "atonement-timeline": {
+      "topic": "jesus",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "penal-substitution-objections": {
+      "topic": "jesus",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "resurrection-case": {
+      "topic": "jesus",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "spine": "academic",
+      "existing": false
+    },
+    "easter-alternatives": {
+      "topic": "jesus",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "hume-miracles": {
+      "topic": "jesus",
+      "format": "figure",
+      "words": [
+        700,
+        1200
+      ],
+      "existing": false
+    },
+    "reading-craig-ehrman": {
+      "topic": "jesus",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "church-harm": {
+      "topic": "doubt",
+      "format": "short-answer",
+      "words": [
+        1000,
+        1300
+      ],
+      "existing": true
+    },
+    "hiddenness": {
+      "topic": "doubt",
+      "format": "short-answer",
+      "words": [
+        900,
+        1200
+      ],
+      "existing": true
+    },
+    "suffering": {
+      "topic": "doubt",
+      "format": "short-answer",
+      "words": [
+        1200,
+        1500
+      ],
+      "existing": true
+    },
+    "problem-of-evil": {
+      "topic": "doubt",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "providence-views": {
+      "topic": "doubt",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "natural-evil": {
+      "topic": "doubt",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "animal-suffering": {
+      "topic": "doubt",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "reading-job": {
+      "topic": "doubt",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "ivan-karamazov": {
+      "topic": "doubt",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "augustine-on-evil": {
+      "topic": "doubt",
+      "format": "figure",
+      "words": [
+        700,
+        1200
+      ],
+      "existing": false
+    },
+    "hiddenness-argument": {
+      "topic": "doubt",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "faith-and-depression": {
+      "topic": "doubt",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "unanswered-prayer": {
+      "topic": "doubt",
+      "format": "faq",
+      "words": [
+        480,
+        2250
+      ],
+      "existing": false
+    },
+    "is-hell-just": {
+      "topic": "doubt",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "sbc-slavery-abuse": {
+      "topic": "doubt",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "church-history-charges": {
+      "topic": "doubt",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "doubt-not-unbelief": {
+      "topic": "doubt",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "deconstruction": {
+      "topic": "doubt",
+      "format": "faq",
+      "words": [
+        480,
+        2250
+      ],
+      "existing": false
+    },
+    "doubt-glossary": {
+      "topic": "doubt",
+      "format": "glossary",
+      "words": [
+        750,
+        4800
+      ],
+      "existing": false
+    },
+    "canon": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        810,
+        990
+      ],
+      "existing": true
+    },
+    "manuscripts": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        900,
+        1100
+      ],
+      "existing": true
+    },
+    "contradictions": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        810,
+        990
+      ],
+      "existing": true
+    },
+    "scripture": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        900,
+        1100
+      ],
+      "existing": true
+    },
+    "inerrancy-defined": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "inerrancy-sbc-timeline": {
+      "topic": "bible",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "nt-canon-timeline": {
+      "topic": "bible",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "apocrypha": {
+      "topic": "bible",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "lost-gospels": {
+      "topic": "bible",
+      "format": "faq",
+      "words": [
+        480,
+        2250
+      ],
+      "existing": false
+    },
+    "manuscript-numbers": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "three-variants": {
+      "topic": "bible",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "ot-transmission": {
+      "topic": "bible",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "spine": "academic",
+      "existing": false
+    },
+    "translations": {
+      "topic": "bible",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "archaeology-limits": {
+      "topic": "bible",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "spine": "academic",
+      "existing": false
+    },
+    "gospels-reliable": {
+      "topic": "bible",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "luke-acts-record": {
+      "topic": "bible",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "six-contradictions": {
+      "topic": "bible",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "prophecy-fair": {
+      "topic": "bible",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "bible-and-science": {
+      "topic": "bible",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "other-scriptures": {
+      "topic": "bible",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "jesus-view-of-scripture": {
+      "topic": "bible",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "reformed": {
+      "topic": "reformed",
+      "format": "short-answer",
+      "words": [
+        810,
+        990
+      ],
+      "existing": true
+    },
+    "election": {
+      "topic": "reformed",
+      "format": "short-answer",
+      "words": [
+        990,
+        1210
+      ],
+      "existing": true
+    },
+    "covenant": {
+      "topic": "reformed",
+      "format": "short-answer",
+      "words": [
+        990,
+        1210
+      ],
+      "existing": true
+    },
+    "assurance": {
+      "topic": "reformed",
+      "format": "short-answer",
+      "words": [
+        720,
+        880
+      ],
+      "existing": true
+    },
+    "dort-remonstrance": {
+      "topic": "reformed",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "sbc-calvinism-debate": {
+      "topic": "reformed",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "atonement-extent": {
+      "topic": "reformed",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "new-birth-and-faith": {
+      "topic": "reformed",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "covenant-frameworks": {
+      "topic": "reformed",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "providence": {
+      "topic": "reformed",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "fuller-carey": {
+      "topic": "reformed",
+      "format": "figure",
+      "words": [
+        700,
+        1200
+      ],
+      "existing": false
+    },
+    "spurgeon-calvinist-evangelist": {
+      "topic": "reformed",
+      "format": "figure",
+      "words": [
+        700,
+        1200
+      ],
+      "existing": false
+    },
+    "baptist-confessions-timeline": {
+      "topic": "reformed",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "general-particular-baptists": {
+      "topic": "reformed",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "reformation-ten-documents": {
+      "topic": "reformed",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "reformed-apologetics": {
+      "topic": "reformed",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "warning-passages": {
+      "topic": "reformed",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "reformed-baptist-glossary": {
+      "topic": "reformed",
+      "format": "glossary",
+      "words": [
+        750,
+        4800
+      ],
+      "existing": false
+    },
+    "1689-and-westminster": {
+      "topic": "reformed",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "conversation": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        720,
+        880
+      ],
+      "existing": true
+    },
+    "god": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        810,
+        990
+      ],
+      "existing": true
+    },
+    "grace": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        810,
+        990
+      ],
+      "existing": true
+    },
+    "trinity-errors": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "nicaea-chalcedon": {
+      "topic": "faith",
+      "format": "timeline",
+      "words": [
+        800,
+        2000
+      ],
+      "existing": false
+    },
+    "hard-sayings-son": {
+      "topic": "faith",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "why-god-became-man": {
+      "topic": "faith",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    },
+    "faith-alone-james": {
+      "topic": "faith",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "justification-views": {
+      "topic": "faith",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "new-perspective": {
+      "topic": "faith",
+      "format": "debate-guide",
+      "words": [
+        1200,
+        2200
+      ],
+      "existing": false
+    },
+    "faith-and-reason": {
+      "topic": "faith",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "paul-at-athens": {
+      "topic": "faith",
+      "format": "case-study",
+      "words": [
+        1000,
+        1800
+      ],
+      "existing": false
+    },
+    "sharing-the-gospel": {
+      "topic": "faith",
+      "format": "faq",
+      "words": [
+        480,
+        2250
+      ],
+      "existing": false
+    },
+    "do-baptists-have-creeds": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "growing-holy": {
+      "topic": "faith",
+      "format": "essay",
+      "words": [
+        2500,
+        4500
+      ],
+      "existing": false
+    },
+    "why-church-matters": {
+      "topic": "faith",
+      "format": "short-answer",
+      "words": [
+        600,
+        900
+      ],
+      "existing": false
+    },
+    "ordinances": {
+      "topic": "faith",
+      "format": "objections",
+      "words": [
+        900,
+        1600
+      ],
+      "existing": false
+    },
+    "learning-to-pray": {
+      "topic": "faith",
+      "format": "reading",
+      "words": [
+        800,
+        1400
+      ],
+      "existing": false
+    }
+  }
+}

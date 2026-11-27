@@ -4,6 +4,7 @@ import path from "node:path";
 import { Ajv } from "ajv";
 import { citationsIn, documentKey, FOLDERS, walk, type ContentDocument, type DocumentKind, type Issue, type LoadedDocument, type Review, type ScriptureIndex } from "./model.ts";
 import { parseReference } from "./scripture.ts";
+import { extractSources, formatIssues, formatLinks } from "./formats.ts";
 import { TEACHING_ROLES } from "../../src/data/apologetics-types.ts";
 
 function stable(value: unknown): unknown {
@@ -13,16 +14,17 @@ function stable(value: unknown): unknown {
 }
 export const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(stable(value))).digest("hex");
 export const contentHash = (doc: ContentDocument) => hash({ kind: doc.kind, id: doc.id, content: doc.content });
-/** A source as the documents citing it depend on it: without read and checked, the register's record of how we handled
+/** A source as the documents citing it depend on it: without read, checked and publicDomain, the register's record of how we handled
  * it. A change there is reviewed on the source itself (contentHash) but does not change what any citing claim rests on.
- * Without those two fields this equals contentHash, so citing documents reviewed before they existed stay current. */
+ * Without those fields this equals contentHash, so citing documents reviewed before they existed stay current. */
 export function citedSourceHash(doc: ContentDocument): string {
   if (doc.kind !== "source") return contentHash(doc);
-  const { read: _read, checked: _checked, ...cited } = doc.content;
+  const { read: _read, checked: _checked, publicDomain: _publicDomain, ...cited } = doc.content;
   return hash({ kind: doc.kind, id: doc.id, content: cited });
 }
 export function sourceIds(doc: ContentDocument): string[] {
   const ids = citationsIn(doc.content).flatMap((c) => c.kind === "source" ? [c.source] : []);
+  if (doc.kind === "study") ids.push(...extractSources(doc.content));
   if (doc.kind === "worldview") ids.push(...doc.content.sources);
   if (doc.kind === "debate") ids.push(doc.content.source);
   return [...new Set(ids)].sort();
@@ -41,7 +43,7 @@ export function reviewState(doc: ContentDocument, documents: ContentDocument[]):
 export function dependencies(doc: ContentDocument): string[] {
   const result = sourceIds(doc).map((id) => "source/" + id);
   const c = doc.content;
-  if (doc.kind === "study") { result.push("topic/" + doc.content.topic, ...doc.content.related.map((id) => "study/" + id)); }
+  if (doc.kind === "study") { result.push("topic/" + doc.content.topic, ...doc.content.related.map((id) => "study/" + id), ...formatLinks(doc.content)); }
   if ("studies" in c) result.push(...c.studies.map((id) => "study/" + id));
   if (doc.kind === "worldview") result.push(...doc.content.rows.map((row) => "study/" + row.study));
   if (doc.kind === "practice") result.push("study/" + doc.content.study);
@@ -105,7 +107,8 @@ export function validateDocuments(entries: LoadedDocument[], index: ScriptureInd
       for (const [field, value] of Object.entries(entry)) if (Array.isArray(value)) value.forEach((item, i) => {
         if (typeof item === "string" && !item.trim()) add(`/content${pointer}/${field}/${i}`, "List text cannot be blank.", published ? "error" : "warning");
       });
-      if (Array.isArray(entry.citations) && !entry.citations.length) add("/content" + pointer + "/citations", "A substantive block needs at least one citation.", published ? "error" : "warning");
+      // A glossary term marked as the site's own definition is the one block that may cite nothing.
+      if (Array.isArray(entry.citations) && !entry.citations.length && entry.siteDefinition !== true) add("/content" + pointer + "/citations", "A substantive block needs at least one citation.", published ? "error" : "warning");
       if (entry.kind === "scripture" || (typeof entry.reference === "string" && entry.kind !== "source")) {
         try { parseReference(String(entry.reference), index); } catch (error) { add("/content" + pointer + "/reference", (error as Error).message); }
       }
@@ -121,6 +124,7 @@ export function validateDocuments(entries: LoadedDocument[], index: ScriptureInd
       if (doc.content.related.includes(doc.id)) add("/content/related", "A study cannot recommend itself.");
       if (!sourceIds(doc).some((id) => { const s = byKey.get("source/" + id); return s?.kind === "source" && (TEACHING_ROLES as readonly string[]).includes(s.content.role); })) add("/content", "A published study needs a Baptist or Reformed teaching source as well as Scripture.", published ? "error" : "warning");
       if (!citationsIn(doc.content).some((c) => c.kind === "scripture")) add("/content", "A study needs Scripture in its claim-level support.", published ? "error" : "warning");
+      formatIssues(doc, byKey, add);
     }
     if (doc.kind === "practice" && doc.content.best >= doc.content.options.length) add("/content/best", "The preferred response must exist in options.");
     if (doc.kind === "source") {

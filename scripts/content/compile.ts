@@ -1,8 +1,9 @@
 import { mkdirSync, readFileSync, existsSync, writeFileSync, readdirSync, unlinkSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import type { Citation, ContentDocument, DocumentKind, ScriptureIndex, SourceContent } from "./model.ts";
-import { documentKey } from "./model.ts";
+import type { Block, Citation, ContentDocument, DocumentKind, ScriptureIndex, SourceContent, StudyContent } from "./model.ts";
+import { citationsIn, documentKey } from "./model.ts";
+import { extractSources, studyWords } from "./formats.ts";
 import { assertValid, hash, inspectRepository } from "./repository.ts";
 import { parseReference } from "./scripture.ts";
 import { renderDocument } from "./export.ts";
@@ -14,19 +15,40 @@ export const GENERATED_FILE = "src/generated/apologetics.ts";
 export function runtimeCitation(citation: Citation, index: ScriptureIndex) {
   return citation.kind === "scripture" ? { kind: "scripture" as const, span: parseReference(citation.reference, index) } : citation;
 }
-/** A source as pages and the public corpus show it: read and checked are the register's bookkeeping, kept in content/. */
-function publicSource({ read: _read, checked: _checked, ...shown }: SourceContent) { return shown; }
+/** A source as pages and the public corpus show it: read, checked and publicDomain are the register's bookkeeping, kept in content/. */
+function publicSource({ read: _read, checked: _checked, publicDomain: _publicDomain, ...shown }: SourceContent) { return shown; }
+
+/** The fields only formats carry, as the site reads them: every citation and passage resolved to verse spans. */
+const FORMAT_ONLY = ["objections", "parts", "figure", "works", "extracts", "events", "views", "common", "terms", "questions"] as const;
+function runtimeValue(value: unknown, index: ScriptureIndex): unknown {
+  if (Array.isArray(value)) return value.map((item) => runtimeValue(item, index));
+  if (!value || typeof value !== "object") return value;
+  const entry = value as Record<string, unknown>;
+  if (entry.kind === "scripture" || entry.kind === "source") return runtimeCitation(entry as unknown as Citation, index);
+  if (typeof entry.reference === "string" && typeof entry.note === "string") return { span: parseReference(entry.reference, index), note: entry.note };
+  return Object.fromEntries(Object.entries(entry).map(([key, item]) => [key, runtimeValue(item, index)]));
+}
+function formatFields(c: StudyContent, index: ScriptureIndex) {
+  const own = Object.fromEntries(FORMAT_ONLY.filter((key) => c[key] !== undefined).map((key) => [key, runtimeValue(c[key], index)]));
+  return { format: c.format, ...(c.spine ? { spine: c.spine } : {}), ...(c.alsoIn ? { alsoIn: c.alsoIn } : {}), ...(c.debates ? { debates: c.debates } : {}), words: studyWords(c), ...own };
+}
 
 export function compileDocuments(documents: ContentDocument[], index: ScriptureIndex) {
   const published = documents.filter((d) => d.publication === "published");
   const ofKind = <K extends DocumentKind>(kind: K) => published.filter((d) => d.kind === kind) as ContentDocument<K>[];
   const cites = (citations: Citation[]) => citations.map((c) => runtimeCitation(c, index));
+  const none: Block = { id: "", text: "", citations: [] };
   const STUDIES = ofKind("study").map(({ id, content: c }) => {
-    const support = { answer: cites(c.answer.citations), reasoning: c.reasoning.map((b) => cites(b.citations)), conclusion: cites(c.conclusion.citations), sections: c.sections.map((b) => cites(b.citations)), reply: cites(c.reply.citations), limit: cites(c.limit.citations), prompt: cites(c.prompt.citations) };
+    // A study without a format compiles exactly as before; a declared format fills today's fields it lacks with empty
+    // text, so every page reading them keeps working, and adds its own fields after them (formatFields).
+    const reasoning = c.reasoning ?? [], conclusion = c.conclusion ?? none, sections = c.sections ?? [], reply = c.reply ?? none, limit = c.limit ?? none, prompt = c.prompt ?? none;
+    const support = { answer: cites(c.answer.citations), reasoning: reasoning.map((b) => cites(b.citations)), conclusion: cites(conclusion.citations), sections: sections.map((b) => cites(b.citations)), reply: cites(reply.citations), limit: cites(limit.citations), prompt: cites(prompt.citations) };
+    const extra = c.format === undefined ? undefined : formatFields(c, index);
     const all = [support.answer, ...support.reasoning, support.conclusion, ...support.sections, support.reply, support.limit, support.prompt].flat();
-    return { id, title: c.title, topic: c.topic, summary: c.summary, answer: c.answer.text, reasoning: c.reasoning.map((b) => b.text), conclusion: c.conclusion.text,
-      sections: c.sections.map((b) => ({ title: b.title, body: b.text })), objection: c.objection, reply: c.reply.text, limit: c.limit.text, prompt: c.prompt.text,
-      refs: c.passages.map((p) => ({ span: parseReference(p.reference, index), note: p.note })), sources: [...new Set(all.flatMap((c) => c.kind === "source" ? [c.source] : []))], related: c.related, keywords: c.keywords, support };
+    const sources = [...all.flatMap((c) => c.kind === "source" ? [c.source] : []), ...(extra ? citationsIn(extra).flatMap((c) => c.kind === "source" ? [c.source] : []).concat(extractSources(c)) : [])];
+    return { id, title: c.title, topic: c.topic, summary: c.summary, answer: c.answer.text, reasoning: reasoning.map((b) => b.text), conclusion: conclusion.text,
+      sections: sections.map((b) => ({ title: b.title, body: b.text })), objection: c.objection ?? "", reply: reply.text, limit: limit.text, prompt: prompt.text,
+      refs: c.passages.map((p) => ({ span: parseReference(p.reference, index), note: p.note })), sources: [...new Set(sources)], related: c.related, keywords: c.keywords, support, ...extra };
   });
   const SOURCES = ofKind("source").map(({ id, content }) => ({ id, ...publicSource(content) }));
   const TOPICS = ofKind("topic").map(({ id, content }) => ({ id, ...content }));

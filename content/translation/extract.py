@@ -97,7 +97,20 @@ SOURCES = [
         ".documents[].content.readingPlan.stages[].readings[].examine.text", ".records[].reading.cautions[]",
         *(f".documents[].content.{part}.citations[].locator" for part in (
             "answer", "conclusion", "limit", "reasoning", "reasoning[]", "reply", "sections[]", "rows[].christian",
-            "policy.sections[]"))}, set(), set()),
+            "policy.sections[]")),
+        # The article formats (plan APOLOGETICS-FIELDS step 3, scripts/content/formats.ts). Names, work titles, the
+        # extracts' quoted public-domain text and their edition and translator stay as written:
+        # unregistered-reviewed.json says why for each.
+        *(f".documents[].content.{field}" for field in (
+            "objections[].objection", "objections[].reply.text", "parts[].title", "parts[].blocks[].text",
+            "parts[].passages[].note", "figure.dates", "figure.tradition", "figure.roles[]", "works[].date",
+            "works[].note", "extracts[].locator", "extracts[].note.text", "events[].title", "events[].date",
+            "events[].dateNote", "events[].text", "views[].label", "views[].texts[].note", "views[].case.text",
+            "views[].reply.text", "common.text", "terms[].term", "terms[].text", "questions[].question",
+            "questions[].text")),
+        *(f".documents[].content.{part}.citations[].locator" for part in (
+            "objections[].reply", "parts[].blocks[]", "figure", "extracts[].note", "events[]", "views[].case",
+            "views[].reply", "common", "terms[]", "questions[]"))}, set(), set()),
     ("sources", "public/content/sources/directory.json", False, ("records",), {
         ".collections[].label", ".collections[].definition", ".entries[].role", ".entries[].status", ".entries[].kind",
         ".entries[].links[].name", ".entries[].citedOn[].page", ".entries[].citedOn[].feature"}, set(), set()),

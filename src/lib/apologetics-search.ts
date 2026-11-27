@@ -27,7 +27,15 @@ export function searchTerm(word: string): string | null {
   return plain.length < 2 || STOP_WORDS.has(plain) ? null : stemmer(plain);
 }
 
-const bodyOf = (study: ApStudy) => [...study.reasoning, study.conclusion, ...study.sections.flatMap((s) => [s.title, s.body]), study.objection, study.reply, study.limit, study.prompt].join("\n");
+/** Every text a format adds: objections, essay parts, the figure, extracts and their notes, events, views, terms, questions. */
+const formatTextOf = (study: ApStudy) => [
+  ...(study.objections ?? []).flatMap((o) => [o.objection, o.reply.text]), ...(study.parts ?? []).flatMap((p) => [p.title, ...p.blocks.map((b) => b.text)]),
+  ...(study.figure ? [study.figure.name, study.figure.tradition, ...study.figure.roles] : []), ...(study.works ?? []).flatMap((w) => [w.title, w.note]),
+  ...(study.extracts ?? []).flatMap((e) => [e.text, e.note.text]), ...(study.events ?? []).flatMap((e) => [e.title, e.text]),
+  ...(study.common ? [study.common.text] : []), ...(study.views ?? []).flatMap((v) => [v.label, v.case.text, v.reply.text]),
+  ...(study.terms ?? []).flatMap((t) => [t.term, t.text]), ...(study.questions ?? []).flatMap((q) => [q.question, q.text]),
+];
+const bodyOf = (study: ApStudy) => [...study.reasoning, study.conclusion, ...study.sections.flatMap((s) => [s.title, s.body]), study.objection, study.reply, study.limit, study.prompt, ...formatTextOf(study)].join("\n");
 
 const indexes = new WeakMap<readonly ApStudy[], MiniSearch>();
 function indexFor(studies: readonly ApStudy[]): MiniSearch {

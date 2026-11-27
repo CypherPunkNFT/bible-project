@@ -4,10 +4,12 @@ import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, 
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { buildContent, compileDocuments, GENERATED_FILE, PROJECT_ROOT, verifyBuiltContent } from "./compile.ts";
-import { assertValid, basisHash, citedSourceHash, contentHash, impact, inspectRepository, loadRepository, recordReview, reviewState, selectDocuments, validateDocuments } from "./repository.ts";
+import { assertValid, basisHash, citedSourceHash, contentHash, impact, inspectRepository, loadRepository, recordReview, reviewState, selectDocuments, sourceIds, validateDocuments } from "./repository.ts";
 import { exportRecord, renderDocument } from "./export.ts";
 import { parseReference, formatReference, scriptureText } from "./scripture.ts";
-import { citationsIn, type ContentDocument } from "./model.ts";
+import { citationsIn, STUDY_FORMATS, type ContentDocument, type StudyFormat } from "./model.ts";
+import { formatFixture, marker, PUBLIC_DOMAIN } from "./format-fixtures.ts";
+import { depthReport, depthTable, loadTargets } from "./depth.ts";
 import { assertOrdinaryPath } from "./files.ts";
 import { prepareReadingLibrary, recordReadingReview } from "./reading-library.ts";
 
@@ -82,10 +84,143 @@ test("missing citations, sources, passages, duplicate blocks and dangling relati
     [(d) => { d.content.answer.citations = [{ kind: "scripture", reference: "Romans 3:99" }]; }, /Verse does not exist/],
     [(d) => { d.content.related = ["missing"]; }, /Missing referenced document: study\/missing/],
     [(d) => { d.content.passages = []; }, /needs a Scripture passage/],
-    [(d) => { d.content.reasoning[0].id = "answer"; }, /Duplicate block ID/],
+    [(d) => { d.content.reasoning![0].id = "answer"; }, /Duplicate block ID/],
     [(d) => { d.content.answer.text = " "; }, /Text cannot be blank/],
   ];
   for (const [mutate, message] of mutations) { const entries = fresh(); mutate(study(entries)); assert.ok(issues(entries).some((i) => message.test(i.message)), String(message)); }
+});
+
+/** The live collection plus one fixture of a format, its 1689 confession given the public-domain record the reading
+ * fixture quotes. Published fixtures are judged apart from their missing review and the page-ready guard. */
+const PAGE_GUARD = /No page shows the .* format yet/;
+function withFixture(format: StudyFormat, publication: "draft" | "published" = "published") {
+  const entries = fresh(), doc = formatFixture(format); doc.publication = publication;
+  (entries.find((e) => e.document.kind === "source" && e.document.id === "lbcf")!.document as ContentDocument<"source">).content.publicDomain = { ...PUBLIC_DOMAIN };
+  entries.push({ file: `content/apologetics/studies/${doc.id}.json`, document: doc });
+  return { entries, doc, own: () => issues(entries).filter((i) => i.file.endsWith(`/${doc.id}.json`) && i.pointer !== "/reviews" && !PAGE_GUARD.test(i.message)) };
+}
+
+test("a study of each of the ten formats validates, as a draft and when published", () => {
+  for (const format of STUDY_FORMATS) {
+    assert.deepEqual(withFixture(format, "draft").own().filter((i) => i.severity === "error"), [], format);
+    assert.deepEqual(withFixture(format).own(), [], format);
+  }
+});
+
+test("each format's rules fail with what failed, what was expected and what was found", () => {
+  type Fixture = ReturnType<typeof withFixture>;
+  const cases: [StudyFormat, (f: Fixture) => void, RegExp][] = [
+    ["short-answer", ({ doc }) => { doc.content.objections = []; }, /short answer needs 2 to 5 objection pairs, counting objection\/reply; found 1/],
+    ["essay", ({ doc }) => { doc.content.parts = doc.content.parts!.slice(0, 2); }, /essay needs 3 to 8 parts; found 2/],
+    ["objections", ({ doc }) => { doc.content.objections![0].heldBy = [" "]; }, /names who holds it; heldBy is empty/],
+    ["figure", ({ doc }) => { doc.content.figure!.citations = [{ kind: "scripture", reference: "Romans 3:23" }]; }, /figure cites no source/],
+    ["reading", ({ entries }) => { const source = entries.find((e) => e.document.kind === "source" && e.document.id === "lbcf")!.document as ContentDocument<"source">; source.content.checked = "none"; }, /quote only a source checked .* source lbcf is marked checked: none/],
+    ["timeline", ({ doc }) => { delete doc.content.events![0].dateNote; }, /debated date says so: event event-1 needs a dateNote/],
+    ["debate-guide", ({ doc }) => { doc.content.views = doc.content.views!.slice(0, 1); }, /views compared article needs 2 to 5 views; found 1/],
+    ["glossary", ({ doc }) => { doc.content.terms![0].seeAlso = ["no-such-term"]; }, /name a term in this glossary; no-such-term is not one/],
+    ["faq", ({ doc }) => { doc.content.questions = doc.content.questions!.slice(0, 7); }, /needs 8 to 15 questions; found 7/],
+    ["case-study", ({ doc }) => { doc.content.spine = "scripture-theology"; }, /case study takes the academic spine .*; found scripture-theology/],
+  ];
+  for (const [format, mutate, message] of cases) {
+    const fixture = withFixture(format); mutate(fixture);
+    assert.ok(fixture.own().some((i) => i.severity === "error" && message.test(i.message)), `${format}: ${fixture.own().map((i) => i.message).join(" | ")}`);
+  }
+  assert.equal(cases.length, STUDY_FORMATS.length);
+});
+
+test("format structure, rights and links are checked whatever the publication state", () => {
+  const draft = (format: StudyFormat, mutate: (doc: ContentDocument<"study">) => void) => { const fixture = withFixture(format, "draft"); mutate(fixture.doc); return fixture.own().filter((i) => i.severity === "error").map((i) => i.message).join(" | "); };
+  assert.match(draft("essay", (d) => { delete d.content.parts; }), /essay needs parts; it is missing/);
+  assert.match(draft("essay", (d) => { delete d.content.limit; }), /academic spine closes with limit/);
+  assert.match(draft("glossary", (d) => { d.content.views = []; }), /cannot carry views, which belongs to debate-guide; found it on format glossary/);
+  assert.match(draft("objections", (d) => { d.content.reasoning = []; }), /cannot carry reasoning, which belongs to short-answer/);
+  assert.match(draft("short-answer", (d) => { d.content.alsoIn = ["jesus"]; }), /jesus is already its own topic/);
+  assert.match(draft("short-answer", (d) => { d.content.alsoIn = ["nowhere"]; }), /Missing referenced document: topic\/nowhere/);
+  assert.match(draft("faq", (d) => { d.content.questions![0].study = "missing"; }), /Missing referenced document: study\/missing/);
+  assert.match(draft("reading", (d) => { d.content.extracts![0].source = "missing"; }), /Missing referenced document: source\/missing/);
+  // A role that says "described, not quoted" forbids an extract even from a source we hold.
+  const fixture = withFixture("reading", "draft"), source = fixture.entries.find((e) => e.document.kind === "source" && e.document.id === "lbcf")!.document as ContentDocument<"source">;
+  source.content.role = "Scholarship · described, not quoted";
+  assert.ok(fixture.own().some((i) => i.severity === "error" && /cannot quote source lbcf/.test(i.message)));
+  // A study without a format is today's article: the rules a declared short answer adds do not apply to it.
+  assert.ok(!issues(fresh()).some((i) => /objection pairs/.test(i.message)));
+  // It cannot carry further objection pairs either: those come with the declared format and its count rule.
+  const legacy = fresh(), target = study(legacy); target.content.objections = [];
+  assert.ok(issues(legacy).some((i) => i.file.endsWith("morality.json") && i.severity === "error" && /without a format cannot carry objections/.test(i.message)));
+  assert.match(draft("figure", (d) => { d.content.works![0].url = "https://someone@archive.org/"; }), /no user name or password/);
+  assert.match(draft("faq", (d) => { d.content.questions![0].study = d.id; }), /links to this study itself/);
+  assert.match(draft("glossary", (d) => { d.content.terms![1].term = "TERM 1"; }), /TERM 1 repeats term term-1/);
+});
+
+test("an extract quotes only a source with a public-domain record, from that edition", () => {
+  const errors = (mutate: (doc: ContentDocument<"study">, lbcf: ContentDocument<"source">) => void) => {
+    const fixture = withFixture("reading", "draft"); mutate(fixture.doc, fixture.entries.find((e) => e.document.kind === "source" && e.document.id === "lbcf")!.document as ContentDocument<"source">);
+    return fixture.own().filter((i) => i.severity === "error").map((i) => i.message).join(" | ");
+  };
+  assert.equal(errors(() => {}), "");
+  // A source read in a named edition is not thereby public domain (a Ligonier article is checked: edition).
+  assert.match(errors((_, lbcf) => { delete lbcf.content.publicDomain; lbcf.content.checked = "edition"; }), /names its public-domain edition \(publicDomain\); source lbcf has none/);
+  assert.match(errors((doc) => { doc.content.extracts![0].edition = "A 1950s modernised text"; }), /expected "1677\/1689 text as this project holds it", found "A 1950s modernised text"/);
+  // The record is the register's bookkeeping: adding it leaves every study citing the source current.
+  const entries = fresh(), docs = entries.map((e) => e.document), lbcf = docs.find((d): d is ContentDocument<"source"> => d.kind === "source" && d.id === "lbcf")!;
+  const citing = docs.filter((d) => d.kind === "study" && sourceIds(d).includes("lbcf"));
+  lbcf.content.publicDomain = { ...PUBLIC_DOMAIN };
+  assert.ok(citing.length > 0 && citing.every((d) => reviewState(d, docs) === "current"));
+});
+
+test("a declared format cannot be published before a page shows it", () => {
+  for (const format of STUDY_FORMATS) {
+    const fixture = withFixture(format);
+    assert.ok(issues(fixture.entries).some((i) => i.file.endsWith(`/${fixture.doc.id}.json`) && i.severity === "error" && PAGE_GUARD.test(i.message)), format);
+    assert.ok(!issues(withFixture(format, "draft").entries).some((i) => PAGE_GUARD.test(i.message)), format);
+  }
+});
+
+test("a published study of each format reaches the generated data and the Markdown download", () => {
+  // Search over these fields is tested beside the search code (src/lib/apologetics-search.test.ts), which node cannot load.
+  // The fixtures are published in memory only: the live collection never holds them (its first test asserts no issues).
+  const entries = fresh();
+  (entries.find((e) => e.document.kind === "source" && e.document.id === "lbcf")!.document as ContentDocument<"source">).content.publicDomain = { ...PUBLIC_DOMAIN };
+  for (const format of STUDY_FORMATS) { const doc = formatFixture(format); doc.publication = "published"; entries.push({ file: `content/apologetics/studies/${doc.id}.json`, document: doc }); }
+  const docs = entries.map((e) => e.document), runtime = compileDocuments(docs, baseline.index);
+  for (const format of STUDY_FORMATS) {
+    const doc = docs.find((d) => d.id === `fixture-${format}`)!, compiled = runtime.STUDIES.find((s) => s.id === doc.id)!, mark = marker(format);
+    assert.equal(compiled.format, format);
+    assert.ok(JSON.stringify(compiled).includes(mark), `${format}: generated data`);
+    assert.ok(compiled.sources.includes("lbcf") && compiled.words! > 0, `${format}: sources and words`);
+    assert.ok(!JSON.stringify(compiled).includes('"reference"'), `${format}: every passage resolved to a span`);
+    assert.ok(renderDocument(doc, docs, baseline.index, { publicExport: true }).includes(mark), `${format}: Markdown`);
+  }
+  // Today's articles compile exactly as before: no format field, no word count.
+  assert.ok(runtime.STUDIES.filter((s) => !s.id.startsWith("fixture-")).every((s) => !("format" in s) && !("words" in s)));
+  const glossary = renderDocument(docs.find((d) => d.id === "fixture-glossary")!, docs, baseline.index);
+  assert.match(glossary, /Basis: the site's own definition/); assert.doesNotMatch(glossary, /MISSING/);
+});
+
+test("the depth report counts each article against its target from part B of the plan", () => {
+  const targets = loadTargets(PROJECT_ROOT), report = depthReport(documents, targets, "jesus");
+  assert.deepEqual(report.rows.map((r) => r.id).sort(), ["cross", "jesus", "miracles", "resurrection"]);
+  assert.ok(report.rows.every((r) => r.status === "below" && r.format === "short-answer (today's)" && r.objections === 1), depthTable(report));
+  assert.equal(report.planned.length, 16); assert.ok(report.planned.some((p) => p.id === "resurrection-case" && p.format === "essay"));
+  // 21 articles today and 95 planned, every one in a field with a format and a word range.
+  assert.equal(Object.keys(targets).length, 116); assert.equal(Object.values(targets).filter((t) => t.existing).length, 21);
+  assert.ok(Object.values(targets).every((t) => STUDY_FORMATS.includes(t.format) && t.words[0] > 0 && t.words[0] <= t.words[1]));
+  // A hand count of the objections fixture: the lede (2 words) and five pairs of 7 + 3 words; its answer and five
+  // replies cite Romans 3 and the 1689 confession (a Reformed role, so no Baptist source); Romans 3:10-12 is its one passage.
+  const doc = formatFixture("objections"), row = depthReport([...documents, doc], targets, "doubt").rows.find((r) => r.id === doc.id)!;
+  assert.deepEqual({ words: row.words, objections: row.objections, citations: row.citations, baptist: row.baptist, scripture: row.scripture, debates: row.debates, related: row.related, status: row.status },
+    { words: 52, objections: 5, citations: 12, baptist: 0, scripture: 1, debates: 1, related: 1, status: "no target" });
+});
+
+test("format fixtures pass the schema, and the schema refuses unknown formats and fields", (t) => {
+  const root = fixture(t);
+  for (const format of STUDY_FORMATS) { const doc = formatFixture(format); writeFileSync(path.join(root, "content/apologetics/studies", doc.id + ".json"), JSON.stringify(doc, null, 2)); }
+  assert.deepEqual(loadRepository(root).issues, []);
+  changeFile(root, "studies/fixture-essay.json", (d) => { if (d.kind === "study") (d.content as unknown as Record<string, unknown>).format = "poem"; });
+  changeFile(root, "studies/fixture-faq.json", (d) => { if (d.kind === "study") (d.content.questions![0] as unknown as Record<string, unknown>).answer = "misplaced"; });
+  const found = loadRepository(root).issues;
+  assert.ok(found.some((i) => i.file.endsWith("fixture-essay.json") && i.pointer === "/content/format"));
+  assert.ok(found.some((i) => i.file.endsWith("fixture-faq.json") && /additional properties: answer/.test(i.message)));
 });
 
 test("source scope, references to drafts and review dates are checked", () => {
@@ -185,7 +320,8 @@ test("review records require attribution and keep the actual reviewer kind", (t)
 
 test("reading exports carry every study paragraph, precise citations, source limits and editorial context", () => {
   const doc = study(), markdown = renderDocument(doc, documents, baseline.index), jsonl = exportRecord(doc, documents);
-  for (const block of [doc.content.answer, ...doc.content.reasoning, doc.content.conclusion, ...doc.content.sections, doc.content.reply, doc.content.limit, doc.content.prompt]) {
+  const c = doc.content as Required<typeof doc.content>;
+  for (const block of [c.answer, ...c.reasoning, c.conclusion, ...c.sections, c.reply, c.limit, c.prompt]) {
     assert.ok(markdown.includes(block.text)); assert.ok(markdown.includes("<!-- block: " + block.id + " -->"));
   }
   assert.ok(markdown.includes("Romans 3:10-12")); assert.ok(markdown.includes("https://opc.org/wcf.html"));
@@ -201,6 +337,10 @@ test("CLI creates a private draft, exports exact selections, records reviews and
   let result = cli(root, "new", "study/test-draft", "--title", "A draft question?", "--topic", "god"); assert.equal(result.status, 0, result.stderr);
   result = cli(root, "new", "study/test-draft", "--title", "Overwrite?", "--topic", "god"); assert.notEqual(result.status, 0);
   result = cli(root, "new", "source/test-source", "--title", "A new source"); assert.equal(result.status, 0, result.stderr);
+  for (const format of STUDY_FORMATS) { result = cli(root, "new", `study/test-${format}`, "--title", "A format draft?", "--topic", "jesus", "--format", format); assert.equal(result.status, 0, result.stderr); }
+  assert.equal(JSON.parse(readFileSync(path.join(root, "content/apologetics/studies/test-essay.json"), "utf8")).content.format, "essay");
+  result = cli(root, "new", "study/test-poem", "--title", "?", "--topic", "jesus", "--format", "poem"); assert.notEqual(result.status, 0); assert.match(result.stderr, /must be one of short-answer, essay/);
+  result = cli(root, "new", "source/test-format", "--title", "?", "--format", "essay"); assert.notEqual(result.status, 0);
   assert.equal(JSON.parse(readFileSync(path.join(root, "content/apologetics/sources/test-source.json"), "utf8")).content.checked, "none");
   const repo = inspectRepository(root); assertValid(repo.issues); assert.ok(repo.issues.some((i) => i.severity === "warning"));
   buildContent(root); const corpus = JSON.parse(readFileSync(path.join(root, "public/content/apologetics/library.json"), "utf8"));

@@ -536,13 +536,6 @@
         "topic",
         "summary",
         "answer",
-        "reasoning",
-        "conclusion",
-        "sections",
-        "objection",
-        "reply",
-        "limit",
-        "prompt",
         "passages",
         "related",
         "keywords"
@@ -557,6 +550,45 @@
         },
         "summary": {
           "type": "string"
+        },
+        "format": {
+          "enum": [
+            "short-answer",
+            "essay",
+            "objections",
+            "figure",
+            "reading",
+            "timeline",
+            "debate-guide",
+            "glossary",
+            "faq",
+            "case-study"
+          ],
+          "description": "Absent: today's short answer under today's rules. Declared: that format's fields and rules (scripts/content/formats.ts)."
+        },
+        "spine": {
+          "enum": [
+            "academic",
+            "scripture-theology"
+          ]
+        },
+        "alsoIn": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true,
+          "description": "Other fields (topic ids) that also list this study."
+        },
+        "debates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true,
+          "description": "Debate ids whose hinge this study addresses."
         },
         "answer": {
           "$ref": "#/$defs/block"
@@ -593,20 +625,7 @@
         "passages": {
           "type": "array",
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "reference",
-              "note"
-            ],
-            "properties": {
-              "reference": {
-                "type": "string"
-              },
-              "note": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/$defs/passage"
           }
         },
         "related": {
@@ -623,8 +642,63 @@
             "type": "string"
           },
           "uniqueItems": true
+        },
+        "objections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/objectionPair"
+          }
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/essayPart"
+          }
+        },
+        "figure": {
+          "$ref": "#/$defs/figure"
+        },
+        "works": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/figureWork"
+          }
+        },
+        "extracts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/extract"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/timelineEvent"
+          }
+        },
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/view"
+          }
+        },
+        "common": {
+          "$ref": "#/$defs/block"
+        },
+        "terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/term"
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question"
+          }
         }
-      }
+      },
+      "description": "One article. Fields beyond the required seven depend on its format; scripts/content/formats.ts says which a format needs and allows."
     },
     "source": {
       "type": "object",
@@ -679,6 +753,27 @@
             "none"
           ],
           "description": "The text citations of this source are checked against: corpus = a copy this project holds; edition = a named edition read online; none = no text is checked or none is recorded (cite and describe only, never quote). Kept out of the site data."
+        },
+        "publicDomain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "edition",
+            "basis"
+          ],
+          "properties": {
+            "edition": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The edition or translation verified public domain; an extract must name exactly this edition."
+            },
+            "basis": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Why it is public domain: author and translator death years, first publication date, the copy checked."
+            }
+          },
+          "description": "Only a source with this record may be quoted in a study's extracts (owner decision 3, 2026-11-27). Kept out of the site data."
         }
       }
     },
@@ -1194,6 +1289,346 @@
               }
             }
           }
+        }
+      }
+    },
+    "passage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reference",
+        "note"
+      ],
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "objectionPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "heldBy",
+        "objection",
+        "reply"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "heldBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Who makes this objection: people, schools or traditions, named."
+        },
+        "objection": {
+          "type": "string",
+          "description": "The objection in its holder's own terms."
+        },
+        "reply": {
+          "$ref": "#/$defs/block"
+        }
+      }
+    },
+    "essayPart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "blocks",
+        "passages"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          },
+          "minItems": 1
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/passage"
+          }
+        }
+      },
+      "description": "One part of an essay, shown as its own page."
+    },
+    "figure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "dates",
+        "tradition",
+        "roles",
+        "citations"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "dates": {
+          "type": "string",
+          "description": "As the cited source gives them."
+        },
+        "tradition": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        }
+      }
+    },
+    "figureWork": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "date",
+        "note"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://[^\\s]+$",
+          "description": "A public-domain copy where one exists."
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "extract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source",
+        "locator",
+        "edition",
+        "translator",
+        "text",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "edition": {
+          "type": "string",
+          "description": "The specific edition or translation, verified public domain (owner decision 3, 2026-11-27)."
+        },
+        "translator": {
+          "type": "string",
+          "description": "The translator, or that the text was written in English."
+        },
+        "text": {
+          "type": "string",
+          "description": "Public-domain text only. Its source must be checked against a held copy (corpus) or a named edition."
+        },
+        "note": {
+          "$ref": "#/$defs/block"
+        }
+      }
+    },
+    "timelineEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "date",
+        "certainty",
+        "text",
+        "citations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "certainty": {
+          "enum": [
+            "exact",
+            "circa",
+            "debated",
+            "estimate"
+          ]
+        },
+        "dateNote": {
+          "type": "string",
+          "description": "Required for a debated or estimated date: what the dispute or the estimate is."
+        },
+        "text": {
+          "type": "string"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "heldBy",
+        "texts",
+        "case",
+        "reply"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "type": "string"
+        },
+        "heldBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "texts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/passage"
+          }
+        },
+        "case": {
+          "$ref": "#/$defs/block"
+        },
+        "reply": {
+          "$ref": "#/$defs/block"
+        }
+      }
+    },
+    "term": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "term",
+        "text",
+        "citations",
+        "seeAlso"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "term": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        },
+        "seeAlso": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true
+        },
+        "siteDefinition": {
+          "type": "boolean",
+          "description": "True when the definition is the site's own and cites nothing."
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "question",
+        "text",
+        "citations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "question": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        },
+        "study": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "The full article answering it, where one exists."
         }
       }
     }

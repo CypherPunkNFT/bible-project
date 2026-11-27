@@ -1,4 +1,4 @@
-import { citationsIn, documentKey, type Block, type Citation, type ContentDocument, type ScriptureIndex } from "./model.ts";
+import { citationsIn, documentKey, walk, type Block, type Citation, type ContentDocument, type Passage, type ScriptureIndex, type StudyContent } from "./model.ts";
 import { contentHash, basisHash, dependencies, reviewState, sourceIds } from "./repository.ts";
 import { parseReference, scriptureText } from "./scripture.ts";
 
@@ -12,16 +12,47 @@ function blockMarkdown(block: Block, label: string, documents: ContentDocument[]
   return `## ${label}\n\n<!-- block: ${block.id} -->\n${block.text}\n\nBasis: ${block.citations.map((c) => citationText(c, documents)).join("; ") || "MISSING — research and cite this claim"}\n`;
 }
 
+const passageLines = (passages: Passage[]) => passages.map((p) => `- ${p.reference}: ${p.note}`);
+/** A declared format, in reading order: the lede, the format's own items, the shared closing blocks, then Scripture. */
+function formatMarkdown(c: StudyContent, documents: ContentDocument[]): string[] {
+  const md = (block: Block, label: string) => blockMarkdown(block, label, documents);
+  const basis = (citations: Citation[]) => `Basis: ${citations.map((x) => citationText(x, documents)).join("; ") || "MISSING — research and cite this claim"}`;
+  const lines = [c.summary, "", `Topic: ${c.topic}`, `Format: ${c.format}${c.spine ? ` · spine: ${c.spine}` : ""}`, `Keywords: ${c.keywords.join(", ")}`];
+  if (c.alsoIn?.length) lines.push(`Also in: ${c.alsoIn.join(", ")}`);
+  if (c.debates?.length) lines.push(`Debates: ${c.debates.join(", ")}`);
+  lines.push("", md(c.answer, "Starting answer"));
+  if (c.figure) lines.push(`## ${c.figure.name}`, "", `${c.figure.dates} · ${c.figure.tradition}`, "", `Roles: ${c.figure.roles.join(", ")}`, "", basis(c.figure.citations), "");
+  c.reasoning?.forEach((b, i) => lines.push(md(b, `Reasoning ${i + 1}`)));
+  if (c.common) lines.push(md(c.common, "What all affirm"));
+  c.views?.forEach((v) => lines.push(`## ${v.label}`, "", `Held by: ${v.heldBy.join("; ")}`, "", ...passageLines(v.texts), "", md(v.case, `The case: ${v.label}`), md(v.reply, `In reply: ${v.label}`)));
+  c.parts?.forEach((part, i) => lines.push(`## Part ${i + 1}: ${part.title}`, "", ...part.blocks.map((b, j) => md(b, `Part ${i + 1} · ${j + 1}`)), ...passageLines(part.passages), ""));
+  c.sections?.forEach((b) => lines.push(md(b, b.title)));
+  c.extracts?.forEach((e) => lines.push(`## ${e.source} · ${e.locator}`, "", `<!-- block: ${e.id} -->`, `Edition: ${e.edition} · Translator: ${e.translator}`, "", ...e.text.split("\n").map((line) => "> " + line), "", md(e.note, "Reading note")));
+  c.events?.forEach((e) => lines.push(md(e, `${e.date}${e.certainty === "exact" ? "" : ` (${e.certainty}${e.dateNote ? `: ${e.dateNote}` : ""})`} · ${e.title}`)));
+  // A term marked as the site's own definition cites nothing on purpose; say so instead of "MISSING".
+  c.terms?.forEach((t) => lines.push(t.siteDefinition && !t.citations.length ? `## ${t.term}\n\n<!-- block: ${t.id} -->\n${t.text}\n\nBasis: the site's own definition\n` : md(t, t.term), ...(t.seeAlso.length ? [`See also: ${t.seeAlso.join(", ")}`, ""] : [])));
+  c.questions?.forEach((q) => lines.push(md(q, q.question), ...(q.study ? [`Full article: ${q.study}`, ""] : [])));
+  if (c.objection !== undefined && c.reply) lines.push(`## Objection\n\n${c.objection}\n`, md(c.reply, "Reply"));
+  c.objections?.forEach((o, i) => lines.push(`## Objection ${(c.objection !== undefined ? 1 : 0) + i + 1}\n\nHeld by: ${o.heldBy.join("; ")}\n\n${o.objection}\n`, md(o.reply, "Reply")));
+  if (c.conclusion) lines.push(md(c.conclusion, "Conclusion"));
+  if (c.limit) lines.push(md(c.limit, "Scope and limits"));
+  if (c.prompt) lines.push(md(c.prompt, "Conversation starter · editorial application"));
+  if (c.works?.length) lines.push("## Works", "", ...c.works.map((w) => `- ${w.title} (${w.date})${w.url ? ` · [read](${w.url})` : ""}: ${w.note}`), "");
+  lines.push("## Read in Scripture", "", ...passageLines(c.passages), "", `Related studies: ${c.related.join(", ")}`, "");
+  return lines;
+}
+
 export function renderDocument(doc: ContentDocument, documents: ContentDocument[], index: ScriptureIndex, options: ExportOptions = {}): string {
   const lines = [`# ${doc.content.title}`, "", `Document: ${documentKey(doc)}`, ""];
   if (!options.publicExport) {
     lines.push(`Publication: ${doc.publication} · Review: ${reviewState(doc, documents)}`, `Content hash: ${contentHash(doc)}`, `Basis hash: ${basisHash(doc, documents)}`, "", "This is a generated review copy. Edit the corresponding JSON document in content/apologetics, not this export. External source texts have not been fetched by this export.", "");
     if (doc.reviews.length) lines.push("## Review history", "", ...doc.reviews.map((r) => `- ${r.date} · ${r.kind} · ${r.reviewer} · ${r.scope}: ${r.note}`), "");
   }
-  if (doc.kind === "study") {
-    const c = doc.content;
+  if (doc.kind === "study" && doc.content.format === undefined) {
+    const c = doc.content as Required<StudyContent>; // a study without a format has today's fields (formats.ts)
     lines.push(c.summary, "", `Topic: ${c.topic}`, `Keywords: ${c.keywords.join(", ")}`, "", blockMarkdown(c.answer, "Starting answer", documents), ...c.reasoning.map((b, i) => blockMarkdown(b, `Reasoning ${i + 1}`, documents)), blockMarkdown(c.conclusion, "Conclusion", documents), ...c.sections.map((b) => blockMarkdown(b, b.title, documents)), `## Objection\n\n${c.objection}\n`, blockMarkdown(c.reply, "Reply", documents), blockMarkdown(c.limit, "Scope and limits", documents), blockMarkdown(c.prompt, "Conversation starter · editorial application", documents), "## Read in Scripture", "", ...c.passages.map((p) => `- ${p.reference}: ${p.note}`), "", `Related studies: ${c.related.join(", ")}`, "");
-  } else if (doc.kind === "worldview") {
+  } else if (doc.kind === "study") lines.push(...formatMarkdown(doc.content, documents));
+  else if (doc.kind === "worldview") {
     lines.push(doc.content.subtitle, "", doc.content.description, "", `Comparison account: ${doc.content.otherLabel}`, "");
     for (const row of doc.content.rows) lines.push(`## ${row.question}`, "", blockMarkdown(row.christian, "Christian account", documents), blockMarkdown(row.other, "Other account · primary record", documents), `Study: ${row.study}`, "");
   } else if (doc.kind === "debate") {
@@ -57,7 +88,8 @@ export function renderDocument(doc: ContentDocument, documents: ContentDocument[
   if (options.includeScripture) {
     if (!options.root) throw new Error("A repository root is required to include local Scripture text");
     const refs = new Set(citationsIn(doc.content).flatMap((c) => c.kind === "scripture" ? [c.reference] : []));
-    if (doc.kind === "study") doc.content.passages.forEach((p) => refs.add(p.reference));
+    // The study's passages, and those of essay parts and views (any { reference, note }), in document order.
+    if (doc.kind === "study") walk(doc.content, (entry) => { if (typeof entry.reference === "string" && entry.kind !== "scripture") refs.add(entry.reference); });
     if (doc.kind === "editorial") { refs.add(doc.content.anchor); doc.content.conversationSteps.forEach((step) => refs.add(step.reference)); }
     lines.push("## Scripture text · KJV · public domain", "");
     for (const reference of refs) { parseReference(reference, index); lines.push(`### ${reference}`, "", scriptureText(reference, index, options.root), ""); }
