@@ -44,7 +44,47 @@ test("apologetics: search, shareable filters and empty recovery", async ({ page 
   await page.getByRole("button", { name: "Clear search and filters" }).click();
   await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.length);
   await page.goto("/apologetics/topics/jesus");
-  await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.filter((study) => study.topic === "jesus").length);
+  await expect(page.locator(".ap-article-card")).toHaveCount(STUDIES.filter((study) => study.topic === "jesus" || study.alsoIn?.includes("jesus")).length);
+  await expect(page.locator(".ap-study-card")).toHaveCount(0);
+});
+
+// The new title-led card is on the six field pages only (owner decision 8); the question library, saved studies and a
+// study's "This question opens another" keep the study card (plan APOLOGETICS-FIELDS step 5).
+test("apologetics: field pages show article cards grouped by format, with a format filter and live counts", async ({ page }) => {
+  for (const topic of TOPICS.filter((item) => item.id !== "worldviews")) {
+    const inField = STUDIES.filter((study) => study.topic === topic.id || study.alsoIn?.includes(topic.id));
+    await page.goto("/apologetics/topics/" + topic.id);
+    await expect(page.locator(".ap-article-card"), topic.id).toHaveCount(inField.length);
+    await expect(page.locator(".ap-field-stats dd").first()).toHaveText(String(inField.length));
+    const filter = page.getByRole("group", { name: "Show one format" });
+    await expect(filter.getByRole("button", { name: /^All/ })).toHaveAttribute("aria-pressed", "true");
+    await expect(filter.getByRole("button", { name: /^All/ })).toContainText(String(inField.length));
+  }
+  await page.goto("/apologetics/topics/jesus");
+  const jesus = STUDIES.filter((study) => study.topic === "jesus");
+  const card = page.locator(".ap-article-card").first();
+  await expect(card.locator(".ap-eyebrow")).toContainText("Short answer");
+  await expect(card.getByRole("link", { name: "Short answer" })).toBeVisible();
+  await card.getByRole("button", { name: /^Save:/ }).click();
+  await expect(card.getByRole("button", { name: /^Unsave:/ })).toHaveAttribute("aria-pressed", "true");
+  const filter = page.getByRole("group", { name: "Show one format" });
+  await filter.getByRole("button", { name: /^Short answers/ }).click();
+  await expect(page).toHaveURL(/\?format=short-answer$/);
+  await expect(page.locator(".ap-field-group")).toHaveCount(1);
+  await page.getByRole("searchbox", { name: "Search studies" }).fill("zzqqxx");
+  await expect(filter.getByRole("button", { name: /^Short answers/ })).toBeEnabled();
+  await expect(page.getByRole("heading", { name: "No studies match that search." })).toBeVisible();
+  await page.getByRole("button", { name: "Clear search and filters" }).click();
+  await expect(page.locator(".ap-article-card")).toHaveCount(jesus.length);
+  await page.goto("/apologetics/topics/jesus?format=not-a-format");
+  await expect(page.locator(".ap-article-card")).toHaveCount(jesus.length);
+  await page.goto("/apologetics/questions");
+  await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.length);
+  await expect(page.locator(".ap-article-card")).toHaveCount(0);
+  await page.goto("/apologetics/study/jesus");
+  await expect(page.locator(".ap-article-card")).toHaveCount(0);
+  await page.goto("/apologetics/saved");
+  await expect(page.locator(".ap-study-card")).toHaveCount(1);
 });
 
 test("apologetics: Scripture preview is lazy and its reader links retain the passage", async ({ page }) => {

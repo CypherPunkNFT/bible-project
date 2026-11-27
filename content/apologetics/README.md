@@ -110,6 +110,13 @@ hinge it addresses), `sections`, `conclusion`, `limit` and `prompt`; a field tha
 refused. Missing or misplaced fields, rights and links are errors even in a draft; counts and citations warn in
 a draft and block publication.
 
+**The field page (plan step 5, 2026-11-27).** Each field page (`/apologetics/topics/<id>`) draws its articles as the
+title-led article card, grouped by format, with a format filter (`?format=`) and live counts; the question library,
+saved studies and "This question opens another" keep the study card. A study is listed in its own topic and in every
+topic its `alsoIn` names (the hub's and the library's counts too). A topic may name its **Start here** row in
+`start`: exactly three published studies of that field (its topic or `alsoIn`); the build refuses any other. No topic
+sets it yet; a field step that sets it changes the topic's content, so it records a new topic review.
+
 **Extracts quote public-domain text only (owner decision 3, 2026-11-27: any length, but the specific edition
 must be verified public domain).** A source's `checked` says how its text was read, not whether it may be
 quoted, so an extract also needs the source's `publicDomain` record (`edition`, `basis`) and must name exactly

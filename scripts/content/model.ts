@@ -33,7 +33,8 @@ export interface SourceContent { title: string; author: string; kind: string; ur
 /** The edition or translation of a source verified to be public domain, and on what basis; only such a source may be
  * quoted in an extract, and only from that edition (owner decision 3, 2026-11-27). Kept out of the site data. */
 export interface PublicDomainRecord { edition: string; basis: string }
-export interface TopicContent { title: string; short: string; color: string; description: string; question: string }
+/** `start`: the three published studies of this field its page shows first (plan APOLOGETICS-FIELDS job 5.2). */
+export interface TopicContent { title: string; short: string; color: string; description: string; question: string; start?: string[] }
 export interface PathContent { title: string; label: string; description: string; studies: string[] }
 export interface ReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: Block; purpose: Block; examine: Block; connection: Block; christian: Block }[] }[] }
 export interface WorldviewContent {

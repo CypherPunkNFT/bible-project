@@ -4,7 +4,7 @@ import { REFORMED_LIBRARY as library } from "../src/generated/reading-library";
 test("Reformed branch connects doctrine, historic authors and the reading path", async ({ page }, testInfo) => {
   await page.goto("/apologetics/topics/reformed");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Reformed theology");
-  await expect(page.locator(".ap-study-card")).toHaveCount(4);
+  await expect(page.locator(".ap-article-card")).toHaveCount(4); // a field page draws the article card (apologetics fields step 5)
   await page.getByRole("link", { name: "Follow the Reformed learning path" }).click();
   await expect(page.locator(".ap-path-timeline > li")).toHaveCount(6);
   await page.goto("/apologetics/study/election");

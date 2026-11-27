@@ -811,6 +811,17 @@
         },
         "question": {
           "type": "string"
+        },
+        "start": {
+          "description": "The three articles a field page shows first under Start here (plan APOLOGETICS-FIELDS job 5.2). Each is a published study of this field (its topic, or alsoIn).",
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
         }
       }
     },

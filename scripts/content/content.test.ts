@@ -233,6 +233,21 @@ test("source scope, references to drafts and review dates are checked", () => {
   assert.ok(result.some((i) => /real dates/.test(i.message)));
 });
 
+test("a topic's Start here lists three published studies of its own field (plan job 5.2)", () => {
+  const run = (start: string[], mutate: (entries: typeof baseline.entries) => void = () => {}) => {
+    const entries = fresh(), topic = entries.find((e) => e.document.kind === "topic" && e.document.id === "god")!.document as ContentDocument<"topic">;
+    topic.content.start = start; mutate(entries);
+    return issues(entries).filter((i) => i.file.endsWith("topics/god.json") && i.severity === "error" && !/changed after review/.test(i.message)).map((i) => i.message).join(" | ");
+  };
+  const own = baseline.entries.map((e) => e.document).filter((d): d is ContentDocument<"study"> => d.kind === "study" && d.content.topic === "god").map((d) => d.id);
+  const other = baseline.entries.map((e) => e.document).find((d): d is ContentDocument<"study"> => d.kind === "study" && d.content.topic === "jesus")!;
+  assert.equal(run(own.slice(0, 3)), "");
+  assert.match(run([...own.slice(0, 2), other.id]), new RegExp(`study ${other.id} belongs to jesus and does not name god in alsoIn`));
+  assert.equal(run([...own.slice(0, 2), other.id], (entries) => { (entries.find((e) => e.document.kind === "study" && e.document.id === other.id)!.document as ContentDocument<"study">).content.alsoIn = ["god"]; }), "");
+  assert.match(run([...own.slice(0, 2), "no-such-study"]), /Missing referenced document: study\/no-such-study/);
+  assert.match(run([...own.slice(0, 2), other.id], (entries) => { const s = entries.find((e) => e.document.kind === "study" && e.document.id === other.id)!.document as ContentDocument<"study">; s.content.alsoIn = ["god"]; s.publication = "draft"; }), /cannot link to draft study/);
+});
+
 test("a published study needs a Baptist or Reformed teaching source, not any source", () => {
   const rule = /needs a Baptist or Reformed teaching source/;
   // Roles are changed on the sources morality cites, which other studies share, so only morality's own findings count.

@@ -47,6 +47,7 @@ export function dependencies(doc: ContentDocument): string[] {
   if ("studies" in c) result.push(...c.studies.map((id) => "study/" + id));
   if (doc.kind === "worldview") result.push(...doc.content.rows.map((row) => "study/" + row.study));
   if (doc.kind === "practice") result.push("study/" + doc.content.study);
+  if (doc.kind === "topic") result.push(...(doc.content.start ?? []).map((id) => "study/" + id));
   if (doc.kind === "editorial") result.push(...doc.content.foundations.map((id) => "study/" + id));
   else result.push("editorial/library");
   return [...new Set(result)].sort();
@@ -126,6 +127,10 @@ export function validateDocuments(entries: LoadedDocument[], index: ScriptureInd
       if (!citationsIn(doc.content).some((c) => c.kind === "scripture")) add("/content", "A study needs Scripture in its claim-level support.", published ? "error" : "warning");
       formatIssues(doc, byKey, add);
     }
+    if (doc.kind === "topic") (doc.content.start ?? []).forEach((id, i) => {
+      const study = byKey.get("study/" + id); // a missing one is reported above, as a missing referenced document
+      if (study?.kind === "study" && study.content.topic !== doc.id && !(study.content.alsoIn ?? []).includes(doc.id)) add(`/content/start/${i}`, `Start here lists studies of this field; study ${id} belongs to ${study.content.topic} and does not name ${doc.id} in alsoIn.`);
+    });
     if (doc.kind === "practice" && doc.content.best >= doc.content.options.length) add("/content/best", "The preferred response must exist in options.");
     if (doc.kind === "source") {
       try { const url = new URL(doc.content.url); if (url.protocol !== "https:" || url.username || url.password) throw new Error();

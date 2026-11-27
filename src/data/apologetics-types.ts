@@ -8,7 +8,8 @@ export const TEACHING_ROLES: readonly SourceRole[] = ["Baptist confession", "Bap
 export interface ApSource { id: string; title: string; author: string; kind: string; url: string; note: string; role: SourceRole }
 export type ApCitation = { kind: "scripture"; span: Span } | { kind: "source"; source: string; locator: string };
 export interface CitedText { id?: string; text: string; citations: ApCitation[] }
-export interface ApTopic { id: string; title: string; short: string; color: string; description: string; question: string }
+/** `start`: the three articles a field page shows first, when the topic chooses them (plan APOLOGETICS-FIELDS job 5.2). */
+export interface ApTopic { id: string; title: string; short: string; color: string; description: string; question: string; start?: string[] }
 export interface ApPath { id: string; title: string; label: string; description: string; studies: string[] }
 export interface ApReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: CitedText; purpose: CitedText; examine: CitedText; connection: CitedText; christian: CitedText }[] }[] }
 export interface ApWorldview { readingPlan?: ApReadingPlan; otherLabel: string; id: string; title: string; subtitle: string; description: string; studies: string[]; sources: string[]; rows: { id: string; question: string; christian: string; other: string; study: string; christianBasis: ApCitation[]; otherBasis: ApCitation[] }[] }
