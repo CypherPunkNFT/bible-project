@@ -30,6 +30,11 @@
           "kind": "source",
           "source": "lbcf",
           "locator": "17.1–3; 18.2–4"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article V"
         }
       ]
     },
@@ -116,7 +121,7 @@
     "sections": [
       {
         "id": "distinctions",
-        "text": "Perseverance concerns God’s preservation of his people in faith. Assurance concerns the believer’s knowledge of that grace. Presumption treats a profession, past experience or church connection as permission to ignore Christ. Keeping these distinct protects both the tender conscience and the seriousness of repentance.",
+        "text": "Perseverance concerns God’s preservation of all true believers in faith. Assurance concerns the believer’s knowledge of that grace. Presumption treats a profession, past experience or church connection as permission to ignore Christ. Keeping these distinct protects both the tender conscience and the seriousness of repentance.",
         "citations": [
           {
             "kind": "scripture",
@@ -287,6 +292,15 @@
       "date": "2026-11-06",
       "contentHash": "16cae0e3fd09aad05269572adfeb33c203dbe035b0b7294d6820d93650027d68",
       "basisHash": "5eb01b758b3a30d814a15b67dbaa348c50bf906a52cf041300245dbcb49c5d4e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "BF&M V cited in the answer it already quotes; 'his people' reworded as 'all true believers' (BF&M V's words). Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "b3456ceea154b2fc40105c44e22074ae857d794e8e00e957128718987ea8d13c",
+      "basisHash": "681c366f94c6362b44ac2f98384335c54e47a17b5c9ba564dc978be2140ec3a5"
     }
   ]
 }

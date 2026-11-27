@@ -5,7 +5,7 @@
   "id": "reformed-reading",
   "title": "The Reformed reading library",
   "description": "Read the writers behind the arguments. Explore historic theology, biblical exposition and the defense of the Christian faith, with an identified text and a useful place to begin.",
-  "scopeNote": "A substantial starting collection of influential writers, not a ranking or a complete canon. It includes the wider Calvinist evangelical tradition: Continental Reformed, Presbyterian, Congregational, Baptist and Anglican authors. Their differences remain visible; Scripture is the final authority and the site’s guides retain their Westminster basis.",
+  "scopeNote": "A substantial starting collection of influential writers, not a ranking or a complete canon. It includes the wider Calvinist evangelical tradition: Continental Reformed, Presbyterian, Congregational, Baptist and Anglican authors. Their differences remain visible; Scripture is the final authority, and the site’s own doctrinal standard is the Baptist Faith and Message 2000.",
   "rightsNote": "Public domain refers here to the identified historic text in the United States. Modern translations, introductions and digital files can carry separate rights. Open a reading link to use the host’s edition; the catalogue download contains metadata, not the books.",
   "rightsSources": [
     {
@@ -103,6 +103,13 @@
       "scope": "RF01: reviewed addition of the evangelical vocabulary value and context-only William Lane Craig author record for Scholars and Apologetics. Existing selected reading works, editions, links, rights evidence and text remain unchanged. No Craig full text added to public reading selection.",
       "date": "2026-10-11",
       "contentHash": "c1a79edb6bb89ef53cbee4dd2dd2de02c05fcb05c1619ce9033f403afd709cd8"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Two one-line corrections of the site's doctrinal claim (plan APOLOGETICS-FIELDS step 2): the reading library's scope note in publication.json now says the site's own doctrinal standard is the Baptist Faith and Message 2000 instead of 'the site's guides retain their Westminster basis'; the Gill entry's caution (work-gill-doctrinal.json) now compares Baptist covenant and church conclusions with Westminster's and with the Baptist Faith and Message 2000 instead of 'the site's Westminster basis'. No other library record was changed.",
+      "date": "2026-11-27",
+      "contentHash": "d5fe4f49a0fa671a2415851c08ea0156c182ae8405e2dbe17b85198430dabfbc"
     }
   ],
   "editionIds": [

@@ -25,6 +25,16 @@
           "kind": "source",
           "source": "wcf",
           "locator": "14.1"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "14.1"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article XI"
         }
       ]
     },
@@ -45,11 +55,16 @@
       },
       {
         "id": "reason-2",
-        "text": "Our answer should name the Christian hope and its reason, not merely our preference.",
+        "text": "Our answer should name the Christian hope and its reason, not merely our preference. Southern Baptists confess that every Christian is to seek to win the lost by verbal witness undergirded by a Christian life (Baptist Faith and Message 2000, article XI).",
         "citations": [
           {
             "kind": "scripture",
             "reference": "1 Peter 3:15-16"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article XI"
           }
         ]
       },
@@ -203,6 +218,15 @@
       "date": "2026-11-06",
       "contentHash": "abc3a98e7e6513afcbc49ac0864bf6b111dac5f5095b9c423c8ebfcadc2ee687",
       "basisHash": "048ea9cbb1cdef567915814fd84ba92726fb84b851b7e758b294f684577fecb5"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "BF&M XI cited (answer, reason 2), with a sentence on every Christian's verbal witness. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "60f280b8a46cfece7d6d1a63856e4b4931bfa8f2a5d5bd5e2c3a47f557a43dba",
+      "basisHash": "624a384df426e9cde38a3fd23278618260e4d0467612b22f22055cd51d1464f4"
     }
   ]
 }

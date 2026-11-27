@@ -20,7 +20,7 @@
         {
           "kind": "source",
           "source": "sproul-aseity",
-          "locator": "Self-existence and causation"
+          "locator": "whole page"
         }
       ]
     },
@@ -42,7 +42,7 @@
           {
             "kind": "source",
             "source": "sproul-aseity",
-            "locator": "The necessity of self-existent being"
+            "locator": "whole page"
           }
         ]
       },
@@ -53,7 +53,7 @@
           {
             "kind": "source",
             "source": "sproul-aseity",
-            "locator": "Self-existence is not self-creation"
+            "locator": "whole page"
           }
         ]
       }
@@ -70,23 +70,33 @@
           "kind": "source",
           "source": "wcf",
           "locator": "2.1–2"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "2.1–2"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
         }
       ]
     },
     "sections": [
       {
         "id": "section-1",
-        "text": "Aquinas's arguments from causation and dependence are useful historical contributions. We use Summa I, question 2, article 3 on that specific point, alongside Reformed exposition. This does not adopt his entire theology or settle the doctrines of salvation.",
+        "text": "Aquinas's arguments from causation and dependence are useful historical contributions. We use Summa I, question 2, article 3 on that specific point, alongside Protestant exposition. This does not adopt his entire theology or settle the doctrines of salvation.",
         "citations": [
           {
             "kind": "source",
             "source": "aquinas",
-            "locator": "I, q.2, a.3: second and third ways"
+            "locator": "I, q.2, a.3"
           },
           {
             "kind": "source",
             "source": "sproul-aseity",
-            "locator": "Self-existent being"
+            "locator": "whole page"
           }
         ],
         "title": "A Catholic contribution, with a defined scope"
@@ -115,7 +125,7 @@
         {
           "kind": "source",
           "source": "sproul-aseity",
-          "locator": "Causation and eternal being"
+          "locator": "whole page"
         }
       ]
     },
@@ -130,6 +140,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "1.1"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "1.1"
         }
       ]
@@ -185,6 +200,15 @@
       "date": "2026-11-06",
       "contentHash": "87114452f5e78701fca91ee7b8f62858cae3c609b218ca5b430a770ad38e0a08",
       "basisHash": "1858a6f1a1934a027832fabeeecf42512da0701bf6a332fd4cf6e418100e3242"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "'alongside Reformed exposition' replaced by 'Protestant exposition'; Aquinas locator I, q.2, a.3; BF&M II cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "a0bc384be5cdd92ed28758b165dfc644ab4d993d93881482635c654ce7ae977e",
+      "basisHash": "d0839b75df59ed40c4a09c45cf4a8dbd9bca3c780f1aef6564254313294395f0"
     }
   ]
 }

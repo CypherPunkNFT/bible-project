@@ -12,8 +12,8 @@
     "role": "Reformed confession",
     "url": "https://opc.org/wcf.html",
     "note": "The historic confession of Presbyterian and Reformed churches, written by the Westminster Assembly in 1646 and 1647. These guides cite it beside the Baptist confession of 1689, which follows it closely but differs above all on the covenants, the church and baptism. Citations specify chapter and paragraph. The site’s own doctrinal standard is the Baptist Faith and Message 2000, and Scripture judges every confession (1.10).",
-    "read": "not recorded",
-    "checked": "none"
+    "read": "Every chapter and paragraph the 21 field articles cite read on 2026-11-27 in the site's creeds collection (Westminster Confession 1647) beside the 1689 paragraph paired with it.",
+    "checked": "corpus"
   },
   "reviews": [
     {
@@ -41,6 +41,15 @@
       "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "9fe2817f7d2d06ea720ec778371e86099314f6ed4487e09f630aa7804f3a179f",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Register fields only: 'read' records what was read on 2026-11-27 for the step 2 corrections and 'checked' set to match. Title, author, kind, URL, role and note unchanged.",
+      "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "c31e7c4b5d53e52b0af943e550adb834fc7419b4ee4bd3b896ea13347838a379",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

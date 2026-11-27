@@ -26,7 +26,12 @@
         {
           "kind": "source",
           "source": "sinaiticus",
-          "locator": "The manuscript and its corrections"
+          "locator": "whole page"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
         }
       ]
     },
@@ -37,8 +42,18 @@
         "citations": [
           {
             "kind": "source",
-            "source": "calvin-scripture",
-            "locator": "I.7.1–5"
+            "source": "wcf",
+            "locator": "1.4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "1.4"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article I"
           }
         ]
       },
@@ -49,7 +64,7 @@
           {
             "kind": "source",
             "source": "sinaiticus",
-            "locator": "About Codex Sinaiticus"
+            "locator": "whole page"
           }
         ]
       },
@@ -60,6 +75,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "1.8–9"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "1.8–9"
           }
         ]
@@ -72,7 +92,7 @@
         {
           "kind": "source",
           "source": "sinaiticus",
-          "locator": "Digital manuscript and corrections"
+          "locator": "whole page"
         },
         {
           "kind": "scripture",
@@ -88,7 +108,7 @@
           {
             "kind": "source",
             "source": "sinaiticus",
-            "locator": "About the manuscript"
+            "locator": "whole page"
           }
         ],
         "title": "A witness you can inspect"
@@ -100,11 +120,16 @@
           {
             "kind": "source",
             "source": "sinaiticus",
-            "locator": "Manuscript viewer"
+            "locator": "whole page"
           },
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "1.8–9"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "1.8–9"
           }
         ],
@@ -123,7 +148,7 @@
         {
           "kind": "source",
           "source": "sproul-inerrancy",
-          "locator": "Inspiration and God's truthfulness"
+          "locator": "whole page"
         }
       ]
     },
@@ -133,13 +158,18 @@
       "citations": [
         {
           "kind": "source",
-          "source": "sinaiticus",
-          "locator": "The scope of a manuscript witness"
+          "source": "calvin-scripture",
+          "locator": "I.7.4–5"
         },
         {
           "kind": "source",
-          "source": "calvin-scripture",
-          "locator": "I.7.4–5"
+          "source": "wcf",
+          "locator": "1.5"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.5"
         }
       ]
     },
@@ -194,6 +224,15 @@
       "date": "2026-11-06",
       "contentHash": "17124d6c351b18852896cc23a3d94fe93798b36d945e70ca5f2cb21b581b614f",
       "basisHash": "6c791f8f468cc46965dbe25cdb265e6ea39b38a0f41404d7dd998698666d0591"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Teaching claims no longer attributed to Calvin I.7 (reason 1 now cites Westminster/1689 1.4 and BF&M I) or to the Sinaiticus project (limit now cites Calvin I.7.4–5 and Westminster/1689 1.5); BF&M I cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "3b08dfbdc824d97196953386deb4e772f4eafe1caa5beb5a7ddbd5d4395ca854",
+      "basisHash": "819dea358d335451cd0dfc7ccb749ca5a465aee6168e76fdd7dfa307f89848b1"
     }
   ]
 }

@@ -24,7 +24,12 @@
         {
           "kind": "source",
           "source": "sproul-science",
-          "locator": "The unity of truth and fallible interpretation"
+          "locator": "All Truth Meets at the Top"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article XII"
         }
       ]
     },
@@ -49,6 +54,11 @@
             "locator": "5.2–3"
           },
           {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "5.2–3"
+          },
+          {
             "kind": "scripture",
             "reference": "Psalms 104:14-15"
           }
@@ -65,7 +75,7 @@
           {
             "kind": "source",
             "source": "sproul-science",
-            "locator": "Nature and its divine author"
+            "locator": "Christians Need Not Fear Scientific Inquiry"
           }
         ]
       }
@@ -83,7 +93,7 @@
     "sections": [
       {
         "id": "section-1",
-        "text": "Do not build a case on a temporary gap in knowledge. The biblical Creator governs what we understand as well as what we do not. Greater knowledge of creation can deepen gratitude rather than push God into a smaller corner.",
+        "text": "Do not build a case on a temporary gap in knowledge. The biblical Creator governs what we understand as well as what we do not. Greater knowledge of creation can deepen gratitude rather than push God into a smaller corner. Baptists confess that “all sound learning” belongs to the Christian heritage (Baptist Faith and Message 2000, article XII).",
         "citations": [
           {
             "kind": "scripture",
@@ -96,7 +106,12 @@
           {
             "kind": "source",
             "source": "sproul-science",
-            "locator": "The unity of truth"
+            "locator": "All Truth Meets at the Top"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article XII"
           }
         ],
         "title": "God is more than a placeholder"
@@ -116,8 +131,13 @@
           },
           {
             "kind": "source",
+            "source": "lbcf",
+            "locator": "1.9–10"
+          },
+          {
+            "kind": "source",
             "source": "sproul-science",
-            "locator": "Scripture, science and interpretation"
+            "locator": "All Truth Meets at the Top"
           }
         ],
         "title": "Examine a specific disagreement"
@@ -135,7 +155,7 @@
         {
           "kind": "source",
           "source": "sproul-science",
-          "locator": "Interpreting nature and Scripture"
+          "locator": "Christians Need Not Fear Scientific Inquiry"
         }
       ]
     },
@@ -146,7 +166,7 @@
         {
           "kind": "source",
           "source": "sproul-science",
-          "locator": "Distinguishing truth from our interpretations"
+          "locator": "All Truth Meets at the Top"
         }
       ]
     },
@@ -201,6 +221,15 @@
       "date": "2026-11-06",
       "contentHash": "9f0c4e3033481765957a2f1778a43fe1e9f62a00903e401b239b50d2d1cfe9c3",
       "basisHash": "f1605542895d5d18f68c976f6266264efff17d81e5577e2bbb6c5d78c0f8b0b5"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "BF&M XII ('all sound learning') cited; Sproul locators set to his section names. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "31114103eb83242144e54fb92c65d45880df989467342e9a086920abda4a3e6d",
+      "basisHash": "0fb39fb5fd9e1eb1f460a8d1d79291169278348d18e051ad236306f9fb4d8428"
     }
   ]
 }

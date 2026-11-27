@@ -12,7 +12,7 @@
     "url": "https://codexsinaiticus.org/en/codex/",
     "note": "The project's introduction dates the Greek manuscript to the middle of the fourth century and describes its corrections. Follow its manuscript viewer to inspect the witness itself.",
     "role": "Primary record · not a teaching authority",
-    "read": "not recorded",
+    "read": "Opening attempted on 2026-11-27: the project's page returned no readable text to automated access, so it was not read; the manuscripts article now cites it only for the manuscript and its viewer, as a whole page.",
     "checked": "none"
   },
   "reviews": [
@@ -41,6 +41,15 @@
       "note": "AI-assisted register review; it confirms the read and checked record against the review history, not the source's text or any theological claim. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "a51e8c76f0f59915d620430efc9a0d3752531a3c41af8cd284350efa624d3d58",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Register fields only: 'read' records what was read on 2026-11-27 for the step 2 corrections and 'checked' set to match. Title, author, kind, URL, role and note unchanged.",
+      "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "0f2640cdad689423573295cbde2e13e9c9e74b56bb5d216302413178d2a29693",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

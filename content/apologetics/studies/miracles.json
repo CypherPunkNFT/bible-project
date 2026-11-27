@@ -15,7 +15,7 @@
       "citations": [
         {
           "kind": "scripture",
-          "reference": "Luke 1:37"
+          "reference": "Jeremiah 32:17"
         },
         {
           "kind": "scripture",
@@ -28,7 +28,12 @@
         {
           "kind": "source",
           "source": "sproul-miracles",
-          "locator": "Christianity's supernatural claims"
+          "locator": "whole page"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
         }
       ]
     },
@@ -40,6 +45,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "5.2–3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "5.2–3"
           }
         ]
@@ -114,8 +124,18 @@
     "objection": "A miracle contradicts the regularity of nature.",
     "reply": {
       "id": "reply",
-      "text": "Regularity describes God's ordinary ordering of the world; it does not establish his inability to act exceptionally. The historical question about a particular event still deserves careful examination.",
+      "text": "That is not quite Hume's argument. In section 10 of his Enquiry (1748), David Hume argued that a wise person proportions belief to the evidence; that the laws of nature rest on firm and unalterable experience, the strongest proof we have; and that no testimony can establish a miracle unless its falsehood would be more miraculous than the event it reports. He then argued that no actual report has ever met that test. George Campbell replied in 1762 that the argument assumes its conclusion: experience counts as uniform only if every report of a miracle has been set aside beforehand, and testimony is itself one of our ordinary sources of knowledge, often rightly believed against what we expected. Regularity describes God's ordinary ordering of the world; it does not establish his inability to act exceptionally. The historical question about a particular event still deserves careful examination.",
       "citations": [
+        {
+          "kind": "source",
+          "source": "hume-enquiry",
+          "locator": "Section X, §§87–92"
+        },
+        {
+          "kind": "source",
+          "source": "campbell-miracles",
+          "locator": "Part I, section 2"
+        },
         {
           "kind": "source",
           "source": "wcf",
@@ -123,8 +143,13 @@
         },
         {
           "kind": "source",
+          "source": "lbcf",
+          "locator": "5.2–3"
+        },
+        {
+          "kind": "source",
           "source": "sproul-miracles",
-          "locator": "God's supernatural action"
+          "locator": "whole page"
         }
       ]
     },
@@ -192,6 +217,15 @@
       "date": "2026-11-06",
       "contentHash": "3e31d0f42830d7068c688234cbce67234e3026bec19756df0aca4807953181d3",
       "basisHash": "4389000d8de444cde724ef534716d4e14cafc9c3ce14fc254b0d5e9f46a3fdaf"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Luke 1:37 (in the Berean 'no word from God will ever fail') replaced by Jeremiah 32:17; reply now states Hume's argument from Enquiry X §§87–92 and Campbell's 1762 reply (Part I, section 2) before answering; BF&M II cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "fc87d0bac9d971339fd7395f4a3d6d2851aefc90a21bc3e42d25848a02e98d64",
+      "basisHash": "1483991d63848625bcfc1f6d897e2aebde98f97b10aa25fe4eaaab100a1e28e5"
     }
   ]
 }

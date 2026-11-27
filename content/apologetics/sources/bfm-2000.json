@@ -12,8 +12,8 @@
     "url": "https://bfm.sbc.net/bfm2000/",
     "role": "Baptist confession",
     "note": "The statement of faith of the Southern Baptist Convention and this site's own doctrinal standard (DOCTRINAL-FOUNDATION.md). Cited by article. © Southern Baptist Convention: short phrases with a link only, never long quotation; check the current wording at bfm.sbc.net before quoting a phrase. Where it is silent, the guides show the views Baptists hold and do not choose. Scripture judges every confession.",
-    "read": "The live text at bfm.sbc.net/bfm2000/ opened on 2026-11-27: eighteen articles (I The Scriptures to XVIII The Family); article VI notes its amendment by the 2023 Convention on 14 June 2023. No copy is held.",
-    "checked": "none"
+    "read": "The live text at bfm.sbc.net/bfm2000/ opened on 2026-11-27: eighteen articles (I The Scriptures to XVIII The Family); article VI notes its amendment by the 2023 Convention on 14 June 2023. No copy is held. Articles I–VII, XI, XII and XV read in full on 2026-11-27 at bfm.sbc.net for the 21 field articles; every phrase the articles quote was checked against that live text.",
+    "checked": "edition"
   },
   "reviews": [
     {
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "ccf259978b48ef8987ef4c5320a97d5fe21fe3e452d4ff053e5598ada1c4a3d6",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Register fields only: 'read' records what was read on 2026-11-27 for the step 2 corrections and 'checked' set to match. Title, author, kind, URL, role and note unchanged.",
+      "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "979795fbfd47bb78172d1aaccb27dc4aca50100b42c501acc307e720c367bd42",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

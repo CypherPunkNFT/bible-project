@@ -11,7 +11,7 @@
     "summary": "Tell the truth about sin. Christ's name must never shield wrongdoing.",
     "answer": {
       "id": "answer",
-      "text": "Sin in the church must be named and confronted, not excused because the offender claims Christian faith. Scripture condemns hypocrisy and requires accountability. Christ is sinless; his people are not. That distinction calls the church to repentance rather than giving it an escape from responsibility.",
+      "text": "Sin in the church must be named and confronted, not excused because the offender claims Christian faith. Scripture condemns hypocrisy and requires accountability. Christ is sinless; his followers are not. That distinction calls the church to repentance rather than giving it an escape from responsibility.",
       "citations": [
         {
           "kind": "scripture",
@@ -28,7 +28,12 @@
         {
           "kind": "source",
           "source": "ferguson-discipline",
-          "locator": "The need and aim of church discipline"
+          "locator": "Principles of Separation"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article VI"
         }
       ]
     },
@@ -103,12 +108,46 @@
         "title": "Listen before defending an institution"
       },
       {
+        "id": "our-house",
+        "text": "Southern Baptists have their own record to face. The Southern Baptist Convention was founded in 1845, when Baptists in the South separated from Baptists in the North over slavery. Its 1995 resolution, adopted at its 150th anniversary meeting, acknowledged the role slavery played in its formation, repudiated historic acts of evil such as slavery, and apologised to all African-Americans for condoning and perpetuating individual and systemic racism in its members' lifetime. On 22 May 2022 an independent investigation by Guidepost Solutions, which the Convention's messengers had voted for in 2021, reported that for years a few senior Executive Committee leaders and outside lawyers had been focused on avoiding legal liability, so that survivors who reported abuse were often ignored or disbelieved. It also found that since 2007 a staff member had kept a list of accused ministers, the latest version holding 703 names, with no sign that anyone acted to keep them out of ministry. Telling this truth is part of repentance, not an attack on the gospel.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ezekiel 34:2-4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 4:17"
+          },
+          {
+            "kind": "source",
+            "source": "sbc-racial-reconciliation-1995",
+            "locator": "whole page"
+          },
+          {
+            "kind": "source",
+            "source": "guidepost-report-2022",
+            "locator": "Executive summary, pp. 3–6"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article XV"
+          }
+        ],
+        "title": "Our own house"
+      },
+      {
         "id": "section-2",
-        "text": "Church discipline seeks repentance and restoration while taking sin seriously. It is not a substitute for civil responsibility. Christian submission to governing authorities does not allow a church to treat itself as beyond accountability.",
+        "text": "Church discipline seeks repentance and restoration while taking sin seriously. It is not a substitute for civil responsibility. Abuse, or a reasonable suspicion of it, is reported to the police and the civil authorities, and to child-protection services when a child is involved; a church never handles it privately. Jesus' steps of going to a brother privately, then with witnesses, then to the church concern a fellow believer's sin against you; they never require a victim to confront an abuser alone or keep a crime from the authorities. Christian submission to governing authorities does not allow a church to treat itself as beyond accountability.",
         "citations": [
           {
             "kind": "scripture",
             "reference": "Galatians 6:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 18:15-17"
           },
           {
             "kind": "scripture",
@@ -117,7 +156,17 @@
           {
             "kind": "source",
             "source": "ferguson-discipline",
-            "locator": "Discipline and restoration"
+            "locator": "Principles of Separation"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article VI"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article XV"
           }
         ],
         "title": "Repentance and accountability"
@@ -207,6 +256,15 @@
       "date": "2026-11-06",
       "contentHash": "711191ad7f4ef881475688d973deb02f6db74136a913358e884b139ece5101fe",
       "basisHash": "c634d9aad9a2d41841f7edec7c50fa66d34d30189c0396570bd141633fd0dcd5"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New dated section 'Our own house': 1845 founding, the 1995 resolution (read at sbc.net) and the Guidepost report of 22 May 2022 (executive summary read: liability focus, the list of 703 names kept since 2007), naming no one; section 2 now says plainly that abuse is reported to the police and civil authorities and explains Matthew 18:15-17; BF&M VI and XV cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "8d8f4802fef37354b8b792d3df8ffb79d981211ed1fdff0dbcea91480434431a",
+      "basisHash": "b1c148e5feaea8680132f8b8cc9db7c774fecf00aead9e555ae033dbbb7aea96"
     }
   ]
 }

@@ -25,6 +25,16 @@
           "kind": "source",
           "source": "wcf",
           "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
         }
       ]
     },
@@ -75,8 +85,13 @@
         },
         {
           "kind": "source",
-          "source": "creed",
-          "locator": "Confession of Father, Son and Holy Spirit"
+          "source": "lbcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "nicene-creed-381",
+          "locator": "Paragraphs 1–4"
         }
       ]
     },
@@ -108,6 +123,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "2.3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "2.3"
           }
         ],
         "title": "The Trinity and our salvation"
@@ -121,6 +141,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "2.3"
         },
         {
@@ -197,6 +222,15 @@
       "date": "2026-11-06",
       "contentHash": "c8986722b412441b72b0e363c9fbc84bf3e04686126355f6b769c09e2cfb1235",
       "basisHash": "038308483abeb009ec7640c68efe86a11bea5c1f14bf7ba2431ca8ed188aaab6"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Church of England creed text replaced by the site's own Nicene Creed (paragraphs 1–4); BF&M II cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "97bd15b9cab2aeb2ed2518d4e191e36a2564fe1cdafc8ffdbc1d06c93442ffc5",
+      "basisHash": "dde3ba34c97ae7e8e0b4d5cc01b402d49a6ebb733bede8c8acbc1d6659dc082b"
     }
   ]
 }

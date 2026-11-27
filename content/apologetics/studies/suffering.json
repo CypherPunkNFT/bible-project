@@ -23,13 +23,18 @@
         },
         {
           "kind": "source",
-          "source": "wcf",
-          "locator": "3.1; 5.4"
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
+          "source": "abstract-of-principles",
+          "locator": "Article IV"
         },
         {
           "kind": "source",
           "source": "sproul-suffering",
-          "locator": "Romans 8:28 and Genesis 50:20"
+          "locator": "One Action, Different Intentions"
         }
       ]
     },
@@ -82,7 +87,7 @@
     "sections": [
       {
         "id": "section-1",
-        "text": "A reply that treats suffering as outside God's government falls short of what Baptists confess: God “reigns with providential care over His universe, His creatures, and the flow of the stream of human history” (Baptist Faith and Message 2000, article II). Scripture holds together divine purpose and creaturely responsibility. It does not portray God as helpless before human decisions or blind natural forces.",
+        "text": "Baptists confess together that God the Father “reigns with providential care” over his universe and the flow of human history, and that his perfect knowledge extends even to the future decisions of his free creatures (Baptist Faith and Message 2000, article II). The Abstract of Principles (1858), the confession of the first Southern Baptist seminary, says that God “decrees or permits” all things that come to pass, yet is never the author or approver of sin and does not destroy the free will and responsibility of his creatures (article IV). Scripture holds divine purpose and creaturely responsibility together. It does not portray God as helpless before human decisions or blind natural forces.",
         "citations": [
           {
             "kind": "scripture",
@@ -94,11 +99,60 @@
           },
           {
             "kind": "source",
-            "source": "sproul-suffering",
-            "locator": "God's purpose without excusing evil"
+            "source": "bfm-2000",
+            "locator": "Article II"
+          },
+          {
+            "kind": "source",
+            "source": "abstract-of-principles",
+            "locator": "Article IV"
           }
         ],
-        "title": "More than a free-will answer"
+        "title": "Where Baptists agree"
+      },
+      {
+        "id": "two-views",
+        "text": "Baptists explain God's government of evil in two main ways, and the site's confession does not choose between them. Calvinist Baptists, with the Second London Confession of 1689 and Westminster before it, hold that God ordains whatever comes to pass: every evil falls within his eternal decree, while the sin belongs wholly to the creature who commits it. R. C. Sproul argues this way from Genesis 50:20. Non-Calvinist Baptists hold that God permits much that he does not cause: he made creatures with real freedom, knows every choice they will make, and weaves even their evil choices into his purpose without determining them. Some of them, called Molinists, add that God knows what every creature would freely do in any situation and governs the world by that knowledge. This free-will account does not place suffering outside God's government; that claim belongs to open theism, which the Baptist Faith and Message excludes by affirming God's knowledge of his creatures' future decisions. Both accounts confess that God is sovereign, that he is not the author of sin, and that the cross shows him bringing salvation out of the worst human evil.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 50:20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 1:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 2:3-4"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "3.1; 5.4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "3.1; 5.4"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-suffering",
+            "locator": "God Ordains Everything"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          },
+          {
+            "kind": "source",
+            "source": "abstract-of-principles",
+            "locator": "Article IV"
+          }
+        ],
+        "title": "Two Baptist accounts of how God governs evil"
       },
       {
         "id": "section-2",
@@ -154,7 +208,7 @@
         {
           "kind": "source",
           "source": "sproul-suffering",
-          "locator": "The recipients and meaning of the promise"
+          "locator": "Nothing to Fear"
         }
       ]
     },
@@ -218,6 +272,15 @@
       "date": "2026-11-06",
       "contentHash": "b1fe81bc18115233fcb445c8e8d610895f565d6bdfaf728cf95c945132947e7a",
       "basisHash": "36d71db5de4002d1a481354d32bb6f50dc6724cf99ae551175c422f27c34e6a4"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Westminster 3.1 no longer the answer's footing: the answer now cites BF&M II and Abstract of Principles IV; section 1 retitled 'Where Baptists agree' (BF&M II, Abstract IV) instead of calling a free-will reply inadequate; new section 'Two Baptist accounts of how God governs evil' sets the Calvinist (1689/Westminster 3.1, 5.4; Sproul 'God Ordains Everything') and the non-Calvinist/Molinist accounts side by side and distinguishes the free-will view from open theism. Sproul locators set to his section names. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "01a6ea7c341993b35b658c86039a50ca1ba3b7b97567253f3e335d6f4e71f463",
+      "basisHash": "aab3f08107c3c4e64dbc7a5192101a73a0dba121e14914fafa3ba626fd9b4c6d"
     }
   ]
 }

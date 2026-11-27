@@ -25,6 +25,11 @@
           "kind": "source",
           "source": "calvin-justification",
           "locator": "Institutes III.11"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article IV"
         }
       ]
     },
@@ -72,6 +77,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "11.1–2; 16.2"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "11.1–2; 16.2"
         }
       ]
     },
@@ -91,14 +101,14 @@
           {
             "kind": "source",
             "source": "calvin-justification",
-            "locator": "Institutes III.11: righteousness received through faith"
+            "locator": "Institutes III.11"
           }
         ],
         "title": "A verdict and a changed life"
       },
       {
         "id": "section-2",
-        "text": "We cannot boast that we supplied the decisive goodness God lacked. Augustine's chapter 17 is useful here: God's mercy gives faith, and good works follow. This limited agreement does not make all of Augustine's account of justification identical to what Baptist and Reformed confessions teach.",
+        "text": "We cannot boast that we supplied the decisive goodness God lacked: salvation is God's gift, and the faith that receives it is no work that earns it. Augustine's chapter 17 is useful here: God's mercy gives faith, and good works follow. This limited agreement does not make all of Augustine's account of justification identical to what Baptist and Reformed confessions teach. Baptists also differ on how faith arises. Calvinist Baptists hold that the new birth comes first and produces faith; non-Calvinist Baptists hold that the Spirit's call through the gospel enables a free response of faith. The Baptist Faith and Message calls repentance and faith “inseparable experiences of grace” (article IV) without settling the order.",
         "citations": [
           {
             "kind": "scripture",
@@ -118,15 +128,35 @@
             "kind": "source",
             "source": "lbcf",
             "locator": "11.1–2"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article IV"
+          },
+          {
+            "kind": "source",
+            "source": "abstract-of-principles",
+            "locator": "Article VIII"
+          },
+          {
+            "kind": "source",
+            "source": "traditional-statement-2012",
+            "locator": "Article 5"
+          },
+          {
+            "kind": "source",
+            "source": "truth-trust-testimony-2013",
+            "locator": "Tensions"
           }
         ],
-        "title": "Even faith is a gift"
+        "title": "Salvation, faith included, is all of grace"
       }
     ],
     "objection": "Does faith alone give us permission to live however we please?",
     "reply": {
       "id": "reply",
-      "text": "No. Paul rejects continuing in sin so that grace may abound. Living faith produces obedience; James condemns a merely verbal profession without fruit. Works evidence life rather than purchase it.",
+      "text": "No. Paul rejects continuing in sin so that grace may abound. Living faith produces obedience; James condemns a merely verbal profession without fruit. When James says a person “is justified by his deeds and not by faith alone”, he means the dead, merely spoken faith of verse 14: deeds show whether faith is alive. Works evidence life rather than purchase it.",
       "citations": [
         {
           "kind": "scripture",
@@ -135,6 +165,10 @@
         {
           "kind": "scripture",
           "reference": "James 2:14-18"
+        },
+        {
+          "kind": "scripture",
+          "reference": "James 2:24"
         }
       ]
     },
@@ -207,6 +241,15 @@
       "date": "2026-11-06",
       "contentHash": "16536a23ea894fdd64bf53b522f5e7b2a6347f329955f4689e18a3c3f415910c",
       "basisHash": "db835b569ccb7fa58fce80d1a867ab148e6f8a759f98cd41bdaee9af7fb04c18"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Heading 'Even faith is a gift' renamed 'Salvation, faith included, is all of grace'; section shows that Baptists differ on whether the new birth precedes faith (Abstract VIII; Traditional Statement article 5; 2013 report 'Tensions'; BF&M IV 'inseparable experiences of grace'); reply now answers James 2:24; BF&M IV cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "4b9d137a274f0dd315dfc786244bc21eabc9febe4e4a1bb631a2742d32be36fa",
+      "basisHash": "4ae0154ad9326c9023db7a84956d333ee18a8e5b3e3be30d5bf8ef87276f409b"
     }
   ]
 }

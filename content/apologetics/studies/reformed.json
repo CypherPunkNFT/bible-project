@@ -11,7 +11,7 @@
     "summary": "A connected account of Scripture, God, grace and the Christian life, with Scripture judging every teacher.",
     "answer": {
       "id": "answer",
-      "text": "Reformed theology seeks to confess the whole counsel of God: the triune Creator, humanity’s fall, Christ’s finished saving work, the Spirit’s renewal and the life of the church. Its center is God’s glory and salvation by grace, received through faith in Christ. It gives apologetics doctrinal substance: we should understand the faith we are defending, and defend it with humility.",
+      "text": "Reformed theology seeks to confess the whole counsel of God: the triune Creator, humanity’s fall, Christ’s finished saving work, the Spirit’s renewal and the life of the church. Its center is God’s glory and salvation by grace, received through faith in Christ. For apologetics it offers doctrinal substance, much of it shared by Baptists of every view: we should understand the faith we are defending, and defend it with humility.",
       "citations": [
         {
           "kind": "scripture",
@@ -109,7 +109,7 @@
     ],
     "conclusion": {
       "id": "conclusion",
-      "text": "A Reformed defense of Christianity should move from the truth of God’s revelation to repentance, faith, worship and love. Winning an argument is never a substitute for those ends.",
+      "text": "Reformed apologists aim to move from the truth of God’s revelation to repentance, faith, worship and love, and Baptists of every view share that aim. Winning an argument is never a substitute for those ends.",
       "citations": [
         {
           "kind": "scripture",
@@ -118,13 +118,18 @@
         {
           "kind": "scripture",
           "reference": "Romans 11:33-36"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article XI"
         }
       ]
     },
     "sections": [
       {
         "id": "whole-faith",
-        "text": "Start with God and his Word, then follow creation, fall, redemption and consummation. Election belongs within that larger account; the church, prayer, sacraments and obedience also belong to it. Reducing the tradition to a slogan about predestination leaves much of its teaching unread.",
+        "text": "Start with God and his Word, then follow creation, fall, redemption and consummation. Election belongs within that larger account; the church, prayer, baptism and the Lord’s Supper (which Presbyterians call sacraments and Baptists call ordinances) and obedience also belong to it. Reducing the tradition to a slogan about predestination leaves much of its teaching unread.",
         "citations": [
           {
             "kind": "source",
@@ -135,6 +140,11 @@
             "kind": "source",
             "source": "lbcf",
             "locator": "2–10; 22; 26–30; 31–32"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article VII"
           }
         ],
         "title": "More than a single controversy"
@@ -146,7 +156,7 @@
           {
             "kind": "source",
             "source": "ursinus-catechesis",
-            "locator": "Sections III–IV: law and gospel; the parts of the catechism"
+            "locator": "Section III"
           },
           {
             "kind": "scripture",
@@ -267,6 +277,15 @@
       "date": "2026-11-06",
       "contentHash": "86c43b84f9090df098dd085f691125c3c43a4e6da7f6dae2bc87f9753feb35c2",
       "basisHash": "54e3c956d3a98f7a6b06f8389b677907c6622d7a0ce6678ae7d13d92039cdab1"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "'sacraments' no longer in the site's voice (baptism and the Lord's Supper, 'which Presbyterians call sacraments and Baptists call ordinances'); 'A Reformed defense ... should' replaced by a description of Reformed apologists' aim; the answer notes that much of the tradition is shared by Baptists of every view; Ursinus locator 'Section III'; BF&M VII and XI cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "fc6fc31d34e65d86fa39d151b96df44bdaf7163403f8d93f677240d619a467c5",
+      "basisHash": "2b310d550fc138d1ae0caf5280f65f875f530582236be78a4f972c94ca1775c4"
     }
   ]
 }

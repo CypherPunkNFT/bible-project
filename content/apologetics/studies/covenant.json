@@ -6,12 +6,12 @@
   "order": 23,
   "publication": "published",
   "content": {
-    "title": "How does covenant theology connect the whole Bible?",
+    "title": "How do the covenants connect the whole Bible?",
     "topic": "reformed",
     "summary": "Follow God’s promises to their fulfillment in Christ without flattening the differences between the covenants.",
     "answer": {
       "id": "answer",
-      "text": "Covenant theology reads the Bible through God’s binding dealings with humanity and the unity of his saving promise in Christ. Westminster describes a covenant of works with Adam and a covenant of grace after the fall. The Old and New Testaments reveal the same saving Mediator through different administrations; the new covenant brings the fulfillment accomplished by his blood. The Baptist confession of 1689 agrees that everyone saved in any age is saved by the covenant of grace, but leaves out Westminster’s paragraphs on one covenant under two administrations: it says the covenant of grace was revealed by promise, step by step, and fully made known in the New Testament.",
+      "text": "All the Baptist ways of reading the covenants share the main lines: God binds himself by promise; everyone saved in any age is saved by grace through faith in the promised Christ; and the new covenant, made in his blood, fulfils what the earlier covenants anticipated. Baptists hold four main frameworks for how the covenants fit together, set out below, and the site’s confession, the Baptist Faith and Message 2000, does not choose among them. Covenant theology in its Westminster (Presbyterian) form describes a covenant of works with Adam and a covenant of grace after the fall. The Old and New Testaments reveal the same saving Mediator through different administrations; the new covenant brings the fulfillment accomplished by his blood. The Baptist confession of 1689 agrees that everyone saved in any age is saved by the covenant of grace, but leaves out Westminster’s paragraphs on one covenant under two administrations: it says the covenant of grace was revealed by promise, step by step, and fully made known in the New Testament.",
       "citations": [
         {
           "kind": "scripture",
@@ -34,6 +34,11 @@
           "kind": "source",
           "source": "lbcf",
           "locator": "7.1–3; 8.6"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article IV"
         }
       ]
     },
@@ -134,6 +139,44 @@
         "title": "Distinguish the biblical words and the theological summary"
       },
       {
+        "id": "frameworks",
+        "text": "1689 covenant theology, held by many Calvinist Baptists since Nehemiah Coxe and the Second London Confession, sees one covenant of grace promised from Genesis 3 onward and formally made in the new covenant, so its sign belongs only to those who profess faith. Progressive covenantalism stresses that each covenant moves the story forward until all are fulfilled in Christ, and that the new covenant is new in kind: all its members know the Lord. New covenant theology, close to it, holds that the law of Moses as a whole ended with Christ and that the law of Christ now governs believers. Dispensationalism, in its classic and progressive forms, distinguishes God’s purposes for Israel and for the church and expects a future fulfilment of his promises to Israel. Westminster covenant theology, the Presbyterian form, sees the covenant of grace given to believers and their children in both Testaments, which is why Presbyterians baptize infants; Baptists do not hold that form. Each view claims to follow the Bible’s own storyline, so compare them passage by passage.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 3:15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Jeremiah 31:31-34"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 8:6-13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 11:25-29"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "7.3"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "7.5–6"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article VII"
+          }
+        ],
+        "title": "Four ways Baptists read the covenants"
+      },
+      {
         "id": "law",
         "text": "The law exposes sin and guides the redeemed life. It does not give fallen sinners a separate route to justification by personal achievement. Westminster and the Baptist confession of 1689 distinguish moral, ceremonial and judicial law; those distinctions require attention to the passage and its fulfillment, not simply attaching the label Old Testament.",
         "citations": [
@@ -186,7 +229,7 @@
     },
     "limit": {
       "id": "limit",
-      "text": "This guide sets out the Westminster account and notes where the Baptist confession of 1689 differs. The difference matters most for baptism: Westminster baptizes the infants of believers as members of the covenant (28.4), while the Baptist confession baptizes only those who profess repentance and faith (29.2), as does the site’s own confession, the Baptist Faith and Message 2000 (article VII). Use the library’s tradition and edition notes when comparing authors, and distinguish an agreed doctrine of grace from a disputed covenant inference.",
+      "text": "This guide describes covenant theology in its Westminster and 1689 forms most fully because their confessions state it most precisely; that does not make either form the site’s position. The difference between them matters most for baptism: Westminster baptizes the infants of believers as members of the covenant (28.4), while the Baptist confession baptizes only those who profess repentance and faith (29.2), as does the site’s own confession, the Baptist Faith and Message 2000 (article VII). Use the library’s tradition and edition notes when comparing authors, and distinguish an agreed doctrine of grace from a disputed covenant inference.",
       "citations": [
         {
           "kind": "source",
@@ -197,6 +240,11 @@
           "kind": "source",
           "source": "lbcf",
           "locator": "7.3; 29.2; 1.10"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article VII"
         }
       ]
     },
@@ -244,7 +292,10 @@
       "biblical theology",
       "Baptist",
       "1689 Baptist Confession",
-      "believer's baptism"
+      "believer's baptism",
+      "dispensationalism",
+      "progressive covenantalism",
+      "new covenant theology"
     ]
   },
   "reviews": [
@@ -274,6 +325,15 @@
       "date": "2026-11-06",
       "contentHash": "d20edaa4be218c7f91189d4eb8019b2c1d7f53325cfbd025442f1ba9df76da6b",
       "basisHash": "5eb01b758b3a30d814a15b67dbaa348c50bf906a52cf041300245dbcb49c5d4e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Retitled 'How do the covenants connect the whole Bible?'; answer opens with what all Baptist frameworks share; 'This guide sets out the Westminster account' removed; new section names the four Baptist frameworks (1689 covenant theology, progressive covenantalism, new covenant theology, dispensationalism) and labels Westminster's form Presbyterian; BF&M IV and VII cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "0e2ed3e5a5bc26f8d94512289bdfd0171beb62ac47ee4d848aaa12ed43409c53",
+      "basisHash": "681c366f94c6362b44ac2f98384335c54e47a17b5c9ba564dc978be2140ec3a5"
     }
   ]
 }

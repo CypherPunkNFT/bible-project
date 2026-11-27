@@ -11,7 +11,7 @@
     "summary": "Christ rose bodily. Our forgiveness and hope depend on it.",
     "answer": {
       "id": "answer",
-      "text": "Yes. Jesus actually rose from the dead, bodily and gloriously. Paul says that without his resurrection faith would be futile and we would remain in our sins. The resurrection is God's saving act in history, not a metaphor for the disciples keeping Jesus' ideals alive.",
+      "text": "Yes. Jesus actually rose from the dead, bodily and gloriously; Southern Baptists confess that he was raised “with a glorified body” (Baptist Faith and Message 2000, article II). Paul says that without his resurrection faith would be futile and we would remain in our sins. The resurrection is God's saving act in history, not a metaphor for the disciples keeping Jesus' ideals alive.",
       "citations": [
         {
           "kind": "scripture",
@@ -25,6 +25,16 @@
           "kind": "source",
           "source": "wcf",
           "locator": "8.4"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "8.4"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
         }
       ]
     },
@@ -51,7 +61,7 @@
       },
       {
         "id": "reason-3",
-        "text": "Christ's resurrection is the beginning and guarantee of his people's resurrection.",
+        "text": "Christ's resurrection is the beginning and guarantee of the resurrection of all who belong to him.",
         "citations": [
           {
             "kind": "scripture",
@@ -93,7 +103,7 @@
           {
             "kind": "source",
             "source": "sproul-miracles",
-            "locator": "The supernatural character of Christianity"
+            "locator": "whole page"
           },
           {
             "kind": "source",
@@ -187,6 +197,15 @@
       "date": "2026-11-06",
       "contentHash": "ebb46e74afb45d41376816c6db78ad6aa7543e0e27ff9b69cea9978f48b2f8fb",
       "basisHash": "4432d4b9a2fc4f81b4f4259dd6ea8c565da11de0953fba183c32536ce31c96a6"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "BF&M II's 'glorified body' added and cited; 'his people's resurrection' reworded as 'all who belong to him'. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "db15715f880c38fd67658b305f8c75efc47582a3448582d2267d2aa8606d42f5",
+      "basisHash": "e6c64f359b2242db425d89f603fef41b5b8eb06680b45fe82c4f2e61c5d92295"
     }
   ]
 }

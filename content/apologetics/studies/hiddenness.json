@@ -24,7 +24,7 @@
         {
           "kind": "source",
           "source": "ferguson-assurance",
-          "locator": "The Father giving his Son"
+          "locator": "whole page"
         }
       ]
     },
@@ -65,6 +65,16 @@
             "kind": "source",
             "source": "wcf",
             "locator": "18.2–4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "18.2–4"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article V"
           }
         ]
       }
@@ -80,14 +90,14 @@
         {
           "kind": "source",
           "source": "ferguson-assurance",
-          "locator": "Romans 8:31–32"
+          "locator": "whole page"
         }
       ]
     },
     "sections": [
       {
         "id": "section-1",
-        "text": "Someone may be asking why God does not provide a requested sign, or why a believer feels abandoned. Scripture addresses both our accountability to God's revelation and the anguish of his people. Ask which concern is being expressed before replying.",
+        "text": "Someone may be asking why God does not provide a requested sign, or why a believer feels abandoned. Scripture addresses both our accountability to God's revelation and the anguish of believers who love him. Ask which concern is being expressed before replying.",
         "citations": [
           {
             "kind": "scripture",
@@ -102,19 +112,38 @@
       },
       {
         "id": "section-2",
-        "text": "Return to Scripture, prayer and the fellowship of the church. These are ordinary ways God sustains faith; they are not a formula guaranteeing an immediate feeling. Assurance can be shaken without God's saving hold on his people being lost.",
+        "text": "Return to Scripture, prayer, the gathered church and the Lord's Supper. In Baptist terms these are means God uses, not rites that give grace by being performed: through them the Spirit strengthens faith in Christ, and the Supper is a symbolic act of obedience that remembers his death (Baptist Faith and Message 2000, article VII). These are ordinary ways God sustains faith; they are not a formula guaranteeing an immediate feeling. Assurance can be shaken without God's saving hold on those who are his being lost.",
         "citations": [
           {
             "kind": "scripture",
             "reference": "Hebrews 10:23-25"
           },
           {
+            "kind": "scripture",
+            "reference": "Acts 2:42"
+          },
+          {
             "kind": "source",
             "source": "wcf",
             "locator": "14.1; 18.4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "14.1; 18.4"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article VII"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article V"
           }
         ],
-        "title": "Use the ordinary means of grace"
+        "title": "Use the ordinary means God gives"
       }
     ],
     "objection": "If God loved me, wouldn't I always sense his presence?",
@@ -129,7 +158,7 @@
         {
           "kind": "source",
           "source": "ferguson-assurance",
-          "locator": "God's love shown in the gift of Christ"
+          "locator": "whole page"
         }
       ]
     },
@@ -198,6 +227,15 @@
       "date": "2026-11-06",
       "contentHash": "cc884dd1becc4d0278161152b0d4f43fe2d45be27771ac4e78163027acf3e672",
       "basisHash": "2da8c429377a648881339a2402e9ba05a26c8ba9f6d339aefbf8def7fee3578d"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "'Ordinary means of grace' defined in Baptist terms (means God uses through faith, not rites that give grace by being performed; BF&M VII on the Supper); 'his people' wording neutralised; BF&M V cited; Ferguson 'whole page'. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "bb6c32d997e61dd7a765505dd357c70851bdcc249f3999d4d0cf92f73af4a23f",
+      "basisHash": "e0a128cd8a5e0c8dd3f841bb0fb1c3d8d76203cbfd383287225dc1a622150653"
     }
   ]
 }

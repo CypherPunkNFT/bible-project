@@ -12,7 +12,7 @@
     "url": "https://bibleguide.io/study/creeds/abstract-of-principles-1858",
     "role": "Baptist confession",
     "note": "The confession of the first Southern Baptist seminary, drawn from the Second London Confession and signed by its professors since 1859. For the historic Baptist teaching on Scripture, God, election, the new birth and the church. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: whole on the site's creeds page, from the Creeds.json transcription (The Unlicense; registered 2026-10-17). Not yet read for any article.",
+    "read": "Held in this project's corpus: whole on the site's creeds page, from the Creeds.json transcription (The Unlicense; registered 2026-10-17). Articles IV (Providence), V (Election) and VIII (Regeneration) read on 2026-11-27 in the site's creeds collection for the suffering, election and grace articles.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "6f852c73b713724737f1896aed6f998b5bd8d3ea012a2ae50f278443f8917544",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Register fields only: 'read' records what was read on 2026-11-27 for the step 2 corrections and 'checked' set to match. Title, author, kind, URL, role and note unchanged.",
+      "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "1ce27ea3a470912c16d6a9195a4eb12c7dd232206ddcc9cc53785a4cf9785d00",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

@@ -2404,3 +2404,21 @@ same.
 | [suetonius-caesars](sources/gutenberg/suetonius-caesars-6400.txt) | Suetonius, *The Lives of the Twelve Caesars*, tr. Alexander Thomson rev. T. Forester, Project Gutenberg #6400 | Public domain in the US (Project Gutenberg edition) | ce62a16afa01bbf5 |
 | [dostoevsky-karamazov](sources/gutenberg/dostoevsky-karamazov-garnett-28054.txt) | Fyodor Dostoevsky, *The Brothers Karamazov*, tr. Constance Garnett, Project Gutenberg #28054 | Public domain in the US (Project Gutenberg edition) | 2e75c187cb750df3 |
 | [james-varieties](sources/gutenberg/james-varieties-621.txt) | William James, *The Varieties of Religious Experience*, Project Gutenberg #621 | Public domain in the US (Project Gutenberg edition) | bcfadbaeb796fdd8 |
+
+## Apologetics fields: the 21 articles corrected — registered 27 November 2026 (nothing released)
+
+Step 2 of [Plans/APOLOGETICS-FIELDS.md](../Plans/APOLOGETICS-FIELDS.md) (sequence 60). The 21 existing field articles
+now cite the Baptist footing registered above: the Baptist Faith and Message 2000 by article in all 21 (short phrases
+only, each checked at bfm.sbc.net on 27 November 2026), the Abstract of Principles (articles IV, V and VIII), the 2012
+Traditional Statement and the 2013 Calvinism Advisory Committee report (described, short phrases at most), the 1995
+resolution and the 2022 Guidepost report (summarised, naming no one the report does not name), Hume's *Enquiry* X and
+Campbell's *Dissertation* (public domain, from the held copies above). One new source record:
+
+| Record | Work | Role | Rights | Held as |
+|---|---|---|---|---|
+| `nicene-creed-381` | The Nicene Creed (381), traditional English text with the Western "and the Son" clause | Historic Christian witness | Public domain; the transcription is The Unlicense | This site's own creeds collection, `/study/creeds/nicene-creed-381`, from the Creeds.json transcription registered above (2026-10-17) |
+
+It replaces the Church of England's copyrighted text (record `creed`) in the `god` and `jesus` articles. `creed` stays
+for the one article that still cites it (`islam-trinity`). Each cited source's `read` field now says what was read for
+these corrections; the Kruger blog post and the Codex Sinaiticus page refused automated access and are cited as whole
+pages, unread.

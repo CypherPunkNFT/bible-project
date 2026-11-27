@@ -25,6 +25,11 @@
           "kind": "source",
           "source": "calvin-scripture",
           "locator": "I.7.1–5"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
         }
       ]
     },
@@ -54,7 +59,7 @@
           {
             "kind": "source",
             "source": "sproul-inerrancy",
-            "locator": "Inspiration and God's truthfulness"
+            "locator": "whole page"
           }
         ]
       },
@@ -86,6 +91,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "1.9–10"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.9–10"
         }
       ]
     },
@@ -101,13 +111,18 @@
           },
           {
             "kind": "source",
-            "source": "sinaiticus",
-            "locator": "The manuscript and its corrections"
+            "source": "lbcf",
+            "locator": "1.8"
           },
           {
             "kind": "source",
             "source": "sproul-inerrancy",
-            "locator": "Divine inspiration and human fallibility"
+            "locator": "whole page"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article I"
           }
         ],
         "title": "Name the question"
@@ -123,6 +138,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "1.7–9"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "1.7–9"
           }
         ],
@@ -158,7 +178,7 @@
         {
           "kind": "source",
           "source": "sproul-inerrancy",
-          "locator": "God's speech and human fallibility"
+          "locator": "whole page"
         },
         {
           "kind": "scripture",
@@ -220,6 +240,15 @@
       "date": "2026-11-06",
       "contentHash": "3b23bd304c27be552092fd0e4cf6cdb4f4881f8ab92a573f410a7ea2cd0db461",
       "basisHash": "6c791f8f468cc46965dbe25cdb265e6ea39b38a0f41404d7dd998698666d0591"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Section 1 no longer cites the Sinaiticus project for a claim about inspiration (now Westminster/1689 1.8 and BF&M I); BF&M I cited in the answer. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "ad601858e762d55e9dc9c96e9fe4ea3c5f0445a0cd96b629286604eb7c2634dc",
+      "basisHash": "3ccf079a6d1e67336bb09a0798a1884dd6718fa47c3c43e2591b0f30b3ce2932"
     }
   ]
 }

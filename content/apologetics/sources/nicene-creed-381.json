@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "nicene-creed-381",
+  "order": 115,
+  "publication": "published",
+  "content": {
+    "title": "The Nicene Creed (381)",
+    "author": "Council of Constantinople, 381 · traditional English text, as held in this site's creeds collection",
+    "kind": "Confession",
+    "url": "https://bibleguide.io/study/creeds/nicene-creed-381",
+    "role": "Historic Christian witness",
+    "note": "The creed of Nicaea (325) as enlarged at Constantinople (381), in the traditional English text with the Western clause on the Spirit proceeding “from the Father and the Son”. It identifies the doctrine being defended; it is not independent historical evidence for every claim. Public domain: may be quoted, with an exact locator (paragraphs 1–5 of the site's text).",
+    "read": "Read whole on 2026-11-27 in this site's creeds collection (from the Creeds.json transcription, The Unlicense; registered 2026-10-17): five paragraphs, on the Father (1), the Son (2–3), the Holy Spirit (4) and the church and the life to come (5). Cited for the Trinity and for the confession concerning Jesus Christ.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record replacing the Church of England's copyrighted creed text in the god and jesus studies. Text read whole in the site's creeds collection (nicene-creed-381, from the Creeds.json transcription, The Unlicense, registered 2026-10-17); the note states the Western 'and the Son' clause; locators are the text's five paragraphs.",
+      "note": "AI-assisted register review of the record; no claim beyond the creed's own wording is drawn from it. Not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "eddee81477e5dc8e61b9ccf3cb362050c59281fc3105d1bc1c25ba6988bcb724",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

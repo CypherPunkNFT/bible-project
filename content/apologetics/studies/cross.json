@@ -11,7 +11,7 @@
     "summary": "Christ willingly bore the judgment our sins deserve.",
     "answer": {
       "id": "answer",
-      "text": "God is holy and just, and our sin deserves judgment. In love, the Father sent the Son, who willingly offered himself as our substitute. Christ bore the penalty of sin and satisfied divine justice, reconciling his people to God. This is penal substitution, central to the Reformed account of the cross.",
+      "text": "God is holy and just, and our sin deserves judgment. In love, the Father sent the Son, who willingly offered himself as our substitute. Christ bore the penalty of sin and satisfied divine justice, so that sinners who believe are reconciled to God. Southern Baptists, Calvinist and non-Calvinist alike, confess this “substitutionary death” (Baptist Faith and Message 2000, article II); it is often called penal substitution.",
       "citations": [
         {
           "kind": "scripture",
@@ -23,8 +23,13 @@
         },
         {
           "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
           "source": "penal-substitution",
-          "locator": "Christ bearing the penalty of sin"
+          "locator": "whole page"
         }
       ]
     },
@@ -76,6 +81,16 @@
           "kind": "source",
           "source": "wcf",
           "locator": "8.5"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "8.5"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article IV"
         }
       ]
     },
@@ -99,7 +114,7 @@
           {
             "kind": "source",
             "source": "penal-substitution",
-            "locator": "Biblical descriptions of the atonement"
+            "locator": "whole page"
           }
         ],
         "title": "One saving work, several biblical descriptions"
@@ -118,6 +133,49 @@
           }
         ],
         "title": "The Son gives himself"
+      },
+      {
+        "id": "for-whom",
+        "text": "Baptists agree that Christ's death is sufficient for the sins of the whole world and that the gospel is to be offered freely to everyone: the Baptist Faith and Message says salvation is “offered freely to all who accept Jesus Christ as Lord and Saviour” (article IV). They differ on the intent of the atonement, and the site's confession leaves that question open. Calvinist Baptists, with the 1689 confession, hold that Christ died to secure the salvation of those the Father gave him, the sheep for whom the good shepherd lays down his life. Non-Calvinist Baptists, with the 2012 Traditional Statement, hold that he died for the sins of every person, so that anyone may be saved by believing, and point to the atoning sacrifice “for the sins of the whole world”. The 2013 report of the Calvinism Advisory Committee names this as a difference both sides hold within one fellowship.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 10:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 5:25"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 John 2:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 2:3-6"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "8.5; 8.8"
+          },
+          {
+            "kind": "source",
+            "source": "traditional-statement-2012",
+            "locator": "Article 3"
+          },
+          {
+            "kind": "source",
+            "source": "truth-trust-testimony-2013",
+            "locator": "Tensions"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article IV"
+          }
+        ],
+        "title": "For whom did Christ die?"
       }
     ],
     "objection": "Why can't God simply ignore the offence?",
@@ -136,7 +194,7 @@
         {
           "kind": "source",
           "source": "calvin-justification",
-          "locator": "Institutes III.11: forgiveness and imputed righteousness"
+          "locator": "Institutes III.11"
         }
       ]
     },
@@ -151,6 +209,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "8.2–5"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "8.2–5"
         }
       ]
@@ -210,6 +273,15 @@
       "date": "2026-11-06",
       "contentHash": "86e59af7ac24d62d6ff3c739238b5325153a50f7e2a194f8a800bd59a5f45a4a",
       "basisHash": "7ec2949102da3d7547eb70dca0dabfc970ec32244bb0109fc1d9d483a954fe47"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "'central to the Reformed account' replaced by BF&M II's 'substitutionary death', held by Calvinist and non-Calvinist Baptists; 'reconciling his people' replaced by 'sinners who believe'; new section 'For whom did Christ die?' shows both Baptist views (1689 8.5, 8.8; Traditional Statement article 3; 2013 report 'Tensions') and leaves the question open; BF&M II and IV cited. Every Westminster citation now has its 1689 paragraph beside it (numbering checked paragraph by paragraph in the site's creeds collection); paraphrased source locators replaced by the source's own section names or 'whole page'; every Scripture reference added was read in the Berean Standard Bible; every Baptist Faith and Message phrase checked against bfm.sbc.net on 2026-11-27. No text was shortened.",
+      "note": "Plan APOLOGETICS-FIELDS step 2 (correct the 21 articles within today's template). AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-27",
+      "contentHash": "344ad3fe3f630d1cb7e60e3349c667eee394e44c01ba1d1b20a1bb9afe77c505",
+      "basisHash": "79e18f74e19c3062c774c3fe24b8502b0ca2a885f2a9e8b0c265ecb2d4ed0111"
     }
   ]
 }
