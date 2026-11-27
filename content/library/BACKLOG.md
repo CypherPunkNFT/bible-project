@@ -112,7 +112,7 @@ Sermons receive the largest share of effort. Establish a complete, well-document
 
 Each mission should report: expected inventory with its source/date; discovered unique works; editions; acquired original assets; metadata-only records; complete and partial series; verified Scripture coverage; unknown rights; unresolved eligibility; text-quality issues; and exact resumption point. Keep discovered, acquired, reviewed and published totals distinct.
 
-## Collection assignment: 5,024 placed, 2,271 left — 26 November 2026
+## Collection assignment: 7,139 placed, 156 left — 26 November 2026
 
 Every acquired record used to arrive with a collection or none at all: `bible_bibliography.py` read
 one from the acquisition report's folder name, plus a rule reading anything whose kind said sermon or
@@ -131,22 +131,16 @@ on the next corpus rebuild; nothing in this repository changed.
 - [x] Monergism: 1,481 of 1,551, decided from the work — commentaries as Scripture, sermon collections
       as sermons, confessions as standards, lives and letters as history, pastoral office as ministry,
       Rome and other beliefs as apologetics, doctrine as theology, practical writing as Christian life.
-- [ ] **Decision needed — the 2,201 Desiring God articles.** Either one source rule placing
-      `desiringgod.org/articles` in a single collection (Christian life would match the Ask Pastor
-      John call), or leave them until the acquisition step captures Desiring God's own topic tags.
-      Classifying them by title was tested and refused: it covered 20% and filed "A New Sermon Series
-      for the Fall" as a sermon, "Brothers, Read Christian Biography" as history and "The Devil Can Do
-      Exposition" as Scripture. Rules written for 17th-century book titles read a modern article title
-      as its subject rather than its form.
-- [x] The 627 short, abstract Puritan titles ("Faith", "Heaven Upon Earth", "The Heavenly Trade") that
-      neither source nor title settles: read one at a time, 557 placed — Christian life 258, theology
-      181, Scripture 49, apologetics 24, ministry 16, sermons 15, history 10, standards 4. Sampling the
-      output corrected three (Crisp's collected sermons, Ryle on forgiveness, Charnock on spiritual
-      worship); placing by author-level default was tried and dropped again.
-- [ ] 70 monergism works deliberately left blank, not pending a rule: mixed collected editions
-      (Whitefield's six volumes, Edwards' Works volume one, Watson's Works, Machen's and Cunningham's
-      selections), political theology with no home among the eight (Lex Rex, Rijssenius, Trigland), and
-      works whose subject could not be identified at all. These need better metadata, not a guess.
+- [x] The 2,201 Desiring God articles: 2,115 placed, 86 left. Read and judged one at a time in
+      eight batches rather than matched by rule — theology 774, Christian life 537, ministry 374,
+      Scripture 176, history 129, apologetics 122. Each batch was checked afterwards: one had
+      defaulted 75% of its titles into Christian life and was redone, and eight rows filed under
+      standards (writing and reading articles, two forewords) were corrected by hand. JarvisWiki
+      `ea3e5072`.
+- [ ] 156 records still unplaced: 70 monergism works (mixed collected editions, political theology,
+      and works that could not be identified) and 86 Desiring God articles whose titles do not say
+      what they are ("Ascent", "Bad Title, Great Book"). Both need better metadata, not another pass
+      at the title.
 - [ ] Identity, separate from collection: 610 Adrian Rogers records carry "Title not recorded" and 42
       archive.org records "Author not recorded" with one title repeated. Fixable only at the corpus end.
 
