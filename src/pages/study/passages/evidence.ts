@@ -3,7 +3,7 @@
 // the marks" and the five steps of the CBGM). Components only arrange it. Strings that carry emphasis use a small set of
 // inline tags (<em>, <br>, <cite>, <strong>, <b>, <a>), drawn as React elements by Rich.tsx, never as raw HTML.
 
-export interface Source { label: string; url: string }
+export interface Source { label: string; url: string; author?: string } // author: the Scholars credit, where the label does not name one
 
 export const sources = {
   houghton: { label: "Houghton · Unfinished Business (2023), §§3–4", url: "https://doi.org/10.1017/S0028688522000224" },
@@ -11,7 +11,7 @@ export const sources = {
   kelhoffer: { label: "Kelhoffer · ancient debate over Mark (2001)", url: "https://www.diva-portal.org/smash/get/diva2:385568/fulltext02" },
   mink: { label: "Gerd Mink · texts, mixture and genealogy", url: "https://www.uni-muenster.de/INTF/Genealogical_method.html" },
   history: { label: "Münster INTF · history of the editions", url: "https://www.uni-muenster.de/INTF/institut/geschichte/index.html" },
-  split: { label: "ECM Mark · unresolved readings (PDF)", url: "https://www.uni-muenster.de/imperia/md/content/INTF/passages_with_a_split_guiding_line.pdf" },
+  split: { label: "ECM Mark · unresolved readings (PDF)", author: "Institute for New Testament Textual Research", url: "https://www.uni-muenster.de/imperia/md/content/INTF/passages_with_a_split_guiding_line.pdf" },
   ecm: { label: "Münster INTF · Editio Critica Maior", url: "https://www.uni-muenster.de/INTF/forschung/ecm/index.html" },
   spelling: { label: "Michigan · line 5", url: "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/line05.html" },
   order: { label: "Michigan · variant readings", url: "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/variants.html" },

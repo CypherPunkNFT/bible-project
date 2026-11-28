@@ -29,6 +29,9 @@ const providerNames={
  'isac.uchicago.edu':'Institute for the Study of Ancient Cultures','metmuseum.org':'Metropolitan Museum of Art','louvre.fr':'Musée du Louvre','getty.edu':'Getty Museum','gutenberg.org':'Project Gutenberg','ccel.org':'Christian Classics Ethereal Library','sblgnt.com':'Society of Biblical Literature',
  'thegospelcoalition.org':'The Gospel Coalition','inscriptionsisraelpalestine.org':'Inscriptions of Israel/Palestine','penn.museum':'Penn Museum','custodia.org':'Custodia Terrae Sanctae','gov.il':'Israel Antiquities Authority','magdala.org':'Magdala Archaeological Project',
  'pompeiisites.org':'Archaeological Park of Pompeii','whc.unesco.org':'UNESCO','culture.gouv.fr':'French Ministry of Culture','biblegateway.com':'Bible Gateway','doi.org':'Publisher / DOI record',
+ // Whole-domain publishers the source permissions register (2026-11-27, bucket 1) found credited as bare web addresses.
+ 'usccb.org':'United States Conference of Catholic Bishops','ucl.ac.uk':'University College London','sefaria.org':'Sefaria','thejewishmuseum.org':'The Jewish Museum',
+ 'biblicalarchaeology.org':'Biblical Archaeology Society','oca.org':'Orthodox Church in America','oikoumene.org':'World Council of Churches','lutheranworld.org':'Lutheran World Federation',
 };
 const notCredit=/^(\d|the |a |an |great isaiah|ecm mark|codex |sirach|summa|world english|digital |dead sea|temple |greek |latin |roman |bible |manuscript |new testament|old testament|journal |international |fortress press hebrew|through assyria|cuneiform)/i;
 function credit(s){

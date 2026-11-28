@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "scope": "Source directories imported by live pages, plus verified chart data inputs. Institution labels identify source providers when no named author is recorded. Bibliographic access limits are retained; holdings and incidental name mentions are excluded.",
   "inputs": {
-    "scripts/collect-scholar-site-sources.mjs": "b996c79b6a3e701cad00a01fc76e7ec6af3a5a207f9f92898cd8b84c8de772a1",
+    "scripts/collect-scholar-site-sources.mjs": "0199ad44fa6bec120047274b5547392638118bb064de44b0117779e7e673c43a",
     "src/pages/study/witnesses/SurvivingWitnessesPage.tsx": "a49a920da309b449d660a794910bb7532280a3a1fd1b81e09e8e96ce4dc8f095",
     "src/pages/study/witnesses/witnesses.ts": "394cf7181781c5844207f3637fade7d76195eae5e22eb11c689d20c33f5e4ef3",
     "src/pages/study/passages/PassageManuscriptsPage.tsx": "5e46704bee3b6fe913a3abf6c2caf2eb676bfdf15fb16da08c75f669d55724e1",
-    "src/pages/study/passages/evidence.ts": "3764366900ff3e09fb831ecf0b775e106d3e2fe25fedce0c3e87cd1f34344ed7",
+    "src/pages/study/passages/evidence.ts": "da97722c0fcbd92948ef36672b35cba72c669e7c8a279ef72fb4651bff2aa001",
     "src/pages/study/scrolls/DeadSeaScrollsPage.tsx": "8e0c6fd06693b32f700e46a686602aa81a066cb01d014538b8bf2891b5bff2e1",
-    "content/academic-research/03-dead-sea-scrolls.json": "93b2c5df5d3569082343efaf4599634e34abafa0de44d07b90a8d4c270ebbee5",
+    "content/academic-research/03-dead-sea-scrolls.json": "c49a01d040b6bf0d021c0b5bfe766edf0806aad1aee70735786309c25b171518",
     "src/pages/study/canon/CanonPage.tsx": "9ca418b91e713577478c59fc3ee83a42c591304145859f6629513778f523f0c8",
-    "content/academic-research/04-how-the-canon-took-shape.json": "c52ddc5d61a6ff5064db11270d6098f8a6d98d2a222d8fa667d6f6321956b79f",
+    "content/academic-research/04-how-the-canon-took-shape.json": "767f8ce881b8879c76e10bb0162bea490a3c3fdf9ee6320eb397b2831162a1b8",
     "src/pages/study/print-room/PrintRoomShared.tsx": "cd7850e3635bb22146fe25a7f8748673bd5356abdf6455571449ee8f737f148e",
-    "content/academic-research/05-from-manuscript-to-printed-bible.json": "91e89a7e174e432f4f52f54739e4a45585b4d3a95fec63f641a6fdcfa965e8b0",
+    "content/academic-research/05-from-manuscript-to-printed-bible.json": "a5f0f85a62b77a2864dad8a12d80dc5e64e683ab8c23d29b7cf6f48fca058465",
     "src/pages/study/discoveries/Evidence.tsx": "1f084f0ae8b7b331296cc1cf81fbe42623f1366f7498b280a88ec6651d016184",
-    "content/academic-research/06-discoveries-biblical-record.json": "cc22512404f8cd6bfdbe0ef6f1e93a6973313c1ed6002b8811a71c289486214a",
+    "content/academic-research/06-discoveries-biblical-record.json": "16cbcb37a9fad8c350f07a846481fb1392a2e267f4ba01ea671b65bdda7d3300",
     "src/pages/study/empires/IsraelEmpiresPage.tsx": "368f4f3eaa62ae2e04ccc8fcb1c2a8f010431297e5d1caed6bce6808acea8ecf",
     "src/pages/study/empires/evidence.ts": "b6302d60514f6ccbb48becf318620a2b3d4b6d099e62bbbed20ec861b6104466",
     "src/pages/study/history/HistoryShared.tsx": "59e7c5e46c719c3c8bb32754438003f1895d213c3f2145753aaa49912450cfca",
@@ -279,7 +279,7 @@
           "kind": "citation"
         },
         {
-          "author": "uni-muenster.de",
+          "author": "Institute for New Testament Textual Research",
           "title": "ECM Mark · unresolved readings (PDF)",
           "year": "",
           "url": "https://www.uni-muenster.de/imperia/md/content/INTF/passages_with_a_split_guiding_line.pdf",
@@ -836,7 +836,7 @@
           "kind": "bibliography"
         },
         {
-          "author": "commons.wikimedia.org",
+          "author": "Ardon Bar Hama (photograph), Israel Museum",
           "title": "Great Isaiah Scroll · image and rights record",
           "year": "",
           "url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll.jpg",
@@ -876,7 +876,7 @@
           "kind": "citation"
         },
         {
-          "author": "bible.usccb.org",
+          "author": "United States Conference of Catholic Bishops",
           "title": "Jude 14–15 and textual note",
           "year": "",
           "url": "https://bible.usccb.org/bible/jude/1",
@@ -887,7 +887,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Justin Martyr",
           "title": "Justin, First Apology 66–67",
           "year": "",
           "url": "https://www.newadvent.org/fathers/0126.htm",
@@ -909,7 +909,7 @@
           "kind": "citation"
         },
         {
-          "author": "bible-researcher.com",
+          "author": "Bruce M. Metzger (translation)",
           "title": "Muratorian fragment, lines 1–85",
           "year": "",
           "url": "https://bible-researcher.com/muratorian.html",
@@ -942,7 +942,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Eusebius of Caesarea",
           "title": "Eusebius, Church History 3.3; 3.25",
           "year": "",
           "url": "https://www.newadvent.org/fathers/250103.htm",
@@ -975,7 +975,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Athanasius of Alexandria",
           "title": "Athanasius, Festal Letter 39.4–7 (367)",
           "year": "",
           "url": "https://www.newadvent.org/fathers/2806039.htm",
@@ -986,7 +986,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Augustine of Hippo",
           "title": "Augustine, On Christian Doctrine 2.8.12–13",
           "year": "",
           "url": "https://www.newadvent.org/fathers/12022.htm",
@@ -997,7 +997,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Council of Carthage (419)",
           "title": "African Code, canon 24 (Carthage, 419)",
           "year": "",
           "url": "https://www.newadvent.org/fathers/3816.htm",
@@ -1008,7 +1008,7 @@
           "kind": "citation"
         },
         {
-          "author": "sefaria.org",
+          "author": "Sefaria",
           "title": "Babylonian Talmud, Bava Batra 14b",
           "year": "",
           "url": "https://www.sefaria.org/Bava_Batra.14b.1?lang2=en&with=Commentary+ConnectionsList",
@@ -1129,7 +1129,7 @@
           "kind": "citation"
         },
         {
-          "author": "tertullian.org",
+          "author": "Jerome",
           "title": "Jerome, Prologue to the books of Solomon",
           "year": "",
           "url": "https://tertullian.org/fathers/jerome_preface_solomon.htm",
@@ -1217,7 +1217,7 @@
           "kind": "citation"
         },
         {
-          "author": "newadvent.org",
+          "author": "Irenaeus of Lyons",
           "title": "Irenaeus, Against Heresies 3.11.7–9",
           "year": "",
           "url": "https://www.newadvent.org/fathers/0103311.htm",
@@ -1345,7 +1345,7 @@
           "kind": "citation"
         },
         {
-          "author": "neelsmith.quarto.pub",
+          "author": "Neel Smith",
           "title": "Digital Complutensian · Chronology",
           "year": "",
           "url": "https://neelsmith.quarto.pub/digitalcomplutensian/complutensian/chronology/index.html",
@@ -1653,7 +1653,7 @@
           "kind": "citation"
         },
         {
-          "author": "mail.bible-researcher.com",
+          "author": "The King James translators (1611)",
           "title": "The Translators to the Reader · 1611 preface, modernized transcription",
           "year": "",
           "url": "https://mail.bible-researcher.com/kjvpref.html",
@@ -1697,7 +1697,7 @@
           "kind": "citation"
         },
         {
-          "author": "eliotcensus.org",
+          "author": "Gabriel Swift",
           "title": "The Wôpanâak Bible · A Census",
           "year": "",
           "url": "https://eliotcensus.org/about/",
@@ -1715,7 +1715,7 @@
       "address": "/study/discoveries-biblical-record",
       "rows": [
         {
-          "author": "ucl.ac.uk",
+          "author": "University College London",
           "title": "Digital Egypt: Israel stela",
           "year": "",
           "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/stela.html",
@@ -1726,7 +1726,7 @@
           "kind": "citation"
         },
         {
-          "author": "ucl.ac.uk",
+          "author": "University College London",
           "title": "Digital Egypt: mortuary temple of Merenptah",
           "year": "",
           "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/index.html",
@@ -1759,7 +1759,7 @@
           "kind": "citation"
         },
         {
-          "author": "ucl.ac.uk",
+          "author": "W. M. Flinders Petrie",
           "title": "W. M. Flinders Petrie, Six Temples at Thebes (1897), with Spiegelberg’s inscription edition, pp. 26–28",
           "year": "",
           "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/stela.html",
@@ -1803,7 +1803,7 @@
           "kind": "citation"
         },
         {
-          "author": "michaellanglois.org",
+          "author": "Michael Langlois",
           "title": "Michael Langlois, The Kings, the City and the House of David on the Mesha Stele in Light of New Imaging Techniques, Semitica 61 (2019), 23–47",
           "year": "",
           "url": "https://michaellanglois.org/medias/langlois-2019-the-kings-the-city-and-the-house-of-david-on-the-mesha-stele-semitica-61-p--23-47.pdf",
@@ -1825,7 +1825,7 @@
           "kind": "citation"
         },
         {
-          "author": "thejewishmuseum.org",
+          "author": "The Jewish Museum",
           "title": "The Jewish Museum: Tel Dan Stele, exhibition 2024–2025",
           "year": "",
           "url": "https://thejewishmuseum.org/exhibitions/tel-dan-stele/",
@@ -1847,7 +1847,7 @@
           "kind": "citation"
         },
         {
-          "author": "berlinarchaeology.wordpress.com",
+          "author": "Avraham Biran and Joseph Naveh",
           "title": "Avraham Biran and Joseph Naveh, An Aramaic Stele Fragment from Tel Dan, Israel Exploration Journal 43 (1993), 81–98",
           "year": "",
           "url": "https://berlinarchaeology.wordpress.com/wp-content/uploads/2013/08/biran-naveh-1993.pdf",
@@ -1880,7 +1880,7 @@
           "kind": "citation"
         },
         {
-          "author": "cris.huji.ac.il",
+          "author": "Yosef Garfinkel, Jon W. Carroll, Michael Pytlik and Madeleine Mumcuoglu",
           "title": "Yosef Garfinkel, Jon W. Carroll, Michael Pytlik and Madeleine Mumcuoglu, Constructing the Assyrian Siege Ramp at Lachish: Texts, Iconography, Archaeology and Photogrammetry, Oxford Journal of Archaeology 40 (2021), 417–439",
           "year": "",
           "url": "https://cris.huji.ac.il/en/publications/constructing-the-assyrian-siege-ramp-at-lachish-texts-iconography/",
@@ -1924,7 +1924,7 @@
           "kind": "citation"
         },
         {
-          "author": "researchcommons.waikato.ac.nz",
+          "author": "Joan E. Taylor",
           "title": "Joan E. Taylor, Pontius Pilate and the Imperial Cult in Roman Judaea, New Testament Studies 52 (2006), 555–582; inscription section pp. 564–565",
           "year": "",
           "url": "https://researchcommons.waikato.ac.nz/server/api/core/bitstreams/194607b9-dabd-4053-962a-afe8b010466f/content#page=10",
@@ -1935,7 +1935,7 @@
           "kind": "citation"
         },
         {
-          "author": "faculty.uml.edu",
+          "author": "Eric H. Cline",
           "title": "Eric H. Cline, Sea Peoples and Israelites (2009)",
           "year": "",
           "url": "https://faculty.uml.edu/ethan_Spanier/Teaching/documents/Cline_2009_Sea_Peoples_and_Israelites_article.pdf",
@@ -1946,7 +1946,7 @@
           "kind": "citation"
         },
         {
-          "author": "oracc.museum.upenn.edu",
+          "author": "A. Kirk Grayson and Jamie Novotny",
           "title": "A. Kirk Grayson & Jamie Novotny, RINAP 3/1 (2012), Sennacherib 22, Q003496",
           "year": "",
           "url": "https://oracc.museum.upenn.edu/rinap/rinap3/Q003496",
@@ -1968,7 +1968,7 @@
           "kind": "citation"
         },
         {
-          "author": "whitelevy.fas.harvard.edu",
+          "author": "David Ussishkin (ed.)",
           "title": "David Ussishkin (ed.), The Renewed Archaeological Excavations at Lachish (1973–1994), five volumes (2004)",
           "year": "",
           "url": "https://whitelevy.fas.harvard.edu/publications/renewed-archaeological-excavations-lachish-1973-1994-volumes-i-v",
@@ -1990,7 +1990,7 @@
           "kind": "citation"
         },
         {
-          "author": "library.biblicalarchaeology.org",
+          "author": "Biblical Archaeology Society",
           "title": "Lachish and Its Siege Ramps, accompanying David Ussishkin’s report of the 1983 season, BAR 10 (1984)",
           "year": "",
           "url": "https://library.biblicalarchaeology.org/sidebar/lachish-and-its-siege-ramps/",
@@ -2001,7 +2001,7 @@
           "kind": "citation"
         },
         {
-          "author": "biblicalarchaeology.org",
+          "author": "André Lemaire and Jean-Philippe Delorme",
           "title": "André Lemaire & Jean-Philippe Delorme, Defending the “House of David” (26 May 2023)",
           "year": "",
           "url": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/inscriptions/defending-the-house-of-david/",
@@ -2012,7 +2012,7 @@
           "kind": "citation"
         },
         {
-          "author": "library.biblicalarchaeology.org",
+          "author": "Biblical Archaeology Society",
           "title": "Deconstructing “David’s House”, sidebar to Matthieu Richelle & Andrew Burlingame, Set in Stone? Another Look at the Mesha Stele, BAR 49/1 (2023), p. 57",
           "year": "",
           "url": "https://library.biblicalarchaeology.org/sidebar/deconstructing-davids-house/",
@@ -2045,7 +2045,7 @@
           "kind": "citation"
         },
         {
-          "author": "isac-assets.s3.amazonaws.com",
+          "author": "R. J. van der Spek",
           "title": "R. J. van der Spek, Cyrus the Great, Exiles, and Foreign Gods, in Extraction & Control, SAOC 68 (2014), 233–264",
           "year": "",
           "url": "https://isac-assets.s3.amazonaws.com/isac-publications/saoc68.pdf#page=248",
@@ -2056,7 +2056,7 @@
           "kind": "citation"
         },
         {
-          "author": "journals.sagepub.com",
+          "author": "Amélie Kuhrt",
           "title": "Amélie Kuhrt, The Cyrus Cylinder and Achaemenid Imperial Policy, JSOT 25 (1983), 83–97",
           "year": "",
           "url": "https://journals.sagepub.com/doi/10.1177/030908928300802507",
@@ -3092,7 +3092,7 @@
           "kind": "citation"
         },
         {
-          "author": "oca.org",
+          "author": "Orthodox Church in America",
           "title": "An Orthodox account of church history",
           "year": "",
           "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/church-history",
@@ -3136,7 +3136,7 @@
           "kind": "citation"
         },
         {
-          "author": "lutheranworld.org",
+          "author": "Lutheran World Federation",
           "title": "Lutheran–Catholic commemoration of the Reformation",
           "year": "",
           "url": "https://lutheranworld.org/resources/document-together-hope-joint-catholic-lutheran-commemoration-500-years-reformation",
@@ -3202,7 +3202,7 @@
           "kind": "citation"
         },
         {
-          "author": "oikoumene.org",
+          "author": "World Council of Churches",
           "title": "The Nature and Mission of the Church · Ecumenical study",
           "year": "",
           "url": "https://oikoumene.org/resources/documents/the-nature-and-mission-of-the-church-a-stage-on-the-way-to-a-common-statement",

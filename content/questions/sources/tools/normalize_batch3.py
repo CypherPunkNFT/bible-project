@@ -59,24 +59,27 @@ LICENCE = {
         ),
     },
     "gutenberg-sunday-school-question-books": {
+        # Settled 2026-11-28 (source permissions register, bucket 1): the record used to say "supplied by Project
+        # Gutenberg" beside "asks NOT to be credited". Gutenberg's own licence, section 1.C, allows a US public-domain
+        # text to be reused without that licence "as long as all references to Project Gutenberg are removed", so
+        # credit the book and never name Gutenberg; where the text came from stays in source_kind and the note.
         "licence": (
-            "Public domain in the United States (all eight works published before 1929); "
-            "transcriptions supplied by Project Gutenberg, whose boilerplate is stripped"
+            "Public domain in the United States (all eight works published before 1929)"
         ),
         "licence_class": "public-domain",
         "publishable": True,
         "attribution_required": False,
         "publishable_reason": (
-            "Published before 1929 in the United States, so public domain. Publishable; no obligation attached. Credit the book rather than Project Gutenberg, whose trademark terms apply only to its own boilerplate, which the extraction strips."
+            "Published before 1929 in the United States, so public domain. Publishable; no obligation attached. Credit the book, not Project Gutenberg: its licence (section 1.C) allows reuse without the licence only with all references to Project Gutenberg removed, which the extraction does by stripping its boilerplate."
         ),
         "attribution": (
-            "Public-domain transcriptions of eight pre-1929 question books, supplied by Project Gutenberg. No credit is required, and Project Gutenberg asks NOT to be credited once its boilerplate is stripped: credit the book itself."
+            "Public-domain question books published before 1929. No credit is required; credit the book itself (author, title and year), and do not name Project Gutenberg."
         ),
         "source_url": "https://www.gutenberg.org/",
         "question_origin": "human-written",
         "note": (
-            "Project Gutenberg asks that its trademark not be used once its boilerplate "
-            "is removed, which is exactly what the extraction does, so credit the book "
+            "Project Gutenberg's licence (section 1.C) allows reuse without it only once every "
+            "reference to Project Gutenberg is removed, which is exactly what the extraction does, so credit the book "
             "rather than Project Gutenberg - the same conclusion job 412 reached for the "
             "Baltimore Catechism. These are human transcriptions, not machine-read scans, "
             "so the text is clean and needs no proofreading pass. Readers outside the "

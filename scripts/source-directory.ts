@@ -10,7 +10,35 @@ type RecordData = Record<string, any>;
 const read = (file: string): RecordData => JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
 const records = (directory: string) => fs.readdirSync(directory).filter(f => f.endsWith(".json")).sort().map(f => read(path.join(directory, f)));
 const publicUrl = (url: unknown): url is string => typeof url === "string" && /^https?:\/\//.test(url);
-type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string }[] };
+type Link = { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string };
+type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: Link[] };
+
+// The acquisition registers record where each file was fetched from. Internet Archive storage servers
+// (ia801602.us.archive.org, dn760007.eu.archive.org …) rotate, so those addresses break; Project Gutenberg asks for links to
+// a book's landing page, not to a file in it or on a mirror. Source permissions register of 2026-11-27, bucket 1.
+const ARCHIVE_STORAGE = /^https?:\/\/(?:ia|dn)\d+\.[a-z]+\.archive\.org\/(?:\d+\/)?items\/([^/?#]+)/;
+const GUTENBERG_FILE = /^https?:\/\/(?:www\.gutenberg\.org\/cache\/epub\/(\d+)\/|mirrors\.xmission\.com\/gutenberg\/(?:\d\/)+(\d+)\/)/;
+export function stableLink(url: string): string {
+  const archive = url.match(ARCHIVE_STORAGE);
+  if (archive) return `https://archive.org/details/${archive[1]}`;
+  const gutenberg = url.match(GUTENBERG_FILE);
+  return gutenberg ? `https://www.gutenberg.org/ebooks/${gutenberg[1] ?? gutenberg[2]}` : url;
+}
+
+/** Repoint unstable links, then fold links that now share an address into one, keeping what each said about the file. */
+export function stableLinks(links: Link[]): Link[] {
+  const byUrl = new Map<string, Link>();
+  for (const link of links) {
+    const url = stableLink(link.url), host = (address: string) => new URL(address).hostname.replace(/^www\./, "");
+    const named = url === link.url || link.name !== host(link.url) ? link : { ...link, name: host(url) };
+    const kept = byUrl.get(url);
+    if (!kept) { byUrl.set(url, { ...named, url }); continue; }
+    const formats = [...new Set([kept.format, named.format].filter(Boolean))];
+    byUrl.set(url, { ...kept, held: kept.held || named.held, format: formats.length ? formats.join(", ") : kept.format,
+      edition: kept.edition || named.edition, acquired: kept.acquired || named.acquired });
+  }
+  return [...byUrl.values()];
+}
 
 /** Bibliographic metadata only: never export bodies, local paths, permission correspondence or private notes. */
 export function buildSourceDirectory(root: string) {
@@ -85,7 +113,7 @@ export function buildSourceDirectory(root: string) {
     categories: e.categories.map((c: string) => c === "unassigned" ? "research" : c),
     kind: e.kind, held: e.held, status: e.held ? "Acquired file verified" : "Catalogue only",
     role: roles.get(e.id) ?? "Collection record; inclusion is not an editorial endorsement",
-    links: e.sources.map((s: RecordData) => ({ url: s.url, sourceId: "", name: s.name, held: s.held, format: s.format, edition: s.edition, acquired: s.acquired })),
+    links: stableLinks(e.sources.map((s: RecordData) => ({ url: s.url, sourceId: "", name: s.name, held: s.held, format: s.format, edition: s.edition, acquired: s.acquired }))),
   })), ...studyEntries);
   // Works cited by the site's own pages: marked on the library record when the library already lists the same link,
   // otherwise listed as their own "Cited on our pages" record (content/feature-citations.json names the data files).
