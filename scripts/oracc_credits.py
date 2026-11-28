@@ -41,6 +41,9 @@ UNPACKED = SITE / ".local/teacher-library-unpacked"
 
 EXPORT_HEADER = "This data is released under the CC0 license"
 HEADER_LINE = "LICENSE: " + EXPORT_HEADER
+# Hosted texts with no catalogue entry in any held zip on 2026-11-27 (riao/ria4 Q000000, riao/ria5 Q004703,
+# saao/saa03 Q009249, saao/saa08 X000005, saao/saa18 X238658). More means a zip has gone missing.
+EXPECTED_UNHELD = 5
 LICENCE = "CC BY-SA 3.0"
 LICENCE_URL = "https://creativecommons.org/licenses/by-sa/3.0/"
 HOSTS = {"oracc.museum.upenn.edu", "oracc.org", "www.oracc.org"}
@@ -80,14 +83,19 @@ class OraccCredits:
         self.disagreements: list[str] = []
         self.unreadable: list[str] = []
         self.counts: Counter = Counter()
+        self.by_id: dict[str, list[tuple[str, str]]] = {}
         for folder in folders:
-            for path in sorted(folder.rglob("*.zip")) if folder.is_dir() else []:
+            # The zips sit directly in the folder or one level down (KnowledgeBase/.../02 Assyrian Archives/*.zip);
+            # walking the whole tree would read ~190,000 files on every library build.
+            for path in sorted({*folder.glob("*.zip"), *folder.glob("*/*.zip")}) if folder.is_dir() else []:
                 self._read_zip(path)
+        for project, text_id in self.credits:
+            self.by_id.setdefault(text_id, []).append((project, text_id))
 
     def _read_zip(self, path: Path) -> None:
         try:
             archive = zipfile.ZipFile(path)
-        except zipfile.BadZipFile:
+        except (zipfile.BadZipFile, OSError):
             self.unreadable.append(str(path))
             return
         with archive:
@@ -97,8 +105,12 @@ class OraccCredits:
                     continue
                 try:
                     data = json.loads(archive.read(name).decode("utf-8-sig"))
-                except (ValueError, UnicodeDecodeError):
+                except (ValueError, UnicodeDecodeError, zipfile.BadZipFile, OSError, EOFError):
                     self.unreadable.append(f"{path.name}:{name}")
+                    continue
+                if not isinstance(data, dict):
+                    if base == "catalogue.json":
+                        self.unreadable.append(f"{path.name}:{name}")
                     continue
                 folder = name.rsplit("/", 1)[0] if "/" in name else ""
                 exported = archive.getinfo(name).date_time
@@ -129,8 +141,28 @@ class OraccCredits:
         if found:
             return found
         # "rinap Q006333" names only the umbrella project: take it when every sub-project's entry agrees.
-        candidates = {c for (p, i), c in self.credits.items() if i == text_id and (p == project or p.startswith(project + "/"))}
+        candidates = {self.credits[(p, i)] for p, i in self.by_id.get(text_id, [])
+                      if p == project or p.startswith(project + "/")}
         return candidates.pop() if len(candidates) == 1 else None
+
+    def check(self, rows: list[tuple[str, str | None]]) -> None:
+        """Credit every Oracc text about to be built, before anything is written, and stop if the held zips are
+        missing or damaged: without them each text would lose its editors' names and nobody would notice. `rows` are
+        (title, source url) pairs; the counts are printed and then reset for the build itself."""
+        if not self.credits:
+            raise SystemExit(f"No Oracc catalogue entries read from {', '.join(map(str, ZIP_FOLDERS))}: the held Oracc "
+                             "zips are missing, so the texts would lose their editors' credits. Restore them first")
+        if self.unreadable:
+            raise SystemExit(f"Oracc zips that could not be read: {self.unreadable[:5]}. Restore or re-download them")
+        # Once per text: the held manifests list most texts more than once.
+        for title, url in {title: url for title, url in rows}.items():
+            self.rights(title, url)
+        unheld = self.counts["Oracc's default licence (no catalogue entry held)"]
+        print("Oracc credits:", dict(self.counts))
+        self.counts.clear()
+        if unheld > EXPECTED_UNHELD:
+            raise SystemExit(f"{unheld} Oracc texts have no catalogue entry in the held zips (expected at most "
+                             f"{EXPECTED_UNHELD}): a zip is probably missing, so their editors would go uncredited")
 
     def rights(self, title: str, url: str | None) -> dict | None:
         """The licence, licence link and credit for one Oracc text, or None for anything else."""
@@ -211,7 +243,11 @@ def refresh(index: OraccCredits) -> Counter:
              if {k: v for k, v in before.get(rid, {}).items() if k != "pageBundles"} != unpacked.get(rid)]
     if stale:
         raise SystemExit(f"The packed library differs from the unpacked one in {len(stale)} records (e.g. {stale[:3]}), so "
-                         "re-packing would lose those changes; nothing was written")
+                         "re-packing would lose those changes; nothing was written. If an earlier refresh stopped before "
+                         "packing, run scripts/pack-teacher-library.py and then this again")
+    # Every credit first, so a text that cannot be credited stops the run before anything is written.
+    index.check([(r["title"], r.get("sourceUrl")) for r in unpacked.values()
+                 if r.get("licence") == EXPORT_HEADER and is_oracc(r.get("sourceUrl"))])
     changed: Counter = Counter()
     for path in shards(UNPACKED / "records"):
         rows = json.loads(path.read_text(encoding="utf-8"))
@@ -228,9 +264,10 @@ def refresh(index: OraccCredits) -> Counter:
         new = after[rid]
         moved = {k for k in old.keys() | new.keys() if old.get(k) != new.get(k)}
         if moved - {"licence", "licenseUrl", "credit", "pageBundles"} or (moved - {"pageBundles"} and old.get("licence") != EXPORT_HEADER):
-            raise SystemExit(f"re-packing changed {rid} beyond the Oracc credit: {sorted(moved)}")
+            raise SystemExit(f"re-packing changed {rid} beyond the Oracc credit: {sorted(moved)}. The packed copy is "
+                             "already replaced (it is generated, not in git): rebuild it from the unpacked library")
         if len(old.get("pageBundles") or []) != len(new.get("pageBundles") or []):
-            raise SystemExit(f"re-packing changed the page count of {rid}")
+            raise SystemExit(f"re-packing changed the page count of {rid}; the packed copy is already replaced")
     return changed
 
 
@@ -243,7 +280,6 @@ def main() -> None:
                       "unreadable": index.unreadable, "disagreements": len(index.disagreements)}, indent=1))
     if args.refresh:
         print(json.dumps(refresh(index), indent=1))
-    print(json.dumps(index.counts, indent=1))
 
 
 if __name__ == "__main__":

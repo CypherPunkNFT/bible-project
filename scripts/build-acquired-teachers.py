@@ -288,6 +288,11 @@ def main():
             if evidence not in entry['sourceLifeDates']: entry['sourceLifeDates'].append(evidence)
         if role not in entry['roles']: entry['roles'].append(role)
         return ident
+    # Every Oracc text's credit is worked out before anything below writes, so missing zips or an unexpected credit
+    # stop the build with the library untouched (oracc_credits.OraccCredits.check).
+    oracc.check([(str(row.get('title') or '').strip(), row.get('url') or row.get('canonicalUrl') or row.get('finalUrl') or row.get('sourcePage'))
+                 for row in rows.values() if (row.get('licence') or row.get('license')) == oracc_credits.EXPORT_HEADER
+                 and oracc_credits.is_oracc(row.get('url') or row.get('canonicalUrl') or row.get('finalUrl') or row.get('sourcePage'))])
     for pathstr, row in sorted(rows.items()):
         p = Path(pathstr)
         sha = row.get('sha256') or row.get('originalSha256')
