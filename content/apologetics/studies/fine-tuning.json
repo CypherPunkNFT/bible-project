@@ -1,0 +1,326 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "fine-tuning",
+  "order": 52,
+  "publication": "published",
+  "content": {
+    "title": "Fine-tuning: design, chance or many universes?",
+    "topic": "god",
+    "summary": "The constants of physics seem set for life. The evidence physicists agree on, and four explanations compared: design, chance, necessity and the multiverse.",
+    "format": "debate-guide",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Physics describes the universe with a set of numbers: the strengths of the four forces, the masses of particles, the amount of energy in empty space, the conditions at the beginning. Over the last half-century physicists have found that many of these numbers fall within narrow ranges that permit life. Change some of them slightly, and there would be no stable atoms, no stars that burn long enough, or no chemistry complex enough for living things. The astrophysicists Geraint Lewis and Luke Barnes, one not a believer and one a Christian, set out the evidence in A Fortunate Universe (2016) without arguing for God. The fact is widely accepted; its explanation is not. Four explanations are compared below. On this question Christians do not differ among themselves the way they do on the age of the earth, and the article says where it judges the evidence to point, while stating each view as its holders state it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Jeremiah 33:25"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 45:18"
+        },
+        {
+          "kind": "source",
+          "source": "barnes-lewis-fortunate",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "common": {
+      "id": "common",
+      "text": "What physicists across the spectrum agree on. Many constants and initial conditions appear to fall within narrow life-permitting ranges, given the laws of physics as we know them. The cosmological constant, the energy of empty space, is the most striking case, and the balance of forces that lets stars burn steadily and make carbon is another. Disagreements concern how many of the claimed cases are robust, whether we can assign probabilities to constants at all, and above all what explains the fact. Three examples recur in the literature. The cosmological constant: the simplest estimates from quantum physics of the energy of empty space exceed the observed value by an enormous factor, often put at around 120 orders of magnitude, and a value much larger than observed would have blown matter apart before galaxies could form. The strong nuclear force: if it were somewhat weaker, the nuclei that stars build on would not hold together; somewhat stronger, and the hydrogen that fuels long-lived stars would be largely used up early on. And carbon: stars make it through a particular energy level in the carbon nucleus that Fred Hoyle predicted in the 1950s from the bare fact that carbon is abundant. Lewis and Barnes discuss many more, along with the cases that have proved weaker than first claimed.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 8:3-4"
+        },
+        {
+          "kind": "source",
+          "source": "barnes-lewis-fortunate",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "sober-design",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "views": [
+      {
+        "id": "design",
+        "label": "A mind set the values",
+        "heldBy": [
+          "Robin Collins and other Christian philosophers",
+          "Richard Swinburne",
+          "many physicists who are believers"
+        ],
+        "texts": [
+          {
+            "reference": "Isaiah 45:18",
+            "note": "He formed the earth to be inhabited"
+          },
+          {
+            "reference": "Jeremiah 33:25",
+            "note": "The fixed order of heaven and earth"
+          }
+        ],
+        "case": {
+          "id": "design-case",
+          "text": "The life-permitting values are just what we would expect if the universe was made by a mind that intended living, conscious creatures, and very surprising if it was not. In probability terms, the evidence is much more likely on design than on chance, so it confirms design. The argument does not depend on gaps in biology; it starts from the laws and constants that every scientific explanation takes as given. Swinburne folds it into a cumulative case: a God who is good has reason to make a world with embodied creatures who can know and love. Robin Collins frames the reasoning as a simple principle of evidence: if an observation is much more probable on one hypothesis than on another, it counts in favour of the first. Fine-tuning is not improbable on design, since a good God has reason to make embodied persons; it is extremely improbable on a single universe with no designer. Collins is careful about the limits: the argument does not show that atheism is false, only that this evidence favours theism over it.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "blackwell-natural-theology",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "swinburne-existence-god",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VI, §94"
+            }
+          ]
+        },
+        "reply": {
+          "id": "design-reply",
+          "text": "Critics answer that we have only one universe to observe, so we cannot know how likely its constants were; that the argument assumes a designer would want life of our kind; and that a designer itself needs explaining. Defenders reply that we judge probabilities about single events all the time, that a good God has evident reason to make persons, and that explanations need not explain themselves to be good ones.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "sober-design",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "oppy-arguing-gods",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "chance",
+        "label": "We simply got lucky",
+        "heldBy": [
+          "some physicists and philosophers, often combined with observer selection"
+        ],
+        "texts": [
+          {
+            "reference": "Proverbs 16:33",
+            "note": "Scripture's view of what looks like chance: the lot is cast, but the decision is the Lord's"
+          }
+        ],
+        "case": {
+          "id": "chance-case",
+          "text": "The constants had to have some values, and any particular set is improbable. Since we are here, we must observe values that allow observers: if they had been otherwise, no one would be asking the question. This observer-selection effect means we should not be surprised to find ourselves in a life-permitting universe. Elliott Sober presses the point in its careful form: our evidence is gathered by observers, and that biases what we can find.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "sober-design",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "chance-reply",
+          "text": "Defenders of design reply with an illustration: a prisoner faces a firing squad of fifty marksmen, all of whom miss. He should not say, \"Of course they missed, or I would not be here to wonder.\" He should ask why they missed. Observer selection explains why we see a life-permitting universe given that one exists; it does not explain why one exists. Most physicists who take fine-tuning seriously therefore look either to design or to a multiverse.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "swinburne-existence-god",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "necessity",
+        "label": "A deeper law fixes the numbers",
+        "heldBy": [
+          "physicists hoping for a final theory"
+        ],
+        "texts": [
+          {
+            "reference": "Jeremiah 33:25",
+            "note": "The fixed order of heaven and earth: a law-giver's order"
+          }
+        ],
+        "case": {
+          "id": "necessity-case",
+          "text": "Perhaps the constants are not free at all. A future theory of everything might show that they could not have been otherwise, as the ratio of a circle's circumference to its diameter could not be otherwise. Then fine-tuning would be an illusion of our present ignorance.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "necessity-reply",
+          "text": "This is possible, but no such theory exists, and the leading candidates, such as string theory, seem to allow an enormous range of possible values, not one. And if a deep law did fix life-permitting values, the question would move to the law: why is the fundamental law of nature one that permits life? Theists find that question as suggestive as the first.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "blackwell-natural-theology",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "multiverse",
+        "label": "There are many universes",
+        "heldBy": [
+          "cosmologists including Martin Rees and Leonard Susskind",
+          "Richard Dawkins, in his 2007 debate with John Lennox"
+        ],
+        "texts": [
+          {
+            "reference": "Psalms 147:4-5",
+            "note": "God numbers the stars; however vast creation is, his understanding has no limit"
+          }
+        ],
+        "case": {
+          "id": "multiverse-case",
+          "text": "If there are vast numbers of universes with different constants, as some versions of inflationary cosmology and string theory suggest, then some will permit life by chance, and observers will find themselves only in those. Fine-tuning would then be no more surprising than the fact that we live on a planet suited to life, among billions that are not. The idea is taken seriously by working physicists, not invented to avoid God. Inflation, the theory that the early universe expanded very rapidly, can in some versions go on producing new regions without end, and string theory seems to allow a vast number of possible sets of laws. Put together, they suggest a landscape of universes in which ours is one habitable spot.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "lennox-dawkins",
+              "locator": "whole transcript"
+            }
+          ]
+        },
+        "reply": {
+          "id": "multiverse-reply",
+          "text": "Critics reply that other universes are, by definition, unobservable, so the hypothesis is at present speculative; that a mechanism generating universes would itself need finely tuned laws; and that the hypothesis predicts we should more likely be simple observers, briefly arising, than a whole ordered cosmos like ours. Christians also note that a multiverse, if it exists, would not exclude a Creator: God could make many worlds as easily as one. The last point has a name, the problem of \"Boltzmann brains\": in many multiverse models, small chance fluctuations producing a single momentary observer vastly outnumber whole ordered universes, so the model seems to predict that we should be such an observer. Cosmologists treat this as a real difficulty for the models that face it.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "blackwell-natural-theology",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "craig-krauss",
+              "locator": "whole transcript"
+            },
+            {
+              "kind": "source",
+              "source": "swinburne-existence-god",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. Fine-tuning is a fact of current physics, but physics may change; probability judgements about the constants are disputed; and the design view reaches a mind of great power and intelligence, not the God of Scripture by name. The site judges that design is the best of the four explanations, and that is a judgement of evidence, not a doctrine of the faith; a Christian whose faith depended on the cosmological constant would be resting on the wrong foundation. E. Y. Mullins, writing long before fine-tuning was known, argued from design as one line of a cumulative case, and that is its proper place.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §§94, 97"
+        },
+        {
+          "kind": "source",
+          "source": "sober-design",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"When I behold Your heavens ... what is man that You are mindful of him?\" Does the size and precision of the universe make you feel smaller, or more cared for?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 8:3-4"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 8:3-4",
+        "note": "What is man that you are mindful of him?"
+      },
+      {
+        "reference": "Isaiah 45:18",
+        "note": "Formed to be inhabited"
+      },
+      {
+        "reference": "Job 38:31-33",
+        "note": "Do you know the laws of the heavens?"
+      }
+    ],
+    "related": [
+      "paley-hume",
+      "kalam-argument",
+      "science",
+      "arguments-map",
+      "god-reality-glossary",
+      "secular",
+      "science-faith-history"
+    ],
+    "keywords": [
+      "fine-tuning",
+      "anthropic principle",
+      "cosmological constant",
+      "multiverse",
+      "observer selection",
+      "design argument",
+      "constants of physics",
+      "firing squad"
+    ],
+    "debates": [
+      "lennox-dawkins",
+      "craig-krauss"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new debate-guide article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. Lewis and Barnes, Sober, Swinburne and the Blackwell Companion are not held and are described, not quoted; the site's judgement that design is the best of the four explanations is stated as a judgement of evidence, not doctrine.",
+      "date": "2026-11-28",
+      "contentHash": "7b1c9b78476c4b6e15a97600eadd694612c199a2eb0ba23bd05fd402cf467e53",
+      "basisHash": "4dcf59ecb5bb5b4d07706f5d62accc73bf04c007c2341f6f8eb6eac141fb6c24"
+    }
+  ]
+}

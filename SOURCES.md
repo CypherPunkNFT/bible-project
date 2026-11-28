@@ -2549,3 +2549,89 @@ own words, never quoted, no page numbers invented; each address is an Open Libra
 | [troki-faith-strengthened](sources/archive-org/troki-faith-strengthened-mocatta-1851.txt) | Isaac of Troki, *Faith Strengthened* (*Chizzuk Emunah*), tr. Moses Mocatta (London, 1851), OCR text, item `faithstrengthene00trok` · part 1, chapters 1, 21, 22, 33 and 42: the Jewish readings of Isaiah 7 and 53, Micah 5 and Daniel 9 (`messianic-prophecy`, `virgin-birth`, `jesus`) | Public domain (1851; Troki d. 1594, Mocatta d. 1857) | ea7bef4e2b4a1cf9 |
 | [driver-neubauer-isaiah-53](sources/archive-org/driver-neubauer-isaiah-53-jewish-interpreters-v2-1877.txt) | S. R. Driver and A. Neubauer, trs, *The Fifty-Third Chapter of Isaiah according to the Jewish Interpreters*, vol. 2 (Oxford, 1877), OCR text, item `fiftythirdchapte02neub` · the Targum (pp. 5–6) and Rashi (pp. 37–40) (`messianic-prophecy`) | Public domain (1877; Driver d. 1914, Neubauer d. 1907) | bd28ea3d318e12ec |
 | [duncan-colloquia](sources/archive-org/duncan-colloquia-peripatetica-knight-1871.txt) | John Duncan, *Colloquia Peripatetica*, notes by William Knight (Edinburgh, 1871), OCR text, item `colloquiaperipat00dunciala` · "Christ: the Trilemma", p. 109 (`trilemma`, `jesus`) | Public domain (1871; Duncan d. 1870, Knight d. 1916) | 4de5ee20f2f0cd87 |
+
+## Apologetics fields: God & reality — registered 27 November 2026 (nothing released)
+
+Step 8 of [Plans/APOLOGETICS-FIELDS.md](../Plans/APOLOGETICS-FIELDS.md) (sequence 60) finished the God & reality
+list: three articles deepened (`morality`, `science`, `why-anything`) and sixteen written (`contingency-argument`,
+`kalam-argument`, `five-ways`, `paley-hume`, `ontological-argument`, `euthyphro`, `consciousness`,
+`argument-from-reason`, `religious-experience`, `fine-tuning`, `creation-views`, `apologetic-methods`,
+`science-faith-history`, `god-reality-glossary`, `moral-argument`, `arguments-map`). They cite the 38 new source records
+below. Every existing source they read now says in its `read` field what was read for step 8 (Mullins, Fuller, Sorley,
+Clarke, Leibniz, Anselm, Hume's two works, James, Balfour, Paley and the Baptist Faith and Message).
+
+**Quotations.** Short quotations only, each from a held public-domain text or an official text: Aquinas (Dominican
+translation, 1911/1920), Paley (Ware's edition of 1879, Paley's own words), Hume's *Dialogues*, Anselm and Gaunilo
+(Deane, 1903) in the three readings, whose extracts name the edition their source's `publicDomain` record gives;
+Mullins (1905); Fuller (1799); Sorley (1918), quoting Rashdall (1907); Kant (Abbott, 1873); Clarke (1706); Leibniz
+(Latta, 1898); James (1902); Balfour (1915); Draper (1874); White (1896); Hodge (1874); Darwin (1859, and his 1881
+letter); Plato (Jowett); and the Baptist Faith and Message 2000 from bfm.sbc.net (articles I, II, III, IV and XII).
+C. S. Lewis is in copyright in the US and is described, never quoted. `creation-views` states four views and does not
+choose; the Answers in Genesis and Reasons to Believe statements were read online, and the BioLogos page refused
+automated access (HTTP 429), so BioLogos is described from general knowledge and its record says so.
+
+**In copyright or online statements, cite only, not held** (`checked: none`; described in our own words, never
+quoted, no page numbers invented; book addresses are library catalogue searches, not copies):
+
+| Record | Work | Role | Used by |
+|---|---|---|---|
+| `adams-finite-infinite` | Robert Merrihew Adams (Oxford University Press, 1999), *Finite and Infinite Goods: A Framework for Ethics* | described, not quoted | `euthyphro`, `moral-argument` |
+| `aig-statement-of-faith` | Answers in Genesis, *Statement of Faith* | primary record, described | `creation-views` |
+| `alston-perceiving-god` | William P. Alston (Ithaca: Cornell University Press, 1991), *Perceiving God: The Epistemology of Religious Experience* | described, not quoted | `arguments-map`, `god-reality-glossary`, `religious-experience` |
+| `baggett-walls-good-god` | David Baggett and Jerry L. Walls (Oxford University Press, 2011), *Good God: The Theistic Foundations of Morality* | described, not quoted | `euthyphro`, `moral-argument` |
+| `barnes-lewis-fortunate` | Geraint F. Lewis and Luke A. Barnes (Cambridge University Press, 2016), *A Fortunate Universe: Life in a Finely Tuned Cosmos* | described, not quoted | `arguments-map`, `fine-tuning`, `god-reality-glossary`, `kalam-argument` |
+| `bgv-2003` | Arvind Borde, Alan H. Guth and Alexander Vilenkin (Physical Review Letters 90, 151301, 2003), *Inflationary spacetimes are not past-complete* | described, not quoted | `arguments-map`, `god-reality-glossary`, `kalam-argument`, `science-faith-history`, `why-anything` |
+| `biologos-beliefs` | BioLogos, *Our Mission and Values* | primary record, described | `creation-views` |
+| `blackwell-natural-theology` | William Lane Craig and J. P. Moreland, editors (Chichester: Wiley-Blackwell, 2009), *The Blackwell Companion to Natural Theology* | described, not quoted | `arguments-map`, `fine-tuning`, `god-reality-glossary` |
+| `brooke-science-religion` | John Hedley Brooke (Cambridge University Press, 1991), *Science and Religion: Some Historical Perspectives* | described, not quoted | `argument-from-reason`, `god-reality-glossary`, `science`, `science-faith-history` |
+| `chalmers-conscious-mind` | David J. Chalmers (Oxford University Press, 1996), *The Conscious Mind: In Search of a Fundamental Theory* | described, not quoted | `consciousness` |
+| `cowan-five-views` | Steven B. Cowan, editor (Grand Rapids: Zondervan, 2000), *Five Views on Apologetics* | described, not quoted | `apologetic-methods`, `god-reality-glossary` |
+| `craig-kalam` | William Lane Craig (London: Macmillan, 1979), *The Kalam Cosmological Argument* | described, not quoted | `arguments-map`, `kalam-argument`, `why-anything` |
+| `feser-aquinas` | Edward Feser (Oxford: Oneworld, 2009), *Aquinas: A Beginner's Guide* | described, not quoted | `five-ways` |
+| `hagopian-genesis-debate` | David G. Hagopian, editor (Mission Viejo: Crux Press, 2001), *The Genesis Debate: Three Views on the Days of Creation* | described, not quoted | `creation-views`, `science` |
+| `lewis-miracles` | C. S. Lewis (London: Geoffrey Bles, 1947; chapter 3 revised 1960), *Miracles: A Preliminary Study* | described, not quoted | `argument-from-reason`, `arguments-map`, `god-reality-glossary` |
+| `mackie-miracle-theism` | J. L. Mackie (Oxford: Clarendon Press, 1982), *The Miracle of Theism: Arguments for and against the Existence of God* | described, not quoted | `kalam-argument` |
+| `moreland-consciousness` | J. P. Moreland (New York: Routledge, 2008), *Consciousness and the Existence of God: A Theistic Argument* | described, not quoted | `consciousness` |
+| `nagel-mind-cosmos` | Thomas Nagel (Oxford University Press, 2012), *Mind and Cosmos: Why the Materialist Neo-Darwinian Conception of Nature Is Almost Certainly False* | described, not quoted | `argument-from-reason`, `arguments-map`, `consciousness`, `god-reality-glossary`, `religious-experience` |
+| `numbers-galileo-jail` | Ronald L. Numbers, editor (Cambridge, MA: Harvard University Press, 2009), *Galileo Goes to Jail and Other Myths about Science and Religion* | described, not quoted | `science`, `science-faith-history` |
+| `oppy-arguing-gods` | Graham Oppy (Cambridge University Press, 2006), *Arguing about Gods* | described, not quoted | `apologetic-methods`, `argument-from-reason`, `arguments-map`, `consciousness`, `contingency-argument`, `fine-tuning`, `five-ways`, `god-reality-glossary`, `kalam-argument`, `ontological-argument`, `why-anything` |
+| `plantinga-nature-necessity` | Alvin Plantinga (Oxford: Clarendon Press, 1974), *The Nature of Necessity* | described, not quoted | `arguments-map`, `god-reality-glossary`, `ontological-argument` |
+| `plantinga-warranted-belief` | Alvin Plantinga (Oxford University Press, 2000), *Warranted Christian Belief* | described, not quoted | `apologetic-methods`, `god-reality-glossary` |
+| `plantinga-where-conflict` | Alvin Plantinga (Oxford University Press, 2011), *Where the Conflict Really Lies: Science, Religion, and Naturalism* | described, not quoted | `argument-from-reason`, `arguments-map`, `god-reality-glossary`, `science` |
+| `pruss-psr` | Alexander R. Pruss (Cambridge University Press, 2006), *The Principle of Sufficient Reason: A Reassessment* | described, not quoted | `contingency-argument`, `five-ways`, `why-anything` |
+| `rtb-statement-of-faith` | Reasons to Believe, *Statement of Faith* | primary record, described | `creation-views` |
+| `sober-design` | Elliott Sober (Cambridge University Press, 2019), *The Design Argument* | described, not quoted | `arguments-map`, `fine-tuning`, `god-reality-glossary` |
+| `street-darwinian-dilemma` | Sharon Street (Philosophical Studies 127, 2006, pp. 109–166), *A Darwinian Dilemma for Realist Theories of Value* | described, not quoted | `argument-from-reason`, `arguments-map`, `moral-argument`, `morality` |
+| `swinburne-existence-god` | Richard Swinburne (Oxford: Clarendon Press, 2004), *The Existence of God (second edition)* | described, not quoted | `arguments-map`, `fine-tuning`, `god-reality-glossary`, `religious-experience` |
+| `wielenberg-robust-ethics` | Erik J. Wielenberg (Oxford University Press, 2014), *Robust Ethics: The Metaphysics and Epistemology of Godless Normative Realism* | described, not quoted | `arguments-map`, `euthyphro`, `god-reality-glossary`, `moral-argument`, `morality` |
+
+**Public domain, held** (`checked: corpus`; each downloaded file is in the table after this one):
+
+| Record | Work | Checked | Used by |
+|---|---|---|---|
+| `aquinas-summa-part1` | Thomas Aquinas · translated by the Fathers of the English Dominican Province, *Summa Theologica, Part I (Prima Pars)* | corpus | `apologetic-methods`, `arguments-map`, `five-ways`, `god-reality-glossary`, `kalam-argument`, `why-anything` |
+| `darwin-life-letters` | Charles Darwin · edited by Francis Darwin, *The Life and Letters of Charles Darwin, volume I (1887)* | corpus | `argument-from-reason` |
+| `darwin-origin` | Charles Darwin, *On the Origin of Species (1859)* | corpus | `paley-hume`, `science-faith-history` |
+| `draper-conflict` | John William Draper, *History of the Conflict between Religion and Science (1874)* | corpus | `science`, `science-faith-history` |
+| `hodge-darwinism` | Charles Hodge, *What Is Darwinism? (1874)* | corpus | `creation-views`, `paley-hume`, `science`, `science-faith-history` |
+| `kant-critique-pure-reason` | Immanuel Kant · translated by J. M. D. Meiklejohn, *Critique of Pure Reason (1781; English translation 1855)* | corpus | `ontological-argument` |
+| `kant-practical-reason` | Immanuel Kant · translated by Thomas Kingsmill Abbott, *Critique of Practical Reason (1788; English translation 1873)* | corpus | `arguments-map`, `moral-argument` |
+| `plato-euthyphro` | Plato · translated by Benjamin Jowett, *Euthyphro* | corpus | `euthyphro`, `god-reality-glossary` |
+| `white-warfare` | Andrew Dickson White, *A History of the Warfare of Science with Theology in Christendom (1896)* | corpus | `science`, `science-faith-history` |
+
+**Downloaded 27 November 2026** into `sources/` and re-fetched by `scripts/fetch-sources.py`. Project Gutenberg files
+were fetched by number; the Paley file is the Internet Archive OCR of the 1879 Ware edition (its first name in this
+job's notes, `paley-natural-theology-1802.txt`, was wrong about the edition and was corrected before registration):
+
+| File | What | Licence | SHA-256 |
+|---|---|---|---|
+| [aquinas-summa-part1](sources/gutenberg/aquinas-summa-part1-dominican-17611.txt) | Thomas Aquinas, *Summa Theologica* Part I (QQ. 1–26), tr. Fathers of the English Dominican Province (1911; 2nd edn 1920), Project Gutenberg #17611 · I, q. 2, a. 3, the five ways (`five-ways`, `contingency-argument`, `why-anything`, the glossary) | Public domain (1911/1920 translation; US) | d99b7b5f9e470ee1 |
+| [plato-euthyphro](sources/gutenberg/plato-euthyphro-jowett-1642.txt) | Plato, *Euthyphro*, tr. Benjamin Jowett, Project Gutenberg #1642 · 10a (`euthyphro`, the glossary) | Public domain (Jowett d. 1893) | cbe4b37c6e4a6536 |
+| [kant-critique-pure-reason](sources/gutenberg/kant-critique-pure-reason-meiklejohn-4280.txt) | Immanuel Kant, *Critique of Pure Reason*, tr. J. M. D. Meiklejohn, Project Gutenberg #4280 · the critique of the ontological proof (`ontological-argument`) | Public domain (Meiklejohn d. 1902) | a90107de6d33c735 |
+| [kant-practical-reason](sources/gutenberg/kant-critique-practical-reason-abbott-5683.txt) | Immanuel Kant, *Critique of Practical Reason*, tr. T. K. Abbott (1873), Project Gutenberg #5683 · Book II, ch. II, §V, God as a postulate (`moral-argument`, `arguments-map`) | Public domain (Abbott d. 1913) | 3ad485191a3ac391 |
+| [draper-conflict](sources/gutenberg/draper-conflict-religion-science-1185.txt) | John William Draper, *History of the Conflict between Religion and Science* (1874), Project Gutenberg #1185 · the Preface (`science-faith-history`) | Public domain (1874; Draper d. 1882) | 1fb1055ad7a43f32 |
+| [white-warfare](sources/gutenberg/white-warfare-science-theology-505.txt) | Andrew Dickson White, *A History of the Warfare of Science with Theology in Christendom* (1896), Project Gutenberg #505 · the Introduction (`science-faith-history`) | Public domain (1896; White d. 1918) | e2e5952d4281fe1b |
+| [hodge-darwinism](sources/gutenberg/hodge-what-is-darwinism-19192.txt) | Charles Hodge, *What Is Darwinism?* (1874), Project Gutenberg #19192 · the conclusion (`science-faith-history`, `creation-views`) | Public domain (1874; Hodge d. 1878) | 35b1042523b307fd |
+| [darwin-origin](sources/gutenberg/darwin-origin-1859-1228.txt) | Charles Darwin, *On the Origin of Species* (1st edn, 1859), Project Gutenberg #1228 · the closing paragraph (`science-faith-history`, `paley-hume`) | Public domain (1859; Darwin d. 1882) | ff6f6f4d08831ae2 |
+| [darwin-life-letters](sources/gutenberg/darwin-life-letters-v1-2087.txt) | Francis Darwin, ed., *The Life and Letters of Charles Darwin*, vol. 1 (1887), Project Gutenberg #2087 · Darwin's letter to W. Graham, 3 July 1881, the "horrid doubt" (`argument-from-reason`) | Public domain (1887; F. Darwin d. 1925) | c795bf75dde25565 |
+| [paley-natural-theology](sources/archive-org/paley-natural-theology-ware-1879.txt) | William Paley, *Natural Theology* (1802), John Ware's New York edition (Sheldon, 1879), OCR text, item `naturaltheologyo00pale` · chapter I, the watch (`paley-hume`, `arguments-map`) | Public domain (Paley d. 1805, Ware d. 1864) | 6727abf39271ad5d |

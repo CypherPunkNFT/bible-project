@@ -1,0 +1,666 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "religious-experience",
+  "order": 51,
+  "publication": "published",
+  "content": {
+    "title": "Is religious experience evidence?",
+    "topic": "god",
+    "summary": "Millions report encountering God. William James, Richard Swinburne and William Alston on whether that counts as evidence, the objections from other religions and from neuroscience, and how Scripture says experience is tested.",
+    "format": "essay",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Across history and across the world, very many people report experiences of God: a sense of his presence in prayer, a conviction of sin and of forgiveness, a call they could not refuse, and occasionally something more dramatic. Most Christians can name a moment when faith became personal. Does any of this count as evidence that God is real, for the person who has it or for anyone else? William James studied the question as a psychologist in 1902. Richard Swinburne and William Alston have argued in different ways that such experience gives real, though defeasible, grounds for belief. Critics reply that experiences conflict across religions and can be explained by the brain. This essay weighs both sides and then sets out how Scripture itself says experience is to be tested.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 34:8"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 8:16"
+        },
+        {
+          "kind": "source",
+          "source": "james-varieties",
+          "locator": "Lectures XVI and XVII"
+        },
+        {
+          "kind": "source",
+          "source": "swinburne-existence-god",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "what",
+        "title": "What counts as religious experience",
+        "blocks": [
+          {
+            "id": "what-1",
+            "text": "The phrase covers a wide range. At one end are the ordinary experiences of believers: peace in prayer, joy in worship, the sense that a passage of Scripture is speaking directly to them, the inner assurance Paul describes when the Spirit testifies with our spirit that we are God's children. At the other end are rarer experiences: Isaiah's vision of the Lord high and exalted, Saul's encounter with the risen Jesus on the Damascus road, Jacob waking to say the Lord was in this place and he had not known it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 8:16"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 6:1-5"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 9:3-6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 28:16"
+              }
+            ]
+          },
+          {
+            "id": "what-2",
+            "text": "Scripture records such experiences without treating them as the foundation of faith. Elijah found that the Lord was not in the wind, the earthquake or the fire, but in a still, small voice. Job, after all his arguments, said, \"My ears had heard of You, but now my eyes have seen You.\" The biblical pattern is that experience of God follows his word and confirms it; it is not a separate source competing with it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Kings 19:11-13"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Job 42:5"
+              }
+            ]
+          },
+          {
+            "id": "what-3",
+            "text": "Baptists have given personal experience a large place. The new birth, the Baptist Faith and Message says, is a change of heart wrought by the Holy Spirit, and Baptists have always asked those seeking baptism to tell what God has done in them. E. Y. Mullins, president of the Southern Baptist Theological Seminary, broke new ground in 1905 by treating Christian experience as one of the main lines of Christian evidence, alongside nature, Scripture and history, and as a class of facts open to anyone who will investigate.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Ezekiel 36:26"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article IV"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. I, §20"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Isaiah 6:1-5",
+            "note": "I saw the Lord"
+          },
+          {
+            "reference": "1 Kings 19:11-13",
+            "note": "The still, small voice"
+          }
+        ]
+      },
+      {
+        "id": "james",
+        "title": "William James: authoritative for those who have it",
+        "blocks": [
+          {
+            "id": "james-1",
+            "text": "William James, the American psychologist and philosopher, gave the Gifford Lectures in 1901–1902 as The Varieties of Religious Experience. He collected first-hand accounts of conversion, saintliness and mysticism and asked what they were worth. He did not judge them by their origins. Whatever their causes in the body, he argued, the test must be the one Jesus gave: \"By their fruits ye shall know them, not by their roots,\" a principle he credited to Jonathan Edwards's Treatise on Religious Affections.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture I"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 7:16-20"
+              }
+            ]
+          },
+          {
+            "id": "james-2",
+            "text": "In his lectures on mysticism James named four marks of such states: they are hard to put into words; they seem to give knowledge, not just feeling; they do not last long; and the person feels taken hold of rather than in control. Then he gave his famous three-part answer to whether they carry authority. First: \"Mystical states, when well developed, usually are, and have the right to be, absolutely authoritative over the individuals to whom they come.\" Second: \"No authority emanates from them which should make it a duty for those who stand outside of them to accept their revelations uncritically.\" Third, they show that the rationalistic consciousness based on the senses alone is \"only one kind of consciousness\", and so leave room for faith.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lectures XVI and XVII"
+              }
+            ]
+          },
+          {
+            "id": "james-3",
+            "text": "James was not an orthodox Christian, and his own conclusions stopped well short of Christian faith. But his distinction is useful. It separates two questions that are often blurred: whether an experience gives the person who has it a reason to believe, and whether it gives anyone else one.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lectures XVI and XVII"
+              }
+            ]
+          },
+          {
+            "id": "james-4",
+            "text": "James's book is still worth reading for its first-hand documents: letters, diaries and testimonies of ordinary people as well as famous saints, many of them evangelical Protestants of his own day. A reader will find there both the strength and the weakness of his approach. Its strength is that it takes believers' reports seriously as data, instead of explaining them away in advance. Its weakness is that, by setting aside every question of origin and doctrine, it can say what experiences do for people but not whether the God they report is really there. That second question needs the arguments of the philosophers who came after him.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture I"
+              },
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture IX"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Matthew 7:15-20",
+            "note": "By their fruit you will recognize them"
+          }
+        ]
+      },
+      {
+        "id": "conversion",
+        "title": "Conversion: the experience most studied",
+        "blocks": [
+          {
+            "id": "conversion-1",
+            "text": "James devoted two of his lectures to conversion, and his definition is still quoted. To be converted, regenerated, to receive grace, to gain an assurance, he wrote, are so many phrases for \"the process, gradual or sudden, by which a self hitherto divided, and consciously wrong inferior and unhappy, becomes unified and consciously right superior and happy, in consequence of its firmer hold upon religious realities\". He added that this is what conversion means in general terms, \"whether or not we believe that a direct divine operation is needed\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture IX"
+              }
+            ]
+          },
+          {
+            "id": "conversion-2",
+            "text": "James described from the outside what Scripture describes from the inside: the old has passed away and the new has come; God gives a new heart and puts a new spirit within. The Philippian jailer moved within a night from trembling to joy. Christians do not claim that the psychology of conversion proves its truth; people convert to many things. They claim that a change of this kind, lasting and bearing fruit in love and holiness, is what one would expect if the gospel is true, and that it is open, as Mullins said, to investigation by anyone who will look at changed lives.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 5:17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Ezekiel 36:26"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 16:29-34"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. I, §20"
+              }
+            ]
+          },
+          {
+            "id": "conversion-3",
+            "text": "Not every believer has a dramatic story. Many who grew up in Christian homes cannot name a day, and Baptists do not require one; what matters is repentance and faith, not the shape of the experience. James himself noted that conversion may be gradual or sudden.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article IV"
+              },
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture IX"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 3:8"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "2 Corinthians 5:17",
+            "note": "A new creation"
+          },
+          {
+            "reference": "Acts 16:25-34",
+            "note": "The jailer's night"
+          }
+        ]
+      },
+      {
+        "id": "credulity",
+        "title": "Swinburne and Alston: experience as perception",
+        "blocks": [
+          {
+            "id": "credulity-1",
+            "text": "Richard Swinburne, an Oxford philosopher, argues from what he calls the principle of credulity. In our summary: if it seems to someone that something is present, then probably it is, unless there are special reasons for doubt, such as that the person is known to be unreliable, the conditions are known to mislead, or there is strong evidence that the thing is absent. We rely on this principle all the time; without it we could not trust our senses at all. Swinburne argues that it applies to experiences of God as much as to experiences of tables, and that the special reasons for doubt do not, in general, apply. He adds a principle of testimony: we should believe what others report they experienced, unless we have reason to doubt them.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "credulity-2",
+            "text": "William Alston developed a related argument in Perceiving God (1991). We form beliefs about the physical world through sense perception and cannot prove that practice reliable without already using it. Christians form beliefs about God through a practice of their own: experiences of God, tested within a community, checked against Scripture and its tradition. Alston argued that this practice is socially established, internally consistent and fruitful, and that it is as reasonable to engage in it as to trust the senses. It cannot be proved reliable from outside, but neither can perception.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "alston-perceiving-god",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "credulity-3",
+            "text": "Neither philosopher claims that experience settles the question for a sceptic who has had none. Their claim is more modest and more important: that someone who has such an experience is not being irrational in trusting it, unless they have good reason to think it misleading.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "alston-perceiving-god",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "credulity-4",
+            "text": "Swinburne's principle of testimony carries the argument beyond the individual. Most of what any of us believes, about history, geography or science, rests on what others have told us, and we accept it unless we have reason to doubt the teller. If very many sane, honest people across centuries report experiences of God, Swinburne argues, that testimony counts for something even for those who have had no such experience, unless there is positive reason to think them all mistaken. A sceptic may reply that the reports are too varied to agree on anything; the believer may reply that most agree on a holy, personal reality beyond the self. Either way, the testimony is evidence to be weighed, not ignored.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:27"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:1-4"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 34:8",
+            "note": "Taste and see"
+          },
+          {
+            "reference": "Jeremiah 29:13",
+            "note": "You will seek me and find me"
+          }
+        ]
+      },
+      {
+        "id": "objections",
+        "title": "The objections",
+        "blocks": [
+          {
+            "id": "objections-1",
+            "text": "Conflicting experiences. Muslims, Hindus and Buddhists report experiences too, often of realities very unlike the God of the Bible. If experiences conflict, critics argue, they cannot all be reliable, and so none can be trusted. Replies: conflicting reports show that experiences are interpreted, not that nothing is experienced, just as conflicting witness statements do not show that no accident happened. Many experiences across traditions share a sense of a holy reality beyond the self, which fits Scripture's teaching that God has not left himself without witness. And Christians do not claim that every religious experience is of God; Scripture itself warns that some are not.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 14:17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:27"
+              },
+              {
+                "kind": "source",
+                "source": "alston-perceiving-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "objections-2",
+            "text": "Natural explanations. Neuroscience can link religious experience to activity in particular parts of the brain; psychologists since Freud have suggested that belief in God fulfils a wish for a heavenly father. Replies: every experience, of a sunset or a friend's voice, has brain activity behind it, and finding the brain's part does not show that nothing is perceived. To argue that a belief is false because of how it arose is the genetic fallacy; James made the same point by judging fruits, not roots. And wish fulfilment cuts both ways: one might equally wish there were no God to answer to.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture I"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 2:11"
+              },
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "objections-3",
+            "text": "No independent check. A sense perception can be checked by others standing in the same place; an experience of God cannot. Replies: there are partial checks, such as whether the experience fits what God has revealed, whether it leads to the fruit of the Spirit, and whether it endures. But the critic has a point, and it is why James's second principle holds: an experience alone does not oblige an outsider to believe.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Galatians 5:22-23"
+              },
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lectures XVI and XVII"
+              }
+            ]
+          },
+          {
+            "id": "objections-4",
+            "text": "Shaped by culture. People tend to experience the divine in the forms their culture taught them: Catholics see Mary, Hindus see Krishna, evangelicals sense Jesus. Critics take this as a sign that the experiences come from expectation, not from God. Replies: all perception is shaped by what we bring to it, and a trained eye sees more in an X-ray than an untrained one, without the X-ray being invented. The pattern fits the view that experience is real but interpreted, which is why Scripture insists it be tested against revelation rather than taken at face value.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 John 4:1"
+              },
+              {
+                "kind": "source",
+                "source": "alston-perceiving-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture I"
+              }
+            ]
+          },
+          {
+            "id": "objections-5",
+            "text": "The extraordinary needs more. A critic may grant the principle of credulity for ordinary perceptions and deny it for extraordinary ones: claims about God, like claims about miracles, need stronger evidence than a seeming. Swinburne answers that this is right only if we already have good reason to think God unlikely; if the other arguments for God carry some weight, an experience of him is not extraordinary in the relevant sense. This is why religious experience works best as one strand in a cumulative case rather than on its own.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "hume-enquiry",
+                "locator": "Section X"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Acts 17:26-28",
+            "note": "God is not far from each one of us"
+          },
+          {
+            "reference": "Galatians 5:22-23",
+            "note": "The fruit of the Spirit"
+          }
+        ]
+      },
+      {
+        "id": "without",
+        "title": "When the experience is absent",
+        "blocks": [
+          {
+            "id": "without-1",
+            "text": "An honest treatment must speak to those who have no such experience, or who had it once and lost it. Scripture does not hide them. The psalmist asks, \"Why are you downcast, O my soul?\", and another psalm ends in darkness: \"Why do You hide Your face from me?\" Asaph wonders whether the Lord's loving devotion is gone forever, and then resolves to remember his works of old. Isaiah speaks to the one who fears the Lord yet \"walks in darkness and has no light\", and tells him to trust in the name of the Lord.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Psalms 42:5"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 88:13-14"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 77:7-11"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 50:10"
+              }
+            ]
+          },
+          {
+            "id": "without-2",
+            "text": "Christian faith rests on what God has done in Christ and promised in his word, not on the strength of our feelings. Experience is a gift, and its absence is a trial, not a verdict. Jesus said, \"Blessed are those who have not seen and yet have believed.\" John wrote his letter so that believers \"may know\" they have eternal life: a knowledge grounded in God's testimony about his Son. For the sceptic, the absence of experience is a reason to ask honestly, not a proof that there is nothing to find; this field's companion article on God's hiddenness takes that question further.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 20:29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 John 5:13"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Habakkuk 3:17-18"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Jeremiah 29:13"
+              }
+            ]
+          },
+          {
+            "id": "without-3",
+            "text": "Those who long for an experience of God are often told to seek it in the ordinary means he has given: reading Scripture, prayer, the Lord's Supper and the fellowship of a church. Baptists speak of these as the ordinary ways God meets his people, not as things that work by themselves. The promise of Jeremiah is that those who seek with all their heart will find; the timing and the form of the finding belong to God. Many believers testify that the sense of God's presence came, when it came, in the middle of such ordinary faithfulness, not apart from it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Jeremiah 29:13"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 2:42"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Hebrews 10:24-25"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 42:1-5",
+            "note": "Why are you downcast, O my soul?"
+          },
+          {
+            "reference": "Isaiah 50:10",
+            "note": "Walking in darkness, trusting the name of the Lord"
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "title": "How Scripture says experience is tested",
+        "blocks": [
+          {
+            "id": "testing-1",
+            "text": "Scripture is more cautious about experience than many of its readers. Moses told Israel that a prophet whose sign came true must still be rejected if he called them to follow other gods. John told the churches, \"Do not believe every spirit, but test the spirits to see whether they are from God.\" Paul said that even an angel from heaven preaching a different gospel should be rejected, and that Satan masquerades as an angel of light. The test is not how vivid an experience is, but whether it agrees with what God has said.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Deuteronomy 13:1-3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 John 4:1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Galatians 1:8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 11:14"
+              }
+            ]
+          },
+          {
+            "id": "testing-2",
+            "text": "That is why Southern Baptists confess that Scripture is \"the supreme standard by which all human conduct, creeds, and religious opinions should be tried\" (Baptist Faith and Message 2000, article I). Experience matters; the new birth is an experience. But it is the experience of the God who has made himself known in Christ, the one who made his light shine in our hearts to give the light of the knowledge of God's glory in the face of Jesus Christ.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article I"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 4:6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 14:21"
+              }
+            ]
+          },
+          {
+            "id": "testing-3",
+            "text": "The Spirit and the word work together. The Spirit who gives experience of God is the same Spirit who inspired the Scriptures, so his work in the heart will not contradict his word. That is a comfort as well as a test: believers need not choose between a cold faith that trusts only arguments and a heated one that trusts only feelings. They read, pray and obey, and the Lord who promised to reveal himself to those who keep his commandments keeps his promise in his own way and time.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 14:21"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Timothy 3:16"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 8:16"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article I"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 John 4:1-3",
+            "note": "Test the spirits"
+          },
+          {
+            "reference": "2 Corinthians 4:6",
+            "note": "Light in our hearts"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. Religious experience can give the person who has it a real reason to believe, and the testimony of many gives others some reason to take the question seriously. It cannot by itself settle which religion is true, or overcome strong contrary evidence, and it is open to natural explanation in a way that perception of public objects is less exposed to. It is one strand of a cumulative case, and for Christians it is always tested by Scripture.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "james-varieties",
+          "locator": "Lectures XVI and XVII"
+        },
+        {
+          "kind": "source",
+          "source": "alston-perceiving-god",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. I, §22"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"Taste and see that the LORD is good.\" When have you known God's goodness, not just heard of it, and how does Scripture help you understand that moment?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 34:8"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 34:8",
+        "note": "Taste and see"
+      },
+      {
+        "reference": "Romans 8:14-16",
+        "note": "The Spirit testifies with our spirit"
+      },
+      {
+        "reference": "1 John 4:1-3",
+        "note": "Test the spirits"
+      }
+    ],
+    "related": [
+      "arguments-map",
+      "hiddenness",
+      "consciousness",
+      "apologetic-methods"
+    ],
+    "keywords": [
+      "religious experience",
+      "William James",
+      "Varieties of Religious Experience",
+      "Swinburne",
+      "principle of credulity",
+      "Alston",
+      "Perceiving God",
+      "mysticism",
+      "testimony of the Spirit"
+    ],
+    "debates": [
+      "craig-hitchens"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new essay article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "f16a8340365a9795bb48f4180afd8371098b55b07aa00715cfde60b3f56bec01",
+      "basisHash": "f366afc124f33c08a03b29b0f160509ce19ab9163d8efbbe27be989c77304741"
+    }
+  ]
+}

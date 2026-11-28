@@ -1,0 +1,445 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "science-faith-history",
+  "order": 55,
+  "publication": "published",
+  "content": {
+    "title": "Was there ever a war between science and faith?",
+    "topic": "god",
+    "summary": "Twenty dated moments from Copernicus to the present: Galileo, Boyle and Newton, Darwin, the Victorian \"warfare\" books, the Scopes trial, and what historians of science now conclude.",
+    "format": "timeline",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Many people take it for granted that science and Christianity have always been at war. Historians of science do not. The story of conflict was told most influentially by two Victorian books, by John William Draper (1874) and Andrew Dickson White (1896); the historians who have since examined the episodes those books describe, many of them not believers, have concluded that the relationship was more complex, and often cooperative. This timeline sets out twenty moments, with what happened and what is disputed, so readers can judge for themselves.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 111:2"
+        },
+        {
+          "kind": "source",
+          "source": "draper-conflict",
+          "locator": "Preface"
+        },
+        {
+          "kind": "source",
+          "source": "white-warfare",
+          "locator": "Introduction"
+        },
+        {
+          "kind": "source",
+          "source": "brooke-science-religion",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": "copernicus",
+        "text": "Nicolaus Copernicus, a canon of the cathedral of Frombork, publishes On the Revolutions of the Heavenly Spheres, dedicated to Pope Paul III. A Lutheran editor, Andreas Osiander, adds an unsigned preface presenting it as a calculating device, not a claim about reality. For seventy years the book causes little official trouble.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Copernicus publishes his sun-centred system",
+        "date": "1543",
+        "certainty": "exact"
+      },
+      {
+        "id": "christina",
+        "text": "Galileo writes to the Grand Duchess Christina that Scripture and nature both come from God and cannot truly conflict, and that the Bible speaks in the language of ordinary people. He repeats a saying he attributes to Cardinal Baronius: the Holy Spirit's purpose is to teach how one goes to heaven, not how the heavens go. Passages such as Joshua's sun standing still were being cited against him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Joshua 10:12-13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:4-6"
+          },
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Galileo's letter on Scripture and astronomy",
+        "date": "1615",
+        "certainty": "exact"
+      },
+      {
+        "id": "1616",
+        "text": "The Congregation of the Index suspends Copernicus's book until corrected, and Cardinal Bellarmine instructs Galileo not to hold or defend the earth's motion as fact. The ruling comes from Roman Catholic authorities; Protestant lands had their own critics and defenders of Copernicus.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Copernicus's book suspended; Galileo warned",
+        "date": "1616",
+        "certainty": "exact"
+      },
+      {
+        "id": "galileo-trial",
+        "text": "After his Dialogue on the Two Chief World Systems (1632), Galileo is tried, made to abjure the earth's motion, and sentenced to house arrest, where he lives until his death in 1642, writing his last great book on mechanics. He was not tortured or thrown into a dungeon, as later retellings claim. Historians see a tangle of astronomy, Scripture, church politics and personal offence, not a simple contest of evidence against faith.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "white-warfare",
+            "locator": "Introduction"
+          }
+        ],
+        "title": "Galileo tried by the Inquisition",
+        "date": "1633",
+        "certainty": "exact"
+      },
+      {
+        "id": "royal-society",
+        "text": "The Royal Society of London is founded in 1660 and chartered in 1662. Among its founders is Robert Boyle, the chemist whose law of gases is still taught, a devout Protestant who wrote on theology as well as science and saw experiment as a way of studying God's works.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 111:2"
+          }
+        ],
+        "title": "The Royal Society is founded",
+        "date": "1660",
+        "certainty": "exact"
+      },
+      {
+        "id": "principia",
+        "text": "Isaac Newton publishes his laws of motion and universal gravitation. In the second edition (1713) he adds a General Scholium arguing that the order of the solar system could only proceed from an intelligent and powerful Being. Newton held unorthodox views on the Trinity, which he kept private, but he never doubted a Creator.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:1"
+          }
+        ],
+        "title": "Newton's Principia",
+        "date": "1687",
+        "certainty": "exact"
+      },
+      {
+        "id": "boyle-lectures",
+        "text": "Boyle had left money in his will (he died in 1691) to fund annual lectures proving the Christian religion against unbelievers. In 1704 Samuel Clarke gives them as A Demonstration of the Being and Attributes of God, one of the first lecture series to draw on Newton's physics in arguing for God.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "clarke-demonstration",
+            "locator": "title page"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:20"
+          }
+        ],
+        "title": "Clarke gives the Boyle lectures",
+        "date": "1704",
+        "certainty": "exact"
+      },
+      {
+        "id": "hume",
+        "text": "Three years after his death, David Hume's Dialogues Concerning Natural Religion appear, criticising the argument from design: the analogy between the world and a machine is weak, and the argument cannot show a single, good or infinite designer.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "hume-dialogues",
+            "locator": "Parts II and V"
+          }
+        ],
+        "title": "Hume's Dialogues published",
+        "date": "1779",
+        "certainty": "exact"
+      },
+      {
+        "id": "paley",
+        "text": "William Paley publishes Natural Theology, opening with the watch found on a heath. It becomes a standard text, read by the young Charles Darwin at Cambridge.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "paley-natural-theology",
+            "locator": "chapter I"
+          }
+        ],
+        "title": "Paley's Natural Theology",
+        "date": "1802",
+        "certainty": "exact"
+      },
+      {
+        "id": "origin",
+        "text": "Charles Darwin publishes On the Origin of Species, proposing evolution by natural selection. The first edition ends with the \"grandeur in this view of life\". Christian responses range from rejection to cautious acceptance of evolution as God's method.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "darwin-origin",
+            "locator": "chapter XIV, closing paragraph"
+          },
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Darwin's Origin of Species",
+        "date": "1859",
+        "certainty": "exact"
+      },
+      {
+        "id": "oxford-1860",
+        "text": "At a meeting of the British Association in Oxford, Bishop Samuel Wilberforce and Thomas Huxley clash over Darwin's theory. The famous exchange about descent from apes was written down only decades later, and accounts disagree about what was said and who won. The episode became a founding legend of the conflict story.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Huxley and Wilberforce at Oxford",
+        "date": "1860",
+        "certainty": "exact"
+      },
+      {
+        "id": "hodge",
+        "text": "Charles Hodge of Princeton answers: \"It is Atheism\", meaning that Darwin's exclusion of design from nature is atheistic, not that Darwin or all evolutionists are atheists. Other conservative Protestants of the period accepted some form of evolution as compatible with design.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "hodge-darwinism",
+            "locator": "conclusion"
+          }
+        ],
+        "title": "Hodge asks, \"What is Darwinism?\"",
+        "date": "1874",
+        "certainty": "exact"
+      },
+      {
+        "id": "draper",
+        "text": "John William Draper presents the history of science as \"a narrative of the conflict of two contending powers, the expansive force of the human intellect on one side, and the compression arising from traditionary faith and human interests on the other\". His main target is the Roman Catholic Church.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "draper-conflict",
+            "locator": "Preface"
+          }
+        ],
+        "title": "Draper's History of the Conflict",
+        "date": "1874",
+        "certainty": "exact"
+      },
+      {
+        "id": "white",
+        "text": "Andrew Dickson White, founding president of Cornell University, publishes two volumes arguing that \"interference with science in the supposed interest of religion\" has invariably harmed both. Historians have since found many of his episodes, such as a medieval belief in a flat earth, to be exaggerated or invented.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "white-warfare",
+            "locator": "Introduction"
+          },
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          }
+        ],
+        "title": "White's History of the Warfare",
+        "date": "1896",
+        "certainty": "exact"
+      },
+      {
+        "id": "mullins",
+        "text": "E. Y. Mullins, president of the Southern Baptist Theological Seminary, publishes Why Is Christianity True? He argues that evolution, even if true, is a method, not a first cause, discusses theistic evolution as a hypothesis, and concludes that the Christian \"can await with composure the outcome of researches into physical nature\".",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. V, §§74, 80–84"
+          }
+        ],
+        "title": "A Southern Baptist on evolution and design",
+        "date": "1905",
+        "certainty": "exact"
+      },
+      {
+        "id": "scopes",
+        "text": "In Dayton, Tennessee, the teacher John Scopes is tried for teaching evolution in breach of state law, with William Jennings Bryan assisting the prosecution and Clarence Darrow defending. Scopes is convicted and fined, a verdict later overturned on a technicality. Later retellings, especially the play Inherit the Wind (1955), turned a staged test case into a parable of faith against science.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The Scopes trial",
+        "date": "1925",
+        "certainty": "exact"
+      },
+      {
+        "id": "brooke",
+        "text": "John Hedley Brooke's Science and Religion: Some Historical Perspectives argues that the relationship has taken many forms, conflict, cooperation, separation and mutual influence, and that neither \"warfare\" nor \"harmony\" fits the record. His view becomes the standard one among historians of science.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Historians' verdict: the complexity thesis",
+        "date": "1991",
+        "certainty": "exact"
+      },
+      {
+        "id": "bfm",
+        "text": "The Southern Baptist Convention adopts the Baptist Faith and Message 2000. Article III confesses that \"man is the special creation of God, made in His own image\"; article XII that \"all sound learning is, therefore, a part of our Christian heritage\". The confession states no age for the earth.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article III"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article XII"
+          }
+        ],
+        "title": "Southern Baptists confess special creation",
+        "date": "2000",
+        "certainty": "exact"
+      },
+      {
+        "id": "bgv",
+        "text": "Arvind Borde, Alan Guth and Alexander Vilenkin publish their result that a universe which has, on average, been expanding cannot be extended infinitely into the past. The authors draw no theological conclusion; Christian philosophers cite it in the kalam argument.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "bgv-2003",
+            "locator": "abstract"
+          }
+        ],
+        "title": "A theorem about the universe's past",
+        "date": "2003",
+        "certainty": "exact"
+      },
+      {
+        "id": "galileo-jail",
+        "text": "Twenty-five historians of science, of many beliefs, examine popular myths about science and religion, from the flat earth to the Scopes trial, and find most of them false or distorted. The book's editor, Ronald Numbers, describes himself as an agnostic.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Galileo Goes to Jail",
+        "date": "2009",
+        "certainty": "exact"
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. Rejecting the warfare story does not mean there has never been real conflict: Galileo was condemned, and some Christians have opposed well-established science. Nor does the historical record settle any present scientific or theological question. What it shows is that the claim \"science and Christianity have always been enemies\" is a nineteenth-century story, not a finding of history.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "brooke-science-religion",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "numbers-galileo-jail",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"Great are the works of the LORD; they are pondered by all who delight in them.\" How might studying God's world be a way of delighting in him?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 111:2"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 111:2",
+        "note": "Pondered by all who delight in them"
+      },
+      {
+        "reference": "Psalms 19:1-6",
+        "note": "The heavens declare; the sun runs its course"
+      },
+      {
+        "reference": "Proverbs 25:2",
+        "note": "The glory of kings to search it out"
+      }
+    ],
+    "related": [
+      "science",
+      "creation-views",
+      "paley-hume",
+      "fine-tuning",
+      "scripture"
+    ],
+    "keywords": [
+      "science and religion",
+      "conflict thesis",
+      "Galileo",
+      "Newton",
+      "Boyle",
+      "Darwin",
+      "Scopes trial",
+      "Draper",
+      "Andrew Dickson White",
+      "history of science"
+    ],
+    "debates": [
+      "lennox-dawkins"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new timeline article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. Twenty events dated exactly; Draper, White, Hodge, Mullins and the Baptist Faith and Message quoted from held or official texts; Numbers and Brooke described from general knowledge (not held).",
+      "date": "2026-11-28",
+      "contentHash": "1981246445bf8e9a11be46f5badac182299a69c4440b1fd25ed2568260d8af3e",
+      "basisHash": "4eab7dfd85220e00951584590666321ff543a4c75b1deed2154dc333803c613c"
+    }
+  ]
+}

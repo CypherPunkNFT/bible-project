@@ -1,0 +1,383 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "creation-views",
+  "order": 53,
+  "publication": "published",
+  "content": {
+    "title": "How old is the earth? The views Baptists hold",
+    "topic": "god",
+    "summary": "Young earth, old earth, the framework reading, evolutionary creation: each in its own words, with what Southern Baptists hold in common. The site does not choose.",
+    "format": "debate-guide",
+    "spine": "scripture-theology",
+    "answer": {
+      "id": "answer",
+      "text": "Southern Baptists confess that God is the Creator of all things and that \"man is the special creation of God, made in His own image\" (Baptist Faith and Message 2000, articles II and III). The confession does not say how old the earth is or how long the days of Genesis 1 were, and Baptists who share a high view of Scripture answer differently. The site's doctrinal foundation names the age of the earth as a question on which Baptists differ, so this article does not choose. It sets out four views in the words and texts their holders use, with the strongest reply each faces, and leaves the weighing to the reader and the church. Two cautions belong at the start. First, every view below is held by Christians who believe the Bible is God's word; the disagreement is about what Genesis 1 means, not whether it is true. Second, Baptists differ on whether the fourth view, evolutionary creation, fits the confession's \"special creation\" of man; many judge that it does not.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:1"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:27"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article III"
+        },
+        {
+          "kind": "source",
+          "source": "hagopian-genesis-debate",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "common": {
+      "id": "common",
+      "text": "What Southern Baptists across these views confess together. God created all things, visible and invisible, by his word; creation is good and depends on him at every moment; human beings are his special creation, made in his image, male and female, with full dignity; humanity fell into sin, and death and disorder are not how things were meant to be; and Scripture, which has \"truth, without any mixture of error, for its matter\", is the authority by which every view must be tested. Where they differ is on the timing and the manner of creation, and on how Genesis 1 is meant to be read.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:31"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 5:12"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 11:3"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article III"
+        }
+      ]
+    },
+    "views": [
+      {
+        "id": "young-earth",
+        "label": "Six ordinary days, a few thousand years ago",
+        "heldBy": [
+          "Answers in Genesis and the Institute for Creation Research",
+          "many Southern Baptist pastors and members"
+        ],
+        "texts": [
+          {
+            "reference": "Exodus 20:11",
+            "note": "In six days the LORD made the heavens and the earth"
+          },
+          {
+            "reference": "Genesis 1:5",
+            "note": "Evening and morning, the first day"
+          },
+          {
+            "reference": "Romans 5:12",
+            "note": "Death through sin"
+          }
+        ],
+        "case": {
+          "id": "young-earth-case",
+          "text": "Genesis 1 describes six consecutive days of ordinary length, marked by evening and morning and numbered, and the Sabbath command in Exodus grounds the week in them. The genealogies place creation thousands, not billions, of years ago. Answers in Genesis's statement of faith adds that death, including animal death, entered the world only through human sin, and that the flood was global and laid down most fossil-bearing rock; it rejects the day-age, framework and gap readings as incompatible with Scripture. On this view, no evidence from science can be valid if it contradicts the clear teaching of Scripture, because evidence is always interpreted by fallible people. Jesus himself, they note, speaks of man and woman made \"from the beginning of creation\", which fits a short time between the beginning and the first humans; and the genealogies of Genesis 5 and 11 give ages and years, not only names, which seems designed to measure time. Many young-earth Baptists also hold that the authority of Scripture is at stake: if Genesis 1 can be reinterpreted to fit the science of the day, so, they fear, can the resurrection.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "aig-statement-of-faith",
+              "locator": "Origins and History; Sin; Scripture"
+            },
+            {
+              "kind": "source",
+              "source": "hagopian-genesis-debate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 10:6"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Genesis 5:3-5"
+            }
+          ]
+        },
+        "reply": {
+          "id": "young-earth-reply",
+          "text": "Other Baptists reply that the text does not require days of twenty-four hours, since the sun is not made until the fourth day and the seventh day has no evening; that the genealogies may skip generations; and that the evidence of the earth's age from many independent methods is too strong to set aside. They also ask whether animal death before the fall contradicts Romans 5, which speaks of death passing to all men.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "hagopian-genesis-debate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "rtb-statement-of-faith",
+              "locator": "Creation"
+            }
+          ]
+        }
+      },
+      {
+        "id": "old-earth",
+        "label": "Long ages, one creation in order",
+        "heldBy": [
+          "Reasons to Believe (Hugh Ross)",
+          "Gleason Archer",
+          "many Baptist scholars"
+        ],
+        "texts": [
+          {
+            "reference": "Psalms 90:4",
+            "note": "A thousand years as a day"
+          },
+          {
+            "reference": "Genesis 2:4",
+            "note": "\"In the day\" covering the whole creation week"
+          },
+          {
+            "reference": "Psalms 19:1-4",
+            "note": "Nature declares God's glory"
+          }
+        ],
+        "case": {
+          "id": "old-earth-case",
+          "text": "The Hebrew word for day, yom, can mean a long period, as Genesis 2:4 uses it for the whole creation. The days of Genesis 1 are long ages in sequence, and the seventh day, God's rest, continues still. God's two books, nature and Scripture, cannot contradict: Reasons to Believe's statement of faith calls them \"two revelations from the same God\". So the earth's great age, read from rocks and stars, agrees with Genesis rightly understood, and God created each kind by direct acts across those ages, not by evolution. Hebrews says that God's works \"have been finished since the foundation of the world\" and that his rest remains open to enter, which the old-earth view reads as the seventh day continuing still. Those who hold it often add that the church has read Genesis non-literally before without losing the gospel: when the earth's motion was established, Christians reread Joshua 10 and Psalm 93 without doubting Scripture, and the same, they argue, can happen with the earth's age.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "rtb-statement-of-faith",
+              "locator": "Scripture; Creation"
+            },
+            {
+              "kind": "source",
+              "source": "hagopian-genesis-debate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 4:3-4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Joshua 10:12-13"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Psalms 93:1"
+            }
+          ]
+        },
+        "reply": {
+          "id": "old-earth-reply",
+          "text": "Young-earth Baptists reply that \"evening and morning\" and the numbered days point to ordinary days, and that the day-age view puts death, disease and extinction before the fall. Evolutionary creationists reply from the other side that the fossil and genetic evidence points to common descent, not separate creations across the ages.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "aig-statement-of-faith",
+              "locator": "Origins and History"
+            },
+            {
+              "kind": "source",
+              "source": "biologos-beliefs",
+              "locator": "whole page"
+            }
+          ]
+        }
+      },
+      {
+        "id": "framework",
+        "label": "A literary framework of six days",
+        "heldBy": [
+          "Meredith Kline and Lee Irons",
+          "some Reformed and Baptist theologians"
+        ],
+        "texts": [
+          {
+            "reference": "Genesis 1:1-2",
+            "note": "Formless and empty: the two problems the days solve"
+          },
+          {
+            "reference": "Genesis 2:2-3",
+            "note": "The seventh day, without evening and morning"
+          }
+        ],
+        "case": {
+          "id": "framework-case",
+          "text": "Genesis 1 arranges God's work in two matching sets of three days. Days one to three form realms (light, sky and sea, land); days four to six fill them (lights, birds and fish, animals and man). The pattern answers the problems of verse 2, \"formless and empty\", and it is a theological arrangement, like a picture, not a stopwatch. The text teaches who made the world, its order and goodness, and the Sabbath pattern; it does not teach its age. Defenders also point to Genesis 2:5, which explains the absence of plants by saying that God \"had not yet sent rain upon the earth, and there was no man to cultivate the ground\". That is an ordinary reason, assuming that God was working in the creation period through ordinary means like rain, which fits a long period better than a few days.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "hagopian-genesis-debate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Genesis 2:5"
+            }
+          ]
+        },
+        "reply": {
+          "id": "framework-reply",
+          "text": "Critics reply that Genesis 1 reads as historical narrative, not poetry, and that Exodus 20:11 treats the days as a pattern God actually followed. Some also worry that the view makes it too easy to set aside any part of Genesis that seems to conflict with science.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "hagopian-genesis-debate",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "aig-statement-of-faith",
+              "locator": "Origins and History"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evolutionary-creation",
+        "label": "God created through evolution",
+        "heldBy": [
+          "BioLogos (founded by Francis Collins)",
+          "some evangelical scientists",
+          "a minority of Baptists"
+        ],
+        "texts": [
+          {
+            "reference": "Genesis 1:11-12",
+            "note": "\"Let the earth bring forth\""
+          },
+          {
+            "reference": "Psalms 139:13",
+            "note": "God knits us together through natural processes"
+          },
+          {
+            "reference": "Colossians 1:16-17",
+            "note": "All things created and held together in Christ"
+          }
+        ],
+        "case": {
+          "id": "evolutionary-creation-case",
+          "text": "God is the Creator of everything, and he created living things through the process of evolution over billions of years, just as he forms each person through the ordinary processes of conception and growth. Genesis teaches that God made the world and humanity in his image, not the mechanism. BioLogos affirms that the Bible is the inspired and authoritative word of God and presents evolution as the best scientific account of how God has worked. E. Y. Mullins, president of the Southern Baptist Theological Seminary, treated a theistic form of evolution in 1905 as a hypothesis a Christian could consider, provided it recognised God's purpose and direct action at key points.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "biologos-beliefs",
+              "locator": "whole page"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. V, §§80–84"
+            },
+            {
+              "kind": "source",
+              "source": "hodge-darwinism",
+              "locator": "conclusion"
+            }
+          ]
+        },
+        "reply": {
+          "id": "evolutionary-creation-reply",
+          "text": "Most Southern Baptists reply that this view cannot be squared with Adam as the first man and the special creation of humanity that the confession affirms, nor with Paul's teaching that death came through one man. Charles Hodge judged in 1874 that Darwin's theory, as Darwin held it, excluded design and so was atheistic, though not every evolutionist was an atheist. Others note that BioLogos writers differ among themselves on Adam and Eve.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "bfm-2000",
+              "locator": "Article III"
+            },
+            {
+              "kind": "source",
+              "source": "hodge-darwinism",
+              "locator": "conclusion"
+            },
+            {
+              "kind": "source",
+              "source": "aig-statement-of-faith",
+              "locator": "Man"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "This article states four views fairly; it does not decide between them, and no one should read the order of the views as a ranking. Some of the questions are scientific, some exegetical, and some about how the two relate. What the site does hold, with the Baptist Faith and Message, is that God is the Creator, that man is his special creation in his image, and that no reading of Genesis may make Scripture false.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article III"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 3:16"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Whatever you think about the days, Genesis 1 ends, \"God looked upon all that He had made, and indeed, it was very good.\" How does that verdict shape the way you look at the world around you?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:31"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Genesis 1:1-2:3",
+        "note": "The account of creation"
+      },
+      {
+        "reference": "Exodus 20:8-11",
+        "note": "The Sabbath and the six days"
+      },
+      {
+        "reference": "Psalms 104:1-30",
+        "note": "Creation sung"
+      }
+    ],
+    "related": [
+      "science",
+      "science-faith-history",
+      "paley-hume",
+      "scripture",
+      "arguments-map"
+    ],
+    "keywords": [
+      "age of the earth",
+      "young earth",
+      "old earth",
+      "day-age",
+      "framework view",
+      "evolutionary creation",
+      "days of Genesis",
+      "special creation",
+      "Baptist Faith and Message article III"
+    ],
+    "debates": [
+      "lennox-dawkins"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new debate-guide article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. Must-not-choose check: four views, each in its holders' terms with its strongest reply, ordered without ranking; the Answers in Genesis and Reasons to Believe statements were re-read online on 2026-11-27 and match what is said of them; the BioLogos page refused automated access and Hagopian's book is not held, so both are described from general knowledge, as their source records say. Baptist Faith and Message articles I, II, III and XII re-checked at bfm.sbc.net.",
+      "date": "2026-11-28",
+      "contentHash": "83933c845b8d3dc22382224d766e1dcb6e01a702867550b47612c03c8b060c94",
+      "basisHash": "e08bd0c557a4dbdcf469e5a90b07ebf5b0e7e975b0a76ce254bf3d1b8824e434"
+    }
+  ]
+}

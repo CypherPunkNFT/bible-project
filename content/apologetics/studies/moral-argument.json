@@ -1,0 +1,617 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "moral-argument",
+  "order": 57,
+  "publication": "published",
+  "content": {
+    "title": "Does morality need God?",
+    "topic": "god",
+    "summary": "The moral argument from Kant and Sorley to today, with two Baptist witnesses, the strongest secular reply and the evolutionary challenge, each stated fairly.",
+    "format": "essay",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Not in the sense that unbelievers cannot be good: Scripture says the law is written on every heart. The moral argument asks a deeper question: what makes anything truly good or right? Its defenders argue that objective moral value and obligation are best explained by a holy, personal God; its critics argue that moral truths can stand on their own, or that evolution explains our moral sense. This essay sets out the argument's history from Kant and Sorley, the Baptist witnesses Mullins and Fuller, its present forms, and the strongest replies, and judges that the argument, while not a proof, is a strong strand in the case for God.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 2:14-15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Psalms 119:68"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §96, pp. 85–86"
+        },
+        {
+          "kind": "source",
+          "source": "sorley-moral-values",
+          "locator": "ch. XIII, pp. 351–352"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "question",
+        "title": "What the moral argument asks",
+        "blocks": [
+          {
+            "id": "question-1",
+            "text": "The moral argument is often heard as an insult: \"Without God you cannot be good.\" That is not the argument, and Christians who put it that way are not being faithful to Scripture. Paul says that Gentiles who never had the law \"do by nature what the law requires\", showing \"the work of the law is written on their hearts\". People who do not believe in God keep promises, tell the truth and lay down their lives for others. The site's article \"Can we be good without believing in God?\" begins there, and so does this one.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 2:14-15"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 6:32-33"
+              }
+            ]
+          },
+          {
+            "id": "question-2",
+            "text": "The moral argument asks a different question: not whether people can know and do good without believing in God, but what makes anything good or right in the first place. When we say that torturing a child for fun is wrong, we do not seem to be reporting a feeling, a custom or a law passed by a parliament. We seem to be saying something true, which would stay true if every human being came to approve of it. And when we say we ought to keep a promise even at a cost, we seem to be speaking of a real claim upon us, not a suggestion. The moral argument asks what kind of world contains truths like these.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 5:20"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Micah 6:8"
+              }
+            ]
+          },
+          {
+            "id": "question-3",
+            "text": "Philosophers separate two things here. Moral value is about what is good or bad: the worth of a person, the evil of cruelty. Moral obligation is about what we must or must not do: the duty to tell the truth, the wrongness of murder. Some forms of the argument start from value, some from obligation, and some from our knowledge of both. All of them claim that God is the best explanation of what we find, and all of them have serious critics, who are heard at length below.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 7:12"
+              },
+              {
+                "kind": "source",
+                "source": "baggett-walls-good-god",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Romans 2:14-16",
+            "note": "The law written on the heart"
+          },
+          {
+            "reference": "Micah 6:8",
+            "note": "He has shown you what is good"
+          }
+        ]
+      },
+      {
+        "id": "kant",
+        "title": "Kant: the moral law points beyond itself",
+        "blocks": [
+          {
+            "id": "kant-1",
+            "text": "Immanuel Kant, the eighteenth-century German philosopher, famously denied that the old proofs of God could succeed as pure reasoning. Yet in his Critique of Practical Reason (1788) he argued that morality itself leads us to God. The moral law commands us to pursue the highest good, which Kant called the summum bonum: perfect virtue joined with happiness in proportion to it. We are not the cause of nature and cannot make the world reward goodness. Yet we ought to pursue the highest good, and what we ought to do must be possible.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "kant-practical-reason",
+                "locator": "Book II, chapter II, section V"
+              }
+            ]
+          },
+          {
+            "id": "kant-2",
+            "text": "So, Kant reasoned, there must be \"a cause of all nature, distinct from nature itself\", able to bring happiness and virtue together, and such a being, acting by intelligence and will, is God. His conclusion, in T. K. Abbott's 1873 translation: \"it is morally necessary to assume the existence of God.\" Kant called this a postulate of practical reason and \"a pure rational faith\", not a theoretical proof.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "kant-practical-reason",
+                "locator": "Book II, chapter II, section V"
+              }
+            ]
+          },
+          {
+            "id": "kant-3",
+            "text": "Honesty requires one more sentence from the same passage. Kant did not think God was the source of moral obligation: \"it is not meant by this that it is necessary to suppose the existence of God as a basis of all obligation in general (for this rests, as has been sufficiently proved, simply on the autonomy of reason itself)\". For Kant, reason gives the moral law; God is needed for the moral world to make sense. Later moral arguments went further, but Kant's point remains striking: the demands of morality seem to assume that the universe is, in the end, on the side of goodness. Scripture shares that hope. Abraham asks, \"Will not the Judge of all the earth do what is right?\", and John sees the day when God \"will wipe away every tear\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "kant-practical-reason",
+                "locator": "Book II, chapter II, section V"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 18:25"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Revelation 21:4"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Genesis 18:25",
+            "note": "The Judge of all the earth"
+          },
+          {
+            "reference": "Revelation 21:3-5",
+            "note": "Every tear wiped away"
+          }
+        ]
+      },
+      {
+        "id": "sorley",
+        "title": "Sorley and Rashdall: an ideal needs a mind",
+        "blocks": [
+          {
+            "id": "sorley-1",
+            "text": "In his Gifford Lectures of 1914–15, published as Moral Values and the Idea of God (1918), the Cambridge philosopher W. R. Sorley gave the argument its classic modern form. He chose to state it in the words of the Oxford moralist Hastings Rashdall, from The Theory of Good and Evil (1907): \"An absolute Moral Law or moral ideal cannot exist in material things. And it does not exist in the mind of this or that individual.\" Only if there is \"a Mind for which the true moral ideal is already in some sense real\" can we \"rationally think of the moral ideal as no less real than the world itself\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 351–352"
+              }
+            ]
+          },
+          {
+            "id": "sorley-2",
+            "text": "Rashdall concluded: \"A moral ideal can exist nowhere and nohow but in a mind; an absolute moral ideal can exist only in a Mind from which all Reality is derived.\" Notice the care in his claim. He did not say that belief in God is needed for there to be any morality at all; he said that belief in God is \"the logical presupposition of an 'objective' or absolute Morality\". The argument is not that atheists cannot be moral. It is that a moral standard binding on everyone, whatever they think, needs a home, and the only fitting home is an eternal mind.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 351–352"
+              }
+            ]
+          },
+          {
+            "id": "sorley-3",
+            "text": "Sorley saw this as the last stage of a long climb. The bare existence of the world points to God as First Cause; its order points to God as Lawgiver; the eternal truths of logic and mathematics point to God as the God of Truth; and moral values, whose validity \"does not depend upon their recognition\", point to God whose \"nature be goodness\". He was candid that the moral step is weaker than the others in one way, because it is easier to deny that morality is objective than to deny that mathematics is. But granted that premise, he argued, it is stronger in another: natural laws are embodied in the things they govern, while the moral ideal is not fully embodied anywhere in the world. We acknowledge it even when we fail it, and we admit it was valid before we recognised it. Where, then, is it?",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 351–352"
+              },
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 353–355"
+              }
+            ]
+          },
+          {
+            "id": "sorley-4",
+            "text": "Sorley also faced the obvious reply: perhaps moral truths are simply valid, without existing anywhere. He granted that validity and existence are different ideas, but answered that the moral ideal is valid for persons, and that a validity no one has ever fully grasped or lived, yet which binds every person, is hard to understand unless it is held in a mind greater than ours. Scripture puts the same thought more simply: \"You are good, and You do what is good.\"",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 353–355"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 119:68"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 119:68",
+            "note": "You are good, and You do what is good"
+          },
+          {
+            "reference": "Psalms 19:7-9",
+            "note": "The law of the LORD is perfect"
+          }
+        ]
+      },
+      {
+        "id": "baptists",
+        "title": "Two Baptist witnesses",
+        "blocks": [
+          {
+            "id": "baptists-1",
+            "text": "E. Y. Mullins, president of the Southern Baptist Theological Seminary, set out the moral proof in 1905 in Why Is Christianity True? He began from conscience: \"Conscience is an ultimate fact of human experience.\" It recognises the distinction between right and wrong, bases that distinction on moral law, and out of it arises the sense of responsibility. That responsibility, Mullins argued, \"has reference not to nature or man but to a rightful Lawgiver, above conscience\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §96, pp. 85–86"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 2:15"
+              }
+            ]
+          },
+          {
+            "id": "baptists-2",
+            "text": "Mullins pressed the point that conscience cannot simply be argued away. \"The intellect cannot theorize away its judgments\"; the feelings cannot control it; even the will, which governs feelings and intellect, \"cannot destroy or silence the voice of conscience\". He noted that \"by many this is regarded as the strongest of all the theistic arguments\", and he placed it alongside the arguments from causation, mind and design, as one line of a cumulative case. In each, he wrote, the theist explains the lowest in terms of the highest: \"All that has been evolved was involved.\"",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §96, pp. 85–86"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §97, pp. 86–87"
+              }
+            ]
+          },
+          {
+            "id": "baptists-3",
+            "text": "A century earlier the English Baptist Andrew Fuller, defending the gospel against the deists in The Gospel Its Own Witness (1799), drew attention to the character of Christian morality itself. \"It is a distinguishing property of the Bible,\" he wrote, \"that all its precepts aim directly at the heart\"; \"if you comply with its precepts, you must be, and not merely seem to be.\" The whole of it is summed up in love to God and neighbour, and \"this single principle is competent to the government of all intelligent nature\". Fuller's point is a companion to the moral argument: the morality that best fits our deepest sense of what is right is one rooted in a holy, loving God.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "fuller-own-witness",
+                "locator": "Part I, chapter III, pp. 24–26"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 22:37-40"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Samuel 16:7"
+              }
+            ]
+          },
+          {
+            "id": "baptists-4",
+            "text": "Southern Baptists confess God as \"infinite in holiness and all other perfections\" and every person as made in his image. That is the doctrinal home of the moral argument: goodness is not a rule outside God that he obeys, but his own character, and human worth is not a social convention but a gift from the Creator.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article II"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article III"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Leviticus 19:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 9:6"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Matthew 22:37-40",
+            "note": "The two great commandments"
+          },
+          {
+            "reference": "Leviticus 19:2",
+            "note": "Be holy, for I am holy"
+          }
+        ]
+      },
+      {
+        "id": "today",
+        "title": "The argument today",
+        "blocks": [
+          {
+            "id": "today-1",
+            "text": "In recent decades the moral argument has been restated with new precision. William Lane Craig uses a short form in public debates, including his 2009 debate with Christopher Hitchens: if God does not exist, objective moral values and duties do not exist; objective moral values and duties do exist; therefore God exists. Its strength is its simplicity, and most of the debate turns on the first premise.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "craig-hitchens",
+                "locator": "whole transcript"
+              }
+            ]
+          },
+          {
+            "id": "today-2",
+            "text": "The philosopher Robert Adams, in Finite and Infinite Goods (1999), offered a more detailed theory. He separates the good from the right. God himself is the Good, and finite things are excellent in so far as they resemble him, as a portrait is good by faithfully resembling its subject. Moral obligation, the right, is constituted by the commands of a loving God, in the way that obligations generally arise within relationships between persons. Because the God who commands is perfectly good, his commands are not arbitrary.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "adams-finite-infinite",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 145:9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 John 4:8"
+              }
+            ]
+          },
+          {
+            "id": "today-3",
+            "text": "David Baggett and Jerry Walls, in Good God (2011), defend the argument as an inference to the best explanation, in the spirit of Sorley. They list the moral facts to be explained: the authority of moral obligation, the intrinsic value and dignity of persons, our ability to know moral truths, and the rational hope that goodness and happiness will finally meet, which was Kant's concern. They argue that a perfectly good God explains all of these together better than any secular rival, and they answer the Euthyphro dilemma in the way the site's article on it describes: goodness rests in God's nature, and his commands express it.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "baggett-walls-good-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Hebrews 6:18"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 John 4:7-12",
+            "note": "God is love"
+          },
+          {
+            "reference": "Psalms 145:8-9",
+            "note": "The LORD is good to all"
+          }
+        ]
+      },
+      {
+        "id": "realism",
+        "title": "The strongest reply: goodness without God",
+        "blocks": [
+          {
+            "id": "realism-1",
+            "text": "The most serious answer to the moral argument does not deny that morality is objective. It agrees, and holds that objective morality needs no God. The philosopher Erik Wielenberg, an atheist, defends this view in Robust Ethics (2014). On his account the most basic moral truths, such as that pain is bad or that it is wrong to torture for fun, are necessary truths, like the truths of mathematics. They could not have been otherwise, and they have no foundation outside themselves. Asking what grounds them is like asking what grounds the truth that two plus two equals four.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "wielenberg-robust-ethics",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "realism-2",
+            "text": "Wielenberg adds that theists are in no better position. They too must stop somewhere: with God's nature, which they take to be good without further explanation. If the theist may stop at God, why may the atheist not stop at moral facts? He also argues that we can know these facts because evolution and reasoning produced faculties that track them, with a common factor explaining both our beliefs and their truth.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "wielenberg-robust-ethics",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "realism-3",
+            "text": "Theists reply in three ways. First, every account must stop somewhere, but not every stopping point is equally fitting: a personal God, who knows and wills and loves, is the kind of thing that can command, be wronged and hold us responsible, while abstract moral facts cannot. Obligation seems to be owed to someone. Second, it is a striking coincidence, on Wielenberg's view, that a universe with no purpose produced creatures able to grasp necessary moral truths that have no effect on anything. Third, the theist's stopping point explains more: the same God accounts for the existence of the world, its order, minds and morality, while the atheist needs a separate unexplained starting point for each. This is a real debate between serious thinkers, and readers should weigh it for themselves.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "baggett-walls-good-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 94:9-10"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §97, pp. 86–87"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 94:8-11",
+            "note": "He who teaches man knowledge"
+          },
+          {
+            "reference": "Romans 1:32",
+            "note": "They know God's righteous decree"
+          }
+        ]
+      },
+      {
+        "id": "debunking",
+        "title": "Did evolution make us moral?",
+        "blocks": [
+          {
+            "id": "debunking-1",
+            "text": "A different challenge comes from the philosopher Sharon Street, in a much-discussed paper, \"A Darwinian Dilemma for Realist Theories of Value\" (2006). Her target is not theism as such but any view that moral truths exist independently of us. Our moral attitudes, she argues, have been deeply shaped by natural selection: we care for our children, return favours and punish cheats because ancestors who did so left more descendants. Now the realist faces a dilemma. Either there is no connection between these evolutionary pressures and the independent moral truths, in which case it would be an astonishing accident if our values matched the truth; or there is a connection, because tracking the truth helped survival, but that is a worse scientific explanation than simply saying these attitudes helped survival. Street concludes that values are not independent of us at all.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "street-darwinian-dilemma",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "debunking-2",
+            "text": "Notice who is most troubled by this. Street's dilemma bites hardest on the atheist moral realist, such as Wielenberg, who must explain why blind processes landed on the truth. The theist has an answer that is not available to him: God, who is good and wills that his creatures know the good, can shape human nature, through evolution or otherwise, so that our moral sense is broadly reliable, and he has also spoken in conscience and Scripture. So the theist can accept that evolution played a part without concluding that our moral beliefs are an accident.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "baggett-walls-good-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Jeremiah 31:33"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 2:15"
+              }
+            ]
+          },
+          {
+            "id": "debunking-3",
+            "text": "Street's own conclusion is also worth weighing. If our values are not tracking any truth independent of us, then the judgement that cruelty for fun is wrong is, in the end, a fact about our attitudes. Many readers, believers and not, find that conclusion harder to accept than the existence of objective moral truth. The moral argument asks them to take that resistance seriously, and to ask what best explains it.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "street-darwinian-dilemma",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 5:20"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Jeremiah 31:31-34",
+            "note": "The law written on the heart"
+          },
+          {
+            "reference": "Psalms 19:7-11",
+            "note": "More desirable than gold"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": "What the argument can and cannot do",
+        "blocks": [
+          {
+            "id": "limits-1",
+            "text": "The moral argument, even at its strongest, reaches a personal, perfectly good source of moral value and obligation. It does not by itself establish the Trinity, the incarnation or the gospel, and it is best held as one strand in a cumulative case, as Mullins held it. Nor does it settle every ethical question: knowing that goodness is grounded in God does not tell us, without further thought and Scripture, what goodness requires in a hard case.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. I, §22"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §96, pp. 85–86"
+              }
+            ]
+          },
+          {
+            "id": "limits-2",
+            "text": "There is also a turn the argument makes toward the reader. If the moral law is real and rooted in a holy God, then our failures are not only mistakes but sins against him, and conscience accuses us all. Paul says that \"the law merely brings awareness of sin\". The moral argument cannot rescue anyone from that verdict; it can only show why it matters. The answer is not a better argument but the righteousness of God given through faith in Jesus Christ, who kept the law we broke and bore the judgement we deserved. Love, Paul writes, \"is the fulfillment of the law\", and the gospel is the news that the God whose goodness grounds morality is the same God who loved us first.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 3:20"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 3:21-26"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 13:10"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article IV"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Romans 3:19-26",
+            "note": "The law brings awareness of sin; righteousness through faith"
+          },
+          {
+            "reference": "Romans 13:8-10",
+            "note": "Love fulfils the law"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "The argument depends on the premise that morality is objective, which some deny; and it reaches a good God, not the whole of Christian faith. The site judges it a strong argument, not a demonstration, and states the secular replies in their holders' terms. In-copyright works are described in our own words.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. I, §22"
+        },
+        {
+          "kind": "source",
+          "source": "wielenberg-robust-ethics",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Romans 2:14-16",
+        "note": "The law written on the heart"
+      },
+      {
+        "reference": "Micah 6:8",
+        "note": "What is good"
+      },
+      {
+        "reference": "Romans 3:19-26",
+        "note": "Righteousness through faith"
+      }
+    ],
+    "related": [
+      "morality",
+      "euthyphro",
+      "arguments-map",
+      "secular",
+      "argument-from-reason",
+      "god-reality-glossary"
+    ],
+    "keywords": [
+      "moral argument",
+      "objective morality",
+      "moral obligation",
+      "Kant",
+      "Sorley",
+      "Rashdall",
+      "Robert Adams",
+      "Wielenberg",
+      "Sharon Street",
+      "evolutionary debunking",
+      "conscience",
+      "Mullins"
+    ],
+    "debates": [
+      "craig-hitchens"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new essay article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. Kant quoted from Abbott's 1873 translation (Book II, ch. II, §V, including his statement that obligation rests on autonomy, not God); Sorley and Rashdall from the held 1918 text, pp. 351–355; Mullins §§96–97 and Fuller Part I ch. III from held texts. Adams, Baggett and Walls, Wielenberg and Street are described, not quoted; the secular replies are stated in their holders' terms.",
+      "date": "2026-11-28",
+      "contentHash": "92aa12f569e89ac7b5f3a22da4d0ba747f13c96bfa02e682ac37ad7349438dc7",
+      "basisHash": "33635d1fdf6a31505aa372236dabc410bd27f685d5d8fa9e5070593695598ab5"
+    }
+  ]
+}

@@ -86,7 +86,7 @@
     "sections": [
       {
         "id": "section-1",
-        "text": "Aquinas's arguments from causation and dependence are useful historical contributions. We use Summa I, question 2, article 3 on that specific point, alongside Protestant exposition. This does not adopt his entire theology or settle the doctrines of salvation.",
+        "text": "Aquinas's arguments from causation and dependence are useful historical contributions. We use Summa I, question 2, article 3 on that specific point, alongside Protestant exposition. This does not adopt his entire theology or settle the doctrines of salvation. Aquinas's Second Way argues from causes ordered here and now, each depending on a higher one for its causing; it is not the same as the kalam argument, which reasons that the universe had a beginning in time. Aquinas himself held that the world's beginning cannot be demonstrated and is known by faith from Scripture.",
         "citations": [
           {
             "kind": "source",
@@ -97,6 +97,11 @@
             "kind": "source",
             "source": "sproul-aseity",
             "locator": "whole page"
+          },
+          {
+            "kind": "source",
+            "source": "aquinas-summa-part1",
+            "locator": "I, q.46, a.2"
           }
         ],
         "title": "A Catholic contribution, with a defined scope"
@@ -111,6 +116,112 @@
           }
         ],
         "title": "The Creator is known through his works"
+      },
+      {
+        "id": "three-forms",
+        "text": "The question has been pressed in three main ways. The contingency argument, made famous by Gottfried Leibniz, asks why there is any world at all, since nothing we observe has to exist: \"Why does something exist rather than nothing?\" The kalam argument, developed by medieval Islamic thinkers and revived by William Lane Craig, asks what caused the universe to begin. The Thomist argument, from Thomas Aquinas, asks what holds things in existence at every moment, since each depends on something else for what it is now. All three end at a being that depends on nothing. Each has its own article in this field, with the strongest objections answered.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 11:3"
+          },
+          {
+            "kind": "source",
+            "source": "leibniz-monadology",
+            "locator": "Principles of Nature and Grace §7, p. 415"
+          },
+          {
+            "kind": "source",
+            "source": "craig-kalam",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "aquinas-summa-part1",
+            "locator": "I, q.2, a.3"
+          }
+        ],
+        "title": "Three forms of the argument"
+      },
+      {
+        "id": "meaning-of-nothing",
+        "text": "In the argument, nothing means no thing at all: no space, no time, no energy, no laws of physics. Some popular books use the word for something else, such as the quantum vacuum, a sea of fluctuating fields governed by physical law. That is a remarkable something, but it is not nothing, and showing that universes might arise from it moves the question back a step: why is there a vacuum with those laws? When the cosmologist Lawrence Krauss debated Craig in 2011, much of their disagreement turned on exactly this word.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:3"
+          },
+          {
+            "kind": "source",
+            "source": "craig-krauss",
+            "locator": "whole transcript"
+          }
+        ],
+        "title": "What \"nothing\" means"
+      },
+      {
+        "id": "brute-fact",
+        "text": "The serious alternative is that the universe simply exists, with no explanation: a brute fact. David Hume gave the case its classic form in 1779. In his Dialogues one speaker argues that once each member of a chain has been explained by the one before it, asking for the cause of the whole is like asking for the cause of a collection of twenty particles after each has been explained; the \"whole\" is only an arbitrary act of the mind. Defenders of the argument reply that a chain of dependent things, however long, is still dependent, and that a world which might not have existed is just the kind of thing that calls for a reason. The disagreement is real and is set out in the contingency argument's article.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "hume-dialogues",
+            "locator": "Part IX"
+          },
+          {
+            "kind": "source",
+            "source": "leibniz-monadology",
+            "locator": "On the Ultimate Origination of Things, pp. 337–338"
+          },
+          {
+            "kind": "source",
+            "source": "oppy-arguing-gods",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "pruss-psr",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The main alternative: a brute fact"
+      },
+      {
+        "id": "to-scripture",
+        "text": "An argument of this kind, if it works, reaches a being that exists of itself, on whom everything else depends. That is far less than Christians believe about God, but it is not nothing: it fits what Scripture says of the Creator who was before all things, who made the world by his word, and in whom all things hold together. E. Y. Mullins, the Southern Baptist theologian, put the limit well in 1905: once we conclude that God is personal, the mind asks whether he cares for us and has spoken, and \"the mind refuses to rest in bare theism\". Christians answer that he has spoken, finally in his Son.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:16-17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:1-3"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. VI, §99, p. 90"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "title": "From a first cause to the God of Scripture"
       }
     ],
     "objection": "Then who created God?",
@@ -167,20 +278,131 @@
       {
         "reference": "Romans 1:18-23",
         "note": "Creation reveals God"
+      },
+      {
+        "reference": "Genesis 1:1",
+        "note": "In the beginning God created"
+      },
+      {
+        "reference": "Hebrews 11:3",
+        "note": "Made by God's command, not from what is seen"
       }
     ],
     "related": [
       "science",
       "morality",
       "god",
-      "miracles"
+      "miracles",
+      "contingency-argument",
+      "kalam-argument",
+      "five-ways",
+      "arguments-map"
     ],
     "keywords": [
       "cosmological",
       "first cause",
       "contingency",
       "creation",
-      "atheism"
+      "atheism",
+      "Leibniz",
+      "principle of sufficient reason",
+      "kalam",
+      "Aquinas",
+      "brute fact",
+      "nothing"
+    ],
+    "format": "short-answer",
+    "spine": "academic",
+    "objections": [
+      {
+        "id": "universe-necessary",
+        "heldBy": [
+          "Cleanthes in Hume's Dialogues (1779)",
+          "many naturalist philosophers since"
+        ],
+        "objection": "Why may not the material universe itself be the necessary being? We do not know all the qualities of matter; perhaps something in it, if we knew it, would make its non-existence impossible.",
+        "reply": {
+          "id": "universe-necessary-reply",
+          "text": "Everything we know about the universe points the other way: its matter changes, its stars burn out, its particles come into and go out of existence, and modern cosmology describes it as having a history. A necessary being cannot fail to exist and cannot be otherwise than it is. Nothing in physics is like that. A mind that exists of itself, unchanging and depending on nothing, is a far better candidate, which is what Scripture says the Creator is.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 102:25-27"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Malachi 3:6"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part IX"
+            },
+            {
+              "kind": "source",
+              "source": "clarke-demonstration",
+              "locator": "Propositions I–III"
+            }
+          ]
+        }
+      },
+      {
+        "id": "quantum-nothing",
+        "heldBy": [
+          "Lawrence Krauss, in his 2011 debate with William Lane Craig"
+        ],
+        "objection": "Physics now shows how a universe can come from nothing: quantum events happen without causes, and empty space produces particles all the time.",
+        "reply": {
+          "id": "quantum-nothing-reply",
+          "text": "Quantum events happen within a physical system governed by laws; empty space in physics has energy and structure. A universe arising from such a state is a universe arising from something. And whether quantum events are truly uncaused or only unpredictable is itself debated among physicists. Neither point touches the question of why there is any physical reality at all.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 11:3"
+            },
+            {
+              "kind": "source",
+              "source": "craig-krauss",
+              "locator": "whole transcript"
+            },
+            {
+              "kind": "source",
+              "source": "bgv-2003",
+              "locator": "whole article"
+            }
+          ]
+        }
+      },
+      {
+        "id": "eternal-chain",
+        "heldBy": [
+          "Cleanthes in Hume's Dialogues (1779)"
+        ],
+        "objection": "If the world is an eternal succession, each state caused by the one before it, then everything has a cause and nothing is left over. It is absurd to ask for a first author of something that never began.",
+        "reply": {
+          "id": "eternal-chain-reply",
+          "text": "The contingency argument does not need the world to have begun. Grant an endless chain: each link is still explained only by another link that might not have existed, and the whole chain might not have existed either. Leibniz's illustration was a geometry book copied from an earlier copy, back for ever: every copy is explained by the one before, yet we still have no reason why there is such a book at all. An endless series of borrowings is not a fortune.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 90:2"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part IX"
+            },
+            {
+              "kind": "source",
+              "source": "leibniz-monadology",
+              "locator": "On the Ultimate Origination of Things, pp. 337–338"
+            }
+          ]
+        }
+      }
+    ],
+    "debates": [
+      "craig-krauss"
     ]
   },
   "reviews": [
@@ -219,6 +441,15 @@
       "date": "2026-11-28",
       "contentHash": "cf0845ffb1199e4cddbdf2b981bd337bd18f1373ba3e9534a0c347c11f96e573",
       "basisHash": "d0839b75df59ed40c4a09c45cf4a8dbd9bca3c780f1aef6564254313294395f0"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality) 8.1: article deepened; nothing removed or shortened (only additions), plus related links added both ways. Checked the added text against the Berean Standard Bible, the held public-domain texts and the Baptist Faith and Message 2000.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "d067445e1a619935f4a35b9e3265592f796ba04f62cd6dc3c1d4928428f51349",
+      "basisHash": "84d1c7b67145b82f138afd1e649222d0f62aebe99a97106e5e4ef86aa592f8c0"
     }
   ]
 }

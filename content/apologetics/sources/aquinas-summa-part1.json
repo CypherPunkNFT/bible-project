@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "aquinas-summa-part1",
+  "order": 342,
+  "publication": "published",
+  "content": {
+    "title": "Summa Theologica, Part I (Prima Pars)",
+    "author": "Thomas Aquinas · translated by the Fathers of the English Dominican Province",
+    "kind": "Theological treatise",
+    "url": "https://www.gutenberg.org/ebooks/17611",
+    "role": "Catholic contribution · limited scope",
+    "note": "The whole First Part, for the Five Ways (I, q.2, a.3) and Aquinas's ruling that the world's beginning is held by faith, not demonstrated (I, q.46, a.2). Aquinas wrote before the Reformation and taught Roman Catholic doctrine; cited for these arguments, not for his whole theology. Public domain: may be quoted, with the translators named and an exact locator. The narrower record aquinas (question 2 only, read online) stays for the studies that cite it.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #17611; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): I, q.2, a.3 read in full (both objections, the body and both replies) and I, q.46, a.2 (the body) read, for five-ways, why-anything and kalam-argument.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+      "basis": "The English Dominican translation of the Prima Pars, second and revised edition, London: Burns Oates & Washbourne, 1920; the held electronic text (Project Gutenberg 17611, first set for the Christian Classics Ethereal Library) carries that translation, reprinted by Benziger Brothers. Published before 1931: public domain in the US. Its principal translator, Laurence Shapcote, died in 1947: public domain worldwide (life + 70)."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "a0572d9bc36f88f3861f286f32e278c414c7c8273c34350e6423ad21c0815a31",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "kalam-argument",
+  "order": 44,
+  "publication": "published",
+  "content": {
+    "title": "The kalam argument and the beginning of the universe",
+    "topic": "god",
+    "summary": "Whatever begins to exist has a cause; the universe began to exist. The argument from al-Ghazali to William Lane Craig, the Big Bang, and six objections.",
+    "format": "objections",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "The kalam argument takes its name from the Arabic word for theological debate. Muslim thinkers such as al-Kindi and al-Ghazali developed it in the ninth to eleventh centuries, Christian thinkers such as Bonaventure used it, and William Lane Craig revived it in 1979. It runs in three steps: whatever begins to exist has a cause; the universe began to exist; therefore the universe has a cause. Its defenders argue the second step two ways. Philosophically, an actually infinite series of past events could never have been completed, so the past must be finite. Scientifically, Big Bang cosmology describes a universe expanding from an early hot, dense state, and in 2003 Arvind Borde, Alan Guth and Alexander Vilenkin showed that any universe which, on average, has been expanding cannot be extended infinitely into the past. Craig then argues that the cause must be beyond space and time, immensely powerful, and personal, since only a free choice explains how a timeless cause could produce an effect that begins. Not every Christian thinks the second step can be proved: Thomas Aquinas held that the world's beginning is known by faith, not demonstration. The objections follow.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:1"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 11:3"
+        },
+        {
+          "kind": "source",
+          "source": "craig-kalam",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "bgv-2003",
+          "locator": "abstract"
+        },
+        {
+          "kind": "source",
+          "source": "aquinas-summa-part1",
+          "locator": "I, q.46, a.2"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "who-made-god",
+        "heldBy": [
+          "Richard Dawkins and many popular critics"
+        ],
+        "objection": "If everything needs a cause, what caused God? The argument just moves the problem back a step.",
+        "reply": {
+          "id": "who-made-god-reply",
+          "text": "The first premise is not that everything has a cause, but that whatever begins to exist has one. God, on the Christian view, did not begin: he is from everlasting to everlasting. The objection would land only if the argument said God began to exist, and it says the opposite. A critic may still doubt that anything is eternal, but then the question becomes whether the universe or God is the better candidate for being without beginning, and the second premise is the argument that the universe is not.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 90:2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Revelation 22:13"
+            },
+            {
+              "kind": "source",
+              "source": "craig-kalam",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "lennox-dawkins",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      },
+      {
+        "id": "quantum-uncaused",
+        "heldBy": [
+          "Lawrence Krauss, in his 2011 debate with William Lane Craig",
+          "other physicists and philosophers"
+        ],
+        "objection": "In quantum physics, particles appear without causes, so the first premise is false. A whole universe might likewise begin uncaused, as a quantum event.",
+        "reply": {
+          "id": "quantum-uncaused-reply",
+          "text": "Quantum events occur within a quantum vacuum, a physical state with energy and laws. They have conditions, even if they are not deterministic, and whether they are truly uncaused or only unpredictable depends on which interpretation of quantum mechanics is right, a question physicists still dispute. None of this shows that something can begin to exist from no physical state at all. A universe from \"nothing\" in the physicist's sense is a universe from something.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "craig-krauss",
+              "locator": "whole transcript"
+            },
+            {
+              "kind": "source",
+              "source": "craig-kalam",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "infinite-past",
+        "heldBy": [
+          "J. L. Mackie (The Miracle of Theism, 1982)",
+          "Graham Oppy"
+        ],
+        "objection": "There is nothing incoherent about an infinite past. Mathematicians handle infinite sets every day, and at any past moment only a finite stretch remained to the present. The philosophical case for a beginning fails.",
+        "reply": {
+          "id": "infinite-past-reply",
+          "text": "Here defenders and critics are genuinely divided, and the question is hard. Defenders reply that infinite sets in mathematics are abstract, while past events are real; that \"Hilbert's hotel\", a full hotel with infinitely many rooms that can still take infinitely many new guests, shows the oddity of actual infinites in the real world; and that an endless past would mean an infinite series of real events had been completed one after another, which they judge impossible. Critics answer that oddity is not contradiction. Readers should see that this premise is debated by serious philosophers on both sides.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 46:9-10"
+            },
+            {
+              "kind": "source",
+              "source": "mackie-miracle-theism",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "oppy-arguing-gods",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "craig-kalam",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "bgv-not-beginning",
+        "heldBy": [
+          "some cosmologists, including Sean Carroll",
+          "Alexander Vilenkin's own caution about theology"
+        ],
+        "objection": "The Borde–Guth–Vilenkin result only says that classical spacetime cannot be extended into the past under certain conditions. A quantum theory of gravity might describe a state before that boundary, eternal and without beginning. Physics has not shown that the universe began.",
+        "reply": {
+          "id": "bgv-not-beginning-reply",
+          "text": "This is a fair warning against claiming too much. The theorem's own conclusion is that inflationary models \"require physics other than inflation\" at their past boundary; it does not say what that physics is, and its authors draw no theological conclusion. What it does do is close off the simplest picture of an eternally expanding universe. Proposed eternal models each face their own problems, and none is established. The honest summary is that current cosmology fits a beginning well and has not ruled one out, which is enough for the argument to be serious, though not settled.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 102:25-26"
+            },
+            {
+              "kind": "source",
+              "source": "bgv-2003",
+              "locator": "abstract"
+            },
+            {
+              "kind": "source",
+              "source": "barnes-lewis-fortunate",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cause-not-personal",
+        "heldBy": [
+          "J. L. Mackie",
+          "Graham Oppy"
+        ],
+        "objection": "Even granting a cause of the universe, nothing shows it is a person. It might be an impersonal physical state or law.",
+        "reply": {
+          "id": "cause-not-personal-reply",
+          "text": "Craig's reply is that the cause must be timeless and changeless \"before\" the universe, since time begins with it. An impersonal cause that is timeless and sufficient would produce its effect from eternity, so the effect would be eternal too. The only kind of cause we know that can be changeless and yet bring about a new effect is a free agent who chooses to act. Critics doubt that this reasoning about timeless causes is secure; the step from a cause to a personal Creator is where the argument is most contested after its second premise.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 44:24"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Revelation 4:11"
+            },
+            {
+              "kind": "source",
+              "source": "craig-kalam",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "mackie-miracle-theism",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "causation-in-time",
+        "heldBy": [
+          "critics including Adolf Grünbaum and Quentin Smith"
+        ],
+        "objection": "Causes come before their effects in time. If time began with the universe, there was no \"before\" in which a cause could act, so the idea of a cause of the beginning of time makes no sense.",
+        "reply": {
+          "id": "causation-in-time-reply",
+          "text": "Defenders answer that causes can be simultaneous with their effects, as a heavy ball resting on a cushion causes the dent while it rests there, so a cause need not precede its effect in time. A Creator whose act of creating coincides with the first moment of time is then coherent. Scripture's language fits this: God speaks, and it is so. The objection forces the defender to say clearly what \"cause\" means here, which is a gain for everyone in the debate.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 33:6-9"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 11:3"
+            },
+            {
+              "kind": "source",
+              "source": "craig-kalam",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. Cosmology can describe the universe back to a very early state; it cannot yet say with certainty whether that state had a beginning in the absolute sense. Philosophy can sharpen the question but leaves serious thinkers on both sides. The argument, if sound, reaches a powerful, timeless, personal Creator; it does not tell us his name or his purposes. Christians should not rest the faith on the latest model in physics, and need not: Genesis 1:1 was believed long before anyone measured the cosmic background radiation. E. Y. Mullins, the Southern Baptist theologian, made the same point in 1905: every argument for God rests on causation, and none is mathematical demonstration, yet the evidence can properly convince.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:1"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 11:3"
+        },
+        {
+          "kind": "source",
+          "source": "bgv-2003",
+          "locator": "abstract"
+        },
+        {
+          "kind": "source",
+          "source": "aquinas-summa-part1",
+          "locator": "I, q.46, a.2"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §§89, 97, pp. 76–77, 86–87"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"In the beginning God created the heavens and the earth.\" What changes for you if the universe is not the ultimate thing, but a work with a Maker?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:1"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Genesis 1:1",
+        "note": "In the beginning"
+      },
+      {
+        "reference": "Psalms 90:2",
+        "note": "From everlasting to everlasting"
+      },
+      {
+        "reference": "Hebrews 11:3",
+        "note": "The universe formed at God's command"
+      }
+    ],
+    "related": [
+      "why-anything",
+      "contingency-argument",
+      "fine-tuning",
+      "science",
+      "arguments-map",
+      "secular",
+      "five-ways",
+      "god-reality-glossary"
+    ],
+    "keywords": [
+      "kalam",
+      "al-Ghazali",
+      "William Lane Craig",
+      "Big Bang",
+      "beginning of the universe",
+      "Borde–Guth–Vilenkin",
+      "actual infinite",
+      "Hilbert's hotel",
+      "who made God"
+    ],
+    "debates": [
+      "craig-krauss",
+      "lennox-dawkins"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new objections article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "8de37cf54e3d409f359547bcf5a834c1b1820d6eef355d233ae7b549748d0815",
+      "basisHash": "12680cf5f4566a6d2079b54ba97613498cb0b520303a08dd0f697426820ba904"
+    }
+  ]
+}

@@ -12,8 +12,12 @@
     "url": "https://archive.org/details/naturaltheologyo00pale",
     "role": "Historic Christian witness",
     "note": "The watchmaker argument from design, which Hume's critique preceded and Darwin later answered. For the design argument in its own classic form. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text of the edition with notes by Brougham and Bell, sources/library/bulk/ccel/paley_paleysnatural.xml. Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Held in this project's corpus: CCEL's text of the edition with notes by Brougham and Bell, sources/library/bulk/ccel/paley_paleysnatural.xml. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): chapter I ('State of the Argument', pp. 5–6) read in the Internet Archive scan naturaltheologyo00pale (John Ware's New York edition, 1879), downloaded to sources/archive-org/paley-natural-theology-ware-1879.txt (checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'); the paley-hume extracts quote Paley's own text from that edition, recorded as publicDomain. The CCEL text named above was not used.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Natural Theology, by William Paley, with notes by John Ware (New York: Sheldon & Company, 1879; the Internet Archive scan naturaltheologyo00pale)",
+      "basis": "Paley's text was first published in 1802; the held scan is the American edition with John Ware's notes, entered for copyright in 1854 and printed in 1879 (title page). Paley died in 1805 and Ware in 1864: public domain in the US and worldwide. Extracts quote Paley's own text, not Ware's notes."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "e22ddea3e57981701ab0b6b0e6b374d2af6ffe996bf015305d97a2beabdbe1cd",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): the read note gained a dated line saying what step 8 read and where; earlier text unchanged. A publicDomain record (edition and basis) was added, checked against the held file's title page; the extracts that quote it use that edition exactly. Checked that the line matches the locators the step-8 articles cite.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "097a34296a86db58d1d424ddb2ab66fab775bfe3c43169adbd449f98248a888b",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

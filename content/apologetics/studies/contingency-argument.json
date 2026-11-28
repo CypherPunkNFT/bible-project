@@ -1,0 +1,290 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "contingency-argument",
+  "order": 43,
+  "publication": "published",
+  "content": {
+    "title": "The contingency argument",
+    "topic": "god",
+    "summary": "Why is there something rather than nothing? Leibniz's argument from the principle of sufficient reason, and six objections answered.",
+    "format": "objections",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "The contingency argument starts from a plain fact: the things we meet might not have existed. Stars, mountains and people depend on other things for their existence, and so does every collection of such things. Gottfried Leibniz put it as a principle in 1714: there is no fact \"unless there be a sufficient reason, why it should be so and not otherwise\". Applied to the world as a whole, the principle asks why there is any world at all. Leibniz answered that the reason \"must be outside of the sequence or series of particular contingent things, however infinite this series may be\", in a necessary being, \"and this substance we call God\". Samuel Clarke gave an English version in his Boyle lectures of 1704: something has existed from eternity, and it must be an independent, self-existent being. The argument does not need the universe to have had a beginning. It asks what explains the existence of dependent things at all, whether the series of them is finite or endless. The objections below are the strongest ones, stated as their holders state them.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:24-25"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Colossians 1:17"
+        },
+        {
+          "kind": "source",
+          "source": "leibniz-monadology",
+          "locator": "Monadology §§32, 37–38"
+        },
+        {
+          "kind": "source",
+          "source": "clarke-demonstration",
+          "locator": "Propositions I–III"
+        },
+        {
+          "kind": "source",
+          "source": "pruss-psr",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "whole-and-parts",
+        "heldBy": [
+          "Cleanthes in Hume's Dialogues (1779)",
+          "Paul Edwards and other critics since"
+        ],
+        "objection": "If each member of a series is explained by the one before it, the series is explained. Asking for the cause of the whole after explaining every part is like asking for the cause of a collection of twenty particles after you have explained each particle; the \"whole\" is only an arbitrary act of the mind.",
+        "reply": {
+          "id": "whole-and-parts-reply",
+          "text": "Hume's example works because the twenty particles are explained by causes outside the collection. The question is different when the collection is everything contingent: each member is explained by another member, but nothing explains why there are any such members rather than none. Leibniz's illustration fits: copy a geometry book from an earlier copy, back for ever, and every copy has an explanation, yet \"we could never reach a complete reason\" why such a book exists at all. Explaining each loan in a chain does not explain where the money came from.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part IX"
+            },
+            {
+              "kind": "source",
+              "source": "leibniz-monadology",
+              "locator": "On the Ultimate Origination of Things, pp. 337–338"
+            }
+          ]
+        }
+      },
+      {
+        "id": "universe-necessary",
+        "heldBy": [
+          "Cleanthes in Hume's Dialogues (1779)"
+        ],
+        "objection": "Why may not the material universe itself be the necessarily existent being? We do not know all the qualities of matter. Some quality, if we knew it, might make its non-existence as great a contradiction as that twice two is five.",
+        "reply": {
+          "id": "universe-necessary-reply",
+          "text": "The universe as physics describes it is the opposite of necessary. It changes, its particles come into and go out of existence, its laws and constants could apparently have been otherwise, and its history runs back to a hot, dense early state. A necessary being cannot fail to exist and cannot be otherwise than it is; nothing in the material world shows those marks. Clarke's reply in 1704 was that matter's every form and arrangement can be conceived altered, which is the sign of dependence, not necessity.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 102:25-27"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part IX"
+            },
+            {
+              "kind": "source",
+              "source": "clarke-demonstration",
+              "locator": "Propositions I–III"
+            }
+          ]
+        }
+      },
+      {
+        "id": "necessary-meaningless",
+        "heldBy": [
+          "Cleanthes in Hume's Dialogues (1779)",
+          "logical positivists in the twentieth century"
+        ],
+        "objection": "Nothing is demonstrable unless its contrary implies a contradiction, and whatever we can conceive as existing we can conceive as not existing. So the words \"necessary existence\" have no meaning; or none that is consistent.",
+        "reply": {
+          "id": "necessary-meaningless-reply",
+          "text": "Hume's argument assumes that only logical contradiction can make something necessary. Many philosophers, theists and atheists alike, now distinguish logical necessity from metaphysical necessity: water is necessarily H2O, though we can imagine otherwise. And conceiving God's non-existence may only show that we do not grasp his nature, as Hume himself half-concedes. The argument's claim is modest: a being that exists of itself, depending on nothing, is not a contradiction, and it is what the series of dependent things points to.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Exodus 3:14"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 5:26"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part IX"
+            },
+            {
+              "kind": "source",
+              "source": "pruss-psr",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "psr-false",
+        "heldBy": [
+          "Graham Oppy (Arguing about Gods, 2006)",
+          "Peter van Inwagen's modal objection"
+        ],
+        "objection": "The principle of sufficient reason is not obviously true, and in its strong form it is false. If everything has a sufficient reason, then the world follows necessarily from God and nothing could have been different: the argument proves too much. Quantum physics also suggests some events have no sufficient reason.",
+        "reply": {
+          "id": "psr-false-reply",
+          "text": "Defenders such as Alexander Pruss reply that the argument needs only a modest principle: that a contingent fact like the existence of a world has some explanation, even if not one that makes it necessary. A free choice by God explains why there is a world without making the world necessary. As for quantum events, they occur within a physical system governed by laws, and whether they lack causes or only lack predictability is disputed. Rejecting the principle has its own cost: if things can simply be, with no reason, our confidence that science will find reasons begins to look arbitrary.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Proverbs 25:2"
+            },
+            {
+              "kind": "source",
+              "source": "oppy-arguing-gods",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "pruss-psr",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "who-explains-god",
+        "heldBy": [
+          "a common objection, put by many critics"
+        ],
+        "objection": "If everything needs an explanation, then God needs one too. Stopping at God is special pleading.",
+        "reply": {
+          "id": "who-explains-god-reply",
+          "text": "The principle is not that everything has a cause outside itself, but that everything has an explanation, either in another thing or in the necessity of its own nature. God, as Scripture presents him and as the argument concludes, is the being whose explanation is his own nature: he has life in himself and depends on nothing. That is not special pleading; it is the only kind of stopping point that does not raise the same question again. A theist who said God was contingent would face the objection; the argument says he is not.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 5:26"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Psalms 90:2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 17:25"
+            },
+            {
+              "kind": "source",
+              "source": "leibniz-monadology",
+              "locator": "Monadology §§38, 45"
+            }
+          ]
+        }
+      },
+      {
+        "id": "not-the-god-of-scripture",
+        "heldBy": [
+          "sceptics and some Christian critics of natural theology"
+        ],
+        "objection": "Even if the argument works, it reaches only a necessary being, perhaps impersonal. That is a long way from the God of Abraham, Isaac and Jacob.",
+        "reply": {
+          "id": "not-the-god-of-scripture-reply",
+          "text": "That is true, and Christians should say so. A necessary cause of the world that chose to create, rather than producing it automatically, is a strong candidate for a personal agent, and it fits what Scripture says of the Creator; but the argument does not reveal the Trinity, the incarnation or the gospel. The Southern Baptist theologian E. Y. Mullins said as much in 1905: the mind \"refuses to rest in bare theism\" and asks whether God has spoken. Natural theology clears ground; Scripture tells us who stands on it.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 1:20"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 1:1-2"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VI, §99, p. 90"
+            },
+            {
+              "kind": "source",
+              "source": "bfm-2000",
+              "locator": "Article II"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the argument stops. It concludes that a necessary being exists. It does not by itself show that this being is good, or one, or the God of Israel; those claims need further arguments and, finally, revelation. And its key premise, the principle of sufficient reason, is one that thoughtful atheists reject. The argument shows that belief in a Creator is reasonable; it does not compel a mind that would rather accept a brute fact.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:19-21"
+        },
+        {
+          "kind": "source",
+          "source": "oppy-arguing-gods",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"In Him we live and move and have our being.\" If your existence is not self-explaining, on whom does it depend this morning?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:28"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Acts 17:24-28",
+        "note": "The God who gives everyone life and breath"
+      },
+      {
+        "reference": "Colossians 1:16-17",
+        "note": "In him all things hold together"
+      },
+      {
+        "reference": "Psalms 102:25-27",
+        "note": "The heavens wear out; God remains"
+      }
+    ],
+    "related": [
+      "why-anything",
+      "kalam-argument",
+      "five-ways",
+      "arguments-map",
+      "secular",
+      "god-reality-glossary",
+      "ontological-argument"
+    ],
+    "keywords": [
+      "contingency",
+      "Leibniz",
+      "Samuel Clarke",
+      "principle of sufficient reason",
+      "necessary being",
+      "Hume",
+      "brute fact",
+      "cosmological argument"
+    ],
+    "debates": [
+      "craig-krauss"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new objections article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "b010cf2980182a6c44d51af97d86c513abb21cb914cfef68d79e10d7552e43ad",
+      "basisHash": "a0126b063df59462febc7cdd4ada9a756e666d86a541ecd6143717ac8fb70c4b"
+    }
+  ]
+}

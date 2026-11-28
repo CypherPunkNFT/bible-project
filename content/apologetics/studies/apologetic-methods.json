@@ -1,0 +1,413 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "apologetic-methods",
+  "order": 54,
+  "publication": "published",
+  "content": {
+    "title": "How do Christians argue? Five methods",
+    "topic": "god",
+    "alsoIn": [
+      "faith"
+    ],
+    "summary": "Classical, evidential, cumulative case, presuppositional and Reformed epistemology: five ways Christians defend the faith, each in its holders' terms. Baptists use all five; the site does not choose.",
+    "format": "debate-guide",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Every Christian is told to be \"prepared to give a defense to everyone who asks you the reason for the hope that is in you\", with gentleness and respect. Christians agree on that command and differ on method: where to start, what an argument can do for an unbeliever, and how the fall affects human reasoning. The five methods below are usually traced to Steven Cowan's Five Views on Apologetics (2000), in which a defender of each states his case and the others reply. Southern Baptists use all five, and the site's own articles draw on several. The site does not choose between them. Readers will find that the methods overlap more in practice than in theory, and that each has a strength the others need.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Jude 1:3"
+        },
+        {
+          "kind": "source",
+          "source": "cowan-five-views",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "common": {
+      "id": "common",
+      "text": "What all five methods affirm. Scripture is true and is the final authority; the gospel of Christ crucified and risen is the message being defended; unbelief is not only an intellectual problem but a matter of the heart; the Holy Spirit alone brings a person to faith, so no argument saves anyone; and the defender must speak with gentleness and respect, as a servant of the Lord who is kind to everyone. They differ on what reasoning can establish and where to begin. They also agree that apologetics serves the church as well as the outsider: believers who are troubled by questions are strengthened by honest answers, and the Bereans were commended for examining the Scriptures daily to see whether what they heard was true.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 2:24-25"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 16:8"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
+        },
+        {
+          "kind": "source",
+          "source": "cowan-five-views",
+          "locator": "whole work"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        }
+      ]
+    },
+    "views": [
+      {
+        "id": "classical",
+        "label": "Classical: first God, then Christ",
+        "heldBy": [
+          "William Lane Craig",
+          "R. C. Sproul",
+          "Thomas Aquinas, in the background"
+        ],
+        "texts": [
+          {
+            "reference": "Romans 1:19-20",
+            "note": "God's power and nature seen in what he made"
+          },
+          {
+            "reference": "Acts 17:22-31",
+            "note": "Paul in Athens: from the Creator to the risen Christ"
+          }
+        ],
+        "case": {
+          "id": "classical-case",
+          "text": "Apologetics proceeds in two steps. First, natural theology shows that God exists, through the cosmological, design and moral arguments. Only then can historical evidence, such as the resurrection, be read rightly, because a miracle makes sense only if there is a God who can act. Paul's speech in Athens follows this order: the Creator first, then the resurrection. Its defenders see it as the method of the church's great tradition, from Augustine and Anselm to Aquinas and the Protestant scholastics. In practice it gives a clear order for conversation: settle whether there is a God, then ask whether he has spoken and acted in Jesus. William Lane Craig uses it in public debates, setting out several arguments for God and then the case for the resurrection.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            }
+          ]
+        },
+        "reply": {
+          "id": "classical-reply",
+          "text": "Evidentialists reply that the two steps are unnecessary, since the resurrection is itself evidence for God. Presuppositionalists reply that beginning from neutral reason grants the unbeliever a standing to judge God that Scripture denies.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "bahnsen-stein",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evidential",
+        "label": "Evidential: one step, from the facts",
+        "heldBy": [
+          "Gary Habermas",
+          "John Warwick Montgomery"
+        ],
+        "texts": [
+          {
+            "reference": "Acts 1:3",
+            "note": "Many convincing proofs"
+          },
+          {
+            "reference": "1 Corinthians 15:3-8",
+            "note": "Witnesses, most still alive"
+          }
+        ],
+        "case": {
+          "id": "evidential-case",
+          "text": "Historical evidence can do both jobs at once. If the evidence shows that Jesus rose from the dead, that event is itself strong evidence that God exists and that Jesus is who he claimed to be. The apostles argued this way: they appealed to what they had seen, to many convincing proofs, to witnesses still alive. Habermas's \"minimal facts\" approach works only from facts granted by most critical scholars. The method appeals to people who distrust philosophical arguments but respect history and law. Simon Greenleaf, a founder of Harvard Law School, applied the rules of legal evidence to the Gospels in 1846; the minimal-facts approach is its modern, academic descendant.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "habermas-licona-case",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "greenleaf-testimony",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "evidential-reply",
+          "text": "Classical apologists reply that a sceptic who has ruled out God will explain away any historical evidence, so theism must come first. Presuppositionalists reply that facts are never neutral: what counts as evidence depends on prior commitments.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cumulative",
+        "label": "Cumulative case: the best explanation of everything",
+        "heldBy": [
+          "Paul Feinberg",
+          "Basil Mitchell",
+          "E. Y. Mullins (1905), the Southern Baptist theologian"
+        ],
+        "texts": [
+          {
+            "reference": "John 20:30-31",
+            "note": "Many signs, written that you may believe"
+          },
+          {
+            "reference": "Acts 14:15-17",
+            "note": "God's witness in nature and providence"
+          }
+        ],
+        "case": {
+          "id": "cumulative-case",
+          "text": "Christianity is not proved by one argument but shown, like a verdict in a court, to be the best explanation of all the evidence together: nature, conscience, history, Scripture and experience. E. Y. Mullins put it this way in 1905: \"The argument is, of course, cumulative. Each line of evidence is reinforced by all the others.\" There is no mathematical demonstration in this field, he wrote, yet the evidences produce \"a practical certainty\". Mullins argued that Christianity meets the intellect's demands as well as any rival view, and for all except those who rule out the supernatural, far better; that it is morally and spiritually incomparably superior; and that because our intellectual and moral natures are one, these two lines will be found to agree. The method is close to how people make most serious decisions, by weighing many considerations at once.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. I, §22"
+            },
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "cumulative-reply",
+          "text": "Critics from the classical side reply that without the formal arguments the case can seem vague; presuppositionalists reply that \"best explanation\" still leaves the unbeliever as judge.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presuppositional",
+        "label": "Presuppositional: the faith as the ground of reasoning",
+        "heldBy": [
+          "Cornelius Van Til",
+          "Greg Bahnsen",
+          "John Frame"
+        ],
+        "texts": [
+          {
+            "reference": "Proverbs 1:7",
+            "note": "The fear of the LORD is the beginning of knowledge"
+          },
+          {
+            "reference": "2 Corinthians 10:5",
+            "note": "Every thought captive to Christ"
+          },
+          {
+            "reference": "Romans 1:18-21",
+            "note": "They knew God but suppressed the truth"
+          }
+        ],
+        "case": {
+          "id": "presuppositional-case",
+          "text": "There is no neutral ground. Unbelievers already know God and suppress that knowledge, so the apologist should not pretend to reason from shared neutral premises. Instead, show that only the Christian worldview makes sense of logic, science and morality, and that the unbeliever's own view cannot account for them. Greg Bahnsen pressed exactly this in his 1985 debate with Gordon Stein: Bahnsen argued that the laws of logic and the uniformity of nature presuppose the God of Scripture. Its method is often summarised as two steps: show what follows from the unbeliever's starting point, that it cannot account for the reasoning the unbeliever uses; then invite them to stand, for argument's sake, on the Christian starting point and see how the world makes sense from there. Presuppositionalists have been especially strong among Reformed Christians, and many Reformed Baptists use it.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "bahnsen-stein",
+              "locator": "whole transcript"
+            },
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "presuppositional-reply",
+          "text": "Critics reply that the transcendental argument still needs reasons that an unbeliever can follow, so it uses the very common ground it denies, and that it risks arguing in a circle. Defenders answer that every worldview argues from its ultimate commitment, and that this circle is not vicious.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "bahnsen-stein",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      },
+      {
+        "id": "reformed-epistemology",
+        "label": "Reformed epistemology: belief in God without arguments",
+        "heldBy": [
+          "Alvin Plantinga",
+          "Nicholas Wolterstorff",
+          "Kelly James Clark"
+        ],
+        "texts": [
+          {
+            "reference": "Romans 1:19-20",
+            "note": "What may be known about God is plain to them"
+          },
+          {
+            "reference": "Psalms 19:1-2",
+            "note": "The heavens pour forth speech"
+          },
+          {
+            "reference": "Romans 8:16",
+            "note": "The Spirit testifies with our spirit"
+          }
+        ],
+        "case": {
+          "id": "reformed-epistemology-case",
+          "text": "Belief in God can be rational without being based on arguments at all. We rightly believe in other minds, the past and the external world without proof; belief in God can be \"properly basic\" in the same way, produced by a God-given sense of the divine and, for Christian belief, by the inner witness of the Holy Spirit. Arguments are useful for removing objections, but faith does not wait on them. Plantinga built on John Calvin's teaching that every human being has a sense of the divine, a seed of religion, and argued that if Christianity is true, Christian belief probably has warrant, the property that makes true belief knowledge. If it is false, it probably does not. So the real question is not whether belief in God is rational, but whether it is true.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "plantinga-warranted-belief",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "reformed-epistemology-reply",
+          "text": "Critics reply that the method tells believers they are rational but gives unbelievers little reason to believe; that adherents of other religions could claim the same basicality; and that it is a defence more than an apologetic. Defenders answer that answering objections is half of apologetics, and that the Spirit's witness is promised to Christians in particular.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "cowan-five-views",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "oppy-arguing-gods",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "This article does not choose a method, and Baptists in every generation have used more than one. Methods are tools, not rival gospels; a wise witness listens first and uses the approach that fits the question being asked. No method replaces prayer, a holy life and the plain message of Christ. Paul, who reasoned in synagogues and in the marketplace, could also write that his message and preaching were \"not with persuasive words of wisdom\", \"so that your faith would not rest on men's wisdom, but on God's power\". Every method on this page lives within that tension.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Colossians 4:5-6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 2:1-5"
+        },
+        {
+          "kind": "source",
+          "source": "cowan-five-views",
+          "locator": "whole work"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:2-3"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Which of these methods comes most naturally to you, and which one do you most need to learn from, for the people you actually talk to?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Colossians 4:6"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Peter 3:15-16",
+        "note": "A defense, with gentleness and respect"
+      },
+      {
+        "reference": "Acts 17:16-34",
+        "note": "Paul reasons in Athens"
+      },
+      {
+        "reference": "2 Corinthians 10:3-5",
+        "note": "Every thought captive to Christ"
+      }
+    ],
+    "related": [
+      "arguments-map",
+      "conversation",
+      "five-ways",
+      "religious-experience",
+      "god-reality-glossary"
+    ],
+    "keywords": [
+      "apologetics methods",
+      "classical apologetics",
+      "evidential apologetics",
+      "cumulative case",
+      "presuppositional apologetics",
+      "Reformed epistemology",
+      "Van Til",
+      "Bahnsen",
+      "Plantinga",
+      "Five Views on Apologetics"
+    ],
+    "debates": [
+      "bahnsen-stein",
+      "craig-hitchens"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new debate-guide article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. The site does not choose a method; Cowan's Five Views is not held and is described, not quoted. Mullins §22 quoted from the held 1905 text.",
+      "date": "2026-11-28",
+      "contentHash": "f790a45eee22832ec4ad7dfc0700d6bceaccacbdc98d63fbbc988d79d3282402",
+      "basisHash": "8495c1afbbbd9bcda5658a7f5af3024422163c3e602f41288ccc44c836a8c7ef"
+    }
+  ]
+}

@@ -214,6 +214,63 @@
           }
         ],
         "title": "Then ask what makes morality binding"
+      },
+      {
+        "id": "unbelievers-moral",
+        "text": "When someone asks whether we can be good without God, they usually mean two things. First: do people who reject God keep promises, tell the truth and care for the weak? Plainly they do, and a Christian who denies it is not being faithful to Scripture, which says that Gentiles without the law \"do by nature what the law requires\" and that their consciences accuse or defend them. Second: if there is no God, is anything really good or evil at all, or only useful or approved? The first is a question about behaviour, and the answer is yes. The second is a question about foundations, and it is where the real disagreement lies.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 14:17"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. VI, §96, pp. 85–86"
+          }
+        ],
+        "title": "What the sceptic is really asking"
+      },
+      {
+        "id": "fuller-1799",
+        "text": "Andrew Fuller, the English Baptist pastor who helped send William Carey to India, wrote against the deists of his day in 1799. He began by granting the point the sceptic cares about: \"The greatest enemies of Christianity would still be thought friendly to morality.\" No one, he said, defends cruelty or treachery as such; even those who excuse a vice must first give it a better name. Fuller's argument was not that unbelievers are always worse people, but that a God without moral character, the deist's God, cannot explain the moral sense everyone shows, and that \"no being is beloved for his greatness, but for his goodness\".",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "fuller-own-witness",
+            "locator": "Part I, introduction and chapter I, pp. 9–11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 5:20"
+          }
+        ],
+        "title": "An old Baptist observation"
+      },
+      {
+        "id": "moral-argument-link",
+        "text": "Whether morality needs God is a question of its own, with serious answers on both sides: the theist's case from moral obligation and human value, the secular realist's case that moral facts need no foundation, and the debunker's case that evolution shaped our moral sense. That argument is set out at length in the essay \"Does morality need God?\", with Plato's old dilemma in a short answer of its own. This page keeps to the question in its title.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Micah 6:8"
+          },
+          {
+            "kind": "source",
+            "source": "sorley-moral-values",
+            "locator": "ch. XIII, pp. 351–352"
+          },
+          {
+            "kind": "source",
+            "source": "wielenberg-robust-ethics",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Where the moral argument is weighed"
       }
     ],
     "objection": "Doesn't this deny the kindness of people who do not believe?",
@@ -295,12 +352,20 @@
       {
         "reference": "Romans 3:21-28",
         "note": "Righteousness through Christ"
+      },
+      {
+        "reference": "Romans 2:14-16",
+        "note": "The law written on the heart"
       }
     ],
     "related": [
       "grace",
       "secular",
-      "suffering"
+      "suffering",
+      "moral-argument",
+      "euthyphro",
+      "argument-from-reason",
+      "why-anything"
     ],
     "keywords": [
       "ethics",
@@ -309,7 +374,109 @@
       "common grace",
       "goodness",
       "atheist",
-      "objective morality"
+      "objective morality",
+      "moral argument",
+      "conscience",
+      "Andrew Fuller",
+      "humanism"
+    ],
+    "format": "short-answer",
+    "spine": "scripture-theology",
+    "objections": [
+      {
+        "id": "calls-atheists-wicked",
+        "heldBy": [
+          "many atheists and humanists, answering Christian apologists"
+        ],
+        "objection": "When Christians say no one is good without God, they are calling their atheist neighbours wicked. That is insulting, and it is false: many unbelievers live better lives than many believers.",
+        "reply": {
+          "id": "calls-atheists-wicked-reply",
+          "text": "If a Christian says that, the complaint is just. Scripture does not say unbelievers are worse than believers; it says all have sinned, believers included, and that sinners still do good to those who do good to them. The claim this page makes is narrower: no one, Christian or not, is righteous before God by their own record, and so everyone, Christian or not, needs Christ. That levels the ground. It gives a believer no room to look down on anyone.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 3:22-24"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 6:32-33"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 4:7"
+            },
+            {
+              "kind": "source",
+              "source": "bfm-2000",
+              "locator": "Article III"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evolved-morality",
+        "heldBy": [
+          "evolutionary accounts of ethics, such as Sharon Street's"
+        ],
+        "objection": "Our moral sense evolved because cooperation helped our ancestors survive. Kindness and fairness need no God to explain them; natural selection explains them.",
+        "reply": {
+          "id": "evolved-morality-reply",
+          "text": "Evolution may explain how creatures came to feel the pull of fairness. Whether that pull tracks anything true is another question, and several secular philosophers grant that it is a hard one: if our judgements were shaped only for survival, it is not obvious why they would be true. Christians can accept that God made us through means while holding that conscience is a witness, not merely an instinct. The essay on the moral argument weighs this objection in full.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 2:15"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Genesis 1:27"
+            },
+            {
+              "kind": "source",
+              "source": "street-darwinian-dilemma",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "sorley-moral-values",
+              "locator": "ch. XIII, pp. 351–352"
+            }
+          ]
+        }
+      },
+      {
+        "id": "believers-no-better",
+        "heldBy": [
+          "Christopher Hitchens, in his 2009 debate with William Lane Craig and in his writings"
+        ],
+        "objection": "Religion does not make people good. Religious people have done terrible things in God's name, and believers behave no better than anyone else.",
+        "reply": {
+          "id": "believers-no-better-reply",
+          "text": "Much of the charge is true, and Scripture says so before the critic does: judgement begins with the household of God, and Jesus warned that many who call him Lord he never knew. Christianity does not claim that believers are morally superior. It claims that Christ is righteous and that he forgives and remakes sinners. Where his followers fail, they fail by his standard, not by a standard borrowed from the critic.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Peter 4:17"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 7:21-23"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 2:21-24"
+            },
+            {
+              "kind": "source",
+              "source": "craig-hitchens",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      }
+    ],
+    "debates": [
+      "craig-hitchens"
     ]
   },
   "reviews": [
@@ -339,6 +506,15 @@
       "date": "2026-11-27",
       "contentHash": "28697de0ae8527bb43ba4d79e8e8f1a7e43340f46897a454376e096a074253c6",
       "basisHash": "35ac87c77fa2165953597f6ddeb985e3b6e9679755ba017e291d594c0840724e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality) 8.1: article deepened; nothing removed or shortened (only additions), plus related links added both ways. Checked the added text against the Berean Standard Bible, the held public-domain texts and the Baptist Faith and Message 2000. The moral argument itself now lives in moral-argument, to which this article points.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "27b579e92ed160a2b478fe6eef29826eecaf4d1070c5bcf741b7b604f262fdfa",
+      "basisHash": "5e3a7c0da020c469be36974bc4d1b056c50d97de94368191bacda5c4287aaa5a"
     }
   ]
 }

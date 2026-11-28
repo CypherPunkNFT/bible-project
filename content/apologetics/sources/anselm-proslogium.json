@@ -12,8 +12,12 @@
     "url": "https://archive.org/details/stanselmeproslog00anseuoft",
     "role": "Catholic contribution · limited scope",
     "note": "The ontological argument with Gaunilo's reply, and Anselm's account of why God became man. Anselm wrote before the Reformation; cited for these arguments, not for his whole theology. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (Open Court, 1903) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): The volume also holds Cur Deus Homo: its contents and Cur Deus Homo I.13 and II.6 read for atonement-timeline and penal-substitution-objections; I.7 cited by its chapter title.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (Open Court, 1903) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): The volume also holds Cur Deus Homo: its contents and Cur Deus Homo I.13 and II.6 read for atonement-timeline and penal-substitution-objections; I.7 cited by its chapter title. 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): Proslogium chapters II–III (pp. 7–9), Gaunilo's In Behalf of the Fool §6 (pp. 150–151) and Anselm's reply, chapter III (pp. 158–159), read in the held Deane translation (Open Court, 1903) for ontological-argument (extracts from this edition, recorded as publicDomain) and arguments-map.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "St. Anselm: Proslogium; Monologium; An Appendix in Behalf of the Fool by Gaunilon; and Cur Deus Homo, translated by Sidney Norton Deane (Chicago: Open Court, 1903)",
+      "basis": "Deane's translation, Chicago: Open Court, 1903 (title page of the held scan). Published before 1931: public domain in the US. Deane died in 1943: public domain worldwide (life + 70)."
+    }
   },
   "reviews": [
     {
@@ -32,6 +36,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "a25b94a40e80073fc5a674ba93a3e5da2640e1a8d468592d4c5ef6e53e621cd6",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): the read note gained a dated line saying what step 8 read and where; earlier text unchanged. A publicDomain record (edition and basis) was added, checked against the held file's title page; the extracts that quote it use that edition exactly. Checked that the line matches the locators the step-8 articles cite.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "44c5b89186b60df745e74238cb6cc44b27fd73cab2e2f433cc4d662a73d90fce",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

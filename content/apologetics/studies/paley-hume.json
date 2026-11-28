@@ -1,0 +1,245 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "paley-hume",
+  "order": 46,
+  "publication": "published",
+  "content": {
+    "title": "Paley's watch and Hume's objections",
+    "topic": "god",
+    "summary": "The design argument in the words of William Paley (1802) and David Hume (1779), read together, with what changed after Darwin.",
+    "format": "reading",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "The design argument is the oldest argument for God and the most widely felt: the world looks made. Its most famous English statement is William Paley's watch, from Natural Theology (1802). Its most famous critic wrote first: David Hume's Dialogues Concerning Natural Religion were published in 1779, three years after his death, and Paley wrote knowing them. Reading the two together shows what the argument claims, where Hume pressed it, and why Darwin's theory in 1859 changed the debate without ending it. Paley was a clergyman of the Church of England; Hume was a sceptic. Both texts are in the public domain.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 19:1"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "paley-natural-theology",
+          "locator": "chapter I"
+        },
+        {
+          "kind": "source",
+          "source": "hume-dialogues",
+          "locator": "Part II"
+        }
+      ]
+    },
+    "extracts": [
+      {
+        "id": "watch",
+        "source": "paley-natural-theology",
+        "locator": "chapter I, 'State of the Argument', p. 5",
+        "edition": "Natural Theology, by William Paley, with notes by John Ware (New York: Sheldon & Company, 1879; the Internet Archive scan naturaltheologyo00pale)",
+        "text": "In crossing a heath, suppose I pitched my foot against a stone, and were asked how the stone came to be there; I might possibly answer, that, for anything I knew to the contrary, it had lain there forever: nor would it perhaps be very easy to show the absurdity of this answer. But suppose I had found a watch upon the ground, and it should be inquired how the watch happened to be in that place; I should hardly think of the answer which I had before given, that, for anything I knew, the watch might have always been there. Yet why should not this answer serve for the watch as well as for the stone?",
+        "note": {
+          "id": "watch-note",
+          "text": "Paley's point is not that the watch is complicated, or beautiful, or rare. The stone could be all of those. It is that the watch's parts are \"framed and put together for a purpose\", as he says next: arranged so that, if they were shaped or placed otherwise, the watch would not tell the time. Design, for Paley, means parts fitted to a function.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 3:4"
+            },
+            {
+              "kind": "source",
+              "source": "paley-natural-theology",
+              "locator": "chapter I, pp. 5–6"
+            }
+          ]
+        },
+        "translator": "Paley's own English (not a translation)"
+      },
+      {
+        "id": "inference",
+        "source": "paley-natural-theology",
+        "locator": "chapter I, 'State of the Argument', p. 6",
+        "edition": "Natural Theology, by William Paley, with notes by John Ware (New York: Sheldon & Company, 1879; the Internet Archive scan naturaltheologyo00pale)",
+        "text": "This mechanism being observed (it requires indeed an examination of the instrument, and perhaps some previous knowledge of the subject, to perceive and understand it; but being once, as we have said, observed and understood,) the inference, we think, is inevitable; that the watch must have had a maker; that there must have existed, at some time, and at some place or other, an artificer or artificers, who formed it for the purpose which we find it actually to answer; who comprehended its construction, and designed its use.",
+        "note": {
+          "id": "inference-note",
+          "text": "The rest of Paley's book applies this to the eye, the joints, the wings of birds and much else. Notice what he does not claim: that the watch was made recently, or by one maker, or by a good one. Those are the gaps Hume had already probed.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 94:9"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Psalms 139:13-14"
+            },
+            {
+              "kind": "source",
+              "source": "paley-natural-theology",
+              "locator": "chapter I, pp. 5–6"
+            }
+          ]
+        },
+        "translator": "Paley's own English (not a translation)"
+      },
+      {
+        "id": "cleanthes",
+        "source": "hume-dialogues",
+        "locator": "Part II, Cleanthes",
+        "edition": "Dialogues Concerning Natural Religion (1779; Project Gutenberg ebook 4583)",
+        "text": "Look round the world: contemplate the whole and every part of it: You will find it to be nothing but one great machine, subdivided into an infinite number of lesser machines, which again admit of subdivisions to a degree beyond what human senses and faculties can trace and explain. ... Since, therefore, the effects resemble each other, we are led to infer, by all the rules of analogy, that the causes also resemble; and that the Author of Nature is somewhat similar to the mind of man, though possessed of much larger faculties, proportioned to the grandeur of the work which he has executed.",
+        "note": {
+          "id": "cleanthes-note",
+          "text": "Hume gives the argument to Cleanthes, and states it well. Its form is an analogy: the world resembles a machine, machines have designers, so the world probably has one. Everything then depends on how close the resemblance is, and that is where Philo, Hume's sceptic, attacks.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 104:24"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part II"
+            }
+          ]
+        },
+        "translator": "Hume's own English (not a translation)"
+      },
+      {
+        "id": "philo",
+        "source": "hume-dialogues",
+        "locator": "Part V, Philo",
+        "edition": "Dialogues Concerning Natural Religion (1779; Project Gutenberg ebook 4583)",
+        "text": "In a word, CLEANTHES, a man who follows your hypothesis is able perhaps to assert, or conjecture, that the universe, sometime, arose from something like design: but beyond that position he cannot ascertain one single circumstance; and is left afterwards to fix every point of his theology by the utmost license of fancy and hypothesis. This world, for aught he knows, is very faulty and imperfect, compared to a superior standard; and was only the first rude essay of some infant deity, who afterwards abandoned it, ashamed of his lame performance.",
+        "note": {
+          "id": "philo-note",
+          "text": "This is Hume's strongest point, and it is fair. The design argument, on its own, shows at most something like a designer; it does not show one designer, or an infinite, good or living one. Notice that Philo concedes the universe \"arose from something like design\". Hume's attack is on what the argument can establish, not on whether the world looks designed.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 40:18"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 17:29"
+            },
+            {
+              "kind": "source",
+              "source": "hume-dialogues",
+              "locator": "Part V"
+            }
+          ]
+        },
+        "translator": "Hume's own English (not a translation)"
+      }
+    ],
+    "sections": [
+      {
+        "id": "after-darwin",
+        "text": "In 1859 Charles Darwin offered what Paley lacked: a natural process, variation and selection over long ages, that could produce organs fitted to their functions without a designer arranging each one. Darwin himself ended the Origin of Species by speaking of the \"grandeur in this view of life\". Christians answered in different ways. Charles Hodge in 1874 judged that Darwin's theory, by excluding design, was atheistic, while insisting that this did not make Darwin or all who adopt his views atheists. E. Y. Mullins, the Southern Baptist theologian, argued in 1905 that evolution, if true, is a method, not a first cause, and that purpose can be traced through it. The debate has since moved: from organs to the origin of life, and from biology to the laws and constants of physics, where Darwin's mechanism does not apply. That newer argument is weighed in \"Fine-tuning: design, chance or many universes?\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Job 12:7-10"
+          },
+          {
+            "kind": "source",
+            "source": "darwin-origin",
+            "locator": "chapter XIV, closing paragraph"
+          },
+          {
+            "kind": "source",
+            "source": "hodge-darwinism",
+            "locator": "conclusion"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. V, §§74, 84; ch. VI, §95"
+          }
+        ],
+        "title": "After Darwin"
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "What the design argument can and cannot carry. Hume was right that it shows, at most, a designer, not the God of Scripture; Paley was right that the appearance of purpose calls for an explanation. Whether evolution supplies a full explanation of living things is a scientific question on which Baptists differ, and the site does not settle it. The Christian claim does not stand or fall with Paley's watch.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "hume-dialogues",
+          "locator": "Part V"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §95"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"He who formed the eye, can He not see?\" When you look at something in nature that moves you, what do you think it tells you about its Maker?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 94:9"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 19:1-4",
+        "note": "The heavens declare"
+      },
+      {
+        "reference": "Romans 1:19-20",
+        "note": "Understood from his workmanship"
+      },
+      {
+        "reference": "Job 12:7-10",
+        "note": "Ask the animals, and they will instruct you"
+      }
+    ],
+    "related": [
+      "fine-tuning",
+      "five-ways",
+      "science",
+      "science-faith-history",
+      "arguments-map",
+      "hume-miracles",
+      "creation-views"
+    ],
+    "keywords": [
+      "design argument",
+      "William Paley",
+      "watchmaker",
+      "David Hume",
+      "Dialogues Concerning Natural Religion",
+      "Darwin",
+      "teleological argument"
+    ],
+    "debates": [
+      "lennox-dawkins"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new reading article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "3760e77028bdc720ecacbf4a3bdebb211218c77b55e1039e2eec6e9c66f9bd54",
+      "basisHash": "e11584d6e3a1d25cbc6e8a79b0d2b2fde664a5b9c6acd8d79afb0fa4514f1847"
+    }
+  ]
+}

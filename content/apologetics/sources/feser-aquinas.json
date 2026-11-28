@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "feser-aquinas",
+  "order": 372,
+  "publication": "published",
+  "content": {
+    "title": "Aquinas: A Beginner's Guide",
+    "author": "Edward Feser (Oxford: Oneworld, 2009)",
+    "kind": "Philosophical study",
+    "url": "https://openlibrary.org/search?q=Aquinas+A+Beginner's+Guide+Feser",
+    "role": "Scholarship · described, not quoted",
+    "note": "A modern exposition of Aquinas's arguments, stressing that the Five Ways concern causes ordered here and now, not a chain stretching back in time. Feser is a Catholic philosopher. In copyright: described in our own words and cited by chapter or whole work, never quoted; no page numbers are given because no copy is held.",
+    "read": "Not held; described from general knowledge of its published argument; not read for this article. 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): registered for the God & reality field; the link is a library catalogue search, not a copy.",
+    "checked": "none"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = none). No public-domain edition is claimed, so no extract may quote it. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "771684c35b3dd221f37dfdd75cb6ba9b877acfb36fceea145f3ff2d8eed41152",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

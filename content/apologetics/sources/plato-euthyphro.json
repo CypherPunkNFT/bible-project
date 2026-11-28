@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "plato-euthyphro",
+  "order": 343,
+  "publication": "published",
+  "content": {
+    "title": "Euthyphro",
+    "author": "Plato · translated by Benjamin Jowett",
+    "kind": "Philosophical treatise",
+    "url": "https://www.gutenberg.org/ebooks/1642",
+    "role": "Primary record · not a teaching authority",
+    "note": "Plato's dialogue in which Socrates asks whether the holy is loved by the gods because it is holy, or holy because it is loved: the source of the Euthyphro dilemma. A pagan text about many gods, cited for the question it poses, not as teaching. Public domain: may be quoted, with the translator named.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #1642; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): the passage of the dilemma read (Socrates' question after Euthyphro defines the holy as what all the gods love, and the exchange that follows) for euthyphro and moral-argument.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Euthyphro, translated by Benjamin Jowett (Project Gutenberg ebook 1642)",
+      "basis": "Jowett's translation, first published in The Dialogues of Plato, Oxford, 1871. Jowett died in 1893: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "bf45c6f12149510390b0492064562bcacf99aa8ac6e08a9110557cc3f0a63bc2",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

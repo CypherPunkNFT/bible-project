@@ -1,0 +1,652 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "argument-from-reason",
+  "order": 50,
+  "publication": "published",
+  "content": {
+    "title": "Can reason trust itself without God?",
+    "topic": "god",
+    "summary": "If our minds are the product of blind processes alone, why trust them to find truth? The argument from reason, from Darwin's \"horrid doubt\" to Lewis, Plantinga and Nagel, with the naturalist replies.",
+    "format": "essay",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Every argument, for God or against him, assumes that human reasoning can reach truth. The argument from reason asks what makes that assumption safe. If the universe is only matter in motion, and our minds arose by processes that selected for survival, not for truth, then we seem to have no good reason to trust the very thinking that led us to that conclusion. Charles Darwin felt the force of this himself. Christian thinkers from Arthur Balfour to C. S. Lewis and Alvin Plantinga have turned it into an argument; an atheist philosopher, Thomas Nagel, has pressed a version of it against materialism; and naturalists have replied. This essay sets out each in turn and says where the argument is strong and where it is still disputed.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 1:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:27"
+        },
+        {
+          "kind": "source",
+          "source": "balfour-theism-humanism",
+          "locator": "Lecture II, §II, pp. 44–47"
+        },
+        {
+          "kind": "source",
+          "source": "plantinga-where-conflict",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "doubt",
+        "title": "Darwin's doubt",
+        "blocks": [
+          {
+            "id": "doubt-1",
+            "text": "In July 1881, the year before he died, Charles Darwin wrote to William Graham, who had sent him a book arguing that the universe is not the result of chance. Darwin admitted that the conviction sometimes came over him with force. Then he added: \"But then with me the horrid doubt always arises whether the convictions of man's mind, which has been developed from the mind of the lower animals, are of any value or at all trustworthy. Would any one trust in the convictions of a monkey's mind, if there are any convictions in such a mind?\"",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "darwin-life-letters",
+                "locator": "chapter VIII, letter to W. Graham, 3 July 1881"
+              }
+            ]
+          },
+          {
+            "id": "doubt-2",
+            "text": "Darwin raised the doubt against his own inclination to believe in a purposeful universe. But the doubt cuts wider than he used it. If the convictions of a mind shaped by natural selection are untrustworthy about the universe's purpose, why are they trustworthy about natural selection? The theory of evolution is itself a conviction of such a mind. That is the question the argument from reason presses: not whether we reason well, which we plainly can, but what in a purely naturalistic picture would make our reasoning reliable.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "darwin-life-letters",
+                "locator": "chapter VIII, letter to W. Graham, 3 July 1881"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 1:21-22"
+              }
+            ]
+          },
+          {
+            "id": "doubt-3",
+            "text": "It is important to be clear about what is not being claimed. No one argues that atheists reason badly, or that a person must believe in God before they can do mathematics. The claim is about consistency: whether the belief that nature is all there is can be held together with the confidence in reason that every belief, including that one, depends on.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Romans 1:21-22",
+            "note": "Futile thinking, darkened hearts"
+          },
+          {
+            "reference": "John 1:9",
+            "note": "The true Light who gives light to every man"
+          }
+        ]
+      },
+      {
+        "id": "balfour",
+        "title": "Balfour: reasons and causes",
+        "blocks": [
+          {
+            "id": "balfour-1",
+            "text": "Arthur Balfour, philosopher and later British prime minister, gave the argument a careful form in his Gifford Lectures of 1914, published as Theism and Humanism. Every belief, he observed, sits in two series at once. In the \"cognitive series\" it is a conclusion drawn from premises, held for reasons. In the \"causal series\" it is an event in the brain, produced by earlier events. Normally we hope the two line up: we believe something because we have good reason to.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "balfour-theism-humanism",
+                "locator": "Lecture II, §II, pp. 45–46"
+              }
+            ]
+          },
+          {
+            "id": "balfour-2",
+            "text": "But on naturalism, Balfour argued, the causal series always wins in the end. Trace any belief back far enough and \"every trace of rationality vanishes\"; we are left with conditions \"social, physiological, and physical\" which, considered in themselves, are \"quite a-logical in their character\". On any merely naturalistic view, he wrote, \"the rational elements in the causal series lie always on the surface\". If the deepest causes of our beliefs are blind, our reasons are a thin film over them, and our confidence that our beliefs track truth has nothing underneath it.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "balfour-theism-humanism",
+                "locator": "Lecture II, §II, pp. 46–47"
+              }
+            ]
+          },
+          {
+            "id": "balfour-3",
+            "text": "Balfour's conclusion was that our highest values, in knowledge as in beauty and goodness, make best sense if the world has a rational source. A world made by a mind is a world in which minds might be fitted to know it. That is the same correspondence the Southern Baptist theologian E. Y. Mullins pointed to in 1905: the order of thought within us answers to the order of nature without, so that science can state the world's behaviour as formulas. Mullins called this the argument \"from mind\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "balfour-theism-humanism",
+                "locator": "Lecture II, §II, pp. 44–47"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §93, pp. 81–82"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 94:10"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 94:8-11",
+            "note": "He who teaches man, does he lack knowledge?"
+          }
+        ]
+      },
+      {
+        "id": "lewis",
+        "title": "Lewis: a self-refuting naturalism",
+        "blocks": [
+          {
+            "id": "lewis-1",
+            "text": "C. S. Lewis made the argument famous in chapter 3 of his book Miracles (1947). In our own words: naturalism holds that every event, including every act of thinking, is fully explained by non-rational causes within nature. But a belief that is fully explained by non-rational causes, with no part played by its being true or by the grounds for it, has no claim to be believed. So if naturalism were true, no belief, naturalism included, would be rationally grounded. Naturalism saws off the branch it sits on.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "lewis-miracles",
+                "locator": "chapter 3"
+              }
+            ]
+          },
+          {
+            "id": "lewis-2",
+            "text": "In 1948 the philosopher Elizabeth Anscombe, herself a Christian, criticised the first version at the Oxford Socratic Club. She argued that Lewis had confused two senses of \"because\": the cause of a belief and the reason for it, and that a belief can have a physical cause and still be held for good reasons. Lewis took the criticism seriously and rewrote the chapter for the 1960 edition, sharpening the claim: the question is whether, on naturalism, the grounds of a belief can ever be what actually produces it. The story is worth knowing, because it is often told as Lewis's defeat; it is more accurately a case of a good argument improved by a good critic.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "lewis-miracles",
+                "locator": "chapter 3 (1960 revision)"
+              }
+            ]
+          },
+          {
+            "id": "lewis-3",
+            "text": "The revised argument is still debated. Its defenders hold that rational inference, seeing that a conclusion follows from premises, is not the kind of thing a purely physical process could be. Its critics hold that a physical system can be organised so that its states follow logical relations, as a computer's do. Whether a computer's \"inference\" is reasoning, or only something we interpret as reasoning, is a large part of the dispute.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "lewis-miracles",
+                "locator": "chapter 3 (1960 revision)"
+              },
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "lewis-4",
+            "text": "An everyday example shows what is at stake. Suppose you believe the train leaves at noon because you read the timetable. The timetable is your reason, and it is also, in part, the cause of your belief. Now suppose instead that a blow to the head left you believing the train leaves at noon. Even if the belief happened to be true, it would not be knowledge, because what produced it had nothing to do with its truth. Lewis's question is whether naturalism makes every belief, at bottom, more like the second case than the first.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "lewis-miracles",
+                "locator": "chapter 3 (1960 revision)"
+              },
+              {
+                "kind": "source",
+                "source": "balfour-theism-humanism",
+                "locator": "Lecture II, §II, pp. 46–47"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "John 1:1-4",
+            "note": "In the beginning was the Word"
+          },
+          {
+            "reference": "Colossians 2:2-3",
+            "note": "All the treasures of wisdom and knowledge"
+          }
+        ]
+      },
+      {
+        "id": "plantinga",
+        "title": "Plantinga: the evolutionary argument against naturalism",
+        "blocks": [
+          {
+            "id": "plantinga-1",
+            "text": "Alvin Plantinga, a philosopher in the Reformed tradition, gave the argument its most discussed modern form, first in the 1990s and most fully in Where the Conflict Really Lies (2011). In our summary: suppose both naturalism and evolution are true. Natural selection rewards behaviour that helps survival. It cares about beliefs only so far as they cause such behaviour, and many different sets of beliefs, true or false, could produce the same useful behaviour. So, Plantinga argues, the probability that our belief-forming faculties are reliable, given naturalism and evolution together, is low, or at least impossible to estimate.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "plantinga-2",
+            "text": "Then comes the twist. Someone who accepts naturalism and evolution, and sees this, has a reason to doubt that their faculties are reliable. But that doubt spreads to every belief those faculties produce, including the belief in naturalism. So naturalism combined with evolution undermines itself. Plantinga's conclusion is not that evolution is false. It is that evolution sits comfortably with theism, on which God guided the process so that creatures made in his image could know truth, and uncomfortably with naturalism. The real conflict, his title says, lies between science and naturalism, not between science and Christian belief.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:27"
+              }
+            ]
+          },
+          {
+            "id": "plantinga-3",
+            "text": "Baptists hold different views of how God brought human beings into being, and the site does not choose between them. Plantinga's argument does not depend on choosing: it asks only what follows if one combines evolution with the belief that no God guided it.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article III"
+              }
+            ]
+          },
+          {
+            "id": "plantinga-4",
+            "text": "Critics have attacked the argument at its first step. They argue that beliefs and behaviour are tied together closely enough that false beliefs would usually lead to harmful behaviour, so selection would favour true ones; and that Plantinga's probability is not low but simply unknown, which does not give anyone a reason to doubt their faculties. Plantinga replies that on naturalism it is hard to see how the content of a belief, what it is about, could make any difference to behaviour, as opposed to the brain state that carries it; and that a probability one has no way of estimating is no comfort when it concerns the reliability of one's own mind. The exchange has filled a book and many journal articles, and it is not settled.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "oppy-arguing-gods",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Genesis 1:26-27",
+            "note": "Made in God's image"
+          },
+          {
+            "reference": "Proverbs 2:6",
+            "note": "From his mouth come knowledge and understanding"
+          }
+        ]
+      },
+      {
+        "id": "nagel",
+        "title": "An atheist's version: Thomas Nagel",
+        "blocks": [
+          {
+            "id": "nagel-1",
+            "text": "The argument is not only made by believers. In Mind and Cosmos (2012) the atheist philosopher Thomas Nagel argued that the standard materialist picture of nature cannot account for consciousness, for our capacity to reason, or for objective value. If reason is just a product of evolutionary pressure, he argued, our confidence in it, including our confidence in the science that tells us so, is hard to justify. Nagel described himself as lacking the sense of the divine and did not accept theism; he proposed instead that nature may have built-in tendencies towards mind.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "nagel-2",
+            "text": "His book was fiercely criticised by other naturalists. Its importance here is that a careful thinker with no stake in Christianity found the problem real. The question is not a trick of apologists; it arises from the nature of reasoning itself.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "nagel-3",
+            "text": "There is something here for Christians to learn as well as to use. Nagel takes the problem seriously because he refuses to let a theory of the world leave out the mind that holds the theory. Christians share that refusal. Scripture does not treat human thought as an illusion or an accident; it treats it as the activity of persons made to know God and his works, and responsible for how they use their minds.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 8:3-4"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 1:20-21"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Ecclesiastes 3:11",
+            "note": "Eternity set in human hearts"
+          }
+        ]
+      },
+      {
+        "id": "intelligible",
+        "title": "Why the world can be understood",
+        "blocks": [
+          {
+            "id": "intelligible-1",
+            "text": "A second form of the argument looks outward rather than inward. It is one thing that we can reason; it is another that the world answers to our reasoning. Mathematics worked out on paper, sometimes for its beauty alone, later turns out to describe the motions of planets and the behaviour of particles. Science depends on this fit at every step, and it cannot prove it without assuming it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Psalms 111:2"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §93, pp. 81–82"
+              }
+            ]
+          },
+          {
+            "id": "intelligible-2",
+            "text": "E. Y. Mullins put the point plainly in 1905. When we think about things, he wrote, we can only think in certain ways: as cause and effect, before and after, dependent and independent, and in mathematical relations. When we look about us, we find that the world corresponds to those thoughts. \"This order without is the counterpart to the order within.\" Science is the proof, since it finds that chemical elements combine in fixed proportions that can be stated as a formula. Mullins concluded that the best explanation of this correspondence is a single Mind behind both the world and our minds.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §93, pp. 81–82"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Proverbs 3:19"
+              }
+            ]
+          },
+          {
+            "id": "intelligible-3",
+            "text": "Historians of science have noted that many of the founders of modern science held exactly this belief: that the world is orderly because it was made by a rational God, and knowable because we bear his image. That belief did not make their science correct, and others have done fine science without it. But it gave them a reason to expect what they found. The naturalist must treat the fit between mind and world as a fortunate accident, or as something evolution made likely, which returns us to the questions of the previous parts.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "brooke-science-religion",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Proverbs 25:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:28"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Proverbs 3:19-20",
+            "note": "The earth founded by wisdom"
+          },
+          {
+            "reference": "Psalms 111:2",
+            "note": "Pondered by all who delight in them"
+          }
+        ]
+      },
+      {
+        "id": "replies",
+        "title": "The naturalist replies",
+        "blocks": [
+          {
+            "id": "replies-1",
+            "text": "Naturalists have several answers, and they deserve a fair statement. The first is that true beliefs usually help survival: an animal that believes there is no lion when there is one does not live long. So selection would favour faculties that are generally reliable, at least about medium-sized objects and practical matters. Plantinga replies that this works only if beliefs cause behaviour by their content, which naturalism has difficulty explaining, and that it says little about our reliability in abstract matters such as philosophy and physics, where survival was never at stake.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "oppy-arguing-gods",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "replies-2",
+            "text": "A second answer is that the argument is a \"God of the gaps\": it points to something we cannot yet explain and puts God there. Defenders reply that the argument does not rest on a gap in scientific knowledge but on a question about what scientific knowledge presupposes. The reliability of reason is not one more fact to be explained by science; it is what every scientific explanation relies on.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "replies-3",
+            "text": "A third answer accepts that our reasoning is fallible and says that is just what evolution predicts: we are often wrong, and we correct our errors by checking beliefs against each other and against the world. Theists agree that human reason is fallible; Scripture says so too, and adds that sin darkens understanding. The question remains whether the checking itself, the very standards by which we correct ourselves, can be trusted on naturalism.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Jeremiah 17:9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Ephesians 4:17-18"
+              },
+              {
+                "kind": "source",
+                "source": "street-darwinian-dilemma",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Jeremiah 17:9",
+            "note": "The heart is deceitful"
+          },
+          {
+            "reference": "Romans 12:2",
+            "note": "Renewed in your mind"
+          }
+        ]
+      },
+      {
+        "id": "scripture",
+        "title": "Reason in Scripture, and using the argument well",
+        "blocks": [
+          {
+            "id": "scripture-1",
+            "text": "Scripture does not treat reason as a rival to faith. It opens John's Gospel by calling the Son the Word, the Logos, through whom all things were made, and it calls him the true light who gives light to everyone. Human beings are made in God's image, invited to reason together with him, and told that the fear of the Lord is the beginning of knowledge. The Christian explanation of why the world is intelligible to us is that the same God made both the world and our minds. \"In Your light we see light.\"",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 1:1-9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:27"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 1:18"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Proverbs 1:7"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 36:9"
+              }
+            ]
+          },
+          {
+            "id": "scripture-2",
+            "text": "Southern Baptists confess that \"Christianity is the faith of enlightenment and intelligence\" and that \"all sound learning is, therefore, a part of our Christian heritage\" (Baptist Faith and Message 2000, article XII). Scripture also warns that minds turned from God become futile in their thinking. Both belong together: reason is a gift that works because God made it, and a gift that can be misused. The argument from reason is a way of saying to a sceptic what Christians say in worship: that the light by which we see is not our own.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article XII"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 1:21"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Colossians 2:3"
+              }
+            ]
+          },
+          {
+            "id": "conversation-1",
+            "text": "In conversation the argument from reason is easily misused. Said badly, it sounds like an accusation: \"You cannot even trust your own mind.\" Said well, it is an invitation to notice something we all share. Every person, believer or not, trusts reason, argues, weighs evidence and expects others to follow good arguments. The question is what kind of world makes that trust appropriate. Asking it together, as fellow reasoners, honours the other person as one made in God's image.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Colossians 4:5-6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Peter 3:15"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:27"
+              }
+            ]
+          },
+          {
+            "id": "conversation-2",
+            "text": "Paul's address in Athens is a model. He began with what his hearers already believed, quoted their own poets, and reasoned from the fact that we are God's offspring to the conclusion that God is not like an idol made by human skill. He did not stop at an argument; he went on to call them to repentance and to the risen Christ. The argument from reason can open a door in the same way. It cannot walk anyone through it, and a servant of the Lord is to be kind and patient, not quarrelsome, with those who disagree.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:22-31"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Timothy 2:24-25"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §99, p. 90"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "John 1:1-9",
+            "note": "The Word and the light"
+          },
+          {
+            "reference": "Psalms 36:9",
+            "note": "In your light we see light"
+          },
+          {
+            "reference": "Acts 17:22-31",
+            "note": "Paul reasons in Athens"
+          },
+          {
+            "reference": "2 Timothy 2:24-25",
+            "note": "Kind to everyone, able to teach"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. The argument shows at most that naturalism has trouble accounting for the reliability of reason, and that theism does not. It does not prove God, and its key steps, especially the probability estimates in Plantinga's version, are disputed by capable philosophers. It is best weighed alongside the other arguments, as one strand of a cumulative case, not as a knock-down proof.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "plantinga-where-conflict",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "oppy-arguing-gods",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. I, §22"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"Love the Lord your God with all your heart and with all your soul and with all your mind.\" What would it look like to treat your thinking as a gift to be used for God?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 22:37"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 1:1-9",
+        "note": "The Word through whom all things were made"
+      },
+      {
+        "reference": "Psalms 94:8-11",
+        "note": "He who teaches man knowledge"
+      },
+      {
+        "reference": "Romans 1:18-22",
+        "note": "Futile in their thinking"
+      }
+    ],
+    "related": [
+      "consciousness",
+      "arguments-map",
+      "morality",
+      "moral-argument",
+      "science",
+      "secular"
+    ],
+    "keywords": [
+      "argument from reason",
+      "C. S. Lewis",
+      "Miracles",
+      "Alvin Plantinga",
+      "evolutionary argument against naturalism",
+      "Thomas Nagel",
+      "Darwin's doubt",
+      "Balfour",
+      "naturalism"
+    ],
+    "debates": [
+      "bahnsen-stein",
+      "lennox-dawkins"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new essay article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "b09ec772eb6420e0f24eb85c8979e5e02c368b90604c945f8f4d2352890469e0",
+      "basisHash": "3b0ce541d2cb299be06f768a00714175c3c36afa0abdfe76f9e94268d8b4b6d1"
+    }
+  ]
+}

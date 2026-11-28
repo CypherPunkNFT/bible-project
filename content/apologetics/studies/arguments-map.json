@@ -1,0 +1,750 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "arguments-map",
+  "order": 58,
+  "publication": "published",
+  "content": {
+    "title": "Does God exist? A map of the arguments",
+    "topic": "god",
+    "summary": "Every main family of argument for God in one place, from existence and design to morality, mind, experience and the resurrection, with the strongest objections and how the arguments add up.",
+    "format": "essay",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "There is no single proof of God, and no honest Christian thinker claims one. There are several families of argument, each starting from a different fact: that anything exists, that the world is ordered and fine-tuned, that we can conceive of a perfect being, that morality binds us, that we can reason and experience God, and that Jesus rose from the dead. Each has serious critics, set out here and in the articles this map points to. Together, as the Southern Baptist theologian E. Y. Mullins argued in 1905, they make a cumulative case in which \"each line of evidence is reinforced by all the others\". This site judges that case strong, and holds with Scripture that the arguments serve faith but do not create it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. I, §22"
+        },
+        {
+          "kind": "source",
+          "source": "swinburne-existence-god",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "what",
+        "title": "What an argument for God can do",
+        "blocks": [
+          {
+            "id": "what-1",
+            "text": "People ask \"Does God exist?\" in many moods: as a challenge, as a puzzle, as a cry. This essay is a map for the second kind of asking. It sets out the main families of argument that Christians and other theists have offered, says in a few sentences what each claims and what its critics reply, and points to the article in this field that treats each one at length. It ends with how the arguments fit together, and with what none of them can do.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Peter 3:15"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:27"
+              }
+            ]
+          },
+          {
+            "id": "what-2",
+            "text": "A Southern Baptist theologian set the right expectations more than a century ago. E. Y. Mullins, president of the Southern Baptist Theological Seminary, wrote in 1905 that \"mathematical demonstration of God's existence is impossible\", and that \"there is no mind without bias\". \"Evidence for God's existence is not coercive to the intellect\"; how it is received depends a great deal on the moral attitude of the one who hears it. Yet that is no reason to dismiss it: \"The only final answer to the question whether or not God's existence can be proved is the evidence itself.\"",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §89, pp. 76–77"
+              }
+            ]
+          },
+          {
+            "id": "what-3",
+            "text": "Andrew Fuller, the English Baptist, made a related point in 1799. Between believers and unbelievers, he wrote, \"reason is the common ground on which they must meet to decide their contests\". Christians need not fear that ground. Scripture itself appeals to what can be seen: \"His eternal power and divine nature have been clearly seen, being understood from His workmanship, so that men are without excuse.\" The arguments below are attempts to say carefully what Paul says there in a sentence.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "fuller-own-witness",
+                "locator": "Introduction, pp. 1–3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 1:20"
+              }
+            ]
+          },
+          {
+            "id": "what-4",
+            "text": "It helps to notice what the Bible itself does. It does not open with an argument for God; it opens, \"In the beginning God created the heavens and the earth\", and takes him as the starting point of everything. Yet the same Bible shows Paul reasoning in synagogues and marketplaces, appealing to creation, conscience and the resurrection. Arguments are not the foundation of faith, but they are a proper way of commending it to people who are asking, and of showing believers that their faith fits the world they live in.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:2-3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 14:15-17"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Romans 1:18-21",
+            "note": "God's power seen in what he made"
+          },
+          {
+            "reference": "Acts 17:24-28",
+            "note": "He is not far from each one of us"
+          }
+        ]
+      },
+      {
+        "id": "existence",
+        "title": "Why is there anything at all?",
+        "blocks": [
+          {
+            "id": "existence-1",
+            "text": "The oldest family of arguments starts from the bare fact that something exists. The contingency argument, associated with Leibniz and the English theologian Samuel Clarke, observes that the things around us exist but need not have; each depends on something else. If everything were like that, nothing would explain why there is anything at all. So, the argument runs, there must be a being that exists necessarily, by its own nature: God. This field's articles \"Why is there something rather than nothing?\" and \"The contingency argument\" take it step by step.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "leibniz-monadology",
+                "locator": "Monadology §§32, 37–38"
+              },
+              {
+                "kind": "source",
+                "source": "clarke-demonstration",
+                "locator": "Propositions I–III"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:24-25"
+              }
+            ]
+          },
+          {
+            "id": "existence-2",
+            "text": "The kalam argument, defended today by William Lane Craig, starts instead from the universe's beginning: whatever begins to exist has a cause, and the universe began to exist. Mullins put its core in 1905: \"An infinite series of causes is impossible. The mind refuses to rest in the conception.\" Modern defenders add evidence from cosmology, such as the 2003 theorem of Borde, Guth and Vilenkin. Thomas Aquinas's first three \"ways\", from motion, causation and contingency, belong to the same family; this field gives them their own reading in Aquinas's words.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §92, pp. 79–80"
+              },
+              {
+                "kind": "source",
+                "source": "bgv-2003",
+                "locator": "abstract"
+              },
+              {
+                "kind": "source",
+                "source": "aquinas-summa-part1",
+                "locator": "I, q.2, a.3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Genesis 1:1"
+              }
+            ]
+          },
+          {
+            "id": "existence-3",
+            "text": "Critics reply that the universe as a whole may need no explanation, a point David Hume pressed in his Dialogues; that a beginning of our universe does not show a beginning of everything; and that a first cause, even if granted, is not yet the God of the Bible. Defenders answer each in turn, and the articles weigh the replies. What this family shows, if it succeeds, is a necessary, uncaused, immensely powerful source of all that exists, which is what Scripture means by the Creator.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "hume-dialogues",
+                "locator": "Part IX"
+              },
+              {
+                "kind": "source",
+                "source": "oppy-arguing-gods",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Hebrews 11:3"
+              }
+            ]
+          },
+          {
+            "id": "existence-4",
+            "text": "The commonest objection from ordinary readers is short: \"Then who made God?\" The arguments are careful on exactly this point. The kalam argument says that whatever begins to exist has a cause, and God, being eternal, did not begin. The contingency argument says that whatever exists but might not have needs an explanation outside itself, and God, if he exists at all, exists necessarily. So the arguments do not claim that everything needs a cause, which would indeed include God; they claim that the universe has features that God, by definition, does not.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Psalms 90:2"
+              },
+              {
+                "kind": "source",
+                "source": "craig-kalam",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "clarke-demonstration",
+                "locator": "Propositions I–III"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Genesis 1:1",
+            "note": "In the beginning"
+          },
+          {
+            "reference": "Hebrews 11:3",
+            "note": "Made out of what was not visible"
+          }
+        ]
+      },
+      {
+        "id": "order",
+        "title": "Order, design and fine-tuning",
+        "blocks": [
+          {
+            "id": "order-1",
+            "text": "A second family starts from the order of the world. William Paley's watch found on a heath (1802) argued that living things, like watches, show parts arranged for a purpose, and so point to a designer. David Hume had already raised objections in his Dialogues (1779): the analogy is weak, and design would not show one designer, or a good one. After Darwin, most people judged that natural selection explained biological design without a designer. The article \"Paley's watch and Hume's objections\" lets both speak in their own words.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "paley-natural-theology",
+                "locator": "chapter I"
+              },
+              {
+                "kind": "source",
+                "source": "hume-dialogues",
+                "locator": "Parts II and V"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 104:24"
+              }
+            ]
+          },
+          {
+            "id": "order-2",
+            "text": "Today the argument has moved from biology to physics. The constants of nature appear to fall within narrow ranges that permit life, and the article \"Fine-tuning\" compares the four explanations: design, chance, necessity and many universes. A related argument starts from the fact that the world can be understood at all. Mullins called this the argument from mind: \"The natural order without us corresponds, or answers, to the mental order within us.\" That fit between mathematics and the world is what science assumes and cannot itself explain.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "barnes-lewis-fortunate",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §93, pp. 81–82"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Jeremiah 33:25"
+              }
+            ]
+          },
+          {
+            "id": "order-3",
+            "text": "Critics reply that we cannot judge how probable the constants were, that observer selection explains why we see a life-permitting universe, and that a multiverse would remove the need for design. The design argument reaches a mind of great intelligence and power, not by itself a good or a single God; it works best alongside the others.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "sober-design",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 45:18"
+              }
+            ]
+          },
+          {
+            "id": "order-4",
+            "text": "Darwin did not end the design argument; he changed its ground. Mullins, writing in 1905, observed that \"evolutionists of theistic and Christian types now quite generally hold that the argument from design is strengthened rather than weakened by the modern view of the world\", because a process that produces order and progress needs explaining as much as a single designed object. Whether evolution explains all of biology is a question Christians answer differently, as the article on creation views shows; the argument from the laws and constants of physics does not depend on the answer.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §95"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 104:24"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Psalms 19:1-4",
+            "note": "The heavens declare"
+          },
+          {
+            "reference": "Isaiah 45:18",
+            "note": "Formed to be inhabited"
+          }
+        ]
+      },
+      {
+        "id": "idea",
+        "title": "From the idea of God",
+        "blocks": [
+          {
+            "id": "idea-1",
+            "text": "The ontological argument is the strangest and most debated. Anselm of Canterbury, in his Proslogium (1078), argued that God is \"that than which nothing greater can be conceived\", and that such a being must exist in reality, since a being that existed only in the mind would not be the greatest conceivable. The monk Gaunilo replied at once with his perfect island; Aquinas and Kant rejected the argument; in the twentieth century Alvin Plantinga restated it using the logic of possibility and necessity. The field's reading lets Anselm and Gaunilo speak for themselves.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "anselm-proslogium",
+                "locator": "Proslogium, chapters II–III"
+              },
+              {
+                "kind": "source",
+                "source": "plantinga-nature-necessity",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 14:1"
+              }
+            ]
+          },
+          {
+            "id": "idea-2",
+            "text": "Few philosophers, believers included, think the argument persuades someone who does not already believe. Its lasting value lies elsewhere: it clarifies what Christians mean by God. God is not one more thing in the world, however great; he is the one who exists necessarily and could not fail to be. Scripture's name for him, \"I AM WHO I AM\", says the same thing in its own way.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Exodus 3:14"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article II"
+              }
+            ]
+          },
+          {
+            "id": "idea-3",
+            "text": "Gaunilo's reply is worth knowing because it shows the argument's real claim. If Anselm's reasoning worked, Gaunilo said, one could prove that the most excellent island exists, since an island existing only in the mind would be less excellent than one that existed in reality. Anselm answered that his argument applied to one being only: the being than which nothing greater can be conceived, whose greatness includes that it cannot fail to exist. Islands, however excellent, are the kind of thing that can fail to exist. Whether that answer succeeds is still argued, but it shows that the ontological argument is about necessary existence, which only God could have.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "anselm-proslogium",
+                "locator": "Proslogium, chapters II–III"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 102:25-27"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Exodus 3:13-15",
+            "note": "I AM WHO I AM"
+          },
+          {
+            "reference": "Psalms 90:2",
+            "note": "From everlasting to everlasting"
+          }
+        ]
+      },
+      {
+        "id": "moral",
+        "title": "Morality and the good",
+        "blocks": [
+          {
+            "id": "moral-1",
+            "text": "A fourth family starts from morality. Its claim is not that atheists cannot be good, but that objective moral values and duties, such as the wrongness of cruelty for fun, are best explained by a holy, personal God. Kant argued that the moral law requires us to postulate God; the philosophers Hastings Rashdall and W. R. Sorley argued that an absolute moral ideal \"can exist nowhere and nohow but in a mind\". Mullins argued from conscience, whose sense of responsibility points to \"a rightful Lawgiver, above conscience\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "kant-practical-reason",
+                "locator": "Book II, chapter II, section V"
+              },
+              {
+                "kind": "source",
+                "source": "sorley-moral-values",
+                "locator": "ch. XIII, pp. 351–352"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §96, pp. 85–86"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 2:14-15"
+              }
+            ]
+          },
+          {
+            "id": "moral-2",
+            "text": "The strongest replies come from atheist philosophers who agree that morality is objective but think it needs no foundation, and from those who argue that evolution explains our moral sense without moral truth. The essay \"Does morality need God?\" weighs both, and the short article on the Euthyphro dilemma answers Plato's old question whether goodness is above God or merely his choice: Christians answer that goodness is God's own nature.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "wielenberg-robust-ethics",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "street-darwinian-dilemma",
+                "locator": "whole work"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalms 119:68"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Micah 6:8",
+            "note": "He has shown you what is good"
+          },
+          {
+            "reference": "Psalms 119:68",
+            "note": "You are good, and You do what is good"
+          }
+        ]
+      },
+      {
+        "id": "mind",
+        "title": "Minds, reason and experience",
+        "blocks": [
+          {
+            "id": "mind-1",
+            "text": "A fifth family starts from ourselves. If our minds are wholly the product of blind causes, why should we trust them to find the truth, including the truth about naturalism? C. S. Lewis pressed this argument from reason in Miracles, and Alvin Plantinga has given it a technical form. Related arguments start from consciousness: the plain fact that there is something it is like to see red or feel pain, which physical description seems to leave out. The essay \"Can reason trust itself without God?\" and the article on consciousness take these up. Mullins put the underlying contrast well: the anti-theist explains the highest by the lowest, the theist the lowest by the highest, for \"all that has been evolved was involved\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "lewis-miracles",
+                "locator": "chapter 3 (1960 revision)"
+              },
+              {
+                "kind": "source",
+                "source": "plantinga-where-conflict",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "nagel-mind-cosmos",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §97, pp. 86–87"
+              }
+            ]
+          },
+          {
+            "id": "mind-2",
+            "text": "Then there is the experience of God itself. Very many people across times and cultures report an awareness of God, in prayer, in conversion, in suffering. William James studied these experiences without deciding whether they were true; William Alston and Richard Swinburne argue that such experiences give real, though defeasible, reason to believe, unless there is good reason to think them mistaken. The essay \"Is religious experience evidence?\" sets out the case, the objections and the scriptural tests. Mullins thought the proof from religious experience \"probably of the greatest practical value of all the proofs\".",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "james-varieties",
+                "locator": "Lecture I"
+              },
+              {
+                "kind": "source",
+                "source": "alston-perceiving-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §96, pp. 85–86"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 8:16"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Genesis 1:26-27",
+            "note": "Made in God's image"
+          },
+          {
+            "reference": "Psalms 34:8",
+            "note": "Taste and see that the LORD is good"
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "God in history: Jesus and the resurrection",
+        "blocks": [
+          {
+            "id": "history-1",
+            "text": "Christians have never rested the case on philosophy alone. The heart of the Christian claim is that God has acted in history, above all in raising Jesus from the dead. If that happened, it is the clearest evidence there could be that God exists and has spoken. Paul stakes everything on it: \"If Christ has not been raised, your faith is futile.\" The Jesus & resurrection field of this site sets out the historical case, the alternatives scholars have proposed, and the evidence from sources outside the New Testament.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:14-17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:3-8"
+              },
+              {
+                "kind": "source",
+                "source": "habermas-licona-case",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "history-2",
+            "text": "Fuller added an argument that the philosophical families leave out: the character of the gospel itself. Historical evidence for the Bible is good, he wrote, but if it can also be shown that the Scriptures \"carry in them the evidence of their authenticity\", that answers every objection from the uncertainty of history at once. He compared it to a long-trusted medicine whose recipe had passed through many hands: no one doubts it, because it has been tried and found effective. The gospel's holiness and its power to change lives are a witness of the same kind. This is the evidence that the classical arguments prepare the way for, and Scripture gives it pride of place.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "fuller-own-witness",
+                "locator": "Introduction, pp. 1–3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:30-31"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 5:17"
+              }
+            ]
+          },
+          {
+            "id": "history-3",
+            "text": "The obvious objection is David Hume's: no testimony can ever establish a miracle, because our experience of the laws of nature is always stronger than anyone's report of an exception. The field treats that objection in its own article on Hume and miracles. In brief, Christians reply that if the other arguments give reason to think God exists, a miracle is not wildly improbable, and that Hume's principle, applied strictly, would rule out believing any truly unprecedented event, however good the evidence. This is one place where the families of argument support each other: natural theology makes room for the resurrection, and the resurrection confirms natural theology.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "hume-enquiry",
+                "locator": "Section X"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 26:8"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 Corinthians 15:1-8",
+            "note": "Christ died, was buried, was raised and appeared"
+          },
+          {
+            "reference": "John 20:30-31",
+            "note": "Written so that you may believe"
+          }
+        ]
+      },
+      {
+        "id": "together",
+        "title": "How the arguments fit together",
+        "blocks": [
+          {
+            "id": "together-1",
+            "text": "Each argument, taken alone, has critics who think it fails; taken alone, each also reaches only part of what Christians mean by God. The cosmological arguments reach a necessary, powerful cause; the design arguments a vast intelligence; the moral argument a good and holy will; the argument from reason a mind; religious experience a personal presence; the resurrection a God who acts and speaks in Jesus. Together they describe one God, and they support each other. Mullins saw this in 1905. Writers who defend one type of argument often belittle the others, he noted, and some are tempted to doubt them all; but \"it is most probable that all are valid when properly expounded and related to each other. All roads lead to God.\"",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §91, p. 79"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VI, §97, pp. 86–87"
+              }
+            ]
+          },
+          {
+            "id": "together-2",
+            "text": "That is the shape of a cumulative case. \"The argument is, of course, cumulative,\" Mullins wrote. \"Each line of evidence is reinforced by all the others.\" It does not yield mathematical demonstration but \"a practical certainty\". The philosopher Richard Swinburne has stated the same idea in the language of probability: each argument raises the probability of God's existence somewhat, and together they make it more probable than not. Critics such as Graham Oppy reply that if each argument fails, adding failures cannot make a success. The answer depends on whether the arguments are like leaky buckets, which hold no more water together than apart, or like strands of a rope, each weak alone but strong together. Defenders argue that they are strands: each is real evidence, not a proof, and evidence adds up.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. I, §22"
+              },
+              {
+                "kind": "source",
+                "source": "swinburne-existence-god",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "oppy-arguing-gods",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "blackwell-natural-theology",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "together-3",
+            "text": "A fair map must also show what counts on the other side. The suffering of the world, and God's apparent hiddenness, are the main reasons people give for disbelief, and this site treats them in their own articles rather than here. Christians have serious answers to both, but any honest weighing of the arguments for God has to weigh them too.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Psalms 13:1-2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Romans 8:18-23"
+              }
+            ]
+          },
+          {
+            "id": "together-4",
+            "text": "Finally, the arguments have a purpose beyond winning debates. They can remove obstacles, strengthen believers who are troubled by questions, and show that faith is not a leap in the dark. They cannot produce faith; Scripture says that \"faith comes by hearing, and hearing by the word of Christ\", and that the Spirit convicts the world. The site's article on apologetic methods shows how Christians differ on exactly how much the arguments can do. All agree that they are servants of the gospel, not substitutes for it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 10:17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 16:8"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article I"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Romans 10:14-17",
+            "note": "Faith comes by hearing"
+          },
+          {
+            "reference": "John 16:7-11",
+            "note": "The Spirit convicts the world"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "This map summarises; each argument gets a few paragraphs here and a full treatment in its own article. It states critics' replies briefly and fairly, but readers who want the full objections should follow the links. In-copyright works are described in our own words; Mullins, Fuller, Kant, Sorley, Paley, Hume and Anselm are quoted from public-domain editions.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §89, pp. 76–77"
+        },
+        {
+          "kind": "source",
+          "source": "fuller-own-witness",
+          "locator": "Introduction, pp. 1–3"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Which of these arguments speaks most to you, and which question about God do you most want answered?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Jeremiah 29:13"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Romans 1:18-23",
+        "note": "Clearly seen in what has been made"
+      },
+      {
+        "reference": "Acts 17:22-31",
+        "note": "Paul in Athens"
+      },
+      {
+        "reference": "Psalms 19:1-14",
+        "note": "The heavens declare; the law revives"
+      }
+    ],
+    "related": [
+      "why-anything",
+      "contingency-argument",
+      "kalam-argument",
+      "five-ways",
+      "paley-hume",
+      "fine-tuning",
+      "ontological-argument",
+      "moral-argument",
+      "euthyphro",
+      "argument-from-reason",
+      "consciousness",
+      "religious-experience",
+      "resurrection-case",
+      "suffering",
+      "hiddenness",
+      "apologetic-methods",
+      "god-reality-glossary",
+      "hume-miracles",
+      "miracles",
+      "creation-views"
+    ],
+    "keywords": [
+      "does God exist",
+      "arguments for God",
+      "cumulative case",
+      "cosmological argument",
+      "design argument",
+      "ontological argument",
+      "moral argument",
+      "argument from reason",
+      "religious experience",
+      "natural theology",
+      "Mullins"
+    ],
+    "debates": [
+      "craig-krauss",
+      "lennox-dawkins",
+      "craig-hitchens",
+      "bahnsen-stein",
+      "craig-ally-god"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new essay article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. Every article it names is published; Mullins §§22, 89, 91–97 and Fuller's Introduction quoted from held texts; suffering and hiddenness are named as the case against, and linked.",
+      "date": "2026-11-28",
+      "contentHash": "be4bce2958f11c9d9a12a905e40e087c8dfc82e4a5700a40fcbf174bb371b68d",
+      "basisHash": "710fa7d480f54af1c42936decf2b01911592ce41f6f6c644973a28260f25f5fc"
+    }
+  ]
+}

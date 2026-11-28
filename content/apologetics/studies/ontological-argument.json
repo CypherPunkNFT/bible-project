@@ -1,0 +1,237 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "ontological-argument",
+  "order": 47,
+  "publication": "published",
+  "content": {
+    "title": "The ontological argument",
+    "topic": "god",
+    "summary": "Anselm's argument that God is \"that than which nothing greater can be conceived\", Gaunilo's lost island, Anselm's reply, and what Kant and Plantinga made of it.",
+    "format": "reading",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Anselm of Canterbury (c. 1033–1109) wrote his Proslogium as a prayer. In it he offered an argument that starts not from the world but from the idea of God alone: if God is that than which nothing greater can be conceived, he must exist, because a being that existed only in the mind would be less great than one that also existed in reality. A monk named Gaunilo replied at once, on behalf of \"the fool\" of Psalm 14 who says there is no God. The argument has been rejected and revived ever since. These readings are from Sidney Norton Deane's translation of 1903, which is in the public domain. Anselm wrote before the Reformation and is cited here for this argument, not for his whole theology.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 14:1"
+        },
+        {
+          "kind": "source",
+          "source": "anselm-proslogium",
+          "locator": "Proslogium, chapters II–III"
+        },
+        {
+          "kind": "source",
+          "source": "plantinga-nature-necessity",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "extracts": [
+      {
+        "id": "proslogium-2",
+        "source": "anselm-proslogium",
+        "locator": "Proslogium, chapter II, pp. 7–8",
+        "edition": "St. Anselm: Proslogium; Monologium; An Appendix in Behalf of the Fool by Gaunilon; and Cur Deus Homo, translated by Sidney Norton Deane (Chicago: Open Court, 1903)",
+        "translator": "Sidney Norton Deane",
+        "text": "And so, Lord, do thou, who dost give understanding to faith, give me, so far as thou knowest it to be profitable, to understand that thou art as we believe; and that thou art that which we believe. And indeed, we believe that thou art a being than which nothing greater can be conceived. Or is there no such nature, since the fool hath said in his heart, there is no God? ... And assuredly that, than which nothing greater can be conceived, cannot exist in the understanding alone. For, suppose it exists in the understanding alone: then it can be conceived to exist in reality; which is greater.",
+        "note": {
+          "id": "proslogium-2-note",
+          "text": "Notice the setting: the argument is a prayer, by a believer seeking to understand what he already believes. The steps are simple. Even the fool understands the phrase \"a being than which nothing greater can be conceived\", so the being exists in his understanding. If it existed only there, we could conceive a greater one, namely the same being existing in reality too. So it must exist in reality. (Two lines that the held scan's text recognition garbled are given in Deane's wording as reprinted.)",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 14:1"
+            },
+            {
+              "kind": "source",
+              "source": "anselm-proslogium",
+              "locator": "Proslogium, chapter II"
+            }
+          ]
+        }
+      },
+      {
+        "id": "proslogium-3",
+        "source": "anselm-proslogium",
+        "locator": "Proslogium, chapter III, pp. 8–9",
+        "edition": "St. Anselm: Proslogium; Monologium; An Appendix in Behalf of the Fool by Gaunilon; and Cur Deus Homo, translated by Sidney Norton Deane (Chicago: Open Court, 1903)",
+        "translator": "Sidney Norton Deane",
+        "text": "And it assuredly exists so truly, that it cannot be conceived not to exist. For, it is possible to conceive of a being which cannot be conceived not to exist; and this is greater than one which can be conceived not to exist. Hence, if that, than which nothing greater can be conceived, can be conceived not to exist, it is not that, than which nothing greater can be conceived. But this is an irreconcilable contradiction. There is, then, so truly a being than which nothing greater can be conceived to exist, that it cannot even be conceived not to exist; and this being thou art, O Lord, our God.",
+        "note": {
+          "id": "proslogium-3-note",
+          "text": "Chapter III makes a stronger claim, and many philosophers think it the better argument: not just that God exists, but that he exists necessarily, so that his non-existence is impossible. This is the form that Alvin Plantinga revived in 1974.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 90:2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Exodus 3:14"
+            },
+            {
+              "kind": "source",
+              "source": "anselm-proslogium",
+              "locator": "Proslogium, chapter III"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lost-island",
+        "source": "anselm-proslogium",
+        "locator": "Gaunilo, In Behalf of the Fool, §6, pp. 150–151",
+        "edition": "St. Anselm: Proslogium; Monologium; An Appendix in Behalf of the Fool by Gaunilon; and Cur Deus Homo, translated by Sidney Norton Deane (Chicago: Open Court, 1903)",
+        "translator": "Sidney Norton Deane",
+        "text": "For example: it is said that somewhere in the ocean is an island, which, because of the difficulty, or rather the impossibility, of discovering what does not exist, is called the lost island. ... Now if some one should tell me that there is such an island, I should easily understand his words, in which there is no difficulty. But suppose that he went on to say, as if by a logical inference: \"You can no longer doubt that this island which is more excellent than all lands exists somewhere, since you have no doubt that it is in your understanding.\" ... If a man should try to prove to me by such reasoning that this island truly exists ... either I should believe that he was jesting, or I know not which I ought to regard as the greater fool.",
+        "note": {
+          "id": "lost-island-note",
+          "text": "Gaunilo's reply is a parody: the same reasoning, applied to the most excellent island, proves an island exists, which is absurd. So something must be wrong with the reasoning, even if we cannot say what. It is still the most common first response to the argument.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "anselm-proslogium",
+              "locator": "In Behalf of the Fool, §6"
+            }
+          ]
+        }
+      },
+      {
+        "id": "anselm-reply",
+        "source": "anselm-proslogium",
+        "locator": "Anselm's reply to Gaunilo, chapter III, pp. 158–159",
+        "edition": "St. Anselm: Proslogium; Monologium; An Appendix in Behalf of the Fool by Gaunilon; and Cur Deus Homo, translated by Sidney Norton Deane (Chicago: Open Court, 1903)",
+        "translator": "Sidney Norton Deane",
+        "text": "Now I promise confidently that if any man shall devise anything existing either in reality or in concept alone (except that than which a greater cannot be conceived) to which he can adapt the sequence of my reasoning, I will discover that thing, and will give him his lost island, not to be lost again.",
+        "note": {
+          "id": "anselm-reply-note",
+          "text": "Anselm's answer is that the argument works only for a being greater than which nothing can be conceived. An island, however excellent, is a limited kind of thing: one can always conceive a better one, with one more palm tree. Only a being of unlimited greatness has a concept that excludes non-existence. Whether that answer succeeds is still argued.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 40:25-26"
+            },
+            {
+              "kind": "source",
+              "source": "anselm-proslogium",
+              "locator": "Anselm's reply, chapter III"
+            }
+          ]
+        }
+      }
+    ],
+    "sections": [
+      {
+        "id": "kant-plantinga",
+        "text": "Immanuel Kant gave the objection most philosophers accept, in 1781. \"Being is evidently not a real predicate,\" he wrote: to say a thing exists adds nothing to the concept of it, as a hundred real dollars contain no more than a hundred possible dollars. If existence is not a perfection, the argument cannot show that the greatest conceivable being must have it. In 1974 Alvin Plantinga restated the argument in terms of possible worlds: if it is possible that a maximally great being exists, one that has its greatness in every possible world, then it exists in every world, including ours. Plantinga judged that the argument shows belief in God to be rational, not that it proves God to everyone, since its key premise, that such a being is possible, is exactly what an atheist will doubt.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "kant-critique-pure-reason",
+            "locator": "Transcendental Dialectic, Book II, chapter III, section IV"
+          },
+          {
+            "kind": "source",
+            "source": "plantinga-nature-necessity",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "oppy-arguing-gods",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Kant's objection and Plantinga's revival"
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the argument stops. Few people have come to faith through it, and Anselm did not intend that: he wrote as one who believed already. Its value is to show what Christians mean by God, not the greatest thing that happens to exist but the One who cannot not exist, and to show that this idea is coherent. Whether it proves anything to an unbeliever remains disputed by believers and unbelievers alike. The God the argument describes is the one Southern Baptists confess as the one \"living and true God\", the Creator, Redeemer, Preserver, and Ruler of the universe; but Christians know him as that God from his self-revelation, not from the argument.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 145:3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 57:15"
+        },
+        {
+          "kind": "source",
+          "source": "kant-critique-pure-reason",
+          "locator": "Transcendental Dialectic, Book II, chapter III, section IV"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Anselm prays, \"give me ... to understand that thou art as we believe.\" What would it mean to treat your own questions about God as prayers?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 145:3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Psalms 14:1"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 14:1",
+        "note": "The fool says in his heart"
+      },
+      {
+        "reference": "Exodus 3:14",
+        "note": "I AM WHO I AM"
+      },
+      {
+        "reference": "Isaiah 40:25-26",
+        "note": "The Holy One without equal"
+      }
+    ],
+    "related": [
+      "arguments-map",
+      "contingency-argument",
+      "five-ways",
+      "god-reality-glossary",
+      "god"
+    ],
+    "keywords": [
+      "ontological argument",
+      "Anselm",
+      "Proslogium",
+      "Gaunilo",
+      "lost island",
+      "Kant",
+      "existence is not a predicate",
+      "Plantinga",
+      "modal argument"
+    ],
+    "debates": [
+      "craig-ally-god"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new reading article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "21d404f968c0a052509fd6d19c37a7fa513c5e986c12233c281353d3f63dbbf7",
+      "basisHash": "c3e29ede34e4f7ed34ff89ed6c8a95d90dc81d76a3de2dbf1f245de6086dab73"
+    }
+  ]
+}

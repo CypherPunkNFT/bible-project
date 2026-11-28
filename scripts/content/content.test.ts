@@ -146,8 +146,11 @@ test("format structure, rights and links are checked whatever the publication st
   // A study without a format is today's article: the rules a declared short answer adds do not apply to it.
   assert.ok(!issues(fresh()).some((i) => /objection pairs/.test(i.message)));
   // It cannot carry further objection pairs either: those come with the declared format and its count rule.
-  const legacy = fresh(), target = study(legacy); target.content.objections = [];
-  assert.ok(issues(legacy).some((i) => i.file.endsWith("morality.json") && i.severity === "error" && /without a format cannot carry objections/.test(i.message)));
+  // Any study still without a format will do (morality declared short-answer in plan step 8).
+  const legacy = fresh(), entry = legacy.find((e) => e.document.kind === "study" && (e.document as ContentDocument<"study">).content.format === undefined);
+  assert.ok(entry, "expected at least one study without a declared format");
+  const target = entry.document as ContentDocument<"study">; target.content.objections = [];
+  assert.ok(issues(legacy).some((i) => i.file.endsWith(`${target.id}.json`) && i.severity === "error" && /without a format cannot carry objections/.test(i.message)));
   assert.match(draft("figure", (d) => { d.content.works![0].url = "https://someone@archive.org/"; }), /no user name or password/);
   assert.match(draft("faq", (d) => { d.content.questions![0].study = d.id; }), /links to this study itself/);
   assert.match(draft("glossary", (d) => { d.content.terms![1].term = "TERM 1"; }), /TERM 1 repeats term term-1/);

@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "hodge-darwinism",
+  "order": 348,
+  "publication": "published",
+  "content": {
+    "title": "What Is Darwinism? (1874)",
+    "author": "Charles Hodge",
+    "kind": "Theology",
+    "url": "https://www.gutenberg.org/ebooks/19192",
+    "role": "Historic Christian witness",
+    "note": "The Princeton theologian's answer to Darwin: that Darwin's theory, by excluding design, is atheistic, while Darwin himself and many who accept evolution are not atheists. Cited as a nineteenth-century Christian response, not as the site's view. Public domain: may be quoted.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #19192; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): the conclusion read, including the answer 'It is Atheism' and the sentence that follows it, for science-faith-history and creation-views.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "What Is Darwinism? (New York: Scribner, Armstrong, 1874; Project Gutenberg ebook 19192)",
+      "basis": "Published 1874; Hodge died in 1878: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "80d7b99efc24798d9618aeddcc0d5d2035f7559d53476fe6bdff7b7e7db8d313",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

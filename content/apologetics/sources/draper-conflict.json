@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "draper-conflict",
+  "order": 346,
+  "publication": "published",
+  "content": {
+    "title": "History of the Conflict between Religion and Science (1874)",
+    "author": "John William Draper",
+    "kind": "Historical study",
+    "url": "https://www.gutenberg.org/ebooks/1185",
+    "role": "Primary record · not a teaching authority",
+    "note": "The book that launched the 'conflict thesis' in English: science as the expansive human intellect, religion as compression from tradition. Cited as a primary record of the thesis, which historians of science now reject, not as reliable history. Public domain.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #1185; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): the preface read in part, including its statement of the thesis (the conflict of two contending powers), for science-faith-history and science.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "History of the Conflict between Religion and Science (New York: D. Appleton, 1874; Project Gutenberg ebook 1185)",
+      "basis": "Published 1874; Draper died in 1882: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "a01812dbc49d805aba706410558c3b1f474d124a66c99ff09f64938324f3fda4",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

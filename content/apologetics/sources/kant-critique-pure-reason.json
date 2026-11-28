@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "kant-critique-pure-reason",
+  "order": 344,
+  "publication": "published",
+  "content": {
+    "title": "Critique of Pure Reason (1781; English translation 1855)",
+    "author": "Immanuel Kant · translated by J. M. D. Meiklejohn",
+    "kind": "Philosophical treatise",
+    "url": "https://www.gutenberg.org/ebooks/4280",
+    "role": "Primary record · not a teaching authority",
+    "note": "Kant's criticism of the ontological, cosmological and design arguments (Transcendental Dialectic, Book II, chapter III). Kant was not an orthodox Christian; cited for his objections as he states them. Public domain: may be quoted, with the translator named.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #4280; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): chapter III, section IV ('Of the Impossibility of an Ontological Proof of the Existence of God'), read in full, including the hundred dollars, for ontological-argument and god-reality-glossary.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Critique of Pure Reason, translated by J. M. D. Meiklejohn (1855; Project Gutenberg ebook 4280)",
+      "basis": "Meiklejohn's translation, London: Henry G. Bohn, 1855. Meiklejohn died in 1902: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "d2e04cc308c276596d9e4d2b786f4583a915f38410860ec79c3bafab93a5866e",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

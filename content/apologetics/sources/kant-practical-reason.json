@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "kant-practical-reason",
+  "order": 345,
+  "publication": "published",
+  "content": {
+    "title": "Critique of Practical Reason (1788; English translation 1873)",
+    "author": "Immanuel Kant · translated by Thomas Kingsmill Abbott",
+    "kind": "Philosophical treatise",
+    "url": "https://www.gutenberg.org/ebooks/5683",
+    "role": "Primary record · not a teaching authority",
+    "note": "Kant's moral argument: that the highest good, virtue crowned with happiness, must be possible, and so God's existence is a postulate of practical reason. Cited for that argument as Kant states it, not for his religion. Public domain.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #5683; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): Book II, chapter II, section V ('The Existence of God as a Postulate of Pure Practical Reason'): its opening paragraphs read, for moral-argument.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Critique of Practical Reason, translated by Thomas Kingsmill Abbott (1873; Project Gutenberg ebook 5683)",
+      "basis": "Abbott's translation, London: Longmans, Green, 1873 (in Kant's Critique of Practical Reason and Other Works on the Theory of Ethics). Abbott died in 1913: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "c9e4a2724e2808c8a669182615f6a5b3cfe2eb0c354781b97b4570160fbeb341",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

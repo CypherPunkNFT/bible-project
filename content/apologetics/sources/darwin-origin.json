@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "darwin-origin",
+  "order": 349,
+  "publication": "published",
+  "content": {
+    "title": "On the Origin of Species (1859)",
+    "author": "Charles Darwin",
+    "kind": "Historical text",
+    "url": "https://www.gutenberg.org/ebooks/1228",
+    "role": "Primary record · not a teaching authority",
+    "note": "The first edition of Darwin's theory of evolution by natural selection. Cited as the primary record of the theory's publication and of its closing paragraph, not as a teaching authority. Public domain.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #1228; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): the closing paragraph of chapter XIV read for science-faith-history.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "On the Origin of Species, first edition (London: John Murray, 1859; Project Gutenberg ebook 1228)",
+      "basis": "Published 1859; Darwin died in 1882: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "ed71d46b23364c83b7415d4349c2b7bf0acf2ce45279d3bb468bfb1ddae48b55",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

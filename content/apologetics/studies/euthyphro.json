@@ -1,0 +1,286 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "euthyphro",
+  "order": 48,
+  "publication": "published",
+  "content": {
+    "title": "The Euthyphro dilemma",
+    "topic": "god",
+    "summary": "Is something good because God commands it, or does God command it because it is good? Plato's old question, and why Christians answer that goodness rests in God's own nature.",
+    "format": "short-answer",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "In Plato's dialogue Euthyphro, written in the fourth century BC, Socrates asks \"whether the pious or holy is beloved by the gods because it is holy, or holy because it is beloved of the gods\". Recast for one God, the question is a dilemma. If something is good only because God commands it, then goodness seems arbitrary: God could have commanded cruelty. If God commands it because it is good, then goodness seems to be a standard above God, and morality does not need him. The classic Christian answer takes neither horn: God's commands are not arbitrary, because they flow from his own nature, and goodness is not above God, because God himself is the Good.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 119:68"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 19:17"
+        },
+        {
+          "kind": "source",
+          "source": "plato-euthyphro",
+          "locator": "10a"
+        },
+        {
+          "kind": "source",
+          "source": "adams-finite-infinite",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Scripture grounds goodness in who God is, not in arbitrary decrees: \"You are good, and You do what is good.\" God's commands express his character; \"be holy, because I am holy\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 119:68"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 1:15-16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Leviticus 19:2"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "God cannot act against his nature: he \"cannot lie\" and \"cannot be tempted by evil\". So the worry that he might have commanded cruelty imagines a different God from the one Christians believe in.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Titus 1:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "James 1:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 6:18"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Goodness is not a standard outside God that he consults; it is his own perfection. Southern Baptists confess God as \"infinite in holiness and all other perfections\", and Andrew Fuller wrote in 1799 that goodness, justice and truth are summed up in one word, holiness, God's moral perfection.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 32:4"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          },
+          {
+            "kind": "source",
+            "source": "fuller-own-witness",
+            "locator": "Part I, chapter I, pp. 10–11"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The dilemma is a real argument against a God whose will is cut loose from his character. It is not an argument against the God of Scripture, whose commands are good because he is good, and whose goodness is the standard of everything else that is good.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 145:17"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 7:12"
+        },
+        {
+          "kind": "source",
+          "source": "baggett-walls-good-god",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "plato-setting",
+        "text": "Euthyphro is prosecuting his own father for the death of a labourer, and is sure that this is what the gods want. Socrates asks him to define holiness. Euthyphro offers \"what all the gods love\", and Socrates presses the famous question. The gods of Athens quarrelled among themselves, which made the question sharper: what one god loved, another hated. Plato's dialogue ends without an answer. Its question outlived its gods, and philosophers now put it to the God of the Bible.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "plato-euthyphro",
+            "locator": "whole work"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 8:5-6"
+          }
+        ],
+        "title": "Plato's question in its setting"
+      },
+      {
+        "id": "two-replies",
+        "text": "Christian thinkers state the answer in slightly different ways. Some, following a long tradition, say simply that God is the Good, and his will always agrees with his nature. Others, such as the philosopher Robert Adams, distinguish two things: the good, which is grounded in God's nature, and moral obligation, which is constituted by the commands of a loving God. On that view the duty to do something comes from God's command, but the command is never arbitrary, because it comes from one who is perfectly good. Both ways reject the first horn and the second together.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Micah 6:8"
+          },
+          {
+            "kind": "source",
+            "source": "adams-finite-infinite",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "baggett-walls-good-god",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Two Christian ways of putting the answer"
+      }
+    ],
+    "objection": "Saying \"God's nature is good\" just moves the dilemma. Is God's nature good because it meets a standard of goodness, or is it called good only because it is God's?",
+    "reply": {
+      "id": "reply",
+      "text": "Neither. The reply is that God's nature is the standard: it is not measured against goodness, it is what goodness is. Every account of ethics stops somewhere. The secular realist stops at brute moral facts that simply are; the theist stops at a personal God whose character is the Good. The question is which stopping place better explains why goodness is something that makes demands on persons and that persons can love.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 145:17"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 4:8"
+        },
+        {
+          "kind": "source",
+          "source": "wielenberg-robust-ethics",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "adams-finite-infinite",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "abraham-isaac",
+        "heldBy": [
+          "critics citing Genesis 22, from Kant onward"
+        ],
+        "objection": "Scripture itself shows God commanding something horrifying: Abraham is told to sacrifice his son Isaac. If God can command that, his commands are arbitrary after all.",
+        "reply": {
+          "id": "abraham-isaac-reply",
+          "text": "The passage is a real difficulty and should not be waved away. Christians read it in its whole setting: God stops Abraham and provides the ram, Israel's law later forbids child sacrifice as an abomination, and the story points to the Father who did not spare his own Son. Hebrews says Abraham reasoned that God could raise the dead. Whatever else the passage teaches, it does not show God approving the killing of a child; it shows him forbidding it at the decisive moment.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Genesis 22:1-14"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Deuteronomy 12:31"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 11:17-19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 8:32"
+            },
+            {
+              "kind": "source",
+              "source": "baggett-walls-good-god",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "The answer shows that the dilemma has no force against a God whose commands flow from a perfectly good nature. It does not show that such a God exists; that is the work of other arguments, including the moral argument weighed in \"Does morality need God?\".",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "plato-euthyphro",
+          "locator": "10a"
+        },
+        {
+          "kind": "source",
+          "source": "sorley-moral-values",
+          "locator": "ch. XIII, pp. 351–352"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Do you think of God's commands as rules he happened to choose, or as a description of what he is like? How would the second change the way you obey?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 119:68"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 5:3"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 119:68",
+        "note": "You are good, and you do what is good"
+      },
+      {
+        "reference": "Leviticus 19:2",
+        "note": "Be holy because I am holy"
+      },
+      {
+        "reference": "Genesis 18:25",
+        "note": "Will not the Judge of all the earth do what is right?"
+      }
+    ],
+    "related": [
+      "moral-argument",
+      "morality",
+      "arguments-map",
+      "god-reality-glossary",
+      "secular"
+    ],
+    "keywords": [
+      "Euthyphro dilemma",
+      "Plato",
+      "divine command theory",
+      "goodness of God",
+      "Robert Adams",
+      "moral argument"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new short-answer article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "6364d8e96fb771f08f83eba63ad2a902d5e2ee7390d4e8954d661c7dd7679498",
+      "basisHash": "f4007c2202ea2742ae153bfc08ea1ef33325b3cb2639cb5413f11ee6a6143c37"
+    }
+  ]
+}

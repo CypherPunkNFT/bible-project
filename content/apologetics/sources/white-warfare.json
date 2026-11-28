@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "white-warfare",
+  "order": 347,
+  "publication": "published",
+  "content": {
+    "title": "A History of the Warfare of Science with Theology in Christendom (1896)",
+    "author": "Andrew Dickson White",
+    "kind": "Historical study",
+    "url": "https://www.gutenberg.org/ebooks/505",
+    "role": "Primary record · not a teaching authority",
+    "note": "The two-volume history that, with Draper, fixed the image of a long war between science and theology. Cited as a primary record of that thesis, which historians of science now reject, not as reliable history. Public domain.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #505; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): the introduction's statement of White's thesis read (that interference with science in the supposed interest of religion has invariably brought the direst evils to both), for science-faith-history.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "A History of the Warfare of Science with Theology in Christendom (New York: D. Appleton, 1896; Project Gutenberg ebook 505)",
+      "basis": "Published 1896; White died in 1918: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "875332b1193bafa50b73b3770a355952ca5d77bb16fb15e0ff90d1681fd086fc",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

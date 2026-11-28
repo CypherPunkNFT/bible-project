@@ -12,8 +12,12 @@
     "url": "https://www.gutenberg.org/ebooks/4583",
     "role": "Primary record · not a teaching authority",
     "note": "Hume's critique of the design argument and his statement of the problem of evil, voiced by Philo. Read and stated in Hume's own terms before any reply. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #4583) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): The opening read for hume-miracles, where the work is listed among Hume's writings; not cited in a block.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #4583) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): The opening read for hume-miracles, where the work is listed among Hume's writings; not cited in a block. 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): Parts II, V and IX read in the held Gutenberg text for paley-hume (extracts from this edition, recorded as publicDomain), contingency-argument and why-anything.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Dialogues Concerning Natural Religion (1779; Project Gutenberg ebook 4583)",
+      "basis": "Published posthumously in 1779; Hume died in 1776: public domain in the US and worldwide."
+    }
   },
   "reviews": [
     {
@@ -32,6 +36,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "4af5db330ce4b4d3f61f2d3950665631d0f6a24979592496cfe994f273237736",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): the read note gained a dated line saying what step 8 read and where; earlier text unchanged. A publicDomain record (edition and basis) was added, checked against the held file's title page; the extracts that quote it use that edition exactly. Checked that the line matches the locators the step-8 articles cite.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "4b0a3b5dc2fad2d6d029587d7f70751e68caa84d4dfcbda4dd4393e6063c227a",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

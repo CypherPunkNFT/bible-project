@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/theismandhumanis00balfuoft",
     "role": "Historic Christian witness",
     "note": "Gifford lectures arguing that our trust in beauty, goodness and reason itself needs a theistic basis, a forerunner of the argument from reason. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: Hodder, 1915) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: Hodder, 1915) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): Lecture II, §II, pp. 44–47 read in the held 1915 text for argument-from-reason.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "6cf03dde58b8feb9fa384f393855977f98ab454066129a2356332abe3d528d10",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): the read note gained a dated line saying what step 8 read and where; earlier text unchanged. Checked that the line matches the locators the step-8 articles cite.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "34937806560b12daf6eca1f525da9356263e9abab9605447dc96adfbf2de8d82",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

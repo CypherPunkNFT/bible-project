@@ -1,0 +1,1060 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "god-reality-glossary",
+  "order": 56,
+  "publication": "published",
+  "content": {
+    "title": "God & reality: a glossary",
+    "topic": "god",
+    "summary": "Forty-six terms used in the arguments for God and the debates about science and faith, each in a few plain sentences, with Scripture and the source behind it.",
+    "format": "glossary",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "The arguments for God carry a vocabulary of their own: contingency, aseity, fine-tuning, properly basic belief. This glossary explains each term in plain words, gives the Scripture that bears on it and names a source for further reading. Where Christians, or Baptists, disagree about a term, the entry says so. Terms link to each other, so a reader can follow a thread from one idea to the next.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 4:7"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "terms": [
+      {
+        "id": "theism",
+        "term": "Theism",
+        "text": "The belief that there is one God, personal, all-powerful, all-knowing and good, who made the world and is distinct from it yet present to it. Christianity, Judaism and Islam are theistic. Christian theism adds that this God is Father, Son and Holy Spirit, and has made himself known in Jesus Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "atheism",
+          "deism",
+          "pantheism",
+          "trinity"
+        ]
+      },
+      {
+        "id": "atheism",
+        "term": "Atheism",
+        "text": "The view that there is no God. Some today define it more loosely as simply lacking belief in God. Philosophers distinguish the claim that there is no God from agnosticism, which says we cannot or do not know.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 14:1"
+          },
+          {
+            "kind": "source",
+            "source": "oppy-arguing-gods",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "agnosticism",
+          "naturalism",
+          "theism"
+        ]
+      },
+      {
+        "id": "agnosticism",
+        "term": "Agnosticism",
+        "text": "The view that we do not, or cannot, know whether God exists. The word was coined by Thomas Huxley in 1869. Christians answer that God has made himself known in creation, conscience and above all in Christ, so that the question can be answered.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:19-20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:27"
+          }
+        ],
+        "seeAlso": [
+          "atheism",
+          "general-revelation"
+        ]
+      },
+      {
+        "id": "deism",
+        "term": "Deism",
+        "text": "The belief that God made the world and then left it to run by its own laws, without miracles, revelation or providence. It was influential among some eighteenth-century thinkers. Scripture teaches instead that God upholds all things moment by moment and acts in history.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:25"
+          }
+        ],
+        "seeAlso": [
+          "theism",
+          "providence",
+          "miracle"
+        ]
+      },
+      {
+        "id": "pantheism",
+        "term": "Pantheism",
+        "text": "The view that God and the universe are the same thing, so that everything is divine. It is found in some Hindu schools and in Spinoza. Christianity holds that the Creator is distinct from his creation, which depends on him but is not part of him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:25"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "theism",
+          "creation-ex-nihilo"
+        ]
+      },
+      {
+        "id": "naturalism",
+        "term": "Naturalism",
+        "text": "The view that nature is all there is: no God, no souls, nothing beyond what the sciences can in principle study. It is distinct from science itself, which studies nature without deciding whether anything lies beyond it. Several arguments on this site, such as the argument from reason, are aimed at naturalism.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "plantinga-where-conflict",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "nagel-mind-cosmos",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "methodological-naturalism",
+          "atheism",
+          "argument-from-reason"
+        ]
+      },
+      {
+        "id": "methodological-naturalism",
+        "term": "Methodological naturalism",
+        "text": "The working rule in science of explaining natural events by natural causes. Many Christian scientists accept it as a method, while denying that it shows nature is all there is. Others argue that it unfairly rules out design before the evidence is heard.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "naturalism",
+          "intelligent-design"
+        ]
+      },
+      {
+        "id": "natural-theology",
+        "term": "Natural theology",
+        "text": "Knowledge of God reached by reason and observation of the world, without appeal to Scripture: the classical arguments for God belong here. Christians differ on how much it can achieve, but Paul says that God's power and divine nature are clearly seen in what he has made.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:20"
+          },
+          {
+            "kind": "source",
+            "source": "blackwell-natural-theology",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "general-revelation",
+          "special-revelation",
+          "cumulative-case"
+        ]
+      },
+      {
+        "id": "general-revelation",
+        "term": "General revelation",
+        "text": "What God makes known of himself to all people through creation and conscience: his power, his glory and his moral law. It leaves people without excuse but does not tell them the gospel.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:1-4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-15"
+          }
+        ],
+        "seeAlso": [
+          "special-revelation",
+          "natural-theology",
+          "conscience"
+        ]
+      },
+      {
+        "id": "special-revelation",
+        "term": "Special revelation",
+        "text": "What God makes known through particular acts and words: his dealings with Israel, the prophets and apostles, Jesus Christ, and the Scriptures. It tells what nature cannot: God's plan of salvation. The Baptist Faith and Message calls the Bible \"God's revelation of Himself to man\" and says that all Scripture is a testimony to Christ, \"who is Himself the focus of divine revelation\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:1-2"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article I"
+          }
+        ],
+        "seeAlso": [
+          "general-revelation",
+          "theism"
+        ]
+      },
+      {
+        "id": "cosmological-argument",
+        "term": "Cosmological argument",
+        "text": "Any argument from the existence of the world to a first cause or necessary being. Its main forms are the kalam argument, from the universe's beginning; the contingency argument, from the fact that things exist that need not; and Aquinas's first three ways.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 3:4"
+          },
+          {
+            "kind": "source",
+            "source": "aquinas-summa-part1",
+            "locator": "I, q.2, a.3"
+          }
+        ],
+        "seeAlso": [
+          "kalam",
+          "contingency",
+          "five-ways",
+          "first-cause"
+        ]
+      },
+      {
+        "id": "kalam",
+        "term": "Kalam argument",
+        "text": "A cosmological argument named after medieval Islamic theology and defended today by William Lane Craig: whatever begins to exist has a cause; the universe began to exist; so the universe has a cause. Its support comes from philosophy and from cosmology, including the Borde–Guth–Vilenkin theorem.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "source",
+            "source": "bgv-2003",
+            "locator": "abstract"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. VI, §92"
+          }
+        ],
+        "seeAlso": [
+          "cosmological-argument",
+          "big-bang",
+          "first-cause"
+        ]
+      },
+      {
+        "id": "contingency",
+        "term": "Contingency",
+        "text": "A thing is contingent if it exists but might not have: you, the earth, the universe. The contingency argument, associated with Leibniz and Samuel Clarke, holds that contingent things need an explanation outside themselves, ending in a being that exists necessarily.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:24-25"
+          },
+          {
+            "kind": "source",
+            "source": "leibniz-monadology",
+            "locator": "Monadology §§32, 37–38"
+          },
+          {
+            "kind": "source",
+            "source": "clarke-demonstration",
+            "locator": "Propositions I–III"
+          }
+        ],
+        "seeAlso": [
+          "necessary-being",
+          "sufficient-reason",
+          "cosmological-argument"
+        ]
+      },
+      {
+        "id": "necessary-being",
+        "term": "Necessary being",
+        "text": "A being that could not fail to exist, whose existence is not given to it by anything else. Classical theism holds that God is the one necessary being; the contingency and ontological arguments both aim to show there must be one.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Exodus 3:14"
+          },
+          {
+            "kind": "source",
+            "source": "clarke-demonstration",
+            "locator": "Propositions I–III"
+          }
+        ],
+        "seeAlso": [
+          "contingency",
+          "aseity",
+          "ontological-argument"
+        ]
+      },
+      {
+        "id": "sufficient-reason",
+        "term": "Principle of sufficient reason",
+        "text": "The principle, stated by Leibniz, that there is a reason why anything is so and not otherwise. The contingency argument depends on some version of it; critics such as Hume question whether the universe as a whole needs a reason.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "leibniz-monadology",
+            "locator": "Monadology §§32, 37–38"
+          },
+          {
+            "kind": "source",
+            "source": "hume-dialogues",
+            "locator": "Part IX"
+          }
+        ],
+        "seeAlso": [
+          "contingency",
+          "brute-fact"
+        ]
+      },
+      {
+        "id": "brute-fact",
+        "term": "Brute fact",
+        "text": "A fact with no explanation: it simply is. Some atheist philosophers hold that the existence of the universe is a brute fact. Theists reply that this gives up on explanation exactly where it matters most.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "oppy-arguing-gods",
+            "locator": "whole work"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 11:36"
+          }
+        ],
+        "seeAlso": [
+          "sufficient-reason",
+          "contingency"
+        ]
+      },
+      {
+        "id": "first-cause",
+        "term": "First cause",
+        "text": "A cause that is not itself caused, at the beginning of a chain of causes. Aquinas's second way argues that there must be one, since a chain of causes cannot go back for ever. In Christian teaching the first cause is the Creator, not a link in the chain.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:16-17"
+          },
+          {
+            "kind": "source",
+            "source": "aquinas-summa-part1",
+            "locator": "I, q.2, a.3"
+          }
+        ],
+        "seeAlso": [
+          "cosmological-argument",
+          "five-ways",
+          "aseity"
+        ]
+      },
+      {
+        "id": "five-ways",
+        "term": "Five ways",
+        "text": "Thomas Aquinas's five short arguments for God in the Summa Theologica (I, q.2, a.3): from motion, from efficient causes, from possibility and necessity, from degrees of perfection, and from the order of nature. Each ends, \"and this we call God\" or similar.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "aquinas-summa-part1",
+            "locator": "I, q.2, a.3"
+          }
+        ],
+        "seeAlso": [
+          "cosmological-argument",
+          "first-cause",
+          "teleological-argument"
+        ]
+      },
+      {
+        "id": "ontological-argument",
+        "term": "Ontological argument",
+        "text": "An argument that God exists from the idea of God alone. Anselm (1078) argued that God is that than which nothing greater can be conceived, and such a being must exist in reality, not only in the mind. Gaunilo, Aquinas and Kant raised objections; Plantinga restated it in modal terms.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 14:1"
+          },
+          {
+            "kind": "source",
+            "source": "anselm-proslogium",
+            "locator": "Proslogium, chapters II–III"
+          }
+        ],
+        "seeAlso": [
+          "necessary-being",
+          "maximal-greatness"
+        ]
+      },
+      {
+        "id": "maximal-greatness",
+        "term": "Maximal greatness",
+        "text": "In Plantinga's modal ontological argument, the property of being all-powerful, all-knowing and wholly good in every possible world. If maximal greatness is so much as possible, the argument runs, it is actual. Critics reply that the possibility premise is exactly what is in question.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "plantinga-nature-necessity",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "ontological-argument",
+          "necessary-being"
+        ]
+      },
+      {
+        "id": "teleological-argument",
+        "term": "Teleological argument",
+        "text": "The argument from design: the order and apparent purpose in nature point to a designing mind. From the Greek telos, end or goal. Paley's watch and the fine-tuning argument are two forms of it; Hume's Dialogues are its classic critique.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:1"
+          },
+          {
+            "kind": "source",
+            "source": "paley-natural-theology",
+            "locator": "chapter I"
+          },
+          {
+            "kind": "source",
+            "source": "hume-dialogues",
+            "locator": "Part II"
+          }
+        ],
+        "seeAlso": [
+          "fine-tuning",
+          "intelligent-design",
+          "five-ways"
+        ]
+      },
+      {
+        "id": "fine-tuning",
+        "term": "Fine-tuning",
+        "text": "The finding that many constants of physics and conditions of the early universe fall within narrow ranges that permit life. The fact is widely accepted; its explanation, by design, chance, necessity or a multiverse, is debated.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 45:18"
+          },
+          {
+            "kind": "source",
+            "source": "barnes-lewis-fortunate",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "anthropic-principle",
+          "multiverse",
+          "teleological-argument"
+        ]
+      },
+      {
+        "id": "anthropic-principle",
+        "term": "Anthropic principle",
+        "text": "The observation that we can only find ourselves in a universe that permits observers. In its weak form it is a truism about selection effects; whether it removes the need to explain fine-tuning is disputed.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sober-design",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "barnes-lewis-fortunate",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "fine-tuning",
+          "multiverse"
+        ]
+      },
+      {
+        "id": "multiverse",
+        "term": "Multiverse",
+        "text": "The hypothesis that our universe is one of very many, perhaps with different constants. Some versions of inflationary cosmology and string theory suggest it. It is offered as an explanation of fine-tuning; it is not observable at present, and it would not by itself exclude a Creator.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "barnes-lewis-fortunate",
+            "locator": "whole work"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 147:4-5"
+          }
+        ],
+        "seeAlso": [
+          "fine-tuning",
+          "anthropic-principle"
+        ]
+      },
+      {
+        "id": "big-bang",
+        "term": "Big Bang",
+        "text": "The scientific model in which the universe expanded from an extremely hot, dense state about 13.8 billion years ago. The term was coined in 1949 by Fred Hoyle, who rejected the theory. It was first proposed by Georges Lemaître, a physicist and Catholic priest. Many Christians see it as consistent with a beginning of creation.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "source",
+            "source": "barnes-lewis-fortunate",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "kalam",
+          "creation-ex-nihilo"
+        ]
+      },
+      {
+        "id": "intelligent-design",
+        "term": "Intelligent design",
+        "text": "A movement since the 1990s arguing that some features of living things, such as complex molecular machines, are best explained by an intelligent cause rather than undirected processes. Christians differ on it: some welcome it, others think it argues from gaps in present knowledge.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:20"
+          },
+          {
+            "kind": "source",
+            "source": "sober-design",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "teleological-argument",
+          "methodological-naturalism",
+          "god-of-the-gaps"
+        ]
+      },
+      {
+        "id": "god-of-the-gaps",
+        "term": "God of the gaps",
+        "text": "Appealing to God only to explain what science cannot yet explain, so that God shrinks as science grows. Most arguments on this site avoid it by starting from what science assumes, such as order, laws and existence itself, rather than from what it has not explained.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:17"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. V, §84"
+          }
+        ],
+        "seeAlso": [
+          "intelligent-design",
+          "methodological-naturalism"
+        ]
+      },
+      {
+        "id": "moral-argument",
+        "term": "Moral argument",
+        "text": "An argument from the reality of objective moral values and duties to God as their best explanation. Forms run from Kant's practical postulate through Sorley and Rashdall to Robert Adams and William Lane Craig.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-15"
+          },
+          {
+            "kind": "source",
+            "source": "sorley-moral-values",
+            "locator": "ch. XIII, pp. 351–352"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. VI, §96, pp. 85–86"
+          }
+        ],
+        "seeAlso": [
+          "euthyphro",
+          "conscience",
+          "moral-realism"
+        ]
+      },
+      {
+        "id": "moral-realism",
+        "term": "Moral realism",
+        "text": "The view that some moral claims are objectively true, whatever anyone thinks: for example, that cruelty for fun is wrong. Most moral arguments for God start from it. Some atheists, such as Erik Wielenberg, are moral realists who hold that moral facts need no foundation outside themselves.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Micah 6:8"
+          },
+          {
+            "kind": "source",
+            "source": "wielenberg-robust-ethics",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "moral-argument",
+          "euthyphro"
+        ]
+      },
+      {
+        "id": "euthyphro",
+        "term": "Euthyphro dilemma",
+        "text": "From Plato's dialogue Euthyphro: is something good because God commands it, or does God command it because it is good? Christians usually answer that goodness is rooted in God's own unchanging nature, and his commands express it, so it is neither arbitrary nor above him.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "plato-euthyphro",
+            "locator": "10a"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Leviticus 11:44"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "moral-argument",
+          "moral-realism"
+        ]
+      },
+      {
+        "id": "conscience",
+        "term": "Conscience",
+        "text": "The inner sense of right and wrong, which Paul says shows that God's law is written on the human heart. It can be trained, dulled or defiled, so it is a witness, not an infallible judge.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 4:2"
+          }
+        ],
+        "seeAlso": [
+          "moral-argument",
+          "general-revelation"
+        ]
+      },
+      {
+        "id": "argument-from-reason",
+        "term": "Argument from reason",
+        "text": "The argument, made by C. S. Lewis and in another form by Alvin Plantinga, that if our minds are wholly the product of non-rational causes, we have no reason to trust our reasoning, including the reasoning that led to naturalism. So naturalism undermines itself.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "lewis-miracles",
+            "locator": "chapter 3 (1960 revision)"
+          },
+          {
+            "kind": "source",
+            "source": "plantinga-where-conflict",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "naturalism",
+          "consciousness"
+        ]
+      },
+      {
+        "id": "consciousness",
+        "term": "Consciousness",
+        "text": "Subjective experience: there is something it is like to see red or feel pain. Philosophers call explaining it in physical terms \"the hard problem\". Christians argue that minds fit naturally in a world made by a personal God.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 2:7"
+          },
+          {
+            "kind": "source",
+            "source": "nagel-mind-cosmos",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "argument-from-reason",
+          "naturalism"
+        ]
+      },
+      {
+        "id": "religious-experience",
+        "term": "Religious experience",
+        "text": "An experience that seems to its subject to be an awareness of God. William James studied its varieties; William Alston and Richard Swinburne argue that such experiences give some reason to believe, unless there is reason to think them mistaken.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 8:16"
+          },
+          {
+            "kind": "source",
+            "source": "james-varieties",
+            "locator": "Lecture I"
+          },
+          {
+            "kind": "source",
+            "source": "alston-perceiving-god",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "principle-of-credulity",
+          "properly-basic"
+        ]
+      },
+      {
+        "id": "principle-of-credulity",
+        "term": "Principle of credulity",
+        "text": "Richard Swinburne's principle that if it seems to someone that something is present, it probably is, unless there is special reason to doubt it. Applied to religious experience, it puts the burden on the sceptic.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "swinburne-existence-god",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "religious-experience",
+          "properly-basic"
+        ]
+      },
+      {
+        "id": "properly-basic",
+        "term": "Properly basic belief",
+        "text": "A belief that is rational without being based on other beliefs or arguments, such as belief in other minds or the past. Alvin Plantinga argues that belief in God can be properly basic, grounded in a God-given sense of the divine.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:19"
+          },
+          {
+            "kind": "source",
+            "source": "plantinga-warranted-belief",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "religious-experience",
+          "reformed-epistemology",
+          "principle-of-credulity"
+        ]
+      },
+      {
+        "id": "reformed-epistemology",
+        "term": "Reformed epistemology",
+        "text": "The school of Alvin Plantinga, Nicholas Wolterstorff and others, drawing on John Calvin, which holds that belief in God can be rational and warranted without arguments. It is one of the five methods of apologetics.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:1-2"
+          },
+          {
+            "kind": "source",
+            "source": "plantinga-warranted-belief",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "cowan-five-views",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "properly-basic",
+          "presuppositionalism",
+          "classical-apologetics"
+        ]
+      },
+      {
+        "id": "classical-apologetics",
+        "term": "Classical apologetics",
+        "text": "The method that first argues for God's existence and then for the truth of Christianity, usually from the resurrection. William Lane Craig and R. C. Sproul are leading defenders.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:22-31"
+          },
+          {
+            "kind": "source",
+            "source": "cowan-five-views",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "evidential-apologetics",
+          "presuppositionalism",
+          "natural-theology"
+        ]
+      },
+      {
+        "id": "evidential-apologetics",
+        "term": "Evidential apologetics",
+        "text": "The method that argues from historical evidence, above all for the resurrection, directly to the truth of Christianity, without first establishing theism. Gary Habermas's minimal-facts approach is an example.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 1:3"
+          },
+          {
+            "kind": "source",
+            "source": "cowan-five-views",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "habermas-licona-case",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "classical-apologetics",
+          "cumulative-case"
+        ]
+      },
+      {
+        "id": "presuppositionalism",
+        "term": "Presuppositionalism",
+        "text": "The method of Cornelius Van Til and Greg Bahnsen, which denies there is neutral ground between belief and unbelief and argues that only the Christian worldview makes logic, science and morality intelligible.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 1:7"
+          },
+          {
+            "kind": "source",
+            "source": "bahnsen-stein",
+            "locator": "whole transcript"
+          },
+          {
+            "kind": "source",
+            "source": "cowan-five-views",
+            "locator": "whole work"
+          }
+        ],
+        "seeAlso": [
+          "classical-apologetics",
+          "reformed-epistemology"
+        ]
+      },
+      {
+        "id": "cumulative-case",
+        "term": "Cumulative case",
+        "text": "An argument in which many lines of evidence, none conclusive alone, together make a conclusion highly probable, like a verdict in court. E. Y. Mullins, the Southern Baptist theologian, described the case for Christianity this way in 1905.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:30-31"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. I, §22"
+          }
+        ],
+        "seeAlso": [
+          "natural-theology",
+          "evidential-apologetics"
+        ]
+      },
+      {
+        "id": "creation-ex-nihilo",
+        "term": "Creation out of nothing",
+        "text": "The teaching that God made the universe not from pre-existing material but from nothing, by his word. It distinguishes the Christian Creator from a craftsman shaping eternal matter.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 11:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 4:17"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "big-bang",
+          "pantheism",
+          "aseity"
+        ]
+      },
+      {
+        "id": "providence",
+        "term": "Providence",
+        "text": "God's continuing care and government of all things, by which he upholds the world and directs it to his purposes. The Baptist Faith and Message confesses that God \"reigns with providential care over His universe, His creatures, and the flow of the stream of human history\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 10:29-30"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "deism",
+          "miracle"
+        ]
+      },
+      {
+        "id": "miracle",
+        "term": "Miracle",
+        "text": "An event that God brings about beyond what natural causes would produce, as a sign. David Hume argued that testimony could never establish one; Christians reply that if God exists, miracles are possible, and the question is the evidence.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:30-31"
+          },
+          {
+            "kind": "source",
+            "source": "hume-enquiry",
+            "locator": "Section X"
+          }
+        ],
+        "seeAlso": [
+          "providence",
+          "deism"
+        ]
+      },
+      {
+        "id": "aseity",
+        "term": "Aseity",
+        "text": "From the Latin a se, from himself: God's existence depends on nothing outside himself. He is not made, sustained or completed by anything. Every other being exists from him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Exodus 3:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:25"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "necessary-being",
+          "first-cause"
+        ]
+      },
+      {
+        "id": "trinity",
+        "term": "Trinity",
+        "text": "The Christian teaching that the one God eternally exists as three persons, Father, Son and Holy Spirit, \"without division of nature, essence, or being\" (Baptist Faith and Message, article II). Arguments for God reach a Creator; the Trinity is known from God's self-revelation.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 28:19"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "theism",
+          "special-revelation"
+        ]
+      }
+    ],
+    "passages": [
+      {
+        "reference": "Romans 1:19-20",
+        "note": "What may be known about God"
+      },
+      {
+        "reference": "Psalms 19:1-4",
+        "note": "The heavens declare"
+      },
+      {
+        "reference": "Acts 17:24-28",
+        "note": "In him we live and move"
+      }
+    ],
+    "related": [
+      "arguments-map",
+      "kalam-argument",
+      "contingency-argument",
+      "fine-tuning",
+      "apologetic-methods",
+      "god",
+      "scripture",
+      "consciousness",
+      "euthyphro",
+      "moral-argument",
+      "ontological-argument"
+    ],
+    "keywords": [
+      "glossary",
+      "apologetics terms",
+      "arguments for God",
+      "theism",
+      "natural theology",
+      "contingency",
+      "aseity",
+      "fine-tuning",
+      "properly basic"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new glossary article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval. 46 terms, every see-also inside the glossary; the Baptist Faith and Message phrases in 'special revelation', 'providence' and 'trinity' re-checked at bfm.sbc.net (article I says 'God's revelation of Himself to man', the 2000 wording).",
+      "date": "2026-11-28",
+      "contentHash": "724cd439773faefa90c442a8529ba04be97440ffbd50b1a76a9c03449c483fc8",
+      "basisHash": "3f66c9e0847d3a3f69f947a7f20636aaeec4ee50588c53e48f4fa0532484047c"
+    }
+  ]
+}

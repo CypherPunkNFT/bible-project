@@ -1,0 +1,282 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "consciousness",
+  "order": 49,
+  "publication": "published",
+  "content": {
+    "title": "Consciousness and the soul",
+    "topic": "god",
+    "summary": "Why are we aware at all? The hard problem of consciousness, why it matters for belief in God, and what Scripture says about the human person.",
+    "format": "short-answer",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "You are aware: of these words, of colours, of pain and pleasure, of your own thoughts. Science can map which parts of the brain are active when this happens. What it has not explained is why any physical process should be accompanied by experience at all, why there is something it is like to be you. The philosopher David Chalmers called this \"the hard problem\" in 1996, and it remains unsolved. For a materialist, consciousness is an awkward fact; for a Christian, it is what one would expect in a world made by a conscious God, who made human beings in his image.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 1:27"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Genesis 2:7"
+        },
+        {
+          "kind": "source",
+          "source": "chalmers-conscious-mind",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article III"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "The hard problem is widely granted, including by atheist philosophers such as Chalmers and Thomas Nagel: describing brain processes, however fully, does not seem to explain why they are experienced.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "chalmers-conscious-mind",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "nagel-mind-cosmos",
+            "locator": "whole work"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "If the ultimate reality is a conscious, personal God, the existence of conscious creatures is not surprising; if the ultimate reality is unconscious matter, it is very surprising.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 4:24"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 94:9"
+          },
+          {
+            "kind": "source",
+            "source": "moreland-consciousness",
+            "locator": "whole work"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Scripture describes human beings as embodied souls: formed from dust and given the breath of life, with an inner life God searches and knows, and a soul that those who kill the body cannot kill.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 2:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 139:1-4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 10:28"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Consciousness does not prove God, but it fits far better in a world made by Mind than in a world made by matter alone. And the Christian account of the person, body and soul made by God for God, makes sense of the inner life we cannot help knowing we have.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Ecclesiastes 12:7"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Psalms 139:13-14"
+        },
+        {
+          "kind": "source",
+          "source": "moreland-consciousness",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "leibniz-mill",
+        "text": "The problem is old. In 1714 Gottfried Leibniz asked his readers to imagine a machine built to think and feel, enlarged until one could walk inside it \"as into a mill\". Inside, he said, we should find \"only parts which work one upon another, and never anything by which to explain a perception\". Modern neuroscience has walked into the mill in fine detail, and its findings are real and valuable. Leibniz's point still stands: the parts and their workings are one thing, the experience another.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "leibniz-monadology",
+            "locator": "Monadology §17, p. 228"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 2:11"
+          }
+        ],
+        "title": "Leibniz's mill"
+      },
+      {
+        "id": "views",
+        "text": "Materialists hold that consciousness is a brain process, or will be explained as one; some say the hard problem is an illusion. Property dualists, Chalmers among them, hold that experience is a real feature of the world not reducible to physics, without believing in a soul. Substance dualists, J. P. Moreland among them, hold that the person is or has a soul distinct from the body. Christians hold different views about how body and soul relate, but Scripture rules out a picture in which the person simply is the body and nothing more: Jesus promised the dying thief that he would be with him that day in Paradise, and Paul longed to depart and be with Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 23:43"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Philippians 1:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 5:8"
+          },
+          {
+            "kind": "source",
+            "source": "chalmers-conscious-mind",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "moreland-consciousness",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The main views"
+      }
+    ],
+    "objection": "Neuroscience is explaining more about the mind every year. Brain damage changes personality, and drugs change experience. It is only a matter of time before consciousness is explained as brain activity, like everything else.",
+    "reply": {
+      "id": "reply",
+      "text": "Christians welcome neuroscience and agree that the mind depends on the brain in this life: we are embodied, and damage to the body affects the person. Dependence is not identity. A pianist's music depends on the piano, and a damaged piano changes the music, but the pianist is not the piano. The hard problem is not a gap that more data will close; it is a question about why data of one kind, physical processes, should be accompanied by something of a different kind, experience.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 139:13-14"
+        },
+        {
+          "kind": "source",
+          "source": "chalmers-conscious-mind",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "moreland-consciousness",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "panpsychism",
+        "heldBy": [
+          "some philosophers of mind, including Philip Goff, and Thomas Nagel's natural teleology"
+        ],
+        "objection": "If consciousness cannot be explained by matter, perhaps matter itself is conscious in some faint way, all the way down. That explains consciousness without God.",
+        "reply": {
+          "id": "panpsychism-reply",
+          "text": "This is a serious alternative, and its popularity shows how hard the problem is for standard materialism. Critics, theist and atheist, note that it faces its own puzzle: how countless tiny consciousnesses could combine into the single, unified awareness of one person. Theism has a simpler account: consciousness exists because the source of everything is a conscious, personal God.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 4:24"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 40:28"
+            },
+            {
+              "kind": "source",
+              "source": "nagel-mind-cosmos",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "moreland-consciousness",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "The argument from consciousness shows that materialism faces a hard problem and that theism does not face the same one. It does not decide between the Christian views of how soul and body relate, and it does not by itself show which God exists.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "moreland-consciousness",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "oppy-arguing-gods",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "\"O LORD, You have searched me and known me.\" What does it mean to you that your inner life, the part no one else sees, is fully known to God?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 139:1-4"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Genesis 2:7",
+        "note": "The breath of life"
+      },
+      {
+        "reference": "Psalms 139:1-16",
+        "note": "Searched and known; fearfully and wonderfully made"
+      },
+      {
+        "reference": "Matthew 10:28",
+        "note": "Those who cannot kill the soul"
+      }
+    ],
+    "related": [
+      "argument-from-reason",
+      "arguments-map",
+      "religious-experience",
+      "god-reality-glossary",
+      "secular"
+    ],
+    "keywords": [
+      "consciousness",
+      "hard problem",
+      "soul",
+      "mind and brain",
+      "Chalmers",
+      "Leibniz's mill",
+      "dualism",
+      "image of God"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new short-answer article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "4dc3b6367d1ac9dc8c5ec8201579468eed02e5e8ce66d092858f74e6be63a22a",
+      "basisHash": "bd4a187f5c0af1efbccb939a43a6d7c97f61f08afc6121ef768e94901cdc444b"
+    }
+  ]
+}

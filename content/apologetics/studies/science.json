@@ -141,6 +141,106 @@
           }
         ],
         "title": "Examine a specific disagreement"
+      },
+      {
+        "id": "what-science-asks",
+        "text": "Science asks how the natural world behaves: what follows what, by what regular pattern, measured how. It does this by setting aside, as a working method, any appeal to causes outside nature. That method is sometimes called methodological naturalism, and Christians in the sciences use it every day. It is a different thing from philosophical naturalism, the belief that nature is all there is. The first is a rule for doing experiments; the second is a conclusion about reality that no experiment could reach, since an experiment can only examine what is inside nature. When someone says science has made God unnecessary, they have usually slipped from the first to the second.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 111:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 25:2"
+          },
+          {
+            "kind": "source",
+            "source": "plantinga-where-conflict",
+            "locator": "whole work"
+          }
+        ],
+        "title": "What science can ask, and what it cannot"
+      },
+      {
+        "id": "conflict-thesis",
+        "text": "The picture of a long war between science and religion is surprisingly recent. It was popularised by two books: John William Draper's History of the Conflict between Religion and Science (1874), which described science as the expansive force of the human intellect held back by \"traditionary faith\", and Andrew Dickson White's History of the Warfare of Science with Theology (1896). Historians of science now reject that picture. Many of the founders of modern science, among them Kepler, Boyle and Newton, were devout and saw their work as tracing God's handiwork. The Galileo affair was real, but it was a tangle of astronomy, church politics and personal conflict, not a simple fight between evidence and belief. John Hedley Brooke's verdict, now standard, is that the relation has been complex: neither constant war nor easy harmony.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "draper-conflict",
+            "locator": "Preface"
+          },
+          {
+            "kind": "source",
+            "source": "white-warfare",
+            "locator": "Introduction"
+          },
+          {
+            "kind": "source",
+            "source": "numbers-galileo-jail",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "brooke-science-religion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The \"war\" between science and faith: what historians found"
+      },
+      {
+        "id": "creation-views-short",
+        "text": "Southern Baptists confess that \"man is the special creation of God, made in His own image\" (Baptist Faith and Message 2000, article III), and that God is the Creator of all. The confession does not say how old the earth is, and Baptists who agree on Scripture's truthfulness read Genesis 1 in different ways: as six ordinary days a few thousand years ago; as long ages; as a literary framework arranged in two sets of three days; or as compatible with God creating through evolution, though many Baptists reject that last view. The site does not choose between them. Each is set out in its own words in \"How old is the earth? The views Baptists hold\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:26-27"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Exodus 20:11"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article III"
+          },
+          {
+            "kind": "source",
+            "source": "hagopian-genesis-debate",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The age of the earth: the views Baptists hold"
+      },
+      {
+        "id": "gaps-or-explanation",
+        "text": "An argument that says \"science cannot explain this, so God did it\" grows weaker each time science explains something new. That is not the Christian claim. Scripture presents God as the Creator and sustainer of the whole process, the parts we understand as well as the parts we do not. The serious arguments for God start from what science has found, not from what it has failed to find: that the universe has a lawful order that minds can grasp, that it had a beginning, and that its constants permit life. E. Y. Mullins, president of the Southern Baptist Theological Seminary, wrote in 1905 that the Christian \"can await with composure the outcome of researches into physical nature\".",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Jeremiah 10:12"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. V, §84, pp. 70–71"
+          }
+        ],
+        "title": "Not a God of the gaps"
       }
     ],
     "objection": "Does faith require us to ignore evidence?",
@@ -188,20 +288,135 @@
       {
         "reference": "Colossians 1:15-17",
         "note": "All things held together in Christ"
+      },
+      {
+        "reference": "Psalms 104:24-30",
+        "note": "God's wisdom in the working of nature"
       }
     ],
     "related": [
       "why-anything",
       "miracles",
       "scripture",
-      "hume-miracles"
+      "hume-miracles",
+      "science-faith-history",
+      "creation-views",
+      "fine-tuning",
+      "kalam-argument",
+      "argument-from-reason",
+      "paley-hume"
     ],
     "keywords": [
       "evolution",
       "creation",
       "cosmology",
       "reason",
-      "naturalism"
+      "naturalism",
+      "conflict thesis",
+      "Galileo",
+      "Draper",
+      "White",
+      "age of the earth",
+      "God of the gaps",
+      "scientism",
+      "methodological naturalism"
+    ],
+    "format": "short-answer",
+    "spine": "academic",
+    "objections": [
+      {
+        "id": "god-of-the-gaps",
+        "heldBy": [
+          "critics of design arguments; many Christian scientists make the same complaint"
+        ],
+        "objection": "Every time science explains something, the room for God gets smaller. God is just a name for what we do not yet understand, and the gaps are closing.",
+        "reply": {
+          "id": "god-of-the-gaps-reply",
+          "text": "That is a fair criticism of a bad argument, and Christians should not make it. The God of Scripture is not one cause among others, filling holes; he is the reason there is a lawful world to explain at all. The more we understand how creation works, the more there is to thank him for. The arguments worth weighing are about what science has found, and they are set out in this field's articles on fine-tuning and on the beginning of the universe.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 104:24"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Colossians 1:16-17"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VI, §97, pp. 86–87"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evolution-replaces-god",
+        "heldBy": [
+          "Richard Dawkins, in his 2007 debate with John Lennox and in his books"
+        ],
+        "objection": "Darwin showed that living things which look designed are the product of natural selection. Once you have evolution, you do not need a designer.",
+        "reply": {
+          "id": "evolution-replaces-god-reply",
+          "text": "Even if every biological claim of evolution is granted, it explains how life develops, not why there is a universe with laws that allow life to develop. Christians differ on how much of evolutionary biology to accept, and the site does not settle that; but the point holds on every view. Charles Hodge, who thought Darwin's theory atheistic in 1874, also wrote that this did not mean Darwin himself or all who adopt his views were atheists. The question is whether nature works without God, not whether it works by processes.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 139:13-14"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Job 12:7-10"
+            },
+            {
+              "kind": "source",
+              "source": "hodge-darwinism",
+              "locator": "conclusion"
+            },
+            {
+              "kind": "source",
+              "source": "lennox-dawkins",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      },
+      {
+        "id": "scientism",
+        "heldBy": [
+          "the view called scientism, common in some popular atheist writing"
+        ],
+        "objection": "Science is the only reliable path to knowledge. Anything that cannot be tested in a laboratory is opinion, including belief in God.",
+        "reply": {
+          "id": "scientism-reply",
+          "text": "The claim refutes itself: \"only what science can test is knowledge\" is not something science can test. Mullins noted in 1905 that science itself is founded on first truths it does not prove. We rely on knowledge no experiment supplies: logic and mathematics, the reliability of memory, the moral wrongness of cruelty, the testimony of witnesses. Science depends on such things; it does not produce them. That is why the question of God is not settled by any one discipline.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Thessalonians 5:21"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. I, §16"
+            },
+            {
+              "kind": "source",
+              "source": "plantinga-where-conflict",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "craig-krauss",
+              "locator": "whole transcript"
+            }
+          ]
+        }
+      }
+    ],
+    "debates": [
+      "lennox-dawkins",
+      "craig-krauss"
     ]
   },
   "reviews": [
@@ -240,6 +455,15 @@
       "date": "2026-11-28",
       "contentHash": "fe630772d9c59698317dda5ac94e94b9e0d95ac00bb5fa70635a62dd83f8401f",
       "basisHash": "0fb39fb5fd9e1eb1f460a8d1d79291169278348d18e051ad236306f9fb4d8428"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality) 8.1: article deepened; nothing removed or shortened (only additions), plus related links added both ways. Checked the added text against the Berean Standard Bible, the held public-domain texts and the Baptist Faith and Message 2000.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "3c000472367ccd0690baad6d44a63f085e95530c161f06c90de9f774b40896d3",
+      "basisHash": "192d98c196677a3d8764277017349fe3634ba6e535c4eb1e0c3f90e935db56b3"
     }
   ]
 }

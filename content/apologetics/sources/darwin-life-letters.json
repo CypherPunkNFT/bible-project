@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "darwin-life-letters",
+  "order": 350,
+  "publication": "published",
+  "content": {
+    "title": "The Life and Letters of Charles Darwin, volume I (1887)",
+    "author": "Charles Darwin · edited by Francis Darwin",
+    "kind": "Historical text",
+    "url": "https://www.gutenberg.org/ebooks/2087",
+    "role": "Primary record · not a teaching authority",
+    "note": "Darwin's letters, edited by his son. Cited for chapter VIII ('Religion'), including Darwin's letter to William Graham of 3 July 1881 and its 'horrid doubt' about the convictions of a mind developed from lower animals. Public domain: may be quoted.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #2087; checksum in Website/SOURCES.md, 'Apologetics fields: God & reality'). 2026-11-27 (plan APOLOGETICS-FIELDS step 8, God & reality): chapter VIII read around the letter to W. Graham of 3 July 1881, for argument-from-reason.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "The Life and Letters of Charles Darwin, edited by Francis Darwin, volume I (London: John Murray, 1887; Project Gutenberg ebook 2087)",
+      "basis": "Published 1887; Charles Darwin died in 1882 and Francis Darwin in 1925: public domain in the US and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new source record. Checked title, author, kind and role against the work, and that the URL opens the work, its publisher's page or a library catalogue search; the read note states honestly how it was read (checked = corpus). Its publicDomain edition and basis were checked against the held file's title page or header. Every citation of it in the step-8 articles was checked against that read note.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "7cb65a23ae25c805094d677f36731232f14c723ff2c50f835d8e037962462c16",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

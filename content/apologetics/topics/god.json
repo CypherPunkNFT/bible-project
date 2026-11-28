@@ -10,7 +10,12 @@
     "short": "God",
     "color": "accent",
     "description": "Existence, reason and the shape of a meaningful universe.",
-    "question": "Why is there anything at all?"
+    "question": "Why is there anything at all?",
+    "start": [
+      "arguments-map",
+      "why-anything",
+      "moral-argument"
+    ]
   },
   "reviews": [
     {
@@ -29,6 +34,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "b5198bc638b6c506a43c8d056ba04a28d2d479ed97258abfb4857dc65d10c5b7",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): start row set to arguments-map, why-anything and moral-argument, all published and at their depth targets; title, description and question unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "531d8c4aa201ae3ade8960469e591ca8955e4398d8ae15d8f400683534a9d585",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

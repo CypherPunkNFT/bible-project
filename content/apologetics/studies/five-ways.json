@@ -1,0 +1,279 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "five-ways",
+  "order": 45,
+  "publication": "published",
+  "content": {
+    "title": "Aquinas's Five Ways, read slowly",
+    "topic": "god",
+    "summary": "Thomas Aquinas's five arguments for God's existence in his own words (1920 Dominican translation), with his own objections and his reason for not using the world's beginning.",
+    "format": "reading",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Thomas Aquinas (1225–1274) set out five short arguments for God's existence near the start of his Summa Theologica, in Part I, question 2, article 3. They take less than two pages, and they are often misread. They are not five proofs that the universe had a beginning; Aquinas thought that could not be proved. Most of them argue from things depending, here and now, on something that depends on nothing. Aquinas was a Roman Catholic friar and the site does not adopt his whole theology, but on this point Protestants and Baptists have long used his reasoning. The readings below are from the English Dominican translation of 1920, which is in the public domain.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "aquinas-summa-part1",
+          "locator": "I, q.2, a.3"
+        },
+        {
+          "kind": "source",
+          "source": "feser-aquinas",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "extracts": [
+      {
+        "id": "objections",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.2, a.3, Objections 1 and 2",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "Objection 1: It seems that God does not exist; because if one of two contraries be infinite, the other would be altogether destroyed. But the word \"God\" means that He is infinite goodness. If, therefore, God existed, there would be no evil discoverable; but there is evil in the world. Therefore God does not exist. Obj. 2: Further, it is superfluous to suppose that what can be accounted for by a few principles has been produced by many. But it seems that everything we see in the world can be accounted for by other principles, supposing God did not exist.",
+        "note": {
+          "id": "objections-note",
+          "text": "Aquinas begins by stating the case against God, and he chooses the two strongest objections still made today: evil, and the claim that nature explains itself. He does not set up weak opponents. Every article of the Summa works this way, and it is a model for Christian argument: put the other side as strongly as its holders would.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Peter 3:15"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "second-way",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.2, a.3, the body: the second way",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "The second way is from the nature of the efficient cause. In the world of sense we find there is an order of efficient causes. There is no case known (neither is it, indeed, possible) in which a thing is found to be the efficient cause of itself; for so it would be prior to itself, which is impossible. Now in efficient causes it is not possible to go on to infinity, because in all efficient causes following in order, the first is the cause of the intermediate cause, and the intermediate is the cause of the ultimate cause ... Therefore it is necessary to admit a first efficient cause, to which everyone gives the name of God.",
+        "note": {
+          "id": "second-way-note",
+          "text": "The key word is \"order\". Aquinas is not thinking of a chain of causes stretching back through time, like ancestors; he allowed that such a chain could, for all reason shows, be endless. He means causes stacked at one moment, each causing only because a higher one is causing it, as his first way pictures a staff that moves only because a hand moves it. Such a stack cannot be endless, because without a first, nothing in it would be causing at all.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Acts 17:28"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            },
+            {
+              "kind": "source",
+              "source": "feser-aquinas",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "third-way",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.2, a.3, the body: the third way",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "We find in nature things that are possible to be and not to be, since they are found to be generated, and to corrupt, and consequently, they are possible to be and not to be. ... Therefore, not all beings are merely possible, but there must exist something the existence of which is necessary. ... Therefore we cannot but postulate the existence of some being having of itself its own necessity, and not receiving it from another, but rather causing in others their necessity. This all men speak of as God.",
+        "note": {
+          "id": "third-way-note",
+          "text": "This is Aquinas's form of the contingency argument, which Leibniz later developed. One step in the full text is debated: Aquinas argues that if everything could fail to exist, at some time nothing would have existed. Readers since have asked whether that follows. The conclusion, a being with \"of itself its own necessity\", matches what Scripture says of the God who has life in himself.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 5:26"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            },
+            {
+              "kind": "source",
+              "source": "pruss-psr",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "fifth-way",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.2, a.3, the body: the fifth way",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "The fifth way is taken from the governance of the world. We see that things which lack intelligence, such as natural bodies, act for an end, and this is evident from their acting always, or nearly always, in the same way, so as to obtain the best result. ... Now whatever lacks intelligence cannot move towards an end, unless it be directed by some being endowed with knowledge and intelligence; as the arrow is shot to its mark by the archer.",
+        "note": {
+          "id": "fifth-way-note",
+          "text": "The fifth way is not Paley's argument from complex machinery. Aquinas starts from something simpler: that unthinking things behave regularly, tending towards definite results, as an acorn tends to become an oak. That regularity is what science measures as natural law. Aquinas asks what directs it.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalms 148:8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Job 38:33"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "replies",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.2, a.3, Replies to Objections 1 and 2",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "Reply Obj. 1: As Augustine says (Enchiridion xi): \"Since God is the highest good, He would not allow any evil to exist in His works, unless His omnipotence and goodness were such as to bring good even out of evil.\" ... Reply Obj. 2: Since nature works for a determinate end under the direction of a higher agent, whatever is done by nature must needs be traced back to God, as to its first cause.",
+        "note": {
+          "id": "replies-note",
+          "text": "Aquinas answers the problem of evil in one sentence borrowed from Augustine. It is a pointer, not a full reply; the Suffering & doubt field weighs the problem at length. His answer to the second objection is the heart of the Five Ways: explaining what nature does does not explain why nature does anything at all.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Genesis 50:20"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 8:28"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.2, a.3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "beginning-by-faith",
+        "source": "aquinas-summa-part1",
+        "locator": "I, q.46, a.2, I answer that",
+        "edition": "Summa Theologica, Part I, translated by the Fathers of the English Dominican Province (second and revised edition, 1920; Project Gutenberg ebook 17611)",
+        "translator": "Fathers of the English Dominican Province",
+        "text": "By faith alone do we hold, and by no demonstration can it be proved, that the world did not always exist ... And it is useful to consider this, lest anyone, presuming to demonstrate what is of faith, should bring forward reasons that are not cogent, so as to give occasion to unbelievers to laugh, thinking that on such grounds we believe things that are of faith.",
+        "note": {
+          "id": "beginning-by-faith-note",
+          "text": "Aquinas believed the world began, because Genesis says so, but he thought no argument proves it. Defenders of the kalam argument disagree with him on this point. His warning holds either way: a weak argument for a true belief does harm, because unbelievers think it is the reason we believe.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Genesis 1:1"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 11:3"
+            },
+            {
+              "kind": "source",
+              "source": "aquinas-summa-part1",
+              "locator": "I, q.46, a.2"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "What these readings do not do. Each way reaches a first cause, a necessary being or a director of nature; Aquinas spends the following questions arguing that this being is simple, perfect, good, infinite and one. The Five Ways alone do not reach the Trinity or the gospel, and Aquinas did not think they did: he held that those truths are known only by revelation. Modern readers also question some steps, especially in the third way. Baptist apologists have used the Five Ways in the same spirit: E. Y. Mullins granted in 1905 that \"mathematical demonstration of God's existence is impossible\", while holding that the evidence does in many instances properly convince.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 10:14-17"
+        },
+        {
+          "kind": "source",
+          "source": "aquinas-summa-part1",
+          "locator": "I, q.2, a.3"
+        },
+        {
+          "kind": "source",
+          "source": "oppy-arguing-gods",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VI, §89, pp. 76–77"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Aquinas answers the problem of evil in one sentence and leaves the rest to God's goodness and power. Where in your own life has God brought good out of something evil?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 50:20"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Romans 1:19-20",
+        "note": "God's power and nature seen in what he made"
+      },
+      {
+        "reference": "Acts 17:24-28",
+        "note": "In him we live and move"
+      },
+      {
+        "reference": "Exodus 3:14",
+        "note": "I AM WHO I AM, which Aquinas quotes in the article"
+      }
+    ],
+    "related": [
+      "why-anything",
+      "contingency-argument",
+      "kalam-argument",
+      "paley-hume",
+      "arguments-map",
+      "god",
+      "apologetic-methods",
+      "ontological-argument"
+    ],
+    "keywords": [
+      "Five Ways",
+      "Thomas Aquinas",
+      "Summa Theologica",
+      "first cause",
+      "unmoved mover",
+      "necessary being",
+      "cosmological argument"
+    ],
+    "debates": [
+      "craig-hitchens"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 8 (God & reality): new reading article written by this job. Checked: every Scripture reference resolves and every quoted verse matches the Berean Standard Bible; every quotation of a public-domain work was compared with the held text its source record names; in-copyright works are described in our own words and never quoted; the doctrine agrees with the Baptist Faith and Message 2000, and where Baptists differ the views are shown and not chosen; format rules and the depth target are met; related links run both ways.",
+      "note": "AI-assisted editorial review by the job that made the change (Fortress job 61c18296); not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "c82484cf026146dac720408816c1ed0143b7c4ac281462ecca7d5f18a48186c6",
+      "basisHash": "bd670790ab10a4db234548569495d36d1c02f0a485dd91c558608cea39dfa37f"
+    }
+  ]
+}
