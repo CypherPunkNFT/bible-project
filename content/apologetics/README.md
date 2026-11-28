@@ -124,9 +124,12 @@ that edition. A source whose role is "Scholarship · described, not quoted" can 
 is register bookkeeping like `read` and `checked`: kept out of the site data, and adding it leaves studies
 citing the source current.
 
-**No page shows a declared format yet.** Until plan step 6 builds each renderer and adds it to `PAGE_READY` in
-formats.ts, a study with a declared format stays a draft (publishing it fails). The compiler, the Markdown
-downloads, search, the translation extractor and the app's types already carry every format.
+**Every format has a page (plan step 6, 2026-11-27).** `src/components/apologetics/StudyFormats.tsx` (with
+`StudyFormatParts.tsx` and `src/pages/apologetics-formats.css`) draws each declared format inside the study page's
+frame; the app's copy is `App/src/components/apologetics/study/formats*.tsx`. An essay shows one part per address,
+`/apologetics/study/<id>/part/<n>` (part 1 is the study's own address). All ten formats are in `PAGE_READY` in
+formats.ts; a format added later stays a draft (publishing it fails) until its page is built and it is listed there.
+The compiler, the Markdown downloads, search, the translation extractor and the app's types carry every format.
 
 **Depth report:** `npm run content -- depth --topic jesus` lists each article's format, words (all prose),
 target from [targets.json](targets.json) (part B of the plan: 21 articles today, 95 planned), objection pairs,

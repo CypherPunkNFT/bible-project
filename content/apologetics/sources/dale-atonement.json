@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "dale-atonement",
+  "order": 305,
+  "publication": "published",
+  "content": {
+    "title": "The Atonement: The Congregational Union Lecture for 1875",
+    "author": "R. W. Dale (London: Hodder and Stoughton, 1875)",
+    "kind": "Theological lectures",
+    "url": "https://archive.org/details/atonementcongre00dalegoog",
+    "role": "Historic Christian witness",
+    "note": "The Birmingham Congregationalist's defence of Christ's death as a real atonement against its Victorian critics. Lecture IX argues that the law of righteousness is personal in God, so that in Christ the Judge himself bears the penalty he would otherwise inflict. Public domain (Dale died 1895).",
+    "read": "Read online on 2026-11-27 in the Internet Archive's text of the 1875 edition: the contents and lecture IX (pp. 353-398), including the reply to James Martineau's charge that punishing the innocent is immoral. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/dale-atonement-1875.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples'); the passages above were read in this file too.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain. Read online by the writer in the Internet Archive text; the job downloaded the same file (byte-identical to the writer's copy), registered its checksum and fetch-sources.py row, and set checked corpus. Title page, translator and date checked in the held text; the archive.org address opened 2026-11-27.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "5bda648b5f14621ec802f31c471cf1018b888c2278f375fef36e1800cb79dd99",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

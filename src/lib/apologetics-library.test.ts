@@ -4,12 +4,30 @@ import { DEBATES, PATHS, PRACTICE, SOURCES, STUDIES, TOPICS, WORLDVIEWS } from "
 import type { Catalog, Chapter } from "./types";
 import { TEACHING_ROLES, type ApCitation } from "@/data/apologetics-types";
 
+// A declared format (apologetics fields step 6) carries its own cited blocks (objection pairs, essay parts, views,
+// events, extract notes, terms, questions, the figure) and only the shared blocks it has text for; today's articles
+// keep every shared block.
+const FORMAT_FIELDS = ["objections", "parts", "views", "common", "events", "extracts", "terms", "questions", "figure"] as const;
+function formatBlocks(study: (typeof STUDIES)[number]) {
+  const found: { owner: string; citations: ApCitation[] }[] = [];
+  const walk = (value: unknown, owner: string): void => {
+    if (Array.isArray(value)) value.forEach((item, i) => walk(item, owner + "/" + i));
+    else if (value && typeof value === "object") {
+      const record = value as Record<string, unknown>;
+      if (Array.isArray(record.citations)) found.push({ owner, citations: record.citations as ApCitation[] });
+      for (const [key, item] of Object.entries(record)) if (key !== "citations") walk(item, owner + "/" + key);
+    }
+  };
+  for (const field of FORMAT_FIELDS) walk(study[field], study.id + "/" + field);
+  return found;
+}
 const studyBlocks = STUDIES.flatMap((study) => [
   { owner: study.id + "/answer", citations: study.support.answer },
   ...study.support.reasoning.map((citations, i) => ({ owner: study.id + "/reasoning/" + i, citations })),
-  { owner: study.id + "/conclusion", citations: study.support.conclusion },
+  ...(!study.format || study.conclusion ? [{ owner: study.id + "/conclusion", citations: study.support.conclusion }] : []),
   ...study.support.sections.map((citations, i) => ({ owner: study.id + "/section/" + i, citations })),
-  ...(["reply", "limit", "prompt"] as const).map((key) => ({ owner: study.id + "/" + key, citations: study.support[key] })),
+  ...(["reply", "limit", "prompt"] as const).filter((key) => !study.format || study[key]).map((key) => ({ owner: study.id + "/" + key, citations: study.support[key] })),
+  ...formatBlocks(study),
 ]);
 const supportedBlocks: { owner: string; citations: ApCitation[] }[] = [...studyBlocks,
   ...WORLDVIEWS.flatMap((item) => item.rows.flatMap((row) => [
@@ -31,7 +49,7 @@ describe("the connected apologetics library", () => {
     for (const study of STUDIES) {
       expect(topics.has(study.topic), study.id).toBe(true);
       expect(study.refs.length, study.id).toBeGreaterThan(0);
-      expect(study.reasoning.length, study.id).toBeGreaterThan(1);
+      if (!study.format) expect(study.reasoning.length, study.id).toBeGreaterThan(1);
       expect(study.related.includes(study.id), study.id).toBe(false);
       for (const id of study.related) expect(studies.has(id), study.id + " → " + id).toBe(true);
       for (const id of study.sources) expect(sources.has(id), study.id + " → " + id).toBe(true);

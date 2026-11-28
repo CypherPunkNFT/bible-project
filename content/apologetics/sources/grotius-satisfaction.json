@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "grotius-satisfaction",
+  "order": 302,
+  "publication": "published",
+  "content": {
+    "title": "A Defence of the Catholic Faith concerning the Satisfaction of Christ, against Faustus Socinus (1617)",
+    "author": "Hugo Grotius · translated with notes and an historical introduction by Frank Hugh Foster (Andover: Warren F. Draper, 1889)",
+    "kind": "Theological treatise",
+    "url": "https://archive.org/details/defenceofcatholi00grot_0",
+    "role": "Historic Christian witness",
+    "note": "The Dutch jurist's reply to Socinus, first printed at Leiden in 1617. It treats God in the atonement as ruler, and the law's penalty as relaxed but upheld by the example of Christ's punishment: later called the governmental theory. Foster's notes (pp. 257-259) summarise Socinus's De Jesu Christo Servatore. Public domain (published in the United States in 1889).",
+    "read": "Read online on 2026-11-27 in the Internet Archive's text of Foster's 1889 translation: chapter I (the doctrine stated in the words of Scripture), chapter II (God considered as ruler), chapter III (a relaxation of the law), the title and opening of chapter IV (whether it was unjust that Christ should be punished for our sins), and the translator's notes, pp. 257-259, on Socinus. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/grotius-satisfaction-foster-1889.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples'); the passages above were read in this file too.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain. Read online by the writer in the Internet Archive text; the job downloaded the same file (byte-identical to the writer's copy), registered its checksum and fetch-sources.py row, and set checked corpus. Title page, translator and date checked in the held text; the archive.org address opened 2026-11-27.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "4ff789214f6675983a28f40cbfa9482403c3144749945a34c304a7e8a53503ba",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

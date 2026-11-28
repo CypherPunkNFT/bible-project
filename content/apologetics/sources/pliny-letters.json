@@ -12,8 +12,12 @@
     "url": "https://www.gutenberg.org/ebooks/2811",
     "role": "Primary record · not a teaching authority",
     "note": "Book 10, letters 96 and 97, Pliny's report to Trajan on the Christians of Bithynia and their hymn to Christ 'as to a god'. For the early worship of Jesus as seen from outside. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #2811) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #2811) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): The letter to Trajan on the Christians and Trajan's reply (headed XCVII and XCVIII in this edition; standard 10.96-97) read in the held file for jesus-outside-nt, and quoted as an extract with footnote markers left out.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Letters of Pliny, translated by William Melmoth, revised by F. C. T. Bosanquet, Project Gutenberg eBook #2811",
+      "basis": "Melmoth's translation published 1746 (Melmoth d. 1799); Bosanquet's revision published in Bohn's library in the nineteenth century and reprinted in the Harvard Classics vol. 9 (1909): published before 1931, so public domain in the US. Bosanquet's death year is not confirmed, so worldwide status is unverified; the site is published from the US."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "478733f4e77d7f9aa0af692ce729017f629c82ff7fdaeda16bbd6a65dd30939c",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): publicDomain record added for the jesus-outside-nt extracts. The edition string was checked against the held file's title page or front matter (translator, publisher, year); the basis gives the publication year and the translators' death years where known (Bosanquet's and Forester's are not, so worldwide status is marked unconfirmed). The extract text was compared with the held file by the independent review. `read` note checked against the writer's notes.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "01d35b9409055c8b0dba9124d5aeb2d3dc0e60fa6d05daf7ad3b6f01b7909c41",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

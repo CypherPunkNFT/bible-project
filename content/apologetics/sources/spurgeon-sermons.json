@@ -12,7 +12,7 @@
     "url": "https://www.spurgeongems.org/",
     "role": "Baptist exposition",
     "note": "The printed sermons of the most widely read Baptist preacher. For Baptist preaching on the gospel, assurance, suffering and the authority of Scripture; cite by sermon number and date. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: the Spurgeon Gems sermon files under sources/library/source-spurgeon-gems/ (3,652 files; library catalogue work-spurgeon-sermon-NNNN). Not yet read for any article.",
+    "read": "Held in this project's corpus: the Spurgeon Gems sermon files under sources/library/source-spurgeon-gems/ (3,652 files; library catalogue work-spurgeon-sermon-NNNN). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Read in the held PDFs (sources/library/source-spurgeon-gems/, converted with pdftotext) for penal-substitution-objections and atonement-timeline: No. 310 'Christ-Our Substitute' (15 April 1860), whole; No. 173 'The Death of Christ' (24 January 1858), section I; No. 181 'Particular Redemption' (28 February 1858), the passage on who limits the atonement; No. 1910 'The Heart of the Gospel' (18 July 1886), section III.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "f7f63660def55b5c518d779731fcaaeb8f5b6f0ee59a06b639899bb069e42556",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "03d1da93edb9438446097a9865c7656a7a330b490912f29d5413f51f48972c28",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

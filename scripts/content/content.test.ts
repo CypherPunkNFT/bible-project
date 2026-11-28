@@ -10,6 +10,7 @@ import { parseReference, formatReference, scriptureText } from "./scripture.ts";
 import { citationsIn, STUDY_FORMATS, type ContentDocument, type StudyFormat } from "./model.ts";
 import { formatFixture, marker, PUBLIC_DOMAIN } from "./format-fixtures.ts";
 import { depthReport, depthTable, loadTargets } from "./depth.ts";
+import { PAGE_READY } from "./formats.ts";
 import { assertOrdinaryPath } from "./files.ts";
 import { prepareReadingLibrary, recordReadingReview } from "./reading-library.ts";
 
@@ -163,17 +164,16 @@ test("an extract quotes only a source with a public-domain record, from that edi
   assert.match(errors((doc) => { doc.content.extracts![0].edition = "A 1950s modernised text"; }), /expected "1677\/1689 text as this project holds it", found "A 1950s modernised text"/);
   // The record is the register's bookkeeping: adding it leaves every study citing the source current.
   const entries = fresh(), docs = entries.map((e) => e.document), lbcf = docs.find((d): d is ContentDocument<"source"> => d.kind === "source" && d.id === "lbcf")!;
-  const citing = docs.filter((d) => d.kind === "study" && sourceIds(d).includes("lbcf"));
+  const citing = docs.filter((d) => d.kind === "study" && sourceIds(d).includes("lbcf") && reviewState(d, docs) === "current");
   lbcf.content.publicDomain = { ...PUBLIC_DOMAIN };
   assert.ok(citing.length > 0 && citing.every((d) => reviewState(d, docs) === "current"));
 });
 
-test("a declared format cannot be published before a page shows it", () => {
-  for (const format of STUDY_FORMATS) {
-    const fixture = withFixture(format);
-    assert.ok(issues(fixture.entries).some((i) => i.file.endsWith(`/${fixture.doc.id}.json`) && i.severity === "error" && PAGE_GUARD.test(i.message)), format);
-    assert.ok(!issues(withFixture(format, "draft").entries).some((i) => PAGE_GUARD.test(i.message)), format);
-  }
+test("every format has a page, so a published study of any format passes the page guard", () => {
+  // Plan step 6 built a renderer for each format (src/components/apologetics/StudyFormats.tsx); a format added later
+  // must stay a draft until its page is built and it joins PAGE_READY.
+  assert.deepEqual([...PAGE_READY].sort(), [...STUDY_FORMATS].sort());
+  for (const format of STUDY_FORMATS) assert.ok(!issues(withFixture(format).entries).some((i) => PAGE_GUARD.test(i.message)), format);
 });
 
 test("a published study of each format reaches the generated data and the Markdown download", () => {
@@ -191,17 +191,21 @@ test("a published study of each format reaches the generated data and the Markdo
     assert.ok(!JSON.stringify(compiled).includes('"reference"'), `${format}: every passage resolved to a span`);
     assert.ok(renderDocument(doc, docs, baseline.index, { publicExport: true }).includes(mark), `${format}: Markdown`);
   }
-  // Today's articles compile exactly as before: no format field, no word count.
-  assert.ok(runtime.STUDIES.filter((s) => !s.id.startsWith("fixture-")).every((s) => !("format" in s) && !("words" in s)));
+  // Today's articles (no declared format) compile exactly as before: no format field, no word count.
+  const declared = new Set(docs.filter((d) => d.kind === "study" && d.content.format !== undefined).map((d) => d.id));
+  assert.ok(runtime.STUDIES.filter((s) => !declared.has(s.id)).every((s) => !("format" in s) && !("words" in s)));
   const glossary = renderDocument(docs.find((d) => d.id === "fixture-glossary")!, docs, baseline.index);
   assert.match(glossary, /Basis: the site's own definition/); assert.doesNotMatch(glossary, /MISSING/);
 });
 
 test("the depth report counts each article against its target from part B of the plan", () => {
   const targets = loadTargets(PROJECT_ROOT), report = depthReport(documents, targets, "jesus");
-  assert.deepEqual(report.rows.map((r) => r.id).sort(), ["cross", "jesus", "miracles", "resurrection"]);
-  assert.ok(report.rows.every((r) => r.status === "below" && r.format === "short-answer (today's)" && r.objections === 1), depthTable(report));
-  assert.equal(report.planned.length, 16); assert.ok(report.planned.some((p) => p.id === "resurrection-case" && p.format === "essay"));
+  // Today's four short answers sit below their targets; the field's other sixteen are counted as written or listed as planned.
+  const today = report.rows.filter((r) => targets[r.id]?.existing);
+  assert.deepEqual(today.map((r) => r.id).sort(), ["cross", "jesus", "miracles", "resurrection"]);
+  assert.ok(today.every((r) => r.status === "below" && r.format === "short-answer (today's)" && r.objections === 1), depthTable(report));
+  assert.equal(report.rows.length - today.length + report.planned.length, 16);
+  assert.ok([...report.rows, ...report.planned].some((p) => p.id === "resurrection-case" && p.format === "essay"));
   // 21 articles today and 95 planned, every one in a field with a format and a word range.
   assert.equal(Object.keys(targets).length, 116); assert.equal(Object.values(targets).filter((t) => t.existing).length, 21);
   assert.ok(Object.values(targets).every((t) => STUDY_FORMATS.includes(t.format) && t.words[0] > 0 && t.words[0] <= t.words[1]));

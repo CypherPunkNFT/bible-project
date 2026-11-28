@@ -12,8 +12,12 @@
     "url": "https://archive.org/details/worksoflucianofs04luci",
     "role": "Primary record · not a teaching authority",
     "note": "A pagan satirist's picture of second-century Christians and their 'crucified sophist'. For an outsider's mocking but revealing account. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (The Works of Lucian, vol. 4, Oxford 1905) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (The Works of Lucian, vol. 4, Oxford 1905) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): 'The Death of Peregrine' sections 11-14 (vol. IV pp. 82-83) read in the held file for jesus-outside-nt; sections 11 and 13 quoted as an extract, line-end hyphens joined.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "The Works of Lucian of Samosata, translated by H. W. and F. G. Fowler, vol. IV (Oxford: Clarendon Press, 1905; 1949 reprint)",
+      "basis": "First published 1905 (the held scan's verso: 'First published 1905 / Reprinted 1949'; the reprint is not a new translation). H. W. Fowler d. 1933, F. G. Fowler d. 1918: public domain in the US (published 1905) and worldwide (life + 70)."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "c799bd252639dcf0c9418d14c03f4fdabc55a91893ca15edd9b106660998ceba",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): publicDomain record added for the jesus-outside-nt extracts. The edition string was checked against the held file's title page or front matter (translator, publisher, year); the basis gives the publication year and the translators' death years where known (Bosanquet's and Forester's are not, so worldwide status is marked unconfirmed). The extract text was compared with the held file by the independent review. `read` note checked against the writer's notes.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "0bf49ac9a9193d2e57d74f032359808d9396be21f22b677eef92e20fc91375db",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

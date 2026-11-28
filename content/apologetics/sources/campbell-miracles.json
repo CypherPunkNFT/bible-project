@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/dissertationonmi00camp",
     "role": "Historic Christian witness",
     "note": "The first full reply to Hume's essay on miracles, by a Scottish minister Hume himself respected. For testimony, experience and the limits of Hume's argument. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1762 Edinburgh first edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Part I, section 2 read on 2026-11-27 in the held 1762 edition for the miracles article (the charge that Hume's argument assumes what it sets out to prove).",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1762 Edinburgh first edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Part I, section 2 read on 2026-11-27 in the held 1762 edition for the miracles article (the charge that Hume's argument assumes what it sets out to prove). 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Contents and Part I, sections 1-3 (openings and main argument), read in the held 1762 text for hume-miracles.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "f35d45c95b96595c31ead46b50b496af10882a781f902d4168d91df04f3f9a05",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "3bf8b95d1f97d31805c3df07b6d8cd94d8478cd5ae3b892da9a1c5bc0a97691d",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

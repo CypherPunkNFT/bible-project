@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "campbell-nature-atonement",
+  "order": 304,
+  "publication": "published",
+  "content": {
+    "title": "The Nature of the Atonement and its Relation to Remission of Sins and Eternal Life (1856)",
+    "author": "John McLeod Campbell · second edition (London: Macmillan, 1867)",
+    "kind": "Theological treatise",
+    "url": "https://archive.org/details/natureatonement01campgoog",
+    "role": "Historic Christian witness",
+    "note": "A Church of Scotland minister, deposed in 1831 for teaching that Christ died for all, argues that the atonement is Christ's perfect confession of our sin and his full assent, in our humanity, to God's judgment on it, rather than penal substitution. Cited to describe his view; the site does not adopt it. Public domain (Campbell died 1872).",
+    "read": "Read online on 2026-11-27 in the Internet Archive's text of the 1867 second edition: the table of contents and chapter VI, 'Retrospective aspect of the atonement' (the passage on Christ's perfect confession of our sins). The 1856 first edition was not opened; chapter numbers are those of 1867. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/campbell-nature-of-the-atonement-1867.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples'); the passages above were read in this file too.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain. Read online by the writer in the Internet Archive text; the job downloaded the same file (byte-identical to the writer's copy), registered its checksum and fetch-sources.py row, and set checked corpus. Title page, translator and date checked in the held text; the archive.org address opened 2026-11-27.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "2bf733e73f24dc79523020ad3f9c0ddf9ab4942b29b8da00fa87070509da9668",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

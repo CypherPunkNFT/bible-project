@@ -11,8 +11,8 @@
     "kind": "Primary argument",
     "url": "https://archive.org/details/observationsonhi00west",
     "role": "Historic Christian witness",
-    "note": "A layman who set out to disprove the resurrection and was persuaded by the accounts. For a harmony of the Easter narratives and their evidence. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1747 London first edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "note": "A layman who, by his own Introduction (pp. v-ix), began by examining the charge that the evangelists' accounts of the resurrection contradict one another, and was persuaded by them. For a harmony of the Easter narratives and their evidence. Public domain: may be quoted, with the translator or edition named and an exact locator.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1747 London first edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Introduction pp. v-xvi and the opening of the Observations (p. 1) read in the held 1747 edition for resurrection-case and easter-alternatives. Cited, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "0dec053785dad1318ba632d0e120b771cedc37319ec2ad1a363fd2f9cb0e1cd9",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims.  The note's 'set out to disprove' claim was replaced: West's own Introduction (pp. v-ix, held 1747 edition) says he began by examining the charge that the evangelists contradict one another.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "59944f5b5c6712043bf82cd3cbf753c9dd9f65b3c1f023e18fe454ea9b7c75c1",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

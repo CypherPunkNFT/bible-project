@@ -1,0 +1,585 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "easter-alternatives",
+  "order": 28,
+  "publication": "published",
+  "content": {
+    "title": "Other explanations of Easter",
+    "topic": "jesus",
+    "summary": "Theft, a swoon or a substitute, the wrong tomb, grief visions, legend: each explanation at its strongest, who holds it, and the reply.",
+    "format": "debate-guide",
+    "answer": {
+      "id": "answer",
+      "text": "From the first Easter, people who did not believe Jesus rose have offered other explanations. Matthew records the first: the disciples took the body. Since then the proposals have fallen into five families: theft or fraud; that Jesus did not really die, or that someone else died in his place; that the women went to the wrong tomb, or that there was no tomb; that the disciples saw visions; and that the story grew as legend. This guide states each at its strongest, names who has held it, and gives the reply. This is a historical question, not one on which Baptists differ, and the site's own view is plain: God raised Jesus bodily, “with a glorified body” (Baptist Faith and Message 2000, article II). The test for every view is the same: does it explain all the facts below, or only some of them?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 28:11-15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "The earliest list of witnesses, which every explanation must account for"
+      },
+      {
+        "reference": "Matthew 28:11-15",
+        "note": "The first alternative explanation, recorded by Matthew"
+      },
+      {
+        "reference": "Luke 24:36-43",
+        "note": "The disciples first think they are seeing a spirit"
+      }
+    ],
+    "related": [
+      "resurrection-case",
+      "resurrection",
+      "islam-cross"
+    ],
+    "keywords": [
+      "resurrection",
+      "empty tomb",
+      "swoon theory",
+      "stolen body",
+      "wrong tomb",
+      "hallucination",
+      "legend",
+      "Strauss",
+      "Celsus",
+      "Qur'an 4:157"
+    ],
+    "debates": [
+      "craig-ally-resurrection",
+      "craig-ehrman"
+    ],
+    "views": [
+      {
+        "id": "theft",
+        "label": "The body was stolen, or the story was a fraud",
+        "heldBy": [
+          "The report circulated by the chief priests (Matthew 28:11-15)",
+          "Celsus, the pagan critic, c. 175–180, preserved in Origen's Against Celsus",
+          "Hermann Samuel Reimarus (d. 1768), in the Fragments published by Lessing, 1774–1778"
+        ],
+        "texts": [
+          {
+            "reference": "Matthew 27:62-66",
+            "note": "The priests ask for a guard, fearing the disciples would take the body"
+          },
+          {
+            "reference": "Matthew 28:11-15",
+            "note": "The guards are paid to say the disciples took it while they slept"
+          },
+          {
+            "reference": "John 20:2",
+            "note": "Mary Magdalene's own first thought: someone has taken him"
+          }
+        ],
+        "case": {
+          "id": "theft-case",
+          "text": "The simplest explanation of a missing body is that someone moved it. The chief priests feared exactly this before the tomb was sealed, and afterwards said it had happened: the disciples came at night while the guards slept. Celsus, as Origen preserves him, offered a choice: those who claimed to have seen the risen Jesus were a distraught woman and others caught up in the same delusion, dreaming or imagining what they wished to see; or, as Celsus thought most likely, someone who wanted to astonish others with a marvel and give an opening to impostors like himself. In the eighteenth century Reimarus supplied a motive. The disciples, he argued, had lived well on the road with Jesus and had no wish to go back to work; so they took the body, hid it, waited fifty days until it could not be recognised, and announced that he would soon return. Motive, opportunity and a natural cause: on this view nothing more is needed.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Matthew 27:62-66"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 28:11-15"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "2.55"
+            },
+            {
+              "kind": "source",
+              "source": "schweitzer-quest",
+              "locator": "ch. II, pp. 20–21"
+            }
+          ]
+        },
+        "reply": {
+          "id": "theft-reply",
+          "text": "The guards' version undermines itself: as the defence asks in Sherlock's mock trial of 1729, how could sleeping men know who took the body, or that it was taken at all? Stealing it also meant moving a very large stone past a guard, by men who had just fled in fear. Above all, fraud does not fit what the disciples did next. Origen answered Celsus that they taught, at the risk of their lives, a message they would never have taught so boldly had they invented it. Paley judged that the men's character, their toil, danger and suffering clear them of imposture, and that by his day the theory was generally given up. Nor can fraud explain Paul or James, who were not part of any plot. E. Y. Mullins, writing as a Southern Baptist in 1905, said the theory had recoiled on those who held it. Today almost no historian, believing or sceptical, holds it.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "sherlock-tryal",
+              "locator": "pp. 43–44 (1729 printing)"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 14:50"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 16:4"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "2.56"
+            },
+            {
+              "kind": "source",
+              "source": "paley-evidences",
+              "locator": "Part II, ch. 8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:7-8"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. XIII, §198"
+            }
+          ]
+        }
+      },
+      {
+        "id": "did-not-die",
+        "label": "Jesus did not die on the cross: a swoon, or a substitute",
+        "heldBy": [
+          "Karl Friedrich Bahrdt (1784–1792)",
+          "Karl Heinrich Venturini (1800–1802)",
+          "H. E. G. Paulus (1828)",
+          "The Ahmadiyya movement in Islam (Jesus survived the cross)",
+          "Many classical Muslim commentators on Qur'an 4:157 (another man died in his likeness)"
+        ],
+        "texts": [
+          {
+            "reference": "Mark 15:44-45",
+            "note": "Pilate is surprised Jesus is already dead; the centurion confirms it"
+          },
+          {
+            "reference": "John 19:33-34",
+            "note": "The soldiers find him dead and pierce his side"
+          },
+          {
+            "reference": "1 Corinthians 15:3",
+            "note": "The earliest formula begins: he died"
+          }
+        ],
+        "case": {
+          "id": "did-not-die-case",
+          "text": "Crucifixion usually killed slowly, yet Mark says Pilate was surprised that Jesus had died within hours. Josephus tells of three acquaintances he had taken down from crosses; with care, one of them lived. The rationalist H. E. G. Paulus built on such facts: Jesus fell into a deathlike trance; the spear wound was shallow and acted as a bloodletting; the cool tomb and the spices revived him; an earthquake moved the stone; and he met his disciples bearing real wounds, which is why he could be touched and could eat. Earlier, Bahrdt and Venturini had imagined a secret brotherhood of Essenes nursing him back to health, its white-robed members mistaken for angels. A different denial rests on Qur'an 4:157, which says that Jesus' enemies did not kill or crucify him, but that it was made to appear so to them. Many Muslim interpreters have read this as God casting Jesus' likeness on another man; the Ahmadiyya movement reads it as Jesus surviving the cross.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:44"
+            },
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "§140"
+            },
+            {
+              "kind": "source",
+              "source": "schweitzer-quest",
+              "locator": "ch. V, pp. 53–55; ch. IV, pp. 44–47"
+            },
+            {
+              "kind": "source",
+              "source": "q4157",
+              "locator": "4:157–158"
+            }
+          ]
+        },
+        "reply": {
+          "id": "did-not-die-reply",
+          "text": "The strongest reply came from a critic. D. F. Strauss, who denied the resurrection, pointed out that Josephus's three friends received the best care to be had and two of them still died, while Jesus showed every sign of death and received no care at all; the theory's details, he added, appear nowhere in the sources. In a later book, as Mullins reports, Strauss pressed the decisive point: a man who had crept half-dead from a tomb, weak and needing bandages and nursing, could have stirred his disciples' pity, never their conviction that he had conquered death, and never their worship. Roman executioners knew how to confirm a death, and Mark and John both report that it was confirmed. As for a substitute: Jesus' execution under Pilate is recorded by Tacitus, his death opens the earliest Christian formula, and all four Gospels describe his crucifixion, while the Qur'an came some six centuries later, and 4:157 itself names no substitute; that is later interpretation, as the article on the Islamic account of the cross explains.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "§140"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. XIII, §199"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:44-45"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 19:33-34"
+            },
+            {
+              "kind": "source",
+              "source": "tacitus-annals",
+              "locator": "15.44"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:3"
+            },
+            {
+              "kind": "source",
+              "source": "q4157",
+              "locator": "4:157–158"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wrong-tomb",
+        "label": "The wrong tomb, or no tomb at all",
+        "heldBy": [
+          "Kirsopp Lake (1907)",
+          "John Dominic Crossan (1994)",
+          "Bart Ehrman (2014), on the burial"
+        ],
+        "texts": [
+          {
+            "reference": "Mark 15:47",
+            "note": "Two of the women see where the body is laid"
+          },
+          {
+            "reference": "Mark 16:5-6",
+            "note": "The young man in the open tomb points to the place"
+          },
+          {
+            "reference": "Deuteronomy 21:22-23",
+            "note": "The law: an executed man is buried the same day"
+          }
+        ],
+        "case": {
+          "id": "wrong-tomb-case",
+          "text": "Lake suggested a simple mistake. The women had watched the burial from a distance and would have found it hard to tell one rock-cut tomb from its neighbour. Coming back in the early morning, they reached an open tomb they took for his. A young man there, guessing their errand, tried to tell them they had come to the wrong place and pointed to the right one, but they fled in fright; only later, once they believed Jesus had risen, did they take his words for an announcement. Lake offered this only as a possibility. Crossan and Ehrman go further. Crucified men, they argue, were usually left on the cross for scavengers or thrown into a common grave; the story of an honourable burial by a council member grew up later; and if there was no known tomb, there was nothing to be found empty.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "lake-historical-evidence",
+              "locator": "ch. VII, pp. 250–253"
+            },
+            {
+              "kind": "source",
+              "source": "crossan-revolutionary-biography",
+              "locator": "ch. 6"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-how-jesus-became-god",
+              "locator": "ch. 4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 16:5-6"
+            }
+          ]
+        },
+        "reply": {
+          "id": "wrong-tomb-reply",
+          "text": "The wrong tomb meets three objections. The women are said to have seen where the body was laid; the tomb's owner, Joseph, knew it, for Matthew says the tomb was his; and the authorities, faced with a resurrection preached in their own city, needed only to open the right one and show the body, as Paley argued. Strauss himself thought the guess that the owner had quietly moved the body rested on too frail a foundation. Against the view that there was no tomb, Jewish law required the executed to be buried the same day, and the Gospels' own detail, that a council member had to ask Pilate for the body, shows the burial depended on the governor's leave and was granted. Above all, both forms explain at most an empty or unfindable tomb. They do not explain why anyone said Jesus had been seen, and that is what the earliest formula is chiefly about.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:47"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 23:55"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 27:60"
+            },
+            {
+              "kind": "source",
+              "source": "paley-evidences",
+              "locator": "Part II, ch. 8"
+            },
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "§140"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Deuteronomy 21:22-23"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:43-45"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:5-8"
+            }
+          ]
+        }
+      },
+      {
+        "id": "visions",
+        "label": "Grief visions: they saw something, but not a risen body",
+        "heldBy": [
+          "Celsus (in Origen, Against Celsus 2.55 and 2.60)",
+          "D. F. Strauss (1835; English by George Eliot, 1846)",
+          "Ernest Renan",
+          "Gerd Lüdemann (1994)",
+          "Bart Ehrman (2014)"
+        ],
+        "texts": [
+          {
+            "reference": "1 Corinthians 15:5-8",
+            "note": "Paul puts his own experience in the same list as the others"
+          },
+          {
+            "reference": "Acts 26:19",
+            "note": "Paul calls what he saw a heavenly vision"
+          },
+          {
+            "reference": "Luke 24:37",
+            "note": "The disciples first think they are seeing a spirit"
+          },
+          {
+            "reference": "Matthew 28:17",
+            "note": "Some still doubted"
+          }
+        ],
+        "case": {
+          "id": "visions-case",
+          "text": "This is the most widely held sceptical view today, and its strongest form starts from Paul. Paul lists his own experience with the others, and Acts has him call it a heavenly vision; if his was a vision, Strauss argued, the earlier ones may have been of the same kind. Strauss pictured the disciples back home in Galilee, searching the Scriptures for a Messiah who suffers, until their renewed faith was heightened, first in individuals and then in excited gatherings, into seeing him. Renan, as Mullins summarises him, thought Peter dreamed the scene by the lake. Lüdemann, as his case is usually summarised, traced the chain to Peter's grief and guilt and to Paul's inner conflict. Celsus had already said that people dream or imagine what they long for. Allison, as his work is usually summarised, gathers studies of bereavement finding that many grieving people sense or see the one they lost, sometimes several people together. On this view the disciples were sincere, and what they saw came from within.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Acts 26:19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:8"
+            },
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "§140"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. XIII, §201"
+            },
+            {
+              "kind": "source",
+              "source": "ludemann-resurrection",
+              "locator": "whole work (described; no copy held)"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "2.55, 2.60"
+            },
+            {
+              "kind": "source",
+              "source": "allison-resurrecting-jesus",
+              "locator": "whole work (described; no copy held)"
+            }
+          ]
+        },
+        "reply": {
+          "id": "visions-reply",
+          "text": "Visions of the dead do happen, and they lead people to say the dead person lives on with God, not that he has been raised. The disciples knew the difference: when they first saw him, Luke says, they thought they were seeing a spirit. For a first-century Jew, as Wright argues in summary, “raised” meant the body, which is why Paley thought the missing corpse defeats this view on its own: a vision leaves the body in the grave, and a body still in the grave would have ended the enthusiasm at once. Hallucinations are private, yet the reports include the Twelve together and five hundred at once. Mullins added that the disciples were in despair rather than expectation, that the appearances stopped after some weeks instead of multiplying, and that the risen Jesus is remembered teaching. Neither Paul, the persecutor, nor James, the unbelieving brother, was grieving for him. And Origen answered Celsus that a dream while asleep is easy enough to believe, but that a vision seen wide awake by people who are neither delirious nor deranged is not credible.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Luke 24:37-39"
+            },
+            {
+              "kind": "source",
+              "source": "wright-resurrection-son-of-god",
+              "locator": "whole work (described; no copy held)"
+            },
+            {
+              "kind": "source",
+              "source": "paley-evidences",
+              "locator": "Part II, ch. 8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:5-7"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. XIII, §§202–205"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:13"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "2.60"
+            }
+          ]
+        }
+      },
+      {
+        "id": "legend",
+        "label": "Legend: the story grew in the telling",
+        "heldBy": [
+          "D. F. Strauss (1835), who read the Easter narratives as myth",
+          "Kirsopp Lake (1907), on the later Gospel narratives",
+          "Critical scholars who read the Gospel accounts as later developments, among them Bart Ehrman"
+        ],
+        "texts": [
+          {
+            "reference": "Mark 16:1-8",
+            "note": "The earliest Gospel: a young man, an empty place, no appearance narrated"
+          },
+          {
+            "reference": "Matthew 27:51-53",
+            "note": "Saints raised at Jesus' death, which critics read as legend"
+          },
+          {
+            "reference": "Luke 24:36-43",
+            "note": "A later account stresses touch and food"
+          }
+        ],
+        "case": {
+          "id": "legend-case",
+          "text": "Compare the accounts in the order most scholars date them and the story seems to grow. Paul gives a bare list. Mark, the earliest Gospel, has a young man in white at an empty tomb and narrates no appearance. Matthew adds an earthquake, an angel who rolls back the stone, a guard, and appearances on the road and in Galilee, as well as saints rising from their tombs when Jesus died. Luke and John add touching, a meal and long conversations. Strauss argued that this is what happens when a tradition is retold to answer doubts: silent visions became speaking ones, the ghostly figure came to eat, and angels were added as the natural ornaments of Jewish storytelling. On this view the Easter stories express what Jesus came to mean to his followers; they are not reports of what happened.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 16:1-8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 28:2-4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 27:51-53"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 24:36-43"
+            },
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "§140"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-how-jesus-became-god",
+              "locator": "ch. 4"
+            }
+          ]
+        },
+        "reply": {
+          "id": "legend-reply",
+          "text": "Legend needs time and distance, and the core claim had neither. The formula that Jesus was raised and seen by Cephas, the Twelve, James and others was being recited within a few years, and Paul had stayed with Cephas and met James in person. Differences of detail are what independent tellings of a sudden event usually show; Gilbert West set out in 1747 to answer the charge that the Gospels contradict one another and found that they agree when compared closely. Mark's brevity does not mean he knew of no appearance, since his young man promises one in Galilee. Legend can explain why a story is decorated in retelling; it cannot explain how the belief began, which had to exist before anything could grow around it. With the Baptist Faith and Message, the site holds that Scripture is true without error: the Gospels' differences are matters of selection and viewpoint, and any detailed harmony of them remains a reconstruction.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:3-7"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:18-19"
+            },
+            {
+              "kind": "source",
+              "source": "west-resurrection",
+              "locator": "Introduction, pp. v–ix"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 16:7"
+            },
+            {
+              "kind": "source",
+              "source": "bfm-2000",
+              "locator": "Article I"
+            }
+          ]
+        }
+      }
+    ],
+    "common": {
+      "id": "common",
+      "text": "What serious historians, believing and sceptical, affirm, as summarised in surveys of the field such as Habermas and Licona's and in the work of critics such as Ehrman and Lüdemann. Jesus of Nazareth was crucified in Jerusalem under Pontius Pilate, about AD 30 or 33; the Roman historian Tacitus records his execution under Pilate, and the earliest Christian sources build on it. He died. Soon afterwards his followers came to believe, and proclaimed in Jerusalem, that God had raised him and that he had appeared to them, singly and in groups; a formula recording this was being recited within a few years. They held to it under threat, and some were killed. Paul, who had persecuted them, joined them after an experience he took to be seeing the risen Jesus. James, a brother who had not followed Jesus, became a leader in Jerusalem and was stoned about AD 62, as Josephus records. Many, though not all, historians add that Jesus was buried and that his tomb was found empty. An explanation of Easter has to account for all of this.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "tacitus-annals",
+          "locator": "15.44"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 1:13-19"
+        },
+        {
+          "kind": "source",
+          "source": "josephus-antiquities",
+          "locator": "20.9.1"
+        },
+        {
+          "kind": "source",
+          "source": "ehrman-how-jesus-became-god",
+          "locator": "ch. 5"
+        },
+        {
+          "kind": "source",
+          "source": "ludemann-resurrection",
+          "locator": "whole work (described; no copy held)"
+        },
+        {
+          "kind": "source",
+          "source": "habermas-licona-case",
+          "locator": "whole work (described; no copy held)"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Where this comparison stops. Showing that each alternative fails is not the same as proving the resurrection; it leaves the explanation the witnesses gave standing, and with it the question whether God acts in history, which, as Allison's conclusion is usually summarised, history alone cannot settle. Some critics combine theories, visions with a wrong tomb or with theft, and a combination can patch one gap only by opening another. The evidence itself, and how scholars date it, is set out in the companion essay on the historical case.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:14-17"
+        },
+        {
+          "kind": "source",
+          "source": "allison-resurrecting-jesus",
+          "locator": "whole work (described; no copy held)"
+        }
+      ]
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New views-compared article (debate-guide format, step 6). Every cited verse opened in the Berean; independent AI review found the doctrine clean and the Qur'an view labelled as Islam's; Origen, Strauss section 140, Schweitzer and Lake read at the cited places. Findings fixed: in-copyright scholars marked 'as summarised in', Origen's wording, Tacitus 'executed', Mark 15:44-45 and Matthew 27:60 cited. Links two debate guides by id only; nothing quoted from any transcript. Validate clean; depth on target (2,021 words).",
+      "note": "AI-assisted review; no human theological review.",
+      "date": "2026-11-27",
+      "contentHash": "fe93cfbbf0edbd9ae37a8f0ba1fb908505522c68d3e822ba58130fb88d2636d9",
+      "basisHash": "6684d2bcc067328a81aeb9877613c75c5f43710b8646e58ebc664a8aac1b04a7"
+    }
+  ]
+}

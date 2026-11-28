@@ -12,7 +12,7 @@
     "url": "https://ccel.org/ccel/schaff/anf04",
     "role": "Historic Christian witness",
     "note": "Origen's reply to the pagan critic Celsus, which preserves much of Celsus's own attack. For the earliest full critique of Christianity and a reply to it; Origen's own speculations are not taught here. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-a17fdd5c055cff5651f0/original.txt. Not yet read for any article.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-a17fdd5c055cff5651f0/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Against Celsus 1.47 (Josephus on James) read for jesus-outside-nt; 2.55, 2.56, 2.59-61 and 2.63 read for easter-alternatives (Celsus's charges and Origen's replies). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Against Celsus 1.31 read for penal-substitution-objections.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "e336abf90f185ea2e935d40a394db69a2b54fb7fd7c4f03a6342d22cb9a982dc",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "438d2e3f2733d6d6e5444e5183735c1394eb2f5a0e6befabbf5a6a6e0b027447",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

@@ -1,0 +1,236 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "hume-miracles",
+  "order": 33,
+  "publication": "published",
+  "content": {
+    "title": "Can historians ever conclude a miracle?",
+    "topic": "jesus",
+    "summary": "David Hume argued that no testimony could establish a miracle. What he actually said, how he was answered, and what historians took from him.",
+    "format": "figure",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "In 1748 David Hume argued that a wise person should never believe a report of a miracle, because the experience that makes testimony credible tells even more strongly against the event. His essay still sets the terms of the question whether historians can conclude that Jesus rose. Here is what he argued, read from his own text, and how it has been answered.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "source",
+          "source": "hume-enquiry",
+          "locator": "Section X, §§86-101 (Selby-Bigge numbering)"
+        }
+      ]
+    },
+    "figure": {
+      "name": "David Hume",
+      "dates": "1711–1776",
+      "tradition": "Scottish Enlightenment empiricist; sceptic",
+      "roles": [
+        "philosopher",
+        "historian",
+        "essayist",
+        "librarian"
+      ],
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sep-hume",
+          "locator": "§1 Life and Works"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "life",
+        "text": "David Hume was born in Edinburgh in 1711 and went to its university as a boy. His Treatise of Human Nature, published anonymously in 1739 and 1740, was little read. His reputation as a sceptic cost him the Edinburgh chair of moral philosophy in 1745, and a bid for a chair at Glasgow failed in 1751; he never held a university post. He recast his philosophy in the Philosophical Essays of 1748, renamed An Enquiry concerning Human Understanding in 1758; its tenth section is \"Of Miracles\". As keeper of the Advocates Library in Edinburgh he wrote a six-volume History of England (1754-1762). He published The Natural History of Religion in 1757, served at the British embassy in Paris from 1763, and died in Edinburgh in 1776. His Dialogues concerning Natural Religion appeared three years later, as he had arranged.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sep-hume",
+            "locator": "§1 Life and Works"
+          },
+          {
+            "kind": "source",
+            "source": "hume-enquiry",
+            "locator": "title page of the Selby-Bigge edition (1902)"
+          }
+        ],
+        "title": "His life"
+      },
+      {
+        "id": "argued",
+        "text": "Part I is an argument from experience. A wise man, Hume says, believes only as strongly as the evidence warrants (§87). We trust testimony only because experience shows that reports usually match the facts (§88). But a miracle, by his definition, breaks a law of nature, and such laws rest on uniform, unbroken experience; so the event's own nature counts, for him, as a complete proof against it (§90). Hence his maxim: testimony can prove a miracle only if its being false would be a greater wonder than the very event reported; he sets one wonder against the other, then rejects the greater (§91). Part II then argues that no actual testimony comes near that standard, for four reasons. No miracle has been attested by enough witnesses of education, integrity and reputation, in a public place where fraud would be exposed (§92). People love wonder, and religious zeal makes them credulous and their teachers bold (§93). Miracle stories abound chiefly among peoples Hume dismissed as uneducated and uncivilised (§94). And the miracles of rival religions cancel one another out (§95). He concludes that no testimony to any miracle has yet reached even the level of probability (§98). He then limits the claim: a public marvel such as a worldwide darkness lasting eight days, reported alike in every nation, might be proved, but no miracle could be proved well enough to found a religion (§99). The Christian religion, he ends with irony, rests on faith, not reason (§100-101).",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "hume-enquiry",
+            "locator": "Section X, §§87-101 (Selby-Bigge numbering)"
+          }
+        ],
+        "title": "What 'Of Miracles' argues"
+      },
+      {
+        "id": "replies",
+        "text": "George Campbell, an Aberdeen minister, answered in 1762. Testimony, he argued, has a natural and original hold on belief that comes before experience, as every child shows, so Hume's foundation is false (Part I, section 1). Hume also slides between two meanings of experience, his own and what others report to him; but most of what anyone knows of nature's uniformity comes from testimony, so the argument runs in a circle (section 2). And in conceding the eight days of darkness Hume gives up his main argument (section 3). William Paley, in 1794, added that if a revelation from God is not improbable, miracles that accompany it are not either; that to call a miracle contrary to universal experience assumes the point in dispute; and he asked whether anyone would really disbelieve twelve honest men who died rather than deny what they had seen. In 2000 John Earman, a philosopher of science writing as no defender of miracles, used the probability calculus to argue that Hume's maxim does not deliver his conclusion. In 2011 Craig Keener gathered eyewitness claims of healing from many cultures to show that such reports are common and cannot be ruled out in advance.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 26:26"
+          },
+          {
+            "kind": "source",
+            "source": "campbell-miracles",
+            "locator": "Part I, sections 1-3 (1762)"
+          },
+          {
+            "kind": "source",
+            "source": "paley-evidences",
+            "locator": "Preparatory Considerations"
+          },
+          {
+            "kind": "source",
+            "source": "earman-abject-failure",
+            "locator": "whole book"
+          },
+          {
+            "kind": "source",
+            "source": "keener-miracles",
+            "locator": "whole book"
+          }
+        ],
+        "title": "The replies"
+      },
+      {
+        "id": "legacy",
+        "text": "Hume's most lasting gift to historians is a method: history weighs probabilities, and a miracle is by definition the least probable event, so the historian as historian can never conclude one. Historians who follow him still treat it as a working rule. Critics reply that this settles the question before the evidence is heard, and that Hume's definition of a miracle as breaking laws of nature that rest on uniform experience (§90) assumes no exception has ever occurred. Whether a historian may conclude that God raised Jesus, or only that the disciples sincerely believed it, is still the hinge of resurrection debates. The site affirms the miracles of Jesus: Scripture is truth without error (article I), and the Baptist Faith and Message confesses his virgin birth and resurrection (article II). Hume's caution against credulity has its own biblical parallel in the command to test what we hear. Modern reports of healing touch a question Baptists answer two ways: some hold that sign gifts ceased with the apostles, whose message they confirmed; others hold that the Spirit still gives them. The confession says the Spirit gives gifts and does not settle whether these continue.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:30-31"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 2:22"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 John 4:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 2:3-4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 12:7-11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 13:8-10"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Articles I, II"
+          },
+          {
+            "kind": "source",
+            "source": "hume-enquiry",
+            "locator": "Section X, §90 (Selby-Bigge numbering)"
+          },
+          {
+            "kind": "source",
+            "source": "paley-evidences",
+            "locator": "Preparatory Considerations"
+          }
+        ],
+        "title": "What he left historians"
+      }
+    ],
+    "works": [
+      {
+        "title": "An Enquiry concerning Human Understanding",
+        "date": "1748 (as Philosophical Essays; this title from 1758)",
+        "url": "https://www.gutenberg.org/ebooks/9662",
+        "note": "Section X, 'Of Miracles', is the essay read here, in Selby-Bigge's edition of the 1777 text."
+      },
+      {
+        "title": "Dialogues concerning Natural Religion",
+        "date": "1779",
+        "url": "https://www.gutenberg.org/ebooks/4583",
+        "note": "Published after his death; Philo's criticism of the design argument and his statement of the problem of evil."
+      },
+      {
+        "title": "A Treatise of Human Nature",
+        "date": "1739–1740",
+        "url": "https://archive.org/details/bim_eighteenth-century_a-treatise-of-human-natu_hume-david_1739_2",
+        "note": "His first and fullest work, published anonymously; a scan of the first edition."
+      },
+      {
+        "title": "The Natural History of Religion",
+        "date": "1757",
+        "url": "https://archive.org/details/fourdissertatio00humegoog",
+        "note": "His account of how religion arose from human hopes and fears; first printed in Four Dissertations."
+      }
+    ],
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "The early list of witnesses"
+      },
+      {
+        "reference": "Luke 1:1-4",
+        "note": "An account drawn from eyewitnesses, carefully investigated"
+      },
+      {
+        "reference": "Acts 26:26",
+        "note": "Public events, open to checking"
+      },
+      {
+        "reference": "John 20:30-31",
+        "note": "Why John recorded the signs"
+      },
+      {
+        "reference": "Jeremiah 32:17",
+        "note": "Nothing too difficult for the Creator"
+      }
+    ],
+    "related": [
+      "miracles",
+      "science"
+    ],
+    "debates": [
+      "craig-ehrman"
+    ],
+    "keywords": [
+      "Hume",
+      "miracles",
+      "testimony",
+      "Enquiry",
+      "Campbell",
+      "Paley",
+      "history",
+      "laws of nature"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New key-figure article (step 6). Enquiry Section X read in full in the held Selby-Bigge text (definition section 90, maxim section 91, cited correctly); Campbell and Paley read at the cited places; life dates from the Stanford entry, section 1. Findings fixed: Hume's wording paraphrased with its sections, his definition stated exactly, no reason given for the 1751 Glasgow failure, the unsourced claim about historians reworded, passage notes paraphrased. Continuation and cessation of the spiritual gifts shown both ways. Validate clean; depth on target (840 words).",
+      "note": "AI-assisted review; no human theological review. Earman and Keener are described from general knowledge.",
+      "date": "2026-11-27",
+      "contentHash": "57683b9f5783940c9091b8609db5f4ad4a93e42f23dee2e93c7c71f8bc3a0fbe",
+      "basisHash": "fe385c465e798463ac674527f4ba6ae95f64d3a9c38d226b2165496fd07760e2"
+    }
+  ]
+}

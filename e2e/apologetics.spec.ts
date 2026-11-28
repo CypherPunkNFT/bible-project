@@ -252,6 +252,13 @@ test("apologetics: deep links cover the complete library and preserve legacy ent
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(item.title);
       if (type === "study") {
         const study = STUDIES.find((entry) => entry.id === item.id)!;
+        // A declared format has its own page (apologetics-formats.spec.ts checks each one) and a Baptist or Reformed
+        // teaching source; today's articles keep their five shared blocks plus a cited block per step and section.
+        if (study.format && study.format !== "short-answer") {
+          await expect(page.locator(`.fx-main.fx-is-${study.format}`)).toBeVisible();
+          await expect(page.locator(".ap-study-sources .ap-source-role").filter({ hasText: /Baptist|Reformed/ }).first()).toBeVisible();
+          continue;
+        }
         await expect(page.locator(".ap-article .ap-citations")).toHaveCount(5 + study.reasoning.length + study.sections.length);
         await expect(page.locator(".ap-study-sources .ap-source-role").filter({ hasText: "Reformed" }).first()).toBeVisible();
       }

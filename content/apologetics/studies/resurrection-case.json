@@ -1,0 +1,832 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "resurrection-case",
+  "order": 27,
+  "publication": "published",
+  "content": {
+    "title": "Did Jesus rise? The historical case",
+    "topic": "jesus",
+    "summary": "An early creed, an empty tomb, appearances to friends and to a persecutor: what historians accept, how critics explain it, and where the evidence stops.",
+    "format": "essay",
+    "answer": {
+      "id": "answer",
+      "text": "Christians confess that Jesus rose bodily from the dead; Southern Baptists say he was raised “with a glorified body” (Baptist Faith and Message 2000, article II). This essay asks the historian's question instead: using ordinary methods, what can be shown from the sources? A short list of facts, as summarised in Habermas and Licona's survey of the scholarly literature, is granted by nearly all specialists, sceptics included. Jesus died by crucifixion under Pontius Pilate: the Roman historian Tacitus records his execution under Pilate, and the Gospels tell how he died. Within a few years his followers were reciting a formula that he had been raised and seen by named people. Paul, who persecuted the church, and James, a brother who had not believed in him, became leaders after experiences they took to be appearances. Most, though not all, also accept that his tomb was found empty. The real dispute is over which explanation fits all of this best. We set out the evidence, the critics' strongest accounts of it, what we infer, and where the evidence stops.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
+          "source": "tacitus-annals",
+          "locator": "15.44"
+        },
+        {
+          "kind": "source",
+          "source": "habermas-licona-case",
+          "locator": "whole work (described; no copy held)"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:1-11",
+        "note": "The formula Paul received and passed on, with his own comment"
+      },
+      {
+        "reference": "Mark 16:1-8",
+        "note": "The earliest Gospel's account of the empty tomb"
+      },
+      {
+        "reference": "Galatians 1:13-24",
+        "note": "Paul's own timeline: persecutor, three years, fifteen days with Cephas and James"
+      }
+    ],
+    "related": [
+      "resurrection",
+      "easter-alternatives",
+      "jesus",
+      "manuscripts",
+      "jesus-outside-nt",
+      "hume-miracles"
+    ],
+    "keywords": [
+      "resurrection",
+      "empty tomb",
+      "1 Corinthians 15",
+      "creed",
+      "appearances",
+      "Paul",
+      "James",
+      "minimal facts",
+      "Ehrman",
+      "Lüdemann",
+      "Allison"
+    ],
+    "spine": "academic",
+    "debates": [
+      "craig-ehrman",
+      "craig-ally-resurrection"
+    ],
+    "parts": [
+      {
+        "id": "creed",
+        "title": "Written in the 50s. Received far earlier.",
+        "blocks": [
+          {
+            "id": "creed-text",
+            "text": "Paul wrote 1 Corinthians from Ephesus, most likely about AD 53–55. His eighteen months in Corinth overlap the year Gallio governed Achaia, which an inscription found at Delphi places about AD 51–52. In chapter 15 he reminds the church of the message he first brought them, and he introduces it with two technical words: he passed on what he had received. He uses the same pair for the words Jesus spoke at the Last Supper. What follows is a compact list of four statements, each introduced by the same small word: Christ's death for sins, as the Scriptures had said; his burial; his rising again the third day, once more in keeping with the Scriptures; and his appearing to witnesses whom the list names.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:1-5"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 11:23"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 16:8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 18:11-12"
+              }
+            ]
+          },
+          {
+            "id": "creed-formula",
+            "text": "Several features, as summarised in surveys such as Habermas and Licona's, mark this as a formula Paul inherited rather than composed: the balanced clauses; the Aramaic name Cephas for Peter; “the Twelve” used as a fixed title even though Judas was gone; and phrasing Paul seldom uses elsewhere. Where the formula ends is debated. Many scholars take it to run through verse 5 or verse 7, with Paul adding his own remark that most of the five hundred were still alive, and then his own name at the end. E. Y. Mullins, president of the Southern Baptist Theological Seminary, pressed the point in 1905: a letter whose authorship no one disputes, written within about twenty-five years of the events, appeals to witnesses still living who could be asked.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:5-8"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. XIII, §§195–196"
+              },
+              {
+                "kind": "source",
+                "source": "habermas-licona-case",
+                "locator": "whole work (described; no copy held)"
+              }
+            ]
+          },
+          {
+            "id": "creed-date",
+            "text": "How early is it? Scholars work backward from Paul's own timeline. He says that three years after God revealed his Son to him he travelled up to Jerusalem, spent fifteen days with Cephas, and met James, whom he calls the brother of the Lord. Cephas and James are the two individuals named in the formula. With the crucifixion in AD 30 or 33, and Paul's conversion placed by most between about AD 31 and 36, that visit falls about AD 33–38. Paul therefore received the formula either in Damascus soon after his conversion or in Jerusalem from the very men it names, and it already existed when he received it. Specialists across the spectrum reach a similar range. Gerd Lüdemann, who denied the resurrection, dated the appearance traditions behind it, as his argument is usually summarised, to the first two or three years after the crucifixion. Bart Ehrman, an agnostic, treats it as a tradition older than Paul's letters, very possibly first formed among Aramaic-speaking believers. A minority think the list grew in stages and put its final form in the 40s. Put as a range: most date the formula to within about two to eight years of the cross, and it cannot be later than Paul's first preaching in Corinth, about AD 50.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Galatians 1:15-19"
+              },
+              {
+                "kind": "source",
+                "source": "ludemann-resurrection",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "ehrman-how-jesus-became-god",
+                "locator": "ch. 4"
+              }
+            ]
+          },
+          {
+            "id": "creed-shows",
+            "text": "What this shows, and what it does not. It shows that the claim that Jesus was raised and seen by named people was not a late legend that grew up far from Palestine: it was being recited within a few years by people who knew Peter and James, and Paul says the other apostles preached the same. It does not by itself show what those people saw. William Paley drew the same line in 1794. Beyond reasonable doubt, he argued, the apostles asserted the resurrection from the beginning and made it the centre of their message, and that would be certain even if the four Gospels had been lost. The only remaining question is whether they knowingly told a falsehood or were themselves deceived. The rest of this essay weighs that question.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:11"
+              },
+              {
+                "kind": "source",
+                "source": "paley-evidences",
+                "locator": "Part II, ch. 8"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 Corinthians 15:3-8",
+            "note": "The four statements and the list of witnesses"
+          },
+          {
+            "reference": "1 Corinthians 11:23",
+            "note": "The same words for handing on what was received"
+          },
+          {
+            "reference": "Galatians 1:18-19",
+            "note": "Fifteen days with Cephas; James the Lord's brother"
+          }
+        ]
+      },
+      {
+        "id": "tomb",
+        "title": "One tomb. Argued both ways.",
+        "blocks": [
+          {
+            "id": "tomb-burial",
+            "text": "All four Gospels say that Joseph of Arimathea asked Pilate for Jesus' body and saw to its burial in a tomb. Mark and Luke call him a member of the Jewish council; Matthew and John call him a disciple. Matthew, Mark and Luke say the tomb was cut from rock and that women from Galilee saw where it was put; John adds that it lay in a garden near the place of execution. Mark adds that Pilate, surprised Jesus had died so soon, first checked with the centurion. Burial before nightfall fits Jewish law, which forbade leaving an executed man's body hanging overnight. A council member giving honourable burial to the man the council had condemned is an unlikely detail for Christians to invent, since they held that council responsible.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 27:57-61"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 15:42-47"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 23:50-56"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 19:38-42"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Deuteronomy 21:22-23"
+              }
+            ]
+          },
+          {
+            "id": "tomb-women",
+            "text": "Three main arguments are given for the tomb's being found empty. The first is who found it. Every Gospel makes women the first witnesses. In Josephus's summary of Jewish law, the testimony of women was not to be admitted. The pagan critic Celsus, about AD 175–180, mocked the resurrection as resting on the word of a hysterical woman. Even in Thomas Sherlock's mock trial of 1729, counsel for the deist Thomas Woolston argues that the women were worthless witnesses. A story invented to persuade that world would hardly have rested on them.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 16:1-8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:1-10"
+              },
+              {
+                "kind": "source",
+                "source": "josephus-antiquities",
+                "locator": "4.8.15"
+              },
+              {
+                "kind": "source",
+                "source": "origen-contra-celsum",
+                "locator": "2.55"
+              },
+              {
+                "kind": "source",
+                "source": "sherlock-tryal",
+                "locator": "p. 55 (1729 printing)"
+              }
+            ]
+          },
+          {
+            "id": "tomb-jerusalem",
+            "text": "The second is where the message was preached. The apostles proclaimed the resurrection in Jerusalem, weeks after the execution, a short walk from the tomb; in Acts, Peter contrasts David's tomb, still occupied, with Jesus'. Paley argued that if the body could have been found, the authorities had every reason to produce it, and the movement could not have survived that answer for a moment. The third is the earliest reply. Matthew reports that the chief priests paid the guards to say that the disciples had taken the body while they slept, and that this account was still told among Jews when he wrote. Whatever one makes of the guard, the reply concedes the point at issue: no one claimed the body was still in the tomb; the argument was about who had moved it. N. T. Wright adds, as his argument is usually summarised, that for first-century Jews “resurrection” meant a new bodily life, so that announcing it while the body lay in a known grave would have made no sense to speaker or hearer.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 2:29-32"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:11-15"
+              },
+              {
+                "kind": "source",
+                "source": "paley-evidences",
+                "locator": "Part II, ch. 8"
+              },
+              {
+                "kind": "source",
+                "source": "wright-resurrection-son-of-god",
+                "locator": "whole work (described; no copy held)"
+              }
+            ]
+          },
+          {
+            "id": "tomb-against",
+            "text": "The case against deserves a full hearing. Paul never mentions the empty tomb in so many words. Mark, the earliest Gospel, usually dated about AD 65–75, ends in its earliest manuscripts at 16:8 with the women telling no one, which some read as an explanation of why the story surfaced late. The guard appears only in Matthew, and many scholars, not only sceptics, doubt it. Bart Ehrman argues that the Romans usually left crucified bodies on display as a deterrent and seldom allowed honourable burial, so a known tomb is doubtful. John Dominic Crossan suggested that the body was probably never placed where anyone could later find it. Kirsopp Lake proposed in 1907 that the women, in the early light, went to the wrong tomb. And D. F. Strauss argued that faith in the resurrection took shape in Galilee, where no body lay to contradict it, and was announced in Jerusalem only later, when the body could no longer be recognised.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 16:8"
+              },
+              {
+                "kind": "source",
+                "source": "ehrman-how-jesus-became-god",
+                "locator": "ch. 4"
+              },
+              {
+                "kind": "source",
+                "source": "crossan-revolutionary-biography",
+                "locator": "ch. 6"
+              },
+              {
+                "kind": "source",
+                "source": "lake-historical-evidence",
+                "locator": "ch. VII, pp. 250–253"
+              },
+              {
+                "kind": "source",
+                "source": "strauss-life-of-jesus",
+                "locator": "§140"
+              }
+            ]
+          },
+          {
+            "id": "tomb-weighed",
+            "text": "How do these weigh? Roman practice did allow exceptions, and in Judea, in peacetime, at Passover, Jewish custom pressed hard for burial before sunset. Mark's women are frightened into silence within the story, but the young man has just sent them with a message for Peter and the other disciples, and the formula Paul received already set his burial beside his rising again the third day. Dale Allison, who weighs both sides more evenly than most, is usually summarised as judging the arguments for the empty tomb somewhat stronger than those against, though not decisive; Gary Habermas, who has catalogued the scholarly literature for decades, reports, as summarised in his book with Michael Licona, that a clear majority of specialists accept it. Our inference is modest: the tomb was very probably found empty. But an empty tomb by itself shows only that the body was gone. Mary Magdalene's first thought was that someone had taken it, and Peter went home wondering. On its own the tomb produced puzzlement, not faith.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 16:7"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:12"
+              },
+              {
+                "kind": "source",
+                "source": "allison-resurrecting-jesus",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "habermas-licona-case",
+                "locator": "whole work (described; no copy held)"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Mark 15:42-47",
+            "note": "Joseph's request, the centurion's word, the women watching"
+          },
+          {
+            "reference": "Matthew 28:11-15",
+            "note": "The earliest opposing reply, which assumes the body was gone"
+          },
+          {
+            "reference": "Luke 24:1-12",
+            "note": "The women disbelieved; Peter at the tomb"
+          },
+          {
+            "reference": "John 20:1-10",
+            "note": "Mary assumes the body was taken"
+          }
+        ]
+      },
+      {
+        "id": "appearances",
+        "title": "Seen alone. Seen together.",
+        "blocks": [
+          {
+            "id": "appearances-list",
+            "text": "Paul's list names individuals and groups: Cephas; the Twelve; a crowd of over five hundred at one time; James; every apostle; and finally Paul himself. The Gospels and Acts add others: Mary Magdalene at the tomb; the women on their way back; two disciples on the road to Emmaus; Simon; the disciples behind locked doors, with Thomas first absent and then present; seven disciples beside the lake John calls Tiberias; and the Eleven on a mountain in Galilee, where some still doubted. Luke says the appearances ran over forty days.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:5-8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:11-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:9-10"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:13-43"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 21:1-2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:16-17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 1:3"
+              }
+            ]
+          },
+          {
+            "id": "appearances-accurately",
+            "text": "Use the list accurately. Paul reports the five hundred as one group sighting and says most were still alive; he does not give us five hundred statements, and we cannot question them now. What the list does show is variety: one person and many, men and women, friends and a former enemy, in Jerusalem and in Galilee, indoors and outdoors, over a period of weeks, with Paul's own experience some time later. Mullins drew up the same range in 1905, counting ten appearances before Paul's, and noted that the risen Jesus is reported teaching, not merely being glimpsed.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 13:29-31"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. XIII, §§191–192"
+              }
+            ]
+          },
+          {
+            "id": "appearances-body",
+            "text": "What kind of appearances were these? Luke and John stress that the disciples could touch him and watched him eat; Luke says they first thought they were seeing a spirit and were corrected. Paul calls the resurrection body a spiritual body, raised imperishable and in glory. Strauss read this as development: silent visions, like Paul's on the Damascus road, were retold until the figure spoke, ate and could be handled. Wright replies, in summary, that in Paul “spiritual” describes a body given life by God's Spirit, not a body made of spirit, and that Paul sets it against a merely natural body, not against a physical one. The Baptist Faith and Message holds the two together: Christ was raised “with a glorified body” and appeared to his disciples as the same person they had known before the cross.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:36-43"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:24-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:42-44"
+              },
+              {
+                "kind": "source",
+                "source": "strauss-life-of-jesus",
+                "locator": "§140"
+              },
+              {
+                "kind": "source",
+                "source": "wright-resurrection-son-of-god",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article II"
+              }
+            ]
+          },
+          {
+            "id": "appearances-sincere",
+            "text": "Here critics and defenders largely agree: the disciples sincerely believed they had seen Jesus alive. Strauss himself conceded that Paul's letters and Acts make it certain the apostles held that conviction. Origen, answering Celsus about AD 248, pointed to men who taught a message that endangered their lives and would not have taught it so boldly had they invented it. Simon Greenleaf, the Harvard law professor, argued in 1846 that men facing beatings, prison and death had every motive to re-examine the grounds of their claim, and kept to it. Willingness to suffer does not prove a belief true; people die for mistaken beliefs. It does make deliberate fraud very hard to credit, which is why almost no modern historian, believer or sceptic, holds that the apostles lied.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 5:27-32"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 11:24-26"
+              },
+              {
+                "kind": "source",
+                "source": "strauss-life-of-jesus",
+                "locator": "§140"
+              },
+              {
+                "kind": "source",
+                "source": "origen-contra-celsum",
+                "locator": "2.56"
+              },
+              {
+                "kind": "source",
+                "source": "greenleaf-testimony",
+                "locator": "§37, pp. 62–64"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 Corinthians 15:5-8",
+            "note": "Individuals, a crowd, the apostles, Paul"
+          },
+          {
+            "reference": "Luke 24:36-43",
+            "note": "Not a spirit: hands, feet and a meal"
+          },
+          {
+            "reference": "John 20:24-29",
+            "note": "Thomas, the doubter, and Jesus' blessing on those who have not seen"
+          }
+        ]
+      },
+      {
+        "id": "paul-james",
+        "title": "A persecutor. A sceptical brother.",
+        "blocks": [
+          {
+            "id": "paul",
+            "text": "Paul was not a disciple grieving for his teacher. By his own account he was a Pharisee, zealous beyond his peers, who hunted down the church and set out to destroy it. Then, he says, God revealed his Son to him; he counts himself as having seen the Lord, the last in the list of witnesses and the lowest of the apostles. Acts tells the event three times, with a light and a voice as he neared Damascus. The change cost him: he lists floggings, beatings with rods, a stoning and constant danger. On the usual dating it happened within a few years of the crucifixion.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Galatians 1:13-16"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Philippians 3:4-8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 9:1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:8-9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 9:1-6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Corinthians 11:24-26"
+              }
+            ]
+          },
+          {
+            "id": "james",
+            "text": "James was one of the brothers of Jesus. John says that during his ministry even his brothers had no faith in him, and Mark reports that his family once came to take charge of him, convinced he had lost his senses. Yet after Easter his brothers are praying with the apostles, and within a few years James is a leader of the Jerusalem church: Paul meets him on his first visit, later names him first among the pillars, and in Acts he addresses the gathering of apostles and elders at Jerusalem. Paul's list gives the reason the church remembered: Jesus appeared to James.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 7:5"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 3:21"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 6:3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 1:14"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Galatians 2:9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 15:13"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:7"
+              }
+            ]
+          },
+          {
+            "id": "james-death",
+            "text": "James's death is recorded outside the New Testament. Josephus, the Jewish historian, writing about AD 93–94, says that when the governor Festus died, about AD 62, and before his successor Albinus arrived, the high priest Ananus the younger convened the Sanhedrin, brought before it James, whom he identifies as the brother of Jesus called the Christ, and had him and some others stoned as lawbreakers; citizens who cared for the law protested to the king and to Albinus. Most scholars, including many who think the longer passage about Jesus in book 18 was added to by Christian copyists, accept this one as genuine. Eusebius preserves a fuller and later account from Hegesippus, with legendary details, and quotes Josephus beside it. A brother who had once thought Jesus had lost his senses died as the leader of his followers.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "josephus-antiquities",
+                "locator": "20.9.1"
+              },
+              {
+                "kind": "source",
+                "source": "eusebius-church-history",
+                "locator": "2.23"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 3:21"
+              }
+            ]
+          },
+          {
+            "id": "paul-james-explained",
+            "text": "How do critics explain the two? Lüdemann argued that Paul's persecuting zeal masked an inner attraction to the faith he attacked, which broke out in a vision. Strauss had already set out a natural account, drawing on earlier German scholars, in which the impression made by the Christians, and by Stephen's death in particular, threw Paul into a crisis that took the form of a vision. James is harder for every such theory: nothing in the sources suggests he was grieving for a master or wrestling with guilt, and the usual suggestion is that he was swept up in the others' conviction. Neither conversion proves the resurrection. Both are facts an explanation must cover: a persecutor and a sceptic each became a leader of the movement, and each gave the same reason, that he had seen Jesus.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 8:1-3"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:7-8"
+              },
+              {
+                "kind": "source",
+                "source": "ludemann-resurrection",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "strauss-life-of-jesus",
+                "locator": "§140"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Galatians 1:13-19",
+            "note": "Paul's former life and his meeting with Cephas and James"
+          },
+          {
+            "reference": "John 7:5",
+            "note": "His brothers did not believe"
+          },
+          {
+            "reference": "Acts 1:14",
+            "note": "After Easter, his brothers among the believers"
+          },
+          {
+            "reference": "Acts 9:1-6",
+            "note": "The persecutor on the Damascus road"
+          }
+        ]
+      },
+      {
+        "id": "critics",
+        "title": "Same facts. Different explanations.",
+        "blocks": [
+          {
+            "id": "critics-ehrman",
+            "text": "The leading critics accept more than is often supposed. Bart Ehrman accepts that Jesus was crucified under Pilate and that soon afterwards some of his followers, Peter and Paul among them, had experiences they took to be seeing him alive, and that this belief launched the movement. He doubts the burial in a known tomb, and he holds that a historian, working as a historian, can never conclude that a miracle is the best explanation, since a miracle is by definition the least probable of events. He defended this position in a public debate with William Lane Craig in 2006.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "ehrman-how-jesus-became-god",
+                "locator": "chs. 4–5"
+              }
+            ]
+          },
+          {
+            "id": "critics-ludemann",
+            "text": "Gerd Lüdemann, a German New Testament scholar who left the Christian faith, granted, as his case is usually summarised, that the appearance traditions go back to the first years and that Peter and Paul really did have experiences of seeing Jesus. He explained Peter's as a grief vision charged with guilt over his three denials, Paul's as the outbreak of a hidden conflict, and the appearance to the five hundred as a kind of mass ecstasy. The body, he held, decayed in the ground, and a modern person cannot believe in a bodily resurrection.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 14:66-72"
+              },
+              {
+                "kind": "source",
+                "source": "ludemann-resurrection",
+                "locator": "whole work (described; no copy held)"
+              }
+            ]
+          },
+          {
+            "id": "critics-allison",
+            "text": "Dale Allison, a New Testament scholar who is himself a Christian, belongs here because he refuses to claim more than the evidence gives. In summary, he judges the empty tomb more likely than not, and he grants that the disciples saw something. But he has gathered modern reports of people seeing the dead after bereavement, sometimes several people together, and he argues that such experiences show how visions could arise without a resurrection. His conclusion, as it is usually summarised, is that history can bring us to the question but cannot settle it; what a person finally decides depends on what he already believes about God and the world.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "allison-resurrecting-jesus",
+                "locator": "whole work (described; no copy held)"
+              }
+            ]
+          },
+          {
+            "id": "critics-reply",
+            "text": "Christian historians answer from the same facts. N. T. Wright argues, in summary, that Jews who expected resurrection for all the righteous together when this age ends, and the Sadducees who denied it altogether, had no category for one man raised ahead of time; the first Christians would not have said it unless the tomb was empty and he had also been seen, since either alone would have produced talk of grave robbery or of visions, not of resurrection. Habermas and Licona, as their method is usually summarised, argue only from the facts most critics grant. The method has older roots. Thomas Sherlock in 1729 staged the evidence as a trial of the apostles for false witness, ending in a verdict of not guilty. Gilbert West, a layman, says he began by examining the charge that the Gospels contradict one another and found the accounts agreed once compared with care. Simon Greenleaf in 1846 applied the rules of legal evidence. The courtroom picture has limits, since no witness can now be cross-examined, but it asks the right question: does this testimony hold?",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Daniel 12:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 4:1-2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 23:8"
+              },
+              {
+                "kind": "source",
+                "source": "wright-resurrection-son-of-god",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "habermas-licona-case",
+                "locator": "whole work (described; no copy held)"
+              },
+              {
+                "kind": "source",
+                "source": "sherlock-tryal",
+                "locator": "p. 109 (1729 printing)"
+              },
+              {
+                "kind": "source",
+                "source": "west-resurrection",
+                "locator": "Introduction, pp. v–ix"
+              },
+              {
+                "kind": "source",
+                "source": "greenleaf-testimony",
+                "locator": "§37, pp. 62–64"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Daniel 12:2",
+            "note": "The Jewish hope: many raised together at the end"
+          },
+          {
+            "reference": "Acts 4:1-2",
+            "note": "The Sadducees and temple leaders object to the apostles' preaching of resurrection in Jesus"
+          },
+          {
+            "reference": "Acts 23:8",
+            "note": "Luke explains that the Sadducees, who denied resurrection, rejected angels and spirits too"
+          },
+          {
+            "reference": "Mark 14:66-72",
+            "note": "Peter's denials, which Lüdemann takes as the seed of a guilt vision"
+          }
+        ]
+      },
+      {
+        "id": "evidence-inference",
+        "title": "What the evidence says. What we infer.",
+        "blocks": [
+          {
+            "id": "evidence-says",
+            "text": "What the evidence says. Jesus was executed by crucifixion under Pontius Pilate; the Roman historian Tacitus records his execution under Pilate, the Gospels tell how he died, and no serious historian doubts it. Within a few years his followers were reciting a formula about his death and burial, his rising again the third day, and his appearing to people it names. They proclaimed this in Jerusalem at their own risk, and some died for it. Paul, a persecutor, and James, a sceptical brother, became leaders after experiences they took to be appearances. The tomb was very probably found empty, and the earliest opposing reply took that for granted.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "tacitus-annals",
+                "locator": "15.44"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:3-8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Galatians 1:13-19"
+              },
+              {
+                "kind": "source",
+                "source": "josephus-antiquities",
+                "locator": "20.9.1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:11-15"
+              }
+            ]
+          },
+          {
+            "id": "we-infer",
+            "text": "What we infer. Each alternative, compared side by side in the companion article, accounts for part of this and fails on another part. Theft does not explain sincere men suffering for the claim. Visions do not explain the empty tomb, or the conversion of men who were not grieving. A wrong tomb or no tomb does not explain the appearances. Legend does not fit a formula recited within a few years by people who knew the witnesses. Mullins framed the Christian case as a historian frames any hypothesis: it is to be preferred if it accounts for all the facts and no rival does. Paley added that the missing body defeats the vision theory on its own, since a vision leaves the body in the grave. We infer that the best explanation of the evidence is the one the witnesses gave: God raised Jesus bodily from the dead.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. XIII, §188"
+              },
+              {
+                "kind": "source",
+                "source": "paley-evidences",
+                "locator": "Part II, ch. 8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 2:32"
+              }
+            ]
+          },
+          {
+            "id": "why-it-matters",
+            "text": "Why it matters. Paul did not treat the resurrection as an optional extra. If Christ was not raised, he says, the apostles' preaching is empty, faith is useless, believers are still unforgiven for their sins, and the apostles have testified falsely about God himself. He stakes the faith on an event in history, and he says it happened: Christ is the firstfruits, the first of the harvest, and his own people will be raised when he comes. Southern Baptists confess the same, that Christ was raised “with a glorified body” (article II). The case in this essay serves that confession; it does not replace it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:14-20"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:23"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article II"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 Corinthians 15:12-20",
+            "note": "Paul stakes the faith on the event"
+          },
+          {
+            "reference": "Acts 2:29-32",
+            "note": "David's tomb and the apostles' witness"
+          },
+          {
+            "reference": "Luke 1:1-4",
+            "note": "An account built on eyewitnesses, written so the reader may be certain"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. History can establish what was claimed, how early, by whom and at what cost, and it can test rival explanations against those facts. It cannot put the event itself under observation. Whether a historian will accept that God raised a dead man depends partly, as Allison's conclusion is usually summarised, on what he already allows to be possible; that is the real hinge between Craig and Ehrman, and it is the question David Hume put when he weighed a report of a dead man restored to life against uniform experience. Some details remain reconstructions: the exact year of the cross, where Paul's formula ends, how the four Gospel accounts fit together. The New Testament itself does not rest faith on argument alone: John says he wrote so that readers might believe, and Jesus blesses those who believe without seeing. So keep three things apart: what the sources say; what we infer from them; and what we confess because God has spoken. Then ask of the next claim you hear about Easter, from either side: what survives, and what am I inferring?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 20:29-31"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "source",
+          "source": "hume-enquiry",
+          "locator": "§§90–91"
+        },
+        {
+          "kind": "source",
+          "source": "allison-resurrecting-jesus",
+          "locator": "whole work (described; no copy held)"
+        }
+      ]
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New essay, the first article of its format (plan APOLOGETICS-FIELDS step 6, job 488da4b7). Writer's notes checked; every cited verse opened in the Berean; independent AI content review of doctrine (BF&M 2000), Scripture, rights, accuracy and citations, with Paley, Mullins, Origen, Josephus, Sherlock, West, Greenleaf, Schweitzer, Hume, Strauss and Lake read at the cited places in the held files. Its findings (burial details given to the Gospels that say them, Berean wording paraphrased, in-copyright scholars marked 'as summarised in', Tacitus 'executed', added Acts 23:8) were all fixed and spot-checked. Validate clean; depth on target (3,473 words, 2,500-4,500).",
+      "note": "AI-assisted review; no human theological review. In-copyright scholarship is described from general knowledge, not read for this article.",
+      "date": "2026-11-27",
+      "contentHash": "e9b5bbf77b8a41860dacef18521300c76c1e6b99aff956521fe7ceeea47e270e",
+      "basisHash": "f3877d855a4cea1fb44eff4e1f49a1ccc220b0335f4958268b60679ea945d0f2"
+    }
+  ]
+}

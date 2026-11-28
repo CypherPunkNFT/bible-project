@@ -2422,3 +2422,70 @@ It replaces the Church of England's copyrighted text (record `creed`) in the `go
 for the one article that still cites it (`islam-trinity`). Each cited source's `read` field now says what was read for
 these corrections; the Kruger blog post and the Codex Sinaiticus page refused automated access and are cited as whole
 pages, unread.
+
+## Apologetics fields: the step-6 samples — registered 27 November 2026 (nothing released)
+
+Step 6 of [Plans/APOLOGETICS-FIELDS.md](../Plans/APOLOGETICS-FIELDS.md) (sequence 60) wrote the first real article of
+seven formats, all in the Jesus & resurrection list: `resurrection-case` (essay), `penal-substitution-objections`
+(objections and replies), `easter-alternatives` (views compared), `atonement-timeline` (timeline), `hume-miracles`
+(key figure), `jesus-outside-nt` (reading) and `titles-of-jesus` (glossary). They cite 23 new source records, below.
+Every existing source an article cites now says in its `read` field what was read for it.
+
+**Extracts.** `jesus-outside-nt` is the only article that quotes historic texts at length (463 words in six extracts),
+each from an edition now named in its source's `publicDomain` record: Tacitus, *Annals* 15.44 (Church and Brodribb,
+1884); Josephus, *Antiquities* 18.63-64 and 20.200 (Whiston, 1737); Pliny, *Letters* 10.96-97 (Melmoth revised by
+Bosanquet); Suetonius, *Claudius* 25 (Thomson revised by Forester); Lucian, *Peregrinus* 11 and 13 (H. W. and F. G.
+Fowler, 1905). Pliny's and Suetonius's revisers' death years were not found, so those two are public domain in the US
+(published before 1931), worldwide status unconfirmed; the site is published from the US.
+
+**In copyright, cite only, not held** (role "Scholarship · described, not quoted", `checked: none`; described in our
+own words, never quoted, no page numbers invented):
+
+| Record | Work | Planned use |
+|---|---|---|
+| `van-voorst-outside-nt` | Robert E. Van Voorst, *Jesus Outside the New Testament* (Eerdmans, 2000) | the Roman and Jewish witnesses (`jesus-outside-nt`); later mythicism |
+| `meier-marginal-jew` | John P. Meier, *A Marginal Jew*, vol. 1 (Doubleday, 1991) | Josephus and the other non-Christian writers (`jesus-outside-nt`) |
+| `wright-resurrection-son-of-god` | N. T. Wright, *The Resurrection of the Son of God* (Fortress, 2003) | what resurrection meant to Jews (`resurrection-case`) |
+| `habermas-licona-case` | Gary R. Habermas and Michael R. Licona, *The Case for the Resurrection of Jesus* (Kregel, 2004) | the minimal-facts method (`resurrection-case`) |
+| `allison-resurrecting-jesus` | Dale C. Allison Jr., *Resurrecting Jesus* (T&T Clark, 2005) | a cautious weighing of the tomb and the visions (`resurrection-case`, `easter-alternatives`) |
+| `ludemann-resurrection` | Gerd Lüdemann, *The Resurrection of Jesus* (SCM/Fortress, 1994) | the vision explanation (`easter-alternatives`) |
+| `ehrman-how-jesus-became-god` | Bart D. Ehrman, *How Jesus Became God* (HarperOne, 2014) | burial doubted; historians and miracles (`easter-alternatives`) |
+| `crossan-revolutionary-biography` | John Dominic Crossan, *Jesus: A Revolutionary Biography* (HarperSanFrancisco, 1994) | the no-tomb view (`easter-alternatives`) |
+| `abelard-romans` | Peter Abelard, *Commentary on the Epistle to the Romans*, tr. Cartwright (CUA Press, 2011) | the moral-influence view (`atonement-timeline`) |
+| `aulen-christus-victor` | Gustaf Aulén, *Christus Victor*, tr. Hebert (SPCK, 1931); public domain in the US from 1 January 2027 | the three types of atonement teaching (`atonement-timeline`) |
+| `chalke-mann-lost-message` | Steve Chalke and Alan Mann, *The Lost Message of Jesus* (Zondervan, 2003) | the "cosmic child abuse" objection (`penal-substitution-objections`) |
+| `earman-abject-failure` | John Earman, *Hume's Abject Failure* (OUP, 2000) | a sceptic's critique of Hume (`hume-miracles`) |
+| `keener-miracles` | Craig S. Keener, *Miracles* (Baker Academic, 2011) | modern eyewitness claims and the reply to Hume (`hume-miracles`) |
+| `sep-hume` | Hsueh Qu and Elizabeth S. Radcliffe, "David Hume", *Stanford Encyclopedia of Philosophy* (read online 27 November 2026) | Hume's life dates (`hume-miracles`) |
+
+**Public domain, read online, not held** (`checked: edition`):
+
+| Record | Work | Planned use |
+|---|---|---|
+| `aquinas-passion` | Thomas Aquinas, *Summa Theologiae* III q. 48, English Dominican translation (1920), New Advent edition | satisfaction (`atonement-timeline`) |
+| `calvin-institutes-redeemer` | John Calvin, *Institutes* II.16, tr. Beveridge (1845), CCEL edition | the Redeemer's office; God's love before the reconciliation (`atonement-timeline`, `penal-substitution-objections`) |
+
+**Held in the corpus, rights to check:** `luther-galatians`, Luther's *Galatians* in Theodore Graebner's abridged
+translation (Zondervan, 1949), CCEL file `sources/library/bulk/ccel/luther_galatians.xml`. CCEL records that its
+copyright was not renewed; until that is confirmed it is cited and described, never quoted (`atonement-timeline`,
+Galatians 3:13).
+
+**Downloaded 27 November 2026** into `sources/` and re-fetched by `scripts/fetch-sources.py`. Each was read online by
+the article's writer first; the job then downloaded the same Internet Archive OCR text, byte for byte the file the
+writer read, and its records now say `checked: corpus`.
+
+| File | What | Licence | SHA-256 |
+|---|---|---|---|
+| [strauss-life-of-jesus-v2](sources/archive-org/strauss-life-of-jesus-eliot-1860-v2.txt) | D. F. Strauss, *The Life of Jesus, Critically Examined*, tr. Marian Evans (George Eliot), vol. 2 (New York, 1860), OCR text, item `lifeofjesuscriti02stra` · section 140, on the death and resurrection, read for `easter-alternatives` (record `strauss-life-of-jesus`) | Public domain (translation 1846; this printing 1860) | 3ee0e4e9c891a54c |
+| [lake-historical-evidence](sources/archive-org/lake-historical-evidence-resurrection-1907.txt) | Kirsopp Lake, *The Historical Evidence for the Resurrection of Jesus Christ* (London and New York, 1907), OCR text, item `historicaleviden00lakeuoft` · the wrong-tomb view, chapter VII | Public domain (US, 1907; Lake d. 1946) | 63c8261326162ebd |
+| [racovian-catechism](sources/archive-org/racovian-catechism-rees-1818.txt) | *The Racovian Catechism*, tr. Thomas Rees (London, 1818), OCR text, item `racoviancatechis00rees` · the Socinian case against satisfaction | Public domain (1818) | d0dc78cdd698e85a |
+| [grotius-satisfaction](sources/archive-org/grotius-satisfaction-foster-1889.txt) | Hugo Grotius, *A Defence of the Catholic Faith concerning the Satisfaction of Christ*, tr. F. H. Foster (Andover, 1889), OCR text, item `defenceofcatholi00grot_0` · the governmental view | Public domain (US, 1889) | 9aca60f158a09d66 |
+| [kant-religion](sources/archive-org/kant-religion-semple-1838.txt) | Immanuel Kant, *Religion within the Boundary of Pure Reason*, tr. J. W. Semple (Edinburgh, 1838), OCR text, item `religionwithin00kantuoft` · "guilt cannot be transferred" | Public domain (1838) | 1fecac27c327e9bf |
+| [campbell-nature-atonement](sources/archive-org/campbell-nature-of-the-atonement-1867.txt) | John McLeod Campbell, *The Nature of the Atonement*, 2nd ed. (London, 1867), OCR text, item `natureatonement01campgoog` | Public domain (1867; Campbell d. 1872) | b052804a6248cba0 |
+| [dale-atonement](sources/archive-org/dale-atonement-1875.txt) | R. W. Dale, *The Atonement* (London, 1875), OCR text, item `atonementcongre00dalegoog` | Public domain (1875; Dale d. 1895) | d93ec2be65eb34a3 |
+
+**Corrections found on the way.** The `west-resurrection` note no longer says West "set out to disprove the
+resurrection": his own Introduction (pp. v-ix) says he began by examining the charge that the evangelists contradict
+one another. The held Boyce scan is the 1882 printing for his students, not the 1887 edition the record's title
+names; the `read` field says so and the title waits for a job that re-reviews its citing studies. The held Dagg file
+is volume 2, the *Treatise on Church Order*, not the theology volume; no step-6 article cites it.

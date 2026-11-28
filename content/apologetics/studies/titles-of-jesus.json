@@ -1,0 +1,1164 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "titles-of-jesus",
+  "order": 26,
+  "publication": "published",
+  "content": {
+    "title": "Messiah, Son of Man, Lord: the titles of Jesus",
+    "topic": "jesus",
+    "summary": "Thirty-three titles the Bible gives Jesus, each with the passage where it is used and the Old Testament passage it grows from.",
+    "format": "glossary",
+    "spine": "scripture-theology",
+    "answer": {
+      "id": "answer",
+      "text": "The New Testament gives Jesus dozens of titles, and almost every one has roots in the Old Testament. Read together they say who he is: the anointed King promised to David, the Son of Man of Daniel's vision, the Servant who suffers, the Lord who shares God's name. Each entry gives a title, where it is used, and the passage it comes from; open both. Southern Baptists confess him the eternal Son, truly God and truly man (Baptist Faith and Message 2000, article II).",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "2 Samuel 7:12-16"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Daniel 7:13-14"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Mark 14:61-64"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Philippians 2:9-11"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Daniel 7:13-14",
+        "note": "The Son of Man receives an everlasting kingdom"
+      },
+      {
+        "reference": "Mark 14:61-64",
+        "note": "Jesus answers the high priest with Daniel and Psalm 110"
+      },
+      {
+        "reference": "John 1:1-14",
+        "note": "The Word was God and became flesh"
+      },
+      {
+        "reference": "Philippians 2:9-11",
+        "note": "The name above every name"
+      }
+    ],
+    "related": [
+      "jesus",
+      "god"
+    ],
+    "keywords": [
+      "titles of Jesus",
+      "names of Jesus",
+      "Messiah",
+      "Son of Man",
+      "Son of God",
+      "Lord",
+      "Logos",
+      "I AM",
+      "Christology"
+    ],
+    "terms": [
+      {
+        "id": "messiah",
+        "term": "Messiah (Christ)",
+        "text": "Messiah is Hebrew and Christ is Greek; both mean anointed. Israel anointed its kings and priests, and the prophets looked for one Anointed above them all. The Berean usually writes Christ in the New Testament and keeps Messiah where the Gospel spells out the Hebrew word, as in John 1:41 and 4:25. In Psalm 2:2 it has Anointed One, and in Daniel 9:25-26 Messiah. Peter's confession of Jesus as the Christ is the hinge of Mark's Gospel.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 2:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Daniel 9:25-26"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:41"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 4:25-26"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 8:29"
+          }
+        ],
+        "seeAlso": [
+          "son-of-david",
+          "king",
+          "son-of-god"
+        ]
+      },
+      {
+        "id": "son-of-man",
+        "term": "Son of Man",
+        "text": "Jesus' favourite way of naming himself in all four Gospels, seldom used by anyone else. Its root is Daniel 7:13-14, where a figure resembling a son of man rides the clouds and receives a kingdom without end; the Berean capitalises it there, reading it of Christ. Jesus joined that figure to suffering: the Son of Man forgives sins, gives up his life to ransom many, and will come in glory. At his trial the high priest called that claim blasphemy.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Daniel 7:13-14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 2:10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:45"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 14:61-64"
+          }
+        ],
+        "seeAlso": [
+          "messiah",
+          "servant",
+          "king"
+        ]
+      },
+      {
+        "id": "son-of-god",
+        "term": "Son of God",
+        "text": "In the Old Testament the title first belongs to Israel's king. The New Testament uses it in that royal sense and goes beyond it: John wrote so that readers would believe Jesus to be God's own Son, and Paul says the resurrection declared him so with power. Boyce argues that the title, joined to divine names, works and worship, marks Christ's divine nature, and the Baptist Faith and Message confesses him the eternal Son (article II).",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Samuel 7:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalm 2:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 1:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 20:31"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:3-4"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XV, p. 158"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "messiah",
+          "son-of-david",
+          "word"
+        ]
+      },
+      {
+        "id": "lord",
+        "term": "Lord (kyrios)",
+        "text": "The Greek kyrios can mean sir or master, but the Greek translation of the Old Testament used it for God's own name, which the Berean prints as LORD in capitals. The first Christians confessed that Jesus is Lord, applied to him Joel's promise that everyone who calls upon the LORD finds rescue, and read Psalm 110:1 of him, as Jesus himself did. Philippians 2 says God gave him a name higher than every other.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 110:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 12:35-37"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Joel 2:32"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 10:9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 10:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 2:36"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Philippians 2:9-11"
+          }
+        ],
+        "seeAlso": [
+          "son-of-david",
+          "i-am",
+          "king"
+        ]
+      },
+      {
+        "id": "word",
+        "term": "Word (Logos)",
+        "text": "John opens his Gospel by calling Jesus the Word: present with God from the very start, himself God, the agent through whom everything came to exist, who became flesh and lived among us. The background is God creating by speaking, in Genesis 1 and Psalm 33:6. Greek thinkers also spoke of a logos, but John's Word is a person. Boyce ties the title to Christ's work as prophet, the one who reveals God to us.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Genesis 1:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalm 33:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 19:13"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, p. 316"
+          }
+        ],
+        "seeAlso": [
+          "prophet",
+          "son-of-god",
+          "i-am"
+        ]
+      },
+      {
+        "id": "lamb-of-god",
+        "term": "Lamb of God",
+        "text": "John the Baptist twice points to Jesus as the Lamb of God, the one who removes the world's sin. Two roots meet here: the Passover lamb, whose blood marked Israel's houses, and the silent Servant of Isaiah 53, taken like a lamb to be killed. Paul names Christ the Passover lamb sacrificed for us, and Revelation sees the slain Lamb at the centre of heaven's throne. Boyce, on Christ's priestly work, calls him the spotless Lamb.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:29"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:36"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Exodus 12:3-7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 5:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 5:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 5:12"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, p. 318"
+          }
+        ],
+        "seeAlso": [
+          "servant",
+          "high-priest",
+          "saviour"
+        ]
+      },
+      {
+        "id": "son-of-david",
+        "term": "Son of David",
+        "text": "God promised David a descendant whose throne would last for ever. Matthew opens by naming Jesus the son of David, blind Bartimaeus cries to him by that title, and Paul says that by human descent Jesus came from David's line. Jesus himself pressed the title further: if David calls the Messiah his Lord in Psalm 110, the Messiah must be more than David's son.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Samuel 7:12-16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 1:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:47-48"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 1:32"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 12:35-37"
+          }
+        ],
+        "seeAlso": [
+          "messiah",
+          "king",
+          "root-of-jesse"
+        ]
+      },
+      {
+        "id": "servant",
+        "term": "Servant",
+        "text": "Isaiah 42 to 53 speaks of the LORD's Servant, chosen and filled with the Spirit, who brings justice gently, and who at last is pierced, carries many people's sins and pleads for the wrongdoers. Matthew applies Isaiah 42 to Jesus, and Peter in Acts calls Jesus God's servant, glorified after suffering. Jesus said he came as the Son of Man to serve, giving his life. Jewish interpreters often read the Servant as Israel; the New Testament reads him as Jesus.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 42:1-4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 52:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:11-12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 12:17-18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 3:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:45"
+          }
+        ],
+        "seeAlso": [
+          "lamb-of-god",
+          "son-of-man",
+          "messiah"
+        ]
+      },
+      {
+        "id": "prophet",
+        "term": "Prophet",
+        "text": "Moses promised that God would raise up a prophet like him, whom Israel must hear. Crowds who saw Jesus feed the five thousand took him for that Prophet, and Peter applies Moses' promise to Jesus in Acts 3. Boyce, the first Southern Baptist seminary's founder, counts prophet as the first of Christ's three offices: he speaks for God, through the prophets of old, in person during his ministry, and through his apostles after.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 18:15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 18:18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 6:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 24:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 3:22"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, pp. 316–317"
+          }
+        ],
+        "seeAlso": [
+          "word",
+          "high-priest",
+          "king"
+        ]
+      },
+      {
+        "id": "high-priest",
+        "term": "Priest and High Priest",
+        "text": "Hebrews calls Jesus our great high priest, appointed by God to a priesthood like Melchizedek's, as Psalm 110:4 promised. Unlike Israel's priests he is without sin, holds a priesthood that never passes to another, offered himself a single time for all, and lives for ever to plead for everyone who approaches God by him. Boyce, treating this second office, notes that Christ is himself both priest and sacrifice at once.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 110:4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 4:14-15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 5:5-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 7:24-27"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, pp. 317–318"
+          }
+        ],
+        "seeAlso": [
+          "mediator",
+          "lamb-of-god",
+          "advocate"
+        ]
+      },
+      {
+        "id": "king",
+        "term": "King",
+        "text": "Zechariah saw Jerusalem's king coming humbly on a donkey, and Matthew says Jesus fulfilled it as he entered the city. Before Pilate Jesus accepted the title while saying that his kingdom does not belong to this world, and the charge on the cross named him King of the Jews. Revelation calls him King of kings. Boyce counts this as Christ's third office, a rule he holds as the God-man, exalted after his humiliation.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Zechariah 9:9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 21:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 18:36-37"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:26"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 19:16"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, p. 319"
+          }
+        ],
+        "seeAlso": [
+          "son-of-david",
+          "messiah",
+          "lion-of-judah"
+        ]
+      },
+      {
+        "id": "rabbi",
+        "term": "Rabbi and Teacher",
+        "text": "Rabbi, a Hebrew word meaning my master, was a respectful address for a teacher of the law, and John translates it as Teacher. Disciples and even the Pharisee Nicodemus called Jesus Rabbi. Jesus said that calling him Teacher and Lord was right, yet he told his followers not to take the title Rabbi themselves, since they have one Teacher. The title is true, but the Gospels never let it stand alone.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:38"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 3:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 13:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 23:8"
+          }
+        ],
+        "seeAlso": [
+          "prophet",
+          "lord"
+        ]
+      },
+      {
+        "id": "immanuel",
+        "term": "Immanuel (Emmanuel)",
+        "text": "Isaiah gave King Ahaz a sign: a virgin would bear a son and call him Immanuel. Matthew quotes it of Jesus' birth and gives the meaning, God with us. The Berean spells the name Immanuel; Emmanuel is the older English form, taken from the Greek. Whether the Hebrew word in Isaiah means virgin or young woman is debated; Matthew's Greek and the Berean read virgin, and the Baptist Faith and Message confesses the virgin birth (article II).",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 7:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 1:23"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ],
+        "seeAlso": [
+          "son-of-god",
+          "word"
+        ]
+      },
+      {
+        "id": "i-am",
+        "term": "I AM",
+        "text": "God revealed his name to Moses as I AM WHO I AM. In John 8:58 Jesus claims that, before Abraham came into being, I am, and his hearers pick up stones. The same two Greek words stand behind I am He at his arrest, when the soldiers fall back, and It is I when he walks on the water; there the Berean adds a word that English needs. Many readers hear God's name from Exodus 3:14 in these sayings.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Exodus 3:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 8:58-59"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 18:5-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 6:50"
+          }
+        ],
+        "seeAlso": [
+          "bread-of-life",
+          "light-of-the-world",
+          "good-shepherd",
+          "resurrection-and-life",
+          "way-truth-life",
+          "true-vine",
+          "lord"
+        ]
+      },
+      {
+        "id": "alpha-omega",
+        "term": "Alpha and Omega",
+        "text": "Alpha and omega are the first and last letters of the Greek alphabet. In Revelation the Lord God takes this name, and at the book's close the one who is coming soon, who names himself Jesus, takes it too, adding the First and the Last. That echoes the LORD's own claim in Isaiah 44:6 to be first and last, with no other God at his side.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 44:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 1:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 1:17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 22:12-13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 22:16"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "lord",
+          "amen"
+        ]
+      },
+      {
+        "id": "bread-of-life",
+        "term": "Bread of life",
+        "text": "After feeding the five thousand, Jesus says he is the bread of life, the real bread that the Father sends down from heaven. The root is the manna God rained down on Israel in the desert. The fathers who ate manna died; whoever eats this bread, Jesus says, will live for ever, and the bread is his flesh, given so that the world may live. It is the first of John's seven I am sayings.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Exodus 16:4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 6:32-35"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 6:48-51"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "light-of-the-world"
+        ]
+      },
+      {
+        "id": "light-of-the-world",
+        "term": "Light of the world",
+        "text": "Jesus calls himself the light of the world twice in John, once while teaching near the temple treasury and again before healing a man born blind; whoever follows him will not stumble about in the dark. Isaiah had promised a great light for a people who dwelt in the dark, and made the Servant the light of the nations too. Matthew applies Isaiah 9 to the start of Jesus' ministry in Galilee.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 9:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 49:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 4:16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 8:12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 8:20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 9:5"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "servant",
+          "bread-of-life"
+        ]
+      },
+      {
+        "id": "good-shepherd",
+        "term": "Good Shepherd",
+        "text": "In Ezekiel 34 God condemns Israel's selfish shepherds, promises to seek his flock himself, and sets over them a single shepherd, his servant David. Psalm 23 opens with the LORD as shepherd. Jesus says he is the good shepherd, who knows his sheep and gives up his life for them. Hebrews calls him the great Shepherd of the sheep and Peter calls him the Chief Shepherd.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 23:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ezekiel 34:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ezekiel 34:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 10:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 10:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 13:20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 5:4"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "son-of-david",
+          "king"
+        ]
+      },
+      {
+        "id": "resurrection-and-life",
+        "term": "The resurrection and the life",
+        "text": "Jesus says this to Martha before raising her brother Lazarus: anyone who trusts him will live, even through death. Martha already believed that the dead would rise when the last day came. Jesus' claim goes further: resurrection life is present in him, now. His own rising, the first sheaf of the harvest of the dead, made the claim good.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 11:24-26"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:20"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "firstborn",
+          "last-adam"
+        ]
+      },
+      {
+        "id": "way-truth-life",
+        "term": "The way, the truth and the life",
+        "text": "Jesus says this to Thomas during the night before he died, when Thomas asks how they can know the way: the only way to the Father is through him. It is one claim in three words, that he is the road to the Father, the true showing of him, and the source of life. Peter makes the same claim in Acts 4:12, and Paul speaks of one mediator.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 14:5-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 4:12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 2:5"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "mediator",
+          "light-of-the-world"
+        ]
+      },
+      {
+        "id": "true-vine",
+        "term": "True vine",
+        "text": "Israel was God's vine, carried away from Egypt and planted, and his vineyard, which yielded bloodshed instead of justice. Jesus calls himself the true vine, with his Father tending the vineyard and his disciples as branches who bear fruit only by remaining in him. What Israel was meant to be, he is, and his people share his life.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 80:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 5:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 15:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 15:5"
+          }
+        ],
+        "seeAlso": [
+          "i-am",
+          "head-of-the-church"
+        ]
+      },
+      {
+        "id": "firstborn",
+        "term": "Firstborn",
+        "text": "In Israel the firstborn held first rank and inheritance, and God promised to make David's heir his firstborn, set above every king on earth. Paul calls the Son the firstborn over all creation and the firstborn from the dead, and Revelation agrees. Arius in the fourth century, and Jehovah's Witnesses today, read it as first created; Nicene Christians, Baptists among them, read it as rank, since Colossians goes on to say that everything was created by means of him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 89:27"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:15-16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 8:29"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 1:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:6"
+          }
+        ],
+        "seeAlso": [
+          "son-of-god",
+          "head-of-the-church",
+          "resurrection-and-life"
+        ]
+      },
+      {
+        "id": "mediator",
+        "term": "Mediator",
+        "text": "A mediator stands between two estranged parties to make peace between them. Paul insists that, as God is one, so there is only one go-between for God and humankind, Christ Jesus, himself a man, and Hebrews says Christ mediates a new and better covenant. The Baptist Faith and Message names him the one Mediator (article II), and the New Hampshire Confession speaks of salvation through the mediatorial offices of the Son of God (article IV).",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 2:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 8:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 9:15"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          },
+          {
+            "kind": "source",
+            "source": "new-hampshire-1833",
+            "locator": "Article IV"
+          }
+        ],
+        "seeAlso": [
+          "high-priest",
+          "advocate",
+          "way-truth-life"
+        ]
+      },
+      {
+        "id": "advocate",
+        "term": "Advocate",
+        "text": "John writes that when a believer sins, Jesus Christ, who is righteous, pleads his cause with the Father. The Greek word for advocate, parakletos, is the one Jesus uses of the Holy Spirit in John 14, calling him another Advocate, as the Berean's footnote there explains. Paul and Hebrews say the same of Christ in other words: risen and at God's right hand, he intercedes for us.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 John 2:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 14:16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 8:34"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 7:25"
+          }
+        ],
+        "seeAlso": [
+          "mediator",
+          "high-priest"
+        ]
+      },
+      {
+        "id": "last-adam",
+        "term": "Last Adam",
+        "text": "Paul sets Christ beside Adam. Adam's disobedience made the many sinners and brought death on everyone united to him; Christ's obedience makes the many righteous and brings life to everyone united to him. When God breathed into the first Adam he became a living creature; Christ, the last Adam, is a spirit who gives life. One man's act ruined the race, and one man's act restores it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 2:7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:18-19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:22"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:45"
+          }
+        ],
+        "seeAlso": [
+          "firstborn",
+          "resurrection-and-life",
+          "saviour"
+        ]
+      },
+      {
+        "id": "bridegroom",
+        "term": "Bridegroom",
+        "text": "The prophets pictured God as Israel's husband, rejoicing over her like a bridegroom and betrothing her for ever. Jesus called himself the bridegroom, whose guests cannot fast so long as they have him, and John the Baptist called himself the bridegroom's friend. Paul applies marriage to Christ and the church, and Revelation looks ahead to the wedding of the Lamb.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 62:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hosea 2:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 2:19-20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 3:29"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 5:25"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 5:32"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 19:7"
+          }
+        ],
+        "seeAlso": [
+          "head-of-the-church",
+          "lamb-of-god"
+        ]
+      },
+      {
+        "id": "saviour",
+        "term": "Saviour",
+        "text": "In Isaiah the LORD says there is no saviour besides him. The angel told Joseph to name the child Jesus because he would set his people free from sin, and the shepherds heard that a Saviour was born. Samaritans called him the Saviour of the world, and Titus calls him both great God and Saviour. The Berean spells it Savior. The New Hampshire Confession calls him an all-sufficient Saviour (article IV).",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 43:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 1:21"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 2:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 4:42"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Titus 2:13"
+          },
+          {
+            "kind": "source",
+            "source": "new-hampshire-1833",
+            "locator": "Article IV"
+          }
+        ],
+        "seeAlso": [
+          "lamb-of-god",
+          "mediator",
+          "last-adam"
+        ]
+      },
+      {
+        "id": "holy-one",
+        "term": "Holy One of God",
+        "text": "Isaiah's favourite name for God is the Holy One of Israel. In the Gospels an unclean spirit cries out that Jesus is the Holy One of God, and Peter confesses the same when other disciples leave. In Acts Peter charges Jerusalem with rejecting the Holy and Righteous One, and he reads Psalm 16:10, where God will not leave his Holy One to decay, of Christ's resurrection.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 43:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 1:24"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 6:69"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 3:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalm 16:10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 2:27"
+          }
+        ],
+        "seeAlso": [
+          "son-of-god",
+          "messiah"
+        ]
+      },
+      {
+        "id": "root-of-jesse",
+        "term": "Root of Jesse",
+        "text": "Jesse was David's father. Isaiah foresaw new growth springing from Jesse's cut-down stump, a ruler resting under the LORD's Spirit, and the Root of Jesse raised as a banner that the nations would seek. Paul quotes this of Christ's welcome to the Gentiles. In Revelation Jesus calls himself both David's root and his descendant, and the shining star of morning, which recalls Balaam's star out of Jacob.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 11:1-2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 11:10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 15:12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 5:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 22:16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Numbers 24:17"
+          }
+        ],
+        "seeAlso": [
+          "son-of-david",
+          "lion-of-judah",
+          "king"
+        ]
+      },
+      {
+        "id": "lion-of-judah",
+        "term": "Lion of Judah",
+        "text": "Jacob blessed Judah as a young lion and promised that the sceptre would never be taken from him; the Berean reads until Shiloh comes, with a footnote giving the alternative, until the one to whom tribute belongs. In Revelation an elder tells John not to weep, because the Lion of the tribe of Judah has triumphed. When John looks, he sees a Lamb that had been slain. The conqueror wins by his death.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 49:9-10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 5:5-6"
+          }
+        ],
+        "seeAlso": [
+          "lamb-of-god",
+          "king",
+          "root-of-jesse"
+        ]
+      },
+      {
+        "id": "amen",
+        "term": "The Amen",
+        "text": "Amen is a Hebrew word meaning surely, or so be it. Jesus opens solemn sayings with it, doubled in John, where the Berean renders it truly, truly. In Revelation he takes the name the Amen, the Witness who is faithful and true. Paul says every promise of God is Yes in Christ, so through him we say Amen. Isaiah 65:16 names God by the same Hebrew word, which the Berean translates as truth.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 8:58"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Revelation 3:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 1:20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 65:16"
+          }
+        ],
+        "seeAlso": [
+          "alpha-omega",
+          "i-am"
+        ]
+      },
+      {
+        "id": "head-of-the-church",
+        "term": "Head of the church",
+        "text": "Paul says God set Christ over all things as head for the church's benefit, the church being his body, and that the church is the body that has him as its head, he being the first one raised from death. Head means both authority and the source of the body's life. Boyce says Christ reigns over his churches on earth through the laws he has given and the Spirit living in them.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 1:22-23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 5:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 1:18"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVII, p. 319"
+          }
+        ],
+        "seeAlso": [
+          "firstborn",
+          "bridegroom",
+          "true-vine",
+          "cornerstone"
+        ]
+      },
+      {
+        "id": "cornerstone",
+        "term": "Cornerstone",
+        "text": "Psalm 118 sings of a stone thrown aside by the builders that ended as the cornerstone, and Isaiah 28 of a tested, precious stone laid in Zion. Jesus applied the psalm to himself after his parable of the tenants of a vineyard, and Peter joins both texts. Paul pictures the church as a building whose foundation is the apostles and the prophets, and whose cornerstone is Christ Jesus himself.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalm 118:22"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 28:16"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 12:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 12:10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 2:6-7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:20"
+          }
+        ],
+        "seeAlso": [
+          "head-of-the-church",
+          "king"
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New glossary (step 6), 33 terms, each 30-80 words, each citing Scripture. Every cited verse opened in the Berean; Boyce Lectures XV and XXVII and New Hampshire IV read at the cited places. Findings fixed: Berean clauses paraphrased in 14 entries (titles kept), BF&M reduced to 'the one Mediator' with its article, firstborn 'Nicene Christians, Baptists among them'; Arian and Jehovah's Witness readings labelled as theirs. Validate clean; depth on target (2,514 words).",
+      "note": "AI-assisted review; no human theological review.",
+      "date": "2026-11-27",
+      "contentHash": "5ca32a309f90075c99062d66ba8b2cbbb9572eb1a56c7c01c260c0aea13b46fa",
+      "basisHash": "d1dbe9235374924e72e7f122cbfe10f2eeda76d1d5ff77f2ea203ef5fdf6ee5c"
+    }
+  ]
+}

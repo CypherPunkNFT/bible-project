@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "lake-historical-evidence",
+  "order": 124,
+  "publication": "published",
+  "content": {
+    "title": "The Historical Evidence for the Resurrection of Jesus Christ",
+    "author": "Kirsopp Lake (London: Williams & Norgate; New York: G. P. Putnam's Sons, 1907; Crown Theological Library)",
+    "kind": "Historical study",
+    "url": "https://archive.org/details/historicaleviden00lakeuoft",
+    "role": "Primary record · not a teaching authority",
+    "note": "A liberal New Testament scholar's study of the resurrection narratives, best known for proposing (chapter VII) that the women went to the wrong tomb. Published 1907: public domain in the US (Lake d. 1946, so worldwide from 2017). Cited for the wrong-tomb view in its holder's own terms, not as teaching.",
+    "read": "Chapter VII, pp. 250–253 (the wrong-tomb suggestion) and the table of contents read on 2026-11-27 in the Internet Archive text of the 1907 edition (historicaleviden00lakeuoft), for the article easter-alternatives. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/lake-historical-evidence-resurrection-1907.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples').",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain (1907; Lake d. 1946). First written as cite-only; the job downloaded the Internet Archive text the writer read (byte-identical), registered its checksum, and set role 'Primary record · not a teaching authority' and checked corpus. Title page and chapter VII (pp. 250-253) present in the held text.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "6f88cb731a9c66641404e29f94cd939030fd3af29a646f2fee4ff147066ca38b",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

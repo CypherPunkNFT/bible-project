@@ -12,8 +12,12 @@
     "url": "https://www.gutenberg.org/ebooks/6400",
     "role": "Primary record · not a teaching authority",
     "note": "Claudius 25 ('Chrestus') and Nero 16 on the Christians. For the Roman sources and the debate over what 'Chrestus' refers to. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #6400; the same file is held in the KnowledgeBase) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #6400; the same file is held in the KnowledgeBase) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Claudius 25 (the 'Chrestus' sentence, with Forester's note) and Nero 16 read in the held file for jesus-outside-nt; Claudius 25 quoted as an extract. The edition prints no section numbers; the locator gives the standard ones.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "The Lives of the Twelve Caesars, translation of Alexander Thomson revised by T. Forester, Project Gutenberg eBook #6400",
+      "basis": "Thomson's translation published 1796 (preface of the held file; Thomson d. 1803); Forester's revision published in Bohn's Classical Library in the nineteenth century: public domain in the US (before 1931). Forester's death year is not confirmed, so worldwide status is unverified; the site is published from the US."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "edd806b41ad7b8f2bd19974be38db7c908a8c2d89debb002f4719bc7001204e9",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): publicDomain record added for the jesus-outside-nt extracts. The edition string was checked against the held file's title page or front matter (translator, publisher, year); the basis gives the publication year and the translators' death years where known (Bosanquet's and Forester's are not, so worldwide status is marked unconfirmed). The extract text was compared with the held file by the independent review. `read` note checked against the writer's notes.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "41697916bce409d653a61875775f9d29c070400379dceff89d6d8317e20f72dd",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

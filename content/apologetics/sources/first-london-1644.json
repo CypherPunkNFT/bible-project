@@ -12,7 +12,7 @@
     "url": "https://www.romans45.org/creeds/bc1644.htm",
     "role": "Baptist confession",
     "note": "The first Particular (Calvinistic) Baptist confession, which set out believer's baptism by immersion and the gathered church. For the beginnings of the Baptist confessional line; cite by article and name the edition (1644 or 1646), since they differ. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: the 1644 text with preface and signatures and the 1646 second edition, as web transcriptions in sources/library/source-romans45/ (two assets), plus a second 1644 transcription in source-reformed-reader. Not yet read for any article.",
+    "read": "Held in this project's corpus: the 1644 text with preface and signatures and the 1646 second edition, as web transcriptions in sources/library/source-romans45/ (two assets), plus a second 1644 transcription in source-reformed-reader. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Articles XVII, XXI and XXVIII read in the held 1644 text (source-romans45, asset-rb01-73f2404c1011ff4e3d74) for penal-substitution-objections.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "51f779aed63b2d3d6dfbf5329076f7828d2cd319cbf534df88e615f407e6ad0b",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "a4b3d2ef6b4aca847b94b4c9e7044669769e4dae01be5751d46f95a5315ac12a",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

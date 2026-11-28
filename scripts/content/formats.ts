@@ -34,9 +34,10 @@ const COUNTS: Partial<Record<StudyFormat, [Field, string, number, number]>> = {
   faq: ["questions", "questions", 8, 15],
   "case-study": ["sections", "sections (setting, the claim, the evidence, what survives)", 4, Infinity],
 };
-/** Formats a page can show. A declared format stays a draft until its page exists (plan step 6 adds each one here, with
- * its renderer); a study without `format` is today's article, which today's page shows. */
-export const PAGE_READY: readonly StudyFormat[] = [];
+/** Formats a page can show. A declared format stays a draft until its page exists; plan step 6 built a renderer for each
+ * (src/components/apologetics/StudyFormats.tsx and its app copy), so all ten are listed. A format added later stays a
+ * draft until its page is built and it is listed here. A study without `format` is today's article, which today's page shows. */
+export const PAGE_READY: readonly StudyFormat[] = ["short-answer", "essay", "objections", "figure", "reading", "timeline", "debate-guide", "glossary", "faq", "case-study"];
 /** A source whose role forbids quotation can never carry an extract, whatever copy we hold. */
 const NOT_QUOTED_ROLE = "Scholarship · described, not quoted";
 const range = (min: number, max: number) => max === Infinity ? `at least ${min}` : `${min} to ${max}`;

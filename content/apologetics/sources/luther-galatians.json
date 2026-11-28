@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "luther-galatians",
+  "order": 306,
+  "publication": "published",
+  "content": {
+    "title": "A Commentary on St. Paul's Epistle to the Galatians (lectures of 1531, printed 1535)",
+    "author": "Martin Luther · abridged translation by Theodore Graebner (Grand Rapids: Zondervan, 1949), CCEL text",
+    "kind": "Commentary",
+    "url": "https://ccel.org/ccel/luther/galatians",
+    "role": "Historic Christian witness",
+    "note": "Luther's lectures on Galatians, given in 1531 and printed in 1535. On 3:13 he teaches that Christ, innocent in himself, took the place of sinners and bore their curse. Graebner's abridgment; CCEL records that its copyright was not renewed. Cited and described, not quoted, until its status is checked.",
+    "read": "Held in this project's corpus: CCEL's ThML file sources/library/bulk/ccel/luther_galatians.xml. Read on 2026-11-27: the comment on Galatians 3:13 and the publication history in the file's header.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)). Graebner's 1949 abridgment, held as CCEL's ThML file in the corpus; the CCEL address opened 2026-11-27. Copyright renewal not confirmed, so cited and described, never quoted (TODO.md).",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "d35ef50a30ee7e0bdfd92e4ad285bbeb4baccc4ca401a9e144bbdb26ceb4a82e",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

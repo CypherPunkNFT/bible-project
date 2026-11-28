@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/baptistconfessio00mcgl",
     "role": "Baptist confession",
     "note": "The General (non-Calvinist) Baptist confession (agreed 1678, printed 1679; McGlothlin dates it 1678), written to show agreement with the historic creeds against Christological error, and holding that Christ died for all. Cited beside the Second London Confession where Baptists differ, so both strands of Baptist history are heard. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (McGlothlin 1911, which prints it whole) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (McGlothlin 1911, which prints it whole) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Article XVIII 'Of Christ dying for all mankind' read in McGlothlin's Baptist Confessions (1911), pp. 137-138, held at sources/archive-org/mcglothlin-baptist-confessions-1911.txt, for penal-substitution-objections.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "c9e6bbf2b7e98744706a13404fd6cb0a80adbeb88740c6d2e43660efc57ba4de",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "ecf9ca2a1a778df983c1ec0962329ad62334e3261466b0ccb041057fabdb05d1",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

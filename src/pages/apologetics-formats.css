@@ -1,0 +1,124 @@
+/* The reading pages of the declared article formats (plan APOLOGETICS-FIELDS step 6), from the mock-ups'
+   design/apologetics-fields/formats/formats.css. Lines and spacing rather than boxes (design/README.md: no boxes around
+   everything, no glow, no chat bubbles, no endless scroll). They sit in StudyPage's .ap-study-layout, so the companion
+   column and its drop below the article on phones are today's. */
+.fx-main { min-width: 0; max-width: 46rem; font: 400 .98rem/1.85 var(--font-serif); }
+.fx-main p { margin: 0 0 1rem; }
+.fx-main h2 { margin: .5rem 0 1rem; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.25; }
+.fx-main h3 { margin: 0 0 .2rem; font: 500 1.05rem/1.4 var(--font-serif); }
+.fx-main .ap-eyebrow { margin-bottom: .6rem; font-family: var(--font-sans); }
+.fx-main .ap-citations { margin: -.3rem 0 1rem; font-family: var(--font-sans); }
+.fx-sec { margin-bottom: 2.4rem; scroll-margin-top: 6rem; }
+.fx-lede p { font-size: 1.08rem; }
+.fx-muted { color: var(--muted); font: 400 .85rem/1.6 var(--font-sans); }
+.fx-close { padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.fx-close blockquote { margin: 0 0 .8rem; font-style: italic; }
+.fx-n { font: 450 1.4rem/1 var(--font-serif); color: color-mix(in srgb, var(--ap-tone) 55%, var(--muted)); }
+.fx-note { display: flex; gap: .7rem; align-items: flex-start; margin: 1.6rem 0 2.4rem; padding-top: 1.1rem; border-top: 1px solid var(--line); font: 400 .9rem/1.7 var(--font-serif); scroll-margin-top: 6rem; }
+.fx-note > svg { flex-shrink: 0; margin-top: .3rem; color: var(--ap-tone); }
+.fx-refs { margin: 0; padding: 0; list-style: none; font: 400 .8rem/1.6 var(--font-sans); }
+.fx-refs li { padding: .2rem 0; }
+.fx-refs li span { display: block; color: var(--muted); }
+.fx-main :is(.fx-refs, .fx-see, .fx-works, .fx-faq) a, .fx-pager { color: var(--ap-tone); }
+[id^="o-"], [id^="v-"], [id^="e-"], [id^="x-"], [id^="q-"], [id^="term-"], .fx-anchor { scroll-margin-top: 6rem; }
+
+/* Essay: a numbered part line, one part per page, the next part at the foot */
+.fx-parts { display: flex; margin-bottom: 2rem; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; font-family: var(--font-sans); }
+.fx-parts a { display: flex; align-items: center; gap: .5rem; padding: .7rem .9rem .8rem 0; margin-right: .5rem; border-bottom: 2px solid transparent; font-size: .66rem; color: var(--muted); white-space: nowrap; }
+.fx-parts a b { display: grid; place-items: center; width: 1.45rem; height: 1.45rem; border: 1px solid var(--line); border-radius: 50%; font-size: .6rem; }
+.fx-parts a span { max-width: 0; overflow: hidden; transition: max-width .25s; }
+.fx-parts a[aria-current] { color: var(--ink); border-bottom-color: var(--ap-tone); }
+.fx-parts a[aria-current] b { border-color: var(--ap-tone); background: var(--ap-tone); color: var(--surface); }
+.fx-parts a[aria-current] span, .fx-parts a:hover span, .fx-parts a:focus-visible span { max-width: 16rem; }
+.fx-part-passages { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.fx-pagers { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.fx-pager { display: flex; align-items: center; gap: .8rem; font: 450 1rem/1.35 var(--font-serif); }
+.fx-pager small { display: block; font: 600 .58rem/1.6 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.fx-pager span { color: var(--ink); }
+.fx-pager.next { margin-left: auto; text-align: right; }
+
+/* Objections: numbered, the objection in larger italic, the reply under it */
+.fx-objections { margin: 1rem 0 2.4rem; padding: 0; list-style: none; }
+.fx-objections > li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: .4rem; padding: 1.6rem 0; border-top: 1px solid var(--line); }
+.fx-claim { margin-top: .4rem !important; font-size: 1.18rem; line-height: 1.55; font-style: italic; }
+.fx-held { font: 400 .7rem/1.6 var(--font-sans); color: var(--muted); }
+.fx-reply-label { margin-top: 1rem; }
+.fx-more { margin-bottom: 2.6rem; }
+
+/* Views compared: common ground first, the views side by side under it */
+.fx-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-bottom: 2.4rem; }
+.fx-view { padding: 1.4rem 1.6rem 1rem 0; scroll-margin-top: 6rem; }
+.fx-view:nth-child(even) { padding: 1.4rem 0 1rem 1.6rem; border-left: 1px solid var(--line); }
+.fx-view:nth-child(n + 3) { border-top: 1px solid var(--line); }
+.fx-view h2 { font-size: 1.35rem !important; }
+.fx-view dl { margin: 0; font-size: .9rem; line-height: 1.75; }
+.fx-view dt { margin-top: .9rem; font: 600 .56rem/1.6 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.fx-view dd { margin: .15rem 0 0; }
+
+/* Timeline: a date column, one vertical rule, events as rows */
+.fx-events { margin: 0 0 2.4rem 6.4rem; padding: 0; list-style: none; border-left: 1px solid color-mix(in srgb, var(--ap-tone) 40%, var(--line)); }
+.fx-events > li { position: relative; padding: 0 0 1.3rem 1.3rem; }
+.fx-events > li::before { content: ""; position: absolute; left: -4.5px; top: .55rem; width: 8px; height: 8px; border-radius: 50%; background: var(--ap-tone); }
+.fx-date { position: absolute; left: -6.4rem; width: 5.6rem; text-align: right; font: 600 .78rem/1.5 var(--font-sans); color: var(--ap-tone); }
+.fx-date span { display: block; font-size: .56rem; font-weight: 500; color: var(--muted); }
+.fx-events p { font-size: .92rem; line-height: 1.75; }
+.fx-date-note { font: 400 .72rem/1.6 var(--font-sans) !important; color: var(--muted); }
+
+/* Key figure */
+.fx-figure-card { margin-bottom: 2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
+.fx-figure-card h2 { margin: 0 0 .6rem; }
+.fx-stats { display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin: 0 0 .8rem; font-family: var(--font-sans); }
+.fx-stats dt { font-size: .56rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.fx-stats dd { margin: .1rem 0 0; font-size: .82rem; line-height: 1.45; }
+.fx-works { margin: 0; padding: 0; list-style: none; }
+.fx-works li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+.fx-works a, .fx-works strong { display: inline-flex; align-items: center; gap: .3rem; font-weight: 500; }
+.fx-works span { font: 400 .68rem/1.6 var(--font-sans); color: var(--muted); }
+.fx-works p { width: 100%; margin: 0 !important; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+
+/* Primary-source reading: the extract set apart, the guided note beside it */
+.fx-reading { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 2rem; }
+.fx-extract { margin: 0; padding: 1.4rem 1.6rem; background: color-mix(in srgb, var(--ap-tone) 5%, var(--surface)); border-radius: .5rem; }
+.fx-extract blockquote { margin: .8rem 0 0; font-size: 1.04rem; line-height: 1.85; white-space: pre-line; }
+.fx-extract figcaption { margin-top: .8rem; font: 400 .66rem/1.5 var(--font-sans); color: var(--muted); }
+.fx-guide { padding-top: .3rem; font-size: .9rem; line-height: 1.7; }
+
+/* Glossary */
+.fx-gloss-tools { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; margin-bottom: 1.4rem; font-family: var(--font-sans); }
+.fx-find { display: flex; align-items: center; gap: .5rem; padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.fx-find input { width: 12rem; border: 0; background: transparent; font: 400 .8rem/1.4 var(--font-sans); color: var(--ink); }
+.fx-find:focus-within { border-color: var(--ap-tone); }
+.fx-gloss-tools nav { display: flex; flex-wrap: wrap; gap: .1rem; }
+.fx-gloss-tools nav a { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; font-size: .78rem; color: var(--ap-tone); }
+.fx-gloss-tools nav a:hover { background: color-mix(in srgb, var(--ap-tone) 10%, transparent); }
+.fx-terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.4rem; margin: 0 0 2.4rem; }
+.fx-terms > div { padding: 1rem 0; border-top: 1px solid var(--line); }
+.fx-terms dt { font: 500 1.15rem/1.3 var(--font-serif); }
+.fx-terms dd { margin: .3rem 0 0; font-size: .9rem; line-height: 1.65; }
+.fx-see { display: flex; flex-wrap: wrap; gap: .2rem .7rem; font: 400 .68rem/1.5 var(--font-sans); color: var(--muted); }
+
+/* Questions answered */
+.fx-faq { margin-bottom: 2.4rem; }
+.fx-faq details { border-top: 1px solid var(--line); }
+.fx-faq summary { display: flex; gap: 1rem; align-items: baseline; padding: 1rem 0; cursor: pointer; list-style: none; font: 450 1.1rem/1.45 var(--font-serif); }
+.fx-faq summary::-webkit-details-marker { display: none; }
+.fx-faq details > div { padding: 0 0 1.2rem 2.6rem; font-size: .94rem; }
+.fx-faq details > div a { display: inline-flex; align-items: center; gap: .3rem; font: 400 .72rem/1.5 var(--font-sans); }
+
+/* Case study: the four steps on one rule */
+.fx-steps { margin: 0; padding: 0; list-style: none; }
+.fx-steps > li { padding: 1.4rem 0 .6rem 1.4rem; border-left: 1px solid color-mix(in srgb, var(--ap-tone) 40%, var(--line)); scroll-margin-top: 6rem; }
+.fx-steps > li:last-child { border-left: 2px solid var(--ap-tone); }
+
+@media (max-width: 700px) {
+  .fx-main { font-size: .94rem; }
+  .fx-views, .fx-reading, .fx-terms { grid-template-columns: 1fr; }
+  .fx-view, .fx-view:nth-child(even) { padding: 1.2rem 0; border-left: 0; }
+  .fx-view + .fx-view { border-top: 1px solid var(--line); }
+  .fx-events { margin-left: 0; }
+  .fx-date { position: static; width: auto; text-align: left; }
+  .fx-objections > li { grid-template-columns: 1fr; }
+  .fx-faq details > div { padding-left: 0; }
+  .fx-extract { padding: 1.1rem; }
+  .fx-find input { width: 9rem; }
+}

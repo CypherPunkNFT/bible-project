@@ -1,5 +1,6 @@
 // CONTENT.md for the question library (every study and connected field) and the Reformed theology branch.
 import { BASE, cited, citations, find, lines, stateLine, studyLink, type ApologeticsData, type Doc } from "./apologetics-data";
+import { citationsIn } from "../content/model.ts";
 
 const topicStudies = (data: ApologeticsData, topicId: string) => data.studies.filter((study) => study.content.topic === topicId);
 
@@ -18,7 +19,35 @@ function studySources(study: Doc<"study">): string[] {
   return [...new Set(all.flatMap((cite) => cite.kind === "source" ? [cite.source] : []))];
 }
 
+/** A declared format other than the short answer (plan APOLOGETICS-FIELDS step 6) has no reasoning or reply: its items
+ * are the study's own Markdown download, so this page gives its lede, passages, sources and links and points there. */
+function formatSection(study: Doc<"study">, data: ApologeticsData): string {
+  const c = study.content, topic = find(data.topics, c.topic, "topic");
+  const sources = [...new Set(citationsIn(c).flatMap((cite) => cite.kind === "source" ? [cite.source] : []))];
+  return lines(
+    `### ${c.title}`,
+    "",
+    `[${BASE.replace("https://", "")}/study/${study.id}](${BASE}/study/${study.id}) · field: ${topic.content.title} · format: ${c.format} · ${stateLine(study, data)}`,
+    "",
+    `**Summary.** ${c.summary}`,
+    "",
+    `**The starting answer.** ${cited(c.answer, data)}`,
+    "",
+    `**Its full text** (every item of the ${c.format} format, with its citations) is the study's own download, /content/apologetics/study-${study.id}.md.`,
+    "",
+    `**Open the Scriptures:** ${c.passages.map((passage) => `${passage.reference} (${passage.note})`).join("; ")}`,
+    "",
+    `**Go to the source:** ${sources.map((id) => find(data.sources, id, "source").content.title).join("; ") || "none"}`,
+    "",
+    `**Related studies:** ${c.related.map((id) => studyLink(find(data.studies, id, "study"))).join(" · ")}`,
+    "",
+    `*Search keywords:* ${c.keywords.join(", ")}`,
+    "",
+  );
+}
+
 function studySection(study: Doc<"study">, data: ApologeticsData): string {
+  if (study.content.format !== undefined && study.content.format !== "short-answer") return formatSection(study, data);
   const c = study.content, topic = find(data.topics, c.topic, "topic");
   const paths = data.paths.filter((p) => p.content.studies.includes(study.id)).map((p) => `[${p.content.title}](${BASE}/paths/${p.id})`);
   const reading = historicReading(data, study.id);

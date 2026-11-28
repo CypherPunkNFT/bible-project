@@ -12,7 +12,7 @@
     "url": "https://ccel.org/ccel/schaff/npnf204",
     "role": "Historic Christian witness",
     "note": "The classic early account of why the Word became flesh, died and rose. For the incarnation and the atonement in the early church. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-d5e964c1e8ccf10c567e/original.txt. Not yet read for any article.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-d5e964c1e8ccf10c567e/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): On the Incarnation chs. 8-9, 20 and 25, and Robertson's introduction (the date 'in or shortly before 318'), read in the held CCEL text (asset-lc01-d5e964c1e8ccf10c567e) for atonement-timeline and penal-substitution-objections.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "ef5a96df14f8e30650d0e174d3f14d0dc4a53979e8dc63cb360678826817f716",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "ff3d9c9f618ae341cf96c318f008fbbdae346138d926de58c5920e45367becf0",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

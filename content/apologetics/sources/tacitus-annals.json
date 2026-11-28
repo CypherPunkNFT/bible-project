@@ -12,8 +12,12 @@
     "url": "https://archive.org/details/annalstranslated00taci",
     "role": "Primary record · not a teaching authority",
     "note": "Book 15.44, on Nero's persecution and 'Christus', executed under Pontius Pilate. For the Roman witness to Jesus' death. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: Macmillan, 1884) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: Macmillan, 1884) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Annals 15.44 read in full in the held file (printed pp. 304-305) for jesus-outside-nt (quoted as an extract, OCR slips corrected) and resurrection-case.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Annals of Tacitus, translated by A. J. Church and W. J. Brodribb (London: Macmillan, 1884)",
+      "basis": "Translation published London: Macmillan, 1884 (title page of the held scan). A. J. Church d. 1912, W. J. Brodribb d. 1905: public domain in the US (published before 1931) and worldwide (life + 70)."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "3d40004881016c99c532f430c6c0fd6137f99be1d3217275965323ceb9ed6a5c",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): publicDomain record added for the jesus-outside-nt extracts. The edition string was checked against the held file's title page or front matter (translator, publisher, year); the basis gives the publication year and the translators' death years where known (Bosanquet's and Forester's are not, so worldwide status is marked unconfirmed). The extract text was compared with the held file by the independent review. `read` note checked against the writer's notes.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "345cddad3aef75457105dacf6cf1d39e56b4bb434abc3ebcb5f736743a7d94b6",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

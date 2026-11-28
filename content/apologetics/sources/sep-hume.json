@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "sep-hume",
+  "order": 314,
+  "publication": "published",
+  "content": {
+    "title": "David Hume (Stanford Encyclopedia of Philosophy)",
+    "author": "Hsueh Qu and Elizabeth S. Radcliffe (first published 16 June 2026)",
+    "kind": "Reference article",
+    "url": "https://plato.stanford.edu/entries/hume/",
+    "role": "Scholarship · described, not quoted",
+    "note": "The standard philosophical reference entry on Hume. Used for the dates and events of his life. In copyright: described in our own words, never quoted.",
+    "read": "Read online on 2026-11-27: section 1, 'Life and Works' (birth and death years, Edinburgh University, the Treatise of 1739-40, the failed chairs of 1745 and 1751, the Advocates Library, the History of England, the Four Dissertations of 1757, Paris in 1763, the Philosophical Essays of 1748 renamed in 1758, the Dialogues of 1779).",
+    "checked": "edition"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), cite only. The entry was opened at plato.stanford.edu/entries/hume/ on 2026-11-27: authors and section 1 confirmed. Role 'Scholarship · described, not quoted', checked edition; used only for Hume's life dates.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "c16ffa0492740e9737f013c927c9e15a1fcf01fac3bb5905771dddcfea9a57ff",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

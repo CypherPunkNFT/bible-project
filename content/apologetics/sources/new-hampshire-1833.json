@@ -12,7 +12,7 @@
     "url": "https://bibleguide.io/study/creeds/new-hampshire-baptist-confession-1833",
     "role": "Baptist confession",
     "note": "The short confession that the Baptist Faith and Message of 1925 took as its base, and so the parent of the 1963 and 2000 statements. For the line from the older Baptist confessions to the SBC's own. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: whole on the site's creeds page, from Schaff's Creeds of Christendom vol. III (public domain; registered 2026-10-17). Not yet read for any article.",
+    "read": "Held in this project's corpus: whole on the site's creeds page, from Schaff's Creeds of Christendom vol. III (public domain; registered 2026-10-17). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Articles I-VI read in the site's creeds data (Website/data/creeds/doc/new-hampshire-baptist-confession-1833.b1.json) for titles-of-jesus; article IV cited.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "c9067bb37072f1a244a263b8f68aef600807d9ebdb60daf24808a84b841556dd",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "1d78b0ce7f308e55b8f09afa150f45cae3725b81cd85f40988a08390776133b1",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

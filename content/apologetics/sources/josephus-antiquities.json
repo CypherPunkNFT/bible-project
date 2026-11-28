@@ -12,8 +12,12 @@
     "url": "https://www.gutenberg.org/ebooks/2848",
     "role": "Primary record · not a teaching authority",
     "note": "The Jewish historian's references to John the Baptist (18.5.2), James the brother of Jesus (20.9.1) and Jesus (18.3.3, whose wording is disputed). Name the dispute when citing 18.3.3. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article.",
-    "checked": "corpus"
+    "read": "Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Read in the held Gutenberg file for jesus-outside-nt (18.3.3 = 18.63-64 and 20.9.1 = 20.200, both quoted as extracts, Whiston's footnote markers left out) and resurrection-case / easter-alternatives (4.8.15, women not admitted as witnesses; 20.9.1, the death of James).",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Antiquities of the Jews, translated by William Whiston (1737), Project Gutenberg eBook #2848",
+      "basis": "Whiston's translation first published 1737; William Whiston d. 1752: public domain in the US and worldwide. The Gutenberg file names the translator."
+    }
   },
   "reviews": [
     {
@@ -23,6 +27,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "508039258b8ff4fb02d3d4fe59177c43e72b64d57acf422ac2873d99ae2dd47c",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): publicDomain record added for the jesus-outside-nt extracts. The edition string was checked against the held file's title page or front matter (translator, publisher, year); the basis gives the publication year and the translators' death years where known (Bosanquet's and Forester's are not, so worldwide status is marked unconfirmed). The extract text was compared with the held file by the independent review. `read` note checked against the writer's notes.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "45c5154847f79aff682e4f4f808d1ffeb613c6e4b86c25597cdf26029936b4e2",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

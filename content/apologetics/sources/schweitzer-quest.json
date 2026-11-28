@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/questofhistorica00schwrich",
     "role": "Primary record · not a teaching authority",
     "note": "Schweitzer's history of the nineteenth-century lives of Jesus and his apocalyptic Jesus. For how the quest went and why its portraits mirrored their authors. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: A. and C. Black, 1910) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (London: A. and C. Black, 1910) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Chapter II pp. 20-21 (Reimarus), chapter IV pp. 38-47 (Bahrdt, Venturini) and chapter V pp. 53-55 (Paulus) read in the held 1910 translation for easter-alternatives. Cited, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "cf5102f9e4b603f9d22af7b8a1196176eefdedd88b36cd87f6ba79672d40da5b",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "049af8761f139887c3ec08460d6c67dad3240b149fd5bf0b9b20355b78690ca9",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

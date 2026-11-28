@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "kant-religion",
+  "order": 303,
+  "publication": "published",
+  "content": {
+    "title": "Religion within the Boundary of Pure Reason (1793; English translation 1838)",
+    "author": "Immanuel Kant · translated by J. W. Semple (Edinburgh: Thomas Clark, 1838)",
+    "kind": "Philosophical treatise",
+    "url": "https://archive.org/details/religionwithin00kantuoft",
+    "role": "Primary record · not a teaching authority",
+    "note": "Kant's account of religion within the limits of moral reason. Book II, section I argues that guilt is the most personal of debts, payable only by the guilty and never by an innocent substitute. Cited for that objection, not as teaching. Public domain (published 1838).",
+    "read": "Read online on 2026-11-27 in the Internet Archive's text of Semple's 1838 translation: Book II, section I, the passage on the third difficulty (pp. 87-88), that the debt of sin is not transferable like a money debt. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/kant-religion-semple-1838.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples'); the passages above were read in this file too.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain. Read online by the writer in the Internet Archive text; the job downloaded the same file (byte-identical to the writer's copy), registered its checksum and fetch-sources.py row, and set checked corpus. Title page, translator and date checked in the held text; the archive.org address opened 2026-11-27.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "cd321bd40ff0288561780fd43616ecd1a96d473d3c1f71bd82ee687258bc0f95",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

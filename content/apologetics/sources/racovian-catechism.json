@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "racovian-catechism",
+  "order": 301,
+  "publication": "published",
+  "content": {
+    "title": "The Racovian Catechism (1605; English translation 1818)",
+    "author": "Polish Brethren (Socinians): Valentin Smalcius, Hieronim Moskorzowski and Johannes Völkel, completing work begun under Faustus Socinus · translated by Thomas Rees (London: Longman, 1818)",
+    "kind": "Catechism (Socinian)",
+    "url": "https://archive.org/details/racoviancatechis00rees",
+    "role": "Primary record · not a teaching authority",
+    "note": "The catechism of the Polish Brethren, first printed in Polish in 1605; Rees translated the revised Latin text of 1680. The classic statement of the case against satisfaction: God forgives freely, so a debt that has been paid has not been forgiven. Cited for the Socinian objections in their own terms, never as teaching. Public domain (published 1818).",
+    "read": "Read online on 2026-11-27 in the Internet Archive's text of the 1818 edition (racoviancatechis00rees): section V, chapter 8, 'Of the death of Christ', pp. 297-306 (the answers against satisfaction, pp. 304-306), and the historical introduction on the 1605 Polish first printing. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, held copy): the same Internet Archive text downloaded by the job to sources/archive-org/racovian-catechism-rees-1818.txt (checksum in Website/SOURCES.md, 'Apologetics fields: the step-6 samples'); the passages above were read in this file too.",
+    "checked": "corpus"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New source record (Plan APOLOGETICS-FIELDS step 6 (job 488da4b7)), public domain. Read online by the writer in the Internet Archive text; the job downloaded the same file (byte-identical to the writer's copy), registered its checksum and fetch-sources.py row, and set checked corpus. Title page, translator and date checked in the held text; the archive.org address opened 2026-11-27.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "115471801fb35861095270034dfd8d56230ce337608ecfa708c6e0f75dca77c8",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

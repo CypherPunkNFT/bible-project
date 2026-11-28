@@ -1,0 +1,526 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "atonement-timeline",
+  "order": 32,
+  "publication": "published",
+  "content": {
+    "title": "How Christians have described the cross, 180–1931",
+    "topic": "jesus",
+    "summary": "Victory, ransom, satisfaction, substitution and example: how the account of Christ's death was told and argued over seventeen centuries.",
+    "format": "timeline",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Scripture describes Christ's death in many ways: a ransom, a sacrifice, a victory over the powers, a bearing of sin in our place. Christians have stressed different ones in different centuries. This timeline records who said what, and when, from the record each left. The site's own position is the Baptist Faith and Message's: Christ's “substitutionary death” (article II). Where Baptists differ, on whom it was for, both views appear.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 10:45"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 53:4-6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Colossians 2:13-15"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": "irenaeus",
+        "text": "Irenaeus of Lyons, answering the Gnostics, describes the Son as beginning the human race afresh: where Adam's disobedience lost the likeness of God, Christ's obedience recovers it. Later writers call this recapitulation. He also speaks of Christ redeeming us with his own blood and giving himself to free captives.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:18-19"
+          },
+          {
+            "kind": "source",
+            "source": "irenaeus-against-heresies",
+            "locator": "3.18.1-2; 5.1.1"
+          }
+        ],
+        "title": "Irenaeus: Christ sums up humanity",
+        "date": "c. 180",
+        "certainty": "circa"
+      },
+      {
+        "id": "origen",
+        "text": "Origen compares Jesus' voluntary death for the human race with men who died to save their cities, and says it broke the hold of the evil spirit who ruled human souls. His commentary on Matthew develops the idea of a ransom paid to the devil, an image later writers rejected; that commentary is not held here and is described as Aulén summarises it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:45"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 2:14-15"
+          },
+          {
+            "kind": "source",
+            "source": "origen-contra-celsum",
+            "locator": "1.31"
+          },
+          {
+            "kind": "source",
+            "source": "aulen-christus-victor",
+            "locator": "whole book"
+          }
+        ],
+        "title": "Origen: a death that breaks the powers",
+        "date": "c. 248",
+        "certainty": "circa"
+      },
+      {
+        "id": "athanasius",
+        "text": "Athanasius explains why the Word became flesh: humanity was sliding back into corruption and death. The Word took a mortal body and gave it to death in place of all, so paying the debt of death all owed, and rose to give incorruption. He says the cross was fitting because Christ came to bear the curse that lay on us.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 2:14-15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:13"
+          },
+          {
+            "kind": "source",
+            "source": "athanasius-incarnation",
+            "locator": "ch. 8-9, 20, 25; Robertson's introduction"
+          }
+        ],
+        "title": "Athanasius, On the Incarnation",
+        "date": "c. 318",
+        "certainty": "debated",
+        "dateNote": "Robertson's introduction (NPNF II.4, 1892) dates it in or shortly before 318, before the Arian controversy; some scholars date it to the 330s."
+      },
+      {
+        "id": "augustine",
+        "text": "In the City of God, written over thirteen years, Augustine calls Christ both the priest who offers and the sacrifice offered, the reality to which every earlier sacrifice pointed. He writes that Christ underwent death, the penalty of sin, for our sake and without sin of his own, and so could expiate sins.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 10:10-14"
+          },
+          {
+            "kind": "source",
+            "source": "augustine-city-of-god",
+            "locator": "10.20, 10.24"
+          }
+        ],
+        "title": "Augustine: priest and sacrifice",
+        "date": "413–426",
+        "certainty": "circa"
+      },
+      {
+        "id": "anselm",
+        "text": "Anselm argues that sin robs God of the honour owed him, and that either the honour is repaid or punishment follows. The debt is so great that only God could pay it, yet only man owes it; so the Son became man. He also denies that the devil had any rights over humanity that God had to buy out. This is the satisfaction account.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Philippians 2:6-8"
+          },
+          {
+            "kind": "source",
+            "source": "anselm-proslogium",
+            "locator": "Cur Deus Homo I.7, I.13, II.6 (Deane, 1903)"
+          }
+        ],
+        "title": "Anselm, Why God Became Man",
+        "date": "1098",
+        "certainty": "circa"
+      },
+      {
+        "id": "abelard",
+        "text": "Commenting on Romans 3, Peter Abelard rejected any ransom paid to the devil and stressed that Christ's death shows a love so great that it wins our love in return. Later writers call this the moral influence view. Whether he denied satisfaction altogether is still argued.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 John 4:9-10"
+          },
+          {
+            "kind": "source",
+            "source": "abelard-romans",
+            "locator": "on Romans 3:19-26"
+          }
+        ],
+        "title": "Abelard: the cross as love's demonstration",
+        "date": "1130s",
+        "certainty": "debated",
+        "dateNote": "Abelard's commentary on Romans is usually placed in the 1130s; some date it to the 1120s."
+      },
+      {
+        "id": "aquinas",
+        "text": "Thomas Aquinas holds together several accounts: the Passion saves by merit, by sacrifice, by redemption and by satisfaction. He calls it a superabundant satisfaction, because of the love with which Christ suffered, the worth of his life and the depth of his grief, and he says the price was paid to God, not to the devil.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 1:18-19"
+          },
+          {
+            "kind": "source",
+            "source": "aquinas-passion",
+            "locator": "III, q.48, a.2 and a.4"
+          }
+        ],
+        "title": "Aquinas: a superabundant satisfaction",
+        "date": "c. 1273",
+        "certainty": "circa"
+      },
+      {
+        "id": "luther",
+        "text": "In lectures given in 1531 and printed in 1535, Martin Luther presses the words \"for us\": Christ, innocent in himself, took the place of sinners, carried their sins and bore the law's curse in their stead. Aulén later claimed Luther for the victory theme too; both are in him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:13"
+          },
+          {
+            "kind": "source",
+            "source": "luther-galatians",
+            "locator": "on Galatians 3:13"
+          },
+          {
+            "kind": "source",
+            "source": "aulen-christus-victor",
+            "locator": "whole book"
+          }
+        ],
+        "title": "Luther on Galatians 3:13",
+        "date": "1535",
+        "certainty": "exact"
+      },
+      {
+        "id": "calvin",
+        "text": "In the final edition of the Institutes, John Calvin teaches that God loved us before the reconciliation, that Christ, declared innocent yet condemned, bore the curse and the penalty in our place, and that the Father was never hostile to his Son even while the Son bore judgment.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:4-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 5:21"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-institutes-redeemer",
+            "locator": "II.16.2-6, 10-11"
+          }
+        ],
+        "title": "Calvin, Institutes II.16",
+        "date": "1559",
+        "certainty": "exact"
+      },
+      {
+        "id": "socinus",
+        "text": "Faustus Socinus, who finished the book by 1578 and printed it in 1594, denied that God's justice required satisfaction. Punishment, he argued, is personal and cannot pass to another, and a debt that is paid is not forgiven: God simply forgives the repentant, and Christ saves by his teaching, example and risen life.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:24-26"
+          },
+          {
+            "kind": "source",
+            "source": "grotius-satisfaction",
+            "locator": "Translator's notes, pp. 257-259"
+          }
+        ],
+        "title": "Socinus, On Jesus Christ the Saviour",
+        "date": "1594",
+        "certainty": "exact"
+      },
+      {
+        "id": "racovian",
+        "text": "The Polish Brethren, followers of Socinus, set his case in a catechism first printed in Polish in 1605. It calls the common belief that Christ paid an equivalent penalty false and harmful, contrary to free forgiveness and to reason.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Colossians 2:13-14"
+          },
+          {
+            "kind": "source",
+            "source": "racovian-catechism",
+            "locator": "Section V, chapter 8, pp. 304-306; introduction"
+          }
+        ],
+        "title": "The Racovian Catechism",
+        "date": "1605",
+        "certainty": "exact"
+      },
+      {
+        "id": "grotius",
+        "text": "Hugo Grotius, a Dutch jurist, defended the satisfaction of Christ against Socinus by treating God as ruler rather than creditor: the law's penalty may be relaxed, but only through an example that upholds the law, Christ's punishment for our sins. Later writers called this the governmental theory.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:6"
+          },
+          {
+            "kind": "source",
+            "source": "grotius-satisfaction",
+            "locator": "chapters I-IV"
+          }
+        ],
+        "title": "Grotius answers Socinus",
+        "date": "1617",
+        "certainty": "exact"
+      },
+      {
+        "id": "first-london",
+        "text": "Seven Particular Baptist churches in London confess that Christ offered himself once as a sacrifice for sin, that justification rests on the satisfaction he made by his death, and that his death brought salvation and reconciliation for the elect, while the gospel is to be preached to all.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 9:26"
+          },
+          {
+            "kind": "source",
+            "source": "first-london-1644",
+            "locator": "Articles XVII, XXI, XXVIII (1644 edition)"
+          }
+        ],
+        "title": "The First London Baptist Confession",
+        "date": "1644",
+        "certainty": "exact"
+      },
+      {
+        "id": "orthodox-creed",
+        "text": "General Baptists of several English counties confess that Christ died for all people and that his death and merits suffice for the whole world's sins. The gospel is to be preached to all, with the Spirit sent to bring repentance and faith, so that anyone who perishes does so not for lack of the means of grace but for failing to make use of the grace offered freely in the gospel. Baptists have held both this view and particular redemption ever since.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 John 2:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 2:9"
+          },
+          {
+            "kind": "source",
+            "source": "orthodox-creed-1679",
+            "locator": "Article XVIII"
+          }
+        ],
+        "title": "The Orthodox Creed of the General Baptists",
+        "date": "1679",
+        "certainty": "debated",
+        "dateNote": "Drawn up in 1678 and printed in 1679; McGlothlin's collection lists it under 1678."
+      },
+      {
+        "id": "second-london",
+        "text": "Particular Baptists adopt the confession written in 1677: by his perfect obedience and sacrifice Christ fully satisfied the justice of God, procured reconciliation and purchased an everlasting inheritance for all whom the Father gave him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 5:25-27"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "8.5, 8.8"
+          }
+        ],
+        "title": "The Second London Confession",
+        "date": "1689",
+        "certainty": "exact"
+      },
+      {
+        "id": "fuller",
+        "text": "Andrew Fuller argues that every hearer has the duty to trust Christ, and that this duty never depended on first knowing oneself one of those for whom Christ died. In later writings Fuller took a middle view: Christ's death was made for sinners as sinners, general in sufficiency, and particular in application, which God designed for the elect. Boyce, who records the view, rejected the distinction, so it was disputed among Baptists.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 6:37"
+          },
+          {
+            "kind": "source",
+            "source": "fuller-gospel-worthy",
+            "locator": "Part III, objection III, pp. 132-139 (1785)"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVIII, pp. 324-329 (1882 printing)"
+          }
+        ],
+        "title": "Fuller, The Gospel Worthy of All Acceptation",
+        "date": "1785",
+        "certainty": "exact"
+      },
+      {
+        "id": "kant",
+        "text": "Immanuel Kant argues that the guilt of sin is not like a money debt that anyone may pay; it is the most personal liability there is, and an innocent person cannot bear it for the guilty. His objection still shapes modern criticism.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "kant-religion",
+            "locator": "Book II, section I, pp. 87-88"
+          }
+        ],
+        "title": "Kant: guilt cannot be transferred",
+        "date": "1793",
+        "certainty": "exact"
+      },
+      {
+        "id": "campbell",
+        "text": "John McLeod Campbell, deposed in 1831 for teaching that Christ died for all, proposes that the atonement is Christ's perfect confession of our sins, his full assent in our humanity to God's judgment on them, rather than his bearing of their penalty.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 5:7-9"
+          },
+          {
+            "kind": "source",
+            "source": "campbell-nature-atonement",
+            "locator": "ch. VI (1867 edition)"
+          }
+        ],
+        "title": "Campbell, The Nature of the Atonement",
+        "date": "1856",
+        "certainty": "exact"
+      },
+      {
+        "id": "spurgeon",
+        "text": "Preaching on 2 Corinthians 5:21, Charles Spurgeon defends substitution while insisting that Christ was never personally guilty: he was treated as sin so that believers are treated as righteous. Two years earlier he had preached particular redemption from Matthew 20:28.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 5:21"
+          },
+          {
+            "kind": "source",
+            "source": "spurgeon-sermons",
+            "locator": "No. 310 (15 April 1860); No. 181 (28 February 1858)"
+          }
+        ],
+        "title": "Spurgeon, 'Christ—Our Substitute'",
+        "date": "1860",
+        "certainty": "exact"
+      },
+      {
+        "id": "dale",
+        "text": "R. W. Dale, a Congregationalist, answers critics who called substitution immoral: since the law of righteousness is personal in God, the cross is the Judge himself bearing the penalty he would otherwise inflict.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:25-26"
+          },
+          {
+            "kind": "source",
+            "source": "dale-atonement",
+            "locator": "Lecture IX"
+          }
+        ],
+        "title": "Dale, The Atonement",
+        "date": "1875",
+        "certainty": "exact"
+      },
+      {
+        "id": "boyce",
+        "text": "James P. Boyce, one of the founders of the Southern Baptist Theological Seminary, surveys the Socinian, governmental and other accounts and defends the view that Christ, as substitute, bore the penalty of sin and made a real satisfaction to God's justice.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Leviticus 16:21-22"
+          },
+          {
+            "kind": "source",
+            "source": "boyce-abstract",
+            "locator": "Lecture XXVIII, pp. 320-345 (1882 printing)"
+          }
+        ],
+        "title": "Boyce's lectures at Southern Seminary",
+        "date": "1882",
+        "certainty": "exact"
+      },
+      {
+        "id": "aulen",
+        "text": "The Swedish Lutheran Gustaf Aulén sorts the history into three types: Christ's victory over sin, death and the devil; satisfaction offered to God; and a change worked in us. He argues that the victory type was the New Testament's, the Fathers' and Luther's, and that it had been eclipsed. His book renewed interest in the victory theme.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Colossians 2:13-15"
+          },
+          {
+            "kind": "source",
+            "source": "aulen-christus-victor",
+            "locator": "whole book"
+          }
+        ],
+        "title": "Aulén, Christus Victor",
+        "date": "1931",
+        "certainty": "exact",
+        "dateNote": "Given as lectures and published in Swedish in 1930; the English translation, Christus Victor, appeared in 1931."
+      }
+    ],
+    "passages": [
+      {
+        "reference": "Isaiah 53:4-12",
+        "note": "The Servant bears the iniquity of many"
+      },
+      {
+        "reference": "Mark 10:45",
+        "note": "Jesus' life given to free many"
+      },
+      {
+        "reference": "Romans 3:21-26",
+        "note": "Just, and the justifier"
+      },
+      {
+        "reference": "Colossians 2:13-15",
+        "note": "The debt cancelled; the powers disarmed"
+      },
+      {
+        "reference": "Hebrews 2:14-15",
+        "note": "The devil's hold over death broken"
+      }
+    ],
+    "related": [
+      "cross",
+      "penal-substitution-objections"
+    ],
+    "keywords": [
+      "atonement",
+      "history of doctrine",
+      "Christus Victor",
+      "Anselm",
+      "satisfaction",
+      "penal substitution",
+      "Socinus",
+      "Grotius"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New timeline (step 6), 22 events. Dates confirmed in held files where held (Athanasius, Augustine, the 1644 and 1677/1689 confessions, the Orthodox Creed, Fuller, Spurgeon, Boyce, Luther, Campbell's deposition); the others are standard dates, listed in the writer's notes, and the debated ones are marked. Findings fixed: Second London and Orthodox Creed wording from their texts, Boyce 'one of the founders', Aulén 1930/1931, Fuller's middle view with Boyce's dissent, passage notes paraphrased. Validate clean; depth on target (1,189 words).",
+      "note": "AI-assisted review; no human theological review.",
+      "date": "2026-11-27",
+      "contentHash": "a00d975ef7c647b59c74e4d1125cf04fbee218dce4a83d31dda6d90adbe26698",
+      "basisHash": "ead5f9e6ade6fec3270889342dd388ac76a88126f7d041b95b9418c58594e2af"
+    }
+  ]
+}

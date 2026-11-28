@@ -1,0 +1,312 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "jesus-outside-nt",
+  "order": 25,
+  "publication": "published",
+  "content": {
+    "title": "Did Jesus exist? What non-Christian writers say",
+    "topic": "jesus",
+    "summary": "Five Roman and Jewish writers, none of them Christian, read slowly: what they show about Jesus and where they stop.",
+    "format": "reading",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Yes. Within about ninety years of the crucifixion, a Jewish historian and three Roman writers who had no reason to flatter Christians mention Jesus or his followers, and a Greek satirist adds a mocking sketch some fifty years later. Together they confirm that Jesus lived in Judaea, was executed under Pontius Pilate in the reign of Tiberius, and was worshipped by a movement that spread to Rome. They add almost nothing the Gospels do not already say. Their value is that they are outsiders. This is why historians who are not believers, as well as those who are, almost all hold that Jesus existed.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "van-voorst-outside-nt",
+          "locator": "chapter 1"
+        },
+        {
+          "kind": "source",
+          "source": "tacitus-annals",
+          "locator": "15.44"
+        },
+        {
+          "kind": "source",
+          "source": "josephus-antiquities",
+          "locator": "20.9.1"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 3:1"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Luke 3:1",
+        "note": "Luke dates John's preaching by Tiberius and Pilate, the same names Tacitus gives"
+      },
+      {
+        "reference": "Mark 15:15",
+        "note": "Pilate hands Jesus over to be crucified"
+      },
+      {
+        "reference": "Acts 18:2",
+        "note": "Claudius orders the Jews out of Rome"
+      },
+      {
+        "reference": "Galatians 1:19",
+        "note": "Paul meets James, the Lord's brother"
+      }
+    ],
+    "related": [
+      "jesus",
+      "resurrection",
+      "manuscripts"
+    ],
+    "keywords": [
+      "historical Jesus",
+      "Tacitus",
+      "Josephus",
+      "Pliny",
+      "Suetonius",
+      "Lucian",
+      "Pontius Pilate",
+      "Testimonium Flavianum",
+      "did Jesus exist"
+    ],
+    "extracts": [
+      {
+        "id": "tacitus",
+        "source": "tacitus-annals",
+        "locator": "15.44 (pp. 304–305 of the 1884 edition)",
+        "edition": "Annals of Tacitus, translated by A. J. Church and W. J. Brodribb (London: Macmillan, 1884)",
+        "translator": "Alfred John Church and William Jackson Brodribb",
+        "text": "Consequently, to get rid of the report, Nero fastened the guilt and inflicted the most exquisite tortures on a class hated for their abominations, called Christians by the populace. Christus, from whom the name had its origin, suffered the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus, and a most mischievous superstition, thus checked for the moment, again broke out not only in Judæa, the first source of the evil, but even in Rome, where all things hideous and shameful from every part of the world find their centre and become popular.",
+        "note": {
+          "id": "tacitus-note",
+          "text": "Tacitus wrote this around AD 115, describing the fire of Rome in AD 64. He despised Christians, so he is no friendly witness. The passage gives the founder's title, Christus, the reign (Tiberius, AD 14–37), the province, and the official responsible, which matches the Gospels' account of Pilate. It does not say where Tacitus learned this: Roman records, common knowledge in Rome, or Christians themselves under questioning are all proposed. Pilate's actual title was prefect, not procurator; Tacitus uses the term of his own day. Both Van Voorst and Meier, as summarised in their surveys, judge the passage authentic, as nearly all classicists do; a few who doubt that Jesus existed argue that the sentence on Christus was added later, though no copy without it is known.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "tacitus-annals",
+              "locator": "15.44"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 2"
+            },
+            {
+              "kind": "source",
+              "source": "meier-marginal-jew",
+              "locator": "chapter 4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:15"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 3:1"
+            }
+          ]
+        }
+      },
+      {
+        "id": "josephus-jesus",
+        "source": "josephus-antiquities",
+        "locator": "18.3.3 (18.63–64 in modern section numbers)",
+        "edition": "Antiquities of the Jews, translated by William Whiston (1737), Project Gutenberg eBook #2848",
+        "translator": "William Whiston",
+        "text": "Now there was about this time Jesus, a wise man, if it be lawful to call him a man; for he was a doer of wonderful works, a teacher of such men as receive the truth with pleasure. He drew over to him both many of the Jews and many of the Gentiles. He was [the] Christ. And when Pilate, at the suggestion of the principal men amongst us, had condemned him to the cross, those that loved him at the first did not forsake him; for he appeared to them alive again the third day; as the divine prophets had foretold these and ten thousand other wonderful things concerning him. And the tribe of Christians, so named from him, are not extinct at this day.",
+        "note": {
+          "id": "josephus-jesus-note",
+          "text": "Josephus, a Jewish priest and historian, finished the Antiquities in AD 93–94. Read honestly, this paragraph cannot stand as he wrote it: a Jew who never became a Christian would not say that Jesus was the Christ, or that he rose as the prophets foretold. Origen, around AD 248, says Josephus did not believe Jesus was the Christ; the full wording is first quoted by Eusebius in the early fourth century. Most scholars therefore hold partial authenticity: Josephus wrote a shorter, neutral notice, and a Christian copyist added the three confessing phrases. Meier, as summarised in his chapter on Josephus, reconstructs that core by removing them; Van Voorst takes the same view. The core still names a wise man, a worker of surprising deeds, executed by Pilate after accusation by Jewish leaders, whose followers continued. A minority hold that the whole paragraph was added; very few defend every word.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "josephus-antiquities",
+              "locator": "18.3.3"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "1.47"
+            },
+            {
+              "kind": "source",
+              "source": "eusebius-church-history",
+              "locator": "1.11.7–8"
+            },
+            {
+              "kind": "source",
+              "source": "meier-marginal-jew",
+              "locator": "chapter 3"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "josephus-james",
+        "source": "josephus-antiquities",
+        "locator": "20.9.1 (20.200 in modern section numbers)",
+        "edition": "Antiquities of the Jews, translated by William Whiston (1737), Project Gutenberg eBook #2848",
+        "translator": "William Whiston",
+        "text": "Festus was now dead, and Albinus was but upon the road; so he assembled the sanhedrim of judges, and brought before them the brother of Jesus, who was called Christ, whose name was James, and some others, [or, some of his companions]; and when he had formed an accusation against them as breakers of the law, he delivered them to be stoned",
+        "note": {
+          "id": "josephus-james-note",
+          "text": "This second mention is short, and almost all historians accept it as Josephus's own. It is part of a story about the high priest Ananus and the death of James in AD 62, and the phrase \"who was called Christ\" identifies rather than confesses: the same passage names another Jesus, the son of Damneus, so Josephus has to say which Jesus he means. A Christian adding words would probably have said more. It agrees with Paul and Mark that Jesus had a brother named James.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "josephus-antiquities",
+              "locator": "20.9.1"
+            },
+            {
+              "kind": "source",
+              "source": "meier-marginal-jew",
+              "locator": "chapter 3"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 6:3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "pliny",
+        "source": "pliny-letters",
+        "locator": "10.96 (headed XCVII, \"To the Emperor Trajan\", in this edition); Trajan's reply 10.97 (XCVIII)",
+        "edition": "Letters of Pliny, translated by William Melmoth, revised by F. C. T. Bosanquet, Project Gutenberg eBook #2811",
+        "translator": "William Melmoth, revised by F. C. T. Bosanquet",
+        "text": "They affirmed the whole of their guilt, or their error, was, that they met on a stated day before it was light, and addressed a form of prayer to Christ, as to a divinity, binding themselves by a solemn oath, not for the purposes of any wicked design, but never to commit any fraud, theft, or adultery, never to falsify their word, nor deny a trust when they should be called upon to deliver it up; after which it was their custom to separate, and then reassemble, to eat in common a harmless meal.",
+        "note": {
+          "id": "pliny-note",
+          "text": "Pliny governed Bithynia, in northern Turkey, around AD 110–112, and wrote to the emperor Trajan asking how to try Christians. He reports what former Christians told him under examination; some had left the faith twenty years before. The letter shows that Christ was honoured as divine in worship held on a fixed day before dawn, with a moral oath and a shared meal, and that the faith had reached towns and villages. It tells us nothing about Jesus' life, and Pliny never says whether Christ had lived. The authenticity of the letter and of Trajan's reply is not seriously disputed.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "pliny-letters",
+              "locator": "10.96–97"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 20:28"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 2:46"
+            }
+          ]
+        }
+      },
+      {
+        "id": "suetonius",
+        "source": "suetonius-caesars",
+        "locator": "Claudius 25 (25.4 in modern numbering)",
+        "edition": "The Lives of the Twelve Caesars, translation of Alexander Thomson revised by T. Forester, Project Gutenberg eBook #6400",
+        "translator": "Alexander Thomson, revised by T. Forester",
+        "text": "He banished from Rome all the Jews, who were continually making disturbances at the instigation of one Chrestus.",
+        "note": {
+          "id": "suetonius-note",
+          "text": "Suetonius published his Lives around AD 121; the expulsion is usually dated AD 49, though some argue for 41. Luke reports the same order of Claudius. Many historians read Chrestus as a common slave name standing in for Christus, so that the riots were quarrels in Rome's synagogues over Christian preaching; Van Voorst, as summarised in his survey, judges this likely. Others hold that Chrestus was an unknown Jewish agitator. Even on the first reading, Suetonius seems to think Chrestus was present in Rome, so he is a witness to the movement, not to Jesus' life. In Nero 16 he notes the punishment of Christians without naming Christ.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "suetonius-caesars",
+              "locator": "Claudius 25; Nero 16"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 18:2"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lucian",
+        "source": "lucian-peregrinus",
+        "locator": "11 and 13 (vol. IV, pp. 82–83, where the work is titled The Death of Peregrine)",
+        "edition": "The Works of Lucian of Samosata, translated by H. W. and F. G. Fowler, vol. IV (Oxford: Clarendon Press, 1905; 1949 reprint)",
+        "translator": "H. W. Fowler and F. G. Fowler",
+        "text": "The Christians, you know, worship a man to this day,—the distinguished personage who introduced their novel rites, and was crucified on that account. … then it was impressed on them by their original lawgiver that they are all brothers, from the moment that they are converted, and deny the gods of Greece, and worship the crucified sage, and live after his laws.",
+        "note": {
+          "id": "lucian-note",
+          "text": "Lucian wrote this satire soon after Peregrinus burned himself to death at the Olympic games of AD 165. He mocks Christians as gullible, which makes his details useful: they worship a crucified man, follow his laws, call each other brothers, and look after prisoners. He wrote more than a century after Jesus and very likely learned all this from Christians, so he confirms what they believed in his day, not the events themselves. The work's authorship is not in doubt.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "lucian-peregrinus",
+              "locator": "11–13"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 13:3"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. These writers establish that Jesus lived, that Pilate had him executed, and that within decades people across the empire worshipped him. They cannot establish who he is. None claims to have met him, and none reports the resurrection except the passage in Josephus whose wording is doubted. Southern Baptists confess the eternal Son made man, crucified and raised (Baptist Faith and Message 2000, article II); that confession rests on the apostles' witness in Scripture, not on Tacitus. The outsiders show only that the witness speaks of a real man in a real place and time.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-7"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "prompt",
+      "text": "Take the next claim you hear about Jesus, whether a sceptic's or a believer's, and ask: what survives, and what am I inferring? Then read Luke's opening again, and notice what he says he did with the eyewitnesses' accounts.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        }
+      ]
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New reading article (step 6). The five public-domain extracts compared word for word with the held files (Tacitus, Josephus twice, Pliny, Suetonius, Lucian; OCR fixes only), each from the edition named in its source's publicDomain record; every cited verse opened in the Berean. Findings fixed: Eusebius 'early fourth century', Pliny 'on a fixed day'. Validate clean, including the extract guard; depth on target (1,354 words, 463 of them extract).",
+      "note": "AI-assisted review; no human theological review. Van Voorst and Meier are described, not read for this article.",
+      "date": "2026-11-27",
+      "contentHash": "0c77f9dbdee3a51df7b6343f7043b62e6f87570841892c312d440996d1d71f5b",
+      "basisHash": "fb946ad4586eaabae62801c75be7f2a93dda85c5327bc2e489044d7b8b9b80a8"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
     "url": "https://www.gutenberg.org/ebooks/9662",
     "role": "Primary record · not a teaching authority",
     "note": "Section X, 'Of Miracles', the most influential argument against belief in miracles. Read and stated in Hume's own terms before any reply; a critic's text, not a teaching authority. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #9662) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Section X, 'Of Miracles', §§86–92, read on 2026-11-27 in the held Gutenberg text for the miracles article (§87 belief proportioned to evidence; §§90–91 the maxim; §92 the second part).",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #9662) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Section X, 'Of Miracles', §§86–92, read on 2026-11-27 in the held Gutenberg text for the miracles article (§87 belief proportioned to evidence; §§90–91 the maxim; §92 the second part). 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Section X sections 90-91 re-read for resurrection-case. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Section X, sections 86-101 read in full, with the title page (Selby-Bigge 1902, from the 1777 text), for hume-miracles. In this edition section 90 holds the definition and the proof from uniform experience; the maxim is section 91.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review; it records what was read, not a theological judgement. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "b7f88c1c5528d328cf5969bd698252a460d4279abd8b2623dd7095d5e69be0e3",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7): register update. The `read` field's new dated note (what a step-6 article's writer read in this source, with the held file or page named) was checked against the writer's notes; the independent content review read the cited places for the articles' claims. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-27",
+      "contentHash": "b93ec54bcc172b591d1f0a8f69451d811dc3915a84bd4289854873a4d1ccd329",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]
