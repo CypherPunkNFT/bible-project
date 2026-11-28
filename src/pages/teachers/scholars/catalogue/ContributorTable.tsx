@@ -8,6 +8,7 @@ import { PopulationWorks } from './PopulationWorks';
 import { usePersonDetails } from './useLibrary';
 import { WindowedRows } from '@/components/WindowedRows';
 import { formatNumber, plural } from "@/lib/site-format";
+import { leadsToBgea } from "@/lib/link-destination";
 
 function ContributorDetails({ person, data }: { person: LibraryPerson; data: ScholarsData }) {
   const p = usePersonDetails(person);
@@ -29,7 +30,7 @@ function ContributorDetails({ person, data }: { person: LibraryPerson; data: Sch
       <p>{`${dateLabel(p)}.`}{` Date status: ${p.facts?.dates.status ?? 'missing'}. Date authority: ${p.facts?.dates.basis ?? 'unrecorded'}.`}</p>
       {p.sourceLifeDates.length > 0 && <p>{`Original date labels: ${p.sourceLifeDates.join('; ')}.`}</p>}
       {p.scholar && <p>{`Biographical date authority: content/teachers/scholars.json · ${p.scholar.id}`}</p>}
-      {p.facts?.dates.evidence?.map((e, i) => <p key={i}>{`${e.label} · ${e.field} · record`} <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">Date source</a></>}</p>)}
+      {p.facts?.dates.evidence?.map((e, i) => <p key={i}>{`${e.label} · ${e.field} · record`} <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">{leadsToBgea(e.sourceUrl) ? "Date source on billygraham.org (Billy Graham Evangelistic Association)" : "Date source"}</a></>}</p>)}
       <p>{p.facts?.expertise.length ? `Documented expertise: ${p.facts.expertise.map(f => data.fields[f]).join(', ')}` : 'Expertise unestablished; recorded work subjects are shown below.'}</p>
       {Object.entries(p.fields).length ? Object.entries(p.fields).map(([f, e]) => <p key={f}>{data.fields[f as keyof typeof data.fields]}: {e?.basis}{e?.example && ` · ${e.example.id}`}</p>) : <p>Field unassigned.</p>}
     </div></details>

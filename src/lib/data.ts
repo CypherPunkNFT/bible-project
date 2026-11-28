@@ -221,7 +221,9 @@ export interface BankQuestion {
 }
 /** The option to mark right; falls back to the printed answer for a copy of the bank built before answer_choice. */
 export const rightChoice = (q: BankQuestion) => q.answer_choice ?? q.answer;
-export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; source_url: string | null; count: number }
+/** `credit`, `licences` and `notice` are what readers see (scripts/question_credits.py): the credit, each licence it is shared
+ * under, and a licence notice that must travel with the questions (MIT). Banks built before 2026-11-27 have only `credit`. */
+export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; licences?: { name: string; url: string }[]; notice?: string | null; source_url: string | null; count: number }
 export interface BankTopic { id: string; title: string; group: "story" | "teaching" }
 export interface BankBook { code: string; name: string; short: string; section: string; testament: "OT" | "NT" }
 /** `questionParts`: the release keeps the questions in parts (scripts/pack-language-files.ts), so no copy passes 25 MiB. */

@@ -11,7 +11,7 @@
 // The bank comes in parts (questions/question-store.ts, owner 2026-11-19): every row's list layer and the first screen's
 // words open the page; 03 asks for the words of the rows it shows, and a search for every question's words.
 import { formatNumber, plural } from "@/lib/site-format";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import "./questions-page.css";
 import { BookRing } from "./questions/BookRing";
@@ -30,6 +30,8 @@ import { ThemeShelves } from "./questions/test/ThemeShelves";
 import { TestBanner } from "./questions/TestBanner";
 
 const NONE: Filters = readFilters(new URLSearchParams());
+/** A licence link is only ever a web address (scripts/question_credits.py writes them). */
+const WEB = /^https:\/\//;
 /** The first screen of 03 before any choice: the first questions of the bank, whose words open the page. */
 const FIRST_ROWS = Array.from({ length: 40 }, (_, i) => i);
 
@@ -106,7 +108,10 @@ function ListBody({ store }: { store: QuestionStore }) {
     <details className="qp-sources">
       <summary>{`Sources · ${plural(bank.collections.length, "{n} collection", "{n} collections")}`}</summary>
       <p>Answers are as each source printed them and are still to be checked. Books, Testament and topic are set by fixed word lists and the references, so a question may sit under a near topic.</p>
-      <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}{c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}</li>)}</ul>
+      <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}
+        {c.licences?.filter((l) => WEB.test(l.url)).map((l) => <Fragment key={l.url}> <span>Licence:</span> <a href={l.url} target="_blank" rel="noreferrer">{l.name}</a></Fragment>)}
+        {c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}
+        {c.notice && <details className="qp-notice"><summary>Licence notice</summary><pre>{c.notice}</pre></details>}</li>)}</ul>
     </details>
   </>;
 }

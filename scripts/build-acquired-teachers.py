@@ -14,6 +14,7 @@ import shutil
 import sys
 import unicodedata
 from teacher_identity_overrides import load_overrides, apply_record
+import oracc_credits
 
 SITE = Path(__file__).resolve().parents[1]
 ROOT = SITE.parent
@@ -148,6 +149,7 @@ def prepare_text(row, path, record):
 
 def main():
     identity_overrides = load_overrides(SITE)
+    oracc = oracc_credits.OraccCredits()
     try:
         import ctypes
         ctypes.windll.kernel32.SetPriorityClass(ctypes.windll.kernel32.GetCurrentProcess(), 0x4000)
@@ -341,6 +343,8 @@ def main():
                 if not stale.is_relative_to((OUT / 'text').resolve()): raise ValueError('Unexpected output path')
                 shutil.rmtree(stale)
         record = apply_record(record, identity_overrides)
+        # Oracc texts carry the export file's "CC0" header, not their own terms; credit their editors instead.
+        oracc_credits.apply(oracc, record, OUT / 'text' / rid)
         records[rid] = record
         private[rid] = {'path':pathstr,'row':row,'authors':author_ids,'workId':record['workId']}
         for ident in dict.fromkeys(author_ids + credits):

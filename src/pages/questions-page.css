@@ -176,6 +176,10 @@
 .qp-sources li{margin-bottom:6px}
 .qp-sources strong{color:var(--ink);font-weight:600}
 .qp-sources a{color:var(--accent);text-decoration:underline}
+/* A licence notice that must travel with its questions (the two MIT sets): folded under the credit */
+.qp-sources .qp-notice{margin:4px 0 8px}
+.qp-sources .qp-notice summary{font-size:12px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--accent)}
+.qp-sources .qp-notice pre{margin:6px 0 0;max-width:760px;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:11px;color:var(--muted)}
 
 /* 02's eyes, at the end of the count line: show the answers, or hide them to test yourself */
 

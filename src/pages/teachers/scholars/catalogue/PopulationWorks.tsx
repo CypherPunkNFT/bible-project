@@ -4,6 +4,7 @@ import { getPopulationShelf, readingLink, type PopulationRecord, type Population
 import type { LibraryPerson } from './library';
 import { languageCodes } from '../../shared/acquired';
 import { formatNumber } from "@/lib/site-format";
+import { leadsToBgea } from "@/lib/link-destination";
 import { WindowedRows } from '@/components/WindowedRows';
 
 // A contributor's works, and each work's records, are drawn a window of rows at a time as the list box scrolls: no
@@ -22,7 +23,7 @@ export function PopulationRecordRow({ record: r, row }: { record: PopulationReco
     {r.credits?.map((c,i)=><p key={i}>{c.role} · {c.basis}</p>)}
     {r.reviewWarning && <p className="pop-review">{r.reviewWarning}</p>}
     <p>Provenance: {r.source} · {r.provenance.join(' · ')}{r.intakeStatus && ` · Intake: ${r.intakeStatus}`}</p>
-    <div className="pop-links">{link && <Link to={link.url}>{link.label}</Link>}{r.sourceUrl && <a href={r.sourceUrl} target="_blank" rel="noreferrer">Original source</a>}{!link && <span>Reading copy not linked</span>}</div>
+    <div className="pop-links">{link && <Link to={link.url}>{link.label}</Link>}{r.sourceUrl && <a href={r.sourceUrl} target="_blank" rel="noreferrer">{leadsToBgea(r.sourceUrl) ? "Original source on billygraham.org (Billy Graham Evangelistic Association)" : "Original source"}</a>}{!link && <span>Reading copy not linked</span>}</div>
   </li>;
 }
 
@@ -32,7 +33,7 @@ function WorkGroup({work:w,row}:{work:PopulationWork;row:number}) {
     {w.credits.map((c,i)=><p key={i}>{c.role} · {c.basis}</p>)}
     {w.provenance.length>0 && <p>Provenance: {w.provenance.join(' · ')}</p>}
     {w.editionIds.length>0 && <p>{`Edition IDs: ${w.editionIds.join(' · ')}`}</p>}
-    {w.editions.map(e=><details key={e.id}><summary>{e.label || e.id} · {e.languages.join(', ')}</summary><code>{e.id}</code>{e.dates.length>0 && <pre>{JSON.stringify(e.dates,null,2)}</pre>}{e.evidence.map((v,i)=><p key={i}><a href={v.url} target="_blank" rel="noreferrer">{v.locator || 'Edition source'}</a></p>)}</details>)}
+    {w.editions.map(e=><details key={e.id}><summary>{e.label || e.id} · {e.languages.join(', ')}</summary><code>{e.id}</code>{e.dates.length>0 && <pre>{JSON.stringify(e.dates,null,2)}</pre>}{e.evidence.map((v,i)=><p key={i}><a href={v.url} target="_blank" rel="noreferrer">{leadsToBgea(v.url) ? 'Edition source on billygraham.org (Billy Graham Evangelistic Association)' : v.locator || 'Edition source'}</a></p>)}</details>)}
     <WindowedRows as="ul" items={w.records} itemKey={recordKey} estimate={130} renderItem={(r,row)=><PopulationRecordRow key={r.id} record={r} row={row}/>}/>
     {!w.records.length && <p>Catalogue metadata only; no reading record is linked.</p>}
   </details>;

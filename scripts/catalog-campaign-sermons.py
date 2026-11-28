@@ -48,6 +48,8 @@ PREACHERS = {
                    catalogued="2026-11-27", width=4, no_overwrite=True, numbered=True, license_id="BGEA-personal-use-permission",
                    conditions=["Link only: the link must say it leads to a BGEA website and open in a new window (BGEA Legal Permissions, "
                                "Linking). No text, audio or video reposted without BGEA's written permission."],
+                   # Met since 2026-11-27: every link to billygraham.org names it and opens a new tab (src/lib/link-destination.ts).
+                   conditions_met=True,
                    quality="Every held page checked for checksum, byline and readable text; main texts and dates read by hand "
                    "(graham/progress/decisions.json)."),
     "macarthur": dict(author="author-john-macarthur", era="twentieth-century", rights="restricted-license",
@@ -310,7 +312,7 @@ def asset(asset_id, edition_id, cfg, rights):
                   relativePath=prov["relativePath"], sha256=prov["sha256"], byteCount=prov["byteCount"], mimeType=prov.get("mimeType"),
                   retrievedAt=re.sub(r"\+00:00$", "Z", prov["retrievedAt"]),
                   rights=dict(category=rights, jurisdiction="United States", licenseId=cfg.get("license_id"), licenseUrl=prov.get("policyUrl") or cfg["policy"],
-                              attribution="Author and host credited; the site links to the original page.", conditions=cfg.get("conditions", []), conditionsMet=False,
+                              attribution="Author and host credited; the site links to the original page.", conditions=cfg.get("conditions", []), conditionsMet=cfg.get("conditions_met", False),
                               actions=actions, evidence=[ev(prov["url"], "Host terms recorded in the acquisition TERMS.md", "Private noncommercial reading; no public hosting.")],
                               unresolved=["No public hosting or public full-text index; the site links to the original."], review=REVIEW),
                   fullTextIndexed=False,

@@ -31,6 +31,7 @@ from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
 from question_children_sources import children_records  # noqa: E402
 from question_children_wording import add_children_wording  # noqa: E402
+from question_credits import check_banks, check_notices, merged, public_credit  # noqa: E402
 from question_choices import add_choices  # noqa: E402
 from question_difficulty import add_difficulty  # noqa: E402
 from question_explorer import write_explorer  # noqa: E402
@@ -174,6 +175,7 @@ def to_entry(record: dict) -> dict:
     return {
         "id": record["id"],
         "source_id": record["source_id"],
+        "bank_id": record["bank_id"],
         "attribution_source_id": record.get("attribution_source_id"),
         "question": question,
         "answer": answer,
@@ -241,12 +243,16 @@ def hide_doubted_written(questions: list[dict]) -> int:
 
 
 def collections_of(questions: list[dict]) -> list[dict]:
+    """Each collection once, with the credit readers see (scripts/question_credits.py), never the corpus's own
+    attribution note, which is written for us. A collection drawn from more than one bank carries each bank's credit."""
     seen: dict[str, dict] = {}
+    banks: dict[str, dict[str, dict]] = {}
     for q in questions:
         c = seen.setdefault(q["collection"], {"title": q["collection"], "kind": q["kind"], "tradition": q["tradition"],
-                                              "credit": q["attribution"], "source_url": q["source_url"], "count": 0})
+                                              "source_url": q["source_url"], "count": 0})
+        banks.setdefault(q["collection"], {}).setdefault(q["bank_id"], public_credit(q["bank_id"], q["attribution"]))
         c["count"] += 1
-    return list(seen.values())
+    return [{**c, **merged(list(banks[title].values()))} for title, c in seen.items()]
 
 
 def correct_spelling(questions: list[dict]) -> None:
@@ -286,6 +292,8 @@ def write(path: Path, data: dict) -> None:
 
 
 def main() -> None:
+    check_banks(set(BANKS))
+    check_notices()
     questions, excluded = select(load_corpus())
     repeats = mark_repeats(questions)
     model_tagged = add_model_tags(questions)
