@@ -12,7 +12,7 @@
     "url": "https://bibleguide.io/study/creeds/nicene-creed-381",
     "role": "Historic Christian witness",
     "note": "The creed of Nicaea (325) as enlarged at Constantinople (381), in the traditional English text with the Western clause on the Spirit proceeding “from the Father and the Son”. It identifies the doctrine being defended; it is not independent historical evidence for every claim. Public domain: may be quoted, with an exact locator (paragraphs 1–5 of the site's text).",
-    "read": "Read whole on 2026-11-27 in this site's creeds collection (from the Creeds.json transcription, The Unlicense; registered 2026-10-17): five paragraphs, on the Father (1), the Son (2–3), the Holy Spirit (4) and the church and the life to come (5). Cited for the Trinity and for the confession concerning Jesus Christ.",
+    "read": "Read whole on 2026-11-27 in this site's creeds collection (from the Creeds.json transcription, The Unlicense; registered 2026-10-17): five paragraphs, on the Father (1), the Son (2–3), the Holy Spirit (4) and the church and the life to come (5). Cited for the Trinity and for the confession concerning Jesus Christ. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): paragraph 2 read in the site's creeds collection for jesus-claims and virgin-birth; one phrase quoted ('very God of very God…').",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record; no claim beyond the creed's own wording is drawn from it. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "eddee81477e5dc8e61b9ccf3cb362050c59281fc3105d1bc1c25ba6988bcb724",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "3b5fbb619ce03f014e33688a5e5ddf7802ba3e60e8a969474052a522e7063f54",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

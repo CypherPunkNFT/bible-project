@@ -1,0 +1,370 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "virgin-birth",
+  "order": 36,
+  "publication": "published",
+  "content": {
+    "title": "The virgin birth",
+    "topic": "jesus",
+    "summary": "Conceived of the Holy Spirit, born of Mary: what the Gospels claim, and the debate over Isaiah 7:14.",
+    "format": "short-answer",
+    "spine": "scripture-theology",
+    "answer": {
+      "id": "answer",
+      "text": "Christians confess that Jesus had no human father. Southern Baptists say he was “conceived of the Holy Spirit and born of the virgin Mary” (Baptist Faith and Message 2000, article II), as the Apostles' Creed and the Nicene Creed say in their own words. Matthew and Luke tell it from different angles, and by about AD 110 Ignatius of Antioch lists Mary's virginity among the church's settled beliefs. Strictly, it is a virginal conception: the miracle is in how Jesus was conceived, not in how he was born. The debate over Isaiah 7:14 is real and is set out below; but the belief does not rest on that verse alone.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 1:18-25"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:26-38"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
+          "source": "nicene-creed-381",
+          "locator": "Paragraph 2"
+        },
+        {
+          "kind": "source",
+          "source": "ignatius-letters",
+          "locator": "To the Ephesians 18–19"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Two Gospels report it independently: Matthew from Joseph's side, with his dream and his doubts; Luke from Mary's, with her question to the angel.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 1:18-21"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 1:34-35"
+          },
+          {
+            "kind": "source",
+            "source": "brown-birth-messiah",
+            "locator": "whole work"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The early church treated it as settled very soon: Ignatius about 110, Justin Martyr in the 150s, and even the critic Celsus about 175, who attacked it rather than ignoring it.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "ignatius-letters",
+            "locator": "To the Smyrnaeans 1"
+          },
+          {
+            "kind": "source",
+            "source": "justin-dialogue-trypho",
+            "locator": "chapters 43, 66"
+          },
+          {
+            "kind": "source",
+            "source": "origen-contra-celsum",
+            "locator": "1.28, 1.32"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "It fits the Gospels' account of who Jesus is: the Son of God entering humanity by God's own initiative, a new beginning that no human act produced.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 1:35"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:13-14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 4:4"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The virgin birth tells us that our salvation began with God, not with us. The eternal Son became truly human without ceasing to be who he was, and he did it by a miracle at the very start.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Galatians 4:4-5"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 1:14"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "8.2"
+        },
+        {
+          "kind": "source",
+          "source": "machen-virgin-birth",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "isaiah-7",
+        "text": "Matthew says Jesus' birth fulfilled Isaiah's sign: the virgin will be with child and will call him Immanuel. The Hebrew word in Isaiah is almah, a young woman of marriageable age; the Berean's note gives “young woman” as an alternative. The Greek translation made by Jews in the centuries before Christ rendered it parthenos, virgin, and Matthew quotes that Greek. Jewish readers answered from the start. Justin Martyr records Trypho, about 155, reading “young woman” and applying the sign to King Hezekiah; Irenaeus notes that the second-century translators Theodotion and Aquila wrote “young woman”; and Isaac of Troki argued in the 1590s that almah may describe a married woman, that the young woman was Isaiah's own wife, and that the sign was for Ahaz, about an invasion due within a few years. Christian readers reply that almah is never clearly used of a married woman in the Old Testament, that the sign is addressed to the whole house of David, and that the child is soon called “Mighty God”. Baptist interpreters differ on whether Isaiah's words had a first, nearer fulfilment as well as their final one in Christ. Either way, Matthew's claim is that the sign reached its full meaning in Jesus.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 7:13-14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 1:22-23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 9:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Genesis 24:43"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Exodus 2:8"
+          },
+          {
+            "kind": "source",
+            "source": "justin-dialogue-trypho",
+            "locator": "chapters 43, 67, 71"
+          },
+          {
+            "kind": "source",
+            "source": "irenaeus-against-heresies",
+            "locator": "3.21.1"
+          },
+          {
+            "kind": "source",
+            "source": "troki-faith-strengthened",
+            "locator": "part 1, chapter 21, pp. 95–97"
+          },
+          {
+            "kind": "source",
+            "source": "brown-jewish-objections",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Isaiah 7:14 and the word almah"
+      },
+      {
+        "id": "early-witness",
+        "text": "Ignatius, writing to the Ephesians on his way to martyrdom, names the virginity of Mary and her giving birth among the mysteries hidden from the ruler of this world. To the Smyrnaeans he says Jesus was truly born of a virgin. The charge from the other side is just as old. Celsus, as Origen preserves him, said Mary was turned out by her husband for adultery and bore Jesus to a soldier called Panthera. A slander of that kind shows that Jesus' birth was known to be irregular, and that Christians were already claiming it was miraculous. The Gospels hint at the same talk: in Nazareth he is “the son of Mary”, not of Joseph, and his opponents protest that they at least are not illegitimate.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 6:3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 8:41"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 3:23"
+          },
+          {
+            "kind": "source",
+            "source": "ignatius-letters",
+            "locator": "To the Ephesians 18–19; To the Smyrnaeans 1"
+          },
+          {
+            "kind": "source",
+            "source": "origen-contra-celsum",
+            "locator": "1.28, 1.32"
+          }
+        ],
+        "title": "Early witnesses, and an early slander"
+      }
+    ],
+    "objection": "Mark and Paul, the earliest writers, never mention it. It must be a later legend.",
+    "reply": {
+      "id": "reply",
+      "text": "Silence is not denial. Mark begins his Gospel with Jesus' baptism as an adult and tells no birth story at all; Paul rarely mentions events of Jesus' life before the last supper. When Paul does speak of the birth, he says God sent his Son, born of a woman. The two accounts we have, Matthew's and Luke's, are independent of each other, and Raymond Brown, a critical Roman Catholic scholar, judged that on the virginal conception they agree, which points to a tradition older than both.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 1:1-11"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 4:4"
+        },
+        {
+          "kind": "source",
+          "source": "brown-birth-messiah",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "machen-virgin-birth",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "pagan-parallels",
+        "heldBy": [
+          "Trypho, as Justin records him (c. 155)",
+          "the history-of-religions school (around 1900)"
+        ],
+        "objection": "The Greeks tell of Perseus born to the virgin Danaë after Zeus came to her as a shower of gold, and of heroes fathered by gods. Christians should be ashamed to tell the same kind of tale. Trypho said exactly this to Justin.",
+        "reply": {
+          "id": "pagan-parallels-reply",
+          "text": "The pagan stories are about gods who desire mortal women and have intercourse with them, in some form. The Gospels describe nothing of the kind: the Holy Spirit comes upon Mary and the power of the Most High overshadows her, language drawn from the Old Testament, and the child is the Son of God by that act of creation, not by any union. The setting is thoroughly Jewish, the setting least likely to borrow a pagan myth of divine mating.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Luke 1:35"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 1:20"
+            },
+            {
+              "kind": "source",
+              "source": "justin-dialogue-trypho",
+              "locator": "chapter 67"
+            },
+            {
+              "kind": "source",
+              "source": "machen-virgin-birth",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "impossible",
+        "heldBy": [
+          "modern scientific naturalism"
+        ],
+        "objection": "Human beings cannot be conceived without a father. Even in animals that reproduce from an unfertilised egg, a mammal would be female. The story is biologically impossible.",
+        "reply": {
+          "id": "impossible-reply",
+          "text": "Christians agree, and so did Mary: “How can this be, since I am a virgin?” The claim is not that a natural process occurred but that God acted. The God who made life at the beginning is not prevented from creating a human life in a woman's womb. Whether he did so is a question about the evidence and about who Jesus is, which is why the Gospels set the birth beside his whole life, death and resurrection.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Luke 1:34-35"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Genesis 18:14"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Jeremiah 32:17"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VII, §115"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "The historical evidence for the virgin birth is the testimony of two Gospels and the early church; no historian can verify a conception. Christians believe it because they trust the witnesses and the Lord they describe, not because it can be proved apart from them.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "source",
+          "source": "brown-birth-messiah",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Mary's question was “How can this be?” What would it mean for you if the God who began Jesus' life by a miracle is also able to begin new life in you?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:34-38"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Matthew 1:18-25",
+        "note": "Joseph's side: the dream, and Isaiah's sign"
+      },
+      {
+        "reference": "Luke 1:26-38",
+        "note": "Mary's side: the angel's announcement"
+      },
+      {
+        "reference": "Isaiah 7:10-16",
+        "note": "The sign given to the house of David"
+      }
+    ],
+    "related": [
+      "jesus",
+      "messianic-prophecy",
+      "titles-of-jesus",
+      "islam-jesus"
+    ],
+    "keywords": [
+      "virgin birth",
+      "virginal conception",
+      "Isaiah 7:14",
+      "almah",
+      "parthenos",
+      "Ignatius",
+      "Celsus",
+      "incarnation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "4ed4a0d701c513d6edd7efacda78713537c1c71f60d13ae2b85fdebd80a2dcc9",
+      "basisHash": "0b852e32bd73a5a1ed2aeb18a2929bb5a2e03400c5b85cf66d9becb09dce44a8"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Basis changed: one or more cited sources had only their kind label shortened to an existing library label (Historical study, Commentary or Historical text). Checked that every citation of those sources still matches the work and that no sentence relies on the old label.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "4ed4a0d701c513d6edd7efacda78713537c1c71f60d13ae2b85fdebd80a2dcc9",
+      "basisHash": "5bb3e1279624aeab2531de6005551ea965ad4639b4af8cc676b713abfb922aa1"
+    }
+  ]
+}

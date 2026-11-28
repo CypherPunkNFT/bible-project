@@ -1,0 +1,555 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "quests-timeline",
+  "order": 40,
+  "publication": "published",
+  "content": {
+    "title": "The quests for the historical Jesus",
+    "topic": "jesus",
+    "summary": "From Reimarus in the 1770s to the memory studies of today: who tried to find the Jesus of history behind the Gospels, and what each found.",
+    "format": "timeline",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "For seventeen centuries, Christians read the Gospels as the story of Jesus. In the late eighteenth century some scholars began to ask whether a different Jesus, the “historical Jesus”, lay behind them, recoverable by the methods used for any ancient figure. Historians usually tell the story in stages: an old quest in the nineteenth century, a pause under Rudolf Bultmann, a new quest from 1953, and a third quest from the 1980s, now joined by studies of memory. The stages are a later convenience, and the dates below are the dates of books, not of movements. Two lessons run through it. Albert Schweitzer, who wrote the old quest's history in 1906, found that each writer tended to discover a Jesus who looked like himself. And each generation's sceptical certainties were overturned by the next. Christians do not need the quest to know Jesus, but they need not fear it: the Gospels claim to report what happened, and invite the test.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 20:30-31"
+        },
+        {
+          "kind": "source",
+          "source": "schweitzer-quest",
+          "locator": "ch. I, p. 4"
+        },
+        {
+          "kind": "source",
+          "source": "neill-wright-interpretation",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": "reimarus",
+        "text": "Gotthold Lessing publishes, as anonymous “fragments”, the work of the Hamburg scholar Hermann Samuel Reimarus, who had died in 1768. Reimarus argued that Jesus was a Jewish messianic claimant who expected an earthly kingdom and died disappointed, and that his disciples stole the body and invented the resurrection rather than return to their trades. Schweitzer begins the quest with him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 27:64"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 28:13"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. II, pp. 13–26"
+          }
+        ],
+        "title": "Reimarus: the disciples' fraud",
+        "date": "1774–1778",
+        "certainty": "exact"
+      },
+      {
+        "id": "fictitious",
+        "text": "Karl Friedrich Bahrdt and Karl Heinrich Venturini write novels presented as history, in which Jesus is the agent of a secret order of Essenes who stage his miracles and nurse him back to life after the cross. Schweitzer notes how much they reflect the secret societies of their own day.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 19:33-34"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. IV, pp. 38–47"
+          }
+        ],
+        "title": "The first fictitious lives",
+        "date": "1780s–1800s",
+        "certainty": "circa"
+      },
+      {
+        "id": "paulus",
+        "text": "H. E. G. Paulus publishes a Life of Jesus that keeps the Gospel events but explains each miracle naturally: the feeding of the five thousand happened when the rich shared their food, and Jesus revived from a death-like trance in the tomb. The rationalist approach accepts the narratives as reports and denies only the miraculous.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 6:41-44"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. V, pp. 48–57"
+          }
+        ],
+        "title": "Paulus: miracles explained away",
+        "date": "1828",
+        "certainty": "exact"
+      },
+      {
+        "id": "strauss",
+        "text": "David Friedrich Strauss, aged twenty-seven, publishes The Life of Jesus, Critically Examined (English translation by George Eliot, 1846). He rejects both the supernatural reading and the rationalists' natural explanations: the Gospel stories, he argues, are myths, the early church's faith in the Messiah told as history. The book costs him his academic career. Schweitzer calls it one of the most perfect things in the whole range of learned literature.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "strauss-life-of-jesus",
+            "locator": "Introduction, §14"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "chs. VII–VIII, pp. 68–96"
+          }
+        ],
+        "title": "Strauss: the Gospels as myth",
+        "date": "1835",
+        "certainty": "exact"
+      },
+      {
+        "id": "mark-first",
+        "text": "Christian Hermann Weisse and Christian Gottlob Wilke, working separately, argue that Mark was written first and that Matthew and Luke used it. Many scholars come to accept the view, which Heinrich Julius Holtzmann sets out in 1863 as the basis of the two-source theory: Mark, plus a collection of sayings, often called Q, behind Matthew and Luke. Most scholars still hold Mark to be first; some dispute Q.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 1:1-3"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. X, pp. 121–126"
+          }
+        ],
+        "title": "Mark is the earliest Gospel",
+        "date": "1838",
+        "certainty": "exact"
+      },
+      {
+        "id": "bauer",
+        "text": "Bruno Bauer moves from treating the Gospels as literary creations to concluding, by 1850–1851, that there was no historical Jesus at all and that Paul's letters are also later works. He is the first scholar of note to deny Jesus' existence; the view has been rejected by almost every historian since.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Galatians 1:18-19"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. XI, pp. 137–160"
+          }
+        ],
+        "title": "Bruno Bauer: no historical Jesus",
+        "date": "1841–1851",
+        "certainty": "exact"
+      },
+      {
+        "id": "renan",
+        "text": "Ernest Renan's Vie de Jésus becomes a best-seller across Europe: a charming Galilean teacher of pure religion, set among the landscapes Renan had travelled, who later darkens under opposition in Jerusalem. It is written for the general reader, and the miracles are treated as legend or misunderstanding. Schweitzer admires its art and criticises its sentimentality.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 1:14-15"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. XIII, pp. 180–192"
+          }
+        ],
+        "title": "Renan's Life of Jesus",
+        "date": "1863",
+        "certainty": "exact"
+      },
+      {
+        "id": "liberal-lives",
+        "text": "German liberal Protestant writers build lives of Jesus on Mark as the earliest source: a teacher of the fatherhood of God and the infinite worth of the soul, whose inner life develops toward an awareness of being the Messiah. These are the lives Schweitzer would demolish.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 8:29"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. XIV, pp. 193–221"
+          }
+        ],
+        "title": "The liberal lives",
+        "date": "1860s–1890s",
+        "certainty": "circa"
+      },
+      {
+        "id": "mullins",
+        "text": "E. Y. Mullins, president of the Southern Baptist Theological Seminary, answers the critical portraits in Why Is Christianity True? He notes that they contradict one another: Renan has Jesus compromise his morals, others think him deluded, others make his claims a later growth, and J. S. Mill denies he made them at all. Only the supernatural Christ of the Gospels, Mullins argues, accounts for all the facts.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 2:5-10"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. IX, §136, p. 134"
+          }
+        ],
+        "title": "A Baptist reply to the lives of Jesus",
+        "date": "1905",
+        "certainty": "exact"
+      },
+      {
+        "id": "weiss",
+        "text": "Johannes Weiss argues in Jesus' Proclamation of the Kingdom of God that Jesus' kingdom was not an inner moral ideal but God's dramatic, end-of-the-world reign, expected soon. Schweitzer calls it a rehabilitation of the eschatological question. The same year, Martin Kähler argues that the real Christ is the Christ preached in the Bible, not a figure reconstructed behind it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 1:15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 9:1"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. II, p. 23; ch. XV, pp. 222–240"
+          },
+          {
+            "kind": "source",
+            "source": "neill-wright-interpretation",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Johannes Weiss: the kingdom is coming",
+        "date": "1892",
+        "certainty": "exact"
+      },
+      {
+        "id": "wrede",
+        "text": "William Wrede argues that Mark's repeated commands to silence (“tell no one”) are not history but the evangelist's device, explaining why Jesus was not recognised as Messiah in his lifetime. If even Mark is theology rather than history, the liberal lives lose their foundation. Schweitzer sets his own view against Wrede's as the two remaining options.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 8:30"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 9:9"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. XIX, pp. 328–395"
+          }
+        ],
+        "title": "Wrede: the messianic secret",
+        "date": "1901",
+        "certainty": "exact"
+      },
+      {
+        "id": "schweitzer",
+        "text": "Albert Schweitzer publishes Von Reimarus zu Wrede (English, The Quest of the Historical Jesus, 1910). The quest, he concludes, found its own reflection: “each individual created Him in accordance with his own character.” His own Jesus is an apocalyptic prophet who expected the end, and is strange to the modern world. He ends: “He comes to us as One unknown, without a name, as of old, by the lake-side, He came to those men who knew Him not.”",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 1:17"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. I, p. 4; ch. XX, p. 401"
+          }
+        ],
+        "title": "Schweitzer's verdict",
+        "date": "1906",
+        "certainty": "exact"
+      },
+      {
+        "id": "bultmann",
+        "text": "Rudolf Bultmann's History of the Synoptic Tradition (1921) applies form criticism, classifying Gospel units by their use in the early church. His Jesus and the Word (1926) holds that almost nothing can be known of Jesus' life and personality, and that faith depends on the preached Christ, not on historical reconstruction. This period is often called the “no quest”, though work on Jesus never stopped.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:1-3"
+          },
+          {
+            "kind": "source",
+            "source": "bultmann-jesus-word",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Bultmann: little can be known, nor need be",
+        "date": "1921–1926",
+        "certainty": "exact"
+      },
+      {
+        "id": "kasemann",
+        "text": "Ernst Käsemann, a student of Bultmann, lectures on the problem of the historical Jesus, arguing that the church's preaching cannot be cut loose from the earthly Jesus without becoming myth. In 1959 James M. Robinson names the movement the “new quest”. It relies on criteria of authenticity, especially dissimilarity: a saying is likely authentic if it fits neither Judaism nor the later church.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 John 1:1-3"
+          },
+          {
+            "kind": "source",
+            "source": "robinson-new-quest",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Käsemann opens a new quest",
+        "date": "1953",
+        "certainty": "exact"
+      },
+      {
+        "id": "third-quest",
+        "text": "E. P. Sanders's Jesus and Judaism starts from secure facts about Jesus' deeds (his baptism by John, the Twelve, the Temple action, his execution by Rome) and places him within Jewish hopes for Israel's restoration. With Geza Vermes, Ben F. Meyer and others, scholars now read Jesus as thoroughly Jewish, and the dissimilarity criterion falls out of favour. In 1988 N. T. Wright names this the “third quest”.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 11:15-17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 10:5-6"
+          },
+          {
+            "kind": "source",
+            "source": "sanders-jesus-judaism",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "neill-wright-interpretation",
+            "locator": "whole work"
+          }
+        ],
+        "title": "A third quest: Jesus the Jew",
+        "date": "1985",
+        "certainty": "exact"
+      },
+      {
+        "id": "jesus-seminar",
+        "text": "Robert Funk founds the Jesus Seminar in 1985; its fellows vote on the sayings of Jesus with coloured beads. The Five Gospels (1993), which adds the Gospel of Thomas to the four, rates about eighteen per cent of the sayings as probably Jesus' own. Many scholars, sceptical and believing, criticise the method and its assumptions: a non-apocalyptic Jesus, and an early date for Thomas.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:31"
+          },
+          {
+            "kind": "source",
+            "source": "funk-five-gospels",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The Jesus Seminar votes",
+        "date": "1985–1993",
+        "certainty": "exact"
+      },
+      {
+        "id": "meier",
+        "text": "John P. Meier, a Roman Catholic priest and scholar, begins A Marginal Jew, a multi-volume study that imagines a committee of Catholic, Protestant, Jewish and agnostic scholars locked in a library until they agree on what can be known of Jesus by historical method. Its careful use of the criteria makes it a standard reference.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 3:1-2"
+          },
+          {
+            "kind": "source",
+            "source": "meier-marginal-jew",
+            "locator": "chapter 1"
+          }
+        ],
+        "title": "A Marginal Jew",
+        "date": "1991",
+        "certainty": "exact"
+      },
+      {
+        "id": "wright",
+        "text": "N. T. Wright, an Anglican scholar and later bishop, argues that Jesus saw himself as embodying the return of Israel's God to Zion, and that he went to his death deliberately as the climax of that vocation. Together with his later study of the resurrection (2003), it is the largest third-quest work by a Christian scholar.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 19:41-44"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:45"
+          },
+          {
+            "kind": "source",
+            "source": "wright-jesus-victory",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "wright-resurrection-son-of-god",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Jesus and the victory of God",
+        "date": "1996",
+        "certainty": "exact"
+      },
+      {
+        "id": "eyewitnesses",
+        "text": "Richard Bauckham's Jesus and the Eyewitnesses argues that the Gospels stand close to named eyewitnesses, reading the second-century bishop Papias and the patterns of personal names in the Gospels. Critics dispute parts of the case; it has moved the discussion from anonymous community tradition toward testimony.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 1:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 21:24"
+          },
+          {
+            "kind": "source",
+            "source": "bauckham-eyewitnesses",
+            "locator": "whole work"
+          }
+        ],
+        "title": "The Gospels as eyewitness testimony",
+        "date": "2006",
+        "certainty": "exact"
+      },
+      {
+        "id": "memory",
+        "text": "Dale Allison (2010) and the essays edited by Chris Keith and Anthony Le Donne (2012) argue that the criteria of authenticity cannot sort sayings into authentic and inauthentic, and turn to how memory works: the overall impression Jesus left is better preserved than the exact words. Bart Ehrman (2016) uses the same research to stress how memories change in the retelling.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 14:26"
+          },
+          {
+            "kind": "source",
+            "source": "allison-constructing-jesus",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "keith-le-donne-criteria",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "ehrman-jesus-before-gospels",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Memory replaces the criteria",
+        "date": "2010–2016",
+        "certainty": "circa",
+        "dateNote": "The memory approach has no founding date; these are the books usually named, 2010 to 2016."
+      },
+      {
+        "id": "mythicism",
+        "text": "Richard Carrier's On the Historicity of Jesus (2014) gives the fullest academic case since Bauer that Jesus never existed. Bart Ehrman, an agnostic, answers the mythicists in Did Jesus Exist? (2012), and Maurice Casey, who was not a Christian, in a book of 2014. Almost no historians of antiquity accept the view.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Galatians 1:19"
+          },
+          {
+            "kind": "source",
+            "source": "carrier-historicity",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "ehrman-did-jesus-exist",
+            "locator": "whole work"
+          },
+          {
+            "kind": "source",
+            "source": "casey-mythicist-myths",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Mythicism argued and answered",
+        "date": "2012–2014",
+        "certainty": "exact"
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where this timeline stops. It names the landmarks, not every scholar, and it is weighted toward the German and English-speaking work that set the questions. The labels “old”, “new” and “third” quest are later conveniences; scholars dispute where the lines fall. What the evidence for the Gospels is, and how historians weigh it today, is set out in “How historians weigh the Gospels”.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "source",
+          "source": "neill-wright-interpretation",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Luke 1:1-4",
+        "note": "Luke's own account of his method: eyewitnesses and careful investigation"
+      },
+      {
+        "reference": "John 20:30-31",
+        "note": "Written so that you may believe"
+      },
+      {
+        "reference": "Mark 8:27-30",
+        "note": "The question every quest has asked: who do people say I am?"
+      }
+    ],
+    "related": [
+      "gospels-as-history",
+      "mythicism",
+      "jesus-outside-nt",
+      "trilemma"
+    ],
+    "keywords": [
+      "quest for the historical Jesus",
+      "Reimarus",
+      "Strauss",
+      "Schweitzer",
+      "Bultmann",
+      "Käsemann",
+      "third quest",
+      "Jesus Seminar",
+      "N. T. Wright",
+      "memory"
+    ],
+    "debates": [
+      "craig-ehrman"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "916f7bbd8e115791d8c4347cb679286abbf1df2863a5eaaa14b8e169a1bb7ac3",
+      "basisHash": "aeb17c5c2569dc0c4b9b91ca7565c013cc706abc36ee6d06b54c3539b23c8735"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Basis changed: one or more cited sources had only their kind label shortened to an existing library label (Historical study, Commentary or Historical text). Checked that every citation of those sources still matches the work and that no sentence relies on the old label.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "916f7bbd8e115791d8c4347cb679286abbf1df2863a5eaaa14b8e169a1bb7ac3",
+      "basisHash": "723325e59adc901b25d017398a200d14c5e8f85fc233fcfe74ff4202c94975d7"
+    }
+  ]
+}

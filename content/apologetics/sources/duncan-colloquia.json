@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "duncan-colloquia",
+  "order": 338,
+  "publication": "published",
+  "content": {
+    "title": "Colloquia Peripatetica (Deep-Sea Soundings): Notes of Conversations with the Late John Duncan",
+    "author": "John Duncan (1796–1870), conversations recorded by William Knight (Edinburgh: Edmonston and Douglas, 1871)",
+    "kind": "Recorded conversations",
+    "url": "https://archive.org/details/colloquiaperipat00dunciala",
+    "role": "Historic Christian witness",
+    "note": "Notes of the Edinburgh Hebrew professor's conversations. The short entry 'Christ: the Trilemma' (p. 109) states, eighty years before C. S. Lewis, that Christ was either a conscious deceiver, self-deceived, or divine. Public domain: may be quoted, with the edition named and an exact locator.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/duncan-colloquia-peripatetica-knight-1871.txt (Internet Archive colloquiaperipat00dunciala; checksum in Website/SOURCES.md, 'Apologetics fields: Jesus & resurrection'). 2026-11-27 (plan APOLOGETICS-FIELDS step 7): the contents and the entry 'Christ: the Trilemma' (p. 109) read for trilemma. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): the entry on p. 109 quoted in full in trilemma.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Colloquia Peripatetica, notes by William Knight (Edinburgh, 1871)",
+      "basis": "Title page of the held scan: Edinburgh, Edmonston and Douglas, 1871. Duncan d. 1870; Knight d. 1916: public domain in the US (published before 1931) and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "80ad1d29c5e21bd3780e0b2a558a1e156cb99185aac665c270c38119444ae236",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

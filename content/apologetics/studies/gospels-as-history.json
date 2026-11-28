@@ -1,0 +1,771 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "gospels-as-history",
+  "order": 41,
+  "publication": "published",
+  "content": {
+    "title": "How historians weigh the Gospels",
+    "topic": "jesus",
+    "summary": "What kind of books the Gospels are, when and by whom they were written, how scholars test them, and what their differences show.",
+    "format": "essay",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Christians receive the four Gospels as Scripture; Southern Baptists confess that the Bible “has God for its author, salvation for its end, and truth, without any mixture of error, for its matter” (Baptist Faith and Message 2000, article I). This essay asks a different question, the one a historian asks of any ancient source: what kind of writing is it, how close does it stand to the events, and how can its reports be tested? The answers below separate what survives (texts, manuscripts, early testimony) from what scholars infer (dates, authors, sources), and say where the evidence stops. Every date given is a reconstruction, and the essay says so. The short version: the Gospels are ancient biographies, written within living memory of Jesus, resting on tradition that can be traced back further still; they differ in ways that ancient readers expected and that critics and believers weigh differently; and where they can be checked against outside sources, they hold up well.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 20:30-31"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
+        },
+        {
+          "kind": "source",
+          "source": "burridge-what-are-gospels",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "bauckham-eyewitnesses",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "genre",
+        "title": "Four lives. Ancient ones.",
+        "blocks": [
+          {
+            "id": "genre-bios",
+            "text": "Before asking whether the Gospels are reliable, a historian asks what they are. For much of the twentieth century, many scholars treated them as a unique kind of writing: community proclamation, not biography, with little interest in the past. In 1992 Richard Burridge compared them, feature by feature, with Greek and Roman lives (bioi) such as those by Plutarch and Suetonius: their length, their focus on one person, the space given to his death, their mix of sayings and deeds. He concluded that the Gospels belong to that genre, and most scholars now agree. An ancient life aimed to portray a real person truly, and to commend his example.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 1:1"
+              },
+              {
+                "kind": "source",
+                "source": "burridge-what-are-gospels",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "genre-luke",
+            "text": "Luke says so himself. His preface follows the form ancient historians used: many have written before him; the events were handed down by those who were eyewitnesses and servants of the word from the beginning; he has investigated everything carefully from the start; he writes an orderly account so that his reader may know the certainty of what he was taught. John, for his part, says he selected from many signs so that his readers might believe. Neither claims to tell everything, and both claim to tell the truth.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:1-4"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:30-31"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 21:24-25"
+              }
+            ]
+          },
+          {
+            "id": "genre-freedom",
+            "text": "Ancient lives worked by conventions that modern readers do not always expect. They arranged material by topic as well as by time, summarised speeches in the speaker's sense rather than verbatim, and chose what served their portrait. Matthew and Luke give the last two temptations of Jesus in a different order; John places the clearing of the Temple early in his Gospel, the others at the end. The Baptist Basil Manly, writing in 1888, observed that Matthew “is guided, not by a chronological, but by a topical principle in the order he adopts”, and that this is entirely compatible with inspiration.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 4:5-8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 4:5-9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 2:13-15"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 11:15"
+              },
+              {
+                "kind": "source",
+                "source": "manly-inspiration",
+                "locator": "‘Objections from Alleged Discrepancies or Mistakes’, p. 199"
+              }
+            ]
+          },
+          {
+            "id": "genre-shows",
+            "text": "What this shows. The Gospels are the kind of writing that intends to report a real life. That does not prove that every report is accurate, but it means the historian's questions are the right ones to ask, and that a difference of order or wording is not, by itself, an error.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:4"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Luke 1:1-4",
+            "note": "Luke's preface: eyewitnesses, careful investigation, an orderly account"
+          },
+          {
+            "reference": "John 20:30-31",
+            "note": "John selects his signs, and says why"
+          },
+          {
+            "reference": "John 21:24-25",
+            "note": "The disciple who testifies, and the many things not written"
+          }
+        ]
+      },
+      {
+        "id": "dates",
+        "title": "Written within a lifetime. Copied far beyond it.",
+        "blocks": [
+          {
+            "id": "dates-range",
+            "text": "No Gospel carries a date. Scholars infer one from internal clues and early use. Most critical scholars place Mark about 65–75, Matthew and Luke about 80–90, and John about 90–100. Many conservative scholars date them earlier: Acts, the second volume of Luke's work, ends with Paul under house arrest in Rome, still alive, about AD 62, which suggests to them that Luke and Mark were written before then. On either reckoning, all four were written within the lifetimes of people who had known Jesus.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 28:30-31"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 1:1-2"
+              },
+              {
+                "kind": "source",
+                "source": "meier-marginal-jew",
+                "locator": "chapter 2"
+              }
+            ]
+          },
+          {
+            "id": "dates-earlier",
+            "text": "Paul's letters, written in the 50s, are earlier still, and they show the tradition already formed. Paul passes on the words of Jesus at the Last Supper in almost the same form as Luke. He quotes a ruling of “the Lord” on divorce. He recites a formula about Jesus' death, burial, resurrection and appearances which he says he had received, probably within a few years of the cross. The Gospels did not create the story; they wrote down a story already being told and taught.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 11:23-25"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 22:19-20"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 7:10"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:3-7"
+              }
+            ]
+          },
+          {
+            "id": "dates-compare",
+            "text": "For comparison: the earliest surviving lives of Alexander the Great, by Plutarch and Arrian, were written about four hundred years after his death, and historians still use them. The Gospels stand within forty to seventy years of Jesus by the critical dating, and their sources nearer still.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:2"
+              }
+            ]
+          },
+          {
+            "id": "dates-copies",
+            "text": "Then the copies. The earliest surviving fragment of John is usually dated to the second century; papyri containing large parts of Luke and John survive from about 200; complete New Testaments, such as Codex Sinaiticus, from the fourth century. Thousands of Greek manuscripts follow. That tells us the text has been well preserved, which is a different question from whether its reports are true; the site's study of the manuscripts sets out what survives.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 40:8"
+              },
+              {
+                "kind": "source",
+                "source": "sinaiticus",
+                "locator": "whole page"
+              }
+            ]
+          },
+          {
+            "id": "dates-others",
+            "text": "Other gospels. Later ones. Other books called gospels survive: the Gospel of Thomas, a collection of 114 sayings known complete only in a Coptic copy found at Nag Hammadi in 1945; the Gospel of Peter; the Gospel of Mary; and others. Most scholars date them to the second century or later, and most think Thomas knew the Synoptic Gospels, though the Jesus Seminar and some others argue that parts of it are early. By about 180 Irenaeus could say that “it is not possible that the Gospels can be either more or fewer in number than they are”, and that even the groups he opposed each argued from one of the four. The four were the church's Gospels long before any council listed them; the site's article on the canon tells that story.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:1"
+              },
+              {
+                "kind": "source",
+                "source": "irenaeus-against-heresies",
+                "locator": "3.11.7–8"
+              },
+              {
+                "kind": "source",
+                "source": "funk-five-gospels",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "kruger-canon",
+                "locator": "whole page"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "1 Corinthians 15:3-7",
+            "note": "The tradition Paul received and passed on"
+          },
+          {
+            "reference": "1 Corinthians 11:23-25",
+            "note": "The Last Supper, in Paul, in the 50s"
+          },
+          {
+            "reference": "Acts 28:30-31",
+            "note": "Where Acts ends: Paul alive, in Rome"
+          }
+        ]
+      },
+      {
+        "id": "authors",
+        "title": "No signatures. Early names.",
+        "blocks": [
+          {
+            "id": "authors-anonymous",
+            "text": "None of the four Gospels names its author in the text. The names come from their titles (“according to Mark”) and from early church writers. Critics such as Bart Ehrman argue that the titles were added later, and that the Gospels were written by educated, Greek-speaking Christians who were not eyewitnesses, decades after the events. Others, such as Richard Bauckham, reply that the titles appear consistently wherever the manuscripts survive, that no rival names are known for any of the four, and that two of the names, Mark and Luke, are not apostles, which is not what an invented attribution would choose.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "ehrman-jesus-before-gospels",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "bauckham-eyewitnesses",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "authors-papias",
+            "text": "The earliest testimony is from Papias, bishop of Hierapolis, writing about 110–130 (the date is debated), as preserved by Eusebius. Papias said he preferred to ask those who had followed the elders what Andrew, Peter, Philip, Thomas, James, John or Matthew had said, because he valued “the living and abiding voice”. He passed on what an elder had told him: “Mark, having become the interpreter of Peter, wrote down accurately, though not in order, whatsoever he remembered of the things said or done by Christ.” Of Matthew he said that he “wrote the oracles in the Hebrew language, and every one interpreted them as he was able.”",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "eusebius-church-history",
+                "locator": "3.39.3–4, 3.39.15–16"
+              }
+            ]
+          },
+          {
+            "id": "authors-irenaeus",
+            "text": "About 180, Irenaeus of Lyons names all four: Matthew “issued a written Gospel among the Hebrews in their own dialect”, Mark handed down what Peter preached, Luke recorded the gospel Paul preached, and John, the disciple who leaned on the Lord's breast, published his at Ephesus. Irenaeus had heard Polycarp, who had known John, so his chain runs back a generation further.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 13:23"
+              },
+              {
+                "kind": "source",
+                "source": "irenaeus-against-heresies",
+                "locator": "3.1.1"
+              }
+            ]
+          },
+          {
+            "id": "authors-luke",
+            "text": "One author can be traced a little further from inside the texts. Acts, which is addressed to the same Theophilus as Luke's Gospel and calls that Gospel its “first book”, slips at several points from “they” into “we”: when Paul crosses to Macedonia, when he sails from Philippi, and on the voyage to Rome. The simplest reading is that the author travelled with Paul at those times. Paul's letters name Luke as one such companion, “the beloved physician”, and “only Luke is with me”. Critics reply that the “we” may be a literary device; the second-century tradition took it at face value.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 1:1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 16:10"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 20:5-6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 27:1"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Colossians 4:14"
+              },
+              {
+                "kind": "scripture",
+                "reference": "2 Timothy 4:11"
+              },
+              {
+                "kind": "source",
+                "source": "irenaeus-against-heresies",
+                "locator": "3.1.1"
+              }
+            ]
+          },
+          {
+            "id": "authors-weighed",
+            "text": "How to weigh it. The traditional authors are a reasonable inference from second-century testimony, not something the texts themselves state, and scholars still dispute them, especially for Matthew and John. Papias's remark about Matthew is puzzling, since our Matthew reads as a Greek work. What survives is a consistent early tradition, from people one or two steps from the apostles, linking each Gospel to an eyewitness or an eyewitness's companion.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 21:24"
+              },
+              {
+                "kind": "source",
+                "source": "eusebius-church-history",
+                "locator": "3.39.15–16"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "John 21:24",
+            "note": "This is the disciple who testifies"
+          },
+          {
+            "reference": "John 13:23",
+            "note": "The disciple whom Jesus loved"
+          },
+          {
+            "reference": "Mark 15:21",
+            "note": "Simon of Cyrene, “the father of Alexander and Rufus”: names the first readers knew"
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "title": "Rules for testing. Then memory.",
+        "blocks": [
+          {
+            "id": "testing-criteria",
+            "text": "From the 1950s, scholars developed “criteria of authenticity” to sort what Jesus said and did from what the church added. Multiple attestation: a saying or event found in independent sources is more likely early. Embarrassment: something awkward for the church, such as Jesus' baptism by John or his saying that not even the Son knows the day, is unlikely to have been invented. Dissimilarity: a saying that fits neither Judaism nor the later church is likely Jesus' own. Results varied widely. The Jesus Seminar used the criteria to judge most sayings inauthentic; E. P. Sanders, starting from Jesus' deeds, found much more secure ground.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 1:9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 13:32"
+              },
+              {
+                "kind": "source",
+                "source": "meier-marginal-jew",
+                "locator": "chapter 6"
+              },
+              {
+                "kind": "source",
+                "source": "sanders-jesus-judaism",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "funk-five-gospels",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "testing-critique",
+            "text": "In 2012 a collection of essays edited by Chris Keith and Anthony Le Donne argued that the criteria cannot do what they promised. Dissimilarity, in particular, cuts Jesus off from his own Jewish world and from his followers, and so rules out by method a Jesus who taught what his disciples then taught. Dale Allison argued that memory works by keeping the overall impression, the “gist”, more reliably than exact words, and that the gist the Gospels give is consistent: a prophet of the kingdom, a healer and exorcist, a teacher who spoke with unusual authority, who expected to suffer.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 1:21-22"
+              },
+              {
+                "kind": "source",
+                "source": "keith-le-donne-criteria",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "allison-constructing-jesus",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "testing-memory",
+            "text": "Memory research cuts both ways. Ehrman uses it to show how stories change in retelling, and some details surely shifted. On the other side, Jesus taught in forms built to be remembered (short sayings, parallel lines, vivid parables), to disciples who were by vocation his students, and the early church had recognised witnesses: the Twelve were chosen as those who had been with Jesus from John's baptism onward. Bauckham argues that the names attached to minor characters, such as Simon of Cyrene's sons, point to people the first readers could still ask.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 1:21-22"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 15:21"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 14:26"
+              },
+              {
+                "kind": "source",
+                "source": "ehrman-jesus-before-gospels",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "bauckham-eyewitnesses",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Mark 1:9-11",
+            "note": "Jesus baptised by John: a detail the church had to explain"
+          },
+          {
+            "reference": "Acts 1:21-22",
+            "note": "The qualifications of a witness"
+          },
+          {
+            "reference": "Mark 4:1-9",
+            "note": "A parable shaped to be remembered"
+          }
+        ]
+      },
+      {
+        "id": "differences",
+        "title": "Four accounts. Not one script.",
+        "blocks": [
+          {
+            "id": "differences-synoptic",
+            "text": "Matthew, Mark and Luke share much of their wording and order, which is why they are called the Synoptic Gospels (“seen together”). Most scholars think Mark was written first and used by the other two, who also shared a collection of sayings; a minority hold other solutions. John goes his own way. This is how a historian can compare them: where they agree, it may be because one used another, so agreement is not always independent; where they differ, we can see how each writer handled his material.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:1-3"
+              },
+              {
+                "kind": "source",
+                "source": "schweitzer-quest",
+                "locator": "ch. X, pp. 121–126"
+              }
+            ]
+          },
+          {
+            "id": "differences-kinds",
+            "text": "Many differences are of the kind any two witnesses produce. Matthew has two demon-possessed men at the tombs, Mark one; Matthew one angel at the empty tomb, Luke two men in radiant clothes. Manly put it plainly: “If there were two, there was one. Where is the contradiction?” Some differences reflect each writer's purpose and readers. And some are harder. Luke dates Jesus' birth to a census under Quirinius, whom other records place as governor of Syria about AD 6, ten years after Herod's death; John appears to place the crucifixion on the day the Passover lambs were sacrificed, while the other Gospels make the Last Supper a Passover meal. Scholars, believing and sceptical, have proposed solutions to both, and none has won general agreement.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 8:28"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 5:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:4"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 2:1-2"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 14:12"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 18:28"
+              },
+              {
+                "kind": "source",
+                "source": "manly-inspiration",
+                "locator": "‘Objections from Alleged Discrepancies or Mistakes’, pp. 196–199"
+              }
+            ]
+          },
+          {
+            "id": "differences-weighed",
+            "text": "Critics take the differences as evidence that the Gospels are unreliable in detail. Christians who hold that Scripture is without error, as Southern Baptists do, answer that the Gospels must be judged by the standards of truth-telling they set themselves: ancient writers could summarise, compress, arrange by topic and report a speech's sense without error, and a difficulty not yet explained is not a demonstrated mistake. Historians of every view note one more thing: four accounts that agreed word for word would look like collusion. Independent witnesses who agree on the substance and differ on details are what courts and historians expect; the lawyer Simon Greenleaf, borrowing William Paley's phrase, called it “substantial truth under circumstantial variety”.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 17:17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalm 119:160"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article I"
+              },
+              {
+                "kind": "source",
+                "source": "sproul-inerrancy",
+                "locator": "whole page"
+              },
+              {
+                "kind": "source",
+                "source": "greenleaf-testimony",
+                "locator": "Preliminary Observations, §§18–19, pp. 37–38"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Matthew 8:28-34",
+            "note": "Two men at the tombs"
+          },
+          {
+            "reference": "Mark 5:1-20",
+            "note": "One man, the one who spoke"
+          },
+          {
+            "reference": "Luke 2:1-7",
+            "note": "The census under Quirinius"
+          }
+        ]
+      },
+      {
+        "id": "checks",
+        "title": "Outside sources. Same world.",
+        "blocks": [
+          {
+            "id": "checks-josephus",
+            "text": "Some Gospel reports can be checked against writers outside the church. Josephus, writing in the 90s, tells of “John, that was called the Baptist”, a good man who called the Jews to virtue, whom Herod Antipas put to death; he gives Herod's motive as fear of an uprising, where Mark adds Herodias's grudge, two accounts that can stand together. Josephus and Tacitus both name Pontius Pilate as governor, and Josephus names the high priest Caiaphas. Luke's dating of John's ministry by the fifteenth year of Tiberius, the governor, three local rulers and two high priests is the sort of detail an author does not give unless he expects it to stand up.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 6:17-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 3:1-2"
+              },
+              {
+                "kind": "source",
+                "source": "josephus-antiquities",
+                "locator": "18.5.2"
+              },
+              {
+                "kind": "source",
+                "source": "tacitus-annals",
+                "locator": "15.44"
+              }
+            ]
+          },
+          {
+            "id": "checks-ramsay",
+            "text": "Luke's second volume, Acts, has been tested more than any other. William Ramsay, an archaeologist of Asia Minor, began believing, as the Tübingen school taught, that Acts was a second-century composition. Working on the region's geography and inscriptions, he found that “in various details the narrative showed marvellous truth”, and he came to rank its author “among the historians of the first rank”. Bauckham adds a test from names: the personal names in the Gospels match, in their relative frequency, the names found in Jewish Palestine of the period, not those of the Jewish communities abroad where, critics suppose, the stories were later composed.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 13:7"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 17:6"
+              },
+              {
+                "kind": "source",
+                "source": "ramsay-st-paul",
+                "locator": "chapter I, §1"
+              },
+              {
+                "kind": "source",
+                "source": "bauckham-eyewitnesses",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "checks-stops",
+            "text": "Where this kind of check stops. Outside sources can confirm that the Gospel writers knew the world they described: its rulers, places and customs. They cannot confirm the miracles or the resurrection; those depend on the witnesses, and on whether God acts. Correct setting is what a historian expects from writers close to the events, and does not prove every report true. It does make the theory that the Gospels were composed far away and long after much harder to hold.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 26:26"
+              },
+              {
+                "kind": "source",
+                "source": "meier-marginal-jew",
+                "locator": "chapter 1"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Luke 3:1-2",
+            "note": "John's ministry dated by seven rulers"
+          },
+          {
+            "reference": "Mark 6:14-29",
+            "note": "The death of John the Baptist"
+          },
+          {
+            "reference": "Acts 26:26",
+            "note": "“This was not done in a corner”"
+          }
+        ]
+      },
+      {
+        "id": "conclusion",
+        "title": "What the evidence says. What we infer.",
+        "blocks": [
+          {
+            "id": "conclusion-says",
+            "text": "What the evidence says. Four ancient lives of Jesus survive, written in Greek in the first century and preserved in an unusually rich manuscript record. Paul's letters, from the 50s, show the same story and some of the same words already being handed on. Second-century writers link each Gospel to an apostle or an apostle's companion. The Gospels agree on the shape of Jesus' life and differ in many details, some easily explained and some not. Where they touch the wider world, they fit it.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 15:3-7"
+              },
+              {
+                "kind": "source",
+                "source": "eusebius-church-history",
+                "locator": "3.39.15–16"
+              },
+              {
+                "kind": "source",
+                "source": "irenaeus-against-heresies",
+                "locator": "3.1.1"
+              }
+            ]
+          },
+          {
+            "id": "conclusion-infer",
+            "text": "What this essay infers. The Gospels give a historian substantial and early access to Jesus: they are not late legends, and the sceptical scholarship of past generations has repeatedly had to retreat on dating, genre and setting. Historians still disagree, and will, about how much of the detail is exact. A Christian reader, who also has reasons beyond history for trusting these books, can say that history gives no grounds to think them invented and many to think them early and careful.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Luke 1:3-4"
+              },
+              {
+                "kind": "source",
+                "source": "bauckham-eyewitnesses",
+                "locator": "whole work"
+              },
+              {
+                "kind": "source",
+                "source": "allison-constructing-jesus",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Luke 1:1-4",
+            "note": "Certainty about what you were taught"
+          },
+          {
+            "reference": "1 John 1:1-3",
+            "note": "What we have heard, seen and touched"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. History can show that the Gospels are early, that they intend to report a real life, and that they hold up where they can be tested. It cannot show that they are inspired, or that their miracles happened; it can only weigh the witnesses. Christians believe the Gospels are God's word because Christ himself received the Scriptures as God's and sent his apostles as witnesses, and because the Spirit bears witness through them. The historian's question remains for every reader: what survives, and what am I inferring?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 14:26"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 15:26-27"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 3:16"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article I"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Luke 1:1-4",
+        "note": "Luke's own account of his method"
+      },
+      {
+        "reference": "John 20:30-31",
+        "note": "Why John wrote"
+      },
+      {
+        "reference": "1 Corinthians 15:1-8",
+        "note": "The tradition before the Gospels"
+      }
+    ],
+    "related": [
+      "quests-timeline",
+      "jesus-outside-nt",
+      "manuscripts",
+      "canon",
+      "mythicism",
+      "resurrection-case"
+    ],
+    "keywords": [
+      "Gospels",
+      "historical reliability",
+      "genre",
+      "bios",
+      "Papias",
+      "Irenaeus",
+      "dating",
+      "Synoptic problem",
+      "criteria of authenticity",
+      "memory",
+      "eyewitnesses",
+      "Ramsay"
+    ],
+    "debates": [
+      "craig-ehrman"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "7b2833f8ec03289d952ff44a57b67680ff83146309f4aa926fa0ebacc06e0993",
+      "basisHash": "d2489749253e142e0c2a0c844bce8fd73779b9d5a5b18085e9de5e8d99355629"
+    }
+  ]
+}

@@ -2489,3 +2489,62 @@ resurrection": his own Introduction (pp. v-ix) says he began by examining the ch
 one another. The held Boyce scan is the 1882 printing for his students, not the 1887 edition the record's title
 names; the `read` field says so and the title waits for a job that re-reviews its citing studies. The held Dagg file
 is volume 2, the *Treatise on Church Order*, not the theology volume; no step-6 article cites it.
+
+## Apologetics fields: Jesus & resurrection — registered 27 November 2026 (nothing released)
+
+Step 7 of [Plans/APOLOGETICS-FIELDS.md](../Plans/APOLOGETICS-FIELDS.md) (sequence 60) finished the Jesus & resurrection
+list: four articles deepened (`cross`, `jesus`, `miracles`, `resurrection`) and eight written (`crucifixion-history`,
+`virgin-birth`, `mythicism`, `messianic-prophecy`, `trilemma`, `quests-timeline`, `gospels-as-history`,
+`jesus-claims`). They cite 27 new source records, below. Every existing source they quote now says in its `read` field
+what was read for step 7.
+
+**Quotations.** Short quotations only, each from a held public-domain text: Duncan's trilemma sentence (1871, p. 109,
+quoted whole); Schweitzer (1910 translation, pp. 4, 78, 369, 401); Mullins (1905); Papias as Eusebius preserves him
+(NPNF, 1890); Irenaeus, Justin and Ignatius (ANF vol. 1, 1885; `justin-dialogue-trypho` and `ignatius-letters` now
+carry a `publicDomain` record); Manly (1888); Greenleaf (1846), quoting Paley; Ramsay (1895); Josephus (Whiston);
+Pliny (Melmoth); the Nicene Creed and the Definition of Chalcedon from the site's creeds collection. C. S. Lewis is in
+copyright in the US: `trilemma` and `jesus-claims` describe his argument and never quote it. The Jewish readings in
+`messianic-prophecy` are stated from Troki and from the Driver and Neubauer translations, described in our own words.
+
+**In copyright, cite only, not held** (role "Scholarship · described, not quoted", `checked: none`; described in our
+own words, never quoted, no page numbers invented; each address is an Open Library search, not a copy):
+
+| Record | Work | Planned use |
+|---|---|---|
+| `ehrman-did-jesus-exist` | Bart D. Ehrman, *Did Jesus Exist?* (HarperOne, 2012) | the reply to mythicism (`mythicism`, `crucifixion-history`, `quests-timeline`, `resurrection`) |
+| `carrier-historicity` | Richard Carrier, *On the Historicity of Jesus* (Sheffield Phoenix, 2014) | the mythicist case in its own terms (same articles) |
+| `casey-mythicist-myths` | Maurice Casey, *Jesus: Evidence and Argument or Mythicist Myths?* (Bloomsbury T&T Clark, 2014) | a non-Christian scholar's reply to mythicism (`mythicism`, `crucifixion-history`, `quests-timeline`) |
+| `bauckham-eyewitnesses` | Richard Bauckham, *Jesus and the Eyewitnesses* (Eerdmans, 2006; 2nd edn 2017) | Papias, names and testimony (`gospels-as-history`, `quests-timeline`) |
+| `burridge-what-are-gospels` | Richard A. Burridge, *What Are the Gospels?* (CUP, 1992; 2nd edn Eerdmans, 2004) | the Gospels as ancient lives (`gospels-as-history`) |
+| `keith-le-donne-criteria` | Chris Keith and Anthony Le Donne, eds, *Jesus, Criteria, and the Demise of Authenticity* (T&T Clark, 2012) | the critique of the criteria (`gospels-as-history`, `quests-timeline`) |
+| `allison-constructing-jesus` | Dale C. Allison Jr., *Constructing Jesus* (Baker Academic, 2010) | memory and the "gist" (`gospels-as-history`, `quests-timeline`) |
+| `ehrman-jesus-before-gospels` | Bart D. Ehrman, *Jesus Before the Gospels* (HarperOne, 2016) | memory and distortion (`gospels-as-history`, `quests-timeline`) |
+| `hurtado-lord-jesus-christ` | Larry W. Hurtado, *Lord Jesus Christ* (Eerdmans, 2003) | early devotion to Jesus (`jesus`, `jesus-claims`, `trilemma`) |
+| `bauckham-god-of-israel` | Richard Bauckham, *Jesus and the God of Israel* (Eerdmans, 2008) | Jesus within the identity of Israel's God (`jesus`, `jesus-claims`, `trilemma`) |
+| `lewis-mere-christianity` | C. S. Lewis, *Mere Christianity* (Geoffrey Bles, 1952), book 2, chapter 3 | the trilemma, described (`jesus`, `jesus-claims`, `trilemma`) |
+| `machen-virgin-birth` | J. Gresham Machen, *The Virgin Birth of Christ* (Harper, 1930); US public domain from 1 January 2026, but no copy held | the classic defence (`virgin-birth`) |
+| `brown-birth-messiah` | Raymond E. Brown, *The Birth of the Messiah* (Doubleday, 1977; updated 1993) | the infancy narratives (`virgin-birth`) |
+| `brown-jewish-objections` | Michael L. Brown, *Answering Jewish Objections to Jesus*, vol. 3 (Baker, 2003) | replies on Isaiah 7 and 53, Psalm 22, Daniel 9, Micah 5 (`messianic-prophecy`, `virgin-birth`) |
+| `hengel-crucifixion` | Martin Hengel, *Crucifixion in the Ancient World* (SCM/Fortress, 1977) | Roman crucifixion and its shame (`cross`, `crucifixion-history`) |
+| `sanders-jesus-judaism` | E. P. Sanders, *Jesus and Judaism* (SCM/Fortress, 1985) | the secure facts; the third quest (`gospels-as-history`, `quests-timeline`, `trilemma`) |
+| `bultmann-jesus-word` | Rudolf Bultmann, *Jesus and the Word* (1926; English 1934) | the "no quest" period (`quests-timeline`) |
+| `robinson-new-quest` | James M. Robinson, *A New Quest of the Historical Jesus* (SCM, 1959) | the new quest (`quests-timeline`) |
+| `neill-wright-interpretation` | Stephen Neill and N. T. Wright, *The Interpretation of the New Testament 1861–1986* (OUP, 1988) | the history of the quests; "third quest" (`quests-timeline`) |
+| `funk-five-gospels` | Robert W. Funk, Roy W. Hoover and the Jesus Seminar, *The Five Gospels* (Macmillan, 1993) | the Jesus Seminar (`gospels-as-history`, `quests-timeline`) |
+| `wright-jesus-victory` | N. T. Wright, *Jesus and the Victory of God* (SPCK/Fortress, 1996) | the third quest (`quests-timeline`) |
+
+**Public domain, held in the corpus or on the site** (`checked: corpus`):
+
+| Record | Work | Held as | Planned use |
+|---|---|---|---|
+| `ignatius-letters` | Ignatius of Antioch, *Letters*, ANF vol. 1 (1885), tr. Roberts and Donaldson | CCEL export `sources/library/source-patristic-ccel/anf01.txt` | the virgin birth; "our God, Jesus Christ" (`virgin-birth`, `jesus-claims`) |
+| `justin-dialogue-trypho` | Justin Martyr, *Dialogue with Trypho*, ANF vol. 1 (1885), tr. Dods and Reith | the same file | Trypho's readings of Isaiah 7; "a magician, and a deceiver of the people" (`virgin-birth`, `messianic-prophecy`, `trilemma`) |
+| `chalcedon-definition-451` | The Definition of Chalcedon (451), traditional English text | the site's creeds collection, `/study/creeds/chalcedonian-definition-451` | "truly God and truly man" (`jesus`, `jesus-claims`, `trilemma`) |
+
+**Downloaded 27 November 2026** into `sources/` and re-fetched by `scripts/fetch-sources.py`:
+
+| File | What | Licence | SHA-256 |
+|---|---|---|---|
+| [troki-faith-strengthened](sources/archive-org/troki-faith-strengthened-mocatta-1851.txt) | Isaac of Troki, *Faith Strengthened* (*Chizzuk Emunah*), tr. Moses Mocatta (London, 1851), OCR text, item `faithstrengthene00trok` · part 1, chapters 1, 21, 22, 33 and 42: the Jewish readings of Isaiah 7 and 53, Micah 5 and Daniel 9 (`messianic-prophecy`, `virgin-birth`, `jesus`) | Public domain (1851; Troki d. 1594, Mocatta d. 1857) | ea7bef4e2b4a1cf9 |
+| [driver-neubauer-isaiah-53](sources/archive-org/driver-neubauer-isaiah-53-jewish-interpreters-v2-1877.txt) | S. R. Driver and A. Neubauer, trs, *The Fifty-Third Chapter of Isaiah according to the Jewish Interpreters*, vol. 2 (Oxford, 1877), OCR text, item `fiftythirdchapte02neub` · the Targum (pp. 5–6) and Rashi (pp. 37–40) (`messianic-prophecy`) | Public domain (1877; Driver d. 1914, Neubauer d. 1907) | bd28ea3d318e12ec |
+| [duncan-colloquia](sources/archive-org/duncan-colloquia-peripatetica-knight-1871.txt) | John Duncan, *Colloquia Peripatetica*, notes by William Knight (Edinburgh, 1871), OCR text, item `colloquiaperipat00dunciala` · "Christ: the Trilemma", p. 109 (`trilemma`, `jesus`) | Public domain (1871; Duncan d. 1870, Knight d. 1916) | 4de5ee20f2f0cd87 |

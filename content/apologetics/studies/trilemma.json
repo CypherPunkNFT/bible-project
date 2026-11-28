@@ -1,0 +1,519 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "trilemma",
+  "order": 39,
+  "publication": "published",
+  "content": {
+    "title": "Lord, liar, lunatic, or legend?",
+    "topic": "jesus",
+    "summary": "The argument that Jesus' claims leave only a few options, the other answers people give, and what the argument can and cannot show.",
+    "format": "debate-guide",
+    "answer": {
+      "id": "answer",
+      "text": "The argument runs like this. Jesus spoke and acted as no ordinary teacher does: he forgave sins against others, set his own word beside the law of Moses, and accepted the charge of claiming to be God. If he made those claims, he was either deliberately deceiving people, or sincerely deluded, or telling the truth. The Scottish Hebrew scholar John Duncan put it in a sentence about eighty years before it became famous: “Christ either deceived mankind by conscious fraud, or he was himself deluded and self-deceived, or he was Divine. There is no getting out of this trilemma. It is inexorable.” The Baptist E. Y. Mullins made a similar case in 1905, asking what impostor could have sustained such a role, or what writer could have invented it. C. S. Lewis gave the argument its best-known form in his wartime broadcasts, published as Mere Christianity in 1952: the one thing we cannot say, he argued, is that Jesus was a great moral teacher but not God, because a mere man who said such things would be no great teacher. Critics answer that the options are not complete: the claims might be legend, added later. So the argument is now often called a quadrilemma. The site's own view is that of the Baptist Faith and Message 2000: Jesus is “fully God, fully man”. The other answers are set out below at their strongest, with the replies.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 2:5-7"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Mark 14:61-64"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 10:33"
+        },
+        {
+          "kind": "source",
+          "source": "duncan-colloquia",
+          "locator": "‘Christ: the Trilemma’, p. 109"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VIII, §121, pp. 117–118"
+        },
+        {
+          "kind": "source",
+          "source": "lewis-mere-christianity",
+          "locator": "Book 2, chapter 3"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
+          "source": "chalcedon-definition-451",
+          "locator": "whole text"
+        }
+      ]
+    },
+    "views": [
+      {
+        "id": "deceiver",
+        "label": "He knowingly deceived people",
+        "heldBy": [
+          "his opponents in Jerusalem, as the Gospels report them",
+          "Jewish opponents in Justin Martyr's day (Dialogue with Trypho 69, c. 155)",
+          "Celsus, the pagan critic (c. 175, preserved in Origen's Against Celsus)"
+        ],
+        "texts": [
+          {
+            "reference": "Matthew 27:63",
+            "note": "The chief priests call him “that deceiver”"
+          },
+          {
+            "reference": "John 7:12",
+            "note": "Some said he was a good man; others, that he deceived the people"
+          },
+          {
+            "reference": "Mark 3:22",
+            "note": "The scribes say he drives out demons by the prince of demons"
+          }
+        ],
+        "case": {
+          "id": "deceiver-case",
+          "text": "Some who watched Jesus concluded that he was a fraud. The chief priests called him “that deceiver” to Pilate; in the crowds, some said he led the people astray. Justin Martyr, about 155, reports that people who saw his works called them magic and called him “a magician, and a deceiver of the people”. Celsus, about 175, worked this into a life story: Jesus, born in poverty, hired himself out in Egypt, learned there the powers on which the Egyptians prided themselves, and came home to proclaim himself a god on the strength of them. On this view the wonders were tricks and the claims a bid for a following.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "justin-dialogue-trypho",
+              "locator": "chapter 69"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "1.28"
+            },
+            {
+              "kind": "source",
+              "source": "duncan-colloquia",
+              "locator": "‘Christ: the Trilemma’, p. 109"
+            }
+          ]
+        },
+        "reply": {
+          "id": "deceiver-reply",
+          "text": "A deceiver deceives for something: money, power, safety, a following. Jesus gained none of these; his claims led him to a cross, and he went to it predicting it. His teaching sets truthfulness and inner purity above outward show more searchingly than any moral teacher's, and his enemies, who watched him closely, found no charge that stuck except the claim itself. Mullins asked what consummate actor or impostor ever came near sustaining such a role in real life, without one false note, to the end. And the charge of magic is a concession: it admits that something out of the ordinary was happening.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 8:31"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 5:8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 8:46"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 14:55-56"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VIII, §121, p. 117"
+            }
+          ]
+        }
+      },
+      {
+        "id": "deluded",
+        "label": "He was sincere but deluded",
+        "heldBy": [
+          "some in his own family and his hearers, as the Gospels report",
+          "writers whom Mullins answered in 1905, who, unwilling to call him a fraud, thought him “insane or under a delusion as to some of his claims”",
+          "Albert Schweitzer (The Quest of the Historical Jesus, 1906), in a gentler form: a great man mistaken about the end of the world"
+        ],
+        "texts": [
+          {
+            "reference": "Mark 3:21",
+            "note": "His family set out to take custody of him: “He is out of His mind”"
+          },
+          {
+            "reference": "John 10:20",
+            "note": "Many said he was demon-possessed and insane"
+          },
+          {
+            "reference": "Mark 9:1",
+            "note": "Some standing here will not taste death before the kingdom comes with power"
+          }
+        ],
+        "case": {
+          "id": "deluded-case",
+          "text": "His own family once went to take charge of him, saying he was out of his mind, and some of his hearers said the same. Writers in the nineteenth and early twentieth centuries, unable to believe he was a fraud, proposed that he was sincerely mistaken about himself. Schweitzer's version is the most serious. He argued that Jesus expected the world to end in his own generation and went to his death to force its coming: “the mangled body of the one immeasurably great Man, who was strong enough to think of Himself as the spiritual ruler of mankind and to bend history to His purpose, is hanging upon it still.” On this view Jesus was great, sincere and wrong.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. IX, §136, p. 134"
+            },
+            {
+              "kind": "source",
+              "source": "schweitzer-quest",
+              "locator": "ch. XIX, pp. 368–369"
+            },
+            {
+              "kind": "source",
+              "source": "duncan-colloquia",
+              "locator": "‘Christ: the Trilemma’, p. 109"
+            }
+          ]
+        },
+        "reply": {
+          "id": "deluded-reply",
+          "text": "Delusion of that size usually shows itself in the rest of a life: in a loss of balance, of judgment, of care for others. The Jesus of the Gospels is marked by the opposite: clear sight into people, humour, patience with the slow, tenderness to the outcast, calm under hostile questioning; he called himself “gentle and humble in heart”. His family's verdict came early, and his brother James later became a leader of the church that worshipped him. As to the end of the world, Jesus also said that no one knows the day or hour, not even the Son, and Christian interpreters read the sayings Schweitzer relied on in more than one way, some of them of the transfiguration, the resurrection or the fall of Jerusalem. Mullins noted that the theories contradict each other: some make Jesus morally compromised, others deluded, others the product of later legend, because none accounts for all the facts.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Matthew 11:29"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 13:32"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:7"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:19"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. IX, §136, p. 134"
+            }
+          ]
+        }
+      },
+      {
+        "id": "legend",
+        "label": "The claims are legend: he never made them",
+        "heldBy": [
+          "D. F. Strauss (The Life of Jesus, Critically Examined, 1835; English 1846)",
+          "Bart D. Ehrman (How Jesus Became God, 2014)"
+        ],
+        "texts": [
+          {
+            "reference": "John 8:58",
+            "note": "“Before Abraham was born, I am!”: the strongest claims are mostly in John"
+          },
+          {
+            "reference": "Mark 10:18",
+            "note": "“Why do you call Me good? No one is good except God alone”"
+          },
+          {
+            "reference": "Mark 13:32",
+            "note": "“Not even the Son” knows the day"
+          }
+        ],
+        "case": {
+          "id": "legend-case",
+          "text": "This is the reply most scholars would give today. Strauss argued that the Gospel stories, including their picture of Jesus as more than a man, grew up as myth in the decades after his death: not fraud, but the church's faith clothed in story, shaped by what Jews expected the Messiah to be. He believed a real Jewish teacher lay behind them. Ehrman, an agnostic historian, argues that Jesus proclaimed God's coming kingdom, not himself; that the plain claims to divinity are found mainly in John, the latest Gospel; and that belief in his divinity grew after his followers came to believe he had been raised, first as exaltation to heaven and later as pre-existence. If the claims are legend, the trilemma never begins.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "strauss-life-of-jesus",
+              "locator": "Introduction, §14"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-how-jesus-became-god",
+              "locator": "whole work"
+            }
+          ]
+        },
+        "reply": {
+          "id": "legend-reply",
+          "text": "The claims are not only in John. In Mark, the earliest Gospel, Jesus forgives a man's sins and the scribes protest that only God can do that; he calls himself Lord of the Sabbath; and at his trial he answers the high priest “I am” and speaks of the Son of Man at God's right hand, and is condemned for blasphemy. In material shared by Matthew and Luke he says no one knows the Father except the Son. Nor did the belief take generations to grow: Paul, within about thirty years, quotes a hymn that speaks of Christ “existing in the form of God”, and, writing in the 50s, places “one Lord, Jesus Christ” inside Israel's confession of the one God. Larry Hurtado and Richard Bauckham argue that Jewish believers worshipped Jesus within the first two decades. Legend usually needs more time, and further from the eyewitnesses. Mullins asked what writer could have invented such a character out of his own imagination. Whether the Gospels record Jesus' words faithfully is argued in “How historians weigh the Gospels”, and his claims themselves in “What did Jesus claim about himself?”.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 2:5-10"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 2:28"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 14:61-64"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 11:27"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Philippians 2:6-11"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 8:6"
+            },
+            {
+              "kind": "source",
+              "source": "hurtado-lord-jesus-christ",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "bauckham-god-of-israel",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. VIII, §121, p. 118"
+            }
+          ]
+        }
+      },
+      {
+        "id": "teacher",
+        "label": "A great moral teacher, and no more",
+        "heldBy": [
+          "the view C. S. Lewis wrote against (Mere Christianity, Book 2, chapter 3)",
+          "John Stuart Mill, as Mullins reports him, who denied that Jesus ever claimed to be divine",
+          "many admirers of Jesus outside the churches"
+        ],
+        "texts": [
+          {
+            "reference": "Matthew 5:43-45",
+            "note": "Love your enemies"
+          },
+          {
+            "reference": "Matthew 7:12",
+            "note": "The golden rule"
+          },
+          {
+            "reference": "Luke 10:30-37",
+            "note": "The good Samaritan"
+          }
+        ],
+        "case": {
+          "id": "teacher-case",
+          "text": "Many people honour Jesus as one of the great moral teachers of humanity, alongside the Buddha, Confucius and Socrates. They admire the Sermon on the Mount, the parables and his care for the poor, and set aside the claims to divinity as later additions or as matters no one can know. This is the view Lewis set out to answer. Mill, Mullins reports, held that Jesus never claimed to be divine at all.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "lewis-mere-christianity",
+              "locator": "Book 2, chapter 3"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. IX, §136, p. 134"
+            }
+          ]
+        },
+        "reply": {
+          "id": "teacher-reply",
+          "text": "Lewis's point was that this is the one option Jesus did not leave open. His moral teaching is woven through with claims about himself: “But I tell you”, set against what Moses said; come to me and I will give you rest; whoever confesses me before men, I will confess before my Father; the Son of Man will judge the nations. A teacher who said these things and was wrong would not be a great moral teacher. Mark 10:18, sometimes quoted for this view, asks the man to consider what he is saying when he calls Jesus good; it is a question, not a denial. If the claims are removed as later additions, this view has become the legend view, and stands or falls with it.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Matthew 5:21-22"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 11:28-29"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 10:32-33"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 25:31-32"
+            },
+            {
+              "kind": "source",
+              "source": "lewis-mere-christianity",
+              "locator": "Book 2, chapter 3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "prophet",
+        "label": "A true prophet, whose message was later changed",
+        "heldBy": [
+          "Islam: the Qur'an, 4:171",
+          "Muslim writers generally"
+        ],
+        "texts": [
+          {
+            "reference": "Mark 12:29",
+            "note": "Jesus quotes the Shema: the Lord our God, the Lord is one"
+          },
+          {
+            "reference": "John 17:3",
+            "note": "“You, the only true God, and Jesus Christ, whom You have sent”"
+          },
+          {
+            "reference": "John 20:17",
+            "note": "“My God and your God”"
+          }
+        ],
+        "case": {
+          "id": "prophet-case",
+          "text": "Muslims honour Jesus as one of the greatest prophets, born of a virgin, the Messiah, a worker of miracles, and they speak of him with reverence. The Qur'an says that the Messiah, Jesus son of Mary, was a messenger of God, and warns Christians not to say “three”. On this view Jesus was neither liar nor lunatic nor legend: he truly was sent by God, and preached the one God, but his followers later made him into what he never claimed to be. Many Muslim writers hold that the Gospel given to him was altered or lost.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            }
+          ]
+        },
+        "reply": {
+          "id": "prophet-reply",
+          "text": "This view comes with deep respect for Jesus, and it agrees with Christians that he was sent by God and did wonders. But it was given about six hundred years after his life, and on what Jesus claimed it runs against every first- and second-century source. The texts in which he speaks of the one God are the same Gospels in which he forgives sins, accepts Thomas's “My Lord and my God”, and sends his followers to baptise in one name, of the Father, and of the Son, and of the Holy Spirit. Christians, too, confess one God. The site's articles on Islam and Jesus, and on the cross in Islam, answer this view at length and with respect.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 20:28"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 28:19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 2:5-7"
+            },
+            {
+              "kind": "source",
+              "source": "hurtado-lord-jesus-christ",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "common": {
+      "id": "common",
+      "text": "What historians across the spectrum agree on, as summarised in works such as E. P. Sanders's: Jesus was a Jewish teacher from Galilee, baptised by John, who called disciples and spoke of the kingdom of God; he was known, by friends and enemies alike, as a healer and exorcist; he spoke with an authority that startled his hearers; he caused a disturbance at the Temple; and he was crucified by the Romans under Pilate as a would-be king. Critics and Christians also agree that the argument is valid as far as it goes: if Jesus did make the claims, the options really are few. The disagreement is over whether he made them, and over which option the evidence supports.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 1:21-22"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 23:2"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Mark 15:26"
+        },
+        {
+          "kind": "source",
+          "source": "sanders-jesus-judaism",
+          "locator": "introduction"
+        },
+        {
+          "kind": "source",
+          "source": "meier-marginal-jew",
+          "locator": "chapter 1"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Where this comparison stops. The argument is only as strong as its premise, that Jesus made the claims the Gospels report; that premise is argued from the historical evidence elsewhere, not assumed. Christian thinkers themselves differ on how much weight the argument can bear on its own, and some prefer to build it on the resurrection. No argument can make anyone confess Jesus as Lord. The Gospels end the question where Thomas did, face to face with the risen Jesus.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 20:27-29"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 12:3"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Jesus asked his disciples what others were saying about him, and then: “But what about you? Who do you say I am?” Which answer here is closest to yours, and why?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 8:27-29"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Mark 2:1-12",
+        "note": "Forgiving sins, which only God can do"
+      },
+      {
+        "reference": "Mark 14:55-64",
+        "note": "The trial: “I am”, and the charge of blasphemy"
+      },
+      {
+        "reference": "John 10:22-39",
+        "note": "“I and the Father are one”"
+      },
+      {
+        "reference": "Mark 8:27-30",
+        "note": "“Who do you say I am?”"
+      }
+    ],
+    "related": [
+      "jesus-claims",
+      "gospels-as-history",
+      "jesus",
+      "islam-jesus",
+      "quests-timeline"
+    ],
+    "keywords": [
+      "trilemma",
+      "Lord liar lunatic",
+      "quadrilemma",
+      "C. S. Lewis",
+      "John Duncan",
+      "Mullins",
+      "Schweitzer",
+      "legend",
+      "divinity of Jesus",
+      "great moral teacher"
+    ],
+    "debates": [
+      "craig-ehrman",
+      "craig-ally-god"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "887345859298521c6826b818253b10d5193c7c35287454ec85f497551de8697c",
+      "basisHash": "abec0464ff6b7bd228bdb1810da107150e47fda974317c8a7ee817808c358215"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Basis changed: one or more cited sources had only their kind label shortened to an existing library label (Historical study, Commentary or Historical text). Checked that every citation of those sources still matches the work and that no sentence relies on the old label.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "887345859298521c6826b818253b10d5193c7c35287454ec85f497551de8697c",
+      "basisHash": "44633335ffe082023dceae6997b8e0652010f34c7df5fec3d2844d7686da714e"
+    }
+  ]
+}

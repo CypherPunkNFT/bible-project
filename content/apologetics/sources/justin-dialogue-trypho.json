@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "justin-dialogue-trypho",
+  "order": 340,
+  "publication": "published",
+  "content": {
+    "title": "Dialogue with Trypho",
+    "author": "Justin Martyr (d. c. 165) · Ante-Nicene Fathers vol. 1 (1885), tr. Marcus Dods and George Reith",
+    "kind": "Historical text",
+    "url": "https://ccel.org/ccel/schaff/anf01",
+    "role": "Historic Christian witness",
+    "note": "Justin's account, written about 155–160, of a debate with a Jew named Trypho over whether Jesus is the Christ of the Scriptures. It records the Jewish reading of Isaiah 7:14 as 'young woman', applied to Hezekiah (chapters 43, 67, 71). For the earliest recorded Jewish–Christian exchange on messianic prophecy. Public domain translation; the held copy is CCEL's electronic text.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-patristic-ccel/anf01.txt. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): chapters 43, 66, 67 and 71 read for virgin-birth and messianic-prophecy. Described, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): chapter 69 ('a magician, and a deceiver of the people') also read for trilemma; that phrase quoted.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Ante-Nicene Fathers, vol. 1, translated by Marcus Dods and George Reith (1885)",
+      "basis": "The held CCEL text of the 1885 American edition (Buffalo: Christian Literature, 1885): published before 1931, so public domain in the US; Dods d. 1909 (Reith's death year not confirmed, so worldwide status is unconfirmed)."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "327b1406708a6ec21630066c18e0f808cdc9ec0da9cf7f20195570304274a7ca",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the kind label changed, to one of the library's existing short labels (Historical study, Commentary or Historical text) so the source list stays within the translated label set; the label still describes the work truly. Title, author, address, role, note and quoted text unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "6339499532d6004e4009c085d18b75ae6dbb8a4893ff9ca72f6910ebd0a0d2ff",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

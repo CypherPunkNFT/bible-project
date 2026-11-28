@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "machen-virgin-birth",
+  "order": 326,
+  "publication": "published",
+  "content": {
+    "title": "The Virgin Birth of Christ",
+    "author": "J. Gresham Machen (New York: Harper & Brothers, 1930)",
+    "kind": "Historical study",
+    "url": "https://openlibrary.org/search?q=The+Virgin+Birth+of+Christ+Machen",
+    "role": "Scholarship · described, not quoted",
+    "note": "The classic Presbyterian defence of the virgin birth: the birth narratives' Palestinian character, the second-century witness and the alternative theories. Published 1930, so in the US public domain from 1 January 2026; Machen died in 1937. No copy is held (the Internet Archive copies are lending only), so it is described in our own words and cited by chapter or whole work, never quoted.",
+    "read": "Not held; described from general knowledge of its published argument; not read for this article. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): registered for the Jesus & resurrection field; the link is a library catalogue search, not a copy.",
+    "checked": "none"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "05595faa5cdc908fcb6984f1d321398ebb64380c66b0fc46001aa5ad2a315d3d",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the kind label changed, to one of the library's existing short labels (Historical study, Commentary or Historical text) so the source list stays within the translated label set; the label still describes the work truly. Title, author, address, role, note and quoted text unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "5468fffe354f6f87a17ef73f6a8fa7a5dba2aa8334252b4251f270ba1b49462d",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

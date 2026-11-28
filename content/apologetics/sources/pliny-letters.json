@@ -12,7 +12,7 @@
     "url": "https://www.gutenberg.org/ebooks/2811",
     "role": "Primary record · not a teaching authority",
     "note": "Book 10, letters 96 and 97, Pliny's report to Trajan on the Christians of Bithynia and their hymn to Christ 'as to a god'. For the early worship of Jesus as seen from outside. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #2811) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): The letter to Trajan on the Christians and Trajan's reply (headed XCVII and XCVIII in this edition; standard 10.96-97) read in the held file for jesus-outside-nt, and quoted as an extract with footnote markers left out.",
+    "read": "Downloaded 2026-11-27 to sources/gutenberg/ (Project Gutenberg #2811) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): The letter to Trajan on the Christians and Trajan's reply (headed XCVII and XCVIII in this edition; standard 10.96-97) read in the held file for jesus-outside-nt, and quoted as an extract with footnote markers left out. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 10.96 read again in the held Melmoth text for jesus-claims; one phrase quoted.",
     "checked": "corpus",
     "publicDomain": {
       "edition": "Letters of Pliny, translated by William Melmoth, revised by F. C. T. Bosanquet, Project Gutenberg eBook #2811",
@@ -36,6 +36,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "01d35b9409055c8b0dba9124d5aeb2d3dc0e60fa6d05daf7ad3b6f01b7909c41",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "cad0560a6d22710114e50e9fe2c0e47efedccb2bcea74f371d69f048f3dc366b",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

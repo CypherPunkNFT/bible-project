@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/abstractofsystem00boyc",
     "role": "Baptist exposition",
     "note": "The systematic theology of the founder of the first Southern Baptist seminary. For historic Baptist teaching on God, Scripture, providence, election and salvation, cited by chapter and section. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: the Internet Archive text sources/library/bulk/ia/abstractofsystem00boyc.txt (the 1887 edition). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Lecture XXVII, 'The Offices of Christ' (pp. 316-319, whole lecture), and Lecture XV pp. 158-159 read in the held scan (sources/library/bulk/ia/abstractofsystem00boyc.txt) for titles-of-jesus. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Lecture XXVIII 'The Atonement of Christ', pp. 320-345, read for penal-substitution-objections. The held scan is the 1882 Louisville printing, 'printed (not published) for the exclusive use of his pupils' (title page, copyright 1882), not the 1887 published edition the title names; locators are to the 1882 printing.",
+    "read": "Held in this project's corpus: the Internet Archive text sources/library/bulk/ia/abstractofsystem00boyc.txt (the 1887 edition). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Lecture XXVII, 'The Offices of Christ' (pp. 316-319, whole lecture), and Lecture XV pp. 158-159 read in the held scan (sources/library/bulk/ia/abstractofsystem00boyc.txt) for titles-of-jesus. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Lecture XXVIII 'The Atonement of Christ', pp. 320-345, read for penal-substitution-objections. The held scan is the 1882 Louisville printing, 'printed (not published) for the exclusive use of his pupils' (title page, copyright 1882), not the 1887 published edition the title names; locators are to the 1882 printing. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): Lecture XIV, pp. 140–143 ('This Son is God': worship refused by apostles and angels; judgment; forgiving sins) read in the held 1882 printing for jesus-claims. Described, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "d8f9947c4a4f785fbdd7d6dfde943862342b1b804e65984d8ff5262e83c7a2e1",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "c9bcaf9870798491d75edb128270221fa5a3992df6d046c38f68640de0b74480",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

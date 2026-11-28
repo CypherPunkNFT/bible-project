@@ -200,11 +200,13 @@ test("a published study of each format reaches the generated data and the Markdo
 
 test("the depth report counts each article against its target from part B of the plan", () => {
   const targets = loadTargets(PROJECT_ROOT), report = depthReport(documents, targets, "jesus");
-  // Today's four short answers sit below their targets; the field's other sixteen are counted as written or listed as planned.
+  // Step 7 finished the field: the four articles that existed are declared short answers with 2 to 5 objection pairs,
+  // and all twenty are written, none below its target.
   const today = report.rows.filter((r) => targets[r.id]?.existing);
   assert.deepEqual(today.map((r) => r.id).sort(), ["cross", "jesus", "miracles", "resurrection"]);
-  assert.ok(today.every((r) => r.status === "below" && r.format === "short-answer (today's)" && r.objections === 1), depthTable(report));
-  assert.equal(report.rows.length - today.length + report.planned.length, 16);
+  assert.ok(today.every((r) => r.format === "short-answer" && r.objections >= 2 && r.objections <= 5), depthTable(report));
+  assert.equal(report.rows.length, 20); assert.equal(report.planned.length, 0);
+  assert.ok(report.rows.every((r) => r.status !== "below"), depthTable(report));
   assert.ok([...report.rows, ...report.planned].some((p) => p.id === "resurrection-case" && p.format === "essay"));
   // 21 articles today and 95 planned, every one in a field with a format and a word range.
   assert.equal(Object.keys(targets).length, 116); assert.equal(Object.values(targets).filter((t) => t.existing).length, 21);

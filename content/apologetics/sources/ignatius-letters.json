@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "ignatius-letters",
+  "order": 339,
+  "publication": "published",
+  "content": {
+    "title": "The Epistles of Ignatius",
+    "author": "Ignatius of Antioch (d. c. 110) · Ante-Nicene Fathers vol. 1 (1885), tr. Alexander Roberts and James Donaldson",
+    "kind": "Historical text",
+    "url": "https://ccel.org/ccel/schaff/anf01",
+    "role": "Historic Christian witness",
+    "note": "Letters written on the way to martyrdom in Rome, early in the second century. To the Ephesians 18–19 and To the Smyrnaeans 1 name Mary's virginity and Jesus' birth among the church's settled confession. Public domain translation; the held copy is CCEL's electronic text, so a long extract would be checked against a scan of the printed volume first.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-patristic-ccel/anf01.txt. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): To the Ephesians 18–19 and To the Smyrnaeans 1 (the shorter recension) read for virgin-birth. Described, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): To the Ephesians 18 also cited by jesus-claims; 'our God, Jesus Christ' quoted.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Ante-Nicene Fathers, vol. 1, translated by Alexander Roberts and James Donaldson (1885)",
+      "basis": "The held CCEL text of the 1885 American edition (Buffalo: Christian Literature, 1885): published before 1931, so public domain in the US; Roberts d. 1901, Donaldson d. 1915."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "042a435c942481d6a3a760317f044df48e50cc7708bca0530fc52435c4b49b59",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the kind label changed, to one of the library's existing short labels (Historical study, Commentary or Historical text) so the source list stays within the translated label set; the label still describes the work truly. Title, author, address, role, note and quoted text unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "45b1c3751f687460b77de734e470ab1b7d4f2ea104287601fb9bb963cf280b7a",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

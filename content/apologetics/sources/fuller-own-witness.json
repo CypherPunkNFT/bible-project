@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/gospelitsownwitn00full",
     "role": "Baptist exposition",
     "note": "The English Baptist theologian's answer to the deism of Thomas Paine: the holiness and harmony of the gospel as evidence of its divine origin. For a Baptist reply to the Enlightenment's objections. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: the Internet Archive text sources/library/bulk/ia/gospelitsownwitn00full.txt, and the 1799 first edition beside it. Not yet read for any article.",
+    "read": "Held in this project's corpus: the Internet Archive text sources/library/bulk/ia/gospelitsownwitn00full.txt, and the 1799 first edition beside it. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): Part II, chapter I, pp. 125–132 (the prophecies of the Messiah) read in the held 1799 text for messianic-prophecy. Described, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "11f43e7c238d745024fc130092c5b6c38dfdb779df17b173c3c776e080116700",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "8ced59e0e5d6f6a38ccf41199aa634241b8dd2b71f14ebbe4a7f2e1344a895c3",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

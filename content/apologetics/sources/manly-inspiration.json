@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/bibledoctrineofi00manl",
     "role": "Baptist exposition",
     "note": "A founding professor of the first Southern Baptist seminary on the inspiration of Scripture, answering the objections of his day. For the historic Baptist doctrine of Scripture behind article I of the Baptist Faith and Message. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1888 New York edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1888 New York edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 'Objections from Alleged Discrepancies or Mistakes', pp. 195–200, read in the held 1888 edition for gospels-as-history; two sentences quoted (p. 198 and p. 199).",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "2bfd114efcb8878537b9482cf08fc0d4f72bc94d8f60b31d76ed5158cf239155",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "fc7de0555c4c9402efe959688e0500b7612cde23ac7b7f69da9bce2844a3fa14",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

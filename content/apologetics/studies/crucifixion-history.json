@@ -1,0 +1,398 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "crucifixion-history",
+  "order": 35,
+  "publication": "published",
+  "content": {
+    "title": "Was Jesus really crucified?",
+    "topic": "jesus",
+    "summary": "Few facts of ancient history are better attested, by friend and foe alike.",
+    "format": "short-answer",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "Yes. That Jesus of Nazareth was crucified in Jerusalem under Pontius Pilate, about AD 30 or 33, is accepted by almost every historian who works on the period, believing or not. It is reported by Paul within about twenty years, by all four Gospels, by the Roman historian Tacitus and by the Jewish historian Josephus. It is also the last thing his followers would have invented. The one major denial, in the Qur'an, came six centuries later and rests on revelation, not on historical evidence. Christians confess more than the fact: the Baptist Faith and Message speaks of Christ's “substitutionary death on the cross”. But the fact comes first.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 15:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3"
+        },
+        {
+          "kind": "source",
+          "source": "tacitus-annals",
+          "locator": "15.44"
+        },
+        {
+          "kind": "source",
+          "source": "josephus-antiquities",
+          "locator": "18.3.3"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "It is reported early and independently, by the movement's own writers and by outsiders who disliked it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 2:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:1"
+          },
+          {
+            "kind": "source",
+            "source": "tacitus-annals",
+            "locator": "15.44"
+          },
+          {
+            "kind": "source",
+            "source": "van-voorst-outside-nt",
+            "locator": "chapter 2"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "It was an embarrassment: a crucified Messiah was a contradiction in terms to Jews and a joke to Romans.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 1:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 21:23"
+          },
+          {
+            "kind": "source",
+            "source": "hengel-crucifixion",
+            "locator": "whole work"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "It fits what is known of Roman practice and of Pilate: a public execution for a man accused of claiming to be a king.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:26"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 19:19-20"
+          },
+          {
+            "kind": "source",
+            "source": "hengel-crucifixion",
+            "locator": "whole work"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The crucifixion is as secure as ancient history gets. The real questions are why it happened and what it means, and the New Testament answers that Christ died for our sins according to the Scriptures.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 5:8"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "8.4"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "witnesses",
+        "text": "Paul, writing in the early 50s, takes the crucifixion for granted: the rulers of this age crucified the Lord of glory, and Christ was publicly portrayed before the Galatians as crucified. Mark, the earliest Gospel, tells it in detail, and Matthew, Luke and John each add material of their own. Outside the church, Tacitus, about AD 115, says Christus was executed by the procurator Pontius Pilate in the reign of Tiberius. Josephus, in the 90s, says Pilate condemned Jesus to the cross at the instigation of leading men; Christian copyists added phrases to that passage, but most scholars think its report of the execution is his. Lucian of Samosata, in the 160s, mocks Christians for worshipping, in the Fowlers' translation, “the crucified sage”. These texts are read in full in “Did Jesus exist? What non-Christian writers say”.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 2:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:1"
+          },
+          {
+            "kind": "source",
+            "source": "tacitus-annals",
+            "locator": "15.44"
+          },
+          {
+            "kind": "source",
+            "source": "josephus-antiquities",
+            "locator": "18.3.3"
+          },
+          {
+            "kind": "source",
+            "source": "lucian-peregrinus",
+            "locator": "11–13"
+          },
+          {
+            "kind": "source",
+            "source": "meier-marginal-jew",
+            "locator": "chapter 3"
+          }
+        ],
+        "title": "The witnesses, friendly and hostile"
+      },
+      {
+        "id": "no-invention",
+        "text": "Crucifixion was the Roman punishment for slaves, bandits and rebels, deliberately public and degrading; Martin Hengel's study shows how polite Roman writers avoided even naming it. The law of Moses pronounced anyone hung on a tree accursed. A movement inventing a Messiah would have given him a victory, not a cross. Paul admits the message was a stumbling block to Jews and foolishness to Gentiles, and still made it the centre of his preaching: he would boast in nothing but the cross. A fact that its own followers had to explain, rather than one they found convenient, is the kind historians trust most.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 21:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 1:23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 6:14"
+          },
+          {
+            "kind": "source",
+            "source": "hengel-crucifixion",
+            "locator": "whole work"
+          }
+        ],
+        "title": "Why no one would have invented it"
+      },
+      {
+        "id": "did-he-die",
+        "text": "Roman executioners were practised at their work. John reports that the soldiers found Jesus already dead and did not break his legs, and that a spear thrust into his side brought out blood and water. Mark says Pilate was surprised he had died so soon and checked with the centurion before releasing the body. The theory that Jesus survived the cross and revived in the tomb was argued in the eighteenth century and has a modern following, but it has no ancient source behind it and few historians defend it. Its difficulties are set out in “Other explanations of Easter”.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 19:33-34"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:44-45"
+          },
+          {
+            "kind": "source",
+            "source": "schweitzer-quest",
+            "locator": "ch. IV, pp. 44–47"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. XIII, §199"
+          }
+        ],
+        "title": "Did he really die?"
+      }
+    ],
+    "objection": "The Qur'an says Jesus was not killed or crucified; it was only made to appear so.",
+    "reply": {
+      "id": "reply",
+      "text": "Muslims honour Jesus as a prophet, and this denial comes from reverence: God would not let his messenger be shamed. But the verse (4:157) was given about six centuries after the event and gives no historical evidence; Muslim interpreters themselves disagree about what it means, some teaching that another man was made to look like Jesus. Against it stand every first- and second-century source, Christian, Jewish and Roman. The site's article on the Islamic account of the cross answers it at length and with respect.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:20"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 2:23"
+        },
+        {
+          "kind": "source",
+          "source": "q4157",
+          "locator": "4:157–158"
+        },
+        {
+          "kind": "source",
+          "source": "tacitus-annals",
+          "locator": "15.44"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "celestial",
+        "heldBy": [
+          "Richard Carrier (On the Historicity of Jesus, 2014)",
+          "Earl Doherty and other mythicist writers"
+        ],
+        "objection": "Paul never places the crucifixion on earth, in Jerusalem, under Pilate. He speaks of “the rulers of this age”, which may mean demonic powers, and the earliest Christians may have believed in a Jesus crucified in a heavenly realm, known through visions and Scripture. The Gospels later put the story in history.",
+        "reply": {
+          "id": "celestial-reply",
+          "text": "Paul's Jesus is a man born of a woman, under the law, descended from David, with a brother named James whom Paul met. He speaks of the night Jesus was betrayed and of his burial. The “rulers of this age” in the same chapter are rulers whose wisdom is coming to nothing, the sort of language Paul uses of human authorities. And within a few decades Roman and Jewish writers who had no stake in Christian theology place the execution under Pilate. Historians of every persuasion, including Ehrman and Casey, reject the celestial reading.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Galatians 4:4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 1:3"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 11:23"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 2:6-8"
+            },
+            {
+              "kind": "source",
+              "source": "carrier-historicity",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-did-jesus-exist",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "casey-mythicist-myths",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "survived",
+        "heldBy": [
+          "Karl Friedrich Bahrdt and Karl Heinrich Venturini (1780s–1800s, as Schweitzer describes them)",
+          "the Ahmadiyya movement in Islam"
+        ],
+        "objection": "Jesus was taken down alive, perhaps drugged or simply unconscious, and recovered in the cool of the tomb. That would explain both the stories of his death and the later appearances without any miracle.",
+        "reply": {
+          "id": "survived-reply",
+          "text": "The Romans did not usually leave crucifixion half done, and the sources describe a death confirmed by the soldiers, the centurion and Pilate. A man who had been flogged and crucified, if he somehow survived, could not have convinced anyone that he had conquered death; he would have needed months of nursing. Nor does the theory explain why his followers proclaimed his resurrection rather than his escape. It answers one fact by creating several others.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 19:33-34"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:44-45"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:15"
+            },
+            {
+              "kind": "source",
+              "source": "schweitzer-quest",
+              "locator": "ch. IV, pp. 44–47"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. XIII, §199"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "History can establish that Jesus was crucified, roughly when, and by whom. It cannot establish what his death achieved. That Christ died for our sins is the apostles' interpretation, given by God, and is received by faith.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 4:25"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "If even his enemies agreed that Jesus was crucified, what do you make of the fact that his followers preached that cross as good news?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 1:18"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Mark 15:15-39",
+        "note": "The crucifixion in the earliest Gospel"
+      },
+      {
+        "reference": "1 Corinthians 1:18-25",
+        "note": "Christ crucified: a stumbling block and foolishness"
+      },
+      {
+        "reference": "John 19:31-37",
+        "note": "The soldiers confirm his death"
+      }
+    ],
+    "related": [
+      "cross",
+      "jesus-outside-nt",
+      "easter-alternatives",
+      "islam-cross",
+      "mythicism"
+    ],
+    "keywords": [
+      "crucifixion",
+      "Pontius Pilate",
+      "Tacitus",
+      "Josephus",
+      "Qur'an 4:157",
+      "swoon theory",
+      "mythicism",
+      "embarrassment"
+    ],
+    "debates": [
+      "craig-ally-resurrection"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "2e27dcfa7fc29290bebaa7830766f33d263dfa66a07b302c78d07a518cb16683",
+      "basisHash": "29fa7c4103f65b5a7f93f6df8dd3ef8bfe52d5da1c24d8a83ec8a77be520a394"
+    }
+  ]
+}

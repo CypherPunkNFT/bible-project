@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "troki-faith-strengthened",
+  "order": 336,
+  "publication": "published",
+  "content": {
+    "title": "Faith Strengthened (Chizzuk Emunah)",
+    "author": "Isaac ben Abraham of Troki (1533–1594) · translated by Moses Mocatta (London: printed by J. Wertheimer, 1851)",
+    "kind": "Jewish polemic",
+    "url": "https://archive.org/details/faithstrengthene00trok",
+    "role": "Primary record · not a teaching authority",
+    "note": "A Karaite Jewish scholar's reply, written in the 1590s, to the Old Testament texts Christians cite for Jesus, chapter by chapter (Isaiah 7:14 in chapter 21, Isaiah 52:13–53:12 in chapter 22, Micah 5:2 in chapter 33, Daniel 9 in chapter 42). For the Jewish reading in its own words. Public domain: may be quoted, with the translator named and an exact locator.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/troki-faith-strengthened-mocatta-1851.txt (Internet Archive faithstrengthene00trok; checksum in Website/SOURCES.md, 'Apologetics fields: Jesus & resurrection'). 2026-11-27 (plan APOLOGETICS-FIELDS step 7): part 1, chapters 21 (pp. 95–97), 22 (opening, pp. 109–110), 33 (pp. 163–164) and 42 (pp. 200–204) read for messianic-prophecy and virgin-birth. Described, not quoted.",
+    "checked": "corpus",
+    "publicDomain": {
+      "edition": "Faith Strengthened, translated by Moses Mocatta (London, 1851)",
+      "basis": "Title page of the held Internet Archive scan: London, 1851. Troki d. 1594; Mocatta d. 1857: public domain in the US (published before 1931) and worldwide."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "58e66e4f5106900c01ab62416fe791181cf83a44c685efc3c8cb7813cb34d36e",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}

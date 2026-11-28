@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/examinationoftes00gree",
     "role": "Historic Christian witness",
     "note": "A Harvard law professor applies the rules of legal evidence to the Gospels. For the witnesses' credibility, read with awareness of the method's limits. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1846 Boston edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Preliminary Observations section 37, pp. 62-64 (the apostles' persistence), read in the held 1846 edition for resurrection-case. Cited, not quoted.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (the 1846 Boston edition) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Preliminary Observations section 37, pp. 62-64 (the apostles' persistence), read in the held 1846 edition for resurrection-case. Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): Preliminary Observations §§18–19, pp. 37–38 (discrepancies; Paley's 'substantial truth under circumstantial variety') read in the held 1846 edition for gospels-as-history; the phrase quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "80378bf6746634ee7262d9ee3a2d2f37e58e7e9d91a7f004a91890100ddb566f",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "fc82b0983f87e50936789abb846ca13d49e01ec6318bbf02068fddf17d7d4c31",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

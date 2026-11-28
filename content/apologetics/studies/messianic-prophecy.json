@@ -1,0 +1,420 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "messianic-prophecy",
+  "order": 38,
+  "publication": "published",
+  "content": {
+    "title": "Messianic prophecy: claims and cautions",
+    "topic": "jesus",
+    "summary": "Isaiah 53, Psalm 22, Daniel 9, Micah 5:2: the Christian case, the Jewish readings in their own terms, and what can fairly be claimed.",
+    "format": "objections",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "The New Testament claims that Jesus fulfilled the Scriptures: Jesus himself, on the road to Emmaus, explained from Moses and all the prophets that the Christ had to suffer and then enter his glory. Christians from Justin Martyr to the Baptist Andrew Fuller have pointed to particular passages that, in their view, foretold the Messiah's birthplace, time, suffering and vindication. Jewish readers have answered from the beginning, and their readings deserve to be heard in their own terms; two Jewish works used here are Isaac of Troki's Faith Strengthened (written in the 1590s) and the collection of Jewish commentaries on Isaiah 53 translated by Driver and Neubauer in 1877. Two cautions apply throughout. First, “fulfil” in the New Testament covers more than prediction: it also means a pattern in Israel's story reaching its full meaning in Jesus. Second, dates for these prophecies, and calculations from them, are reconstructions, and the article says so where they are disputed.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:25-27"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 3:18"
+        },
+        {
+          "kind": "source",
+          "source": "fuller-own-witness",
+          "locator": "Part II, chapter I, pp. 125–132 (1799)"
+        },
+        {
+          "kind": "source",
+          "source": "justin-dialogue-trypho",
+          "locator": "chapters 43, 66"
+        },
+        {
+          "kind": "source",
+          "source": "troki-faith-strengthened",
+          "locator": "part 1, chapter 1"
+        },
+        {
+          "kind": "source",
+          "source": "driver-neubauer-isaiah-53",
+          "locator": "preface"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "isaiah-53-israel",
+        "heldBy": [
+          "Rashi (d. 1105), as translated by Driver and Neubauer",
+          "Isaac of Troki (Faith Strengthened, part 1, chapter 22)",
+          "a Jewish interpreter in debate with Origen (c. 248)"
+        ],
+        "objection": "The Servant of Isaiah 52:13–53:12 is Israel. Isaiah calls Israel “my servant” again and again, even by name: “You are My Servant, Israel.” Rashi read the chapter as the nations speaking in the last days, astonished to discover that the despised people they oppressed suffered for them. Troki added that the Servant “will see his offspring” and “prolong his days”, which does not fit a man who died young and childless; and that one who is God cannot be called a servant.",
+        "reply": {
+          "id": "isaiah-53-israel-reply",
+          "text": "The national reading has real support in Isaiah, and Christians should say so. But in Isaiah 49 the Servant called “Israel” is also sent to bring Jacob back and restore Israel, so he is distinguished from the nation even as he embodies it. In chapter 53 he suffers “for the transgression of my people” and has done no violence, while the same book confesses Israel's sins at length. Nor did all Jewish interpreters read it of the nation: the Targum of Jonathan names the Servant at 52:13 “my servant the Messiah” (though it turns much of the suffering to others), and Rashi himself reports that “our Rabbis” applied it to the Messiah. Origen reports the national reading as early as the third century, so it is not a late invention either. “Offspring” and long days fit one who dies and lives again, which is the Christian claim.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 49:3-6"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 53:8-9"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 53:10-12"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 59:12"
+            },
+            {
+              "kind": "source",
+              "source": "driver-neubauer-isaiah-53",
+              "locator": "Targum, pp. 5–6; Rashi, pp. 37–40"
+            },
+            {
+              "kind": "source",
+              "source": "troki-faith-strengthened",
+              "locator": "part 1, chapter 22, pp. 109–110"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "1.55"
+            },
+            {
+              "kind": "source",
+              "source": "brown-jewish-objections",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "isaiah-7",
+        "heldBy": [
+          "Trypho, as Justin records him (c. 155)",
+          "Isaac of Troki (Faith Strengthened, part 1, chapter 21)"
+        ],
+        "objection": "Isaiah 7:14 speaks of an almah, a young woman, not a virgin, and its sign was for King Ahaz in his own day: before the child was old enough to choose good, the two kings he feared would be gone. Matthew read it in a Greek translation that said “virgin”.",
+        "reply": {
+          "id": "isaiah-7-reply",
+          "text": "The Hebrew word does mean a young woman of marriageable age, and the immediate setting is Ahaz's crisis. Christians reply that the sign is addressed to the whole house of David, that the child is soon called “Mighty God”, and that the Jewish translators of the Greek version chose “virgin” long before Christians quoted it. Baptists differ on whether Isaiah's words had a nearer fulfilment as well. The full case is in the article on the virgin birth.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 7:13-14"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 9:6-7"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 1:22-23"
+            },
+            {
+              "kind": "source",
+              "source": "justin-dialogue-trypho",
+              "locator": "chapters 43, 67, 71"
+            },
+            {
+              "kind": "source",
+              "source": "troki-faith-strengthened",
+              "locator": "part 1, chapter 21, pp. 95–97"
+            }
+          ]
+        }
+      },
+      {
+        "id": "psalm-22",
+        "heldBy": [
+          "Jewish counter-missionary writers, as Michael Brown summarises them (2003)",
+          "the standard Masoretic Hebrew text"
+        ],
+        "objection": "Psalm 22 is David's lament, not a prediction. Its famous line about pierced hands and feet is a mistranslation: the standard Hebrew text reads “like a lion, my hands and my feet”. The Gospel writers then built the crucifixion scenes, with the dividing of garments and the mocking, out of the psalm.",
+        "reply": {
+          "id": "psalm-22-reply",
+          "text": "The text is genuinely difficult, and the Berean's own note says that most Masoretic manuscripts read “like a lion”, while the Dead Sea Scrolls, the Greek Septuagint, the Vulgate and the Syriac read a verb; the Berean follows them with “pierced”. The psalm's force does not rest on that one word. It is a righteous sufferer's cry that ends with the nations turning to the Lord, and Jesus took its first line on his own lips on the cross. The psalm is fulfilled in Jesus as its pattern reaches its full height, not only as a list of predicted details.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Psalm 22:1"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Psalm 22:16-18"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Psalm 22:27-28"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 15:34"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 19:23-24"
+            },
+            {
+              "kind": "source",
+              "source": "brown-jewish-objections",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "fuller-own-witness",
+              "locator": "Part II, chapter I, pp. 125–132 (1799)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "daniel-9",
+        "heldBy": [
+          "Isaac of Troki (Faith Strengthened, part 1, chapter 42)",
+          "critical scholars who date Daniel to about 165 BC"
+        ],
+        "objection": "The seventy weeks of Daniel 9 run from the destruction of the first Temple to the destruction of the second. The “anointed prince” after seven weeks is Cyrus, whom Isaiah calls the Lord's anointed; the anointed one “cut off” is Israel's last ruler, lost when Titus took the city in AD 70. Critical scholars add that the book was finished under Antiochus IV, and that the anointed one cut off is the high priest Onias III, murdered in 171 BC.",
+        "reply": {
+          "id": "daniel-9-reply",
+          "text": "Christians from the early church on have read the passage as pointing to the Messiah's coming and death before the city and sanctuary were destroyed, and the Berean translates verse 25 “until the Messiah, the Prince”. E. B. Pusey, defending the traditional sixth-century date in 1864, counted the sixty-nine weeks of years from the seventh year of Artaxerxes (458/457 BC) to the beginning of Jesus' ministry. Honesty requires two admissions. The Hebrew of verse 25 has no article, so “an anointed one” is a possible rendering, as Troki read it. And Christian interpreters count the weeks in more than one way, with different starting decrees and year lengths; no single calculation commands agreement. The strongest form of the Christian case is the passage's sequence, not the arithmetic.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Daniel 9:24-26"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 45:1"
+            },
+            {
+              "kind": "source",
+              "source": "troki-faith-strengthened",
+              "locator": "part 1, chapter 42, pp. 200–204"
+            },
+            {
+              "kind": "source",
+              "source": "pusey-daniel",
+              "locator": "Lecture IV (contents, pp. xcvii–xcviii)"
+            },
+            {
+              "kind": "source",
+              "source": "fuller-own-witness",
+              "locator": "Part II, chapter I, pp. 125–132 (1799)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "micah-5",
+        "heldBy": [
+          "Isaac of Troki (Faith Strengthened, part 1, chapter 33)",
+          "critical scholars who doubt the Bethlehem birth"
+        ],
+        "objection": "Micah 5:2 promises a ruler from Bethlehem's clan; it does not say the Messiah will be born there, and many thousands were born in Bethlehem without being the Messiah. Jesus never ruled anyone; the people ruled him and put him to death. Some critics add that Matthew and Luke placed his birth in Bethlehem only to fit the prophecy, since everyone knew him as a Nazarene.",
+        "reply": {
+          "id": "micah-5-reply",
+          "text": "A Bethlehem birth alone would prove nothing, and Christians do not claim it does; the claim is that the ruler Micah describes, “whose origins are of old, from the days of eternity”, came from David's town as Micah said. Matthew and Luke give independent accounts that agree on Bethlehem while differing in almost everything else, which is evidence against a single invention. As to ruling, the New Testament says Christ's kingdom has begun and awaits its full display when he returns.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Micah 5:2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 2:1-6"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 2:4-7"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 2:36"
+            },
+            {
+              "kind": "source",
+              "source": "troki-faith-strengthened",
+              "locator": "part 1, chapter 33, pp. 163–164"
+            },
+            {
+              "kind": "source",
+              "source": "fuller-own-witness",
+              "locator": "Part II, chapter I, pp. 125–132 (1799)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "messianic-age",
+        "heldBy": [
+          "Isaac of Troki (Faith Strengthened, part 1, chapter 1)",
+          "Jewish teaching generally"
+        ],
+        "objection": "Whatever verses are cited, the Messiah has a job to do: gather the exiles, rebuild the Temple, bring the nations to the knowledge of God and end war. Swords have not been beaten into ploughshares. Troki argued that Jesus fails by his pedigree, his acts, his period and, above all, because the promised blessings did not come.",
+        "reply": {
+          "id": "messianic-age-reply",
+          "text": "This is the strongest Jewish objection, and it is fair to state it plainly. The Christian answer is that the Scriptures speak of the Messiah both suffering and reigning, and that Jesus taught his followers to expect both, in that order: it was necessary for the Christ to suffer and then to enter his glory. Zechariah's king comes humble, on a donkey, before his rule extends from sea to sea. Christians confess that the nations are already being brought to Israel's God through the gospel, and that the peace of Isaiah 2 awaits his return in glory.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Isaiah 2:4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Zechariah 9:9-10"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 24:26"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Acts 1:6-11"
+            },
+            {
+              "kind": "source",
+              "source": "troki-faith-strengthened",
+              "locator": "part 1, chapter 1"
+            },
+            {
+              "kind": "source",
+              "source": "bfm-2000",
+              "locator": "Article X"
+            }
+          ]
+        }
+      },
+      {
+        "id": "read-backwards",
+        "heldBy": [
+          "Anthony Collins (A Discourse of the Grounds and Reasons of the Christian Religion, 1724)",
+          "critical scholars generally"
+        ],
+        "objection": "The New Testament reads the Old Testament backwards. Matthew says Jesus' return from Egypt fulfilled “Out of Egypt I called my son”, but Hosea was plainly speaking of Israel's exodus. If that is fulfilment, anything can be.",
+        "reply": {
+          "id": "read-backwards-reply",
+          "text": "Matthew knew Hosea was speaking of Israel; his point is that Jesus relives Israel's story, as the true Son who goes down into Egypt and comes out again. That is typology, not a claim that Hosea predicted a child's journey, and Christians weaken their case when they present every “fulfilment” as a prediction. The case for messianic prophecy rests on a smaller number of texts that speak of a coming figure, read with care, and on the pattern of the whole: a Son of David, a suffering Servant, an anointed one cut off, a king who comes humble.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Hosea 11:1"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Matthew 2:15"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Luke 24:44"
+            },
+            {
+              "kind": "source",
+              "source": "brown-jewish-objections",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "fuller-own-witness",
+              "locator": "Part II, chapter I, pp. 125–132 (1799)"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. Prophecy can show that Jesus fits a pattern the Scriptures set out long before him, which is how the apostles preached him. It cannot compel belief, and sincere Jewish readers have read the same texts differently for two thousand years. Those readings are their teaching, stated here as theirs.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:2-3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 10:1-4"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Read Isaiah 52:13–53:12 aloud without saying who it is about. Who comes to mind, and why?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 52:13-15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 53:1-12"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Isaiah 52:13-53:12",
+        "note": "The Servant who bears the sin of many"
+      },
+      {
+        "reference": "Psalm 22:1-31",
+        "note": "The righteous sufferer's cry, and the nations turning to the Lord"
+      },
+      {
+        "reference": "Daniel 9:24-27",
+        "note": "The seventy weeks"
+      },
+      {
+        "reference": "Micah 5:2-5",
+        "note": "The ruler from Bethlehem"
+      }
+    ],
+    "related": [
+      "virgin-birth",
+      "titles-of-jesus",
+      "jesus-claims",
+      "cross",
+      "scripture"
+    ],
+    "keywords": [
+      "messianic prophecy",
+      "Isaiah 53",
+      "suffering servant",
+      "Psalm 22",
+      "Daniel 9",
+      "seventy weeks",
+      "Micah 5:2",
+      "Rashi",
+      "Troki",
+      "Jewish objections"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "8469e61ce9578e2c6ce24b818955f7595d6c280318878b1ec4c7738bcb47b0ed",
+      "basisHash": "caed2f66a135c9c90984706b4c682eac3b72bd827e152c7d8625566e1308dede"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Basis changed: one or more cited sources had only their kind label shortened to an existing library label (Historical study, Commentary or Historical text). Checked that every citation of those sources still matches the work and that no sentence relies on the old label.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "8469e61ce9578e2c6ce24b818955f7595d6c280318878b1ec4c7738bcb47b0ed",
+      "basisHash": "4f9d104b381fe2f71619ec8509b8b47cf6113f122c0c85207224a739a84fa359"
+    }
+  ]
+}

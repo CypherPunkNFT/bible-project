@@ -57,7 +57,12 @@
     "related": [
       "jesus",
       "resurrection",
-      "manuscripts"
+      "manuscripts",
+      "crucifixion-history",
+      "gospels-as-history",
+      "mythicism",
+      "quests-timeline",
+      "resurrection-case"
     ],
     "keywords": [
       "historical Jesus",
@@ -296,7 +301,10 @@
           "reference": "Luke 1:1-4"
         }
       ]
-    }
+    },
+    "debates": [
+      "craig-ehrman"
+    ]
   },
   "reviews": [
     {
@@ -306,6 +314,15 @@
       "note": "AI-assisted review; no human theological review. Van Voorst and Meier are described, not read for this article.",
       "date": "2026-11-27",
       "contentHash": "0c77f9dbdee3a51df7b6343f7043b62e6f87570841892c312d440996d1d71f5b",
+      "basisHash": "fb946ad4586eaabae62801c75be7f2a93dda85c5327bc2e489044d7b8b9b80a8"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7.4: only links changed. related and/or debates entries added so that links run both ways within the Jesus & resurrection field and to studies in other fields; every new entry names a published study or debate on a connected subject. Text, citations and sources unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "55a22993f20141a666b7ca54499d275d28ce620951c527025fe4e792aeadfd04",
       "basisHash": "fb946ad4586eaabae62801c75be7f2a93dda85c5327bc2e489044d7b8b9b80a8"
     }
   ]

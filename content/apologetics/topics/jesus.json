@@ -10,7 +10,12 @@
     "short": "Jesus",
     "color": "gospels",
     "description": "The identity, death and resurrection at the heart of Christian faith.",
-    "question": "Who do you say that I am?"
+    "question": "Who do you say that I am?",
+    "start": [
+      "resurrection-case",
+      "jesus-claims",
+      "jesus-outside-nt"
+    ]
   },
   "reviews": [
     {
@@ -29,6 +34,15 @@
       "note": "No claim in this document presents Westminster or the Reformed tradition as the site's own standard; no text change needed. AI-assisted editorial review; not independent human theological approval.",
       "date": "2026-11-06",
       "contentHash": "1dccba07ac5776dfc5ecdbbdc2362d4f94f5bc17b26df6145ce55525faaeb79f",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7.4: start[] set to resurrection-case, jesus-claims and jesus-outside-nt, the three the plan suggests; all three are published, reviewed and in this field. Title, description and question unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "c8e8b25b7f213724b07eca819a11b45f3ded30f13d33812bb93baefc795cc520",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

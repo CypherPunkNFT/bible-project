@@ -12,7 +12,7 @@
     "url": "https://ccel.org/ccel/schaff/anf01",
     "role": "Historic Christian witness",
     "note": "The second-century answer to the Gnostics, with the earliest account of the four Gospels as a set (3.1.1, 3.11.8). For the canon and the 'lost gospels'. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text export sources/library/source-patristic-ccel/anf01.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Against Heresies 3.18.1-2 and 5.1.1 read in the held CCEL ANF 1 text for atonement-timeline.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-patristic-ccel/anf01.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Against Heresies 3.18.1-2 and 5.1.1 read in the held CCEL ANF 1 text for atonement-timeline. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 3.1.1 (the four evangelists), 3.11.7–8 (the four Gospels) and 3.21.1 read in the held ANF text for gospels-as-history and virgin-birth; two phrases quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "902329cb2d98b157fb10665239cc4ef0080cdb575e992afb9d940cff44a9f8b5",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "1d3a3ecd09d9c5e62789e5963fc81776f08af281129e505d06866d93869d281e",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

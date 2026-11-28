@@ -1,0 +1,360 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "mythicism",
+  "order": 37,
+  "publication": "published",
+  "content": {
+    "title": "Was Jesus a myth?",
+    "topic": "jesus",
+    "summary": "The case that Jesus never existed, in its holders' own terms, and why historians on every side reject it.",
+    "format": "objections",
+    "spine": "academic",
+    "answer": {
+      "id": "answer",
+      "text": "A small number of writers argue that Jesus never lived: that he began as a heavenly figure or a literary creation and was only later given a place in history. The view goes back to French writers of the 1790s and to the German critic Bruno Bauer, who concluded in 1850–1851 that there never was a historical Jesus. Its fullest academic statement today is Richard Carrier's On the Historicity of Jesus (2014). Almost every historian of antiquity, Christian, Jewish, agnostic or atheist, rejects it; the agnostic Bart Ehrman and the non-Christian Aramaic scholar Maurice Casey wrote whole books against it. Below are the mythicist arguments, put as their holders put them, in our own words, with the replies. The question here is only whether Jesus existed. Who he was is argued elsewhere.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Galatians 1:18-19"
+        },
+        {
+          "kind": "source",
+          "source": "schweitzer-quest",
+          "locator": "ch. XI"
+        },
+        {
+          "kind": "source",
+          "source": "carrier-historicity",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "ehrman-did-jesus-exist",
+          "locator": "whole work"
+        },
+        {
+          "kind": "source",
+          "source": "casey-mythicist-myths",
+          "locator": "whole work"
+        }
+      ]
+    },
+    "objections": [
+      {
+        "id": "no-contemporaries",
+        "heldBy": [
+          "Richard Carrier (On the Historicity of Jesus, 2014)",
+          "earlier mythicist writers listing the silent historians of the first century"
+        ],
+        "objection": "No one who wrote during Jesus' lifetime mentions him. Philo of Alexandria, who wrote about Jews and Pilate, says nothing; neither do the Roman historians of the time. A man who worked public miracles and drew crowds would have left traces. The silence is exactly what we would expect if there was no such man.",
+        "reply": {
+          "id": "no-contemporaries-reply",
+          "text": "Almost no one of Jesus' standing, a village teacher in a minor province executed in his thirties, left contemporary records; most figures of the period are known only from later writers. By ancient standards Jesus is well attested. Paul writes within about twenty years and had met Jesus' brother and his chief disciple. Josephus, born a few years after the crucifixion, mentions him twice; Tacitus, about 115, names him and his execution. Silence from Philo, who also never mentions John the Baptist or most other Jewish teachers of his day, proves little.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:18-19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:3-7"
+            },
+            {
+              "kind": "source",
+              "source": "josephus-antiquities",
+              "locator": "20.9.1"
+            },
+            {
+              "kind": "source",
+              "source": "tacitus-annals",
+              "locator": "15.44"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-did-jesus-exist",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapter 1"
+            }
+          ]
+        }
+      },
+      {
+        "id": "pauls-celestial-christ",
+        "heldBy": [
+          "Bruno Bauer (on the Pauline letters, 1850–1851, as Schweitzer reports him)",
+          "Earl Doherty",
+          "Richard Carrier"
+        ],
+        "objection": "Paul, the earliest Christian writer, never mentions Jesus' parents, his miracles, his teaching in Galilee, or Pilate. His Christ is a heavenly being revealed to him in visions and found in Scripture. The crucifixion he preaches took place at the hands of “the rulers of this age”, spiritual powers. The earthly Jesus was added later, by the Gospel writers.",
+        "reply": {
+          "id": "pauls-celestial-christ-reply",
+          "text": "Paul writes letters to churches already taught, not biographies, so he refers to Jesus' life when an argument needs it. When he does, the Jesus he describes is human: born of a woman, under the law, descended from David; with brothers, one of whom, James, Paul met and called “the Lord's brother”; betrayed on a particular night; buried; crucified, and killed, he says elsewhere, by people in Judea. Paul also says he received the gospel's core from those before him and checked it with Cephas. Bauer could deny all this only by moving Paul's letters into the second century, which Schweitzer, no traditionalist, called so arbitrary that it refuted itself.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Galatians 4:4"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 1:3"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:19"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 9:5"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 11:23"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Thessalonians 2:14-15"
+            },
+            {
+              "kind": "source",
+              "source": "schweitzer-quest",
+              "locator": "ch. XI"
+            },
+            {
+              "kind": "source",
+              "source": "carrier-historicity",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "casey-mythicist-myths",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "josephus-forged",
+        "heldBy": [
+          "Richard Carrier (On the Historicity of Jesus, 2014)",
+          "earlier critics of the Testimonium"
+        ],
+        "objection": "The famous passage in Josephus calling Jesus a wise man and the Christ is a Christian forgery; no one quotes it before Eusebius in the fourth century. The brief reference to “James the brother of Jesus” may originally have meant another Jesus, the son of Damneus, named in the same paragraph. And Tacitus wrote eighty years later, repeating what Christians said.",
+        "reply": {
+          "id": "josephus-forged-reply",
+          "text": "Most scholars agree that the Testimonium has been expanded by Christian hands, and the site says so. But most also think a shorter original lies beneath it, because its vocabulary is Josephus's and parts of it are not what a Christian would write. The James passage is brief and uninterested, it explains which Jesus by adding “who was called Christ”, and Origen read it in the third century. Tacitus was a senator who despised the Christians, calling their movement “a most mischievous superstition”; he had access to official circles and no reason to adopt their account of their founder. The texts are read in full in “Did Jesus exist? What non-Christian writers say”.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "josephus-antiquities",
+              "locator": "18.3.3; 20.9.1"
+            },
+            {
+              "kind": "source",
+              "source": "origen-contra-celsum",
+              "locator": "1.47"
+            },
+            {
+              "kind": "source",
+              "source": "tacitus-annals",
+              "locator": "15.44"
+            },
+            {
+              "kind": "source",
+              "source": "meier-marginal-jew",
+              "locator": "chapter 3"
+            },
+            {
+              "kind": "source",
+              "source": "van-voorst-outside-nt",
+              "locator": "chapters 2–3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "built-from-scripture",
+        "heldBy": [
+          "Richard Carrier (On the Historicity of Jesus, 2014)",
+          "Thomas L. Brodie (Beyond the Quest for the Historical Jesus, 2012)"
+        ],
+        "objection": "The Gospels can be explained as midrash: stories composed from Old Testament texts. The birth at Bethlehem comes from Micah, the entry on a donkey from Zechariah, the passion from Psalm 22 and Isaiah 53. Take away what was built from Scripture and nothing historical is left.",
+        "reply": {
+          "id": "built-from-scripture-reply",
+          "text": "Some things in the Gospels do echo Scripture, and the Gospel writers say so openly. But much of the story is the opposite of what anyone building a Messiah from Scripture would choose. He came from Nazareth, a village Scripture never mentions and which people mocked. He was baptised by John, which seemed to make John the greater. His family thought him out of his mind. And he was crucified, which the law called accursed. Details that embarrassed the first Christians, and that they had to explain, are the hardest to explain as invention.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Mark 1:9"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 1:46"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Mark 3:21"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Deuteronomy 21:23"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 1:23"
+            },
+            {
+              "kind": "source",
+              "source": "casey-mythicist-myths",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-did-jesus-exist",
+              "locator": "whole work"
+            }
+          ]
+        }
+      },
+      {
+        "id": "mythic-hero",
+        "heldBy": [
+          "Charles-François Dupuis and Constantin-François Volney (1790s)",
+          "Richard Carrier (On the Historicity of Jesus, 2014)"
+        ],
+        "objection": "Jesus matches the pattern of the mythic hero found across cultures: a miraculous conception, a threat to his life as a child, a mission, a death and a rising. Carrier scores him high on the Rank–Raglan hero scale, alongside Romulus and Heracles, figures no one thinks were real. The safest inference is that Jesus belongs with them.",
+        "reply": {
+          "id": "mythic-hero-reply",
+          "text": "A pattern built from many stories will fit many lives told by admirers, including those of people who certainly existed; legendary features can gather around a real person. The question is not whether the story has heroic features but what the earliest evidence says. Here it says a Galilean teacher with named relatives, executed under a known Roman governor, remembered by people who knew him. Romulus has nothing comparable: no contemporary letters from his circle, no hostile historians a century later naming his execution. The Baptist apologist E. Y. Mullins put a further question to the myth theories of his day in 1905: how did legend-makers stay so faithful to one consistent moral character while adding wonders freely, and how does a myth account for Paul?",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Luke 3:1-2"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:18-19"
+            },
+            {
+              "kind": "source",
+              "source": "carrier-historicity",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-did-jesus-exist",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "mullins-why-true",
+              "locator": "ch. IX, §§133–135, pp. 130–133"
+            }
+          ]
+        }
+      },
+      {
+        "id": "biased-scholars",
+        "heldBy": [
+          "mythicist writers generally"
+        ],
+        "objection": "The consensus that Jesus existed is a product of the guild. New Testament scholars are mostly Christians, or work in institutions founded by churches, and cannot afford to question the existence of the figure their careers depend on.",
+        "reply": {
+          "id": "biased-scholars-reply",
+          "text": "The consensus includes many who have no stake in Christianity: Jewish historians, agnostics such as Ehrman, and Casey, who was not a Christian. Classicists and ancient historians who work on Rome, outside theology faculties, agree. The argument would, in any case, need to show where the evidence is wrong, not only who reads it.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Acts 26:26"
+            },
+            {
+              "kind": "source",
+              "source": "ehrman-did-jesus-exist",
+              "locator": "whole work"
+            },
+            {
+              "kind": "source",
+              "source": "casey-mythicist-myths",
+              "locator": "whole work"
+            }
+          ]
+        }
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "Where the evidence stops. History can establish with high confidence that Jesus of Nazareth lived, taught in Galilee and was crucified under Pilate. It cannot by itself establish his resurrection or his deity. Those are argued in the essays on the resurrection and on what Jesus claimed; refuting mythicism only clears the ground.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "source",
+          "source": "meier-marginal-jew",
+          "locator": "chapter 4"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "If Jesus certainly lived, the question he asked his disciples is still waiting for an answer: who do you say that I am?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 8:27-29"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Galatians 1:11-24",
+        "note": "Paul's own timeline: Cephas, and James the Lord's brother"
+      },
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "The tradition Paul received, with named witnesses"
+      },
+      {
+        "reference": "Luke 3:1-2",
+        "note": "The Gospel dated by rulers anyone could check"
+      }
+    ],
+    "related": [
+      "jesus-outside-nt",
+      "crucifixion-history",
+      "gospels-as-history",
+      "quests-timeline"
+    ],
+    "keywords": [
+      "mythicism",
+      "Christ myth",
+      "did Jesus exist",
+      "Carrier",
+      "Bruno Bauer",
+      "Josephus",
+      "Tacitus",
+      "Paul",
+      "James"
+    ],
+    "debates": [
+      "craig-ehrman"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "4e725dea8e818b04dbc057999c5141de3b411dd4c6e29c75d8f7a25db01e4df1",
+      "basisHash": "eae72cee85b45a7a1e59c6a1c126d4dd9e4440fa9fcdd87bd1ae1ca1adf1eefc"
+    }
+  ]
+}

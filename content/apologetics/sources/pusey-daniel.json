@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/a604991500puseuoft",
     "role": "Historic Christian witness",
     "note": "The Oxford Hebraist's lectures defending the sixth-century date of Daniel. For the traditional case on Daniel's date and prophecy, set beside the critical view. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (Oxford, 1868 printing) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (Oxford, 1868 printing) (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): the contents of Lecture IV (pp. xcvii–xcviii: the count from the seventh year of Artaxerxes; the critics' Antiochus reading) read in the held copy for messianic-prophecy. Described, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -23,6 +23,15 @@
       "note": "AI-assisted register review of the record itself; no claim drawn from the source has been checked, and no article cites it yet. Not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "b820ef719d168b5d1ae5fd9716a9eb9af1887caff270326b9c83fc8f7d1ffc95",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "03fc8543bd260314910923f7ac7a19df585eb13eead33bd30ba37679b1a2c207",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

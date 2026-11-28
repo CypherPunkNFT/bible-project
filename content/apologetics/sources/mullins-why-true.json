@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/whyischristianit00mull",
     "role": "Baptist exposition",
     "note": "A Southern Baptist seminary president's book of Christian evidences: the person of Christ, the resurrection, miracles and Christian experience. For a Baptist voice in the classic apologetic arguments. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Chapter XIII, 'The Resurrection of Jesus', sections 188-207 (pp. 188-203), read in full in the held 1905 edition for resurrection-case and easter-alternatives (section 199 reports Strauss's rebuttal of the swoon theory, from Strauss's 1864 popular Life). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, reading-craig-ehrman): Chapter XII sections 170-176 (miracle, science and philosophy, Hume) and chapter XIII sections 188-190 and 206-207 (the resurrection as a hypothesis tested by historical evidence) read in the held 1905 edition for reading-craig-ehrman. Cited, not quoted.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Chapter XIII, 'The Resurrection of Jesus', sections 188-207 (pp. 188-203), read in full in the held 1905 edition for resurrection-case and easter-alternatives (section 199 reports Strauss's rebuttal of the swoon theory, from Strauss's 1864 popular Life). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, reading-craig-ehrman): Chapter XII sections 170-176 (miracle, science and philosophy, Hume) and chapter XIII sections 188-190 and 206-207 (the resurrection as a hypothesis tested by historical evidence) read in the held 1905 edition for reading-craig-ehrman. Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): ch. VII §103 (pp. 97–98) and §113 (pp. 108–110), ch. VIII §121 (pp. 117–118) and ch. IX §136 (p. 134) read in the held 1905 edition for jesus-claims, trilemma and quests-timeline (one sentence of §113 and phrases of §§121, 136 quoted); §§133–135 (pp. 130–133) for jesus and mythicism.",
     "checked": "corpus"
   },
   "reviews": [
@@ -41,6 +41,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-28",
       "contentHash": "350acb5ebcd392f7d244caf4e3b0868546023becaecc9131556fa35e61957d72",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "253efec9a7e2587285d3f1221aba77e0808d1017356728689fd6c80f2fc0bcc0",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

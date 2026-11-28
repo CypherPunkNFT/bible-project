@@ -1,6 +1,7 @@
 // CONTENT.md for Historic texts: the Reformed reading library (/apologetics/texts) and the source room (/apologetics/sources).
 import type { ReadingWork } from "../../src/data/reading-library-types.ts";
 import { BASE, cited, find, lines, sourceLine, stateLine, studyLink, type ApologeticsData } from "./apologetics-data";
+import { sourceIds } from "../content/repository.ts";
 
 const plain = (id: string) => id.replace(/-/g, " ");
 
@@ -95,8 +96,8 @@ function sourceRoom(data: ApologeticsData): string {
       `#### ${kind}`,
       "",
       ...data.sources.filter((s) => s.content.kind === kind).flatMap((source) => {
-        const studies = data.studies.filter((study) => [study.content.answer, ...study.content.reasoning, study.content.conclusion, ...study.content.sections, study.content.reply, study.content.limit, study.content.prompt]
-          .some((block) => block.citations.some((cite) => cite.kind === "source" && cite.source === source.id)));
+        // Every format: sourceIds walks the whole study (citations and quoted extracts), not just the short-answer blocks.
+        const studies = data.studies.filter((study) => sourceIds(study).includes(source.id));
         const debates = data.debates.filter((d) => d.content.source === source.id);
         const usedBy = [...studies.map(studyLink), ...debates.map((d) => `debate: [${d.content.title}](${BASE}/debates/${d.id})`)];
         return [`- ${sourceLine(source)} · ${stateLine(source, data)}  \n  ${source.content.note}${usedBy.length ? `  \n  *Used by:* ${usedBy.join(" · ")}` : ""}`];

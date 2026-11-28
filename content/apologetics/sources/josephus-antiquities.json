@@ -12,7 +12,7 @@
     "url": "https://www.gutenberg.org/ebooks/2848",
     "role": "Primary record · not a teaching authority",
     "note": "The Jewish historian's references to John the Baptist (18.5.2), James the brother of Jesus (20.9.1) and Jesus (18.3.3, whose wording is disputed). Name the dispute when citing 18.3.3. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Read in the held Gutenberg file for jesus-outside-nt (18.3.3 = 18.63-64 and 20.9.1 = 20.200, both quoted as extracts, Whiston's footnote markers left out) and resurrection-case / easter-alternatives (4.8.15, women not admitted as witnesses; 20.9.1, the death of James).",
+    "read": "Held in this project's corpus: Project Gutenberg #2848, sources/gutenberg/josephus-antiquities-2848.txt (registered 2026-10-07). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Read in the held Gutenberg file for jesus-outside-nt (18.3.3 = 18.63-64 and 20.9.1 = 20.200, both quoted as extracts, Whiston's footnote markers left out) and resurrection-case / easter-alternatives (4.8.15, women not admitted as witnesses; 20.9.1, the death of James). 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 18.5.2 (John the Baptist) read in the held Whiston text for gospels-as-history; one phrase quoted.",
     "checked": "corpus",
     "publicDomain": {
       "edition": "Antiquities of the Jews, translated by William Whiston (1737), Project Gutenberg eBook #2848",
@@ -36,6 +36,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "45c5154847f79aff682e4f4f808d1ffeb613c6e4b86c25597cdf26029936b4e2",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "fd9985f3536714ab109672c1fa627f09607d4155706f9eef1f4c957b6ffb8f38",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

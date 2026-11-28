@@ -1,0 +1,820 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "jesus-claims",
+  "order": 42,
+  "publication": "published",
+  "content": {
+    "title": "What did Jesus claim about himself?",
+    "topic": "jesus",
+    "summary": "He forgave sins, spoke over the law, calmed the sea, accepted worship and was condemned for blasphemy: what Jesus said and did that pointed to who he is.",
+    "format": "essay",
+    "spine": "scripture-theology",
+    "answer": {
+      "id": "answer",
+      "text": "Jesus seldom announced in so many words that he was God. He did something more striking: he spoke and acted, again and again, in ways that only make sense if he is. He forgave sins committed against others. He set his own word beside the law God gave at Sinai. He calmed the sea with a word, as the psalms say the Lord does. He accepted worship that apostles and angels refused. And at his trial he claimed the throne beside God, and was condemned for blasphemy. Southern Baptists confess, with the whole church since Nicaea, that Jesus is the eternal Son of God, “fully God, fully man” (Baptist Faith and Message 2000, article II). The Baptist E. Y. Mullins noticed that Jesus let his disciples discover this rather than imposing it: “His ideal was that his revelation of himself should become their discovery of him.” This essay walks through the passages in that order of discovery. Whether the Gospels report his words faithfully is argued in “How historians weigh the Gospels”; here we listen to what they say.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 2:7"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Mark 4:41"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Mark 14:61-64"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 20:28"
+        },
+        {
+          "kind": "source",
+          "source": "bfm-2000",
+          "locator": "Article II"
+        },
+        {
+          "kind": "source",
+          "source": "mullins-why-true",
+          "locator": "ch. VII, §113, pp. 108–110"
+        },
+        {
+          "kind": "source",
+          "source": "nicene-creed-381",
+          "locator": "Paragraph 2"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "id": "forgives",
+        "title": "He forgave sins that were not committed against him",
+        "blocks": [
+          {
+            "id": "forgives-roof",
+            "text": "Picture the house in Capernaum, so crowded that four men had to dig through the roof to lower their paralysed friend to Jesus. Everyone expected a healing. Instead Jesus said, “Son, your sins are forgiven.” The scribes sitting there understood exactly what that meant, and were scandalised: “He is blaspheming! Who can forgive sins but God alone?” They were right about the principle. You can forgive someone who has wronged you; you cannot forgive what he has done to somebody else. Jesus spoke as though every sin were ultimately against him, which is how only God can speak.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 2:1-7"
+              },
+              {
+                "kind": "source",
+                "source": "lewis-mere-christianity",
+                "locator": "Book 2, chapter 3"
+              }
+            ]
+          },
+          {
+            "id": "forgives-proof",
+            "text": "Jesus did not correct the scribes. He answered them with a question, which is easier to say, and then did the visible thing to prove the invisible one: “so that you may know that the Son of Man has authority on earth to forgive sins”, he told the man to get up, and he walked out in front of them all. Later, at a Pharisee's table, he told a woman known as a sinner that her sins were forgiven, and the guests asked the question this whole essay is about: “Who is this who even forgives sins?”",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 2:8-12"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 7:47-49"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VII, §103, pp. 97–98"
+              }
+            ]
+          },
+          {
+            "id": "forgives-meaning",
+            "text": "Mullins, the Baptist seminary president, drew the line plainly: to be a sinless man pitying sinners is one thing; to exercise the prerogative of forgiving sin is another. Jesus went further still, saying at the Last Supper that his blood would be poured out for the forgiveness of sins. The one who forgives is also the one who pays.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 26:28"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:47"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VII, §103, pp. 97–98"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Mark 2:1-12",
+            "note": "The paralysed man and the scribes' objection"
+          },
+          {
+            "reference": "Luke 7:36-50",
+            "note": "The woman at the Pharisee's table"
+          },
+          {
+            "reference": "Matthew 26:26-28",
+            "note": "My blood, for the forgiveness of sins"
+          }
+        ]
+      },
+      {
+        "id": "authority",
+        "title": "He spoke over the law, as its author",
+        "blocks": [
+          {
+            "id": "authority-but-i",
+            "text": "When the Sermon on the Mount was over, the crowds were astonished, because he taught as one who had authority, and not as their scribes. You can hear why. The scribes quoted earlier teachers. The prophets said, “This is what the LORD says.” Jesus said: “You have heard that it was said… But I tell you.” He took commandments given at Sinai, do not murder, do not commit adultery, and went beneath them to anger and lust in the heart, on his own authority. He did not abolish the law, he said; he came to fulfil it. But he spoke as one who knew what the Lawgiver meant.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 7:28-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 5:17"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 5:21-22"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 5:27-28"
+              }
+            ]
+          },
+          {
+            "id": "authority-sabbath",
+            "text": "The Sabbath was God's own day, set in the Ten Commandments and kept at great cost by faithful Jews. When his disciples were criticised for picking grain on it, Jesus said that the Sabbath was made for man, and that “the Son of Man is Lord even of the Sabbath.” He claimed that something greater than the Temple was here, and one greater than Jonah and Solomon. A prophet points away from himself to God. Jesus kept pointing to himself.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 2:27-28"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 12:6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 12:41-42"
+              }
+            ]
+          },
+          {
+            "id": "authority-amen",
+            "text": "Listen, too, to how he began. Jesus opened many sayings with “Truly I tell you”, in John doubled: “Truly, truly.” The word behind “truly” is amen, which people said at the end of someone else's prayer or oath to agree with it. Jesus said it first, about his own words, as if they needed no one else's confirmation. Scholars have noted that no other teacher of his time is known to have spoken this way.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 3:28"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 5:18"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 8:58"
+              }
+            ]
+          },
+          {
+            "id": "authority-words",
+            "text": "He ended the sermon by making everything depend on his own words: whoever hears “these words of Mine” and acts on them builds on rock. Isaiah said that the grass withers but “the word of our God stands forever”. Jesus said, “Heaven and earth will pass away, but My words will never pass away.”",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 7:24-27"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 40:8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 13:31"
+              },
+              {
+                "kind": "source",
+                "source": "boyce-abstract",
+                "locator": "Lecture XIV, p. 141"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Matthew 5:17-48",
+            "note": "“But I tell you”"
+          },
+          {
+            "reference": "Mark 2:23-28",
+            "note": "Lord of the Sabbath"
+          },
+          {
+            "reference": "Matthew 7:24-29",
+            "note": "Built on his words; taught with authority"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "title": "He did what the psalms say only God does",
+        "blocks": [
+          {
+            "id": "sea-storm",
+            "text": "The disciples were fishermen, and they knew when a storm could kill them. That night on the Sea of Galilee the boat was filling with water while Jesus slept. They woke him, he rebuked the wind and said to the sea, “Silence! Be still!”, and it was perfectly calm. Their fear did not go away; it changed. “Who is this,” they asked, “that even the wind and the sea obey Him?” Any of them who knew the psalms had an answer ready: it is the LORD who calms the storm to a whisper and hushes the waves.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 4:37-41"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalm 107:28-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Psalm 89:9"
+              }
+            ]
+          },
+          {
+            "id": "sea-walking",
+            "text": "Another night, Jesus came to them walking on the sea, and Mark adds that he meant to pass by them, the way the Lord passed by Moses and Elijah on the mountain. The book of Job says that God “alone stretches out the heavens and treads on the waves of the sea.” As they cried out in terror, Jesus said, “Take courage! It is I. Do not be afraid.” In Greek, “It is I” is simply “I am”, the words God used of himself to Moses. Matthew says that those in the boat worshipped him.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 6:48-50"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Job 9:8"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Exodus 33:19-22"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Exodus 3:14"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 14:33"
+              }
+            ]
+          },
+          {
+            "id": "sea-meaning",
+            "text": "These are not claims in words but claims in deeds, and the Gospel writers expect you to notice. Jesus did his miracles in a way that pointed past himself to the God of Israel, and at the same time placed himself where Israel's Scriptures place that God. The site's article on the miracles of Jesus looks at what they show and how they have been doubted.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 20:30-31"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VII, §110"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Mark 4:35-41",
+            "note": "Wind and sea obey him"
+          },
+          {
+            "reference": "Mark 6:45-52",
+            "note": "Walking on the sea: “It is I”"
+          },
+          {
+            "reference": "Psalm 107:23-32",
+            "note": "The LORD stills the storm"
+          }
+        ]
+      },
+      {
+        "id": "son",
+        "title": "He called himself the Son, and the Son of Man",
+        "blocks": [
+          {
+            "id": "son-of-man",
+            "text": "Jesus' favourite name for himself was “the Son of Man”. It could sound modest, like saying “this man”. But it came from a vision in Daniel, where one like a son of man comes with the clouds of heaven to the Ancient of Days and is given an everlasting kingdom, so that all peoples should serve him. Jesus used it of himself as the one who would suffer, and as the one who would come in glory to judge. The site's article on the titles of Jesus traces each name.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Daniel 7:13-14"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 8:31"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 8:38"
+              }
+            ]
+          },
+          {
+            "id": "son-trial",
+            "text": "At his trial the two names met. The high priest asked him directly, “Are You the Christ, the Son of the Blessed One?” Until then Jesus had kept silent. Now he answered, “I am, and you will see the Son of Man sitting at the right hand of Power and coming with the clouds of heaven.” He was claiming Daniel's throne beside God. The high priest tore his clothes, called it blasphemy, and the council condemned him to death. Jesus died not for a misunderstanding but for this claim.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 14:61-64"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Daniel 7:13"
+              }
+            ]
+          },
+          {
+            "id": "son-father",
+            "text": "In other moments he spoke of God as his Father in a way no one else did. In a saying recorded by both Matthew and Luke he said that all things had been entrusted to him by his Father, that no one knows the Son except the Father, and no one knows the Father except the Son and those to whom the Son chooses to reveal him. In his parable of the vineyard, the owner sends servant after servant to the tenants, and finally “one beloved son”. Mullins pointed out that Jesus then sent his disciples to baptise in one name, of the Father and of the Son and of the Holy Spirit, setting himself beside the Father and the Spirit as an equal.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 11:27"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 12:6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:18-20"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VII, §113, pp. 108–110"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Daniel 7:9-14",
+            "note": "One like a son of man, before the Ancient of Days"
+          },
+          {
+            "reference": "Mark 14:55-64",
+            "note": "The question, the answer and the verdict"
+          },
+          {
+            "reference": "Matthew 11:25-30",
+            "note": "The Father and the Son"
+          }
+        ]
+      },
+      {
+        "id": "centre",
+        "title": "He put himself at the centre of every life",
+        "blocks": [
+          {
+            "id": "centre-rich-man",
+            "text": "A man ran up to Jesus, knelt, and asked, “Good Teacher, what must I do to inherit eternal life?” Jesus' first words sound like a denial: “Why do you call Me good? No one is good except God alone.” Some readers take this to mean Jesus was disowning any claim to be God. Read on. Jesus listed the commandments; the man said he had kept them all; and Jesus, looking at him with love, told him to sell everything, give to the poor, and “come, follow Me.” The one thing the man lacked was Jesus himself. Jesus was not denying that he was good. He was asking the man to think about what he had just said, and then calling him to treat him as only God may be treated.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 10:17-21"
+              }
+            ]
+          },
+          {
+            "id": "centre-love",
+            "text": "He made the same demand of everyone. Whoever loves father or mother, son or daughter, more than me is not worthy of me. Whoever loses his life for my sake and the gospel's will save it. Come to me, all you who are weary, and I will give you rest. No prophet of Israel ever asked to be loved above parents and children; the law reserved that love for God. Jesus asked for it as if it were his by right.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 10:37"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 8:35"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 11:28-29"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Deuteronomy 6:4-5"
+              }
+            ]
+          },
+          {
+            "id": "centre-judge",
+            "text": "He even placed himself at the end of history. When the Son of Man comes in his glory, he said, all the nations will be gathered before him, and he will separate them as a shepherd separates sheep from goats; what anyone did for the least of his brothers, they did for him. He promised to be present wherever two or three gather in his name, and with his disciples always, to the end of the age. Mullins and Boyce both pointed to these sayings: presence everywhere, and the judgment of the world, belong to God.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Matthew 25:31-40"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 18:20"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Matthew 28:20"
+              },
+              {
+                "kind": "source",
+                "source": "mullins-why-true",
+                "locator": "ch. VII, §113, pp. 108–110"
+              },
+              {
+                "kind": "source",
+                "source": "boyce-abstract",
+                "locator": "Lecture XIV, p. 142"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Mark 10:17-22",
+            "note": "“Why do you call Me good?”, and “Come, follow Me”"
+          },
+          {
+            "reference": "Matthew 10:34-39",
+            "note": "Loved above father and mother"
+          },
+          {
+            "reference": "Matthew 25:31-46",
+            "note": "The Son of Man judges the nations"
+          }
+        ]
+      },
+      {
+        "id": "i-am",
+        "title": "In John, he said it outright",
+        "blocks": [
+          {
+            "id": "i-am-abraham",
+            "text": "John's Gospel, written to bring readers to faith, records the plainest claims. Arguing in the Temple, Jesus said that Abraham had rejoiced to see his day. His hearers scoffed: you are not yet fifty. He replied, “Truly, truly, I tell you, before Abraham was born, I am!” Not “I was”, but “I am”, the name God gave at the burning bush. They understood him: they picked up stones to kill him.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 8:56-59"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Exodus 3:14"
+              }
+            ]
+          },
+          {
+            "id": "i-am-one",
+            "text": "When he healed on the Sabbath and said, “My Father is at His work, and I too am working,” John says they tried all the harder to kill him, because he was “calling God His own Father, making Himself equal with God.” Later he said, “I and the Father are one,” and again they took up stones, not, they said, for any good work, “but for blasphemy, because You, who are a man, declare Yourself to be God.” To Philip, who asked to see the Father, he said, “Anyone who has seen Me has seen the Father.”",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 5:17-18"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 10:30-33"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 14:8-9"
+              }
+            ]
+          },
+          {
+            "id": "i-am-worship",
+            "text": "Then there is worship. When the crowds at Lystra tried to sacrifice to Paul and Barnabas, the apostles tore their clothes and shouted that they were only men. When John fell at an angel's feet, the angel said, “Do not do that! … Worship God!” But when Thomas saw the risen Jesus and said, “My Lord and my God!”, Jesus accepted it, and blessed those who would believe without seeing. James Boyce, the founder of the Southern Baptist seminary, made exactly this comparison: Jesus received the worship that apostles and angels refused with horror.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Acts 14:14-15"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Revelation 22:8-9"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 20:28-29"
+              },
+              {
+                "kind": "source",
+                "source": "boyce-abstract",
+                "locator": "Lecture XIV, pp. 140–143"
+              }
+            ]
+          },
+          {
+            "id": "i-am-critics",
+            "text": "Many critical scholars, Bart Ehrman among them, doubt that Jesus spoke John's sayings, since John was written last and its Jesus speaks about himself far more than in the other Gospels. It is a fair question, and the other parts of this essay answer it: the forgiving of sins, the “But I tell you”, the calming of the sea and the answer at the trial are all in Mark, the earliest Gospel. John says openly what the others show.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 2:7"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 14:62"
+              },
+              {
+                "kind": "source",
+                "source": "ehrman-how-jesus-became-god",
+                "locator": "whole work"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "John 8:48-59",
+            "note": "“Before Abraham was born, I am!”"
+          },
+          {
+            "reference": "John 10:22-39",
+            "note": "“I and the Father are one”"
+          },
+          {
+            "reference": "John 20:24-29",
+            "note": "“My Lord and my God!”"
+          }
+        ]
+      },
+      {
+        "id": "followers",
+        "title": "His first followers worshipped him, and they were Jews",
+        "blocks": [
+          {
+            "id": "followers-jews",
+            "text": "You might expect a man to be made into a god slowly, far from home, among people who already had many gods. The opposite happened. The first people to worship Jesus were Jews, who prayed the Shema every day: the LORD our God, the LORD is one. Within about thirty years of the cross, Paul was quoting a hymn, which many scholars think older still, that says Christ existed in the form of God and that at his name every knee will bow and every tongue confess that he is Lord, words Isaiah used of the LORD himself: “Every knee will bow before Me.” Paul even placed Jesus inside the Shema: one God, the Father, and one Lord, Jesus Christ.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Philippians 2:6-11"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Isaiah 45:22-23"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 8:6"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 12:29"
+              },
+              {
+                "kind": "source",
+                "source": "bauckham-god-of-israel",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "followers-prayer",
+            "text": "Paul closes a letter to Greek readers with a prayer in Aramaic, the language of the first church in Jerusalem: Marana tha, “Come, O Lord!” It must have come from the earliest Aramaic-speaking believers, and it is a prayer addressed to Jesus. Larry Hurtado argued that this devotion, prayer, hymns, baptism in his name and the Lord's Supper, appeared very early, among Jewish monotheists, and was something new in Judaism.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "1 Corinthians 16:22"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Luke 24:52"
+              },
+              {
+                "kind": "source",
+                "source": "hurtado-lord-jesus-christ",
+                "locator": "whole work"
+              }
+            ]
+          },
+          {
+            "id": "followers-outsiders",
+            "text": "Outsiders noticed. About AD 112 Pliny, the Roman governor of Bithynia, reported to the emperor that Christians met before dawn on a fixed day and “addressed a form of prayer to Christ, as to a divinity.” A few years earlier, Ignatius of Antioch, on his way to martyrdom, wrote of “our God, Jesus Christ”.",
+            "citations": [
+              {
+                "kind": "source",
+                "source": "pliny-letters",
+                "locator": "10.96"
+              },
+              {
+                "kind": "source",
+                "source": "ignatius-letters",
+                "locator": "To the Ephesians 18"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "Philippians 2:5-11",
+            "note": "Every knee will bow"
+          },
+          {
+            "reference": "1 Corinthians 8:4-6",
+            "note": "One God, the Father; one Lord, Jesus Christ"
+          },
+          {
+            "reference": "Isaiah 45:20-25",
+            "note": "“Every knee will bow before Me”"
+          }
+        ]
+      },
+      {
+        "id": "confessed",
+        "title": "Truly God, truly man",
+        "blocks": [
+          {
+            "id": "confessed-human",
+            "text": "The same Gospels that show Jesus forgiving sins and stilling storms show him tired, hungry, weeping at a friend's grave, praying in anguish in Gethsemane, and saying that not even the Son knows the day of his return. The church never chose between these. Against those who said he only seemed human, and those who said he was less than God, it confessed at Nicaea that he is “very God of very God; begotten, not made, being of one substance with the Father”, and at Chalcedon in 451 that he is “truly God and truly man”.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "John 11:35"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 14:36"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Mark 13:32"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Hebrews 4:15"
+              },
+              {
+                "kind": "source",
+                "source": "nicene-creed-381",
+                "locator": "Paragraph 2"
+              },
+              {
+                "kind": "source",
+                "source": "chalcedon-definition-451",
+                "locator": "whole text"
+              }
+            ]
+          },
+          {
+            "id": "confessed-baptist",
+            "text": "Baptists confess the same. The Baptist Faith and Message says that Christ is the eternal Son, that in his incarnation he took upon himself human nature, “yet without sin”, and that he is “fully God, fully man”. The Second London Confession, which Baptists adopted in 1689, says that the two whole natures were joined in one person without conversion, composition or confusion. And this is good news, not only right doctrine. Only one who is God can forgive your sins as the offended party; only one who is man could die in your place. Jesus claimed to be both.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 10:45"
+              },
+              {
+                "kind": "scripture",
+                "reference": "1 Timothy 2:5"
+              },
+              {
+                "kind": "source",
+                "source": "bfm-2000",
+                "locator": "Article II"
+              },
+              {
+                "kind": "source",
+                "source": "lbcf",
+                "locator": "8.2"
+              }
+            ]
+          },
+          {
+            "id": "confessed-servant",
+            "text": "Notice, finally, how he made these claims. Not by seizing power, but by serving: the Son of Man came not to be served, but to serve, and to give his life as a ransom for many. The one who claimed the throne beside God washed his disciples' feet and went to a cross. That is part of the claim too, and the hymn Paul quoted says so: he did not consider equality with God something to be grasped, but emptied himself.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Mark 10:45"
+              },
+              {
+                "kind": "scripture",
+                "reference": "John 13:3-5"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Philippians 2:6-8"
+              }
+            ]
+          },
+          {
+            "id": "confessed-choice",
+            "text": "Claims like these leave very few honest responses. People have said he was a deceiver, or sincere but deluded, or that the claims are legend. Those answers are weighed in the article “Lord, liar, lunatic, or legend?”, and the question whether God vindicated his claims by raising him in “Did Jesus rise? The historical case”.",
+            "citations": [
+              {
+                "kind": "scripture",
+                "reference": "Romans 1:4"
+              },
+              {
+                "kind": "scripture",
+                "reference": "Acts 2:36"
+              }
+            ]
+          }
+        ],
+        "passages": [
+          {
+            "reference": "John 1:1-14",
+            "note": "The Word was God; the Word became flesh"
+          },
+          {
+            "reference": "Hebrews 4:14-16",
+            "note": "Tempted in every way, yet without sin"
+          },
+          {
+            "reference": "Romans 1:1-4",
+            "note": "Son of David; declared Son of God by the resurrection"
+          }
+        ]
+      }
+    ],
+    "prompt": {
+      "id": "conversation",
+      "text": "On the road to Caesarea Philippi, Jesus asked his disciples what people were saying about him. Then he asked them: “But what about you? Who do you say I am?” He asks you the same. Read the passage again before you answer.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Mark 8:27-29"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Mark 2:1-12",
+        "note": "Forgiving sins"
+      },
+      {
+        "reference": "Mark 14:55-64",
+        "note": "The trial: “I am”"
+      },
+      {
+        "reference": "John 20:24-29",
+        "note": "“My Lord and my God!”"
+      },
+      {
+        "reference": "Philippians 2:5-11",
+        "note": "The earliest Christian hymn"
+      }
+    ],
+    "related": [
+      "trilemma",
+      "titles-of-jesus",
+      "jesus",
+      "resurrection-case",
+      "gospels-as-history",
+      "miracles",
+      "islam-trinity",
+      "messianic-prophecy"
+    ],
+    "keywords": [
+      "claims of Jesus",
+      "deity of Christ",
+      "divinity of Jesus",
+      "Son of Man",
+      "forgiveness of sins",
+      "I am",
+      "Daniel 7",
+      "blasphemy",
+      "worship of Jesus",
+      "Chalcedon"
+    ],
+    "debates": [
+      "craig-ehrman",
+      "craig-ally-god"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 7: the whole article, written or deepened in this job. Every Scripture reference resolved against the held Berean text and each quoted verse compared word for word; every quotation compared with the held public-domain text its source names; in-copyright works described in our own words, never quoted (C. S. Lewis never quoted); Baptist Faith and Message 2000 phrases checked against bfm.sbc.net; each objection or view stated in its holder's own terms and labelled as theirs, with Baptist differences shown, not decided; dates and calculations presented as reconstructions; format rules, related links and the depth target checked.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "478ad711137a1382ec1b242caa5b8f494a6f0a361ebfc12613ca226deec12ef5",
+      "basisHash": "eff219bb97bb40b19e89d7a9936939bf4e1bbeeb8284a19857ce49aab504e136"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Text unchanged. Basis changed: one or more cited sources had only their kind label shortened to an existing library label (Historical study, Commentary or Historical text). Checked that every citation of those sources still matches the work and that no sentence relies on the old label.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "478ad711137a1382ec1b242caa5b8f494a6f0a361ebfc12613ca226deec12ef5",
+      "basisHash": "22dc0c9a0b529f94945c6f83581e4b31c6e3ca35d2a012e330f886723644a82c"
+    }
+  ]
+}

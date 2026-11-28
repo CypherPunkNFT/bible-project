@@ -12,7 +12,7 @@
     "url": "https://ccel.org/ccel/schaff/npnf201",
     "role": "Historic Christian witness",
     "note": "The first history of the church, which preserves Papias on the Gospels and the fourth-century list of accepted and disputed books (3.25). For the canon and early Christian history. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-578925ec9c59158f116f/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Church History 1.11.7-8 (the Testimonium as Eusebius gives it) read for jesus-outside-nt; 1.12 and 2.23 (James, from Hegesippus) read for resurrection-case. Cited, not quoted.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-578925ec9c59158f116f/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Church History 1.11.7-8 (the Testimonium as Eusebius gives it) read for jesus-outside-nt; 1.12 and 2.23 (James, from Hegesippus) read for resurrection-case. Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 3.39.3–4 and 3.39.15–16 (Papias on the living voice, Mark and Matthew) read in the held NPNF translation (1890) for gospels-as-history; three phrases quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "fffcba52f720cb4b6777e84562a4c8d3a2c6357df2161f57305eb229c7398c57",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "1f8a5b090721eda65c3903d3c2f44508d9652cfb3e737f46ef37aa586078c2d1",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

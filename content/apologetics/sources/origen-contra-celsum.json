@@ -12,7 +12,7 @@
     "url": "https://ccel.org/ccel/schaff/anf04",
     "role": "Historic Christian witness",
     "note": "Origen's reply to the pagan critic Celsus, which preserves much of Celsus's own attack. For the earliest full critique of Christianity and a reply to it; Origen's own speculations are not taught here. Public domain: may be quoted, with the translator or edition named and an exact locator. The held copy is CCEL's electronic text of a public-domain translation; quote the printed translation, and check a long extract against a scan of the printed volume first (CCEL's terms cover its electronic edition).",
-    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-a17fdd5c055cff5651f0/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Against Celsus 1.47 (Josephus on James) read for jesus-outside-nt; 2.55, 2.56, 2.59-61 and 2.63 read for easter-alternatives (Celsus's charges and Origen's replies). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Against Celsus 1.31 read for penal-substitution-objections.",
+    "read": "Held in this project's corpus: CCEL's text export sources/library/source-ccel/asset-lc01-a17fdd5c055cff5651f0/original.txt. Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Against Celsus 1.47 (Josephus on James) read for jesus-outside-nt; 2.55, 2.56, 2.59-61 and 2.63 read for easter-alternatives (Celsus's charges and Origen's replies). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, atonement and Hume articles): Against Celsus 1.31 read for penal-substitution-objections. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): 1.28 (Celsus: the birth, Egypt, 'proclaimed himself a God'), 1.32 and 1.55 read in the held text for virgin-birth, trilemma and messianic-prophecy. Described, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "438d2e3f2733d6d6e5444e5183735c1394eb2f5a0e6befabbf5a6a6e0b027447",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the read field changed (what was read for the step-7 articles, appended), plus a publicDomain record where noted in SOURCES.md; the citation-facing fields (title, author, kind, address, role, note) are unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "97b439f9cb3366308a10962cb2e40e2ee7d34bd736cdf515b71e2de0fff53f32",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

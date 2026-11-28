@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "bultmann-jesus-word",
+  "order": 331,
+  "publication": "published",
+  "content": {
+    "title": "Jesus and the Word",
+    "author": "Rudolf Bultmann (German original Jesus, Berlin, 1926; English translation New York: Scribner, 1934)",
+    "kind": "Historical study",
+    "url": "https://openlibrary.org/search?q=Jesus+and+the+Word+Bultmann",
+    "role": "Scholarship · described, not quoted",
+    "note": "Bultmann's short book on Jesus' teaching, holding that almost nothing can be known of Jesus' life and personality and that faith does not need it. His form criticism of the Gospels (1921) set the method. In copyright: described in our own words and cited by chapter or whole work, never quoted; no page numbers are given because no copy is held.",
+    "read": "Not held; described from general knowledge of its published argument; not read for this article. 2026-11-27 (plan APOLOGETICS-FIELDS step 7): registered for the Jesus & resurrection field; the link is a library catalogue search, not a copy.",
+    "checked": "none"
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New or newly cited source record for plan step 7: title, author, date, edition, address and role checked. Cite-only works: the record says described, not quoted, with no page numbers. Held texts: the file, its checksum or corpus path and the public-domain basis checked against the title page or edition.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "1cb24ad99c1fe33fffa3c5b78c7b1afdb555b8afb4a88ed118323ce00519798d",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan step 7: only the kind label changed, to one of the library's existing short labels (Historical study, Commentary or Historical text) so the source list stays within the translated label set; the label still describes the work truly. Title, author, address, role, note and quoted text unchanged.",
+      "note": "AI-assisted editorial review by the job that made the change; not independent human theological approval.",
+      "date": "2026-11-28",
+      "contentHash": "c9b553115359268e4ad8320670ee6259c8400b82872ce2e95afdb90aa96c7a89",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    }
+  ]
+}
