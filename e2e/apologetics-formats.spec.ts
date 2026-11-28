@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { STUDIES } from "../src/data/apologetics-library";
 
 // The reading page of each article format (plan APOLOGETICS-FIELDS step 6), drawn from its first real article, the
-// Jesus & resurrection samples. Case study and questions answered have no published article yet; their pages are
+// Jesus & resurrection samples. Questions answered has no published article yet (its first is job 10.5); its page is
 // proven by src/components/apologetics/StudyFormats.test.tsx.
 const SAMPLES: [string, string, (page: import("@playwright/test").Page) => Promise<void>][] = [
   ["resurrection-case", "essay", async (page) => { await expect(page.getByRole("navigation", { name: "Parts of this essay" })).toBeVisible(); }],
@@ -12,6 +12,7 @@ const SAMPLES: [string, string, (page: import("@playwright/test").Page) => Promi
   ["hume-miracles", "figure", async (page) => { await expect(page.locator(".fx-figure-card h2")).toHaveText("David Hume"); await expect(page.locator("#works")).toBeVisible(); }],
   ["jesus-outside-nt", "reading", async (page) => { await expect(page.locator(".fx-extract blockquote").first()).toHaveAttribute("translate", "no"); }],
   ["titles-of-jesus", "glossary", async (page) => { expect(await page.locator(".fx-terms > div").count()).toBeGreaterThanOrEqual(25); }],
+  ["reading-craig-ehrman", "case-study", async (page) => { expect(await page.locator(".fx-steps > li").count()).toBeGreaterThanOrEqual(4); await expect(page.locator(".fx-note#limit")).toBeVisible(); }],
 ];
 
 for (const theme of ["light", "dark"] as const) {

@@ -12,7 +12,7 @@
     "url": "https://archive.org/details/whyischristianit00mull",
     "role": "Baptist exposition",
     "note": "A Southern Baptist seminary president's book of Christian evidences: the person of Christ, the resurrection, miracles and Christian experience. For a Baptist voice in the classic apologetic arguments. Public domain: may be quoted, with the translator or edition named and an exact locator.",
-    "read": "Downloaded 2026-11-27 to sources/archive-org/ (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Chapter XIII, 'The Resurrection of Jesus', sections 188-207 (pp. 188-203), read in full in the held 1905 edition for resurrection-case and easter-alternatives (section 199 reports Strauss's rebuttal of the swoon theory, from Strauss's 1864 popular Life). Cited, not quoted.",
+    "read": "Downloaded 2026-11-27 to sources/archive-org/ (checksum in Website/SOURCES.md, 'Apologetics fields: the Baptist footing'). Not yet read for any article. 2026-11-27 (plan APOLOGETICS-FIELDS step 6): Chapter XIII, 'The Resurrection of Jesus', sections 188-207 (pp. 188-203), read in full in the held 1905 edition for resurrection-case and easter-alternatives (section 199 reports Strauss's rebuttal of the swoon theory, from Strauss's 1864 popular Life). Cited, not quoted. 2026-11-27 (plan APOLOGETICS-FIELDS step 6, reading-craig-ehrman): Chapter XII sections 170-176 (miracle, science and philosophy, Hume) and chapter XIII sections 188-190 and 206-207 (the resurrection as a hypothesis tested by historical evidence) read in the held 1905 edition for reading-craig-ehrman. Cited, not quoted.",
     "checked": "corpus"
   },
   "reviews": [
@@ -32,6 +32,15 @@
       "note": "AI-assisted register review of the record; not independent human approval.",
       "date": "2026-11-27",
       "contentHash": "882684ea285cd8348513115b85e3d9294e94259439b665e33843d67ebc5ac8d3",
+      "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Plan APOLOGETICS-FIELDS step 6 (job 488da4b7), reading-craig-ehrman: register update. The `read` field's new dated note (what that article's writer read in this source) was checked against the writer's notes; the independent content review read the cited places. No cited field changed.",
+      "note": "AI-assisted register review of the record; not independent human approval.",
+      "date": "2026-11-28",
+      "contentHash": "350acb5ebcd392f7d244caf4e3b0868546023becaecc9131556fa35e61957d72",
       "basisHash": "747d213631113cc946f851a3ab0ec7153a938cade92f2f377c7dee9fe4756a9e"
     }
   ]

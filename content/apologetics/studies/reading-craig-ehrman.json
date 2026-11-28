@@ -1,0 +1,342 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "reading-craig-ehrman",
+  "order": 34,
+  "publication": "published",
+  "content": {
+    "title": "Reading the Craig–Ehrman debate",
+    "topic": "jesus",
+    "summary": "How to follow the 2006 debate between William Lane Craig and Bart Ehrman on the resurrection: what each argued, what they shared, and the question that decided it.",
+    "format": "case-study",
+    "answer": {
+      "id": "answer",
+      "text": "On 28 March 2006 William Lane Craig and Bart Ehrman debated whether there is historical evidence for Jesus’ rising from the dead. They shared more ground than the evening’s sharpness suggests: Jesus died by crucifixion, some of his followers had experiences they took to be seeing him, and the belief that God had raised him gave birth to the church. They divided over how early and trustworthy the reports of the burial and the empty tomb are, and whether the appearances were visions or bodily, and whether a historian, working as a historian, may ever name an act of God as the best explanation. This guide follows the argument move by move, so that you can judge it yourself.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "source",
+          "source": "craig-ehrman",
+          "locator": "Opening Statement - Dr. Craig"
+        },
+        {
+          "kind": "source",
+          "source": "craig-ehrman",
+          "locator": "Conclusion - Dr. Ehrman"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "The early formula both men argued over: died, buried, raised, appeared."
+      },
+      {
+        "reference": "Mark 15:42-47",
+        "note": "Joseph of Arimathea and the burial; the women see where the body is laid."
+      },
+      {
+        "reference": "Mark 16:1-8",
+        "note": "The women find the tomb empty. Read it beside the other three accounts."
+      },
+      {
+        "reference": "Luke 24:36-43",
+        "note": "The risen Jesus invites touch and eats: Luke’s answer to the idea of a mere vision."
+      },
+      {
+        "reference": "John 20:29-31",
+        "note": "Why the signs were written down, and the blessing on those who believe without seeing."
+      }
+    ],
+    "related": [
+      "resurrection-case",
+      "easter-alternatives",
+      "hume-miracles",
+      "resurrection",
+      "miracles",
+      "scripture"
+    ],
+    "keywords": [
+      "Craig",
+      "Ehrman",
+      "debate",
+      "resurrection",
+      "historical method",
+      "miracles",
+      "probability",
+      "Bayes' theorem",
+      "empty tomb",
+      "burial",
+      "appearances",
+      "best explanation"
+    ],
+    "spine": "academic",
+    "debates": [
+      "craig-ehrman"
+    ],
+    "sections": [
+      {
+        "id": "setting",
+        "title": "Setting",
+        "text": "The debate was held at the College of the Holy Cross in Worcester, Massachusetts, on 28 March 2006, on the question whether there is historical evidence for the resurrection of Jesus. Each man gave an opening statement, two rebuttals and a conclusion, and both then took questions from the audience. As Craig pointed out, their stories begin alike: each came to personal faith in Christ at fifteen or sixteen, and both studied at Wheaton College. Craig, a philosopher, went on to doctoral work on the resurrection under Wolfhart Pannenberg in Munich and came out more convinced. Ehrman, a historian of early Christianity who had also studied at Moody Bible Institute, told the audience that years in the ancient languages and texts had led him to reject what he once preached about the evidence. The site holds the full transcript, as supplied by its owner with the original headings and thirteen footnotes, and a link to the recording; both are on the debate’s page at /apologetics/debates/craig-ehrman.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Opening Statement - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Opening Statement - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Source information and contents"
+          }
+        ]
+      },
+      {
+        "id": "claim",
+        "title": "The claim",
+        "text": "Craig made two claims. First, any adequate account must explain four facts which, he said, most scholars accept: Joseph of Arimathea laid Jesus in a tomb; a group of women followers found that tomb empty on the Sunday; several people, alone and together and at various times, saw what they took to be Jesus alive; and the first disciples came abruptly and in earnest to believe he had risen, against everything their hopes had prepared them for. He argued each from early, independent sources, such as the formula Paul hands on to the Corinthians, and from details unlikely to be invented: a member of the council that condemned Jesus gives him a tomb, and women, whose testimony counted for little, find it empty. Second, rising from the dead explains them best by the usual tests of explanatory power, scope and plausibility, and the rivals (conspiracy, apparent death, hallucination) fail. The facts, he stressed, are ordinary historical facts; only the explanation is a miracle. Ehrman’s case had two layers. A historian wants accounts that are contemporary, numerous, independent, consistent and disinterested. The Gospels, he said, date from between 35 and 65 years after the crucifixion and come from Greek-speaking Christians who had not seen the events, from oral stories reshaped as they were retold to win converts; their titles were added later; and read side by side they differ over details such as the hour of the crucifixion, who carried the cross, and who visited the tomb and what they found there and what they saw there. The second layer, he held, would stand even with perfect sources: history deals only in what is likely to have happened, and a miracle is by definition the most improbable account of any event, so a historian can never conclude that one probably occurred. He did not call miracles impossible. He placed the resurrection, a claim about what God did, in theology and faith, not history. To illustrate, he sketched a scenario he said he did not believe (two relatives move the body by night, soldiers kill them, and all three are buried in a common grave) and argued that even this beats a miracle on probability.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:42-47"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 16:1-8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:25"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 19:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 15:21"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 19:17"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Opening Statement - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Opening Statement - Dr. Ehrman"
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": "The evidence",
+        "text": "Craig’s first rebuttal went straight to the probability argument, which he treated as the heart of the disagreement. He traced it to David Hume, noted that the agnostic philosopher John Earman had argued in a book of 2000 that Hume’s case fails, and set out Bayes’ theorem. How likely the resurrection is, once both what we know of the world and the particular evidence are counted, depends on how probable it is on background knowledge alone, how well it explains the evidence, and how probable and how explanatory all the naturalistic alternatives are. Ehrman, he said, weighed only the first. If the rivals explain the evidence badly enough, an event improbable beforehand can be probable on the evidence, so there is no contradiction. And the hypothesis is that God raised Jesus, not that a corpse revived by nature; to call that improbable one must judge God’s existence or action improbable, which Ehrman said historians cannot do. Asked in the questions for his numbers, Craig said he does not argue from the formula himself: he raised it only to answer the probability objection, judged the prior probability impossible to assign because it concerns a free agent, mentioned that Richard Swinburne had put figures to it, and named his own method as inference to the best explanation. Ehrman replied that probability sums cannot establish an act of God. On the facts, Ehrman argued that Paul wrote some 25 years after the events and never names Joseph; that burial could mean a common grave; that women at the tomb suit Mark’s theme that outsiders grasp who Jesus is; and that ancient people spoke of appearances, like Moses and Elijah at the Transfiguration, without meaning a restored body. Craig answered that Paul quotes a formula received far earlier, which he dated within five years of the cross; that to Jews of Paul’s day, being raised after burial meant the buried remains coming to life, so the formula implies an empty tomb; that the women were disciples, attested in several independent sources; and that Paul set the appearances apart from visions such as Stephen’s. Against the family scenario Craig argued that Jesus’ brothers did not then believe, few knew where the body lay, time was short, the burial cloths were left behind, and it explains neither the appearances nor the belief. Ehrman disputed each point and gave his own reconstruction: the first Christians searched their scriptures, among them Isaiah 53 and Psalm 22, concluded that God had vindicated and exalted Jesus, believers then had visions of him, and stories of those visions, and later of an empty tomb, grew from there. Questions were left hanging on both sides. Craig set aside whether the Gospels contain errors as a question of inerrancy, not history, Ehrman pressed a test of consistency: if Jesus’ miracles can be shown historically, why not those told of Apollonius of Tyana, Honi the Circle-Drawer or Hanina ben Dosa, and why prefer the God of Israel to an invented god who would explain the same facts? Craig called the Apollonius stories late, post-Christian legends (Ehrman disputed the dating) and the invented god ad hoc; Ehrman asked for evidence that the disciples were put to death for their belief, and the transcript records no answer.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 9:2-8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 7:55-56"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 7:5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 20:5-7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Isaiah 53:10-12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalm 22:22-24"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "First Rebuttal - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "First Rebuttal - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Second Rebuttal - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Second Rebuttal - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Conclusion - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Conclusion - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Moderated Dialogue - Q&A"
+          }
+        ]
+      },
+      {
+        "id": "survives",
+        "title": "What survives",
+        "text": "Some ground held for both men. Jesus was crucified and died; the belief that God had raised him came early; some followers had experiences they took to be seeing him, though the two men disagreed about what those experiences were. Both argued over the formula in 1 Corinthians 15 rather than setting it aside. The burial by Joseph and the empty tomb were the contested facts: Craig claimed most scholars for them, Ehrman said in his conclusion that both could be later inventions, and Craig cited Ehrman’s own earlier writing as granting them, which Ehrman said was taken out of context. On method, Craig’s formal point stands: an event improbable beforehand can still be the best explanation if every rival fares worse, so the bare improbability of miracles does not settle the matter, and Ehrman’s reply was to deny that his point was Hume’s and to invite Craig to enter rivals such as the family scenario, which he judged likelier than an act of God; he did not contest the formula itself. But the formula does not prove the resurrection either. Everything turns on how likely it is beforehand that God would raise Jesus, which Craig himself called impossible to assign. That is the hinge: may the God of Israel stand among the explanations a historian weighs? Ehrman’s answer is a rule of the historian’s craft, shared by people of every belief; Craig’s is that science and history both infer what no one observes, physicists their unseen entities and historians the vanished past; that a rule of the guild cannot settle what actually happened; and that Jesus’ life and claims give this miracle its meaning. The Baptist apologist E. Y. Mullins drew the same line in 1905: Strauss and Harnack, he observed, left the question of fact aside as historians and denied it, or left it in doubt, only as philosophers; science may examine the evidence for miracles closely but cannot rule them out, because whether a personal God stands behind nature is not a question science decides. In its own voice Bible Guide confesses, with the Baptist Faith and Message, that Jesus rose bodily and appeared to his disciples. That confession rests on the apostles’ testimony in Scripture, which joins witness and faith: Paul staked the faith on the event, and John wrote down the signs so that readers who never saw him may believe. Historical argument can make a strong case that this faith fits the evidence better than its rivals do; it cannot do the believing for anyone.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:14-17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 24:36-43"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 20:29-31"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Conclusion - Dr. Craig"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Conclusion - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Moderated Dialogue - Q&A"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. XIII, §206"
+          },
+          {
+            "kind": "source",
+            "source": "mullins-why-true",
+            "locator": "ch. XII, §§172–173"
+          },
+          {
+            "kind": "source",
+            "source": "bfm-2000",
+            "locator": "Article II"
+          }
+        ]
+      },
+      {
+        "id": "read-it-yourself",
+        "title": "How to read it yourself",
+        "text": "Five habits help with this debate and others like it. Make two columns: the facts each speaker grants and the facts he disputes, and note where a position moves during the evening. Keep two probabilities apart: how likely an event is before the evidence, and how likely it is given the evidence. Ask whether an alternative is put forward as true or only as possible; Ehrman said plainly that he believed neither of the scenarios he offered (the family one and, in his second rebuttal, a twin brother mistaken for Jesus). Read the resurrection accounts across, as Ehrman urged, setting Mark, Matthew, Luke and John side by side, then ask whether the differences touch the core Craig listed or only its details. And watch the clock: timed speeches leave questions unanswered on both sides, and a dropped point is not a refuted one. Both men traded pointed labels for the other’s arguments; set them aside and weigh the arguments.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 16:1-8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 28:1-10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Luke 24:1-12"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 20:1-18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Thessalonians 5:21"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Opening Statement - Dr. Ehrman"
+          },
+          {
+            "kind": "source",
+            "source": "craig-ehrman",
+            "locator": "Second Rebuttal - Dr. Ehrman"
+          }
+        ]
+      }
+    ],
+    "limit": {
+      "id": "limit",
+      "text": "This guide rests on one transcript of one evening, supplied to the site and not checked word for word against the recording; it summarises, and the speakers should be read in full on the debate’s page. Timed speeches compress cases each man argues at length elsewhere: Ehrman later set out his doubts about the burial and his account of the visions in How Jesus Became God (2014), and Craig’s fuller arguments are in his books. History can weigh sources and rival explanations; it cannot by itself weigh how likely it is that God exists and acts, and both men brought an answer to that question with them. What this guide infers is that this question, more than any single fact, decided the evening. The site’s confession of the resurrection rests on Scripture, not on who won a debate.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:31"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15"
+        },
+        {
+          "kind": "source",
+          "source": "craig-ehrman",
+          "locator": "Source information and contents"
+        },
+        {
+          "kind": "source",
+          "source": "ehrman-how-jesus-became-god",
+          "locator": "chs. 4–5"
+        }
+      ]
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "New case study, the first real article of its format (plan APOLOGETICS-FIELDS step 6, job 488da4b7). Summarises the Craig-Ehrman debate (2006) from the site's transcript, read in full, and quotes none of it (owner decision 4 still open: summaries only). Writer's notes checked; every cited verse opened in the Berean; independent AI content review of doctrine (BF&M 2000), Scripture, rights, accuracy and fairness to both speakers, with a 5-word overlap check against the transcript and Mullins read at the cited sections. Its findings (remaining transcript word runs reworded, Ehrman's reply on the probability formula and his consistency challenge added, Craig's three replies on historians and God restored, the disputed appearances named, Luke 24 note corrected) were all applied. Validate clean; 1,906 words against a 1,000-1,800 guide, the excess being the fairness fixes.",
+      "note": "AI-assisted review; no human theological review. Ehrman's How Jesus Became God is cited from general knowledge (chapters 4-5), not read for this article.",
+      "date": "2026-11-28",
+      "contentHash": "4eeb520f7006158cd573f980535b56f8c2269b2f181c9122a63f4badb6baab49",
+      "basisHash": "b9d38d2fbd0e4bd42ee89ea8e5b34e33c46ab970912b16af718377b8f7e98d67"
+    }
+  ]
+}
