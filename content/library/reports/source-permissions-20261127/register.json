@@ -1,0 +1,1119 @@
+{
+ "schemaVersion": 1,
+ "kind": "source-permissions-register",
+ "date": "2026-11-27",
+ "job": "e2f818eb6bea4ab68e12f53379e0ac76",
+ "scope": "Every source the site credits, cites or uses, built from sources.json, SOURCES.md, NOTICE.md, site-source-audit.json, site-source-sweep.json, public/content/sources/directory.json, public/content/reading-sources.json, the question bank, the acquisition reports and the sermons campaign's TERMS records. Small sources with identical standing are grouped in one entry; the entry name lists every member.",
+ "counts": {
+  "nothing-to-ask": 61,
+  "fix-our-attribution": 8,
+  "worth-writing-to": 3,
+  "do-not-write": 8
+ },
+ "emailsWorthSending": {
+  "total": 3,
+  "newDraftsThisJob": 1,
+  "alreadyDraftedInOwnerActions": [
+   "grace-to-you",
+   "mlj-trust"
+  ]
+ },
+ "sendingRule": "The owner's Gmail sends roughly 500 messages a day and bulk near-identical mail risks the account: any eventual sending goes out in small batches over days, not at once.",
+ "nothingSent": true,
+ "buckets": {
+  "nothing-to-ask": [
+   {
+    "id": "bsb-msb",
+    "name": "Berean Standard Bible and Majority Standard Bible",
+    "url": "https://berean.bible/",
+    "use": "The site's Bible text everywhere, verse cards, the app.",
+    "held": "USFM and plain text via eBible.org.",
+    "terms": "Dedicated to the public domain (2023).",
+    "recorded": "SOURCES.md; NOTICE.md",
+    "reason": "Public domain.",
+    "problem": ""
+   },
+   {
+    "id": "ebible",
+    "name": "eBible.org Bible texts (KJV, WEB, ASV, YLT and the other public-domain versions)",
+    "url": "https://ebible.org/",
+    "use": "Reader versions and the app's six texts.",
+    "held": "Version folders under sources/ebible.",
+    "terms": "Each version's copr.htm marks it public domain (KJV under Crown patent in the UK only).",
+    "recorded": "SOURCES.md; NOTICE.md",
+    "reason": "Public domain.",
+    "problem": ""
+   },
+   {
+    "id": "hindi-irv",
+    "name": "Indian Revised Version (Hindi), Bridge Connectivity Solutions",
+    "url": "https://ebible.org/",
+    "use": "One reader version.",
+    "held": "Via eBible.org.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "NOTICE.md",
+    "reason": "Open licence; credit recorded in NOTICE.md.",
+    "problem": ""
+   },
+   {
+    "id": "openbible",
+    "name": "OpenBible.info cross-references and geocoding",
+    "url": "https://www.openbible.info/",
+    "use": "Reader cross-references, Connections page, atlas places.",
+    "held": "Dataset files.",
+    "terms": "CC BY (cross-references), CC BY 4.0 (geocoding).",
+    "recorded": "NOTICE.md; site-source-sweep.json",
+    "reason": "Open licence; credited in the reader and on the atlas.",
+    "problem": ""
+   },
+   {
+    "id": "stepbible",
+    "name": "STEP Bible data (Tyndale House, Cambridge)",
+    "url": "https://www.stepbible.org/",
+    "use": "People data, tagged Hebrew and Greek, lexicons, baby names.",
+    "held": "STEPBible-Data files.",
+    "terms": "CC BY 4.0.",
+    "recorded": "NOTICE.md; SOURCES.md",
+    "reason": "Open licence; credited \"STEP Bible\" with link.",
+    "problem": ""
+   },
+   {
+    "id": "open-scriptures",
+    "name": "Open Scriptures Strong's Hebrew dictionary",
+    "url": "https://github.com/openscriptures/strongs",
+    "use": "Name meanings, Hebrew spellings.",
+    "held": "HebrewStrong.xml.",
+    "terms": "Text public domain; this edition CC BY 4.0.",
+    "recorded": "SOURCES.md",
+    "reason": "Open licence; credited on the name pages.",
+    "problem": ""
+   },
+   {
+    "id": "strongs-greek",
+    "name": "Strong's Greek dictionary (Ulrik Petersen's XML)",
+    "url": "https://github.com/morphgnt/strongs-dictionary-xml",
+    "use": "Greek name forms.",
+    "held": "strongsgreek.xml.",
+    "terms": "Public domain.",
+    "recorded": "SOURCES.md",
+    "reason": "Public domain.",
+    "problem": ""
+   },
+   {
+    "id": "bibledata",
+    "name": "BibleData (Brady Stephenson)",
+    "url": "https://github.com/BradyStephenson/bible-data",
+    "use": "237 people-and-places questions.",
+    "held": "Dataset.",
+    "terms": "CC BY 4.0.",
+    "recorded": "data/questions/bank.json credit",
+    "reason": "Open licence; credited correctly.",
+    "problem": ""
+   },
+   {
+    "id": "bibleqa",
+    "name": "BibleQA (helen-jiahe-zhao)",
+    "url": "https://github.com/helen-jiahe-zhao/BibleQA",
+    "use": "Facts behind 37 reworded questions.",
+    "held": "Dataset.",
+    "terms": "Facts only, reworded; facts are not copyrightable.",
+    "recorded": "data/questions/bank.json credit",
+    "reason": "Facts, newly worded; credited.",
+    "problem": ""
+   },
+   {
+    "id": "helloao",
+    "name": "HelloAO Free Use Bible API",
+    "url": "https://bible.helloao.org/",
+    "use": "Private reference copies of commentaries.",
+    "held": "753 JSON files.",
+    "terms": "Free Use API: unrestricted use including commercial, with renamed changed translations.",
+    "recorded": "SOURCES.md",
+    "reason": "Open terms.",
+    "problem": ""
+   },
+   {
+    "id": "crosswire",
+    "name": "CrossWire SWORD modules",
+    "url": "https://www.crosswire.org/",
+    "use": "Private reference copies.",
+    "held": "102 module packages.",
+    "terms": "Each module's own DistributionLicense; the held ones are public domain.",
+    "recorded": "SOURCES.md",
+    "reason": "Public domain modules only.",
+    "problem": ""
+   },
+   {
+    "id": "creeds-json",
+    "name": "Creeds.json (NonlinearFruit)",
+    "url": "https://github.com/NonlinearFruit/Creeds.json",
+    "use": "35 creeds and catechisms on the Catechisms & Creeds pages; catechism questions in the bank.",
+    "held": "Pinned JSON files.",
+    "terms": "The Unlicense for every retained file; the repository's listed exceptions (e.g. Savoy) were left out.",
+    "recorded": "SOURCES.md; content/library/sources.json",
+    "reason": "Public-domain dedication.",
+    "problem": ""
+   },
+   {
+    "id": "lwalen-lbcf",
+    "name": "Second London Baptist Confession (lwalen/lbcf)",
+    "url": "https://github.com/lwalen/lbcf",
+    "use": "Confession text.",
+    "held": "4 files at a pinned commit.",
+    "terms": "CC0.",
+    "recorded": "content/library/sources.json",
+    "reason": "Public-domain dedication.",
+    "problem": ""
+   },
+   {
+    "id": "svrbc",
+    "name": "SVRBC Baptist Catechism / Symbolics",
+    "url": "https://baptistcatechism.org/",
+    "use": "1 hosted reading text.",
+    "held": "4 files.",
+    "terms": "Recorded as CC0 with third-party parts noted; robots.txt (read today) disallows nothing relevant.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "CC0 for what is hosted.",
+    "problem": ""
+   },
+   {
+    "id": "tcp",
+    "name": "Text Creation Partnership (EEBO, ECCO, Evans)",
+    "url": "https://textcreationpartnership.org/",
+    "use": "About 10,200 early English books read on the site.",
+    "held": "20,353 files.",
+    "terms": "CC0 for the keyboarded texts (not the scan images).",
+    "recorded": "SOURCES.md; content/library/sources.json",
+    "reason": "Public-domain dedication; the TEI credits are kept.",
+    "problem": ""
+   },
+   {
+    "id": "first1kgreek",
+    "name": "First1KGreek (Open Greek and Latin)",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek",
+    "use": "1,203 Greek texts read on the site.",
+    "held": "Pinned XML.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "hosted records",
+    "reason": "Open licence; each page names the encoders and editors and states the licence.",
+    "problem": ""
+   },
+   {
+    "id": "pta",
+    "name": "Patristic Text Archive (incl. 27 SBL Greek New Testament books)",
+    "url": "https://github.com/PatristicTextArchive/pta_data",
+    "use": "440 texts read on the site.",
+    "held": "Pinned XML.",
+    "terms": "CC BY-SA 4.0 or CC BY 4.0 per text; SBLGNT CC BY 4.0.",
+    "recorded": "hosted records",
+    "reason": "Open licences; credited per page.",
+    "problem": ""
+   },
+   {
+    "id": "ogl-csel",
+    "name": "Open Greek and Latin CSEL and the catenae texts",
+    "url": "https://github.com/OpenGreekAndLatin/csel-dev",
+    "use": "288 Latin and Greek texts read on the site.",
+    "held": "Pinned XML.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "hosted records",
+    "reason": "Open licence; credited per page.",
+    "problem": ""
+   },
+   {
+    "id": "cdli",
+    "name": "Cuneiform Digital Library Initiative",
+    "url": "https://cdli.earth/",
+    "use": "Museum-page records.",
+    "held": "Bulk catalogue dump (155 MB).",
+    "terms": "CC BY-SA 4.0; their pages were not crawled (60-second crawl delay).",
+    "recorded": "SOURCES.md",
+    "reason": "Open licence; credit recorded.",
+    "problem": ""
+   },
+   {
+    "id": "theographic",
+    "name": "Theographic Bible Metadata",
+    "url": "https://github.com/robertrouse/theographic-bible-metadata",
+    "use": "Not imported; held back by the owner's knowledge-graph gate.",
+    "held": "Dataset.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "Plans/KNOWLEDGE-GRAPH.md; SOURCES.md",
+    "reason": "Open licence; the open question is the owner's (share-alike), not the publisher's.",
+    "problem": ""
+   },
+   {
+    "id": "hymnary",
+    "name": "Hymnary.org (Calvin Institute of Christian Worship and The Hymn Society)",
+    "url": "https://hymnary.org/",
+    "use": "\"Where hymnals place it\" on 24 hymn pages, linking back.",
+    "held": "216 API responses, metadata only.",
+    "terms": "Factual metadata from the public API, no lyrics; robots.txt (read today) sets a 5-second delay and disallows /bible/ and full-text paths, none of which were used. Their copyright page refused our checker (HTTP 403).",
+    "recorded": "SOURCES.md Hymns (2026-10-17); robots.txt read 2026-11-27",
+    "reason": "Facts plus a link back; courtesy credit given.",
+    "problem": ""
+   },
+   {
+    "id": "unicode-enable",
+    "name": "Unicode emoji data and the ENABLE word list",
+    "url": "https://unicode.org/",
+    "use": "Emoji stories and Bible Wordle.",
+    "held": "emoji-test.txt; enable1.txt.",
+    "terms": "Unicode License v3; ENABLE public domain.",
+    "recorded": "SOURCES.md",
+    "reason": "Open terms.",
+    "problem": ""
+   },
+   {
+    "id": "new-advent",
+    "name": "New Advent (Church Fathers, Summa)",
+    "url": "https://www.newadvent.org/",
+    "use": "57 directory links; short quotations of public-domain translations (Aquinas 1920, Fathers 1880s–90s).",
+    "held": "Nothing hosted.",
+    "terms": "The translations quoted are public domain; robots.txt (read today) disallows only /cgi-bin/ and /tmp/.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "Public-domain translations, quoted briefly with the edition named.",
+    "problem": ""
+   },
+   {
+    "id": "ccel",
+    "name": "Christian Classics Ethereal Library",
+    "url": "https://www.ccel.org/",
+    "use": "634 directory links; Easton's dictionary and patristic translations quoted from public-domain texts.",
+    "held": "526+ files (two storage namespaces), private reading only.",
+    "terms": "\"These books may be used for personal, educational, or non-profit purposes. Contact us for permission to republish CCEL works.\" CCEL editions are never hosted: the hosting gate admits only public-domain/CC0/CC BY texts and excludes 'electronic edition' terms.",
+    "recorded": "content/library/reports/sermons-campaign/maclaren/TERMS.md (2026-10-08); SOURCES.md",
+    "reason": "We link and quote the underlying public-domain texts; we do not republish CCEL's editions, so no permission is needed.",
+    "problem": ""
+   },
+   {
+    "id": "gutenberg",
+    "name": "Project Gutenberg",
+    "url": "https://www.gutenberg.org/",
+    "use": "403 directory links; hymns, catechisms, question books and workbooks from its public-domain ebooks.",
+    "held": "73 files.",
+    "terms": "US public domain; no crawling of the main site (offline catalogue and mirrors only); link to landing pages; the trademark may not be used once the boilerplate is stripped.",
+    "recorded": "content/library/reports/sermons-campaign/moody/TERMS.md (2026-10-08)",
+    "reason": "Public domain.",
+    "problem": "6 directory links point at cache/epub/…-images.html files rather than the /ebooks/<n> landing page the terms ask for. The question-bank credit for three Gutenberg-sourced books says both \"supplied by Project Gutenberg\" and that Gutenberg \"asks NOT to be credited\"; drop the Gutenberg name there, as their trademark rule asks once the boilerplate is gone."
+   },
+   {
+    "id": "internet-archive",
+    "name": "Internet Archive (incl. David Rumsey and library scans)",
+    "url": "https://archive.org/",
+    "use": "711 directory links; old-map counts; the LibriVox ASV recording streamed from archive.org.",
+    "held": "10,775 files, private reading only.",
+    "terms": "Noncommercial, non-infringing scholarly use; public-domain items assessed edition by edition.",
+    "recorded": "content/library/reports/sermons-campaign/morgan/TERMS.md (2026-10-08)",
+    "reason": "Linking and public-domain use.",
+    "problem": "56 links on 28 directory entries point at archive.org's temporary storage servers (dn760007.eu.archive.org/…, ia801602.us.archive.org/…). Those hostnames change and break; link to https://archive.org/details/<identifier> instead."
+   },
+   {
+    "id": "librivox",
+    "name": "LibriVox ASV recording (Ron Altman)",
+    "url": "https://librivox.org/",
+    "use": "Listen page and the app; streamed from archive.org.",
+    "held": "Verse timings only.",
+    "terms": "Public domain.",
+    "recorded": "SOURCES.md",
+    "reason": "Public domain; credited.",
+    "problem": ""
+   },
+   {
+    "id": "wikisource-wikimedia",
+    "name": "Wikisource, Wikidata and Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/",
+    "use": "Museum photographs with per-file credit; the Great Isaiah Scroll photograph; 4 directory links.",
+    "held": "Per-file records.",
+    "terms": "Per-file licences (CC0, PD, CC BY, CC BY-SA, GFDL); Wikidata CC0.",
+    "recorded": "SOURCES.md",
+    "reason": "Open licences; per-file credit beside each photograph.",
+    "problem": ""
+   },
+   {
+    "id": "museums-open-access",
+    "name": "Museum open-access collections (Met, Cleveland, Art Institute of Chicago, Smithsonian, open Europeana items)",
+    "url": "https://www.metmuseum.org/",
+    "use": "Museum archaeology pages.",
+    "held": "Records and 79 resized images.",
+    "terms": "CC0 metadata and images where flagged public domain.",
+    "recorded": "SOURCES.md",
+    "reason": "Open; courtesy credits given.",
+    "problem": ""
+   },
+   {
+    "id": "british-museum",
+    "name": "British Museum",
+    "url": "https://www.britishmuseum.org/",
+    "use": "11 citation links.",
+    "held": "Nothing requested from the site.",
+    "terms": "Object photography CC BY-NC-SA; robots.txt reserves AI collection.",
+    "recorded": "SOURCES.md",
+    "reason": "Linked only. (Its NC licence would in fact allow use on a non-commercial site; using it is an internal choice, not a question for the museum.)",
+    "problem": ""
+   },
+   {
+    "id": "maps",
+    "name": "Map data: NASA GIBS, OpenStreetMap via Protomaps, Natural Earth, US Census TIGER, Library of Congress maps",
+    "url": "https://www.openstreetmap.org/copyright",
+    "use": "Atlas imagery, street map, coastlines, city outlines, one old-map preview.",
+    "held": "Tiles and extracts.",
+    "terms": "Public domain, except OpenStreetMap (ODbL, attribution required).",
+    "recorded": "NOTICE.md; SOURCES.md",
+    "reason": "Open; the street map carries the OpenStreetMap credit.",
+    "problem": ""
+   },
+   {
+    "id": "software-fonts",
+    "name": "Software, AI models and fonts (Qwen, Granite, LanceDB, ONNX Runtime, Transformers.js, Literata, Archivo, Noto, npm libraries)",
+    "url": "",
+    "use": "Search, audio timings, the app, type.",
+    "held": "Packages.",
+    "terms": "Apache 2.0, MIT, ISC, BSD, SIL OFL.",
+    "recorded": "NOTICE.md; SOURCES.md app section",
+    "reason": "Open licences; listed in NOTICE.md.",
+    "problem": ""
+   },
+   {
+    "id": "streetlights",
+    "name": "Streetlights videos (YouTube)",
+    "url": "https://www.youtube.com/",
+    "use": "Embedded in YouTube's privacy-enhanced player; ids only stored.",
+    "held": "Video ids.",
+    "terms": "YouTube's embed terms; the videos remain Streetlights'.",
+    "recorded": "SOURCES.md",
+    "reason": "Embedding through YouTube's player is permitted; credit shown beside the player.",
+    "problem": ""
+   },
+   {
+    "id": "unfoldingword-obs",
+    "name": "unfoldingWord Open Bible Stories and Sweet Publishing illustrations",
+    "url": "https://www.openbiblestories.org/",
+    "use": "Learning shelf.",
+    "held": "2 files (492 MB).",
+    "terms": "CC BY-SA 4.0 text; CC BY-SA 3.0 art.",
+    "recorded": "SOURCES.md",
+    "reason": "Open licences; makers credited on the shelf.",
+    "problem": ""
+   },
+   {
+    "id": "bible-for-children",
+    "name": "Bible for Children (Edward Hughes and illustrators)",
+    "url": "https://bibleforchildren.org/",
+    "use": "Story booklets and colouring books on the learning shelf.",
+    "held": "126 files.",
+    "terms": "\"You have the right to copy or print this story, as long as you do not sell it.\" Keep the credits page.",
+    "recorded": "SOURCES.md",
+    "reason": "Their own terms permit what we do.",
+    "problem": ""
+   },
+   {
+    "id": "chapel-library",
+    "name": "Chapel Library",
+    "url": "https://www.chapellibrary.org/",
+    "use": "Courses and booklets on the learning shelf; catalogue links.",
+    "held": "1,683 files.",
+    "terms": "Notice in each PDF: \"Permission is expressly granted to reproduce this material by any means\" if not charged for beyond duplication cost and the notice is kept.",
+    "recorded": "SOURCES.md; content/library/sources.json",
+    "reason": "Their printed notice permits it.",
+    "problem": ""
+   },
+   {
+    "id": "free-bible-commentary",
+    "name": "Dr Bob Utley, You Can Understand the Bible",
+    "url": "https://www.freebiblecommentary.org/",
+    "use": "13 commentary volumes on the learning shelf.",
+    "held": "13 files.",
+    "terms": "Each volume: copies must be free of charge and credit Dr Bob Utley with a reference to www.freebiblecommentary.org.",
+    "recorded": "SOURCES.md",
+    "reason": "Their notice permits it.",
+    "problem": ""
+   },
+   {
+    "id": "navigators",
+    "name": "The Navigators Bible reading plans",
+    "url": "https://www.navigators.org/",
+    "use": "3 reading-plan PDFs on the learning shelf.",
+    "held": "3 files.",
+    "terms": "\"Permission is granted to reprint unlimited copies … for non-commercial use. All copyright information must be retained.\"",
+    "recorded": "SOURCES.md",
+    "reason": "Their notice permits it.",
+    "problem": ""
+   },
+   {
+    "id": "bible-mapper",
+    "name": "Bible Mapper, Jr. (David P. Barrett)",
+    "url": "https://biblemapper.com/jr/",
+    "use": "Children's maps on the learning shelf.",
+    "held": "11 files.",
+    "terms": "Any non-commercial use, citing biblemapper.com with a hyperlink back.",
+    "recorded": "SOURCES.md",
+    "reason": "Their notice permits it.",
+    "problem": ""
+   },
+   {
+    "id": "know-the-truth",
+    "name": "Know the Truth: 60 Questions on Christian Beliefs (Baptist Studies Online)",
+    "url": "https://baptiststudiesonline.com/",
+    "use": "59 questions in the bank.",
+    "held": "1 PDF.",
+    "terms": "\"You may make copies and distribute freely\" with a set credit line.",
+    "recorded": "SOURCES.md",
+    "reason": "Permitted; the set credit line is shown.",
+    "problem": ""
+   },
+   {
+    "id": "historic-question-books",
+    "name": "Public-domain catechisms and question books (ASSU 1907, Boston 1880, Manly 1864, Hurlbut 1903, Boyce 1885, Mezger 1923, Stump 1910, Sverdrup 1900, Mason 1692, and others)",
+    "url": "",
+    "use": "About 4,000 questions in the bank.",
+    "held": "Transcriptions.",
+    "terms": "Public domain.",
+    "recorded": "content/questions/sources/MANIFEST.md",
+    "reason": "Public domain.",
+    "problem": ""
+   },
+   {
+    "id": "desiring-god",
+    "name": "Desiring God (John Piper)",
+    "url": "https://www.desiringgod.org/",
+    "use": "7,315 directory links; 1,618 Piper sermons on passages.",
+    "held": "14,785 files, private reading only.",
+    "terms": "Permissions page: qualified original embeds and limited quotation allowed; full text and media redistribution need permission. robots.txt (read today) disallows only search, audio/video stream paths and RSS; no terms-of-use page exists at /terms or /terms-of-use.",
+    "recorded": "content/library/sources.json (2026-10-05); robots.txt and permissions page read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "truth-for-life",
+    "name": "Truth For Life (Alistair Begg)",
+    "url": "https://www.truthforlife.org/",
+    "use": "1,482 directory links; 1,417 Begg sermons on passages.",
+    "held": "3,066 files, private reading only.",
+    "terms": "Anyone may duplicate and distribute Begg's sermons unaltered, free and credited (\"Copyright [year] by Truth For Life. Used with Permission.\"); robots.txt allows the sermon pages.",
+    "recorded": "content/library/reports/sermons-campaign/begg/TERMS.md (2026-11-26)",
+    "reason": "We go further than we need to: their terms would even allow hosting. Nothing to ask.",
+    "problem": ""
+   },
+   {
+    "id": "spurgeon",
+    "name": "Spurgeon Gems (Chapel Library) and The Spurgeon Library (Midwestern Seminary)",
+    "url": "https://www.spurgeongems.org/",
+    "use": "3,654 directory links; 3,544 Spurgeon sermons on passages.",
+    "held": "7,757 files, private reading only.",
+    "terms": "Free, unchanged, attributed use; Spurgeon's own text is public domain.",
+    "recorded": "content/library/reports/spurgeon/source-access.json; content/library/sources.json",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "wesley-center",
+    "name": "Wesley Center Online (Northwest Nazarene University)",
+    "url": "https://wesley.nnu.edu/",
+    "use": "139 Wesley sermons linked.",
+    "held": "139 pages, private reading only.",
+    "terms": "\"Text may be freely used for personal or scholarly purposes or mirrored on other web sites, provided this notice is left intact\"; no commercial use.",
+    "recorded": "content/library/reports/sermons-campaign/wesley/TERMS.md (2026-10-08)",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "monergism",
+    "name": "Monergism",
+    "url": "https://www.monergism.com/",
+    "use": "1,579 directory links.",
+    "held": "3,188 files, private reading only.",
+    "terms": "Free reading editions; index and link allowed; no external republication of its curated files. robots.txt (read today): Content-Signal search=yes, ai-train=no, use=reference.",
+    "recorded": "content/library/sources.json; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "love-worth-finding",
+    "name": "Love Worth Finding (Adrian Rogers)",
+    "url": "https://www.lwf.org/",
+    "use": "614 directory links.",
+    "held": "1,220 files, private reading only.",
+    "terms": "Offered private reading copies; robots.txt (read today) allows all but CMS paths.",
+    "recorded": "content/library/reports/modern-texts/rogers-access.json; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "gospel-coalition",
+    "name": "The Gospel Coalition and Themelios",
+    "url": "https://www.thegospelcoalition.org/",
+    "use": "376 directory links; 2 study citations.",
+    "held": "755 files, private reading only.",
+    "terms": "No site-wide reuse licence; permissions page exists; robots.txt (read today) sets a 600-second crawl delay.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "bible-reference-sites",
+    "name": "Bible Hub, International Standard Bible Encyclopedia site, Jewish Encyclopedia, Bible Study Tools, Biblia",
+    "url": "https://biblehub.com/",
+    "use": "About 580 directory links to public-domain reference works.",
+    "held": "2 Gill entries; nothing else.",
+    "terms": "The works linked (ISBE 1915, Jewish Encyclopedia 1906, Gill) are public domain; robots.txt read today on Bible Hub, the ISBE site and Jewish Encyclopedia restricts nothing.",
+    "recorded": "robots.txt read 2026-11-27; content/library/sources.json",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "reasonable-faith",
+    "name": "Reasonable Faith (William Lane Craig)",
+    "url": "https://www.reasonablefaith.org/",
+    "use": "5 debate-transcript links in apologetics.",
+    "held": "RF01 writings PDFs, private reading only.",
+    "terms": "No terms page found at the usual addresses; robots.txt (read today) disallows only shop and admin paths.",
+    "recorded": "SOURCES.md RF01; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "aomin",
+    "name": "Alpha and Omega Ministries (James White)",
+    "url": "https://www.aomin.org/",
+    "use": "7 debate and article links.",
+    "held": "4,097 files, private reading only.",
+    "terms": "No terms page found; robots.txt (read today): Allow /, Content-Signal search=yes, ai-train=no, use=reference.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "kruger",
+    "name": "Michael J. Kruger / Canon Fodder",
+    "url": "https://michaeljkruger.com/",
+    "use": "Canon study links.",
+    "held": "675 files, private reading only.",
+    "terms": "No terms page; robots.txt (read today) disallows nothing.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "first-pres-columbia",
+    "name": "First Presbyterian Church, Columbia and SermonAudio (Sinclair Ferguson)",
+    "url": "https://www.firstprescolumbia.org/teaching",
+    "use": "Discovery links only; Ferguson is a separate campaign.",
+    "held": "Nothing.",
+    "terms": "robots.txt read today: the church site allows general crawlers with a 2-second delay; SermonAudio allows general crawlers with a 5-second delay and blocks named AI crawlers. No terms page could be found on either (SermonAudio's pages are built by script).",
+    "recorded": "content/library/sources.json (2026-10-05); robots.txt read 2026-11-27",
+    "reason": "Nothing published forbids a polite, honestly identified fetcher from recording titles, dates and passages and linking back, so the Ferguson campaign can proceed without asking. Use SermonAudio's crawl delay and never an AI-bot user agent.",
+    "problem": ""
+   },
+   {
+    "id": "westminster-media",
+    "name": "Westminster Theological Seminary Media (John Murray)",
+    "url": "https://wm.wts.edu/",
+    "use": "Discovery link only.",
+    "held": "Nothing.",
+    "terms": "robots.txt read today is empty (nothing disallowed); no terms page found.",
+    "recorded": "content/library/sources.json (2026-10-05); robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "publishers",
+    "name": "Modern publishers and journals cited by bibliographic record (Crossway, Baker, IVP, Banner of Truth, Eerdmans, HarperCollins, Fortress, Bloomsbury, OUP, CUP, De Gruyter, Mohr Siebeck, SAGE, JSTOR, ETS, Tyndale Bulletin, Master's Seminary Journal, Bavinck Institute, OPC, 9Marks, Founders)",
+    "url": "",
+    "use": "Cited and linked; in-copyright works (e.g. C. S. Lewis) are described in our own words, never quoted.",
+    "held": "A few saved public pages and offered PDFs, private reading only.",
+    "terms": "Normal copyright; limited quotation only.",
+    "recorded": "SOURCES.md; content/library/sources.json; content/library/reports/campaign-reconciliation/",
+    "reason": "Citation needs no permission; the theology articles' tests also block quoting any in-copyright work.",
+    "problem": ""
+   },
+   {
+    "id": "small-ministry-sites",
+    "name": "Small ministry and church sites held privately (Capitol Hill Baptist, William Carey Center, Covenant Baptist Theological Seminary, Bethlehem College and Seminary, Baptist History Homepage, Baptist Dogmatics, Free Christian Ebooks, James M. Hamilton Jr., London 1644, Frame–Poythress, C. S. Lewis Institute, The Calvinist, Phil Johnson's Bookmarks, The Reformed Reader, Reformed on the Web, SermonIndex, On the Wing, Hanover College, Early Christian Writings, LacusCurtius, PRDL, Reformed Books Online)",
+    "url": "",
+    "use": "A handful of catalogue links; nothing hosted.",
+    "held": "1 to 180 files each, private reading only.",
+    "terms": "Mostly no published policy (checked 2026-10 by the campaign reconciliation; robots.txt re-read today for the ones never checked: none forbids access). Reformed on the Web is CC BY 3.0; SermonIndex and On the Wing allow free non-commercial use.",
+    "recorded": "content/library/reports/campaign-reconciliation/sources/official-consultations.json; robots.txt read 2026-11-27",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "zwemer",
+    "name": "Zwemer Center for Muslim Studies",
+    "url": "https://www.zwemercenter.com/",
+    "use": "24 directory links.",
+    "held": "3 historic PDFs.",
+    "terms": "Offered for reading/download; two editions assessed US public domain; one has a recorded download permission.",
+    "recorded": "SOURCES.md",
+    "reason": "Linking to a public page and recording its title, date and passage needs no licence",
+    "problem": ""
+   },
+   {
+    "id": "other-faith-texts",
+    "name": "Other-faith and worldview texts (dhammatalks.org, holy-bhagavad-gita.org, Humanists International)",
+    "url": "https://www.dhammatalks.org/",
+    "use": "Linked primary texts in worldview studies, with short attributed quotation.",
+    "held": "Nothing.",
+    "terms": "dhammatalks.org translations are CC BY-NC 4.0; holy-bhagavad-gita.org and Humanists International are normal copyright; robots.txt read today allows access on all three.",
+    "recorded": "SOURCES.md; robots.txt read 2026-11-27",
+    "reason": "Linking and brief attributed quotation for comparison.",
+    "problem": ""
+   },
+   {
+    "id": "church-bodies",
+    "name": "Church and confessional bodies' published texts (SBC Baptist Faith and Message 2000, Church of England, OPC Westminster Confession, the1689confession.com, Vatican, OCA, World Council of Churches, Lutheran World Federation, Mennonite World Conference, papalencyclicals.net)",
+    "url": "",
+    "use": "Linked and briefly quoted as the bodies' own statements.",
+    "held": "Nothing.",
+    "terms": "Published for reading and citation.",
+    "recorded": "public/content/reading-sources.json",
+    "reason": "Citation of public confessional statements.",
+    "problem": ""
+   },
+   {
+    "id": "third-party-transcripts",
+    "name": "Third-party transcript hosts (The Singju Post, justinholcomb.com, bethinking.org)",
+    "url": "https://singjupost.com/",
+    "use": "4 debate-transcript links in apologetics.",
+    "held": "Nothing.",
+    "terms": "The Singju Post's terms and robots.txt (read today) permit ordinary access; the transcripts' rights belong to the debaters or event organisers, not the hosts.",
+    "recorded": "public/content/reading-sources.json; terms read 2026-11-27",
+    "reason": "Linking is not copying; the credits already say 'hosted by …'.",
+    "problem": "Two Lennox debates link to The Singju Post and the Bahnsen–Stein debate to a PDF on justinholcomb.com. Where the organiser publishes an official recording or transcript, link that instead; it is the better credit."
+   },
+   {
+    "id": "scholarly-citations",
+    "name": "Scholarly works and institutions cited in the Study and Scholars pages (285 rows, 143 web domains: universities, museums, journals, manuscript projects)",
+    "url": "",
+    "use": "Cited and linked in research trails and the Sources-in-use grid; short excerpts limited by the studies' own rules (e.g. 13 words).",
+    "held": "Nothing beyond notes.",
+    "terms": "Normal copyright; citation and brief quotation.",
+    "recorded": "content/teachers/site-source-sweep.json; site-source-audit.json",
+    "reason": "Citation needs no permission.",
+    "problem": "34 rows credit a bare web address where an author or institution should be named (often the title itself names the author): e.g. 'faculty.uml.edu' for Eric H. Cline, 'journals.sagepub.com' for Amélie Kuhrt, 'oracc.museum.upenn.edu' for Grayson and Novotny, 'cris.huji.ac.il' for Yosef Garfinkel, 'michaellanglois.org' for Michael Langlois, 'newadvent.org' for Justin, Eusebius, Athanasius, Augustine and Irenaeus, 'commons.wikimedia.org' for the Isaiah Scroll photograph (photographer Ardon Bar Hama). The full list is in register.json under this entry.",
+    "domainCredits": [
+     {
+      "feature": "manuscript-passages",
+      "credited": "uni-muenster.de",
+      "title": "ECM Mark · unresolved readings (PDF)",
+      "url": "https://www.uni-muenster.de/imperia/md/content/INTF/passages_with_a_split_guiding_line.pdf"
+     },
+     {
+      "feature": "dead-sea-scrolls",
+      "credited": "commons.wikimedia.org",
+      "title": "Great Isaiah Scroll · image and rights record",
+      "url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll.jpg"
+     },
+     {
+      "feature": "canon",
+      "credited": "bible.usccb.org",
+      "title": "Jude 14–15 and textual note",
+      "url": "https://bible.usccb.org/bible/jude/1"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "Justin, First Apology 66–67",
+      "url": "https://www.newadvent.org/fathers/0126.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "bible-researcher.com",
+      "title": "Muratorian fragment, lines 1–85",
+      "url": "https://bible-researcher.com/muratorian.html"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "Eusebius, Church History 3.3; 3.25",
+      "url": "https://www.newadvent.org/fathers/250103.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "Athanasius, Festal Letter 39.4–7 (367)",
+      "url": "https://www.newadvent.org/fathers/2806039.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "Augustine, On Christian Doctrine 2.8.12–13",
+      "url": "https://www.newadvent.org/fathers/12022.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "African Code, canon 24 (Carthage, 419)",
+      "url": "https://www.newadvent.org/fathers/3816.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "sefaria.org",
+      "title": "Babylonian Talmud, Bava Batra 14b",
+      "url": "https://www.sefaria.org/Bava_Batra.14b.1?lang2=en&with=Commentary+ConnectionsList"
+     },
+     {
+      "feature": "canon",
+      "credited": "Torah.org",
+      "title": "Torah.org · The 24 Books of the Hebrew Bible",
+      "url": "https://torah.org/learning/basics-primer-torah-bible/"
+     },
+     {
+      "feature": "canon",
+      "credited": "tertullian.org",
+      "title": "Jerome, Prologue to the books of Solomon",
+      "url": "https://tertullian.org/fathers/jerome_preface_solomon.htm"
+     },
+     {
+      "feature": "canon",
+      "credited": "newadvent.org",
+      "title": "Irenaeus, Against Heresies 3.11.7–9",
+      "url": "https://www.newadvent.org/fathers/0103311.htm"
+     },
+     {
+      "feature": "printed-bible",
+      "credited": "mail.bible-researcher.com",
+      "title": "The Translators to the Reader · 1611 preface, modernized transcription",
+      "url": "https://mail.bible-researcher.com/kjvpref.html"
+     },
+     {
+      "feature": "printed-bible",
+      "credited": "eliotcensus.org",
+      "title": "The Wôpanâak Bible · A Census",
+      "url": "https://eliotcensus.org/about/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "ucl.ac.uk",
+      "title": "Digital Egypt: Israel stela",
+      "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/stela.html"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "ucl.ac.uk",
+      "title": "Digital Egypt: mortuary temple of Merenptah",
+      "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/index.html"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "ucl.ac.uk",
+      "title": "W. M. Flinders Petrie, Six Temples at Thebes (1897), with Spiegelberg’s inscription edition, pp. 26–28",
+      "url": "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/stela.html"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "michaellanglois.org",
+      "title": "Michael Langlois, The Kings, the City and the House of David on the Mesha Stele in Light of New Imaging Techniques, Semitica 61 (2019), 23–47",
+      "url": "https://michaellanglois.org/medias/langlois-2019-the-kings-the-city-and-the-house-of-david-on-the-mesha-stele-semitica-61-p--23-47.pdf"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "thejewishmuseum.org",
+      "title": "The Jewish Museum: Tel Dan Stele, exhibition 2024–2025",
+      "url": "https://thejewishmuseum.org/exhibitions/tel-dan-stele/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "berlinarchaeology.wordpress.com",
+      "title": "Avraham Biran and Joseph Naveh, An Aramaic Stele Fragment from Tel Dan, Israel Exploration Journal 43 (1993), 81–98",
+      "url": "https://berlinarchaeology.wordpress.com/wp-content/uploads/2013/08/biran-naveh-1993.pdf"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "cris.huji.ac.il",
+      "title": "Yosef Garfinkel, Jon W. Carroll, Michael Pytlik and Madeleine Mumcuoglu, Constructing the Assyrian Siege Ramp at Lachish: Texts, Iconography, Archaeology and Photogrammetry, Oxford Journal of Archaeology 40 (2021), 417–439",
+      "url": "https://cris.huji.ac.il/en/publications/constructing-the-assyrian-siege-ramp-at-lachish-texts-iconography/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "faculty.uml.edu",
+      "title": "Eric H. Cline, Sea Peoples and Israelites (2009)",
+      "url": "https://faculty.uml.edu/ethan_Spanier/Teaching/documents/Cline_2009_Sea_Peoples_and_Israelites_article.pdf"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "oracc.museum.upenn.edu",
+      "title": "A. Kirk Grayson & Jamie Novotny, RINAP 3/1 (2012), Sennacherib 22, Q003496",
+      "url": "https://oracc.museum.upenn.edu/rinap/rinap3/Q003496"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "whitelevy.fas.harvard.edu",
+      "title": "David Ussishkin (ed.), The Renewed Archaeological Excavations at Lachish (1973–1994), five volumes (2004)",
+      "url": "https://whitelevy.fas.harvard.edu/publications/renewed-archaeological-excavations-lachish-1973-1994-volumes-i-v"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "library.biblicalarchaeology.org",
+      "title": "Lachish and Its Siege Ramps, accompanying David Ussishkin’s report of the 1983 season, BAR 10 (1984)",
+      "url": "https://library.biblicalarchaeology.org/sidebar/lachish-and-its-siege-ramps/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "biblicalarchaeology.org",
+      "title": "André Lemaire & Jean-Philippe Delorme, Defending the “House of David” (26 May 2023)",
+      "url": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/inscriptions/defending-the-house-of-david/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "library.biblicalarchaeology.org",
+      "title": "Deconstructing “David’s House”, sidebar to Matthieu Richelle & Andrew Burlingame, Set in Stone? Another Look at the Mesha Stele, BAR 49/1 (2023), p. 57",
+      "url": "https://library.biblicalarchaeology.org/sidebar/deconstructing-davids-house/"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "isac-assets.s3.amazonaws.com",
+      "title": "R. J. van der Spek, Cyrus the Great, Exiles, and Foreign Gods, in Extraction & Control, SAOC 68 (2014), 233–264",
+      "url": "https://isac-assets.s3.amazonaws.com/isac-publications/saoc68.pdf#page=248"
+     },
+     {
+      "feature": "discoveries",
+      "credited": "journals.sagepub.com",
+      "title": "Amélie Kuhrt, The Cyrus Cylinder and Achaemenid Imperial Policy, JSOT 25 (1983), 83–97",
+      "url": "https://journals.sagepub.com/doi/10.1177/030908928300802507"
+     },
+     {
+      "feature": "atlas-history",
+      "credited": "oca.org",
+      "title": "An Orthodox account of church history",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/church-history"
+     },
+     {
+      "feature": "atlas-history",
+      "credited": "lutheranworld.org",
+      "title": "Lutheran–Catholic commemoration of the Reformation",
+      "url": "https://lutheranworld.org/resources/document-together-hope-joint-catholic-lutheran-commemoration-500-years-reformation"
+     },
+     {
+      "feature": "atlas-history",
+      "credited": "oikoumene.org",
+      "title": "The Nature and Mission of the Church · Ecumenical study",
+      "url": "https://oikoumene.org/resources/documents/the-nature-and-mission-of-the-church-a-stage-on-the-way-to-a-common-statement"
+     },
+     {
+      "feature": "bible-texts",
+      "credited": "eBible.org",
+      "title": "Scripture text distributions used by the reader",
+      "url": "https://ebible.org/Scriptures/"
+     }
+    ]
+   }
+  ],
+  "fix-our-attribution": [
+   {
+    "id": "bgea",
+    "name": "Billy Graham Evangelistic Association",
+    "url": "https://billygraham.org/",
+    "use": "1,526 Graham sermon works catalogued link-only (job 90e68650); sermon links on the Preachers pages.",
+    "held": "1,660 pages kept privately, 23 local transcripts.",
+    "terms": "Legal Permissions: personal use only; reposting text, audio or video needs written permission; linking welcome \"provided the link clearly indicates that it leads to a BGEA website, opens in a new window\" and implies no endorsement.",
+    "recorded": "content/library/reports/sermons-campaign/graham/progress/TERMS.md (2026-10-08); each asset's rights record (2026-11-27).",
+    "reason": "Linking is all we do and it is allowed, but only in the form BGEA asks for. Our own rights records mark the condition as not met (`conditionsMet: false` on all 1,526 assets).",
+    "problem": "The sermon links (src/pages/teachers/preachers/through/BookPanel.tsx, bible/Panels.tsx) open a new tab but say only \"Read the sermon\" and the title; nothing tells the reader the link goes to billygraham.org. Fix: name the host on the link (e.g. \"on billygraham.org (BGEA)\"), at least for BGEA; doing it for every host is simpler and helps readers."
+   },
+   {
+    "id": "ministry-to-children",
+    "name": "Ministry-To-Children.com (Tony Kummer)",
+    "url": "https://ministry-to-children.com/",
+    "use": "1,587 questions in the live question bank (two collections) and the Family Worship Handbook on the learning shelf.",
+    "held": "3 trivia files; review questions from 768 lessons; 1 PDF.",
+    "terms": "CC BY-SA 4.0 site-wide: reuse is allowed with credit, a licence notice and share-alike on adaptations.",
+    "recorded": "content/questions/sources/MANIFEST.md; SOURCES.md Question Bank and Open workbooks sections (2026-10-17, 2026-10-23).",
+    "reason": "Use is permitted; the credit as shown is not a credit.",
+    "problem": "The live Questions page prints each collection's internal note word for word (src/pages/QuestionsPage.tsx line 109): \"Required by CC BY-SA 4.0: credit Ministry-To-Children.com (Tony Kummer) and license any adaptation…\". That is an instruction to us, not a credit, and there is no link to the licence. Fix: store a separate public credit, e.g. \"Questions from Ministry-To-Children.com (Tony Kummer), CC BY-SA 4.0\" with the licence linked."
+   },
+   {
+    "id": "opentriviaqa",
+    "name": "OpenTriviaQA (uberspot)",
+    "url": "https://github.com/uberspot/OpenTriviaQA",
+    "use": "200 questions in the live bank.",
+    "held": "Repository at a pinned revision.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "Use is permitted; the credit as shown is not a credit.",
+    "problem": "Same Questions-page fault: shows \"Required by CC BY-SA 4.0: credit uberspot/OpenTriviaQA and license any adaptation…\" with no licence link."
+   },
+   {
+    "id": "opentdb",
+    "name": "Open Trivia Database (opentdb.com)",
+    "url": "https://opentdb.com/",
+    "use": "3 questions in the live bank.",
+    "held": "API responses.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "Use is permitted; the credit as shown is not a credit.",
+    "problem": "Same Questions-page fault (instruction text instead of credit, no licence link)."
+   },
+   {
+    "id": "unfoldingword-questions",
+    "name": "unfoldingWord Open Bible Stories translation questions",
+    "url": "https://git.door43.org/unfoldingWord/en_tq",
+    "use": "261 questions in the live bank (the stories themselves are on the learning shelf with their makers' credit).",
+    "held": "6 files.",
+    "terms": "CC BY-SA 4.0.",
+    "recorded": "SOURCES.md Question Bank (2026-10-23).",
+    "reason": "Use is permitted; the credit as shown is incomplete.",
+    "problem": "Questions page shows \"Required by CC BY-SA 4.0: credit unfoldingWord (Open Bible Stories translation questions).\" Instruction wording, no licence name as a credit, no licence link."
+   },
+   {
+    "id": "mit-bible-quiz-sakala",
+    "name": "Bible Quiz question bank (BRIANCHANDA/Bible-Quiz, © 2025 Eric Sakala)",
+    "url": "https://github.com/BRIANCHANDA/Bible-Quiz",
+    "use": "97 questions in the live bank.",
+    "held": "Repository at a pinned revision.",
+    "terms": "MIT licence: free use on condition that the copyright notice and the permission notice are included.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "Use is permitted only with the notice, and the notice is missing.",
+    "problem": "The page shows \"MIT requires the copyright notice and permission notice to be included: Copyright (c) 2025 Eric Sakala.\" It describes the condition instead of meeting it. Fix: publish the MIT notice itself (one short licences page linked from the collection is enough)."
+   },
+   {
+    "id": "mit-bible-trivia-korsah",
+    "name": "Bible Trivia Game question bank (DanielKorsah03, © 2026 Daniel Korsah)",
+    "url": "https://github.com/DanielKorsah03/Bible-Trivia-Game",
+    "use": "77 questions in the live bank.",
+    "held": "Repository at a pinned revision.",
+    "terms": "MIT licence, same condition.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "Use is permitted only with the notice, and the notice is missing.",
+    "problem": "Same as the Sakala entry: the condition is described, the notice is not included."
+   },
+   {
+    "id": "oracc",
+    "name": "Oracc (Open Richly Annotated Cuneiform Corpus) and its project editors",
+    "url": "https://oracc.museum.upenn.edu/",
+    "use": "7,709 ancient texts read on the site as /teachers/works pages (RINAP, SAAo, RIAo, Amarna and others); museum-page records; one Study reading source (Sennacherib 022, RINAP 3).",
+    "held": "Per-project JSON exports (58 MB) and the hosted reading pages.",
+    "terms": "The per-record licence in the data reads \"This data is released under the CC0 license\"; SOURCES.md records Oracc as CC BY-SA 3.0 with credit to Oracc and the project editors.",
+    "recorded": "SOURCES.md Museum-Grade Archaeology (2026-10-17); hosted records in .local/teacher-library-unpacked/records.",
+    "reason": "Hosting is permitted under either reading, but the register disagrees with itself and the pages credit nobody.",
+    "problem": "On all 7,709 hosted pages the 'credit' is the licence sentence itself; neither Oracc nor the project nor its editors (e.g. Grayson and Novotny for RINAP 3) is named. Fix: settle the licence per project (CC0 where the data says so) and credit \"Oracc, <project>, ed. <editors>\" on each page; correct SOURCES.md to match."
+   }
+  ],
+  "worth-writing-to": [
+   {
+    "id": "grace-to-you",
+    "name": "Grace to You (John MacArthur)",
+    "url": "https://www.gty.org/",
+    "use": "Nothing yet: MacArthur has no sermons on the site.",
+    "held": "Nothing; only robots.txt and the two policy pages were read.",
+    "terms": "Copyright policy lets anyone use Library content free, unaltered and credited (\"Copyright [year], Grace to You. All rights reserved. Used by permission.\" plus gty.org) and allows linking. robots.txt disallows every crawler except Googlebot, Bingbot and two social bots, so the sermon listings cannot be collected at all.",
+    "recorded": "content/library/reports/sermons-campaign/macarthur/progress/TERMS.md (2026-10-08); robots.txt re-read 2026-11-27: still `User-agent: * / Disallow: /`; policy tabs still load only with JavaScript.",
+    "reason": "Specific gap: we cannot gather MacArthur's sermon titles, dates and passages, because robots.txt shuts out our crawler. Permission (or a feed) would let us list them with links. Draft already exists: OWNER-ACTIONS.md item A1, not redrafted here.",
+    "problem": ""
+   },
+   {
+    "id": "mlj-trust",
+    "name": "Martyn Lloyd-Jones Trust",
+    "url": "https://www.mljtrust.org/",
+    "use": "Archive-level link only; 2 sermon records catalogued with no passage.",
+    "held": "2 catalogued works; the site was never crawled.",
+    "terms": "Terms of Use: \"Systematic retrieval of data or other content from this Site to prepare any collection, compilation, database, or directory is prohibited.\" robots.txt itself blocks only /accounts and /search.",
+    "recorded": "content/library/sources.json (2026-10-05); content/library/reports/modern-preaching/REPORT.md; terms and robots re-read 2026-11-27, wording unchanged.",
+    "reason": "Specific gap: a passage index of Lloyd-Jones's sermons is exactly the 'collection or database' the terms forbid without a licence, and the terms invite licensing enquiries. Draft already exists: OWNER-ACTIONS.md item A2, not redrafted here.",
+    "problem": ""
+   },
+   {
+    "id": "ligonier",
+    "name": "Ligonier Ministries (R. C. Sproul and other teachers)",
+    "url": "https://learn.ligonier.org/",
+    "use": "24 directory links, 13 apologetics reading links, 12 Sproul sermons on 2 Peter catalogued by hand.",
+    "held": "3 saved pages (Tabletalk, Kruger article); no media.",
+    "terms": "Copyright policy: share audio and video only by hyperlink to the page holding the media, with the credit \"[Material] by [Teacher]. © Ligonier Ministries [year]. Used by permission of Ligonier Ministries. All rights reserved.\" Terms of Use, read today: users may not \"use any robot, scraper, crawler, or other automated means to access the Ligonier Services for any purpose without our express written permission.\" robots.txt on learn.ligonier.org allows everything except /api and /auth.",
+    "recorded": "content/library/sources.json (2026-10-05); content/library/reports/modern-preaching/ministry-inventory.json (permission queue, not requested); terms, copyright policy and both robots.txt read 2026-11-27.",
+    "reason": "Specific gap: the Terms forbid any automated access without written permission, so Sproul's sermon library can only be listed by hand (12 so far). Permission for a slow crawler, or an export, would let the site list every Sproul sermon by passage with links. Ligonier already encourages linking and publishes a permission form, so the ask has a real chance.",
+    "problem": ""
+   }
+  ],
+  "do-not-write": [
+   {
+    "id": "scripture-buzzer",
+    "name": "Scripture Buzzer question set (AyandaNgubane/Bible-Quiz)",
+    "url": "https://github.com/AyandaNgubane/Bible-Quiz",
+    "use": "787 questions in the live bank.",
+    "held": "45 files at a pinned revision.",
+    "terms": "No licence at all, so by default all rights stay with the author. Published under the owner's rule of 2026-10-17 that unlicensed public content may be used, credited, on this non-commercial site.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "A private individual's repository: there is no organisational contact, and the brief allows organisational contacts only. A request that is refused would turn an unlicensed-but-tolerated use into a known, written refusal. The honest alternative to asking is removing the 787 questions; that is the owner's risk call, already made on 2026-10-17, and it is flagged here, not reopened.",
+    "problem": "Its live credit reads \"No licence states terms. Credit AyandaNgubane/Bible-Quiz if permission is ever obtained.\" That tells readers we have no permission. Whatever the owner decides, replace it with a plain credit (\"Questions from AyandaNgubane/Bible-Quiz on GitHub\") or remove the collection."
+   },
+   {
+    "id": "liaaron1-trivia",
+    "name": "Bible trivia dataset (liaaron1 on Hugging Face)",
+    "url": "https://huggingface.co/datasets/liaaron1/bibile_trivia_alpaca",
+    "use": "802 questions in the live bank (244 of the dataset's records are copies of Ministry-To-Children questions).",
+    "held": "1 file at a pinned revision.",
+    "terms": "Tagged Apache-2.0, but 244 records copy Ministry-To-Children's CC BY-SA questions, which the uploader cannot relicense; the rest have no known origin.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "The uploader cannot grant rights they may not hold, so nothing they wrote back would settle anything. Individual account, no organisational contact.",
+    "problem": "Live credit reads \"Unsettled. If used at all, credit Ministry-To-Children.com…; the provenance of the rest is unknown.\" Replace with a plain credit naming the dataset and Ministry-To-Children for the overlapping questions."
+   },
+   {
+    "id": "el-cms-trivia",
+    "name": "Open-trivia-database (el-cms)",
+    "url": "https://github.com/el-cms/Open-trivia-database",
+    "use": "10 questions in the live bank.",
+    "held": "Repository extract.",
+    "terms": "No licence; the README only asks to be cited and linked, which the site does.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "Its one stated wish is already met; an individual's repository; asking can only produce a restriction.",
+    "problem": "Live credit is our internal note (\"That is its own stated wish, not a licence condition…\"). Replace with \"Questions from el-cms/Open-trivia-database on GitHub\" and the link."
+   },
+   {
+    "id": "sundar-westminster",
+    "name": "Westminster catechisms with proof texts (Sundar1205/westminster-catechism)",
+    "url": "https://github.com/Sundar1205/westminster-catechism",
+    "use": "1 question in the live bank (Westminster Shorter Catechism).",
+    "held": "Repository at a pinned revision.",
+    "terms": "The 1647 text is public domain; only the compilation is unlicensed.",
+    "recorded": "content/questions/sources/MANIFEST.md (2026-10-17).",
+    "reason": "One public-domain question; nothing to gain, individual account.",
+    "problem": "Live credit is a long internal note about the repository's sources. A plain \"Westminster Shorter Catechism (1647)\" credit is enough."
+   },
+   {
+    "id": "quran-com",
+    "name": "Quran.com and The Clear Quran (Dr Mustafa Khattab)",
+    "url": "https://quran.com/",
+    "use": "8 short verse quotations from The Clear Quran and 10 links in apologetics studies; Quranic Arabic Corpus used for short comparison.",
+    "held": "Nothing; no translation corpus.",
+    "terms": "Quran.com Terms, read today: no copying, reproducing or publicly displaying content without prior written consent except personal non-commercial use; no data mining, scraping or crawling. The translation's own copyright is the translator's, not Quran.com's.",
+    "recorded": "content/library/sources.json (2026-10-05); Quran.com terms and robots.txt read 2026-11-27.",
+    "reason": "Short attributed quotation for comparison and criticism is the classic fair-use case and needs no permission. Asking Quran.com would ask the wrong rights-holder, and a refusal for Christian apologetics use would bind us where silence does not. If the owner wants zero risk, switch the quotations to a public-domain translation (Rodwell 1861, Palmer 1880, or Pickthall 1930, US public domain since 1 January 2026) instead of asking.",
+    "problem": ""
+   },
+   {
+    "id": "criswell",
+    "name": "W. A. Criswell Sermon Library (W. A. Criswell Foundation)",
+    "url": "https://wacriswell.com/",
+    "use": "Sermon pages kept for private study; listed with links when catalogued.",
+    "held": "Up to 4,093 sermon pages, private reading only.",
+    "terms": "No terms, copyright notice or licence anywhere on the site; robots.txt allows everything but /wp-admin/ with a 10-second crawl delay. Transcripts are treated as all rights reserved.",
+    "recorded": "content/library/reports/sermons-campaign/criswell/progress/TERMS.md (2026-10-08).",
+    "reason": "Linking and listing need nothing, and nothing published restricts us. The only further step would be hosting transcripts, which is not planned; asking can only add a written restriction that does not exist today.",
+    "problem": ""
+   },
+   {
+    "id": "israel-antiquities",
+    "name": "Israel Antiquities Authority (Leon Levy Dead Sea Scrolls Library) and the Israel Museum",
+    "url": "https://www.deadseascrolls.org.il/",
+    "use": "8 citation links on the Dead Sea Scrolls study; no images.",
+    "held": "Nothing.",
+    "terms": "The IAA reserves all rights and answers a Cloudflare challenge; the Israel Museum has no open API. Their photographs are licensed commercially.",
+    "recorded": "SOURCES.md Museum-Grade Archaeology (2026-10-17).",
+    "reason": "Image use there is a paid, contracted licence, not a goodwill permission, so an email starts a fee negotiation that would need the cost gate. The study already shows a public-domain photograph of the Great Isaiah Scroll and links to the IAA viewer, so there is no gap to fill.",
+    "problem": ""
+   },
+   {
+    "id": "europeana-restricted",
+    "name": "Europeana items with non-open rights statements (8 records)",
+    "url": "https://www.europeana.eu/",
+    "use": "Not shown; no image downloaded.",
+    "held": "Record metadata only.",
+    "terms": "Six CC BY-NC-ND, one CC BY-NC-SA 4.0, one 'No Copyright – Other Known Legal Restrictions'.",
+    "recorded": "SOURCES.md Museum-Grade Archaeology (2026-10-17).",
+    "reason": "The statements are set by many separate data providers and are settled; the museum pages are complete without them.",
+    "problem": ""
+   }
+  ]
+ }
+}
