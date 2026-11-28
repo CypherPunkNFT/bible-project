@@ -32,6 +32,9 @@ import { TestBanner } from "./questions/TestBanner";
 const NONE: Filters = readFilters(new URLSearchParams());
 /** A licence link is only ever a web address (scripts/question_credits.py writes them). */
 const WEB = /^https:\/\//;
+/** A licence notice's paragraphs, each flowing to the width it is shown at: the words as the licence file prints them,
+ * without its line breaks at 80 characters, which left ragged lines on a phone. */
+const noticeParagraphs = (notice: string) => notice.split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()).filter(Boolean);
 /** The first screen of 03 before any choice: the first questions of the bank, whose words open the page. */
 const FIRST_ROWS = Array.from({ length: 40 }, (_, i) => i);
 
@@ -111,7 +114,7 @@ function ListBody({ store }: { store: QuestionStore }) {
       <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}
         {c.licences?.filter((l) => WEB.test(l.url)).map((l) => <Fragment key={l.url}> <span>Licence:</span> <a href={l.url} target="_blank" rel="noreferrer">{l.name}</a></Fragment>)}
         {c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}
-        {c.notice && <details className="qp-notice"><summary>Licence notice</summary><pre>{c.notice}</pre></details>}</li>)}</ul>
+        {c.notice && <details className="qp-notice"><summary>Licence notice</summary>{noticeParagraphs(c.notice).map((p, i) => <p key={i}>{p}</p>)}</details>}</li>)}</ul>
     </details>
   </>;
 }
