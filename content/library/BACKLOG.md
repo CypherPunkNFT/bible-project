@@ -112,41 +112,36 @@ Sermons receive the largest share of effort. Establish a complete, well-document
 
 Each mission should report: expected inventory with its source/date; discovered unique works; editions; acquired original assets; metadata-only records; complete and partial series; verified Scripture coverage; unknown rights; unresolved eligibility; text-quality issues; and exact resumption point. Keep discovered, acquired, reviewed and published totals distinct.
 
-## Collection assignment: 4,467 placed, 2,828 left — 25 November 2026
+## Collection assignment: complete, all 7,295 placed — 27 November 2026
 
-Every acquired record used to arrive with a collection or none at all: `bible_bibliography.py` read
-one from the acquisition report's folder name, plus a rule reading anything whose kind said sermon or
-whose path was `/messages/` as a sermon. 7,295 records matched neither and showed on the library
-dashboard as "Awaiting collection assignment". The work is upstream in JarvisWiki, so it takes effect
-on the next corpus rebuild; nothing in this repository changed.
+Every acquired record that showed as "Awaiting collection assignment" on the library dashboard now
+carries a collection. The work is upstream in JarvisWiki and shows here after the next corpus rebuild.
 
-- [x] Whole-source rules, for sources that place every record they hold: `lwf.org` (Love Worth
-      Finding, Adrian Rogers' sermon transcripts, 610) as sermons, `desiringgod.org/interviews`
-      (Ask Pastor John, 2,632) as Christian life. JarvisWiki `2a7d5ebf`.
+christian-life 3,812 · theology 1,384 · sermons 827 · ministry 468 · Scripture 359 · history 217 ·
+apologetics 172 · standards 56.
+
+- [x] Whole-source rules for sources that place every record they hold: `lwf.org` (Adrian Rogers'
+      sermon transcripts, 610) and `desiringgod.org/interviews` (Ask Pastor John, 2,632). `2a7d5ebf`.
 - [x] Per-work decisions in `wiki/_build/bible-collections.json`, read when neither the report folder
-      nor a source rule places a record. Keyed by source URL: titles collide (Piper has a book and a
-      sermon both called Desiring God; Spurgeon preached one called Providence), and author with
-      title still collided 31 times. JarvisWiki `da1d2178`, `5d4d59b4`.
-- [x] CCEL, archive.org, the Desiring God books and four smaller sources: 301 records, all decided.
-- [x] Monergism: 924 of 1,551, decided from the work — commentaries as Scripture, sermon collections
-      as sermons, confessions as standards, lives and letters as history, pastoral office as ministry,
-      Rome and other beliefs as apologetics, doctrine as theology, practical writing as Christian life.
-- [ ] **Decision needed — the 2,201 Desiring God articles.** Either one source rule placing
-      `desiringgod.org/articles` in a single collection (Christian life would match the Ask Pastor
-      John call), or leave them until the acquisition step captures Desiring God's own topic tags.
-      Classifying them by title was tested and refused: it covered 20% and filed "A New Sermon Series
-      for the Fall" as a sermon, "Brothers, Read Christian Biography" as history and "The Devil Can Do
-      Exposition" as Scripture. Rules written for 17th-century book titles read a modern article title
-      as its subject rather than its form.
-- [ ] The remaining 627 monergism works: short, abstract Puritan titles ("Faith", "Heaven Upon Earth",
-      "The Heavenly Trade") that neither source nor title settles. Needs reading, or better metadata.
+      nor a source rule places a record. Keyed by source URL because neither title nor author is
+      unique. `da1d2178`, `5d4d59b4`, `2be534f0`.
+- [x] CCEL, archive.org, the Desiring God books and four smaller sources: 301 records.
+- [x] Monergism: all 1,551, decided from the work.
+- [x] The 2,201 Desiring God articles: read and judged one at a time in eight batches. `ea3e5072`.
+- [x] The last 156, which no title could settle, looked up individually: the articles by search
+      (desiringgod.org refuses a fetch), the monergism works by extracting their PDF title pages and
+      tables of contents. That identified Hughes' "Dry Rod Blooming" as a treatise on chastening,
+      Reynolds' "Divine Efficacy" as a thanksgiving sermon before the Commons in 1660, and Walker's
+      "Christian Champion" as George Walker of Londonderry preaching during the 1689 siege. `74de3caa`.
+
+Two notes for whoever revisits this. Classifying by keyword was tried and rejected: it read 1,348 Ask
+Pastor John episodes as catechism questions and "A New Sermon Series for the Fall" as a sermon. And a
+handful of calls are genuine judgement rather than fact — the mixed collected editions, the
+civil-government works placed in theology for want of a better home, and the 16 articles whose titles
+were all there was to go on. They are listed with their reasons in the commits above.
+
 - [ ] Identity, separate from collection: 610 Adrian Rogers records carry "Title not recorded" and 42
       archive.org records "Author not recorded" with one title repeated. Fixable only at the corpus end.
-
-To continue: edit `JarvisWiki/wiki/_build/bible-collections.json` (each row keeps its author and title
-so it reads as a list), or add a source rule to `SOURCE_CATEGORIES` in `bible_bibliography.py`. Check
-with `python -m pytest wiki/_build/test_bible_bibliography.py -q`, then rebuild the bibliography on the
-PC and run `python scripts/sync-corpus-dashboard.py` here.
 
 ## Outstanding decisions and research
 
